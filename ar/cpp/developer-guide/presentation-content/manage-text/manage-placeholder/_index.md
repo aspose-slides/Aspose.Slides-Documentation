@@ -1,27 +1,37 @@
 ---
-title: إدارة العناصر النائبة
+title: إدارة عناصر النائب في العرض التقديمي باستخدام C++
+linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/cpp/manage-placeholder/
-keywords: "عنصر نائب, نص العنصر النائب, نص المطالبة, عرض PowerPoint, C++, CPP, Aspose.Slides لـ C++"
-description: "تغيير نص العنصر النائب ونص المطالبة في عروض PowerPoint باستخدام C++"
+keywords:
+- عنصر نائب
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- نص المطالبة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "إدارة العناصر النائبة بسهولة في Aspose.Slides لـ C++: استبدال النص، تخصيص المطالبات وتعيين شفافية الصورة في PowerPoint و OpenDocument."
 ---
 
 ## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides لـ C++](/slides/ar/cpp/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. تتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
+باستخدام [Aspose.Slides لـ C++](/slides/ar/cpp/)، يمكنك العثور على العناصر النائبة وتعديلها على الشرائح في العروض التقديمية. يسمح لك Aspose.Slides بإجراء تغييرات على النص في العنصر النائب.
 
-**المتطلبات الأساسية**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي في تطبيق Microsoft PowerPoint القياسي.
+**المتطلبات المسبقّة**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي في تطبيق Microsoft PowerPoint القياسي.
 
-هذه هي الطريقة التي تستخدم بها Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض التقديمي:
+إليك الطريقة التي تستخدم بها Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض التقديمي:
 
-1. قم بإنشاء مثيل من الفئة [`Presentation`](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) ومرر العرض التقديمي كوسيط.
-2. احصل على مرجع إلى الشريحة باستخدام مؤشرها.
-3. قم بتكرار الأشكال للعثور على العنصر النائب.
-4. قم بتحويل شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) وقم بتغيير النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame/) المرتبط بـ [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/).
-5. احفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة `Presentation` وتمرير العرض التقديمي كمعامل.
+2. الحصول على مرجع الشريحة عبر رقمها.
+3. التنقل عبر الأشكال للعثور على العنصر النائب.
+4. تحويل نوع شكل العنصر النائب إلى `AutoShape` وتغيير النص باستخدام `TextFrame` المرتبط بـ `AutoShape`.
+5. حفظ العرض التقديمي المعدل.
 
-يظهر هذا الكود C++ كيفية تغيير النص في العنصر النائب:
-
+This C++ code shows how to change the text in a placeholder:
 ```c++
 // مسار دليل المستندات.
 const String outPath = u"../out/ReplacingText_out.pptx";
@@ -42,15 +52,15 @@ SharedPtr<ITextFrame> textframe = ashp->get_TextFrame();
 
 textframe->set_Text(u"This is Placeholder");
 	
-// حفظ العرض التقديمي على القرص
+// حفظ العرض التقديمي إلى القرص
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **تعيين نص المطالبة في العنصر النائب**
-تحتوي التخطيطات القياسية والمعدة مسبقًا على نصوص المطالبة للعناصر النائبة مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص المطالبة المفضلة لديك في تخطيطات العناصر النائبة.
+تحتوي القوالب القياسية والمبنية مسبقًا على نصوص مطالبة للعنصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة نص فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص المطالبة المفضلة لديك في قوالب العناصر النائبة.
 
-يظهر هذا الكود C++ كيفية تعيين نص المطالبة في عنصر نائب:
-
+This C++ code shows you how to set the prompt text in a placeholder:
 ```c++
 const System::String templatePath = u"../templates/Presentation2.pptx";
     
@@ -62,27 +72,27 @@ for (auto& shape : slide->get_Shapes())
     if (shape->get_Placeholder() != NULL)
     {
         System::String text = u"";
-        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // عندما لا يوجد نص فيه، تعرض PowerPoint "انقر لإضافة عنوان". 
+        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // عند عدم وجود نص فيه، يعرض PowerPoint "Click to add title".
         {
-            text = u"انقر لإضافة عنوان";
+            text = u"Click to add title";
         }
-        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // يقوم بنفس الشيء للعنوان الفرعي.
+        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // يفعل الشيء نفسه للعنوان الفرعي.
         {
-            text = u"انقر لإضافة عنوان فرعي";
+            text = u"Click to add subtitle";
         }
-        System::Console::WriteLine(u"عنصر نائب: {0}", text);
+        System::Console::WriteLine(u"Placeholder : {0}", text);
     }
 }
 
 pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **تعيين شفافية صورة العنصر النائب**
 
-تسمح لك Aspose.Slides بتعيين شفافية صورة الخلفية في عنصر نائب نصي. من خلال ضبط شفافية الصورة في مثل هذا الإطار، يمكنك جعل النص أو الصورة بارزة (اعتمادًا على ألوان النص والصورة).
+يسمح لك Aspose.Slides بتعيين شفافية صورة الخلفية في عنصر نائب نصي. من خلال تعديل شفافية الصورة داخل هذا الإطار، يمكنك إبراز النص أو الصورة (اعتمادًا على ألوان النص والصورة).
 
-يظهر هذا الكود C++ كيفية تعيين الشفافية لخلفية الصورة (داخل شكل):
-
+This C++ code shows you how to set the transparency for a picture background (inside a shape):
 ```c++
 auto presentation = System::MakeObject<Presentation>();
     
@@ -96,3 +106,15 @@ auto pictureFillFormat = fillFormat->get_PictureFillFormat();
 pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
 pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما هو العنصر النائب الأساسي، وكيف ي berbeda عن الشكل المحلي على الشريحة؟**
+العنصر النائب الأساسي هو الشكل الأصلي في القالب أو القالب الرئيسي الذي يرث منه شكل الشريحة — النوع، الموضع، وبعض التنسيقات تأتي منه. الشكل المحلي مستقل؛ إذا لم يكن هناك عنصر نائب أساسي، لا يتم تطبيق الوراثة.
+
+**كيف يمكنني تحديث جميع العناوين أو التسميات التوضيحية عبر عرض تقديمي دون التنقل عبر كل شريحة؟**
+قم بتحرير العنصر النائب المقابل على القالب أو القالب الرئيسي. ستورّث الشرائح التي تعتمد على تلك القوالب/القالب الرئيسي التغيير تلقائيًا.
+
+**كيف يمكنني التحكم في العناصر النائبة القياسية للترويسة/التذييل — التاريخ والوقت، رقم الشريحة، ونص التذييل؟**
+استخدم مديري HeaderFooter في النطاق المناسب (الشرائح العادية، القوالب، القالب الرئيسي، الملاحظات/المستندات) لتفعيل أو إلغاء تفعيل هذه العناصر النائبة وتحديد محتواها.

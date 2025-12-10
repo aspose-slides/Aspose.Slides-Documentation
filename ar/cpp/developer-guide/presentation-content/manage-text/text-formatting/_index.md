@@ -1,54 +1,57 @@
 ---
-title: تنسيق النص
+title: تنسيق نص PowerPoint في C++
+linktitle: تنسيق النص
 type: docs
 weight: 50
 url: /ar/cpp/text-formatting/
 keywords:
-- تسليط الضوء على النص
-- تعبير عادي
-- محاذاة فقرات النص
+- تمييز النص
+- التعبير النمطي
+- محاذاة الفقرة
+- نمط النص
+- خلفية النص
 - شفافية النص
-- خصائص خط الفقرة
+- تباعد الأحرف
+- خصائص الخط
 - عائلة الخط
-- دوران النص
-- زاوية دوران مخصصة
+- تدوير النص
+- زاوية الدوران
 - إطار النص
 - تباعد الأسطر
-- خاصية النفاذ التلقائي
-- ربط إطار النص
-- تبويب النص
-- نمط النص الافتراضي
+- خاصية الملاءمة التلقائية
+- تثبيت إطار النص
+- جدولة النص
+- اللغة الافتراضية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - C++
-- Aspose.Slides لـ .C++
-description: "إدارة ومعالجة خصائص النص وإطار النص في C++"
+- Aspose.Slides
+description: "تنسيق وتشكيل النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++. تخصيص الخطوط والألوان والمحاذاة والمزيد."
 ---
 
 ## **تسليط الضوء على النص**
-تم إضافة طريقة HighlightText جديدة إلى فئتي ITextFrame و TextFrame. تسمح بتسليط الضوء على جزء من النص بلون خلفية باستخدام نموذج نص، مشابه لأداة لون تسليط الضوء على النص في PowerPoint 2019.
+تمت إضافة طريقة HighlightText الجديدة إلى فئتي ITextFrame و TextFrame. تسمح بتسليط الضوء على جزء من النص بلون خلفية باستخدام عينة النص، مشابهة لأداة Text Highlight Color في PowerPoint 2019.
 
-الشفرة البرمجية أدناه توضح كيفية استخدام هذه الميزة:
+يعرض مقتطف الشيفرة أدناه كيفية استخدام هذه الميزة:
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightText-HighlightText.cpp" >}}
 
 {{% alert color="primary" %}} 
-
-Aspose توفر خدمة تحرير PowerPoint عبر الإنترنت بسيطة [مجانية](https://products.aspose.app/slides/editor)
-
+توفر Aspose خدمة تحرير PowerPoint مجانية على الإنترنت ومبسطة[free online PowerPoint editing service](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **تسليط الضوء على النص باستخدام تعبير عادي**
-تم إضافة طريقة HighlightRegex جديدة إلى فئتي ITextFrame و TextFrame. تسمح بتسليط الضوء على جزء من النص بلون خلفية باستخدام regex، مشابه لأداة لون تسليط الضوء على النص في PowerPoint 2019.
+## **تسليط الضوء على النص باستخدام التعابير النمطية**
+تمت إضافة طريقة HighlightRegex الجديدة إلى فئتي ITextFrame و TextFrame. تسمح بتسليط الضوء على جزء من النص بلون خلفية باستخدام تعبير نمطي، مشابهة لأداة Text Highlight Color في PowerPoint 2019.
 
-الشفرة البرمجية أدناه توضح كيفية استخدام هذه الميزة:
+يعرض مقتطف الشيفرة أدناه كيفية استخدام هذه الميزة:
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightTextUsingRegx-HighlightTextUsingRegx.cpp" >}}
 
-## **Set Text Background Color**
+## **تعيين لون خلفية النص**
+تسمح Aspose.Slides بتحديد اللون المفضل لخلفية النص.
 
-Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخلفية النص.
-
-توضح هذه الشفرة البرمجية في C++ كيفية تعيين لون الخلفية لنص كامل:
-
+يظهر هذا الكود C++ كيفية تعيين لون الخلفية لكامل النص:
 ```c++
 {
     auto pres = System::MakeObject<Presentation>();
@@ -56,12 +59,12 @@ Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخل
     auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
     paragraphs->Clear();
     System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"أسود");
+    auto portion1 = System::MakeObject<Portion>(u"Black");
     portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
 
-    auto portion2 = System::MakeObject<Portion>(u" أحمر ");
+    auto portion2 = System::MakeObject<Portion>(u" Red ");
 
-    auto portion3 = System::MakeObject<Portion>(u"أسود");
+    auto portion3 = System::MakeObject<Portion>(u"Black");
     portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
 
     auto paragraphPortions = para->get_Portions();
@@ -85,8 +88,8 @@ Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخل
 }
 ```
 
-توضح هذه الشفرة البرمجية في C++ كيفية تعيين لون الخلفية لجزء فقط من النص:
 
+يظهر هذا الكود C++ كيفية تعيين لون الخلفية لجزء فقط من النص:
 ```c++
 {
     auto pres = System::MakeObject<Presentation>();
@@ -95,12 +98,12 @@ Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخل
     auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
     paragraphs->Clear();
     System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
-    auto portion1 = System::MakeObject<Portion>(u"أسود");
+    auto portion1 = System::MakeObject<Portion>(u"Black");
     portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
 
-    auto portion2 = System::MakeObject<Portion>(u" أحمر ");
+    auto portion2 = System::MakeObject<Portion>(u" Red ");
 
-    auto portion3 = System::MakeObject<Portion>(u"أسود");
+    auto portion3 = System::MakeObject<Portion>(u"Black");
     portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
 
     auto paragraphPortions = para->get_Portions();
@@ -117,7 +120,7 @@ Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخل
     auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
 
 	auto predicate = [](System::SharedPtr<IPortion> portion) -> bool {
-        return portion->get_Text().Contains(u"أحمر");
+        return portion->get_Text().Contains(u"Red");
 	};
 
 	auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
@@ -132,38 +135,37 @@ Aspose.Slides يسمح لك بتحديد اللون المفضل لديك لخل
 }
 ```
 
+
 ## **محاذاة فقرات النص**
-يعد تنسيق النص أحد العناصر الرئيسية أثناء إنشاء أي نوع من الوثائق أو العروض التقديمية. نحن نعلم أن Aspose.Slides لـ C++ تدعم إضافة نصوص إلى الشرائح، ولكن في هذا الموضوع، سنرى كيف يمكننا التحكم في محاذاة فقرات النص في شريحة. يرجى اتباع الخطوات أدناه لمحاذاة فقرات النص باستخدام Aspose.Slides لـ C++ :
+تنسيق النص هو أحد العناصر الأساسية عند إنشاء أي نوع من المستندات أو العروض التقديمية. نعلم أن Aspose.Slides for C++ يدعم إضافة النص إلى الشرائح، وفي هذا الموضوع سنرى كيف يمكننا التحكم في محاذاة فقرات النص داخل الشريحة. يرجى اتباع الخطوات أدناه لمحاذاة فقرات النص باستخدام Aspose.Slides for C++ :
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. احصل على مرجع شريحة باستخدام فهرسها.
-3. الوصول إلى أشكال العنصر النائب الموجودة في الشريحة وتحويلها إلى AutoShape.
-4. احصل على الفقرة (التي تحتاج إلى محاذاة) من إطار النص المقدم بواسطة AutoShape.
-5. قم بمحاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين، اليسار، الوسط، والتبرير.
-6. قم بكتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة باستخدام رقم الفهرس الخاص بها.
+3. الوصول إلى الأشكال النائبة (Placeholder) الموجودة في الشريحة وتحويلها إلى AutoShape.
+4. الحصول على الفقرة (Paragraph) التي تحتاج إلى محاذاة من TextFrame المعروضة بواسطة AutoShape.
+5. محاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين، اليسار، الوسط أو ضبط التبرير.
+6. حفظ العرض التقديمي المعدل كملف PPTX.
 
-تImplementation of the above steps is given below.
+التنفيذ الخاص بالخطوات أعلاه موضح أدناه.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ParagraphsAlignment-ParagraphsAlignment.cpp" >}}
 
-## **Set Transparency for Text**
-توضح هذه المقالة كيفية تعيين خاصية الشفافية لأي شكل نص باستخدام Aspose.Slides. من أجل تعيين الشفافية للنص، يرجى اتباع الخطوات أدناه:
+## **تعيين الشفافية للنص**
+يوضح هذا المقال كيفية تعيين خصيصة الشفافية لأي شكل نصي باستخدام Aspose.Slides. لتعيين الشفافية للنص، يرجى اتباع الخطوات أدناه:
 
-1. أنشئ مثيلًا من فئة Presentation.
-2. احصل على مرجع شريحة.
-3. قم بتعيين لون الظل.
-4. اكتب العرض التقديمي كملف PPTX.
+1. إنشاء كائن من فئة Presentation.
+2. الحصول على مرجع شريحة.
+3. تعيين لون الظل.
+4. حفظ العرض التقديمي كملف PPTX.
 
-تImplementation of the above steps is given below.
+التنفيذ الخاص بالخطوات أعلاه موضح أدناه.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cpp" >}}
 
-## **Set Character Spacing for Text**
+## **تعيين تباعد الأحرف للنص**
+تسمح Aspose.Slides بتعيين المسافة بين الأحرف داخل مربع النص. بهذه الطريقة يمكنك تعديل الكثافة البصرية لسطر أو كتلة نصية عن طريق توسيع أو تقليص التباعد بين الأحرف.
 
-Aspose.Slides يسمح لك بتعيين المسافة بين الحروف في مربع النص. بهذه الطريقة، يمكنك ضبط الكثافة البصرية لسطر أو كتلة نص عن طريق توسيع أو تقليص المسافة بين الحروف.
-
-توضح هذه الشفرة البرمجية في C++ كيفية توسيع المسافة لخط واحد من النص وتقليص المسافة لخط آخر:
-
+يظهر هذا الكود C++ كيفية توسيع التباعد لسطر نص واحد وتقليل التباعد لسطر آخر:
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"in.pptx");
 
@@ -171,57 +173,54 @@ auto slide = presentation->get_Slides()->idx_get(0);
 auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
 auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
 
-textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // expand
-textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // condense
+textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // توسيع
+textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // تضييق
 
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **إدارة خصائص خط الفقرة**
 
-تحتوي العروض التقديمية عادةً على نصوص وصور. يمكن تنسيق النص بطرق مختلفة، إما لتسليط الضوء على أقسام وكلمات محددة، أو للتوافق مع أنماط الشركات. يساعد تنسيق النص المستخدمين في تغيير المظهر والشعور بمحتوى العرض التقديمي. توضح هذه المقالة كيفية استخدام Aspose.Slides لـ C++ لتكوين خصائص الخط للفقرات النصية على الشرائح. لإدارة خصائص الخط لفقرة باستخدام Aspose.Slides لـ C++ :
+## **إدارة خصائص خط النص**
+عادةً ما تحتوي العروض التقديمية على نصوص وصور. يمكن تنسيق النص بطرق مختلفة، سواء لتسليط الضوء على أقسام وكلمات معينة، أو للتماشي مع الأنماط المؤسسية. يساعد تنسيق النص المستخدمين على تنويع مظهر ومحتوى العرض. يوضح هذا المقال كيفية استخدام Aspose.Slides for C++ لتكوين خصائص الخط للفقرات النصية على الشرائح. لإدارة خصائص الخط لفقرات النص باستخدام Aspose.Slides for C++ :
 
-1. أنشئ مثيلًا من فئة `Presentation`.
-1. احصل على مرجع شريحة باستخدام فهرسها.
-1. الوصول إلى أشكال العنصر النائب في الشريحة وتحويلها إلى AutoShape.
-1. احصل على الفقرة من إطار النص المقدَّم بواسطة AutoShape.
-1. قم بتبرير الفقرة.
-1. الوصول إلى جزء نص الفقرة.
-1. تعريف الخط باستخدام FontData وتعيين الخط بناءً عليه.
-   1. تعيين الخط ليكون عريضًا.
-   1. تعيين الخط ليكون مائلًا.
-1. تعيين لون الخط باستخدام FillFormat المقدَّم بواسطة كائن Portion.
-1. اكتب العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة `Presentation` .
+2. الحصول على مرجع شريحة باستخدام رقم الفهرس.
+3. الوصول إلى الأشكال النائبة في الشريحة وتحويلها إلى AutoShape.
+4. الحصول على الفقرة من TextFrame المعروضة بواسطة AutoShape.
+5. ضبط التبرير للفقرة.
+6. الوصول إلى جزء النص (Portion) في الفقرة.
+7. تعريف الخط باستخدام FontData وتعيين الخط للجزء وفقًا لذلك.
+   1. تعيين الخط إلى عريض (Bold).
+   2. تعيين الخط إلى مائل (Italic).
+8. تعيين لون الخط باستخدام FillFormat المعروضة من قبل كائن Portion.
+9. حفظ العرض التقديمي المعدل كملف PPTX.
 
-تImplementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
+التنفيذ الخاص بالخطوات أعلاه موضح أدناه. يستخدم عرضًا تقديميًا غير مُزَيّن ويُنسق الخطوط على إحدى الشرائح.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontProperties-FontProperties.cpp" >}}
 
-
 ## **إدارة عائلة الخط للنص**
-تستخدم جزء للاحتفاظ بالنص بتنسيق مشابه في الفقرة. توضح هذه المقالة كيفية استخدام Aspose.Slides لـ C++ لإنشاء مربع نص ببعض النصوص ثم تعريف خط معين، وعدد من الخصائص الأخرى لفئة الخط. لإنشاء مربع نص وتعيين خصائص الخط للنص فيه:
+يُستخدم الجزء (Portion) لاحتواء النص ذي النمط التنسيقي المتشابه داخل الفقرة. يوضح هذا المقال كيفية استخدام Aspose.Slides for C++ لإنشاء مربع نص يحتوي على نص ثم تعريف خط معين بالإضافة إلى خصائص أخرى لعائلة الخط. لإنشاء مربع نص وتعيين خصائص الخط للنص فيه:
 
-1. أنشئ مثيلًا من فئة `Presentation`.
-2. احصل على مرجع شريحة باستخدام فهرسها.
-3. أضف AutoShape من النوع Rectangle إلى الشريحة.
-4. قم بإزالة نمط الحشو المرتبط بـ AutoShape.
-5. الوصول إلى إطار النص الخاص بـ AutoShape.
-6. أضف بعض النصوص إلى إطار النص.
-7. الوصول إلى كائن Portion المرتبط بإطار النص.
-8. تعريف الخط المستخدم للجزء.
-9. تعيين خصائص الخط الأخرى مثل العريض، المائل، التسطير، اللون والارتفاع باستخدام الخصائص ذات الصلة المقدمة بواسطة كائن Portion.
-10. اكتب العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة `Presentation` .
+2. الحصول على مرجع شريحة باستخدام رقم الفهرس.
+3. إضافة AutoShape من النوع Rectangle إلى الشريحة.
+4. إزالة نمط التعبئة المرتبط بـ AutoShape.
+5. الوصول إلى TextFrame الخاص بـ AutoShape.
+6. إضافة بعض النص إلى TextFrame.
+7. الوصول إلى كائن Portion المرتبط بـ TextFrame.
+8. تعريف الخط المستخدم للـ Portion.
+9. تعيين خصائص الخط الأخرى مثل العريض، المائل، تحتي الخط، اللون والارتفاع باستخدام الخصائص المتاحة في كائن Portion.
+10. حفظ العرض التقديمي المعدل كملف PPTX.
 
-تImplementation of the above steps is given below.
+التنفيذ الخاص بالخطوات أعلاه موضح أدناه.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
 
 ## **تعيين حجم الخط للنص**
+تسمح Aspose.Slides باختيار حجم الخط المفضل للنص الموجود بالفعل في الفقرة وأي نص قد يُضاف إلى الفقرة لاحقًا.
 
-Aspose.Slides يسمح لك باختيار حجم الخط المفضل لديك للنص الحالي في الفقرة وغيرها من النصوص التي قد تتم إضافتها إلى الفقرة لاحقًا.
-
-توضح هذه الشفرة البرمجية في C++ كيفية تعيين حجم الخط للنصوص الموجودة في فقرة:
-
+يظهر هذا الكود C++ كيفية تعيين حجم الخط للنصوص الموجودة في الفقرة:
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"example.pptx");
 
@@ -233,9 +232,9 @@ if (System::ObjectExt::Is<IAutoShape>(shape))
 
     // يحصل على الفقرة الأولى، على سبيل المثال.
     auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-    // تعيين حجم الخط الافتراضي إلى 20 نقطة لجميع أجزاء النص في الفقرة.
+    // يحدد حجم الخط الافتراضي إلى 20 نقطة لكل أجزاء النص في الفقرة.
     paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20.0f);
-    // تعيين حجم الخط إلى 20 نقطة لأجزاء النص الحالية في الفقرة.
+    // يحدد حجم الخط إلى 20 نقطة لأجزاء النص الحالية في الفقرة.
     for (auto&& portion : paragraph->get_Portions())
     {
         portion->get_PortionFormat()->set_FontHeight(20.0f);
@@ -245,65 +244,62 @@ if (System::ObjectExt::Is<IAutoShape>(shape))
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تعيين دوران النص**
+تسمح Aspose.Slides for C++ للمطورين بتدوير النص. يمكن ضبط النص ليظهر أفقيًا، عموديًا، Vertical270، WordArtVertical، EastAsianVertical، MongolianVertical أو WordArtVerticalRightToLeft. لتدوير نص أي TextFrame، يرجى اتباع الخطوات أدناه:
 
-Aspose.Slides لـ C++ يسمح للمطورين بتدوير النص. يمكن تعيين النص ليظهر أفقيًا، عموديًا، عمودي270، WordArtVertical، EastAsianVertical، MongolianVertical أو WordArtVerticalRightToLeft. لتدوير نص أي إطار نص، يرجى اتباع الخطوات أدناه:
-
-1. أنشئ مثيلًا من `Presentation` class.
+1. إنشاء كائن من الفئة `Presentation` .
 2. الوصول إلى الشريحة الأولى.
-3. أضف أي شكل إلى الشريحة.
-4. الوصول إلى إطار النص.
+3. إضافة أي شكل إلى الشريحة.
+4. الوصول إلى TextFrame.
 5. تدوير النص.
-6. حفظ الملف على القرص.
+6. حفظ الملف إلى القرص.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
 
+## **العلامات والفواصل الفعّالة في العرض التقديمي**
+- الخاصية EffectiveTabs.ExplicitTabCount (2 في مثالنا) تساوي Tabs.Count.
+- مجموعة EffectiveTabs تشمل جميع العلامات (من مجموعة Tabs والعلامات الافتراضية).
+- الخاصية EffectiveTabs.ExplicitTabCount (2 في مثالنا) تساوي Tabs.Count.
+- الخاصية EffectiveTabs.DefaultTabSize (294) تُظهر المسافة بين العلامات الافتراضية (3 و4 في مثالنا).
+- الدالة EffectiveTabs.GetTabByIndex(index) مع index = 0 تُعيد أول علامة صريحة (Position = 731)، index = 1 تُعيد العلامة الثانية (Position = 1241). إذا حاولت الحصول على العلامة التالية مع index = 2 فستُعيد أول علامة افتراضية (Position = 1470) وهكذا.
+- الدالة EffectiveTabs.GetTabAfterPosition(pos) تُستخدم للحصول على العلامة التالية بعد نص معين. على سبيل المثال لديك النص: "Helloworld!". لتص rendering هذا النص تحتاج إلى معرفة مكان بدء رسم "world!". أولًا، احسب طول "Hello" بالبكسل واستدعِ GetTabAfterPosition بالقيمة. ستحصل على موضع العلامة التالي لرسم "world!".
 
-## **التبويبات و EffectiveTabs في العرض التقديمي**
-- خاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
-- مجموعة EffectiveTabs تتضمن جميع التبويبات (من مجموعة التبويبات والتبويبات الافتراضية)
-- خاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
-- خاصية EffectiveTabs.DefaultTabSize (294) تُظهر المسافة بين التبويبات الافتراضية (3 و 4 في مثالنا).
-- EffectiveTabs.GetTabByIndex(index) مع index = 0 ستعيد أول تبويب صريح (Position = 731)، index = 1 - تبويب الثاني (Position = 1241). إذا كنت تحاول الحصول على تبويب التالي مع index = 2 فسوف تعيد أول تبويب افتراضي (Position = 1470) وما إلى ذلك.
-- EffectiveTabs.GetTabAfterPosition(pos) تستخدم للحصول على التبويب التالي بعد نص معين. على سبيل المثال، لديك نص: "Helloworld!". لرسم مثل هذا النص، يجب أن تعرف أين تبدأ في رسم "world!". أولاً، يجب عليك حساب طول "Hello" بالبكسل واستدعاء GetTabAfterPosition باستخدام هذه القيمة. ستحصل على موضع التبويب التالي لرسم "world!".
+## **تباعد الأسطر في الفقرة**
+توفر Aspose.Slides خصائص ضمن `ParagraphFormat`—`SpaceAfter` و `SpaceBefore` و `SpaceWithin`—تتيح لك إدارة تباعد الأسطر لفقرة. تُستعمل الخصائص الثلاثة كالتالي:
 
-## **تباعد الأسطر للفقرة**
+* لتحديد تباعد السطر للفقرة بالنسبة المئوية، استخدم قيمة موجبة.
+* لتحديد تباعد السطر للفقرة بالنقاط، استخدم قيمة سالبة.
 
-Aspose.Slides يوفر خصائص ضمن `ParagraphFormat`—`SpaceAfter`، `SpaceBefore` و `SpaceWithin`—التي تتيح لك إدارة تباعد الأسطر لفقرة. تُستخدم الخصائص الثلاث بهذه الطريقة:
+على سبيل المثال، يمكنك تطبيق تباعد سطر 16pt للفقرة عن طريق ضبط الخاصية `SpaceBefore` إلى -16.
 
-* لتحديد تباعد الأسطر لفقرة بالنسبة المئوية، استخدم قيمة موجبة. 
-* لتحديد تباعد الأسطر لفقرة بالنقاط، استخدم قيمة سالبة.
+طريقة تحديد تباعد السطر لفقرة معينة:
 
-على سبيل المثال، يمكنك تطبيق تباعد أسطر بمقدار 16 نقطة لفقرة عن طريق تعيين خاصية `SpaceBefore` إلى -16.
-
-هذه هي الطريقة التي تحدد بها تباعد الأسطر لفقرة معينة:
-
-1. قم بتحميل عرض تقديمي يحتوي على AutoShape مع بعض النصوص فيه.
-2. احصل على مرجع شريحة من خلال فهرسها.
-3. الوصول إلى إطار النص.
+1. تحميل عرض تقديمي يحتوي على AutoShape مع نص داخله.
+2. الحصول على مرجع شريحة من خلال رقم الفهرس.
+3. الوصول إلى TextFrame.
 4. الوصول إلى الفقرة.
-5. تعيين خصائص الفقرة.
+5. ضبط خصائص الفقرة.
 6. حفظ العرض التقديمي.
 
-توضح هذه الشفرة البرمجية في C++ كيفية تحديد تباعد الأسطر لفقرة:
-
+يظهر هذا الكود C++ كيفية تحديد تباعد الأسطر لفقرة:
 ``` cpp
 // مسار دليل الوثائق.
 System::String dataDir = GetDataPath();
 
-// أنشئ مثيلًا من فئة Presentation
+// إنشاء مثيل من فئة Presentation
 auto presentation = System::MakeObject<Presentation>(dataDir + u"Fonts.pptx");
 
-// احصل على مرجع شريحة باستخدام فهرسها
+// الحصول على مرجع الشريحة عبر الفهرس الخاص بها
 auto sld = presentation->get_Slides()->idx_get(0);
 
-// الوصول إلى إطار النص
+// الوصول إلى TextFrame
 auto tf1 = (System::ExplicitCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
 
 // الوصول إلى الفقرة
 auto para = tf1->get_Paragraphs()->idx_get(0);
 
-// تعيين خصائص الفقرة
+// ضبط خصائص الفقرة
 para->get_ParagraphFormat()->set_SpaceWithin(80.0f);
 para->get_ParagraphFormat()->set_SpaceBefore(40.0f);
 para->get_ParagraphFormat()->set_SpaceAfter(40.0f);
@@ -314,49 +310,45 @@ presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
 
 
 ## **تعيين خاصية AutofitType لإطار النص**
-في هذا الموضوع، سنستكشف الخصائص المختلفة لتنسيق إطار النص. تغطي هذه المقالة كيفية تعيين خاصية AutofitType لإطار النص، وموضع النص وتدوير النص في العرض التقديمي. Aspose.Slides لـ C++ يسمح للمطورين بتعيين خاصية AutofitType لأي إطار نص. يمكن تعيين AutofitType إلى Normal أو Shape. إذا تم تعيينه على Normal، فسيظل الشكل كما هو بينما سيتم ضبط النص دون تغيير الشكل نفسه. أما إذا تم تعيين AutofitType على الشكل، فسيتم تعديل الشكل بحيث يحتوي فقط على النص المطلوب. لتعيين خاصية AutofitType لإطار نص، يرجى اتباع الخطوات التالية:
+في هذا الموضوع نستكشف خصائص تنسيق مختلفة لإطار النص. يغطي المقال كيفية تعيين خاصية AutofitType لإطار النص، وتثبيت النص وتدويره في العرض التقديمي. تسمح Aspose.Slides for C++ للمطورين بتعيين خاصية AutofitType لأي إطار نص. يمكن ضبط AutofitType إلى Normal أو Shape. إذا تم ضبطه إلى Normal سيبقى الشكل كما هو بينما يتم تعديل النص دون تغيير الشكل، أما إذا تم ضبطه إلى Shape، فسيتم تعديل الشكل بحيث يحتوي فقط على النص المطلوب. لتعيين خاصية AutofitType لإطار النص، يرجى اتباع الخطوات أدناه:
 
-1. أنشئ مثيلًا من فئة Presentation.
+1. إنشاء كائن من فئة Presentation.
 2. الوصول إلى الشريحة الأولى.
-3. أضف أي شكل إلى الشريحة.
-4. الوصول إلى إطار النص.
+3. إضافة أي شكل إلى الشريحة.
+4. الوصول إلى TextFrame.
 5. تعيين AutofitType لإطار النص.
-6. حفظ الملف على القرص.
+6. حفظ الملف إلى القرص.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
 
+## **تعيين تثبيت النص (Anchor) لإطار النص**
+تسمح Aspose.Slides for C++ للمطورين بتثبيت أي TextFrame. يحدد TextAnchorType موضع النص داخل الشكل. يمكن ضبط TextAnchorType إلى Top أو Center أو Bottom أو Justified أو Distributed. لتعيين تثبيت النص لأي TextFrame، يرجى اتباع الخطوات أدناه:
 
-## **تعيين ربط إطار النص**
-Aspose.Slides لـ C++ يسمح للمطورين بتعيين رابط لأي إطار نص. يحدد TextAnchorType مكان وضع النص في الشكل. يمكن تعيين TextAnchorType إلى أعلى أو مركز أو أسفل أو تبرير أو توزيع. لتعيين رابط أي إطار نص، يرجى اتباع الخطوات أدناه:
-
-1. أنشئ مثيلًا من `Presentation` class.
+1. إنشاء كائن من فئة `Presentation` .
 2. الوصول إلى الشريحة الأولى.
-3. أضف أي شكل إلى الشريحة.
-4. الوصول إلى إطار النص.
+3. إضافة أي شكل إلى الشريحة.
+4. الوصول إلى TextFrame.
 5. تعيين TextAnchorType لإطار النص.
-6. حفظ الملف على القرص.
+6. حفظ الملف إلى القرص.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
 
+## **تعيين زاوية دوران مخصصة لإطار النص**
+يدعم Aspose.Slides for C++ الآن تعيين زاوية دوران مخصصة لإطار النص. في هذا الموضوع، سنستعرض مثالًا يوضح كيفية تعيين خاصية RotationAngle في Aspose.Slides. تمت إضافة الخاصية RotationAngle إلى واجهتي IChartTextBlockFormat و ITextFrameFormat، وتسمح بتعيين زاوية دوران مخصصة لإطار النص. لتعيين خاصية RotationAngle، يرجى اتباع الخطوات أدناه:
 
-## **تعيين زاوية التدوير المخصصة لإطار النص**
-Aspose.Slides لـ C++ تدعم الآن تعيين زاوية تدوير مخصصة لإطار النص. في هذا الموضوع، سنرى من خلال المثال كيفية تعيين خاصية RotationAngle في Aspose.Slides. تمت إضافة الخاصية الجديدة RotationAngle إلى واجهتي IChartTextBlockFormat و ITextFrameFormat، مما يسمح بتعيين زاوية التدوير المخصصة لإطار النص. من أجل تعيين خاصية RotationAngle، يرجى اتباع الخطوات أدناه:
-
-1. أنشئ مثيلًا من فئة Presentation.
-2. أضف رسمًا بيانيًا على الشريحة.
+1. إنشاء كائن من فئة Presentation.
+2. إضافة مخطط (Chart) إلى الشريحة.
 3. تعيين خاصية RotationAngle.
-4. اكتب العرض التقديمي كملف PPTX.
+4. حفظ العرض التقديمي كملف PPTX.
 
 في المثال أدناه، نقوم بتعيين خاصية RotationAngle.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cpp" >}}
 
 ## **تعيين لغة التدقيق**
+توفر Aspose.Slides الخاصية [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) (المعروضة عبر فئة [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)) لتعيين لغة التدقيق لمستند PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد النحوية داخل PowerPoint.
 
-يوفر Aspose.Slides خاصية [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) (المقدمة بواسطة [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)class) للسماح لك بتعيين لغة التدقيق لوثيقة PowerPoint. لغة التدقيق هي اللغة التي يتم التحقق من هجاءها وقواعدها في PowerPoint.
-
-توضح هذه الشفرة البرمجية في C++ كيفية تعيين لغة التدقيق لوثيقة PowerPoint:
-
+يظهر هذا الكود C++ كيفية تعيين لغة التدقيق لمستند PowerPoint:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
@@ -380,33 +372,31 @@ newPortion->set_Text(u"1。");
 portions->Add(newPortion);
 ```
 
+
 ## **تعيين اللغة الافتراضية**
-
-توضح هذه الشفرة البرمجية في C++ كيفية تعيين اللغة الافتراضية لعرض تقديمي كامل من PowerPoint:
-
+يظهر هذا الكود C++ كيفية تعيين اللغة الافتراضية لكامل عرض PowerPoint:
 ```c++
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// إضافة شكل مستطيل جديد مع نص
+// يضيف شكل مستطيل جديد مع نص
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"نص جديد");
+textFrame->set_Text(u"New Text");
 
-// تحقق من لغة الجزء الأول
+// يتحقق من لغة الجزء الأول
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
-## **تعيين النمط الافتراضي للنص**
 
-إذا كنت بحاجة إلى تطبيق نفس تنسيق نص افتراضي على جميع عناصر النص في عرض تقديمي مرة واحدة، فإنك تستطيع استخدام `get_DefaultTextStyle` من واجهة [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) وتعيين التنسيق المفضل. يوضح المثال البرمجي أدناه كيفية تعيين الخط العريض الافتراضي (14 نقطة) للنص على جميع الشرائح في عرض تقديمي جديد.
-
+## **تعيين نمط النص الافتراضي**
+إذا كنت بحاجة لتطبيق تنسيق نص افتراضي موحد على جميع عناصر النص في عرض تقديمي مرة واحدة، يمكنك استخدام طريقة `get_DefaultTextStyle` من واجهة [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) وتعيين التنسيق المفضل. يوضح المثال أدناه كيفية تعيين خط عريض افتراضي (14 pt) للنص على جميع الشرائح في عرض تقديمي جديد.
 ```c++
 auto presentation = MakeObject<Presentation>();
 
-// احصل على تنسيق الفقرة في المستوى الأعلى.
+// احصل على تنسيق الفقرة من المستوى الأعلى.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != NULL) {
@@ -417,3 +407,47 @@ if (paragraphFormat != NULL) {
 presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+
+## **استخراج النص مع تأثير الأحرف الكبيرة كلها**
+في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله بالضبط. للتعامل مع ذلك، تحقق من [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/)—إذا كان يُشير إلى `All`، حوّل السلسلة المسترجعة إلى أحرف كبيرة لتطابق ما يراه المستخدمون على الشريحة.
+
+لنفترض أن لدينا صندوق نص كما في الشريحة الأولى من ملف sample2.pptx.
+
+![The All Caps effect](all_caps_effect.png)
+
+ يظهر المثال أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample2.pptx");
+auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+
+Console::WriteLine(u"Original text: " + textPortion->get_Text());
+
+auto textFormat = textPortion->get_PortionFormat()->GetEffective();
+if (textFormat->get_TextCapType() == TextCapType::All)
+{
+    auto text = textPortion->get_Text().ToUpper();
+    Console::WriteLine(u"All-Caps effect: " + text);
+}
+
+presentation->Dispose();
+```
+
+
+الناتج:
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **الأسئلة الشائعة**
+
+**كيف يمكن تعديل النص في جدول على شريحة؟**
+
+لتعديل النص في جدول على شريحة، تحتاج إلى استخدام كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). يمكنك المرور عبر جميع الخلايا في الجدول وتغيير النص في كل خلية عبر الوصول إلى إطار النص الخاص بها وخصائص تنسيق الفقرة داخل كل خلية.
+
+**كيف يمكن تطبيق تدرج لوني على النص في شريحة PowerPoint؟**
+
+لتطبيق تدرج لوني على النص، استخدم طريقة `get_FillFormat` في [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/). اضبط تنسيق التعبئة إلى `Gradient`، حيث يمكنك تعريف ألوان البداية والنهاية للتدرج، بالإضافة إلى خصائص أخرى مثل الاتجاه والشفافية لإنشاء تأثير التدرج على النص.

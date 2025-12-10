@@ -1,39 +1,40 @@
 ---
-title: Präsentation überprüfen - C++ PowerPoint API
-linktitle: Präsentation überprüfen
+title: Präsentationsinformationen abrufen und aktualisieren in C++
+linktitle: Präsentationsinformationen
 type: docs
 weight: 30
 url: /de/cpp/examine-presentation/
 keywords:
+- Präsentationsformat
+- Präsentationseigenschaften
+- Dokumenteneigenschaften
+- Eigenschaften abrufen
+- Eigenschaften lesen
+- Eigenschaften ändern
+- Eigenschaften modifizieren
+- Eigenschaften aktualisieren
+- PPTX untersuchen
+- PPT untersuchen
+- ODP untersuchen
 - PowerPoint
-- präsentation
-- präsentationsformat
-- präsentationseigenschaften
-- dokumenteigenschaften
-- eigenschaften abrufen
-- eigenschaften lesen
-- eigenschaften ändern
-- eigenschaften modifizieren
-- PPTX
-- PPT
+- OpenDocument
+- Präsentation
 - C++
-description: "Lesen und Modifizieren von PowerPoint-Präsentationseigenschaften in C++"
+- Aspose.Slides
+description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und OpenDocument-Präsentationen mithilfe von C++ für schnellere Einblicke und intelligentere Inhaltsprüfungen."
 ---
 
-Aspose.Slides für C++ ermöglicht es Ihnen, eine Präsentation zu überprüfen, um ihre Eigenschaften herauszufinden und ihr Verhalten zu verstehen.
+Aspose.Slides für C++ ermöglicht es Ihnen, eine Präsentation zu untersuchen, um deren Eigenschaften zu ermitteln und ihr Verhalten zu verstehen. 
 
 {{% alert title="Info" color="info" %}}
-
-Die [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) und [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) Klassen enthalten die Eigenschaften und Methoden, die hier in den Operationen verwendet werden.
-
+Die Klassen PresentationInfo und DocumentProperties enthalten die Eigenschaften und Methoden, die in den hier gezeigten Vorgängen verwendet werden.
 {{% /alert %}} 
 
-## **Überprüfen eines Präsentationsformats**
+## **Prüfen des Präsentationsformats**
 
-Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation im Moment befindet.
+Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation derzeit befindet.
 
-Sie können das Format einer Präsentation überprüfen, ohne die Präsentation zu laden. Sehen Sie sich diesen C++-Code an:
-
+Sie können das Format einer Präsentation prüfen, ohne die Präsentation zu laden. Siehe diesen C++‑Code:
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
@@ -48,51 +49,74 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
+
 ## **Präsentationseigenschaften abrufen**
 
-Dieser C++-Code zeigt Ihnen, wie Sie die Präsentationseigenschaften (Informationen über die Präsentation) abrufen können:
-
+Dieser C++‑Code zeigt, wie Sie Präsentationseigenschaften (Informationen zur Präsentation) abrufen können:
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
 Console::WriteLine(props->get_Subject());
 Console::WriteLine(props->get_Title());
-// ..
+// .. 
 ```
+
 
 ## **Präsentationseigenschaften aktualisieren**
 
-Aspose.Slides bietet die [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) Methode, die es Ihnen ermöglicht, Änderungen an den Präsentationseigenschaften vorzunehmen.
+Aspose.Slides bietet die Methode PresentationInfo::UpdateDocumentProperties, mit der Sie Änderungen an den Präsentationseigenschaften vornehmen können.
 
-Angenommen, wir haben eine PowerPoint-Präsentation mit den unten dargestellten Dokumenteigenschaften.
+Angenommen, wir haben eine PowerPoint‑Präsentation mit den unten gezeigten Dokumenteneigenschaften.
 
-![Ursprüngliche Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
+![Originale Dokumenteneigenschaften der PowerPoint‑Präsentation](input_properties.png)
 
-Dieses Codebeispiel zeigt Ihnen, wie man einige Präsentationseigenschaften bearbeitet:
-
+Dieses Codebeispiel zeigt, wie Sie einige Präsentationseigenschaften bearbeiten können:
 ```cpp
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
 
 auto properties = info->ReadDocumentProperties();
-properties->set_Title(u"Mein Titel");
+properties->set_Title(u"My title");
 properties->set_LastSavedTime(DateTime::get_Now());
 
 info->UpdateDocumentProperties(properties);
 info->WriteBindedPresentation(fileName);
 ```
 
-Die Ergebnisse der Änderung der Dokumenteigenschaften sind unten dargestellt.
 
-![Geänderte Dokumenteigenschaften der PowerPoint-Präsentation](output_properties.png)
+Die Ergebnisse der Änderung der Dokumenteneigenschaften werden unten angezeigt.
+
+![Geänderte Dokumenteneigenschaften der PowerPoint‑Präsentation](output_properties.png)
 
 ## **Nützliche Links**
 
-Um weitere Informationen über eine Präsentation und ihre Sicherheitsattribute zu erhalten, finden Sie diese Links nützlich:
+Weitere Informationen zu einer Präsentation und deren Sicherheitsattributen finden Sie in diesen Links:
 
-- [Überprüfen, ob eine Präsentation verschlüsselt ist](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Überprüfen, ob eine Präsentation schreibgeschützt ist (nur lesen)](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Überprüfen, ob eine Präsentation vor dem Laden passwortgeschützt ist](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bestätigen des Passworts, das zum Schutz einer Präsentation verwendet wurde](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Überprüfung, ob eine Präsentation verschlüsselt ist](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [Überprüfung, ob eine Präsentation schreibgeschützt (nur lesbar) ist](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Überprüfung, ob eine Präsentation passwortgeschützt ist, bevor sie geladen wird](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Bestätigung des zum Schutz einer Präsentation verwendeten Passworts](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **FAQ**
+
+**Wie kann ich prüfen, ob Schriften eingebettet sind und welche das sind?**
+
+Suchen Sie nach eingebetteten Schriftinformationen auf Präsentationsebene und vergleichen Sie diese Einträge anschließend mit dem Satz der tatsächlich im Inhalt verwendeten Schriften, um zu ermitteln, welche Schriften für die Darstellung entscheidend sind.
+
+**Wie kann ich schnell feststellen, ob die Datei verborgene Folien enthält und wie viele?**
+
+Durchlaufen Sie die Folien‑Collection und prüfen Sie das Sichtbarkeits‑Flag jeder Folie.
+
+**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet wird und ob sie von den Vorgabewerten abweicht?**
+
+Ja. Vergleichen Sie die aktuelle Foliengröße und -ausrichtung mit den Standard‑Presets; dies hilft, das Verhalten für Druck und Export vorherzusehen.
+
+**Gibt es eine schnelle Methode zu prüfen, ob Diagramme externe Datenquellen referenzieren?**
+
+Ja. Durchlaufen Sie alle Diagramme, prüfen Sie deren Datenquelle und stellen Sie fest, ob die Daten intern oder verlinkt sind, einschließlich etwaiger defekter Links.
+
+**Wie kann ich „schwere“ Folien einschätzen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
+
+Zählen Sie für jede Folie die Objektanzahl und achten Sie auf große Bilder, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um potenzielle Leistungsengpässe zu kennzeichnen.

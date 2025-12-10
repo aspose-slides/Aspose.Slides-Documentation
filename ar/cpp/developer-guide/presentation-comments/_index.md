@@ -1,74 +1,90 @@
 ---
-title: تعليقات العرض
+title: إدارة تعليقات العرض التقديمي في C++
+linktitle: تعليقات العرض التقديمي
 type: docs
 weight: 100
 url: /ar/cpp/presentation-comments/
-keywords: "تعليقات، تعليقات باوربوينت، عرض باوربوينت، C++، Aspose.Slides for C++"
-description: "إضافة تعليقات وردود في عرض باوربوينت بـ C++"
+keywords:
+- تعليق
+- تعليق حديث
+- تعليقات PowerPoint
+- تعليقات العرض التقديمي
+- تعليقات الشريحة
+- إضافة تعليق
+- الوصول إلى التعليق
+- تحرير التعليق
+- الرد على التعليق
+- إزالة التعليق
+- حذف التعليق
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "قم بإدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة C++: إضافة، قراءة، تحرير، وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
 ---
 
-في باوربوينت، تظهر التعليقات كملاحظات أو تعليقات على الشريحة. عند النقر على تعليق، يتم الكشف عن محتوياته أو رسائله.
+في PowerPoint، يظهر التعليق كملاحظة أو شرح على الشريحة. عند النقر على التعليق، تُظهر محتوياته أو رسائله.
 
-### **لماذا إضافة تعليقات إلى العروض؟**
+### **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
-قد ترغب في استخدام التعليقات لتقديم ملاحظات أو التواصل مع زملائك عند مراجعة العروض.
+قد ترغب في استخدام التعليقات لتقديم ملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
 
-لتتيح لك استخدام التعليقات في عروض باوربوينت، تقوم Aspose.Slides for C++ بتوفير
+للسماح لك باستخدام التعليقات في عروض PowerPoint، توفر Aspose.Slides for C++  
 
-* فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) التي تحتوي على مجموعات المؤلفين (من طريقة [get_CommentAuthors()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d)). يضيف المؤلفون تعليقات إلى الشرائح. 
-* واجهة [ICommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment_collection) التي تحتوي على مجموعة من التعليقات للمؤلفين الفرديين. 
-* فئة [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من الذي أضاف التعليق، متى تمت إضافة التعليق، موقع التعليق، إلخ. 
-* فئة [CommentAuthor](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_author) التي تحتوي على معلومات حول المؤلفين الفرديين: اسم المؤلف، أحرفه الأولى، التعليقات المرتبطة باسم المؤلف، إلخ.
+* الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) التي تحتوي على مجموعات المؤلفين (من طريقة [get_CommentAuthors()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d)). يضيف المؤلفون تعليقات إلى الشرائح.  
+* الواجهة [ICommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment_collection) التي تحتوي على مجموعة التعليقات للكاتب الفردي.  
+* الفئة [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) التي تحتوي على معلومات عن المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موضع التعليق، إلخ.  
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_author) التي تحتوي على معلومات عن كل كاتب: اسم الكاتب، الأحرف الأولى له، التعليقات المرتبطة باسمه، إلخ.
 
-## **إضافة تعليق على الشريحة**
-هذا الكود بـ C++ يوضح لك كيفية إضافة تعليق على شريحة في عرض باوربوينت:
-
+## **إضافة تعليق إلى الشريحة**
+هذا الكود C++ يوضح لك كيفية إضافة تعليق إلى شريحة في عرض PowerPoint:
 ```cpp
-// يقوم بإنشاء كائن من فئة Presentation
+// إنشاء كائن من الفئة Presentation
 auto presentation = System::MakeObject<Presentation>();
-// يضيف شريحة فارغة
+// إضافة شريحة فارغة
 presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlides()->idx_get(0));
 
-// يضيف مؤلف
+// إضافة مؤلف
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 
-// يحدد موقع التعليقات
+// تحديد موضع التعليقات
 PointF point;
 point.set_X(0.2f);
 point.set_Y(0.2f);
 
-// يصل إلى ISlide 1
+// الوصول إلى ISlide 1
 auto slide1 = presentation->get_Slides()->idx_get(0);
-// يصل إلى ISlide 2
+// الوصول إلى ISlide 2
 auto slide2 = presentation->get_Slides()->idx_get(1);
 
-// يضيف تعليقًا على الشريحة لمؤلف على الشريحة 1
-author->get_Comments()->AddComment(u"مرحبًا يا جوان، هذا تعليق على الشريحة", slide1, point, DateTime::get_Now());
+// إضافة تعليق شريحة لمؤلف على الشريحة 1
+author->get_Comments()->AddComment(u"Hello Jawad, this is slide comment", slide1, point, DateTime::get_Now());
 
-// يضيف تعليقًا على الشريحة لمؤلف على الشريحة 2
-author->get_Comments()->AddComment(u"مرحبًا يا جوان، هذا هو تعليق الشريحة الثاني", slide2, point, DateTime::get_Now());
+// إضافة تعليق شريحة لمؤلف على الشريحة 2
+author->get_Comments()->AddComment(u"Hello Jawad, this is second slide comment", slide2, point, DateTime::get_Now());
 
-// عند تمرير null كوسيط، يتم إحضار التعليقات من جميع المؤلفين إلى الشريحة المحددة
+// عند تمرير null كمعامل، يتم جلب التعليقات من جميع المؤلفين إلى الشريحة المحددة
 auto comments = slide1->GetSlideComments(author);
 
-// يصل إلى التعليق عند الفهرس 0 للشريحة 1
+// Accesses the comment at index 0 for slide 1
 String str = comments[0]->get_Text();
 
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 if (comments->GetLength(0) > 0)
 {
-    // يختار مجموعة تعليقات المؤلف عند الفهرس 0
+    // اختيار مجموعة تعليقات المؤلف عند الفهرس 0
     auto commentCollection = comments[0]->get_Author()->get_Comments();
     String Comment = commentCollection->idx_get(0)->get_Text();
 }
 ```
 
-## **الوصول إلى تعليقات الشريحة**
-هذا الكود بـ C++ يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض باوربوينت:
 
+## **الوصول إلى تعليقات الشريحة**
+هذا الكود C++ يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint:
 ```cpp
-// يقوم بإنشاء كائن من فئة Presentation
+// إنشاء كائن من فئة Presentation
 auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
 
 for (auto&& commentAuthor : presentation->get_CommentAuthors())
@@ -79,48 +95,48 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
         SmartPtr<Comment> comment = System::ExplicitCast<Comment>(comment1);
         Console::WriteLine(String(u"ISlide :")
                         + comment->get_Slide()->get_SlideNumber()
-                        + u" لديه تعليق: " + comment->get_Text()
-                        + u" مع المؤلف: " + comment->get_Author()->get_Name()
-                        + u" تم نشره في الوقت :" + comment->get_CreatedTime() + u"\n");
+                        + u" has comment: " + comment->get_Text()
+                        + u" with Author: " + comment->get_Author()->get_Name()
+                        + u" posted on time :" + comment->get_CreatedTime() + u"\n");
     }
 }
 ```
 
+
 ## **الرد على التعليقات**
-التعليق الأم هو أعلى تعليق أو التعليق الأصلي في تسلسل هرمي من التعليقات أو الردود. باستخدام خاصية [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) (من واجهة [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment))، يمكنك تعيين أو الحصول على تعليق أم.
+التعليق الأصلي هو أعلى أو أول تعليق في هيكلية التعليقات أو الردود. باستخدام خاصية [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) من واجهة [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment)، يمكنك تعيين أو الحصول على التعليق الأصلي.
 
-هذا الكود بـ C++ يوضح لك كيفية إضافة تعليقات والحصول على ردود عليها:
-
+هذا الكود C++ يوضح لك كيفية إضافة تعليقات والحصول على الردود عليها:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 
-// يصل إلى ISlide 1
+// الوصول إلى ISlide 1
 auto slide1 = pres->get_Slides()->idx_get(0);
 
-// يضيف تعليقًا
+// إضافة تعليق
 auto author1 = pres->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
 auto comment1 = author1->get_Comments()->AddComment(u"comment1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 
-// يضيف ردًا على comment1
+// إضافة رد إلى التعليق 1
 auto author2 = pres->get_CommentAuthors()->AddAuthor(u"Autror_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"رد 1 على التعليق 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 reply1->set_ParentComment(comment1);
 
-// يضيف ردًا آخر على comment1
-auto reply2 = author2->get_Comments()->AddComment(u"رد 2 على التعليق 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+// إضافة رد آخر إلى التعليق 1
+auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 reply2->set_ParentComment(comment1);
 
-// يضيف ردًا على الرد الموجود
-auto subReply = author1->get_Comments()->AddComment(u"رد فرعي 3 على الرد 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+// إضافة رد إلى الرد الموجود
+auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 subReply->set_ParentComment(reply2);
 
-auto comment2 = author2->get_Comments()->AddComment(u"تعليق 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
-auto comment3 = author2->get_Comments()->AddComment(u"تعليق 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto comment2 = author2->get_Comments()->AddComment(u"comment 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 
-auto reply3 = author1->get_Comments()->AddComment(u"رد 4 على التعليق 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
 reply3->set_ParentComment(comment3);
 
-// يعرض تسلسل التعليقات على وحدة التحكم
+// عرض هيكلية التعليقات على وحدة التحكم
 auto comments = slide1->GetSlideComments(nullptr);
 for (int32_t i = 0; i < comments->get_Length(); i++)
 {
@@ -137,44 +153,42 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 pres->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-// يزيل comment1 وجميع الردود عليه
+// إزالة التعليق 1 وكل الردود عليه
 comment1->Remove();
 
 pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="تنبيه" %}} 
 
-* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) (من واجهة [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment)) لحذف تعليق، يتم حذف الردود على التعليق أيضًا. 
-* إذا كانت إعدادات [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) تؤدي إلى دائرة مرجعية، سيتم رمي [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).
-
+{{% alert color="warning" title="Attention" %}} 
+* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) من واجهة [IComment] لحذف تعليق، تُحذف أيضًا الردود على هذا التعليق.  
+* إذا أدت إعدادات [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) إلى إشارة دائرية، سيتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
 {{% /alert %}}
 
 ## **إضافة تعليق حديث**
 
-في عام 2021، قدمت مايكروسوفت *التعليقات الحديثة* في باوربوينت. تعمل ميزة التعليقات الحديثة على تحسين التعاون بشكل كبير في باوربوينت. من خلال التعليقات الحديثة، يحصل مستخدمو باوربوينت على القدرة على حل التعليقات، ربط التعليقات بالكائنات والنصوص، والانخراط في التفاعلات بسهولة أكبر من ذي قبل.
+في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. تحسّن ميزة التعليقات الحديثة بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يمكن لمستخدمي PowerPoint حل التعليقات، ربط التعليقات بالكائنات والنصوص، والتفاعل بسهولة أكبر مما كان سابقًا.
 
-في [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-11-release-notes/)، قمنا بتنفيذ دعم التعليقات الحديثة من خلال إضافة فئة [ModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.modern_comment). تمت إضافة طرق [AddModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) و[InsertModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) إلى فئة [CommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection).
+في [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-11-release-notes/)، نفّذنا دعم التعليقات الحديثة بإضافة الفئة [ModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.modern_comment). أضيفت طريقتا [AddModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) و[InsertModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) إلى فئة [CommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection).
 
-هذا الكود بـ C++ يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض باوربوينت: 
-
+هذا الكود C++ يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint: 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
-// يصل إلى ISlide 1
+// الوصول إلى ISlide 1
 auto slide1 = pres->get_Slides()->idx_get(0);
 
-auto newAuthor = pres->get_CommentAuthors()->AddAuthor(u"مؤلف ما", u"SA");
-auto modernComment = newAuthor->get_Comments()->AddModernComment(u"هذا تعليق حديث", slide1, nullptr, PointF(100.0f, 100.0f), DateTime::get_Now());
+auto newAuthor = pres->get_CommentAuthors()->AddAuthor(u"Some Author", u"SA");
+auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a modern comment", slide1, nullptr, PointF(100.0f, 100.0f), DateTime::get_Now());
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **إزالة التعليق**
+
+## **إزالة تعليق**
 
 ### **حذف جميع التعليقات والمؤلفين**
 
-هذا الكود بـ C++ يوضح لك كيفية إزالة جميع التعليقات والمؤلفين في عرض تقديمي:
-
+هذا الكود C++ يوضح لك كيفية حذف جميع التعليقات والمؤلفين في عرض:
 ```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -182,22 +196,21 @@ using namespace System::Drawing;
 
 auto presentation = System::MakeObject<Presentation>(u"example.pptx");
 
-// يحذف جميع التعليقات من العرض التقديمي
+// حذف جميع التعليقات من العرض التقديمي
 for (auto author : presentation->get_CommentAuthors())
 {
     author->get_Comments()->Clear();
 }
         
-// يحذف جميع المؤلفين
+// حذف جميع المؤلفين
 presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
-
 ```
+
 
 ### **حذف تعليقات محددة**
 
-هذا الكود بـ C++ يوضح لك كيفية حذف تعليقات محددة على شريحة:
-
+هذا الكود C++ يوضح لك كيفية حذف تعليقات محددة على شريحة:
 ```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -207,17 +220,17 @@ auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
         
 // إضافة تعليقات...
-auto author = presentation->get_CommentAuthors()->AddAuthor(u"مؤلف", u"A");
-author->get_Comments()->AddComment(u"التعليق 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
-author->get_Comments()->AddComment(u"التعليق 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
+author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
+author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
         
-// إزالة جميع التعليقات التي تحتوي على نص "التعليق 1"
+// إزالة جميع التعليقات التي تحتوي على النص "comment 1"
 for (auto commentAuthor : presentation->get_CommentAuthors())
 {
     auto toRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IComment>>>();
     for (auto comment : slide->GetSlideComments(commentAuthor))
     {
-        if (comment->get_Text() == u"التعليق 1")
+        if (comment->get_Text() == u"comment 1")
         {
             toRemove->Add(comment);
         }
@@ -230,3 +243,18 @@ for (auto commentAuthor : presentation->get_CommentAuthors())
         
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يدعم Aspose.Slides حالة مثل 'محلول' للتعليقات الحديثة؟**
+
+نعم. تُظهر [Modern comments](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/) طرقًا [get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/get_status/) و[set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/set_status/). يمكنك قراءة وتعيين حالة التعليق (على سبيل المثال، وضع علامة “محلول”)، وتُحفظ هذه الحالة في الملف وتتعرف عليها PowerPoint.
+
+**هل تدعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعمق؟**
+
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/comment/set_parentcomment/)، مما يسمح بسلاسل ردود غير محدودة. لا تُعلن الواجهة عن حد معين لعمق التعمق.
+
+**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
+
+يُخزن الموضع كنقطة ذات قيمة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في المكان الذي تحتاجه.

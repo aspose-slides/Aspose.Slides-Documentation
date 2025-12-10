@@ -1,314 +1,340 @@
 ---
-title: Administrar OLE
+title: Administrar OLE en presentaciones usando C++
+linktitle: Administrar OLE
 type: docs
 weight: 40
 url: /es/cpp/manage-ole/
 keywords:
+- objeto OLE
+- Enlace y combinación de objetos
 - agregar OLE
 - incrustar OLE
-- agregar un objeto
-- incrustar un objeto
-- incrustar un archivo
+- agregar objeto
+- incrustar objeto
+- agregar archivo
+- incrustar archivo
 - objeto vinculado
-- Vínculo y Embebido de Objetos
-- objeto OLE
-- PowerPoint 
+- archivo vinculado
+- cambiar OLE
+- ícono OLE
+- título OLE
+- extraer OLE
+- extraer objeto
+- extraer archivo
+- PowerPoint
 - presentación
 - C++
-- Aspose.Slides para C++
-description: Agregar objetos OLE a presentaciones de PowerPoint en C++
+- Aspose.Slides
+description: "Optimice la gestión de objetos OLE en archivos PowerPoint y OpenDocument con Aspose.Slides para C++. Incruste, actualice y exporte contenido OLE sin problemas."
 ---
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Vínculo y Embebido de Objetos) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación se coloquen en otra aplicación a través de vínculos o incrustaciones.
+OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se coloquen en otra aplicación mediante enlaces o incrustación. 
 
 {{% /alert %}} 
 
-Considera un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE.
+Considere un gráfico creado en MS Excel. El gráfico se coloca luego dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
 
-- Un objeto OLE puede aparecer como un icono. En este caso, cuando haces doble clic en el icono, el gráfico se abre en su aplicación asociada (Excel), o se te pide que selecciones una aplicación para abrir o editar el objeto.
-- Un objeto OLE puede mostrar contenidos reales, por ejemplo, los contenidos de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puedes modificar los datos del gráfico dentro de la aplicación de PowerPoint.
+- Un objeto OLE puede aparecer como un ícono. En este caso, al hacer doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita seleccionar una aplicación para abrir o editar el objeto. 
+- Un objeto OLE puede mostrar su contenido real, como el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puede modificar los datos del gráfico dentro de PowerPoint.
 
-[Aspose.Slides para C++](https://products.aspose.com/slides/cpp/) te permite insertar objetos OLE en diapositivas como Marcos de Objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) le permite insertar objetos OLE en diapositivas como marcos de objeto OLE ([OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)).
 
-## **Agregar Marcos de Objetos OLE a Diapositivas**
+## **Agregar marcos de objeto OLE a diapositivas**
 
-Suponiendo que ya has creado un gráfico en Microsoft Excel y deseas incrustar ese gráfico en una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para C++, puedes hacerlo de la siguiente manera:
+Suponiendo que ya haya creado un gráfico en Microsoft Excel y desee incrustarlo en una diapositiva como un marco de objeto OLE usando Aspose.Slides for C++, puede hacerlo de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtén la referencia de la diapositiva a través de su índice.
-3. Abre el archivo de Excel que contiene el objeto gráfico de Excel y guárdalo en `MemoryStream`.
-4. Agrega el [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) a la diapositiva que contenga el array de bytes y otra información sobre el objeto OLE.
-5. Escribe la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Lea el archivo Excel como una matriz de bytes.  
+4. Agregue el [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) a la diapositiva, incluyendo la matriz de bytes y otra información sobre el objeto OLE.  
+5. Guarde la presentación modificada como un archivo PPTX.  
 
-En el siguiente ejemplo, agregamos un gráfico de un archivo de Excel a una diapositiva como un [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) utilizando Aspose.Slides para C++.  
-**Nota** que el constructor de [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_embedded_data_info) toma una extensión de objeto embebible como segundo parámetro. Esta extensión permite que PowerPoint interprete correctamente el tipo de archivo y elija la aplicación correcta para abrir este objeto OLE.
-
+En el ejemplo a continuación, agregamos un gráfico de un archivo Excel a una diapositiva como un [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) usando Aspose.Slides for C++. **Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) recibe una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.
 ``` cpp
-// La ruta al directorio de documentos.
-String dataDir = u"";
-// Instancia la clase Presentation que representa el PPTX
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
 
-// Accede a la primera diapositiva
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-// Carga un archivo de Excel en un stream
-SharedPtr<MemoryStream> mstream = System::MakeObject<MemoryStream>();
+// Prepare data for the OLE object.
+auto fileData = File::ReadAllBytes(u"book.xlsx");
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
-SharedPtr<FileStream> fs = System::MakeObject<FileStream>(dataDir + u"book1.xlsx", FileMode::Open, FileAccess::Read);
+// Add the OLE object frame to the slide.
+slide->get_Shapes()->AddOleObjectFrame(0, 0, slideSize.get_Width(), slideSize.get_Height(), dataInfo);
 
-ArrayPtr<uint8_t> buf = System::MakeArray<uint8_t>(4096, 0);
-while (true)
-{
-    int32_t bytesRead = fs->Read(buf, 0, buf->get_Length());
-    if (bytesRead <= 0)
-    {
-        break;
-    }
-    mstream->Write(buf, 0, bytesRead);
-}
-
-// Crea un objeto de datos para incrustar
-SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(mstream->ToArray(), u"xlsx");
-// Agrega un marco de objeto Ole
-SharedPtr<IOleObjectFrame> oleObjectFrame = sld->get_Shapes()->AddOleObjectFrame(0.0f, 0.0f, pres->get_SlideSize()->get_Size().get_Width(), pres->get_SlideSize()->get_Size().get_Height(), dataInfo);
-// Escribe el archivo PPTX en disco
-pres->Save(dataDir + u"OleEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Accediendo a Marcos de Objetos OLE**
-Si un objeto OLE ya está incrustado en una diapositiva, puedes encontrar o acceder a ese objeto fácilmente de esta manera:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) clase.
+### **Agregar marcos de objeto OLE vinculados**
 
-2. Obtén la referencia de la diapositiva utilizando su índice.
+Aspose.Slides for C++ le permite agregar un [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) sin incrustar datos, sino solo con un vínculo al archivo.
 
-3. Accede al objeto [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame).
+Este código C++ le muestra cómo agregar un [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) con un archivo Excel vinculado a una diapositiva:
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-   En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene solo una forma en la primera diapositiva. Luego *convertimos* ese objeto como un [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame). Este fue el Marco de Objeto OLE deseado que se debía acceder.
+// Añadir un marco de objeto OLE con un archivo Excel vinculado.
+slide->get_Shapes()->AddOleObjectFrame(20, 20, 200, 150, u"Excel.Sheet.12", u"book.xlsx");
 
-4. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación en él.
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego se escribe su dato de archivo en un archivo de Excel:
 
+## **Acceder a marcos de objeto OLE**
+
+Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de esta manera:
+
+1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. Obtenga la referencia de la diapositiva mediante su índice.  
+3. Acceda a la forma [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/).  
+   En nuestro ejemplo, usamos el PPTX creado previamente que tiene solo una forma en la primera diapositiva.  Luego *convertimos* ese objeto a un [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Este era el marco de objeto OLE deseado para ser accedido.  
+4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.
+
+En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y a los datos del archivo.
 ``` cpp
-// La ruta al directorio de documentos.
-const String templatePath = u"../templates/AccessingOLEObjectFrame.pptx";
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-// Carga la presentación deseada
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+if (ObjectExt::Is<IOleObjectFrame>(shape))
+{ 
+    auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-// Accede a la primera diapositiva
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+    // Obtener los datos del archivo incrustado.
+    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
-// Convierte la forma a OleObjectFrame
-SharedPtr<OleObjectFrame> oleObjectFrame = System::AsCast<OleObjectFrame>(sld->get_Shapes()->idx_get(0));
+    // Obtener la extensión del archivo incrustado.
+    auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
 
-// Lee el objeto OLE y lo escribe en disco
-if (oleObjectFrame != nullptr)
-{
-    // Obtiene los datos del archivo incrustado
-    ArrayPtr<uint8_t> data = oleObjectFrame->get_EmbeddedFileData();
-
-    // Obtiene la extensión del archivo incrustado
-    String fileExtention = oleObjectFrame->get_EmbeddedFileExtension();
-
-    // Crea la ruta para guardar el archivo extraído
-    String extractedPath = Path::Combine(GetOutPath(), u"excelFromOLE_out" + fileExtention);
-
-    // Guarda los datos extraídos
-    SharedPtr<FileStream> fstr = System::MakeObject<FileStream>(extractedPath, FileMode::Create, FileAccess::Write);
-    fstr->Write(data, 0, data->get_Length());
+    // ...
 }
 ```
 
-## **Cambiando los Datos del Objeto OLE**
-Si un objeto OLE ya está incrustado en una diapositiva, puedes acceder fácilmente a ese objeto y modificar sus datos de esta manera:
 
-1. Abre la presentación deseada con el Objeto OLE incrustado creando una instancia de la [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) clase.
+### **Acceder a propiedades del marco de objeto OLE vinculado**
 
-2. Obtén la referencia de la diapositiva a través de su índice.
+Aspose.Slides le permite acceder a las propiedades del marco de objeto OLE vinculado.
 
-3. Accede a la forma [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame).
+Este código C++ le muestra cómo verificar si un objeto OLE está vinculado y luego obtener la ruta al archivo vinculado:
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.ppt");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-   En nuestro ejemplo, utilizamos el PPTX creado anteriormente que tiene una forma en la primera diapositiva. Luego *convertimos* ese objeto como un [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame). Este fue el Marco de Objeto OLE deseado que se debía acceder.
-
-4. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación en él.
-
-5. Crea el objeto Workbook y accede a los datos OLE.
-
-6. Accede a la Hoja de Cálculo deseada y modifica los datos.
-
-7. Guarda el Workbook actualizado en streams.
-
-8. Cambia los datos del objeto OLE a partir de los datos de stream.
-
-En el siguiente ejemplo, se accede a un Marco de Objeto OLE (un gráfico de Excel incrustado en una diapositiva) y luego se modifica su dato de archivo para cambiar los datos del gráfico:
-
-``` cpp
-intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> ToCellsMemoryStream(System::ArrayPtr<uint8_t> buffer)
+if (ObjectExt::Is<IOleObjectFrame>(shape))
 {
-    intrusive_ptr<BString> array = new BString(buffer->data_ptr(), buffer->Count());
-    auto stream = new Aspose::Cells::Systems::IO::MemoryStream(array);
+    auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    return stream;
-}
-
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-
-void ChangeOLEObjectData()
-{
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(GetDataPath() + u"ChangeOLEObjectData.pptx");
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-    System::SharedPtr<OleObjectFrame> ole;
-
-    // Recorre todas las formas en busca del marco Ole
-    for (auto shape : IterateOver(slide->get_Shapes()))
+    // Verificar si el objeto OLE está vinculado.
+    if (oleFrame->get_IsObjectLink())
     {
-        if (System::ObjectExt::Is<OleObjectFrame>(shape))
+        // Imprimir la ruta completa del archivo vinculado.
+        std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
+
+        // Imprimir la ruta relativa del archivo vinculado si está presente.
+        // Solo las presentaciones PPT pueden contener la ruta relativa.
+        if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
-            ole = System::ExplicitCast<OleObjectFrame>(shape);
+            std::wcout << L"OLE object frame relative path: " << oleFrame->get_LinkPathRelative() << std::endl;
         }
     }
-    
-    if (ole != nullptr)
-    {
-        // Lee los datos del objeto en el Workbook
-        intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> cellsInputStream = ToCellsMemoryStream(ole->get_ObjectData());
-        intrusive_ptr<Aspose::Cells::IWorkbook> Wb = Aspose::Cells::Factory::CreateIWorkbook(cellsInputStream);
-
-        // Modifica los datos del workbook
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(0,4)->PutValue(u"E");
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(1, 4)->PutValue(12);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(2, 4)->PutValue(14);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(3, 4)->PutValue(15);
-
-        intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-        Wb->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
-        
-        // Cambia los datos del objeto del marco Ole
-        cellsOutputStream->SetPosition(0);
-        System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-        ole->set_ObjectData(msout->ToArray());
-        
-        pres->Save(GetOutPath() + u"OleEdit_out.pptx", Export::SaveFormat::Pptx);
-    }
 }
 ```
 
-## Incrustando Otros Tipos de Archivos en Diapositivas
 
-Además de gráficos de Excel, Aspose.Slides para C++ permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puedes insertar archivos HTML, PDF y ZIP como objetos en una diapositiva. Cuando un usuario hace doble clic en el objeto insertado, el objeto se lanza automáticamente en el programa relevante, o se le redirige al usuario para seleccionar un programa apropiado para abrir el objeto. 
+## **Cambiar datos del objeto OLE**
 
-Este código C++ te muestra cómo incrustar HTML y ZIP en una diapositiva:
+{{% alert color="primary" %}} 
 
+En esta sección, el ejemplo de código a continuación usa [Aspose.Cells for C++](/cells/cpp/).
+
+{{% /alert %}}
+
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder fácilmente a ese objeto y modificar sus datos de esta manera:
+
+1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. Obtenga la referencia de la diapositiva mediante su índice.  
+3. Acceda a la forma [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/).  
+   En nuestro ejemplo, usamos el PPTX creado previamente que tiene una forma en la primera diapositiva. Luego *convertimos* ese objeto a un [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). Este era el marco de objeto OLE deseado para ser accedido.  
+4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.  
+5. Cree un objeto `Workbook` y acceda a los datos OLE.  
+6. Acceda a la `Worksheet` deseada y modifique los datos.  
+7. Guarde el `Workbook` actualizado en un flujo.  
+8. Cambie los datos del objeto OLE desde el flujo.
+
+En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico.
 ``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
 
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::DOM::Ole;
-using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
-    
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+// Obtener la primera forma como un marco de objeto OLE.
+auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
-auto htmlBytes = System::IO::File::ReadAllBytes(u"embedOle.html");
-
-auto dataInfoHtml = System::MakeObject<OleEmbeddedDataInfo>(htmlBytes, u"html");
-auto oleFrameHtml = slide->get_Shapes()->AddOleObjectFrame(150.0f, 120.0f, 50.0f, 50.0f, dataInfoHtml);
-oleFrameHtml->set_IsObjectIcon(true);
-        
-auto zipBytes = System::IO::File::ReadAllBytes(u"embedOle.zip");
-auto dataInfoZip = System::MakeObject<OleEmbeddedDataInfo>(zipBytes, u"zip");
-auto oleFrameZip = slide->get_Shapes()->AddOleObjectFrame(150.0f, 220.0f, 50.0f, 50.0f, dataInfoZip);
-oleFrameZip->set_IsObjectIcon(true);
-        
-pres->Save(u"embeddedOle.pptx", SaveFormat::Pptx);
-
-```
-
-## Estableciendo Tipos de Archivos para Objetos Incrustados
-
-Al trabajar en presentaciones, puede que necesites reemplazar objetos OLE antiguos por nuevos. O puede que necesites reemplazar un objeto OLE no compatible por uno compatible.
-
-Aspose.Slides para C++ te permite establecer el tipo de archivo para un objeto incrustado. De esta manera, puedes cambiar los datos del marco OLE o su extensión.
-
-Este código C++ te muestra cómo establecer el tipo de archivo para un objeto OLE incrustado:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
-Console::WriteLine(u"La extensión de datos incrustados actuales es: {0}", oleObjectFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
-
-oleObjectFrame->SetEmbeddedData(System::MakeObject<OleEmbeddedDataInfo>(File::ReadAllBytes(u"embedOle.zip"), u"zip"));
-
-pres->Save(u"embeddedChanged.pptx", SaveFormat::Pptx);
-```
-
-## Estableciendo Imágenes e Títulos de Icono para Objetos Incrustados
-
-Después de incrustar un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de icono y un título. La vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE.
-
-Si deseas utilizar una imagen específica y texto como elementos en la vista previa, puedes establecer la imagen de icono y el título utilizando Aspose.Slides para C++.
-
-Este código C++ te muestra cómo establecer la imagen de icono y el título para un objeto incrustado:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slide(0);
-auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
-
-auto oleImage = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-oleObjectFrame->set_SubstitutePictureTitle(u"Mi título");
-oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
-oleObjectFrame->set_IsObjectIcon(false);
-
-pres->Save(u"embeddedOle-newImage.pptx", SaveFormat::Pptx);
-```
-
-## **Prevenir que un Marco de Objeto OLE sea Redimensionado y Reposicionado**
-
-Después de agregar un objeto OLE vinculado a una diapositiva de presentación, cuando abres la presentación en PowerPoint, es posible que veas un mensaje pidiéndote que actualices los vínculos. Hacer clic en el botón "Actualizar Vínculos" puede cambiar el tamaño y la posición del marco del objeto OLE porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint te pida actualizar los datos del objeto, establece el método `set_UpdateAutomatic` de la interfaz [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) en `false`:
-
-```cpp
-oleObjectFrame->set_UpdateAutomatic(false);
-```
-
-## Extrayendo Archivos Incrustados
-
-Aspose.Slides para C++ te permite extraer los archivos incrustados en las diapositivas como objetos OLE de la siguiente manera:
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que contenga el objeto OLE que deseas extraer.
-2. Recorre todas las formas en la presentación y accede a la forma [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame).
-3. Accede a los datos del archivo incrustado desde el Marco de Objeto OLE y escríbelo en disco.
-
-Este código C++ te muestra cómo extraer un archivo incrustado en una diapositiva como un objeto OLE:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-
-for (int32_t index = 0; index < slide->get_Shapes()->get_Count(); index++)
+if (oleFrame != nullptr)
 {
-    auto shape = slide->get_Shapes()->idx_get(index);
+    auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    auto oleFrame = System::AsCast<IOleObjectFrame>(shape);
+    // Leer los datos del objeto OLE como un objeto Workbook.
+    auto oleArray = oleStream->ToArray();
+    std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
+    Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    if (oleFrame != nullptr)
-    {
-        auto data = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
-        String extension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+    // Modificar los datos del libro de trabajo.
+    auto worksheet = workbook.GetWorksheets().Get(0);
+    worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
+    worksheet.GetCells().Get(1, 4).PutValue(12);
+    worksheet.GetCells().Get(2, 4).PutValue(14);
+    worksheet.GetCells().Get(3, 4).PutValue(15);
 
-        File::WriteAllBytes(String::Format(u"oleFrame{0}{1}", index, extension), data);
+    Aspose::Cells::OoxmlSaveOptions fileOptions(Aspose::Cells::SaveFormat::Xlsx);
+    auto newWorkbookData = workbook.Save(fileOptions);
+
+    auto newOleStream = MakeObject<MemoryStream>();
+    newOleStream->Write(
+        MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
+        0, newWorkbookData.GetLength());
+
+    // Cambiar los datos del objeto del marco OLE.
+    auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
+    oleFrame->SetEmbeddedData(newData);
+}
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+```
+
+
+## **Incrustar otros tipos de archivo en diapositivas**
+
+Además de los gráficos de Excel, Aspose.Slides for C++ le permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando un usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le solicita al usuario seleccionar un programa adecuado para abrirlo.
+
+Este código C++ le muestra cómo incrustar HTML y ZIP en una diapositiva:
+``` cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto htmlData = File::ReadAllBytes(u"sample.html");
+auto htmlDataInfo = MakeObject<OleEmbeddedDataInfo>(htmlData, u"html");
+auto htmlOleFrame = slide->get_Shapes()->AddOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
+htmlOleFrame->set_IsObjectIcon(true);
+
+auto zipData = File::ReadAllBytes(u"sample.zip");
+auto zipDataInfo = MakeObject<OleEmbeddedDataInfo>(zipData, u"zip");
+auto zipOleFrame = slide->get_Shapes()->AddOleObjectFrame(150, 220, 50, 50, zipDataInfo);
+zipOleFrame->set_IsObjectIcon(true);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Establecer tipos de archivo para objetos incrustados**
+
+Al trabajar con presentaciones, puede ser necesario reemplazar objetos OLE antiguos por nuevos o reemplazar un objeto OLE no compatible por uno compatible. Aspose.Slides for C++ le permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión.
+
+Este código C++ le muestra cómo establecer el tipo de archivo para un objeto OLE incrustado a `zip`:
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
+auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+
+std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
+
+// Cambiar el tipo de archivo a ZIP.
+oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Establecer imágenes de ícono y títulos para objetos incrustados**
+
+Después de incrustar un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de ícono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea utilizar una imagen y un texto específicos como elementos en la vista previa, puede establecer la imagen de ícono y el título usando Aspose.Slides for C++.
+
+Este código C++ le muestra cómo establecer la imagen de ícono y el título para un objeto incrustado: 
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
+// Añadir una imagen a los recursos de la presentación.
+auto imageData = File::ReadAllBytes(u"image.png");
+auto oleImage = presentation->get_Images()->AddImage(imageData);
+
+// Establecer un título y la imagen para la vista previa OLE.
+oleFrame->set_SubstitutePictureTitle(u"My title");
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(true);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Evitar que un marco de objeto OLE sea redimensionado y reposicionado**
+
+Después de agregar un objeto OLE vinculado a una diapositiva de presentación, cuando abra la presentación en PowerPoint, puede ver un mensaje que le solicita actualizar los enlaces. Al hacer clic en el botón "Update Links" (Actualizar enlaces) puede cambiar el tamaño y la posición del marco del objeto OLE porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, establezca el método `set_UpdateAutomatic` de la interfaz [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) a `false`:
+```cpp
+oleFrame->set_UpdateAutomatic(false);
+```
+
+
+## **Extraer archivos incrustados**
+
+Aspose.Slides for C++ le permite extraer los archivos incrustados en diapositivas como objetos OLE de la siguiente manera:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que contenga los objetos OLE que desea extraer.  
+2. Recorra todas las formas de la presentación y acceda a las formas [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/).  
+3. Acceda a los datos de los archivos incrustados desde los marcos de objeto OLE y escríbalos en disco.  
+
+Este código C++ le muestra cómo extraer archivos incrustados en una diapositiva como objetos OLE:
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (int index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto shape = slide->get_Shape(index);
+
+    if (ObjectExt::Is<IOleObjectFrame>(shape))
+    { 
+        auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
+
+        auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+        auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+
+        auto fileName = String::Format(u"OLE_object_{0}{1}", index, fileExtension);
+        File::WriteAllBytes(fileName, fileData);
     }
 }
+
+presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imágenes?**
+
+Lo que es visible en la diapositiva se renderiza: el ícono/imagen de sustitución (vista previa). El contenido OLE "en vivo" no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para garantizar la apariencia esperada en el PDF exportado.
+
+**¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no puedan moverlo/editarlo en PowerPoint?**
+
+Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/cpp/applying-protection-to-presentation/). No es cifrado, pero evita eficazmente ediciones y movimientos accidentales.
+
+**¿Por qué un objeto Excel vinculado "salta" o cambia de tamaño al abrir la presentación?**
+
+PowerPoint puede refrescar la vista previa del OLE vinculado. Para una apariencia estable, siga las prácticas de la [Solución funcional para el redimensionamiento de hoja de cálculo](/slides/es/cpp/working-solution-for-worksheet-resizing/): ajuste el marco al rango, o escale el rango a un marco fijo y establezca una imagen de sustitución adecuada.
+
+**¿Se conservarán las rutas relativas para objetos OLE vinculados en el formato PPTX?**
+
+En PPTX, la información de "ruta relativa" no está disponible, solo la ruta completa. Las rutas relativas aparecen en el formato PPT más antiguo. Para portabilidad, prefiera rutas absolutas confiables/URIs accesibles o la incrustación.

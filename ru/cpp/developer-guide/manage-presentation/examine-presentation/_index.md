@@ -1,26 +1,42 @@
 ---
-title: Исследование презентации - C++ PowerPoint API
-linktitle: Исследование презентации
+title: Получить и обновить информацию о презентации в C++
+linktitle: Информация о презентации
 type: docs
 weight: 30
 url: /ru/cpp/examine-presentation/
-description: C++ PowerPoint API позволяет вам исследовать презентацию, чтобы узнать её свойства и понять её поведение.
+keywords:
+- формат презентации
+- свойства презентации
+- свойства документа
+- получить свойства
+- читать свойства
+- изменить свойства
+- модифицировать свойства
+- обновить свойства
+- исследовать PPTX
+- исследовать PPT
+- исследовать ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью C++ для более быстрых выводов и более умных аудитов контента."
 ---
 
-Aspose.Slides для C++ позволяет вам исследовать презентацию, чтобы узнать её свойства и понять её поведение.
+Aspose.Slides for C++ позволяет изучать презентацию, чтобы узнать её свойства и понять её поведение. 
 
-{{% alert title="Информация" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-Классы [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) и [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) содержат свойства и методы, используемые в операциях здесь.
+Классы [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) и [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) содержат свойства и методы, используемые в приведённых операциях.
 
 {{% /alert %}} 
 
 ## **Проверка формата презентации**
 
-Перед работой с презентацией вы можете захотеть выяснить, в каком формате (PPT, PPTX, ODP и других) находится презентация в данный момент.
+Перед работой с презентацией вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и др.) она находится в данный момент.
 
-Вы можете проверить формат презентации без её загрузки. Посмотрите этот код на C++:
-
+Вы можете проверить формат презентации без её загрузки. См. этот код C++:
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
@@ -35,38 +51,74 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
+
 ## **Получение свойств презентации**
 
-Этот код на C++ покажет вам, как получить свойства презентации (информацию о презентации):
-
+Этот код C++ показывает, как получить свойства презентации (информацию о презентации):
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
 Console::WriteLine(props->get_Subject());
 Console::WriteLine(props->get_Title());
-// .. 
+// и т.д.
 ```
+
 
 ## **Обновление свойств презентации**
 
-Aspose.Slides предоставляет метод [PresentationInfo::UpdateDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info#ac9fce3667003cdb8bf05816c589a6f88), который позволяет вам вносить изменения в свойства презентации.
+Aspose.Slides предоставляет метод [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/updatedocumentproperties/), который позволяет вносить изменения в свойства презентации.
 
-Этот код на C++ покажет вам, как редактировать свойства презентации:
+Предположим, у нас есть презентация PowerPoint со свойствами документа, показанными ниже.
 
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-auto props = info->ReadDocumentProperties();
-props->set_Title(u"Мой заголовок");
-info->UpdateDocumentProperties(props);
+Этот пример кода показывает, как отредактировать некоторые свойства презентации:
+```cpp
+auto fileName = u"sample.pptx";
+
+auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
+
+auto properties = info->ReadDocumentProperties();
+properties->set_Title(u"My title");
+properties->set_LastSavedTime(DateTime::get_Now());
+
+info->UpdateDocumentProperties(properties);
+info->WriteBindedPresentation(fileName);
 ```
 
-### **Полезные ссылки**
 
-Чтобы получить дополнительную информацию о презентации и её атрибутах безопасности, вы можете найти эти ссылки полезными:
+Результаты изменения свойств документа показаны ниже.
 
-- [Проверка, зашифрована ли презентация](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Проверка, защищена ли презентация от записи (только для чтения)](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Проверка, защищена ли презентация паролем перед её загрузкой](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Подтверждение пароля, использованного для защиты презентации](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Полезные ссылки**
+
+Для получения дополнительной информации о презентации и её параметрах безопасности могут быть полезны следующие ссылки:
+
+- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **FAQ**
+
+**Как проверить, встроены ли шрифты и какие именно?**
+
+Ищите информацию о [embedded-font](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) на уровне презентации, затем сравните эти записи с набором [fonts actually used across content](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getfonts/), чтобы определить, какие шрифты критичны для рендеринга.
+
+**Как быстро определить, есть ли скрытые слайды и их количество?**
+
+Итерируйте через [slide collection](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/) и проверяйте флаг [visibility](https://reference.aspose.com/slides/cpp/aspose.slides/slide/get_hidden/) каждого слайда.
+
+**Можно ли обнаружить использование пользовательского размера и ориентации слайдов и отличается ли он от стандартных?**
+
+Да. Сравните текущий [slide size and orientation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slidesize/) со стандартными предустановками; это помогает предсказать поведение при печати и экспорте.
+
+**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
+
+Да. Пройдите по всем [charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/), проверьте их [data source](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/), и отметьте, является ли источник данных внутренним или ссылкой, включая любые битые ссылки.
+
+**Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
+
+Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимацию и мультимедиа; присвойте приблизительный балл сложности, чтобы отметить потенциальные узкие места производительности.

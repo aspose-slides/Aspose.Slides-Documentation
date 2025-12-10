@@ -1,316 +1,341 @@
 ---
-title: 管理 OLE
+title: 使用 C++ 管理演示文稿中的 OLE
+linktitle: 管理 OLE
 type: docs
 weight: 40
 url: /zh/cpp/manage-ole/
 keywords:
+- OLE 对象
+- 对象链接与嵌入
 - 添加 OLE
 - 嵌入 OLE
 - 添加对象
 - 嵌入对象
+- 添加文件
 - 嵌入文件
 - 链接对象
-- 对象链接与嵌入
-- OLE 对象
-- PowerPoint 
+- 链接文件
+- 更改 OLE
+- OLE 图标
+- OLE 标题
+- 提取 OLE
+- 提取对象
+- 提取文件
+- PowerPoint
 - 演示文稿
 - C++
-- Aspose.Slides for C++
-description: 在 C++ 中将 OLE 对象添加到 PowerPoint 演示文稿中
+- Aspose.Slides
+description: "使用 Aspose.Slides for C++ 优化 PowerPoint 和 OpenDocument 文件中的 OLE 对象管理，实现 OLE 内容的无缝嵌入、更新和导出。"
 ---
 
-{{% alert title="信息" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-OLE (对象链接与嵌入) 是一种 Microsoft 技术，允许在一个应用程序中创建的数据和对象通过链接或嵌入被放置在另一个应用程序中。 
+OLE（对象链接与嵌入）是 Microsoft 的一项技术，允许在一个应用程序中创建的数据和对象通过链接或嵌入的方式放置到另一个应用程序中。
 
 {{% /alert %}} 
 
-考虑在 MS Excel 中创建的图表。图表随后被放置在 PowerPoint 幻灯片中。该 Excel 图表被视为 OLE 对象。 
+考虑在 MS Excel 中创建的图表，然后将该图表放置在 PowerPoint 幻灯片中。该 Excel 图表即被视为 OLE 对象。
 
-- OLE 对象可能显示为图标。在这种情况下，当您双击图标时，图表会在其关联的应用程序（Excel）中打开，或者会要求您选择一个应用程序以打开或编辑对象。 
-- OLE 对象可能显示实际内容，例如图表的内容。在这种情况下，图表在 PowerPoint 中激活，图表界面加载，您可以在 PowerPoint 应用程序中修改图表的数据。
+- OLE 对象可能以图标形式出现。此时，当您双击该图标时，图表将在其关联的应用程序（Excel）中打开，或者系统会要求您选择用于打开或编辑对象的应用程序。
+- OLE 对象也可能直接显示其实际内容，例如图表本身。此时，图表在 PowerPoint 中被激活，图表界面加载，您可以在 PowerPoint 中修改图表的数据。
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) 允许您将 OLE 对象插入幻灯片作为 OLE 对象框 ([OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame))。
+[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) 允许您将 OLE 对象作为 OLE 对象框（[OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)）插入到幻灯片中。
 
+## **在幻灯片中添加 OLE 对象框**
 
+假设您已经在 Microsoft Excel 中创建了图表，并希望使用 Aspose.Slides for C++ 将其嵌入为 OLE 对象框，可以按以下方式操作：
 
-## **向幻灯片添加 OLE 对象框**
-
-假设您已经在 Microsoft Excel 中创建了一个图表，并想将该图表作为 OLE 对象框嵌入到幻灯片中，您可以这样做：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 打开包含 Excel 图表对象的 Excel 文件并将其保存到 `MemoryStream`。
-4. 向包含 OLE 对象的字节数组和其他信息的幻灯片中添加 [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)。
-5. 将修改后的演示文稿写入 PPTX 文件。
+3. 将 Excel 文件读取为字节数组。
+4. 将包含字节数组及 OLE 对象其他信息的 [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 添加到幻灯片。
+5. 将修改后的演示文稿写入为 PPTX 文件。
 
-在下面的示例中，我们使用 Aspose.Slides for C++ 将来自 Excel 文件的图表添加到幻灯片中，作为 [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)。  
-**注意**， [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_embedded_data_info) 构造函数的第二个参数是一个可嵌入对象扩展名。此扩展名允许 PowerPoint 正确解释文件类型并选择正确的应用程序来打开此 OLE 对象。
-
+下面的示例演示了如何使用 Aspose.Slides for C++ 将 Excel 文件中的图表作为 [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 添加到幻灯片中。  
+**注意**，[OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) 构造函数的第二个参数是可嵌入对象的扩展名。该扩展名使 PowerPoint 能够正确识别文件类型并选择合适的应用程序打开此 OLE 对象。
 ``` cpp
-// 文档目录的路径。
-String dataDir = u"";
-// 实例化表示 PPTX 的 Presentation 类
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
 
-// 访问第一张幻灯片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-// 加载 Excel 文件到流
-SharedPtr<MemoryStream> mstream = System::MakeObject<MemoryStream>();
+// Prepare data for the OLE object.
+auto fileData = File::ReadAllBytes(u"book.xlsx");
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
-SharedPtr<FileStream> fs = System::MakeObject<FileStream>(dataDir + u"book1.xlsx", FileMode::Open, FileAccess::Read);
+// Add the OLE object frame to the slide.
+slide->get_Shapes()->AddOleObjectFrame(0, 0, slideSize.get_Width(), slideSize.get_Height(), dataInfo);
 
-ArrayPtr<uint8_t> buf = System::MakeArray<uint8_t>(4096, 0);
-while (true)
-{
-    int32_t bytesRead = fs->Read(buf, 0, buf->get_Length());
-    if (bytesRead <= 0)
-    {
-        break;
-    }
-    mstream->Write(buf, 0, bytesRead);
-}
-
-// 创建用于嵌入的数据对象
-SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(mstream->ToArray(), u"xlsx");
-// 添加 Ole 对象框形状
-SharedPtr<IOleObjectFrame> oleObjectFrame = sld->get_Shapes()->AddOleObjectFrame(0.0f, 0.0f, pres->get_SlideSize()->get_Size().get_Width(), pres->get_SlideSize()->get_Size().get_Height(), dataInfo);
-// 将 PPTX 文件写入磁盘
-pres->Save(dataDir + u"OleEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+### **添加链接 OLE 对象框**
+
+Aspose.Slides for C++ 允许您在不嵌入数据的情况下，仅通过链接文件来添加 [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)。
+
+下面的 C++ 代码展示了如何将链接到 Excel 文件的 [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 添加到幻灯片：
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// 添加一个带有链接 Excel 文件的 OLE 对象框。
+slide->get_Shapes()->AddOleObjectFrame(20, 20, 200, 150, u"Excel.Sheet.12", u"book.xlsx");
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
 
 ## **访问 OLE 对象框**
-如果 OLE 对象已经嵌入到幻灯片中，您可以通过以下方式轻松找到或访问该对象：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
+如果幻灯片中已经嵌入了 OLE 对象，您可以按以下方式轻松找到或访问它：
 
-2. 通过其索引获取幻灯片的引用。
+1. 通过创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例来加载包含嵌入 OLE 对象的演示文稿。
+2. 使用索引获取幻灯片的引用。
+3. 访问 [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 形状。  
+   在我们的示例中，我们使用之前创建的只在第一页上有一个形状的 PPTX。然后将该对象 *强制转换* 为 [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/)，这就是我们想要访问的 OLE 对象框。
+4. 一旦访问到 OLE 对象框，您就可以对其执行任何操作。
 
-3. 访问 [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) 形状。
-
-   在我们的示例中，我们使用了之前创建的 PPTX，该 PPTX 的第一张幻灯片上只有一个形状。然后，我们将该对象 *强制转换* 为 [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)。这是要访问的所需 OLE 对象框。
-
-4. 一旦访问了 OLE 对象框，您可以对其进行任何操作。
-
-在下面的示例中，访问了一个 OLE 对象框（嵌入在幻灯片中的 Excel 图表对象）——然后其文件数据被写入到 Excel 文件中：
-
+下面的示例演示了如何访问 OLE 对象框（嵌入在幻灯片中的 Excel 图表对象）以及其文件数据。
 ``` cpp
-// 文档目录的路径。
-const String templatePath = u"../templates/AccessingOLEObjectFrame.pptx";
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+if (ObjectExt::Is<IOleObjectFrame>(shape))
+{ 
+    auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-// 访问第一张幻灯片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+    // 获取嵌入的文件数据。
+    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
-// 将形状强制转换为 OleObjectFrame
-SharedPtr<OleObjectFrame> oleObjectFrame = System::AsCast<OleObjectFrame>(sld->get_Shapes()->idx_get(0));
+    // 获取嵌入文件的扩展名。
+    auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
 
-// 读取 OLE 对象并写入磁盘
-if (oleObjectFrame != nullptr)
-{
-    // 获取嵌入的文件数据
-    ArrayPtr<uint8_t> data = oleObjectFrame->get_EmbeddedFileData();
-
-    // 获取嵌入的文件扩展名
-    String fileExtention = oleObjectFrame->get_EmbeddedFileExtension();
-
-    // 创建用于保存提取文件的路径
-    String extractedPath = Path::Combine(GetOutPath(), u"excelFromOLE_out" + fileExtention);
-
-    // 保存提取的数据
-    SharedPtr<FileStream> fstr = System::MakeObject<FileStream>(extractedPath, FileMode::Create, FileAccess::Write);
-    fstr->Write(data, 0, data->get_Length());
+    // ...
 }
 ```
 
-## **更改 OLE 对象数据**
-如果 OLE 对象已经嵌入到幻灯片中，您可以轻松访问该对象并以这种方式修改其数据：
 
-1. 通过创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例打开包含嵌入 OLE 对象的演示文稿。
+### **访问链接 OLE 对象框属性**
 
-2. 通过其索引获取幻灯片的引用。 
+Aspose.Slides 允许您访问链接 OLE 对象框的属性。
 
-3. 访问 [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) 形状。
+下面的 C++ 代码展示了如何检查 OLE 对象是否为链接状态，以及获取链接文件的路径：
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.ppt");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
 
-   在我们的示例中，我们使用了之前创建的 PPTX，该 PPTX 的第一张幻灯片上有一个形状。然后，我们将该对象 *强制转换* 为 [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)。这是要访问的所需 OLE 对象框。
-
-4. 一旦访问了 OLE 对象框，您可以对其进行任何操作。
-
-5. 创建工作簿对象并访问 OLE 数据。
-
-6. 访问所需的工作表并修改数据。
-
-7. 在流中保存更新的工作簿。
-
-8. 从流数据更改 OLE 对象数据。
-
-在下面的示例中，访问了一个 OLE 对象框（嵌入在幻灯片中的 Excel 图表对象）——然后其文件数据被修改以更改图表数据：
-
-``` cpp
-intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> ToCellsMemoryStream(System::ArrayPtr<uint8_t> buffer)
+if (ObjectExt::Is<IOleObjectFrame>(shape))
 {
-    intrusive_ptr<BString> array = new BString(buffer->data_ptr(), buffer->Count());
-    auto stream = new Aspose::Cells::Systems::IO::MemoryStream(array);
+    auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    return stream;
-}
-
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-
-void ChangeOLEObjectData()
-{
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(GetDataPath() + u"ChangeOLEObjectData.pptx");
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-    System::SharedPtr<OleObjectFrame> ole;
-
-    // 遍历所有形状以查找 Ole 框
-    for (auto shape : IterateOver(slide->get_Shapes()))
+    // 检查 OLE 对象是否已链接。
+    if (oleFrame->get_IsObjectLink())
     {
-        if (System::ObjectExt::Is<OleObjectFrame>(shape))
+        // 打印链接文件的完整路径。
+        std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
+
+        // 如有，则打印链接文件的相对路径。
+        // 仅 PPT 演示文稿可以包含相对路径。
+        if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
-            ole = System::ExplicitCast<OleObjectFrame>(shape);
+            std::wcout << L"OLE object frame relative path: " << oleFrame->get_LinkPathRelative() << std::endl;
         }
     }
-    
-    if (ole != nullptr)
-    {
-        // 在工作簿中读取对象数据
-        intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> cellsInputStream = ToCellsMemoryStream(ole->get_ObjectData());
-        intrusive_ptr<Aspose::Cells::IWorkbook> Wb = Aspose::Cells::Factory::CreateIWorkbook(cellsInputStream);
-
-        // 修改工作簿数据
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(0,4)->PutValue(u"E");
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(1, 4)->PutValue(12);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(2, 4)->PutValue(14);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(3, 4)->PutValue(15);
-
-        intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-        Wb->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
-        
-        // 更改 Ole 框对象数据
-        cellsOutputStream->SetPosition(0);
-        System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-        ole->set_ObjectData(msout->ToArray());
-        
-        pres->Save(GetOutPath() + u"OleEdit_out.pptx", Export::SaveFormat::Pptx);
-    }
 }
 ```
 
-## 在幻灯片中嵌入其他文件类型
 
-除了 Excel 图表，Aspose.Slides for C++ 还允许您将其他类型的文件嵌入到幻灯片中。例如，您可以将 HTML、PDF 和 ZIP 文件作为对象插入到幻灯片中。当用户双击嵌入的对象时，该对象会自动在相关程序中启动，或者用户会被引导选择一个合适的程序来打开该对象。 
+## **更改 OLE 对象数据**
 
-以下 C++ 代码展示了如何在幻灯片中嵌入 HTML 和 ZIP：
+{{% alert color="primary" %}} 
 
+本节中的代码示例使用 [Aspose.Cells for C++](/cells/cpp/)。
+
+{{% /alert %}}
+
+如果幻灯片中已经嵌入了 OLE 对象，您可以按以下方式轻松访问该对象并修改其数据：
+
+1. 通过创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例来加载包含嵌入 OLE 对象的演示文稿。
+2. 通过索引获取幻灯片的引用。 
+3. 访问 [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 形状。  
+   在我们的示例中，我们使用之前创建的在第一页上只有一个形状的 PPTX。然后将该对象 *强制转换* 为 [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/)，这就是我们想要访问的 OLE 对象框。
+4. 一旦访问到 OLE 对象框，您可以对其执行任何操作。
+5. 创建 `Workbook` 对象并访问 OLE 数据。
+6. 访问目标 `Worksheet` 并修改数据。
+7. 将更新后的 `Workbook` 保存到流中。
+8. 从流中更改 OLE 对象的数据。
+
+下面的示例演示了如何访问嵌入在幻灯片中的 OLE 对象框（Excel 图表对象），并修改其文件数据以更新图表数据。
 ``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
 
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::DOM::Ole;
-using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
-    
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+// 获取第一个形状作为 OLE 对象框。
+auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
-auto htmlBytes = System::IO::File::ReadAllBytes(u"embedOle.html");
-
-auto dataInfoHtml = System::MakeObject<OleEmbeddedDataInfo>(htmlBytes, u"html");
-auto oleFrameHtml = slide->get_Shapes()->AddOleObjectFrame(150.0f, 120.0f, 50.0f, 50.0f, dataInfoHtml);
-oleFrameHtml->set_IsObjectIcon(true);
-        
-auto zipBytes = System::IO::File::ReadAllBytes(u"embedOle.zip");
-auto dataInfoZip = System::MakeObject<OleEmbeddedDataInfo>(zipBytes, u"zip");
-auto oleFrameZip = slide->get_Shapes()->AddOleObjectFrame(150.0f, 220.0f, 50.0f, 50.0f, dataInfoZip);
-oleFrameZip->set_IsObjectIcon(true);
-        
-pres->Save(u"embeddedOle.pptx", SaveFormat::Pptx);
-
-```
-
-## 为嵌入对象设置文件类型
-
-在处理演示文稿时，您可能需要用新对象替换旧的 OLE 对象。或者您可能需要用一个受支持的对象替换一个不受支持的 OLE 对象。 
-
-Aspose.Slides for C++ 允许您为嵌入对象设置文件类型。通过这种方式，您可以更改 OLE 框数据或其扩展名。 
-
-以下 C++ 代码展示了如何为嵌入的 OLE 对象设置文件类型：
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
-Console::WriteLine(u"当前嵌入数据扩展名为: {0}", oleObjectFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
-
-oleObjectFrame->SetEmbeddedData(System::MakeObject<OleEmbeddedDataInfo>(File::ReadAllBytes(u"embedOle.zip"), u"zip"));
-
-pres->Save(u"embeddedChanged.pptx", SaveFormat::Pptx);
-```
-
-## 为嵌入对象设置图标图像和标题
-
-在您嵌入 OLE 对象之后，预览图标图像和标题将自动添加。预览是用户在访问或打开 OLE 对象之前看到的内容。 
-
-如果您想使用特定的图像和文本作为预览中的元素，可以使用 Aspose.Slides for C++ 设置图标图像和标题。
-
-以下 C++ 代码展示了如何为嵌入对象设置图标图像和标题： 
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slide(0);
-auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
-
-auto oleImage = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-oleObjectFrame->set_SubstitutePictureTitle(u"我的标题");
-oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
-oleObjectFrame->set_IsObjectIcon(false);
-
-pres->Save(u"embeddedOle-newImage.pptx", SaveFormat::Pptx);
-```
-
-## **防止 OLE 对象框被调整大小和重新定位**
-
-在您将链接的 OLE 对象添加到演示文稿幻灯片后，当您在 PowerPoint 中打开演示文稿时，您可能会看到一个提示要求您更新链接。单击“更新链接”按钮可能会更改 OLE 对象框的大小和位置，因为 PowerPoint 更新来自链接 OLE 对象的数据并刷新对象预览。要防止 PowerPoint 提示更新对象的数据，请将 [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) 接口的 `set_UpdateAutomatic` 方法设置为 `false`：
-
-```cpp
-oleObjectFrame->set_UpdateAutomatic(false);
-```
-
-## 提取嵌入的文件
-
-Aspose.Slides for C++ 允许您通过以下方式提取嵌入在幻灯片中作为 OLE 对象的文件：
-
-1. 创建一个包含您打算提取的 OLE 对象的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-2. 遍历演示文稿中的所有形状并访问 [OLEObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) 形状。
-3. 从 OLE 对象框中访问嵌入文件的数据并将其写入磁盘。 
-
-以下 C++ 代码展示了如何提取作为 OLE 对象嵌入在幻灯片中的文件：
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-
-for (int32_t index = 0; index < slide->get_Shapes()->get_Count(); index++)
+if (oleFrame != nullptr)
 {
-    auto shape = slide->get_Shapes()->idx_get(index);
+    auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    auto oleFrame = System::AsCast<IOleObjectFrame>(shape);
+    // 将 OLE 对象数据读取为 Workbook 对象。
+    auto oleArray = oleStream->ToArray();
+    std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
+    Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    if (oleFrame != nullptr)
-    {
-        auto data = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
-        String extension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+    // 修改工作簿数据。
+    auto worksheet = workbook.GetWorksheets().Get(0);
+    worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
+    worksheet.GetCells().Get(1, 4).PutValue(12);
+    worksheet.GetCells().Get(2, 4).PutValue(14);
+    worksheet.GetCells().Get(3, 4).PutValue(15);
 
-        File::WriteAllBytes(String::Format(u"oleFrame{0}{1}", index, extension), data);
+    Aspose::Cells::OoxmlSaveOptions fileOptions(Aspose::Cells::SaveFormat::Xlsx);
+    auto newWorkbookData = workbook.Save(fileOptions);
+
+    auto newOleStream = MakeObject<MemoryStream>();
+    newOleStream->Write(
+        MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
+        0, newWorkbookData.GetLength());
+
+    // 更改 OLE 框对象数据。
+    auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
+    oleFrame->SetEmbeddedData(newData);
+}
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+```
+
+
+## **在幻灯片中嵌入其他文件类型**
+
+除了 Excel 图表，Aspose.Slides for C++ 还允许您将其他类型的文件嵌入到幻灯片中。例如，您可以将 HTML、PDF 和 ZIP 文件作为对象插入。当用户双击该对象时，它会自动在相应程序中打开，或提示用户选择合适的程序打开它。
+
+下面的 C++ 代码展示了如何将 HTML 和 ZIP 嵌入到幻灯片中：
+``` cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto htmlData = File::ReadAllBytes(u"sample.html");
+auto htmlDataInfo = MakeObject<OleEmbeddedDataInfo>(htmlData, u"html");
+auto htmlOleFrame = slide->get_Shapes()->AddOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
+htmlOleFrame->set_IsObjectIcon(true);
+
+auto zipData = File::ReadAllBytes(u"sample.zip");
+auto zipDataInfo = MakeObject<OleEmbeddedDataInfo>(zipData, u"zip");
+auto zipOleFrame = slide->get_Shapes()->AddOleObjectFrame(150, 220, 50, 50, zipDataInfo);
+zipOleFrame->set_IsObjectIcon(true);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **设置嵌入对象的文件类型**
+
+在处理演示文稿时，您可能需要将旧的 OLE 对象替换为新的，或将不受支持的 OLE 对象替换为受支持的对象。Aspose.Slides for C++ 允许您为嵌入对象设置文件类型，从而更新 OLE 框的数据或其扩展名。
+
+下面的 C++ 代码展示了如何将嵌入的 OLE 对象的文件类型设置为 `zip`：
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
+auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+
+std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
+
+// 将文件类型更改为 ZIP。
+oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **为嵌入对象设置图标图片和标题**
+
+嵌入 OLE 对象后，系统会自动添加一个由图标图片组成的预览。这是用户在访问或打开 OLE 对象之前看到的内容。如果您想使用特定的图片和文字作为预览元素，可以使用 Aspose.Slides for C++ 设置图标图片和标题。
+
+下面的 C++ 代码展示了如何为嵌入对象设置图标图片和标题：
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
+// 将图像添加到演示文稿资源中。
+auto imageData = File::ReadAllBytes(u"image.png");
+auto oleImage = presentation->get_Images()->AddImage(imageData);
+
+// 为 OLE 预览设置标题和图像。
+oleFrame->set_SubstitutePictureTitle(u"My title");
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(true);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **防止 OLE 对象框被重新调整大小和重新定位**
+
+在向演示文稿幻灯片添加链接 OLE 对象后，打开 PowerPoint 时可能会出现提示更新链接的消息。单击 “Update Links” 按钮可能会改变 OLE 对象框的大小和位置，因为 PowerPoint 会从链接的 OLE 对象更新数据并刷新对象预览。要阻止 PowerPoint 提示更新对象数据，请将 [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) 接口的 `set_UpdateAutomatic` 方法设为 `false`：
+```cpp
+oleFrame->set_UpdateAutomatic(false);
+```
+
+
+## **提取嵌入的文件**
+
+Aspose.Slides for C++ 允许您按以下方式提取幻灯片中作为 OLE 对象嵌入的文件：
+
+1. 创建包含要提取的 OLE 对象的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类实例。
+2. 遍历演示文稿中的所有形状，访问其中的 [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) 形状。
+3. 从 OLE 对象框中获取嵌入文件的数据，并写入磁盘。
+
+下面的 C++ 代码展示了如何提取幻灯片中作为 OLE 对象嵌入的文件：
+``` cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (int index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto shape = slide->get_Shape(index);
+
+    if (ObjectExt::Is<IOleObjectFrame>(shape))
+    { 
+        auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
+
+        auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+        auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+
+        auto fileName = String::Format(u"OLE_object_{0}{1}", index, fileExtension);
+        File::WriteAllBytes(fileName, fileData);
     }
 }
+
+presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**将 OLE 内容导出为 PDF/图片时会被渲染吗？**
+
+渲染的是幻灯片上可见的内容——图标/替代图片（预览）。“实时” OLE 内容在渲染过程中不会执行。如有需要，可自行设置预览图片，以确保导出 PDF 时的外观符合预期。
+
+**如何锁定幻灯片上的 OLE 对象，使用户在 PowerPoint 中无法移动或编辑？**
+
+锁定形状：Aspose.Slides 提供了[形状级别的锁定](/slides/zh/cpp/applying-protection-to-presentation/)。这不是加密，但可有效防止意外编辑和移动。
+
+**为什么链接的 Excel 对象在打开演示文稿时会“跳动”或改变大小？**
+
+PowerPoint 可能会刷新链接 OLE 的预览。为获得稳定外观，请遵循[工作表大小调整的解决方案](/slides/zh/cpp/working-solution-for-worksheet-resizing/)——要么将框适配到范围，要么将范围缩放到固定框并设置合适的替代图片。
+
+**PPTX 格式会保留链接 OLE 对象的相对路径吗？**
+
+在 PPTX 中不存在 “相对路径” 信息——仅存储完整路径。相对路径仅在旧的 PPT 格式中出现。为实现可移植性，建议使用可靠的绝对路径/可访问的 URI 或直接嵌入。

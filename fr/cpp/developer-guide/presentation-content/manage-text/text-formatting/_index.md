@@ -1,54 +1,60 @@
 ---
-title: Mise en Forme du Texte
+title: Mise en forme du texte PowerPoint en C++
+linktitle: Mise en forme du texte
 type: docs
 weight: 50
 url: /fr/cpp/text-formatting/
 keywords:
-- mettre en surbrillance du texte
+- surlignage de texte
 - expression régulière
-- aligner les paragraphes de texte
+- alignement du paragraphe
+- style de texte
+- arrière-plan du texte
 - transparence du texte
-- propriétés de la police des paragraphes
-- famille de polices
+- espacement des caractères
+- propriétés de police
+- famille de police
 - rotation du texte
-- rotation d'angle personnalisé
+- angle de rotation
 - cadre de texte
 - interligne
-- propriété d'ajustement automatique
-- ancre de cadre de texte
-- tabulation de texte
-- style de texte par défaut
+- propriété autofit
+- ancrage du cadre de texte
+- tabulation du texte
+- langue par défaut
+- PowerPoint
+- OpenDocument
+- présentation
 - C++
-- Aspose.Slides pour .C++
-description: "Gérez et manipulez les propriétés du texte et du cadre de texte en C++"
+- Aspose.Slides
+description: "Formatez et stylisez le texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour C++. Personnalisez les polices, les couleurs, l'alignement et plus encore."
 ---
 
-## **Mettre en Surbrillance du Texte**
-Une nouvelle méthode HighlightText a été ajoutée aux classes ITextFrame et TextFrame. Elle permet de mettre en surbrillance une partie du texte avec une couleur de fond en utilisant un échantillon de texte, similaire à l'outil de couleur de surbrillance de texte dans PowerPoint 2019.
+## **Mettre en évidence le texte**
+La nouvelle méthode HighlightText a été ajoutée aux classes ITextFrame et TextFrame. Elle permet de mettre en évidence une partie du texte avec une couleur d’arrière‑plan en utilisant un échantillon de texte, similaire à l’outil Couleur de mise en évidence du texte dans PowerPoint 2019.
 
-Le fragment de code ci-dessous montre comment utiliser cette fonctionnalité :
+L’extrait de code ci‑dessous montre comment utiliser cette fonctionnalité :
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightText-HighlightText.cpp" >}}
 
 {{% alert color="primary" %}} 
 
-Aspose propose un simple [service d'édition de PowerPoint en ligne](https://products.aspose.app/slides/editor)
+Aspose propose un service [gratuit d’édition en ligne de PowerPoint](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
-## **Mettre en Surbrillance le Texte à l'aide d'une Expression Régulière**
-Une nouvelle méthode HighlightRegex a été ajoutée aux classes ITextFrame et TextFrame. Elle permet de mettre en surbrillance une partie du texte avec une couleur de fond en utilisant une expression régulière, similaire à l'outil de couleur de surbrillance de texte dans PowerPoint 2019.
+## **Mettre en évidence le texte avec des expressions régulières**
+La nouvelle méthode HighlightRegex a été ajoutée aux classes ITextFrame et TextFrame. Elle permet de mettre en évidence une partie du texte avec une couleur d’arrière‑plan en utilisant une expression régulière, similaire à l’outil Couleur de mise en évidence du texte dans PowerPoint 2019.
 
-Le fragment de code ci-dessous montre comment utiliser cette fonctionnalité :
+L’extrait de code ci‑dessous montre comment utiliser cette fonctionnalité :
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightTextUsingRegx-HighlightTextUsingRegx.cpp" >}}
 
-## **Définir la Couleur de Fond du Texte**
+## **Définir la couleur d’arrière‑plan du texte**
 
-Aspose.Slides vous permet de spécifier votre couleur préférée pour l'arrière-plan d'un texte.
+Aspose.Slides vous permet de spécifier la couleur de votre choix pour l’arrière‑plan d’un texte.
 
-Ce code C++ vous montre comment définir la couleur de fond pour un texte entier :
-
+Ce code C++ montre comment définir la couleur d’arrière‑plan pour un texte entier :
 ```c++
 {
     auto pres = System::MakeObject<Presentation>();
@@ -85,8 +91,8 @@ Ce code C++ vous montre comment définir la couleur de fond pour un texte entier
 }
 ```
 
-Ce code C++ vous montre comment définir la couleur de fond pour seulement une partie d'un texte :
 
+Ce code C++ montre comment définir la couleur d’arrière‑plan pour seulement une partie d’un texte :
 ```c++
 {
     auto pres = System::MakeObject<Presentation>();
@@ -132,38 +138,38 @@ Ce code C++ vous montre comment définir la couleur de fond pour seulement une p
 }
 ```
 
-## **Aligner le Paragraphe de Texte**
-La mise en forme du texte est l'un des éléments clés lors de la création de tout type de documents ou de présentations. Nous savons qu'Aspose.Slides pour C++ prend en charge l'ajout de texte aux diapositives, mais dans ce sujet, nous allons voir comment nous pouvons contrôler l'alignement des paragraphes de texte dans une diapositive. Veuillez suivre les étapes ci-dessous pour aligner les paragraphes de texte à l'aide d'Aspose.Slides pour C++ :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtenez la référence d'une diapositive en utilisant son index.
-3. Accédez aux formes de l'espace réservé présentes dans la diapositive et cast them as an AutoShape.
-4. Obtenez le paragraphe (qui doit être aligné) à partir du TextFrame exposé par AutoShape.
-5. Alignez le paragraphe. Un paragraphe peut être aligné à droite, à gauche, centré ou justifié.
-6. Écrivez la présentation modifiée sous forme de fichier PPTX.
+## **Aligner les paragraphes de texte**
+Le formatage du texte est l’un des éléments clés lors de la création de documents ou de présentations. Nous savons qu’Aspose.Slides pour C++ prend en charge l’ajout de texte aux diapositives, mais dans cet article, nous verrons comment contrôler l’alignement des paragraphes de texte dans une diapositive. Suivez les étapes ci‑dessous pour aligner les paragraphes de texte avec Aspose.Slides pour C++ :
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Obtenez la référence d’une diapositive en utilisant son index.
+3. Accédez aux formes de type Placeholder présentes dans la diapositive et castpez‑les en AutoShape.
+4. Récupérez le paragraphe (à aligner) depuis le TextFrame exposé par l’AutoShape.
+5. Alignez le paragraphe. Un paragraphe peut être aligné à droite, à gauche, au centre ou justifié.
+6. Enregistrez la présentation modifiée au format PPTX.
+
+L’implémentation de ces étapes est présentée ci‑dessous.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ParagraphsAlignment-ParagraphsAlignment.cpp" >}}
 
-## **Définir la Transparence pour le Texte**
-Cet article démontre comment définir la propriété de transparence à toute forme de texte à l'aide d'Aspose.Slides. Afin de définir la transparence pour le texte, veuillez suivre les étapes ci-dessous :
+## **Définir la transparence du texte**
+Cet article montre comment définir la propriété de transparence sur n’importe quelle forme de texte à l’aide d’Aspose.Slides. Pour appliquer la transparence au texte, suivez les étapes ci‑dessous :
 
 1. Créez une instance de la classe Presentation.
-2. Obtenez la référence d'une diapositive.
-3. Définissez la couleur de l'ombre.
-4. Écrivez la présentation sous forme de fichier PPTX.
+2. Obtenez la référence d’une diapositive.
+3. Définissez la couleur de l’ombre.
+4. Enregistrez la présentation au format PPTX.
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous.
+L’implémentation de ces étapes est présentée ci‑dessous.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cpp" >}}
 
-## **Définir l'Espacement des Caractères pour le Texte**
+## **Définir l’espacement entre les caractères du texte**
 
-Aspose.Slides vous permet de définir l'espace entre les lettres dans une zone de texte. De cette manière, vous pouvez ajuster la densité visuelle d'une ligne ou d'un bloc de texte en élargissant ou en condensant l'espacement entre les caractères.
+Aspose.Slides vous permet de définir l’espace entre les lettres d’une zone de texte. Ainsi, vous pouvez ajuster la densité visuelle d’une ligne ou d’un bloc de texte en élargissant ou en contractant l’espacement entre les caractères.
 
-Ce code C++ vous montre comment élargir l'espacement pour une ligne de texte et condenser l'espacement pour une autre ligne :
-
+Ce code C++ montre comment élargir l’espacement pour une ligne de texte et le réduire pour une autre ligne :
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"in.pptx");
 
@@ -171,56 +177,56 @@ auto slide = presentation->get_Slides()->idx_get(0);
 auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
 auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
 
-textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // élargir
+textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // étendre
 textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // condenser
 
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Gérer les Propriétés de la Police des Paragraphes**
 
-Les présentations contiennent généralement à la fois du texte et des images. Le texte peut être formaté de différentes manières, soit pour mettre en avant des sections et des mots spécifiques, soit pour se conformer aux styles d'entreprise. La mise en forme du texte aide les utilisateurs à varier l'apparence du contenu de la présentation. Cet article montre comment utiliser Aspose.Slides pour C++ pour configurer les propriétés de la police des paragraphes de texte sur les diapositives. Pour gérer les propriétés de la police d'un paragraphe à l'aide d'Aspose.Slides pour C++ :
+## **Gérer les propriétés de police du texte**
 
-1. Créez une instance de la classe `Presentation`.
-1. Obtenez la référence d'une diapositive en utilisant son index.
-1. Accédez aux formes de l'espace réservé dans la diapositive et cast them to AutoShape.
-1. Obtenez le paragraphe à partir du TextFrame exposé par AutoShape.
-1. Justifiez le paragraphe.
-1. Accédez à la portion de texte d'un paragraphe.
-1. Définissez la police à l'aide de FontData et définissez la police de la portion de texte en conséquence.
-   1. Définissez la police en gras.
-   1. Définissez la police en italique.
-1. Définissez la couleur de la police à l'aide de FillFormat exposé par l'objet Portion.
-1. Écrivez la présentation modifiée sous forme de fichier PPTX.
+Les présentations contiennent généralement du texte et des images. Le texte peut être formaté de diverses manières, que ce soit pour mettre en évidence des sections spécifiques ou pour respecter les styles corporatifs. Le formatage du texte aide les utilisateurs à varier l’apparence du contenu de la présentation. Cet article explique comment utiliser Aspose.Slides pour C++ afin de configurer les propriétés de police des paragraphes de texte sur les diapositives. Pour gérer les propriétés de police d’un paragraphe avec Aspose.Slides pour C++ :
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous. Elle prend une présentation non ornée et formate les polices sur l'une des diapositives.
+1. Créez une instance de la classe `Presentation`.
+2. Obtenez la référence d’une diapositive en utilisant son index.
+3. Accédez aux formes de type Placeholder dans la diapositive et castpez‑les en AutoShape.
+4. Récupérez le paragraphe depuis le TextFrame exposé par l’AutoShape.
+5. Justifiez le paragraphe.
+6. Accédez à la Portion de texte du paragraphe.
+7. Définissez la police à l’aide de FontData et appliquez‑la à la Portion.
+   1. Mettez la police en gras.
+   2. Mettez la police en italique.
+8. Définissez la couleur de la police à l’aide du FillFormat exposé par l’objet Portion.
+9. Enregistrez la présentation modifiée au format PPTX.
+
+L’implémentation de ces étapes est présentée ci‑dessous. Elle prend une présentation vierge et formate les polices sur l’une des diapositives.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontProperties-FontProperties.cpp" >}}
 
-## **Gérer la Famille de Polices du Texte**
-Une portion est utilisée pour contenir du texte avec un style de mise en forme similaire dans un paragraphe. Cet article montre comment utiliser Aspose.Slides pour C++ pour créer une zone de texte avec un texte et puis définir une police particulière, et diverses autres propriétés de la catégorie de famille de polices. Pour créer une zone de texte et définir les propriétés de la police du texte qui s'y trouve :
+## **Gérer la famille de police du texte**
+Une *portion* est utilisée pour regrouper du texte avec un même style de formatage dans un paragraphe. Cet article montre comment, avec Aspose.Slides pour C++, créer une zone de texte contenant du texte, puis définir une police particulière ainsi que diverses autres propriétés de la catégorie de famille de police. Pour créer une zone de texte et définir les propriétés de police du texte qu’elle contient :
 
-1. Créez une instance de la classe `Presentation`.
-2. Obtenez la référence d'une diapositive en utilisant son index.
-3. Ajoutez un AutoShape de type rectangle à la diapositive.
-4. Supprimez le style de remplissage associé à l'AutoShape.
-5. Accédez au TextFrame de l'AutoShape.
+1. Créez une instance de la classe `Presentation`.
+2. Obtenez la référence d’une diapositive en utilisant son index.
+3. Ajoutez à la diapositive une AutoShape de type Rectangle.
+4. Supprimez le style de remplissage associé à l’AutoShape.
+5. Accédez au TextFrame de l’AutoShape.
 6. Ajoutez du texte au TextFrame.
-7. Accédez à l'objet Portion associé au TextFrame.
+7. Accédez à l’objet Portion associé au TextFrame.
 8. Définissez la police à utiliser pour la Portion.
-9. Définissez d'autres propriétés de police comme en gras, en italique, souligné, couleur et hauteur à l'aide des propriétés pertinentes exposées par l'objet Portion.
-10. Écrivez la présentation modifiée sous forme de fichier PPTX.
+9. Définissez d’autres propriétés de police comme gras, italique, souligné, couleur et taille à l’aide des propriétés correspondantes de l’objet Portion.
+10. Enregistrez la présentation modifiée au format PPTX.
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous.
+L’implémentation de ces étapes est présentée ci‑dessous.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
 
-## **Définir la Taille de la Police pour le Texte**
+## **Définir la taille de police du texte**
 
-Aspose.Slides vous permet de choisir la taille de police préférée pour le texte existant dans un paragraphe et d'autres textes qui peuvent être ajoutés au paragraphe par la suite.
+Aspose.Slides vous permet de choisir la taille de police souhaitée pour le texte existant d’un paragraphe ainsi que pour les textes qui pourraient être ajoutés ultérieurement.
 
-Ce code C++ vous montre comment définir la taille de la police pour les textes contenus dans un paragraphe :
-
+Ce code C++ montre comment définir la taille de police pour les textes contenus dans un paragraphe :
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"example.pptx");
 
@@ -232,9 +238,9 @@ if (System::ObjectExt::Is<IAutoShape>(shape))
 
     // Obtient le premier paragraphe, par exemple.
     auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-    // Définit la taille de police par défaut à 20 pt pour toutes les portions de texte dans le paragraphe.
+    // Définit la taille de police par défaut à 20 pt pour toutes les portions de texte du paragraphe.
     paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(20.0f);
-    // Définit la taille de police à 20 pt pour les portions de texte actuelles dans le paragraphe.
+    // Définit la taille de police à 20 pt pour les portions de texte actuelles du paragraphe.
     for (auto&& portion : paragraph->get_Portions())
     {
         portion->get_PortionFormat()->set_FontHeight(20.0f);
@@ -244,49 +250,49 @@ if (System::ObjectExt::Is<IAutoShape>(shape))
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Définir la Rotation du Texte**
 
-Aspose.Slides pour C++ permet aux développeurs de faire pivoter le texte. Le texte peut être défini pour apparaître de manière horizontale, verticale, verticale270, WordArtVertical, EastAsianVertical, MongolianVertical ou WordArtVerticalRightToLeft. Pour faire pivoter le texte d'un TextFrame, veuillez suivre les étapes ci-dessous :
+## **Définir la rotation du texte**
 
-1. Créez une instance de la classe `Presentation`.
+Aspose.Slides pour C++ permet aux développeurs de faire pivoter le texte. Le texte peut être affiché Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical ou WordArtVerticalRightToLeft. Pour faire pivoter le texte d’un quelconque TextFrame, suivez les étapes ci‑dessus :
+
+1. Créez une instance de la classe `Presentation`.
 2. Accédez à la première diapositive.
-3. Ajoutez une forme quelconque à la diapositive.
+3. Ajoutez n’importe quelle forme à la diapositive.
 4. Accédez au TextFrame.
 5. Faites pivoter le texte.
-6. Enregistrez le fichier sur disque.
+6. Enregistrez le fichier sur le disque.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
 
-## **Tabulations et EffectiveTabs dans la Présentation**
+## **Tabulations et Tabulations effectives dans une présentation**
 - La propriété EffectiveTabs.ExplicitTabCount (2 dans notre cas) est égale à Tabs.Count.
-- La collection EffectiveTabs inclut toutes les tabulations (de la collection Tabs et des tabulations par défaut)
+- La collection EffectiveTabs comprend toutes les tabulations (de la collection Tabs et les tabulations par défaut).
 - La propriété EffectiveTabs.ExplicitTabCount (2 dans notre cas) est égale à Tabs.Count.
-- La propriété EffectiveTabs.DefaultTabSize (294) montre la distance entre les tabulations par défaut (3 et 4 dans notre exemple).
-- EffectiveTabs.GetTabByIndex(index) avec index = 0 renverra la première tabulation explicite (Position = 731), index = 1 - deuxième tabulation (Position = 1241). Si vous essayez d'obtenir la tabulation suivante avec index = 2, elle renverra la première tabulation par défaut (Position = 1470) et ainsi de suite.
-- EffectiveTabs.GetTabAfterPosition(pos) est utilisé pour obtenir la prochaine tabulation après un texte donné. Par exemple, vous avez le texte: "Helloworld!". Pour rendre ce texte, vous devez savoir où commencer à dessiner "world!". Au début, vous devez calculer la longueur de "Hello" en pixels et appeler GetTabAfterPosition avec cette valeur. Vous obtiendrez la prochaine position de tabulation pour dessiner "world!".
+- La propriété EffectiveTabs.DefaultTabSize (294) indique la distance entre les tabulations par défaut (3 et 4 dans notre exemple).
+- EffectiveTabs.GetTabByIndex(index) avec index = 0 renvoie la première tabulation explicite (Position = 731), index = 1 la seconde (Position = 1241). Un appel avec index = 2 renvoie la première tabulation par défaut (Position = 1470), etc.
+- EffectiveTabs.GetTabAfterPosition(pos) permet d’obtenir la tabulation suivante après un certain texte. Par exemple, pour le texte « Helloworld! », pour rendre ce texte il faut connaître le point de départ du mot « world! ». D’abord, calculez la longueur de « Hello » en pixels puis appelez GetTabAfterPosition avec cette valeur. Vous obtiendrez la position de la prochaine tabulation pour dessiner « world! ».
 
-## **Interligne du Paragraphe**
+## **Interligne d’un paragraphe**
 
-Aspose.Slides fournit des propriétés sous `ParagraphFormat`—`SpaceAfter`, `SpaceBefore` et `SpaceWithin`—qui vous permettent de gérer l'interligne pour un paragraphe. Les trois propriétés sont utilisées de cette manière :
+Aspose.Slides propose les propriétés `ParagraphFormat` — `SpaceAfter`, `SpaceBefore` et `SpaceWithin` — qui permettent de gérer l’interligne d’un paragraphe. Elles s’utilisent ainsi :
 
-* Pour spécifier l'interligne pour un paragraphe en pourcentage, utilisez une valeur positive.
-* Pour spécifier l'interligne pour un paragraphe en points, utilisez une valeur négative.
+* Pour spécifier l’interligne en pourcentage, utilisez une valeur positive.  
+* Pour spécifier l’interligne en points, utilisez une valeur négative.
 
-Par exemple, vous pouvez appliquer un interligne de 16pt pour un paragraphe en définissant la propriété `SpaceBefore` à -16.
+Par exemple, vous pouvez appliquer un interligne de 16 pt à un paragraphe en définissant la propriété `SpaceBefore` à -16.
 
-Voici comment spécifier l'interligne pour un paragraphe spécifique :
+Voici comment spécifier l’interligne pour un paragraphe donné :
 
-1. Chargez une présentation contenant un AutoShape avec du texte.
-2. Obtenez la référence d'une diapositive par son index.
+1. Chargez une présentation contenant une AutoShape avec du texte.
+2. Obtenez la référence d’une diapositive par son index.
 3. Accédez au TextFrame.
-4. Accédez au Paragraphe.
-5. Définissez les propriétés du Paragraphe.
+4. Accédez au Paragraph.
+5. Définissez les propriétés du Paragraph.
 6. Enregistrez la présentation.
 
-Ce code C++ vous montre comment spécifier l'interligne pour un paragraphe :
-
+Ce code C++ montre comment spécifier l’interligne d’un paragraphe :
 ```cpp
-// Le chemin vers le répertoire des documents.
+// Le chemin du répertoire des documents.
 System::String dataDir = GetDataPath();
 
 // Créez une instance de la classe Presentation
@@ -298,60 +304,60 @@ auto sld = presentation->get_Slides()->idx_get(0);
 // Accédez au TextFrame
 auto tf1 = (System::ExplicitCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
 
-// Accédez au Paragraphe
+// Accédez au paragraphe
 auto para = tf1->get_Paragraphs()->idx_get(0);
 
-// Définissez les propriétés du Paragraphe
+// Définissez les propriétés du paragraphe
 para->get_ParagraphFormat()->set_SpaceWithin(80.0f);
 para->get_ParagraphFormat()->set_SpaceBefore(40.0f);
 para->get_ParagraphFormat()->set_SpaceAfter(40.0f);
 
-// Enregistrez la Présentation
+// Enregistrez la présentation
 presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Définir la Propriété AutofitType du Cadre de Texte**
-Dans ce sujet, nous explorerons les différentes propriétés de mise en forme du cadre de texte. Cet article traite de la définition de la propriété AutofitType du cadre de texte, de l'ancrage du texte et de la rotation du texte dans la présentation. Aspose.Slides pour C++ permet aux développeurs de définir la propriété AutofitType de tout cadre de texte. AutofitType peut être défini sur Normal ou Shape. S'il est défini sur Normal, la forme restera la même tandis que le texte sera ajusté sans que la forme elle-même ne change. En revanche, si AutofitType est défini sur Shape, alors la forme sera modifiée de manière à ne contenir que le texte nécessaire. Pour définir la propriété AutofitType d'un cadre de texte, veuillez suivre les étapes ci-dessous :
+
+## **Définir la propriété AutofitType d’un TextFrame**
+Dans cet article, nous explorons les différentes propriétés de formatage d’un texte. Nous expliquons comment définir la propriété AutofitType d’un TextFrame, l’ancrage du texte et la rotation du texte dans une présentation. Aspose.Slides pour C++ permet de définir la propriété AutofitType de n’importe quel TextFrame. AutofitType peut être réglé sur Normal ou Shape. Si elle est réglée sur Normal, la forme reste identique tandis que le texte est ajusté sans modifier la forme ; si elle est réglée sur Shape, la forme est modifiée de façon à ne contenir que le texte requis. Pour définir la propriété AutofitType d’un TextFrame, suivez les étapes ci‑dessous :
 
 1. Créez une instance de la classe Presentation.
 2. Accédez à la première diapositive.
-3. Ajoutez une forme quelconque à la diapositive.
+3. Ajoutez n’importe quelle forme à la diapositive.
 4. Accédez au TextFrame.
-5. Définissez le AutofitType du TextFrame.
-6. Enregistrez le fichier sur disque.
+5. Définissez l’AutofitType du TextFrame.
+6. Enregistrez le fichier sur le disque.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
 
-## **Définir l'Ancre du TextFrame**
-Aspose.Slides pour C++ permet aux développeurs de définir l'ancre de tout TextFrame. TextAnchorType spécifie où ce texte est placé dans la forme. TextAnchorType peut être défini sur Top, Center, Bottom, Justified ou Distributed. Pour définir l'ancre de tout TextFrame, veuillez suivre les étapes ci-dessous :
+## **Définir l’ancrage d’un TextFrame**
+Aspose.Slides pour C++ permet de définir l’ancrage d’un TextFrame. TextAnchorType indique où le texte est placé dans la forme. TextAnchorType peut être défini sur Top, Center, Bottom, Justified ou Distributed. Pour définir l’ancrage d’un TextFrame, suivez les étapes ci‑dessous :
 
-1. Créez une instance de la classe `Presentation`.
+1. Créez une instance de la classe `Presentation`.
 2. Accédez à la première diapositive.
-3. Ajoutez une forme quelconque à la diapositive.
+3. Ajoutez n’importe quelle forme à la diapositive.
 4. Accédez au TextFrame.
 5. Définissez le TextAnchorType du TextFrame.
-6. Enregistrez le fichier sur disque.
+6. Enregistrez le fichier sur le disque.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
 
-## **Définir un Angle de Rotation Personnalisé pour le TextFrame**
-Aspose.Slides pour C++ prend maintenant en charge la définition d'un angle de rotation personnalisé pour le cadre de texte. Dans ce sujet, nous allons voir avec un exemple comment définir la propriété RotationAngle dans Aspose.Slides. La nouvelle propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat, permettant de définir l'angle de rotation personnalisé pour le cadre de texte. Afin de définir la propriété RotationAngle, veuillez suivre les étapes ci-dessous :
+## **Définir l’angle de rotation personnalisé d’un TextFrame**
+Aspose.Slides pour C++ prend désormais en charge la définition d’un angle de rotation personnalisé pour un TextFrame. Dans cet article, nous montrons avec un exemple comment définir la propriété RotationAngle dans Aspose.Slides. La nouvelle propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat, et permet de définir l’angle de rotation personnalisé d’un TextFrame. Pour définir la propriété RotationAngle, suivez les étapes ci‑dessous :
 
 1. Créez une instance de la classe Presentation.
-2. Ajoutez un graphique sur la diapositive.
+2. Ajoutez un graphique à la diapositive.
 3. Définissez la propriété RotationAngle.
-4. Écrivez la présentation sous forme de fichier PPTX.
+4. Enregistrez la présentation au format PPTX.
 
-Dans l'exemple donné ci-dessous, nous définissons la propriété RotationAngle.
+Dans l’exemple ci‑dessous, nous définissons la propriété RotationAngle.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cpp" >}}
 
-## **Définir la Langue de Révision**
+## **Définir la langue de vérification orthographique**
 
-Aspose.Slides fournit la propriété [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) (exposée par la classe [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)) pour vous permettre de définir la langue de révision pour un document PowerPoint. La langue de révision est la langue pour laquelle l'orthographe et la grammaire dans le PowerPoint sont vérifiées.
+Aspose.Slides fournit la propriété [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) (exposée par la classe [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)) pour permettre de définir la langue de vérification orthographique d’un document PowerPoint. La langue de vérification est celle pour laquelle l’orthographe et la grammaire du PowerPoint sont contrôlées.
 
-Ce code C++ vous montre comment définir la langue de révision pour un PowerPoint :
-
+Ce code C++ montre comment définir la langue de vérification orthographique pour un PowerPoint :
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
@@ -369,39 +375,39 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// définir l'Id d'une langue de révision
+// set the Id of a proofing language
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
 ```
 
-## **Définir la Langue Par Défaut**
 
-Ce code C++ vous montre comment définir la langue par défaut pour l'ensemble d'une présentation PowerPoint :
+## **Définir la langue par défaut**
 
+Ce code C++ montre comment définir la langue par défaut pour l’ensemble d’une présentation PowerPoint :
 ```c++
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Ajoute une nouvelle forme rectangulaire avec du texte
+// Ajoute une nouvelle forme rectangle avec du texte
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"Nouveau Texte");
+textFrame->set_Text(u"New Text");
 
 // Vérifie la langue de la première portion
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
-## **Définir le Style de Texte Par Défaut**
 
-Si vous avez besoin d'appliquer le même formatage de texte par défaut à tous les éléments de texte d'une présentation à la fois, vous pouvez utiliser la méthode `get_DefaultTextStyle` de l'interface [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) pour définir le formatage préféré. L'exemple de code ci-dessous montre comment définir la police en gras par défaut (14 pt) pour le texte de toutes les diapositives dans une nouvelle présentation.
+## **Définir le style de texte par défaut**
 
+Si vous devez appliquer le même formatage de texte par défaut à tous les éléments texte d’une présentation en une fois, vous pouvez utiliser la méthode `get_DefaultTextStyle` de l’interface [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) et définir le formatage souhaité. L’exemple de code ci‑dessous montre comment définir la police par défaut en gras (14 pt) pour le texte de toutes les diapositives d’une nouvelle présentation.
 ```c++
 auto presentation = MakeObject<Presentation>();
 
-// Obtenez le format de paragraphe de niveau supérieur.
+// Récupérer le format de paragraphe de niveau supérieur.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != NULL) {
@@ -412,3 +418,48 @@ if (paragraphFormat != NULL) {
 presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+
+## **Extraire le texte avec l’effet Tout en majuscules**
+
+Dans PowerPoint, appliquer l’effet de police **All Caps** fait apparaître le texte en majuscules sur la diapositive même s’il a été saisi en minuscules. Lorsque vous récupérez une telle portion de texte avec Aspose.Slides, la bibliothèque renvoie le texte exactement tel qu’il a été saisi. Pour gérer cela, vérifiez [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) — si elle indique `All`, convertissez simplement la chaîne retournée en majuscules afin que votre sortie corresponde à ce que voit l’utilisateur sur la diapositive.
+
+Supposons que nous ayons la zone de texte suivante sur la première diapositive du fichier sample2.pptx.
+
+![The All Caps effect](all_caps_effect.png)
+
+ L’exemple de code ci‑dessous montre comment extraire le texte avec l’effet **All Caps** appliqué :
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample2.pptx");
+auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+
+Console::WriteLine(u"Original text: " + textPortion->get_Text());
+
+auto textFormat = textPortion->get_PortionFormat()->GetEffective();
+if (textFormat->get_TextCapType() == TextCapType::All)
+{
+    auto text = textPortion->get_Text().ToUpper();
+    Console::WriteLine(u"All-Caps effect: " + text);
+}
+
+presentation->Dispose();
+```
+
+
+Sortie :
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **FAQ**
+
+**Comment modifier le texte d’un tableau sur une diapositive ?**
+
+Pour modifier le texte d’un tableau sur une diapositive, vous devez utiliser l’objet [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Vous pouvez parcourir toutes les cellules du tableau et modifier le texte de chaque cellule en accédant à son cadre texte et à ses propriétés de format de paragraphe.
+
+**Comment appliquer un dégradé de couleur au texte d’une diapositive PowerPoint ?**
+
+Pour appliquer un dégradé de couleur au texte, utilisez la méthode `get_FillFormat` de [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/). Définissez le format de remplissage sur `Gradient`, où vous pouvez spécifier les couleurs de départ et d’arrivée du dégradé ainsi que d’autres propriétés telles que la direction et la transparence pour créer l’effet dégradé sur le texte.

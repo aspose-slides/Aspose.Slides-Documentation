@@ -1,54 +1,196 @@
 ---
-title: Enregistrer la présentation - Bibliothèque C++ PowerPoint
+title: Enregistrer des présentations en C++
 linktitle: Enregistrer la présentation
 type: docs
 weight: 80
 url: /fr/cpp/save-presentation/
-description: L'API ou bibliothèque C++ PowerPoint vous permet d'enregistrer une présentation dans un fichier ou un flux. Vous pouvez créer une présentation à partir de zéro ou modifier une existante.
+keywords:
+- enregistrer PowerPoint
+- enregistrer OpenDocument
+- enregistrer présentation
+- enregistrer diapositive
+- enregistrer PPT
+- enregistrer PPTX
+- enregistrer ODP
+- présentation vers fichier
+- présentation vers flux
+- type de vue prédéfini
+- format Strict Office Open XML
+- mode Zip64
+- rafraîchissement de la vignette
+- progression de l'enregistrement
+- C++
+- Aspose.Slides
+description: "Découvrez comment enregistrer des présentations en C++ avec Aspose.Slides — exportez vers PowerPoint ou OpenDocument tout en conservant les mises en page, les polices et les effets."
 ---
 
-{{% alert title="Info" color="info" %}}
+## **Vue d'ensemble**
 
-Pour apprendre comment ouvrir ou charger des présentations, consultez l'article [*Ouvrir une présentation*](https://docs.aspose.com/slides/cpp/open-presentation/).
+[Ouvrir des présentations en C++](/slides/fr/cpp/open-presentation/) décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations. La classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contient le contenu d’une présentation. Que vous créiez une présentation à partir de zéro ou que vous modifiiez une présentation existante, vous voudrez l’enregistrer une fois terminé. Avec Aspose.Slides for C++, vous pouvez enregistrer dans un **fichier** ou un **flux**. Cet article explique les différentes manières d’enregistrer une présentation.
 
+## **Enregistrer les présentations dans des fichiers**
+
+Enregistrez une présentation dans un fichier en appelant la méthode `Save` de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Passez le nom du fichier et le format d’enregistrement à la méthode. L’exemple suivant montre comment enregistrer une présentation avec Aspose.Slides.
+```cpp
+// Instanciez la classe Presentation qui représente un fichier de présentation.
+auto presentation = MakeObject<Presentation>();
+
+// Effectuez du travail ici...
+
+// Enregistrez la présentation dans un fichier.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+
+## **Enregistrer les présentations dans des flux**
+
+Vous pouvez enregistrer une présentation dans un flux en transmettant un flux de sortie à la méthode `Save` de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Une présentation peut être écrite dans de nombreux types de flux. Dans l’exemple ci‑dessous, nous créons une nouvelle présentation et l’enregistrons dans un flux de fichier.
+```cpp
+// Instanciez la classe Presentation qui représente un fichier de présentation.
+auto presentation = MakeObject<Presentation>();
+
+auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+
+// Enregistrez la présentation dans le flux.
+presentation->Save(fileStream, SaveFormat::Pptx);
+
+presentation->Dispose();
+fileStream->Close();
+```
+
+
+## **Enregistrer les présentations avec un type de vue prédéfini**
+
+Aspose.Slides vous permet de définir la vue initiale que PowerPoint utilise lorsque la présentation générée s’ouvre via la classe [ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/viewproperties/). Utilisez la méthode [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/viewproperties/set_lastview/) avec une valeur de l’énumération [ViewType](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/).
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
+
+presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Enregistrer les présentations au format Strict Office Open XML**
+
+Aspose.Slides vous permet d’enregistrer une présentation au format Strict Office Open XML. Utilisez la classe [PptxOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pptxoptions/) et définissez sa propriété `Conformance` lors de l’enregistrement. Si vous définissez `Conformance.Iso29500_2008_Strict`, le fichier de sortie est enregistré au format Strict Office Open XML.
+
+L’exemple ci‑dessous crée une présentation et l’enregistre au format Strict Office Open XML.
+```cpp
+auto options = MakeObject<PptxOptions>();
+options->set_Conformance(Conformance::Iso29500_2008_Strict);
+
+// Instanciez la classe Presentation qui représente un fichier de présentation.
+auto presentation = MakeObject<Presentation>();
+
+// Enregistrez la présentation au format Strict Office Open XML.
+presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
+presentation->Dispose();
+```
+
+
+## **Enregistrer les présentations au format Office Open XML en mode Zip64**
+
+Un fichier Office Open XML est une archive ZIP qui impose des limites de 4 GB (2^32 octets) sur la taille non compressée de tout fichier, la taille compressée de tout fichier et la taille totale de l’archive, ainsi qu’une limite de 65 535 (2^16‑1) fichiers. Les extensions de format ZIP64 relèvent ces limites à 2^64.
+
+La méthode [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) vous permet de choisir quand utiliser les extensions de format ZIP64 lors de l’enregistrement d’un fichier Office Open XML.
+
+Cette méthode peut être utilisée avec les modes suivants :
+
+- `IfNecessary` utilise les extensions ZIP64 uniquement si la présentation dépasse les limitations ci‑dessus. C’est le mode par défaut.  
+- `Never` n’utilise jamais les extensions ZIP64.  
+- `Always` utilise toujours les extensions ZIP64.
+
+Le code suivant montre comment enregistrer une présentation au format PPTX avec les extensions ZIP64 activées :
+```cpp
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_Zip64Mode(Zip64Mode::Always);
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
+
+
+{{% alert title="NOTE" color="warning" %}}
+Lorsque vous enregistrez avec `Zip64Mode.Never`, une [PptxException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxexception/) est levée si la présentation ne peut pas être enregistrée au format ZIP32.
 {{% /alert %}}
 
-L'article ici explique comment enregistrer des présentations.
+## **Enregistrer les présentations sans actualiser la vignette**
 
-La [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) classe contient le contenu d'une présentation. Que vous créiez une présentation à partir de zéro ou que vous modifiiez une existante, une fois terminé, vous souhaitez enregistrer la présentation. Avec Aspose.Slides pour C++, elle peut être enregistrée en tant que **fichier** ou **flux**. Cet article explique comment enregistrer une présentation de différentes manières :
+La méthode [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) contrôle la génération de la vignette lors de l’enregistrement d’une présentation au format PPTX :
 
-## **Enregistrer la présentation dans un fichier**
-Enregistrez une présentation dans des fichiers en appelant la **Presentation** classe [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) méthode. Il vous suffit de passer le nom du fichier et le format d'enregistrement à la [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) méthode. Les exemples qui suivent montrent comment enregistrer une présentation avec Aspose.Slides pour C++.
+- Si elle est définie sur `true`, la vignette est actualisée pendant l’enregistrement. C’est le comportement par défaut.  
+- Si elle est définie sur `false`, la vignette actuelle est conservée. Si la présentation n’a pas de vignette, aucune n’est générée.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SaveToFile-SaveToFile.cpp" >}}
-## **Enregistrer la présentation dans un flux**
-Il est possible d'enregistrer une présentation dans un flux en passant un flux de sortie à la [Presentation]() classe Save méthode. Il existe de nombreux types de flux dans lesquels une présentation peut être enregistrée. Dans l'exemple ci-dessous, nous avons créé un nouveau fichier de Présentation, ajouté du texte dans une forme et enregistré la présentation dans le flux.
+Dans le code ci‑dessous, la présentation est enregistrée au format PPTX sans actualiser sa vignette.
+```cpp
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_RefreshThumbnail(false);
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SaveToStream-SaveToStream.cpp" >}}
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-## **Enregistrer la présentation avec un type de vue prédéfini**
-Aspose.Slides pour C++ fournit une fonctionnalité pour définir le type de vue pour la présentation générée lorsqu'elle est ouverte dans PowerPoint via la [ViewProperties](http://www.aspose.com/api/net/slides/aspose.slides/viewproperties) classe. La [LastView](http://www.aspose.com/api/net/slides/aspose.slides/viewproperties/properties/index) propriété est utilisée pour définir le type de vue en utilisant l'énumérateur [ViewType](http://www.aspose.com/api/net/slides/aspose.slides/viewtype).
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SaveAsPredefinedViewType-SaveAsPredefinedViewType.cpp" >}}
 
-## **Enregistrer la présentation au format Strict Office Open XML**
-Aspose.Slides vous permet d'enregistrer la présentation au format Strict Office Open XML. À cette fin, il fournit la **PptxOptions** classe où vous pouvez définir la propriété de Conformité lors de l'enregistrement du fichier de présentation. Si vous définissez sa valeur comme **Conformance.Iso29500_2008_Strict**, alors le fichier de présentation de sortie sera enregistré au format Strict Office Open XML.
-
-Le code d'exemple suivant crée une présentation et l'enregistre au format Strict Office Open XML. Lors de l'appel de la méthode Save pour la présentation, l'objet **PptxOptions** est passé avec la propriété de Conformité définie comme **Conformance.Iso29500_2008_Strict**.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SaveToStrictOpenXML-SaveToStrictOpenXML.cpp" >}}
+{{% alert title="Info" color="info" %}}
+Cette option permet de réduire le temps requis pour enregistrer une présentation au format PPTX.
+{{% /alert %}}
 
 ## **Enregistrer les mises à jour de progression en pourcentage**
- Une nouvelle interface **IProgressCallback** a été ajoutée à l'interface **ISaveOptions** et à la classe abstraite **SaveOptions**. L'interface **IProgressCallback** représente un objet de rappel pour l'enregistrement des mises à jour de progression en pourcentage.  
 
-Les extraits de code ci-dessous montrent comment utiliser l'interface IProgressCallback :
+L’interface [IProgressCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iprogresscallback/) est utilisée via la méthode `set_ProgressCallback` exposée par l’interface [ISaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/isaveoptions/) et la classe abstraite [SaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/). Assignez une implémentation de [IProgressCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iprogresscallback/) avec `set_ProgressCallback` pour recevoir les mises à jour de progression d’enregistrement en pourcentage.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-CovertToPDFWithProgressUpdate-CovertToPDFWithProgressUpdate.cpp" >}}
+Les extraits de code suivants montrent comment utiliser `IProgressCallback`.
+```cpp
+class ExportProgressHandler : public IProgressCallback
+{
+public:
+    void Reporting(double progressValue)
+    {
+        // Utilisez la valeur du pourcentage de progression ici.
+        int progress = static_cast<int>(progressValue);
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-CovertToPDFWithProgressUpdate-ExportProgressHandler.cpp" >}}
+        Console::WriteLine(u"{0}% of the file has been converted.", progress);
+    }
+};
+```
+
+```cpp
+auto saveOptions = MakeObject<PdfOptions>();
+saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Dispose();
+```
+
 
 {{% alert title="Info" color="info" %}}
-
-En utilisant sa propre API, Aspose a développé une [application gratuite PowerPoint Splitter](https://products.aspose.app/slides/splitter) qui permet aux utilisateurs de diviser leurs présentations en plusieurs fichiers. Essentiellement, l'application enregistre les diapositives sélectionnées d'une présentation donnée en tant que nouveaux fichiers PowerPoint (PPTX ou PPT).
-
+Aspose a développé une [application gratuite de fractionnement PowerPoint](https://products.aspose.app/slides/splitter) utilisant sa propre API. L’application vous permet de diviser une présentation en plusieurs fichiers en enregistrant les diapositives sélectionnées comme nouveaux fichiers PPTX ou PPT.
 {{% /alert %}}
+
+## **FAQ**
+
+**La fonction « sauvegarde rapide » (sauvegarde incrémentielle) est‑elle prise en charge afin que seules les modifications soient écrites ?**
+
+Non. L’enregistrement crée le fichier cible complet à chaque fois ; la « sauvegarde rapide » incrémentielle n’est pas prise en charge.
+
+**Est‑il sécurisé d’enregistrer la même instance de Presentation depuis plusieurs threads ?**
+
+Non. Une instance de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) **n’est pas thread‑safe** (/slides/fr/cpp/multithreading/) ; enregistrez‑la depuis un seul thread.
+
+**Que se passe‑t‑il avec les hyperliens et les fichiers liés externement lors de l’enregistrement ?**
+
+Les [hyperliens](/slides/fr/cpp/manage-hyperlinks/) sont conservés. Les fichiers liés externement (par ex. les vidéos via des chemins relatifs) ne sont pas copiés automatiquement — assurez‑vous que les chemins référencés restent accessibles.
+
+**Puis‑je définir/enregistrer les métadonnées du document (Auteur, Titre, Entreprise, Date) ?**
+
+Oui. Les [propriétés standard du document](/slides/fr/cpp/presentation-properties/) sont prises en charge et seront écrites dans le fichier lors de l’enregistrement.

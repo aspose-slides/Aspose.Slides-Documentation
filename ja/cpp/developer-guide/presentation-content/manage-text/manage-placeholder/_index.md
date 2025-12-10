@@ -1,40 +1,50 @@
 ---
-title: プレースホルダーの管理
+title: C++でプレゼンテーションのプレースホルダーを管理する
+linktitle: プレースホルダー管理
 type: docs
 weight: 10
 url: /ja/cpp/manage-placeholder/
-keywords: "プレースホルダー, プレースホルダーのテキスト, プロンプトテキスト, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
-description: "C++でPowerPointプレゼンテーションのプレースホルダーのテキストとプロンプトテキストを変更する"
+keywords:
+- プレースホルダー
+- テキスト プレースホルダー
+- 画像 プレースホルダー
+- チャート プレースホルダー
+- プロンプト テキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++でプレースホルダーを簡単に管理：テキスト置換、プロンプトカスタマイズ、画像の透明度設定をPowerPointおよびOpenDocumentで実行。"
 ---
 
 ## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for C++](/slides/ja/cpp/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダーのテキストを変更できます。
+[Aspose.Slides for C++](/slides/ja/cpp/) を使用すると、プレゼンテーションのスライド上のプレースホルダーを検索および変更できます。Aspose.Slides を使用すると、プレースホルダー内のテキストを変更できます。
 
-**前提条件**: プレースホルダーが含まれるプレゼンテーションが必要です。このようなプレゼンテーションは、標準のMicrosoft PowerPointアプリで作成できます。
+**Prerequisite**: プレースホルダーを含むプレゼンテーションが必要です。そのようなプレゼンテーションは標準の Microsoft PowerPoint アプリで作成できます。
 
-以下は、Aspose.Slidesを使用してそのプレゼンテーション内のプレースホルダーのテキストを置き換える手順です。
+以下は、Aspose.Slides を使用してそのプレゼンテーションのプレースホルダーのテキストを置換する手順です：
 
-1. [`Presentation`](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/)クラスをインスタンス化し、プレゼンテーションを引数として渡します。
-2. インデックスを通じてスライドの参照を取得します。
+1. [`Presentation`](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) クラスのインスタンスを作成し、プレゼンテーションを引数として渡します。
+2. インデックスを使用してスライド参照を取得します。
 3. 形状を反復処理してプレースホルダーを見つけます。
-4. プレースホルダーの形状を[`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/)にキャストし、[`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/)に関連付けられた[`TextFrame`](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame/)を使用してテキストを変更します。
-5. 修正したプレゼンテーションを保存します。
+4. プレースホルダーの形状を [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) に型キャストし、[`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) に関連付けられた [`TextFrame`](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame/) を使用してテキストを変更します。
+5. 変更されたプレゼンテーションを保存します。
 
-以下のC++コードは、プレースホルダー内のテキストを変更する方法を示しています：
-
+この C++ コードは、プレースホルダーのテキストを変更する方法を示しています：
 ```c++
 // ドキュメントディレクトリへのパス。
 const String outPath = u"../out/ReplacingText_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
 
 
-// 希望するプレゼンテーションをロードします
+// プレゼンテーションを読み込みます
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 // 最初のスライドにアクセスします
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// スライド内の最初と二番目のプレースホルダーにアクセスし、AutoShapeとしてキャストします
+// スライド内の最初と二番目のプレースホルダーにアクセスし、AutoShape に型キャストします
 SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
 SharedPtr<AutoShape> ashp = ExplicitCast<Aspose::Slides::AutoShape>(shape);
 
@@ -46,11 +56,11 @@ textframe->set_Text(u"This is Placeholder");
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **プレースホルダーのプロンプトテキストを設定する**
-標準および事前構築されたレイアウトには、***タイトルを追加するにはクリック***や***サブタイトルを追加するにはクリック***などのプレースホルダーのプロンプトテキストが含まれています。Aspose.Slidesを使用して、好みのプロンプトテキストをプレースホルダーのレイアウトに挿入できます。
 
-以下のC++コードは、プレースホルダーにプロンプトテキストを設定する方法を示しています：
+## **プレースホルダーにプロンプトテキストを設定する**
+標準および事前構築されたレイアウトには、***Click to add a title*** や ***Click to add a subtitle*** のようなプレースホルダーのプロンプトテキストが含まれています。Aspose.Slides を使用すると、プレースホルダー レイアウトに好きなプロンプトテキストを挿入できます。
 
+この C++ コードは、プレースホルダーにプロンプトテキストを設定する方法を示しています：
 ```c++
 const System::String templatePath = u"../templates/Presentation2.pptx";
     
@@ -62,27 +72,26 @@ for (auto& shape : slide->get_Shapes())
     if (shape->get_Placeholder() != NULL)
     {
         System::String text = u"";
-        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // テキストがない場合、PowerPointは「タイトルを追加するにはクリック」と表示します。 
+        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // テキストがない場合、PowerPoint は "Click to add title" を表示します。
         {
-            text = u"タイトルを追加するにはクリック";
+            text = u"Click to add title";
         }
-        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // サブタイトルに対して同様のことを行います。
+        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // サブタイトルでも同様に動作します。
         {
-            text = u"サブタイトルを追加するにはクリック";
+            text = u"Click to add subtitle";
         }
-        System::Console::WriteLine(u"プレースホルダー : {0}", text);
+        System::Console::WriteLine(u"Placeholder : {0}", text);
     }
 }
 
 pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **プレースホルダーの画像の透明度を設定する**
 
-Aspose.Slidesを使用すると、テキストプレースホルダー内の背景画像の透明度を設定できます。フレーム内の画像の透明度を調整することで、テキストまたは画像を際立たせることができます（テキストと画像の色に応じて）。
+## **プレースホルダー画像の透明度を設定する**
+Aspose.Slides を使用すると、テキスト プレースホルダー内の背景画像の透明度を設定できます。そのフレーム内の画像の透明度を調整することで、テキストまたは画像を際立たせることができます（テキストと画像の色に応じて）。
 
-以下のC++コードは、図形内の背景画像の透明度を設定する方法を示しています：
-
+この C++ コードは、（シェイプ内の）画像背景の透明度を設定する方法を示しています：
 ```c++
 auto presentation = System::MakeObject<Presentation>();
     
@@ -96,3 +105,18 @@ auto pictureFillFormat = fillFormat->get_PictureFillFormat();
 pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
 pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
 ```
+
+
+## **よくある質問**
+
+**ベース プレースホルダーとは何ですか、スライド上のローカル シェイプとはどのように異なりますか？**
+
+ベース プレースホルダーは、レイアウトまたはマスター上の元のシェイプで、スライドのシェイプがそれから継承します。タイプ、位置、および一部の書式設定がそこから引き継がれます。ローカル シェイプは独立しており、ベース プレースホルダーが存在しない場合は継承が適用されません。
+
+**プレゼンテーション全体のすべてのタイトルやキャプションを、各スライドを反復せずに更新するにはどうすればよいですか？**
+
+レイアウトまたはマスター上の該当するプレースホルダーを編集します。これらのレイアウト/マスターに基づくスライドは、自動的に変更を継承します。
+
+**標準のヘッダー/フッター プレースホルダー（日付と時刻、スライド番号、フッターテキスト）をどのように制御できますか？**
+
+適切なスコープ（通常スライド、レイアウト、マスター、ノート/配布資料）で HeaderFooter マネージャーを使用して、これらのプレースホルダーをオンまたはオフにし、内容を設定します。

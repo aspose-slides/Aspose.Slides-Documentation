@@ -1,153 +1,182 @@
 ---
-title: فتح العرض التقديمي - واجهة برمجة تطبيقات PowerPoint C++
-linktitle: فتح العرض التقديمي
+title: فتح العروض التقديمية في C++
+linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
 url: /ar/cpp/open-presentation/
-keywords: "فتح PowerPoint, PPTX, PPT, فتح العرض التقديمي, تحميل العرض التقديمي, C++, CPP"
-description: "فتح أو تحميل عرض تقديمي PPT, PPTX, ODP في C++"
+keywords:
+- فتح PowerPoint
+- فتح OpenDocument
+- فتح عرض تقديمي
+- فتح PPTX
+- فتح PPT
+- فتح ODP
+- تحميل عرض تقديمي
+- تحميل PPTX
+- تحميل PPT
+- تحميل ODP
+- عرض تقديمي محمي
+- عرض تقديمي كبير
+- مورد خارجي
+- كائن ثنائي
+- C++
+- Aspose.Slides
+description: "افتح عروض PowerPoint (.pptx, .ppt) وعروض OpenDocument (.odp) بسهولة باستخدام Aspose.Slides للـ C++ — سريع، موثوق، ومزود بجميع الميزات."
 ---
 
-بجانب إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides فتح العروض التقديمية الحالية. بعد تحميل عرض تقديمي، يمكنك الحصول على معلومات حول العرض التقديمي، تحرير العرض التقديمي (محتوى الشرائح)، إضافة شرائح جديدة أو إزالة الشرائح الموجودة، إلخ.
+## **نظرة عامة**
 
-## فتح العرض التقديمي
+بجانب إنشاء عروض PowerPoint من الصفر، تتيح لك Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك استرجاع معلومات عنه، تعديل محتوى الشريحة، إضافة شرائح جديدة، إزالة الشرائح الحالية، والمزيد.
 
-لفتح عرض تقديمي موجود، عليك ببساطة إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) وتمرير مسار الملف (للعرض التقديمي الذي تريد فتحه) إلى مُنشئها.
+## **فتح العروض التقديمية**
 
-يوضح هذا الكود C++ كيفية فتح عرض تقديمي وأيضًا معرفة عدد الشرائح التي يحتوي عليها:
+لفتح عرض تقديمي موجود، قم بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) ومرّر مسار الملف إلى مُنشئها.
 
-```c++
-// مسار دليل المستندات.
-String dataDir = u"";
+المثال التالي بلغة C++ يوضح كيفية فتح عرض تقديمي والحصول على عدد الشرائح فيه:
+```cpp
+// إنشاء كائن من الفئة Presentation وتمرير مسار ملف إلى المُنشئ الخاص بها.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// إنشاء مثيل من فئة Presentation وتمرير مسار الملف إلى مُنشئها
-auto pres = System::MakeObject<Presentation>(dataDir + u"OpenPresentation.pptx");
+// اطبع العدد الإجمالي للشرائح في العرض التقديمي.
+Console::WriteLine(presentation->get_Slides()->get_Count());
 
-// طباعة العدد الإجمالي للشرائح الموجودة في العرض التقديمي
-Console::WriteLine(Convert::ToString(pres->get_Slides()->get_Count()));
+presentation->Dispose();
 ```
 
-## **فتح عرض تقديمي محمي بكلمة مرور**
 
-عندما تحتاج إلى فتح عرض تقديمي محمي بكلمة مرور، يمكنك تمرير كلمة مرور عبر خاصية [get_Password()](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/get_password/) (من فئة [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/)) لفك تشفير العرض التقديمي وتحميله. يوضح هذا الكود C++ العمل:
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-```c++
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+عند الحاجة إلى فتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر الطريقة [set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) في الفئة [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة C++ هذه العملية:
+```cpp
+auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_Password(u"YOUR_PASSWORD");
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
-// قم ببعض العمل مع العرض التقديمي المفكوك تشفيره
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
+    
+// تنفيذ عمليات على العرض التقديمي المفكوك.
+
+presentation->Dispose();
 ```
 
-## فتح عرض تقديمي كبير
 
-يوفر Aspose.Slides خيارات (خصوصًا خاصية [BlobManagementOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/)) ضمن فئة [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) للسماح لك بتحميل العروض التقديمية الكبيرة.
+## **فتح العروض التقديمية الكبيرة**
 
-يوضح هذا الكود C++ عملية يتم فيها تحميل عرض تقديمي كبير (مثلاً بحجم 2GB):
+توفر Aspose.Slides خيارات—وخاصة الطريقة [get_BlobManagementOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) في الفئة [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/)—لمساعدتك على تحميل عروض تقديمية كبيرة.
 
-```c++
-String pathToVeryLargePresentationFile = u"veryLargePresentation.pptx";
+يُظهر الكود التالي بلغة C++ كيفية تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
+```cpp
+auto filePath = u"LargePresentation.pptx";
 
-{
-    SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-    // دعونا نختار سلوك KeepLocked - سيتم قفل "veryLargePresentation.pptx" لمدة حياة مثيل العرض التقديمي،
-    // ولكننا لسنا بحاجة لتحميله في الذاكرة أو نسخه إلى ملف مؤقت
-    loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+auto loadOptions = MakeObject<LoadOptions>();
+// اختر سلوك KeepLocked — سيبقى ملف العرض مقفلًا طوال عمر
+// كائن Presentation، ولكن لا يلزم تحميله إلى الذاكرة أو نسخه إلى ملف مؤقت.
+loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+loadOptions->get_BlobManagementOptions()->set_IsTemporaryFilesAllowed(true);
+loadOptions->get_BlobManagementOptions()->set_MaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 ميغابايت
 
-    auto pres = System::MakeObject<Presentation>(pathToVeryLargePresentationFile, loadOptions);
+auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، لكن استهلاك الذاكرة لا يزال منخفضًا.
+// تم تحميل العرض التقديمي الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
 
-    // إجراء تغييرات على العرض التقديمي.
-    pres->get_Slides()->idx_get(0)->set_Name(u"عرض تقديمي كبير جدًا");
+// قم بإجراء تغييرات على العرض التقديمي.
+presentation->get_Slide(0)->set_Name(u"Large presentation");
 
-    // سيتم حفظ العرض التقديمي في ملف آخر. يبقى استهلاك الذاكرة منخفضًا خلال العملية
-    pres->Save(u"veryLargePresentation-copy.pptx", SaveFormat::Pptx);
+// احفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا أثناء هذه العملية.
+presentation->Save(u"LargePresentation-copy.pptx", SaveFormat::Pptx);
 
-    // لا يمكن القيام بذلك! سيتم إلقاء استثناء IO لأن الملف مقفل بينما لن يتم التخلص من كائنات pres
-    File::Delete(pathToVeryLargePresentationFile);
-}
+// لا تفعل ذلك! سيُطرح استثناء I/O لأن الملف مقفل حتى يتم تحرير كائن العرض التقديمي.
+File::Delete(filePath);
 
-// من الجيد القيام بذلك هنا. الملف المصدر ليس مقفلاً بواسطة كائن pres
-File::Delete(pathToVeryLargePresentationFile);
+presentation->Dispose();
+
+// يمكن القيام بذلك هنا. لم يعد ملف المصدر مقفلًا بواسطة كائن العرض التقديمي.
+File::Delete(filePath);
 ```
 
-{{% alert color="info" title="معلومات" %}}
 
-لتجاوز بعض القيود عند التفاعل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتوى التدفق. سيؤدي تحميل عرض تقديمي كبير عبر تدفقه إلى نسخ محتويات العرض التقديمي والتسبب في تحميل بطيء. لذلك، عندما تنوي تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض التقديمي وليس تدفقه.
+{{% alert color="info" title="Info" %}}
+لتجاوز بعض القيود عند العمل مع التدفقات، قد تقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وبالتالي قد يبطئ عملية التحميل. لذلك، عند الحاجة إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
 
-عندما تريد إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور كبيرة، إلخ)، يمكنك استخدام [تسهيلات Blob](https://docs.aspose.com/slides/cpp/manage-blob/) لتقليل استهلاك الذاكرة.
+عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/cpp/manage-blob/) لتقليل استهلاك الذاكرة.
+{{%/alert %}}
 
-{{%/alert %}} 
+## **التحكم في الموارد الخارجية**
 
-## تحميل العرض التقديمي
-
-يوفر Aspose.Slides [IResourceLoadingCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iresourceloadingcallback/) مع طريقة واحدة للسماح لك بإدارة الموارد الخارجية. يوضح هذا الكود C++ كيفية استخدام واجهة `IResourceLoadingCallback`:
-
-```c++
-// مسار دليل المستندات.
-System::String dataDir = GetDataPath();
-
-auto opts = System::MakeObject<LoadOptions>();
-opts->set_ResourceLoadingCallback(System::MakeObject<ImageLoadingHandler>(dataDir));
-auto presentation = System::MakeObject<Presentation>(dataDir + u"presentation.pptx", opts);
-```
-
-```c++
+توفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iresourceloadingcallback/) التي تتيح لك إدارة الموارد الخارجية. يوضح الكود التالي بلغة C++ كيفية استخدام واجهة `IResourceLoadingCallback`:
+```cpp
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
-    ImageLoadingHandler(String dataDir)
-        : m_dataDir(dataDir)
-    {
-    }
-
     ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override
     {
         if (args->get_OriginalUri().EndsWith(u".jpg"))
         {
             try
             {
-                System::ArrayPtr<uint8_t> imageBytes = File::ReadAllBytes(Path::Combine(m_dataDir, u"aspose-logo.jpg"));
-                args->SetData(imageBytes);
+                // تحميل صورة بديلة.
+                auto imageData = File::ReadAllBytes(u"aspose-logo.jpg");
+                args->SetData(imageData);
                 return ResourceLoadingAction::UserProvided;
             }
-            catch (System::Exception&)
+            catch (Exception&)
             {
                 return ResourceLoadingAction::Skip;
             }
         }
-
-        if (args->get_OriginalUri().EndsWith(u".png"))
+        else if (args->get_OriginalUri().EndsWith(u".png"))
         {
-            // تعيين عنوان URL بديل
+            // تعيين عنوان URL بديل.
             args->set_Uri(u"http://www.google.com/images/logos/ps_logo2.png");
             return ResourceLoadingAction::Default;
         }
 
-        // تخطي جميع الصور الأخرى
+        // تخطي جميع الصور الأخرى.
         return ResourceLoadingAction::Skip;
     }
-    
-private:
-    String m_dataDir;
 };
 ```
 
-<h2>فتح وحفظ العرض التقديمي</h2>
+```cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
-<a name="cplusplus-open-save-presentation"><strong>الخطوات: فتح وحفظ العرض التقديمي في C++</strong></a>
+auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
+```
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) وتمرير الملف الذي تريد فتحه. 
 
-2. حفظ العرض التقديمي. 
+## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
 
-   ```c++
-   	const String outPath = u"../out/SaveToFile_out.ppt";
-   	
-   	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-   
-   	// pres->get_ProtectionManager()->Encrypt(u"pass");
-   	// ...قم ببعض العمل هنا..
-   
-   	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-   ```
+يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المدمجة:
+
+- مشروع VBA (يمكن الوصول إليه عبر [IPresentation::get_VbaProject](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_vbaproject/));
+- بيانات كائن OLE المدمجة (يمكن الوصول إليها عبر [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
+- بيانات ثنائية للتحكم ActiveX (يمكن الوصول إليها عبر [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
+
+باستخدام الطريقة [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/) يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مدمجة.
+
+هذه الطريقة مفيدة لإزالة المحتويات الثنائية التي قد تكون ضارة. يوضح الكود التالي بلغة C++ كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مدمج:
+```cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_DeleteEmbeddedBinaryObjects(true);
+
+auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
+
+// تنفيذ عمليات على العرض التقديمي.
+
+presentation->Dispose();
+```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني معرفة أن الملف معطوب ولا يمكن فتحه؟**
+
+ستحصل على استثناء أثناء التحميل يشير إلى فشل تحليل أو تحقق من تنسيق الملف. غالبًا ما تتضمن هذه الأخطاء ذكر بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
+
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
+
+سيتم فتح الملف، لكن عملية [التصوير/التصدير](/slides/ar/cpp/convert-presentation/) قد تستبدل الخطوط. يمكنك [تكوين استبدالات الخطوط](/slides/ar/cpp/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/cpp/custom-font/) إلى بيئة التشغيل.
+
+**ماذا عن الوسائط المدمجة (فيديو/صوت) عند الفتح؟**
+
+تصبح الوسائط متاحة كموارد للعرض. إذا كانت الوسائط مشيرة إلى مسارات خارجية، تأكد من أن تلك المسارات متاحة في بيئتك؛ وإلا قد تقوم عملية [التصوير/التصدير](/slides/ar/cpp/convert-presentation/) بإهمال الوسائط.

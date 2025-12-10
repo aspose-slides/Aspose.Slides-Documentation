@@ -1,38 +1,50 @@
 ---
-title: 自動調整設定の管理
+title: C++ の AutoFit でプレゼンテーションを強化する
+linktitle: AutoFit 設定
 type: docs
 weight: 30
 url: /ja/cpp/manage-autofit-settings/
-keywords: "テキストボックス, 自動調整, PowerPoint プレゼンテーション, C++, Aspose.Slides for C++"
-description: "C++におけるPowerPointのテキストボックスの自動調整設定を行います"
+keywords:
+- テキストボックス
+- AutoFit
+- 自動調整なし
+- テキストをフィット
+- テキストを縮小
+- テキストを折り返す
+- シェイプをリサイズ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ で AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションのテキスト表示を最適化して、コンテンツの可読性を向上させる方法を学びます。"
 ---
 
-デフォルトでは、テキストボックスを追加すると、Microsoft PowerPointはテキストボックスに対して **テキストに合わせて形状をサイズ変更** 設定を使用します。これにより、テキストボックスは自動的にサイズが調整され、テキストが常に収まります。
+デフォルトでは、テキストボックスを追加すると、Microsoft PowerPoint はテキストボックスの **Resize shape to fix text** 設定を使用します。テキストが常にフィットするように、テキストボックスのサイズが自動的に調整されます。
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![PowerPoint のテキストボックス](textbox-in-powerpoint.png)
 
-* テキストボックスのテキストが長くなると、PowerPointは自動的にテキストボックスを大きくし（高さを増やし）、より多くのテキストを保持できるようにします。
-* テキストボックスのテキストが短くなると、PowerPointは自動的にテキストボックスを縮小し（高さを減らし）、余分なスペースを取り除きます。
+* テキストボックス内のテキストが長くなるまたは大きくなると、PowerPoint はテキストボックスの高さを自動的に拡大して、より多くのテキストを収められるようにします。  
+* テキストボックス内のテキストが短くなるまたは小さくなると、PowerPoint はテキストボックスの高さを自動的に縮小して、余分なスペースを取り除きます。
 
-PowerPointでは、これらはテキストボックスの自動調整動作を制御するための4つの重要なパラメータまたはオプションです：
+PowerPoint では、テキストボックスの自動調整動作を制御する 4 つの重要なパラメータまたはオプションがあります。
 
-* **自動調整しない**
-* **オーバーフロー時にテキストを縮小**
-* **テキストに合わせて形状をサイズ変更**
-* **形状内でテキストを折り返す**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![PowerPoint の自動調整オプション](autofit-options-powerpoint.png)
 
-Aspose.Slides for C++は、プレゼンテーション内のテキストボックスの自動調整動作を制御する便利なオプションを提供しています。これには、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスのいくつかのメソッドが含まれます。
+Aspose.Slides for C++ は、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスのいくつかのメソッドを通じて、プレゼンテーション内のテキストボックスの自動調整動作を制御できる同様のオプションを提供します。
 
-## **テキストに合わせて形状をサイズ変更**
+## **Resize a Shape to Fit Text**
 
-ボックス内のテキストが常にそのボックスに収まるようにしたい場合は、**テキストに合わせて形状をサイズ変更** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスから）を `Shape` に設定します。
+テキストが変更された後も常にボックス内に収まるようにしたい場合は、**Resize shape to fix text** オプションを使用する必要があります。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスの [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティを `Shape` に設定します。
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+![PowerPoint の常にフィット設定](alwaysfit-setting-powerpoint.png)
 
-このC++コードは、PowerPointプレゼンテーションでテキストが常にそのボックスに収まるように指定する方法を示しています：
-
+この C++ コードは、PowerPoint プレゼンテーションでテキストが常にボックスに収まるように指定する方法を示しています:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -51,16 +63,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::Shape);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-テキストが長くなったり大きくなると、テキストボックスは自動的にサイズが調整（高さが増加）されて、すべてのテキストが収まるようになります。テキストが短くなると、逆の操作が行われます。
 
-## **自動調整しない**
+テキストが長くなるまたは大きくなると、テキストボックスは自動的に高さが増えてテキスト全体が収まります。テキストが短くなると、その逆が行われます。
 
-テキストボックスやシェイプが、含まれるテキストの変更に関係なくその寸法を保持するようにしたい場合は、**自動調整しない** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスから）を `None` に設定します。
+## **Do Not Autofit**
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+テキストの変更にかかわらずテキストボックスまたはシェイプのサイズを保持したい場合は、**Do not Autofit** オプションを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスの [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティを `None` に設定します。
 
-このC++コードは、PowerPointプレゼンテーションでテキストボックスが常にその寸法を保持するように指定する方法を示しています：
+![PowerPoint の自動調整なし設定](donotautofit-setting-powerpoint.png)
 
+この C++ コードは、PowerPoint プレゼンテーションでテキストボックスが常に元のサイズを保持するように指定する方法を示しています:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -79,16 +91,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::None);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-テキストがボックスに対して長すぎる場合、それはあふれ出します。
 
-## **オーバーフロー時にテキストを縮小**
+テキストがボックスより長くなると、テキストがはみ出します。
 
-テキストがボックスに対して長すぎる場合、**オーバーフロー時にテキストを縮小** オプションを使用すると、テキストのサイズと間隔を減少させてボックスに収まるように指定できます。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスから）を `Normal` に設定します。
+## **Shrink Text on Overflow**
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+テキストがボックスより長くなる場合、**Shrink text on overflow** オプションを使用して、テキストのサイズと間隔を縮小し、ボックス内に収めることができます。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスの [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) プロパティを `Normal` に設定します。
 
-このC++コードは、PowerPointプレゼンテーションでテキストがオーバーフロー時に縮小されるように指定する方法を示しています：
+![PowerPoint のオーバーフロー時縮小設定](shrinktextonoverflow-setting-powerpoint.png)
 
+この C++ コードは、PowerPoint プレゼンテーションでテキストがオーバーフローしたときに縮小されるように指定する方法を示しています:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -107,18 +119,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::Normal);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="情報" color="info" %}}
 
-**オーバーフロー時にテキストを縮小** オプションが使用されると、設定はテキストがボックスに対して長すぎるときのみ適用されます。
-
+{{% alert title="Info" color="info" %}}
+**Shrink text on overflow** オプションは、テキストがボックスより長くなったときにのみ適用されます。  
 {{% /alert %}}
 
-## **テキストを折り返す**
+## **Wrap Text**
 
-シェイプ内のテキストがシェイプの境界（幅のみ）を超えると、テキストがそのシェイプ内で折り返されるようにしたい場合は、**形状内でテキストを折り返す** パラメータを使用する必要があります。この設定を指定するには、[WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスから）を `true` に設定する必要があります。
+テキストがシェイプの幅を超えたときに、シェイプ内部で折り返したい場合は、**Wrap text in shape** パラメータを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) クラスの [WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) プロパティを `true` に設定します。
 
-このC++コードは、PowerPointプレゼンテーションでテキストを折り返す設定を使用する方法を示しています：
-
+この C++ コードは、PowerPoint プレゼンテーションで Wrap Text 設定を使用する方法を示しています:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -137,8 +147,21 @@ textFrameFormat->set_WrapText(NullableBool::True);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-シェイプの `WrapText` プロパティを `False` に設定すると、シェイプ内部のテキストがシェイプの幅を超えると、テキストが1行でシェイプの境界を越えて伸びます。
-
+{{% alert title="Note" color="warning" %}} 
+シェイプの `WrapText` プロパティを `False` に設定すると、テキストがシェイプの幅より長くなった場合に、テキストは単一行でシェイプの境界を超えて表示されます。  
 {{% /alert %}}
+
+## **FAQ**
+
+**テキストフレームの内部余白は AutoFit に影響しますか？**
+
+はい。パディング（内部余白）によりテキストの使用可能領域が減少するため、AutoFit はより早く発動し、フォントが縮小されたりシェイプがリサイズされたりします。AutoFit を調整する前に余白を確認して調整してください。
+
+**AutoFit は手動改行やソフト改行とどのように連動しますか？**
+
+強制改行はそのまま残り、AutoFit はそれらの周囲でフォントサイズと間隔を調整します。不必要な改行を削除すると、AutoFit がテキストを縮小する頻度が低減します。
+
+**テーマフォントの変更やフォント置換は AutoFit の結果に影響しますか？**
+
+はい。字形メトリクスが異なるフォントに置換すると、テキストの幅や高さが変わり、最終的なフォントサイズや改行に影響します。フォントを変更または置換した後は、スライドを再確認してください。
