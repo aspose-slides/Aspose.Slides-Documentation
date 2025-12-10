@@ -1,17 +1,27 @@
 ---
-title: Étiquette de Données du Graphique
+title: Gérer les étiquettes de données de graphique dans les présentations avec С++
+linktitle: Étiquette de données
 type: docs
 url: /fr/cpp/chart-data-label/
-keywords: "Étiquette de données du graphique, distance de l'étiquette, C++, CPP, Aspose.Slides pour C++"
-description: "Définir l'étiquette de données du graphique PowerPoint et la distance en C++"
+keywords:
+- graphique
+- étiquette de données
+- précision des données
+- pourcentage
+- distance de l'étiquette
+- position de l'étiquette
+- PowerPoint
+- présentation
+- С++
+- Aspose.Slides
+description: "Apprenez à ajouter et à formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour С++ afin de créer des diapositives plus attrayantes."
 ---
 
-Les étiquettes de données sur un graphique montrent des détails sur les séries de données du graphique ou des points de données individuels. Elles permettent aux lecteurs d'identifier rapidement les séries de données et rendent également les graphiques plus faciles à comprendre.
+Les étiquettes de données d’un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d’identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
 
-## **Définir la Précision des Données dans l'Étiquette de Données du Graphique**
+## **Définir la précision des données dans les étiquettes de graphique**
 
-Ce code C++ vous montre comment définir la précision des données dans une étiquette de données de graphique :
-
+Ce code C++ montre comment définir la précision des données dans une étiquette de graphique :
 ```c++
 	// Le chemin vers le répertoire des documents
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
@@ -29,14 +39,14 @@ Ce code C++ vous montre comment définir la précision des données dans une ét
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// Écrit le fichier de présentation sur le disque
+	// Enregistre le fichier de présentation sur le disque
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
-## **Afficher des Pourcentages en tant qu'Étiquettes**
-Aspose.Slides pour C++ vous permet de définir des étiquettes de pourcentage sur des graphiques affichés. Ce code C++ démontre l'opération :
+## **Afficher les pourcentages comme étiquettes**
 
+Aspose.Slides for C++ vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code C++ illustre l’opération :
 ```c++
 	// Le chemin vers le répertoire des documents
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
@@ -88,14 +98,14 @@ Aspose.Slides pour C++ vous permet de définir des étiquettes de pourcentage su
 
 	}
 
-	// Sauvegarde la présentation contenant le graphique
-	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+	// Enregistre la présentation contenant le graphique
+	presentation->Save(outPath, Aspise::Slides::Export::SaveFormat::Pptx);
 ```
 
 
-## **Définir le Signe de Pourcentage avec l'Étiquette de Données du Graphique**
-Ce code C++ vous montre comment définir le signe de pourcentage pour une étiquette de données de graphique :
+## **Définir le signe de pourcentage avec les étiquettes de données du graphique**
 
+Ce code C++ montre comment définir le signe de pourcentage pour une étiquette de données de graphique :
 ```c++
 	// Le chemin vers le répertoire des documents.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
@@ -103,13 +113,13 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	// Crée une instance de la classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Obtient la référence d'une diapositive par son index
+	// Obtient la référence d'une diapositive par son indice
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Crée le graphique PercentsStackedColumn sur une diapositive
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// Définit le NumberFormatLinkedToSource sur false
+	// Définit NumberFormatLinkedToSource sur false
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
@@ -126,11 +136,11 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	
 
 	// Ajoute une nouvelle série
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Série 2")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// Prend la première série de graphique
-	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Rouge")), chart->get_Type());
+	// Prend la première série du graphique
+	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
 	// Remplit les données de la série
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
@@ -141,7 +151,7 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// Définit les propriétés LabelFormat
+	// Définit les propriétés de LabelFormat
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -150,8 +160,8 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Prend la deuxième série de graphique
-	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Bleus")), chart->get_Type());
+	// Prend la deuxième série du graphique
+	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
 	// Remplit les données de la série
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
@@ -162,7 +172,7 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// Définit les propriétés LabelFormat
+	// Définit les propriétés de LabelFormat
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -171,15 +181,14 @@ Ce code C++ vous montre comment définir le signe de pourcentage pour une étiqu
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Écrit le fichier de présentation sur le disque
+	// Enregistre le fichier de présentation sur le disque
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 
-## **Définir la Distance de l'Étiquette par Rapport à l'Axe**
-Ce code C++ vous montre comment définir la distance de l'étiquette par rapport à un axe de catégorie lorsque vous travaillez avec un graphique tracé à partir des axes :
+## **Définir la distance de l’étiquette par rapport à l’axe**
 
+Ce code C++ montre comment définir la distance de l’étiquette par rapport à un axe de catégorie lorsque vous travaillez avec un graphique tracé à partir d’axes :
 ```c++
 	// Le chemin vers le répertoire des documents
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
@@ -187,29 +196,29 @@ Ce code C++ vous montre comment définir la distance de l'étiquette par rapport
 	// Crée une instance de la classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Obtient la référence d'une diapositive
+	// Obtient une référence à une diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Crée un graphique sur la diapositive
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Obtient la collection de séries de graphique
+	// Obtient la collection des séries du graphique
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
 	// Définit la distance de l'étiquette par rapport à un axe
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// Écrit le fichier de présentation sur le disque
+	// Enregistre le fichier de présentation sur le disque
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Ajuster l'Emplacement de l'Étiquette**
 
-Lorsque vous créez un graphique qui ne dépend d'aucun axe, comme un graphique circulaire, les étiquettes de données du graphique peuvent se retrouver trop près de son bord. Dans ce cas, vous devez ajuster l'emplacement de l'étiquette de données afin que les lignes de direction soient affichées clairement.
+## **Ajuster la position de l’étiquette**
 
-Ce code C++ vous montre comment ajuster l'emplacement de l'étiquette sur un graphique circulaire :
+Lorsque vous créez un graphique qui ne repose sur aucun axe, comme un diagramme circulaire, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, vous devez ajuster la position de l’étiquette afin que les lignes de liaison s’affichent clairement.
 
+Ce code C++ montre comment ajuster la position de l’étiquette sur un diagramme circulaire :
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -227,4 +236,19 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Comment éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**
+
+Combinez le placement automatique des étiquettes, les lignes de liaison et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les points extrêmes/clé.
+
+**Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
+
+Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+
+**Comment garantir un style d’étiquette cohérent lors de l’exportation vers PDF/images ?**
+
+Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu pour éviter le recours à une police de secours.

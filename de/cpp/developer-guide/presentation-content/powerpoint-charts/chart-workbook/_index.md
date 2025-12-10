@@ -1,16 +1,28 @@
 ---
-title: Diagramm Arbeitsmappe
+title: Diagramm-Arbeitsmappen in Präsentationen mit C++ verwalten
+linktitle: Diagramm-Arbeitsmappe
 type: docs
 weight: 70
 url: /de/cpp/chart-workbook/
-keywords: "Diagramm Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
-description: "Diagramm Arbeitsmappe in PowerPoint-Präsentation in C++"
+keywords:
+- Diagramm-Arbeitsmappe
+- Diagrammdaten
+- Arbeitsblattzelle
+- Datenbeschriftung
+- Arbeitsblatt
+- Datenquelle
+- Externe Arbeitsmappe
+- Externe Daten
+- PowerPoint
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Entdecken Sie Aspose.Slides für C++: Verwalten Sie Diagramm-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
 ---
 
-## **Diagrammdaten aus Arbeitsmappe setzen**
+## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
 
-Aspose.Slides bietet die [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) und [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) Methoden, mit denen Sie Diagrammdaten Arbeitsmappen lesen und schreiben können (die Diagrammdaten, die mit Aspose.Cells bearbeitet wurden). **Hinweis**: Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine ähnliche Struktur wie die Quelle haben.
-
+Aspose.Slides bietet die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) und [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) an, mit denen Sie Arbeitsmappen für Diagrammdaten (die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine ähnliche Struktur wie die Quelldaten aufweisen.
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
@@ -25,8 +37,8 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Dieser C++-Code demonstriert die Operation, eine Diagrammdaten Arbeitsmappe zu setzen:
 
+Dieser C++‑Code demonstriert das Setzen einer Diagrammdaten‑Arbeitsmappe:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 
@@ -57,23 +69,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Arbeitsblattzelle als Diagramm Datenbeschriftung setzen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) Klasse.
-2. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-3. Fügen Sie ein Blasendiagramm mit einigen Daten hinzu.
-4. Greifen Sie auf die Diagrammserie zu.
-5. Setzen Sie die Arbeitsblattzelle als Datenbeschriftung.
-6. Speichern Sie die Präsentation.
+## **Eine Arbeitsblattzelle als Diagrammdaten‑Beschriftung festlegen**
 
-Dieser C++-Code zeigt, wie Sie eine Arbeitsblattzelle als Diagramm Datenbeschriftung setzen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/)‑Klasse.  
+1. Holen Sie sich über den Index einen Verweis auf die Folie.  
+1. Fügen Sie ein Blasendiagramm mit einigen Daten hinzu.  
+1. Greifen Sie auf die Diagramm‑Serie zu.  
+1. Legen Sie die Arbeitsblattzelle als Datenbeschriftung fest.  
+1. Speichern Sie die Präsentation.
 
+Dieser C++‑Code zeigt, wie Sie eine Arbeitsblattzelle als Diagrammdaten‑Beschriftung festlegen:
 ``` cpp
-System::String lbl0 = u"Label 0 Zellwert";
-System::String lbl1 = u"Label 1 Zellwert";
-System::String lbl2 = u"Label 2 Zellwert";
+System::String lbl0 = u"Label 0 cell value";
+System::String lbl1 = u"Label 1 cell value";
+System::String lbl2 = u"Label 2 cell value";
 
-// Erstellt eine Präsentation, die eine Präsentationsdatei darstellt 
+// Instanziiert eine Presentation-Klasse, die eine Präsentationsdatei darstellt
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -93,10 +105,10 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **Arbeitsblätter verwalten**
 
-Dieser C++-Code demonstriert eine Operation, bei der die [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) Eigenschaft verwendet wird, um auf eine Arbeitsblattkollektion zuzugreifen:
-
+Dieser C++‑Code demonstriert eine Operation, bei der die Eigenschaft [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) verwendet wird, um auf eine Arbeitsblatt‑Sammlung zuzugreifen:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -108,10 +120,10 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Datentyp der Quelle angeben**
 
-Dieser C++-Code zeigt, wie Sie einen Typ für eine Datenquelle angeben:
+## **Datentyp der Quelle festlegen**
 
+Dieser C++‑Code zeigt, wie Sie einen Typ für eine Datenquelle festlegen:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -127,18 +139,18 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **Externe Arbeitsmappe**
 
 {{% alert color="primary" %}} 
 In [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4 haben wir die Unterstützung für externe Arbeitsmappen als Datenquelle für Diagramme implementiert.
 {{% /alert %}} 
 
-### **Externe Arbeitsmappe erstellen**
+### **Eine externe Arbeitsmappe erstellen**
 
-Mit den **`ReadWorkbookStream`** und **`SetExternalWorkbook`** Methoden können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe extern machen.
+Mit den Methoden **`ReadWorkbookStream`** und **`SetExternalWorkbook`** können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe extern machen.
 
-Dieser C++-Code demonstriert den Prozess der Erstellung einer externen Arbeitsmappe:
-
+Dieser C++‑Code demonstriert den Erstellungsprozess einer externen Arbeitsmappe:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -159,14 +171,14 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Externe Arbeitsmappe setzen**
 
-Mit der **`IChartData.SetExternalWorkbook`** Methode können Sie einer Diagramm eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um einen Pfad zur externen Arbeitsmappe zu aktualisieren (wenn diese verschoben wurde).
+### **Eine externe Arbeitsmappe festlegen**
 
-Obwohl Sie die Daten in Arbeitsmappen, die sich an entfernten Standorten oder Ressourcen befinden, nicht bearbeiten können, können Sie diese Arbeitsmappen trotzdem als externe Datenquelle verwenden. Wenn der relative Pfad für eine externe Arbeitsmappe angegeben wird, wird dieser automatisch in einen vollständigen Pfad konvertiert.
+Mit der Methode **`IChartData.SetExternalWorkbook`** können Sie einer Grafik eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-Dieser C++-Code zeigt, wie Sie eine externe Arbeitsmappe setzen:
+Während Sie die Daten in Arbeitsmappen, die an entfernten Orten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle nutzen. Wird ein relativer Pfad für eine externe Arbeitsmappe angegeben, wird er automatisch in einen absoluten Pfad umgewandelt.
 
+Dieser C++‑Code zeigt, wie Sie eine externe Arbeitsmappe festlegen:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -189,11 +201,11 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Der `updateChartData` Parameter (unter der `SetExternalWorkbook` Methode) wird verwendet, um anzugeben, ob eine Excel-Arbeitsmappe geladen werden soll oder nicht. 
 
-* Wenn der Wert von `updateChartData` auf `false` gesetzt ist, wird nur der Arbeitsmappopfad aktualisiert—die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Sie möchten diese Einstellung möglicherweise verwenden, wenn die Zielarbeitsmappe nicht vorhanden oder nicht verfügbar ist. 
-* Wenn der Wert von `updateChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
+Der Parameter `updateChartData` (unter der Methode `SetExternalWorkbook`) gibt an, ob eine Excel‑Arbeitsmappe geladen wird oder nicht.
 
+* Wenn `updateChartData` auf `false` gesetzt ist, wird nur der Pfad zur Arbeitsmappe aktualisiert – die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Diese Einstellung ist sinnvoll, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.  
+* Wenn `updateChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -206,16 +218,16 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Pfad zur externen Datenquelle für das Diagramm abrufen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-2. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-3. Erstellen Sie ein Objekt für die Diagrammform.
-4. Erstellen Sie ein Objekt für den Quellentyp (`ChartDataSourceType`), das die Datenquelle des Diagramms darstellt.
-5. Geben Sie die entsprechende Bedingung an, basierend darauf, dass der Quellentyp derselbe wie der externe Arbeitsmappe-Datenquelle-Typ ist.
+### **Pfad zur externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
 
-Dieser C++-Code demonstriert die Operation:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Klasse.  
+1. Holen Sie sich über den Index einen Verweis auf die Folie.  
+1. Erzeugen Sie ein Objekt für das Diagramm‑Shape.  
+1. Erzeugen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), das die Datenquelle des Diagramms repräsentiert.  
+1. Geben Sie die relevante Bedingung an, wobei der Quelltyp dem Typ der externen Arbeitsmappe entsprechen muss.
 
+Dieser C++‑Code demonstriert die Operation:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -227,24 +239,53 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Speichern Sie die Präsentation
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
+
 ### **Diagrammdaten bearbeiten**
 
-Sie können die Daten in externen Arbeitsmappen auf die gleiche Weise bearbeiten wie die Inhalte interner Arbeitsmappen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können die Daten in externen Arbeitsmappen genauso bearbeiten, wie Sie Änderungen an internen Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
 
-Dieser C++-Code ist eine Implementierung des beschriebenen Prozesses:
-
+Dieser C++‑Code implementiert den beschriebenen Vorgang:
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
-const String outPath = u"../out/presentation-out.pptx";
+	const String outPath = u"../out/presentation-out.pptx";
 	
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
 
-chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
+	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
+	
+
+	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**
+
+Ja. Ein Diagramm verfügt über einen [Datenquellentyp](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+
+**Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
+
+Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Das erleichtert die Projektportabilität; jedoch wird der absolute Pfad in der PPTX‑Datei gespeichert.
+
+**Kann ich Arbeitsmappen verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**
+
+Ja, solche Arbeitsmappen können als externe Datenquelle genutzt werden. Das direkte Bearbeiten von Remote‑Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle dienen.
+
+**Überschreibt Aspose.Slides die externe XLSX beim Speichern der Präsentation?**
+
+Nein. Die Präsentation speichert einen [Verweis auf die externe Datei](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) und verwendet diesen zum Lesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
+
+**Was ist zu tun, wenn die externe Datei durch ein Passwort geschützt ist?**
+
+Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz besteht darin, den Schutz im Vorfeld zu entfernen oder eine entschlüsselte Kopie (z. B. mit [Aspose.Cells](/cells/cpp/)) vorzubereiten und auf diese Kopie zu verlinken.
+
+**Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
+
+Ja. Jedes Diagramm speichert seinen eigenen Verweis. Wenn sie alle auf dieselbe Datei zeigen, werden Änderungen an dieser Datei in allen Diagrammen beim nächsten Laden der Daten wirksam.

@@ -1,119 +1,137 @@
 ---
-title: Forme Personnalisée
+title: Personnaliser les formes de présentation en C++
+linktitle: Forme personnalisée
 type: docs
 weight: 20
 url: /fr/cpp/custom-shape/
-keywords: "forme PowerPoint, forme personnalisée, présentation PowerPoint, C++, Aspose.Slides pour C++"
-description: "Ajouter une forme personnalisée dans une présentation PowerPoint en C++"
+keywords:
+- forme personnalisée
+- ajouter une forme
+- créer une forme
+- modifier une forme
+- géométrie de forme
+- chemin géométrique
+- points du chemin
+- points d'édition
+- ajouter un point
+- supprimer un point
+- opération d'édition
+- coin arrondi
+- PowerPoint
+- présentation
+- C++
+- Aspose.Slides
+description: "Créer et personnaliser des formes dans les présentations PowerPoint avec Aspose.Slides pour C++: chemins géométriques, coins arrondis, formes composites."
 ---
 
-# Modifier une Forme à l'Aide de Points d'Édition
-Considérez un carré. Dans PowerPoint, en utilisant **des points d'édition**, vous pouvez 
+## **Modifier une forme à l'aide des points d'édition**
+Considérez un carré. Dans PowerPoint, en utilisant **points d'édition**, vous pouvez 
 
-* déplacer le coin du carré vers l'intérieur ou vers l'extérieur
+* déplacer le coin du carré vers l'intérieur ou l'extérieur
 * spécifier la courbure d'un coin ou d'un point
 * ajouter de nouveaux points au carré
-* manipuler les points sur le carré, etc. 
+* manipuler les points du carré, etc. 
 
-Essentiellement, vous pouvez effectuer les tâches décrites sur n'importe quelle forme. En utilisant des points d'édition, vous pouvez modifier une forme ou créer une nouvelle forme à partir d'une forme existante. 
+Essentiellement, vous pouvez effectuer ces tâches sur n'importe quelle forme. Avec les points d'édition, vous pouvez modifier une forme ou créer une nouvelle forme à partir d'une forme existante. 
 
-## **Conseils pour Éditer des Formes**
+## **Conseils pour l'édition de formes**
 
 ![overview_image](custom_shape_0.png)
 
-Avant de commencer à éditer des formes PowerPoint via des points d'édition, vous voudrez peut-être considérer ces points concernant les formes :
+Avant de commencer à modifier les formes PowerPoint à l'aide des points d'édition, vous voudrez peut‑être prendre en compte les points suivants concernant les formes :
 
-* Une forme (ou son chemin) peut être fermée ou ouverte.
-* Lorsqu'une forme est fermée, elle n'a pas de point de départ ou de point d'arrivée. Lorsqu'une forme est ouverte, elle a un début et une fin. 
-* Toutes les formes se composent d'au moins 2 points d'ancrage reliés par des lignes.
-* Une ligne est soit droite, soit courbée. Les points d'ancrage déterminent la nature de la ligne. 
-* Les points d'ancrage existent sous forme de points de coin, de points droits ou de points lisses :
-  * Un point de coin est un point où 2 lignes droites se rejoignent à un angle. 
-  * Un point lisse est un point où 2 poignées existent en ligne droite et où les segments de la ligne se rejoignent en une courbe lisse. Dans ce cas, toutes les poignées sont séparées du point d'ancrage par une distance égale. 
-  * Un point droit est un point où 2 poignées existent en ligne droite et où les segments de cette ligne se rejoignent en une courbe lisse. Dans ce cas, les poignées n'ont pas besoin d'être séparées du point d'ancrage par une distance égale. 
-* En déplaçant ou en modifiant les points d'ancrage (ce qui change l'angle des lignes), vous pouvez changer l'apparence d'une forme. 
+* Une forme (ou son tracé) peut être fermée ou ouverte.
+* Lorsqu'une forme est fermée, elle n'a pas de point de départ ou d'arrivée. Lorsqu'une forme est ouverte, elle possède un début et une fin. 
+* Toutes les formes comportent au moins 2 points d'ancrage reliés entre eux par des lignes
+* Une ligne est soit droite, soit courbe. Les points d'ancrage déterminent la nature de la ligne. 
+* Les points d'ancrage existent sous forme de points d'angle, de points droits ou de points lisses :
+  * Un point d'angle est un point où 2 lignes droites se rejoignent sous un angle. 
+  * Un point lisse est un point où 2 poignées existent sur une ligne droite et les segments de la ligne se rejoignent en une courbe fluide. Dans ce cas, toutes les poignées sont séparées du point d'ancrage par une distance égale. 
+  * Un point droit est un point où 2 poignées existent sur une ligne droite et les segments de cette ligne se rejoignent en une courbe fluide. Dans ce cas, les poignées n'ont pas besoin d'être séparées du point d'ancrage par une distance égale. 
+* En déplaçant ou en modifiant les points d'ancrage (ce qui change l'angle des lignes), vous pouvez modifier l'apparence d'une forme. 
 
-Pour éditer les formes PowerPoint via des points d'édition, **Aspose.Slides** fournit la classe [**GeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) et l'interface [**IGeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
+Pour modifier les formes PowerPoint via les points d'édition, **Aspose.Slides** fournit la classe [**GeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) et l'interface [**IGeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
 
 * Une instance de [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) représente un chemin géométrique de l'objet [IGeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape). 
-* Pour récupérer le `GeometryPath` de l'instance `IGeometryShape`, vous pouvez utiliser la méthode [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1). 
-* Pour définir le `GeometryPath` d'une forme, vous pouvez utiliser ces méthodes : [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) pour les *formes pleines* et [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) pour les *formes composées*.
-* Pour ajouter des segments, vous pouvez utiliser les méthodes sous [IGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
+* Pour récupérer le`GeometryPath` de l'instance `IGeometryShape`, vous pouvez utiliser la méthode [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1). 
+* Pour définir le `GeometryPath` d'une forme, vous pouvez utiliser ces méthodes : [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) pour les *formes pleines* et [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) pour les *formes composites*.
+* Pour ajouter des segments, vous pouvez utiliser les méthodes de [IGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
 * En utilisant les méthodes [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) et [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7), vous pouvez définir l'apparence d'un chemin géométrique.
-* En utilisant la méthode [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca), vous pouvez récupérer le chemin géométrique d'une `GeometryShape` sous forme de tableau de segments de chemin. 
-* Pour accéder à des options de personnalisation géométrique supplémentaires, vous pouvez convertir [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) en [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path).
-* Utilisez les méthodes [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) et [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (de la classe [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util)) pour convertir [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) en [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) et vice versa. 
+* En utilisant la méthode [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca), vous pouvez récupérer le chemin géométrique d'un `GeometryShape` sous forme de tableau de segments de chemin. 
+* Pour accéder à des options supplémentaires de personnalisation de la géométrie des formes, vous pouvez convertir [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) en [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path)
+* Utilisez les méthodes [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) et [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (de la classe [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util)) pour convertir [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) en [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) et inversement. 
 
-## **Opérations d'Édition Simples**
+## **Opérations d'édition simples**
 
-Ce code C++ montre comment 
+Ce code C++ vous montre comment
 
 **Ajouter une ligne** à la fin d'un chemin
-
 ``` cpp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-**Ajouter une ligne** à une position spécifiée sur un chemin :
 
+**Ajouter une ligne** à une position spécifiée sur un chemin :
 ``` cpp    
 void LineTo(PointF point, uint32_t index);
 void LineTo(float x, float y, uint32_t index);
 ```
-**Ajouter une courbe de Bezier cubique** à la fin d'un chemin :
 
+**Ajouter une courbe de Bézier cubique** à la fin d'un chemin :
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Ajouter une courbe de Bezier cubique** à la position spécifiée sur un chemin :
 
+**Ajouter une courbe de Bézier cubique** à la position spécifiée sur un chemin :
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
 ```
-**Ajouter une courbe de Bezier quadratique** à la fin d'un chemin :
 
+**Ajouter une courbe de Bézier quadratique** à la fin d'un chemin :
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Ajouter une courbe de Bezier quadratique** à une position spécifiée sur un chemin :
 
+**Ajouter une courbe de Bézier quadratique** à la position spécifiée sur un chemin :
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
 ```
-**Ajouter un arc donné** à un chemin :
 
+**Ajouter un arc donné** à un chemin :
 ``` cpp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Fermer la figure actuelle** d'un chemin :
 
+**Fermer la figure courante** d'un chemin :
 ``` cpp
 void CloseFigure();
 ```
-**Définir la position pour le prochain point** :
 
+**Définir la position du point suivant** :
 ``` cpp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-**Supprimer le segment de chemin** à un index donné :
 
+**Supprimer le segment de chemin** à un indice donné :
 ``` cpp
 void RemoveAt(int32_t index);
 ```
-## **Ajouter des Points Personnalisés à la Forme**
+
+
+## **Ajouter des points personnalisés à une forme**
+
 1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) et définissez le type [ShapeType.Rectangle](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).
 2. Obtenez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) à partir de la forme.
 3. Ajoutez un nouveau point entre les deux points supérieurs du chemin.
 4. Ajoutez un nouveau point entre les deux points inférieurs du chemin.
 5. Appliquez le chemin à la forme.
 
-Ce code C++ montre comment ajouter des points personnalisés à une forme :
-
+Ce code C++ vous montre comment ajouter des points personnalisés à une forme :
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -127,17 +145,17 @@ geometryPath->LineTo(100.0f, 50.0f, 4);
 shape->SetGeometryPath(geometryPath);
 ```
 
+
 ![example1_image](custom_shape_1.png)
 
-##  Supprimer des Points de la Forme
+## **Supprimer des points d'une forme**
 
 1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) et définissez le type [ShapeType.Heart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5). 
 2. Obtenez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) à partir de la forme.
 3. Supprimez le segment du chemin.
 4. Appliquez le chemin à la forme.
 
-Ce code C++ montre comment supprimer des points d'une forme :
-
+Ce code C++ vous montre comment supprimer des points d'une forme :
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -148,18 +166,18 @@ SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
 shape->SetGeometryPath(path);
 ```
+
 ![example2_image](custom_shape_2.png)
 
-##  **Créer une Forme Personnalisée**
+## **Créer une forme personnalisée**
 
-1. Calculez les points pour la forme.
+1. Calculez les points de la forme.
 2. Créez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path). 
 3. Remplissez le chemin avec les points.
 4. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape). 
 5. Appliquez le chemin à la forme.
 
-Ce code C++ montre comment créer une forme personnalisée :
-
+Ce code C++ vous montre comment créer une forme personnalisée :
 ``` cpp
 SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
 
@@ -196,18 +214,18 @@ SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->Add
 
 shape->SetGeometryPath(starPath);
 ```
+
 ![example3_image](custom_shape_3.png)
 
 
-## **Créer une Forme Personnalisée Composite**
+## **Créer une forme personnalisée composite**
 
   1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).
   2. Créez une première instance de la classe [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).
   3. Créez une deuxième instance de la classe [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).
   4. Appliquez les chemins à la forme.
 
-Ce code C++ montre comment créer une forme personnalisée composite :
-
+Ce code C++ vous montre comment créer une forme personnalisée composite :
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -230,12 +248,12 @@ geometryPath1->CloseFigure();
 
 shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **Créer une Forme Personnalisée avec des Coins Arrondis**
+## **Créer une forme personnalisée avec coins arrondis**
 
-Ce code C++ montre comment créer une forme personnalisée avec des coins arrondis (vers l'intérieur) :
-
+Ce code C++ vous montre comment créer une forme personnalisée avec des coins arrondis (vers l'intérieur) ;
 ```cpp
 float shapeX = 20.f;
 float shapeY = 20.f;
@@ -276,15 +294,41 @@ childShape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Convertir GeometryPath en GraphicsPath** 
+
+## **Déterminer si la géométrie d'une forme est fermée**
+
+Une forme fermée est définie comme une forme dont tous les côtés sont connectés, formant une seule frontière sans lacunes. Une telle forme peut être une forme géométrique simple ou un contour personnalisé complexe. L'exemple de code suivant montre comment vérifier si la géométrie d'une forme est fermée :
+```cpp
+bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
+{
+    bool isClosed = false;
+
+    for (auto&& geometryPath : geometryShape->GetGeometryPaths())
+    {
+        auto dataLength = geometryPath->get_PathData()->get_Length();
+        if (dataLength == 0)
+            continue;
+
+        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
+        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
+
+        if (!isClosed)
+            return false;
+    }
+
+    return isClosed;
+}
+```
+
+
+## **Convertir GeometryPath en GraphicsPath**
 
 1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).
 2. Créez une instance de la classe [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) du namespace [System.Drawing.Drawing2D](https://reference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d).
-3. Convertissez l'instance de [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) en instance de [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) à l'aide de [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).
+3. Convertissez l'instance [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) en instance [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) en utilisant [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).
 4. Appliquez les chemins à la forme.
 
-Ce code C++ - une implémentation des étapes ci-dessus - démontre le processus de conversion de **GeometryPath** à **GraphicsPath** :
-
+Ce code C++—une implémentation des étapes ci‑dessus—dé montre le processus de conversion de **GeometryPath** en **GraphicsPath** :
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -295,11 +339,26 @@ SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
 originalPath->set_FillMode(PathFillModeType::None);
 
 SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Texte dans la forme", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
+graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
 
 SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
 textPath->set_FillMode(PathFillModeType::Normal);
 
 shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**Que se passe-t-il du remplissage et du contour après le remplacement de la géométrie ?**
+
+Le style reste associé à la forme ; seul le contour change. Le remplissage et le contour sont appliqués automatiquement à la nouvelle géométrie.
+
+**Comment faire pivoter correctement une forme personnalisée avec sa géométrie ?**
+
+Utilisez la propriété [rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) de la forme ; la géométrie pivote avec la forme car elle est liée au système de coordonnées de la forme.
+
+**Puis‑je convertir une forme personnalisée en image pour « verrouiller » le résultat ?**
+
+Oui. Exportez la zone de la [diapositive](/slides/fr/cpp/convert-powerpoint-to-png/) requise ou la [forme](/slides/fr/cpp/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie le travail ultérieur avec des géométries lourdes.

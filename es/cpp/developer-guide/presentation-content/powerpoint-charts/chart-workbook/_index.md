@@ -1,16 +1,28 @@
 ---
-title: Libro de Trabajo de Gráficos
+title: Administrar libros de gráficos en presentaciones usando C++
+linktitle: Libro de gráficos
 type: docs
 weight: 70
 url: /es/cpp/chart-workbook/
-keywords: "Libro de trabajo de gráficos, datos de gráficos, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
-description: "Libro de trabajo de gráficos en presentación de PowerPoint en C++"
+keywords:
+- libro de gráficos
+- datos del gráfico
+- celda del libro
+- etiqueta de datos
+- hoja de cálculo
+- fuente de datos
+- libro externo
+- datos externos
+- PowerPoint
+- presentación
+- C++
+- Aspose.Slides
+description: "Descubra Aspose.Slides para C++: administre fácilmente libros de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
 
-## **Configurar Datos de Gráficos desde el Libro de Trabajo**
+## **Leer y escribir datos de gráfico desde un libro de trabajo**
 
-Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) y [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) que te permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
-
+Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) y [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) que le permiten leer y escribir libros de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
@@ -25,8 +37,8 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Este código en C++ demuestra la operación para establecer un libro de trabajo de datos del gráfico:
 
+Este código C++ muestra la operación para establecer un libro de datos de gráfico:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 
@@ -57,21 +69,21 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Establecer Celda de Libro de Trabajo como Etiqueta de Datos del Gráfico**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Agrega un gráfico de burbuja con algunos datos.
-1. Accede a las series del gráfico.
-1. Establece la celda del libro de trabajo como una etiqueta de datos.
-1. Guarda la presentación.
+## **Establecer una celda de WorkBook como etiqueta de datos de gráfico**
 
-Este código en C++ te muestra cómo establecer una celda de libro de trabajo como una etiqueta de datos del gráfico:
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) .
+1. Obtener la referencia de una diapositiva mediante su índice.
+1. Añadir un gráfico de burbujas con algunos datos.
+1. Acceder a la serie del gráfico.
+1. Establecer la celda del libro como etiqueta de datos.
+1. Guardar la presentación.
 
+Este código C++ le muestra cómo establecer una celda de libro como etiqueta de datos de gráfico:
 ``` cpp
-System::String lbl0 = u"Valor de la celda etiqueta 0";
-System::String lbl1 = u"Valor de la celda etiqueta 1";
-System::String lbl2 = u"Valor de la celda etiqueta 2";
+System::String lbl0 = u"Label 0 cell value";
+System::String lbl1 = u"Label 1 cell value";
+System::String lbl2 = u"Label 2 cell value";
 
 // Instancia una clase Presentation que representa un archivo de presentación 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
@@ -93,10 +105,10 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **Administrar Hojas de Cálculo**
 
-Este código en C++ demuestra una operación donde se utiliza la propiedad [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) para acceder a una colección de hojas de cálculo:
+## **Administrar hojas de cálculo**
 
+Este código C++ demuestra una operación donde se utiliza la propiedad [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) para acceder a una colección de hojas de cálculo:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -108,10 +120,10 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Especificar Tipo de Fuente de Datos**
 
-Este código en C++ te muestra cómo especificar un tipo para una fuente de datos:
+## **Especificar el tipo de origen de datos**
 
+Este código C++ le muestra cómo especificar un tipo para un origen de datos:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -120,25 +132,25 @@ auto chartData = chart->get_ChartData();
 auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
 val->set_DataSourceType(DataSourceType::StringLiterals);
-val->set_Data(System::ObjectExt::Box<System::String>(u"CadenaLiteral"));
+val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
 val = chartData->get_Series()->idx_get(1)->get_Name();
-val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NuevaCelda")));
+val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Libro de Trabajo Externo**
+
+## **Libro de trabajo externo**
 
 {{% alert color="primary" %}} 
-En [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4, implementamos soporte para libros de trabajo externos como una fuente de datos para gráficos.
+En [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4, implementamos compatibilidad con libros de trabajo externos como origen de datos para gráficos.
 {{% /alert %}} 
 
-### **Crear Libro de Trabajo Externo**
+### **Crear un libro de trabajo externo**
 
-Usando los métodos **`ReadWorkbookStream`** y **`SetExternalWorkbook`**, puedes crear un libro de trabajo externo desde cero o hacer que un libro de trabajo interno sea externo.
+Usando los métodos **`ReadWorkbookStream`** y **`SetExternalWorkbook`**, puede crear un libro de trabajo externo desde cero o convertir un libro interno en externo.
 
-Este código en C++ demuestra el proceso de creación de un libro de trabajo externo:
-
+Este código C++ demuestra el proceso de creación de un libro de trabajo externo:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -159,14 +171,14 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Establecer Libro de Trabajo Externo**
 
-Usando el método **`IChartData.SetExternalWorkbook`**, puedes asignar un libro de trabajo externo a un gráfico como su fuente de datos. Este método también se puede utilizar para actualizar una ruta al libro de trabajo externo (si este último ha sido movido).
+### **Establecer un libro de trabajo externo**
 
-Si bien no puedes editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puedes usar tales libros de trabajo como una fuente de datos externa. Si se proporciona la ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
+Usando el método **`IChartData.SetExternalWorkbook`**, puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro externo (si este último ha sido movido).
 
-Este código en C++ te muestra cómo establecer un libro de trabajo externo:
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede utilizar dichos libros como origen de datos externo. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente a una ruta completa.
 
+Este código C++ le muestra cómo establecer un libro de trabajo externo:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -189,11 +201,11 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-El parámetro `updateChartData` (bajo el método `SetExternalWorkbook`) se utiliza para especificar si se cargará un libro de trabajo de Excel o no. 
 
-* Cuando el valor `updateChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo: los datos del gráfico no se cargarán ni se actualizarán desde el libro de trabajo de destino. Es posible que desees usar esta configuración cuando se encuentre en una situación donde el libro de trabajo de destino no exista o no esté disponible. 
-* Cuando el valor `updateChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
+El parámetro `updateChartData` (bajo el método `SetExternalWorkbook`) se usa para especificar si se cargará o no un libro de Excel. 
 
+* Cuando el valor de `updateChartData` está configurado como `false`, solo se actualiza la ruta del libro—los datos del gráfico no se cargarán ni actualizarán desde el libro de destino. Puede usar esta configuración cuando el libro de destino no exista o no esté disponible. 
+* Cuando el valor de `updateChartData` está configurado como `true`, los datos del gráfico se actualizan desde el libro de destino.
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -206,16 +218,16 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Obtener Ruta del Libro de Trabajo de Fuente de Datos Externa del Gráfico**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Crea un objeto para la forma del gráfico.
-1. Crea un objeto para el tipo de fuente (`ChartDataSourceType`) que representa la fuente de datos del gráfico.
-1. Especifica la condición relevante basada en si el tipo de fuente es el mismo que el tipo de fuente de datos del libro de trabajo externo.
+### **Obtener la ruta del libro de origen de datos externo de un gráfico**
 
-Este código en C++ demuestra la operación:
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
+1. Obtener la referencia de una diapositiva mediante su índice.
+1. Crear un objeto para la forma del gráfico.
+1. Crear un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.
+1. Especificar la condición pertinente basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro externo.
 
+Este código C++ demuestra la operación:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -231,12 +243,12 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Editar Datos del Gráfico**
 
-Puedes editar los datos en libros de trabajo externos de la misma manera que haces cambios en el contenido de libros de trabajo internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
+### **Editar datos del gráfico**
 
-Este código en C++ es una implementación del proceso descrito:
+Puede editar los datos en libros externos de la misma manera que se realizan cambios en el contenido de libros internos. Cuando un libro externo no se puede cargar, se lanza una excepción.
 
+Este código C++ es una implementación del proceso descrito:
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
 	const String outPath = u"../out/presentation-out.pptx";
@@ -250,3 +262,30 @@ const String templatePath = u"../templates/presentation.pptx";
 	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo determinar si un gráfico específico está vinculado a un libro externo o incrustado?**
+
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) y una [ruta a un libro externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); si el origen es un libro externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
+
+**¿Se admiten rutas relativas a libros externos y cómo se almacenan?**
+
+Sí. Si especifica una ruta relativa, se convierte automáticamente a una ruta absoluta. Esto es conveniente para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
+
+**¿Puedo usar libros ubicados en recursos/redes compartidas?**
+
+Sí, dichos libros pueden usarse como origen de datos externo. Sin embargo, la edición directa de libros remotos desde Aspose.Slides no está soportada; solo pueden usarse como origen.
+
+**¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
+
+No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) y lo utiliza para leer datos. El archivo externo en sí no se modifica al guardar la presentación.
+
+**¿Qué debo hacer si el archivo externo está protegido con contraseña?**
+
+Aspose.Slides no acepta una contraseña al enlazar. Un enfoque común es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/cpp/)) y enlazar a esa copia.
+
+**¿Pueden varios gráficos referenciar el mismo libro externo?**
+
+Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

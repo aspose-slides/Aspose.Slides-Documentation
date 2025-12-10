@@ -1,31 +1,41 @@
 ---
-title: Chart-Datenbeschriftung
+title: Diagrammbeschriftungen in Präsentationen mit C++ verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/cpp/chart-data-label/
-keywords: "Chart-Datenbeschriftung,Beschriftungsdistanz,C++,CPP,Aspose.Slides für C++"
-description: "Legt die PowerPoint-Chart-Datenbeschriftung und die Distanz in C++ fest"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozentsatz
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für C++ hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Datenreihen oder einzelnen Datenpunkten des Diagramms. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und erleichtern das Verständnis von Diagrammen.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten an. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und erleichtern das Verständnis von Diagrammen.
 
-## **Festlegen der Präzision der Daten in der Diagrammdatenbeschriftung**
+## **Datenpräzision in Diagrammbeschriftungen festlegen**
 
-Dieser C++-Code zeigt, wie Sie die Datenpräzision in einer Diagrammdatenbeschriftung festlegen:
-
+Dieser C++-Code zeigt, wie Sie die Datenpräzision in einer Diagrammbeschriftung festlegen:
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt
+	// Instanziiert eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ruft die erste Folie ab
+	// Holt die erste Folie
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Legt das Zahlenformat der Serien fest
+	// Legt das Zahlenformat der Serie fest
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -34,9 +44,8 @@ Dieser C++-Code zeigt, wie Sie die Datenpräzision in einer Diagrammdatenbeschri
 ```
 
 
-## **Prozentuale Beschriftung anzeigen**
-Aspose.Slides für C++ ermöglicht es Ihnen, Prozentbeschriftungen an angezeigten Diagrammen festzulegen. Dieser C++-Code demonstriert die Operation:
-
+## **Prozentsätze als Beschriftungen anzeigen**
+Aspose.Slides für C++ ermöglicht das Festlegen von Prozentbeschriftungen in angezeigten Diagrammen. Dieser C++-Code demonstriert die Vorgehensweise:
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
@@ -93,9 +102,8 @@ Aspose.Slides für C++ ermöglicht es Ihnen, Prozentbeschriftungen an angezeigte
 ```
 
 
-## **Prozentzeichen mit Diagrammdatenbeschriftung festlegen**
-Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammdatenbeschriftung festlegen:
-
+## **Prozentzeichen in Diagrammbeschriftungen festlegen**
+Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
@@ -103,25 +111,25 @@ Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammdatenbeschri
 	// Erstellt eine Instanz der Presentation-Klasse
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ruft einen Folienverweis über seinen Index ab
+	// Ermittelt die Referenz einer Folie über ihren Index
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Erstellt das Diagramm PercentsStackedColumn auf einer Folie
+	// Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// Legt die NumberFormatLinkedToSource auf false fest
+	// Setzt NumberFormatLinkedToSource auf false
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// Legt den Index des Diagrammdatenblatts fest
+	// Setzt den Index des Diagrammdatenblatts
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdatenarbeitsblatt ab
+	// Ermittelt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Löscht standardmäßig generierte Serien 
+	// Löscht standardmäßig generierte Serie 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -137,11 +145,11 @@ Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammdatenbeschri
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Legt die Füllfarbe für die Serie fest
+	// Setzt die Füllfarbe für die Serie
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// Legt die LabelFormat-Eigenschaften fest
+	// Setzt Eigenschaften von LabelFormat
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -158,11 +166,11 @@ Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammdatenbeschri
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Legt die Füllfarbe für die Serie fest
+	// Setzt die Füllfarbe für die Serie
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// Legt die LabelFormat-Eigenschaften fest
+	// Setzt Eigenschaften von LabelFormat
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -173,13 +181,11 @@ Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammdatenbeschri
 
 	// Schreibt die Präsentationsdatei auf die Festplatte
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 
-## **Label-Abstand von der Achse festlegen**
-Dieser C++-Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategoriekarte festlegen, wenn Sie mit einem Diagramm arbeiten, das von Achsen plottiert ist:
-
+## **Abstand der Beschriftung von der Achse festlegen**
+Dieser C++-Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategorienachse festlegen, wenn Sie ein Diagramm aus Achsen plotten:
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
@@ -187,29 +193,29 @@ Dieser C++-Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategoriek
 	// Erstellt eine Instanz der Presentation-Klasse
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Ruft einen Folienverweis ab
+	// Ermittelt die Referenz einer Folie
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Erstellt ein Diagramm auf der Folie
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Ruft die Diagrammseriensammlung ab
+	// Ermittelt die Diagramm-Seriensammlung
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// Legt den Abstand der Beschriftung von einer Achse fest
+	// Setzt den Beschriftungsabstand von einer Achse
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
 	// Schreibt die Präsentationsdatei auf die Festplatte
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das nicht auf einer Achse basiert, wie z.B. ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Verbindungslinien deutlich dargestellt werden.
+Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, wie beispielsweise ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Führungs‑Linien deutlich angezeigt werden.
 
-Dieser C++-Code zeigt, wie Sie die Beschriftungsposition auf einem Kreisdiagramm anpassen:
-
+Dieser C++-Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -227,4 +233,19 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-![kreisdiagramm-angepasste-beschriftung](pie-chart-adjusted-label.png)
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
+
+Kombinieren Sie die automatische Platzierung von Beschriftungen, Führungs‑Linien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme bzw. wichtige Punkte anzeigen.
+
+**Wie kann ich Beschriftungen nur für Null-, negative oder leere Werte deaktivieren?**
+
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, für negative Werte oder für fehlende Werte gemäß einer definierten Regel aus.
+
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+
+Legen Sie Schriftarten (Familie, Größe) explizit fest und prüfen Sie, ob die Schriftart auf der Rendering‑Seite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

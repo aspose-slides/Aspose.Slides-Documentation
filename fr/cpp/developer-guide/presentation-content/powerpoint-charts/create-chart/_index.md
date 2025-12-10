@@ -1,49 +1,69 @@
 ---
-title: Créer ou mettre à jour des graphiques de présentation PowerPoint en C++
-linktitle: Créer un graphique
+title: Créer ou mettre à jour des graphiques de présentation PowerPoint en С++
+linktitle: Créer ou mettre à jour des graphiques
 type: docs
 weight: 10
 url: /fr/cpp/create-chart/
-keywords: "Créer un graphique, graphique en nuage de points, graphique circulaire, graphique en arborescence, graphique boursier, graphique boîte à moustaches, graphique histogramme, graphique en entonnoir, graphique en rayonnement, graphique multicatégorie, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
-description: "Créer un graphique dans une présentation PowerPoint en C++"
+keywords:
+- ajouter un graphique
+- créer un graphique
+- modifier un graphique
+- changer un graphique
+- mettre à jour un graphique
+- graphique dispersé
+- graphique circulaire
+- graphique linéaire
+- graphique en carte arborescente
+- graphique boursier
+- graphique boîte à moustaches
+- graphique en entonnoir
+- graphique Sunburst
+- graphique histogramme
+- graphique radar
+- graphique multi-catégories
+- PowerPoint
+- présentation
+- С++
+- Aspose.Slides
+description: "Créer et personnaliser des graphiques dans les présentations PowerPoint à l’aide d’Aspose.Slides pour С++. Ajouter, mettre en forme et modifier des graphiques avec des exemples de code pratiques en С++."
 ---
 
 ## **Créer un graphique**
 
-Les graphiques aident les gens à visualiser rapidement les données et à en extraire des informations, ce qui peut ne pas être immédiatement évident dans un tableau ou une feuille de calcul. 
+Les graphiques aident les personnes à visualiser rapidement les données et à obtenir des insights, ce qui peut ne pas être immédiatement évident à partir d’un tableau ou d’une feuille de calcul. 
 
 **Pourquoi créer des graphiques ?**
 
-Avec les graphiques, vous pouvez :
+Utiliser des graphiques, vous pouvez
 
-* agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d’une présentation  
-* mettre en évidence des motifs et des tendances dans les données  
-* déduire la direction et l’élan des données au fil du temps ou par rapport à une unité de mesure spécifique  
-* repérer des valeurs aberrantes, des anomalies, des écarts, des erreurs, des données incohérentes, etc.  
-* communiquer ou présenter des données complexes  
+* agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d’une présentation
+* exposer les motifs et les tendances dans les données
+* déduire la direction et l’élan des données au fil du temps ou par rapport à une unité de mesure spécifique 
+* détecter les valeurs aberrantes, les anomalies, les écarts, les erreurs, les données incohérentes, etc. 
+* communiquer ou présenter des données complexes
 
-Dans PowerPoint, vous pouvez créer des graphiques via la fonction d’insertion, qui fournit des modèles utilisés pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer des graphiques classiques (basés sur des types de graphiques populaires) et des graphiques personnalisés. 
+Dans PowerPoint, vous pouvez créer des graphiques via la fonction d’insertion, qui fournit des modèles utilisés pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer des graphiques standards (basés sur des types de graphiques populaires) et des graphiques personnalisés. 
 
 {{% alert color="primary" %}} 
 
-Pour vous permettre de créer des graphiques, Aspose.Slides fournit la classe d’énumération [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) sous l’espace de noms [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Les valeurs de cette énumération correspondent à différents types de graphiques. 
+Pour vous permettre de créer des graphiques, Aspose.Slides fournit la classe d’énumération [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) sous l’espace de noms [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Les valeurs de cette classe d’énumération correspondent à différents types de graphiques. 
 
 {{% /alert %}} 
 
-### **Création de graphiques classiques**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec des données et spécifiez le type de graphique souhaité.  
-1. Ajoutez un titre au graphique.  
-1. Accédez à la feuille de données du graphique.  
-1. Supprimez toutes les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données au graphique pour les séries.  
-1. Ajoutez une couleur de remplissage pour les séries.  
-1. Ajoutez des libellés pour les séries.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques normaux**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données et spécifiez le type de graphique souhaité. 
+1. Ajoutez un titre au graphique. 
+1. Accédez à la feuille de calcul des données du graphique.
+1. Effacez toutes les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Ajoutez une couleur de remplissage pour les séries du graphique.
+1. Ajoutez des étiquettes pour les séries du graphique. 
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
-Ce code C++ montre comment créer un graphique classique :
+Ce code C++ montre comment créer un graphique normal :
 ```c++
 // Le chemin du répertoire des documents.
 	const String outPath = u"../out/NormalCharts_out.pptx";
@@ -54,17 +74,17 @@ Ce code C++ montre comment créer un graphique classique :
 	//Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Ajoute un graphique avec les données par défaut
+	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Définit l'index de la feuille de données du graphique
+	// Définir l'index de la feuille de données du graphique
 	int defaultWorksheetIndex = 0;
 
 	// Obtient la feuille de calcul des données du graphique
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Définit le titre du graphique
+	// Définir le titre du graphique
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
@@ -81,7 +101,7 @@ Ce code C++ montre comment créer un graphique classique :
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Ajoute des catégories
+	// Ajoute les catégories
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
@@ -95,7 +115,7 @@ Ce code C++ montre comment créer un graphique classique :
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Définit la couleur de remplissage pour la série
+	// Définir la couleur de remplissage pour la série
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
@@ -108,12 +128,12 @@ Ce code C++ montre comment créer un graphique classique :
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Définit la couleur de remplissage pour la série
+	// Définir la couleur de remplissage pour la série
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// Le premier libellé est configuré pour afficher le nom de la catégorie
+	// Le premier libellé est défini pour afficher le nom de la catégorie
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
@@ -128,20 +148,21 @@ Ce code C++ montre comment créer un graphique classique :
 
 	// Enregistre la présentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 
-### **Création de graphiques en nuage de points**
-Les graphiques en nuage de points (aussi appelés nuages de points ou graphiques x‑y) sont souvent utilisés pour rechercher des motifs ou démontrer des corrélations entre deux variables.  
+### **Créer des graphiques dispersés**
+Les graphiques dispersés (également appelés nuages de points ou graphiques x‑y) sont souvent utilisés pour vérifier des motifs ou démontrer des corrélations entre deux variables. 
 
-Vous pouvez vouloir utiliser un graphique en nuage de points lorsque :
+Vous pourriez vouloir utiliser un graphique dispersé lorsque 
 
-* vous avez des données numériques appariées  
-* vous avez deux variables qui se combinent bien  
-* vous souhaitez déterminer si deux variables sont liées  
-* vous avez une variable indépendante qui possède plusieurs valeurs pour une variable dépendante  
+* vous avez des données numériques appariées
+* vous avez 2 variables qui se combinent bien
+* vous souhaitez déterminer si 2 variables sont liées
+* vous avez une variable indépendante qui possède plusieurs valeurs pour une variable dépendante
 
-Ce code C++ montre comment créer des graphiques en nuage de points avec une série différente de marqueurs : 
+Ce code C++ montre comment créer des graphiques dispersés avec une série différente de marqueurs :
 ```c++
 // Le chemin du répertoire des documents.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
@@ -152,7 +173,7 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 	//Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Ajoute un graphique avec les données par défaut
+	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
 	// Définit le titre du graphique
@@ -167,7 +188,7 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 	// Définit l'index de la feuille de données du graphique
 	int defaultWorksheetIndex = 0;
 
-	// Obtient la feuille de données du graphique
+	// Obtient la feuille de calcul des données du graphique
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -184,7 +205,7 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 	// Ajoute un nouveau point (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Modifie le type de la série
+	// Modifie le type de série
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
 	// Modifie le marqueur de la série du graphique
@@ -250,7 +271,7 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Crée les libellés personnalisés pour chaque catégorie de la nouvelle série
+	// Crée les étiquettes personnalisées pour chaque catégorie de la nouvelle série
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -267,10 +288,10 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Affiche les lignes de repère pour le graphique
+	// Affiche les lignes de liaison pour le graphique
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Définit l'angle de rotation des secteurs du graphique circulaire
+	// Définit l'angle de rotation pour les secteurs du graphique circulaire
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -279,21 +300,21 @@ Ce code C++ montre comment créer des graphiques en nuage de points avec une sé
 ```
 
 
-### **Création de graphiques circulaires**
-Les graphiques circulaires sont idéaux pour illustrer la relation partie‑totale dans les données, surtout lorsque les données contiennent des libellés catégoriels associés à des valeurs numériques. Cependant, si vos données comportent de nombreuses parties ou libellés, il peut être préférable d’utiliser un graphique à barres.  
+### **Créer des graphiques circulaires**
+Les graphiques circulaires sont les mieux adaptés pour montrer la relation partie‑tout dans les données, en particulier lorsque les données contiennent des libellés catégoriels avec des valeurs numériques. Cependant, si vos données contiennent de nombreuses parties ou libellés, vous pourriez envisager d’utiliser un graphique à barres à la place. 
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, `ChartType.Pie`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Ajoutez de nouveaux points et définissez des couleurs personnalisées pour les secteurs du graphique circulaire.  
-1. Définissez les libellés pour les séries.  
-1. Ajoutez des traits de liaison pour les libellés des séries.  
-1. Réglez l’angle de rotation des diapositives du graphique circulaire.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (dans ce cas, `ChartType.Pie`).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Ajoutez de nouveaux points pour le graphique et ajoutez des couleurs personnalisées pour les secteurs du graphique circulaire.
+1. Définissez les libellés pour les séries.
+1. Définissez les lignes de repère pour les libellés des séries.
+1. Définissez l’angle de rotation pour les graphiques circulaires.
+1. Enregistrez la présentation modifiée dans un fichier PPTX
 
 Ce code C++ montre comment créer un graphique circulaire :
 ```c++
@@ -306,7 +327,7 @@ Ce code C++ montre comment créer un graphique circulaire :
 	//Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Ajoute un graphique avec les données par défaut
+	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// Définit le titre du graphique
@@ -377,7 +398,7 @@ Ce code C++ montre comment créer un graphique circulaire :
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Crée des libellés personnalisés pour chaque catégorie de la nouvelle série
+	// Crée des étiquettes personnalisées pour chaque catégorie de la nouvelle série
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -394,10 +415,10 @@ Ce code C++ montre comment créer un graphique circulaire :
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Définit la série pour afficher les lignes de repère du graphique
+	// Définit la série pour afficher les lignes de liaison du graphique
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Définit l'angle de rotation des secteurs du graphique circulaire
+	// Définit l'angle de rotation pour les secteurs du graphique circulaire
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
@@ -406,18 +427,17 @@ Ce code C++ montre comment créer un graphique circulaire :
 ```
 
 
-### **Création de graphiques linéaires**
+### **Créer des graphiques linéaires**
+Les graphiques linéaires (également appelés diagrammes en ligne) sont les mieux adaptés aux situations où vous souhaitez montrer des variations de valeur dans le temps. En utilisant un graphique linéaire, vous pouvez comparer de nombreuses données à la fois, suivre les changements et les tendances dans le temps, mettre en évidence les anomalies dans les séries de données, etc.
 
-Les graphiques linéaires (ou graphiques en ligne) sont idéaux lorsqu’on veut montrer des variations de valeur au fil du temps. Avec un graphique linéaire, vous pouvez comparer de nombreuses données simultanément, suivre les changements et les tendances dans le temps, mettre en évidence des anomalies dans les séries, etc.  
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, `ChartType::Line`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (dans ce cas, `ChartType::Line`).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Ce code C++ montre comment créer un graphique linéaire :
 ```c++
@@ -428,7 +448,7 @@ pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
 
-Par défaut, les points d’un graphique linéaire sont reliés par des lignes continues droites. Si vous souhaitez que les points soient reliés par des pointillés, vous pouvez spécifier le type de tiret souhaité de cette façon :
+Par défaut, les points d’un graphique linéaire sont reliés par des lignes continues droites. Si vous souhaitez que les points soient reliés par des tirets à la place, vous pouvez spécifier le type de tiret souhaité de cette manière :
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
@@ -438,20 +458,19 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 
-### **Création de graphiques en arborescence**
+### **Créer des graphiques en carte arborescente**
+Les graphiques en carte arborescente sont les mieux adaptés aux données de ventes lorsque vous voulez montrer la taille relative des catégories de données et (en même temps) attirer rapidement l’attention sur les éléments qui contribuent fortement à chaque catégorie. 
 
-Les graphiques en arborescence sont idéaux pour les données de ventes lorsque vous voulez montrer la taille relative des catégories tout en attirant rapidement l’attention sur les éléments qui contribuent le plus à chaque catégorie.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (dans ce cas, `ChartType.TreeMap`).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, `ChartType.TreeMap`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
-
-Ce code C++ montre comment créer un graphique en arborescence :
+Ce code C++ montre comment créer un graphique en carte arborescente :
 ```c++
 // Le chemin du répertoire des documents.
 	const String outPath = u"../out/TreemapChart_out.pptx";
@@ -513,16 +532,16 @@ Ce code C++ montre comment créer un graphique en arborescence :
 ```
 
 
-### **Création de graphiques boursiers**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (`ChartType.OpenHighLowClose`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Spécifiez le format des lignes haut/bas (`HiLowLines`).  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques boursiers**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (ChartType.OpenHighLowClose).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Spécifiez le format HiLowLines.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Exemple de code C++ utilisé pour créer un graphique boursier :
 ```c++
@@ -535,7 +554,7 @@ Exemple de code C++ utilisé pour créer un graphique boursier :
 	//Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Ajoute un graphique avec les données par défaut
+	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
@@ -562,7 +581,7 @@ Exemple de code C++ utilisé pour créer un graphique boursier :
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// Récupère la première série du graphique
+	// Prend la première série du graphique
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 	// Remplit les données de la première série
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
@@ -605,15 +624,15 @@ Exemple de code C++ utilisé pour créer un graphique boursier :
 ```
 
 
-### **Création de graphiques boîte à moustaches**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (`ChartType.BoxAndWhisker`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques boîte à moustaches**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (ChartType.BoxAndWhisker).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Ce code C++ montre comment créer un graphique boîte à moustaches :
 ```c++
@@ -662,21 +681,21 @@ Ce code C++ montre comment créer un graphique boîte à moustaches :
 ```
 
 
-### **Création de graphiques en entonnoir**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (`ChartType.Funnel`).  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques en entonnoir**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (ChartType.Funnel).
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Ce code C++ montre comment créer un graphique en entonnoir :
 ```c++
-	// The path to the documents directory.
+	// Le chemin du répertoire des documents.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//Instantiates a Presentation class that represents PPTX file
+	//Instancie une classe Presentation qui représente un fichier PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Accesses the first slide
+	//Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -704,18 +723,18 @@ Ce code C++ montre comment créer un graphique en entonnoir :
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
 
-	// Saves the presentation
+	// Enregistre la présentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
-### **Création de graphiques en rayonnement**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, `ChartType.sunburst`).  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques Sunburst**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (dans ce cas, `ChartType.sunburst`).
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
-Ce code C++ montre comment créer un graphique en rayonnement :
+Ce code C++ montre comment créer un graphique Sunburst :
 ```c++
 	// Le chemin du répertoire des documents.
 	const String outPath = u"../out/SunburstChart_out.pptx";
@@ -769,21 +788,21 @@ Ce code C++ montre comment créer un graphique en rayonnement :
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// Enregistre le fichier de présentation sur le disque
+	// Écrit le fichier de présentation sur le disque
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
-### **Création de graphiques histogrammes**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec des données et spécifiez le type souhaité (`ChartType.Histogram` dans ce cas).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques histogramme**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index. 
+1. Ajoutez un graphique avec des données et spécifiez le type souhaité (`ChartType.Histogram` dans ce cas).
+1. Accédez aux données du graphique `IChartDataWorkbook`.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
-Ce code C++ montre comment créer un histogramme :
+Ce code C++ montre comment créer un graphique histogramme :
 ```c++
 	// Le chemin du répertoire des documents.
 	const String outPath = u"../out/HistogramChart_out.pptx";
@@ -817,12 +836,11 @@ Ce code C++ montre comment créer un histogramme :
 ```
 
 
-### **Création de graphiques radar**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec des données et spécifiez le type souhaité (`ChartType.Radar` dans ce cas).  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
+### **Créer des graphiques radar**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index. 
+1. Ajoutez un graphique avec des données et spécifiez le type souhaité (`ChartType.Radar` dans ce cas).
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Ce code C++ montre comment créer un graphique radar :
 ```c++
@@ -833,29 +851,28 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 ```
 
 
-### **Création de graphiques à plusieurs catégories**
+### **Créer des graphiques multi‑catégories**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Obtenez une référence à une diapositive via son index.
+1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (ChartType.ClusteredColumn).
+1. Accédez aux données du graphique IChartDataWorkbook.
+1. Effacez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données de graphique pour les séries du graphique.
+1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-1. Obtenez la référence d’une diapositive via son indice.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (`ChartType.ClusteredColumn`).  
-1. Accédez aux données du graphique via `IChartDataWorkbook`.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données pour les séries.  
-1. Enregistrez la présentation modifiée dans un fichier PPTX.  
-
-Ce code C++ montre comment créer un graphique à plusieurs catégories :
+Ce code C++ montre comment créer un graphique multi‑catégories :
 ```c++
 	// Le chemin du répertoire des documents.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//Instancie une classe Presentation qui représente un fichier PPTX
+	// Instancie une classe Presentation qui représente un fichier PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Accède à la première diapositive
+	// Accède à la première diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Ajoute un graphique avec les données par défaut
+	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 	// Définit l'index de la feuille de données du graphique
@@ -907,9 +924,8 @@ Ce code C++ montre comment créer un graphique à plusieurs catégories :
 ```
 
 
-### **Création de graphiques cartographiques**
-
-Un graphique cartographique visualise une zone contenant des données. Les graphiques cartographiques sont idéaux pour comparer des données ou des valeurs selon des régions géographiques.  
+### **Créer des graphiques cartographiques**
+Un graphique cartographique est une visualisation d’une zone contenant des données. Les graphiques cartographiques sont les mieux adaptés pour comparer des données ou des valeurs entre différentes régions géographiques.
 
 Ce code C++ montre comment créer un graphique cartographique :
 ```c++
@@ -920,13 +936,12 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
 
-### **Création de graphiques combinés**
+### **Créer des graphiques combinés**
+Un graphique combiné (ou graphique combo) combine deux types de graphiques ou plus dans un même graphique. Ce type de graphique vous permet de mettre en évidence, de comparer ou d’examiner les différences entre deux ensembles de données ou plus, vous aidant à identifier les relations entre eux.
 
-Un graphique combiné (ou graphique combo) regroupe deux types de graphiques ou plus dans un même diagramme. Ce type de graphique vous permet de mettre en évidence, de comparer ou d’examiner les différences entre plusieurs ensembles de données, facilitant ainsi l’identification des relations entre eux.  
+![Le graphique combiné](combination_chart.png)
 
-![The combination chart](combination_chart.png)
-
-Le code C++ suivant montre comment créer le graphique combiné illustré ci‑dessus dans une présentation PowerPoint :
+Le code C++ suivant montre comment créer le graphique combiné présenté ci‑dessus dans une présentation PowerPoint :
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
@@ -1032,7 +1047,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Définir la couleur des lignes principales de la grille verticale.
+    // Définir la couleur des lignes de grille principales verticales.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1078,15 +1093,15 @@ static void CreateComboChart()
 ```
 
 
-## **Mise à jour des graphiques**
+## **Mettre à jour les graphiques**
 
-1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) représentant la présentation contenant le graphique.  
-2. Obtenez la référence d’une diapositive via son indice.  
-3. Parcourez toutes les formes pour trouver le graphique souhaité.  
-4. Accédez à la feuille de données du graphique.  
-5. Modifiez les données de la série du graphique en changeant les valeurs de la série.  
-6. Ajoutez une nouvelle série et remplissez‑la de données.  
-7. Enregistrez la présentation modifiée dans un fichier PPTX.  
+1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) qui représente la présentation contenant le graphique.
+2. Obtenez une référence à une diapositive via son index.
+3. Parcourez toutes les formes pour trouver le graphique souhaité.
+4. Accédez à la feuille de calcul des données du graphique.
+5. Modifiez les données des séries du graphique en changeant les valeurs des séries.
+6. Ajoutez une nouvelle série et remplissez‑la de données.
+7. Enregistrez la présentation modifiée sous forme de fichier PPTX.
 
 Ce code C++ montre comment mettre à jour un graphique :
 ```c++
@@ -1096,7 +1111,7 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"Existi
 // Accède à la première diapositive
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Ajoute un graphique avec les données par défaut
+// Ajoute un graphique avec des données par défaut
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
 // Définit l'index de la feuille de données du graphique
@@ -1106,11 +1121,11 @@ int32_t defaultWorksheetIndex = 0;
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// Modifie le nom de catégorie du graphique
+// Modifie le nom de la catégorie du graphique
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Prend la première série du graphique
+// Récupère la première série du graphique
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 // Met à jour les données de la série
@@ -1120,7 +1135,7 @@ series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Prend la deuxième série du graphique
+// Récupère la deuxième série du graphique
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
 // Mise à jour des données de la série
@@ -1131,10 +1146,10 @@ series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Ajout d'une nouvelle série
+// Maintenant, ajout d'une nouvelle série
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Prend la troisième série du graphique
+// Récupère la troisième série du graphique
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
 // Remplissage des données de la série
@@ -1149,15 +1164,16 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 ```
 
 
-## **Définition de la plage de données pour les graphiques**
 
-1. Ouvrez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) contenant le graphique.  
-2. Obtenez la référence d’une diapositive via son indice.  
-3. Parcourez toutes les formes pour trouver le graphique souhaité.  
-4. Accédez aux données du graphique et définissez la plage.  
-5. Enregistrez la présentation modifiée dans un fichier PPTX.  
+## **Définir la plage de données pour les graphiques**
 
-Ce code C++ montre comment définir la plage de données d’un graphique :
+1. Ouvrez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) contenant le graphique.
+2. Obtenez une référence à une diapositive via son index.
+3. Parcourez toutes les formes pour trouver le graphique souhaité.
+4. Accédez aux données du graphique et définissez la plage.
+5. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+
+Ce code C++ montre comment définir la plage de données pour un graphique :
 ```cpp
 // Le chemin du répertoire des documents.
 String dataDir = GetDataPath();
@@ -1165,7 +1181,7 @@ String dataDir = GetDataPath();
 // Instancie une classe Presentation qui représente un fichier PPTX
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// Accède à la première diapositive et ajoute un graphique avec les données par défaut
+// Accède à la première slideMarker et ajoute un graphique avec des données par défaut
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1173,10 +1189,11 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Utilisation des marqueurs par défaut dans les graphiques**
-Lorsque vous utilisez un marqueur par défaut dans les graphiques, chaque série de graphique obtient automatiquement un symbole de marqueur différent.  
 
-Ce code C++ montre comment définir automatiquement un marqueur de série de graphique :
+## **Utiliser les repères par défaut dans les graphiques**
+Lorsque vous utilisez un repère par défaut dans les graphiques, chaque série de graphique obtient automatiquement des symboles de repère différents.
+
+Ce code C++ montre comment définir automatiquement un repère de série de graphique :
 ```cpp
 // Le chemin du répertoire des documents.
 String dataDir = GetDataPath();
@@ -1207,7 +1224,7 @@ chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<St
 // Prend la deuxième série du graphique
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Remplit les données de la série
+// Populates the series data
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1218,3 +1235,22 @@ chart->get_Legend()->set_Overlay(false);
 
 pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Quels types de graphiques sont pris en charge par Aspose.Slides ?**
+
+Aspose.Slides prend en charge un large éventail de types de graphiques, notamment les graphiques à barres, lignes, circulaires, en aires, dispersés, histogrammes, radar, et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus approprié à vos besoins de visualisation de données.
+
+**Comment ajouter un nouveau graphique à une diapositive ?**
+
+Pour ajouter un graphique, créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) , récupérez la diapositive souhaitée à l’aide de son index, puis appelez la méthode pour ajouter un graphique en spécifiant le type de graphique et les données initiales. Ce processus intègre le graphique directement dans votre présentation.
+
+**Comment mettre à jour les données affichées dans un graphique ?**
+
+Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), en supprimant les séries et catégories par défaut, puis en ajoutant vos propres données. Cela vous permet d’actualiser le graphique de façon programmatique pour refléter les dernières données.
+
+**Est‑il possible de personnaliser l’apparence du graphique ?**
+
+Oui, Aspose.Slides propose de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les libellés, les légendes et d’autres éléments de formatage afin d’adapter l’apparence du graphique à vos exigences de conception spécifiques.

@@ -1,36 +1,52 @@
 ---
-title: إدارة الصفوف والأعمدة
+title: إدارة الصفوف والأعمدة في جداول PowerPoint باستخدام C++
+linktitle: الصفوف والأعمدة
 type: docs
 weight: 20
 url: /ar/cpp/manage-rows-and-columns/
-keywords: "جدول، صفوف وأعمدة الجدول، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
-description: "إدارة صفوف وأعمدة الجدول في عروض PowerPoint باستخدام C++"
-
+keywords:
+- صف جدول
+- عمود جدول
+- الصف الأول
+- رأس جدول
+- استنساخ صف
+- استنساخ عمود
+- نسخ صف
+- نسخ عمود
+- إزالة صف
+- إزالة عمود
+- تنسيق نص الصف
+- تنسيق نص العمود
+- نمط الجدول
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "إدارة صفوف وأعمدة الجداول في PowerPoint باستخدام Aspose.Slides لـ C++ وتسريع تحرير العروض التقديمية وتحديث البيانات."
 ---
 
-للسماح لك بإدارة صفوف وأعمدة جدول في عرض PowerPoint، توفر Aspose.Slides فئة [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) وواجهة [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) والعديد من الأنواع الأخرى.
+للسماح لك بإدارة صفوف وأعمدة جدول في عرض تقديمي لبرنامج PowerPoint، توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) والواجهة [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) والعديد من الأنواع الأخرى. 
 
 ## **تعيين الصف الأول كعنوان**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وحمّل العرض التقديمي.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. أنشئ كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) واضبطه على null.
-4. قم بالاستعراض خلال جميع كائنات [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) للعثور على الجدول المعني.
-5. عيّن الصف الأول من الجدول كعنوان له.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي. 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. إنشاء كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) وتعيينه إلى null. 
+4. التكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) للعثور على الجدول المعني. 
+5. تعيين الصف الأول للجدول كعنوان. 
 
-هذا الكود C++ يوضح لك كيفية تعيين الصف الأول من الجدول كعنوان له:
-
+يظهر لك هذا الكود بلغة C++ كيفية تعيين الصف الأول للجدول كعنوان:
 ```c++
-// ينشئ مثيلًا من فئة Presentation 
+// ينشئ كائنًا من فئة Presentation 
 auto pres = System::MakeObject<Presentation>(u"table.pptx");
 
-// يصل إلى الشريحة الأولى
+// الوصول إلى الشريحة الأولى
 auto sld = pres->get_Slides()->idx_get(0);
 
-// يهيئ TableEx null
+// يهيئ TableEx كقيمة فارغة
 SharedPtr<ITable> tbl;
 
-// يتجول بين الأشكال ويضع مرجعًا للجدول
+// يتنقل عبر الأشكال ويضبط مرجعًا إلى الجدول
 for (const auto& shp : sld->get_Shapes())
 {
     if (ObjectExt::Is<ITable>(shp))
@@ -39,64 +55,68 @@ for (const auto& shp : sld->get_Shapes())
     }
 }
 
-// يعين الصف الأول من الجدول كعنوان له 
+// يضبط الصف الأول من الجدول كعنوانه
 tbl->set_FirstRow(true);
 ```
 
-## **استنساخ صف أو عمود الجدول**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وحمّل العرض التقديمي.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. عرّف مصفوفة من `columnWidth`.
-4. عرّف مصفوفة من `rowHeight`.
-5. أضف كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة من خلال طريقة [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
-6. استنسخ صف الجدول.
-7. استنسخ عمود الجدول.
-8. احفظ العرض التقديمي المعدل.
 
-هذا الكود C++ يوضح لك كيفية استنساخ صف أو عمود جدول PowerPoint:
+## **استنساخ صف أو عمود من جدول**
 
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي، 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. تعريف مصفوفة من `columnWidth`. 
+4. تعريف مصفوفة من `rowHeight`. 
+5. إضافة كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة عبر طريقة [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
+6. استنساخ صف الجدول. 
+7. استنساخ عمود الجدول. 
+8. حفظ العرض التقديمي المعدل. 
+
+يظهر لك هذا الكود بلغة C++ كيفية استنساخ صف أو عمود من جدول PowerPoint:
 ```c++
-// مسار دليل المستندات.
+ // مسار مجلد المستندات.
 const String outPath = u"../out/CloningInTable_out.pptx";
 
-// ينشئ مثيلًا من فئة Presentation
+// ينشئ كائنًا من فئة Presentation
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// يصل إلى الشريحة الأولى
+// الوصول إلى الشريحة الأولى
 SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
 
-// يحدد الأعمدة بعرض وارتفاع الصفوف
+// يعرّف الأعمدة بأعرضها والصفوف بارتفاعها
 System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
 System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
 
 // يضيف شكل جدول إلى الشريحة
 SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
 
-// يحدد تنسيق الحدود لكل خلية
+
+// يضبط تنسيق الحدود لكل خلية
 for (int x = 0; x < table->get_Rows()->get_Count(); x++)
 {
-    SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-    for (int y = 0; y < row->get_Count(); y++)
-    {
-        SharedPtr<ICell> cell = row->idx_get(y);
+	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
+	for (int y = 0; y < row->get_Count(); y++)
+	{
+		SharedPtr<ICell> cell = row->idx_get(y);
 
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
+		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
+		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cell->get_BorderTop()->set_Width(5);
 
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
+		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
+		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cell->get_BorderBottom()->set_Width(5);
 
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
+		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
+		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cell->get_BorderLeft()->set_Width(5);
 
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
-    }
+		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
+		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cell->get_BorderRight()->set_Width(5);
+
+	}
+
 }
 
 table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
@@ -111,43 +131,44 @@ table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
 //AddClone يضيف صفًا في نهاية الجدول
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone يضيف صفًا في موضع محدد في الجدول
+//InsertClone يضيف صفًا في موضع محدد داخل الجدول
 table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
 
 //AddClone يضيف عمودًا في نهاية الجدول
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
 
-//InsertClone يضيف عمودًا في موضع محدد في الجدول
+//InsertClone يضيف عمودًا في موضع محدد داخل الجدول
 table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
 
-// يحفظ العرض التقديمي إلى القرص
+
+// يحفظ العرض التقديمي على القرص
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **إزالة صف أو عمود من الجدول**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وحمّل العرض التقديمي.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. عرّف مصفوفة من `columnWidth`.
-4. عرّف مصفوفة من `rowHeight`.
-5. أضف كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة من خلال طريقة [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
-6. أزل صف الجدول.
-7. أزل عمود الجدول.
-8. احفظ العرض التقديمي المعدل.
+## **إزالة صف أو عمود من جدول**
 
-هذا الكود C++ يوضح لك كيفية إزالة صف أو عمود من الجدول:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي، 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. تعريف مصفوفة من `columnWidth`. 
+4. تعريف مصفوفة من `rowHeight`. 
+5. إضافة كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة عبر طريقة [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
+6. إزالة صف الجدول. 
+7. إزالة عمود الجدول. 
+8. حفظ العرض التقديمي المعدل. 
 
+يظهر لك هذا الكود بلغة C++ كيفية إزالة صف أو عمود من جدول:
 ```c++
 // مسار دليل المستندات.
 const String outPath = u"../out/RemovingRowColumn_out.pptx";
 
-// ينشئ مثيلًا من فئة Presentation
+// ينشئ كائنًا من فئة Presentation
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// يصل إلى الشريحة الأولى
+// الوصول إلى الشريحة الأولى
 SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
 
-// يحدد الأعمدة بعرض وارتفاع الصفوف
+// يحدد الأعمدة بعرضها والصفوف بارتفاعها
 System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
 System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
 
@@ -157,89 +178,91 @@ SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRo
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-// يدمج الخلايا (1، 1) × (2، 1)
+
+// يددمج الخلايا (1, 1) x (2, 1)
 table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
 
-// يدمج الخلايا (1، 2) × (2، 2)
+// يددمج الخلايا (1, 2) x (2, 2)
 table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
 
-// يحفظ العرض التقديمي إلى القرص
+
+// يحفظ العرض التقديمي على القرص
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **تعيين تنسيق النص على مستوى صف الجدول**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وحمّل العرض التقديمي.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) المعني من الشريحة.
-4. عيّن [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) لخلايا الصف الأول.
-5. عيّن [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) و [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) لخلايا الصف الأول.
-6. عيّن [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) لخلايا الصف الثاني.
-7. احفظ العرض التقديمي المعدل.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي، 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) المعني من الشريحة. 
+4. تعيين ارتفاع الخط للخلية في الصف الأول عبر [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
+5. تعيين محاذاة الخلايا في الصف الأول عبر [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) و[set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
+6. تعيين نوع النص العمودي للخلية في الصف الثاني عبر [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
+7. حفظ العرض التقديمي المعدل. 
 
-هذا الكود C++ يوضح العملية:
-
+هذا الكود بلغة C++ يوضح العملية.
 ```c++
-// ينشئ مثيلًا من فئة Presentation
+// ينشئ مثالا من فئة Presentation
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slides()->idx_get(0);
 
 auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// لنفترض أن الشكل الأول في الشريحة الأولى هو جدول
-// يعين ارتفاع خط خلايا الصف الأول
+// نفترض أن الشكل الأول في الشريحة الأولى هو جدول
+// يضبط ارتفاع خط خلايا الصف الأول
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
 someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
 
-// يعين محاذاة النص و الهامش الأيمن لخلايا الصف الأول
+// يضبط محاذاة النص وخط الهوامش اليمنى لخلايا الصف الأول
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
 someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// يعين نوع النص العمودي لخلايا الصف الثاني
+// يضبط نوع النص العمودي لخلايا الصف الثاني
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
 someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// يحفظ العرض التقديمي إلى القرص
+// يحفظ العرض التقديمي على القرص
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تعيين تنسيق النص على مستوى عمود الجدول**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وحمّل العرض التقديمي.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) المعني من الشريحة.
-4. عيّن [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) لخلايا العمود الأول.
-5. عيّن [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) و [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) لخلايا العمود الأول.
-6. عيّن [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) لخلايا العمود الثاني.
-7. احفظ العرض التقديمي المعدل.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي، 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) المعني من الشريحة. 
+4. تعيين ارتفاع الخط للخلية في العمود الأول عبر [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
+5. تعيين محاذاة الخلايا في العمود الأول عبر [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) و[set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
+6. تعيين نوع النص العمودي للخلية في العمود الثاني عبر [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
+7. حفظ العرض التقديمي المعدل. 
 
-هذا الكود C++ يوضح العملية:
-
+هذا الكود بلغة C++ يوضح العملية: 
 ```c++
-// ينشئ مثيلًا من فئة Presentation
+// ينشئ مثالا من فئة Presentation
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
 
 auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// لنفترض أن الشكل الأول في الشريحة الأولى هو جدول
+// لنفرض أن الشكل الأول في الشريحة الأولى هو جدول
 
-// يعين ارتفاع خط خلايا العمود الأول
+// يضبط ارتفاع خط خلايا العمود الأول
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
 someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
 
-// يعين محاذاة النص والهامش الأيمن لخلايا العمود الأول في استدعاء واحد
+// يضبط محاذاة النص والهوامش اليمنى لخلايا العمود الأول في استدعاء واحد
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
 someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// يعين نوع النص العمودي لخلايا العمود الثاني
+// يضبط نوع النص العمودي لخلايا العمود الثاني
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
 someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
@@ -247,10 +270,10 @@ someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 pres->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **الحصول على خصائص نمط الجدول**
 
-تتيح لك Aspose.Slides استرداد خصائص نمط الجدول حتى تتمكن من استخدام تلك التفاصيل لجدول آخر أو في مكان آخر. هذا الكود C++ يوضح لك كيفية الحصول على خصائص النمط من نمط جدول مسبق:
-
+تتيح لك Aspose.Slides استرداد خصائص النمط لجدول بحيث يمكنك استخدام هذه التفاصيل لجدول آخر أو في مكان آخر. يوضح هذا الكود بلغة C++ كيفية الحصول على خصائص النمط من نمط جدول مسبق الإعداد:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slide(0)->get_Shapes();
@@ -259,3 +282,18 @@ auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeA
 table->set_StylePreset(TableStylePreset::DarkStyle1);
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تطبيق سمات/أنماط PowerPoint على جدول تم إنشاؤه بالفعل؟**
+
+نعم. يتورث الجدول سمة الشريحة/التخطيط/الماستر، ويمكنك مع ذلك تجاوز التعبئات والحدود وألوان النص فوق تلك السمة.
+
+**هل يمكنني فرز صفوف الجدول كما في Excel؟**
+
+لا، جداول Aspose.Slides لا تحتوي على فرز أو فلاتر مدمجة. قم بفرز البيانات في الذاكرة أولاً، ثم أعد تعبئة صفوف الجدول وفق ذلك الترتيب.
+
+**هل يمكنني الحصول على أعمدة مخططة (متناوبة) مع الحفاظ على ألوان مخصصة للخلايا المحددة؟**
+
+نعم. قم بتفعيل الأعمدة المخططة، ثم تجاوز خلايا محددة بالتنسيق المحلي؛ التنسيق على مستوى الخلية له أولوية على نمط الجدول.

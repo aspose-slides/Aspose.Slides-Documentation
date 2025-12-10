@@ -1,119 +1,136 @@
 ---
-title: شكل مخصص
+title: تخصيص أشكال العرض التقديمي في C++
+linktitle: شكل مخصص
 type: docs
 weight: 20
 url: /ar/cpp/custom-shape/
-keywords: "شكل PowerPoint, شكل مخصص, عرض PowerPoint, C++, Aspose.Slides for C++"
-description: "أضف شكل مخصص في عرض PowerPoint باستخدام C++"
+keywords:
+- شكل مخصص
+- إضافة شكل
+- إنشاء شكل
+- تغيير الشكل
+- هندسة الشكل
+- مسار هندسي
+- نقاط المسار
+- نقاط تحرير
+- إضافة نقطة
+- إزالة نقطة
+- عملية تحرير
+- زاوية منحنية
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ C++: مسارات هندسية، زوايا منحنية، أشكال مركبة."
 ---
 
-# تغيير شكل باستخدام نقاط التعديل
-اعتبر مربعًا. في PowerPoint، باستخدام **نقاط التعديل**، يمكنك 
+## **تغيير شكل باستخدام نقاط التحرير**
+تخيل مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك  
 
 * نقل زاوية المربع إلى الداخل أو الخارج
-* تحديد انحناء لزاوية أو نقطة
+* تحديد الانحناء للزاوية أو النقطة
 * إضافة نقاط جديدة إلى المربع
-* التلاعب بالنقاط على المربع، إلخ. 
+* التعامل مع النقاط على المربع، إلخ.  
 
-بشكل أساسي، يمكنك تنفيذ المهام الموصوفة على أي شكل. باستخدام نقاط التعديل، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود. 
+بشكل أساسي، يمكنك تنفيذ المهام الموضحة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود.  
 
-## **نصائح لتحرير الأشكال**
+## **نصائح تحرير الشكل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل البدء في تحرير أشكال PowerPoint من خلال نقاط التعديل، قد ترغب في النظر في هذه النقاط حول الأشكال:
+قبل أن تبدأ في تحرير أشكال PowerPoint عبر نقاط التحرير، قد ترغب في النظر في هذه النقاط حول الأشكال:
 
 * يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* عندما يكون الشكل مغلقًا، فإنه يفتقر إلى نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، فإنه يحتوي على بداية ونهاية. 
-* جميع الأشكال تتكون من نقطتي ربط على الأقل مرتبطة ببعضها بواسطة خطوط.
-* الخط يمكن أن يكون إما مستقيمًا أو منحنيًا. تحدد نقاط الربط طبيعة الخط. 
-* توجد نقاط الربط كنقاط زوايا، أو نقاط مستقيمة، أو نقاط ناعمة:
-  * نقطة الزاوية هي نقطة حيث تلتقي خطين مستقيمين بزاوية. 
-  * النقطة الناعمة هي نقطة حيث توجد يدان في خط مستقيم وينضم مقاطع الخط إلى منحنى سلس. في هذه الحالة، تبتعد جميع الأيدي عن نقطة الربط بنفس المسافة. 
-  * النقطة المستقيمة هي نقطة حيث توجد يدان في خط مستقيم وتنضم مقاطع ذلك الخط إلى منحنى سلس. في هذه الحالة، لا تحتاج الأيدي إلى الابتعاد عن نقطة الربط بنفس المسافة. 
-* من خلال تحريك أو تحرير نقاط الربط (التي تغير زاوية الخطوط)، يمكنك تغيير كيفية ظهور الشكل. 
+* عندما يكون الشكل مغلقًا، لا يحتوي على نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، يكون له بداية ونهاية. 
+* تتكون جميع الأشكال من نقطتي تثبيت على الأقل مرتبطتين ببعضهما عبر خطوط
+* الخط إما مستقيم أو منحني. تحدد نقاط التثبيت طبيعة الخط. 
+* نقاط التثبيت توجد ك نقاط زاوية، نقاط مستقيمة، أو نقاط ناعمة:
+  * نقطة الزاوية هي نقطة يلتقي فيها خطان مستقيمان بزاوية. 
+  * نقطة ناعمة هي نقطة يكون فيها مقبضان في خط مستقيم وتلتقي أجزاء الخط بمنحنى ناعم. في هذه الحالة، يتم فصل جميع المقابض عن نقطة التثبيت بمسافة متساوية. 
+  * نقطة مستقيمة هي نقطة يكون فيها مقبضان في خط مستقيم وتلتقي أجزاء الخط بمنحنى ناعم. في هذه الحالة، لا يلزم أن تكون المقابض منفصلة عن نقطة التثبيت بمسافة متساوية. 
+* عن طريق نقل أو تحرير نقاط التثبيت (التي تغير زاوية الخطوط)، يمكنك تغيير مظهر الشكل. 
 
-لتحرير أشكال PowerPoint من خلال نقاط التعديل، توفر **Aspose.Slides** فئة [**GeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) وواجهة [**IGeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** الفئة [**GeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) والواجهة [**IGeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
 
-* تمثل مثيل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) مسارًا هندسيًا لشيء [IGeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape). 
-* لاسترداد `GeometryPath` من مثيل `IGeometryShape`، يمكنك استخدام طريقة [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1). 
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) للأشكال *الصلبة* و [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) للأشكال *المركبة*.
-* لإضافة مقاطع، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
-* باستخدام [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) و [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) الطرق، يمكنك تعيين مظهر لمسار هندسي.
-* باستخدام [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) الطريقة، يمكنك استرداد المسار الهندسي لشكل `GeometryShape` كمصفوفة من مقاطع المسار. 
-* للوصول إلى خيارات تخصيص الشكل الهندسي الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) إلى [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path)
-* استخدم [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) و [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) الطرق (من فئة [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util)) لتحويل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) إلى [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) مرة أخرى.
+* تمثل نسخة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) مسارًا هندسيًا لكائن [IGeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape). 
+* لإسترجاع `GeometryPath` من نسخة `IGeometryShape`، يمكنك استخدام الطريقة [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1). 
+* لتحديد `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) للـ*أشكال الصلبة* و[IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) للـ*الأشكال المركبة*. 
+* لإضافة أجزاء، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
+* باستخدام الطرق [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) و[IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) يمكنك ضبط مظهر مسار هندسي. 
+* باستخدام الطريقة [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) يمكنك استرجاع مسار هندسي لكائن `GeometryShape` كمصفوفة من أجزاء المسار. 
+* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) إلى [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path). 
+* استخدم طرق [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) و[GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (من فئة [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util)) لتحويل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) إلى [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) والعودة بالعكس. 
 
 ## **عمليات تحرير بسيطة**
 
-يوضح كود C++ هذا كيف يمكنك
+يظهر لك هذا الكود C++ كيفية  
 
-**إضافة خط** إلى نهاية مسار
-
+**إضافة خط** إلى نهاية المسار:
 ``` cpp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-**إضافة خط** إلى موضع محدد على مسار:
 
+**إضافة خط** إلى موقع محدد على المسار:
 ``` cpp    
 void LineTo(PointF point, uint32_t index);
 void LineTo(float x, float y, uint32_t index);
 ```
-**إضافة منحنى بيزير مكعب** في نهاية مسار:
 
+**إضافة منحنى بيزيه مكعب** إلى نهاية المسار:
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**إضافة منحنى بيزير مكعب** إلى الموضع المحدد على مسار:
 
+**إضافة منحنى بيزيه مكعب** إلى الموقع المحدد على المسار:
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
 ```
-**إضافة منحنى بيزير تربيعي** في نهاية مسار:
 
+**إضافة منحنى بيزيه رباعي** إلى نهاية المسار:
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**إضافة منحنى بيزير تربيعي** لموضع محدد على مسار:
 
+**إضافة منحنى بيزيه رباعي** إلى موقع محدد على المسار:
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
 ```
-**إلحاق قوس معين** إلى مسار:
 
+**إلحاق قوس محدد** إلى مسار:
 ``` cpp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**إغلاق الشكل الحالي** لمسار:
 
+**إغلاق الشكل الحالي** للمسار:
 ``` cpp
 void CloseFigure();
 ```
-**تعيين الموضع للنقطة التالية**:
 
+**تحديد الموضع للنقطة التالية**:
 ``` cpp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-**إزالة مقطع المسار** في مؤشر معين:
 
+**إزالة جزء المسار** عند فهرس معين:
 ``` cpp
 void RemoveAt(int32_t index);
 ```
-## **إضافة نقاط مخصصة إلى الشكل**
-1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) واضبط نوع [ShapeType.Rectangle](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).
-2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) من الشكل.
-3. أضف نقطة جديدة بين النقطتين العلويتين على المسار.
-4. أضف نقطة جديدة بين النقطتين السفليتين على المسار.
-5. طبق المسار على الشكل.
 
-يوضح كود C++ هذا كيفية إضافة نقاط مخصصة إلى شكل:
 
+## **إضافة نقاط مخصصة إلى شكل**
+1. إنشاء نسخة من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) وتحديد النوع [ShapeType.Rectangle](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
+2. الحصول على نسخة من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) من الشكل.  
+3. إضافة نقطة جديدة بين النقطتين العلويتين على المسار.  
+4. إضافة نقطة جديدة بين النقطتين السفليتين على المسار.  
+5. تطبيق المسار على الشكل.  
+
+يظهر لك هذا الكود C++ كيفية إضافة نقاط مخصصة إلى شكل:
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -127,17 +144,17 @@ geometryPath->LineTo(100.0f, 50.0f, 4);
 shape->SetGeometryPath(geometryPath);
 ```
 
+
 ![example1_image](custom_shape_1.png)
 
-##  إزالة نقاط من الشكل
+## **إزالة نقاط من شكل**
 
-1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) واضبط نوع [ShapeType.Heart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5). 
-2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) من الشكل.
-3. أزل المقطع للمسار.
-4. طبق المسار على الشكل.
+1. إنشاء نسخة من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) وتحديد النوع [ShapeType.Heart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
+2. الحصول على نسخة من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) من الشكل.  
+3. إزالة الجزء من المسار.  
+4. تطبيق المسار على الشكل.  
 
-يوضح كود C++ هذا كيفية إزالة نقاط من شكل:
-
+يظهر لك هذا الكود C++ كيفية إزالة نقاط من شكل:
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -148,18 +165,19 @@ SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
 shape->SetGeometryPath(path);
 ```
+
+
 ![example2_image](custom_shape_2.png)
 
-##  **إنشاء شكل مخصص**
+## **إنشاء شكل مخصص**
 
-1. احسب النقاط للشكل.
-2. أنشئ مثيلًا من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path). 
-3. املأ المسار بالنقاط.
-4. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape). 
-5. طبق المسار على الشكل.
+1. احسب النقاط للشكل.  
+2. إنشاء نسخة من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
+3. املأ المسار بالنقاط.  
+4. إنشاء نسخة من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
+5. تطبيق المسار على الشكل.  
 
-يوضح كود C++ هذا كيفية إنشاء شكل مخصص:
-
+يظهر لك هذا الكود C++ كيفية إنشاء شكل مخصص:
 ``` cpp
 SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
 
@@ -196,18 +214,18 @@ SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->Add
 
 shape->SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
 
+
+![example3_image](custom_shape_3.png)
 
 ## **إنشاء شكل مخصص مركب**
 
-1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).
-2. أنشئ أول مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).
-3. أنشئ ثانٍ مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).
-4. طبق المسارات على الشكل.
+1. إنشاء نسخة من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
+2. إنشاء النسخة الأولى من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
+3. إنشاء النسخة الثانية من فئة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
+4. تطبيق المسارات على الشكل.  
 
-يوضح كود C++ هذا كيفية إنشاء شكل مخصص مركب:
-
+يظهر لك هذا الكود C++ كيفية إنشاء شكل مخصص مركب:
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -230,12 +248,13 @@ geometryPath1->CloseFigure();
 
 shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
 ```
+
+
 ![example4_image](custom_shape_4.png)
 
-## **إنشاء شكل مخصص مع زوايا منحنية**
+## **إنشاء شكل مخصص بزوايا منحنية**
 
-يوضح كود C++ هذا كيفية إنشاء شكل مخصص مع زوايا منحنية (للداخل);
-
+يظهر لك هذا الكود C++ كيفية إنشاء شكل مخصص بزوايا منحنية (للداخل);
 ```cpp
 float shapeX = 20.f;
 float shapeY = 20.f;
@@ -276,16 +295,42 @@ childShape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+
+## **اكتشف ما إذا كان شكل الهندسة مغلقًا**
+
+يُعرّف الشكل المغلق بأنه الشكل الذي تتصل جميع جهاته لتكوّن حدًا واحدًا دون فراغات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح المثال البرمجي التالي كيفية التحقق مما إذا كان شكل الهندسة مغلقًا:
+```cpp
+bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
+{
+    bool isClosed = false;
+
+    for (auto&& geometryPath : geometryShape->GetGeometryPaths())
+    {
+        auto dataLength = geometryPath->get_PathData()->get_Length();
+        if (dataLength == 0)
+            continue;
+
+        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
+        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
+
+        if (!isClosed)
+            return false;
+    }
+
+    return isClosed;
+}
+```
+
+
 ## **تحويل GeometryPath إلى GraphicsPath** 
 
-1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).
-2. أنشئ مثيلًا من فئة [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) من مساحة أسماء [System.Drawing.Drawing2D](https://reference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d).
-3. تحويل مثيل [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) باستخدام [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).
-4. طبق المسارات على الشكل.
+1. إنشاء نسخة من فئة [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
+2. إنشاء نسخة من فئة [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) في مساحة الأسماء [System.Drawing.Drawing2D](https://reference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d).  
+3. تحويل نسخة [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) إلى نسخة [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) باستخدام [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).  
+4. تطبيق المسارات على الشكل.  
 
-يوضح كود C++—وهو تنفيذ للخطوات أعلاه—عملية التحويل من **GeometryPath** إلى **GraphicsPath**:
-
-``` cpp
+هذا الكود C++—تنفيذ للخطوات أعلاه—يُظهر عملية التحويل من **GeometryPath** إلى **GraphicsPath**:
+```cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -295,11 +340,24 @@ SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
 originalPath->set_FillMode(PathFillModeType::None);
 
 SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"نص داخل الشكل", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
+graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
 
 SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
 textPath->set_FillMode(PathFillModeType::Normal);
 
 shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
 ```
+
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**ماذا سيحدث للملء والمخطط بعد استبدال الهندسة؟**  
+تبقى الأنماط مع الشكل؛ يتغير الحد فقط. يتم تطبيق الملء والمخطط تلقائيًا على الهندسة الجديدة.
+
+**كيف أدوّر الشكل المخصص مع الهندسة بشكل صحيح؟**  
+استخدم خاصية [rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) لل形؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+
+**هل يمكنني تحويل الشكل المخصص إلى صورة لتثبيت النتيجة؟**  
+نعم. صدّر الشريحة المطلوبة [slide](/slides/ar/cpp/convert-powerpoint-to-png/) أو [shape](/slides/ar/cpp/create-shape-thumbnails/) نفسها إلى تنسيق نقطي؛ هذا يُبسّط العمل اللاحق مع الهندسات الثقيلة.

@@ -1,69 +1,110 @@
 ---
-title: Effektive Eigenschaften von Formen
+title: Effektive Formeigenschaften aus Präsentationen in C++ abrufen
+linktitle: Effektive Eigenschaften
 type: docs
 weight: 50
 url: /de/cpp/shape-effective-properties/
+keywords:
+- Formeigenschaften
+- Kameraeigenschaften
+- Licht Rig
+- Abgeschrägte Form
+- Textfeld
+- Textstil
+- Schriftgröße
+- Füllformat
+- PowerPoint
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides für C++ effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint-Wiedergabe zu gewährleisten."
 ---
 
+In diesem Thema besprechen wir **effective** und **local** Eigenschaften. Wenn wir Werte direkt auf diesen Ebenen setzen
 
-In diesem Thema werden wir **effektive** und **lokale** Eigenschaften diskutieren. Wenn wir Werte direkt auf diesen Ebenen festlegen
-
-1. In Abschnittseigenschaften auf der Folie des Abschnitts.
-1. In den Textstil der Prototypform auf der Layout- oder Masterfolie (wenn die Textrahmenform des Abschnitts eine hat).
+1. In den Teil‑Eigenschaften auf der Folie des Teils.
+1. Im Textstil der Prototyp‑Form auf Layout‑ oder Master‑Folie (falls die Textfeld‑Form des Teils einen hat).
 1. In den globalen Texteinstellungen der Präsentation.
 
-dann werden diese Werte als **lokale** Werte bezeichnet. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Aber letztendlich, wenn es darauf ankommt, dass die Anwendung wissen muss, wie der Abschnitt aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte mit der **GetEffective()**-Methode aus dem lokalen Format erhalten.
+dann werden diese Werte **local** Werte genannt. Auf jeder Ebene können **local** Werte definiert oder weggelassen werden. Schließlich, wenn die Anwendung wissen muss, wie der Teil aussehen soll, verwendet sie **effective** Werte. Sie können **effective** Werte erhalten, indem Sie die Methode **GetEffective()** aus dem lokalen Format verwenden.
 
-Das folgende Beispiel zeigt, wie man effektive Werte erhält.
-
-
+Das folgende Beispiel zeigt, wie man **effective** Werte erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValues-GetEffectiveValues.cpp" >}}
 
+## **Effektive Eigenschaften einer Kamera abrufen**
+Aspose.Slides für C++ ermöglicht Entwicklern, effektive Eigenschaften der Kamera zu erhalten. Zu diesem Zweck wurde die Klasse **CameraEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse CameraEffectiveData stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz der Klasse **CameraEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein Paar effektiver Werte für die Klasse ThreeDFormat darstellt.
 
-## **Effektive Eigenschaften der Kamera abrufen**
-Aspose.Slides für C++ ermöglicht Entwicklern, die effektiven Eigenschaften der Kamera abzurufen. Zu diesem Zweck wurde die Klasse **CameraEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse CameraEffectiveData stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz der Klasse **CameraEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat ist.
-
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Kamera abruft.
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Kamera erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetCameraEffectiveData-GetCameraEffectiveData.cpp" >}}
 
-## **Effektive Eigenschaften des Lichtsets abrufen**
-Aspose.Slides für C++ ermöglicht Entwicklern, die effektiven Eigenschaften des Lichtsets abzurufen. Zu diesem Zweck wurde die Klasse **LightRigEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse LightRigEffectiveData stellt ein unveränderliches Objekt dar, das effektive Eigenschaften des Lichtsets enthält. Eine Instanz der Klasse **LightRigEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat ist.
+## **Effektive Eigenschaften eines Light Rig abrufen**
+Aspose.Slides für C++ ermöglicht Entwicklern, effektive Eigenschaften des Light Rig zu erhalten. Zu diesem Zweck wurde die Klasse **LightRigEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse LightRigEffectiveData stellt ein unveränderliches Objekt dar, das effektive Light‑Rig‑Eigenschaften enthält. Eine Instanz der Klasse **LightRigEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein Paar effektiver Werte für die Klasse ThreeDFormat darstellt.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für das Lichtset abruft.
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für das Light Rig erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetLightRigEffectiveData-GetLightRigEffectiveData.cpp" >}}
 
-## **Effektive Eigenschaften der Fasenform abrufen**
-Aspose.Slides für C++ ermöglicht Entwicklern, die effektiven Eigenschaften der Fasenform abzurufen. Zu diesem Zweck wurde die Klasse **ShapeBevelEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse ShapeBevelEffectiveData stellt ein unveränderliches Objekt dar, das die effektiven Relief-Eigenschaften der Form enthält. Eine Instanz der Klasse **ShapeBevelEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat ist.
+## **Effektive Eigenschaften einer Abschrägung (Bevel) abrufen**
+Aspose.Slides für C++ ermöglicht Entwicklern, effektive Eigenschaften einer Abschrägung (Bevel) zu erhalten. Zu diesem Zweck wurde die Klasse **ShapeBevelEffectiveData** in Aspose.Slides hinzugefügt. Die Klasse ShapeBevelEffectiveData stellt ein unveränderliches Objekt dar, das effektive Eigenschaften der Formoberfläche enthält. Eine Instanz der Klasse **ShapeBevelEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein Paar effektiver Werte für die Klasse ThreeDFormat darstellt.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Fasenform abruft.
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Abschrägung erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetShapeBevelEffectiveData-GetShapeBevelEffectiveData.cpp" >}}
 
-## **Effektive Eigenschaften des Textrahmens abrufen**
-Mit Aspose.Slides für C++ können Sie die effektiven Eigenschaften des Textrahmens abrufen. Zu diesem Zweck wurde die Klasse **TextFrameFormatEffectiveData** in Aspose.Slides hinzugefügt, die die effektiven Formatierungseigenschaften des Textrahmens enthält.
+## **Effektive Eigenschaften eines Textfelds abrufen**
+Mit Aspose.Slides für C++ können Sie effektive Eigenschaften eines Textfelds erhalten. Zu diesem Zweck wurde die Klasse **TextFrameFormatEffectiveData** in Aspose.Slides hinzugefügt, die effektive Formatierungseigenschaften des Textfelds enthält.
 
-Das folgende Codebeispiel zeigt, wie man die effektiven Formatierungseigenschaften des Textrahmens abruft.
+Das folgende Codebeispiel zeigt, wie man effektive Textfeld‑Formatierungseigenschaften erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextFrameFormatEffectiveData-GetTextFrameFormatEffectiveData.cpp" >}}
 
-## **Effektive Eigenschaften des Textstils abrufen**
-Mit Aspose.Slides für C++ können Sie die effektiven Eigenschaften des Textstils abrufen. Zu diesem Zweck wurde die Klasse **TextStyleEffectiveData** in Aspose.Slides hinzugefügt, die die effektiven Eigenschaften des Textstils enthält.
+## **Effektive Eigenschaften eines Textstils abrufen**
+Mit Aspose.Slides für C++ können Sie effektive Eigenschaften eines Textstils erhalten. Zu diesem Zweck wurde die Klasse **TextStyleEffectiveData** in Aspose.Slides hinzugefügt, die effektive Texteigenschaften enthält.
 
-Das folgende Codebeispiel zeigt, wie man die effektiven Eigenschaften des Textstils abruft.
+Das folgende Codebeispiel zeigt, wie man effektive Texteigenschaften erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetTextStyleEffectiveData-GetTextStyleEffectiveData.cpp" >}}
 
-## **Effektiven Schriftgradwert abrufen**
-Mit Aspose.Slides für C++ können Sie die effektiven Eigenschaften des Schriftgrads abrufen. Hier ist der Code, der demonstriert, wie sich der effektive Schriftgradwert des Abschnitts ändert, nachdem lokale Schriftgradwerte auf verschiedenen Präsentationsstruktur-Ebenen festgelegt wurden.
+## **Den effektiven Schriftgrößenwert abrufen**
+Mit Aspose.Slides für C++ können Sie effektive Eigenschaften der Schriftgröße erhalten. Hier ist ein Beispielcode, der zeigt, wie sich der effektive Schriftgrößenwert eines Abschnitts nach dem Setzen lokaler Schriftgrößenwerte auf unterschiedlichen Ebenen der Präsentationsstruktur ändert.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetLocalFontHeightValues-SetLocalFontHeightValues.cpp" >}}
 
-## **Effektives Füllformat für Tabellen abrufen**
-Mit Aspose.Slides für C++ können Sie das effektive Füllformat für verschiedene logische Teile von Tabellen abrufen. Zu diesem Zweck wurde das Interface **IFillFormatEffectiveData** in Aspose.Slides hinzugefügt, das die effektiven Füllformatierungseigenschaften enthält. Bitte beachten Sie, dass die Zellformatierung immer eine höhere Priorität hat als die Zeilenformatierung, eine Zeile eine höhere Priorität als eine Spalte und eine Spalte eine höhere Priorität als die gesamte Tabelle hat.
+## **Das effektive Füllformat für eine Tabelle abrufen**
+Mit Aspose.Slides für C++ können Sie das effektive Füllformat für verschiedene logische Tabellenteile erhalten. Zu diesem Zweck wurde das Interface **IFillFormatEffectiveData** in Aspose.Slides hinzugefügt, das effektive Füllformat‑Eigenschaften enthält. Bitte beachten Sie, dass die Zellenformatierung immer höhere Priorität hat als die Zeilenformatierung, eine Zeile hat höhere Priorität als eine Spalte und eine Spalte hat höhere Priorität als die gesamte Tabelle.
 
-Daher werden schließlich die Eigenschaften von **CellFormatEffectiveData** immer verwendet, um die Tabelle zu zeichnen. Das folgende Codebeispiel zeigt, wie man die effektive Füllformatierung für verschiedene logische Teile von Tabellen abruft.
+Daher werden zum Rendern der Tabelle immer die **CellFormatEffectiveData**‑Eigenschaften verwendet. Das folgende Codebeispiel zeigt, wie man das effektive Füllformat für verschiedene tabellarische Logikteile erhält.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValuesOfTable-GetEffectiveValuesOfTable.cpp" >}}
+
+## **FAQ**
+
+**Wie kann ich erkennen, ob ich einen „Snapshot“ und kein „Live‑Objekt“ erhalten habe, und wann sollte ich effektive Eigenschaften erneut auslesen?**
+
+EffectiveData‑Objekte sind unveränderliche Snapshots der zum Aufrufzeitpunkt berechneten Werte. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, rufen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
+
+**Wirkt sich das Ändern von Layout‑ bzw. Master‑Folie auf bereits abgerufene effektive Eigenschaften aus?**
+
+Ja, jedoch erst, nachdem Sie sie erneut gelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht selbst — fordern Sie es nach einer Änderung des Layouts oder Masters erneut an.
+
+**Kann ich Werte über EffectiveData ändern?**
+
+Nein. EffectiveData ist schreibgeschützt. Änderungen erfolgen in den lokalen Formatierungsobjekten (Form/Text/3D usw.), anschließend können Sie die effektiven Werte erneut abrufen.
+
+**Was passiert, wenn eine Eigenschaft weder auf Form‑Ebene, noch im Layout/Master, noch in den globalen Einstellungen gesetzt ist?**
+
+Der effektive Wert wird durch den Standardmechanismus (PowerPoint/Aspose.Slides‑Standardwerte) bestimmt. Dieser aufgelöste Wert wird Teil des EffectiveData‑Snapshots.
+
+**Kann ich anhand eines effektiven Schriftwerts erkennen, welche Ebene die Größe oder Schriftart bereitgestellt hat?**
+
+Nicht direkt. EffectiveData liefert nur den endgültigen Wert. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte auf Abschnitt/Ebene/Textfeld‑Ebene sowie die Textstile im Layout/Master/Präsentation, um die erste explizite Definition zu finden.
+
+**Warum sehen EffectiveData‑Werte manchmal identisch mit den lokalen aus?**
+
+Weil der lokale Wert letztlich final war (keine höhere Ebene musste vererbt werden). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
+
+**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
+
+Verwenden Sie EffectiveData, wenn Sie das „wie gerenderte“ Ergebnis nach vollständiger Vererbung benötigen (z. B. zum Angleichen von Farben, Einzügen oder Größen). Wenn Sie Formatierungen auf einer bestimmten Ebene ändern wollen, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf EffectiveData erneut, um das Ergebnis zu überprüfen.

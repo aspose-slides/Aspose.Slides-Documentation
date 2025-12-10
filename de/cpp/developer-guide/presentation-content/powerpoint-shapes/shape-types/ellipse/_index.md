@@ -1,36 +1,61 @@
 ---
-title: Ellipse
+title: Ellipsen zu Präsentationen in C++ hinzufügen
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /de/cpp/ellipse/
+keywords:
+- Ellipse
+- Form
+- Ellipse hinzufügen
+- Ellipse erstellen
+- Ellipse zeichnen
+- formatierte Ellipse
+- PowerPoint
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Ellipsenformen in Aspose.Slides für C++ in PPT- und PPTX‑Präsentationen erstellen, formatieren und manipulieren – C++‑Codebeispiele inklusive."
 ---
 
-
 ## **Ellipse erstellen**
-In diesem Thema werden wir Entwicklern vorstellen, wie man Ellipsenformen zu ihren Folien mit Aspose.Slides für C++ hinzufügt. Aspose.Slides für C++ bietet eine einfachere API-Schnittstelle, um verschiedene Arten von Formen mit nur wenigen Codezeilen zu zeichnen. Um eine einfache Ellipse zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
+In diesem Thema stellen wir Entwicklern das Hinzufügen von Ellipsenformen zu ihren Folien mit Aspose.Slides für C++ vor. Aspose.Slides für C++ bietet einen einfacheren Satz von APIs, um verschiedene Arten von Formen mit nur wenigen Codezeilen zu zeichnen. Um einer ausgewählten Folie der Präsentation eine einfache Ellipse hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation-Klasse](http://www.aspose.com/api/net/slides/aspose.slides/)
-1. Erhalten Sie die Referenz einer Folie, indem Sie deren Index verwenden.
-1. Fügen Sie eine AutoShape vom Typ Ellipse mit der Methode AddAutoShape hinzu, die vom Objekt IShapes bereitgestellt wird.
-1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation class](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)
+2. Holen Sie die Referenz einer Folie mittels ihres Index
+3. Fügen Sie mit der AddAutoShape‑Methode des IShapes‑Objekts eine AutoShape vom Typ Ellipse hinzu
+4. Schreiben Sie die geänderte Präsentation als PPTX‑Datei
 
-Im folgenden Beispiel haben wir eine Ellipse zur ersten Folie hinzugefügt.
+Im nachfolgenden Beispiel haben wir einer ersten Folie eine Ellipse hinzugefügt.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SimpleEllipse-SimpleEllipse.cpp" >}}
 
+## **Formatierte Ellipse erstellen**
+Um einer Folie eine besser formatierte Ellipse hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
 
-## **Formattierte Ellipse erstellen**
-Um eine besser formatierte Ellipse zu einer Folie hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
+1. Erstellen Sie eine Instanz der [Presentation class](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Holen Sie die Referenz einer Folie mittels ihres Index.
+3. Fügen Sie mit der AddAutoShape‑Methode des IShapes‑Objekts eine AutoShape vom Typ Ellipse hinzu.
+4. Setzen Sie den Fülltyp der Ellipse auf Solid.
+5. Setzen Sie die Farbe der Ellipse über die SolidFillColor.Color‑Eigenschaft, die vom FillFormat‑Objekt des zugehörigen IShape‑Objekts bereitgestellt wird.
+6. Setzen Sie die Farbe der Linien der Ellipse.
+7. Setzen Sie die Breite der Linien der Ellipse.
+8. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-1. Erstellen Sie eine Instanz der [Presentation-Klasse](http://www.aspose.com/api/net/slides/aspose.slides/).
-1. Erhalten Sie die Referenz einer Folie, indem Sie deren Index verwenden.
-1. Fügen Sie eine AutoShape vom Typ Ellipse mit der Methode AddAutoShape hinzu, die vom Objekt IShapes bereitgestellt wird.
-1. Setzen Sie den Fülltyp der Ellipse auf Solid.
-1. Setzen Sie die Farbe der Ellipse mit der Eigenschaft SolidFillColor.Color, die vom FillFormat-Objekt bereitgestellt wird, das mit dem IShape-Objekt assoziiert ist.
-1. Setzen Sie die Farbe der Linien der Ellipse.
-1. Setzen Sie die Breite der Linien der Ellipse.
-1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
-
-Im folgenden Beispiel haben wir eine formatierte Ellipse zur ersten Folie der Präsentation hinzugefügt.
+Im nachfolgenden Beispiel haben wir der ersten Folie der Präsentation eine formatierte Ellipse hinzugefügt.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FormattedEllipse-FormattedEllipse.cpp" >}}
+
+## **FAQ**
+
+**Wie lege ich die genaue Position und Größe einer Ellipse in Bezug auf die Einheiten der Folie fest?**
+
+Koordinaten und Größen werden normalerweise **in Punkten** angegeben. Für vorhersehbare Ergebnisse sollten Sie Ihre Berechnungen auf der Foliengröße basieren und erforderliche Millimeter oder Zoll vor der Zuweisung in Punkte umrechnen.
+
+**Wie kann ich eine Ellipse über oder unter anderen Objekten platzieren (Stapelhöhe steuern)?**
+
+Passen Sie die Zeichenreihenfolge des Objekts an, indem Sie es nach vorne oder nach hinten bringen. Dadurch kann die Ellipse andere Objekte überlagern oder die darunter liegenden sichtbar machen.
+
+**Wie animiere ich das Erscheinen oder die Hervorhebung einer Ellipse?**
+
+[Anwenden](/slides/de/cpp/shape-animation/) Eingangs-, Hervorhebungs‑ oder Ausgangseffekte auf die Form anwenden und Trigger sowie Timing konfigurieren, um zu steuern, wann und wie die Animation abgespielt wird.

@@ -1,26 +1,35 @@
 ---
-title: تأثير الشكل
+title: "تطبيق تأثيرات الشكل في العروض التقديمية باستخدام C++"
+linktitle: "تأثير الشكل"
 type: docs
 weight: 30
-url: /ar/cpp/shape-effect
-keywords: "تأثير الشكل، تقديم PowerPoint، C++، CPP، Aspose.Slides for C++"
-description: "تطبيق تأثير على شكل PowerPoint في C++"
+url: /ar/cpp/shape-effect/
+keywords:
+- "تأثير الشكل"
+- "تأثير الظل"
+- "تأثير الانعكاس"
+- "تأثير التوهج"
+- "تأثير الحواف الناعمة"
+- "تنسيق التأثير"
+- "PowerPoint"
+- "عرض تقديمي"
+- "C++"
+- "Aspose.Slides"
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides للغة C++ — أنشئ شرائح جذابة واحترافية في ثوانٍ."
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/cpp/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل معين، ونشر توهج الشكل، وما إلى ذلك.
+في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [fills](/slides/ar/cpp/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
 
-<img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل معين.
+* يقدم PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل. 
+* بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، توجد خيارات PowerPoint تحت **Preset**. خيارات Preset هي في الأساس تركيبة معروفة جيدة المظهر من اثنين أو أكثر من التأثيرات. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة ملائمة.
 
-* بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يوجد خيارات PowerPoint تحت **Preset**. خيارات Preset هي في الأساس تركيبة معروفة ذات مظهر جيد من تأثيرين أو أكثر. بهذه الطريقة، من خلال اختيار إعداد مسبق، لن تضيع الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة جميلة.
-
-يوفر Aspose.Slides خصائص وطرق تحت الفئة [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
+توفر Aspose.Slides خصائص وطرق ضمن فئة [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
 
 ## **تطبيق تأثير الظل**
 
-يوضح لك هذا الكود بلغة C++ كيفية تطبيق تأثير الظل الخارجي ([OuterShadowEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format#aea1a48246d3240e29092498f648bc028)) على مستطيل:
-
+هذا الكود بلغة C++ يوضح لك كيفية تطبيق تأثير الظل الخارجي ([OuterShadowEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.effect_format#aea1a48246d3240e29092498f648bc028)) على مستطيل:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -36,10 +45,10 @@ outerShadowEffect->set_Direction(45.0f);
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تطبيق تأثير الانعكاس**
 
-يوضح لك هذا الكود بلغة C++ كيفية تطبيق تأثير الانعكاس على شكل معين:
-
+هذا الكود بلغة C++ يوضح لك كيفية تطبيق تأثير الانعكاس على شكل:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -56,10 +65,10 @@ reflectionEffect->set_BlurRadius(4);
 pres->Save(u"reflection.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تطبيق تأثير التوهج**
 
-يوضح لك هذا الكود بلغة C++ كيفية تطبيق تأثير التوهج على شكل معين:
-
+هذا الكود بلغة C++ يوضح لك كيفية تطبيق تأثير التوهج على شكل:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -74,10 +83,10 @@ glowEffect->set_Radius(15);
 pres->Save(u"glow.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تطبيق تأثير الحواف الناعمة**
 
-يوضح لك هذا الكود بلغة C++ كيفية تطبيق الحواف الناعمة على شكل معين:
-
+هذا الكود بلغة C++ يوضح لك كيفية تطبيق الحواف الناعمة على شكل:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -90,3 +99,15 @@ softEdgeEffect->set_Radius(15);
 
 pres->Save(u"softEdges.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
+نعم، يمكنك الجمع بين تأثيرات مختلفة، مثل الظل والانعكاس والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+
+**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+يمكنك تطبيق التأثيرات على أشكال مختلفة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر من ذلك.
+
+**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.

@@ -1,38 +1,40 @@
 ---
-title: 形状缩略图
+title: 在 C++ 中创建演示文稿形状的缩略图
+linktitle: 形状缩略图
 type: docs
 weight: 70
 url: /zh/cpp/shape-thumbnails/
-keywords: 
+keywords:
 - 形状缩略图
 - 形状图像
+- 渲染形状
+- 形状渲染
 - PowerPoint
 - 演示文稿
 - C++
-- Aspose.Slides for С++
-description: "从 PowerPoint 演示文稿中提取形状缩略图，使用 C++"
+- Aspose.Slides
+description: "使用 Aspose.Slides for C++ 从 PowerPoint 幻灯片生成高质量的形状缩略图–轻松创建和导出演示文稿缩略图。"
 ---
 
-
 ## **创建形状缩略图**
-Aspose.Slides for C++ 用于创建演示文档文件，每一页都是一张幻灯片。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文档文件来查看。但有时，开发人员可能需要在图像查看器中单独查看形状的图像。在这种情况下，Aspose.Slides for C++ 帮助您生成幻灯片形状的缩略图。如何使用此功能将在本文章中描述。
-本文解释了如何以不同方式生成幻灯片缩略图：
+Aspose.Slides for C++ 用于创建每页都是幻灯片的演示文件。这些幻灯片可以通过 Microsoft PowerPoint 打开进行查看。但有时，开发人员可能需要在图像查看器中单独查看形状的图像。此时，Aspose.Slides for C++ 可帮助您生成幻灯片形状的缩略图。本文介绍了如何使用此功能。
 
-- 在幻灯片内部生成形状缩略图。
-- 为具有用户定义尺寸的幻灯片形状生成形状缩略图。
-- 在形状外观的边界内生成形状缩略图。
+本文说明了以不同方式生成幻灯片缩略图的方法：
+
+- 在幻灯片内部生成形状缩略图。  
+- 为幻灯片形状生成具有用户定义尺寸的缩略图。  
+- 在形状外观的边界内生成形状缩略图。  
 - 生成 SmartArt 子节点的缩略图。
 
 ## **从幻灯片生成形状缩略图**
-要从任何幻灯片生成形状缩略图，使用 Aspose.Slides for C++：
+使用 Aspose.Slides for C++ 从任意幻灯片生成形状缩略图的方法：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-1. 使用其 ID 或索引获取任何幻灯片的引用。
-1. 获取引用幻灯片的形状缩略图图像，使用默认比例。
-1. 将缩略图图像保存为任何所需的图像格式。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 使用其 ID 或索引获取任意幻灯片的引用。  
+3. 获取引用幻灯片的默认比例形状缩略图图像。  
+4. 将缩略图图像保存为任意所需的图像格式。
 
 下面的示例生成形状缩略图。
-
 ```cpp
 auto presentation = MakeObject<Presentation>(u"HelloWorld.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
@@ -45,19 +47,18 @@ presentation->Dispose();
 ```
 
 
-## **生成用户定义缩放因子的缩略图**
-要生成任何幻灯片形状的形状缩略图，使用 Aspose.Slides for C++：
+## **生成用户自定义缩放因子的缩略图**
+使用 Aspose.Slides for C++ 为任意幻灯片形状生成形状缩略图的方法：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-1. 使用其 ID 或索引获取任何幻灯片的引用。
-1. 获取形状边界的引用幻灯片的缩略图图像。
-1. 将缩略图图像保存为任何所需的图像格式。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 使用其 ID 或索引获取任意幻灯片的引用。  
+3. 获取带有形状边界的引用幻灯片的缩略图图像。  
+4. 将缩略图图像保存为任意所需的图像格式。
 
-下面的示例生成一个具有用户定义缩放因子的缩略图。
-
+下面的示例生成具有用户自定义缩放因子的缩略图。
 ```cpp
 auto bounds = ShapeThumbnailBounds::Shape;
-auto scale = 1; // 在 X 和 Y 轴上的缩放。
+auto scale = 1; // 沿 X 和 Y 轴的缩放。
 
 auto presentation = MakeObject<Presentation>(u"HelloWorld.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
@@ -69,19 +70,19 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **创建形状外观的边界缩略图**
-此方法用于创建形状的缩略图，使开发人员能够在形状外观的边界内生成缩略图。它考虑了所有的形状效果。生成的形状缩略图受到幻灯片边界的限制。要在任何幻灯片形状的外观边界内生成缩略图，请使用以下示例代码：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。
-1. 使用其 ID 或索引获取任何幻灯片的引用。
-1. 获取其外观作为形状边界的引用幻灯片的缩略图图像。
-1. 将缩略图图像保存为任何所需的图像格式。
+## **创建基于边界的形状外观缩略图**
+此方法允许开发人员在形状外观的边界内生成缩略图，并考虑所有形状效果。生成的形状缩略图受幻灯片边界限制。要在形状外观边界内生成任意幻灯片形状的缩略图，请使用以下示例代码：
 
-下面的示例生成一个具有用户定义缩放因子的缩略图。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 使用其 ID 或索引获取任意幻灯片的引用。  
+3. 获取带有外观形状边界的引用幻灯片的缩略图图像。  
+4. 将缩略图图像保存为任意所需的图像格式。
 
+下面的示例创建了具有用户自定义缩放因子的缩略图。
 ```cpp
 auto bounds = ShapeThumbnailBounds::Appearance;
-auto scale = 1; // 在 X 和 Y 轴上的缩放。
+auto scale = 1; // 沿 X 和 Y 轴的缩放。
 
 auto presentation = MakeObject<Presentation>(u"HelloWorld.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
@@ -92,3 +93,26 @@ image->Dispose();
 
 presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**保存形状缩略图时可以使用哪些图像格式？**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/cpp/aspose.slides/imageformat/)，以及其他格式。形状还可以通过将其内容保存为 SVG 来[导出为矢量 SVG](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/)。
+
+**在渲染缩略图时，Shape 边界和 Appearance 边界有何区别？**
+
+`Shape` 使用形状的几何区域；`Appearance` 会考虑[视觉效果](/slides/zh/cpp/shape-effect/)(阴影、发光等)。
+
+**如果形状被标记为隐藏，它仍会生成缩略图吗？**
+
+隐藏的形状仍然是模型的一部分，可以渲染；隐藏标记仅影响幻灯片放映的显示，不会阻止生成形状图像。
+
+**是否支持组形状、图表、SmartArt 以及其他复杂对象？**
+
+支持。任何作为[Shape](https://reference.aspose.com/slides/cpp/aspose.slides/shape/)表示的对象（包括[GroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/groupshape/)、[Chart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/)、以及[SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/)）都可以保存为缩略图或 SVG。
+
+**系统安装的字体会影响文本形状缩略图的质量吗？**
+
+会。您应当[提供所需的字体](/slides/zh/cpp/custom-font/)（或[配置字体替代](/slides/zh/cpp/font-substitution/)），以避免出现不希望的回退和文本重排。
