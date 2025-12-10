@@ -1,36 +1,45 @@
 ---
-title: ActiveX
+title: "إدارة عناصر التحكم ActiveX في العروض التقديمية باستخدام Java"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /ar/java/activex/
+keywords:
+- "ActiveX"
+- "عنصر التحكم ActiveX"
+- "إدارة ActiveX"
+- "إضافة ActiveX"
+- "تعديل ActiveX"
+- "مشغل وسائط"
+- "PowerPoint"
+- "عرض تقديمي"
+- "Java"
+- "Aspose.Slides"
+description: "تعرّف على كيف يستخدم Aspose.Slides for Java تقنية ActiveX لأتمتة وتحسين عروض PowerPoint، مما يمنح المطورين تحكمًا قويًا في الشرائح."
 ---
 
-
 {{% alert color="primary" %}} 
-
-تستخدم عناصر التحكم ActiveX في العروض التقديمية. يسمح لك Aspose.Slides لـ Java بإضافة وإدارة عناصر التحكم ActiveX، لكنها أصعب قليلاً في الإدارة مقارنة مع أشكال العروض التقديمية العادية. قمنا بتنفيذ دعم لإضافة عنصر التحكم النشط Media Player في Aspose.Slides. لاحظ أن عناصر التحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IShapeCollection) للعروض التقديمية. إنها جزء من [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) المنفصلة بدلاً من ذلك. في هذا الموضوع، سنوضح لك كيفية العمل معها. 
-
+يتم استخدام عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides for Java إضافة وإدارة عناصر التحكم ActiveX، لكنها أصعب قليلاً في الإدارة مقارنةً بأشكال العرض العادية. قمنا بتنفيذ دعم لإضافة عنصر تحكم Media Player Active في Aspose.Slides. لاحظ أن عناصر التحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من العرض التقديمي’s [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IShapeCollection). إنها جزء من [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) المنفصل بدلاً من ذلك. في هذا الموضوع، سنوضح لك كيفية العمل معها. 
 {{% /alert %}} 
 
-## **إضافة عنصر التحكم ActiveX لـ Media Player إلى الشريحة**
-لإضافة عنصر التحكم ActiveX الخاص بـ Media Player، قم بذلك:
+## **إضافة عنصر تحكم Media Player ActiveX إلى شريحة**
+لإضافة عنصر تحكم Media Player ActiveX، افعل ذلك:
 
-1. أنشئ مثيلًا من فصل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وقم بإنشاء مثيل عرض تقديمي فارغ.
-1. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. إضافة عنصر التحكم ActiveX الخاص بـ Media Player باستخدام طريقة [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) المعروضة بواسطة [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
-1. الوصول إلى عنصر التحكم ActiveX الخاص بـ Media Player وتعيين مسار الفيديو باستخدام خصائصه.
-1. حفظ العرض التقديمي كملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وإنشاء عرض تقديمي فارغ.
+2. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+3. إضافة عنصر تحكم Media Player ActiveX باستخدام طريقة [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) التي توفرها [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
+4. الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
+5. حفظ العرض التقديمي كملف PPTX.
 
-يوضح هذا الكود العينة، المستند إلى الخطوات أعلاه، كيفية إضافة عنصر التحكم ActiveX الخاص بـ Media Player إلى شريحة:
-
+يعرض رمز العينة هذا، استنادًا إلى الخطوات أعلاه، كيفية إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
 ```java
-// إنشاء مثيل عرض تقديمي فارغ
+// إنشاء مثال عرض تقديمي فارغ
 Presentation pres = new Presentation();
 try {
-    // إضافة عنصر التحكم ActiveX الخاص بـ Media Player
+    // إضافة عنصر تحكم Media Player ActiveX
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // الوصول إلى عنصر التحكم ActiveX الخاص بـ Media Player وتعيين مسار الفيديو
+    // الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // حفظ العرض التقديمي
@@ -40,43 +49,41 @@ try {
 }
 ```
 
-## **تعديل عنصر التحكم ActiveX**
+
+## **تعديل عنصر تحكم ActiveX**
 {{% alert color="primary" %}} 
-
-تحتوي نسخ Aspose.Slides لـ Java 7.1.0 والإصدارات الأحدث على مكونات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف بالفعل في العرض التقديمي الخاص بك وتعديله أو حذفه من خلال خصائصه.
-
+يتم تزويد Aspose.Slides for Java 7.1.0 والإصدارات الأحدث بمكونات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف بالفعل في عرضك التقديمي وتعديله أو حذفه عبر خصائصه.
 {{% /alert %}} 
 
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع النص وزر الأمر البسيط في شريحة، قم بذلك:
+لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة، افعل ذلك:
 
-1. أنشئ مثيلًا من فصل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وقم بتحميل العرض التقديمي مع عناصر التحكم ActiveX فيه.
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. الوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
-1. الوصول إلى عنصر التحكم TextBox1 ActiveX باستخدام كائن [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControl).
-1. تغيير خصائص عنصر التحكم TextBox1 ActiveX التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
-1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
-1. تغيير عنوان الزر، الخط، والموقع.
-1. نقل موضع إطارات عناصر التحكم ActiveX.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على عناصر تحكم ActiveX.
+2. الحصول على مرجع الشريحة بواسطة الفهرس الخاص بها.
+3. الوصول إلى عناصر التحكم ActiveX في الشريحة عبر الوصول إلى [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
+4. الوصول إلى عنصر التحكم ActiveX TextBox1 باستخدام كائن [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControl).
+5. تغيير خصائص عنصر التحكم ActiveX TextBox1 التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
+6. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
+7. تغيير تسمية الزر، الخط، والموقع.
+8. تحريك موقع إطارات عناصر التحكم ActiveX.
+9. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-يوضح هذا الكود العينة، المستند إلى الخطوات أعلاه، كيفية إدارة عنصر التحكم ActiveX بسيط:
-
+يعرض رمز العينة هذا، استنادًا إلى الخطوات أعلاه، كيفية إدارة عنصر تحكم ActiveX بسيط: 
 ```java
-// الوصول إلى العرض التقديمي مع عناصر التحكم ActiveX
+// الوصول إلى العرض التقديمي مع عناصر تحكم ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
     // الوصول إلى الشريحة الأولى في العرض التقديمي
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // تغيير نص TextBox
+    // تغيير نص مربع النص
     IControl control = slide.getControls().get_Item(0);
 
     if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "النص المعدل";
+        String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // تغيير الصورة البديلة. ستقوم PowerPoint باستبدال هذه الصورة أثناء تنشيط ActiveX،
-        // لذلك في بعض الأحيان من المقبول ترك الصورة دون تغيير.
+        // تغيير صورة الاستبدال. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX،
+        // لذلك في بعض الأحيان يكون من المقبول ترك الصورة دون تغيير.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -113,13 +120,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // تغيير عنوان الزر
+    // تغيير تسمية الزر
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "إظهار رسالة";
+        String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // تغيير الصورة البديلة
+        // تغيير الاستبدال
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -156,7 +163,7 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // نقل 100 نقطة لأسفل
+    // نقل 100 نقطة للأسفل
     for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
         IShapeFrame frame = ctl.getFrame();
         ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -164,7 +171,7 @@ try {
     }
     pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-    // إزالة العناصر
+    // إزالة العناصر التحكم
     pres.getSlides().get_Item(0).getControls().clear();
     pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
 } catch(IOException e) {
@@ -172,3 +179,16 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+
+## **الأسئلة المتكررة**
+
+**هل يحافظ Aspose.Slides على عناصر تحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل Java؟**  
+نعم. يعتبر Aspose.Slides أنها جزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها للحفاظ عليها.
+
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض التقديمي؟**  
+عناصر التحكم ActiveX هي عناصر تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما تشير [OLE](/slides/ar/java/manage-ole/) إلى كائنات تطبيق مدمجة (مثلاً ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة وتملك نماذج خصائص مختلفة.
+
+**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**  
+يحافظ Aspose.Slides على العلامات والبيانات الوصفية الحالية؛ ومع ذلك، تعمل الأحداث والماكروهات فقط داخل PowerPoint على Windows عندما تسمح الأمان بذلك. المكتبة لا تنفذ VBA.

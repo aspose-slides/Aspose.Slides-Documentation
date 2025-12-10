@@ -1,24 +1,40 @@
 ---
-title: Präsentationsthema
+title: Präsentationsthemen in Java verwalten
+linktitle: Präsentationsthema
 type: docs
 weight: 10
 url: /de/java/presentation-theme/
-keywords: "Thema, PowerPoint Thema, PowerPoint Präsentation, Java, Aspose.Slides für Java"
-description: "PowerPoint Präsentationsthema in Java"
+keywords:
+- PowerPoint-Thema
+- Präsentationsthema
+- Folienthema
+- Thema festlegen
+- Thema ändern
+- Thema verwalten
+- Themenfarbe
+- Zusätzliche Palette
+- Themenschrift
+- Themenstil
+- Themeneffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Master-Präsentationsthemen in Aspose.Slides für Java erstellen, anpassen und PowerPoint-Dateien mit einheitlicher Markenidentität konvertieren."
 ---
 
-Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz von visuellen Elementen und deren Eigenschaften aus.
+Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen ein bestimmtes Set visueller Elemente und deren Eigenschaften.
 
-In PowerPoint umfasst ein Thema Farben, [Schriftarten](/slides/de/java/powerpoint-fonts/), [Hintergrundstile](/slides/de/java/presentation-background/) und Effekte.
+In PowerPoint besteht ein Thema aus Farben, [Schriften](/slides/de/java/powerpoint-fonts/), [Hintergrundstile](/slides/de/java/presentation-background/) und Effekten.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Themenfarbe ändern**
+## **Themefarbe ändern**
 
-Ein PowerPoint-Thema verwendet einen bestimmten Farbensatz für verschiedene Elemente auf einer Folie. Wenn Ihnen die Farben nicht gefallen, können Sie sie ändern, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Themenfarbe zu ermöglichen, stellt Aspose.Slides Werte unter der [SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor) Enumeration bereit.
+Ein PowerPoint-Thema verwendet ein bestimmtes Set von Farben für verschiedene Elemente einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Themefarbe zu ermöglichen, stellt Aspose.Slides Werte aus der [SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor)-Aufzählung bereit.
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Akzentfarbe für ein Thema ändern:
-
+Dieser Java-Code zeigt, wie Sie die Akzentfarbe für ein Thema ändern:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -32,19 +48,19 @@ try {
 }
 ```
 
-So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
 
+So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
 ```java
 IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
 
 Color effectiveColor = fillEffective.getSolidFillColor();
 
-System.out.println(String.format("Farbe [A=%d, R=%d, G=%d, B=%d]", 
+System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
         effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
-Um die Farbänderung weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Dann ändern wir die Farbe im Thema:
 
+Um die Farbänderungsoperation weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Anschließend ändern wir die Farbe im Thema:
 ```java
 IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -55,20 +71,20 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
 ```
 
+
 Die neue Farbe wird automatisch auf beide Elemente angewendet.
 
-### **Themenfarbe aus zusätzlicher Palette festlegen**
+### **Themefarbe aus einer zusätzlichen Palette festlegen**
 
-Wenn Sie luminante Transformationen auf die Hauptthemenfarbe(1) anwenden, werden Farben aus der zusätzlichen Palette(2) gebildet. Sie können diese Themenfarben dann festlegen und abrufen.
+Wenn Sie Luminanztransformationen auf die Haupt-Themefarbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Sie können diese Themefarben dann setzen und abrufen.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Hauptthemenfarben
+**1** - Haupt-Themefarben
 
 **2** - Farben aus der zusätzlichen Palette.
 
-Dieser Java-Code demonstriert eine Operation, bei der zusätzliche Palettenfarben aus der Hauptthemenfarbe abgeleitet und dann in Formen verwendet werden:
-
+Dieser Java-Code demonstriert einen Vorgang, bei dem zusätzliche Palettenfarben aus der Haupt-Themefarbe gewonnen und anschließend in Formen verwendet werden:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -124,23 +140,23 @@ try {
 }
 ```
 
-## **Themen-Schriftart ändern**
 
-Um Ihnen die Auswahl von Schriftarten für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Identifikatoren (ähnlich denen, die in PowerPoint verwendet werden):
+## **Theme‑Schriftart ändern**
 
-* **+mn-lt** - Textschriftart Latein (Minor Latin Font)
-* **+mj-lt** - Überschriftsschriftart Latein (Major Latin Font)
-* **+mn-ea** - Textschriftart Ostasiatisch (Minor East Asian Font)
-* **+mj-ea** - Überschriftsschriftart Ostasiatisch (Major East Asian Font)
+Um Ihnen die Auswahl von Schriften für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen in PowerPoint):
 
-Dieser Java-Code zeigt Ihnen, wie Sie die lateinische Schriftart einem Themen-Element zuweisen:
+* **+mn-lt** - Fließtextschrift Latin (Minor Latin Font)
+* **+mj-lt** - Überschriftenschrift Latin (Major Latin Font)
+* **+mn-ea** - Fließtextschrift Ostasiatisch (Minor East Asian Font)
+* **+mj-ea** - Überschriftenschrift Ostasiatisch (Major East Asian Font)
 
+Dieser Java-Code zeigt, wie Sie die Latin‑Schrift einem Theme‑Element zuweisen:
 ```java
 IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
 Paragraph paragraph = new Paragraph();
 
-Portion portion = new Portion("Thematischer Textformat");
+Portion portion = new Portion("Theme text format");
 
 paragraph.getPortions().add(portion);
 
@@ -149,69 +165,67 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
 ```
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Präsentationsthemen-Schriftart ändern:
 
+Dieser Java-Code zeigt, wie Sie die Präsentations‑Theme‑Schrift ändern:
 ```java
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
 ```
 
-Die Schriftart in allen Textfeldern wird aktualisiert.
 
-{{% alert color="primary" title="TIPP" %}} 
+Die Schrift in allen Textfeldern wird aktualisiert.
 
-Sie möchten vielleicht die [PowerPoint Schriftarten](/slides/de/java/powerpoint-fonts/) sehen.
-
+{{% alert color="primary" title="TIP" %}} 
+Vielleicht möchten Sie sich die [PowerPoint‑Schriften](/slides/de/java/powerpoint-fonts/) ansehen.
 {{% /alert %}}
 
-## **Themen-Hintergrundstil ändern**
+## **Theme‑Hintergrundstil ändern**
 
-Standardmäßig bietet die PowerPoint-App 12 vordefinierte Hintergründe, aber nur 3 von diesen 12 Hintergründen werden in einer typischen Präsentation gespeichert. 
+Standardmäßig liefert die PowerPoint‑App 12 vordefinierte Hintergründe, aber nur 3 dieser 12 Hintergründe werden in einer typischen Präsentation gespeichert. 
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Wenn Sie beispielsweise eine Präsentation in der PowerPoint-App speichern, können Sie diesen Java-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation herauszufinden:
-
+Zum Beispiel können Sie nach dem Speichern einer Präsentation in der PowerPoint‑App diesen Java-Code ausführen, um die Anzahl vordefinierter Hintergründe in der Präsentation zu ermitteln:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
 
-    System.out.println("Anzahl der Hintergrundfüllstile für das Thema ist " + numberOfBackgroundFills);
+    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 {{% alert color="warning" %}} 
 
-Mit der [BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) Eigenschaft der [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) Klasse können Sie den Hintergrundstil in einem PowerPoint-Thema hinzufügen oder darauf zugreifen.
+Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) der Klasse [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint‑Theme hinzufügen oder darauf zugreifen. 
 
 {{% /alert %}} 
 
-Dieser Java-Code zeigt Ihnen, wie Sie den Hintergrund für eine Präsentation festlegen:
-
+Dieser Java-Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
 ```java
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-**Indexleitfaden**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
 
-{{% alert color="primary" title="TIPP" %}} 
+**Index‑Hinweis**: 0 steht für keine Füllung. Der Index beginnt bei 1.
 
-Sie möchten vielleicht den [PowerPoint Hintergrund](/slides/de/java/presentation-background/) sehen.
+{{% alert color="primary" title="TIP" %}} 
+
+Vielleicht möchten Sie sich den [PowerPoint‑Hintergrund](/slides/de/java/presentation-background/) ansehen.
 
 {{% /alert %}}
 
-## **Themen-Effekt ändern**
+## **Theme‑Effekt ändern**
 
-Ein PowerPoint-Thema enthält normalerweise 3 Werte für jedes Stil-Array. Diese Arrays werden in diese 3 Effekte kombiniert: subtil, moderat und intensiv. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
+Ein PowerPoint‑Theme enthält in der Regel 3 Werte für jedes Stil‑Array. Diese Arrays werden zu den 3 Effekten subtil, moderat und intensiv kombiniert. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Mit 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)) aus der [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) Klasse können Sie die Elemente in einem Thema ändern (sogar flexibler als die Optionen in PowerPoint).
+Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)) der Klasse [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) können Sie die Elemente in einem Theme ändern (noch flexibler als die Optionen in PowerPoint).
 
-Dieser Java-Code zeigt Ihnen, wie Sie einen Themen-Effekt ändern, indem Sie Teile von Elementen ändern:
-
+Dieser Java-Code zeigt, wie Sie einen Theme‑Effekt ändern, indem Sie Teile von Elementen anpassen:
 ```java
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -229,6 +243,20 @@ try {
 }
 ```
 
-Die resultierenden Änderungen in Füllfarbe, Fülltyp, Schattierungs-Effekten usw.:
 
+Die daraus resultierenden Änderungen in Füllfarbe, Fülltyp, Schatteneffekt usw.:
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **FAQ**
+
+**Kann ich ein Theme auf eine einzelne Folie anwenden, ohne das Master‑Theme zu ändern?**
+
+Ja. Aspose.Slides unterstützt Theme‑Überschreibungen auf Folienebene, sodass Sie ein lokales Theme nur auf dieser Folie anwenden können, während das Master‑Theme unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/slidethememanager/)).
+
+**Was ist der sicherste Weg, ein Theme von einer Präsentation zur anderen zu übertragen?**
+
+[Klone Folien](/slides/de/java/clone-slides/) zusammen mit ihrem Master in die Zieldatei. Dadurch bleiben der ursprüngliche Master, Layouts und das zugehörige Theme erhalten, sodass das Aussehen konsistent bleibt.
+
+**Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Überschreibungen sehen?**
+
+Verwenden Sie die [\"effektiven\" Ansichten](/slides/de/java/shape-effective-properties/) der API für Theme/Farbe/Schrift/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie alle lokalen Überschreibungen angewendet wurden.

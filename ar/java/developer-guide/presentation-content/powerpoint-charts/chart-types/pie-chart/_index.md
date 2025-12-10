@@ -1,24 +1,37 @@
 ---
-title: مخطط الدائرة
+title: تخصيص المخططات الدائرية في العروض التقديمية باستخدام Java
+linktitle: مخطط دائري
 type: docs
 url: /ar/java/pie-chart/
+keywords:
+- مخطط دائري
+- إدارة المخطط
+- تخصيص المخطط
+- خيارات المخطط
+- إعدادات المخطط
+- خيارات الرسم
+- لون القطعة
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "تعرّف على كيفية إنشاء وتخصيص المخططات الدائرية في Java باستخدام Aspose.Slides، وتصديرها إلى PowerPoint، مما يعزز سرد بياناتك في ثوانٍ."
 ---
 
-## **خيارات المخطط الثاني لمخطط الدائرة أو مخطط العمود للدائرة**
-يدعم Aspose.Slides لـ Java الآن خيارات المخطط الثاني لمخطط الدائرة أو مخطط العمود للدائرة. في هذا الموضوع، سنظهر لك كيفية تحديد تلك الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، افعل ما يلي:
+## **خيارات المخطط الثانوي لمخططات Pie of Pie و Bar of Pie**
+أصبح Aspose.Slides for Java يدعم الآن خيارات المخطط الثانوي لمخططي Pie of Pie أو Bar of Pie. في هذا الموضوع، سنوضح لك كيفية تحديد تلك الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، قم بما يلي:
 
-1. قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. أضف المخطط على الشريحة.
-1. حدد خيارات المخطط الثاني من المخطط.
-1. قم بكتابة العرض التقديمي على القرص.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+1. إضافة مخطط إلى الشريحة.
+1. تحديد خيارات المخطط الثانوي للمخطط.
+1. كتابة العرض التقديمي إلى القرص.
 
-في المثال المقدم أدناه، قمنا بتعيين خصائص مختلفة لمخطط الدائرة.
-
+في المثال المعطى أدناه، قمنا بتعيين خصائص مختلفة لمخطط Pie of Pie.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // إضافة مخطط على الشريحة
+    // إضافة مخطط إلى الشريحة
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
     
     // تعيين خصائص مختلفة
@@ -27,62 +40,62 @@ try {
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
     
-    // كتابة العرض التقديمي على القرص
+    // كتابة العرض التقديمي إلى القرص
     pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين ألوان شرائح مخطط الدائرة التلقائية**
-يوفر Aspose.Slides لـ Java واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح مخطط الدائرة التلقائية. الكود النموذجي ينطبق على تعيين الخصائص المذكورة أعلاه.
 
-1. قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+## **تعيين ألوان شرائح المخطط الدائري تلقائيًا**
+يوفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح المخطط الدائري تلقائيًا. يطبق كود المثال ضبط الخصائص المذكورة أعلاه.
+
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 1. الوصول إلى الشريحة الأولى.
 1. إضافة مخطط ببيانات افتراضية.
 1. تعيين عنوان المخطط.
-1. تعيين السلسلة الأولى لتظهر القيم.
-1. تعيين فهرس ورقة بيانات المخطط.
-1. الحصول على ورقة بيانات المخطط.
+1. ضبط السلسلة الأولى لعرض القيم.
+1. تحديد فهرس ورقة بيانات المخطط.
+1. الحصول على ورقة عمل بيانات المخطط.
 1. حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
 1. إضافة فئات جديدة.
-1. إضافة سلاسل جديدة.
+1. إضافة سلسلة جديدة.
 
-قم بكتابة العرض التقديمي المعدل إلى ملف PPTX.
-
+كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
     // إضافة مخطط ببيانات افتراضية
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
 
     // تعيين عنوان المخطط
-    chart.getChartTitle().addTextFrameForOverriding("عنوان عينة");
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // تعيين السلسلة الأولى لتظهر القيم
+    // تعيين السلسلة الأولى لعرض القيم
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
     // تعيين فهرس ورقة بيانات المخطط
     int defaultWorksheetIndex = 0;
 
-    // الحصول على ورقة بيانات المخطط
+    // الحصول على ورقة عمل بيانات المخطط
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
+    // حذف السلاسل والفئات المولدة افتراضيًا
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     // إضافة فئات جديدة
-    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "الربع الأول"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "الربع الثاني"));
-    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "الربع الثالث"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
 
-    // إضافة سلاسل جديدة
-    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "السلسلة 1"), chart.getType());
+    // إضافة سلسلة جديدة
+    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
 
     // الآن تعبئة بيانات السلسلة
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
@@ -95,3 +108,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم تنوعات 'Pie of Pie' و 'Bar of Pie'؟**
+
+نعم، المكتبة [تدعم](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) مخططًا ثانويًا لمخططات الدائري، بما في ذلك نوعي 'Pie of Pie' و 'Bar of Pie'.
+
+**هل يمكنني تصدير المخطط فقط كصورة (مثلاً PNG)؟**
+
+نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) (مثل PNG) دون الحاجة إلى تصدير العرض التقديمي بأكمله.

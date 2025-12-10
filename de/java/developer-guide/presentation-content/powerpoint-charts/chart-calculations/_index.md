@@ -1,13 +1,27 @@
 ---
-title: Diagramm-Berechnungen
+title: Optimieren von Diagrammberechnungen für Präsentationen in Java
+linktitle: Diagrammberechnungen
 type: docs
 weight: 50
 url: /de/java/chart-calculations/
+keywords:
+- diagrammberechnungen
+- diagrammelemente
+- elementposition
+- tatsächliche Position
+- untergeordnetes Element
+- übergeordnetes Element
+- diagrammwerte
+- tatsächlicher Wert
+- PowerPoint
+- präsentation
+- Java
+- Aspose.Slides
+description: "Verstehen Sie Diagrammberechnungen, Datenaktualisierungen und Präzisionssteuerung in Aspose.Slides für Java für PPT und PPTX, mit praktischen Java-Codebeispielen."
 ---
 
-## **Berechnung der tatsächlichen Werte von Diagrammelementen**
-Aspose.Slides für Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften des [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) Interfaces liefern Informationen über die tatsächliche Position des Achsenelementes im Diagramm ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). Es ist notwendig, die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
-
+## **Tatsächliche Werte von Diagrammelementen berechnen**
+Aspose.Slides for Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften des [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) Interfaces liefern Informationen über die tatsächliche Position des Achsendiagrammelements ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). Es ist erforderlich, zuvor die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -24,9 +38,9 @@ try {
 }
 ```
 
-## **Berechnung der tatsächlichen Position von übergeordneten Diagrammelementen**
-Aspose.Slides für Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften des [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) Interfaces liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). Es ist notwendig, die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
 
+## **Tatsächliche Position von übergeordneten Diagrammelementen berechnen**
+Aspose.Slides for Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften des [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) Interfaces liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). Es ist erforderlich, zuvor die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,28 +56,28 @@ try {
 }
 ```
 
-## **Informationen aus dem Diagramm ausblenden**
-Dieses Thema hilft Ihnen zu verstehen, wie Sie Informationen aus dem Diagramm ausblenden können. Mit Aspose.Slides für Java können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitterlinien** aus dem Diagramm ausblenden. Das folgende Codebeispiel zeigt, wie Sie diese Eigenschaften verwenden können.
 
+## **Diagrammelemente ausblenden**
+Dieses Thema hilft Ihnen zu verstehen, wie Informationen im Diagramm ausgeblendet werden können. Mit Aspose.Slides for Java können Sie **Titel, vertikale Achse, horizontale Achse** und **Gitternetzlinien** im Diagramm ausblenden. Das nachstehende Codebeispiel zeigt, wie diese Eigenschaften verwendet werden.
 ```java
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    //Titel des Diagramms ausblenden
+    //Diagrammtitel ausblenden
     chart.setTitle(false);
 
-    ///Werteachse ausblenden
+    ///Werte-Achse ausblenden
     chart.getAxes().getVerticalAxis().setVisible(false);
 
-    //Sichtbarkeit der Kategorieachse
+    //Sichtbarkeit der Kategorie-Achse
     chart.getAxes().getHorizontalAxis().setVisible(false);
 
     //Legende ausblenden
     chart.setLegend(false);
 
-    //Hauptgitterlinien ausblenden
+    //Hauptgitternetzlinien ausblenden
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
@@ -78,7 +92,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
 
-    //Linienfarbe der Serie festlegen
+    //Serienlinienfarbe festlegen
     series.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     series.getFormat().getLine().setDashStyle(LineDashStyle.Solid);
@@ -88,3 +102,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Funktionieren externe Excel-Arbeitsmappen als Datenquelle und wie wirkt sich das auf die Neuberechnung aus?**
+
+Ja. Ein Diagramm kann auf eine externe Arbeitsmappe verweisen: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Updates während Öffnen/Bearbeiten wider. Die API ermöglicht Ihnen, den Pfad zur [die externe Arbeitsmappe angeben](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) anzugeben und die verknüpften Daten zu verwalten.
+
+**Kann ich Trendlinien berechnen und anzeigen, ohne die Regression selbst zu implementieren?**
+
+Ja. [Trendlinien](/slides/de/java/trend-line/) (linear, exponentiell und weitere) werden von Aspose.Slides hinzugefügt und aktualisiert; ihre Parameter werden automatisch aus den Seriendaten neu berechnet, sodass Sie eigene Berechnungen nicht implementieren müssen.
+
+**Wenn eine Präsentation mehrere Diagramme mit externen Verknüpfungen enthält, kann ich steuern, welche Arbeitsmappe jedes Diagramm für berechnete Werte verwendet?**
+
+Ja. Jedes Diagramm kann auf seine eigene [externe Arbeitsmappe](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) verweisen, oder Sie können pro Diagramm unabhängig von den anderen eine externe Arbeitsmappe erstellen/ersetzen.

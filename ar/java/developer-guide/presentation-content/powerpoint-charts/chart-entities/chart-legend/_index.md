@@ -1,55 +1,64 @@
 ---
-title: أسطورة الرسم البياني
+title: تخصيص وسوم المخططات في العروض التقديمية باستخدام Java
+linktitle: وسمة المخطط
 type: docs
 url: /ar/java/chart-legend/
+keywords:
+- وسمة المخطط
+- موضع الوسمة
+- حجم الخط
+- PowerPoint
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "قم بتخصيص وسوم المخططات باستخدام Aspose.Slides for Java لتحسين عروض PowerPoint مع تنسيق وسوم مخصص."
 ---
 
-## **تحديد موضع الأسطورة**
-لتعيين خصائص الأسطورة. يرجى اتباع الخطوات أدناه:
+## **تموضع المفتاح**
+لضبط خصائص المفتاح، يرجى اتباع الخطوات التالية:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة.
-- إضافة رسم بياني على الشريحة.
-- تعيين خصائص الأسطورة.
-- كتابة العرض التقديمي كملف PPTX.
+- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- احصل على مرجع الشريحة.
+- إضافة مخطط إلى الشريحة.
+- ضبط خصائص المفتاح.
+- احفظ العرض التقديمي كملف PPTX.
 
-في المثال المقدم أدناه، قمنا بتحديد الموضع والحجم لأسطورة الرسم البياني.
-
+في المثال الموضح أدناه، قمنا بضبط الموقع والحجم للمفتاح في المخطط.
 ```java
-// Create an instance of Presentation class
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // Get reference of the slide
+    // الحصول على مرجع الشريحة
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Add a clustered column chart on the slide
+    // إضافة مخطط عمود مجمع إلى الشريحة
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
-    // Set Legend Properties
+    // تعيين خصائص المفتاح
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
     
-    // Write presentation to disk
+    // حفظ العرض التقديمي إلى القرص
     pres.save("Legend_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين حجم خط الأسطورة**
-تتيح Aspose.Slides لجافا للمطورين إمكانية تعيين حجم خط الأسطورة. يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إنشاء الرسم البياني الافتراضي.
-- تعيين حجم الخط.
-- تعيين القيمة الدنيا للمحور.
-- تعيين القيمة القصوى للمحور.
-- كتابة العرض التقديمي إلى القرص.
+## **ضبط حجم الخط للمفتاح**
+تتيح مكتبة Aspose.Slides for Java للمطورين ضبط حجم خط المفتاح. يرجى اتباع الخطوات التالية:
 
+- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- إنشاء المخطط الافتراضي.
+- ضبط حجم الخط.
+- تعيين الحد الأدنى لقيمة المحور.
+- تعيين الحد الأقصى لقيمة المحور.
+- حفظ العرض التقديمي على القرص.
 ```java
-// Create an instance of Presentation class
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -67,19 +76,19 @@ try {
 }
 ```
 
-## **تعيين حجم خط الأسطورة الفردية**
-تتيح Aspose.Slides لجافا للمطورين إمكانية تعيين حجم خط إدخالات الأسطورة الفردية. يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إنشاء الرسم البياني الافتراضي.
-- الوصول إلى إدخال الأسطورة.
-- تعيين حجم الخط.
-- تعيين القيمة الدنيا للمحور.
-- تعيين القيمة القصوى للمحور.
-- كتابة العرض التقديمي إلى القرص.
+## **ضبط حجم الخط لمفتاح فردي**
+تتيح مكتبة Aspose.Slides for Java للمطورين ضبط حجم خط العناصر الفردية في المفتاح. يرجى اتباع الخطوات التالية:
 
+- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- إنشاء المخطط الافتراضي.
+- الوصول إلى عنصر المفتاح.
+- ضبط حجم الخط.
+- تعيين الحد الأدنى لقيمة المحور.
+- تعيين الحد الأقصى لقيمة المحور.
+- حفظ العرض التقديمي على القرص.
 ```java
-// Create an instance of Presentation class
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -97,3 +106,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تفعيل المفتاح بحيث يخصص المخطط مساحة له تلقائيًا بدلاً من تغطيته؟**
+
+نعم. استخدم وضع عدم التغطية ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); في هذه الحالة، سيتم تقليل مساحة منطقة الرسم لتستوعب المفتاح.
+
+**هل يمكنني إنشاء تسميات المفتاح متعددة الأسطر؟**
+
+نعم. تُلف التسميات الطويلة تلقائيًا عندما لا تكون المساحة كافية؛ كما يتم دعم فواصل الأسطر القسرية عبر أحرف السطر الجديد داخل اسم السلسلة.
+
+**كيف أجعل المفتاح يتبع نظام ألوان سمة العرض التقديمي؟**
+
+لا تقم بتعيين ألوان/تعبئات/خطوط صريحة للمفتاح أو نصه. سيتوارث هذه الخصائص من السمة وسيتم تحديثها بشكل صحيح عند تغيّر التصميم.

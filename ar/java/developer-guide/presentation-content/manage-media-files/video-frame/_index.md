@@ -1,46 +1,58 @@
 ---
-title: إطار الفيديو
+title: إدارة إطارات الفيديو في العروض التقديمية باستخدام Java
+linktitle: إطار الفيديو
 type: docs
 weight: 10
 url: /ar/java/video-frame/
-keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض تقديمي في PowerPoint، Java، Aspose.Slides لـ Java"
-description: "إضافة إطار فيديو إلى عرض PowerPoint تقديمي في Java"
+keywords:
+- إضافة فيديو
+- إنشاء فيديو
+- تضمين فيديو
+- استخراج فيديو
+- استرجاع فيديو
+- إطار الفيديو
+- مصدر ويب
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Java. دليل سريع خطوة بخطوة."
 ---
 
-يمكن أن يساعد الفيديو الموضوع بشكل جيد في العرض التقديمي رسالتك في أن تكون أكثر إقناعًا وزيادة مستويات التفاعل مع جمهورك.
+يمكن لمقاطع الفيديو الموضوعة بشكل جيد في عرض تقديمي أن تجعل رسالتك أكثر إقناعًا وتزيد من مستويات التفاعل مع جمهورك.
 
-تسمح PowerPoint لك بإضافة مقاطع الفيديو إلى شريحة في عرض تقديمي بطريقتين:
+يتيح لك PowerPoint إضافة مقاطع فيديو إلى شريحة في عرض تقديمي بطريقتين:
 
 * إضافة أو تضمين فيديو محلي (مخزن على جهازك)
 * إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
 
-لتمكينك من إضافة مقاطع الفيديو (كائنات الفيديو) إلى عرض تقديمي، توفر Aspose.Slides واجهة [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) وواجهة [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
+لسماحك بإضافة مقاطع فيديو (كائنات فيديو) إلى عرض تقديمي، يوفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) والواجهة [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
 
-## **إنشاء إطار فيديو مضمن**
+## **إنشاء إطارات فيديو مدمجة**
 
 إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة كائن [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) وتمرير مسار ملف الفيديو لتضمين الفيديو مع العرض التقديمي.
-1. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.
-1. حفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على مرجع شريحة عبر فهرستها.
+1. أضف كائنًا من النوع [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) ومرّر مسار ملف الفيديو لتضمين الفيديو مع العرض التقديمي.
+1. أضف كائنًا من النوع [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.
+1. احفظ العرض التقديمي المعدل.
 
-يوضح لك هذا الكود Java كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
-
+يعرض لك هذا الشيفرة Java كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
 ```java
-// إنشاء كائن من فئة Presentation
+// ينشئ فئة Presentation
 Presentation pres = new Presentation("pres.pptx");
 try {
-    // تحميل الفيديو
+    // يقوم بتحميل الفيديو
     FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
-    // الحصول على الشريحة الأولى وإضافة إطار فيديو
+    // يحصل على الشريحة الأولى ويضيف إطار فيديو
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-    // حفظ العرض التقديمي على القرص
+    // يحفظ العرض التقديمي على القرص
     pres.save("pres-with-video.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -48,8 +60,8 @@ try {
 }
 ```
 
-بدلاً من ذلك، يمكنك إضافة فيديو عن طريق تمرير مسار الملف مباشرة إلى طريقة [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 
+بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرةً إلى الطريقة [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -60,20 +72,20 @@ try {
 }
 ```
 
-## **إنشاء إطار فيديو مع فيديو من مصدر على الويب**
 
-تدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع الفيديو من YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (على سبيل المثال، على YouTube)، يمكنك إضافته إلى عرضك التقديمي من خلال رابط الويب الخاص به.
+## **إنشاء إطارات فيديو مع فيديو من مصادر الويب**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة كائن [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) وتمرير الرابط إلى الفيديو.
-1. تعيين صورة مصغرة لإطار الفيديو.
-1. حفظ العرض التقديمي.
+تدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع فيديو YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (على سبيل المثال على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر رابطه على الويب.
 
-يوضح لك هذا الكود Java كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
+1. احصل على مرجع شريحة عبر فهرستها.
+1. أضف كائنًا من النوع [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) ومرّر الرابط إلى الفيديو.
+1. حدد صورة مصغرة لإطار الفيديو.
+1. احفظ العرض التقديمي.
 
+يعرض لك هذا الشيفرة Java كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint التقديمي:
 ```java
-// إنشاء كائن Presentation يمثل ملف العرض التقديمي 
+// ينشئ كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -86,12 +98,12 @@ try {
 ```java
 private static void addVideoFromYouTube(Presentation pres, String videoID)
 {
-    // إضافة إطار فيديو
+    // يضيف videoFrame
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
 
-    // تحميل الصورة المصغرة
+    // يحمل الصورة المصغرة
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
     URL url;
 
@@ -106,19 +118,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **استخراج الفيديو من الشريحة**
 
-بالإضافة إلى إضافة مقاطع الفيديو إلى الشرائح، تتيح لك Aspose.Slides استخراج مقاطع الفيديو المضمنة في العروض التقديمية.
+## **استخراج الفيديو من الشرائح**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) لتحميل العرض التقديمي الذي يحتوي على الفيديو.
-2. التكرار من خلال جميع كائنات [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/).
-3. التكرار من خلال جميع كائنات [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) للبحث عن [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
-4. حفظ الفيديو على القرص.
+بالإضافة إلى إضافة مقاطع فيديو إلى الشرائح، يتيح لك Aspose.Slides استخراج مقاطع الفيديو المدمجة في العروض التقديمية.
 
-يوضح لك هذا الكود Java كيفية استخراج الفيديو الموجود على شريحة عرض:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) لتحميل العرض التقديمي الذي يحتوي على الفيديو.
+2. التنقل عبر جميع كائنات [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/).
+3. التنقل عبر جميع كائنات [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) للعثور على كائن [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+4. احفظ الفيديو إلى القرص.
 
+يعرض لك هذا الشيفرة Java كيفية استخراج الفيديو من شريحة عرض تقديمي:
 ```java
-// إنشاء كائن Presentation يمثل ملف العرض التقديمي 
+// ينشئ كائن Presentation يمثل ملف عرض تقديمي 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -132,7 +144,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                // الحصول على امتداد الملف
+                // يحصل على امتداد الملف
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -148,3 +160,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو (VideoFrame)؟**  
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). هذه الخيارات متاحة عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+
+**هل يؤثر إضافة فيديو على حجم ملف PPTX؟**  
+نعم. عندما تقوم بتضمين فيديو محلي، يتم تضمين البيانات الثنائية في المستند، وبالتالي يزداد حجم العرض التقديمي بنسبة حجم الملف. عندما تضيف فيديو عبر الإنترنت، يتم تضمين رابط وصورة مصغرة، لذا يكون الزيادة في الحجم أصغر.
+
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**  
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المدمج؟**  
+نعم. للفيديو المدمج [نوع محتوى](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.

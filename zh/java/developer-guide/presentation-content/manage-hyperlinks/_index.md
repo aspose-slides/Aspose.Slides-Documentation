@@ -1,22 +1,40 @@
 ---
-title: 管理超链接
+title: 在 Java 中管理演示文稿超链接
+linktitle: 管理超链接
 type: docs
 weight: 20
 url: /zh/java/manage-hyperlinks/
-keywords: "PowerPoint 超链接, 文本超链接, 幻灯片超链接, 形状超链接, 图像超链接, 视频超链接, Java"
-description: "如何在 Java 中向 PowerPoint 演示文稿添加超链接"
+keywords:
+- 添加 URL
+- 添加超链接
+- 创建超链接
+- 格式化超链接
+- 移除超链接
+- 更新超链接
+- 文本超链接
+- 幻灯片超链接
+- 形状超链接
+- 图像超链接
+- 视频超链接
+- 可变超链接
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Java，轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流。"
 ---
 
-超链接是指向某个对象、数据或某个地方的引用。以下是 PowerPoint 演示文稿中常见的超链接：
+超链接是对对象、数据或某处位置的引用。这些是在 PowerPoint 演示文稿中常见的超链接：
 
-* 文本、形状或媒体内的网页链接
-* 幻灯片链接
+* 链接到文本、形状或媒体中的网站
+* 链接到幻灯片
 
-Aspose.Slides for Java 允许您在演示文稿中执行与超链接相关的许多任务。
+Aspose.Slides for Java 允许您在演示文稿中执行许多涉及超链接的任务。 
 
 {{% alert color="primary" %}} 
 
-您可能想查看 Aspose 简单的 [免费在线 PowerPoint 编辑器。](https://products.aspose.app/slides/editor)
+您可能想查看 Aspose 简单版，[免费在线 PowerPoint 编辑器](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
@@ -24,17 +42,16 @@ Aspose.Slides for Java 允许您在演示文稿中执行与超链接相关的许
 
 ### **向文本添加 URL 超链接**
 
-以下 Java 代码展示了如何向文本添加网页超链接：
-
+以下 Java 代码展示了如何向文本添加网站超链接：
 ```java
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: 文件格式 API");
+	shape1.addTextFrame("Aspose: File Format APIs");
 	
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
 	presentation.save("presentation-out.pptx", SaveFormat.Pptx);
@@ -43,17 +60,17 @@ try {
 }
 ```
 
+
 ### **向形状或框架添加 URL 超链接**
 
-以下 Java 示例代码展示了如何向形状添加网页超链接：
-
+以下 Java 示例代码演示了如何向形状添加网站超链接：
 ```java
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
 
 	shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	shape.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
@@ -61,16 +78,16 @@ try {
 }
 ```
 
+
 ### **向媒体添加 URL 超链接**
 
-Aspose.Slides 允许您向图像、音频和视频文件添加超链接。
+Aspose.Slides 允许您向图像、音频和视频文件添加超链接。 
 
 以下示例代码展示了如何向 **图像** 添加超链接：
-
 ```java
 Presentation pres = new Presentation();
 try {
-	// 向演示文稿添加图像
+	// 添加图像到演示文稿
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -78,11 +95,11 @@ try {
     } finally {
           if (image != null) image.dispose();
     }
-	// 根据之前添加的图像在幻灯片1上创建图片框架
+	// 在第1张幻灯片上基于先前添加的图像创建图片框
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	pictureFrame.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -91,8 +108,8 @@ try {
 }
 ```
 
-以下示例代码展示了如何向 **音频文件** 添加超链接：
 
+以下示例代码展示了如何向 **音频文件** 添加超链接：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -100,7 +117,7 @@ try {
 	IAudioFrame audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
 
 	audioFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	audioFrame.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -109,8 +126,8 @@ try {
 }
 ```
 
-以下示例代码展示了如何向 **视频** 添加超链接：
 
+以下示例代码展示了如何向 **视频** 添加超链接：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -118,7 +135,7 @@ try {
 	IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
 
 	videoFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	videoFrame.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -127,18 +144,18 @@ try {
 }
 ```
 
-{{%  alert  title="提示"  color="primary"  %}} 
 
-您可能要查看 *[管理 OLE](/slides/zh/java/manage-ole/)*。
+{{%  alert  title="Tip"  color="primary"  %}} 
+
+您可能想查看 *[管理 OLE](/slides/zh/java/manage-ole/)*。
 
 {{% /alert %}}
 
 ## **使用超链接创建目录**
 
-由于超链接允许您添加对对象或位置的引用，您可以使用它们来创建目录。
+由于超链接允许您添加对对象或位置的引用，您可以使用它们创建目录。 
 
-以下示例代码展示了如何创建一个带有超链接的目录：
-
+以下示例代码展示了如何使用超链接创建目录：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -153,10 +170,10 @@ try {
 	Paragraph paragraph = new Paragraph();
 	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-	paragraph.setText("幻灯片 2 的标题 .......... ");
+	paragraph.setText("Title of slide 2 .......... ");
 
 	Portion linkPortion = new Portion();
-	linkPortion.setText("第 2 页");
+	linkPortion.setText("Page 2");
 	linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
 
 	paragraph.getPortions().add(linkPortion);
@@ -168,19 +185,19 @@ try {
 }
 ```
 
+
 ## **格式化超链接**
 
 ### **颜色**
 
-通过 [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) 属性在 [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) 接口中，您可以设置超链接的颜色，还可以从超链接中获取颜色信息。该功能首次在 PowerPoint 2019 中引入，因此涉及该属性的更改不适用于较早的 PowerPoint 版本。
+通过在 [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) 接口中的 [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) 属性，您可以设置超链接的颜色并获取超链接的颜色信息。此功能首次在 PowerPoint 2019 中引入，因此涉及该属性的更改不适用于旧版本的 PowerPoint。 
 
-以下示例代码演示了将不同颜色的超链接添加到同一幻灯片的操作：
-
+以下示例代码演示了在同一幻灯片中添加不同颜色的超链接的操作：
 ```java
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-	shape1.addTextFrame("这是带颜色超链接的示例。");
+	shape1.addTextFrame("This is a sample of colored hyperlink.");
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
@@ -188,7 +205,7 @@ try {
 	portionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
 
 	IAutoShape shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-	shape2.addTextFrame("这是通常超链接的示例。");
+	shape2.addTextFrame("This is a sample of usual hyperlink.");
 	shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 
 	pres.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
@@ -197,12 +214,12 @@ try {
 }
 ```
 
-## **从演示文稿中删除超链接**
 
-### **从文本中删除超链接**
+## **从演示文稿中移除超链接**
 
-以下 Java 代码展示了如何从演示文稿幻灯片中的文本中删除超链接：
+### **从文本中移除超链接**
 
+以下 Java 代码演示了如何从演示文稿幻灯片的文本中移除超链接：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -228,10 +245,10 @@ try {
 }
 ```
 
-### **从形状或框架中删除超链接**
 
-以下 Java 代码展示了如何从演示文稿幻灯片中的形状中删除超链接：
+### **从形状或框架中移除超链接**
 
+以下 Java 代码演示了如何从演示文稿幻灯片的形状中移除超链接： 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -246,6 +263,7 @@ try {
 }
 ```
 
+
 ## **可变超链接**
 
 [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) 类是可变的。使用此类，您可以更改以下属性的值：
@@ -256,17 +274,16 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-以下代码段展示了如何向幻灯片添加超链接并在之后编辑其工具提示：
-
+以下代码片段展示了如何向幻灯片添加超链接并随后编辑其工具提示：
 ```java
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: 文件格式 API");
+	shape1.addTextFrame("Aspose: File Format APIs");
 
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("超过 70% 的财富 100 强公司信任 Aspose API");
+	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
@@ -275,17 +292,32 @@ try {
 }
 ```
 
+
 ## **IHyperlinkQueries 中支持的属性**
 
-您可以从演示文稿、幻灯片或定义了超链接的文本访问 [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) 。
+您可以从定义了超链接的演示文稿、幻灯片或文本访问 [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries)。 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) 类支持以下方法和属性：
+[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) 类支持以下方法和属性： 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+
+## **常见问题**
+
+**如何创建不仅指向幻灯片，还指向“章节”或章节第一张幻灯片的内部导航？**
+
+PowerPoint 中的章节是幻灯片的分组；导航在技术上是定位到特定幻灯片。要“导航到章节”，通常链接到该章节的第一张幻灯片。
+
+**我可以将超链接附加到母版幻灯片元素上，使其在所有幻灯片上都有效吗？**
+
+可以。母版幻灯片和版式元素支持超链接。这些链接会出现在子幻灯片上，并在放映时可点击。
+
+**导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
+
+在 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/java/convert-powerpoint-to-html/) 中，会保留超链接。导出为 [图像](/slides/zh/java/convert-powerpoint-to-png/) 和 [视频](/slides/zh/java/convert-powerpoint-to-video/) 时，由于这些格式的特性（光栅帧/视频不支持超链接），点击功能将不会保留。

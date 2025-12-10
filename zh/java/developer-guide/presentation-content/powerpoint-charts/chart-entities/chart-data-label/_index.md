@@ -1,17 +1,27 @@
 ---
-title: 图表数据标签
+title: 使用 Java 在演示文稿中管理图表数据标签
+linktitle: 数据标签
 type: docs
 url: /zh/java/chart-data-label/
-keywords: "图表数据标签,标签距离, Java, Aspose.Slides for Java"
-description: "在Java中设置PowerPoint图表数据标签和距离"
+keywords:
+- 图表
+- 数据标签
+- 数据精度
+- 百分比
+- 标签距离
+- 标签位置
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "学习使用 Aspose.Slides for Java 在PowerPoint演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
 
-图表上的数据标签显示有关图表数据系列或单个数据点的详细信息。它们允许读者快速识别数据系列，并使图表更易于理解。
+图表中的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并使图表更易于理解。
 
-## **设置图表数据标签中的数据精度**
+## **在图表数据标签中设置数据精度**
 
-以下Java代码展示了如何设置图表数据标签中的数据精度：
-
+此 Java 示例演示如何在图表数据标签中设置数据精度：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,11 +36,11 @@ try {
 }
 ```
 
-## **将百分比显示为标签**
-Aspose.Slides for Java允许您在显示的图表上设置百分比标签。以下Java代码演示了此操作：
 
+## **将百分比显示为标签**
+Aspose.Slides for Java 允许在显示的图表上设置百分比标签。下面的 Java 示例演示了此操作：
 ```java
-// 创建Presentation类的实例
+// 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
     // 获取第一张幻灯片
@@ -78,20 +88,20 @@ try {
 }
 ```
 
-## **为图表数据标签设置百分号**
-以下Java代码展示了如何为图表数据标签设置百分号：
 
+## **在图表数据标签中设置百分号**
+此 Java 示例展示如何为图表数据标签设置百分号：
 ```java
-// 创建Presentation类的实例
+// 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
     // 通过索引获取幻灯片的引用
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 在幻灯片上创建PercentsStackedColumn图表
+    // 在幻灯片上创建 PercentsStackedColumn 图表
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
     
-    // 设置NumberFormatLinkedToSource为false
+    // 将 NumberFormatLinkedToSource 设置为 false
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
     
@@ -112,7 +122,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // 设置LabelFormat属性
+    // 设置标签格式属性
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
@@ -145,11 +155,11 @@ try {
 }
 ```
 
-## **设置标签与轴的距离**
-以下Java代码展示了如何设置图表绘制时类别轴的标签距离：
 
+## **设置标签与坐标轴的距离**
+此 Java 示例展示在使用坐标轴绘制的图表中，如何设置标签与类别坐标轴的距离：
 ```java
-// 创建Presentation类的实例
+// 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
     // 获取幻灯片的引用
@@ -158,7 +168,7 @@ try {
     // 在幻灯片上创建图表
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // 设置标签与轴的距离
+    // 设置标签与坐标轴的距离
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
     // 将演示文稿写入磁盘
@@ -168,12 +178,12 @@ try {
 }
 ```
 
+
 ## **调整标签位置**
 
-当您创建不依赖于任何轴的图表（例如饼图）时，图表的数据标签可能会过于靠近边缘。在这种情况下，您需要调整数据标签的位置，以便引导线能够清晰显示。
+当创建不依赖坐标轴的图表（例如饼图）时，图表的数据标签可能会过于靠近边缘。此时需要调整数据标签的位置，以便清晰显示指示线。
 
-以下Java代码展示了如何调整饼图上的标签位置：
-
+此 Java 示例演示如何在饼图上调整标签位置：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,4 +203,19 @@ try {
 }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**如何防止在密集图表上数据标签重叠？**
+
+结合自动标签布局、指示线和减小字体大小；必要时隐藏某些字段（例如类别），或仅对极端/关键点显示标签。
+
+**如何仅对零、负值或空值禁用标签？**
+
+在启用标签前过滤数据点，并根据规则关闭对值为 0、负数或缺失值的显示。
+
+**如何在导出为 PDF/图像时保持标签样式一致？**
+
+显式设置字体（系列、大小），并确保渲染端已安装相应字体，以避免回退。

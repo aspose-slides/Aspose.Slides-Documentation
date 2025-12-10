@@ -1,29 +1,39 @@
 ---
-title: Встроенные шрифты - PowerPoint Java API
-linktitle: Встроенные шрифты
+title: Встраивание шрифтов в презентации с использованием Java
+linktitle: Встраивание шрифта
 type: docs
 weight: 40
 url: /ru/java/embedded-font/
-keywords: "Шрифты, встроенные шрифты, добавление шрифтов, презентация PowerPoint, Java, Aspose.Slides для Java"
-description: "Используйте встроенные шрифты в презентации PowerPoint на Java"
-
+keywords:
+- добавить шрифт
+- встроить шрифт
+- встраивание шрифтов
+- получить встроенный шрифт
+- добавить встроенный шрифт
+- удалить встроенный шрифт
+- сжать встроенный шрифт
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Встраивание TrueType шрифтов в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Java, обеспечивая точный рендеринг на всех платформах."
 ---
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась корректно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, у вас еще больше причин встроить ваш шрифт. В противном случае (без встроенных шрифтов) текст или цифры на ваших слайдах, макеты, стили и т.д. могут измениться или превратиться в запутанные прямоугольники.
+**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась правильно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, у вас есть еще больше причин встроить шрифт. В противном случае (без встроенных шрифтов) тексты или цифры на слайдах, макет, стилизация и т.д. могут измениться или превратиться в непонятные прямоугольники. 
 
-Класс [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager), класс [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/) и класс [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint.
+Классы [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager), [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/), [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint. 
 
-## **Получение или удаление встроенных шрифтов из презентации**
+## **Получить и удалить встроенные шрифты**
 
-Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (доступный через класс [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)), который позволяет получить (или узнать) встроенные шрифты в презентации. Для удаления шрифтов используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (также доступный через этот же класс).
+Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (доступный через класс [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)), позволяющий получить (или узнать) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (также доступный через тот же класс).
 
-Этот Java код показывает, как получить и удалить встроенные шрифты из презентации:
-
+Этот Java‑код показывает, как получить и удалить встроенные шрифты из презентации:
 ```java
-// Создает объект Presentation, который представляет файл презентации
+// Создает объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Отрисовывает слайд, содержащий текстовый фрейм, использующий встроенный шрифт "FunSized"
+    // Рендерит слайд, содержащий текстовый кадр, использующий встроенный "FunSized"
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
     // Сохраняет изображение на диск в формате JPEG
@@ -38,7 +48,7 @@ try {
     // Получает все встроенные шрифты
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Находит встроенный шрифт "Calibri"
+    // Находит шрифт "Calibri"
     IFontData calibriEmbeddedFont = null;
     for (int i = 0; i < embeddedFonts.length; i++) {
         System.out.println(""+ embeddedFonts[i].getFontName());
@@ -51,7 +61,7 @@ try {
     // Удаляет шрифт "Calibri"
     fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
 
-    // Отрисовывает презентацию; шрифт "Calibri" заменяется существующим
+    // Рендерит презентацию; шрифт "Calibri" заменяется существующим
      slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
      // Сохраняет изображение на диск в формате JPEG
@@ -61,17 +71,17 @@ try {
          if (slideImage != null) slideImage.dispose();
      }
 
-    // Сохраняет презентацию без встроенного шрифта "Calibri" на диск
+    // Сохраняет презентацию без встроенного "Calibri" шрифта на диск
     pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Добавление встроенных шрифтов в презентацию**
 
-Используя перечисление [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) и два перегруженных метода [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-), вы можете выбрать предпочитаемое правило (встраивания), чтобы встроить шрифты в презентацию. Этот Java код показывает, как встроить и добавить шрифты в презентацию:
+## **Добавить встроенные шрифты**
 
+С помощью перечисления [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) вы можете выбрать предпочтительное правило (встраивания) для включения шрифтов в презентацию. Этот Java‑код демонстрирует, как встроить и добавить шрифты в презентацию:
 ```java
 // Загружает презентацию
 Presentation pres = new Presentation("Fonts.pptx");
@@ -105,12 +115,12 @@ try {
 }
 ```
 
-## **Сжатие встроенных шрифтов**
 
-Чтобы позволить вам сжать встроенные шрифты в презентации и уменьшить ее размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (доступный через класс [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)).
+## **Сжать встроенные шрифты**
 
-Этот Java код показывает, как сжать встроенные шрифты PowerPoint:
+Чтобы вы могли сжать встроенные в презентацию шрифты и уменьшить размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (доступный через класс [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)).
 
+Этот Java‑код показывает, как сжать встроенные шрифты PowerPoint:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -120,3 +130,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Как можно определить, что конкретный шрифт в презентации все равно будет заменён при рендеринге, несмотря на встраивание?**
+
+Проверьте [информацию о замене](/slides/ru/java/font-substitution/) в менеджере шрифтов и [правила резервного/заменяющего](/slides/ru/java/fallback-font/): если шрифт недоступен или ограничен, будет использован запасной вариант.
+
+**Стоит ли встраивать «системные» шрифты, такие как Arial/Calibri?**
+
+Обычно нет — они почти всегда доступны. Однако для полной переносимости в «ограниченных» средах (Docker, Linux‑сервер без предустановленных шрифтов) встраивание системных шрифтов может избавиться от риска неожиданных замен.

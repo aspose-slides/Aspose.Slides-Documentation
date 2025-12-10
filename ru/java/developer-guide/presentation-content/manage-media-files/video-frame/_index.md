@@ -1,33 +1,45 @@
 ---
-title: Видео Кадр
+title: Управление видеокадрами в презентациях с помощью Java
+linktitle: Видеокадр
 type: docs
 weight: 10
 url: /ru/java/video-frame/
-keywords: "Добавить видео, создать видео кадр, извлечь видео, презентация PowerPoint, Java, Aspose.Slides для Java"
-description: "Добавить видео кадр в презентацию PowerPoint на Java"
+keywords:
+- добавить видео
+- создать видео
+- встроить видео
+- извлечь видео
+- получить видео
+- видеокадр
+- веб-источник
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Научитесь программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Java. Быстрое руководство."
 ---
 
-Хорошо размещенное видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлеченности вашей аудитории.
+Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и увеличить уровень вовлечённости аудитории. 
 
 PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
 
 * Добавить или встроить локальное видео (хранящееся на вашем компьютере)
-* Добавить онлайн-видео (из веб-источника, такого как YouTube).
+* Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы позволить вам добавлять видео (видеобъекты) в презентацию, Aspose.Slides предоставляет интерфейс [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/), интерфейс [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) и другие соответствующие типы.
+Чтобы добавить видео (видеобъекты) в презентацию, Aspose.Slides предоставляет интерфейс [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , интерфейс [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) и другие соответствующие типы. 
 
-## **Создать встроенный видео кадр**
+## **Создание встроенных видеокадров**
 
-Если видеофайл, который вы хотите добавить на свой слайд, хранится локально, вы можете создать видео кадр, чтобы встроить видео в вашу презентацию.
+Если видеофайл, который вы хотите добавить на свой слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
 
 1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд через его индекс.
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) и передайте путь к видеофайлу, чтобы встроить видео в презентацию.
-1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/), чтобы создать кадр для видео.
-1. Сохраните измененную презентацию.
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте объект [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , передав путь к видеофайлу, чтобы встроить видео в презентацию. 
+1. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) , чтобы создать кадр для видео.  
+1. Сохраните изменённую презентацию. 
 
-Этот код на Java показывает, как добавить видео, хранящееся локально, в презентацию:
-
+Этот Java‑код демонстрирует, как добавить локально хранящееся видео в презентацию:
 ```java
 // Создает экземпляр класса Presentation
 Presentation pres = new Presentation("pres.pptx");
@@ -48,8 +60,8 @@ try {
 }
 ```
 
-В качестве альтернативы, вы можете добавить видео, передав его путь файла непосредственно в метод [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-):
 
+Кроме того, вы можете добавить видео, передав путь к файлу непосредственно в метод [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-):
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -60,20 +72,21 @@ try {
 }
 ```
 
-## **Создать видео кадр с видео из веб-источника**
 
-Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживают видео с YouTube в презентациях. Если видео, которое вы хотите использовать, доступно онлайн (например, на YouTube), вы можете добавить его в свою презентацию через его веб-ссылку.
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
-1. Получите ссылку на слайд через его индекс.
-1. Добавьте объект [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) и передайте ссылку на видео.
-1. Установите миниатюру для видео кадра.
-1. Сохраните презентацию.
+## **Создание видеокадров с видео из веб‑источников**
 
-Этот код на Java показывает, как добавить видео из интернета на слайд в презентации PowerPoint:
+Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживают видео YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
 
+1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте объект [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , передав ссылку на видео.
+1. Установите миниатюру для видеокадра. 
+1. Сохраните презентацию. 
+
+Этот Java‑код демонстрирует, как добавить видео из интернета на слайд в презентации PowerPoint:
 ```java
-// Создает объект Presentation, который представляет файл презентации 
+// Создает объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -106,19 +119,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **Извлечение видео из слайда**
 
-Кроме добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенные в презентации.
+## **Извлечение видео со слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), чтобы загрузить презентацию, содержащую видео.
-2. Переберите все объекты [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/).
-3. Переберите все объекты [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), чтобы найти [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) для загрузки презентации, содержащей видео. 
+2. Пройдитесь по всем объектам [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/). 
+3. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), чтобы найти [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/). 
 4. Сохраните видео на диск.
 
-Этот код на Java показывает, как извлечь видео на слайде презентации:
-
+Этот Java‑код демонстрирует, как извлечь видео со слайда презентации:
 ```java
-// Создает объект Presentation, который представляет файл презентации 
+// Создает объект Presentation, представляющий файл презентации 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -148,3 +161,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Какие параметры воспроизведения видео можно изменить для VideoFrame?**
+
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (авто или по щелчку) и [повтором](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Эти варианты доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+
+**Влияет ли добавление видео на размер файла PPTX?**
+
+Да. При встраивании локального видео двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео встраиваются только ссылка и миниатюра, поэтому рост размера меньше.
+
+**Можно ли заменить видео в существующем VideoFrame, не меняя его позицию и размер?**
+
+Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) в кадре, сохранив геометрию фигуры; это распространённый сценарий обновления медиа в существующей разметке.
+
+**Можно ли определить тип содержимого (MIME) встроенного видео?**
+
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) , который можно прочитать и использовать, например, при сохранении на диск.

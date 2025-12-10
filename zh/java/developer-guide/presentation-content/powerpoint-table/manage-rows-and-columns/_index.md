@@ -1,24 +1,41 @@
 ---
-title: 管理行和列
+title: 使用 Java 管理 PowerPoint 表格的行和列
+linktitle: 行和列
 type: docs
 weight: 20
 url: /zh/java/manage-rows-and-columns/
-keywords: "表格, 表格行和列, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
-description: "在 Java 中管理 PowerPoint 演示文稿中的表格行和列"
+keywords:
+- 表格行
+- 表格列
+- 第一行
+- 表格标题行
+- 克隆行
+- 克隆列
+- 复制行
+- 复制列
+- 删除行
+- 删除列
+- 行文本格式化
+- 列文本格式化
+- 表格样式
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Java 在 PowerPoint 中管理表格的行和列，加快演示文稿编辑和数据更新。"
 ---
 
-为了让您能够在 PowerPoint 演示文稿中管理表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 接口以及许多其他类型。
+为了让您在 PowerPoint 演示文稿中管理表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 接口以及许多其他类型。 
 
-## **将第一行设置为标题**
+## **设置第一行作为标题**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 创建一个 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象并将其设置为 null。
-4. 遍历所有 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) 对象以找到相关的表格。
-5. 将表格的第一行设置为其标题。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。 
+2. 通过索引获取幻灯片的引用。 
+3. 创建一个 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象并将其设为 null。 
+4. 遍历所有 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) 对象以找到相关表格。 
+5. 将表格的第一行设为标题行。 
 
-以下 Java 代码向您展示如何将表格的第一行设置为其标题：
-
+下面的 Java 代码演示了如何将表格的第一行设为标题行：
 ```java
 // 实例化 Presentation 类
 Presentation pres = new Presentation("table.pptx");
@@ -29,14 +46,14 @@ try {
     // 初始化 null TableEx
     ITable tbl = null;
 
-    // 遍历形状并设置表格引用
+    // 遍历形状并将引用指向表格
     for (IShape shp : sld.getShapes())
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable)shp;
             
-            //将表格的第一行设置为标题
+            //Sets the first row of a table as its header
             tbl.setFirstRow(true);
         }
     }
@@ -49,19 +66,18 @@ try {
 ```
 
 
-## **克隆表格的行或列**
+## **克隆表格行或列**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 定义一个 `columnWidth` 数组。
-4. 定义一个 `rowHeight` 数组。
-5. 通过 [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) 方法将 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象添加到幻灯片。
-6. 克隆表格行。
-7. 克隆表格列。
-8. 保存修改后的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿， 
+2. 通过索引获取幻灯片的引用。 
+3. 定义 `columnWidth` 数组。 
+4. 定义 `rowHeight` 数组。 
+5. 通过 [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) 方法将 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象添加到幻灯片中。 
+6. 克隆表格行。 
+7. 克隆表格列。 
+8. 保存修改后的演示文稿。 
 
-以下 Java 代码向您展示如何克隆 PowerPoint 表格的行或列：
-
+下面的 Java 代码演示了如何克隆 PowerPoint 表格的行或列：
 ```java
  // 实例化 Presentation 类
 Presentation pres = new Presentation("Test.pptx");
@@ -69,35 +85,35 @@ try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 定义带宽度的列和带高度的行
+    // 定义列的宽度和行的高度
     double[] dblCols = { 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
     // 向幻灯片添加表格形状
     ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 向行 1 单元格 1 添加一些文本
-    table.get_Item(0, 0).getTextFrame().setText("行 1 单元格 1");
+    // 向第1行第1单元格添加文本
+    table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
 
-    // 向行 1 单元格 2 添加一些文本
-    table.get_Item(1, 0).getTextFrame().setText("行 1 单元格 2");
+    // 向第1行第2单元格添加文本
+    table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
 
-    // 在表格末尾克隆行 1
+    // 在表格末尾克隆第1行
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // 向行 2 单元格 1 添加一些文本
-    table.get_Item(0, 1).getTextFrame().setText("行 2 单元格 1");
+    // 向第2行第1单元格添加文本
+    table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
 
-    // 向行 2 单元格 2 添加一些文本
-    table.get_Item(1, 1).getTextFrame().setText("行 2 单元格 2");
+    // 向第2行第2单元格添加文本
+    table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
 
-    // 将行 2 克隆为表格的第四行
+    // 将第2行克隆为表格的第4行
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
     // 在末尾克隆第一列
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
 
-    // 在第四列索引处克隆第二列
+    // 在第4列索引处克隆第二列
     table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
     
     // 将演示文稿保存到磁盘
@@ -107,19 +123,19 @@ try {
 }
 ```
 
+
 ## **从表格中删除行或列**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 定义一个 `columnWidth` 数组。
-4. 定义一个 `rowHeight` 数组。
-5. 通过 [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) 方法将 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象添加到幻灯片。
-6. 删除表格行。
-7. 删除表格列。
-8. 保存修改后的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿， 
+2. 通过索引获取幻灯片的引用。 
+3. 定义 `columnWidth` 数组。 
+4. 定义 `rowHeight` 数组。 
+5. 通过 [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) 方法将 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象添加到幻灯片中。 
+6. 删除表格行。 
+7. 删除表格列。 
+8. 保存修改后的演示文稿。 
 
-以下 Java 代码向您展示如何从表格中删除行或列：
-
+下面的 Java 代码演示了如何从表格中删除行或列：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -138,23 +154,23 @@ try {
 }
 ```
 
+
 ## **在表格行级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 从幻灯片中访问相关的 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象。
-4. 设置第一行单元格的 [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)。
-5. 设置第一行单元格的 [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 和 [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。
-6. 设置第二行单元格的 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。
-7. 保存修改后的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿， 
+2. 通过索引获取幻灯片的引用。 
+3. 从幻灯片中获取相关的 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象。 
+4. 设置第一行单元格的 [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)。 
+5. 设置第一行单元格的 [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 和 [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。 
+6. 设置第二行单元格的 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。 
+7. 保存修改后的演示文稿。 
 
-以下 Java 代码演示了该操作。
-
+下面的 Java 代码演示了此操作。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 假设第一张幻灯片上的第一个形状是一个表格
+    // 假设第一张幻灯片上的第一个形状是表格
     ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
     
     // 设置第一行单元格的字体高度
@@ -163,44 +179,44 @@ try {
 	
     someTable.getRows().get_Item(0).setTextFormat(portionFormat);
     
-    // 设置第一行单元格的文本对齐和右边距
+    // 设置第一行单元格的文本对齐方式和右边距
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
 	
     someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
     
-    // 设置第二行单元格的文本垂直类型
+    // 设置第二行单元格的文本垂直方向类型
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
 	
     someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // 将演示文稿保存到磁盘
+  // 保存演示文稿到磁盘
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **在表格列级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 从幻灯片中访问相关的 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象。
-4. 设置第一列单元格的 [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)。
-5. 设置第一列单元格的 [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 和 [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。
-6. 设置第二列单元格的 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。
-7. 保存修改后的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例并加载演示文稿， 
+2. 通过索引获取幻灯片的引用。 
+3. 从幻灯片中获取相关的 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) 对象。 
+4. 设置第一列单元格的 [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)。 
+5. 设置第一列单元格的 [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 和 [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。 
+6. 设置第二列单元格的 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。 
+7. 保存修改后的演示文稿。 
 
-以下 Java 代码演示了该操作：
-
+下面的 Java 代码演示了此操作： 
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 假设第一张幻灯片上的第一个形状是一个表格
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    // 假设第一张幻灯片上的第一个形状是表格
+    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
 
     // 设置第一列单元格的字体高度
     PortionFormat portionFormat = new PortionFormat();
@@ -208,14 +224,14 @@ try {
 	
     someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // 在一次调用中设置第一列单元格的文本对齐和右边距
+    // 在一次调用中设置第一列单元格的文本对齐方式和右边距
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
 	
     someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // 设置第二列单元格的文本垂直类型
+    // 设置第二列单元格的文本垂直方向类型
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
 	
@@ -227,17 +243,32 @@ try {
 }
 ```
 
+
 ## **获取表格样式属性**
 
-Aspose.Slides 允许您检索表格的样式属性，以便您可以将这些细节用于另一个表格或其他地方。以下 Java 代码向您展示如何从表格预设样式中获取样式属性：
-
+Aspose.Slides 允许您检索表格的样式属性，以便在其他表格或其他位置使用这些细节。下面的 Java 代码演示了如何从表格预设样式中获取样式属性：
 ```java
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // 更改默认样式预设主题
+    table.setStylePreset(TableStylePreset.DarkStyle1); // 更改默认的样式预设主题
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**我可以将 PowerPoint 主题/样式应用于已经创建的表格吗？**
+
+可以。表格继承幻灯片/布局/母版的主题，您仍然可以在此基础上覆盖填充、边框和文字颜色。
+
+**我可以像在 Excel 中一样对表格行进行排序吗？**
+
+不，Aspose.Slides 表格没有内置的排序或筛选功能。请先在内存中对数据进行排序，然后按该顺序重新填充表格行。
+
+**我可以在保持特定单元格自定义颜色的同时使用交错（条纹）列吗？**
+
+可以。开启交错列后，您可以对特定单元格进行局部格式设置；单元格级别的格式优先于表格样式。

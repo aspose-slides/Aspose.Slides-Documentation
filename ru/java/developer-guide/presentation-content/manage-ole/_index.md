@@ -1,308 +1,331 @@
 ---
-title: Управление OLE
+title: Управление OLE в презентациях с использованием Java
+linktitle: Управление OLE
 type: docs
 weight: 40
 url: /ru/java/manage-ole/
+keywords:
+- OLE объект
+- Связывание и внедрение объектов
+- добавить OLE
+- внедрить OLE
+- добавить объект
+- внедрить объект
+- добавить файл
+- внедрить файл
+- связанный объект
+- связанный файл
+- изменить OLE
+- значок OLE
+- заголовок OLE
+- извлечь OLE
+- извлечь объект
+- извлечь файл
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Оптимизируйте управление OLE объектами в PowerPoint и файлах OpenDocument с помощью Aspose.Slides для Java. Внедряйте, обновляйте и экспортируйте OLE контент без проблем."
 ---
 
 {{% alert color="primary" %}} 
 
-OLE (Объектное связывание и внедрение) — это технология Microsoft, которая позволяет размещать данные и объекты, созданные в одном приложении, в другом приложении через связывание или внедрение. 
+OLE (Object Linking & Embedding) — технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении посредством связывания или внедрения. 
 
 {{% /alert %}} 
 
-Рассмотрите диаграмму, созданную в MS Excel. Диаграмма затем размещается внутри слайда PowerPoint. Эта диаграмма Excel считается объектом OLE. 
+Рассмотрим диаграмму, созданную в MS Excel. Затем диаграмма помещается в слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом. 
 
-- Объект OLE может отображаться в виде значка. В этом случае, когда вы дважды щелкаете значок, диаграмма открывается в связанном приложении (Excel), или вас просят выбрать приложение для открытия или редактирования объекта. 
-- Объект OLE может отображать его фактическое содержимое, например, содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, интерфейс диаграммы загружается, и вы можете изменить данные диаграммы в приложении PowerPoint.
+- OLE‑объект может отображаться в виде значка. В этом случае двойной клик по значку открывает диаграмму в связанном приложении (Excel) или предлагает выбрать приложение для открытия или редактирования объекта. 
+- OLE‑объект может показывать своё содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается интерфейс диаграммы, и вы можете изменить данные диаграммы непосредственно в PowerPoint.
 
-[Aspose.Slides для Java](https://products.aspose.com/slides/java/) позволяет вставлять объекты OLE в слайды в виде рамок объектов OLE ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) позволяет вставлять OLE‑объекты в слайды как OLE‑кадры ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
 
-## **Добавление рамок объектов OLE на слайды**
-Предположим, вы уже создали диаграмму в Microsoft Excel и хотите внедрить эту диаграмму в слайд в качестве рамки объекта OLE с помощью Aspose.Slides для Java. Вы можете сделать это следующим образом:
+## **Добавить OLE Object Frames в слайды**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
-1. Получите ссылку на слайд, используя его индекс.
-1. Откройте файл Excel, содержащий объект диаграммы Excel, и сохраните его в `MemoryStream`.
-1. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) на слайд, содержащий массив байтов и другую информацию об объекте OLE.
-1. Запишите изменённую презентацию как файл PPTX.
+Предположим, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как OLE‑кадр с помощью Aspose.Slides for Java. Делайте так:
 
-В приведенном ниже примере мы добавили диаграмму из файла Excel на слайд в качестве рамки объекта OLE с использованием Aspose.Slides для Java. 
-**Обратите внимание**, что конструктор [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IOleEmbeddedDataInfo) принимает расширение встраиваемого объекта в качестве второго параметра. Это расширение позволяет PowerPoint правильно интерпретировать тип файла и выбрать правильное приложение для открытия этого объекта OLE.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
+1. Получите ссылку на слайд по его индексу. 
+1. Прочтите файл Excel в виде массива байтов. 
+1. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) на слайд, передав массив байтов и другую информацию об OLE‑объекте. 
+1. Сохраните изменённую презентацию как файл PPTX. 
 
+В примере ниже мы добавили диаграмму из файла Excel в слайд как OLE‑кадр с помощью Aspose.Slides for Java.  
+**Примечание**: конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/OleEmbeddedDataInfo) принимает расширение внедряемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно определить тип файла и выбрать нужное приложение для открытия OLE‑объекта.  
 ``` java 
-// Создает экземпляр класса Presentation, представляющего файл PPTX
-Presentation pres = new Presentation();
-try {
-    // Получает первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Загружает файл Excel в поток
-    FileInputStream fs = new FileInputStream("book1.xlsx");
-    ByteArrayOutputStream mstream = new ByteArrayOutputStream();
-    byte[] buf = new byte[4096];
-    while (true)
-    {
-        int bytesRead = fs.read(buf, 0, buf.length);
-        if (bytesRead <= 0)
-            break;
-        mstream.write(buf, 0, bytesRead);
-    }
-    fs.close();
+// Подготовьте данные для OLE объекта.
+byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // Создает объект данных для внедрения
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
-    mstream.close();
+// Добавьте OLE‑кадр объекта на слайд.
+slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
 
-    // Добавляет объект рамки Ole
-    IOleObjectFrame oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0,
-            (float) pres.getSlideSize().getSize().getWidth(),
-            (float) pres.getSlideSize().getSize().getHeight(),
-            dataInfo);
-
-    // Сохраняет PPTX файл на диск
-    pres.save("OleEmbed_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
-## **Доступ к рамкам объектов OLE**
-Если объект OLE уже встроен в слайд, вы можете легко найти или получить доступ к этому объекту следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
-1. Получите ссылку на слайд, используя его индекс.
-1. Получите доступ к рамке объекта OLE.
+### **Добавить связанные OLE Object Frames**
 
-   В нашем примере мы использовали ранее созданный PPTX, который имеет только одну фигуру на первом слайде. Затем мы *привели* этот объект к типу [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame). Это была желаемая рамка объекта OLE, к которой нужно было получить доступ.
-1. После доступа к рамке объекта OLE вы можете выполнять любые операции с ней.
+Aspose.Slides for Java позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) без внедрения данных, а лишь со ссылкой на файл.
 
-В приведенном ниже примере происходит доступ к рамке объекта OLE (объект диаграммы Excel, встроенный в слайд), и затем его данные файла записываются в файл Excel.
+Ниже Java‑код, показывающий, как добавить [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) со связанным файлом Excel в слайд:  
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
+// Добавьте OLE‑кадр объекта со связанным файлом Excel.
+slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Доступ к OLE Object Frames**
+
+Если OLE‑объект уже внедрён в слайд, его можно легко найти или получить доступ следующим образом:
+
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
+2. Получите ссылку на слайд, используя его индекс. 
+3. Получите форму [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame).  
+   В нашем примере мы использовали ранее созданный PPTX, в котором на первом слайде находится единственная форма. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Это и был нужный OLE‑кадр. 
+4. После получения доступа к OLE‑кадру можно выполнить любую операцию. 
+
+В примере ниже демонстрируется доступ к OLE‑кадру (внедрённому объекту диаграммы Excel) и его файловым данным.  
 ``` java 
-// Загружает PPTX в объект Presentation
-Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx");
-try {
-    // Получает первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-    // Приводит фигуру к OleObjectFrame
-    OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+    
+    // Получить данные внедренного файла.
+    byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Читает OLE объект и записывает его на диск
-    if (oleObjectFrame != null) {
-        // Получает встроенные данные файла
-        byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
+    // Получить расширение внедренного файла.
+    String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
-        // Получает расширение встроенного файла
-        String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-        // Создает путь для сохранения извлеченного файла
-        String extractedPath = "excelFromOLE_out" + fileExtention;
-
-        // Сохраняет извлеченные данные
-        FileOutputStream fstr = new FileOutputStream(extractedPath);
-        try {
-            fstr.write(data, 0, data.length);
-        } finally {
-            fstr.close();
-        }
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
+    // ...
 }
 ```
 
-## **Изменение данных объекта OLE**
 
-Если объект OLE уже встроен в слайд, вы можете легко получить доступ к этому объекту и изменить его данные следующим образом:
+### **Доступ к свойствам связанных OLE Object Frames**
 
-1. Откройте желаемую презентацию с встроенным объектом OLE, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
-1. Получите ссылку на слайд, используя его индекс. 
-1. Получите доступ к рамке объекта OLE.
+Aspose.Slides позволяет получать свойства связанных OLE‑кадров.
 
-   В нашем примере мы использовали ранее созданный PPTX, который имеет только одну фигуру на первом слайде. Мы затем *привели* этот объект к типу [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame). Это была желаемая рамка объекта OLE, к которой нужно было получить доступ.
-1. Как только рамка объекта OLE будет получена, вы можете выполнять с ней любые операции.
-1. Создайте объект Workbook и получите доступ к данным OLE.
-1. Получите доступ к необходимому листу и измените данные.
-1. Сохраните обновленный Workbook в потоках.
-1. Измените данные объекта OLE из данных потока.
+Ниже Java‑код, показывающий, как проверить, связан ли OLE‑объект, и получить путь к связанному файлу:  
+```java
+Presentation presentation = new Presentation("sample.ppt");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-В приведенном ниже примере происходит доступ к рамке объекта OLE (объект диаграммы Excel, встроенный в слайд), и затем данные файла изменяются, чтобы изменить данные диаграммы:
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
+    // Проверьте, связан ли OLE объект.
+    if (oleFrame.isObjectLink()) {
+        // Выведите полный путь к связанному файлу.
+        System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
+
+        // Выведите относительный путь к связанному файлу, если он присутствует.
+        // Только презентации PPT могут содержать относительный путь.
+        if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
+            System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
+        }
+    }
+}
+
+presentation.dispose();
+```
+
+
+## **Изменить данные OLE Object**
+
+{{% alert color="primary" %}} 
+
+В этом разделе пример кода использует [Aspose.Cells for Java](/cells/java/). 
+
+{{% /alert %}}
+
+Если OLE‑объект уже внедрён в слайд, его можно легко получить и изменить его данные следующим образом:
+
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
+2. Получите ссылку на слайд по его индексу. 
+3. Получите форму OLE‑кадра.  
+   В нашем примере мы использовали ранее созданный PPTX, в котором на первом слайде находится одна форма. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Это был нужный OLE‑кадр. 
+4. После доступа к OLE‑кадру можно выполнить любую операцию. 
+5. Создайте объект `Workbook` и получите доступ к OLE‑данным. 
+6. Получите нужный `Worksheet` и измените данные. 
+7. Сохраните обновлённый `Workbook` в поток. 
+8. Обновите данные OLE‑объекта из потока. 
+
+В примере ниже демонстрируется доступ к OLE‑кадру (внедрённому объекту диаграммы Excel) и изменение его файловых данных для обновления данных диаграммы.  
 ``` java 
-Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-	
-    OleObjectFrame ole = null;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-    // Проходит по всем фигурам для поиска рамки Ole
-    for (IShape shape : slide.getShapes()) 
-    {
-        if (shape instanceof OleObjectFrame) 
-        {
-            ole = (OleObjectFrame) shape;
-        }
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+
+    ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
+
+    // Прочитать данные OLE объекта как объект Workbook.
+    Workbook workbook = new Workbook(oleStream);
+
+    ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
+
+    // Изменить данные рабочей книги.
+    workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
+    workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
+    workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
+    workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
+
+    OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
+    workbook.save(newOleStream, fileOptions);
+
+    // Изменить данные объекта OLE‑кадра.
+    IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    oleFrame.setEmbeddedData(newData);
+}
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Внедрять другие типы файлов в слайды**
+
+Помимо диаграмм Excel, Aspose.Slides for Java позволяет внедрять в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы в виде объектов. При двойном щелчке пользовательского объекта он автоматически открывается в соответствующей программе, либо пользователю предлагается выбрать подходящую программу для открытия. 
+
+Ниже Java‑код, показывающий, как внедрить HTML и ZIP в слайд:  
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+byte[] htmlData = Files.readAllBytes(Paths.get("sample.html"));
+IOleEmbeddedDataInfo htmlDataInfo = new OleEmbeddedDataInfo(htmlData, "html");
+IOleObjectFrame htmlOleFrame = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
+htmlOleFrame.setObjectIcon(true);
+
+byte[] zipData = Files.readAllBytes(Paths.get("sample.zip"));
+IOleEmbeddedDataInfo zipDataInfo = new OleEmbeddedDataInfo(zipData, "zip");
+IOleObjectFrame zipOleFrame = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, zipDataInfo);
+zipOleFrame.setObjectIcon(true);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Установить типы файлов для внедрённых объектов**
+
+При работе с презентациями может потребоваться заменить старые OLE‑объекты новыми или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for Java позволяет задать тип файла для внедрённого объекта, что даёт возможность обновить данные OLE‑кадра или его расширение. 
+
+Ниже Java‑код, показывающий, как установить тип файла для внедрённого OLE‑объекта в `zip`:  
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+
+System.out.println("Current embedded file extension is: " + fileExtension);
+
+// Изменить тип файла на ZIP.
+oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Установить изображения‑значки и заголовки для внедрённых объектов**
+
+После внедрения OLE‑объекта автоматически добавляется превью‑изображение‑значок. Это превью видят пользователи до доступа к объекту. Если необходимо использовать конкретное изображение и текст в превью, можно задать значок и заголовок с помощью Aspose.Slides for Java. 
+
+Ниже Java‑код, показывающий, как задать изображение‑значок и заголовок для внедрённого объекта:  
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+// Добавьте изображение в ресурсы презентации.
+byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+IPPImage oleImage = presentation.getImages().addImage(imageData);
+
+// Установите заголовок и изображение для превью OLE.
+oleFrame.setSubstitutePictureTitle("My title");
+oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+oleFrame.setObjectIcon(true);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Предотвратить изменение размера и позиционирования OLE Object Frame**
+
+После добавления связанного OLE‑объекта в слайд, при открытии презентации в PowerPoint может появиться сообщение с просьбой обновить ссылки. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑кадра, поскольку PowerPoint обновляет данные из связанного OLE‑объекта и пересчитывает превью. Чтобы не показывать запрос на обновление данных, установите значение `false` для метода `setUpdateAutomatic` интерфейса [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/):  
+```java
+oleFrame.setUpdateAutomatic(false);
+```
+
+
+## **Извлекать внедрённые файлы**
+
+Aspose.Slides for Java позволяет извлекать из слайдов файлы, внедрённые в виде OLE‑объектов, следующим образом:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), содержащий OLE‑объекты, которые нужно извлечь. 
+2. Пройдитесь по всем формам презентации и получайте формы [OLEObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe). 
+3. Получите данные внедрённых файлов из OLE‑кадров и запишите их на диск. 
+
+Ниже Java‑код, показывающий, как извлечь файлы, внедрённые в слайд как OLE‑объекты:  
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+
+for (int index = 0; index < slide.getShapes().size(); index++) {
+    IShape shape = slide.getShapes().get_Item(index);
+
+    if (shape instanceof IOleObjectFrame) {
+        IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+
+        byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+        String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+
+        Path filePath = Paths.get("OLE_object_" + index + fileExtension);
+        Files.write(filePath, fileData);
     }
-
-    if (ole != null) {
-        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getEmbeddedData().getEmbeddedFileData());
-        try {
-            // Читает данные объекта в Workbook
-            Workbook Wb = new Workbook(msln);
-
-            ByteArrayOutputStream msout = new ByteArrayOutputStream();
-            try {
-                // Изменяет данные книги
-                Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
-                Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
-                Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
-                Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
-
-                OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-                Wb.save(msout, so1);
-
-                // Изменяет данные объекта рамки Ole
-                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
-                ole.setEmbeddedData(newData);
-            } finally {
-                if (msout != null) msout.close();
-            }
-        } finally {
-            if (msln != null) msln.close();
-        }
-    }
-
-    pres.save("OleEdit_out.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
 }
+
+presentation.dispose();
 ```
 
-## Внедрение других типов файлов в слайды
 
-Кроме диаграмм Excel, Aspose.Slides для Java позволяет вам внедрять другие типы файлов в слайды. Например, вы можете вставлять файлы HTML, PDF и ZIP в качестве объектов на слайд. Когда пользователь дважды щелкает на вставленном объекте, объект автоматически запускается в соответствующей программе или пользователю предлагается выбрать подходящую программу для открытия объекта. 
+## **FAQ**
 
-Этот код на Java показывает, как внедрить HTML и ZIP в слайд:
+**Будет ли OLE‑контент отображён при экспорте слайдов в PDF/изображения?**  
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
+Отображается то, что видно на слайде — значок/заместительное изображение (превью). «Живой» OLE‑контент не исполняется во время рендеринга. При необходимости задайте собственное превью‑изображение, чтобы обеспечить ожидаемый вид в экспортированном PDF.  
 
-    byte[] htmlBytes = Files.readAllBytes(Paths.get("embedOle.html"));
-    IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
-    IOleObjectFrame oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-    oleFrameHtml.setObjectIcon(true);
+**Как заблокировать OLE‑объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**  
 
-    byte[] zipBytes = Files.readAllBytes(Paths.get("embedOle.zip"));
-    IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
-    IOleObjectFrame oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-    oleFrameZip.setObjectIcon(true);
+Заблокируйте форму: Aspose.Slides предоставляет [блокировки уровня форм](/slides/ru/java/applying-protection-to-presentation/). Это не шифрование, но эффективно препятствует случайным изменениям и перемещениям.  
 
-    pres.save("embeddedOle.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**Почему связанный объект Excel «перепрыгивает» или меняет размер при открытии презентации?**  
 
-## Установка типов файлов для встроенных объектов
+PowerPoint может обновлять превью связанного OLE. Для стабильного внешнего вида используйте рекомендации из [Working Solution for Worksheet Resizing](/slides/ru/java/working-solution-for-worksheet-resizing/) — либо подгоните кадр под диапазон, либо масштабируйте диапазон под фиксированный кадр и задайте подходящее заместительное изображение.  
 
-При работе с презентациями вам может понадобиться заменить старые объекты OLE на новые. Или вам может понадобиться заменить неподдерживаемый объект OLE на поддерживаемый. 
+**Сохранятся ли относительные пути для связанных OLE‑объектов в формате PPTX?**  
 
-Aspose.Slides для Java позволяет вам устанавливать тип файла для встроенного объекта. Таким образом, вы можете изменить данные рамки OLE или его расширение. 
-
-Этот код на Java показывает, как установить тип файла для встроенного объекта OLE:
-
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
-    System.out.println("Текущее расширение встроенных данных: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
-
-    oleObjectFrame.setEmbeddedData(new OleEmbeddedDataInfo(Files.readAllBytes(Paths.get("embedOle.zip")), "zip"));
-
-    pres.save("embeddedChanged.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## Установка изображений значков и заголовков для встроенных объектов
-
-После того как вы встраиваете объект OLE, предварительный просмотр, состоящий из изображения значка и заголовка, добавляется автоматически. Предварительный просмотр — это то, что видят пользователи, прежде чем они получат доступ или откроют объект OLE. 
-
-Если вы хотите использовать конкретное изображение и текст в качестве элементов в предварительном просмотре, вы можете установить изображение значка и заголовок, используя Aspose.Slides для Java. 
-
-Этот код на Java показывает, как установить изображение значка и заголовок для встроенного объекта: 
-
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
-
-        IPPImage oleImage;
-        IImage image = Images.fromFile("image.png");
-        try {
-             oleImage = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-    oleObjectFrame.setSubstitutePictureTitle("Мой заголовок");
-    oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-    oleObjectFrame.setObjectIcon(false);
-
-    pres.save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## Извлечение встроенных файлов
-
-Aspose.Slides для Java позволяет вам извлекать файлы, встроенные в слайды в качестве объектов OLE следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), содержащего объект OLE, который вы собираетесь извлечь.
-2. Пройдите через все фигуры в презентации и получите доступ к фигуре [OLEObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe).
-3. Получите доступ к данным встроенного файла из рамки объекта OLE и запишите их на диск. 
-
-Этот код на Java показывает, как извлечь файл, встроенный в слайд в качестве объекта OLE:
-
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    for (int index = 0; index < slide.getShapes().size(); index++)
-    {
-        IShape shape = slide.getShapes().get_Item(index);
-        IOleObjectFrame oleFrame = (IOleObjectFrame)shape;
-
-        if (oleFrame != null) 
-		{
-            byte[] data = oleFrame.getEmbeddedData().getEmbeddedFileData();
-            String extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-            // Сохраняет извлеченные данные
-            FileOutputStream fstr = new FileOutputStream("oleFrame" + index + extension);
-            try {
-                fstr.write(data, 0, data.length);
-            } finally {
-                fstr.close();
-            }
-        }
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+В PPTX информация о «относительном пути» недоступна — сохраняется только полный путь. Относительные пути присутствуют в старом формате PPT. Для переносимости предпочтительно использовать надёжные абсолютные пути/доступные URI или внедрять объекты.

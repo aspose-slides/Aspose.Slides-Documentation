@@ -1,13 +1,27 @@
 ---
-title: チャート計算
+title: Javaでのプレゼンテーション向けチャート計算の最適化
+linktitle: チャート計算
 type: docs
 weight: 50
 url: /ja/java/chart-calculations/
+keywords:
+- チャート計算
+- チャート要素
+- 要素の位置
+- 実際の位置
+- 子要素
+- 親要素
+- チャート値
+- 実際の値
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用した PPT および PPTX のチャート計算、データ更新、精度管理を理解し、実用的な Java コード例で学びます。"
 ---
 
 ## **チャート要素の実際の値を計算する**
-Aspose.Slides for Javaは、これらのプロパティを取得するためのシンプルなAPIを提供します。[IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis)インターフェースのプロパティは、軸チャート要素の実際の位置に関する情報を提供します（[IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--)、[IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--)、[IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--)、[IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--)、[IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--)、[IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--))。プロパティを実際の値で満たすには、事前に[IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--)メソッドを呼び出す必要があります。
-
+Aspose.Slides for Java は、これらのプロパティを取得するためのシンプルな API を提供します。 [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) インターフェイスのプロパティは、軸チャート要素の実際の位置に関する情報を提供します（[IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--)、[IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--)、[IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--)、[IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--)、[IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--)、[IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)。 プロパティに実際の値を設定するには、事前にメソッド [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) を呼び出す必要があります。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -24,9 +38,9 @@ try {
 }
 ```
 
-## **親チャート要素の実際の位置を計算する**
-Aspose.Slides for Javaは、これらのプロパティを取得するためのシンプルなAPIを提供します。[IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout)インターフェースのプロパティは、親チャート要素の実際の位置に関する情報を提供します（[IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--)、[IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--)、[IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--)、[IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--))。プロパティを実際の値で満たすには、事前に[IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--)メソッドを呼び出す必要があります。
 
+## **親チャート要素の実際の位置を計算する**
+Aspose.Slides for Java は、これらのプロパティを取得するためのシンプルな API を提供します。 [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) インターフェイスのプロパティは、親チャート要素の実際の位置に関する情報を提供します（[IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--)、[IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--)、[IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--)、[IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)）。 プロパティに実際の値を設定するには、事前にメソッド [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) を呼び出す必要があります。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,28 +56,28 @@ try {
 }
 ```
 
-## **チャートから情報を隠す**
-このトピックは、チャートから情報を隠す方法を理解するのに役立ちます。Aspose.Slides for Javaを使用すると、チャートから**タイトル、縦軸、横軸、**および**グリッド線**を隠すことができます。以下のコード例は、これらのプロパティの使用方法を示しています。
 
+## **チャート要素の非表示**
+このトピックでは、チャートから情報を非表示にする方法を理解するのに役立ちます。 Aspose.Slides for Java を使用すると、チャートから **タイトル、縦軸、横軸** および **グリッド線** を非表示にできます。以下のコード例は、これらのプロパティの使用方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    //チャートタイトルを隠す
+    //チャートタイトルの非表示
     chart.setTitle(false);
 
-    //値軸を隠す
+    ///値軸の非表示
     chart.getAxes().getVerticalAxis().setVisible(false);
 
-    //カテゴリ軸の可視性
+    //カテゴリ軸の非表示
     chart.getAxes().getHorizontalAxis().setVisible(false);
 
-    //凡例を隠す
+    //凡例の非表示
     chart.setLegend(false);
 
-    //MajorGridLinesを隠す
+    //主グリッド線の非表示
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
@@ -78,7 +92,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
 
-    //系列のラインカラーを設定
+    //系列線の色を設定
     series.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     series.getFormat().getLine().setDashStyle(LineDashStyle.Solid);
@@ -88,3 +102,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**外部 Excel ワークブックをデータ ソースとして使用できますか？また、再計算にどのように影響しますか？**
+
+はい。チャートは外部ワークブックを参照できます。外部ソースに接続またはリフレッシュすると、数式と値はそのワークブックから取得され、チャートは開く/編集する操作中に更新を反映します。API を使用すると、[外部ワークブックを指定](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-)するパスを設定し、リンクされたデータを管理できます。
+
+**回帰分析を自分で実装せずにトレンドラインを計算・表示できますか？**
+
+はい。[トレンドライン](/slides/ja/java/trend-line/)（線形、指数など）は Aspose.Slides によって追加および更新されます。パラメータはシリーズ データから自動的に再計算されるため、独自に計算を実装する必要はありません。
+
+**プレゼンテーションに外部リンクを持つ複数のチャートがある場合、各チャートが計算値に使用するワークブックを個別に制御できますか？**
+
+はい。各チャートはそれぞれの [外部ワークブック](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) を指すことができ、あるいは他のチャートとは独立してチャートごとに外部ワークブックを作成または置換できます。

@@ -1,55 +1,66 @@
 ---
-title: إدارة العنصر النائب
+title: إدارة عناصر العرض التقديمي في Java
+linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/java/manage-placeholder/
-description: تغيير النص في عنصر نائب في شرائح PowerPoint باستخدام Java. تعيين نص التوجيه في عنصر نائب في شرائح PowerPoint باستخدام Java.
+keywords:
+- عنصر نائب
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- نص توجيه
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إدارة العناصر النائبة في Aspose.Slides for Java بسهولة: استبدال النص، تخصيص التوجيهات، وضبط شفافية الصورة في PowerPoint وOpenDocument."
 ---
 
 ## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides for Java](/slides/ar/java/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح في العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
+باستخدام [Aspose.Slides for Java](/slides/ar/java/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص داخل عنصر نائب.
 
-**المتطلبات المسبقة**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي في تطبيق Microsoft PowerPoint القياسي.
+**المتطلبات المسبقة**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي باستخدام تطبيق Microsoft PowerPoint القياسي.
 
-هذا هو كيفية استخدام Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض التقديمي:
+هذه هي الطريقة التي تستخدم بها Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض التقديمي:
 
-1. قم بتهيئة فئة [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) ومرر العرض التقديمي كوسيط.
-2. احصل على مرجع الشريحة من خلال فهرسها.
+1. إنشاء كائن من الفئة [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) وتمرير العرض التقديمي كمعامل.
+2. احصل على مرجع الشريحة عبر فهرستها.
 3. قم بالتكرار عبر الأشكال للعثور على العنصر النائب.
-4. قم بتحويل شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) وغيّر النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) المرتبط بـ [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+4. حوّل نوع شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) ثم غيّر النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) المرتبط بـ[`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
 5. احفظ العرض التقديمي المعدل.
 
-هذا هو كود Java الذي يوضح كيفية تغيير النص في العنصر النائب:
-
+يعرض هذا الكود Java كيفية تغيير النص في العنصر النائب:
 ```java
-// يقوم بتهيئة فئة Presentation
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
 
-    // يصل إلى الشريحة الأولى
+    // الوصول إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // يتكرر عبر الأشكال للعثور على العنصر النائب
+    // التكرار عبر الأشكال للعثور على العنصر النائب
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
-            // يغيّر النص في كل عنصر نائب
-            ((IAutoShape) shp).getTextFrame().setText("هذا هو العنصر النائب");
+            // تغيير النص في كل عنصر نائب
+            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
 
-    // يحفظ العرض التقديمي على القرص
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    // حفظ العرض التقديمي إلى القرص
+    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين نص التوجيه في العنصر النائب**
-تحتوي التخطيطات القياسية والمعدة مسبقًا على نصوص توجيه للعنصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص التوجيه المفضلة لديك في تخطيطات العناصر النائبة.
 
-هذا هو كود Java الذي يوضح لك كيفية تعيين نص التوجيه في العنصر النائب:
+## **تعيين نص التلميح في العنصر النائب**
+تحتوي القوالب القياسية والمسبقة الإنشاء على نصوص تلميح للعنصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص التلميح المفضلة لديك في تخطيطات العنصر النائب.
 
+يعرض هذا الكود Java كيفية تعيين نص التلميح في العنصر النائب:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -59,17 +70,17 @@ try {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // يعرض PowerPoint "انقر لإضافة عنوان" 
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // يعرض PowerPoint "انقر لإضافة عنوان"
             {
-                text = "أضف عنوان";
+                text = "Add Title";
             }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // يضيف العنوان الفرعي
+            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // يضيف عنوانًا فرعيًا
             {
-                text = "أضف عنوان فرعي";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("عنصر نائب بالنص: " + text);
+            System.out.println("Placeholder with text: " + text);
         }
     }
 
@@ -79,12 +90,11 @@ try {
 }
 ```
 
+
 ## **تعيين شفافية صورة العنصر النائب**
+يتيح لك Aspose.Slides ضبط شفافية الصورة الخلفية في عنصر نائب نصي. من خلال تعديل شفافية الصورة داخل هذا الإطار، يمكنك إظهار النص أو الصورة بشكل بارز (اعتمادًا على ألوان النص والصورة).
 
-يتيح لك Aspose.Slides تعيين شفافية الخلفية للصورة في عنصر نائب نصي. من خلال ضبط شفافية الصورة في مثل هذا الإطار، يمكنك جعل النص أو الصورة بارزة (اعتمادًا على ألوان النص والصورة).
-
-هذا هو كود Java الذي يوضح لك كيفية تعيين الشفافية لخلفية الصورة (داخل شكل):
-
+يعرض هذا الكود Java كيفية ضبط الشفافية لخلفية الصورة (داخل الشكل):
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -97,7 +107,7 @@ for (int i = 0; i < operationCollection.size(); i++)
     {
         AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("قيمة الشفافية الحالية: " + currentValue);
+        System.out.println("Current transparency value: " + currentValue);
 
         int alphaValue = 40;
         alphaModulate.setAmount(100 - alphaValue);
@@ -106,3 +116,15 @@ for (int i = 0; i < operationCollection.size(); i++)
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما هو العنصر النائب الأساسي، وكيف يختلف عن الشكل المحلي على الشريحة؟**  
+العنصر النائب الأساسي هو الشكل الأصلي الموجود في التخطيط أو القالب الرئيسي الذي يرث منه شكل الشريحة — النوع، الموضع، وبعض التنسيقات تأتي منه. الشكل المحلي مستقل؛ إذا لم يكن هناك عنصر نائب أساسي، لا يتم تطبيق الوراثة.
+
+**كيف يمكنني تحديث جميع العناوين أو الشروح عبر العرض التقديمي دون التكرار على كل شريحة؟**  
+قم بتحرير العنصر النائب المقابل في التخطيط أو القالب الرئيسي. ستورّث الشرائح المستندة إلى تلك التخطيطات أو القالب هذا التغيير تلقائيًا.
+
+**كيف يمكنني التحكم في العناصر النائبة القياسية للترويسة/التذييل — التاريخ والوقت، رقم الشريحة، ونص التذييل؟**  
+استخدم مديري HeaderFooter في النطاق المناسب (الشرائح العادية، التخطيطات، القالب الرئيسي، الملاحظات/الكتيبات) لتفعيل أو إلغاء تفعيل هذه العناصر النائبة وتعيين محتواها.

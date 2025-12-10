@@ -1,24 +1,35 @@
 ---
-title: 読み取り専用プレゼンテーション
+title: Java を使用して読み取り専用モードでプレゼンテーションを保存する
+linktitle: 読み取り専用プレゼンテーション
 type: docs
 weight: 30
 url: /ja/java/read-only-presentation/
-
+keywords:
+- 読み取り専用
+- プレゼンテーションの保護
+- 編集の防止
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して、PowerPoint ファイル（PPT、PPTX）を読み取り専用モードで読み込み・保存し、プレゼンテーションを変更せずに正確なスライドプレビューを提供します。"
 ---
 
-PowerPoint 2019では、Microsoftがプレゼンテーションを保護するためのオプションの1つとして**常に読み取り専用で開く**設定を導入しました。この読み取り専用設定を使用してプレゼンテーションを保護したい場合は、
+## **読み取り専用モードの適用**
 
-- 偶発的な編集を防ぎ、プレゼンテーションの内容を安全に保ちたい。
-- 提供したプレゼンテーションが最終版であることを人々に知らせたい。
+PowerPoint 2019 で、Microsoft はプレゼンテーションを保護するためのオプションのひとつとして **Always Open Read-Only** 設定を導入しました。次の場合にこの読み取り専用設定を使用してプレゼンテーションを保護したいかもしれません。
 
-プレゼンテーションに対して**常に読み取り専用で開く**オプションを選択すると、ユーザーがプレゼンテーションを開いたときに**読み取り専用**の推奨が表示され、次のようなメッセージが表示されることがあります: *偶発的な変更を防ぐために、著者はこのファイルを読み取り専用として設定しました。*
+- 誤って編集されるのを防ぎ、プレゼンテーションの内容を安全に保ちたい場合。  
+- 提供したプレゼンテーションが最終版であることを利用者に知らせたい場合。
 
-**読み取り専用**の推奨はシンプルで効果的な抑止力であり、ユーザーがプレゼンテーションを編集する前にそれを削除するタスクを実行しないといけないため、編集を思いとどまらせるものです。ユーザーにプレゼンテーションへの変更を行わせたくなく、丁寧にそれを伝えたい場合、**読み取り専用**の推奨は良い選択肢かもしれません。
+プレゼンテーションに **Always Open Read-Only** オプションを設定すると、ユーザーがプレゼンテーションを開いたときに **Read-Only** の推奨が表示され、次のようなメッセージが表示される場合があります：*誤って変更されるのを防ぐため、作成者はこのファイルを読み取り専用で開くように設定しています。*
 
-> **読み取り専用**の保護が施されたプレゼンテーションが古いMicrosoft PowerPointアプリケーションで開かれると（最近導入された機能をサポートしていない場合）、**読み取り専用**の推奨は無視されます（プレゼンテーションは通常通り開かれます）。
+Read-Only 推奨はシンプルで効果的な抑止策であり、ユーザーは編集できるようになる前にそれを解除する作業が必要です。もしプレゼンテーションへの変更を防ぎ、礼儀正しくそれを伝えたい場合、Read-Only 推奨は適したオプションとなります。
 
-Aspose.Slides for Javaを使用すると、プレゼンテーションを**読み取り専用**に設定でき、ユーザー（プレゼンテーションを開いた後）が**読み取り専用**の推奨を見ることができます。このサンプルコードは、Aspose.Slidesを使用してJavaでプレゼンテーションを**読み取り専用**に設定する方法を示しています：
+> **Read-Only** 保護が設定されたプレゼンテーションが、最近導入された機能をサポートしていない古いバージョンの Microsoft PowerPoint で開かれた場合、**Read-Only** 推奨は無視され（プレゼンテーションは通常どおり開かれます）。
 
+Aspose.Slides for Java を使用すると、プレゼンテーションを **Read-Only** に設定でき、ユーザーは（プレゼンテーションを開いた後）**Read-Only** の推奨を確認できます。このサンプルコードは、Aspose.Slides を使用して Java でプレゼンテーションを **Read-Only** に設定する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -29,8 +40,27 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-**注意**: **読み取り専用**の推奨は、編集を思いとどまらせたり、ユーザーがPowerPointプレゼンテーションに誤って変更を加えるのを防ぐためにのみあらかじめ設定されているものです。もし動機のある人物が（自分のやっていることを理解している場合）プレゼンテーションを編集しようと決めた場合、彼らは簡単に読み取り専用設定を削除できます。無許可の編集を真剣に防ぐ必要がある場合は、[暗号化やパスワードを含むより厳格な保護策](https://docs.aspose.com/slides/java/password-protected-presentation/)を使用するのがよいでしょう。
+**注**: **Read-Only** 推奨は、PowerPoint プレゼンテーションの編集を抑止したり、誤って変更されるのを防ぐことを目的としたものです。もし意図的に（自分で何をしているか分かっている）人物がプレゼンテーションを編集しようとすれば、簡単に Read-Only 設定を解除できます。権限のない編集を本当に防ぐ必要がある場合は、[more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/java/password-protected-presentation/) を使用した方がよいでしょう。
 
 {{% /alert %}} 
+
+## **FAQ**
+
+**'Read-Only recommended' はフル パスワード保護とどう違うのですか？**
+
+'Read-Only recommended' はファイルを読み取り専用モードで開くよう提案するだけで、簡単に回避できます。[Password protection](/slides/ja/java/password-protected-presentation/) は実際に開封や編集を制限し、真のセキュリティ管理が必要なときに適しています。
+
+**'Read-Only recommended' を透かしと組み合わせて編集をさらに抑止できますか？**
+
+はい。推奨は [watermarks](/slides/ja/java/watermark/) と組み合わせて視覚的な抑止効果を高められます。これらは別々の仕組みであり、併用すると相乗効果があります。
+
+**マクロや外部ツールは推奨が有効なときでもファイルを変更できますか？**
+
+はい。推奨はプログラムによる変更をブロックしません。自動化された編集を防ぎたい場合は、[passwords and encryption](/slides/ja/java/password-protected-presentation/) を使用してください。
+
+**'Read-Only recommended' はメソッド 'isEncrypted' と 'isWriteProtected' とどう関係していますか？**
+
+これらは別のシグナルです。'Read-Only recommended' はソフトで任意のプロンプトであり、[isWriteProtected](https://reference.aspose.com/slides/java/com.aspose.slides/protectionmanager/#isWriteProtected--) と [isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/protectionmanager/#isEncrypted--) はパスワードや暗号化に基づく実際の書き込みまたは読み取り制限を示します。

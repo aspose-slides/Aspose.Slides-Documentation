@@ -1,26 +1,35 @@
 ---
-title: 形の効果
+title: Java を使用したプレゼンテーションでのシェイプ効果の適用
+linktitle: シェイプ効果
 type: docs
 weight: 30
-url: /ja/java/shape-effect
-keywords: "形の効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaでPowerPointの形に効果を適用する"
+url: /ja/java/shape-effect/
+keywords:
+- シェイプ効果
+- シャドウ効果
+- 反射効果
+- 光彩効果
+- ソフトエッジ効果
+- エフェクト形式
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して、PPT および PPTX ファイルに高度なシェイプ効果を適用し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
 
-PowerPointの効果は形を目立たせるために使用できますが、[塗りつぶし](/slides/ja/java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPointの効果を使用して、形の convincing な反射を作成したり、形の輝きを広げたりできます。
+PowerPoint の効果はシェイプを目立たせるために使用できますが、[fills](/slides/ja/java/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint の効果を使用すると、シェイプにリアルな反射を作成したり、シェイプの光彩を広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPointは形に適用できる6つの効果を提供します。1つまたは複数の効果を形に適用できます。
+* PowerPoint はシェイプに適用できる 6 つの効果を提供します。1 つまたは複数の効果をシェイプに適用できます。  
+* 効果の組み合わせの中には、他より見栄えが良いものがあります。そのため、PowerPoint の **Preset** オプションがあります。Preset オプションは、実質的に見栄えの良い 2 つ以上の効果の組み合わせです。プリセットを選択することで、さまざまな効果をテストしたり組み合わせて良い組み合わせを見つける時間を無駄にしなくてすみます。
 
-* 効果の組み合わせによっては他より良く見えるものもあります。このため、PowerPointの**プリセット**オプションがあります。プリセットオプションは、基本的に2つ以上の効果の見栄えの良い組み合わせです。この方法でプリセットを選択すれば、さまざまな効果をテストまたは組み合わせて素敵な組み合わせを見つけるために時間を無駄にする必要がありません。
+Aspose.Slides は、[EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat) クラスの下にプロパティとメソッドを提供し、PowerPoint プレゼンテーションのシェイプに同じ効果を適用できます。
 
-Aspose.Slidesは、PowerPointプレゼンテーションの形に同じ効果を適用できる[EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat)クラスのプロパティとメソッドを提供します。
+## **シャドウ効果の適用**
 
-## **影効果を適用する**
-
-このJavaコードは、長方形に外側の影効果 ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) を適用する方法を示しています：
-
+この Java コードは、外部シャドウ効果 ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) を四角形に適用する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,10 +46,10 @@ try {
 }
 ```
 
-## **反射効果を適用する**
 
-このJavaコードは、形に反射効果を適用する方法を示しています：
+## **反射効果の適用**
 
+この Java コードは、シェイプに反射効果を適用する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +67,10 @@ try {
 }
 ```
 
-## **光彩効果を適用する**
 
-このJavaコードは、形に光彩効果を適用する方法を示しています：
+## **光彩効果の適用**
 
+この Java コードは、シェイプに光彩効果を適用する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +86,10 @@ try {
 }
 ```
 
-## **ソフトエッジ効果を適用する**
 
-このJavaコードは、形にソフトエッジを適用する方法を示しています：
+## **ソフトエッジ効果の適用**
 
+この Java コードは、シェイプにソフトエッジ効果を適用する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,3 +103,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**同じシェイプに複数の効果を適用できますか？**
+
+はい、影、反射、光彩など、異なる効果を単一のシェイプに組み合わせて、よりダイナミックな外観を作成できます。
+
+**どのようなシェイプに効果を適用できますか？**
+
+オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプに効果を適用できます。
+
+**グループ化されたシェイプに効果を適用できますか？**
+
+はい、グループ化されたシェイプにも効果を適用できます。効果はグループ全体に適用されます。

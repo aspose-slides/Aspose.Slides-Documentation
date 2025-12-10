@@ -1,102 +1,126 @@
 ---
-title: فتح عرض تقديمي في جافا
-linktitle: فتح عرض تقديمي
+title: فتح العروض التقديمية في Java
+linktitle: فتح العرض التقديمي
 type: docs
 weight: 20
 url: /ar/java/open-presentation/
-keywords: "فتح PowerPoint, PPTX, PPT, فتح عرض تقديمي, تحميل عرض تقديمي, جافا"
-description: "فتح أو تحميل عرض تقديمي PPT, PPTX, ODP في جافا"
+keywords:
+- فتح PowerPoint
+- فتح OpenDocument
+- فتح عرض تقديمي
+- فتح PPTX
+- فتح PPT
+- فتح ODP
+- تحميل عرض تقديمي
+- تحميل PPTX
+- تحميل PPT
+- تحميل ODP
+- عرض تقديمي محمي
+- عرض تقديمي كبير
+- مورد خارجي
+- كائن ثنائي
+- Java
+- Aspose.Slides
+description: "افتح عروض PowerPoint (.pptx, .ppt) و OpenDocument (.odp) بسهولة باستخدام Aspose.Slides for Java — سريع، موثوق، غني بالمميزات."
 ---
 
-بالإضافة إلى إنشاء عروض PowerPoint من الصفر، تتيح لك Aspose.Slides فتح العروض التقديمية الحالية. بعد تحميل عرض تقديمي، يمكنك الحصول على معلومات حول العرض التقديمي، تعديل العرض التقديمي (المحتوى على شرائحه)، إضافة شرائح جديدة أو إزالة الموجودة، إلخ.
+## **نظرة عامة**
 
-## فتح عرض تقديمي
+إلى جانب إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل العرض التقديمي، يمكنك استخراج معلومات عنه، تعديل محتوى الشرائح، إضافة شرائح جديدة، إزالة الشرائح الحالية، والمزيد.
 
-لفتح عرض تقديمي موجود، عليك ببساطة إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) وتمرير مسار الملف (للعرض الذي ترغب في فتحه) إلى المنشئ الخاص بها.
+## **فتح العروض التقديمية**
 
-هذا الكود بلغة جافا يوضح لك كيفية فتح عرض تقديمي وأيضًا معرفة عدد الشرائح الموجودة فيه:
+لفتح عرض تقديمي موجود، قم بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ومرر مسار الملف إلى منشئها.
 
+يظهر المثال التالي بلغة Java كيفية فتح عرض تقديمي والحصول على عدد الشرائح فيه:
 ```java
-// إنشاء كائن من فئة Presentation وتمرير مسار الملف إلى منشئه
-Presentation pres = new Presentation("Presentation.pptx");
+// إنشاء كائن من الفئة Presentation وتمرير مسار الملف إلى منشئها.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // طباعة العدد الإجمالي للشرائح الموجودة في العرض التقديمي
-    System.out.println(pres.getSlides().size());
+    // طباعة العدد الإجمالي للشرائح في العرض التقديمي.
+    System.out.println(presentation.getSlides().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **فتح عرض تقديمي محمي بكلمة مرور**
 
-عندما تحتاج إلى فتح عرض تقديمي محمي بكلمة مرور، يمكنك تمرير كلمة المرور من خلال خاصية [Password](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getPassword--) (من فئة [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/)) لفك تشفير العرض التقديمي وتحميله. هذا الكود بلغة جافا يوضح العملية:
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-```java
- LoadOptions loadOptions = new LoadOptions();
- loadOptions.setPassword("YOUR_PASSWORD");
- Presentation pres = new Presentation("pres.pptx", loadOptions);
- try {
- // قم بعمل بعض الأعمال مع العرض التقديمي المفكوك
- } finally {
-     if (pres != null) pres.dispose();
- }
-```
-
-## فتح عرض تقديمي كبير
-
-تقدم Aspose.Slides خيارات (خاصية [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) بشكل خاص) تحت فئة [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions) للسماح لك بتحميل العروض التقديمية الكبيرة.
-
-هذا المثال بلغة جافا يوضح عملية تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت في الحجم):
-
+عند الحاجة إلى فتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر طريقة [setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) في الفئة [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة Java هذه العملية:
 ```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
-loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
+loadOptions.setPassword("YOUR_PASSWORD");
 
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 try {
-    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، لكن استهلاك الذاكرة لا يزال منخفضًا.
-    // أجر تغييرات على العرض التقديمي.
-    pres.getSlides().get_Item(0).setName("عرض تقديمي كبير جدًا");
-
-    // سيتم حفظ العرض التقديمي إلى ملف آخر. يبقى استهلاك الذاكرة منخفضًا أثناء العملية
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // تنفيذ العمليات على العرض التقديمي المفكوك.
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="info" title="معلومات" %}}
 
-لتجاوز بعض القيود عند التفاعل مع تيار، قد تقوم Aspose.Slides بنسخ محتوى التيار. سيتسبب تحميل عرض تقديمي كبير من خلال تياره في نسخ محتويات العرض التقديمي ويتسبب في تحميل بطيء. لذلك، عندما تنوي تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض التقديمي وليس تياره.
+## **فتح العروض التقديمية الكبيرة**
 
-عندما ترغب في إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور كبيرة، إلخ)، يمكنك استخدام [تسهيلات Blob](https://docs.aspose.com/slides/java/manage-blob/) لتقليل استهلاك الذاكرة.
+يوفر Aspose.Slides خيارات—خاصة طريقة [getBlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) في الفئة [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/)—لمساعدتك على تحميل العروض التقديمية ذات الحجم الكبير.
 
-{{%/alert %}} 
-
-## تحميل عرض تقديمي
-
-تقدم Aspose.Slides [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) مع طريقة واحدة للسماح لك بإدارة الموارد الخارجية. يوضح لك هذا الكود بلغة جافا كيفية استخدام واجهة `IResourceLoadingCallback`:
-
+يظهر الكود التالي بلغة Java كيفية تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
 ```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
+final String filePath = "LargePresentation.pptx";
 
-Presentation pres = new Presentation("presentation.pptx", opts);
+LoadOptions loadOptions = new LoadOptions();
+// Choose the KeepLocked behavior — سيظل ملف العرض مقفلًا طوال مدة
+// كائن Presentation، ولكن لا يلزم تحميله في الذاكرة أو نسخه إلى ملف مؤقت.
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
+loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 ميجابايت
+
+Presentation presentation = new Presentation(filePath, loadOptions);
+try {
+    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
+
+    // قم بإجراء تغييرات على العرض التقديمي.
+    presentation.getSlides().get_Item(0).setName("Large presentation");
+
+    // احفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا خلال هذه العملية.
+    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
+
+    // لا تقم بذلك! سيُرمى استثناء إدخال/إخراج لأن الملف مقفل حتى يتم تحرير كائن العرض التقديمي.
+    //Files.delete(Paths.get(filePath));
+} finally {
+    presentation.dispose();
+}
+
+// لا بأس بأن تقوم بذلك هنا. الملف الأصلي لم يعد مقفلًا بواسطة كائن العرض التقديمي.
+Files.delete(Paths.get(filePath));
+```
+
+
+{{% alert color="info" title="Info" %}}
+لتجاوز بعض القيود عند العمل مع التدفقات، قد تقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض التقديمي بدلاً من التدفق.
+
+عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [إدارة BLOB](/slides/ar/java/manage-blob/) لتقليل استهلاك الذاكرة.
+{{%/alert %}}
+
+## **التحكم في الموارد الخارجية**
+
+يوفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) التي تتيح لك إدارة الموارد الخارجية. يوضح الكود التالي بلغة Java كيفية استخدام واجهة `IResourceLoadingCallback`:
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // تحميل صورة بديلة
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        if (args.getOriginalUri().endsWith(".jpg")) {
+            try {
+                // تحميل صورة بديلة.
+                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
+                args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {
                 return ResourceLoadingAction.Skip;
@@ -104,58 +128,51 @@ class ImageLoadingHandler implements IResourceLoadingCallback
                 ex.printStackTrace();
             }
         } else if (args.getOriginalUri().endsWith(".png")) {
-            // تعيين عنوان URL بديل
+            // تعيين عنوان URL بديل.
             args.setUri("http://www.google.com/images/logos/ps_logo2.png");
             return ResourceLoadingAction.Default;
         }
-        // تخطي جميع الصور الأخرى
+        // تخطي جميع الصور الأخرى.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## تحميل عرض تقديمي بدون كائنات ثنائية مضمنة
 
-يمكن أن يحتوي العرض التقديمي PowerPoint على الأنواع التالية من الكائنات الثنائية المضمنة:
+## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
 
-- مشروع VBA ([IPresentation.VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/));
-- بيانات مدمجة كائن OLE ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- بيانات ثنائية تحكم ActiveX ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المدمجة:
 
-باستخدام خاصية [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-)، يمكنك تحميل العرض التقديمي بدون أي كائنات ثنائية مضمنة.
+- مشروع VBA (يمكن الوصول إليه عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getVbaProject--));
+- بيانات كائن OLE المدمجة (يمكن الوصول إليها عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- بيانات التحكم ActiveX الثنائية (يمكن الوصول إليها عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
 
-يمكن أن تكون هذه الخاصية مفيدة لإزالة المحتوى الثنائي الخبيث المحتمل.
+باستخدام طريقة [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مدمجة.
 
-يظهر الكود كيفية تحميل وحفظ عرض تقديمي بدون أي محتوى برمجي ضار:
-
+تُستخدم هذه الطريقة لإزالة المحتوى الثنائي المحتمل أن يكون ضارًا. يوضح الكود التالي بلغة Java كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مدمج:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation pres = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("malware.ppt", loadOptions);
 try {
-    pres.save("clean.ppt", SaveFormat.Ppt);
+    // قم بتنفيذ العمليات على العرض التقديمي.
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## فتح وحفظ عرض تقديمي
 
-خطوات فتح وحفظ عرض تقديمي:
+## **الأسئلة المتكررة**
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) وتمرير الملف الذي ترغب في فتحه.
-2. حفظ العرض التقديمي.
+**كيف يمكنني معرفة أن الملف معطوب ولا يمكن فتحه؟**
 
-```java
-// إنشاء كائن Presentation يمثل ملف PPT
-Presentation pres = new Presentation();
-try {
-    // ...قم ببعض الأعمال هنا...
-    
-    // حفظ عرضك التقديمي إلى ملف
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
-```
+ستتلقى استثناءً يتعلق بالتحليل أو التحقق من صحة التنسيق أثناء التحميل. غالبًا ما تُشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
+
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
+
+سيفتح الملف، ولكن قد يستبدل [العرض/التصدير](/slides/ar/java/convert-presentation/) الخطوط لاحقًا. يمكنك [تكوين استبدال الخطوط](/slides/ar/java/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/java/custom-font/) إلى بيئة التشغيل.
+
+**ماذا عن الوسائط المدمجة (فيديو/صوت) عند الفتح؟**
+
+تصبح الوسائط متاحة كموارد للعرض التقديمي. إذا كانت الوسائط مُشار إليها عبر مسارات خارجية، تأكد من أن هذه المسارات قابلة للوصول في بيئتك؛ وإلا قد تُهمل أثناء [العرض/التصدير](/slides/ar/java/convert-presentation/).

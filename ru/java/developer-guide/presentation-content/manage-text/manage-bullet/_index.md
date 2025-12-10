@@ -1,147 +1,161 @@
 ---
-title: Управление маркерами
+title: Управление маркированными и нумерованными списками в презентациях с помощью Java
+linktitle: Управление списками
 type: docs
 weight: 60
 url: /ru/java/manage-bullet/
-keywords: "Маркеры, Списки с маркерами, Номера, Нумерованные списки, Изображения маркеров, многоуровневые маркеры, Презентация PowerPoint, Java, Aspose.Slides для Java"
-description: "Создайте списки с маркерами и нумерованные списки в презентации PowerPoint на Java"
+keywords:
+- маркер
+- маркированный список
+- нумерованный список
+- символьный маркер
+- изображение-маркер
+- пользовательский маркер
+- многоуровневый список
+- создать маркер
+- добавить маркер
+- добавить список
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Узнайте, как управлять маркированными и нумерованными списками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java. Пошаговое руководство."
 ---
 
-В **Microsoft PowerPoint** вы можете создавать списки с маркерами и нумерованные списки так же, как и в Word и других текстовых редакторах. **Aspose.Slides для Java** также позволяет использовать маркеры и номера на слайдах ваших презентаций.
+В **Microsoft PowerPoint** вы можете создавать маркированные и нумерованные списки так же, как делаете это в Word и других текстовых редакторах. **Aspose.Slides for Java** также позволяет использовать маркеры и цифры в слайдах ваших презентаций. 
 
-## Зачем использовать списки с маркерами?
+## **Зачем использовать маркированные списки?**
 
-Списки с маркерами помогают организовать и быстро представить информацию.
+Маркированные списки помогают быстро и эффективно организовать и представить информацию. 
 
-**Пример списка с маркерами**
+**Пример маркированного списка**
 
-В большинстве случаев список с маркерами выполняет три основные функции:
+В большинстве случаев маркированный список выполняет три основные функции:
 
-- привлекает внимание ваших читателей или зрителей к важной информации
-- позволяет вашим читателям или зрителям легко находить ключевые моменты
-- эффективно передает и доставляет важные детали.
+- привлекает внимание читателей или зрителей к важной информации
+- позволяет читателям или зрителям легко просматривать ключевые пункты
+- сообщает и передаёт важные детали эффективно.
 
-## Зачем использовать нумерованные списки?
+## **Зачем использовать нумерованные списки?**
 
-Нумерованные списки также помогают в организации и представлении информации. В идеале вы должны использовать номера (вместо маркеров), когда порядок записей (например, *шаг 1, шаг 2* и т.д.) имеет значение или когда запись должна быть упомянута (например, *см. шаг 3*).
+Нумерованные списки также помогают в организации и представлении информации. В идеале следует использовать числа (вместо маркеров), когда порядок элементов (например, *шаг 1, шаг 2* и т.д.) важен или когда на элемент нужно ссылаться (например, *см. шаг 3*).
 
 **Пример нумерованного списка**
 
-Это сводка шагов (шаг 1 до шага 15) в процедуре **Создание маркеров** ниже:
+Это сводка шагов (от шага 1 до шага 15) в процедуре **Создание маркеров** ниже:
 
 1. Создайте экземпляр класса презентации.
-2. Выполните несколько задач (шаги 3 до 14).
-3. Сохраните презентацию.
+2. Выполните несколько задач (от шага 3 до шага 14).
+3. Сохраните презентацию. 
 
-## Создание маркеров
-Эта тема также является частью серии тем управления текстовыми абзацами. Эта страница покажет, как мы можем управлять маркерами абзаций. Маркеры более полезны, когда что-то нужно описать по шагам. Более того, текст выглядит хорошо организованным с использованием маркеров. Абзацы с маркерами всегда легче читать и понимать. Мы увидим, как разработчики могут использовать эту небольшую, но мощную функцию Aspose.Slides для Java. Пожалуйста, следуйте приведенным ниже шагам, чтобы управлять маркерами абзацев с использованием Aspose.Slides для Java:
+## **Создание маркеров**
+
+Эта тема также является частью серии тем по управлению абзацами текста. На этой странице будет показано, как управлять маркерами абзацев. Маркеры более полезны, когда что‑то описывается пошагово. Кроме того, текст выглядит более упорядоченным при использовании маркеров. Маркированные абзацы всегда легче читать и понимать. Мы увидим, как разработчики могут использовать эту небольшую, но мощную возможность Aspose.Slides for Java. Пожалуйста, выполните шаги ниже для управления маркерами абзацев с помощью Aspose.Slides for Java:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Получите доступ к желаемому слайду в коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
-1. Добавьте [Автоформу](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) на выбранный слайд.
-1. Получите доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) добавленной фигуры.
-1. Удалите стандартный абзац в TextFrame.
-1. Создайте экземпляр первого абзаца с помощью класса [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph).
-1. Установите тип маркера абзаца.
-1. Установите тип маркера на [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) и установите символ маркера.
-1. Установите текст абзаца.
-1. Установите отступ абзаца для установки маркера.
-1. Установите цвет маркера.
-1. Установите высоту маркеров.
-1. Добавьте созданный абзац в коллекцию абзацев TextFrame.
-1. Добавьте второй абзац и повторите процесс, изложенный в шагах **7-13**.
-1. Сохраните презентацию.
-
-Этот пример кода на Java — реализация вышеуказанных шагов — показывает, как создать список с маркерами на слайде:
+2. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
+3. Добавьте [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) на выбранный слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) добавленной фигуры.
+5. Удалите абзац по умолчанию в TextFrame.
+6. Создайте первый экземпляр абзаца с использованием класса [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph).
+7. Установите тип маркера для абзаца.
+8. Установите тип маркера в [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) и задайте символ маркера.
+9. Установите текст абзаца.
+10. Установите отступ абзаца для размещения маркера.
+11. Установите цвет маркера.
+12. Установите высоту маркеров.
+13. Добавьте созданный абзац в коллекцию абзацев TextFrame.
+14. Добавьте второй абзац и повторите процесс, указанный в шагах **7 до 13**.
+15. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса Presentation, представляющего файл PPTX
+// Создать экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получаем доступ к первому слайду
+    // Получение первого слайда
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавляем и получаем доступ к Автоформе
+    // Добавление и доступ к Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // Получаем доступ к текстовому полю созданной автоформы
+    // Доступ к текстовому фрейму созданного autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
     
-    // Удаляем существующий абзац
+    // Удаление исходного абзаца по умолчанию
     txtFrm.getParagraphs().removeAt(0);
     
-    // Создаем абзац
+    // Создание абзаца
     Paragraph para = new Paragraph();
     
-    // Устанавливаем стиль маркера абзаца и символ
+    // Установка стиля маркера абзаца и символа
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char) 8226);
     
-    // Устанавливаем текст абзаца
-    para.setText("Добро пожаловать в Aspose.Slides");
+    // Установка текста абзаца
+    para.setText("Welcome to Aspose.Slides");
     
-    // Устанавливаем отступ маркера
+    // Установка отступа маркера
     para.getParagraphFormat().setIndent(25);
     
-    // Устанавливаем цвет маркера
+    // Установка цвета маркера
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
     
-    // Установите IsBulletHardColor в true, чтобы использовать свой цвет маркера
+    // Установите IsBulletHardColor в true, чтобы использовать собственный цвет маркера
     para.getParagraphFormat().getBullet().isBulletHardColor();
     
-    // Устанавливаем высоту маркера
+    // Установка высоты маркера
     para.getParagraphFormat().getBullet().setHeight(100);
     
-    // Добавляем абзац в текстовое поле
+    // Добавление абзаца в текстовый фрейм
     txtFrm.getParagraphs().add(para);
     
-    // Сохраняем презентацию в файл PPTX
+    // Сохранение презентации в файл PPTX
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## Создание изображений маркеров
 
-Aspose.Slides для Java позволяет вам изменять маркеры в списках с маркерами. Вы можете заменить маркеры на пользовательские символы или изображения. Если вы хотите добавить визуальный интерес к списку или привлечь еще большее внимание к записям в списке, вы можете использовать свое собственное изображение в качестве маркера.
+## **Создание изображений‑маркеров**
+
+Aspose.Slides for Java позволяет изменять маркеры в маркированных списках. Вы можете заменять маркеры на пользовательские символы или изображения. Если вы хотите добавить визуальный интерес к списку или привлечь ещё больше внимания к элементам списка, вы можете использовать собственное изображение в качестве маркера. 
 
 {{% alert color="primary" %}} 
 
-В идеале, если вы собираетесь заменить обычный символ маркера изображением, вам следует выбрать простое графическое изображение с прозрачным фоном. Такие изображения лучше всего подходят в качестве пользовательских символов маркеров.
+В идеальном случае, если вы планируете заменить обычный символ маркера изображением, рекомендуется выбрать простую графику с прозрачным фоном. Такие изображения лучше всего подходят в качестве пользовательских символов маркеров. 
 
-В любом случае, выбранное вами изображение будет уменьшено до очень маленького размера, поэтому мы настоятельно рекомендуем выбрать изображение, которое хорошо выглядит (в качестве замены для символа маркера) в списке. 
+В любом случае выбранное изображение будет уменьшено до очень небольшого размера, поэтому настоятельно рекомендуем выбирать изображение, которое будет выглядеть хорошо (в качестве замены символа маркера) в списке. 
 
 {{% /alert %}} 
 
-Чтобы создать изображение маркера, выполните следующие шаги:
+Чтобы создать изображение‑маркер, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Получите доступ к желаемому слайду в коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
-1. Добавьте автоформу на выбранный слайд.
-1. Получите доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
-1. Удалите стандартный абзац в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
-1. Создайте экземпляр первого абзаца с помощью класса Paragraph.
-1. Загрузите изображение с диска в [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage).
-1. Установите тип маркера на изображение и добавьте изображение.
-1. Установите текст абзаца.
-1. Установите отступ абзаца для установки маркера.
-1. Установите цвет маркера.
-1. Установите высоту маркеров.
-1. Добавьте созданный абзац в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) коллекцию абзацев.
-1. Добавьте второй абзац и повторите процесс, изложенный в предыдущих шагах.
-1. Сохраните презентацию.
-
-Этот код на Java показывает, как создать изображение маркера на слайде:
+2. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
+3. Добавьте автоконтур (autoshape) на выбранный слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
+5. Удалите абзац по умолчанию в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+6. Создайте первый экземпляр абзаца с использованием класса Paragraph.
+7. Загрузите изображение с диска в [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage).
+8. Установите тип маркера в Picture и задайте изображение.
+9. Установите текст абзаца.
+10. Установите отступ абзаца для размещения маркера.
+11. Установите цвет маркера.
+12. Установите высоту маркеров.
+13. Добавьте созданный абзац в коллекцию абзацев [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+14. Добавьте второй абзац и повторите процесс, описанный в предыдущих шагах.
+15. Сохраните презентацию.
 
 ```java
 Presentation pres = new Presentation();
 try {
-    // Получаем доступ к первому слайду
+    // Получение первого слайда
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Создаем изображение для маркеров
+    // Создание изображения для маркеров
     IPPImage picture;
     IImage image = Images.fromFile("asp1.jpg");
     try {
@@ -150,29 +164,29 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Добавляем и получаем доступ к Автоформе
+    // Добавление и доступ к Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Получаем доступ к текстовому полю созданной автоформы
+    // Доступ к текстовому фрейму созданного autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
-    // Удаляем существующий абзац
+    // Удаление существующего абзаца по умолчанию
     txtFrm.getParagraphs().removeAt(0);
 
-    // Создаем новый абзац
+    // Создание нового абзаца
     Paragraph para = new Paragraph();
-    para.setText("Добро пожаловать в Aspose.Slides");
+    para.setText("Welcome to Aspose.Slides");
 
-    // Устанавливаем стиль маркера абзаца и изображение
+    // Установка стиля маркера абзаца и изображения
     para.getParagraphFormat().getBullet().setType(BulletType.Picture);
     para.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Устанавливаем высоту маркера
+    // Установка высоты маркера
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // Добавляем абзац в текстовое поле
+    // Добавление абзаца в текстовый фрейм
     txtFrm.getParagraphs().add(para);
 
-    // Сохраняем презентацию в файл PPTX
+    // Запись презентации в файл PPTX
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -180,139 +194,138 @@ try {
 }
 ```
 
-## Создание многоуровневых маркеров
 
-Чтобы создать список с маркерами, который содержит элементы на разных уровнях — дополнительные списки под основным списком маркеров — выполните следующие шаги:
+## **Создание многоуровневых маркеров**
+
+Чтобы создать маркированный список, содержащий элементы разных уровней — вложенные списки под основным маркером — выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Получите доступ к желаемому слайду в коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
-1. Добавьте автоформу на выбранный слайд.
-1. Получите доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
-1. Удалите стандартный абзац в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
-1. Создайте экземпляр первого абзаца, используя класс Paragraph и установите глубину равной 0.
-1. Создайте экземпляр второго абзаца, используя класс Paragraph и установите глубину равной 1.
-1. Создайте экземпляр третьего абзаца, используя класс Paragraph и установите глубину равной 2.
-1. Создайте экземпляр четвертого абзаца, используя класс Paragraph и установите глубину равной 3.
-1. Добавьте созданные абзацы в коллекцию абзацев [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
-1. Сохраните презентацию.
-
-Этот код, который является реализацией вышеуказанных шагов, показывает, как создать многоуровневый список с маркерами на Java:
+2. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
+3. Добавьте автоконтур в выбранный слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
+5. Удалите абзац по умолчанию в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+6. Создайте первый экземпляр абзаца с использованием класса Paragraph и задайте глубину 0.
+7. Создайте второй экземпляр абзаца с использованием класса Paragraph и задайте глубину 1.
+8. Создайте третий экземпляр абзаца с использованием класса Paragraph и задайте глубину 2.
+9. Создайте четвертый экземпляр абзаца с использованием класса Paragraph и задайте глубину 3.
+10. Добавьте созданные абзацы в коллекцию абзацев [TextFrame] paragraph collection.
+11. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса Presentation, представляющего файл PPTX
+// Создать объект класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получаем доступ к первому слайду
+    // Получение первого слайда
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавляем и получаем доступ к Автоформе
+    // Добавление и доступ к Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // Получаем доступ к текстовому полю созданной автоформы
+    // Получение текстового фрейма созданного autoshape
     ITextFrame txtFrm = aShp.addTextFrame("");
     
-    // Удаляем существующий абзац
+    // Удаление существующего абзаца по умолчанию
     txtFrm.getParagraphs().clear();
     
-    // Создаем первый абзац
+    // Создание первого абзаца
     Paragraph para1 = new Paragraph();
-    // Устанавливаем стиль маркера абзаца и символ
-    para1.setText("Содержание");
+    // Установка стиля маркера абзаца и символа
+    para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char) 8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Устанавливаем уровень маркера
+    //Установка уровня маркера
     para1.getParagraphFormat().setDepth ((short)0);
     
-    // Создаем второй абзац
+    // Создание второго абзаца
     Paragraph para2 = new Paragraph();
-    // Устанавливаем стиль маркера абзаца и символ
-    para2.setText("Второй уровень");
+    // Установка стиля маркера абзаца и символа
+    para2.setText("Second level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Устанавливаем уровень маркера
+    //Установка уровня маркера
     para2.getParagraphFormat().setDepth ((short)1);
     
-    // Создаем третий абзац
+    // Создание третьего абзаца
     Paragraph para3 = new Paragraph();
-    // Устанавливаем стиль маркера абзаца и символ
-    para3.setText("Третий уровень");
+    // Установка стиля маркера абзаца и символа
+    para3.setText("Third level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char) 8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Устанавливаем уровень маркера
+    //Установка уровня маркера
     para3.getParagraphFormat().setDepth ((short)2);
     
-    // Создаем четвертый абзац
+    // Создание четвертого абзаца
     Paragraph para4 = new Paragraph();
-    // Устанавливаем стиль маркера абзаца и символ
-    para4.setText("Четвертый уровень");
+    // Установка стиля маркера абзаца и символа
+    para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Устанавливаем уровень маркера
+    //Установка уровня маркера
     para4.getParagraphFormat().setDepth ((short)3);
     
-    // Добавляем абзацы в текстовое поле
+    // Добавление абзаца в текстовый фрейм
     txtFrm.getParagraphs().add(para1);
     txtFrm.getParagraphs().add(para2);
     txtFrm.getParagraphs().add(para3);
     txtFrm.getParagraphs().add(para4);
     
-    // Сохраняем презентацию в файл PPTX
+    // Сохранение презентации в файл PPTX
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## Создание пользовательского нумерованного списка
-Aspose.Slides для Java предоставляет простой API для управления абзацами с пользовательским форматированием номеров. Чтобы добавить пользовательский нумерованный список в абзац, выполните следующие шаги:
+
+## **Создание пользовательских нумерованных списков**
+
+Aspose.Slides for Java предоставляет простой API для управления абзацами с пользовательским форматированием номеров. Чтобы добавить пользовательский нумерованный список в абзац, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Получите доступ к желаемому слайду в коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
-1. Добавьте автоформу на выбранный слайд.
-1. Получите доступ к [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
-1. Удалите стандартный абзац в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
-1. Создайте экземпляр первого абзаца с помощью класса Paragraph и установите **NumberedBulletStartWith** на 2.
-1. Создайте экземпляр второго абзаца с помощью класса Paragraph и установите **NumberedBulletStartWith** на 3.
-1. Создайте экземпляр третьего абзаца с помощью класса Paragraph и установите **NumberedBulletStartWith** на 7.
-1. Добавьте созданные абзацы в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) коллекцию абзацев.
-1. Сохраните презентацию.
-
-Этот код на Java показывает, как создать нумерованный список на слайде:
+2. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide).
+3. Добавьте автоконтур в выбранный слайд.
+4. Получите [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) добавленной фигуры.
+5. Удалите абзац по умолчанию в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+6. Создайте первый экземпляр абзаца с использованием класса Paragraph и установите **NumberedBulletStartWith** в 2.
+7. Создайте второй экземпляр абзаца с использованием класса Paragraph и установите **NumberedBulletStartWith** в 3.
+8. Создайте третий экземпляр абзаца с использованием класса Paragraph и установите **NumberedBulletStartWith** в 7.
+9. Добавьте созданные абзацы в коллекцию абзацев [TextFrame] paragraph collection.
+10. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса Presentation, представляющего файл PPTX
+// Создать объект класса Presentation, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получаем доступ к первому слайду
+    // Доступ к первому слайду
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавляем и получаем доступ к Автоформе
+    // Добавление и доступ к Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Получаем доступ к текстовому полю созданной автоформы
+    // Доступ к текстовому фрейму созданного autoshape
     ITextFrame txtFrm = aShp.addTextFrame("");
 
-    // Удаляем существующий абзац
+    // Удаление существующего абзаца по умолчанию
     txtFrm.getParagraphs().clear();
 
     // Первый список
     Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("маркер 2");
+    paragraph1.setText("bullet 2");
     paragraph1.getParagraphFormat().setDepth((short)4);
     paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     txtFrm.getParagraphs().add(paragraph1);
 
     Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("маркер 3");
+    paragraph2.setText("bullet 3");
     paragraph2.getParagraphFormat().setDepth((short)4);
     paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
     paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
@@ -320,14 +333,29 @@ try {
 
     // Второй список
     Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("маркер 5");
+    paragraph5.setText("bullet 5");
     paragraph5.getParagraphFormat().setDepth((short)4);
     paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)5);
     paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     txtFrm.getParagraphs().add(paragraph5);
 
-    pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Можно ли экспортировать маркированные и нумерованные списки, созданные с помощью Aspose.Slides, в другие форматы, такие как PDF или изображения?**
+
+Да, Aspose.Slides полностью сохраняет форматирование и структуру маркированных и нумерованных списков при экспорте презентаций в такие форматы, как PDF, изображения и другие, обеспечивая согласованные результаты.
+
+**Можно ли импортировать маркированные или нумерованные списки из существующих презентаций?**
+
+Да, Aspose.Slides позволяет импортировать и редактировать маркированные или нумерованные списки из существующих презентаций, сохраняя их исходное форматирование и внешний вид.
+
+**Поддерживает ли Aspose.Slides маркированные и нумерованные списки в презентациях, созданных на разных языках?**
+
+Да, Aspose.Slides полностью поддерживает многоязычные презентации, позволяя создавать маркированные и нумерованные списки на любом языке, включая использование специальных или нелатинских символов.

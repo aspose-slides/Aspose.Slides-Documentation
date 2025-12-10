@@ -1,120 +1,136 @@
 ---
-title: Forme Personnalisée
+title: Personnaliser les formes de présentation en Java
+linktitle: Forme personnalisée
 type: docs
 weight: 20
 url: /fr/java/custom-shape/
-keywords: "forme PowerPoint, forme personnalisée, présentation PowerPoint, Java, Aspose.Slides pour Java"
-description: "Ajouter une forme personnalisée dans une présentation PowerPoint en Java"
+keywords: 
+- forme personnalisée
+- ajouter forme
+- créer forme
+- modifier forme
+- géométrie de forme
+- tracé géométrique
+- points du tracé
+- points d'édition
+- ajouter point
+- supprimer point
+- opération de modification
+- coin arrondi
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Créer et personnaliser des formes dans les présentations PowerPoint avec Aspose.Slides pour Java : tracés géométriques, coins arrondis, formes composites."
 ---
 
-# Modifier une Forme en Utilisant des Points de Modification
-Considérer un carré. Dans PowerPoint, en utilisant **des points de modification**, vous pouvez 
+# Modifier une forme à l'aide des points d'édition
+Considérez un carré. Dans PowerPoint, en utilisant **points d'édition**, vous pouvez
 
 * déplacer le coin du carré vers l'intérieur ou l'extérieur
-* spécifier la courbure pour un coin ou un point
+* spécifier la courbure d'un coin ou d'un point
 * ajouter de nouveaux points au carré
-* manipuler les points sur le carré, etc. 
+* manipuler les points du carré, etc.
 
-Essentiellement, vous pouvez effectuer les tâches décrites sur n'importe quelle forme. En utilisant des points de modification, vous pouvez changer une forme ou créer une nouvelle forme à partir d'une forme existante.
+Essentiellement, vous pouvez effectuer les tâches décrites sur n'importe quelle forme. En utilisant les points d'édition, vous pouvez modifier une forme ou créer une nouvelle forme à partir d'une forme existante.
 
-## **Conseils pour l'Édition de Formes**
+## **Astuces de modification de forme**
 
 ![overview_image](custom_shape_0.png)
 
-Avant de commencer à modifier les formes PowerPoint à l'aide de points de modification, vous voudrez peut-être considérer ces points concernant les formes :
+Avant de commencer à modifier les formes PowerPoint via les points d'édition, vous pourriez vouloir prendre en compte ces éléments concernant les formes :
 
-* Une forme (ou son chemin) peut être fermée ou ouverte.
-* Lorsqu'une forme est fermée, elle n'a pas de point de départ ou d'arrivée. Lorsqu'une forme est ouverte, elle a un début et une fin.
-* Toutes les formes consistent en au moins 2 points d'ancrage liés entre eux par des lignes.
-* Une ligne est soit droite soit courbée. Les points d'ancrage déterminent la nature de la ligne.
-* Les points d'ancrage existent en tant que points de coin, points droits ou points lisses :
-  * Un point de coin est un point où 2 lignes droites se rejoignent à un angle.
-  * Un point lisse est un point où 2 poignées existent sur une ligne droite et les segments de ligne se rejoignent dans une courbe lisse. Dans ce cas, toutes les poignées sont séparées du point d'ancrage par une distance égale.
-  * Un point droit est un point où 2 poignées existent sur une ligne droite et que les segments de cette ligne se rejoignent dans une courbe lisse. Dans ce cas, les poignées ne doivent pas être séparées du point d'ancrage par une distance égale.
-* En déplaçant ou en modifiant des points d'ancrage (ce qui change l'angle des lignes), vous pouvez changer l'apparence d'une forme.
+* Une forme (ou son tracé) peut être fermée ou ouverte.
+* Lorsqu'une forme est fermée, elle n'a ni point de départ ni point d'arrivée. Lorsqu'une forme est ouverte, elle possède un début et une fin.
+* Toutes les formes sont composées d'au moins 2 points d'ancrage liés entre eux par des lignes.
+* Une ligne est soit droite, soit courbée. Les points d'ancrage déterminent la nature de la ligne.
+* Les points d'ancrage existent sous forme de points d'angle, points droits ou points lisses :
+  * Un point d'angle est un point où 2 lignes droites se rejoignent sous un angle.
+  * Un point lisse est un point où 2 poignées existent sur une ligne droite et les segments de ligne se rejoignent en une courbe douce. Dans ce cas, toutes les poignées sont séparées du point d'ancrage par une distance égale.
+  * Un point droit est un point où 2 poignées existent sur une ligne droite et les segments de ligne se rejoignent en une courbe douce. Dans ce cas, les poignées n'ont pas besoin d'être séparées du point d'ancrage par une distance égale.
+* En déplaçant ou en modifiant les points d'ancrage (ce qui change l'angle des lignes), vous pouvez modifier l'apparence d'une forme.
 
-Pour modifier les formes PowerPoint à l'aide de points de modification, **Aspose.Slides** fournit la classe [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) et l'interface [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath).
+Pour modifier les formes PowerPoint via les points d'édition, **Aspose.Slides** fournit la classe [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) et l'interface [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath).
 
-* Une instance de [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) représente un chemin géométrique de l'objet [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape). 
-* Pour récupérer le `GeometryPath` à partir de l'instance `IGeometryShape`, vous pouvez utiliser la méthode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--). 
-* Pour définir le `GeometryPath` d'une forme, vous pouvez utiliser ces méthodes : [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) pour *formes pleines* et [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) pour *formes composites*.
-* Pour ajouter des segments, vous pouvez utiliser les méthodes sous [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
-* En utilisant les méthodes [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) et [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-), vous pouvez définir l'apparence d'un chemin géométrique.
-* En utilisant la méthode [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--), vous pouvez récupérer le chemin géométrique d'une `GeometryShape` sous forme de tableau de segments de chemin. 
-* Pour accéder à des options de personnalisation de la géométrie de formes supplémentaires, vous pouvez convertir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) en [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-* Utilisez les méthodes [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) et [graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (de la classe [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil)) pour convertir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) en [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) et vice versa.
+* Une instance de [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) représente le tracé géométrique de l'objet [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape).
+* Pour récupérer le `GeometryPath` depuis l'instance `IGeometryShape`, vous pouvez utiliser la méthode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) .
+* Pour définir le `GeometryPath` d'une forme, vous pouvez utiliser ces méthodes : [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) pour les *formes pleines* et [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) pour les *formes composites*.
+* Pour ajouter des segments, vous pouvez utiliser les méthodes de [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) .
+* En utilisant les méthodes [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) et [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-), vous pouvez définir l'apparence d'un tracé géométrique.
+* En utilisant la méthode [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) , vous pouvez récupérer le tracé géométrique d'un `GeometryShape` sous forme de tableau de segments de chemin.
+* Pour accéder à des options supplémentaires de personnalisation de la géométrie de forme, vous pouvez convertir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) en [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
+* Utilisez les méthodes [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) et [graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (de la classe [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil)) pour convertir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) en [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) et inversement.
 
-## **Opérations d'Édition Simples**
+## **Opérations de modification simples**
 
-Ce code Java vous montre comment
+Ce code Java montre comment
 
-**Ajouter une ligne** à la fin d'un chemin :
-
+**Ajouter une ligne** à la fin d'un chemin
 ``` java
 public void lineTo(java.awt.geom.Point2D.Float point);
 public void lineTo(float x, float y);
 ```
-**Ajouter une ligne** à une position spécifiée sur un chemin :
 
+**Ajouter une ligne** à une position spécifiée sur un chemin :
 ``` java    
 public void lineTo(java.awt.geom.Point2D.Float point, long index);
 public void lineTo(float x, float y, long index);
 ```
-**Ajouter une courbe de Bézier cubique** à la fin d'un chemin :
 
+**Ajouter une courbe de Bézier cubique** à la fin d'un chemin :
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Ajouter une courbe de Bézier cubique** à la position spécifiée sur un chemin :
 
+**Ajouter une courbe de Bézier cubique** à la position spécifiée sur un chemin :
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
 ```
-**Ajouter une courbe de Bézier quadratique** à la fin d'un chemin :
 
+**Ajouter une courbe de Bézier quadratique** à la fin d'un chemin :
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Ajouter une courbe de Bézier quadratique** à une position spécifiée sur un chemin :
 
+**Ajouter une courbe de Bézier quadratique** à la position spécifiée sur un chemin :
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
 ```
-**Ajouter un arc donné** à un chemin :
 
+**Appliquer un arc donné** à un chemin :
 ``` java
 public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Fermer la figure actuelle** d'un chemin :
 
+**Fermer la figure actuelle** d'un chemin :
 ``` java
 public void closeFigure();
 ```
-**Définir la position pour le prochain point** :
 
+**Définir la position du prochain point** :
 ``` java
 public void moveTo(java.awt.geom.Point2D.Float point);
 public void moveTo(float x, float y);
 ```
-**Supprimer le segment de chemin** à un index donné :
 
+**Supprimer le segment de chemin** à un indice donné :
 ``` java
 public void removeAt(int index);
 ```
 
-## **Ajouter des Points Personnalisés à une Forme**
-1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) et définissez le type [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType).
+
+## **Ajouter des points personnalisés à une forme**
+1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) et définissez le type [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) .
 2. Obtenez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) à partir de la forme.
-3. Ajoutez un nouveau point entre les deux points supérieurs sur le chemin.
-4. Ajoutez un nouveau point entre les deux points inférieurs sur le chemin.
+3. Ajoutez un nouveau point entre les deux points supérieurs du chemin.
+4. Ajoutez un nouveau point entre les deux points inférieurs du chemin.
 5. Appliquez le chemin à la forme.
 
-Ce code Java vous montre comment ajouter des points personnalisés à une forme :
-
+Ce code Java montre comment ajouter des points personnalisés à une forme :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -129,17 +145,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-##  Supprimer des Points d'une Forme
+## **Supprimer des points d'une forme**
 
-1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) et définissez le type [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType).
+1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) et définissez le type [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) .
 2. Obtenez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) à partir de la forme.
-3. Supprimez le segment pour le chemin.
+3. Supprimez le segment du chemin.
 4. Appliquez le chemin à la forme.
 
-Ce code Java vous montre comment supprimer des points d'une forme :
-
+Ce code Java montre comment supprimer des points d'une forme :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -153,18 +169,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example2_image](custom_shape_2.png)
 
-##  **Créer une Forme Personnalisée**
+## **Créer une forme personnalisée**
 
-1. Calculez les points pour la forme.
-2. Créez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath).
+1. Calculez les points de la forme.
+2. Créez une instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
 3. Remplissez le chemin avec les points.
-4. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape).
+4. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
 5. Appliquez le chemin à la forme.
 
-Ce code Java vous montre comment créer une forme personnalisée :
-
+Ce code Java montre comment créer une forme personnalisée :
 ``` java
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
@@ -204,18 +220,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example3_image](custom_shape_3.png)
 
+## **Créer une forme composite personnalisée**
 
-## **Créer une Forme Composite Personnalisée**
+1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
+2. Créez une première instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
+3. Créez une seconde instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
+4. Appliquez les chemins à la forme.
 
-  1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape).
-  2. Créez une première instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath).
-  3. Créez une deuxième instance de la classe [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath).
-  4. Appliquez les chemins à la forme.
-
-Ce code Java vous montre comment créer une forme composite personnalisée :
-
+Ce code Java montre comment créer une forme composite personnalisée :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -241,12 +256,12 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **Créer une Forme Personnalisée Avec des Angles Arrondis**
+## **Créer une forme personnalisée avec des coins arrondis**
 
-Ce code Java vous montre comment créer une forme personnalisée avec des angles arrondis (vers l'intérieur) :
-
+Ce code Java montre comment créer une forme personnalisée avec des coins arrondis (vers l'intérieur) ;
 ```java
 float shapeX = 20f;
 float shapeY = 20f;
@@ -291,15 +306,40 @@ try {
 }
 ```
 
-## **Convertir GeometryPath en java.awt.Shape** 
 
-1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape).
-2. Créez une instance de la classe [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. Convertissez l'instance [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) en une instance [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) en utilisant [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
+## **Déterminer si la géométrie d'une forme est fermée**
+
+Une forme fermée est définie comme une forme dont tous les côtés sont connectés, formant une frontière unique sans lacunes. Une telle forme peut être une forme géométrique simple ou un contour personnalisé complexe. L'exemple de code suivant montre comment vérifier si la géométrie d'une forme est fermée :
+```java
+boolean isGeometryClosed(IGeometryShape geometryShape)
+{
+    Boolean isClosed = null;
+
+    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+        int dataLength = geometryPath.getPathData().length;
+        if (dataLength == 0)
+            continue;
+
+        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
+        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+
+        if (isClosed == false)
+            return false;
+    }
+
+    return isClosed == true;
+}
+```
+
+
+## **Convertir GeometryPath en java.awt.Shape**
+
+1. Créez une instance de la classe [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
+2. Créez une instance de la classe [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
+3. Convertissez l'instance [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) en instance [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) à l'aide de [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) .
 4. Appliquez les chemins à la forme.
 
-Ce code Java—une implémentation des étapes ci-dessus—démontre le processus de conversion de **GeometryPath** à **GraphicsPath** :
-
+Ce code Java — implémentation des étapes ci‑dessus — montre le processus de conversion **GeometryPath** vers **GraphicsPath** :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -314,7 +354,7 @@ try {
     // Créer un nouveau chemin graphique avec du texte
     Shape graphicsPath;
     Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Texte dans la forme";
+    String text = "Text in shape";
     BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
     Graphics2D g2 = img.createGraphics();
 
@@ -331,10 +371,25 @@ try {
     IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Définir la combinaison du nouveau chemin géométrique et du chemin géométrique d'origine à la forme
+    // Définir la combinaison du nouveau chemin géométrique et du chemin géométrique d'origine sur la forme
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**Que se passe-t-il avec le remplissage et le contour après le remplacement de la géométrie ?**
+
+Le style reste associé à la forme ; seul le contour change. Le remplissage et le contour sont appliqués automatiquement à la nouvelle géométrie.
+
+**Comment faire pivoter correctement une forme personnalisée avec sa géométrie ?**
+
+Utilisez la méthode [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) de la forme ; la géométrie pivote avec la forme puisqu'elle est liée au système de coordonnées propre à la forme.
+
+**Puis‑je convertir une forme personnalisée en image pour « verrouiller » le résultat ?**
+
+Oui. Exportez la zone de la [slide](/slides/fr/java/convert-powerpoint-to-png/) requise ou la [shape](/slides/fr/java/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie le travail ultérieur avec des géométries lourdes.

@@ -1,17 +1,29 @@
 ---
-title: Libro de Gráficos
+title: Gestionar libros de trabajo de gráficos en presentaciones usando Java
+linktitle: Libro de trabajo de gráfico
 type: docs
 weight: 70
 url: /es/java/chart-workbook/
-keywords: "Libro de gráficos, datos de gráficos, presentación de PowerPoint, Java, Aspose.Slides para Java"
-description: "Libro de gráficos en una presentación de PowerPoint en Java"
+keywords:
+- libro de trabajo de gráfico
+- datos de gráfico
+- celda del libro de trabajo
+- etiqueta de datos
+- hoja de cálculo
+- origen de datos
+- libro de trabajo externo
+- datos externos
+- PowerPoint
+- presentación
+- Java
+- Aspose.Slides
+description: "Descubra Aspose.Slides para Java: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
 
-## **Establecer Datos de Gráfico desde el Libro**
-Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) y [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) que te permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráfico editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
+## **Leer y escribir datos de gráficos desde un libro de trabajo**
+Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) y [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) que le permiten leer y escribir libros de trabajo con datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 
-Este código Java demuestra una operación de ejemplo:
-
+Este código Java muestra una operación de ejemplo:
 ```java
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -29,21 +41,21 @@ try {
 }
 ```
 
-## **Establecer la Celda del Libro como Etiqueta de Datos del Gráfico**
 
-1. Crea una instancia de la [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) clase.
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Agrega un gráfico de Burbuja con algunos datos.
-1. Accede a la serie del gráfico.
-1. Establece la celda del libro como una etiqueta de datos.
-1. Guarda la presentación.
+## **Establecer una celda de libro de trabajo como etiqueta de datos del gráfico**
 
-Este código Java te muestra cómo establecer una celda del libro como una etiqueta de datos del gráfico:
+1. Cree una instancia de la clase [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
+2. Obtenga la referencia de una diapositiva mediante su índice.
+3. Añada un gráfico de burbujas con algunos datos.
+4. Acceda a la serie del gráfico.
+5. Establezca la celda del libro de trabajo como una etiqueta de datos.
+6. Guarde la presentación.
 
+Este código Java le muestra cómo establecer una celda de libro de trabajo como una etiqueta de datos del gráfico:
 ```java
-String lbl0 = "Valor de la celda Etiqueta 0";
-String lbl1 = "Valor de la celda Etiqueta 1";
-String lbl2 = "Valor de la celda Etiqueta 2";
+String lbl0 = "Label 0 cell value";
+String lbl1 = "Label 1 cell value";
+String lbl2 = "Label 2 cell value";
 
 // Instancia una clase de presentación que representa un archivo de presentación
 Presentation pres = new Presentation("chart2.pptx");
@@ -67,10 +79,10 @@ try {
 }
 ```
 
-## **Gestionar Hojas de Cálculo**
+
+## **Administrar hojas de cálculo**
 
 Este código Java demuestra una operación donde se utiliza el método [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) para acceder a una colección de hojas de cálculo:
-
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,10 +95,10 @@ try {
 }
 ```
 
-## **Especificar Tipo de Fuente de Datos**
 
-Este código Java te muestra cómo especificar un tipo para una fuente de datos:
+## **Especificar el tipo de origen de datos**
 
+Este código Java le muestra cómo especificar un tipo para un origen de datos:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,10 +106,10 @@ try {
     IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
 
     val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("CadenaLiteral");
+    val.setData("LiteralString");
 
     val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NuevaCelda"));
+    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -105,18 +117,17 @@ try {
 }
 ```
 
-## **Libro Externo**
 
+## **Libro de trabajo externo**
 {{% alert color="primary" %}} 
-En [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), implementamos soporte para libros externos como fuente de datos para gráficos.
+En [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), implementamos soporte para libros de trabajo externos como origen de datos para los gráficos.
 {{% /alert %}} 
 
-### **Crear Libro Externo**
+### **Crear un libro de trabajo externo**
 
-Usando los métodos **`readWorkbookStream`** y **`setExternalWorkbook`**, puedes crear un libro externo desde cero o hacer que un libro interno sea externo.
+Usando los métodos **`readWorkbookStream`** y **`setExternalWorkbook`**, puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
 
-Este código Java demuestra el proceso de creación de un libro externo:
-
+Este código Java demuestra el proceso de creación de un libro de trabajo externo:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -140,14 +151,14 @@ try {
 }
 ```
 
-### **Establecer Libro Externo**
 
-Usando el método **`setExternalWorkbook`**, puedes asignar un libro externo a un gráfico como su fuente de datos. Este método también se puede utilizar para actualizar una ruta al libro externo (si este ha sido trasladado).
+### **Establecer un libro de trabajo externo**
 
-Mientras no puedes editar los datos en libros almacenados en ubicaciones o recursos remotos, aún puedes usar tales libros como fuente de datos externa. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente en una ruta completa.
+Usando el método **`setExternalWorkbook`**, puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este ha sido movido).
 
-Este código Java te muestra cómo establecer un libro externo:
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede utilizarlos como origen de datos externo. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
 
+Este código Java le muestra cómo establecer un libro de trabajo externo:
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -172,11 +183,11 @@ try {
 }
 ```
 
-El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se usa para especificar si se cargará o no un libro de Excel.
 
-* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro—los datos del gráfico no se cargarán ni se actualizarán desde el libro de destino. Puede querer usar esta configuración cuando se encuentra en una situación donde el libro de destino no existe o no está disponible. 
-* Cuando el valor de `ChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de destino.
+El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se utiliza para especificar si se cargará o no un libro de Excel.
 
+* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo — los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible. 
+* Cuando el valor de `ChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -192,16 +203,16 @@ try {
 }
 ```
 
-### **Obtener Ruta del Libro de Datos Externo del Gráfico**
 
-1. Crea una instancia de la [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) clase.
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Crea un objeto para la forma del gráfico.
-1. Crea un objeto para el tipo de fuente (`ChartDataSourceType`) que representa la fuente de datos del gráfico.
-1. Especifica la condición relevante basándote en que el tipo de fuente sea el mismo que el tipo de fuente de datos del libro externo.
+### **Obtener la ruta del libro de trabajo externo de origen de datos de un gráfico**
+
+1. Crea una instancia de la clase [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
+2. Obtenga la referencia de una diapositiva mediante su índice.
+3. Cree un objeto para la forma del gráfico.
+4. Cree un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.
+5. Especifique la condición relevante basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
 
 Este código Java demuestra la operación:
-
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -222,12 +233,12 @@ try {
 }
 ```
 
-### **Editar Datos del Gráfico**
 
-Puedes editar los datos en libros externos de la misma manera que haces cambios en el contenido de libros internos. Cuando un libro externo no puede ser cargado, se lanza una excepción.
+### **Editar datos del gráfico**
+
+Puede editar los datos en libros de trabajo externos de la misma manera que realiza cambios en el contenido de libros de trabajo internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
 
 Este código Java es una implementación del proceso descrito:
-
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -242,3 +253,30 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
+
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); si el origen es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
+
+**¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
+
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es conveniente para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
+
+**¿Puedo usar libros de trabajo ubicados en recursos/redes compartidas?**
+
+Sí, esos libros de trabajo pueden usarse como un origen de datos externo. Sin embargo, la edición de libros de trabajo remotos directamente desde Aspose.Slides no está soportada; solo pueden usarse como origen.
+
+**¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
+
+No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) y lo usa para leer los datos. El archivo externo en sí no se modifica al guardar la presentación.
+
+**¿Qué debo hacer si el archivo externo está protegido con contraseña?**
+
+Aspose.Slides no acepta una contraseña al crear el vínculo. Un enfoque común es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/java/)) y enlazar a esa copia.
+
+**¿Pueden varios gráficos referenciar el mismo libro de trabajo externo?**
+
+Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

@@ -1,37 +1,48 @@
 ---
-title: Autofit-Einstellungen verwalten
+title: "Verbessern Sie Ihre Präsentationen mit AutoFit in Java"
+linktitle: "Autofit-Einstellungen"
 type: docs
 weight: 30
 url: /de/java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
-description: "Stellen Sie die Autofit-Einstellungen für Textboxen in PowerPoint in Java ein"
+keywords:
+- Textfeld
+- automatisches Anpassen
+- Nicht automatisch anpassen
+- Text anpassen
+- Text verkleinern
+- Text umbrechen
+- Formgröße ändern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie die AutoFit‑Einstellungen in Aspose.Slides für Java verwalten, um die Textanzeige in Ihren PowerPoint‑ und OpenDocument‑Präsentationen zu optimieren und die Lesbarkeit von Inhalten zu verbessern."
 ---
 
-Standardmäßig verwendet Microsoft PowerPoint beim Hinzufügen einer Textbox die Einstellung **Form an Text anpassen** für die Textbox – sie passt die Textbox automatisch an, um sicherzustellen, dass der Text immer darin passt.
+Standardmäßig verwendet Microsoft PowerPoint beim Hinzufügen eines Textfelds die Einstellung **Resize shape to fix text** für das Textfeld – es passt die Größe des Textfelds automatisch an, damit sein Text immer hineinpasst. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Wenn der Text in der Textbox länger oder größer wird, vergrößert PowerPoint automatisch die Textbox – erhöht ihre Höhe –, um mehr Text aufzunehmen.
-* Wenn der Text in der Textbox kürzer oder kleiner wird, reduziert PowerPoint automatisch die Textbox – verringert ihre Höhe –, um überflüssigen Platz zu beseitigen.
+* Wenn der Text im Textfeld länger oder größer wird, vergrößert PowerPoint das Textfeld automatisch – es erhöht die Höhe –, sodass mehr Text hineinpassen kann. 
+* Wenn der Text im Textfeld kürzer oder kleiner wird, verringert PowerPoint das Textfeld automatisch – es reduziert die Höhe –, um überflüssigen Platz zu entfernen. 
 
-In PowerPoint sind dies die 4 wichtigen Parameter oder Optionen, die das Autofit-Verhalten für eine Textbox steuern:
+In PowerPoint sind dies die vier wichtigen Parameter bzw. Optionen, die das Autofit‑Verhalten für ein Textfeld steuern: 
 
-* **Nicht anpassen**
-* **Text bei Überlauf verkleinern**
-* **Form an Text anpassen**
-* **Text in der Form umbrechen.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides für Java bietet ähnliche Optionen – einige Eigenschaften der [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) Klasse –, die es Ihnen ermöglichen, das Autofit-Verhalten für Textboxen in Präsentationen zu steuern.
+Aspose.Slides for Java bietet ähnliche Optionen – einige Eigenschaften der Klasse [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) –, mit denen Sie das Autofit‑Verhalten von Textfeldern in Präsentationen steuern können. 
 
-## **Form an Text anpassen**
+## **Formgröße an Text anpassen**
 
-Wenn Sie möchten, dass der Text in einer Box immer in diese Box passt, nachdem Änderungen am Text vorgenommen wurden, müssen Sie die Option **Form an Text anpassen** verwenden. Um diese Einstellung festzulegen, setzen Sie die [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) Eigenschaft (aus der [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) Klasse) auf `Shape`.
+Wenn Sie möchten, dass der Text in einem Feld nach Änderungen immer in dieses Feld passt, müssen Sie die Option **Resize shape to fix text** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) auf `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
-
-Dieser Java-Code zeigt Ihnen, wie Sie angeben, dass ein Text immer in seine Box in einer PowerPoint-Präsentation passen muss:
 
 ```java
 Presentation pres = new Presentation();
@@ -53,15 +64,14 @@ try {
 }
 ```
 
-Wenn der Text länger oder größer wird, wird die Textbox automatisch in der Höhe angepasst, um sicherzustellen, dass der gesamte Text darin passt. Wenn der Text kürzer wird, passiert das Gegenteil.
 
-## **Nicht anpassen**
+Wird der Text länger oder größer, wird das Textfeld automatisch in der Größe angepasst (Höhe erhöht), sodass der gesamte Text hineinpasst. Wird der Text kürzer, geschieht das Gegenteil. 
 
-Wenn Sie möchten, dass eine Textbox oder Form ihre Abmessungen unabhängig von den Änderungen, die am enthaltenen Text vorgenommen werden, beibehält, müssen Sie die Option **Nicht anpassen** verwenden. Um diese Einstellung festzulegen, setzen Sie die [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) Eigenschaft (aus der [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) Klasse) auf `None`.
+## **Nicht automatisch anpassen**
+
+Wenn Sie möchten, dass ein Textfeld oder eine Form ihre Abmessungen unabhängig von Änderungen am enthaltenen Text beibehält, müssen Sie die Option **Do not Autofit** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) auf `None`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
-
-Dieser Java-Code zeigt Ihnen, wie Sie angeben, dass eine Textbox immer ihre Abmessungen in einer PowerPoint-Präsentation beibehalten muss:
 
 ```java
 Presentation pres = new Presentation();
@@ -83,15 +93,14 @@ try {
 }
 ```
 
-Wenn der Text zu lang für seine Box wird, tritt ein Überlauf auf.
+
+Wenn der Text zu lang für sein Feld wird, läuft er heraus. 
 
 ## **Text bei Überlauf verkleinern**
 
-Wenn ein Text zu lang für seine Box wird, können Sie über die Option **Text bei Überlauf verkleinern** angeben, dass die Größe und der Abstand des Textes verringert werden müssen, um in die Box zu passen. Um diese Einstellung festzulegen, setzen Sie die [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) Eigenschaft (aus der [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) Klasse) auf `Normal`.
+Wenn ein Text zu lang für sein Feld wird, können Sie über die Option **Shrink text on overflow** festlegen, dass Größe und Zeilenabstand des Textes reduziert werden, damit er in das Feld passt. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) auf `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
-
-Dieser Java-Code zeigt Ihnen, wie Sie angeben, dass der Text bei Überlauf in einer PowerPoint-Präsentation verkleinert werden muss:
 
 ```java
 Presentation pres = new Presentation();
@@ -113,17 +122,14 @@ try {
 }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Wenn die Option **Text bei Überlauf verkleinern** verwendet wird, wird die Einstellung nur angewendet, wenn der Text zu lang für seine Box wird.
-
+Wenn die Option **Shrink text on overflow** verwendet wird, wird die Einstellung nur angewendet, wenn der Text zu lang für sein Feld wird. 
 {{% /alert %}}
 
 ## **Text umbrechen**
 
-Wenn Sie möchten, dass der Text in einer Form innerhalb dieser Form umbrochen wird, wenn der Text über die Ränder der Form hinausgeht (nur Breite), müssen Sie den Parameter **Text in der Form umbrechen** verwenden. Um diese Einstellung festzulegen, müssen Sie die [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) Eigenschaft (aus der [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) Klasse) auf `true` setzen.
-
-Dieser Java-Code zeigt Ihnen, wie Sie die Wrap-Text-Einstellung in einer PowerPoint-Präsentation verwenden:
+Wenn Sie möchten, dass der Text in einer Form innerhalb dieser Form umbrochen wird, sobald er die Formgrenze (nur Breite) überschreitet, müssen Sie den Parameter **Wrap text in shape** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) auf `true`. 
 
 ```java
 Presentation pres = new Presentation();
@@ -145,8 +151,21 @@ try {
 }
 ```
 
+
 {{% alert title="Hinweis" color="warning" %}} 
-
-Wenn Sie die `WrapText`-Eigenschaft für eine Form auf `False` setzen, wird der Text, der in der Form enthalten ist, wenn er länger als die Breite der Form wird, über die Ränder der Form hinaus verlängert und in einer einzigen Zeile dargestellt.
-
+Wenn Sie die Eigenschaft `WrapText` für eine Form auf `False` setzen, wird der Text, sobald er länger als die Breite der Form ist, über die Formgrenzen hinweg in einer einzigen Zeile fortgesetzt. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Beeinflussen die internen Ränder des Textrahmens das AutoFit?**
+
+Ja. Innenabstände (Padding) verkleinern den nutzbaren Textbereich, sodass AutoFit früher greift – die Schrift wird früher verkleinert oder die Form früher skaliert. Passen Sie die Ränder an, bevor Sie AutoFit einstellen.
+
+**Wie verhält sich AutoFit bei manuellen und weichen Zeilenumbrüchen?**
+
+Erzwungene Umbrüche bleiben bestehen, und AutoFit passt Schriftgröße und Abstand um diese herum an. Das Entfernen unnötiger Umbrüche reduziert oft, wie aggressiv AutoFit den Text verkleinern muss.
+
+**Wirkt sich das Ändern der Designthemen‑Schriftart oder das Auslösen einer Schriftart‑Substitution auf das AutoFit-Ergebnis aus?**
+
+Ja. Das Ersetzen durch eine Schriftart mit anderen Glyph‑Metriken ändert Breite/Höhe des Textes, was die endgültige Schriftgröße und den Zeilenumbruch verändern kann. Nach jeder Schriftart‑Änderung sollten die Folien erneut geprüft werden.

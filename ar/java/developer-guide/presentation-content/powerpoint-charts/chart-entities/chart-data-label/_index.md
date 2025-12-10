@@ -1,17 +1,27 @@
 ---
-title: تسمية بيانات الرسم البياني
+title: إدارة تسميات بيانات المخطط في العروض التقديمية باستخدام Java
+linktitle: تسمية البيانات
 type: docs
 url: /ar/java/chart-data-label/
-keywords: "تسمية بيانات الرسم البياني, مسافة التسمية, Java, Aspose.Slides لـ Java"
-description: "تعيين تسمية بيانات الرسم البياني في PowerPoint ومسافتها في Java"
+keywords:
+- مخطط
+- تسمية البيانات
+- دقة البيانات
+- نسبة مئوية
+- مسافة التسمية
+- موضع التسمية
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخططات في عروض PowerPoint باستخدام Aspose.Slides for Java للحصول على شرائح أكثر جاذبية."
 ---
 
-تظهر تسميات البيانات على الرسم البياني تفاصيل حول سلسلة بيانات الرسم البياني أو نقاط البيانات الفردية. إنها تتيح للقراء التعرف بسرعة على سلسلة البيانات وتساعد أيضًا في جعل الرسوم البيانية أسهل للفهم.
+تُظهر تسميات البيانات في المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تتيح للقراء التعرف بسرعة على سلاسل البيانات وتُسهل فهم المخططات.
 
-## **تعيين دقة البيانات في تسميات بيانات الرسم البياني**
+## **تعيين دقة البيانات في تسميات البيانات بالمخطط**
 
-يوضح هذا الكود بلغة Java كيفية تعيين دقة البيانات في تسمية بيانات الرسم البياني:
-
+هذا الكود بلغة Java يوضح كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,9 +36,10 @@ try {
 }
 ```
 
-## **عرض النسبة المئوية كتسميات**
-تتيح Aspose.Slides لـ Java لك تعيين تسميات النسبة المئوية على الرسوم البيانية المعروضة. يوضح هذا الكود بلغة Java العملية:
 
+## **عرض النسبة المئوية كتسميات**
+
+تتيح Aspose.Slides for Java إمكانية تعيين تسميات النسبة المئوية للمخططات المعروضة. يُظهر هذا الكود بلغة Java العملية:
 ```java
 // إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
@@ -71,24 +82,25 @@ try {
         }
     }
     
-    // حفظ العرض التقديمي الذي يحتوي على الرسم البياني
+    // حفظ العرض التقديمي الذي يحتوي على المخطط
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين علامة النسبة المئوية مع تسميات بيانات الرسم البياني**
-يوضح هذا الكود بلغة Java كيفية تعيين علامة النسبة المئوية لتسمية بيانات الرسم البياني:
 
+## **تعيين علامة النسبة المئوية في تسميات بيانات المخطط**
+
+هذا الكود بلغة Java يوضح كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 ```java
 // إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // الحصول على مرجع إلى شريحة من خلال مؤشرها
+    // الحصول على مرجع الشريحة عبر مؤشرها
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // إنشاء الرسم البياني النسبية المتكدسة على الشريحة
+    // إنشاء مخطط PercentsStackedColumn على شريحة
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
     
     // تعيين NumberFormatLinkedToSource إلى false
@@ -98,17 +110,17 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // الحصول على ورقة عمل بيانات الرسم البياني
+    // الحصول على ورقة عمل بيانات المخطط
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // إضافة سلاسل جديدة
+    // إضافة سلسلة جديدة
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
     
-    // تعيين لون التعبئة للسلسلة
+    // تعيين لون تعبئة السلسلة
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
@@ -121,14 +133,14 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // إضافة سلاسل جديدة
+    // إضافة سلسلة جديدة
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
     
-    // تعيين نوع التعبئة ولونها
+    // تعيين نوع التعبئة واللون
     series2.getFormat().getFill().setFillType(FillType.Solid);
     series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
     series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -138,42 +150,43 @@ try {
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     
-    // كتابة العرض التقديمي على القرص
+    // كتابة العرض التقديمي إلى القرص
     pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين مسافات التسمية من المحور**
-يوضح هذا الكود بلغة Java كيفية تعيين مسافة التسمية من محور الفئة عند التعامل مع رسم بياني موضح من المحاور:
 
+## **تعيين مسافة التسمية عن المحور**
+
+هذا الكود بلغة Java يوضح كيفية تعيين مسافة التسمية عن محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
 ```java
 // إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // الحصول على مرجع إلى شريحة
+    // الحصول على مرجع الشريحة
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // إنشاء رسم بياني على الشريحة
+    // إنشاء مخطط على الشريحة
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // تعيين مسافة التسمية من محور
+    // تعيين مسافة التسمية عن محور
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
-    // كتابة العرض التقديمي على القرص
+    // كتابة العرض التقديمي إلى القرص
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعديل موقع التسمية**
 
-عند إنشاء رسم بياني لا يعتمد على أي محور مثل الرسم البياني الدائري، قد تكون تسميات بيانات الرسم البياني قريبة جدًا من حافته. في هذه الحالة، يتعين عليك ضبط موقع تسمية البيانات بحيث يتم عرض خطوط القادة بوضوح.
+## **ضبط موضع التسمية**
 
-يوضح هذا الكود بلغة Java كيفية تعديل موقع التسمية على الرسم البياني الدائري:
+عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات قريبة جدًا من حافته. في هذه الحالة، يجب ضبط موضع التسمية بحيث تُعرَض خطوط القائد بوضوح.
 
+هذا الكود بلغة Java يوضح كيفية ضبط موقع التسمية في مخطط الفطيرة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,4 +206,19 @@ try {
 }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
+
+استخدم وضعية وضع تلقائي للتسميات، وخطوط القائد، وتقليل حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/الرئيسية.
+
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
+
+قم بفلترة نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفق قاعدة محددة.
+
+**كيف أضمن نمط تسمية ثابت عند تصدير إلى PDF/صور؟**
+
+حدد الخطوط صراحةً (العائلة، الحجم) وتَحقق من توفر الخط على جانب العرض لتجنب الاستخدام الاحتياطي.

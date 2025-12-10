@@ -1,21 +1,30 @@
 ---
-title: إدارة الخلايا
+title: إدارة خلايا الجدول في العروض التقديمية باستخدام Java
+linktitle: إدارة الخلايا
 type: docs
 weight: 30
 url: /ar/java/manage-cells/
-keywords: "جدول, خلايا مدمجة, خلايا مقسمة, صورة في خلية الجدول, جافا, Aspose.Slides لجافا"
-description: "خلايا الجدول في عروض PowerPoint التقديمية في جافا"
+keywords:
+- خلية جدول
+- دمج خلايا
+- إزالة حد
+- تقسيم خلية
+- صورة في خلية
+- لون الخلفية
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "قم بإدارة خلايا الجدول في PowerPoint بسهولة باستخدام Aspose.Slides للغة Java. احكم الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لتحقيق أتمتة سلسة للشرائح."
 ---
 
-
 ## **تحديد خلية جدول مدمجة**
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. الحصول على الجدول من الشريحة الأولى. 
-3. التكرار عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. الحصول على الجدول من الشريحة الأولى.
+3. تكرار الصفوف والأعمدة في الجدول للعثور على الخلايا المدمجة.
 4. طباعة رسالة عند العثور على خلايا مدمجة.
 
-يوضح كود جافا هذا كيفية تحديد خلايا الجدول المدمجة في عرض تقديمي:
-
+يظهر لك هذا الكود بلغة Java كيفية تحديد الخلايا المدمجة في جدول داخل عرض تقديمي:
 ```java
 Presentation pres = new Presentation("SomePresentationWithTable.pptx");
 try {
@@ -27,7 +36,7 @@ try {
             ICell currentCell = table.getRows().get_Item(i).get_Item(j);
             if (currentCell.isMergedCell())
             {
-                System.out.println(String.format("الخلايا %d;%d هي جزء من خلية مدمجة مع RowSpan=%d و ColSpan=%d تبدأ من الخلية %d;%d.",
+                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
                         i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
             }
         }
@@ -37,32 +46,32 @@ try {
 }
 ```
 
-## **إزالة حدود خلايا الجدول**
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها. 
-3. تعريف مصفوفة من الأعمدة بعرض.
-4. تعريف مصفوفة من الصفوف بارتفاع.
-5. إضافة جدول إلى الشريحة من خلال طريقة [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. التكرار عبر كل خلية لمسح الحدود العلوية والسفلية واليمنى واليسرى.
+
+## **إزالة حدود خلية الجدول**
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
+3. تحديد مصفوفة الأعمدة مع العرض.
+4. تحديد مصفوفة الصفوف مع الارتفاع.
+5. إضافة جدول إلى الشريحة عبر طريقة [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
+6. التكرار عبر كل خلية لإزالة الحدود العليا والسفلى واليمين واليسار.
 7. حفظ العرض التقديمي المعدل كملف PPTX.
 
-يوضح كود جافا هذا كيفية إزالة الحدود من خلايا الجدول:
-
+يعرض لك هذا الكود بلغة Java كيفية إزالة الحدود من خلايا الجدول:
 ```java
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     Slide sld = (Slide)pres.getSlides().get_Item(0);
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاع
+    // يعرف الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
-    // إضافة شكل الجدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -74,31 +83,31 @@ try {
         }
     }
 
-    // كتابة PPTX إلى القرص
+    // يحفظ ملف PPTX على القرص
     pres.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **ترقيم في خلايا مدمجة**
-إذا قمنا بدمج زوجين من الخلايا (1, 1) × (2, 1) و (1, 2) × (2, 2)، سيكون الجدول الناتج مرقمًا. يتناول كود جافا هذا العملية:
 
+## **الترقيم في الخلايا المدمجة**
+إذا دمجنا زوجين من الخلايا (1, 1) × (2, 1) و (1, 2) × (2, 2)، سيتم ترقيم الجدول الناتج. يوضح هذا الكود بلغة Java العملية:
 ```java
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // الوصول إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاع
+    // يعرف الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل الجدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -121,10 +130,10 @@ try {
         }
     }
 
-    // دمج الخلايا (1, 1) × (2, 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
@@ -133,23 +142,23 @@ try {
 }
 ```
 
-ثم نقوم بدمج الخلايا بشكل أكبر عن طريق دمج (1, 1) و (1, 2). النتيجة هي جدول يحتوي على خلية مدمجة كبيرة في وسطه:
 
+بعد ذلك نقوم بدمج الخلايا أكثر بدمج (1, 1) و (1, 2). النتيجة هي جدول يحتوي على خلية مدمجة كبيرة في مركزه:
 ```java
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاع
+    // يحدد الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل الجدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -172,44 +181,44 @@ try {
         }
     }
 
-    // دمج الخلايا (1, 1) × (2, 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
-    // دمج الخلايا (1, 1) × (1, 2)
+    // يدمج الخلايا (1, 1) x (1, 2)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	// كتابة ملف PPTX إلى القرص
+	
+	//يحفظ ملف PPTX على القرص
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **ترقيم في خلية مقسمة**
-في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير النظام العددي في خلايا أخرى. 
 
-هذه المرة، نحن نأخذ جدولًا عاديًا (جدولًا بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1,1) للحصول على جدول خاص. قد ترغب في الانتباه إلى ترقيم هذا الجدول، والذي قد يعتبر غريبًا. ومع ذلك، هذه هي الطريقة التي يقوم بها Microsoft PowerPoint بترقيم خلايا الجدول وتقوم Aspose.Slides بنفس الشيء.
+## **الترقيم في خلية مقسمة**
+في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير نظام الترقيم في الخلايا الأخرى.
 
-يوضح كود جافا هذا العملية التي وصفناها:
+هذه المرة، نأخذ جدولًا عاديًا (جدول بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1,1) للحصول على جدول خاص. قد ترغب في إيلاء اهتمام للترقيم في هذا الجدول، الذي قد يبدو غريبًا. ومع ذلك، هذه هي الطريقة التي يقوم بها Microsoft PowerPoint بترقيم خلايا الجداول، وتقوم Aspose.Slides بالأمر نفسه.
 
+يظهر لك هذا الكود بلغة Java العملية التي وصفناها:
 ```java
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاع
+    // يحدد الأعمدة بأعرضها والصفوف بأارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل الجدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -232,26 +241,25 @@ try {
         }
     }
 
-    // دمج الخلايا (1, 1) × (2, 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
-    // تقسيم الخلية (1, 1)
+    // يقسم الخلية (1, 1)
     tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
 
-    // كتابة ملف PPTX إلى القرص
+    // يحفظ ملف PPTX على القرص
     pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **تغيير لون خلفية خلية الجدول**
-
-يوضح كود جافا هذا كيفية تغيير لون خلفية خلية الجدول:
-
+يعرض لك هذا الكود بلغة Java كيفية تغيير لون خلفية خلية الجدول:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -263,7 +271,7 @@ try {
     // إنشاء جدول جديد
     ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // تعيين لون الخلفية لخلية 
+    // تعيين لون الخلفية للخلية 
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -274,33 +282,32 @@ try {
 }
 ```
 
-## **إضافة صورة داخل خلية الجدول**
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. تعريف مصفوفة من الأعمدة بعرض.
-4. تعريف مصفوفة من الصفوف بارتفاع.
-5. إضافة جدول إلى الشريحة من خلال طريقة [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. إنشاء كائن `Images` لحفظ ملف الصورة.
-7. إضافة الصورة `IImage` إلى كائن `IPPImage`.
-8. تعيين `FillFormat` لخلية الجدول إلى `صورة`.
-9. إضافة الصورة إلى أول خلية في الجدول.
-10. حفظ العرض التقديمي المعدل كملف PPTX.
+## **إضافة صورة داخل خلية جدول**
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
+3. تحديد مصفوفة الأعمدة مع العرض.
+4. تحديد مصفوفة الصفوف مع الارتفاع.
+5. إضافة جدول إلى الشريحة عبر طريقة [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
+6. إنشاء كائن `Images` لاحتواء ملف الصورة.
+7. إضافة صورة `IImage` إلى كائن `IPPImage`.
+8. ضبط `FillFormat` لخلية الجدول إلى `Picture`.
+9. إضافة الصورة إلى الخلية الأولى في الجدول.
+10. حفظ العرض التقديمي المعدل كملف PPTX
 
-يوضح كود جافا هذا كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
-
+يعرض لك هذا الكود بلغة Java كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
 ```java
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide islide = pres.getSlides().get_Item(0);
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاع
+    // يحدد الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = {150, 150, 150, 150};
     double[] dblRows = {100, 100, 100, 100, 90};
 
-    // إضافة شكل الجدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
 
     // إنشاء كائن IPPImage باستخدام ملف الصورة
@@ -312,16 +319,34 @@ try {
         if (image != null) image.dispose();
     }
 
-    // إضافة الصورة إلى أول خلية في الجدول
+    // يضيف الصورة إلى أول خلية في الجدول
     ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
     cellFormat.getFillFormat().setFillType(FillType.Picture);
     cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
     cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // حفظ ملف PPTX إلى القرص
+    // يحفظ ملف PPTX على القرص
     pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+**هل يمكنني ضبط سماكات خطوط وأنماط مختلفة لجوانب مختلفة من خلية واحدة؟**
+
+نعم. حدود الـ [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) لها خصائص منفصلة، لذلك يمكن أن تختلف سماكة ونمط كل جانب. هذا منطقي بناءً على التحكم في حدود كل جانب للخلية كما هو موضح في المقال.
+
+**ماذا يحدث للصورة إذا قمت بتغيير حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
+
+السلوك يعتمد على [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (تمديد/تبليط). عند التمديد، تتكيف الصورة مع الخلية الجديدة؛ عند التبليط، تُعاد حساب البلاط. يذكر المقال أوضاع عرض الصورة داخل الخلية.
+
+**هل يمكنني تعيين ارتباط تشعبي لكامل محتوى الخلية؟**
+
+يتم تعيين [Hyperlinks](/slides/ar/java/manage-hyperlinks/) على مستوى النص (القطعة) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، تقوم بتعيين الرابط إلى قطعة أو إلى كل النص داخل الخلية.
+
+**هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
+
+نعم. يدعم إطار نص الخلية [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (تشغيلات) تنسيقًا مستقلاً — عائلة الخط، النمط، الحجم، واللون.

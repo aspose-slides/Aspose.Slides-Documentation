@@ -1,37 +1,51 @@
 ---
-title: Анимированные графики
+title: Анимация диаграмм PowerPoint на Java
+linktitle: Анимированные диаграммы
 type: docs
 weight: 80
 url: /ru/java/animated-charts/
+keywords:
+- диаграмма
+- анимированная диаграмма
+- анимация диаграммы
+- серия диаграммы
+- категория диаграммы
+- элемент серии
+- элемент категории
+- добавить эффект
+- тип эффекта
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Создайте впечатляющие анимированные диаграммы на Java с помощью Aspose.Slides. Улучшите презентации динамичной визуализацией в файлах PPT и PPTX — начните сейчас."
 ---
-
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides для Java поддерживает анимацию элементов графиков. **Серии**, **Категории**, **Элементы Серий**, **Элементы Категорий** могут быть анимированы с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for Java поддерживает анимацию элементов диаграммы. **Series**, **Categories**, **Series Elements**, **Categories Elements** можно анимировать с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
-## **Анимация серий графика**
-Если вы хотите анимировать серию графика, напишите код в соответствии с перечисленными ниже шагами:
+## **Chart Series Animation**
+Если вы хотите анимировать серию диаграммы, напишите код согласно шагам, перечисленным ниже:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте серию.
-1. Запишите файл презентации на диск.
+1. Загрузите презентацию.  
+1. Получите ссылку на объект диаграммы.  
+1. Анимируйте серию.  
+1. Сохраните файл презентации на диск.  
 
-В приведенном ниже примере мы анимировали серии графика.
-
+В приведённом ниже примере мы анимировали серию диаграммы.  
 ```java
-// Создайте класс Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект графика
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте серию
+    // Анимировать серию
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
 
@@ -51,30 +65,30 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите измененную презентацию на диск
+    // Сохранить изменённую презентацию на диск
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Анимация категории графика**
-Если вы хотите анимировать категорию графика, напишите код в соответствии с перечисленными ниже шагами:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте категорию.
-1. Запишите файл презентации на диск.
+## **Chart Category Animation**
+Если вы хотите анимировать категорию диаграммы, напишите код согласно шагам, перечисленным ниже:
 
-В приведенном ниже примере мы анимировали категорию графика.
+1. Загрузите презентацию.  
+1. Получите ссылку на объект диаграммы.  
+1. Анимируйте категорию.  
+1. Сохраните файл презентации на диск.  
 
+В приведённом ниже примере мы анимировали категорию диаграммы.  
 ```java
-// Создайте класс Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0);
+    IChart chart = (IChart) shapes.get_Item(0");
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -101,26 +115,26 @@ try {
 }
 ```
 
-## **Анимация в элементе серии**
-Если вы хотите анимировать элементы серии, напишите код в соответствии с перечисленными ниже шагами:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте элементы серии.
-1. Запишите файл презентации на диск.
+## **Animation in a Series Element**
+Если вы хотите анимировать элементы серии, напишите код согласно шагам, перечисленным ниже:
 
-В приведенном ниже примере мы анимировали элементы серий.
+1. Загрузите презентацию.  
+1. Получите ссылку на объект диаграммы.  
+1. Анимируйте элементы серии.  
+1. Сохраните файл презентации на диск.  
 
+В приведённом ниже примере мы анимировали элементы серии.  
 ```java
-// Создайте класс Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект графика
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте элементы серий
+    // Анимировать элементы серии
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
@@ -150,33 +164,33 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите файл презентации на диск 
+    // Записать файл презентации на диск 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Анимация в элементе категории**
-Если вы хотите анимировать элементы категорий, напишите код в соответствии с перечисленными ниже шагами:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте элементы категорий.
-1. Запишите файл презентации на диск.
+## **Animation in a Category Element**
+Если вы хотите анимировать элементы категорий, напишите код согласно шагам, перечисленным ниже:
 
-В приведенном ниже примере мы анимировали элементы категорий.
+1. Загрузите презентацию.  
+1. Получите ссылку на объект диаграммы.  
+1. Анимируйте элементы категорий.  
+1. Сохраните файл презентации на диск.  
 
+В приведённом ниже примере мы анимировали элементы категорий.  
 ```java
-// Создайте класс Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект графика
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте элементы категорий
+    // Анимировать элементы категорий
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
@@ -205,9 +219,32 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите файл презентации на диск
+    // Записать файл презентации на диск
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Поддерживаются ли разные типы эффектов (например, появление, акцент, исчезновение) для диаграмм так же, как для обычных фигур?**  
+
+Да. Диаграмма рассматривается как фигура, поэтому поддерживает стандартные типы анимационных эффектов, включая появление, акцент и исчезновение, с полным контролем через шкалу времени слайда и последовательности анимаций.
+
+**Можно ли сочетать анимацию диаграммы с переходами слайдов?**  
+
+Да. [Transitions](/slides/ru/java/slide-transition/) применяются к слайду, в то время как анимационные эффекты применяются к объектам на слайде. Вы можете использовать их одновременно в одной презентации и управлять ими независимо.
+
+**Сохраняются ли анимации диаграмм при сохранении в PPTX?**  
+
+Да. При [save to PPTX](/slides/ru/java/save-presentation/) все анимационные эффекты и их порядок сохраняются, поскольку они являются частьюnative‑модели анимации презентации.
+
+**Можно ли прочитать существующие анимации диаграмм из презентации и изменить их?**  
+
+Да. API предоставляет доступ к шкале времени слайда, последовательностям и эффектам, позволяя исследовать существующие анимации диаграмм и корректировать их без необходимости воссоздавать всё заново.
+
+**Можно ли создать видео, включающее анимацию диаграмм, используя Aspose.Slides?**  
+
+Да. Вы можете [export a presentation to video](/slides/ru/java/convert-powerpoint-to-video/) с сохранением анимаций, настроив тайминги и другие параметры экспорта, чтобы полученный ролик отражал анимированное воспроизведение.

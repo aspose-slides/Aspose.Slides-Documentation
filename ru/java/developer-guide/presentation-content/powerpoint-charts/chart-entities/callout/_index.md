@@ -1,12 +1,22 @@
 ---
-title: Вызов
+title: Управление выносками в диаграммах презентаций с помощью Java
+linktitle: Выноска
 type: docs
 url: /ru/java/callout/
+keywords:
+- выноска диаграммы
+- использование выноски
+- метка данных
+- формат метки
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Создавайте и стилизуйте выноски в Aspose.Slides для Java с помощью лаконичных примеров кода, совместимых с PPT и PPTX, для автоматизации рабочих процессов презентаций."
 ---
 
-## **Использование вызовов**
-В класс [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) и интерфейс [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat) добавлены новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-). Эти методы определяют, будет ли заданная метка данных диаграммы отображаться как вызов данных или как метка данных.
-
+## **Использование выносков**
+Новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) добавлены в класс [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) и интерфейс [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Эти методы определяют, будет ли указанная метка данных диаграммы отображаться как выноска или как метка данных.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +32,9 @@ try {
 }
 ```
 
-## **Установка вызова для кольцевой диаграммы**
-Aspose.Slides для Java предоставляет поддержку установки формы вызова метки данных серии для кольцевой диаграммы. Пример приведен ниже.
 
+## **Установить выноску для кольцевой диаграммы**
+Aspose.Slides for Java предоставляет возможность задавать форму выноски метки данных серии для кольцевой диаграммы. Ниже приведён пример.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +47,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "СЕРИЯ " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +56,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "КАТЕГОРИЯ " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +96,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли выноски при конвертации презентации в PDF, HTML5, SVG или изображения?**
+
+Да. Выноски являются частью рендеринга диаграммы, поэтому при экспорте в [PDF](/slides/ru/java/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/java/export-to-html5/), [SVG](/slides/ru/java/render-a-slide-as-an-svg-image/) или [растровые изображения](/slides/ru/java/convert-powerpoint-to-png/), они сохраняются вместе с форматированием слайда.
+
+**Работают ли пользовательские шрифты в выносках, и может ли их внешний вид сохраняться при экспорте?**
+
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/java/embedded-font/) в презентацию и управляет встраиванием шрифтов при экспорте, например в [PDF](/slides/ru/java/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид выносков на разных системах.

@@ -1,38 +1,50 @@
 ---
-title: オートフィット設定の管理
+title: Java で AutoFit を使用してプレゼンテーションを強化する
+linktitle: AutoFit 設定
 type: docs
 weight: 30
 url: /ja/java/manage-autofit-settings/
-keywords: "テキストボックス, オートフィット, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaにおけるPowerPointのテキストボックスに対するオートフィット設定を行います"
+keywords:
+- テキストボックス
+- AutoFit
+- 自動サイズ調整しない
+- テキストに合わせる
+- テキストを縮小
+- テキストを折り返す
+- 図形のサイズを変更
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java で AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションのテキスト表示を最適化してコンテンツの可読性を向上させる方法を学びます。"
 ---
 
-デフォルトでは、テキストボックスを追加すると、Microsoft PowerPointはテキストボックスに対して**テキストに合わせて図形をリサイズ**設定を使用します。つまり、テキストボックスは常にその中にテキストが収まるように自動的にサイズが変更されます。
+既定では、テキストボックスを追加すると、Microsoft PowerPoint はテキストボックスに対して **テキストに合わせて図形のサイズを変更** 設定を使用します。テキストが常に収まるようにテキストボックスのサイズを自動的に調整します。
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* テキストボックス内のテキストが長くなったり大きくなったりした場合、PowerPointは自動的にテキストボックスを拡大し（高さを増加させ）、より多くのテキストを収めることができるようにします。
-* テキストボックス内のテキストが短くなったり小さくなったりした場合、PowerPointは自動的にテキストボックスを減少させ（高さを減少させ）、余分なスペースをクリアします。
+* テキストボックス内のテキストが長くまたは大きくなると、PowerPoint はテキストボックスを自動的に拡大（高さを増加）し、より多くのテキストを保持できるようにします。
+* テキストボックス内のテキストが短くまたは小さくなると、PowerPoint はテキストボックスを自動的に縮小（高さを減少）し、余分なスペースを削除します。
 
-PowerPointでは、テキストボックスのオートフィット動作を制御するための4つの重要なパラメーターまたはオプションがあります：
+PowerPoint では、テキストボックスの自動調整動作を制御する重要な 4 つのパラメータまたはオプションがあります。
 
-* **オートフィットしない**
+* **自動サイズ調整しない**
 * **オーバーフロー時にテキストを縮小**
-* **テキストに合わせて図形をリサイズ**
-* **形状内でテキストを折り返す**
+* **テキストに合わせて図形のサイズを変更**
+* **図形内でテキストを折り返す**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Javaは、プレゼンテーション内のテキストボックスに対するオートフィット動作を制御するための同様のオプションを提供します—[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)クラスのいくつかのプロパティです。 
+Aspose.Slides for Java は同様のオプション（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) クラスの一部プロパティ）を提供し、プレゼンテーション内のテキストボックスに対する自動調整動作を制御できます。
 
-## **テキストに合わせて図形をリサイズ**
+## **テキストに合わせて図形のサイズを変更**
 
-テキストが変更された後も、ボックス内のテキストが常にそのボックスに収まるようにするには、**テキストに合わせて図形をリサイズ**オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)クラスの）を`Shape`に設定します。
+テキストを変更した後もテキストが常にボックス内に収まるようにしたい場合は、**テキストに合わせて図形のサイズを変更** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) クラス）を `Shape` に設定します。
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-このJavaコードは、PowerPointプレゼンテーション内のテキストが常にそのボックスに収まるように指定する方法を示しています：
-
+この Java コードは、PowerPoint プレゼンテーションでテキストが常にボックスに収まるように指定する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,16 +65,16 @@ try {
 }
 ```
 
-テキストが長くなったり大きくなったりすると、テキストボックスは自動的にサイズが変更され（高さが増加する）、すべてのテキストが収まることを確保します。テキストが短くなると、逆のことが起こります。
 
-## **オートフィットしない**
+テキストが長くまたは大きくなると、テキストボックスは自動的にサイズ変更（高さを増加）され、すべてのテキストが収まるようになります。テキストが短くなると、逆の動作が行われます。
 
-テキストボックスや図形がその内容にかかわらず、その寸法を維持するようにしたい場合は、**オートフィットしない**オプションを使用しなければなりません。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)クラスの）を`None`に設定します。
+## **自動サイズ調整しない**
+
+テキストの変更に関係なくテキストボックスまたは図形のサイズを保持したい場合は、**自動サイズ調整しない** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) クラス）を `None` に設定します。
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-このJavaコードは、PowerPointプレゼンテーション内のテキストボックスが常にその寸法を維持するように指定する方法を示しています：
-
+この Java コードは、PowerPoint プレゼンテーションでテキストボックスが常にサイズを保持するように指定する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,16 +95,16 @@ try {
 }
 ```
 
-テキストがボックス内で長すぎる場合、テキストははみ出します。
+
+テキストがボックスに対して長すぎると、はみ出します。
 
 ## **オーバーフロー時にテキストを縮小**
 
-テキストがボックス内で長すぎる場合、**オーバーフロー時にテキストを縮小**オプションを使用すると、テキストのサイズと間隔を減少させてボックスに収めることができます。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)クラスの）を`Normal`に設定します。
+テキストがボックスに対して長すぎる場合、**オーバーフロー時にテキストを縮小** オプションにより、テキストのサイズと間隔を縮小してボックスに収めるよう指定できます。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) クラス）を `Normal` に設定します。
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-このJavaコードは、PowerPointプレゼンテーション内のテキストがオーバーフロー時に縮小されるように指定する方法を示しています：
-
+この Java コードは、PowerPoint プレゼンテーションでテキストをオーバーフロー時に縮小するように指定する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -113,18 +125,16 @@ try {
 }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-**オーバーフロー時にテキストを縮小**オプションが使用されるとき、設定はテキストがボックス内で長すぎるときのみ適用されます。 
-
+{{% alert title="Info" color="info" %}}
+**オーバーフロー時にテキストを縮小** オプションが使用されると、テキストがボックスに対して長すぎる場合にのみ設定が適用されます。
 {{% /alert %}}
 
 ## **テキストを折り返す**
 
-テキストが形状の境界を超えたときに、その形状内でテキストが折り返されるようにしたい場合は、**形状内でテキストを折り返す**パラメーターを使用する必要があります。この設定を指定するには、[WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)クラスの）を`true`に設定する必要があります。
+テキストが形状の枠（幅）を超えたときに、形状内でテキストを折り返したい場合は、**図形内でテキストを折り返す** パラメータを使用する必要があります。この設定を指定するには、[WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) クラス）を `true` に設定します。
 
-このJavaコードは、PowerPointプレゼンテーション内でテキストを折り返す設定を使用する方法を示しています：
-
+この Java コードは、PowerPoint プレゼンテーションでテキスト折り返し設定を使用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -145,8 +155,21 @@ try {
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-形状に対して`WrapText`プロパティを`False`に設定した場合、形状内のテキストが形状の幅より長くなると、テキストは単一行で形状の境界を超えて延長されます。 
-
+{{% alert title="Note" color="warning" %}}
+形状の `WrapText` プロパティを `False` に設定すると、形状内のテキストが幅を超えた場合、テキストは単一行で形状の境界を超えて延長されます。
 {{% /alert %}}
+
+## **FAQ**
+
+**テキスト フレームの内部余白は AutoFit に影響しますか？**
+
+はい。パディング（内部余白）はテキストの使用可能領域を減らすため、AutoFit が早めに作動し、フォントを縮小したり図形を再サイズしたりします。AutoFit を調整する前に余白を確認・調整してください。
+
+**AutoFit は手動およびソフト改行とどのように連動しますか？**
+
+強制改行はそのまま保持され、AutoFit はそれらの周囲でフォントサイズと間隔を調整します。不要な改行を削除すると、AutoFit がテキストを縮小する度合いが緩和されることが多いです。
+
+**テーマフォントの変更やフォント置換は AutoFit の結果に影響しますか？**
+
+はい。異なる字形メトリクスを持つフォントに置換すると、テキストの幅や高さが変わり、最終的なフォントサイズや改行に影響します。フォント変更や置換を行った後は、スライドを再確認してください。

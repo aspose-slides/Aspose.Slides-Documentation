@@ -1,38 +1,50 @@
 ---
-title: إدارة إعدادات التكييف التلقائي
+title: حسّن عروضك التقديمية باستخدام AutoFit في Java
+linktitle: إعدادات AutoFit
 type: docs
 weight: 30
 url: /ar/java/manage-autofit-settings/
-keywords: "مربع النص، تكييف تلقائي، عرض بوربوينت، جافا، Aspose.Slides لـ Java"
-description: "قم بتعيين إعدادات التكييف التلقائي لمربع النص في PowerPoint باستخدام جافا"
+keywords:
+- مربع نص
+- AutoFit
+- عدم AutoFit
+- تناسب النص
+- تصغير النص
+- لف النص
+- تحجيم الشكل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "تعرف على كيفية إدارة إعدادات AutoFit في Aspose.Slides for Java لتحسين عرض النص في عروض PowerPoint وOpenDocument وتحسين قابلية قراءة المحتوى."
 ---
 
-بشكل افتراضي، عندما تضيف مربع نص، يستخدم Microsoft PowerPoint إعداد **تغيير حجم الشكل ليتناسب مع النص** لمربع النص—حيث يقوم بتغيير حجم مربع النص تلقائيًا لضمان أن النص دائمًا يتناسب معه.
+بشكل افتراضي، عند إضافة مربع نص، يستخدم Microsoft PowerPoint الإعداد **Resize shape to fix text** لمربع النص—يقوم تلقائيًا بتغيير حجم مربع النص لضمان أن النص دائمًا يتناسب معه. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* عندما يصبح النص في مربع النص أطول أو أكبر، يقوم PowerPoint بتكبير مربع النص تلقائيًا—يزيد ارتفاعه—ليسمح له بحمل المزيد من النص.
-* عندما يصبح النص في مربع النص أقصر أو أصغر، يقوم PowerPoint بتقليص مربع النص تلقائيًا—يقلل ارتفاعه—لتفريغ المساحة الزائدة.
+* عندما يصبح النص داخل مربع النص أطول أو أكبر، يقوم PowerPoint تلقائيًا بتوسيع مربع النص—يزيد ارتفاعه—للسماح له بحمل نص أكثر. 
+* عندما يصبح النص داخل مربع النص أقصر أو أصغر، يقوم PowerPoint تلقائيًا بتقليل مربع النص—يقلل ارتفاعه—لإزالة المسافة الزائدة. 
 
-في PowerPoint، هذه هي 4 معلمات أو خيارات مهمة تتحكم في سلوك التكييف التلقائي لمربع النص:
+في PowerPoint، هذه هي المعلمات أو الخيارات الأربعة المهمة التي تتحكم في سلوك الـ Autofit لمربع النص: 
 
-* **عدم التكييف التلقائي**
-* **تقليص النص عند تجاوز الحجم**
-* **تغيير حجم الشكل ليتناسب مع النص**
-* **تغليف النص داخل الشكل.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-توفر Aspose.Slides لـ Java خيارات مشابهة—بعض الخصائص تحت فئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)—التي تتيح لك التحكم في سلوك التكييف التلقائي لمربعات النص في العروض التقديمية.
+يوفر Aspose.Slides for Java خيارات مشابهة—بعض الخصائص ضمن الفئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)—التي تسمح لك بالتحكم في سلوك Autofit لمربعات النص في العروض التقديمية. 
 
-## **تغيير حجم الشكل ليتناسب مع النص**
+## **تحجيم الشكل لتناسب النص**
 
-إذا كنت ترغب في أن يتناسب النص في مربع دائمًا داخل هذا المربع بعد إجراء تغييرات على النص، عليك استخدام خيار **تغيير حجم الشكل ليتناسب مع النص**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `Shape`.
+إذا كنت تريد أن يتناسب النص داخل الصندوق دائمًا مع ذلك الصندوق بعد إجراء تغييرات على النص، عليك استخدام خيار **Resize shape to fix text**. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من الفئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-هذا الكود بلغة جافا يظهر لك كيفية تحديد أن النص يجب أن يتناسب دائمًا مع صندوقه في عرض بوربوينت:
-
+يعرض لك هذا الكود بلغة Java كيفية تحديد أن النص يجب أن يتناسب دائمًا مع صندوقه في عرض PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,16 +65,16 @@ try {
 }
 ```
 
-إذا أصبح النص أطول أو أكبر، سيتم تغيير حجم مربع النص تلقائيًا (زيادة الارتفاع) لضمان أن كل النص يتناسب معه. إذا أصبح النص أقصر، يحدث العكس.
 
-## **عدم التكييف التلقائي**
+إذا أصبح النص أطول أو أكبر، سيتم تعديل حجم مربع النص تلقائيًا (زيادة في الارتفاع) لضمان أن كل النص يتناسب معه. إذا أصبح النص أقصر، يحدث العكس. 
 
-إذا كنت ترغب في أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تطرأ على النص الذي يحتويه، عليك استخدام خيار **عدم التكييف التلقائي**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `None`.
+## **Do Not Autofit**
+
+إذا كنت تريد أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تُجرى على النص المحتوى فيه، عليك استخدام خيار **Do not Autofit**. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من الفئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `None`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-هذا الكود بلغة جافا يظهر لك كيفية تحديد أن مربع النص يجب أن يحتفظ دائمًا بأبعاده في عرض بوربوينت:
-
+يعرض لك هذا الكود بلغة Java كيفية تحديد أن مربع النص يجب أن يحتفظ بأبعاده دائمًا في عرض PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,16 +95,16 @@ try {
 }
 ```
 
-عندما يصبح النص طويلاً جداً بالنسبة لمربعه، فإنه يتجاوز الحدود.
 
-## **تقليص النص عند تجاوز الحجم**
+عندما يصبح النص طويلًا جدًا بالنسبة للصندوق، يخرج خارج الصندوق. 
 
-إذا أصبح النص طويلًا جدًا لمربعه، من خلال خيار **تقليص النص عند تجاوز الحجم**، يمكنك تحديد أن يتم تقليل حجم النص وتباعده ليكون ملائماً داخل صندوقه. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `Normal`.
+## **Shrink Text on Overflow**
+
+إذا أصبح النص طويلًا جدًا بالنسبة للصندوق، من خلال خيار **Shrink text on overflow**، يمكنك تحديد أن حجم النص وتباعده يجب أن يُقلص لجعله يتناسب مع الصندوق. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (من الفئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-هذا الكود بلغة جافا يظهر لك كيفية تحديد أن النص يجب أن يتقلص عند تجاوز الحجم في عرض بوربوينت:
-
+يعرض لك هذا الكود بلغة Java كيفية تحديد أن النص يجب أن يُقلص عند الفائض في عرض PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -113,18 +125,16 @@ try {
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-عندما يتم استخدام خيار **تقليص النص عند تجاوز الحجم**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا بالنسبة لمربعه.
-
+{{% alert title="Info" color="info" %}}
+عند استخدام خيار **Shrink text on overflow**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا بالنسبة للصندوق. 
 {{% /alert %}}
 
-## **تغليف النص**
+## **Wrap Text**
 
-إذا كنت ترغب في أن يتم تغليف النص داخل شكل ما عندما يتجاوز النص حدود الشكل (العرض فقط)، عليك استخدام معلمة **تغليف النص داخل الشكل**. لتحديد هذا الإعداد، عليك تعيين خاصية [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `true`.
+إذا كنت تريد أن يلتف النص داخل الشكل عندما يتجاوز النص حدود الشكل (العرض فقط)، عليك استخدام معلمة **Wrap text in shape**. لتحديد هذا الإعداد، يجب تعيين الخاصية [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) (من الفئة [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) إلى `true`. 
 
-هذا الكود بلغة جافا يظهر لك كيفية استخدام إعداد تغليف النص في عرض بوربوينت:
-
+يعرض لك هذا الكود بلغة Java كيفية استخدام إعداد Wrap Text في عرض PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -145,8 +155,21 @@ try {
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-إذا قمت بتعيين خاصية `WrapText` إلى `False` لشكل ما، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يتم تمديد النص إلى ما وراء حدود الشكل في سطر واحد فقط.
-
+{{% alert title="Note" color="warning" %}} 
+إذا قمت بتعيين الخاصية `WrapText` إلى `False` لشكل ما، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يتم تمديد النص خارج حدود الشكل على سطر واحد. 
 {{% /alert %}}
+
+## **FAQ**
+
+**هل تؤثر الهوامش الداخلية لإطار النص على AutoFit؟**
+
+نعم. تقليل الحشوة (الهوامش الداخلية) مساحة النص القابلة للاستخدام، لذلك سيبدأ AutoFit في العمل مبكرًا—بتصغير الخط أو تعديل حجم الشكل أسرع. تحقق من الهوامش واضبطها قبل تحسين AutoFit.  
+
+**كيف يتفاعل AutoFit مع الفواصل السطرية اليدوية والمرنة؟**
+
+تبقى الفواصل القسرية في مكانها، ويتكيف AutoFit مع حجم الخط والتباعد حولها. إزالة الفواصل غير الضرورية غالبًا ما يقلل من شدة تقليص النص بواسطة AutoFit.  
+
+**هل يؤدي تغيير خط السمة أو تفعيل استبدال الخط إلى تأثير نتائج AutoFit؟**
+
+نعم. استبدال الخط إلى خط بخصائص تشكيل مختلفة يغير عرض/ارتفاع النص، مما قد يغيّر حجم الخط النهائي وتغليف السطر. بعد أي تغيير أو استبدال للخط، أعد فحص الشرائح.

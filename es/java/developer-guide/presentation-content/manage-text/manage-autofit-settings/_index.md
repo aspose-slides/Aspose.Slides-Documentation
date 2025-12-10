@@ -1,38 +1,50 @@
 ---
-title: Gestionar la Configuración de Autofit
+title: Mejora tus presentaciones con AutoFit en Java
+linktitle: Configuración de Autofit
 type: docs
 weight: 30
 url: /es/java/manage-autofit-settings/
-keywords: "Textbox, Autofit, presentación de PowerPoint, Java, Aspose.Slides para Java"
-description: "Establecer la configuración de autofit para el cuadro de texto en PowerPoint en Java"
+keywords:
+- cuadro de texto
+- ajuste automático
+- no ajustar automáticamente
+- ajustar texto
+- reducir texto
+- envolver texto
+- redimensionar forma
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Aprenda cómo gestionar la configuración de AutoFit en Aspose.Slides para Java para optimizar la visualización del texto en sus presentaciones de PowerPoint y OpenDocument y mejorar la legibilidad del contenido."
 ---
 
-Por defecto, cuando añades un cuadro de texto, Microsoft PowerPoint utiliza la configuración de **Cambiar el tamaño de la forma para ajustar el texto** para el cuadro de texto: automáticamente ajusta el tamaño del cuadro de texto para asegurar que su texto siempre quepa en él. 
+Por defecto, cuando añades un cuadro de texto, Microsoft PowerPoint utiliza la configuración **Resize shape to fix text** para el cuadro de texto: redimensiona automáticamente el cuadro para asegurar que su texto siempre quepa dentro de él. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Cuando el texto en el cuadro de texto se vuelve más largo o más grande, PowerPoint automáticamente amplía el cuadro de texto—aumenta su altura—para permitirle contener más texto. 
-* Cuando el texto en el cuadro de texto se vuelve más corto o más pequeño, PowerPoint automáticamente reduce el cuadro de texto—disminuye su altura—para deshacerse del espacio redundante. 
+* Cuando el texto del cuadro de texto se alarga o hace más grande, PowerPoint amplía automáticamente el cuadro —aumenta su altura— para permitir que contenga más texto. 
+* Cuando el texto del cuadro de texto se acorta o hace más pequeño, PowerPoint reduce automáticamente el cuadro —disminuye su altura— para eliminar el espacio redundante. 
 
 En PowerPoint, estos son los 4 parámetros u opciones importantes que controlan el comportamiento de autofit para un cuadro de texto: 
 
-* **No ajustar automáticamente**
-* **Reducir texto en desbordamiento**
-* **Cambiar el tamaño de la forma para ajustar el texto**
-* **Ajustar texto en la forma.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides para Java proporciona opciones similares—algunas propiedades bajo la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)—que te permiten controlar el comportamiento de autofit para cuadros de texto en presentaciones. 
+Aspose.Slides for Java proporciona opciones similares—algunas propiedades bajo la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)—que le permiten controlar el comportamiento de autofit para cuadros de texto en presentaciones. 
 
-## **Cambiar el Tamaño de la Forma para Ajustar el Texto**
+## **Redimensionar una forma para que se ajuste al texto**
 
-Si deseas que el texto en un cuadro siempre ajuste dentro de ese cuadro después de realizar cambios en el texto, debes usar la opción **Cambiar el tamaño de la forma para ajustar el texto**. Para especificar esta configuración, establece la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) en `Shape`.
+Si desea que el texto en un cuadro siempre quepa dentro de ese cuadro después de realizar cambios en el texto, debe usar la opción **Resize shape to fix text**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) a `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Este código Java te muestra cómo especificar que un texto siempre debe ajustar dentro de su cuadro en una presentación de PowerPoint:
-
+Este código Java le muestra cómo especificar que un texto siempre debe caber en su cuadro en una presentación de PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,16 +65,16 @@ try {
 }
 ```
 
-Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumento de altura) para asegurar que todo el texto quepa en él. Si el texto se vuelve más corto, ocurre lo contrario. 
 
-## **No Ajustar Automáticamente**
+Si el texto se alarga o hace más grande, el cuadro de texto se redimensionará automáticamente (aumentará su altura) para asegurar que todo el texto quepa. Si el texto se acorta, ocurre lo contrario. 
 
-Si deseas que un cuadro de texto o forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debes usar la opción **No ajustar automáticamente**. Para especificar esta configuración, establece la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) en `None`. 
+## **Do Not Autofit**
+
+Si desea que un cuadro de texto o forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debe usar la opción **Do not Autofit**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) a `None`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-Este código Java te muestra cómo especificar que un cuadro de texto debe mantener siempre sus dimensiones en una presentación de PowerPoint:
-
+Este código Java le muestra cómo especificar que un cuadro de texto siempre debe mantener sus dimensiones en una presentación de PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,16 +95,16 @@ try {
 }
 ```
 
+
 Cuando el texto se vuelve demasiado largo para su cuadro, se desborda. 
 
-## **Reducir Texto en Desbordamiento**
+## **Shrink Text on Overflow**
 
-Si un texto se vuelve demasiado largo para su cuadro, a través de la opción **Reducir texto en desbordamiento**, puedes especificar que el tamaño y el espaciado del texto deben reducirse para ajustarse en su cuadro. Para especificar esta configuración, establece la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) en `Normal`.
+Si un texto se vuelve demasiado largo para su cuadro, mediante la opción **Shrink text on overflow** puede especificar que el tamaño y el espaciado del texto deben reducirse para que quepan en su cuadro. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) a `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Este código Java te muestra cómo especificar que un texto debe reducirse en desbordamiento en una presentación de PowerPoint:
-
+Este código Java le muestra cómo especificar que un texto debe reducirse al desbordarse en una presentación de PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -113,18 +125,16 @@ try {
 }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Cuando se utiliza la opción **Reducir texto en desbordamiento**, la configuración solo se aplica cuando el texto se vuelve demasiado largo para su cuadro. 
-
+Cuando se usa la opción **Shrink text on overflow**, el ajuste se aplica solo cuando el texto se vuelve demasiado largo para su cuadro. 
 {{% /alert %}}
 
-## **Ajustar Texto**
+## **Wrap Text**
 
-Si deseas que el texto en una forma se ajuste dentro de esa forma cuando el texto sobrepase el borde de la forma (solo ancho), debes usar el parámetro **Ajustar texto en la forma**. Para especificar esta configuración, debes establecer la propiedad [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) en `true`. 
+Si desea que el texto en una forma se envuelva dentro de esa forma cuando el texto supera el borde de la forma (solo el ancho), debe usar el parámetro **Wrap text in shape**. Para especificar esta configuración, debe establecer la propiedad [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) a `true`. 
 
-Este código Java te muestra cómo utilizar la configuración Ajustar Texto en una presentación de PowerPoint:
-
+Este código Java le muestra cómo usar la configuración Wrap Text en una presentación de PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -145,8 +155,21 @@ try {
 }
 ```
 
-{{% alert title="Nota" color="warning" %}} 
 
-Si estableces la propiedad `WrapText` en `False` para una forma, cuando el texto dentro de la forma se vuelva más largo que el ancho de la forma, el texto se extenderá más allá de los bordes de la forma en una sola línea. 
-
+{{% alert title="Note" color="warning" %}} 
+Si establece la propiedad `WrapText` en `False` para una forma, cuando el texto dentro de la forma supera el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea. 
 {{% /alert %}}
+
+## **FAQ**
+
+**¿Los márgenes internos del marco de texto afectan al AutoFit?**
+
+Sí. El relleno (márgenes internos) reduce el área usable para el texto, por lo que AutoFit se activará antes, reduciendo la fuente o redimensionando la forma más pronto. Revise y ajuste los márgenes antes de afinar AutoFit.
+
+**¿Cómo interactúa AutoFit con los saltos de línea manuales y suaves?**
+
+Los saltos forzados permanecen en su lugar, y AutoFit adapta el tamaño de fuente y el espaciado a su alrededor. Eliminar saltos innecesarios suele reducir la agresividad con la que AutoFit necesita reducir el texto.
+
+**¿Cambiar la fuente del tema o activar la sustitución de fuentes afecta los resultados de AutoFit?**
+
+Sí. Sustituir a una fuente con métricas de glifos diferentes cambia el ancho/altura del texto, lo que puede alterar el tamaño final de la fuente y el ajuste de líneas. Después de cualquier cambio o sustitución de fuente, vuelva a comprobar las diapositivas.

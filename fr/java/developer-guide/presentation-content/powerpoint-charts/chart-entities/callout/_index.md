@@ -1,12 +1,22 @@
 ---
-title: Appels
+title: Gérer les infobulles dans les graphiques de présentation avec Java
+linktitle: Infobulle
 type: docs
 url: /fr/java/callout/
+keywords:
+- infobulle de graphique
+- utiliser infobulle
+- étiquette de données
+- format d'étiquette
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Créer et styliser des infobulles dans Aspose.Slides pour Java avec des exemples de code concis, compatibles avec PPT et PPTX pour automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des Appels**
-De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) et [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Ces méthodes déterminent si l'étiquette de données du graphique spécifié sera affichée en tant qu'appel de données ou en tant qu'étiquette de données.
-
+## **Utilisation des infobulles**
+De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) et [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Ces méthodes déterminent si l'étiquette de données du graphique spécifié sera affichée sous forme d'infobulle de données ou d'étiquette de données.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +32,9 @@ try {
 }
 ```
 
-## **Définir un Appel pour un Graphique en Beignet**
-Aspose.Slides pour Java fournit le support pour définir la forme de l'étiquette de données de la série pour un graphique en beignet. Un exemple ci-dessous est donné. 
 
+## **Définir une infobulle pour un graphique en anneau**
+Aspose.Slides for Java offre la prise en charge de la définition de la forme d'infobulle d'étiquette de données de série pour un graphique en anneau. Un exemple de code est fourni ci-dessous.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +47,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SÉRIE " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +56,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATÉGORIE " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +96,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Les infobulles sont‑elles conservées lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
+
+Oui. Les infobulles font partie du rendu du graphique, ainsi lors de l'exportation vers [PDF](/slides/fr/java/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/java/export-to-html5/), [SVG](/slides/fr/java/render-a-slide-as-an-svg-image/) ou [images raster](/slides/fr/java/convert-powerpoint-to-png/), elles sont conservées avec le formatage de la diapositive.
+
+**Les polices personnalisées fonctionnent‑elles dans les infobulles, et leur apparence peut‑elle être conservée lors de l’exportation ?**
+
+Oui. Aspose.Slides prend en charge [l'incorporation de polices](/slides/fr/java/embedded-font/) dans la présentation et gère l'incorporation des polices lors des exportations comme le [PDF](/slides/fr/java/convert-powerpoint-to-pdf/), garantissant que les infobulles conservent le même aspect sur différents systèmes.

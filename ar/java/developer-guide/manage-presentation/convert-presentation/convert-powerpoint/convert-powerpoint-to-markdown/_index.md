@@ -1,31 +1,53 @@
 ---
-title: تحويل PowerPoint إلى Markdown في Java
+title: تحويل عروض PowerPoint إلى Markdown في Java
+linktitle: PowerPoint إلى Markdown
 type: docs
 weight: 140
 url: /ar/java/convert-powerpoint-to-markdown/
-keywords: "تحويل PowerPoint إلى Markdown، تحويل ppt إلى md، PowerPoint، PPT، PPTX، عرض تقديمي، Markdown، Java، Aspose.Slides لـ Java"
-description: "تحويل PowerPoint إلى Markdown في Java"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى MD
+- العرض التقديمي إلى MD
+- الشريحة إلى MD
+- PPT إلى MD
+- PPTX إلى MD
+- حفظ PowerPoint كـ Markdown
+- حفظ العرض التقديمي كـ Markdown
+- حفظ الشريحة كـ Markdown
+- حفظ PPT كـ MD
+- حفظ PPTX كـ MD
+- تصدير PPT إلى MD
+- تصدير PPTX إلى MD
+- PowerPoint
+- العرض التقديمي
+- Markdown
+- Java
+- Aspose.Slides
+description: "تحويل شرائح PowerPoint—PPT، PPTX—إلى Markdown نظيفة باستخدام Aspose.Slides للغة Java، أتمتة التوثيق والحفاظ على التنسيق."
 ---
 
 {{% alert color="info" %}} 
 
-تم تنفيذ الدعم لتحويل PowerPoint إلى Markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/java/aspose-slides-for-java-23-7-release-notes/).
+تم تنفيذ دعم التحويل من PowerPoint إلى markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/java/aspose-slides-for-java-23-7-release-notes/).
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
 
-تصدير PowerPoint إلى Markdown هو **بدون صور** بشكل افتراضي. إذا كنت ترغب في تصدير وثيقة PowerPoint تحتوي على صور، يتعين عليك تعيين `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` وأيضًا تعيين `BasePath` حيث سيتم حفظ الصور المشار إليها في مستند Markdown.
+تصدير PowerPoint إلى markdown يكون **بدون صور** بشكل افتراضي. إذا أردت تصدير مستند PowerPoint يحتوي على صور، تحتاج إلى ضبط `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` وأيضًا تحديد `BasePath` حيث سيتم حفظ الصور المشار إليها في مستند markdown.
 
 {{% /alert %}} 
 
 ## **تحويل PowerPoint إلى Markdown**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) لتمثيل كائن العرض التقديمي.
-2. استخدم طريقة [Save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-) لحفظ الكائن كملف Markdown.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) لتمثيل كائن عرض تقديمي.  
+2. استخدام طريقة [Save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-) لحفظ الكائن كملف markdown.
 
-يعرض هذا الشيفرة البرمجية في Java كيفية تحويل PowerPoint إلى Markdown:
-
+هذا الكود Java يوضح لك كيفية تحويل PowerPoint إلى markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -35,12 +57,12 @@ try {
 }
 ```
 
-## تحويل PowerPoint إلى نكهة Markdown
 
-يتيح لك Aspose.Slides تحويل PowerPoint إلى Markdown (يحتوي على بناء جملة أساسي)، CommonMark، Markdown بنكهة GitHub، Trello، XWiki، GitLab، و17 نكهة أخرى من Markdown.
+## **تحويل PowerPoint إلى نمط Markdown**
 
-يعرض هذا الشيفرة البرمجية في Java كيفية تحويل PowerPoint إلى CommonMark:
+يتيح Aspose.Slides لك تحويل PowerPoint إلى markdown (الذي يحتوي على الصياغة الأساسية)، CommonMark، GitHub flavored markdown، Trello، XWiki، GitLab، و 17 نمطًا آخرًا من markdown.
 
+هذا الكود Java يوضح لك كيفية تحويل PowerPoint إلى CommonMark:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -52,16 +74,16 @@ try {
 }
 ```
 
-توجد 23 نكهة مدعومة من Markdown [مدرجة تحت تعداد Flavor](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) من فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) .
+
+الـ23 نمط markdown المدعومة مُدرجة [في تعداد Flavor](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) من فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/).
 
 ## **تحويل عرض تقديمي يحتوي على صور إلى Markdown**
 
-تقدم فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) خصائص وتعدادات تسمح لك باستخدام خيارات معينة أو إعدادات لملف Markdown الناتج. يمكن تعيين تعداد [MarkdownExportType](https://reference.aspose.com/slides/java/com.aspose.slides/markdownexporttype/) على قيم تحدد كيفية عرض الصور أو التعامل معها: `Sequential`، `TextOnly`، `Visual`.
+توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) خصائص وتعدادات تسمح لك باستخدام خيارات أو إعدادات معينة لملف markdown الناتج. يمكن ضبط تعداد [MarkdownExportType](https://reference.aspose.com/slides/java/com.aspose.slides/markdownexporttype/)، على سبيل المثال، إلى قيم تحدد كيفية عرض أو معالجة الصور: `Sequential`, `TextOnly`, `Visual`.
 
-### **تحويل الصور بشكل متسلسل**
+### **تحويل الصور بالتسلسل**
 
-إذا كنت ترغب في أن تظهر الصور بشكل منفصل واحدة تلو الأخرى في Markdown الناتج، يجب عليك اختيار الخيار المتسلسل. يعرض هذا الشيفرة البرمجية في Java كيفية تحويل عرض تقديمي يحتوي على صور إلى Markdown:
-
+إذا أردت أن تظهر الصور بشكل منفرد واحدةً تلو الأخرى في markdown الناتج، يجب اختيار الخيار المتسلسل. هذا الكود Java يوضح لك كيفية تحويل عرض تقديمي يحتوي على صور إلى markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -77,12 +99,12 @@ try {
 }
 ```
 
+
 ### **تحويل الصور بصريًا**
 
-إذا كنت ترغب في أن تظهر الصور معًا في Markdown الناتج، يجب عليك اختيار الخيار المرئي. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم بناء مسار نسبي لها في مستند Markdown) ، أو يمكنك تحديد المسار المفضل واسم المجلد.
+إذا أردت أن تظهر الصور معًا في markdown الناتج، يجب اختيار الخيار البصري. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم إنشاء مسار نسبي لها في مستند markdown)، أو يمكنك تحديد المسار واسم المجلد المفضل لديك.
 
-توضح هذه الشيفرة البرمجية في Java العملية:
-
+هذا الكود Java يوضح العملية:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -96,3 +118,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل تحتفظ الروابط التشعبية أثناء التصدير إلى Markdown؟**
+
+نعم. يتم الحفاظ على نص [hyperlinks](/slides/ar/java/manage-hyperlinks/) كروابط Markdown قياسية. لا يتم تحويل [transitions](/slides/ar/java/slide-transition/) و[animations](/slides/ar/java/powerpoint-animation/) الخاصة بالشرائح.
+
+**هل يمكنني تسريع التحويل بتشغيله في عدة خيوط؟**
+
+يمكنك تنفيذ التحويل بالتوازي عبر الملفات، ولكن لا يجب [لا تشارك](/slides/ar/java/multithreading/) نفس مثيل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) عبر الخيوط. استخدم مثيلات/عمليات منفصلة لكل ملف لتجنب التعارض.
+
+**ماذا يحدث للصور—أين يتم حفظها، وهل المسارات نسبية؟**
+
+يتم تصدير [الصور](/slides/ar/java/image/) إلى مجلد مخصص، ويشير ملف Markdown إليها باستخدام مسارات نسبية بشكل افتراضي. يمكنك ضبط مسار الإخراج الأساسي واسم مجلد الأصول للحفاظ على بنية مستودع متوقعة.

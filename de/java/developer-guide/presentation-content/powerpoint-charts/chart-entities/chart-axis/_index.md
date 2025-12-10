@@ -1,27 +1,43 @@
 ---
-title: Diagrammachse
+title: Diagrammachsen in Präsentationen mit Java anpassen
+linktitle: Diagrammachse
 type: docs
 url: /de/java/chart-axis/
-keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammachse manipulieren, Diagrammdaten"
-description: "Wie man die Diagrammachse von PowerPoint in Java bearbeitet"
+keywords:
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- maximaler Wert
+- minimaler Wert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Aspose.Slides für Java verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 
+## **Maximale Werte auf der vertikalen Achse in Diagrammen ermitteln**
+Aspose.Slides für Java ermöglicht das Abrufen der Minimal- und Maximalwerte einer vertikalen Achse. Führen Sie die folgenden Schritte aus:
 
-## **Maximalwerte der vertikalen Achse in Diagrammen erhalten**
-Aspose.Slides für Java ermöglicht es Ihnen, die Minimal- und Maximalwerte einer vertikalen Achse zu erhalten. Gehen Sie diese Schritte durch:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
+2. Greifen Sie auf die erste Folie zu.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
+4. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
+5. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
+6. Ermitteln Sie die tatsächliche Haupteinheit der Achse.
+7. Ermitteln Sie die tatsächliche Nebeneinheit der Achse.
+8. Ermitteln Sie die tatsächliche Skalierung der Haupteinheit der Achse.
+9. Ermitteln Sie die tatsächliche Skalierung der Nebeneinheit der Achse.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Holen Sie den tatsächlichen Maximalwert der Achse.
-1. Holen Sie den tatsächlichen Minimalwert der Achse.
-1. Holen Sie die tatsächliche Hauptintervalleinheit der Achse.
-1. Holen Sie die tatsächliche Nebenintervalleinheit der Achse.
-1. Holen Sie den tatsächlichen Hauptintervallmaßstab der Achse.
-1. Holen Sie den tatsächlichen Nebenintervallmaßstab der Achse.
-
-Dieser Beispielcode—eine Implementierung der obigen Schritte—zeigt Ihnen, wie Sie die erforderlichen Werte in Java erhalten:
-
+Dieser Beispielcode – eine Umsetzung der oben genannten Schritte – zeigt, wie Sie die erforderlichen Werte in Java erhalten:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -41,19 +57,17 @@ try {
 }
 ```
 
-## **Daten zwischen Achsen tauschen**
-Aspose.Slides ermöglicht es Ihnen, die Daten zwischen Achsen schnell zu tauschen—die auf der vertikalen Achse (y-Achse) dargestellten Daten wechseln zur horizontalen Achse (x-Achse) und umgekehrt.
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Datentauschaufgabe zwischen den Achsen eines Diagramms durchführen:
+## **Daten zwischen Achsen austauschen**
+Aspose.Slides ermöglicht das schnelle Austauschen von Daten zwischen Achsen – die Daten, die auf der vertikalen Achse (Y‑Achse) dargestellt werden, werden auf die horizontale Achse (X‑Achse) verschoben und umgekehrt.
 
+Dieser Java‑Code zeigt, wie Sie den Datenaustausch zwischen Achsen in einem Diagramm durchführen:
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
 	//Wechselt Zeilen und Spalten
-	chart.getChartData().switchRowColumn();
-
 	// Speichert die Präsentation
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -61,10 +75,9 @@ try {
 }
 ```
 
-## **Die vertikale Achse für Liniendiagramme deaktivieren**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
-
+## **Vertikale Achse für Liniendiagramme deaktivieren**
+Dieser Java‑Code zeigt, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +90,9 @@ try {
 }
 ```
 
-## **Die horizontale Achse für Liniendiagramme deaktivieren**
 
-Dieser Code zeigt Ihnen, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
-
+## **Horizontale Achse für Liniendiagramme deaktivieren**
+Dieser Code zeigt, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,10 +105,9 @@ try {
 }
 ```
 
-## **Kategoriewechsel der Achse**
 
-Mit der **CategoryAxisType**-Eigenschaft können Sie Ihren bevorzugten Kategorietyp für die Achse angeben (**Datum** oder **Text**). Dieser Code in Java demonstriert die Funktion:
-
+## **Kategorieachse ändern**
+Mit der Eigenschaft **CategoryAxisType** können Sie den gewünschten Typ der Kategorieachse (**date** oder **text**) festlegen. Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -111,9 +122,9 @@ try {
 }
 ```
 
-## **Das Datumsformat für den Kategoriewert der Achse festlegen**
-Aspose.Slides für Java ermöglicht es Ihnen, das Datumsformat für einen Kategoriewert der Achse festzulegen. Die Operation wird in diesem Java-Code demonstriert:
 
+## **Datumsformat für Werte der Kategorieachse festlegen**
+Aspose.Slides für Java ermöglicht das Festlegen des Datumsformats für einen Wert der Kategorieachse. Die Vorgehensweise wird in diesem Java‑Code demonstriert:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -143,6 +154,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
@@ -155,9 +167,9 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **Den Rotationswinkel für den Titel der Diagrammachse festlegen**
-Aspose.Slides für Java ermöglicht es Ihnen, den Rotationswinkel für den Titel einer Diagrammachse festzulegen. Dieser Java-Code demonstriert die Operation:
 
+## **Rotationswinkel für einen Diagrammachsentitel festlegen**
+Aspose.Slides für Java ermöglicht das Festlegen des Rotationswinkels für einen Diagrammachsentitel. Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -170,12 +182,11 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-## **Die Position der Achse in einer Kategorie- oder Wertachse festlegen**
-Aspose.Slides für Java ermöglicht es Ihnen, die Position der Achse in einer Kategorie- oder Wertachse festzulegen. Dieser Java-Code zeigt, wie die Aufgabe durchgeführt wird:
 
+## **Achsenposition auf einer Kategorien‑ oder Werteachse festlegen**
+Aspose.Slides für Java ermöglicht das Festlegen der Achsenposition in einer Kategorien‑ oder Werteachse. Dieser Java‑Code zeigt, wie die Aufgabe ausgeführt wird:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -189,9 +200,9 @@ try {
 }
 ```
 
-## **Aktivieren des Anzeigeeinheitslabels auf der Diagrammwertachse**
-Aspose.Slides für Java ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass es ein Einheitsetikett auf seiner Diagrammwertachse anzeigt. Dieser Java-Code demonstriert die Operation:
 
+## **Anzeigeeinheits‑Beschriftung auf der Werteachse eines Diagramms aktivieren**
+Aspose.Slides für Java ermöglicht die Konfiguration eines Diagramms, damit eine Einheit­beschriftung auf seiner Werteachse angezeigt wird. Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,3 +215,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie setze ich den Wert, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
+
+Achsen bieten eine [crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-): Sie können wählen, bei Null, beim maximalen Kategorien‑/Wert‑Punkt oder bei einem bestimmten numerischen Wert zu kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder eine Grundlinie hervorzuheben.
+
+**Wie kann ich die Achsenbeschriftungen relativ zur Achse positionieren (neben, außen, innen)?**
+
+Stellen Sie die [label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) auf "cross", "outside" oder "inside" ein. Dies beeinflusst die Lesbarkeit und hilft, Platz zu sparen, besonders bei kleinen Diagrammen.

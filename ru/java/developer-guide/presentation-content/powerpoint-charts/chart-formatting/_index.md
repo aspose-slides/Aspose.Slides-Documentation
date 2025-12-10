@@ -1,83 +1,97 @@
 ---
-title: Форматирование графиков
+title: Форматирование диаграмм презентации в Java
+linktitle: Форматирование диаграмм
 type: docs
 weight: 60
 url: /ru/java/chart-formatting/
+keywords:
+- формат диаграммы
+- форматирование диаграмм
+- элемент диаграммы
+- свойства диаграммы
+- настройки диаграммы
+- параметры диаграммы
+- свойства шрифта
+- скруглённые границы
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Изучите форматирование диаграмм в Aspose.Slides для Java и улучшите свою презентацию PowerPoint с профессиональным, привлекающим внимание оформлением."
 ---
 
-## **Форматирование сущностей графиков**
-Aspose.Slides для Java позволяет разработчикам создавать кастомные графики на своих слайдах с нуля. Эта статья объясняет, как форматировать различные сущности графиков, включая категорию графика и ось значений.
+## **Форматирование элементов диаграммы**
+Aspose.Slides for Java позволяет разработчикам добавлять пользовательские диаграммы на слайды с нуля. В этой статье объясняется, как форматировать различные элементы диаграммы, включая категориальную и числовую оси.
 
-Aspose.Slides для Java предоставляет простой API для управления различными сущностями графиков и их форматирования с помощью пользовательских значений:
+Aspose.Slides for Java предоставляет простой API для управления различными элементами диаграммы и их форматирования с использованием пользовательских значений:
 
-1. Создайте экземпляр класса [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд по индексу.
-1. Добавьте график с данными по умолчанию любого желаемого типа (в этом примере мы будем использовать ChartType.LineWithMarkers).
-1. Получите ось значений графика и задайте следующие свойства:
-   1. Установите **формат линии** для основных сеточных линий оси значений
-   1. Установите **формат линии** для вторичных сеточных линий оси значений
-   1. Установите **формат числа** для оси значений
-   1. Установите **мин., макс., основные и вторичные единицы** для оси значений
-   1. Установите **свойства текста** для данных оси значений
-   1. Установите **заголовок** для оси значений
-   1. Установите **формат линии** для оси значений
-1. Получите ось категорий графика и задайте следующие свойства:
-   1. Установите **формат линии** для основных сеточных линий оси категорий
-   1. Установите **формат линии** для вторичных сеточных линий оси категорий
-   1. Установите **свойства текста** для данных оси категорий
-   1. Установите **заголовок** для оси категорий
-   1. Установите **позиционирование меток** для оси категорий
-   1. Установите **угол поворота** для меток оси категорий
-1. Получите легенду графика и задайте для них **свойства текста**
-1. Задайте отображение легенд графиков без перекрытия графика
-1. Получите **вторичную ось значений** графика и задайте следующие свойства:
-   1. Включите вторичную **ось значений**
-   1. Установите **формат линии** для вторичной оси значений
-   1. Установите **формат числа** для вторичной оси значений
-   1. Установите **мин., макс., основные и вторичные единицы** для вторичной оси значений
-1. Теперь отобразите первую серию графиков на вторичной оси значений
-1. Задайте цвет заливки задней стены графика
-1. Задайте цвет заливки области графика
-1. Запишите измененную презентацию в файл PPTX
-
+1. Создайте экземпляр класса [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию любого требуемого типа (в данном примере мы используем ChartType.LineWithMarkers).
+1. Доступ к числовой оси диаграммы и установка следующих свойств:
+   1. Установка **Line format** для основных линий сетки числовой оси
+   1. Установка **Line format** для вспомогательных линий сетки числовой оси
+   1. Установка **Number Format** для числовой оси
+   1. Установка **Min, Max, Major and Minor units** для числовой оси
+   1. Установка **Text Properties** для данных числовой оси
+   1. Установка **Title** для числовой оси
+   1. Установка **Line Format** для числовой оси
+1. Доступ к категориальной оси диаграммы и установка следующих свойств:
+   1. Установка **Line format** для основных линий сетки категориальной оси
+   1. Установка **Line format** для вспомогательных линий сетки категориальной оси
+   1. Установка **Text Properties** для данных категориальной оси
+   1. Установка **Title** для категориальной оси
+   1. Установка **Label Positioning** для категориальной оси
+   1. Установка **Rotation Angle** для подписей категориальной оси
+1. Доступ к легенде диаграммы и установка **Text Properties** для неё
+1. Установите отображение легенд диаграммы без наложения на саму диаграмму
+1. Доступ к **Secondary Value Axis** диаграммы и установка следующих свойств:
+   1. Включить вторичную **Value Axis**
+   1. Установка **Line Format** для вторичной числовой оси
+   1. Установка **Number Format** для вторичной числовой оси
+   1. Установка **Min, Max, Major and Minor units** для вторичной числовой оси
+1. Теперь построьте первую серию диаграммы на вторичной числовой оси
+1. Установите цвет заливки задней стенки диаграммы
+1. Установите цвет заливки области построения диаграммы
+1. Сохраните изменённую презентацию в файл PPTX
 ```java
-// Создайте экземпляр класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
     // Получение первого слайда
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление образца графика
+    // Добавление примерной диаграммы
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Установка заголовка графика
+    // Установка заголовка диаграммы
     chart.hasTitle();
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    chartTitle.setText("Образец графика");
+    chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chartTitle.getPortionFormat().setFontHeight(20);
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Установка формата основных сеточных линий для оси значений
+    // Установка формата основных линий сетки для оси значений
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Установка формата вторичных сеточных линий для оси значений
+    // Установка формата вспомогательных линий сетки для оси значений
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Установка формата чисел для оси значений
+    // Установка числового формата оси значений
     chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Установка максимальных и минимальных значений графика
+    // Установка максимальных и минимальных значений диаграммы
     chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
@@ -88,7 +102,7 @@ try {
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Установка свойств текста для оси значений
+    // Установка свойств текста оси значений
     IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
     txtVal.setFontBold(NullableBool.True);
     txtVal.setFontHeight(16);
@@ -101,24 +115,24 @@ try {
     chart.getAxes().getVerticalAxis().hasTitle();
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Первичная ось");
+    valtitle.setText("Primary Axis");
     valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     valtitle.getPortionFormat().setFontHeight(20);
     valtitle.getPortionFormat().setFontBold(NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Установка формата основных сеточных линий для оси категорий
+    // Установка формата основных линий сетки для категориальной оси
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Установка формата вторичных сеточных линий для оси категорий
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    // Установка формата вспомогательных линий сетки для категориальной оси
+    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Установка свойств текста для оси категорий
+    // Установка свойств текста категориальной оси
     IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
     txtCat.setFontBold(NullableBool.True);
     txtCat.setFontHeight(16);
@@ -127,25 +141,25 @@ try {
     txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     txtCat.setLatinFont(new FontData("Arial"));
 
-    // Установка заголовка категории
+    // Установка заголовка категориальной оси
     chart.getAxes().getHorizontalAxis().hasTitle();
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
     IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Образец категории");
+    catTitle.setText("Sample Category");
     catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     catTitle.getPortionFormat().setFontHeight(20);
     catTitle.getPortionFormat().setFontBold(NullableBool.True);
     catTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Установка позиции меток оси категорий
+    // Установка позиции меток категориальной оси
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
 
-    // Установка угла поворота меток оси категорий
+    // Установка угла поворота меток категориальной оси
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Установка свойств текста легенды
+    // Установка свойств текста легенд
     IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
     txtleg.setFontBold(NullableBool.True);
     txtleg.setFontHeight(16);
@@ -153,23 +167,23 @@ try {
     txtleg.getFillFormat().setFillType(FillType.Solid);
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
-    // Установите отображение легенд графиков без перекрытия графика
+    // Отображение легенд диаграммы без перекрытия диаграммы
 
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
 
     chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Установка второй оси значений
+    // Установка вторичной оси значений
     chart.getAxes().getSecondaryVerticalAxis().isVisible();
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
 
-    // Установка формата чисел для вторичной оси значений
+    // Установка числового формата вторичной оси значений
     chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
-    // Установка максимальных и минимальных значений графика
+    // Установка максимальных и минимальных значений диаграммы
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
@@ -180,36 +194,36 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
 
-    // Установка цвета задней стены графика
+    // Установка цвета задней стены диаграммы
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Установка цвета области графика
+    // Установка цвета области построения
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Сохранить Презентацию
+    // Сохранить презентацию
     pres.save("FormattedChart.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Установить свойства шрифта для графика**
-Aspose.Slides для Java предоставляет поддержку для установки свойств, связанных со шрифтом, для графика. Пожалуйста, выполните следующие шаги для установки свойств шрифта для графика.
 
-- Создайте объект класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Добавьте график на слайд.
+## **Установка свойств шрифта для диаграммы**
+Aspose.Slides for Java поддерживает установку свойств шрифта для диаграммы. Пожалуйста, следуйте шагам ниже для настройки шрифтовых свойств диаграммы.
+
+- Создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+- Добавьте диаграмму на слайд.
 - Установите высоту шрифта.
-- Сохраните измененную презентацию.
+- Сохраните изменённую презентацию.
 
-Ниже представлен пример.
-
+Ниже приведён пример кода.
 ```java
-// Создайте экземпляр класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
@@ -223,39 +237,39 @@ try {
 }
 ```
 
-## **Установка формата чисел**
-Aspose.Slides для Java предоставляет простой API для управления форматом данных графиков:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд по индексу.
-1. Добавьте график с данными по умолчанию любого желаемого типа (в этом примере используется **ChartType.ClusteredColumn**).
-1. Установите предустановленный формат числа из возможных предустановленных значений.
-1. Переберите ячейку данных графика в каждой серии графика и установите формат числа для данных графика.
-1. Сохраните презентацию.
-1. Установите пользовательский формат числа.
-1. Переберите ячейку данных графика внутри каждой серии графика и установите другой формат числа для данных графика.
-1. Сохраните презентацию.
+## **Установка числового формата**
+Aspose.Slides for Java предоставляет простой API для управления форматом данных диаграммы:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию любого требуемого типа (в этом примере используется **ChartType.ClusteredColumn**).
+1. Установите предустановленный числовой формат из возможных предустановленных значений.
+1. Пройдитесь по ячейкам данных диаграммы в каждой серии и установите числовой формат данных диаграммы.
+1. Сохраните презентацию.
+1. Установите пользовательский числовой формат.
+1. Пройдитесь по ячейкам данных диаграммы в каждой серии и задайте различный числовой формат данных.
+1. Сохраните презентацию.
 ```java
-// Создайте экземпляр класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
-    // Получение первого слайда презентации
+    // Получить доступ к первому слайду презентации
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление графика с групповыми столбцами по умолчанию
+    // Добавление стандартной сгруппированной столбчатой диаграммы
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-    // Получение коллекции серий графиков
+    // Получение коллекции серий диаграммы
     IChartSeriesCollection series = chart.getChartData().getSeries();
     
-    // Перебор каждой серии графиков
+    // Перебор всех серий диаграммы
     for (IChartSeries ser : series) 
     {
-        // Перебор каждой ячейки данных в серии
+        // Перебор всех ячеек данных в серии
         for (IChartDataPoint cell : ser.getDataPoints()) 
         {
-            // Установка формата числа
+            // Установка числового формата
             cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
@@ -265,21 +279,21 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-Возможные предустановленные значения формата чисел вместе с их индексами, которые могут быть использованы, представлены ниже:
 
-|**0**|Общий|
+Возможные предустановленные значения числового формата вместе с их индексами, которые могут быть использованы, перечислены ниже:
+
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
 |**4**|#,##0.00|
 |**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Красный$-#,##0|
+|**6**|$#,##0;Red$-#,##0|
 |**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Красный$-#,##0.00|
+|**8**|$#,##0.00;Red$-#,##0.00|
 |**9**|0%|
 |**10**|0.00%|
 |**11**|0.00E+00|
@@ -295,9 +309,9 @@ try {
 |**21**|h:mm:ss|
 |**22**|m/d/yy h:mm|
 |**37**|#,##0;-#,##0|
-|**38**|#,##0;Красный-#,##0|
+|**38**|#,##0;Red-#,##0|
 |**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Красный-#,##0.00|
+|**40**|#,##0.00;Red-#,##0.00|
 |**41**|_ * #,##0_ ;_ * "_ ;_ @_|
 |**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
@@ -308,19 +322,18 @@ try {
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Установить закругленные границы области графика**
-Aspose.Slides для Java предоставляет поддержку для установки области графика. Методы [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) и [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) были добавлены в интерфейс [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) и класс [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart).
+## **Установка скруглённых границ области диаграммы**
+Aspose.Slides for Java поддерживает настройку области диаграммы. Методы [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) и [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) были добавлены в интерфейс [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) и класс [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) .
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Добавьте график на слайд.
-1. Установите тип заливки и цвет заливки графика.
-1. Установите свойство круглого угла в True.
+1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+1. Добавьте диаграмму на слайд.
+1. Установите тип заливки и цвет заливки диаграммы
+1. Установите свойство скруглённых углов в значение True.
 1. Сохраните изменённую презентацию.
 
-Ниже представлен пример. 
-
+Ниже приведён пример кода. 
 ```java
-// Создайте экземпляр класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -335,3 +348,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Можно ли задать полупрозрачные заливки для столбцов/областей, сохранив непрозрачную границу?**
+
+Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
+
+**Как справиться с накладывающимися метками данных?**
+
+Уменьшите размер шрифта, отключите необязательные компоненты меток (например, категории), задайте смещение/позицию метки, при необходимости показывайте метки только для выбранных точек или переключите формат на «значение + легенда».
+
+**Можно ли применить градиентные или шаблонные заливки к сериям?**
+
+Да. Как сплошные, так и градиентные/шаблонные заливки обычно доступны. На практике используйте градиенты умеренно и избегайте комбинаций, которые снижают контрастность относительно сетки и текста.

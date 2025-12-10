@@ -1,13 +1,27 @@
 ---
-title: Calculs de Graphiques
+title: Optimiser les calculs de graphiques pour les présentations en Java
+linktitle: Calculs de graphiques
 type: docs
 weight: 50
 url: /fr/java/chart-calculations/
+keywords:
+- calculs de graphiques
+- éléments de graphique
+- position de l'élément
+- position réelle
+- élément enfant
+- élément parent
+- valeurs du graphique
+- valeur réelle
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Comprendre les calculs de graphiques, les mises à jour des données et le contrôle de la précision dans Aspose.Slides for Java pour PPT et PPTX, avec des exemples de code Java pratiques."
 ---
 
-## **Calculer les Valeurs Réelles des Éléments de Graphique**
-Aspose.Slides pour Java fournit une API simple pour obtenir ces propriétés. Les propriétés de l'interface [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) fournissent des informations sur la position réelle de l'élément de graphique d'axe ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). Il est nécessaire d'appeler la méthode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) au préalable pour remplir les propriétés avec des valeurs réelles.
-
+## **Calculer les valeurs réelles des éléments du graphique**
+Aspose.Slides for Java propose une API simple pour obtenir ces propriétés. Les propriétés de l'interface [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) fournissent des informations sur la position réelle de l'élément du graphique d'axe ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--),[IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--),[IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--),[IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--),[IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--),[IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). Il est nécessaire d'appeler la méthode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) au préalable pour remplir les propriétés avec les valeurs réelles.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -24,9 +38,9 @@ try {
 }
 ```
 
-## **Calculer la Position Réelle des Éléments de Graphique Parent**
-Aspose.Slides pour Java fournit une API simple pour obtenir ces propriétés. Les propriétés de l'interface [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) fournissent des informations sur la position réelle de l'élément de graphique parent ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). Il est nécessaire d'appeler la méthode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) au préalable pour remplir les propriétés avec des valeurs réelles.
 
+## **Calculer la position réelle des éléments parents du graphique**
+Aspose.Slides for Java propose une API simple pour obtenir ces propriétés. Les propriétés de l'interface [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) fournissent des informations sur la position réelle de l'élément parent du graphique ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--),[IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--),[IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--),[IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). Il est nécessaire d'appeler la méthode [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) au préalable pour remplir les propriétés avec les valeurs réelles.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,28 +56,28 @@ try {
 }
 ```
 
-## **Cacher des Informations du Graphique**
-Ce sujet vous aide à comprendre comment cacher des informations du graphique. En utilisant Aspose.Slides pour Java, vous pouvez cacher **Titre, Axe Vertical, Axe Horizontal** et **Lignes de Grille** du graphique. L'exemple de code ci-dessous montre comment utiliser ces propriétés.
 
+## **Masquer les éléments du graphique**
+Ce sujet vous aide à comprendre comment masquer des informations du graphique. Avec Aspose.Slides for Java, vous pouvez masquer le **Titre, l'Axe vertical, l'Axe horizontal** et les **Lignes de la grille** du graphique. L'exemple de code ci-dessous montre comment utiliser ces propriétés.
 ```java
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    //Cacher le Titre du graphique
+    //Masquage du titre du graphique
     chart.setTitle(false);
 
-    //Cacher l'axe des Valeurs
+    ///Masquage de l'axe des valeurs
     chart.getAxes().getVerticalAxis().setVisible(false);
 
-    //Visibilité de l'Axe de Catégorie
+    //Visibilité de l'axe des catégories
     chart.getAxes().getHorizontalAxis().setVisible(false);
 
-    //Cacher la Légende
+    //Masquage de la légende
     chart.setLegend(false);
 
-    //Cacher les MajorGridLines
+    //Masquage des lignes principales de la grille
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
@@ -78,7 +92,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
 
-    //Définir la couleur de la ligne de la série
+    //Setting series line color
     series.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     series.getFormat().getLine().setDashStyle(LineDashStyle.Solid);
@@ -88,3 +102,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Les classeurs Excel externes fonctionnent-ils comme source de données et comment cela affecte-t-il le recalcul ?**
+
+Oui. Un graphique peut référencer un classeur externe : lorsque vous vous connectez ou actualisez la source externe, les formules et les valeurs sont récupérées à partir de ce classeur, et le graphique reflète les mises à jour lors des opérations d'ouverture ou de modification. L'API vous permet de [spécifier le chemin du classeur externe](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) et de gérer les données liées.
+
+**Puis-je calculer et afficher des droites de tendance sans implémenter moi‑même la régression ?**
+
+Oui. Les [droites de tendance](/slides/fr/java/trend-line/) (linéaires, exponentielles et autres) sont ajoutées et mises à jour par Aspose.Slides ; leurs paramètres sont recalculés automatiquement à partir des données de la série, ainsi vous n’avez pas besoin d’implémenter vos propres calculs.
+
+**Si une présentation contient plusieurs graphiques avec des liens externes, puis‑je contrôler quel classeur chaque graphique utilise pour les valeurs calculées ?**
+
+Oui. Chaque graphique peut pointer vers son propre [classeur externe](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-), ou vous pouvez créer/remplacer un classeur externe par graphique indépendamment des autres.

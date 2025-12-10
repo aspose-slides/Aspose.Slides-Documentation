@@ -1,50 +1,72 @@
 ---
-title: JavaでPowerPointの段落を管理する
+title: JavaでPowerPointテキスト段落を管理する
+linktitle: 段落の管理
 type: docs
 weight: 40
 url: /ja/java/manage-paragraph/
-keywords: "PowerPoint段落を追加, 段落管理, 段落インデント, 段落プロパティ, HTMLテキスト, 段落テキストをエクスポート, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaでPowerPointプレゼンテーションの段落、テキスト、インデント、およびプロパティを作成および管理します"
+keywords:
+- テキストを追加
+- 段落を追加
+- テキストを管理
+- 段落を管理
+- 箇条書きを管理
+- 段落インデント
+- ハンギングインデント
+- 段落箇条書き
+- 番号付きリスト
+- 箇条書きリスト
+- 段落プロパティ
+- HTMLのインポート
+- テキストをHTMLへ
+- 段落をHTMLへ
+- 段落を画像へ
+- テキストを画像へ
+- 段落をエクスポート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Javaで段落の書式設定をマスター—JavaのPPT、PPTX、ODPプレゼンテーションで配置、間隔、スタイルを最適化します。"
 ---
 
-Aspose.Slidesは、JavaでPowerPointのテキスト、段落、および部分を操作するために必要なすべてのインターフェイスとクラスを提供します。
+Aspose.Slides は、Java で PowerPoint のテキスト、段落、そして部分を操作するために必要なすべてのインターフェイスとクラスを提供します。
 
-* Aspose.Slidesは、段落を表すオブジェクトを追加できるようにするために[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)インターフェイスを提供しています。`ITextFame`オブジェクトは、1つまたは複数の段落を持つことができます（各段落はキャリッジリターンを介して作成されます）。
-* Aspose.Slidesは、部分を表すオブジェクトを追加できるようにするために[IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/)インターフェイスを提供しています。`IParagraph`オブジェクトは、1つまたは複数の部分（iPortionsオブジェクトのコレクション）を持つことができます。
-* Aspose.Slidesは、テキストとその書式設定プロパティを表すオブジェクトを追加できるようにするために[IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/)インターフェイスを提供しています。
+* Aspose.Slides は、段落を表すオブジェクトを追加できるようにするための [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) インターフェイスを提供します。`ITextFame` オブジェクトは、1 つまたは複数の段落を持つことができます（各段落は改行で作成されます）。
+* Aspose.Slides は、部分を表すオブジェクトを追加できるようにする [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) インターフェイスを提供します。`IParagraph` オブジェクトは、1 つまたは複数の部分（iPortions オブジェクトのコレクション）を持つことができます。
+* Aspose.Slides は、テキストとその書式設定プロパティを表すオブジェクトを追加できるようにする [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) インターフェイスを提供します。
 
-`IParagraph`オブジェクトは、基となる`IPortion`オブジェクトを通じて異なる書式設定プロパティを持つテキストを処理できます。
+`IParagraph` オブジェクトは、基盤となる `IPortion` オブジェクトを通じて、異なる書式設定プロパティを持つテキストを処理できます。
 
-## **複数の部分を含む複数の段落を追加する**
+## **複数の段落に複数の部分を含める**
 
-これらの手順は、3つの段落を含み、各段落が3つの部分を含むテキストフレームを追加する方法を示しています。
+以下の手順では、3 つの段落を含むテキストフレームを追加し、各段落に 3 つの部分を含める方法を示します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. スライドに長方形の[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)に関連付けられたITextFrameを取得します。
-5. 2つの[IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/)オブジェクトを作成し、それらを[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)の`IParagraphs`コレクションに追加します。
-6. 各新しい`IParagraph`のために3つの[IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/)オブジェクトを作成し、各`IParagraph`のIPortionコレクションに各`IPortion`オブジェクトを追加します。
-7. 各部分のテキストを設定します。
-8. `IPortion`オブジェクトによって公開される書式設定プロパティを使用して、各部分に希望の書式設定機能を適用します。
-9. 修正されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用して、対象のスライドへの参照にアクセスします。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) に関連付けられた ITextFrame を取得します。
+5. [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) オブジェクトを 2 つ作成し、[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) の `IParagraphs` コレクションに追加します。
+6. 新しい各 `IParagraph` に対して 3 つの [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) オブジェクト（デフォルトの Paragraph には 2 つの Portion オブジェクト）を作成し、各 `IPortion` オブジェクトを各 `IParagraph` の IPortion コレクションに追加します。
+7. 各部分にテキストを設定します。
+8. `IPortion` オブジェクトが提供する書式設定プロパティを使用して、各部分に好みの書式設定機能を適用します。
+9. 変更されたプレゼンテーションを保存します。
 
-このJavaコードは、部分を含む段落を追加する手順の実装です：
-
+この Java コードは、部分を含む段落を追加する手順の実装例です:
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのAutoShapeを追加
+    // Rectangle タイプの AutoShape を追加
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // AutoShapeのTextFrameにアクセス
+    // AutoShape の TextFrame にアクセス
     ITextFrame tf = ashp.getTextFrame();
 
-    // 異なるテキスト形式を持つ段落と部分を作成
+    // 異なるテキスト書式の Paragraph と Portion を作成
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -89,48 +111,48 @@ try {
         }
     }
 
-    // PPTXをディスクに書き込む
+    // PPTX をディスクに保存
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **段落の箇条書きを管理する**
 
-箇条書きリストは、情報を迅速かつ効率的に整理して提示するのに役立ちます。箇条書きの段落は常に読みやすく、理解しやすいです。
+## **段落の箇条書きの管理**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. 選択したスライドに[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. autoshapeの[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)にアクセスします。
-5. `TextFrame`のデフォルト段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)クラスを使用して最初の段落インスタンスを作成します。
-7. 段落の箇条書き`Type`を`Symbol`に設定し、箇条書き文字を設定します。
-8. 段落の`Text`を設定します。
-9. 箇条書きのための段落の`Indent`を設定します。
+箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。箇条書きの段落は常に読みやすく、理解しやすくなります。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. スライドに [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 自動シェイプの [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
+5. `TextFrame` のデフォルト段落を削除します。
+6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
+7. 段落の箇条書き `Type` を `Symbol` に設定し、箇条書き文字を設定します。
+8. 段落の `Text` を設定します。
+9. 段落の箇条書きの `Indent` を設定します。
 10. 箇条書きの色を設定します。
 11. 箇条書きの高さを設定します。
-12. 新しい段落を`TextFrame`段落コレクションに追加します。
-13. 2番目の段落を追加し、ステップ7から13のプロセスを繰り返します。
+12. 新しい段落を `TextFrame` の段落コレクションに追加します。
+13. 2 番目の段落を追加し、手順 7 から 13 のプロセスを繰り返します。
 14. プレゼンテーションを保存します。
 
-このJavaコードは、段落箇条書きを追加する方法を示しています：
-
+この Java コードは、段落の箇条書きを追加する方法を示します:
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Autoshapeを追加し、アクセス
+    // Autoshape を追加し、アクセス
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Autoshapeのテキストフレームにアクセス
+    // Autoshape のテキストフレームにアクセス
     ITextFrame txtFrm = aShp.getTextFrame();
 
-    // デフォルト段落を削除
+    // デフォルトの段落を削除
     txtFrm.getParagraphs().removeAt(0);
 
     // 段落を作成
@@ -141,7 +163,7 @@ try {
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
     // 段落のテキストを設定
-    para.setText("Aspose.Slidesへようこそ");
+    para.setText("Welcome to Aspose.Slides");
 
     // 箇条書きのインデントを設定
     para.getParagraphFormat().setIndent(25);
@@ -149,15 +171,15 @@ try {
     // 箇条書きの色を設定
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // 独自の箇条書き色を使用するためにIsBulletHardColorをtrueに設定
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor を true に設定して独自の箇条書き色を使用
 
     // 箇条書きの高さを設定
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // テキストフレームに段落を追加
+    // 段落をテキストフレームに追加
     txtFrm.getParagraphs().add(para);
 
-    // 2番目の段落を作成
+    // 2 番目の段落を作成
     Paragraph para2 = new Paragraph();
 
     // 段落の箇条書きタイプとスタイルを設定
@@ -165,52 +187,52 @@ try {
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
     // 段落のテキストを追加
-    para2.setText("これは番号付きの箇条書きです");
+    para2.setText("This is numbered bullet");
 
     // 箇条書きのインデントを設定
     para2.getParagraphFormat().setIndent(25);
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // 独自の箇条書き色を使用するためにIsBulletHardColorをtrueに設定
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor を true に設定して独自の箇条書き色を使用
 
     // 箇条書きの高さを設定
     para2.getParagraphFormat().getBullet().setHeight(100);
 
-    // テキストフレームに段落を追加
+    // 段落をテキストフレームに追加
     txtFrm.getParagraphs().add(para2);
     
-    // 修正されたプレゼンテーションを保存
+    // 変更されたプレゼンテーションを保存
     pres.save("Bullet_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **画像の箇条書きを管理する**
 
-箇条書きリストは、情報を迅速かつ効率的に整理して提示するのに役立ちます。画像段落は読みやすく、理解しやすいです。
+## **画像箇条書きの管理**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. スライドに[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. autoshapeの[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)にアクセスします。
-5. `TextFrame`のデフォルト段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)クラスを使用して最初の段落インスタンスを作成します。
-7. [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)に画像を読み込みます。
-8. 箇条書きのタイプを[Picture](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)に設定し、画像を設定します。
-9. 段落の`Text`を設定します。
-10. 箇条書きのための段落の`Indent`を設定します。
+箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。画像段落は読みやすく、理解しやすいです。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. スライドに [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 自動シェイプの [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
+5. `TextFrame` のデフォルト段落を削除します。
+6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
+7. [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) に画像をロードします。
+8. 箇条書きタイプを [Picture](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) に設定し、画像を指定します。
+9. 段落の `Text` を設定します。
+10. 段落の箇条書きの `Indent` を設定します。
 11. 箇条書きの色を設定します。
 12. 箇条書きの高さを設定します。
-13. 新しい段落を`TextFrame`段落コレクションに追加します。
-14. 2番目の段落を追加し、前のステップに基づいてプロセスを繰り返します。
-15. 修正されたプレゼンテーションを保存します。
+13. 新しい段落を `TextFrame` の段落コレクションに追加します。
+14. 2 番目の段落を追加し、前の手順に従って繰り返します。
+15. 変更されたプレゼンテーションを保存します。
 
-このJavaコードは、画像の箇条書きを追加および管理する方法を示しています：
-
+この Java コードは、画像箇条書きを追加および管理する方法を示します:
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation presentation = new Presentation();
 try {
     // 最初のスライドにアクセス
@@ -224,19 +246,18 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-
-    // Autoshapeを追加し、アクセス
+    // AutoShape を追加し、アクセス
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Autoshapeのテキストフレームにアクセス
+    // AutoShape のテキストフレームにアクセス
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    // デフォルト段落を削除
+    // デフォルトの段落を削除
     textFrame.getParagraphs().removeAt(0);
 
     // 新しい段落を作成
     Paragraph paragraph = new Paragraph();
-    paragraph.setText("Aspose.Slidesへようこそ");
+    paragraph.setText("Welcome to Aspose.Slides");
 
     // 段落の箇条書きスタイルと画像を設定
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
@@ -245,13 +266,13 @@ try {
     // 箇条書きの高さを設定
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
-    // テキストフレームに段落を追加
+    // 段落をテキストフレームに追加
     textFrame.getParagraphs().add(paragraph);
 
-    // プレゼンテーションをPPTXファイルとして書き込み
+    // プレゼンテーションを PPTX ファイルとして保存
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // プレゼンテーションをPPTファイルとして書き込み
+    // プレゼンテーションを PPT ファイルとして保存
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -259,43 +280,43 @@ try {
 }
 ```
 
-## **マルチレベル箇条書きを管理する**
 
-箇条書きリストは、情報を迅速かつ効率的に整理して提示するのに役立ちます。マルチレベル箇条書きは読みやすく、理解しやすいです。
+## **多階層箇条書きの管理**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. 新しいスライドに[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. autoshapeの[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)にアクセスします。
-5. `TextFrame`のデフォルト段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)クラスを介して最初の段落インスタンスを作成し、深さを0に設定します。
-7. `Paragraph`クラスを介して2番目の段落インスタンスを作成し、深さを1に設定します。
-8. `Paragraph`クラスを介して3番目の段落インスタンスを作成し、深さを2に設定します。
-9. `Paragraph`クラスを介して4番目の段落インスタンスを作成し、深さを3に設定します。
-10. 新しい段落を`TextFrame`の段落コレクションに追加します。
-11. 修正されたプレゼンテーションを保存します。
+箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。多階層箇条書きは読みやすく、理解しやすいです。
 
-このJavaコードは、マルチレベル箇条書きを追加および管理する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. 新しいスライドに [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 自動シェイプの [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
+5. `TextFrame` のデフォルト段落を削除します。
+6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成し、深さを 0 に設定します。
+7. `Paragraph` クラスを使用して第 2 の段落インスタンスを作成し、深さを 1 に設定します。
+8. `Paragraph` クラスを使用して第 3 の段落インスタンスを作成し、深さを 2 に設定します。
+9. `Paragraph` クラスを使用して第 4 の段落インスタンスを作成し、深さを 3 に設定します。
+10. 新しい段落を `TextFrame` の段落コレクションに追加します。
+11. 変更されたプレゼンテーションを保存します。
 
+この Java コードは、多階層箇条書きを追加および管理する方法を示します:
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Autoshapeを追加し、アクセス
+    // AutoShape を追加し、アクセス
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 作成したautoshapeのテキストフレームにアクセス
+    // 作成した AutoShape のテキストフレームにアクセス
     ITextFrame text = aShp.addTextFrame("");
 
-    // デフォルト段落をクリア
+    // デフォルトの段落をクリア
     text.getParagraphs().clear();
 
     // 最初の段落を追加
     IParagraph para1 = new Paragraph();
-    para1.setText("内容");
+    para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -303,9 +324,9 @@ try {
     // 箇条書きレベルを設定
     para1.getParagraphFormat().setDepth((short)0);
 
-    // 2番目の段落を追加
+    // 2 番目の段落を追加
     IParagraph para2 = new Paragraph();
-    para2.setText("第2レベル");
+    para2.setText("Second Level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -313,9 +334,9 @@ try {
     // 箇条書きレベルを設定
     para2.getParagraphFormat().setDepth((short)1);
 
-    // 3番目の段落を追加
+    // 3 番目の段落を追加
     IParagraph para3 = new Paragraph();
-    para3.setText("第3レベル");
+    para3.setText("Third Level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -323,9 +344,9 @@ try {
     // 箇条書きレベルを設定
     para3.getParagraphFormat().setDepth((short)2);
 
-    // 4番目の段落を追加
+    // 4 番目の段落を追加
     IParagraph para4 = new Paragraph();
-    para4.setText("第4レベル");
+    para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -333,64 +354,65 @@ try {
     // 箇条書きレベルを設定
     para4.getParagraphFormat().setDepth((short)3);
 
-    // コレクションに段落を追加
+    // 段落をコレクションに追加
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // PPTXファイルとしてプレゼンテーションを書き込む
+    // プレゼンテーションを PPTX ファイルとして保存
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **カスタム番号付きリストの段落を管理する**
 
-[IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/)インターフェイスは、段落をカスタム番号や書式設定で管理できるようにするために[NumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)プロパティなどを提供します。
+## **カスタム番号付きリストの段落の管理**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
+[IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) インターフェイスは、[NumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) プロパティなどを提供し、カスタム番号付けや書式設定を持つ段落を管理できるようにします。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. 段落を含むスライドにアクセスします。
-3. スライドに[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. autoshapeの[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)にアクセスします。
-5. `TextFrame`のデフォルト段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)クラスを介して最初の段落インスタンスを作成し、[NumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)を2に設定します。
-7. `Paragraph`クラスを介して2番目の段落インスタンスを作成し、`NumberedBulletStartWith`を3に設定します。
-8. `Paragraph`クラスを介して3番目の段落インスタンスを作成し、`NumberedBulletStartWith`を7に設定します。
-9. 新しい段落を`TextFrame`段落コレクションに追加します。
-10. 修正されたプレゼンテーションを保存します。
+3. スライドに [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 自動シェイプの [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) にアクセスします。
+5. `TextFrame` のデフォルト段落を削除します。
+6. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成し、[NumberedBulletStartWith] を 2 に設定します。
+7. `Paragraph` クラスを使用して第 2 の段落インスタンスを作成し、`NumberedBulletStartWith` を 3 に設定します。
+8. `Paragraph` クラスを使用して第 3 の段落インスタンスを作成し、`NumberedBulletStartWith` を 7 に設定します。
+9. 新しい段落を `TextFrame` の段落コレクションに追加します。
+10. 変更されたプレゼンテーションを保存します。
 
-このJavaコードは、カスタム番号や書式設定を持つ段落を追加および管理する方法を示しています：
-
+この Java コードは、カスタム番号付けや書式設定を持つ段落を追加および管理する方法を示します:
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 作成したautoshapeのテキストフレームにアクセス
+    // 作成した AutoShape のテキストフレームにアクセス
     ITextFrame textFrame = shape.getTextFrame();
 
-    // 既存のデフォルトの段落を削除します
+    // 既存のデフォルト段落を削除
     textFrame.getParagraphs().removeAt(0);
 
     // 最初のリスト
     Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("箇条書き2");
+    paragraph1.setText("bullet 2");
     paragraph1.getParagraphFormat().setDepth((short)4);
     paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     textFrame.getParagraphs().add(paragraph1);
 
     Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("箇条書き3");
+    paragraph2.setText("bullet 3");
     paragraph2.getParagraphFormat().setDepth((short)4);
     paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
     paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     textFrame.getParagraphs().add(paragraph2);
 
+
     Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("箇条書き7");
+    paragraph5.setText("bullet 7");
     paragraph5.getParagraphFormat().setDepth((short)4);
     paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
     paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
@@ -402,38 +424,38 @@ try {
 }
 ```
 
-## **段落のインデントを設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを介して関連するスライドの参照にアクセスします。
-1. スライドに長方形の[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-1. 長方形のautoshapeに3つの段落を持つ[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)を追加します。
-1. 長方形のラインを非表示にします。
-1. 各段落のBulletOffsetプロパティを介して段落のインデントを設定します。
-1. 修正されたプレゼンテーションをPPTファイルとして書き込みます。
+## **段落インデントの設定**
 
-このJavaコードは、段落のインデントを設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. スライドに矩形の [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 矩形の自動シェイプに、3 つの段落を含む [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) を追加します。
+5. 矩形の線を非表示にします。
+6. 各 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) の BulletOffset プロパティを使用してインデントを設定します。
+7. 変更されたプレゼンテーションを PPT ファイルとして書き出します。
 
+この Java コードは、段落インデントを設定する方法を示します:
 ```java
-// Presentationクラスをインスタンス化
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 長方形のシェイプを追加
+    // 四角形シェイプを追加
     IAutoShape rect = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
     
-    // 長方形にテキストフレームを追加
-    ITextFrame tf = rect.addTextFrame("これは最初の行です \rこれは2行目です \rこれは3行目です");
+    // 四角形に TextFrame を追加
+    ITextFrame tf = rect.addTextFrame("This is first line \rThis is second line \rThis is third line");
     
-    // テキストをシェイプにフィットさせる
+    // テキストをシェイプに合わせて自動調整
     tf.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
     
-    // 長方形のラインを隠す
+    // 四角形の枠線を非表示にする
     rect.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     
-    // テキストフレームの最初の段落を取得し、そのインデントを設定
+    // TextFrame の最初の段落を取得しインデントを設定
     IParagraph para1 = tf.getParagraphs().get_Item(0);
     // 段落の箇条書きスタイルとシンボルを設定
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -443,7 +465,7 @@ try {
     para1.getParagraphFormat().setDepth((short)2);
     para1.getParagraphFormat().setIndent(30);
     
-    // テキストフレームの2番目の段落を取得し、そのインデントを設定
+    // TextFrame の2番目の段落を取得しインデントを設定
     IParagraph para2 = tf.getParagraphs().get_Item(1);
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar((char)8226);
@@ -451,7 +473,7 @@ try {
     para2.getParagraphFormat().setDepth((short)2);
     para2.getParagraphFormat().setIndent(40);
     
-    // テキストフレームの3番目の段落を取得し、そのインデントを設定
+    // TextFrame の3番目の段落を取得しインデントを設定
     IParagraph para3 = tf.getParagraphs().get_Item(2);
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char)8226);
@@ -459,30 +481,30 @@ try {
     para3.getParagraphFormat().setDepth((short)2);
     para3.getParagraphFormat().setIndent(50);
     
-    // プレゼンテーションをディスクに書き込む
+    //Write プレゼンテーションをディスクに保存
     pres.save("InOutDent_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **段落の吊り下げインデントを設定する**
 
-このJavaコードは、段落の吊り下げインデントを設定する方法を示しています：
+## **段落のハンギングインデントの設定**
 
+この Java コードは、段落のハンギングインデントを設定する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
     IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
 
     Paragraph para1 = new Paragraph();
-    para1.setText("例");
+    para1.setText("Example");
 
     Paragraph para2 = new Paragraph();
-    para2.setText("段落の吊り下げインデントを設定します");
+    para2.setText("Set Hanging Indent for Paragraph");
 
     Paragraph para3 = new Paragraph();
-    para3.setText("このC#コードは、段落の吊り下げインデントを設定する方法を示しています。");
+    para3.setText("This code shows you how to set the hanging indent for a paragraph: ");
 
     para2.getParagraphFormat().setMarginLeft(10f);
     para3.getParagraphFormat().setMarginLeft(20f);
@@ -497,28 +519,28 @@ try {
 }
 ```
 
-## **段落の末尾プロパティを管理する**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. 指定の位置を介して段落を含むスライドの参照を取得します。
-1. スライドに長方形の[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-1. 長方形に2つの段落を持つ[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)を追加します。
-1. 段落の`FontHeight`とフォントタイプを設定します。
-1. 段落の末尾プロパティを設定します。
-1. 修正されたプレゼンテーションをPPTXファイルとして書き込みます。
+## **段落の End ラン プロパティの管理**
 
-このJavaコードは、PowerPointの段落の末尾プロパティを設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. 位置を使用して、段落を含むスライドへの参照を取得します。
+3. スライドに矩形の [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. 矩形に、2 つの段落を含む [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) を追加します。
+5. 段落の `FontHeight` とフォントタイプを設定します。
+6. 段落の End プロパティを設定します。
+7. 変更されたプレゼンテーションを PPTX ファイルとして書き出します。
 
+この Java コードは、PowerPoint の段落に対して End プロパティを設定する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 
     Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("サンプルテキスト"));
+    para1.getPortions().add(new Portion("Sample text"));
 
     Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("サンプルテキスト2"));
+    para2.getPortions().add(new Portion("Sample text 2"));
 
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(48);
@@ -534,30 +556,30 @@ try {
 }
 ```
 
-## **HTMLテキストを段落にインポートする**
 
-Aspose.Slidesは、段落にHTMLテキストをインポートするための強化されたサポートを提供します。
+## **HTML テキストを段落にインポート**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. スライドに[autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)を追加します。
-4. autoshapeの[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)に追加およびアクセスします。
-5. `ITextFrame`のデフォルト段落を削除します。
-6. テキストリーダを使用してソースHTMLファイルを読み込みます。
-7. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/)クラスを介して最初の段落インスタンスを作成します。
-8. 読み取ったTextReaderから内容をテキストフレームの[ParagraphCollection](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/)に追加します。
-9. 修正されたプレゼンテーションを保存します。
+Aspose.Slides は、HTML テキストを段落にインポートするための高度なサポートを提供します。
 
-このJavaコードは、段落にHTMLテキストをインポートする手順の実装です：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. スライドに [autoshape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) を追加します。
+4. `autoshape` の [ITextFrame] を追加し、アクセスします。
+5. `ITextFrame` のデフォルト段落を削除します。
+6. TextReader でソース HTML ファイルを読み取ります。
+7. [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
+8. 読み取った TextReader の HTML ファイル内容を、TextFrame の [ParagraphCollection](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/) に追加します。
+9. 変更されたプレゼンテーションを保存します。
 
+この Java コードは、段落に HTML テキストをインポートする手順の実装例です:
 ```java
-// 空のプレゼンテーションインスタンスを作成
+// 空のプレゼンテーション インスタンスを作成
 Presentation pres = new Presentation();
 try {
     // プレゼンテーションのデフォルトの最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // HTMLコンテンツを収容するためにAutoShapeを追加
+    // HTML コンテンツを収容するために AutoShape を追加
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
@@ -566,13 +588,13 @@ try {
     // シェイプにテキストフレームを追加
     ashape.addTextFrame("");
 
-    // 追加されたテキストフレームのすべての段落をクリア
+    // 追加したテキストフレームのすべての段落をクリア
     ashape.getTextFrame().getParagraphs().clear();
 
-    // ストリームリーダを使用してHTMLファイルを読み込む
+    // ストリームリーダーを使用して HTML ファイルを読み込む
     TextReader tr = new StreamReader("file.html");
 
-    // テキストフレームにテキストを追加
+    // HTML ストリームリーダーからテキストをテキストフレームに追加
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
     // プレゼンテーションを保存
@@ -582,38 +604,38 @@ try {
 }
 ```
 
-## **段落テキストをHTMLにエクスポートする**
 
-Aspose.Slidesは、段落に含まれるテキストをHTMLにエクスポートするための強化されたサポートを提供します。
+## **段落テキストを HTML にエクスポート**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスのインスタンスを作成し、希望するプレゼンテーションをロードします。
-2. インデックスを介して関連するスライドの参照にアクセスします。
-3. HTMLにエクスポートされるテキストを含むシェイプにアクセスします。
-4. シェイプの[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/)にアクセスします。
-5. `StreamWriter`のインスタンスを作成し、新しいHTMLファイルを追加します。
-6. StreamWriterに開始インデックスを提供し、希望の段落をエクスポートします。
+Aspose.Slides は、段落に含まれるテキストを HTML にエクスポートするための高度なサポートを提供します。
 
-このJavaコードは、PowerPoint段落テキストをHTMLにエクスポートする方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成し、目的のプレゼンテーションをロードします。
+2. インデックスで対象スライドへの参照にアクセスします。
+3. HTML にエクスポートされるテキストを含むシェイプにアクセスします。
+4. シェイプの [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) にアクセスします。
+5. `StreamWriter` のインスタンスを作成し、新しい HTML ファイルを追加します。
+6. StreamWriter に開始インデックスを設定し、希望する段落をエクスポートします。
 
+この Java コードは、PowerPoint の段落テキストを HTML にエクスポートする方法を示します:
 ```java
-// プレゼンテーションファイルをロード
+// プレゼンテーションファイルを読み込む
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
     // プレゼンテーションのデフォルトの最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 希望のインデックス
+    // 目的のインデックス
     int index = 0;
 
     // 追加されたシェイプにアクセス
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
-    // 出力HTMLファイルを作成
+    // 出力 HTML ファイルを作成
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    // 最初の段落をHTMLとして抽出
-    // 段落の開始インデックス、コピーする総段落数を提供することによってHTMLに書き込む
+    // 最初の段落を HTML として抽出
+    // 段落の開始インデックスとコピーする段落数を指定して段落データを HTML に書き込む
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -621,3 +643,124 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **段落を画像として保存**
+
+このセクションでは、[IParagraph] インターフェイスで表されるテキスト段落を画像として保存する方法を示す 2 つの例を検証します。どちらの例も、[IShape] インターフェイスの `getImage` メソッドを使用して段落を含むシェイプの画像を取得し、シェイプ内の段落の境界を計算し、ビットマップ画像としてエクスポートする手順を含みます。これらのアプローチにより、PowerPoint プレゼンテーションからテキストの特定部分を抽出し、個別の画像として保存でき、さまざまなシナリオでの活用に役立ちます。
+
+プレゼンテーションファイル sample.pptx があり、1 枚のスライドがあり、最初のシェイプが 3 つの段落を含むテキストボックスであると想定しましょう。
+
+![3つの段落があるテキストボックス](paragraph_to_image_input.png)
+
+**例 1**
+
+この例では、2 番目の段落を画像として取得します。  
+そのために、プレゼンテーションの最初のスライドからシェイプの画像を抽出し、シェイプのテキストフレーム内の 2 番目の段落の境界を計算します。  
+次に、段落を新しいビットマップ画像に再描画し、PNG 形式で保存します。  
+この方法は、テキストの正確なサイズと書式設定を保持しながら、特定の段落を個別の画像として保存する必要がある場合に特に有用です。  
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // 形状をメモリ内にビットマップとして保存します。
+    IImage shapeImage = firstShape.getImage();
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
+
+    // メモリから形状ビットマップを作成します。
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+    // 第2段落の境界を計算します。
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    Rectangle2D paragraphRectangle = secondParagraph.getRect();
+
+    // 出力画像の座標とサイズを計算します（最小サイズ 1x1 ピクセル）。
+    int imageX = (int) Math.floor(paragraphRectangle.getX());
+    int imageY = (int) Math.floor(paragraphRectangle.getY());
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
+
+    // 形状ビットマップを切り取って段落ビットマップだけを取得します。
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+
+結果：
+
+![段落画像](paragraph_to_image_output.png)
+
+**例 2**
+
+この例では、段落画像にスケーリング係数を追加して前のアプローチを拡張します。  
+シェイプはプレゼンテーションから抽出され、スケーリング係数 `2` で画像として保存されます。  
+これにより、段落をエクスポートする際に高解像度の出力が可能になります。  
+スケールを考慮して段落の境界が計算されます。  
+スケーリングは、例えば高品質な印刷物での使用など、より詳細な画像が必要な場合に特に有用です。  
+```java
+float imageScaleX = 2f;
+float imageScaleY = imageScaleX;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // スケーリング付きで形状をメモリ内にビットマップとして保存します。
+    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
+
+    // メモリから形状ビットマップを作成します。
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+    // 第2段落の境界を計算します。
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    Rectangle2D paragraphRectangle = secondParagraph.getRect();
+    paragraphRectangle.setRect(
+            paragraphRectangle.getX() * imageScaleX,
+            paragraphRectangle.getY() * imageScaleY,
+            paragraphRectangle.getWidth() * imageScaleX,
+            paragraphRectangle.getHeight() * imageScaleY
+    );
+
+    // 出力画像の座標とサイズを計算します（最小サイズ 1x1 ピクセル）。
+    int imageX = (int) Math.floor(paragraphRectangle.getX());
+    int imageY = (int) Math.floor(paragraphRectangle.getY());
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
+
+    // 形状ビットマップを切り取って段落ビットマップだけを取得します。
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+
+## **よくある質問**
+
+**テキストフレーム内で改行を完全に無効にできますか？**  
+はい。テキストフレームの折り返し設定（[setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) を使用して折り返しをオフにすれば、フレームの端で行が折り返されなくなります。
+
+**特定の段落のスライド上での正確な境界を取得するにはどうすればよいですか？**  
+段落（場合によっては単一の部分）のバウンディング矩形を取得すれば、スライド上での正確な位置とサイズを知ることができます。
+
+**段落の配置（左揃え/右揃え/中央揃え/均等割付）はどこで制御されますか？**  
+[Alignment](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setAlignment-int-) は [ParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/) の段落レベル設定であり、個々の部分の書式設定に関係なく段落全体に適用されます。
+
+**段落の一部（例: 単語）だけにスペルチェックの言語を設定できますか？**  
+はい。言語は [PortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) により部分レベルで設定されるため、単一の段落内に複数の言語を共存させることが可能です。

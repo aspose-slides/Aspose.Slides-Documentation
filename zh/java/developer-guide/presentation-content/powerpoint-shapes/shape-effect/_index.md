@@ -1,26 +1,37 @@
 ---
-title: 形状特效
+title: 使用 Java 在演示文稿中应用形状效果
+linktitle: 形状效果
 type: docs
 weight: 30
-url: /zh/java/shape-effect
-keywords: "形状特效, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
-description: "在 Java 中为 PowerPoint 形状应用特效"
+url: /zh/java/shape-effect/
+keywords:
+- 形状效果
+- 阴影效果
+- 反射效果
+- 发光效果
+- 柔化边缘效果
+- 效果格式
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Java 将高级形状效果应用于您的 PPT 和 PPTX 文件——在几秒钟内创建引人注目、专业的幻灯片。"
 ---
 
-虽然 PowerPoint 中的特效可以使形状更突出，但它们与 [填充](/slides/zh/java/shape-formatting/#gradient-fill) 或轮廓不同。使用 PowerPoint 特效，您可以在形状上创建逼真的反射，扩展形状的光辉等。
+
+虽然 PowerPoint 中的效果可用于突出形状，但它们不同于 [fills](/slides/zh/java/shape-formatting/#gradient-fill) 或轮廓。使用 PowerPoint 效果，您可以在形状上创建逼真的反射、扩散形状的发光等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint 提供了六种可以应用于形状的特效。您可以将一个或多个特效应用于一个形状。
+* PowerPoint 提供六种可应用于形状的效果。您可以对一个形状应用一个或多个效果。
 
-* 某些特效组合的效果比其他组合更好。因此，PowerPoint 在 **预设** 下提供选项。预设选项本质上是一种经过验证的好看的两种或多种特效组合。通过选择预设，您不必浪费时间测试或组合不同的特效来找到一个好的组合。
+* 某些效果组合看起来比其他组合更好。因此，PowerPoint 在 **Preset** 下提供选项。Preset 选项本质上是两个或多个效果的已知好看组合。这样，通过选择预设，您无需浪费时间测试或组合不同的效果来寻找合适的组合。
 
-Aspose.Slides 提供了 [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat) 类下的属性和方法，允许您将相同的特效应用于 PowerPoint 演示文稿中的形状。
+Aspose.Slides 在 [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat) 类下提供属性和方法，允许您在 PowerPoint 演示文稿中对形状应用相同的效果。
 
-## **应用阴影特效**
+## **应用阴影效果**
 
-以下 Java 代码展示了如何将外阴影特效 ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) 应用于矩形：
-
+此 Java 代码演示如何将外部阴影效果（[OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) 应用于矩形：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,10 +48,10 @@ try {
 }
 ```
 
-## **应用反射特效**
 
-以下 Java 代码展示了如何将反射特效应用于形状：
+## **应用反射效果**
 
+此 Java 代码演示如何将反射效果应用于形状：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +69,10 @@ try {
 }
 ```
 
-## **应用发光特效**
 
-以下 Java 代码展示了如何将发光特效应用于形状：
+## **应用发光效果**
 
+此 Java 代码演示如何将发光效果应用于形状：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +88,10 @@ try {
 }
 ```
 
-## **应用柔和边缘特效**
 
-以下 Java 代码展示了如何将柔和边缘特效应用于形状：
+## **应用柔化边缘效果**
 
+此 Java 代码演示如何将柔化边缘应用于形状：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,3 +105,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**我可以对同一形状应用多个效果吗？**
+
+是的，您可以在单个形状上组合不同的效果，例如阴影、反射和发光，以创建更具动态的外观。
+
+**我可以对哪些形状应用效果？**
+
+您可以对各种形状应用效果，包括自动形状、图表、表格、图片、SmartArt 对象、OLE 对象等。
+
+**我可以对组合形状应用效果吗？**
+
+是的，您可以对组合形状应用效果。该效果将应用于整个组。

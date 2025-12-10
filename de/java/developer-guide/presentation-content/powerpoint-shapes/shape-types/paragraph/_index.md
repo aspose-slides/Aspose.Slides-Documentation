@@ -1,14 +1,26 @@
 ---
-title: Absatz
+title: Abrufen von Absatzgrenzen aus Präsentationen in Java
+linktitle: Absatz
 type: docs
 weight: 60
 url: /de/java/paragraph/
+keywords:
+- Absatzgrenzen
+- Textabschnittsgrenzen
+- Absatzkoordinate
+- Textabschnittskoordinate
+- Absatzgröße
+- Textabschnittsgröße
+- Textfeld
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Absatz- und Textabschnittsgrenzen in Aspose.Slides für Java abrufen, um die Textpositionierung in PowerPoint-Präsentationen zu optimieren."
 ---
 
-
-## Absatz- und Portion-Koordinaten im TextFrame abrufen ##
-Mit Aspose.Slides für Java können Entwickler jetzt die rechteckigen Koordinaten für Absätze in der Absatzsammlung von TextFrame abrufen. Es ermöglicht auch, die [Koordinaten von Portionen](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) in der Portionssammlung eines Absatzes abzurufen. In diesem Thema werden wir anhand eines Beispiels demonstrieren, wie man die rechteckigen Koordinaten für einen Absatz zusammen mit der Position der Portion innerhalb eines Absatzes erhält.
-
+## **Rechteckige Koordinaten eines Absatzes und eines Abschnitts in einem TextFrame holen**
+Mit Aspose.Slides für Java können Entwickler jetzt die rechteckigen Koordinaten für einen Absatz innerhalb der Absatzsammlung eines TextFrames erhalten. Außerdem können Sie [die Koordinaten des Abschnitts](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) innerhalb der Abschnittssammlung eines Absatzes erhalten. In diesem Thema zeigen wir anhand eines Beispiels, wie man die rechteckigen Koordinaten für einen Absatz zusammen mit der Position eines Abschnitts innerhalb eines Absatzes ermittelt.
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
@@ -20,27 +32,27 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 ```
 
 
-## **Rechteckige Koordinaten des Absatzes abrufen**
-Mit der Methode [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) können Entwickler die Grenzen des Absatzrechtecks abrufen.
 
+## **Rechteckige Koordinaten eines Absatzes ermitteln**
+Durch die Verwendung von [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) können Entwickler das Begrenzungsrechteck eines Absatzes erhalten.
 ```java
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
     IAutoShape shape = (IAutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     ITextFrame textFrame = shape.getTextFrame();
     Rectangle2D.Float rect = textFrame.getParagraphs().get_Item(0).getRect();
-    System.out.println("X: " + rect.x + " Y: " + rect.y + " Breite: " + rect.width + " Höhe: " + rect.height);
+    System.out.println("X: " + rect.x + " Y: " + rect.y + " Width: " + rect.width + " Height: " + rect.height);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Größe des Absatzes und der Portion innerhalb des Textrahmens einer Tabellenzelle abrufen** ##
 
-Um die [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) oder die [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) Größe und Koordinaten in einem Textrahmen einer Tabellenzelle abzurufen, können Sie die Methoden [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) und [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) verwenden.
+## **Größe eines Absatzes und Abschnitts in einem Tabellenzellen-TextFrame ermitteln**
 
-Dieser Beispielcode demonstriert die beschriebene Operation:
+Um die Größe und Koordinaten eines [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion)- oder [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph)-Elements in einem Tabellenzellen-TextFrame zu erhalten, können Sie die Methoden [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) und [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) verwenden.
 
+Dieser Beispielcode demonstriert die beschriebene Vorgehensweise:
 ```java
 Presentation pres = new Presentation("source.pptx");
 try {
@@ -81,3 +93,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**In welchen Einheiten werden die Koordinaten für einen Absatz und Textabschnitte zurückgegeben?**
+
+In Punkten, wobei 1 Zoll = 72 Punkte gilt. Dies gilt für alle Koordinaten und Abmessungen auf der Folie.
+
+**Beeinflusst der Zeilenumbruch die Begrenzungen eines Absatzes?**
+
+Ja. Wenn das [Wrapping](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-) im [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) aktiviert ist, wird der Text umbrochen, um zur Breite des Bereichs zu passen, wodurch die tatsächlichen Begrenzungen des Absatzes geändert werden.
+
+**Können Absatzkoordinaten zuverlässig in Pixel im exportierten Bild umgerechnet werden?**
+
+Ja. Punkte in Pixel umrechnen mit: pixels = points × (DPI / 72). Das Ergebnis hängt vom für das Rendern/Exportieren gewählten DPI ab.
+
+**Wie erhalte ich die „effektiven“ Absatzformatierungsparameter unter Berücksichtigung der Stilvererbung?**
+
+Verwenden Sie die [effective paragraph formatting data structure](/slides/de/java/shape-effective-properties/); sie gibt die endgültigen konsolidierten Werte für Einzüge, Abstand, Umbruch, RTL und mehr zurück.

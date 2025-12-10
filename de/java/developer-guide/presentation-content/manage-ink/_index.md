@@ -1,40 +1,50 @@
 ---
-title: Tinte verwalten
+title: Verwalten von Präsentations-Tintenobjekten in Java
+linktitle: Tinte verwalten
 type: docs
 weight: 95
 url: /de/java/manage-ink/
-keywords: "Tinte in PowerPoint, Tintwerkzeuge, Java Ink, Zeichnen in PowerPoint, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
-description: "Verwenden Sie Tintwerkzeuge, um Objekte in PowerPoint Java zu zeichnen"
+keywords:
+- Tinte
+- Tintenobjekt
+- Tintenspur
+- Tinte verwalten
+- Tinte zeichnen
+- Zeichnung
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Verwalten von PowerPoint-Tintenobjekten—Erstellen, Bearbeiten & Gestalten digitaler Tinte mit Aspose.Slides für Java. Holen Sie sich Codebeispiele für Spuren, Pinsel-Farbe & Größe."
 ---
 
-PowerPoint bietet die Tintenfunktion, um Ihnen das Zeichnen von nicht standardisierten Figuren zu ermöglichen, die verwendet werden können, um andere Objekte hervorzuheben, Verbindungen und Prozesse darzustellen und auf bestimmte Elemente auf einer Folie aufmerksam zu machen.
+PowerPoint bietet die Ink‑Funktion, mit der Sie nicht‑standardmäßige Figuren zeichnen können, um andere Objekte hervorzuheben, Verbindungen und Prozesse zu zeigen und die Aufmerksamkeit auf bestimmte Elemente einer Folie zu lenken. 
 
-Aspose.Slides bietet alle benötigten Tintenarten (z. B. [Ink](https://reference.aspose.com/slides/java/com.aspose.slides/ink/) Klasse), um Tintenobjekte zu erstellen und zu verwalten.
+Aspose.Slides stellt alle Ink‑Typen (z. B. die Klasse [Ink](https://reference.aspose.com/slides/java/com.aspose.slides/ink/)) bereit, die Sie zum Erstellen und Verwalten von Ink‑Objekten benötigen. 
 
-## **Unterschiede zwischen regulären Objekten und Tintenobjekten**
+## **Unterschiede zwischen regulären Objekten und Ink‑Objekten**
 
-Objekte auf einer PowerPoint-Folie werden typischerweise durch Formobjekte dargestellt. Ein Formobjekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) zusammen mit seinen Eigenschaften definiert. Letzteres umfasst die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie unter [Shape Layout Format](https://docs.aspose.com/slides/java/shape-manipulations/#access-layout-formats-for-shape).
+Objekte auf einer PowerPoint‑Folie werden typischerweise durch Shape‑Objekte dargestellt. Ein Shape‑Objekt ist in seiner einfachsten Form ein Container, der den Bereich des eigentlichen Objekts (seinen Rahmen) zusammen mit dessen Eigenschaften definiert. Letztere umfassen die Größe des Container‑Bereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie unter [Shape Layout Format](https://docs.aspose.com/slides/java/shape-manipulations/#access-layout-formats-for-shape).
 
-Wenn PowerPoint jedoch mit einem Tintenobjekt zu tun hat, ignoriert es alle Eigenschaften des Objektrahmens (Containers) außer seiner Größe. Die Größe des Containerbereichs wird durch die Standardwerte `width` und `height` bestimmt:
+Wenn PowerPoint jedoch mit einem Ink‑Objekt arbeitet, ignoriert es alle Eigenschaften des Objekt‑Rahmens (Containers) außer seiner Größe. Die Größe des Container‑Bereichs wird durch die Standardwerte `width` und `height` bestimmt:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Tintenformen-Traces**
+## **Inkshape‑Spuren**
 
-Ein Trace ist ein grundlegendes Element oder eine Norm, die verwendet wird, um die Trajektorie eines Stifts aufzuzeichnen, während ein Benutzer digitale Tinte schreibt. Traces sind Aufzeichnungen, die Sequenzen verbundener Punkte beschreiben.
+Eine Spur ist ein Basiselement oder Standard, das die Flugbahn eines Stifts aufzeichnet, während ein Benutzer digitale Tinte schreibt. Spuren sind Aufzeichnungen, die Sequenzen von verbundenen Punkten beschreiben. 
 
-Die einfachste Form der Kodierung gibt die X- und Y-Koordinaten jedes Probenpunkts an. Wenn alle verbundenen Punkte gerendert werden, erzeugen sie ein Bild wie dieses:
+Die einfachste Form der Kodierung gibt die X‑ und Y‑Koordinaten jedes Stichprobenpunkts an. Wenn alle verbundenen Punkte gerendert werden, entsteht ein Bild wie dieses:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Pinsel-Eigenschaften zum Zeichnen
+## **Pinsel‑Eigenschaften zum Zeichnen**
 
-Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte von Trace-Elementen verbinden. Der Pinsel hat seine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen.
+Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte von Spur‑Elementen verbinden. Der Pinsel verfügt über eine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen. 
 
-### **Tintenpinsel-Farbe festlegen**
+### **Ink‑Pinsel‑Farbe festlegen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
-
+Dieser Java‑Code zeigt, wie Sie die Farbe für einen Pinsel festlegen:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -48,10 +58,10 @@ try {
 }
 ```
 
-### **Tintenpinsel-Größe festlegen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
+### **Ink‑Pinsel‑Größe festlegen** 
 
+Dieser Java‑Code zeigt, wie Sie die Größe für einen Pinsel festlegen:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -65,25 +75,26 @@ try {
 }
 ```
 
-Im Allgemeinen stimmen die Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Wenn jedoch die Breite und Höhe des Pinsels übereinstimmen, zeigt PowerPoint seine Größe so an:
+
+In der Regel stimmen Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Stimmen Breite und Höhe des Pinsels jedoch überein, zeigt PowerPoint die Größe wie folgt an:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-Zur Klarheit erhöhen wir die Höhe des Tintenobjekts und überprüfen die wichtigen Dimensionen:
+Zur Veranschaulichung erhöhen wir die Höhe des Ink‑Objekts und überprüfen die relevanten Abmessungen: 
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-Der Container (Rahmen) berücksichtigt nicht die Größe der Pinsel--er geht immer davon aus, dass die Dicke der Linie null ist (siehe das letzte Bild).
+Der Container (Rahmen) berücksichtigt die Größe der Pinsel nicht – er geht stets davon aus, dass die Linienstärke Null ist (siehe das letzte Bild). 
 
-Daher müssen wir zur Bestimmung des sichtbaren Bereichs des gesamten Tintenobjekts die Pinselgröße der Trace-Objekte berücksichtigen. Hier wurde das Zielobjekt (das handschriftliche Text-Trace-Objekt) auf die Größe des Containers (Rahmen) skaliert. Wenn die Größe des Containers (Rahmen) geändert wird, bleibt die Pinselgröße konstant und umgekehrt.
+Daher müssen wir zur Bestimmung des sichtbaren Bereichs des gesamten Ink‑Objekts die Pinselgröße der Spur‑Objekte berücksichtigen. Hier wurde das Zielobjekt (das Spur‑Objekt für handgeschriebenen Text) auf die Container‑Größe skaliert. Ändert sich die Größe des Containers (Rahmens), bleibt die Pinselgröße konstant und umgekehrt. 
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint zeigt dasselbe Verhalten im Umgang mit Texten:
+PowerPoint zeigt dasselbe Verhalten bei Texten:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
 **Weiterführende Literatur**
 
-* Um allgemein über Formen zu lesen, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/java/powerpoint-shapes/). 
-* Für weitere Informationen zu effektiven Werten siehe [Shape Effective Properties](https://docs.aspose.com/slides/java/shape-effective-properties/#getting-effective-font-height-value). 
+* Allgemeine Informationen zu Shapes finden Sie im Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/java/powerpoint-shapes/). 
+* Weitere Informationen zu effektiven Werten erhalten Sie unter [Shape Effective Properties](https://docs.aspose.com/slides/java/shape-effective-properties/#getting-effective-font-height-value).

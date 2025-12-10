@@ -1,39 +1,60 @@
 ---
-title: Изображение
+title: Оптимизация управления изображениями в презентациях с использованием Java
+linktitle: Управление изображениями
 type: docs
 weight: 10
 url: /ru/java/image/
-description: Работа с изображениями в слайдах презентаций PowerPoint с использованием Java. Добавление изображений с диска или из Интернета в слайды PowerPoint с использованием Java. Добавление изображений в мастер-слайды или в качестве фона слайда с использованием Java. Добавление SVG в презентацию PowerPoint с использованием Java. Конвертация SVG в фигуры в PowerPoint с использованием Java. Добавление изображений в формате EMF в слайды с использованием Java.
+keywords:
+- добавить изображение
+- добавить картинку
+- добавить битмап
+- заменить изображение
+- заменить картинку
+- из интернета
+- фон
+- добавить PNG
+- добавить JPG
+- добавить SVG
+- добавить EMF
+- добавить WMF
+- добавить TIFF
+- PowerPoint
+- OpenDocument
+- презентация
+- EMF
+- SVG
+- Java
+- Aspose.Slides
+description: "Упрощайте управление изображениями в PowerPoint и OpenDocument с помощью Aspose.Slides для Java, оптимизируя производительность и автоматизируя рабочий процесс."
 ---
 
 ## **Изображения в слайдах презентаций**
 
-Изображения делают презентации более увлекательными и интересными. В Microsoft PowerPoint вы можете вставлять изображения из файла, Интернета или других мест в слайды. Аналогично, Aspose.Slides позволяет добавлять изображения в слайды ваших презентаций различными способами.
+Изображения делают презентации более увлекательными и интересными. В Microsoft PowerPoint вы можете вставлять картинки из файла, интернета или других мест на слайды. Аналогично, Aspose.Slides позволяет добавлять изображения на слайды в ваших презентациях различными способами. 
 
-{{% alert title="Совет" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-Aspose предоставляет бесплатные конвертеры—[JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—которые позволяют людям быстро создавать презентации из изображений. 
-
-{{% /alert %}} 
-
-{{% alert title="Информация" color="info" %}}
-
-Если вы хотите добавить изображение как объект рамки—особенно если вы планируете использовать стандартные параметры форматирования, чтобы изменить его размер, добавить эффекты и так далее—см. [Рамка изображения](https://docs.aspose.com/slides/java/picture-frame/). 
+Aspose предоставляет бесплатные конвертеры—[JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—которые позволяют быстро создавать презентации из изображений. 
 
 {{% /alert %}} 
 
-{{% alert title="Примечание" color="warning" %}}
+{{% alert title="Info" color="info" %}}
 
-Вы можете манипулировать операциями ввода/вывода, связанными с изображениями и презентациями PowerPoint, чтобы конвертировать изображение из одного формата в другой. Смотрите эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/java/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+Если вы хотите добавить изображение как объект кадра — особенно если планируете использовать стандартные параметры форматирования для изменения его размера, добавления эффектов и т.д. — см. [Picture Frame](https://docs.aspose.com/slides/java/picture-frame/). 
+
+{{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}}
+
+Вы можете управлять операциями ввода/вывода, связанными с изображениями и презентациями PowerPoint, чтобы конвертировать изображение из одного формата в другой. Смотрите эти страницы: конвертировать [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); конвертировать [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/); конвертировать [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), конвертировать [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); конвертировать [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), конвертировать [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/). 
 
 {{% /alert %}}
 
-Aspose.Slides поддерживает операции с изображениями в этих популярных форматах: JPEG, PNG, GIF и других. 
+Aspose.Slides поддерживает работу с изображениями в популярных форматах: JPEG, PNG, GIF и других. 
 
-## **Добавление локально хранящихся изображений в слайды**
+## **Добавление изображений, хранящихся локально, на слайды**
 
-Вы можете добавить одно или несколько изображений с вашего компьютера на слайд презентации. Этот пример кода на Java показывает, как добавить изображение на слайд:
-
+Вы можете добавить одно или несколько изображений с вашего компьютера на слайд в презентации. Этот пример кода на Java показывает, как добавить изображение на слайд:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,18 +74,18 @@ try {
 }
 ```
 
-## **Добавление изображений из Интернета в слайды**
 
-Если изображение, которое вы хотите добавить на слайд, недоступно на вашем компьютере, вы можете добавить изображение непосредственно из Интернета. 
+## **Добавление изображений из интернета на слайды**
 
-Этот пример кода показывает, как добавить изображение из Интернета на слайд на Java:
+Если изображение, которое вы хотите добавить на слайд, недоступно на вашем компьютере, вы можете добавить его напрямую из интернета. 
 
+Этот пример кода показывает, как добавить изображение из интернета на слайд в Java:
 ```java
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	URL imageUrl = new URL("[ЗАМЕНИТЕ НА URL]");
+	URL imageUrl = new URL("[REPLACE WITH URL]");
 	URLConnection connection = imageUrl.openConnection();
 	InputStream inputStream = connection.getInputStream();
 
@@ -92,12 +113,12 @@ try {
 }
 ```
 
-## **Добавление изображений в мастер-слайды**
 
-Мастер-слайд — это верхний слайд, который хранит и контролирует информацию (тема, макет и т.д.) о всех слайдах под ним. Таким образом, когда вы добавляете изображение в мастер-слайд, это изображение появляется на каждом слайде под этим мастер-слайдом. 
+## **Добавление изображений в мастер‑слайды**
 
-Этот пример кода на Java показывает, как добавить изображение в мастер-слайд:
+Мастер‑слайд — это верхний слайд, который хранит и контролирует информацию (тема, макет и т.д.) обо всех слайдах под ним. Поэтому, когда вы добавляете изображение в мастер‑слайд, это изображение появляется на каждом слайде, использующем этот мастер‑слайд. 
 
+Этот пример кода на Java показывает, как добавить изображение в мастер‑слайд:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -119,29 +140,30 @@ try {
 }
 ```
 
-## **Добавление изображений в качестве фона слайда**
 
-Вы можете решить использовать изображение в качестве фона для определенного слайда или нескольких слайдов. В этом случае вам необходимо ознакомиться с *[Установкой изображений в качестве фонов для слайдов](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
+## **Добавление изображений в качестве фона слайдов**
+
+Вы можете решить использовать картинку в качестве фона для определённого слайда или нескольких слайдов. В этом случае см. *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Добавление SVG в презентации**
-Вы можете добавить или вставить любое изображение в презентацию, используя метод [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-), который принадлежит интерфейсу [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
+Вы можете добавить или вставить любое изображение в презентацию, используя метод [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) принадлежащий интерфейсу [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection). 
 
-Чтобы создать объект изображения на основе SVG-изображения, вы можете сделать это следующим образом:
+Чтобы создать объект изображения на основе SVG, можно сделать следующее:
 
-1. Создайте объект SvgImage, чтобы вставить его в ImageShapeCollection
-2. Создайте объект PPImage из ISvgImage
-3. Создайте объект PictureFrame, используя интерфейс IPPImage
+1. Создать объект SvgImage для вставки в ImageShapeCollection  
+2. Создать объект PPImage из ISvgImage  
+3. Создать объект PictureFrame, используя интерфейс IPPImage  
 
-Этот пример кода показывает, как реализовать описанные шаги для добавления SVG-изображения в презентацию:
-```java 
-// Создание объекта класса Presentation, представляющего файл PPTX
+Этот пример кода показывает, как реализовать шаги выше для добавления SVG‑изображения в презентацию:
+```java
+// Создайте экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
     ISvgImage svgImage = new SvgImage(svgContent);
     IPPImage ppImage = pres.getImages().addImage(svgImage);
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
+            ppImage.getWidth(), ppImage.getHeight(), ppImage);
     pres.save("output.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -149,33 +171,33 @@ try {
 }
 ```
 
-## **Конвертация SVG в набор фигур**
-Конвертация SVG в набор фигур в Aspose.Slides аналогична функциональности PowerPoint, используемой для работы с изображениями SVG:
 
-![Всплывающее меню PowerPoint](img_01_01.png)
+## **Преобразование SVG в набор фигур**
+Преобразование SVG в набор фигур в Aspose.Slides аналогично функции PowerPoint, используемой для работы с SVG‑изображениями:
 
-Функциональность предоставляется одним из перегруженных методов [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) интерфейса [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection), который принимает объект [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage) в качестве первого аргумента.
+![PowerPoint Popup Menu](img_01_01.png)
 
-Этот пример кода показывает, как использовать описанный метод для конвертации SVG-файла в набор фигур:
+Функциональность предоставляется одной из перегрузок метода [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) интерфейса [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection), который принимает объект [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage) в качестве первого аргумента. 
 
+Этот пример кода показывает, как использовать описанный метод для преобразования SVG‑файла в набор фигур:
 ```java 
-// Создание новой презентации
+// Создайте новую презентацию
 IPresentation presentation = new Presentation();
 try {
-    // Чтение содержимого SVG-файла
+    // Прочитать содержимое SVG файла
     byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
 
-    // Создание объекта SvgImage
+    // Создать объект SvgImage
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Получение размера слайда
+    // Получить размер слайда
     Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-    // Конвертация SVG-изображения в группу фигур с масштабированием до размера слайда
+    // Преобразовать изображение SVG в группу фигур, масштабируя её до размеров слайда
     presentation.getSlides().get_Item(0).getShapes().
             addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
 
-    // Сохранение презентации в формате PPTX
+    // Сохранить презентацию в формате PPTX
     presentation.save("output.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -183,12 +205,12 @@ try {
 }
 ```
 
-## **Добавление изображений в формате EMF в слайды**
-Aspose.Slides для Java позволяет вам генерировать EMF-изображения из Excel-листов и добавлять изображения в формате EMF в слайды с помощью Aspose.Cells. 
+
+## **Добавление изображений в формате EMF на слайды**
+Aspose.Slides for Java позволяет генерировать EMF‑изображения из листов Excel и добавлять их в слайды как EMF с помощью Aspose.Cells.  
 
 Этот пример кода показывает, как выполнить описанную задачу:
-
-```java 
+```java
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
 ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -196,7 +218,7 @@ options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(ImageType.EMF);
 
-//Сохранение рабочей книги в поток
+//Сохранить рабочую книгу в поток
 SheetRender sr = new SheetRender(sheet, options);
 Presentation pres = new Presentation();
 try {
@@ -230,8 +252,70 @@ try {
 }
 ```
 
-{{% alert title="Информация" color="info" %}}
 
-Используя бесплатный конвертер Aspose [Текст в GIF](https://products.aspose.app/slides/text-to-gif), вы можете легко анимировать тексты, создавать GIF-файлы из текстов и т.д. 
+## **Замена изображений в коллекции изображений**
+
+Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации (включая те, которые используют формы слайдов). В этом разделе показаны несколько подходов к обновлению изображений в коллекции. API предоставляет простые методы замены изображения с использованием необработанных байтов, экземпляра [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) или другого изображения, уже присутствующего в коллекции.  
+
+Выполните следующие шаги:
+
+1. Загрузите файл презентации, содержащий изображения, с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).  
+1. Загрузите новое изображение из файла в массив байтов.  
+1. Замените целевое изображение новым, используя массив байтов.  
+1. Во втором подходе загрузите изображение в объект [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) и замените целевое изображение этим объектом.  
+1. В третьем подходе замените целевое изображение изображением, уже существующим в коллекции изображений презентации.  
+1. Сохраните изменённую презентацию как файл PPTX.  
+```java
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // Первый способ.
+    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
+    IPPImage oldImage = presentation.getImages().get_Item(0);
+    oldImage.replaceImage(imageData);
+    
+    // Второй способ.
+    IImage newImage = Images.fromFile("image1.png");
+    oldImage = presentation.getImages().get_Item(1);
+    oldImage.replaceImage(newImage);
+    newImage.dispose();
+    
+    // Третий способ.
+    oldImage = presentation.getImages().get_Item(2);
+    oldImage.replaceImage(presentation.getImages().get_Item(3));
+    
+    // Сохранить презентацию в файл.
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+{{% alert title="Info" color="info" %}}
+
+Используя бесплатный конвертер Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) вы можете легко анимировать тексты, создавать GIF‑файлы из текста и т.д. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Сохраняется ли оригинальное разрешение изображения после вставки?**
+
+Да. Исходные пиксели сохраняются, но окончательный вид зависит от того, как [picture](/slides/ru/java/picture-frame/) масштабируется на слайде и от любой компрессии при сохранении.  
+
+**Как лучше всего заменить один и тот же логотип на десятках слайдов одновременно?**
+
+Разместите логотип на мастер‑слайде или макете и замените его в коллекции изображений презентации — изменения распространятся на все элементы, использующие этот ресурс.  
+
+**Можно ли конвертировать вставленный SVG в редактируемые фигуры?**
+
+Да. Вы можете конвертировать SVG в группу фигур, после чего отдельные части становятся редактируемыми с помощью стандартных параметров фигур.  
+
+**Как установить изображение в качестве фона для нескольких слайдов одновременно?**
+
+Назначьте изображение в качестве фона на мастер‑слайде или соответствующем макете — любые слайды, использующие этот мастер/макет, получат фон.  
+
+**Как предотвратить «раздувание» презентации из‑за большого количества изображений?**
+
+Повторно используйте один ресурс изображения вместо дубликатов, выбирайте разумные разрешения, применяйте компрессию при сохранении и размещайте повторяющиеся графики в мастере, где это уместно.

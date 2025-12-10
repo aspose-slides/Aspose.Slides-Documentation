@@ -1,18 +1,32 @@
 ---
-title: Erstellen einer Fallback-Schriftarten-Sammlung
+title: Fallback-Schriftartsammlungen in Java konfigurieren
+linktitle: Fallback-Schriftartsammlung
 type: docs
 weight: 20
 url: /de/java/create-fallback-fonts-collection/
+keywords:
+- Fallback-Schriftart
+- Fallback-Regel
+- Schriftartsammlung
+- Schriftart konfigurieren
+- Schriftart einrichten
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Richten Sie eine Fallback-Schriftartsammlung in Aspose.Slides für Java ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
 ---
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) Klasse können in eine [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) organisiert werden, die die [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) Schnittstelle implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+## **Fallback-Regeln anwenden**
 
-Anschließend kann diese Sammlung der [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) Methode der [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/java/about-fontsmanager-and-fontsloader/).
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) organisiert werden, das das Interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Jede [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) hat eine [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) Methode mit ihrer eigenen Instanz der [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) Klasse.
+Anschließend kann diese Sammlung der Methode [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) der Klasse [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) zugewiesen werden. FontsManager steuert die Schriftarten in der gesamten Präsentation. Weitere Informationen [Über FontsManager und FontsLoader](/slides/de/java/about-fontsmanager-and-fontsloader/).
 
-Hier ist ein Beispiel, wie man eine Sammlung von Fallback-Schriftartenregeln erstellt und in das [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
+Jede [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) hat eine Methode [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) mit ihrer eigenen Instanz der Klasse [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
+Hier ein Beispiel, wie man eine Sammlung von Fallback‑Schriftartregeln erstellt und in den [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -27,8 +41,27 @@ try {
 }
 ```
 
-Nachdem der FontsManager mit der Fallback-Schriftarten-Sammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsdarstellung angewendet.
+
+Nachdem FontsManager mit der Fallback‑Schriftartsammlung initialisiert wurde, werden die Fallback‑Schriftarten während der Rendering‑Phase der Präsentation angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr, wie Sie eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/java/render-presentation-with-fallback-font/).
+Weitere Informationen, wie man [Präsentation mit Fallback‑Schriftart rendern](/slides/de/java/render-presentation-with-fallback-font/) kann.
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
+
+Nein. Fallback‑Regeln sind Laufzeit‑Rendering‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+
+**Wird das Fallback auch auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+
+Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeden Text in diesen Objekten verwendet.
+
+**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
+
+Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
+
+**Können Ersatz/Substitution für fehlende Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
+
+Ja. Sie sind unabhängige Stufen derselben Font‑Auflösungspipeline: Zuerst löst die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/java/font-replacement/)/[substitution](/slides/de/java/font-substitution/)) auf, danach füllt das Fallback Lücken für fehlende Glyphen in den verfügbaren Schriftarten.

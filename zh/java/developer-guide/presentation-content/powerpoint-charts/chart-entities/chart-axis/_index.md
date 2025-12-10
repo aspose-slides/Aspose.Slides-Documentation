@@ -1,26 +1,43 @@
 ---
-title: 图表轴
+title: 使用 Java 在演示文稿中自定义图表轴
+linktitle: 图表轴
 type: docs
 url: /zh/java/chart-axis/
-keywords: "PowerPoint 图表轴, 演示图表, Java, 操作图表轴, 图表数据"
-description: "如何在 Java 中编辑 PowerPoint 图表轴"
+keywords:
+- 图表轴
+- 垂直轴
+- 水平轴
+- 自定义轴
+- 操作轴
+- 管理轴
+- 轴属性
+- 最大值
+- 最小值
+- 轴线
+- 日期格式
+- 轴标题
+- 轴位置
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中自定义图表轴，以用于报告和可视化。"
 ---
 
-## **获取图表上垂直轴的最大值**
-Aspose.Slides for Java 允许您获取垂直轴上的最小值和最大值。请按照以下步骤操作：
+## **获取图表垂直轴的最大值**
+Aspose.Slides for Java 允许您获取垂直轴的最小值和最大值。按照以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 添加一个带有默认数据的图表。
 1. 获取轴上的实际最大值。
 1. 获取轴上的实际最小值。
-1. 获取轴的实际主单位。
-1. 获取轴的实际次单位。
-1. 获取轴的实际主单位刻度。
-1. 获取轴的实际次单位刻度。
+1. 获取轴上的实际主单位。
+1. 获取轴上的实际次单位。
+1. 获取轴上的实际主单位比例。
+1. 获取轴上的实际次单位比例。
 
-以下示例代码（对上述步骤的实现）显示了如何在 Java 中获取所需的值：
-
+下面的示例代码实现了上述步骤，演示了如何在 Java 中获取所需的值：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -40,19 +57,17 @@ try {
 }
 ```
 
+
 ## **交换轴之间的数据**
-Aspose.Slides 允许您快速交换轴之间的数据—在垂直轴（y轴）上表示的数据移动到水平轴（x轴）上，反之亦然。
+Aspose.Slides 允许您快速交换轴之间的数据——垂直轴（y 轴）上的数据会移动到水平轴（x 轴），反之亦然。
 
-以下 Java 代码显示了如何在图表的轴之间执行数据交换任务：
-
+下面的 Java 代码演示了如何在图表上执行轴之间的数据交换任务：
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// 交换行和列
-	chart.getChartData().switchRowColumn();
-
+	//切换行和列
 	// 保存演示文稿
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -60,10 +75,10 @@ try {
 }
 ```
 
-## **禁用线图的垂直轴**
 
-以下 Java 代码显示了如何隐藏线图的垂直轴：
+## **禁用折线图的垂直轴**
 
+下面的 Java 代码演示了如何隐藏折线图的垂直轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -76,10 +91,10 @@ try {
 }
 ```
 
-## **禁用线图的水平轴**
 
-以下代码显示了如何隐藏线图的水平轴：
+## **禁用折线图的水平轴**
 
+下面的代码演示了如何隐藏折线图的水平轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -92,10 +107,10 @@ try {
 }
 ```
 
-## **更改类别轴**
 
-使用 **CategoryAxisType** 属性，您可以指定您首选的类别轴类型（**日期**或**文本**）。以下 Java 代码演示了该操作：
+## **更改类目轴**
 
+使用 **CategoryAxisType** 属性，您可以指定首选的类目轴类型（**date** 或 **text**）。下面的 Java 代码演示了该操作：
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -110,9 +125,9 @@ try {
 }
 ```
 
-## **设置类别轴值的日期格式**
-Aspose.Slides for Java 允许您为类别轴值设置日期格式。该操作在以下 Java 代码中进行演示：
 
+## **为类目轴值设置日期格式**
+Aspose.Slides for Java 允许您为类目轴值设置日期格式。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -142,6 +157,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
@@ -154,9 +170,9 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **设置图表轴标题的旋转角度**
-Aspose.Slides for Java 允许您设置图表轴标题的旋转角度。该 Java 代码演示了该操作：
 
+## **为图表轴标题设置旋转角度**
+Aspose.Slides for Java 允许您为图表轴标题设置旋转角度。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -171,9 +187,9 @@ try {
 }
 ```
 
-## **在类别或数值轴中设置位置轴**
-Aspose.Slides for Java 允许您在类别或数值轴中设置位置轴。以下 Java 代码展示了如何执行此任务：
 
+## **在类目轴或数值轴上设置轴位置**
+Aspose.Slides for Java 允许您在类目轴或数值轴上设置轴的位置。下面的 Java 代码展示了如何执行此任务：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -187,9 +203,9 @@ try {
 }
 ```
 
-## **在图表值轴上启用显示单位标签**
-Aspose.Slides for Java 允许您配置图表以在其图表值轴上显示单位标签。该 Java 代码演示了该操作：
 
+## **在图表数值轴上启用显示单位标签**
+Aspose.Slides for Java 允许您配置图表在其数值轴上显示单位标签。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -202,3 +218,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**如何设置一个轴交叉另一个轴的数值（轴交叉点）？**
+
+轴提供了一个 [crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-)：您可以选择在零点、最大类目/数值或特定数值处交叉。这对于将 X 轴上移或下移，或强调基线非常有用。
+
+**如何相对于轴定位刻度标签（旁边、外部、内部）？**
+
+将 [label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) 设置为 “cross”、 “outside” 或 “inside”。这会影响可读性，并帮助在小型图表上节省空间。

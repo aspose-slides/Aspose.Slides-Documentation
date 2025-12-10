@@ -1,17 +1,29 @@
 ---
-title: Classeur de graphique
+title: Gérer les classeurs de diagrammes dans les présentations avec Java
+linktitle: Classeur de diagramme
 type: docs
 weight: 70
 url: /fr/java/chart-workbook/
-keywords: "Classeur de graphique, données de graphique, présentation PowerPoint, Java, Aspose.Slides pour Java"
-description: "Classeur de graphique dans une présentation PowerPoint en Java"
+keywords:
+- classeur de diagramme
+- données de diagramme
+- cellule de classeur
+- libellé de données
+- feuille de calcul
+- source de données
+- classeur externe
+- données externes
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Découvrez Aspose.Slides pour Java : gérez facilement les classeurs de diagrammes dans PowerPoint et les formats OpenDocument afin d'optimiser les données de votre présentation."
 ---
 
-## **Définir les données du graphique à partir du classeur**
-Aspose.Slides fournit les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) et [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) qui vous permettent de lire et d'écrire des classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Remarque** que les données du graphique doivent être organisées de la même manière ou doivent avoir une structure similaire à celle de la source.
+## **Lire et écrire des données de diagramme depuis un classeur**
+Aspose.Slides fournit les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) et [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) qui vous permettent de lire et d'écrire des classeurs de données de diagramme (contenant des données de diagramme éditées avec Aspose.Cells). **Note** que les données du diagramme doivent être organisées de la même manière ou avoir une structure similaire à la source.
 
-Ce code Java démontre une opération exemple :
-
+Ce code Java illustre une opération d'exemple:
 ```java
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -29,21 +41,20 @@ try {
 }
 ```
 
-## **Définir la cellule du classeur comme étiquette de données de graphique**
 
-1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Obtenez la référence d'une diapositive par son index.
-1. Ajoutez un graphique en bulles avec des données.
-1. Accédez aux séries de graphiques.
-1. Définissez la cellule du classeur comme une étiquette de données.
-1. Enregistrez la présentation.
+## **Définir une cellule de classeur comme libellé de données de diagramme**
+1. Créer une instance de la classe [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
+1. Obtenir la référence d’une diapositive via son index.
+1. Ajouter un diagramme à bulles avec quelques données.
+1. Accéder aux séries du diagramme.
+1. Définir la cellule du classeur comme libellé de données.
+1. Enregistrer la présentation.
 
-Ce code Java vous montre comment définir une cellule de classeur comme une étiquette de données de graphique :
-
+Ce code Java montre comment définir une cellule de classeur comme libellé de données de diagramme:
 ```java
-String lbl0 = "Valeur de la cellule Étiquette 0";
-String lbl1 = "Valeur de la cellule Étiquette 1";
-String lbl2 = "Valeur de la cellule Étiquette 2";
+String lbl0 = "Label 0 cell value";
+String lbl1 = "Label 1 cell value";
+String lbl2 = "Label 2 cell value";
 
 // Instancie une classe de présentation qui représente un fichier de présentation
 Presentation pres = new Presentation("chart2.pptx");
@@ -67,10 +78,9 @@ try {
 }
 ```
 
+
 ## **Gérer les feuilles de calcul**
-
-Ce code Java montre une opération où la méthode [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) est utilisée pour accéder à une collection de feuilles de calcul :
-
+Ce code Java démontre une opération où la méthode [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) est utilisée pour accéder à une collection de feuilles de calcul:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,10 +93,9 @@ try {
 }
 ```
 
+
 ## **Spécifier le type de source de données**
-
-Ce code Java vous montre comment spécifier un type pour une source de données :
-
+Ce code Java montre comment spécifier un type pour une source de données:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,10 +103,10 @@ try {
     IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
 
     val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("Chaîne littérale");
+    val.setData("LiteralString");
 
     val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NouvelleCellule"));
+    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -105,18 +114,16 @@ try {
 }
 ```
 
-## **Classeur externe**
 
+## **Classeur externe**
 {{% alert color="primary" %}} 
-Dans [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), nous avons mis en œuvre le support des classeurs externes comme source de données pour les graphiques.
+Dans [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/) nous avons implémenté la prise en charge des classeurs externes comme source de données pour les diagrammes.
 {{% /alert %}} 
 
 ### **Créer un classeur externe**
+En utilisant les méthodes **`readWorkbookStream`** et **`setExternalWorkbook`**, vous pouvez soit créer un classeur externe à partir de zéro, soit rendre un classeur interne externe.
 
-En utilisant les méthodes **`readWorkbookStream`** et **`setExternalWorkbook`**, vous pouvez créer un classeur externe à partir de zéro ou rendre un classeur interne externe.
-
-Ce code Java démontre le processus de création de classeur externe :
-
+Ce code Java démontre le processus de création d’un classeur externe:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -140,14 +147,13 @@ try {
 }
 ```
 
+
 ### **Définir un classeur externe**
+En utilisant la méthode **`setExternalWorkbook`**, vous pouvez affecter un classeur externe à un diagramme comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin vers le classeur externe (si ce dernier a été déplacé).
 
-En utilisant la méthode **`setExternalWorkbook`**, vous pouvez assigner un classeur externe à un graphique comme sa source de données. Cette méthode peut également être utilisée pour mettre à jour un chemin vers le classeur externe (si ce dernier a été déplacé).
+Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements ou ressources distants, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-Bien que vous ne puissiez pas modifier les données dans des classeurs stockés dans des emplacements distants ou des ressources, vous pouvez toujours utiliser de tels classeurs comme source de données externe. Si le chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin complet.
-
-Ce code Java vous montre comment définir un classeur externe :
-
+Ce code Java montre comment définir un classeur externe:
 ```java
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -172,11 +178,11 @@ try {
 }
 ```
 
-Le paramètre `ChartData` (sous la méthode `setExternalWorkbook`) est utilisé pour spécifier si un classeur excel sera chargé ou non. 
 
-* Lorsque la valeur `ChartData` est définie sur `false`, seul le chemin du classeur est mis à jour—les données du graphique ne seront pas chargées ou mises à jour depuis le classeur cible. Vous pouvez vouloir utiliser ce paramètre dans une situation où le classeur cible est inexistant ou indisponible. 
-* Lorsque la valeur `ChartData` est définie sur `true`, les données du graphique sont mises à jour depuis le classeur cible.
+Le paramètre `ChartData` (dans la méthode `setExternalWorkbook`) sert à spécifier si un classeur Excel sera chargé ou non. 
 
+* Lorsque la valeur de `ChartData` est définie sur `false`, seul le chemin du classeur est mis à jour — les données du diagramme ne seront pas chargées ou mises à jour depuis le classeur cible. Vous pouvez utiliser ce réglage lorsqu’il n’existe pas ou n’est pas disponible. 
+* Lorsque la valeur de `ChartData` est définie sur `true`, les données du diagramme sont mises à jour à partir du classeur cible.
 ```java
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -192,16 +198,15 @@ try {
 }
 ```
 
-### **Obtenir le chemin du classeur source de données externe du graphique**
 
-1. Créez une instance de la [classe Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Obtenez la référence d'une diapositive par son index.
-1. Créez un objet pour la forme de graphique.
-1. Créez un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
-1. Spécifiez la condition pertinente en fonction du type de source étant le même que le type de source de données de classeur externe.
+### **Obtenir le chemin du classeur source de données externe d’un diagramme**
+1. Créer une instance de la classe [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
+1. Obtenir la référence d’une diapositive via son index.
+1. Créer un objet pour la forme du diagramme.
+1. Créer un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du diagramme.
+1. Spécifier la condition pertinente en fonction du type source étant le même que le type de source de données du classeur externe.
 
-Ce code Java démontre l'opération :
-
+Ce code Java démontre l’opération:
 ```java
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -222,12 +227,11 @@ try {
 }
 ```
 
-### **Modifier les données du graphique**
 
-Vous pouvez modifier les données dans les classeurs externes de la même manière que vous effectuez des changements dans le contenu des classeurs internes. Lorsqu'un classeur externe ne peut pas être chargé, une exception est levée.
+### **Modifier les données du diagramme**
+Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
 
-Ce code Java est une implémentation du processus décrit :
-
+Ce code Java est une implémentation du processus décrit:
 ```java
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation("chart.pptx");
@@ -242,3 +246,30 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Puis-je déterminer si un diagramme spécifique est lié à un classeur externe ou intégré ?**
+
+Oui. Un diagramme possède un [type de source de données](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
+
+**Les chemins relatifs vers les classeurs externes sont-ils pris en charge, et comment sont-ils stockés ?**
+
+Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela est pratique pour la portabilité du projet ; cependant, soyez conscient que la présentation stockera le chemin absolu dans le fichier PPTX.
+
+**Puis-je utiliser des classeurs situés sur des ressources ou partages réseau ?**
+
+Oui, de tels classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être utilisés que comme source.
+
+**Aspose.Slides écrase-t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
+
+Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
+
+**Que faire si le fichier externe est protégé par mot de passe ?**
+
+Aspose.Slides n’accepte pas de mot de passe lors du lien. Une approche courante consiste à supprimer la protection au préalable ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](/cells/java/)) et à créer le lien vers cette copie.
+
+**Plusieurs diagrammes peuvent-ils référencer le même classeur externe ?**
+
+Oui. Chaque diagramme stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque diagramme lors du prochain chargement des données.

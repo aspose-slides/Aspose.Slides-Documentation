@@ -1,226 +1,245 @@
 ---
-title: Präsentation Zusammenführen
+title: Präsentationen effizient in Java zusammenführen
+linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
 url: /de/java/merge-presentation/
-keywords: "Präsentation PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, Java"
-description: "Präsentationen in Java zusammenführen oder kombinieren"
+keywords:
+- PowerPoint zusammenführen
+- Präsentationen zusammenführen
+- Folien zusammenführen
+- PPT zusammenführen
+- PPTX zusammenführen
+- ODP zusammenführen
+- PowerPoint kombinieren
+- Präsentationen kombinieren
+- Folien kombinieren
+- PPT kombinieren
+- PPTX kombinieren
+- ODP kombinieren
+- Java
+- Aspose.Slides
+description: "Mergen Sie mühelos PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mit Aspose.Slides für Java und optimieren Sie Ihren Arbeitsablauf."
 ---
 
+## **Übersicht**
 
-{{% alert  title="Tipp" color="primary" %}} 
+Das Zusammenführen von PowerPoint- und OpenDocument‑Präsentationen ist eine gängige Aufgabe in vielen Java‑Anwendungen, insbesondere beim Erstellen von Berichten, Kombinieren von Folien aus verschiedenen Quellen oder Automatisieren von Präsentations‑Workflows. Aspose.Slides für Java bietet eine leistungsstarke und einfach zu nutzende API, um mehrere PPT-, PPTX- oder ODP‑Dateien zu einer einzigen Präsentation zu kombinieren, ohne Microsoft PowerPoint, LibreOffice oder OpenOffice installieren zu müssen.
 
-Sie sollten die **Aspose kostenlose Online** [Zusammenführt-App](https://products.aspose.app/slides/merger) ausprobieren. Sie ermöglicht es, PowerPoint-Präsentationen im selben Format (PPT zu PPT, PPTX zu PPTX usw.) zusammenzuführen und Präsentationen in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zusammenzuführen.
+In diesem Leitfaden lernen Sie, wie Sie PowerPoint‑ und OpenDocument‑Präsentationen mit nur wenigen Zeilen Java‑Code zusammenführen. Wir stellen fertige Beispiele bereit und zeigen, wie Sie die Folienformatierung, Layouts und andere Präsentationselemente während des Zusammenführens erhalten.
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+Egal, ob Sie eine Unternehmensanwendung oder ein einfaches Automatisierungstool bauen – Aspose.Slides macht das Zusammenführen von Präsentationen in Java schnell, zuverlässig und skalierbar. Aspose.Slides für Java ermöglicht das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit allen Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen und mehr kombinieren – ohne Qualitäts‑ oder Datenverlust.
 
-{{% /alert %}} 
-
-
-## **Präsentationen Zusammenführen**
-
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie effektiv deren Folien in einer einzigen Präsentation, um eine Datei zu erhalten.
-
-{{% alert title="Info" color="info" %}}
-
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
-
-[**Aspose.Slides für Java**](https://products.aspose.com/slides/java/), ermöglicht es Ihnen jedoch, Präsentationen auf unterschiedliche Weise zusammenzuführen. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen.
-
-**Siehe auch**
-
-[Folien Klonen](https://docs.aspose.com/slides/java/clone-slides/). 
-
+{{% alert color="primary" %}}
+Siehe auch: [Clone Slides](https://docs.aspose.com/slides/java/clone-slides/)
 {{% /alert %}}
 
-### **Was Zusammengeführt Werden Kann**
+### **Was kann zusammengeführt werden?**
 
-Mit Aspose.Slides können Sie 
+Mit Aspose.Slides können Sie Folgendes zusammenführen:
 
-* gesamte Präsentationen. Alle Folien aus den Präsentationen landen in einer Präsentation
-* spezifische Folien. Ausgewählte Folien landen in einer Präsentation
-* Präsentationen im selben Format (PPT zu PPT, PPTX zu PPTX usw.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander kombinieren.
+**Komplette Präsentationen** – alle Folien aus mehreren Präsentationen werden zu einer einzigen kombiniert.
 
-{{% alert title="Hinweis" color="warning" %}} 
+**Bestimmte Folien** – nur ausgewählte Folien werden zu einer einzigen Präsentation zusammengeführt.
 
-Neben Präsentationen ermöglicht es Aspose.Slides Ihnen, auch andere Dateien zusammenzuführen:
-
-* [Bilder](https://products.aspose.com/slides/java/merger/image-to-image/), wie [JPG zu JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-* Dokumente, wie [PDF zu PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-* Und zwei verschiedene Dateien wie [Bild zu PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/) oder [JPG zu PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
+**Präsentationen im gleichen Format** (z. B. PPT zu PPT, PPTX zu PPTX) und **in unterschiedlichen Formaten** (z. B. PPT zu PPTX, PPTX zu ODP).
 
 ### **Zusammenführungsoptionen**
 
-Sie können Optionen anwenden, die bestimmen, ob
+Sie können Optionen festlegen, die bestimmen, ob:
 
-* jede Folie in der Ausgab präsentation einen einzigartigen Stil beibehält
-* ein spezifischer Stil für alle Folien in der Ausgab präsentation verwendet wird. 
+- Jede Folie in der Ausgabepäsentation ihren ursprünglichen Stil beibehält
+- Ein bestimmter Stil auf alle Folien in der Ausgabepäsentation angewendet wird
 
-Um Präsentationen zusammenzuführen, bietet Aspose.Slides die [AddClone](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) Interface). Es gibt mehrere Implementierungen der `AddClone` Methoden, die die Parameter für den Präsentationszusammenführungsprozess definieren. Jedes Präsentationsobjekt hat eine [Folien](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) Sammlung, sodass Sie eine `AddClone` Methode von der Präsentation aufrufen können, in die Sie Folien zusammenführen möchten.
+Um Präsentationen zusammenzuführen, stellt Aspose.Slides die `AddClone`‑Methoden der [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/)-Schnittstelle bereit. Es gibt mehrere Überladungen der `AddClone`‑Methode, die das Verhalten des Zusammenführungsprozesses definieren. Jedes [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)-Objekt verfügt über eine Slides‑Collection. Sie können also die `AddClone`‑Methode auf der Zielpräsentation aufrufen, in die Sie Folien einfügen möchten.
 
-Die `AddClone` Methode gibt ein `ISlide` Objekt zurück, welches ein Klon der Quellfolie ist. Die Folien in einer Ausgab präsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie die resultierenden Folien ändern (zum Beispiel Stile oder Formatierungsoptionen oder Layouts anwenden), ohne sich darüber Gedanken zu machen, dass die Quellpräsentationen betroffen sind.
+Die `AddClone`‑Methode gibt ein [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)-Objekt zurück, das ein Klon der Quellfolie ist. Die resultierenden Folien in der Ausgabepäsentation sind einfach Kopien der Originalfolien. Das bedeutet, dass Sie die geklonten Folien sicher ändern können – etwa Stile, Formatierungsoptionen oder Layouts anzuwenden – ohne die Quellpräsentation zu beeinflussen.
 
-## **Präsentationen Zusammenführen** 
+## **Präsentationen zusammenführen**
 
-Aspose.Slides bietet die [**AddClone(ISlide)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode, die es Ihnen ermöglicht, Folien zu kombinieren, während die Folien ihre Layouts und Stile beibehalten (Standardparameter). 
+Aspose.Slides stellt die [AddClone(ISlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)‑Methode bereit, die das Kombinieren von Folien bei Beibehaltung ihrer ursprünglichen Layouts und Stile ermöglicht (Standardverhalten).
 
-Dieser Java-Code zeigt Ihnen, wie Sie Präsentationen zusammenführen:
-
+Der folgende Java‑Code zeigt, wie Präsentationen zusammengeführt werden:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : presentation2.getSlides()) {
+        presentation1.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    presentation1.save("combined.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    presentation2.dispose();
+    presentation1.dispose();
 }
 ```
 
-## **Präsentationen Mit Folienmaster Zusammenführen**
 
-Aspose.Slides bietet die [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) Methode, die es Ihnen ermöglicht, Folien zu kombinieren, während Sie eine Folienmaster-Präsentationsvorlage anwenden. Auf diese Weise können Sie, falls erforderlich, den Stil für Folien in der Ausgab präsentation ändern.
+## **Präsentationen mit einem Folienmaster zusammenführen**
 
-Dieser Code in Java demonstriert die beschriebene Operation:
+Aspose.Slides stellt die [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode bereit, die das Kombinieren von Folien unter Anwendung eines Folienmasters aus einer Präsentationsvorlage ermöglicht. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
 
+Der folgende Java‑Code demonstriert diesen Vorgang:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : presentation2.getSlides()) {
+        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
+        presentation1.getSlides().addClone(slide, masterSlide, true);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    presentation1.save("combined.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    presentation2.dispose();
+    presentation1.dispose();
 }
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
 
-Das Folienlayout für den Folienmaster wird automatisch bestimmt. Wenn ein geeignetes Layout nicht bestimmt werden kann, wird, wenn der `allowCloneMissingLayout` boolesche Parameter der `AddClone` Methode auf true gesetzt ist, das Layout für die Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/PptxEditException) ausgelöst.
-
+{{% alert title="Hinweis" color="warning" %}}
+Das Folienlayout wird automatisch ermittelt. Wenn kein passendes Layout gefunden werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf `true` gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) ausgelöst.
 {{% /alert %}}
 
-Wenn Sie möchten, dass die Folien in der Ausgab präsentation ein anderes Folienlayout haben, verwenden Sie die [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) Methode stattdessen beim Zusammenführen.
+## **Bestimmte Folien aus Präsentationen zusammenführen**
 
-## **Spezielle Folien Aus Präsentationen Zusammenführen**
+Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um individuelle Foliensätze zu erstellen. Aspose.Slides für Java ermöglicht es Ihnen, nur die benötigten Folien auszuwählen und zu importieren. Die API erhält Formatierung, Layout und Design der Originalfolien.
 
-Dieser Java-Code zeigt Ihnen, wie Sie spezifische Folien aus verschiedenen Präsentationen auswählen und kombinieren, um eine Ausgab präsentation zu erhalten:
-
+Der folgende Java‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation presentation = new Presentation();
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    presentation.getSlides().removeAt(0);
+    
+    ISlide slide1 = getTitleSlide(presentation1);
+
+    if (slide1 != null)
+        presentation.getSlides().addClone(slide1);
+
+    ISlide slide2 = getTitleSlide(presentation2);
+
+    if (slide2 != null)
+        presentation.getSlides().addClone(slide2);
+
+    presentation.save("combined.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    presentation2.dispose();
+    presentation1.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Präsentationen Mit Folienlayout Zusammenführen**
-
-Dieser Java-Code zeigt Ihnen, wie Sie Folien aus Präsentationen kombinieren, während Sie Ihr bevorzugtes Folienlayout darauf anwenden, um eine Ausgab präsentation zu erhalten:
-
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+static ISlide getTitleSlide(IPresentation presentation) {
+    for (ISlide slide : presentation.getSlides()) {
+        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
+            return slide;
         }
-    } finally {
-        if (pres2 != null) pres2.dispose();
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
-
-```
-
-## **Präsentationen Mit Unterschiedlichen Foliengrößen Zusammenführen**
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenführen. 
-
-{{% /alert %}}
-
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe mit der der anderen Präsentation übereinstimmt.
-
-Dieser Beispielcode demonstriert die beschriebene Operation:
-
-```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
-
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
+    return null;
 }
 ```
 
-## **Folien In Präsentationsabschnitt Zusammenführen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine spezifische Folie in einen Abschnitt einer Präsentation zusammenführen:
+## **Präsentationen mit einem Folienlayout zusammenführen**
 
+Um während des Zusammenführens ein anderes Folienlayout auf die Ausgabefolien anzuwenden, verwenden Sie die [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-)‑Methode.
+
+Der folgende Java‑Code zeigt, wie Folien aus mehreren Präsentationen kombiniert werden, während das bevorzugte Folienlayout angewendet wird, sodass ein einzelnes Ausgabedokument entsteht:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+int layoutIndex = 0;
+
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : presentation2.getSlides()) {
+        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
+        presentation1.getSlides().addClone(slide, layoutSlide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    presentation1.save("combined.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    presentation2.dispose();
+    presentation1.dispose();
 }
 ```
 
-Die Folie wird am Ende des Abschnitts hinzugefügt. 
 
-{{% alert title="Tipp" color="primary" %}}
+## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-Aspose bietet eine [KOSTENLOSE Collage-Web-App](https://products.aspose.app/slides/collage). Mit diesem Online-Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG-Bilder zusammenführen, [Foto-Layouts](https://products.aspose.app/slides/collage/photo-grid) erstellen usw.
+Um zwei Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, sollten Sie eine der Präsentationen so skalieren, dass sie der Foliengröße der anderen Präsentation entspricht.
 
-{{% /alert %}}
+Der folgende Java‑Code demonstriert diesen Vorgang:
+```java
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
+try {
+    Dimension2D slideSize = presentation1.getSlideSize().getSize();
+    float slideWidth = (float) slideSize.getWidth();
+    float slideHeight = (float) slideSize.getHeight();
+    
+    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+
+    for (ISlide slide : presentation2.getSlides()) {
+        presentation1.getSlides().addClone(slide);
+    }
+    presentation1.save("combined.pptx", SaveFormat.Pptx);
+} finally {
+    presentation2.dispose();
+    presentation1.dispose();
+}
+```
+
+
+## **Folien zu einem Präsentationsabschnitt hinzufügen**
+
+Das Zusammenführen von Folien in einem bestimmten Präsentationsabschnitt erleichtert die Organisation von Inhalten und verbessert die Navigation. Aspose.Slides ermöglicht das Hinzufügen von Folien zu bestehenden Abschnitten. Dadurch entsteht eine klare Struktur, während die ursprüngliche Formatierung jeder Folie erhalten bleibt.
+
+Der folgende Java‑Code zeigt, wie eine bestimmte Folie zu einem Abschnitt in einer Präsentation hinzugefügt wird:
+```java
+int sectionIndex = 0;
+
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
+try {
+    for (ISlide slide : presentation2.getSlides()) {
+        ISection section = presentation1.getSections().get_Item(sectionIndex);
+        presentation1.getSlides().addClone(slide, section);
+    }
+    presentation1.save("combined.pptx", SaveFormat.Pptx);
+} finally {
+    presentation2.dispose();
+    presentation1.dispose();
+}
+```
+
+
+Die Folie wird am Ende des Abschnitts eingefügt.
+
+## **Siehe auch**
+
+Aspose bietet einen [KOSTENLOSEN Online‑Collage‑Maker](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) bzw. PNG zu PNG Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr.
+
+Probieren Sie den [Aspose KOSTENLOSEN Online‑Merger](https://products.aspose.app/slides/merger). Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im gleichen Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
+
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+
+Neben Präsentationen erlaubt Aspose.Slides das Zusammenführen weiterer Dateitypen:
+
+- [**Bilder**](https://products.aspose.com/slides/java/merger/image-to-image/), z. B. [JPG zu JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
+- **Dokumente**, z. B. [PDF zu PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
+- **Gemischte Dateitypen**, z. B. [Bild zu PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
+
+## **FAQ**
+
+**Gibt es Beschränkungen für die Folienzahl beim Zusammenführen von Präsentationen?**
+
+Keine festen Beschränkungen. Aspose.Slides kann große Dateien verarbeiten, jedoch hängt die Leistung von Dateigröße und Systemressourcen ab. Für sehr große Präsentationen wird empfohlen, eine 64‑Bit‑JVM zu verwenden und ausreichend Heap‑Speicher zuzuweisen.
+
+**Kann ich Präsentationen mit eingebetteten Video‑ oder Audiodateien zusammenführen?**
+
+Ja, Aspose.Slides erhält multimediale Inhalte, die in Folien eingebettet sind, wobei die resultierende Präsentation deutlich größer werden kann.
+
+**Werden Schriften beim Zusammenführen von Präsentationen erhalten?**
+
+Ja. Schriften, die in den Quellpräsentationen verwendet werden, bleiben im Ausgabedokument erhalten, vorausgesetzt, sie sind auf dem System installiert oder [eingebettet](/slides/de/java/embedded-font/).
