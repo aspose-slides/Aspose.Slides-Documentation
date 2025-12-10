@@ -1,38 +1,46 @@
 ---
-title: 管理文本框
+title: 使用 C++ 在演示文稿中管理文本框
+linktitle: 管理文本框
 type: docs
 weight: 20
 url: /zh/cpp/manage-textbox/
-keywords: "文本框, 文本框架, 添加文本框, 带超链接的文本框, C++, Aspose.Slides for C++"
-description: "在 C++ 中将文本框或文本框架添加到 PowerPoint 演示文稿"
+keywords:
+- 文本框
+- 文本框架
+- 添加文本
+- 更新文本
+- 创建文本框
+- 检查文本框
+- 添加文本列
+- 添加超链接
+- PowerPoint
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ 让您能够轻松在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框，提升演示文稿自动化水平。"
 ---
 
-幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，您必须添加一个文本框，然后在文本框中放入一些文本。Aspose.Slides for C++ 提供了 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 接口，允许您添加一个包含文本的形状。
+幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，需要先添加一个文本框，然后在文本框中放入一些文本。Aspose.Slides for C++ 提供了 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 接口，允许您添加包含文本的形状。
 
-{{% alert title="信息" color="info" %}}
-
-Aspose.Slides 还提供了 [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) 接口，允许您向幻灯片添加形状。然而，并非通过 `IShape` 接口添加的所有形状都可以包含文本。但通过 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 接口添加的形状可以包含文本。
-
+{{% alert title="Info" color="info" %}}
+Aspose.Slides 还提供了 [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) 接口，允许您向幻灯片添加形状。然而，并非所有通过 `IShape` 接口添加的形状都可以容纳文本。但通过 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 接口添加的形状可以包含文本。
 {{% /alert %}}
 
-{{% alert title="注意" color="warning" %}} 
-
-因此，当处理您希望添加文本的形状时，您可能需要检查并确认它是通过 `IAutoShape` 接口进行转换的。只有这样，您才能处理属于 `IAutoShape` 的 [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame) 属性。请参见本页上的 [更新文本](https://docs.aspose.com/slides/cpp/manage-textbox/#update-text) 部分。
-
+{{% alert title="Note" color="warning" %}}
+因此，在处理想要添加文本的形状时，您可能需要检查并确认它是通过 `IAutoShape` 接口进行转换的。只有这样，您才能使用位于 `IAutoShape` 下的属性 [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame)。请参阅本页的 [Update Text](https://docs.aspose.com/slides/cpp/manage-textbox/#update-text) 部分。
 {{% /alert %}}
 
 ## **在幻灯片上创建文本框**
 
 要在幻灯片上创建文本框，请按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-2. 获取新创建的演示文稿中第一张幻灯片的引用。
-3. 在幻灯片上添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 对象，并将 [ShapeType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) 设置为 `Rectangle`，并在指定位置获取新添加的 `IAutoShape` 对象的引用。
-4. 向 `IAutoShape` 对象添加一个将包含文本的 `TextFrame` 属性。在下面的示例中，我们添加了以下文本：*Aspose TextBox*
-5. 最后，通过 `Presentation` 对象写出 PPTX 文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
+2. 获取新建演示文稿中第一张幻灯片的引用。  
+3. 在幻灯片的指定位置添加一个 [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 对象，并将 [ShapeType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) 设置为 `Rectangle`，然后获取新添加的 `IAutoShape` 对象的引用。  
+4. 向 `IAutoShape` 对象添加一个 `TextFrame` 属性，以容纳文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox*  
+5. 最后，通过 `Presentation` 对象写入 PPTX 文件。  
 
-以下 C++ 代码—上述步骤的实现—向您展示了如何向幻灯片添加文本：
-
+以下 C++ 代码——上述步骤的实现——演示了如何向幻灯片添加文本：
 ```cpp
 // 实例化 Presentation
 auto pres = System::MakeObject<Presentation>();
@@ -40,19 +48,19 @@ auto pres = System::MakeObject<Presentation>();
 // 获取演示文稿中的第一张幻灯片
 auto sld = pres->get_Slides()->idx_get(0);
 
-// 添加类型设置为矩形的 AutoShape
+// 添加类型为 Rectangle 的 AutoShape
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
 // 向矩形添加 TextFrame
 ashp->AddTextFrame(u" ");
 
-// 访问文本框
+// 访问文本框架
 auto txtFrame = ashp->get_TextFrame();
 
-// 创建文本框的段落对象
+// 为文本框创建 Paragraph 对象
 auto para = txtFrame->get_Paragraphs()->idx_get(0);
 
-// 创建段落的部分对象
+// 为段落创建 Portion 对象
 auto portion = para->get_Portions()->idx_get(0);
 
 // 设置文本
@@ -62,50 +70,79 @@ portion->set_Text(u"Aspose TextBox");
 pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **检查文本框形状**
 
-Aspose.Slides 提供 [get_IsTextBox()](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) 方法（来自 [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/) 类），允许您检查形状并查找文本框。
+Aspose.Slides 提供了来自 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 接口的 [get_IsTextBox](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_istextbox/) 方法，帮助您检查形状并识别文本框。
 
-![文本框和形状](istextbox.png)
+![Text box and shape](istextbox.png)
 
-此 C++ 代码向您展示了如何检查形状是否作为文本框创建：
-
+下面的 C++ 代码演示了如何检查形状是否被创建为文本框：
 ```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-for (auto&& slide : pres->get_Slides())
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        auto autoShape = System::DynamicCast_noexcept<Aspose::Slides::AutoShape>(shape);
-        if (autoShape != nullptr)
+        if (ObjectExt::Is<IAutoShape>(shape))
         {
-            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"形状是文本框") : System::String(u"形状不是文本框"));
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
         }
     }
 }
+
+presentation->Dispose();
 ```
 
-## **在文本框中添加列**
 
-Aspose.Slides 提供 [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 和 [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) 方法（来自 [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 接口和 [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 类），允许您向文本框添加列。您可以指定文本框中的列数并设置列之间的间距（以点为单位）。
+请注意，如果仅使用 [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) 接口的 `AddAutoShape` 方法添加自动形状，则该自动形状的 `get_IsTextBox` 方法将返回 `false`。但在使用 `AddTextFrame` 方法或 `set_Text` 方法向自动形状添加文本后，`get_IsTextBox` 方法将返回 `true`。
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-以下 C++ 代码演示了所描述的操作：
+auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+// shape1->get_IsTextBox() 返回 false
+shape1->AddTextFrame(u"shape 1");
+// shape1->get_IsTextBox() 返回 true
 
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
+// shape2->get_IsTextBox() 返回 false
+shape2->get_TextFrame()->set_Text(u"shape 2");
+// shape2->get_IsTextBox() 返回 true
+
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
+// shape3->get_IsTextBox() 返回 false
+shape3->AddTextFrame(u"");
+// shape3->get_IsTextBox() 返回 false
+
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
+// shape4->get_IsTextBox() 返回 false
+shape4->get_TextFrame()->set_Text(u"");
+// shape4->get_IsTextBox() 返回 false
+```
+
+
+## **向文本框添加列**
+
+Aspose.Slides 提供了 [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 和 [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) 方法（来自 [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 接口和 [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 类），允许您向文本框添加列。您可以指定文本框的列数并设置列之间的点间距。
+
+以下 C++ 代码演示了上述操作：
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 // 获取演示文稿中的第一张幻灯片
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// 添加类型设置为矩形的 AutoShape
+// 添加类型为 Rectangle 的 AutoShape
 auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
 
 // 向矩形添加 TextFrame
-aShape->AddTextFrame(String(u"所有这些列都限于在单个文本容器内 -- ") 
-    + u"您可以添加或删除文本，新的或剩余的文本会自动调整 " 
-    + u"自身以在容器内流动。不过，您不能让文本从一个容器流向另一个容器 " 
-    + u"因为我们告诉您 PowerPoint 的文本列选项是有限的！");
+aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
+    + u"you can add or delete text and the new or remaining text automatically adjusts " 
+    + u"itself to flow within the container. You cannot have text flow from one container " 
+    + u"to other though -- we told you PowerPoint's column options for text are limited!");
 
-// 获取文本框的文本格式
+// 获取 TextFrame 的文本格式
 auto format = aShape->get_TextFrame()->get_TextFrameFormat();
 
 // 指定 TextFrame 中的列数
@@ -119,11 +156,11 @@ presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
 ```
 
 
-## **在文本框架中添加列**
-Aspose.Slides for C++ 提供 [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 方法（来自 [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 接口），允许您在文本框架中添加列。通过此方法，您可以指定文本框架中所需的列数。
+## **向文本帧添加列**
 
-此 C++ 代码向您展示了如何在文本框架中添加列：
+Aspose.Slides for C++ 提供了 [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 方法（来自 [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) 接口），允许您在文本帧中添加列。通过此方法，您可以指定文本帧中所需的列数。
 
+以下 C++ 代码演示了如何在文本帧中添加列：
 ```cpp
 String outPptxFileName = u"ColumnsTest.pptx";
     
@@ -132,10 +169,10 @@ auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeTyp
 auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
 
 format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"所有这些列都被强制保持在单个文本容器内 -- ") 
-    + u"您可以添加或删除文本，新的或剩余的文本会自动调整 " 
-    + u"自身以保持在容器内。不过，您不能让文本从一个容器溢出到另一个容器 " 
-    + u"因为 PowerPoint 的文本列选项是有限的！");
+shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
+    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
+    + u"itself to stay within the container. You cannot have text spill over from one container " 
+    + u"to other, though -- because PowerPoint's column options for text are limited!");
 pres->Save(outPptxFileName, SaveFormat::Pptx);
 
 {
@@ -167,12 +204,12 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 }
 ```
 
+
 ## **更新文本**
 
-Aspose.Slides 允许您更改或更新文本框中包含的文本或演示文稿中包含的所有文本。
+Aspose.Slides 允许您更改或更新文本框中的文本，或演示文稿中所有文本。
 
-此 C++ 代码演示了一种操作，更新或更改演示文稿中的所有文本：
-
+以下 C++ 代码演示了将演示文稿中所有文本更新或更改的操作：
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"text.pptx");
 for (const auto& slide : pres->get_Slides())
@@ -196,51 +233,60 @@ for (const auto& slide : pres->get_Slides())
     }
 }
 
-//保存修改后的演示文稿
+//保存已修改的演示文稿
 pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
 ```
 
-## **添加带超链接的文本框** 
 
-您可以在文本框中插入链接。当单击文本框时，用户将被引导打开链接。
+## **向文本框添加超链接**
+
+您可以在文本框中插入链接。单击文本框时，用户将打开链接。
 
 要添加包含链接的文本框，请按照以下步骤操作：
 
-1. 创建 `Presentation` 类的实例。
-2. 获取新创建的演示文稿中第一张幻灯片的引用。
-3. 在幻灯片上添加一个 `AutoShape` 对象，将 `ShapeType` 设置为 `Rectangle`，并获取新添加的 AutoShape 对象的引用。
-4. 向 `AutoShape` 对象添加一个包含 *Aspose TextBox* 作为默认文本的 `TextFrame`。
-5. 实例化 `IHyperlinkManager` 类。
-6. 将 `IHyperlinkManager` 对象分配给与您所需部分的 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) 方法关联。
-7. 最后，通过 `Presentation` 对象写出 PPTX 文件。
+1. 创建 `Presentation` 类的实例。  
+2. 获取新建演示文稿中第一张幻灯片的引用。  
+3. 在幻灯片的指定位置添加一个 `AutoShape` 对象，并将 `ShapeType` 设置为 `Rectangle`，然后获取新添加的 AutoShape 对象的引用。  
+4. 向 `AutoShape` 对象添加一个 `TextFrame`，其默认文本为 *Aspose TextBox*。  
+5. 实例化 `IHyperlinkManager` 类。  
+6. 将 `IHyperlinkManager` 对象分配给与您所选 `TextFrame` 部分关联的 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) 方法。  
+7. 最后，通过 `Presentation` 对象写入 PPTX 文件。  
 
-以下 C++ 代码—上述步骤的实现—向您展示了如何将带超链接的文本框添加到幻灯片：
-
+以下 C++ 代码——上述步骤的实现——演示了如何向幻灯片添加带超链接的文本框：
 ```cpp
-// 实例化表示 PPTX 的 Presentation 类
+// 实例化一个表示 PPTX 的 Presentation 类
 auto presentation = System::MakeObject<Presentation>();
 
 // 获取演示文稿中的第一张幻灯片
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// 添加类型设置为矩形的 AutoShape 对象
+// 添加一个类型为 Rectangle 的 AutoShape 对象
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
 
 // 将形状转换为 AutoShape
 auto autoShape = System::ExplicitCast<IAutoShape>(shape);
 
-// 访问与 AutoShape 关联的 ITextFrame 属性
+// 访问 AutoShape 关联的 ITextFrame 属性
 autoShape->AddTextFrame(u"");
 
 auto textFrame = autoShape->get_TextFrame();
 
-// 向框架中添加一些文本
+// 向框中添加一些文本
 textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
 
-// 为部分文本设置超链接
+// 为该段文本设置超链接
 auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
 linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
 
 // 保存 PPTX 演示文稿
 presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **常见问题**
+
+**在使用母版幻灯片时，文本框和文本占位符有什么区别？**  
+一个 [placeholder](/slides/zh/cpp/manage-placeholder/) 从 [master](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) 继承样式/位置，并且可以在 [layouts](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) 上被覆盖，而普通的文本框是特定幻灯片上的独立对象，在切换布局时不会改变。
+
+**如何在整个演示文稿中进行批量文本替换，而不影响图表、表格和 SmartArt 中的文本？**  
+将遍历范围限制为具有文本框的自动形状，并通过单独遍历或跳过这些对象类型，排除嵌入对象（[charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/)、[tables](https://reference.aspose.com/slides/cpp/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/)）。

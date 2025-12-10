@@ -1,38 +1,50 @@
 ---
-title: Управление настройками автоматической подгонки
+title: Улучшите свои презентации с помощью AutoFit в C++
+linktitle: Настройки Autofit
 type: docs
 weight: 30
 url: /ru/cpp/manage-autofit-settings/
-keywords: "Текстовое поле, Автоматическая подгонка, Презентация PowerPoint, C++, Aspose.Slides для C++"
-description: "Установите настройки автоматической подгонки для текстового поля в PowerPoint на C++"
+keywords:
+- текстовое поле
+- автоподгонка
+- не использовать автоподгонку
+- подгонка текста
+- уменьшить текст
+- перенос текста
+- изменить размер фигуры
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Узнайте, как управлять настройками AutoFit в Aspose.Slides для C++, чтобы оптимизировать отображение текста в ваших презентациях PowerPoint и OpenDocument и улучшить читаемость содержимого."
 ---
 
-По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует настройку **Изменить размер фигуры, чтобы поместить текст** для текстового поля — оно автоматически изменяет размер текстового поля, чтобы гарантировать, что текст всегда помещается в него.
+По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует настройку **Resize shape to fix text** для текстового поля — оно автоматически изменяет размер текстового поля, чтобы гарантировать, что текст всегда помещается в нём. 
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![Текстовое поле в PowerPoint](textbox-in-powerpoint.png)
 
-* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — увеличивает его высоту — чтобы оно могло вместить больше текста. 
-* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — уменьшает его высоту — чтобы убрать избыточное пространство. 
+* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — повышает его высоту — чтобы разместить больше текста. 
+* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — снижает его высоту — чтобы убрать лишнее пространство. 
 
-В PowerPoint есть 4 важных параметра или опции, которые контролируют поведение автоматической подгонки для текстового поля:
+В PowerPoint это четыре важных параметра или опции, управляющие поведением автоподгонки для текстового поля: 
 
-* **Не подвергать автоматической подгонке**
+* **Не использовать автоподгонку**
 * **Уменьшить текст при переполнении**
-* **Изменить размер фигуры, чтобы поместить текст**
-* **Переносить текст в фигуре.**
+* **Изменить размер фигуры под текст**
+* **Перенос текста в фигуре.**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![Параметры автоподгонки в PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides для C++ предоставляет аналогичные опции — некоторые методы в классе [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format), которые позволяют вам контролировать поведение автоматической подгонки для текстовых полей в презентациях.
+Aspose.Slides for C++ предоставляет аналогичные параметры — некоторые методы класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) — которые позволяют управлять поведением автоподгонки для текстовых полей в презентациях. 
 
-## **Изменить размер фигуры, чтобы поместить текст**
+## **Изменить размер фигуры под текст**
 
-Если вы хотите, чтобы текст в поле всегда помещался в это поле после внесения изменений в текст, вам нужно использовать опцию **Изменить размер фигуры, чтобы поместить текст**. Чтобы указать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в `Shape`.
+Если вы хотите, чтобы текст в блоке всегда помещался в этот блок после внесения изменений, необходимо использовать параметр **Resize shape to fix text**. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в значение `Shape`. 
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+![Параметр всегда подгонять в PowerPoint](alwaysfit-setting-powerpoint.png)
 
-Этот код на C++ показывает, как указать, что текст должен всегда помещаться в свое поле в презентации PowerPoint:
-
+Этот код C++ показывает, как указать, что текст всегда должен помещаться в свой блок в презентации PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -51,16 +63,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::Shape);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-Если текст становится длиннее или больше, текстовое поле будет автоматически изменено (высота увеличится), чтобы гарантировать, что весь текст помещается в него. Если текст становится короче, происходит обратное. 
 
-## **Не подвергать автоматической подгонке**
+Если текст становится длиннее или больше, текстовое поле будет автоматически изменено (увеличена высота), чтобы весь текст помещался в нём. Если текст становится короче, произойдет обратное. 
 
-Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры, независимо от изменений, внесенных в содержащий их текст, вам нужно использовать опцию **Не подвергать автоматической подгонке**. Чтобы указать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в `None`.
+## **Не использовать автоподгонку**
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры независимо от изменений текста, необходимо использовать параметр **Do not Autofit**. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в значение `None`. 
 
-Этот код на C++ показывает, как указать, что текстовое поле должно всегда сохранять свои размеры в презентации PowerPoint:
+![Параметр без автоподгонки в PowerPoint](donotautofit-setting-powerpoint.png)
 
+Этот код C++ показывает, как указать, что текстовое поле должно всегда сохранять свои размеры в презентации PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -79,16 +91,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::None);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-Когда текст становится слишком длинным для своего поля, он выходит за его пределы. 
+
+Когда текст становится слишком длинным для своего блока, он выходит за его пределы. 
 
 ## **Уменьшить текст при переполнении**
 
-Если текст становится слишком длинным для своего поля, с помощью опции **Уменьшить текст при переполнении** вы можете указать, что размер и расстояние текста должны быть уменьшены, чтобы он поместился в свое поле. Чтобы указать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в `Normal`.
+Если текст становится слишком длинным для своего блока, с помощью параметра **Shrink text on overflow** можно указать, что размер и межбуквенный интервал текста должны быть уменьшены, чтобы он поместился. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в значение `Normal`. 
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+![Параметр уменьшения текста при переполнении в PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Этот код на C++ показывает, как указать, что текст должен уменьшаться при переполнении в презентации PowerPoint:
-
+Этот код C++ показывает, как указать, что текст должен уменьшаться при переполнении в презентации PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -107,17 +119,14 @@ textFrameFormat->set_AutofitType(TextAutofitType::Normal);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Информация" color="info" %}}
 
-Когда используется опция **Уменьшить текст при переполнении**, настройка применяется только в том случае, если текст становится слишком длинным для своего поля.
-
+{{% alert title="Info" color="info" %}}
+Когда используется параметр **Shrink text on overflow**, настройка применяется только тогда, когда текст становится слишком длинным для своего блока. 
 {{% /alert %}}
 
-## **Переносить текст**
+## **Перенос текста**
 
-Если вы хотите, чтобы текст в фигуре переносился внутри этой фигуры, когда текст превышает пределы фигуры (только по ширине), вам нужно использовать параметр **Переносить текст в фигуре**. Чтобы указать эту настройку, вам нужно установить свойство [WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в `true`.
-
-Этот код на C++ показывает, как использовать настройку переноса текста в презентации PowerPoint:
+Если вы хотите, чтобы текст в фигуре переносился внутри этой фигуры, когда он выходит за её границу (только ширина), необходимо использовать параметр **Wrap text in shape**. Чтобы задать эту настройку, установите свойство [WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) (из класса [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) в значение `true`. 
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -137,8 +146,21 @@ textFrameFormat->set_WrapText(NullableBool::True);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Примечание" color="warning" %}} 
 
-Если вы установите свойство `WrapText` в `False` для фигуры, когда текст внутри фигуры становится длиннее ширины фигуры, текст продолжается за пределами границ фигуры в одну строку.
-
+{{% alert title="Note" color="warning" %}} 
+Если установить свойство `WrapText` в `False` для фигуры, когда текст внутри фигуры становится длиннее её ширины, текст будет выходить за границы фигуры в одну строку. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Влияют ли внутренние отступы текстового фрейма на AutoFit?**
+
+Да. Padding (внутренние отступы) уменьшает доступную площадь для текста, поэтому AutoFit срабатывает раньше — уменьшает шрифт или изменяет размер фигуры быстрее. Проверьте и отрегулируйте отступы перед настройкой AutoFit. 
+
+**Как AutoFit взаимодействует с ручными и мягкими переносами строк?**
+
+Принудительные переносы остаются на месте, а AutoFit адаптирует размер шрифта и интервал вокруг них. Удаление ненужных переносов часто снижает степень, с которой AutoFit вынужден уменьшать текст. 
+
+**Влияет ли изменение шрифта темы или замена шрифтов на результаты AutoFit?**
+
+Да. Замена шрифта на другой с другими метриками глифов изменяет ширину/высоту текста, что может изменить окончательный размер шрифта и перенос строк. После любой смены шрифта или подстановки повторно проверьте слайды.

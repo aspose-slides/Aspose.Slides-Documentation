@@ -1,45 +1,95 @@
 ---
-title: Конвертация презентации - Библиотека PowerPoint на C++
-linktitle: Конвертация презентации
+title: Конвертировать презентации в несколько форматов в C++
+linktitle: Конвертировать презентацию
 type: docs
 weight: 70
 url: /ru/cpp/convert-presentation/
-description: Используя библиотеку C++ PowerPoint или API, вы можете конвертировать PPT в форматы PPTX, PDF, XPS и Tiff.
+keywords:
+- конвертировать презентацию
+- экспортировать презентацию
+- PPT в PPTX
+- ODP в PPTX
+- PPT в PDF
+- PPTX в PDF
+- ODP в PDF
+- PPT в XPS
+- PPTX в XPS
+- ODP в XPS
+- PPT в TIFF
+- PPTX в TIFF
+- ODP в TIFF
+- PPT в HTML
+- PPTX в HTML
+- ODP в HTML
+- PowerPoint
+- OpenDocument
+- C++
+- Aspose.Slides
+description: "Конвертировать презентации PowerPoint и OpenDocument в PPTX, PDF, XPS, TIFF и другие форматы с помощью Aspose.Slides для C++. Простой, высококачественный конвертер."
 ---
 
 ## **Конвертация PPT в PPTX**
 ### **О конвертации PPT в PPTX**
-Aspose.Slides теперь поддерживает конвертацию PPT в PPTX.
 ### **Конвертация PPT в PPTX с помощью Aspose.Slides**
-Aspose.Slides для C++ предоставляет частичную поддержку конвертации презентаций в формате PPT в презентации в формате PPTX. Поскольку поддержка указанной функции конвертации презентаций была только что внедрена в Aspose.Slides для C++, в данный момент её возможности ограничены, и она работает только для простых форматов презентаций. Основное преимущество, которое предоставляет библиотека API Aspose.Slides для C++ для конвертации презентации PPT в формат PPTX, это простота использования API для достижения желаемой цели. Пожалуйста, перейдите по следующей [ссылке](/slides/ru/cpp/convert-presentation/) к разделу с фрагментами кода для получения дальнейших деталей. Следующий раздел ясно иллюстрирует, какие функции поддерживаются, а какие нет при конвертации презентаций формата PPT в формат PPTX.
+Aspose.Slides for C++ предоставляет частичную поддержку конвертации презентаций в формате файла PPT в презентации в формате файла PPTX. Поскольку поддержка указанной функции конвертации презентаций только что была внедрена в Aspose.Slides for C++, на данный момент она обладает ограниченными возможностями и работает только с простыми формами презентаций. Основное преимущество, которое библиотека API Aspose.Slides for C++ предоставляет при конвертации презентации PPT в формат PPTX, — простота использования API для достижения желаемой цели. Пожалуйста, перейдите к этой [ссылка](/slides/ru/cpp/convert-presentation/) в раздел фрагментов кода для получения дополнительных сведений. Следующий раздел ясно иллюстрирует, какие функции поддерживаются, а какие нет при конвертации презентаций формата PPT в презентации формата PPTX.
 {{% alert color="primary" %}} 
-Прочитайте больше [**Как конвертировать PPT в PPTX**](/slides/ru/cpp/convert-ppt-to-pptx/).
+Читать далее [**Как конвертировать PPT в PPTX**](/slides/ru/cpp/convert-ppt-to-pptx/).
 {{% /alert %}}
 ## **Конвертация презентации в PDF**
-### **О PDF**
-[Portable Document Format](https://en.wikipedia.org/wiki/PDF) - это формат файла, разработанный компанией Adobe System для обмена документами между различными организациями. Цель этого формата заключалась в том, чтобы сделать возможным представление содержимого документов таким образом, чтобы их визуальное представление не зависело от платформы, на которой они просматриваются.
-### **PDF в Aspose.Slides для C++**
-[PDF](https://docs.fileformat.com/pdf/) - это формат файла, разработанный компанией Adobe System для обмена документами между различными организациями. Цель этого формата заключалась в том, чтобы сделать возможным представление визуального содержания документа независимо от платформы, на которой он просматривается. 
+### **Об PDF**
+The [Portable Document Format](https://en.wikipedia.org/wiki/PDF) is a file format that was created by Adobe System for exchange of documents between different organizations. The purpose of this format was to make it possible that contents of the documents may be represented in such a way that their visual appearance is not dependent of the platform on which it is being viewed.
+### **PDF в Aspose.Slides for C++**
+[PDF ](https://docs.fileformat.com/pdf/)is a file format that was created by Adobe System for exchange of documents between different organizations. The purpose of this format was to make it possible that the visual appearance of the document contents is not dependent of the platform on which it is being viewed. 
 
-Любой документ презентации, который можно загрузить в Aspose.Slides для C++, можно конвертировать в документ PDF. Вы можете экспортировать документы презентаций в PDF напрямую, используя только компонент Aspose.Slides для C++. Вам не нужны другие сторонние библиотеки или компонент Aspose.PDF для этой цели. 
+Any presentation document that can be loaded into Aspose.Slides for C++ can be converted to PDF document. You can export the presentation documents to PDF directly using Aspose.Slides for C++ component only. You do not need any other third party libraries or Aspose.PDF component for this purpose. 
 
 {{% alert color="primary" %}} 
-Прочитайте больше [**Как конвертировать презентацию в PDF**](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/).
+Читать далее [**Как конвертировать презентацию в PDF**](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/).
 {{% /alert %}}
 
 ## **Конвертация презентации в XPS**
-### **О XPS**
-[XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) - это язык описания страниц и формат фиксированного документа, изначально разработанный компанией Microsoft. Как и PDF, XPS - это формат документа с фиксированным макетом, предназначенный для сохранения достоверности документа и обеспечения независимого от устройства отображения документа.
+### **Об XPS**
+The [XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) is a page description language and a fixed-document format originally developed by Microsoft. Like PDF, XPS is a fixed-layout document format designed to preserve document fidelity and provide device-independent document appearance.
 ### **Конвертация презентации в XPS с помощью Aspose.Slides**
-Любой документ презентации, который может быть загружен в Aspose.Slides для C++, может быть конвертирован в формат XPS. Aspose.Slides для C++ использует высокоточный механизм компоновки страниц и рендеринга для создания вывода в формате XPS с фиксированным макетом. Стоит упомянуть, что Aspose.Slides для C++ напрямую генерирует XPS без зависимости от классов Windows Presentation Foundation (WPF), которые упакованы с C++ Framework 3.5, что позволяет Aspose.Slides для C++ создавать документы XPS на машинах, работающих на версиях C++ Framework, более ранних, чем версия 3.5. Вы можете узнать о экспорте документов презентаций в документы XPS с помощью Aspose.Slides для C++ в [этом разделе](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
+Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
 {{% alert color="primary" %}} 
-Прочитайте больше [**Как конвертировать презентацию в XPS**](/slides/ru/cpp/convert-powerpoint-to-xps/)
+Читать далее [**Как конвертировать презентацию в XPS**.](/slides/ru/cpp/convert-powerpoint-to-xps/)
 {{% /alert %}}
 ## **Конвертация презентации в TIFF**
-### **О TIFF**
-[Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) - это формат, известный тем, что позволяет хранить несколько изображений в одном документе, изначально был создан компанией Aldus. Этот формат широко поддерживается приложениями для сканирования, факсов и других манипуляций с изображениями.
+### **Об TIFF**
+The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is known for storing multiple images in one document was originally created by Aldus. This format is widely supported by scanning, faxing and other image manipulation applications.
 ### **Конвертация презентации в TIFF с помощью Aspose.Slides**
-Любой документ, который можно загрузить в Aspose.Slide для C++, также может быть напрямую конвертирован в документ TIFF с помощью Aspose.Slides для C++, исключая необходимость в любых сторонних компонентах. Более того, вы можете по желанию определить размер изображений в результирующем документе TIFF. Вы можете найти информацию о экспорте документов презентаций в документы TIFF с помощью Aspose.Slides для C++ в [этом разделе](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/).
+Any document that can be loaded in Aspose.Slide for C++ can also be converted to TIFF document directly by Aspose.Slides for C++ eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for C++ in [this topic](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/).
 {{% alert color="primary" %}} 
-Прочитайте больше [**Как конвертировать презентацию в TIFF**](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
+Читать далее [**Как конвертировать презентацию в TIFF**.](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
 {{% /alert %}}
+
+## **Часто задаваемые вопросы**
+
+**Можно ли включать скрытые слайды при экспорте в PDF/XPS?**
+
+Да. Экспорт поддерживает включение скрытых слайдов через соответствующую опцию в настройках [PDF](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/)/[XPS](https://reference.aspose.com/slides/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/) .
+
+**Поддерживается ли сохранение в формате PDF/A (для архивного хранения)?**
+
+Да, уровни совместимости PDF/A [доступны](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfcompliance/) (включая A-2a/A-2b/A-2u и A-3a/A-3b) при экспорте.
+
+**Что происходит с шрифтами при конвертации: они встраиваются или заменяются?**
+
+Существует гибкие варианты: вы можете [встраивать все глифы или только используемые подмножества](/slides/ru/cpp/embedded-font/), указать [резервный шрифт](/slides/ru/cpp/fallback-font/) и [управлять поведением](/slides/ru/cpp/font-substitution/) когда у шрифта отсутствуют некоторые начертания.
+
+**Как можно контролировать качество и размер получаемого PDF?**
+
+Доступны параметры для [качества JPEG](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/), [сжатия текста](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_textcompression/), а также порога [достаточного разрешения](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) для изображений, плюс режим, который выбирает [наилучшее сжатие для картинок](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_bestimagescompressionratio/) .
+
+**Можно ли экспортировать только диапазон слайдов (например, 5–12)?**
+
+Да, экспорт поддерживает выбор подмножества слайдов.
+
+**Поддерживается ли многопоточная обработка нескольких файлов одновременно?**
+
+Допустимо обрабатывать разные презентации параллельно в отдельных процессах. Важно: один и тот же объект [presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) не должен загружаться или сохраняться из [нескольких потоков](/slides/ru/cpp/multithreading/) .
+
+**Есть ли риски при применении лицензии из разных потоков?**
+
+Да, вызовы [license-setting](/slides/ru/cpp/licensing/) не являются потокобезопасными и требуют синхронизации.

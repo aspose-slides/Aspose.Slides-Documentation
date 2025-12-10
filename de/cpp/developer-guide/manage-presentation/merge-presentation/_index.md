@@ -1,53 +1,67 @@
 ---
-title: Präsentation zusammenführen - C++ PowerPoint API
-linktitle: Präsentation zusammenführen
+title: Effizientes Zusammenführen von Präsentationen in C++
+linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
 url: /de/cpp/merge-presentation/
-keywords: "PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, C++"
-description: Der Artikel erklärt, wie Sie PowerPoint-Präsentationen mit der C++ PowerPoint API oder Bibliothek zusammenführen oder kombinieren können.
+keywords:
+- PowerPoint zusammenführen
+- Präsentationen zusammenführen
+- Folien zusammenführen
+- PPT zusammenführen
+- PPTX zusammenführen
+- ODP zusammenführen
+- PowerPoint kombinieren
+- Präsentationen kombinieren
+- Folien kombinieren
+- PPT kombinieren
+- PPTX kombinieren
+- ODP kombinieren
+- C++
+- Aspose.Slides
+description: "Müheloses Zusammenführen von PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mit Aspose.Slides für C++, um Ihren Arbeitsablauf zu optimieren."
 ---
 
-{{% alert  title="Tipp" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-Sie möchten möglicherweise die **kostenlose Online-App** [Merger](https://products.aspose.app/slides/merger) von Aspose ausprobieren. Sie ermöglicht es Benutzern, PowerPoint-Präsentationen im gleichen Format (PPT zu PPT, PPTX zu PPTX usw.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zusammenzuführen.
+Vielleicht möchten Sie sich die **Aspose kostenlose Online** [Merger-App](https://products.aspose.app/slides/merger) ansehen. Sie ermöglicht es, PowerPoint-Präsentationen im gleichen Format (PPT zu PPT, PPTX zu PPTX usw.) zusammenzuführen und Präsentationen in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zu kombinieren.
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
 {{% /alert %}} 
 
 
-## **Präsentationen zusammenführen**
+## **Präsentationszusammenführung**
 
-Wenn Sie eine Präsentation mit einer anderen kombinieren, fügen Sie effektiv deren Folien in einer einzigen Präsentation zusammen, um eine Datei zu erhalten. 
+Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie deren Folien zu einer einzigen Präsentation, um eine Datei zu erhalten. 
 
 {{% alert title="Info" color="info" %}}
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
+Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, mit denen Benutzer Präsentationen auf diese Weise kombinieren können. 
 
-[**Aspose.Slides für C++**](https://products.aspose.com/slides/cpp/) ermöglicht es Ihnen jedoch, Präsentationen auf verschiedene Weise zusammenzuführen. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. kombinieren, ohne sich um Verlust von Qualität oder Daten sorgen zu müssen. 
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen. 
 
 **Siehe auch**
 
-[Folien klonen](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
+[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
 
 {{% /alert %}}
 
 ### **Was kann zusammengeführt werden**
 
-Mit Aspose.Slides können Sie 
+Mit Aspose.Slides können Sie zusammenführen 
 
-* gesamte Präsentationen. Alle Folien aus den Präsentationen enden in einer Präsentation
-* spezifische Folien. Ausgewählte Folien enden in einer Präsentation
-* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) untereinander zusammenführen. 
+* gesamte Präsentationen. Alle Folien aus den Präsentationen landen in einer Präsentation
+* bestimmte Folien. Ausgewählte Folien landen in einer Präsentation
+* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) und in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
 
-{{% alert title="Hinweis" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Neben Präsentationen ermöglicht es Aspose.Slides Ihnen, andere Dateien zusammenzuführen:
+Neben Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
 
 * [Bilder](https://products.aspose.com/slides/cpp/merger/image-to-image/), wie [JPG zu JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* Dokumente, wie [PDF zu PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* Und zwei verschiedene Dateien wie [Bild zu PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) oder [JPG zu PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
+* [Dokumente](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/), wie [PDF zu PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
+* Und zwei unterschiedliche Dateien wie [Bild zu PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
@@ -55,19 +69,18 @@ Neben Präsentationen ermöglicht es Aspose.Slides Ihnen, andere Dateien zusamme
 
 Sie können Optionen anwenden, die bestimmen, ob
 
-* jede Folie in der Ausgangspräsentation einen einzigartigen Stil behält
-* ein spezifischer Stil für alle Folien in der Ausgangspräsentation verwendet wird. 
+* jede Folie in der Ausgabepäsentation einen eindeutigen Stil behält
+* ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
 
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) Methoden bereit (aus dem [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection) Interface). Es gibt mehrere Implementierungen der `AddClone` Methoden, die die Parameter des Präsentationen-Zusammenführungsprozesses definieren. Jedes Präsentationsobjekt hat eine [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) Sammlung, sodass Sie eine `AddClone` Methode von der Präsentation aufrufen können, in die Sie Folien zusammenführen möchten. 
+Zum Zusammenführen von Präsentationen stellt Aspose.Slides die [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)‑Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)‑Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Präsentationszusammenführungsprozesses festlegen. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)‑Sammlung, sodass Sie die `AddClone`‑Methode der Präsentation aufrufen können, in die Sie Folien einfügen möchten. 
 
-Die `AddClone` Methode gibt ein `ISlide` Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in einer Ausgangspräsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie Änderungen an den resultierenden Folien vornehmen (z. B. Stile oder Formatierungsoptionen oder Layouts anwenden), ohne sich zu sorgen, dass die Quellpräsentationen betroffen sind. 
+Die `AddClone`‑Methode gibt ein `ISlide`‑Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
 
 ## **Präsentationen zusammenführen** 
 
-Aspose.Slides bietet die [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) Methode, die es Ihnen ermöglicht, Folien zu kombinieren, während die Folien ihre Layouts und Stile beibehalten (Standardparameter). 
+Aspose.Slides stellt die [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)‑Methode bereit, mit der Sie Folien kombinieren können, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter). 
 
-Dieser C++-Code zeigt Ihnen, wie Sie Präsentationen zusammenführen:
-
+Dieser C++‑Code zeigt, wie Sie Präsentationen zusammenführen:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -79,12 +92,12 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Präsentationen mit Masterfolie zusammenführen**
 
-Aspose.Slides bietet die [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) Methode, die es Ihnen ermöglicht, Folien zu kombinieren, während eine Präsentationsvorlage für Masterfolien angewendet wird. Auf diese Weise können Sie, wenn nötig, den Stil der Folien in der Ausgangspräsentation ändern. 
+## **Präsentationen mit einer Folienmaster zusammenführen** 
 
-Dieser C++-Code demonstriert die beschriebene Operation:
+Aspose.Slides stellt die [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640)‑Methode bereit, mit der Sie Folien kombinieren können, während ein Folienmaster‑Präsentations‑Template angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil für die Folien in der Ausgabepäsentation ändern. 
 
+Dieser C++‑Code demonstriert den beschriebenen Vorgang:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -96,18 +109,62 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
 
-Das Folienlayout für die Masterfolie wird automatisch bestimmt. Wenn ein geeignetes Layout nicht bestimmt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone` Methode auf true gesetzt ist, wird das Layout für die Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) ausgelöst. 
+{{% alert title="Note" color="warning" %}} 
+
+Das Folienlayout für den Folienmaster wird automatisch ermittelt. Wenn kein passendes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) ausgelöst. 
 
 {{% /alert %}}
 
-Wenn Sie möchten, dass die Folien in der Ausgangspräsentation ein anderes Folienlayout haben, verwenden Sie stattdessen die [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) Methode beim Zusammenführen. 
+Wenn Sie möchten, dass die Folien in der Ausgabepäsentation ein anderes Folienlayout haben, verwenden Sie stattdessen die [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1)‑Methode beim Zusammenführen. 
 
-## **Bestimmte Folien aus Präsentationen zusammenführen**
+## **Spezifische Folien aus Präsentationen zusammenführen** 
 
-Dieser C++-Code zeigt Ihnen, wie Sie spezifische Folien aus verschiedenen Präsentationen auswählen und kombinieren, um eine Ausgangspräsentation zu erhalten:
+Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensätze zu erstellen. Aspose.Slides C++ ermöglicht das Auswählen und Importieren nur der benötigten Folien. Die API bewahrt Formatierung, Layout und Design der Originalfolien. 
 
+Der folgende C++‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
+```cpp
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+{
+    for (auto&& slide : presentation->get_Slides())
+    {
+        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
+        {
+            return slide;
+        }
+    }
+    return nullptr;
+}
+```
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
+auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
+
+presentation->get_Slides()->RemoveAt(0);
+
+auto slide1 = GetTitleSlide(presentation1);
+
+if (slide1 != nullptr)
+    presentation->get_Slides()->AddClone(slide1);
+
+auto slide2 = GetTitleSlide(presentation2);
+
+if (slide2 != nullptr)
+    presentation->get_Slides()->AddClone(slide2);
+
+presentation->Save(u"combined.pptx", SaveFormat::Pptx);
+
+presentation2->Dispose();
+presentation1->Dispose();
+presentation->Dispose();
+```
+
+
+## **Präsentationen mit einem Folienlayout zusammenführen** 
+
+Dieser C++‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren, während Sie Ihr bevorzugtes Folienlayout darauf anwenden, um eine Ausgabepäsentation zu erhalten:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -119,33 +176,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Präsentationen mit Folienlayout zusammenführen**
 
-Dieser C++-Code zeigt Ihnen, wie Sie Folien aus Präsentationen kombinieren, während Sie das gewünschte Folienlayout auf diese anwenden, um eine Ausgangspräsentation zu erhalten:
+## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen** 
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
-}
+{{% alert title="Note" color="warning" %}} 
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
-
-## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenführen. 
+Sie können Präsentationen mit unterschiedlichen Foliengrößen nicht zusammenführen. 
 
 {{% /alert %}}
 
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so anpassen, dass ihre Größe der anderen Präsentation entspricht. 
+Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe der der anderen Präsentation entspricht. 
 
-Dieser Beispielcode demonstriert die beschriebene Operation:
-
+Dieser Beispielcode demonstriert den beschriebenen Vorgang:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
@@ -161,10 +203,10 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Folien in eine Präsentationssektion zusammenführen**
 
-Dieser C++-Code zeigt Ihnen, wie Sie eine bestimmte Folie in eine Sektion in einer Präsentation zusammenführen:
+## **Folien in einen Präsentationsabschnitt einfügen** 
 
+Dieser C++‑Code zeigt, wie Sie eine bestimmte Folie in einen Abschnitt einer Präsentation einfügen:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -177,10 +219,29 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-Die Folie wird am Ende der Sektion hinzugefügt. 
 
-{{% alert title="Tipp" color="primary" %}}
+Die Folie wird am Ende des Abschnitts hinzugefügt. 
 
-Aspose bietet eine [Kostenlose Collage-Webanwendung](https://products.aspose.app/slides/collage). Mit diesem Onlinedienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG-Bildern zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen usw. 
+{{% alert title="Tip" color="primary" %}}
+
+Aspose bietet eine [FREE Collage web app](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG‑zu‑PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden Notizen beim Zusammenführen erhalten?**
+
+Ja. Beim Klonen von Folien übernimmt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierungen und Animationen.
+
+**Werden Kommentare und deren Autoren übertragen?**
+
+Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Die Autorbezeichnungen der Kommentare bleiben als Kommentarobjekte in der resultierenden Präsentation erhalten.
+
+**Was ist, wenn die Quellpräsentation passwortgeschützt ist?**
+
+Sie muss [mit dem Passwort geöffnet werden](/slides/de/cpp/password-protected-presentation/) über [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls in eine geschützte) geklont werden.
+
+**Wie thread‑sicher ist der Zusammenführungs‑Vorgang?**
+
+Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/cpp/multithreading/). Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads verarbeitet werden.

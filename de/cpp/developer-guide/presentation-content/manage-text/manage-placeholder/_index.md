@@ -1,27 +1,37 @@
 ---
-title: Platzhalter verwalten
+title: Verwalten von Präsentationsplatzhaltern in C++
+linktitle: Platzhalter verwalten
 type: docs
 weight: 10
 url: /de/cpp/manage-placeholder/
-keywords: "Platzhalter, Platzhaltertext, Eingabetext, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
-description: "Ändern Sie Platzhaltertext und Eingabetext in PowerPoint-Präsentationen in C++"
+keywords:
+- Platzhalter
+- Textplatzhalter
+- Bildplatzhalter
+- Diagrammplatzhalter
+- Aufforderungstext
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Müheloses Verwalten von Platzhaltern in Aspose.Slides für C++: Text ersetzen, Eingabeaufforderungen anpassen & Bildtransparenz festlegen in PowerPoint- und OpenDocument-Dateien."
 ---
 
-## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für C++](/slides/de/cpp/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+## **Text in einem Platzhalter ändern**
+Mit [Aspose.Slides for C++](/slides/de/cpp/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, den Text in einem Platzhalter zu ändern.
 
-**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
+**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Eine solche Präsentation können Sie mit der üblichen Microsoft PowerPoint‑Anwendung erstellen.
 
-So verwenden Sie Aspose.Slides, um den Text im Platzhalter dieser Präsentation zu ersetzen:
+So verwenden Sie Aspose.Slides, um den Text in dem Platzhalter dieser Präsentation zu ersetzen:
 
-1. Instanziieren Sie die [`Presentation`](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) Klasse und übergeben Sie die Präsentation als Argument.
-2. Holen Sie sich eine Folienreferenz über ihren Index.
-3. Durchlaufen Sie die Formen, um den Platzhalter zu finden.
-4. Typkonvertieren Sie die Platzhalterform in eine [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) und ändern Sie den Text mit dem [`TextFrame`](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame/) , der mit der [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) verknüpft ist.
-5. Speichern Sie die modifizierte Präsentation.
+1. Instanziieren Sie die Klasse [`Presentation`](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) und übergeben Sie die Präsentation als Argument.
+2. Holen Sie eine Folienreferenz über ihren Index.
+3. Durchlaufen Sie die Shapes, um den Platzhalter zu finden.
+4. Wandeln Sie das Platzhalter‑Shape in ein [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) um und ändern Sie den Text mithilfe des [`TextFrame`](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame/), das dem [`AutoShape`](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape/) zugeordnet ist.
+5. Speichern Sie die geänderte Präsentation.
 
-Dieser C++-Code zeigt, wie man den Text in einem Platzhalter ändert:
-
+Dieser C++‑Code zeigt, wie man den Text in einem Platzhalter ändert:
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 const String outPath = u"../out/ReplacingText_out.pptx";
@@ -34,23 +44,23 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 // Greift auf die erste Folie zu
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Greift auf den ersten und zweiten Platzhalter in der Folie zu und konvertiert ihn in ein AutoShape
+// Greift auf den ersten und zweiten Platzhalter in der Folie zu und wandelt ihn in ein AutoShape um
 SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
 SharedPtr<AutoShape> ashp = ExplicitCast<Aspose::Slides::AutoShape>(shape);
 
 SharedPtr<ITextFrame> textframe = ashp->get_TextFrame();
 
-textframe->set_Text(u"Dies ist ein Platzhalter");
+textframe->set_Text(u"This is Placeholder");
 	
-// Speichert die Präsentation auf der Festplatte
+// Speichert die Präsentation auf die Festplatte
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Eingabetext im Platzhalter festlegen**
-Standard- und vorgefertigte Layouts enthalten Platzhalter-Eingabetexte wie ***Klicken Sie hier, um einen Titel hinzuzufügen*** oder ***Klicken Sie hier, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre bevorzugten Eingabetexte in Platzhalter-Layouts einfügen.
 
-Dieser C++-Code zeigt Ihnen, wie Sie den Eingabetext in einem Platzhalter festlegen:
+## **Aufforderungstext in einem Platzhalter festlegen**
+Standard‑ und vorgefertigte Layouts enthalten Platzhalter‑Aufforderungstexte wie ***Klicken Sie, um einen Titel hinzuzufügen*** oder ***Klicken Sie, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre gewünschten Aufforderungstexte in Platzhalter‑Layouts einfügen.
 
+Dieser C++‑Code zeigt, wie Sie den Aufforderungstext in einem Platzhalter festlegen:
 ```c++
 const System::String templatePath = u"../templates/Presentation2.pptx";
     
@@ -62,27 +72,26 @@ for (auto& shape : slide->get_Shapes())
     if (shape->get_Placeholder() != NULL)
     {
         System::String text = u"";
-        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // Wenn kein Text enthalten ist, zeigt PowerPoint "Klicken Sie hier, um einen Titel hinzuzufügen" an. 
+        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // Wenn kein Text darin ist, zeigt PowerPoint "Click to add title" an. 
         {
-            text = u"Klicken Sie hier, um einen Titel hinzuzufügen";
+            text = u"Click to add title";
         }
-        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Macht das Gleiche für den Untertitel.
+        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Macht dasselbe für Untertitel.
         {
-            text = u"Klicken Sie hier, um einen Untertitel hinzuzufügen";
+            text = u"Click to add subtitle";
         }
-        System::Console::WriteLine(u"Platzhalter : {0}", text);
+        System::Console::WriteLine(u"Placeholder : {0}", text);
     }
 }
 
 pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Hintergrundbildtransparenz im Platzhalter festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, die Transparenz des Hintergrundbilds in einem Textplatzhalter festzulegen. Durch das Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (je nach Farben des Textes und des Bildes).
+## **Transparenz eines Platzhalter‑Bildes festlegen**
+Aspose.Slides ermöglicht es Ihnen, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter einzustellen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben von Text und Bild).
 
-Dieser C++-Code zeigt Ihnen, wie Sie die Transparenz für einen Bildhintergrund (innerhalb einer Form) festlegen:
-
+Dieser C++‑Code zeigt, wie Sie die Transparenz für einen Bild‑Hintergrund (innerhalb eines Shapes) festlegen:
 ```c++
 auto presentation = System::MakeObject<Presentation>();
     
@@ -96,3 +105,18 @@ auto pictureFillFormat = fillFormat->get_PictureFillFormat();
 pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
 pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
 ```
+
+
+## **FAQ**
+
+**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einer lokalen Form auf einer Folie?**
+
+Ein Basis‑Platzhalter ist die ursprüngliche Form in einem Layout oder einer Master‑Folien, von der die Form der Folie erbt — Typ, Position und einige Formatierungen stammen daraus. Eine lokale Form ist unabhängig; gibt es keinen Basis‑Platzhalter, findet keine Vererbung statt.
+
+**Wie kann ich alle Titel oder Beschriftungen in einer Präsentation aktualisieren, ohne jede Folie einzeln zu durchlaufen?**
+
+Bearbeiten Sie den entsprechenden Platzhalter im Layout oder im Master. Folien, die auf diesen Layouts/diesem Master basieren, erben die Änderung automatisch.
+
+**Wie steuere ich die Standard‑Kopf‑/Fußzeilen‑Platzhalter – Datum & Uhrzeit, Foliennummer und Fußzeilentext?**
+
+Verwenden Sie die HeaderFooter‑Manager im jeweiligen Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handzettel), um diese Platzhalter ein‑ oder auszuschalten und ihren Inhalt festzulegen.

@@ -1,40 +1,60 @@
 ---
-title: Cadre photo
+title: Gérer les cadres image dans les présentations avec C++
+linktitle: Cadre image
 type: docs
 weight: 10
 url: /fr/cpp/picture-frame/
-keywords: "Ajouter un cadre photo, créer un cadre photo, ajouter une image, créer une image, extraire une image, propriété StretchOff, mise en forme du cadre photo, propriétés du cadre photo, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
-description: "Ajouter un cadre photo à une présentation PowerPoint en C++"
+keywords:
+- cadre image
+- ajouter un cadre image
+- créer un cadre image
+- ajouter une image
+- créer une image
+- extraire une image
+- image matricielle
+- image vectorielle
+- recadrer une image
+- zone recadrée
+- propriété StretchOff
+- mise en forme du cadre image
+- propriétés du cadre image
+- mise à l'échelle relative
+- effet d'image
+- ratio d'aspect
+- transparence d'image
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Ajoutez des cadres image aux présentations PowerPoint et OpenDocument avec Aspose.Slides pour C++. Rationalisez votre flux de travail et améliorez la conception des diapositives."
 ---
 
-Un cadre photo est une forme qui contient une image - c'est comme une image dans un cadre.
+Un cadre image est une forme qui contient une image — c’est comme une photo dans un cadre. 
 
-Vous pouvez ajouter une image à une diapositive à travers un cadre photo. De cette façon, vous pouvez formater l'image en formatant le cadre photo.
+Vous pouvez ajouter une image à une diapositive via un cadre image. Ainsi, vous pouvez formater l’image en formatant le cadre image.
 
-{{% alert  title="Conseil" color="primary" %}} 
-
-Aspose fournit des convertisseurs gratuits - [JPEG vers PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) et [PNG vers PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) - qui permettent aux utilisateurs de créer des présentations rapidement à partir d'images.
-
+{{% alert title="Astuce" color="primary" %}} 
+Aspose propose des convertisseurs gratuits—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) et [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—qui permettent aux utilisateurs de créer rapidement des présentations à partir d’images. 
 {{% /alert %}} 
 
-## **Créer un cadre photo**
+## **Créer un cadre image**
 
-1. Créez une instance de la [classe Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenez une référence à une diapositive via son index.
-3. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l'objet de présentation qui sera utilisé pour remplir la forme.
-4. Spécifiez la largeur et la hauteur de l'image.
-5. Créez un [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) basé sur la largeur et la hauteur de l'image via la méthode `AddPictureFrame` exposée par l'objet de forme associé à la diapositive référencée.
-6. Ajoutez un cadre photo (contenant l'image) à la diapositive.
-7. Écrivez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Obtenez la référence d’une diapositive via son indice. 
+3. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l’objet de présentation qui sera utilisé pour remplir la forme.
+4. Spécifiez la largeur et la hauteur de l’image.
+5. Créez un [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) basé sur la largeur et la hauteur de l’image via la méthode `AddPictureFrame` exposée par l’objet forme associé à la diapositive référencée.
+6. Ajoutez le cadre image (contenant l’image) à la diapositive.
+7. Enregistrez la présentation modifiée en tant que fichier PPTX.
 
-Ce code C++ vous montre comment créer un cadre photo :
-
+Ce code C++ montre comment créer un cadre image :
 ```c++
-// Le chemin vers le répertoire des documents.
+// Le chemin du répertoire des documents.
 const String outPath = u"../out/PictureFrameFormatting_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Charge la présentation désirée
+// Charge la présentation souhaitée
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Accède à la première diapositive
@@ -47,74 +67,72 @@ auto image = Images::FromFile(filePath);
 // Ajoute une image à la collection d'images de la présentation
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Ajoute un cadre photo à la diapositive
+// Ajoute un cadre image à la diapositive
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Définit l'échelle relative de la hauteur et de la largeur
+// Définit la largeur et la hauteur à l'échelle relative
 pf->set_RelativeScaleHeight(0.8);
 pf->set_RelativeScaleWidth(1.35);
-// Applique une certaine mise en forme au PictureFrame
+// Applique un formatage au PictureFrame
 pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 pf->get_LineFormat()->set_Width ( 20);
 pf->set_Rotation( 45);
 
-// Écrit le fichier PPTX sur disque
+//Enregistre le fichier PPTX sur le disque
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 {{% alert color="warning" %}} 
-
-Les cadres photo vous permettent de créer rapidement des diapositives de présentation basées sur des images. Lorsque vous combiner un cadre photo avec les options de sauvegarde d'Aspose.Slides, vous pouvez manipuler les opérations d'entrée/sortie pour convertir des images d'un format à un autre. Vous voudrez peut-être consulter ces pages : convertir [image en JPG](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/) ; convertir [JPG en image](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/) ; convertir [JPG en PNG](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/), convertir [PNG en JPG](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/) ; convertir [PNG en SVG](https://products.aspose.com/slides/cpp/conversion/png-to-svg/), convertir [SVG en PNG](https://products.aspose.com/slides/cpp/conversion/svg-to-png/).
-
+Les cadres image vous permettent de créer rapidement des diapositives de présentation à partir d’images. Lorsque vous combinez le cadre image avec les options d’enregistrement d’Aspose.Slides, vous pouvez manipuler les opérations d’entrée/sortie pour convertir les images d’un format à un autre. Vous pouvez consulter ces pages : convert [image to JPG](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/cpp/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/cpp/conversion/svg-to-png/).
 {{% /alert %}}
 
-## **Créer un cadre photo avec une échelle relative**
+## **Créer un cadre image avec mise à l’échelle relative**
 
-En modifiant l'échelle relative d'une image, vous pouvez créer un cadre photo plus complexe.
+En modifiant la mise à l’échelle relative d’une image, vous pouvez créer un cadre image plus complexe. 
 
-1. Créez une instance de la [classe Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenez une référence à une diapositive via son index.
-3. Ajoutez une image à la collection d'images de la présentation.
-4. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l'objet de présentation qui sera utilisé pour remplir la forme.
-5. Spécifiez la largeur et la hauteur relatives de l'image dans le cadre photo.
-6. Écrivez la présentation modifiée sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Obtenez la référence d’une diapositive via son indice. 
+3. Ajoutez une image à la collection d’images de la présentation.
+4. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l’objet de présentation qui sera utilisé pour remplir la forme.
+5. Spécifiez la largeur et la hauteur relatives de l’image dans le cadre image.
+6. Enregistrez la présentation modifiée en tant que fichier PPTX.
 
-Ce code C++ vous montre comment créer un cadre photo avec une échelle relative :
-
+Ce code C++ montre comment créer un cadre image avec mise à l’échelle relative :
 ```c++
-// Le chemin vers le répertoire des documents.
+// Le chemin du répertoire des documents.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Charge la présentation désirée
+// Charge la présentation souhaitée
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Accède à la première diapositive
 SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Charge l'image à ajouter à la collection d'images de la présentation
+// Charge l'image qui sera ajoutée à la collection d'images de la présentation
 // Obtient l'image
 auto image = Images::FromFile(filePath);
 
 // Ajoute une image à la collection d'images de la présentation
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Ajoute un cadre photo à la diapositive
+// Ajoute un cadre image à la diapositive
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Définit l'échelle relative de la hauteur et de la largeur
+// Définit la largeur et la hauteur à l'échelle relative
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-// Écrit le fichier PPTX sur disque
+//Enregistre le fichier PPTX sur le disque
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Extraire une image d'un cadre photo**
 
-Vous pouvez extraire des images d'objets [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) et les enregistrer au format PNG, JPG et autres. L'exemple de code ci-dessous illustre comment extraire une image du document "sample.pptx" et l'enregistrer au format PNG.
+## **Extraire des images matricielles à partir de cadres image**
 
+Vous pouvez extraire des images matricielles des objets [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) et les enregistrer aux formats PNG, JPG et autres. L’exemple de code ci‑dessous montre comment extraire une image du document "sample.pptx" et l’enregistrer au format PNG.
 ```c++
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstSlide = presentation->get_Slide(0);
@@ -131,10 +149,35 @@ if (ObjectExt::Is<IPictureFrame>(firstShape))
 presentation->Dispose();
 ```
 
-## **Obtenir la transparence d'une image**
 
-Aspose.Slides vous permet d'obtenir la transparence d'une image. Ce code C++ démontre l'opération :
+## **Extraire les images SVG à partir de cadres image**
 
+Lorsque une présentation contient des graphiques SVG placés à l’intérieur de formes [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) , Aspose.Slides for C++ vous permet de récupérer les images vectorielles d’origine avec une fidélité complète. En parcourant la collection de formes de la diapositive, vous pouvez identifier chaque [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/), vérifier si l’objet [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) sous‑jacent contient du contenu SVG, puis enregistrer cette image sur disque ou dans un flux au format SVG natif.
+
+L’exemple de code suivant montre comment extraire une image SVG d’un cadre image :
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
+
+if (ObjectExt::Is<IPictureFrame>(shape))
+{
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
+    if (svgImage != nullptr)
+    {
+        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
+    }
+}
+
+presentation->Dispose();
+```
+
+
+## **Obtenir la transparence d’une image**
+
+Aspose.Slides vous permet d’obtenir l’effet de transparence appliqué à une image. Ce code C++ montre l’opération :
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
 auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
@@ -144,37 +187,41 @@ for (auto&& effect : imageTransform)
     if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
     {
         float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Transparence de l'image : ") + transparencyValue);
+        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
     }
 }
 ```
 
-## **Mise en forme du cadre photo**
 
-Aspose.Slides fournit de nombreuses options de mise en forme qui peuvent être appliquées à un cadre photo. En utilisant ces options, vous pouvez modifier un cadre photo pour le faire correspondre à des exigences spécifiques.
+{{% alert color="primary" %}} 
+Tous les effets appliqués aux images se trouvent dans [Aspose::Slides::Effects](https://reference.aspose.com/slides/cpp/aspose.slides.effects/).
+{{% /alert %}}
 
-1. Créez une instance de la [classe Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenez une référence à une diapositive via son index.
-3. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l'objet de présentation qui sera utilisé pour remplir la forme.
-4. Spécifiez la largeur et la hauteur de l'image.
-5. Créez un `PictureFrame` basé sur la largeur et la hauteur de l'image via la méthode [AddPictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) exposée par l'objet [IShapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) associé à la diapositive référencée.
-6. Ajoutez le cadre photo (contenant l'image) à la diapositive.
-7. Définissez la couleur de ligne du cadre photo.
-8. Définissez la largeur de la ligne du cadre photo.
-9. Faites pivoter le cadre photo en lui donnant une valeur positive ou négative.
-   * Une valeur positive fait pivoter l'image dans le sens des aiguilles d'une montre.
-   * Une valeur négative fait pivoter l'image dans le sens inverse des aiguilles d'une montre.
-10. Ajoutez le cadre photo (contenant l'image) à la diapositive.
-11. Écrivez la présentation modifiée sous forme de fichier PPTX.
+## **Mise en forme du cadre image**
 
-Ce code C++ démontre le processus de mise en forme du cadre photo :
+Aspose.Slides propose de nombreuses options de mise en forme applicables à un cadre image. En utilisant ces options, vous pouvez modifier un cadre image pour qu’il réponde à des exigences spécifiques.
 
+1. Créez une instance de la classe [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Obtenez la référence d’une diapositive via son indice. 
+3. Créez un objet [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) en ajoutant une image à la [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associée à l’objet de présentation qui sera utilisé pour remplir la forme.
+4. Spécifiez la largeur et la hauteur de l’image.
+5. Créez un `PictureFrame` basé sur la largeur et la hauteur de l’image via la méthode [AddPictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) exposée par l’objet [IShapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) associé à la diapositive référencée.
+6. Ajoutez le cadre image (contenant l’image) à la diapositive.
+7. Définissez la couleur de la bordure du cadre image.
+8. Définissez la largeur de la bordure du cadre image.
+9. Faites pivoter le cadre image en lui donnant une valeur positive ou négative.  
+   * Une valeur positive fait pivoter l’image dans le sens des aiguilles d’une montre.  
+   * Une valeur négative fait pivoter l’image dans le sens inverse des aiguilles d’une montre.
+10. Ajoutez le cadre image (contenant l’image) à la diapositive.
+11. Enregistrez la présentation modifiée en tant que fichier PPTX.
+
+Ce code C++ montre le processus de mise en forme du cadre image :
 ```c++
-// Le chemin vers le répertoire des documents.
+// Le chemin du répertoire des documents.
 const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
 const String filePath = u"../templates/Tulips.jpg";
 
-// Charge la présentation désirée
+// Charge la présentation souhaitée
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Accède à la première diapositive
@@ -187,27 +234,26 @@ auto image = Images::FromFile(filePath);
 // Ajoute une image à la collection d'images de la présentation
 SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
-// Ajoute un cadre photo à la diapositive
+// Ajoute un cadre image à la diapositive
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
 
-// Définit l'échelle relative de la hauteur et de la largeur
+// Définit la largeur et la hauteur à l'échelle relative
 pf->set_RelativeScaleHeight (0.8);
 pf->set_RelativeScaleWidth(1.35);
 
-// Écrit le fichier PPTX sur disque
+// Enregistre le fichier PPTX sur le disque
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert title="Conseil" color="primary" %}}
 
-Aspose a récemment développé un [Créateur de Collage gratuit](https://products.aspose.app/slides/collage). Si vous avez besoin de [fusionner des images JPG/JPEG](https://products.aspose.com/slides/collage/jpg) ou PNG, [créer des grilles à partir de photos](https://products.aspose.app/slides/collage/photo-grid), vous pouvez utiliser ce service.
+{{% alert title="Astuce" color="primary" %}}
 
+Aspose a récemment développé un [free Collage Maker](https://products.aspose.app/slides/collage). Si vous avez besoin de [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) ou d’images PNG, de [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), vous pouvez utiliser ce service. 
 {{% /alert %}}
 
-## **Ajouter une image en tant que lien**
+## **Ajouter une image sous forme de lien**
 
-Pour éviter des tailles de présentation volumineuses, vous pouvez ajouter des images (ou des vidéos) via des liens au lieu d'incorporer directement les fichiers dans les présentations. Ce code C++ vous montre comment ajouter une image et une vidéo dans un espace réservé :
-
+Pour éviter des tailles de présentation trop importantes, vous pouvez ajouter des images (ou des vidéos) via des liens au lieu d’incorporer directement les fichiers dans les présentations. Ce code C++ montre comment ajouter une image et une vidéo dans un espace réservé :
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
@@ -247,11 +293,11 @@ for (auto& shape : shapesToRemove)
 presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Recadrer une image**
 
-Ce code C++ vous montre comment recadrer une image existante sur une diapositive : 
+## **Recadrer des images**
 
-``` CPP
+Ce code C++ montre comment recadrer une image existante sur une diapositive : 
+```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
@@ -273,40 +319,39 @@ picFrame->get_PictureFormat()->set_CropBottom(31.0f);
 presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Supprimer les zones recadrées d'une image**
 
-Si vous souhaitez supprimer les zones recadrées d'une image contenue dans un cadre, vous pouvez utiliser la méthode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Cette méthode retourne l'image recadrée ou l'image d'origine si le recadrage est inutile.
+## **Supprimer les zones recadrées d’une image**
 
-Ce code C++ illustre l'opération : 
+Si vous voulez supprimer les zones recadrées d’une image contenue dans un cadre, vous pouvez utiliser la méthode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Cette méthode renvoie l’image recadrée ou l’image d’origine si le recadrage n’est pas nécessaire.
 
+Ce code C++ montre l’opération : 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
 System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Obtient le PictureFrame de la première diapositive
+// Gets the PictureFrame from the first slide
 System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Supprime les zones recadrées de l'image du PictureFrame et retourne l'image recadrée
+// Deletes cropped areas of the PictureFrame image and returns the cropped image
 System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
 
-// Enregistre le résultat
+// Saves the result
 presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
 ```
 
+
 {{% alert title="NOTE" color="warning" %}} 
 
-La méthode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ajoute l'image recadrée à la collection d'images de la présentation. Si l'image est uniquement utilisée dans le [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) traité, cette configuration peut réduire la taille de la présentation. Sinon, le nombre d'images dans la présentation résultante augmentera.
+La méthode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ajoute l’image recadrée à la collection d’images de la présentation. Si l’image n’est utilisée que dans le [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) traité, cette configuration peut réduire la taille de la présentation. Sinon, le nombre d’images dans la présentation résultante augmentera.
 
-Cette méthode convertit les fichiers WMF/EMF métaphores en images PNG raster lors de l'opération de recadrage. 
-
+Cette méthode convertit les fichiers métas WMF/EMF en image PNG raster lors de l’opération de recadrage. 
 {{% /alert %}}
 
-## **Verrouiller le rapport d'aspect**
+## **Verrouiller le ratio d’aspect**
 
-Si vous souhaitez qu'une forme contenant une image conserve son rapport d'aspect même après avoir modifié les dimensions de l'image, vous pouvez utiliser la méthode [set_AspectRatioLocked()](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) pour définir le paramètre *Verrouiller le rapport d'aspect*.
+Si vous désirez qu’une forme contenant une image conserve son ratio d’aspect même après modification des dimensions de l’image, vous pouvez utiliser la méthode [set_AspectRatioLocked()](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) pour définir le paramètre *Lock Aspect Ratio*. 
 
-Ce code C++ vous montre comment verrouiller le rapport d'aspect d'une forme :
-
+Ce code C++ montre comment verrouiller le ratio d’aspect d’une forme :
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -318,35 +363,34 @@ System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
 
 System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
 
-// définit la forme pour préserver le rapport d'aspect lors du redimensionnement
+// définir la forme pour qu'elle conserve le ratio d'aspect lors du redimensionnement
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
 ```
 
+
 {{% alert title="NOTE" color="warning" %}} 
 
-Ce paramètre *Verrouiller le rapport d'aspect* préserve uniquement le rapport d'aspect de la forme et non de l'image qu'elle contient.
-
+Ce paramètre *Lock Aspect Ratio* ne préserve que le ratio de la forme et non celui de l’image qu’elle contient.
 {{% /alert %}}
 
 ## **Utiliser la propriété StretchOff**
 
-En utilisant les propriétés [StretchOffsetLeft](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) et [StretchOffsetBottom](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) de l'interface [IPictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) et de la classe [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format), vous pouvez spécifier un rectangle de remplissage.
+En utilisant les propriétés [StretchOffsetLeft](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) et [StretchOffsetBottom](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) de l’interface [IPictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) et de la classe [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format), vous pouvez spécifier un rectangle de remplissage. 
 
-Lorsque l'étirement d'une image est spécifié, un rectangle source est mis à l'échelle pour s'adapter au rectangle de remplissage spécifié. Chaque bord du rectangle de remplissage est défini par un décalage en pourcentage par rapport à l'extrémité correspondante de la boîte englobante de la forme. Un pourcentage positif spécifie un retrait. Un pourcentage négatif spécifie un dépassement.
+Lorsque l’étirement d’une image est spécifié, un rectangle source est mis à l’échelle pour s’adapter au rectangle de remplissage spécifié. Chaque bord du rectangle de remplissage est défini par un pourcentage de décalage par rapport au bord correspondant de la boîte englobante de la forme. Un pourcentage positif indique un retrait. Un pourcentage négatif indique une extension.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenez une référence à une diapositive via son index.
-3. Ajoutez une forme de rectangle `AutoShape`. 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un rectangle `AutoShape`. 
 4. Créez une image.
 5. Définissez le type de remplissage de la forme.
-6. Définissez le mode de remplissage d'image de la forme.
+6. Définissez le mode de remplissage d’image de la forme.
 7. Ajoutez une image définie pour remplir la forme.
-8. Spécifiez les décalages d'image par rapport à l'extrémité correspondante de la boîte englobante de la forme.
-9. Écrivez la présentation modifiée sous forme de fichier PPTX.
-
-Ce code C++ démontre un processus dans lequel une propriété StretchOff est utilisée :
-
-``` cpp
+8. Spécifiez les décalages d’image par rapport au bord correspondant de la boîte englobante de la forme.
+9. Enregistrez la présentation modifiée en tant que fichier PPTX.
+  
+Ce code C++ montre un processus dans lequel la propriété StretchOff est utilisée :
+```cpp
 auto pres = System::MakeObject<Presentation>();
 auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 auto slide = pres->get_Slide(0);
@@ -362,3 +406,22 @@ pictureFormat->set_StretchOffsetBottom(24.0f);
 
 pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Comment savoir quels formats d’image sont pris en charge pour PictureFrame ?**
+
+Aspose.Slides prend en charge les images matricielles (PNG, JPEG, BMP, GIF, etc.) ainsi que les images vectorielles (par exemple SVG) via l’objet image qui est affecté à un [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/). La liste des formats pris en charge se recoupe généralement avec les capacités du moteur de conversion de diapositives et d’images.
+
+**Comment l’ajout de dizaines d’images volumineuses affecte‑t‑il la taille et les performances du PPTX ?**
+
+L’incorporation d’images volumineuses augmente la taille du fichier et la consommation de mémoire ; le raccordement d’images aide à réduire la taille de la présentation mais nécessite que les fichiers externes restent accessibles. Aspose.Slides offre la possibilité d’ajouter des images par lien afin de diminuer la taille du fichier.
+
+**Comment verrouiller un objet image contre tout déplacement/redimensionnement accidentel ?**
+
+Utilisez les verrous de forme ([shape locks](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/get_pictureframelock/)) pour un [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) (par exemple, désactiver le déplacement ou le redimensionnement). Le mécanisme de verrouillage est décrit pour les formes dans un article séparé sur la [protection](/slides/fr/cpp/applying-protection-to-presentation/) et est pris en charge pour divers types de formes, y compris les [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/).
+
+**La fidélité vectorielle SVG est‑elle préservée lors de l’exportation d’une présentation vers PDF/images ?**
+
+Aspose.Slides permet d’extraire un SVG d’un [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) tel qu‑il a été créé. Lors de l’[exportation vers PDF](/slides/fr/cpp/convert-powerpoint-to-pdf/) ou vers des formats raster [/slides/cpp/convert-powerpoint-to-png/], le résultat peut être rasterisé en fonction des paramètres d’exportation ; le fait que le SVG original soit stocké en tant que vecteur est confirmé par le comportement d’extraction.

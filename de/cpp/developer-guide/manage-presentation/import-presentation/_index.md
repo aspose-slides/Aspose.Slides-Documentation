@@ -1,27 +1,42 @@
 ---
-title: Präsentation importieren - C++ PowerPoint API
+title: Präsentationen aus PDF oder HTML in C++ importieren
 linktitle: Präsentation importieren
 type: docs
 weight: 60
 url: /de/cpp/import-presentation/
-keywords: "PowerPoint importieren, PDF zu Präsentation, PDF zu PPTX, PDF zu PPT, C++, Aspose.Slides für C++"
-description: "Importieren Sie eine PowerPoint-Präsentation aus PDF. Konvertieren Sie PDF in PowerPoint"
+keywords:
+- Präsentation importieren
+- Folien importieren
+- PDF importieren
+- HTML importieren
+- PDF zu Präsentation
+- PDF zu PPT
+- PDF zu PPTX
+- PDF zu ODP
+- HTML zu Präsentation
+- HTML zu PPT
+- HTML zu PPTX
+- HTML zu ODP
+- PowerPoint
+- OpenDocument
+- C++
+- Aspose.Slides
+description: "Importieren Sie mühelos PDF- und HTML-Dokumente in PowerPoint- und OpenDocument-Präsentationen in C++ mit Aspose.Slides für nahtlose, leistungsstarke Folienverarbeitung."
 ---
 
-Mit [**Aspose.Slides für C++**](https://products.aspose.com/slides/cpp/) können Sie Präsentationen aus Dateien in anderen Formaten importieren. Aspose.Slides stellt die [SlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection) Klasse zur Verfügung, um Ihnen zu ermöglichen, Präsentationen aus PDF, HTML-Dokumenten usw. zu importieren.
+Mit [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) können Sie Präsentationen aus Dateien anderer Formate importieren. Aspose.Slides stellt die Klasse [SlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection) zur Verfügung, um Präsentationen aus PDF-, HTML-Dokumenten usw. zu importieren.
 
 ## **PowerPoint aus PDF importieren**
 
-In diesem Fall konvertieren Sie ein PDF in eine PowerPoint-Präsentation.
+In diesem Fall können Sie ein PDF in eine PowerPoint-Präsentation konvertieren.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. Erstellen Sie ein Objekt der Präsentationsklasse.
-2. Rufen Sie die [AddFromPdf()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) Methode auf und übergeben Sie die PDF-Datei.
-3. Verwenden Sie die [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) Methode, um die Datei im PowerPoint-Format zu speichern.
+1. Instanziieren Sie ein Objekt der Presentation-Klasse. 
+2. Rufen Sie die Methode [AddFromPdf()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) auf und übergeben Sie die PDF-Datei. 
+3. Verwenden Sie die Methode [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) um die Datei im PowerPoint-Format zu speichern.
 
 Dieser C++-Code demonstriert die PDF-zu-PowerPoint-Operation:
-
 ```cpp
 auto pres = System::MakeObject<Presentation>();
     
@@ -29,22 +44,22 @@ pres->get_Slides()->AddFromPdf(u"InputPDF.pdf");
 pres->Save(u"OutputPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Tipp" color="primary" %}} 
 
-Sie möchten vielleicht die **Aspose kostenlose** [PDF zu PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web-App ausprobieren, da dies eine direkte Umsetzung des hier beschriebenen Prozesses ist. 
+{{% alert  title="Tip" color="primary" %}} 
+
+Vielleicht möchten Sie die kostenlose **Aspose** [PDF zu PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web‑App ausprobieren, da sie eine Live‑Implementierung des hier beschriebenen Vorgangs bietet. 
 
 {{% /alert %}} 
 
 ## **PowerPoint aus HTML importieren**
 
-In diesem Fall konvertieren Sie ein HTML-Dokument in eine PowerPoint-Präsentation.
+In diesem Fall können Sie ein HTML-Dokument in eine PowerPoint-Präsentation konvertieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) Klasse.
-2. Rufen Sie die [AddFromHtml()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) Methode auf und übergeben Sie die HTML-Datei.
-3. Verwenden Sie die [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) Methode, um die Datei im PowerPoint-Format zu speichern.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/). 
+2. Rufen Sie die Methode [AddFromHtml()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) auf und übergeben Sie die HTML-Datei. 
+3. Verwenden Sie die Methode [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) um die Datei im PowerPoint-Format zu speichern.
 
-Dieser C++-Code demonstriert die HTML-zu-PowerPoint-Operation:
-
+Dieser C++-Code demonstriert die HTML‑zu‑PowerPoint-Operation:
 ```c++
 auto presentation = System::MakeObject<Presentation>();
 
@@ -56,9 +71,10 @@ auto presentation = System::MakeObject<Presentation>();
 presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
 
-Sie können Aspose.Slides auch verwenden, um HTML in andere gängige Dateiformate zu konvertieren:
+{{% alert title="Note" color="warning" %}} 
+
+Sie können Aspose.Slides auch verwenden, um HTML in andere gängige Dateiformate zu konvertieren: 
 
 * [HTML zu Bild](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
 * [HTML zu JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
@@ -66,3 +82,9 @@ Sie können Aspose.Slides auch verwenden, um HTML in andere gängige Dateiformat
 * [HTML zu TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden Tabellen beim Importieren eines PDFs erhalten und kann ihre Erkennung verbessert werden?**
+
+Tabellen können beim Import erkannt werden; [PdfImportOptions](https://reference.aspose.com/slides/cpp/aspose.slides.import/pdfimportoptions/) enthält die Methode [set_DetectTables](https://reference.aspose.com/slides/cpp/aspose.slides.import/pdfimportoptions/set_detecttables/), die die Tabellenerkennung aktiviert. Die Wirksamkeit hängt von der Struktur des PDFs ab.

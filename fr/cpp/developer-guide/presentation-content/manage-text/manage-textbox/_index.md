@@ -1,55 +1,67 @@
 ---
-title: Gérer les TextBox
+title: Gérer les zones de texte dans les présentations avec C++
+linktitle: Gérer la zone de texte
 type: docs
 weight: 20
 url: /fr/cpp/manage-textbox/
-keywords: "Textbox, Cadre texte, Ajouter textbox, Textbox avec lien, C++, Aspose.Slides pour C++"
-description: "Ajouter un textbox ou un cadre texte aux présentations PowerPoint en C++"
+keywords:
+- zone de texte
+- cadre de texte
+- ajouter du texte
+- mettre à jour le texte
+- créer une zone de texte
+- vérifier la zone de texte
+- ajouter une colonne de texte
+- ajouter un hyperlien
+- PowerPoint
+- présentation
+- C++
+- Aspose.Slides
+description: "Aspose.Slides pour C++ facilite la création, la modification et la duplication des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant ainsi l'automatisation de vos présentations."
 ---
 
-Les textes sur les diapositives existent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter un texte à une diapositive, vous devez ajouter une zone de texte puis y insérer du texte. Aspose.Slides pour C++ fournit l'interface [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) qui vous permet d'ajouter une forme contenant du texte.
+Les textes sur les diapositives se trouvent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter du texte à une diapositive, vous devez ajouter une zone de texte puis insérer du texte à l'intérieur de celle‑ci. Aspose.Slides for C++ fournit l'interface [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) qui permet d’ajouter une forme contenant du texte.
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides fournit également l'interface [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) qui permet d'ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l'interface `IShape` ne peuvent pas contenir de texte. Mais les formes ajoutées via l'interface [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) peuvent contenir du texte. 
+Aspose.Slides propose également l'interface [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) qui permet d’ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l’interface `IShape` ne peuvent pas contenir de texte. En revanche, les formes ajoutées via l’interface [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) peuvent contenir du texte. 
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Par conséquent, lorsque vous traitez avec une forme à laquelle vous souhaitez ajouter du texte, vous voudrez peut-être vérifier et confirmer qu'elle a été castée via l'interface `IAutoShape`. Ce n'est qu'alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame), qui est une propriété de `IAutoShape`. Voir la section [Mettre à jour le texte](https://docs.aspose.com/slides/cpp/manage-textbox/#update-text) sur cette page. 
+Donc, lorsque vous travaillez avec une forme à laquelle vous souhaitez ajouter du texte, il est recommandé de vérifier et de confirmer qu’elle a été castée via l’interface `IAutoShape`. Ce n’est qu’alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame), qui est une propriété de `IAutoShape`. Consultez la section [Update Text](https://docs.aspose.com/slides/cpp/manage-textbox/#update-text) de cette page. 
 
 {{% /alert %}}
 
-## **Créer une zone de texte sur la diapositive**
+## **Créer une zone de texte sur une diapositive**
 
 Pour créer une zone de texte sur une diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-2. Obtenez une référence pour la première diapositive dans la présentation nouvellement créée. 
-3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) avec [ShapeType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) défini comme `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l'objet `IAutoShape` nouvellement ajouté. 
-4. Ajoutez une propriété `TextFrame` à l'objet `IAutoShape` qui contiendra un texte. Dans l'exemple ci-dessous, nous avons ajouté ce texte : *Aspose TextBox*
-5. Enfin, écrivez le fichier PPTX via l'objet `Presentation`. 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. Obtenez une référence à la première diapositive de la présentation nouvellement créée.  
+3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) avec le [ShapeType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) défini sur `Rectangle` à une position spécifiée sur la diapositive et récupérez la référence de l’objet `IAutoShape` ajouté.  
+4. Ajoutez une propriété `TextFrame` à l’objet `IAutoShape` qui contiendra du texte. Dans l’exemple ci‑dessous, nous avons ajouté ce texte : *Aspose TextBox*  
+5. Enfin, écrivez le fichier PPTX à l’aide de l’objet `Presentation`.  
 
-Ce code C++—une implémentation des étapes ci-dessus—vous montre comment ajouter du texte à une diapositive :
-
+Ce code C++—une implémentation des étapes ci‑above—vous montre comment ajouter du texte à une diapositive :
 ```cpp
-// Instancie Presentation
+// Instancie la présentation
 auto pres = System::MakeObject<Presentation>();
 
-// Obtient la première diapositive dans la présentation
+// Obtient la première diapositive de la présentation
 auto sld = pres->get_Slides()->idx_get(0);
 
-// Ajoute une AutoShape avec le type défini comme Rectangle
+// Ajoute une AutoShape dont le type est Rectangle
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-// Ajoute TextFrame au Rectangle
+// Ajoute un TextFrame au rectangle
 ashp->AddTextFrame(u" ");
 
-// Accède au cadre texte
+// Accède au cadre de texte
 auto txtFrame = ashp->get_TextFrame();
 
-// Crée l'objet Paragraphe pour le cadre de texte
+// Crée l'objet Paragraph pour le cadre de texte
 auto para = txtFrame->get_Paragraphs()->idx_get(0);
 
 // Crée un objet Portion pour le paragraphe
@@ -62,53 +74,82 @@ portion->set_Text(u"Aspose TextBox");
 pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Vérifier si une forme est une zone de texte**
 
-Aspose.Slides fournit la méthode [get_IsTextBox()](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) (de la classe [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/)) pour vous permettre d'examiner les formes et de trouver des zones de texte.
+## **Vérifier la présence d’une forme zone de texte**
 
-![Zone de texte et forme](istextbox.png)
+Aspose.Slides fournit la méthode [get_IsTextBox](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_istextbox/) de l’interface [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) qui permet d’examiner les formes et d’identifier les zones de texte.
 
-Ce code C++ vous montre comment vérifier si une forme a été créée comme une zone de texte : 
+![Text box and shape](istextbox.png)
 
+Ce code C++ vous montre comment vérifier si une forme a été créée en tant que zone de texte : 
 ```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-for (auto&& slide : pres->get_Slides())
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        auto autoShape = System::DynamicCast_noexcept<Aspose::Slides::AutoShape>(shape);
-        if (autoShape != nullptr)
+        if (ObjectExt::Is<IAutoShape>(shape))
         {
-            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"la forme est une zone de texte") : System::String(u"la forme n'est pas une zone de texte"));
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
         }
     }
 }
+
+presentation->Dispose();
 ```
 
-## **Ajouter une colonne dans une zone de texte**
 
-Aspose.Slides fournit les méthodes [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) et [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (de l'interface [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) et de la classe [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)) qui vous permettent d'ajouter des colonnes aux zones de texte. Vous pouvez spécifier le nombre de colonnes dans une zone de texte et définir la quantité d'espacement en points entre les colonnes. 
+Notez que si vous ajoutez simplement une forme automatique à l’aide de la méthode `AddAutoShape` de l’interface [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/), la méthode `get_IsTextBox` de la forme automatique renverra `false`. En revanche, après avoir ajouté du texte à la forme automatique via la méthode `AddTextFrame` ou la méthode `set_Text`, la méthode `get_IsTextBox` renverra `true`.
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Ce code en C++ démontre l'opération décrite : 
+auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+// shape1->get_IsTextBox() renvoie false
+shape1->AddTextFrame(u"shape 1");
+// shape1->get_IsTextBox() renvoie true
 
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
+// shape2->get_IsTextBox() renvoie false
+shape2->get_TextFrame()->set_Text(u"shape 2");
+// shape2->get_IsTextBox() renvoie true
+
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
+// shape3->get_IsTextBox() renvoie false
+shape3->AddTextFrame(u"");
+// shape3->get_IsTextBox() renvoie false
+
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
+// shape4->get_IsTextBox() renvoie false
+shape4->get_TextFrame()->set_Text(u"");
+// shape4->get_IsTextBox() renvoie false
+```
+
+
+## **Ajouter des colonnes à une zone de texte**
+
+Aspose.Slides fournit les méthodes [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) et [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) et de la classe [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)) qui permettent d’ajouter des colonnes aux zones de texte. Vous pouvez spécifier le nombre de colonnes dans une zone de texte et définir l’espacement, en points, entre les colonnes. 
+
+Ce code C++ illustre l’opération décrite : 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
-// Obtient la première diapositive dans la présentation
+// Obtient la première diapositive de la présentation
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Ajoute une AutoShape avec le type défini comme Rectangle
+// Ajoute une AutoShape dont le type est Rectangle
 auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
 
-// Ajoute TextFrame au Rectangle
-aShape->AddTextFrame(String(u"Tous ces colonnes sont limitées à être dans un seul conteneur de texte -- ") 
-    + u"vous pouvez ajouter ou supprimer du texte et le nouveau texte ou le texte restant s'ajuste automatiquement " 
-    + u"pour s'écouler dans le conteneur. Vous ne pouvez pas faire s'écouler le texte d'un conteneur " 
-    + u"à un autre cependant -- nous vous avons dit que les options de colonnes de PowerPoint pour le texte sont limitées !");
+// Ajoute un TextFrame au rectangle
+aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
+    + u"you can add or delete text and the new or remaining text automatically adjusts " 
+    + u"itself to flow within the container. You cannot have text flow from one container " 
+    + u"to other though -- we told you PowerPoint's column options for text are limited!");
 
-// Obtient le format texte de TextFrame
+// Obtient le format de texte du TextFrame
 auto format = aShape->get_TextFrame()->get_TextFrameFormat();
 
-// Spécifie le nombre de colonnes dans TextFrame
+// Spécifie le nombre de colonnes dans le TextFrame
 format->set_ColumnCount(3);
 
 // Spécifie l'espacement entre les colonnes
@@ -119,11 +160,11 @@ presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Ajouter une colonne dans un cadre de texte**
-Aspose.Slides pour C++ fournit la méthode [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (de l'interface [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)) qui vous permet d'ajouter des colonnes dans des cadres de texte. Grâce à cette méthode, vous pouvez spécifier votre nombre de colonnes préféré dans un cadre de texte. 
+## **Ajouter des colonnes à un cadre de texte**
 
-Ce code C++ vous montre comment ajouter une colonne à l'intérieur d'un cadre de texte :
+Aspose.Slides for C++ propose la méthode [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)) qui permet d’ajouter des colonnes dans les cadres de texte. Grâce à cette méthode, vous pouvez spécifier le nombre de colonnes souhaité dans un cadre de texte. 
 
+Ce code C++ vous montre comment ajouter une colonne à l’intérieur d’un cadre de texte :
 ```cpp
 String outPptxFileName = u"ColumnsTest.pptx";
     
@@ -132,10 +173,10 @@ auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeTyp
 auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
 
 format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"Tous ces colonnes sont forcées de rester à l'intérieur d'un seul conteneur de texte -- ") 
-    + u"vous pouvez ajouter ou supprimer du texte - et le nouveau texte ou le texte restant s'ajuste automatiquement " 
-    + u"pour rester à l'intérieur du conteneur. Vous ne pouvez pas avoir du texte qui déborde d'un conteneur " 
-    + u"à un autre, cependant -- car les options de colonnes de PowerPoint pour le texte sont limitées !");
+shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
+    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
+    + u"itself to stay within the container. You cannot have text spill over from one container " 
+    + u"to other, though -- because PowerPoint's column options for text are limited!");
 pres->Save(outPptxFileName, SaveFormat::Pptx);
 
 {
@@ -167,12 +208,12 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 }
 ```
 
+
 ## **Mettre à jour le texte**
 
-Aspose.Slides vous permet de changer ou de mettre à jour le texte contenu dans une zone de texte ou tous les textes contenus dans une présentation. 
+Aspose.Slides vous permet de modifier ou de mettre à jour le texte contenu dans une zone de texte ou l’ensemble des textes d’une présentation. 
 
-Ce code C++ démontre une opération où tous les textes dans une présentation sont mis à jour ou changés :
-
+Ce code C++ montre une opération où tous les textes d’une présentation sont mis à jour ou modifiés :
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"text.pptx");
 for (const auto& slide : pres->get_Slides())
@@ -186,9 +227,9 @@ for (const auto& slide : pres->get_Slides())
             {
                 for (const auto& portion : paragraph->get_Portions())
                 {
-                    //Change le texte
+                    //Modifie le texte
                     portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Change le formatage
+                    //Modifie le formatage
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -200,38 +241,43 @@ for (const auto& slide : pres->get_Slides())
 pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
 ```
 
-## **Ajouter une zone de texte avec un lien hypertexte** 
 
-Vous pouvez insérer un lien à l'intérieur d'une zone de texte. Lorsque la zone de texte est cliquée, les utilisateurs sont redirigés pour ouvrir le lien. 
+## **Ajouter une zone de texte avec un hyperlien** 
+
+Vous pouvez insérer un lien à l’intérieur d’une zone de texte. Lorsque la zone de texte est cliquée, l’utilisateur est redirigé vers le lien. 
 
 Pour ajouter une zone de texte contenant un lien, suivez ces étapes :
 
-1. Créez une instance de la classe `Presentation`. 
-2. Obtenez une référence pour la première diapositive dans la présentation nouvellement créée. 
-3. Ajoutez un objet `AutoShape` avec `ShapeType` défini comme `Rectangle` à une position spécifiée sur la diapositive et obtenez une référence de l'objet AutoShape nouvellement ajouté.
-4. Ajoutez un `TextFrame` à l'objet `AutoShape` qui contient *Aspose TextBox* comme texte par défaut. 
-5. Instanciez la classe `IHyperlinkManager`. 
-6. Assignez l'objet `IHyperlinkManager` à la méthode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) associée à votre portion préférée du `TextFrame`. 
-7. Enfin, écrivez le fichier PPTX via l'objet `Presentation`. 
+1. Créez une instance de la classe `Presentation`.  
+2. Obtenez une référence à la première diapositive de la présentation nouvellement créée.  
+3. Ajoutez un objet `AutoShape` avec le `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et récupérez la référence de l’objet AutoShape ajouté.  
+4. Ajoutez un `TextFrame` à l’objet `AutoShape` contenant *Aspose TextBox* comme texte par défaut.  
+5. Instanciez la classe `IHyperlinkManager`.  
+6. Assignez l’objet `IHyperlinkManager` à la méthode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) associée à la partie souhaitée du `TextFrame`.  
+7. Enfin, écrivez le fichier PPTX à l’aide de l’objet `Presentation`.  
 
-Ce code C++—une implémentation des étapes ci-dessus—vous montre comment ajouter une zone de texte avec un lien hypertexte à une diapositive :
-
+Ce code C++—une implémentation des étapes ci‑above—vous montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
 ```cpp
 // Instancie une classe Presentation qui représente un PPTX
+// Obtient la première diapositive de la présentation
+// Ajoute un objet AutoShape dont le type est Rectangle
+// Convertit la forme en AutoShape
+// Accède à la propriété ITextFrame associée à l'AutoShape
 auto presentation = System::MakeObject<Presentation>();
 
-// Obtient la première diapositive dans la présentation
+// Accède à la propriété ITextFrame associée à l'AutoShape
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Ajoute un objet AutoShape avec le type défini comme Rectangle
+// Ajoute un objet AutoShape dont le type est Rectangle
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
 
-// Cast la forme en AutoShape
+// Convertit la forme en AutoShape
 auto autoShape = System::ExplicitCast<IAutoShape>(shape);
 
-// Accède à la propriété ITextFrame associée à l'AutoShape
+// Ajoute du texte au cadre
 autoShape->AddTextFrame(u"");
 
+// Accède à la propriété ITextFrame associée à l'AutoShape
 auto textFrame = autoShape->get_TextFrame();
 
 // Ajoute du texte au cadre
@@ -244,3 +290,14 @@ linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
 // Enregistre la présentation PPTX
 presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Quelle est la différence entre une zone de texte et un espace réservé de texte lorsqu’on travaille avec les diapositives maîtres ?**
+
+Un [placeholder](/slides/fr/cpp/manage-placeholder/) hérite du style/position de la [master](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/), tandis qu’une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
+
+**Comment effectuer un remplacement massif de texte dans la présentation sans toucher aux textes des graphiques, tableaux et SmartArt ?**
+
+Limitez votre itération aux formes automatiques possédant des cadres de texte et excluez les objets incorporés ([charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/)) en parcourant leurs collections séparément ou en ignorant ces types d’objets.

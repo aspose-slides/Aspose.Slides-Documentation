@@ -1,38 +1,50 @@
 ---
-title: إدارة إعدادات التكيف التلقائي
+title: تعزيز عروضك التقديمية باستخدام AutoFit في C++
+linktitle: إعدادات Autofit
 type: docs
 weight: 30
 url: /ar/cpp/manage-autofit-settings/
-keywords: "مربع نص, تكيف تلقائي, عرض بوربوينت, C++, Aspose.Slides for C++"
-description: "تعيين إعدادات التكيف التلقائي لمربع النص في عرض بوربوينت باستخدام C++"
+keywords:
+- مربع نص
+- AutoFit
+- عدم AutoFit
+- ملائمة النص
+- تقليص النص
+- تغليف النص
+- تحجيم الشكل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تعرف على كيفية إدارة إعدادات AutoFit في Aspose.Slides لـ C++ لتحسين عرض النص في عروض PowerPoint و OpenDocument وتحسين قابلية قراءة المحتوى."
 ---
 
-بشكل افتراضي، عندما تضيف مربع نص، يستخدم Microsoft PowerPoint إعداد **تغيير حجم الشكل ليتناسب مع النص** لمربع النص—فهو يقوم تلقائيًا بتغيير حجم مربع النص لضمان تناسب النص دائمًا فيه.
+افتراضيًا، عند إضافة مربع نص، يستخدم Microsoft PowerPoint إعداد **Resize shape to fix text** لمربع النص — يقوم تلقائيًا بتغيير حجم مربع النص لضمان ملاءمة النص دائمًا داخلها.
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* عندما يصبح النص في مربع النص أطول أو أكبر، يقوم PowerPoint بتكبير مربع النص تلقائيًا—يزيد ارتفاعه—لسماحه بحمل مزيد من النص. 
-* عندما يصبح النص في مربع النص أقصر أو أصغر، يقوم PowerPoint بتقليص مربع النص تلقائيًا—يقلل ارتفاعه—لإزالة المساحة الزائدة. 
+* عندما يصبح النص داخل مربع النص أطول أو أكبر، يقوم PowerPoint تلقائيًا بتكبير مربع النص — يزيد ارتفاعه — للسماح باستيعاب نص أكبر. 
+* عندما يصبح النص داخل مربع النص أقصر أو أصغر، يقوم PowerPoint تلقائيًا بتقليل حجم مربع النص — يقلل ارتفاعه — لإزالة المساحة الزائدة. 
 
-في PowerPoint، هذه هي 4 معلمات أو خيارات هامة تتحكم في سلوك التكيف التلقائي لمربع النص:
+في PowerPoint، هذه هي المعلمات أو الخيارات الأربعة المهمة التي تتحكم في سلوك الـ Autofit لمربع النص:
 
-* **عدم التكيف التلقائي**
-* **تصغير النص عند تجاوز الحد**
-* **تغيير حجم الشكل ليتناسب مع النص**
-* **لف النص داخل الشكل.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-توفر Aspose.Slides for C++ خيارات مماثلة—بعض الطرق تحت فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)—التي تتيح لك التحكم في سلوك التكيف التلقائي لمربعات النص في العروض التقديمية.
+توفر Aspose.Slides لـ C++ خيارات مماثلة — بعض الطرق تحت فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) — التي تتيح لك التحكم في سلوك الـ autofit لمربعات النص في العروض التقديمية. 
 
-## **تغيير حجم الشكل ليتناسب مع النص**
+## **تحجيم الشكل لتناسب النص**
 
-إذا كنت تريد أن يتناسب النص في مربع مع ذلك المربع دائمًا بعد إجراء التغييرات على النص، عليك استخدام خيار **تغيير حجم الشكل ليتناسب مع النص**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) إلى `Shape`.
+إذا كنت تريد أن يتناسب النص داخل الصندوق دائمًا مع الصندوق بعد إجراء تغييرات على النص، يجب عليك استخدام خيار **Resize shape to fix text**. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) إلى `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-يوضح لك هذا الكود في C++ كيفية تعيين أن النص يجب أن يتناسب دائمًا مع صندوقه في عرض بوربوينت:
-
+يظهر لك هذا الكود C++ كيفية تحديد أن النص يجب أن يتناسب دائمًا مع الصندوق الخاص به في عرض PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -51,16 +63,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::Shape);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-إذا أصبح النص أطول أو أكبر، سيتم تغيير حجم مربع النص تلقائيًا (زيادة في الارتفاع) لضمان ملاءمة كل النص فيه. إذا أصبح النص أقصر، يحدث العكس.
 
-## **عدم التكيف التلقائي**
+إذا أصبح النص أطول أو أكبر، سيتم تعديل حجم مربع النص تلقائيًا (زيادة الارتفاع) لضمان أن يتناسب جميع النصوص داخله. إذا صار النص أقصر، يحدث العكس. 
 
-إذا كنت تريد لمربع النص أو الشكل أن يحتفظ بأبعاده بغض النظر عن التغييرات التي تطرأ على النص الذي يحتويه، عليك استخدام خيار **عدم التكيف التلقائي**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) إلى `None`.
+## **عدم الملاءمة التلقائية**
+
+إذا أردت أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تُجرى على النص الموجود فيه، يجب عليك استخدام خيار **Do not Autofit**. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) إلى `None`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-يوضح لك هذا الكود في C++ كيفية تعيين أن مربع النص يجب أن يحتفظ دائمًا بأبعاده في عرض بوربوينت:
-
+يظهر لك هذا الكود C++ كيفية تحديد أن مربع النص يجب أن يحتفظ بأبعاده دائمًا في عرض PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -79,16 +91,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::None);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
-عندما يصبح النص طويلًا جدًا بالنسبة لصندوقه، سيتجاوز حدوده.
 
-## **تصغير النص عند تجاوز الحد**
+عندما يصبح النص أطول من الصندوق، يتسرب خارجًا. 
 
-إذا أصبح النص طويلًا جدًا بالنسبة لصندوقه، من خلال خيار **تصغير النص عند تجاوز الحد**، يمكنك تحديد أن حجم النص ومسافاته يجب أن تقلل لتناسب في صندوقه. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) إلى `Normal`.
+## **تقليص النص عند الفائض**
+
+إذا أصبح النص أطول من الصندوق، يمكنك من خلال خيار **Shrink text on overflow** تحديد أنه يجب تقليل حجم النص والمسافات لجعله يتناسب مع الصندوق. لتحديد هذا الإعداد، قم بتعيين الخاصية [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) إلى `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-يوضح لك هذا الكود في C++ كيفية تعيين أن نص يجب تصغيره عند تجاوز الحد في عرض بوربوينت:
-
+يظهر لك هذا الكود C++ كيفية تحديد أن النص يجب أن يُصغَر عند الفائض في عرض PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -107,18 +119,16 @@ textFrameFormat->set_AutofitType(TextAutofitType::Normal);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
+
 {{% alert title="معلومات" color="info" %}}
-
-عندما يتم استخدام خيار **تصغير النص عند تجاوز الحد**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا بالنسبة لصندوقه. 
-
+عند استخدام خيار **Shrink text on overflow**، يتم تطبيق الإعداد فقط عندما يصبح النص أطول من الصندوق.
 {{% /alert %}}
 
-## **لف النص**
+## **تغليف النص**
 
-إذا كنت تريد أن يتم لف النص داخل شكل عندما يتجاوز النص حدود الشكل (العرض فقط)، عليك استخدام معلمة **لف النص داخل الشكل**. لتحديد هذا الإعداد، عليك تعيين خاصية [WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format)) إلى `true`. 
+إذا كنت تريد أن يلتف النص داخل الشكل عندما يتجاوز النص حدود الشكل (العرض فقط)، عليك استخدام معامل **Wrap text in shape**. لتحديد هذا الإعداد، يجب تعيين الخاصية [WrapText](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#aecc980adb13e3cf7162d09f99b5bbfd1) إلى `true`.
 
-يوضح لك هذا الكود في C++ كيفية استخدام إعداد لف النص في عرض بوربوينت:
-
+يظهر لك هذا الكود C++ كيفية استخدام إعداد تغليف النص في عرض PowerPoint:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -137,8 +147,21 @@ textFrameFormat->set_WrapText(NullableBool::True);
 pres->Save(u"Output-presentation.pptx", SaveFormat::Pptx);
 ```
 
+
 {{% alert title="ملاحظة" color="warning" %}} 
-
-إذا قمت بتعيين خاصية `WrapText` إلى `False` لشكل، عندما يصبح النص داخل الشكل أطول من عرض الشكل، سيتم تمديد النص إلى ما وراء حدود الشكل على سطر واحد. 
-
+إذا قمت بتعيين الخاصية `WrapText` إلى `False` لشكل ما، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يمتد النص خارجه على خط واحد.
 {{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**هل تؤثر الهوامش الداخلية لإطار النص على AutoFit؟**
+
+نعم. الهوامش الداخلية (Padding) تقلل مساحة النص القابلة للاستخدام، لذا سيتدخل AutoFit مبكرًا — إما بتقليل حجم الخط أو تعديل حجم الشكل أسرع. تحقق من الهوامش وقم بضبطها قبل تعديل AutoFit.
+
+**كيف يتفاعل AutoFit مع الفواصل اليدوية والفواصل الناعمة؟**
+
+تبقى الفواصل القسرية في مكانها، ويتكيف AutoFit مع حجم الخط والمسافات حولها. إزالة الفواصل غير الضرورية غالبًا ما يقلل من حاجة AutoFit لتقليص النص بشكل مفرط.
+
+**هل يؤثر تغيير خط السمة أو تشغيل استبدال الخط على نتائج AutoFit؟**
+
+نعم. استبدال الخط بخط له مقاييس مختلفة يغيّر عرض/ارتفاع النص، ما قد يغيّر الحجم النهائي للخط وتغليف السطور. بعد أي تغيير أو استبدال للخط، أعد فحص الشرائح.

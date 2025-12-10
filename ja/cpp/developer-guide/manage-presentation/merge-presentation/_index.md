@@ -1,73 +1,86 @@
 ---
-title: プレゼンテーションのマージ - C++ PowerPoint API
-linktitle: プレゼンテーションのマージ
+title: C++でプレゼンテーションを効率的に結合
+linktitle: プレゼンテーションの結合
 type: docs
 weight: 40
 url: /ja/cpp/merge-presentation/
-keywords: "PowerPointのマージ, PPTX, PPT, PowerPointの結合, プレゼンテーションのマージ, プレゼンテーションの結合, C++"
-description: この記事では、C++ PowerPoint APIまたはライブラリを使用してPowerPointプレゼンテーションをマージまたは結合する方法を説明します。
+keywords:
+- PowerPoint を結合
+- プレゼンテーションを結合
+- スライドを結合
+- PPT を結合
+- PPTX を結合
+- ODP を結合
+- PowerPoint を統合
+- プレゼンテーションを統合
+- スライドを統合
+- PPT を統合
+- PPTX を統合
+- ODP を統合
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して、PowerPoint（PPT、PPTX）および OpenDocument（ODP）プレゼンテーションを簡単に結合し、ワークフローを効率化します。"
 ---
 
-{{% alert  title="ヒント" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-**Asposeの無料オンライン** [マージアプリ](https://products.aspose.app/slides/merger) をチェックしてみてください。これにより、同じ形式（PPTからPPT、PPTXからPPTXなど）でPowerPointプレゼンテーションをマージしたり、異なる形式（PPTからPPTX、PPTXからODPなど）でプレゼンテーションをマージしたりすることができます。
+**Aspose 無料オンライン**の[Merger アプリ](https://products.aspose.app/slides/merger)を確認してみてください。PowerPoint プレゼンテーションを同じ形式（PPT→PPT、PPTX→PPTX など）で結合したり、異なる形式（PPT→PPTX、PPTX→ODP など）で結合したりできます。
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
 {{% /alert %}} 
 
 
-## **プレゼンテーションのマージ**
+## **Presentation Merging**
 
-一つのプレゼンテーションを別のプレゼンテーションにマージすることは、実質的にはそれらのスライドを一つのプレゼンテーションに結合し、一つのファイルを得ることを意味します。
+プレゼンテーションを別のものに結合すると、スライドが 1 つのプレゼンテーションにまとめられ、1 ファイルとして取得できます。 
 
-{{% alert title="情報" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-ほとんどのプレゼンテーションプログラム（PowerPointやOpenOffice）は、そのようにプレゼンテーションを結合する機能がありません。
+多くのプレゼンテーション ソフト（PowerPoint や OpenOffice）には、プレゼンテーションをこのように結合する機能がありません。 
 
-しかし、[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)を使用すれば、さまざまな方法でプレゼンテーションをマージできます。品質やデータの損失を気にすることなく、すべてのシェイプ、スタイル、テキスト、フォーマット、コメント、アニメーションなどを持つプレゼンテーションをマージすることができます。
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) は、さまざまな方法でプレゼンテーションを結合できるようにします。形状、スタイル、テキスト、書式設定、コメント、アニメーションなど、すべての要素を失うことなく結合できます。 
 
-**参照**
+**See also**
 
-[スライドの複製](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **マージできるもの**
-
-Aspose.Slidesでは、以下をマージできます。
-
-* 完全なプレゼンテーション。すべてのスライドが一つのプレゼンテーションに収まります。
-* 特定のスライド。選択したスライドが一つのプレゼンテーションに収まります。
-* 同一フォーマットのプレゼンテーション（PPTからPPT、PPTXからPPTXなど）や異なるフォーマット（PPTからPPTX、PPTXからODPなど）を一つにマージします。
-
-{{% alert title="注意" color="warning" %}} 
-
-プレゼンテーションのほかにも、Aspose.Slidesでは他のファイルをマージできます：
-
-* [画像](https://products.aspose.com/slides/cpp/merger/image-to-image/)、例えば [JPGからJPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) や [PNGからPNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* ドキュメント、例えば [PDFからPDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) や [HTMLからHTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* 異なる二つのファイル、例えば [画像からPDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) や [JPGからPDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) または [TIFFからPDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/)。
+[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
 
 {{% /alert %}}
 
-### **マージオプション**
+### **What Can Be Merged**
 
-マージ時に、次のオプションを適用できます。
+Aspose.Slides を使用すると、次のものを結合できます  
 
-* 出力プレゼンテーション内の各スライドがユニークなスタイルを保持するかどうか。
-* 出力プレゼンテーション内のすべてのスライドに特定のスタイルを使用するかどうか。
+* **プレゼンテーション全体** – すべてのスライドが 1 つのプレゼンテーションに統合されます  
+* **特定のスライド** – 選択したスライドだけが 1 つのプレゼンテーションに統合されます  
+* **同じ形式**（PPT→PPT、PPTX→PPTX など）または **異なる形式**（PPT→PPTX、PPTX→ODP など）のプレゼンテーション同士の結合  
 
-プレゼンテーションをマージするために、Aspose.Slidesは[AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)メソッド（[ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)インターフェースから）を提供しています。`AddClone`メソッドには、プレゼンテーションのマージプロセスパラメータを定義する複数の実装があります。すべてのPresentationオブジェクトには[Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)コレクションがあるため、スライドをマージしたいプレゼンテーションから`AddClone`メソッドを呼ぶことができます。
+{{% alert title="Note" color="warning" %}} 
 
-`AddClone`メソッドは、ソーススライドのクローンである`ISlide`オブジェクトを返します。出力プレゼンテーションのスライドは、すべてソースからのスライドのコピーです。したがって、結果のスライド（たとえば、スタイル、フォーマットオプション、レイアウトを適用するなど）に変更を加えても、ソースプレゼンテーションに影響を与えることはありません。
+プレゼンテーションに加えて、Aspose.Slides は他のファイルの結合もサポートします。
 
-## **プレゼンテーションのマージ** 
+* [画像](https://products.aspose.com/slides/cpp/merger/image-to-image/)、例として [JPG→JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) や [PNG→PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)  
+* 文書、例として [PDF→PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) や [HTML→HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)  
+* さらに **2 種類** の異なるファイル、例として [画像→PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) や [JPG→PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/)、[TIFF→PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/)  
 
-Aspose.Slidesは、[**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)メソッドを提供しており、スライドのレイアウトやスタイルを保持しながらスライドを結合することができます（デフォルトパラメータ）。
+{{% /alert %}}
 
-このC++コードは、プレゼンテーションをマージする方法を示しています：
+### **Merging Options**
 
+次のオプションで結合方法を制御できます  
+
+* 各スライドが出力プレゼンテーションで固有のスタイルを保持するか  
+* すべてのスライドに共通のスタイルを適用するか  
+
+プレゼンテーションを結合するには、Aspose.Slides が提供する [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) メソッド（[ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection) インターフェイス）を使用します。`AddClone` メソッドには複数の実装があり、結合プロセスのパラメータを指定できます。各 Presentation オブジェクトは [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) コレクションを持っているため、スライドを結合したいプレゼンテーションから `AddClone` を呼び出します。 
+
+`AddClone` は `ISlide` オブジェクトを返し、これは元のスライドのクローンです。出力プレゼンテーションのスライドは単に元スライドのコピーであるため、元のプレゼンテーションに影響を与えることなく、スタイルや書式設定、レイアウトの変更が可能です。 
+
+## **Merge Presentations** 
+
+Aspose.Slides の [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) メソッドは、スライドのレイアウトとスタイルを保持したまま結合できます（デフォルト パラメータ）。 
+
+以下の C++ コードはプレゼンテーションの結合方法を示しています:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -79,12 +92,12 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **スライドマスターを使用したプレゼンテーションのマージ**
 
-Aspose.Slidesは、[**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640)メソッドを提供し、スライドマスタープレゼンテーションテンプレートを適用しながらスライドを結合できます。この方法で、必要に応じて出力プレゼンテーションのスライドスタイルを変更できます。
+## **Merge Presentations with a Slide Master**
 
-このC++コードは、説明した操作を示しています：
+Aspose.Slides の [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) メソッドは、スライドマスター テンプレートを適用しながらスライドを結合します。これにより、必要に応じて出力プレゼンテーションのスライドスタイルを変更できます。 
 
+以下の C++ コードはこの操作を実演しています:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -96,18 +109,62 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-スライドマスターのスライドレイアウトは自動的に決定されます。適切なレイアウトが決定できない場合、`AddClone`メソッドの`allowCloneMissingLayout`ブールパラメータがtrueに設定されていると、ソーススライドのレイアウトが使用されます。そうでない場合は、[PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)がスローされます。
+{{% alert title="Note" color="warning" %}} 
+
+スライドマスターのレイアウトは自動的に決定されます。適切なレイアウトが判断できない場合、`AddClone` メソッドの `allowCloneMissingLayout` ブール パラメータが true に設定されていれば、元スライドのレイアウトが使用されます。そうでなければ [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) がスローされます。 
 
 {{% /alert %}}
 
-出力プレゼンテーションのスライドに異なるスライドレイアウトを持たせたい場合、マージ時に[AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1)メソッドを使用してください。
+出力プレゼンテーションのスライドに別のレイアウトを適用したい場合は、結合時に [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) メソッドを使用してください。 
 
-## **特定のスライドをプレゼンテーションからマージ**
+## **Merge Specific Slides from Presentations**
 
-このC++コードは、異なるプレゼンテーションから特定のスライドを選択し、結合して一つの出力プレゼンテーションを作成する方法を示しています：
+複数のプレゼンテーションから特定のスライドだけを結合すると、カスタム スライド デッキを作成できます。Aspose.Slides C++ は必要なスライドのみを選択してインポートでき、元のスライドの書式、レイアウト、デザインを保持します。 
 
+以下の C++ コードは新しいプレゼンテーションを作成し、2 つの別のプレゼンテーションからタイトル スライドを追加してファイルに保存します:
+```cpp
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+{
+    for (auto&& slide : presentation->get_Slides())
+    {
+        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
+        {
+            return slide;
+        }
+    }
+    return nullptr;
+}
+```
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
+auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
+
+presentation->get_Slides()->RemoveAt(0);
+
+auto slide1 = GetTitleSlide(presentation1);
+
+if (slide1 != nullptr)
+    presentation->get_Slides()->AddClone(slide1);
+
+auto slide2 = GetTitleSlide(presentation2);
+
+if (slide2 != nullptr)
+    presentation->get_Slides()->AddClone(slide2);
+
+presentation->Save(u"combined.pptx", SaveFormat::Pptx);
+
+presentation2->Dispose();
+presentation1->Dispose();
+presentation->Dispose();
+```
+
+
+## **Merge Presentations with a Slide Layout**
+
+この C++ コードは、好みのスライド レイアウトを適用しながらプレゼンテーションのスライドを結合し、1 つの出力プレゼンテーションを作成する方法を示します:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -119,33 +176,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **スライドレイアウトを使用したプレゼンテーションのマージ**
 
-このC++コードは、プレゼンテーションからスライドを結合し、希望のスライドレイアウトを適用して一つの出力プレゼンテーションを取得する方法を示しています：
+## **Merge Presentations with Different Slide Sizes**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
-}
+{{% alert title="Note" color="warning" %}} 
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
-
-## **異なるスライドサイズを持つプレゼンテーションのマージ**
-
-{{% alert title="注意" color="warning" %}} 
-
-異なるスライドサイズを持つプレゼンテーションをマージすることはできません。 
+スライド サイズが異なるプレゼンテーションは結合できません。 
 
 {{% /alert %}}
 
-異なるスライドサイズのプレゼンテーションを2つマージするには、いずれかのプレゼンテーションのサイズを変更して、もう一方のプレゼンテーションのサイズと一致させる必要があります。
+サイズが異なる 2 つのプレゼンテーションを結合するには、サイズが合うようにどちらかのプレゼンテーションをリサイズする必要があります。 
 
-このサンプルコードは、説明した操作を示しています：
-
+このサンプルコードは、上記の操作を示しています:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
@@ -161,10 +203,10 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **プレゼンテーションセクションにスライドをマージ**
 
-このC++コードは、プレゼンテーションのセクションに特定のスライドをマージする方法を示しています：
+## **Merge Slides to a Presentation Section**
 
+この C++ コードは、特定のスライドをプレゼンテーションのセクションに結合する方法を示します:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -177,10 +219,29 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-スライドはセクションの最後に追加されます。
 
-{{% alert title="ヒント" color="primary" %}}
+スライドはセクションの末尾に追加されます。 
 
-Asposeは[無料のコラージュWebアプリ](https://products.aspose.app/slides/collage)を提供しています。このオンラインサービスを使用して、[JPGからJPG](https://products.aspose.app/slides/collage/jpg)またはPNGからPNG画像をマージしたり、[写真グリッド](https://products.aspose.app/slides/collage/photo-grid)を作成したりできます。
+{{% alert title="Tip" color="primary" %}}
+
+Aspose が提供する[無料 Collage Web アプリ](https://products.aspose.app/slides/collage)を使用すると、[JPG→JPG](https://products.aspose.app/slides/collage/jpg) や PNG→PNG 画像の結合、[フォト グリッド](https://products.aspose.app/slides/collage/photo-grid) の作成などがオンラインで行えます。 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**結合時にスピーカーノートは保持されますか？**
+
+はい。スライドをクローンすると、ノート、書式設定、アニメーションを含むすべてのスライド要素が保持されます。 
+
+**コメントとその作成者は転送されますか？**
+
+コメントはスライド コンテンツの一部としてコピーされ、コメント作成者のラベルは結果のプレゼンテーション内のコメント オブジェクトとして残ります。 
+
+**元のプレゼンテーションがパスワードで保護されている場合は？**
+
+[LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) を使用してパスワードで開く必要があります（/slides/cpp/password-protected-presentation/）。ロード後、スライドは保護されていないターゲット ファイル（または保護されたファイル）に安全にクローンできます。 
+
+**結合操作はスレッドセーフですか？**
+
+同じ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/cpp/multithreading/)から使用しないでください。推奨ルールは「1 ドキュメント – 1 スレッド」で、別々のファイルは異なるスレッドで並列処理できます。

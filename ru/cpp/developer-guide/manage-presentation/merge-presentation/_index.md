@@ -1,73 +1,86 @@
 ---
-title: Объединение Презентаций - C++ PowerPoint API
-linktitle: Объединение Презентаций
+title: Эффективное объединение презентаций на C++
+linktitle: Объединение презентаций
 type: docs
 weight: 40
 url: /ru/cpp/merge-presentation/
-keywords: "Объединение PowerPoint, PPTX, PPT, комбинирование PowerPoint, объединение презентации, комбинирование презентации, C++"
-description: Статья объясняет, как можно объединить презентации PowerPoint с использованием C++ PowerPoint API или библиотеки.
+keywords:
+- объединить PowerPoint
+- объединить презентации
+- объединить слайды
+- объединить PPT
+- объединить PPTX
+- объединить ODP
+- комбинировать PowerPoint
+- комбинировать презентации
+- комбинировать слайды
+- комбинировать PPT
+- комбинировать PPTX
+- комбинировать ODP
+- C++
+- Aspose.Slides
+description: "Легко объединяйте презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP) с помощью Aspose.Slides для C++, оптимизируя ваш рабочий процесс."
 ---
 
-{{% alert  title="Совет" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-Вам может быть интересно ознакомиться с **бесплатным онлайн приложением** [Merger](https://products.aspose.app/slides/merger) от Aspose. Оно позволяет пользователям объединять презентации PowerPoint в одном формате (PPT в PPT, PPTX в PPTX и т.д.) и объединять презентации в разных форматах (PPT в PPTX, PPTX в ODP и т.д.).
+Возможно, вам будет интересно ознакомиться с **Aspose бесплатным онлайн** [Merger app](https://products.aspose.app/slides/merger). Приложение позволяет объединять презентации PowerPoint в одинаковом формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.).
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
 {{% /alert %}} 
 
 
-## **Объединение Презентаций**
+## **Presentation Merging**
 
-Когда вы объединяете одну презентацию с другой, вы фактически комбинируете их слайды в одной презентации, чтобы получить один файл. 
+При объединении одной презентации с другой вы фактически комбинируете их слайды в одну презентацию, получая один файл. 
 
-{{% alert title="Информация" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-Большинство программ для создания презентаций (PowerPoint или OpenOffice) не имеют функций, которые позволяли бы пользователям объединять презентации таким образом. 
+Большинство программ для работы с презентациями (PowerPoint или OpenOffice) не предоставляют функций, позволяющих пользователям комбинировать презентации таким образом. 
 
-Тем не менее, [**Aspose.Slides для C++**](https://products.aspose.com/slides/cpp/) позволяет вам объединять презентации различными способами. Вы можете объединить презентации со всеми их формами, стилями, текстами, форматированием, комментариями, анимациями и др., не беспокоясь о потере качества или данных. 
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) , однако, позволяет выполнять слияние презентаций различными способами. Вы можете объединять презентации со всеми их фигурами, стилями, текстом, форматированием, комментариями, анимациями и т.п., не опасаясь потери качества или данных. 
 
-**См. также**
+**See also**
 
-[Клонировать Слайды](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
+[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
 
 {{% /alert %}}
 
-### **Что Можно Объединять**
+### **What Can Be Merged**
 
-С помощью Aspose.Slides вы можете объединять 
+С помощью Aspose.Slides можно объединять 
 
-* целые презентации. Все слайды из презентаций оказываются в одной презентации
-* отдельные слайды. Выбранные слайды оказываются в одной презентации
+* целые презентации. Все слайды из исходных презентаций попадают в одну презентацию  
+* отдельные слайды. Выбранные слайды складываются в одну презентацию  
 * презентации в одном формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.) друг с другом. 
 
-{{% alert title="Примечание" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Помимо презентаций, Aspose.Slides позволяет вам объединять другие файлы:
+Помимо презентаций, Aspose.Slides позволяет объединять и другие типы файлов:
 
-* [Изображения](https://products.aspose.com/slides/cpp/merger/image-to-image/), такие как [JPG в JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) или [PNG в PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* Документы, такие как [PDF в PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) или [HTML в HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* И два разных файла, такие как [изображение в PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) или [JPG в PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) или [TIFF в PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
+* [Images](https://products.aspose.com/slides/cpp/merger/image-to-image/), например [JPG to JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) или [PNG to PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)  
+* Документы, такие как [PDF to PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) или [HTML to HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)  
+* А также два разных файла, например [image to PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) или [TIFF to PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/). 
 
 {{% /alert %}}
 
-### **Опции Объединения**
+### **Merging Options**
 
-Вы можете применять опции, которые определяют, будут ли
+Можно задать параметры, определяющие, будет ли
 
-* каждый слайд в выходной презентации сохранять уникальный стиль
-* используется ли конкретный стиль для всех слайдов в выходной презентации. 
+* каждый слайд в результирующей презентации сохранять уникальный стиль  
+* один общий стиль применяться ко всем слайдам в результирующей презентации. 
 
-Для объединения презентаций Aspose.Slides предоставляет методы [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (из интерфейса [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)). Существует несколько реализаций методов `AddClone`, которые определяют параметры процесса объединения презентаций. Каждый объект Presentation имеет коллекцию [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), поэтому вы можете вызвать метод `AddClone` из презентации, в которую хотите объединить слайды. 
+Для объединения презентаций Aspose.Slides предоставляет методы [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (из интерфейса [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)). Существует несколько перегрузок метода `AddClone`, определяющих параметры процесса объединения. Каждый объект `Presentation` имеет коллекцию [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), поэтому вы можете вызвать `AddClone` у презентации, в которую хотите добавить слайды. 
 
-Метод `AddClone` возвращает объект `ISlide`, который является клоном исходного слайда. Слайды в выходной презентации являются просто копией слайдов из источника. Поэтому вы можете вносить изменения в полученные слайды (например, применять стили или параметры форматирования или макеты), не беспокоясь о том, что исходные презентации будут затронуты. 
+Метод `AddClone` возвращает объект `ISlide`, являющийся клоном исходного слайда. Слайды в результирующей презентации представляют собой просто копию слайдов из источника. Поэтому вы можете изменять полученные слайды (например, применять стили, параметры форматирования или макеты), не опасаясь влияния на исходные презентации. 
 
-## **Объединение Презентаций** 
+## **Merge Presentations** 
 
-Aspose.Slides предоставляет метод [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), который позволяет вам объединять слайды, при этом слайды сохраняют свои макеты и стили (параметры по умолчанию). 
+Aspose.Slides предоставляет метод [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), позволяющий объединять слайды, сохраняя их макеты и стили (параметры по умолчанию). 
 
-Этот код на C++ показывает, как объединять презентации:
-
+В этом примере на C++ показано, как объединить презентации:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -79,12 +92,12 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Объединение Презентаций с Мастером Слайда**
 
-Aspose.Slides предоставляет метод [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), который позволяет вам объединять слайды, применяя шаблон мастер-презентации слайда. Таким образом, если необходимо, вы можете изменить стиль для слайдов в выходной презентации. 
+## **Merge Presentations with a Slide Master**
 
-Этот код на C++ демонстрирует описанную операцию:
+Aspose.Slides предоставляет метод [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), позволяющий объединять слайды с применением шаблона мастер‑презентации. Таким образом при необходимости вы можете изменить стиль слайдов в результирующей презентации. 
 
+Следующий код на C++ демонстрирует описанную операцию:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -96,18 +109,62 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Примечание" color="warning" %}} 
 
-Макет слайда для мастера слайда определяется автоматически. Когда подходящий макет не может быть определён, если булевый параметр `allowCloneMissingLayout` метода `AddClone` установлен в true, используется макет для исходного слайда. В противном случае будет выброшено [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
+{{% alert title="Note" color="warning" %}} 
+
+Макет слайда для мастера определяется автоматически. Если подходящий макет определить не удаётся и параметр `allowCloneMissingLayout` метода `AddClone` установлен в `true`, используется макет исходного слайда. В противном случае будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
 
 {{% /alert %}}
 
-Если вы хотите, чтобы слайды в выходной презентации имели другой макет слайда, используйте вместо этого метод [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) при объединении. 
+Если вы хотите, чтобы слайды в результирующей презентации имели иной макет, используйте метод [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) при объединении. 
 
-## **Объединение Конкретных Слайдов Из Презентаций**
+## **Merge Specific Slides from Presentations**
 
-Этот код на C++ показывает, как выбрать и объединить конкретные слайды из разных презентаций, чтобы получить одну выходную презентацию:
+Объединение конкретных слайдов из нескольких презентаций удобно для создания пользовательских наборов слайдов. Aspose.Slides C++ позволяет выбрать и импортировать только нужные слайды, при этом сохраняются форматирование, макет и дизайн оригинальных слайдов.
 
+В следующем примере на C++ создаётся новая презентация, в неё добавляются титульные слайды из двух других презентаций, после чего результат сохраняется в файл:
+```cpp
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+{
+    for (auto&& slide : presentation->get_Slides())
+    {
+        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
+        {
+            return slide;
+        }
+    }
+    return nullptr;
+}
+```
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
+auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
+
+presentation->get_Slides()->RemoveAt(0);
+
+auto slide1 = GetTitleSlide(presentation1);
+
+if (slide1 != nullptr)
+    presentation->get_Slides()->AddClone(slide1);
+
+auto slide2 = GetTitleSlide(presentation2);
+
+if (slide2 != nullptr)
+    presentation->get_Slides()->AddClone(slide2);
+
+presentation->Save(u"combined.pptx", SaveFormat::Pptx);
+
+presentation2->Dispose();
+presentation1->Dispose();
+presentation->Dispose();
+```
+
+
+## **Merge Presentations with a Slide Layout**
+
+Этот код на C++ показывает, как объединять слайды из презентаций с применением выбранного макета, получая одну итоговую презентацию:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -119,33 +176,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Объединение Презентаций С Макетом Слайда**
 
-Этот код на C++ показывает, как объединить слайды из презентаций, применяя к ним ваш предпочтительный макет слайда, чтобы получить одну выходную презентацию:
+## **Merge Presentations with Different Slide Sizes**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
-}
+{{% alert title="Note" color="warning" %}} 
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
-
-## **Объединение Презентаций С Разными Размером Слайдов**
-
-{{% alert title="Примечание" color="warning" %}} 
-
-Вы не можете объединять презентации с разными размерами слайдов. 
+Нельзя объединять презентации с разными размерами слайдов. 
 
 {{% /alert %}}
 
-Чтобы объединить 2 презентации с разными размерами слайдов, вам нужно изменить размер одной из презентаций, чтобы его размеры совпадали с размерами другой презентации. 
+Чтобы объединить две презентации с различными размерами слайдов, необходимо изменить размер одной из них, чтобы он соответствовал размеру другой презентации. 
 
-Этот пример кода демонстрирует описанную операцию:
-
+Пример кода, демонстрирующий описанную операцию:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
@@ -161,10 +203,10 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Объединение Слайдов в Раздел Презентации**
 
-Этот код на C++ показывает, как объединить конкретный слайд в раздел презентации:
+## **Merge Slides to a Presentation Section**
 
+В этом примере на C++ показано, как добавить конкретный слайд в раздел презентации:
 ```cpp
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
@@ -177,10 +219,29 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-Слайд добавляется в конец раздела. 
 
-{{% alert title="Совет" color="primary" %}}
+Слайд будет добавлен в конец раздела. 
 
-Aspose предоставляет [БЕСПЛАТНОЕ веб-приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн-сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG изображения, создавать [фото-гриды](https://products.aspose.app/slides/collage/photo-grid) и многое другое. 
+{{% alert title="Tip" color="primary" %}}
+
+Aspose предлагает [БЕСПЛАТНОЕ веб‑приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн‑сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG, создавать [фото‑решётки](https://products.aspose.app/slides/collage/photo-grid) и т.д. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Сохраняются ли примечания докладчика при слиянии?**
+
+Да. При клонировании слайдов Aspose.Slides переносит все элементы слайда, включая примечания, форматирование и анимацию.
+
+**Переносятся ли комментарии и их авторы?**
+
+Комментарии, как часть содержимого слайда, копируются вместе со слайдом. Метки авторов сохраняются в виде объектов комментариев в полученной презентации.
+
+**Что если исходная презентация защищена паролем?**
+
+Её необходимо [открыть с паролем](/slides/ru/cpp/password-protected-presentation/) через [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); после загрузки такие слайды можно безопасно клонировать в незащищённый целевой файл (или в защищённый).
+
+**Насколько потокобезопасна операция слияния?**
+
+Не используйте один и тот же экземпляр [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) из нескольких потоков [/slides/cpp/multithreading/]. Рекомендуемое правило — «один документ — один поток»; разные файлы можно обрабатывать параллельно в отдельных потоках.

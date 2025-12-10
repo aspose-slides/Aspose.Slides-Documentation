@@ -1,50 +1,61 @@
 ---
-title: إطار الفيديو
+title: إدارة إطارات الفيديو في العروض التقديمية باستخدام C++
+linktitle: إطار الفيديو
 type: docs
 weight: 10
 url: /ar/cpp/video-frame/
-keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض تقديمي على PowerPoint، C++، CPP، Aspose.Slides لـ C++"
-description: "إضافة إطار فيديو إلى عرض تقديمي على PowerPoint بلغة C++"
-
+keywords:
+- إضافة فيديو
+- إنشاء فيديو
+- تضمين فيديو
+- استخراج فيديو
+- استرجاع فيديو
+- إطار فيديو
+- مصدر ويب
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجياً في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++. دليل سريع خطوة بخطوة."
 ---
 
-يمكن أن يساهم الفيديو الموضوعة بشكل جيد في عرض تقديمي في جعل رسالتك أكثر جاذبية وزيادة مستوى تفاعل الجمهور معك.
+يمكن للفيديو الموضوع في المكان المناسب داخل عرض تقديمي أن يجعل رسالتك أكثر إقناعًا ويزيد من مستويات التفاعل مع جمهورك. 
 
-يسمح لك PowerPoint بإضافة مقاطع الفيديو إلى الشريحة في عرض تقديمي بطريقتين:
+PowerPoint يتيح لك إضافة مقاطع فيديو إلى شريحة في عرض تقديمي بطريقتين:
 
-* إضافة فيديو محلي (مخزن على جهازك)
-* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل يوتيوب).
+* إضافة أو تضمين فيديو محلي (مخزن على جهازك)
+* إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
 
-لتتيح لك إضافة مقاطع الفيديو (كائنات الفيديو) إلى العرض التقديمي، توفر Aspose.Slides واجهة [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) وواجهة [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) وأنواع ذات صلة أخرى.
+للسماح لك بإضافة مقاطع فيديو (كائنات فيديو) إلى عرض تقديمي، توفر Aspose.Slides واجهة [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) ، وواجهة [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) ، وغيرها من الأنواع ذات الصلة. 
 
-## **إنشاء إطار فيديو مضمّن**
+## **إنشاء إطار فيديو مدمج**
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لدمج الفيديو في عرضك التقديمي.
+إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي. 
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال مؤشرها.
-1. أضف كائن [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) ومرر مسار ملف الفيديو لدمج الفيديو مع العرض التقديمي.
-1. أضف كائن [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.
-1. احفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)class.
+1. الحصول على مرجع الشريحة عبر فهرستها. 
+1. إضافة كائن [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) وتمرير مسار ملف الفيديو لتضمين الفيديو مع العرض التقديمي. 
+1. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.  
+1. حفظ العرض التقديمي المعدل. 
 
-تظهر لك الكود التالي في C++ كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
-
+يعرض لك هذا الكود C++ كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
-// تحميل الفيديو
+// Loads the video
 System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(u"Wildlife.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
 System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, LoadingStreamBehavior::KeepLocked);
 
-// الحصول على الشريحة الأولى وإضافة إطار فيديو
+// Gets the first slide and adds a videoframe
 pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
 
-// حفظ العرض التقديمي على القرص
+// Saves the presentation to disk
 pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 ```
 
-بدلاً من ذلك، يمكنك إضافة فيديو عن طريق تمرير مسار ملفه مباشرة إلى طريقة [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/):
 
+بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرةً إلى طريقة [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) :
 ``` c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -53,52 +64,52 @@ System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.
 ```
 
 
-## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
 
-يدعم Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع الفيديو من يوتيوب في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (مثل يوتيوب)، يمكنك إضافته إلى عرضك التقديمي من خلال رابط الويب الخاص به.
+## **إنشاء إطار فيديو باستخدام فيديو من مصدر ويب**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)
-1. احصل على مرجع الشريحة من خلال مؤشرها.
-1. أضف كائن [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) ومرر الرابط إلى الفيديو.
-1. قم بتعيين صورة مصغرة لإطار الفيديو.
-1. احفظ العرض التقديمي.
+Microsoft [PowerPoint 2013 والإصدارات الأحدث](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) يدعم مقاطع فيديو YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (مثلًا على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر رابطه على الويب. 
 
-تظهر لك الكود التالي في C++ كيفية إضافة فيديو من الويب إلى شريحة في عرض تقديمي على PowerPoint:
+1. إنشاء كائن من الفئة [Presentation ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)class
+1. الحصول على مرجع الشريحة عبر فهرستها. 
+1. إضافة كائن [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) وتمرير الرابط إلى الفيديو.
+1. تعيين صورة مصغرة لإطار الفيديو. 
+1. حفظ العرض التقديمي. 
 
+يعرض لك هذا الكود C++ كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint التقديمي:
 ```c++
-// المسار إلى دليل الوثائق.
+// مسار دليل المستندات.
 const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
 const String filePath = u"../templates/video1.avi";
 
-// إنشاء كائن Presentation الذي يمثل ملف العرض التقديمي
+// ينشئ كائن Presentation يمثل ملف عرض تقديمي
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-// الوصول إلى الشريحة الأولى
+// يصل إلى الشريحة الأولى
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// إضافة إطار فيديو 
+// يضيف إطار فيديو 
 System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
 
-// تعيين وضع التشغيل والصوت للفيديو
+// يحدد وضع تشغيل وحجم صوت الفيديو
 vf->set_PlayMode(VideoPlayModePreset::Auto);
 
-// حفظ العرض التقديمي على القرص
+//يحفظ العرض التقديمي إلى القرص
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **استخراج الفيديو من الشريحة**
 
-بالإضافة إلى إضافة مقاطع الفيديو إلى الشرائح، يسمح Aspose.Slides لك باستخراج مقاطع الفيديو المدمجة في العروض التقديمية.
+## **استخراج فيديو من شريحة**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) لتحميل العرض التقديمي الذي يحتوي على الفيديو.
-2. قم بالتكرار عبر جميع كائنات [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/).
-3. قم بالتكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) للعثور على [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
-4. احفظ الفيديو على القرص.
+بالإضافة إلى إضافة مقاطع فيديو إلى الشرائح، يتيح لك Aspose.Slides استخراج مقاطع الفيديو المدمجة في العروض التقديمية.
 
-تظهر لك الكود التالي في C++ كيفية استخراج الفيديو من شريحة عرض تقديمي:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) لتحميل العرض التقديمي الذي يحتوي على الفيديو. 
+2. التكرار عبر جميع كائنات [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/).
+3. التكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) للعثور على [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/). 
+4. حفظ الفيديو على القرص.
 
+يعرض لك هذا الكود C++ كيفية استخراج الفيديو من شريحة عرض تقديمي:
 ```c++
-// المسار إلى دليل الوثائق.
+// مسار دليل المستندات.
 const System::String templatePath = u"../templates/Video.pptx";
 const System::String outPath = u"../out/Video_out";
 
@@ -122,3 +133,22 @@ for (auto&& slide : presentation->get_Slides())
     }
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
+
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). هذه الخيارات متاحة عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
+
+**هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
+
+نعم. عندما تقوم بتضمين فيديو محلي، يتم تضمين البيانات الثنائية في المستند، وبالتالي يزداد حجم العرض التقديمي بنسبة حجم الملف. عندما تضيف فيديوًا عبر الإنترنت، يتم تضمين رابط وصورة مصغرة، لذا يكون الزيادة في الحجم أصغر.
+
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
+
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+
+**هل يمكن تحديد نوع المحتوى (MIME) لفيديو مدمج؟**
+
+نعم. يحتوي الفيديو المدمج على [نوع المحتوى](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) الذي يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.

@@ -1,34 +1,45 @@
 ---
-title: Video Frame
+title: Verwalten von Video-Frames in Präsentationen mit C++
+linktitle: Video-Frame
 type: docs
 weight: 10
 url: /de/cpp/video-frame/
-keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
-description: "Fügen Sie einen Video-Frame zu einer PowerPoint-Präsentation in C++ hinzu"
-
+keywords:
+- Video hinzufügen
+- Video erstellen
+- Video einbetten
+- Video extrahieren
+- Video abrufen
+- Video-Frame
+- Web-Quelle
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Lernen Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für C++ hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 
-Ein gut platzierter Video in einer Präsentation kann Ihre Botschaft überzeugender machen und die Engagement-Levels Ihres Publikums erhöhen.
+Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und die Engagement‑Level Ihres Publikums erhöhen. 
 
-PowerPoint ermöglicht es Ihnen, Videos auf zwei Arten zu einer Folie in einer Präsentation hinzuzufügen:
+PowerPoint ermöglicht das Hinzufügen von Videos zu einer Folie in einer Präsentation auf zwei Arten:
 
-* Fügen Sie ein lokales Video hinzu oder betten Sie es ein (auf Ihrem Computer gespeichert)
-* Fügen Sie ein Online-Video hinzu (aus einer Webquelle wie YouTube).
+* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
+* Ein Online‑Video hinzufügen (von einer Web‑Quelle wie YouTube).
 
-Um es Ihnen zu ermöglichen, Videos (Videoobjekte) zu einer Präsentation hinzuzufügen, bietet Aspose.Slides die [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) Schnittstelle, die [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) Schnittstelle und andere relevante Typen.
+Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides das Interface [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/), das Interface [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) und weitere relevante Typen bereit. 
 
-## **Eingebetteten Video-Frame erstellen**
+## **Ein eingebettetes Video‑Frame erstellen**
 
-Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video-Frame erstellen, um das Video in Ihre Präsentation einzubetten.
+Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie ein Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video mit der Präsentation einzubetten.
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) Objekt hinzu, um einen Frame für das Video zu erstellen.
-1. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse.  
+2. Holen Sie sich über den Index eine Referenz auf eine Folie.  
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/)-Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten.  
+4. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)-Objekt hinzu, um ein Frame für das Video zu erstellen.  
+5. Speichern Sie die geänderte Präsentation.  
 
-Dieser C++ Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
-
+Dieser C++‑Code zeigt, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -39,12 +50,12 @@ System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, Loadi
 // Holt die erste Folie und fügt einen Video-Frame hinzu
 pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
 
-// Speichert die Präsentation auf der Festplatte
+// Speichert die Präsentation auf dem Datenträger
 pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 ```
 
-Alternativ können Sie ein Video hinzufügen, indem Sie den Pfad zur Datei direkt an die [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) Methode übergeben:
 
+Alternativ können Sie ein Video hinzufügen, indem Sie seinen Dateipfad direkt an die Methode [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) übergeben:
 ``` c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -53,50 +64,50 @@ System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.
 ```
 
 
-## **Video-Frame mit Video aus Webquelle erstellen**
 
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube-Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über den Weblink zu Ihrer Präsentation hinzufügen.
+## **Ein Video‑Frame mit Video aus einer Web‑Quelle erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Link zum Video.
-1. Legen Sie ein Thumbnail für den Video-Frame fest.
-1. Speichern Sie die Präsentation.
+Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützen YouTube‑Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Web‑Link zu Ihrer Präsentation hinzufügen. 
 
-Dieser C++ Code zeigt Ihnen, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse.  
+2. Holen Sie sich über den Index eine Referenz auf eine Folie.  
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/)-Objekt hinzu und übergeben Sie den Link zum Video.  
+4. Legen Sie ein Vorschaubild für das Video‑Frame fest.  
+5. Speichern Sie die Präsentation.  
 
+Dieser C++‑Code zeigt, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
 const String filePath = u"../templates/video1.avi";
 
-// Erstellt ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Greift auf die erste Folie zu
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Fügt einen Video-Frame hinzu 
+// Fügt ein Video-Frame hinzu 
 System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
 
-// Legt den Abspielmodus und die Lautstärke des Videos fest
+// Setzt den Wiedergabemodus und die Lautstärke des Videos
 vf->set_PlayMode(VideoPlayModePreset::Auto);
 
-//Speichert die Präsentation auf der Festplatte
+//Speichert die Präsentation auf dem Datenträger
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Video von Folie extrahieren**
 
-Neben dem Hinzufügen von Videos zu Folien ermöglicht es Aspose.Slides Ihnen, Videos, die in Präsentationen eingebettet sind, zu extrahieren.
+## **Video aus einer Folie extrahieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse, um die Präsentation zu laden, die das Video enthält.
-2. Iterieren Sie durch alle [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) Objekte.
-3. Iterieren Sie durch alle [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) zu finden.
-4. Speichern Sie das Video auf der Festplatte.
+Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-Dieser C++ Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie extrahieren:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Klasse, um die Präsentation zu laden, die das Video enthält.  
+2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/)-Objekte.  
+3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)-Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) zu finden.  
+4. Speichern Sie das Video auf dem Datenträger.  
 
+Dieser C++‑Code zeigt, wie Sie das Video einer Präsentationsfolie extrahieren:
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 const System::String templatePath = u"../templates/Video.pptx";
@@ -122,3 +133,22 @@ for (auto&& slide : presentation->get_Slides())
     }
 }
 ```
+
+
+## **FAQ**
+
+**Welche Wiedergabe‑Parameter können für ein VideoFrame geändert werden?**
+
+Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (automatisch oder bei Klick) und das [Looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)-Objekts zur Verfügung.
+
+**Wirkt sich das Hinzufügen eines Videos auf die Dateigröße der PPTX aus?**
+
+Ja. Beim Einbetten eines lokalen Videos werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Beim Hinzufügen eines Online‑Videos werden lediglich ein Link und ein Vorschaubild eingebettet, sodass der Größenzuwachs geringer ist.
+
+**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
+
+Ja. Sie können den [Videoinhalt](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) im Frame austauschen und dabei die Geometrie der Form beibehalten; das ist ein häufiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+
+**Kann der MIME‑Typ eines eingebetteten Videos ermittelt werden?**
+
+Ja. Ein eingebettetes Video besitzt einen [Content‑Type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), den Sie auslesen und beispielsweise beim Speichern auf dem Datenträger verwenden können.

@@ -1,57 +1,58 @@
 ---
-title: プレゼンテーションの確認 - C++ PowerPoint API
-linktitle: プレゼンテーションの確認
+title: C++ でプレゼンテーション情報を取得および更新
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/cpp/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
-- プレゼンテーションフォーマット
+- プレゼンテーション形式
 - プレゼンテーションプロパティ
 - ドキュメントプロパティ
-- プロパティを取得
-- プロパティを読み取る
-- プロパティを変更
-- プロパティを修正
-- PPTX
-- PPT
+- プロパティ取得
+- プロパティ読み取り
+- プロパティ変更
+- プロパティ修正
+- プロパティ更新
+- PPTX を調査
+- PPT を調査
+- ODP を調査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - C++
-description: "C++でPowerPointプレゼンテーションプロパティを読み取り、変更する"
+- Aspose.Slides
+description: "C++ を使用して PowerPoint および OpenDocument プレゼンテーションのスライド、構造、メタデータを調査し、迅速な洞察とスマートなコンテンツ監査を実現します。"
 ---
 
-Aspose.Slides for C++を使用すると、プレゼンテーションを確認してそのプロパティを把握し、動作を理解できます。 
+Aspose.Slides for C++ を使用すると、プレゼンテーションを調べてそのプロパティを把握し、動作を理解できます。 
 
-{{% alert title="情報" color="info" %}}
-
-[TPresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)および[DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/)クラスは、ここでの操作に使用されるプロパティとメソッドを含んでいます。
-
+{{% alert title="Info" color="info" %}}
+ここで使用される操作に必要なプロパティとメソッドを含むのは、[PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) と [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) クラスです。
 {{% /alert %}} 
 
-## **プレゼンテーションフォーマットの確認**
+## **プレゼンテーション形式の確認**
 
-プレゼンテーションに取り組む前に、現在のプレゼンテーションのフォーマット（PPT、PPTX、ODPなど）を確認したい場合があります。
+プレゼンテーションを操作する前に、現在のプレゼンテーションがどの形式（PPT、PPTX、ODP など）であるかを確認したい場合があります。
 
-プレゼンテーションを読み込まずに、プレゼンテーションのフォーマットを確認できます。次のC++コードを参照してください：
-
+プレゼンテーションをロードせずに形式を確認できます。以下の C++ コードをご覧ください。
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
-// PPTX
+// PPTX形式
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
 
 auto info2 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.ppt");
-// PPT
+// PPT形式
 Console::WriteLine(ObjectExt::ToString(info2->get_LoadFormat()));
 
 auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp");
-// ODP
+// ODP形式
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
-## **プレゼンテーションプロパティの取得**
 
-このC++コードは、プレゼンテーションプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
+## **プレゼンテーション プロパティの取得**
 
+この C++ コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています。
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
@@ -61,38 +62,61 @@ Console::WriteLine(props->get_Title());
 // .. 
 ```
 
-## **プレゼンテーションプロパティの更新**
 
-Aspose.Slidesは、プレゼンテーションプロパティを変更できる[PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/updatedocumentproperties/)メソッドを提供します。
+## **プレゼンテーション プロパティの更新**
 
-たとえば、以下のドキュメントプロパティを持つPowerPointプレゼンテーションがあるとします。
+Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) メソッドを提供します。
 
-![PowerPointプレゼンテーションの元のドキュメントプロパティ](input_properties.png)
+以下のように、ドキュメントプロパティが表示された PowerPoint プレゼンテーションがあるとします。
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
+![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
+このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています。
 ```cpp
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
 
 auto properties = info->ReadDocumentProperties();
-properties->set_Title(u"私のタイトル");
+properties->set_Title(u"My title");
 properties->set_LastSavedTime(DateTime::get_Now());
 
 info->UpdateDocumentProperties(properties);
 info->WriteBindedPresentation(fileName);
 ```
 
-ドキュメントプロパティを変更した結果は以下の通りです。
 
-![PowerPointプレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
+ドキュメントプロパティを変更した結果は以下のとおりです。
 
-## **役立つリンク**
+![PowerPoint プレゼンテーションの変更後ドキュメントプロパティ](output_properties.png)
 
-プレゼンテーションおよびそのセキュリティ属性に関する詳細情報を得るために、以下のリンクが役立つ場合があります：
+## **便利なリンク**
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護されているかどうかの確認（読み取り専用）](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションを読み込む前にパスワード保護されているかどうかの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [プレゼンテーションを保護するために使用されるパスワードの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+プレゼンテーションとそのセキュリティ属性に関する詳細情報を得るために、以下のリンクが役立つ場合があります：
+
+- [プレゼンテーションが暗号化されているかの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [プレゼンテーションが書き込み保護（読み取り専用）かの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [ロード前にプレゼンテーションがパスワードで保護されているかの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **よくある質問**
+
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認するにはどうすればよいですか？**
+
+プレゼンテーションレベルで [embedded-font information](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) を探し、次にそれらのエントリを [実際にコンテンツで使用されているフォント](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getfonts/) と比較して、レンダリングに重要なフォントを特定します。
+
+**ファイルに非表示スライドがあるか、またその数をすばやく確認するにはどうすればよいですか？**
+
+[スライドコレクション](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/) を反復処理し、各スライドの [可視性フラグ](https://reference.aspose.com/slides/cpp/aspose.slides/slide/get_hidden/) をチェックします。
+
+**カスタム スライド サイズと向きが使用されているか、デフォルトと異なるかどうかを検出できますか？**
+
+はい。現在の [スライドサイズと向き](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slidesize/) を標準のプリセットと比較してください。これにより、印刷やエクスポート時の動作を予測できます。
+
+**チャートが外部データソースを参照しているかどうかをすばやく確認する方法はありますか？**
+
+はい。すべての [チャート](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/) を走査し、各チャートの [データ ソース](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) を確認して、データが内部かリンクベースか、壊れたリンクがあるかどうかをメモします。
+
+**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価するにはどうすればよいですか？**
+
+各スライドについて、オブジェクト数を集計し、大きな画像、透明性、シャドウ、アニメーション、マルチメディアなどをチェックします。その後、概算の複雑度スコアを割り当て、パフォーマンス上のホットスポットになる可能性があるスライドをフラグ付けします。
