@@ -1,34 +1,75 @@
 ---
-title: 長方形
+title: C++ でプレゼンテーションに矩形を追加する
+linktitle: 矩形
 type: docs
 weight: 80
 url: /ja/cpp/rectangle/
+keywords:
+- 矩形を追加
+- 矩形を作成
+- 矩形シェイプ
+- シンプルな矩形
+- 書式設定された矩形
+- PowerPoint
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションに矩形を追加し、プログラムで形状を簡単に設計・変更できます。"
 ---
 
+## **シンプルな矩形の作成**
+前のトピックと同様に、今回も図形の追加について説明します。今回取り上げる図形は矩形です。このトピックでは、開発者が Aspose.Slides for C++ を使用してスライドにシンプルまたはフォーマットされた矩形を追加する方法を説明しました。プレゼンテーションの選択したスライドにシンプルな矩形を追加するには、以下の手順に従ってください。
 
-## **シンプルな長方形を作成する**
-前のトピックと同様に、今回は形状を追加することについてであり、今回議論する形状は長方形です。このトピックでは、開発者がAspose.Slides for C++を使用してスライドにシンプルまたはフォーマットされた長方形を追加する方法を説明しています。プレゼンテーションの選択したスライドにシンプルな長方形を追加するには、以下の手順に従ってください。
+1. [Presentation クラス](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)のインスタンスを作成する。
+1. インデックスを使用してスライドの参照を取得する。
+1. IShapes オブジェクトが提供する AddAutoShape メソッドを使用して、Rectangle タイプの IAutoShape を追加する。
+1. 変更されたプレゼンテーションを書き出して PPTX ファイルに保存する。
 
-1. [Presentation クラス](http://www.aspose.com/api/net/slides/aspose.slides/)のインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. IShapesオブジェクトによって公開されたAddAutoShapeメソッドを使用して、長方形型のIAutoShapeを追加します。
-1. 修正されたプレゼンテーションをPPTXファイルとして書き込みます。
-
-以下の例では、プレゼンテーションの最初のスライドにシンプルな長方形を追加しました。
+以下の例では、プレゼンテーションの最初のスライドにシンプルな矩形を追加しています。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SimpleRectangle-SimpleRectangle.cpp" >}}
 
-## **フォーマットされた長方形を作成する**
-スライドにフォーマットされた長方形を追加するには、以下の手順に従ってください。
+## **フォーマットされた矩形の作成**
+スライドにフォーマットされた矩形を追加するには、以下の手順に従ってください。
 
-1. [Presentation クラス](http://www.aspose.com/api/net/slides/aspose.slides/)のインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. IShapesオブジェクトによって公開されたAddAutoShapeメソッドを使用して、長方形型のIAutoShapeを追加します。
-1. 長方形の塗りつぶしタイプをソリッドに設定します。
-1. IShapeオブジェクトに関連付けられたFillFormatオブジェクトによって公開されたSolidFillColor.Colorプロパティを使用して、長方形の色を設定します。
-1. 長方形の線の色を設定します。
-1. 長方形の線の幅を設定します。
-1. 修正されたプレゼンテーションをPPTXファイルとして書き込みます。
-   上記の手順は、以下の例で実装されています。
+1. [Presentation クラス](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)のインスタンスを作成する。
+1. インデックスを使用してスライドの参照を取得する。
+1. IShapes オブジェクトが提供する AddAutoShape メソッドを使用して、Rectangle タイプの IAutoShape を追加する。
+1. 矩形の塗りつぶしタイプを Solid に設定する。
+1. FillFormat オブジェクトの SolidFillColor.Color プロパティを使用して、矩形の色を設定する。
+1. 矩形の線の色を設定する。
+1. 矩形の線の幅を設定する。
+1. 変更されたプレゼンテーションを書き出して PPTX ファイルに保存する。
+   上記の手順は以下の例で実装されています。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FormattedRectangle-FormattedRectangle.cpp" >}}
+
+## **FAQ**
+
+**角丸矩形を追加するにはどうすればよいですか？**
+
+丸みを帯びた角の [shape type](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/) を使用し、シェイプのプロパティでコーナー半径を調整します。ジオメトリ調整により、各コーナーごとに丸みを設定することも可能です。
+
+**矩形を画像（テクスチャ）で塗りつぶすには？**
+
+ピクチャー [fill type](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) を選択し、画像ソースを指定して、[stretching/tiling modes](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) を設定します。
+
+**矩形に影や光彩を付けられますか？**
+
+はい。[Outer/inner shadow、glow、soft edges](/slides/ja/cpp/shape-effect/) が利用でき、パラメータを調整できます。
+
+**矩形をハイパーリンク付きのボタンにできますか？**
+
+はい。シェイプのクリックに対して [ハイパーリンクを割り当て](/slides/ja/cpp/manage-hyperlinks/) できます（スライド、ファイル、Web アドレス、メールへ遷移）。
+
+**矩形の移動や変更から保護するには？**
+
+[shape locks](/slides/ja/cpp/applying-protection-to-presentation/) を使用して、移動、サイズ変更、選択、テキスト編集を禁止し、レイアウトを保護できます。
+
+**矩形をラスタ画像や SVG に変換できますか？**
+
+はい。指定したサイズ/スケールでシェイプを画像に [render](http://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) したり、ベクタ用に [SVG としてエクスポート](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/) したりできます。
+
+**テーマや継承を考慮した矩形の実際の（有効）プロパティをすぐに取得するには？**
+
+[シェイプの有効プロパティ](/slides/ja/cpp/shape-effective-properties/) を使用します。API がテーマスタイル、レイアウト、ローカル設定を考慮した計算値を返すため、書式分析が簡素化されます。

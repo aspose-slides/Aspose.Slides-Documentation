@@ -1,27 +1,40 @@
 ---
-title: チャートシリーズ
+title: C++ を使用してプレゼンテーションのチャート データシリーズを管理する
+linktitle: データシリーズ
 type: docs
 url: /ja/cpp/chart-series/
+keywords:
+- チャートシリーズ
+- シリーズのオーバーラップ
+- シリーズの色
+- カテゴリの色
+- シリーズ名
+- データポイント
+- シリーズのギャップ
+- PowerPoint
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "PowerPoint (PPT/PPTX) 用の C++ でチャートシリーズを管理する方法を、実用的なコード例とベストプラクティスとともに学び、データプレゼンテーションを向上させましょう。"
 ---
 
-シリーズは、チャートにプロットされた数字の行または列です。
+シリーズは、チャートにプロットされた数値の行または列です。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **チャートシリーズのオーバーラップを設定**
+## **データシリーズのオーバーラップを設定**
 
-[IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb)メソッドを使用すると、2Dチャート上のバーや列がどのくらい重なるかを指定できます（範囲：-100から100）。このプロパティは親シリーズグループのすべてのシリーズに適用されます：これは適切なグループプロパティの投影です。
+[IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) メソッドを使用すると、2D チャートで棒や列がどの程度オーバーラップするかを指定できます（範囲: -100〜100）。  
+このプロパティは、親シリーズグループのすべてのシリーズに適用されます。これは該当するグループプロパティの投影です。  
+`get_ParentSeriesGroup()::set_Overlap()` メソッドを使用して、`Overlap` の希望値を設定します。
 
-`get_ParentSeriesGroup()::set_Overlap()`メソッドを使用して、`Overlap`の希望する値を設定します。
-
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-1. スライドにクラスタ化された縦棒グラフを追加します。
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+1. スライドにクラスター化された列チャートを追加します。
 1. 最初のチャートシリーズにアクセスします。
-1. チャートシリーズの`ParentSeriesGroup`にアクセスし、シリーズの希望するオーバーラップ値を設定します。
-1. 修正されたプレゼンテーションをPPTXファイルに書き込みます。
+1. チャートシリーズの `ParentSeriesGroup` にアクセスし、シリーズの希望するオーバーラップ値を設定します。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
 
-このC++コードは、チャートシリーズのオーバーラップを設定する方法を示しています：
-
+この C++ コードは、チャートシリーズのオーバーラップを設定する方法を示しています。
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
@@ -31,25 +44,26 @@ auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
 {
-    // シリーズオーバーラップを設定
+    // シリーズのオーバーラップを設定
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// プレゼンテーションファイルをディスクに書き込み
+// プレゼンテーション ファイルをディスクに保存
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
-## **シリーズの色を変更**
-Aspose.Slides for C++を使用すると、次のようにシリーズの色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
+## **データシリーズの色を変更**
+
+Aspose.Slides for C++ では、シリーズの色を次の方法で変更できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
 1. スライドにチャートを追加します。
 1. 色を変更したいシリーズにアクセスします。
-1. お好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正されたプレゼンテーションを保存します。
+1. 希望する塗りつぶしタイプと塗りつぶし色を設定します。
+1. 変更されたプレゼンテーションを保存します。
 
-このC++コードは、シリーズの色を変更する方法を示しています：
-
+この C++ コードは、シリーズの色を変更する方法を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -64,17 +78,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **シリーズのカテゴリーの色を変更**
-Aspose.Slides for C++を使用すると、次のようにシリーズカテゴリーの色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
+## **データシリーズカテゴリの色を変更**
+
+Aspose.Slides for C++ では、シリーズカテゴリの色を次の方法で変更できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
 1. スライドにチャートを追加します。
-1. 色を変更したいシリーズカテゴリーにアクセスします。
-1. お好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正されたプレゼンテーションを保存します。
+1. 色を変更したいシリーズカテゴリにアクセスします。
+1. 希望する塗りつぶしタイプと塗りつぶし色を設定します。
+1. 変更されたプレゼンテーションを保存します。
 
-このC++コードは、シリーズカテゴリーの色を変更する方法を示しています：
-
+このコードは、シリーズカテゴリの色を変更する方法を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -87,19 +102,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **シリーズの名前を変更**
 
-デフォルトでは、チャートの凡例名は、各列またはデータ行の上にあるセルの内容です。
+## **データシリーズ名を変更**
 
-私たちの例（サンプル画像）では、
+デフォルトでは、チャートの凡例名は各列または行のデータ上部にあるセルの内容です。
 
-* 列は*シリーズ1、シリーズ2、シリーズ3*；
-* 行は*カテゴリー1、カテゴリー2、カテゴリー3、カテゴリー4*です。
+例（サンプル画像）では、  
+* 列は *Series 1, Series 2,* と *Series 3* です；  
+* 行は *Category 1, Category 2, Category 3,* と *Category 4* です。  
 
-Aspose.Slides for C++を使用すると、チャートデータおよび凡例内でシリーズ名を更新または変更できます。
+Aspose.Slides for C++ では、チャート データと凡例内のシリーズ名を更新または変更できます。
 
-このC++コードは、チャートデータ`ChartDataWorkbook`内でシリーズ名を変更する方法を示しています：
-
+この C++ コードは、チャート データ `ChartDataWorkbook` 内のシリーズ名を変更する方法を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 
@@ -107,13 +121,13 @@ auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
 
 auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"新しい名前"));
+seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-このC++コードは、`Series`を通じて凡例内でシリーズ名を変更する方法を示しています：
 
+この C++ コードは、`Series` を介して凡例内のシリーズ名を変更する方法を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -122,49 +136,50 @@ auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f,
 auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"新しい名前"));
+name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **チャートシリーズの塗りつぶし色を設定**
 
-Aspose.Slides for C++を使用すると、プロットエリア内のチャートシリーズの自動塗りつぶし色を次のように設定できます：
+## **データシリーズの塗りつぶし色を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-1. インデックスを指定してスライドの参照を取得します。
-1. お好みのタイプに基づいてデフォルトデータのチャートを追加します（以下の例では、`ChartType::ClusteredColumn`を使用しました）。
-1. チャートシリーズにアクセスし、塗りつぶし色を自動に設定します。
-1. プレゼンテーションをPPTXファイルとして保存します。
+Aspose.Slides for C++ では、プロット領域内のチャートシリーズに自動塗りつぶし色を次のように設定できます。
 
-このC++コードは、チャートシリーズの自動塗りつぶし色を設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. 好みのタイプに基づくデフォルト データでチャートを追加します（次の例では `ChartType::ClusteredColumn` を使用しています）。
+1. チャートシリーズにアクセスし、塗りつぶし色を Automatic に設定します。
+1. プレゼンテーションを PPTX ファイルに保存します。
 
+この C++ コードは、チャートシリーズの自動塗りつぶし色を設定する方法を示しています。
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// クラスタ化された縦棒グラフを作成
+// クラスタ化列チャートを作成
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
-// シリーズの塗りつぶしフォーマットを自動に設定
+// シリーズの塗りつぶし形式を自動に設定
 for (const auto& series : chart->get_ChartData()->get_Series())
 {
     series->GetAutomaticSeriesColor();
 }
 
-// プレゼンテーションファイルをディスクに書き込み
+// プレゼンテーションファイルをディスクに書き込む
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **チャートシリーズの塗りつぶし色を反転設定**
-Aspose.Slidesは、プロットエリア内のチャートシリーズの反転塗りつぶし色を次のように設定できます：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-1. インデックスを指定してスライドの参照を取得します。
-1. お好みのタイプに基づいてデフォルトデータのチャートを追加します（以下の例では、`ChartType::ClusteredColumn`を使用しました）。
+## **データシリーズの反転塗りつぶし色を設定**
+
+Aspose.Slides では、プロット領域内のチャートシリーズに反転塗りつぶし色を次のように設定できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. 好みのタイプに基づくデフォルト データでチャートを追加します（次の例では `ChartType::ClusteredColumn` を使用しています）。
 1. チャートシリーズにアクセスし、塗りつぶし色を反転に設定します。
-1. プレゼンテーションをPPTXファイルとして保存します。
+1. プレゼンテーションを PPTX ファイルに保存します。
 
-このC++コードは、操作を示しています：
-
+この C++ コードは、操作を示しています。
 ```cpp
 Color inverColor = Color::get_Red();
     
@@ -178,13 +193,13 @@ auto chartData = chart->get_ChartData();
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
-// 新しいシリーズとカテゴリーを追加
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"シリーズ 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"カテゴリー 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"カテゴリー 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"カテゴリー 3")));
+// 新しいシリーズとカテゴリを追加
+chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
+chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
+chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
+chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// 最初のチャートシリーズを取得して、そのシリーズデータを設定
+// 最初のチャートシリーズを取得し、そのシリーズデータを設定
 auto series = chartData->get_Series()->idx_get(0);
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
@@ -197,11 +212,12 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **値が負のときに反転するようにシリーズを設定**
-Aspose.Slidesは、`IChartDataPoint::set_InvertIfNegative()`および`ChartDataPoint.set_InvertIfNegative()`メソッドを使用して反転を設定できます。メソッドを使用して反転が設定されると、データポイントは負の値を取るとその色を反転します。
 
-このC++コードは、操作を示しています：
+## **チャートシリーズの反転塗りつぶし色を設定**
 
+Aspose.Slides は、`IChartDataPoint::set_InvertIfNegative()` および `ChartDataPoint.set_InvertIfNegative()` メソッドを使用して反転を設定できます。これらのメソッドで反転を設定すると、データ ポイントが負の値になると色が反転します。
+
+この C++ コードは、操作を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -224,18 +240,19 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **特定のデータポイントのデータをクリア**
-Aspose.Slides for C++を使用すると、特定のチャートシリーズの`DataPoints`データをクリアできます：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-2. インデックスを指定してスライドの参照を取得します。
-3. インデックスを指定してチャートの参照を取得します。
-4. すべてのチャート`DataPoints`を反復し、`XValue`と`YValue`をnullに設定します。
-5. 特定のチャートシリーズのすべての`DataPoints`をクリアします。
-6. 修正されたプレゼンテーションをPPTXファイルに書き込みます。
+## **特定のデータ ポイント値をクリア**
 
-このC++コードは、操作を示しています：
+Aspose.Slides for C++ では、特定のチャートシリーズの `DataPoints` データを次のようにクリアできます。
 
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. インデックスを使用してチャートの参照を取得します。
+4. すべてのチャート `DataPoints` を反復し、`XValue` と `YValue` を null に設定します。
+5. 特定のチャートシリーズのすべての `DataPoints` をクリアします。
+6. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
+
+この C++ コードは、操作を示しています。
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
 auto sl = pres->get_Slides()->idx_get(0);
@@ -254,44 +271,45 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **シリーズのギャップ幅を設定**
-Aspose.Slides for C++を使用すると、**`set_GapWidth()`**メソッドを通じてシリーズのギャップ幅を設定できます：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-2. 最初のスライドにアクセスします。
-3. デフォルトデータ付きのチャートを追加します。
-4. 任意のチャートシリーズにアクセスします。
-5. `GapWidth`プロパティを設定します。
-6. 修正されたプレゼンテーションをPPTXファイルに書き込みます。
+## **データシリーズのギャップ幅を設定**
 
-このC++コードは、シリーズのギャップ幅を設定する方法を示しています：
+Aspose.Slides for C++ では、シリーズのギャップ幅を **`set_GapWidth()`** メソッドで次のように設定できます。
 
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+1. 最初のスライドにアクセスします。
+1. デフォルト データでチャートを追加します。
+1. 任意のチャートシリーズにアクセスします。
+1. `GapWidth` プロパティを設定します。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
+
+このコードは、シリーズのギャップ幅を設定する方法を示しています。
 ```cpp
-// 空のプレゼンテーションを作成 
+// 空のプレゼンテーションを作成
 auto presentation = System::MakeObject<Presentation>();
 
 // プレゼンテーションの最初のスライドにアクセス
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// デフォルトデータでチャートを追加
+// デフォルト データのチャートを追加
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
 
-// チャートデータシートのインデックスを設定
+// チャート データシートのインデックスを設定
 int32_t worksheetIndex = 0;
 
-// チャートデータワークシートを取得
+// チャート データ ワークシートを取得
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
 // シリーズを追加
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"シリーズ 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"シリーズ 2")), chart->get_Type());
+chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
+chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// カテゴリーを追加
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"カテゴリー 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"カテゴリー 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"カテゴリー 3")));
+// カテゴリを追加
+chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
+chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
+chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// 2番目のチャートシリーズを取得
+// 2 番目のチャートシリーズを取得
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
 
@@ -303,9 +321,20 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, Obj
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
 
-// ギャップ幅の値を設定
+// GapWidth の値を設定
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
 // プレゼンテーションをディスクに保存
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**単一のチャートに含められるシリーズの数に制限はありますか？**
+
+Aspose.Slides には追加できるシリーズ数の固定上限はありません。実際の上限は、チャートの可読性とアプリケーションで利用できるメモリによって決まります。
+
+**クラスター内の列が互いに近すぎる、または遠すぎる場合はどうすればよいですか？**
+
+そのシリーズ（または親シリーズグループ）のギャップ幅設定を調整します。値を増やすと列間のスペースが広がり、減らすと近くなります。

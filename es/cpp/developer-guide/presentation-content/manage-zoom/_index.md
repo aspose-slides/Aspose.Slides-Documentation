@@ -1,42 +1,52 @@
 ---
-title: Administrar Zoom
+title: Administrar Zoom de presentación en C++
+linktitle: Administrar Zoom
 type: docs
 weight: 60
 url: /es/cpp/manage-zoom/
-keywords: "Zoom, marco de zoom, Agregar zoom, Formato marco de zoom, Zoom resumen, presentación de PowerPoint, C++, Aspose.Slides para C++"
-description: "Agregar zoom o marcos de zoom a presentaciones de PowerPoint en C++"
+keywords:
+- zoom
+- marco de zoom
+- zoom de diapositiva
+- zoom de sección
+- zoom de resumen
+- agregar zoom
+- PowerPoint
+- presentación
+- C++
+- Aspose.Slides
+description: "Crear y personalizar Zoom con Aspose.Slides para C++ — saltar entre secciones, agregar miniaturas y transiciones en presentaciones PPT, PPTX y ODP."
 ---
 
 ## **Descripción general**
-Los zooms en PowerPoint te permiten saltar hacia y desde diapositivas específicas, secciones y partes de una presentación. Cuando estás presentando, esta capacidad de navegar rápidamente entre el contenido puede resultar muy útil. 
+Los Zoom en PowerPoint le permiten saltar a y desde diapositivas, secciones y partes específicas de una presentación. Cuando está presentando, esta capacidad de navegar rápidamente a través del contenido puede resultar muy útil. 
 
 ![overview_image](Overview.png)
 
-* Para resumir toda una presentación en una única diapositiva, utiliza un [Zoom resumen](#Summary-Zoom).
-* Para mostrar solo diapositivas seleccionadas, utiliza un [Zoom de diapositiva](#Slide-Zoom).
-* Para mostrar solo una sección, utiliza un [Zoom de sección](#Section-Zoom).
+* Para resumir toda una presentación en una sola diapositiva, use un [Resumen Zoom](#Summary-Zoom).
+* Para mostrar solo diapositivas seleccionadas, use un [Zoom de diapositiva](#Slide-Zoom).
+* Para mostrar solo una sección, use un [Zoom de sección](#Section-Zoom).
 
 ## **Zoom de diapositiva**
-Un zoom de diapositiva puede hacer que tu presentación sea más dinámica, permitiéndote navegar libremente entre diapositivas en cualquier orden que elijas sin interrumpir el flujo de tu presentación. Los zooms de diapositiva son excelentes para presentaciones cortas sin muchas secciones, pero aún puedes usarlos en diferentes escenarios de presentación.
+Un zoom de diapositiva puede hacer su presentación más dinámica, permitiéndole navegar libremente entre diapositivas en cualquier orden que elija sin interrumpir el flujo de la presentación. Los zooms de diapositiva son ideales para presentaciones cortas sin muchas secciones, pero también pueden usarse en diferentes escenarios de presentación.
 
-Los zooms de diapositiva te ayudan a profundizar en múltiples piezas de información mientras sientes que estás en un solo lienzo. 
+Los zooms de diapositiva le ayudan a profundizar en múltiples piezas de información mientras siente que está en un solo lienzo. 
 
 ![overview_image](slidezoomsel.png)
 
-Para objetos de zoom de diapositiva, Aspose.Slides proporciona la enumeración [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2), la interfaz [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
+Para los objetos de zoom de diapositiva, Aspose.Slides proporciona la [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enumeración, la interfaz [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
 
-### **Creando marcos de zoom**
+### **Crear marcos de zoom**
 
-Puedes agregar un marco de zoom a una diapositiva de esta manera:
+Puede agregar un marco de zoom en una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea nuevas diapositivas a las que pretendes vincular los marcos de zoom. 
-3. Agrega un texto de identificación y un fondo a las diapositivas creadas.
-4. Agrega marcos de zoom (contenido las referencias a las diapositivas creadas) a la primera diapositiva.
-5. Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear nuevas diapositivas a las que desea enlazar los marcos de zoom. 
+3.	Agregar un texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregar marcos de zoom (conteniendo las referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Escribir la presentación modificada como un archivo PPTX.
 
-Este código C++ te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código C++ le muestra cómo crear un marco de zoom en una diapositiva:
 ``` cpp 
 void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 {
@@ -50,7 +60,7 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega nuevas diapositivas a la presentación
+//Añade nuevas diapositivas a la presentación
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
@@ -59,16 +69,16 @@ SetSlideBackground(slide2, Color::get_Cyan());
 
 // Crea un cuadro de texto para la segunda diapositiva
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Segunda Diapositiva");
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
 // Crea un fondo para la tercera diapositiva
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
 // Crea un cuadro de texto para la tercera diapositiva
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Tercera Diapositiva");
+autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//Agrega objetos ZoomFrame
+//Añade objetos ZoomFrame
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
@@ -76,22 +86,22 @@ slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-### **Creando marcos de zoom con imágenes personalizadas**
-Con Aspose.Slides para C++, puedes crear un marco de zoom con una imagen de vista previa diferente de la diapositiva de esta manera: 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea una nueva diapositiva a la que pretendes vincular el marco de zoom. 
-3. Agrega un texto de identificación y un fondo a la diapositiva.
-4. Crea un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para llenar el marco.
-5. Agrega marcos de zoom (conteniendo la referencia a la diapositiva creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
 
-Este código C++ te muestra cómo crear un marco de zoom con una imagen diferente:
+### **Crear marcos de zoom con imágenes personalizadas**
+Con Aspose.Slides para C++, puede crear un marco de zoom con una imagen de vista previa diferente de la diapositiva de esta manera: 
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear una nueva diapositiva a la que desea enlazar el marco de zoom. 
+3.	Agregar un texto de identificación y un fondo a la diapositiva.
+4.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para rellenar el marco.
+5.	Agregar marcos de zoom (conteniendo la referencia a la diapositiva creada) a la primera diapositiva.
+6.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo crear un marco de zoom con una imagen diferente:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 
 // Crea un fondo para la segunda diapositiva
@@ -99,39 +109,39 @@ SetSlideBackground(slide, Color::get_Cyan());
 
 // Crea un cuadro de texto para la tercera diapositiva
 auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Segunda Diapositiva");
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
-// Crea una nueva imagen para el objeto de zoom
+// Crea una nueva imagen para el objeto Zoom
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
-//Agrega el objeto ZoomFrame
+//Añade el objeto ZoomFrame
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
 
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-### **Formateo de marcos de zoom**
-En las secciones anteriores, te mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom. 
 
-Puedes controlar el formato de un marco de zoom en una diapositiva de esta manera:
+### **Formato de los marcos de zoom**
+En las secciones anteriores, le mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complejos, debe alterar el formato de un marco simple. Hay varias opciones de formato que puede aplicar a un marco de zoom. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea nuevas diapositivas a las que pretendes vincular el marco de zoom. 
-3. Agrega un texto e identificación en el fondo a las diapositivas creadas.
-4. Agrega marcos de zoom (conteniendo las referencias a las diapositivas creadas) a la primera diapositiva.
-5. Crea un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para llenar el marco.
-6. Establece una imagen personalizada para el primer objeto de marco de zoom.
-7. Cambia el formato de línea para el segundo objeto de marco de zoom.
-8. Elimina el fondo de una imagen del segundo objeto de marco de zoom.
-5. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom en una diapositiva de esta manera:
 
-Este código C++ te muestra cómo cambiar el formato de un marco de zoom en una diapositiva: 
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear nuevas diapositivas a enlazar a las que desea enlazar el marco de zoom. 
+3.	Agregar algún texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregar marcos de zoom (conteniendo las referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para rellenar el marco.
+6.	Establecer una imagen personalizada para el primer objeto de marco de zoom.
+7.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+8.	Eliminar el fondo de la imagen del segundo objeto de marco de zoom.
+5.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo cambiar el formato de un marco de zoom en una diapositiva: 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide1 = pres->get_Slides()->idx_get(0);
-//Agrega nuevas diapositivas a la presentación
+//Añade nuevas diapositivas a la presentación
 auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
 
@@ -140,22 +150,22 @@ SetSlideBackground(slide2, Color::get_Cyan());
 
 // Crea un cuadro de texto para la segunda diapositiva
 auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Segunda Diapositiva");
+autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
 // Crea un fondo para la tercera diapositiva
 SetSlideBackground(slide3, Color::get_DarkKhaki());
 
 // Crea un cuadro de texto para la tercera diapositiva
 autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Tercera Diapositiva");
+autoshape->get_TextFrame()->set_Text(u"Trird Slide");
 
-//Agrega objetos ZoomFrame
+//Añade objetos ZoomFrame
 auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
 auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
-// Crea una nueva imagen para el objeto de zoom
+// Crea una nueva imagen para el objeto zoom
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-// Establece la imagen personalizada para el objeto zoomFrame1
+// Establece una imagen personalizada para el objeto zoomFrame1
 zoomFrame1->set_Image(image);
 
 // Establece un formato de marco de zoom para el objeto zoomFrame2
@@ -164,120 +174,120 @@ zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
 zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
 
-// Configuración para No mostrar fondo para el objeto zoomFrame2
+// Configuración para no mostrar fondo del objeto zoomFrame2
 zoomFrame2->set_ShowBackground(false);
 
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **Zoom de sección**
 
-Un zoom de sección es un enlace a una sección en tu presentación. Puedes usar los zooms de sección para volver a las secciones que realmente deseas enfatizar. O puedes usarlos para resaltar cómo ciertas piezas de tu presentación se conectan. 
+Un zoom de sección es un enlace a una sección de su presentación. Puede usar los zooms de sección para volver a secciones que desea enfatizar realmente. O puede usarlos para resaltar cómo ciertas partes de su presentación se conectan. 
 
 ![overview_image](seczoomsel.png)
 
-Para objetos de zoom de sección, Aspose.Slides proporciona la interfaz [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
+Para los objetos de zoom de sección, Aspose.Slides proporciona la interfaz [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
 
-### **Creando marcos de zoom de sección**
+### **Crear marcos de zoom de sección**
 
-Puedes agregar un marco de zoom de sección a una diapositiva de esta manera:
+Puede agregar un marco de zoom de sección a una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea una nueva diapositiva. 
-3. Agrega un fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que pretendes vincular el marco de zoom. 
-5. Agrega un marco de zoom de sección (contenido las referencias a la sección creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear una nueva diapositiva. 
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que desea enlazar el marco de zoom. 
+5.	Agregar un marco de zoom de sección (conteniendo referencias a la sección creada) a la primera diapositiva.
+6.	Escribir la presentación modificada como un archivo PPTX.
 
-Este código C++ te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código C++ le muestra cómo crear un marco de zoom en una diapositiva:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+//Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Agrega un objeto SectionZoomFrame
+//Añade un objeto SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
 
-// Guarda la presentación
+//Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
-### **Creando marcos de zoom de sección con imágenes personalizadas**
 
-Usando Aspose.Slides para C++, puedes crear un marco de zoom de sección con una imagen de vista previa diferente de la diapositiva de esta manera: 
+### **Crear marcos de zoom de sección con imágenes personalizadas**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea una nueva diapositiva.
-3. Agrega un fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que pretendes vincular el marco de zoom. 
-5. Crea un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para llenar el marco.
-5. Agrega un marco de zoom de sección (conteniendo una referencia a la sección creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
+Usando Aspose.Slides para C++, puede crear un marco de zoom de sección con una imagen de vista previa diferente de la diapositiva de esta manera: 
 
-Este código C++ te muestra cómo crear un marco de zoom con una imagen diferente:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear una nueva diapositiva.
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que desea enlazar el marco de zoom. 
+5.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para rellenar el marco.
+5.	Agregar un marco de zoom de sección (conteniendo una referencia a la sección creada) a la primera diapositiva.
+6.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo crear un marco de zoom con una imagen diferente:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Crea una nueva imagen para el objeto de zoom
+// Crea una nueva imagen para el objeto zoom
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
-// Agrega objeto SectionZoomFrame
+// Añade un objeto SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1), image);
 
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-### **Formateo de marcos de zoom de sección**
 
-Para crear marcos de zoom de sección más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom de sección. 
+### **Formato de los marcos de zoom de sección**
 
-Puedes controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
+Para crear marcos de zoom de sección más complejos, debe alterar el formato de un marco simple. Hay varias opciones de formato que puede aplicar a un marco de zoom de sección. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea una nueva diapositiva.
-3. Agrega un fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que pretendes vincular el marco de zoom. 
-5. Agrega un marco de zoom de sección (contenido las referencias a la sección creada) a la primera diapositiva.
-6. Cambia el tamaño y la posición para el objeto de zoom de sección creado.
-7. Crea un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para llenar el marco.
-8. Establece una imagen personalizada para el objeto de marco de zoom de sección creado.
-9. Establece la capacidad de *regresar a la diapositiva original desde la sección vinculada*. 
-10. Elimina el fondo de una imagen del objeto de marco de zoom de sección.
-11. Cambia el formato de línea para el segundo objeto de marco de zoom.
-12. Cambia la duración de la transición.
-13. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
 
-Este código C++ te muestra cómo cambiar el formato de un marco de zoom de sección:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear una nueva diapositiva.
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que desea enlazar el marco de zoom. 
+5.	Agregar un marco de zoom de sección (conteniendo referencias a la sección creada) a la primera diapositiva.
+6.	Cambiar el tamaño y la posición del objeto de zoom de sección creado.
+7.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para rellenar el marco.
+8.	Establecer una imagen personalizada para el objeto de marco de zoom de sección creado.
+9.	Establecer la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+10.	Eliminar el fondo de la imagen del objeto de marco de zoom de sección.
+11.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambiar la duración de la transición.
+13.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo cambiar el formato de un marco de zoom de sección:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_YellowGreen());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Agrega objeto SectionZoomFrame
+// Añade objeto SectionZoomFrame
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
 
 // Formato para SectionZoomFrame
@@ -305,154 +315,153 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Zoom resumen**
+## **Zoom de resumen**
 
-Un zoom resumen es como una página de destino donde se muestran todas las piezas de tu presentación a la vez. Cuando estás presentando, puedes usar el zoom para ir de un lugar a otro en tu presentación en cualquier orden que desees. Puedes ser creativo, saltar adelante o volver a las piezas de tu presentación sin interrumpir el flujo de tu presentación.
+Un zoom de resumen es como una página de destino donde todas las piezas de su presentación se muestran a la vez. Cuando está presentando, puede usar el zoom para pasar de un lugar de su presentación a otro en cualquier orden que desee. Puede ser creativo, avanzar rápidamente o volver a visitar partes de su presentación sin interrumpir el flujo.
 
 ![overview_image](sumzoomsel.png)
 
-Para objetos de zoom resumen, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
+Para los objetos de zoom de resumen, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection), y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
 
-### **Creando Zoom resumen**
+### **Crear zoom de resumen**
 
-Puedes agregar un marco de zoom resumen a una diapositiva de esta manera:
+Puede agregar un marco de zoom de resumen a una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega el marco de zoom resumen a la primera diapositiva.
-4. Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar el marco de zoom de resumen a la primera diapositiva.
+4.	Escribir la presentación modificada como un archivo PPTX.
 
-Este código C++ te muestra cómo crear un marco de zoom resumen en una diapositiva:
-
+Este código C++ le muestra cómo crear un marco de zoom de resumen en una diapositiva:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-// Agrega una nueva diapositiva a la presentación
+// Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-// Agrega una nueva diapositiva a la presentación
+// Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 2", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 2", slide);
 
-// Agrega una nueva diapositiva a la presentación
+// Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 3", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 3", slide);
 
-// Agrega una nueva diapositiva a la presentación
+// Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_DarkGreen());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 4", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 4", slide);
 
-// Agrega un objeto SummaryZoomFrame
+// Añade un objeto SummaryZoomFrame
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-### **Agregando y removiendo secciones de Zoom resumen**
 
-Todas las secciones en un marco de zoom resumen están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection). Puedes agregar o remover un objeto de sección de zoom resumen a través de la interfaz [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) de esta manera:
+### **Agregar y eliminar una sección de zoom de resumen**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega un marco de zoom resumen a la primera diapositiva.
-4. Agrega una nueva diapositiva y sección a la presentación.
-5. Agrega la sección creada al marco de zoom resumen.
-6. Remueve la primera sección del marco de zoom resumen.
-7. Escribe la presentación modificada como un archivo PPTX.
+Todas las secciones en un marco de zoom de resumen están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection). Puede agregar o eliminar un objeto de sección de zoom de resumen a través de la interfaz [ISummaryZoomSectionCollection] de esta manera:
 
-Este código C++ te muestra cómo agregar y remover secciones en un marco de zoom resumen:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar un marco de zoom de resumen a la primera diapositiva.
+4.	Agregar una nueva diapositiva y sección a la presentación.
+5.	Agregar la sección creada al marco de zoom de resumen.
+6.	Eliminar la primera sección del marco de zoom de resumen.
+7.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo agregar y eliminar secciones en un marco de zoom de resumen:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 2", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 2", slide);
 
-// Agrega el objeto SummaryZoomFrame
+// Añade un objeto SummaryZoomFrame
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Chartreuse());
 
-// Agrega una nueva sección a la presentación
-auto section3 = pres->get_Sections()->AddSection(u"Sección 3", slide);
+// Añade una nueva sección a la presentación
+auto section3 = pres->get_Sections()->AddSection(u"Section 3", slide);
 
-// Agrega una sección al Zoom Resumen
+// Añade una sección al Summary Zoom
 summaryZoomFrame->get_SummaryZoomCollection()->AddSummaryZoomSection(section3);
 
-// Remueve la sección del Zoom Resumen
+// Elimina la sección del Summary Zoom
 summaryZoomFrame->get_SummaryZoomCollection()->RemoveSummaryZoomSection(pres->get_Sections()->idx_get(1));
 
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-### **Formateo de secciones de Zoom resumen**
 
-Para crear objetos de sección de zoom resumen más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un objeto de sección de zoom resumen. 
+### **Formato de las secciones de zoom de resumen**
 
-Puedes controlar el formato para un objeto de sección de zoom resumen en un marco de zoom resumen de esta manera:
+Para crear objetos de sección de zoom de resumen más complejos, debe alterar el formato de un marco simple. Hay varias opciones de formato que puede aplicar a un objeto de sección de zoom de resumen. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega un marco de zoom resumen a la primera diapositiva.
-4. Obtén un objeto de sección de zoom resumen para el primer objeto de la `ISummaryZoomSectionCollection`.
-7. Crea un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) al agregar una imagen a la colección de imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para llenar el marco.
-8. Establece una imagen personalizada para el objeto de marco de zoom de sección creado.
-9. Establece la capacidad de *regresar a la diapositiva original desde la sección vinculada*. 
-11. Cambia el formato de línea para el segundo objeto de marco de zoom.
-12. Cambia la duración de la transición.
-13. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un objeto de sección de zoom de resumen en un marco de zoom de resumen de esta manera:
 
-Este código C++ te muestra cómo cambiar el formato para un objeto de sección de zoom resumen:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar un marco de zoom de resumen a la primera diapositiva.
+4.	Obtener un objeto de sección de zoom de resumen para el primer objeto de la `ISummaryZoomSectionCollection`.
+7.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) agregando una imagen a la colección images asociada con el objeto [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que se utilizará para rellenar el marco.
+8.	Establecer una imagen personalizada para el objeto de marco de zoom de sección creado.
+9.	Establecer la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+11.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambiar la duración de la transición.
+13.	Escribir la presentación modificada como un archivo PPTX.
 
+Este código C++ le muestra cómo cambiar el formato de un objeto de sección de zoom de resumen:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Brown());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 1", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 1", slide);
 
-//Agrega una nueva diapositiva a la presentación
+//Añade una nueva diapositiva a la presentación
 slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
 SetSlideBackground(slide, Color::get_Aqua());
 
-// Agrega una nueva sección a la presentación
-pres->get_Sections()->AddSection(u"Sección 2", slide);
+// Añade una nueva sección a la presentación
+pres->get_Sections()->AddSection(u"Section 2", slide);
 
-// Agrega un objeto SummaryZoomFrame
+// Añade un objeto SummaryZoomFrame
 auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
 
 // Obtiene el primer objeto SummaryZoomSection
@@ -474,3 +483,18 @@ summarySection->set_TransitionDuration(1.5f);
 // Guarda la presentación
 pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**¿Puedo controlar el regreso a la diapositiva “principal” después de mostrar el objetivo?**
+
+Sí. El [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) o [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) tiene un método `set_ReturnToParent` que devuelve al espectador a la diapositiva de origen después de visitar el contenido objetivo.
+
+**¿Puedo ajustar la “velocidad” o duración de la transición del Zoom?**
+
+Sí. Zoom permite establecer una duración de transición para que pueda controlar cuánto tiempo tarda la animación de salto.
+
+**¿Hay límites en la cantidad de objetos Zoom que una presentación puede contener?**
+
+No hay un límite estricto documentado en la API. Los límites prácticos dependen de la complejidad general de la presentación y del rendimiento del visor. Puede agregar muchos marcos de Zoom, pero considere el tamaño del archivo y el tiempo de renderizado.

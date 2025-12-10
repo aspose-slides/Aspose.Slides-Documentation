@@ -1,43 +1,53 @@
 ---
-title: ActiveX
+title: "C++ を使用したプレゼンテーションでの ActiveX コントロールの管理"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /ja/cpp/activex/
+keywords:
+- "ActiveX"
+- "ActiveX コントロール"
+- "ActiveX の管理"
+- "ActiveX の追加"
+- "ActiveX の変更"
+- "メディア プレーヤー"
+- "PowerPoint"
+- "プレゼンテーション"
+- "C++"
+- "Aspose.Slides"
+description: "Aspose.Slides for C++ が ActiveX を活用して PowerPoint プレゼンテーションを自動化および強化し、開発者にスライドの強力な制御を提供する方法を学びます。"
 ---
 
-ActiveXコントロールはプレゼンテーションで使用されます。Aspose.Slides for C++を使うと、ActiveXコントロールを管理できますが、それらを管理するのは通常のプレゼンテーションシェイプとは少し異なります。Aspose.Slides for C++ 18.1から、このコンポーネントはActiveXコントロールの管理をサポートしています。現在、プレゼンテーションに追加されたActiveXコントロールにアクセスして、そのさまざまなプロパティを使用して変更または削除できます。ActiveXコントロールはシェイプではなく、プレゼンテーションのIShapeCollectionの一部ではなく、別のIControlCollectionに含まれています。この記事では、それらを扱う方法を示します。
+ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for C++ は ActiveX コントロールの管理を可能にしますが、管理はやや複雑で通常のプレゼンテーション シェイプとは異なります。Aspose.Slides for C++ 18.1 以降、このコンポーネントは ActiveX コントロールの管理をサポートします。現在、プレゼンテーションに既に追加された ActiveX コントロールにアクセスし、さまざまなプロパティを使用して変更または削除できます。ActiveX コントロールはシェイプではなく、プレゼンテーションの IShapeCollection の一部でもなく、別個の IControlCollection に属していることを忘れないでください。この記事では、それらの操作方法を示します。
 
-## **ActiveXコントロールの変更**
-スライド上のテキストボックスやシンプルなコマンドボタンなどの簡単なActiveXコントロールを管理するには：
-
-1. Presentationクラスのインスタンスを作成し、ActiveXコントロールが含まれているプレゼンテーションを読み込みます。
-1. インデックスを使用してスライドの参照を取得します。
-1. IControlCollectionにアクセスしてスライド内のActiveXコントロールにアクセスします。
-1. ControlExオブジェクトを使用してTextBox1 ActiveXコントロールにアクセスします。
-1. TextBox1 ActiveXコントロールのさまざまなプロパティ（テキスト、フォント、フォントサイズ、フレームの位置）を変更します。
-1. CommandButton1という第二のアクセスコントロールにアクセスします。
+## **ActiveX コントロールの変更**
+1. Presentation クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションを読み込みます。
+1. インデックスでスライド参照を取得します。
+1. IControlCollection にアクセスして、スライド内の ActiveX コントロールにアクセスします。
+1. ControlEx オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
+1. テキスト、フォント、フォント高さ、フレーム位置など、TextBox1 ActiveX コントロールのさまざまなプロパティを変更します。
+1. CommandButton1 と呼ばれる二番目のコントロールにアクセスします。
 1. ボタンのキャプション、フォント、位置を変更します。
-1. ActiveXコントロールのフレームの位置をシフトします。
-1. 修正されたプレゼンテーションをPPTXファイルに書き込みます。
+1. ActiveX コントロールのフレーム位置をシフトします。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 
-以下のコードスニペットは、ActiveXコントロールをプレゼンテーションのスライドに更新します。
-
+以下のコードスニペットは、プレゼンテーション スライド上の ActiveX コントロールを下記のスライドのように更新します。
 ``` cpp
-// ActiveXコントロールを持つプレゼンテーションにアクセス
+// ActiveX コントロールを使用したプレゼンテーションにアクセス
 auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
 
 // プレゼンテーションの最初のスライドにアクセス
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// TextBoxテキストの変更
+// テキストボックスのテキストを変更
 auto control = slide->get_Controls()->idx_get(0);
 
 if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
 {
-    String newText = u"変更されたテキスト";
+    String newText = u"Changed text";
     control->get_Properties()->idx_set(u"Value", newText);
 
-    // 代替画像の変更。PowerpointはActiveXアクティベーション中にこの画像を置き換えるため、時には画像を変更しないのも良いでしょう。
+    // 代替画像を変更します。PowerPoint は ActiveX の有効化時にこの画像を置き換えるため、場合によっては画像を変更せずにそのままにしておいても問題ありません。
     auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
     auto graphics = Graphics::FromImage(image);
     auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
@@ -66,15 +76,15 @@ if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
-// ボタンのキャプションの変更
+// ボタンのキャプションを変更
 control = slide->get_Controls()->idx_get(1);
 
 if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
 {
-    String newCaption = u"メッセージボックス";
+    String newCaption = u"MessageBox";
     control->get_Properties()->idx_set(u"Caption", newCaption);
 
-    // 代替の変更
+    // 代替画像を変更
     auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
     auto graphics = Graphics::FromImage(image);
     auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
@@ -103,50 +113,62 @@ if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nul
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
-// ActiveXフレームを100ポイント下に移動
+// ActiveX フレームを 100 ポイント下に移動
 for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
 {
     SharedPtr<IShapeFrame> frame = control->get_Frame();
     control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
 }
 
-// 編集されたActiveXコントロールを持つプレゼンテーションを保存
+// 編集された ActiveX コントロール付きでプレゼンテーションを保存
 presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
 
-// コントロールを削除
+// 現在、コントロールを削除しています
 slide->get_Controls()->Clear();
 
-// クリーンアップしたActiveXコントロールを持つプレゼンテーションを保存
+// ActiveX コントロールをクリアした状態でプレゼンテーションを保存
 presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **メディアプレーヤーActiveXコントロールの追加**
-ActiveXコントロールはプレゼンテーションで使用されます。Aspose.Slides for C++を使うと、ActiveXコントロールを追加および管理できますが、それらを管理するのは通常のプレゼンテーションシェイプとは少し異なります。Aspose.Slides for C++ 18.1から、メディアプレーヤーActiveXコントロールを追加するサポートが追加されました。ActiveXコントロールはシェイプではなく、プレゼンテーションのIShapeCollectionの一部ではなく、別のIControlExCollectionに含まれていることを覚えておいてください。この記事では、メディアプレーヤーActiveXコントロールを管理する方法を示します。メディアプレーヤーActiveXコントロールを管理するには、次の手順を実行してください：
 
-1. Presentationクラスのインスタンスを作成し、メディアプレーヤーActiveXコントロールが含まれているサンプルプレゼンテーションを読み込みます。
-1. 対象のPresentationクラスのインスタンスを作成し、空のプレゼンテーションインスタンスを生成します。
-1. テンプレートプレゼンテーション内のメディアプレーヤーActiveXコントロールを含むスライドを対象のPresentationにクローンします。
-1. 対象のPresentation内のクローンしたスライドにアクセスします。
-1. IControlCollectionにアクセスしてスライド内のActiveXコントロールにアクセスします。
-1. メディアプレーヤーActiveXコントロールにアクセスし、そのプロパティを使用してビデオパスを設定します。
-1. プレゼンテーションをPPTXファイルに保存します。
+## **Media Player ActiveX コントロールの追加**
+ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for C++ は ActiveX コントロールの追加と管理を可能にしますが、管理はやや複雑で通常のプレゼンテーション シェイプとは異なります。Aspose.Slides for C++ 18.1 以降、Media Player ActiveX コントロールの追加サポートが Aspose.Slides に追加されました。ActiveX コントロールはシェイプではなく、プレゼンテーションの IShapeCollection の一部でもなく、別個の IControlExCollection に属していることを覚えておいてください。この記事では、それらの操作方法を示します。Media Player ActiveX コントロールを管理するには、以下の手順を実行してください。
 
+1. Presentation クラスのインスタンスを作成し、Media Player ActiveX コントロールが含まれるサンプル プレゼンテーションを読み込みます。
+1. ターゲットの Presentation クラスのインスタンスを作成し、空のプレゼンテーション インスタンスを生成します。
+1. テンプレート プレゼンテーション内の Media Player ActiveX コントロールがあるスライドをターゲットの Presentation にクローンします。
+1. ターゲットの Presentation でクローンされたスライドにアクセスします。
+1. IControlCollection にアクセスして、スライド内の ActiveX コントロールにアクセスします。
+1. Media Player ActiveX コントロールにアクセスし、そのプロパティを使用してビデオパスを設定します。
+1. プレゼンテーションを PPTX ファイルに保存します。
 ``` cpp
-// PPTXファイルを表すPresentationクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスをインスタンス化
 auto presentation = System::MakeObject<Presentation>(u"template.pptx");
 
-// 空のプレゼンテーションインスタンスを作成
+// 空のプレゼンテーション インスタンスを作成
 auto newPresentation = System::MakeObject<Presentation>();
 
-// デフォルトスライドを削除
+// デフォルトのスライドを削除
 newPresentation->get_Slides()->RemoveAt(0);
 
-// メディアプレーヤーActiveXコントロールを含むスライドをクローン
+// Media Player ActiveX コントロールを含むスライドをクローン
 newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
 
-// メディアプレーヤーActiveXコントロールにアクセスし、ビデオパスを設定
+// Media Player ActiveX コントロールにアクセスし、ビデオのパスを設定
 newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
 
 // プレゼンテーションを保存
 newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides は C++ ランタイムで実行できなくても、読み取りと再保存時に ActiveX コントロールを保持しますか？**  
+はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体を実行する必要はありません。
+
+**プレゼンテーションにおける ActiveX コントロールは OLE オブジェクトとどう異なりますか？**  
+ActiveX コントロールはインタラクティブな管理コントロール（ボタン、テキスト ボックス、メディアプレーヤー）です。一方、[OLE](/slides/ja/cpp/manage-ole/) は埋め込みアプリケーション オブジェクト（例: Excel ワークシート）を指します。これらは保存・処理方法が異なり、プロパティ モデルも異なります。
+
+**ファイルが Aspose.Slides によって変更された場合、ActiveX のイベントや VBA マクロは機能しますか？**  
+Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows 上の PowerPoint でセキュリティが許可された場合にのみ実行されます。ライブラリ自体は VBA を実行しません。

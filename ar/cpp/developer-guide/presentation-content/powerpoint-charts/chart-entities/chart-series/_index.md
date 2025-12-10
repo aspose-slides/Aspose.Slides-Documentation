@@ -1,55 +1,68 @@
 ---
-title: سلسلة المخطط
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام C++
+linktitle: سلسلة البيانات
 type: docs
 url: /ar/cpp/chart-series/
+keywords:
+- سلسلة مخطط
+- تداخل السلسلة
+- لون السلسلة
+- لون الفئة
+- اسم السلسلة
+- نقطة البيانات
+- فجوة السلسلة
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تعلم كيفية إدارة سلاسل المخطط في C++ لبرنامج PowerPoint (PPT/PPTX) من خلال أمثلة عملية وكأفضل الممارسات لتحسين عروض بياناتك."
 ---
 
-السلسلة هي صف أو عمود من الأرقام مرسومة في مخطط.
+السلسلة هي صف أو عمود من الأرقام يتم رسمه في مخطط.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل سلسلة المخطط**
+## **تعيين تداخل سلسلة البيانات**
 
-باستخدام طريقة [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb)، يمكنك تحديد مقدار تداخل الأشرطة والأعمدة في مخطط ثنائي الأبعاد (نطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع السلاسل في مجموعة السلسلة الأصلية: هذه إسقاط للخاصية المناسبة للمجموعة.
+باستخدام طريقة [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) يمكنك تحديد مقدار التداخل بين الأعمدة والشدود في مخطط ثنائي الأبعاد (النطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع سلاسل مجموعة السلسلة الأصلية: وهو تمثيل للخاصية المناسبة للمجموعة.
 
-استخدم طريقة `get_ParentSeriesGroup()::set_Overlap()` لتعيين القيمة المفضلة لديك لـ `Overlap`.
+استخدم طريقة `get_ParentSeriesGroup()::set_Overlap()` لتعيين القيمة المفضلة لـ `Overlap`.
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. أضف مخطط عمودي مجمع على شريحة.
-1. الوصول إلى أول سلسلة مخطط.
-1. الوصول إلى `ParentSeriesGroup` لسلسلة المخطط وضبط قيمة التداخل المفضلة للسلسلة.
-1. اكتب العرض المعدل في ملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. إضافة مخطط عمودي مجمع إلى شريحة.
+1. الوصول إلى أول سلسلة في المخطط.
+1. الوصول إلى `ParentSeriesGroup` لسلسلة المخطط وتعيين قيمة التداخل المفضلة للسلسلة.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-يوضح هذا الكود بلغة C++ كيفية ضبط التداخل لسلسلة المخطط:
-
+هذا الكود C++ يوضح لك كيفية تعيين التداخل لسلسلة مخطط:
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Adds chart
+// إضافة مخطط
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
 {
-    // Sets series overlap
+    // تعيين تداخل السلسلة
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// Writes the presentation file to disk
+// كتابة ملف العرض التقديمي إلى القرص
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تغيير لون السلسلة**
-تسمح Aspose.Slides لـ C++ بتغيير لون السلسلة بهذه الطريقة:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. أضف مخططًا على الشريحة.
+## **تغيير لون سلسلة البيانات**
+تسمح لك Aspose.Slides for C++ بتغيير لون سلسلة بهذه الطريقة:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. إضافة مخطط إلى الشريحة.
 1. الوصول إلى السلسلة التي تريد تغيير لونها.
-1. تعيين نوع التعبئة المفضل لديك ولون التعبئة.
-1. حفظ العرض المعدل.
+1. تعيين نوع التعبئة واللون المفضل.
+1. حفظ العرض التقديمي المعدل.
 
-يوضح هذا الكود بلغة C++ كيفية تغيير لون السلسلة:
-
+هذا الكود C++ يوضح لك كيفية تغيير لون سلسلة:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -64,17 +77,17 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **تغيير لون فئة السلسلة**
-تسمح Aspose.Slides لـ C++ بتغيير لون فئة السلسلة بهذه الطريقة:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. أضف مخططًا على الشريحة.
+## **تغيير لون فئة سلسلة البيانات**
+تسمح لك Aspose.Slides for C++ بتغيير لون فئة السلسلة بهذه الطريقة:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. إضافة مخطط إلى الشريحة.
 1. الوصول إلى فئة السلسلة التي تريد تغيير لونها.
-1. تعيين نوع التعبئة المفضل لديك ولون التعبئة.
-1. حفظ العرض المعدل.
+1. تعيين نوع التعبئة واللون المفضل.
+1. حفظ العرض التقديمي المعدل.
 
-يوضح هذا الكود بلغة C++ كيفية تغيير لون فئة السلسلة:
-
+هذا الكود C++ يوضح لك كيفية تغيير لون فئة السلسلة:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -87,19 +100,19 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **تغيير اسم السلسلة**
 
-بشكل افتراضي، الأسماء الأسطورية لمخطط هي محتويات الخلايا الموجودة فوق كل عمود أو صف من البيانات.
+## **تغيير اسم سلسلة البيانات** 
 
-في مثالنا (صورة عينة)،
+افتراضيًا، تكون أسماء وسيلة الإيضاح للمخطط هي محتويات الخلايا الموجودة فوق كل عمود أو صف من البيانات.
 
-* الأعمدة هي *السلسلة 1، السلسلة 2،* و *السلسلة 3*؛
-* الصفوف هي *الفئة 1، الفئة 2، الفئة 3،* و *الفئة 4.* 
+في مثالنا (الصورة النموذجية):
 
-تسمح Aspose.Slides لـ C++ بتحديث أو تغيير اسم السلسلة في بيانات مخططها والأسطورة.
+* الأعمدة هي *Series 1, Series 2,* و *Series 3*؛
+* الصفوف هي *Category 1, Category 2, Category 3,* و *Category 4*.
 
-يوضح هذا الكود بلغة C++ كيفية تغيير اسم سلسلة في بيانات المخطط `ChartDataWorkbook`:
+تسمح لك Aspose.Slides for C++ بتحديث أو تغيير اسم سلسلة في بيانات المخطط ووسيلة الإيضاح.
 
+هذا الكود C++ يوضح لك كيفية تغيير اسم سلسلة في بيانات المخطط `ChartDataWorkbook`:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 
@@ -107,13 +120,13 @@ auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
 
 auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"اسم جديد"));
+seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-يوضح هذا الكود بلغة C++ كيفية تغيير اسم سلسلة في أسطورتها من خلال `Series`:
 
+هذا الكود C++ يوضح لك كيفية تغيير اسم سلسلة في وسيلة الإيضاح عبر `Series`:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -122,49 +135,49 @@ auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f,
 auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"اسم جديد"));
+name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **تعيين لون تعبئة سلسلة المخطط**
 
-تسمح Aspose.Slides لـ C++ بتعيين لون التعبئة التلقائي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
+## **تعيين لون تعبئة سلسلة البيانات**
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. احصل على مرجع شريحة من خلال فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على نوعك المفضل (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
-1. الوصول إلى سلسلة المخطط وضبط لون التعبئة ليكون تلقائيًا.
-1. حفظ العرض في ملف PPTX.
+تسمح لك Aspose.Slides for C++ بتعيين لون التعبئة التلقائي لسلسلة المخطط داخل منطقة الرسم بهذه الطريقة:
 
-يوضح هذا الكود بلغة C++ كيفية تعيين لون التعبئة التلقائي لسلسلة المخطط:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط ببيانات افتراضية بناءً على النوع المفضل (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
+1. الوصول إلى سلسلة المخطط وتعيين لون التعبئة إلى Automatic.
+1. حفظ العرض التقديمي إلى ملف PPTX.
 
+هذا الكود C++ يوضح لك كيفية تعيين لون التعبئة التلقائي لسلسلة مخطط:
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Creates a clustered column chart
+// إنشاء مخطط عمود مجمع
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
-// Sets series fill format to automatic
+// تعيين تنسيق تعبئة السلسلة إلى تلقائي
 for (const auto& series : chart->get_ChartData()->get_Series())
 {
     series->GetAutomaticSeriesColor();
 }
 
-// Writes the presentation file to disk
+// كتابة ملف العرض التقديمي إلى القرص
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين ألوان تعبئة السلسلة إلى عكس**
-تسمح Aspose.Slides لك بتعيين لون التعبئة العكسية لسلسلة المخطط داخل منطقة الرسم بهذه الطريقة:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. احصل على مرجع شريحة من خلال فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على نوعك المفضل (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
-1. الوصول إلى سلسلة المخطط وضبط لون التعبئة ليكون عكسياً.
-1. حفظ العرض في ملف PPTX.
+## **تعيين عكس ألوان تعبئة سلسلة البيانات**
+تسمح لك Aspose.Slides بتعيين عكس لون التعبئة لسلسلة المخطط داخل منطقة الرسم بهذه الطريقة:
 
-يوضح هذا الكود بلغة C++ العملية:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط ببيانات افتراضية بناءً على النوع المفضل (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
+1. الوصول إلى سلسلة المخطط وتعيين لون التعبئة إلى invert.
+1. حفظ العرض التقديمي إلى ملف PPTX.
 
+هذا الكود C++ يوضح العملية:
 ```cpp
 Color inverColor = Color::get_Red();
     
@@ -178,13 +191,13 @@ auto chartData = chart->get_ChartData();
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
-// Adds new series and categories
+// إضافة سلاسل وفئات جديدة
 chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Takes the first chart series and populates its series data.
+// يأخذ السلسلة الأولى في المخطط ويملأ بيانات السلسلة.
 auto series = chartData->get_Series()->idx_get(0);
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
@@ -198,11 +211,10 @@ pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **تعيين السلسلة للعكس عند القيمة السلبية**
-تسمح Aspose.Slides لك بتعيين العكس من خلال الطرق `IChartDataPoint::set_InvertIfNegative()` و `ChartDataPoint.set_InvertIfNegative()` . عندما يتم تعيين العكس باستخدام الطرق، يقوم نقطة البيانات بعكس ألوانها عندما تحصل على قيمة سلبية.
+## **تعيين عكس لون التعبئة لسلسلة مخطط**
+يمكنك تعيين العكس عبر `IChartDataPoint::set_InvertIfNegative()` و `ChartDataPoint.set_InvertIfNegative()` . عندما يتم تعيين العكس باستخدام هذه الطرق، يعكس نقطة البيانات ألوانها عندما تحصل على قيمة سالبة.
 
-يوضح هذا الكود بلغة C++ العملية:
-
+هذا الكود C++ يوضح العملية:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -225,18 +237,18 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **مسح بيانات نقاط البيانات المحددة**
-تسمح Aspose.Slides لـ C++ بمسح بيانات `DataPoints` لسلسلة مخطط محددة بهذه الطريقة:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. احصل على مرجع شريحة من خلالها فهرسها.
-3. احصل على مرجع لمخطط من خلال فهرسه.
-4. تكرار جميع `DataPoints` الخاصة بالمخطط وضبط `XValue` و `YValue` إلى null.
-5. مسح جميع `DataPoints` لعدد معين من سلاسل المخطط.
-6. اكتب العرض المعدل إلى ملف PPTX.
+## **مسح قيم نقاط بيانات محددة**
+تسمح لك Aspose.Slides for C++ بمسح بيانات `DataPoints` لسلسلة مخطط معينة بهذه الطريقة:
 
-يوضح هذا الكود بلغة C++ العملية:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. الحصول على مرجع شريحة عبر فهرستها.
+3. الحصول على مرجع مخطط عبر فهرستها.
+4. التنقل عبر جميع `DataPoints` للمخطط وتعيين `XValue` و `YValue` إلى null.
+5. مسح جميع `DataPoints` لسلسلة المخطط المحددة.
+6. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
+هذا الكود C++ يوضح العملية:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
 auto sl = pres->get_Slides()->idx_get(0);
@@ -255,48 +267,48 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين عرض الفجوة للسلسلة**
-تسمح Aspose.Slides لـ C++ بتعيين عرض الفجوة لسلسلة من خلال طريقة **`set_GapWidth()`** بهذه الطريقة:
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+## **تعيين عرض الفجوة لسلسلة البيانات**
+تسمح لك Aspose.Slides for C++ بتعيين عرض الفجوة لسلسلة عبر طريقة **`set_GapWidth()`** بهذه الطريقة:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 1. الوصول إلى الشريحة الأولى.
-1. أضف مخططًا ببيانات افتراضية.
+1. إضافة مخطط ببيانات افتراضية.
 1. الوصول إلى أي سلسلة مخطط.
 1. تعيين خاصية `GapWidth`.
-1. اكتب العرض المعدل إلى ملف PPTX.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-يوضح هذا الكود بلغة C++ كيفية تعيين عرض الفجوة لسلسلة:
-
+هذا الكود C++ يوضح لك كيفية تعيين عرض الفجوة لسلسلة:
 ```cpp
-// Creates empty presentation 
+// إنشاء عرض تقديمي فارغ
 auto presentation = System::MakeObject<Presentation>();
 
-// Accesses the presentation's first slide
+// الوصول إلى الشريحة الأولى في العرض التقديمي
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Adds a chart with default data
+// إضافة مخطط ببيانات افتراضية
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
 
-// Sets the index of the chart data sheet
+// ضبط فهرس ورقة بيانات المخطط
 int32_t worksheetIndex = 0;
 
-// Gets the chart data worksheet
+// الحصول على ورقة عمل بيانات المخطط
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// Adds series
+// إضافة سلاسل
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Adds Categories
+// إضافة فئات
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Takes the second chart series
+// أخذ السلسلة الثانية للمخطط
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
 
-// Populates the series data
+// ملء بيانات السلسلة
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
@@ -304,9 +316,20 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, Obj
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
 
-// Sets GapWidth value
+// ضبط قيمة GapWidth
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
-// Saves presentation to disk
+// حفظ العرض التقديمي إلى القرص
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها مخطط واحد؟**
+
+لا تفرض Aspose.Slides حدًا ثابتًا على عدد السلاسل التي تضيفها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
+
+**ماذا لو كانت الأعمدة داخل مجموعة ماقربة جدًا أو متباعدة جدًا؟**
+
+قم بضبط إعداد عرض الفجوة لتلك السلسلة (أو مجموعة السلاسل الأصلية). زيادة القيمة توسع المسافة بين الأعمدة، بينما تقليلها تقربها من بعضها.

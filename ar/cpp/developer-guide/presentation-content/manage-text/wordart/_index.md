@@ -1,35 +1,50 @@
 ---
-title: فن الكتابة
+title: إنشاء وتطبيق تأثيرات WordArt في C++
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ar/cpp/wordart/
+keywords:
+- WordArt
+- إنشاء WordArt
+- قالب WordArt
+- تأثير WordArt
+- تأثير الظل
+- تأثير العرض
+- تأثير التوهج
+- تحويل WordArt
+- تأثير 3D
+- تأثير الظل الخارجي
+- تأثير الظل الداخلي
+- PowerPoint
+- عرض
+- C++
+- Aspose.Slides
+description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides for C++. هذا الدليل خطوة بخطوة يساعد المطورين على تحسين العروض التقديمية بنص احترافي في C++."
 ---
 
-## **ما هو فن الكتابة؟**
-فن الكتابة هو ميزة تُتيح لك تطبيق تأثيرات على النصوص لجعلها تبرز. مع فن الكتابة، على سبيل المثال، يمكنك تحديد نص أو ملؤه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، وما إلى ذلك. يمكنك أيضًا تحريف وشد شكل النص.
+## **عن WordArt؟**
+WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك تحديد حدود للنص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. يمكنك أيضاً إمالة النص، انحنائه، وتمدد شكل النص.
 
 {{% alert color="primary" %}} 
-
-يتيح لك فن الكتابة التعامل مع النص كما لو كان كائنًا رسوميًا. بشكل عام، يتكون فن الكتابة من تأثيرات أو تعديلات خاصة تضاف إلى النصوص لجعلها أكثر جاذبية أو وضوحًا.
-
+WordArt يتيح لك التعامل مع النص ككائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديل خاص يُجرى على النصوص لجعلها أكثر جاذبية أو وضوحاً. 
 {{% /alert %}} 
 
-**فن الكتابة في Microsoft PowerPoint**
+**WordArt في Microsoft PowerPoint**
 
-لاستخدام فن الكتابة في Microsoft PowerPoint، يجب عليك اختيار أحد قوالب فن الكتابة المحددة مسبقًا. قالب فن الكتابة هو مجموعة من التأثيرات التي تُطبق على نص أو شكله.
+لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قالب WordArt المحددة مسبقًا. قالب WordArt هو مجموعة من التأثيرات تُطبق على نص أو شكله.
 
-**فن الكتابة في Aspose.Slides**
+**WordArt في Aspose.Slides**
 
-في Aspose.Slides لـ C++ 20.10، قمنا بتنفيذ دعم لفن الكتابة وأجرينا تحسينات على الميزة في إصدارات Aspose.Slides لـ C++ اللاحقة.
+في Aspose.Slides for C++ 20.10، أدّينا الدعم لـ WordArt وأجرينا تحسينات على الميزة في إصدارات Aspose.Slides for C++ اللاحقة.
 
-مع Aspose.Slides لـ C++، يمكنك بسهولة إنشاء قالب فن كتابة خاص بك (تأثير واحد أو مجموعة من التأثيرات) في C++ وتطبيقه على النصوص.
+مع Aspose.Slides for C++، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) في C++ وتطبيقه على النصوص.
 
-## إنشاء قالب فن كتابة بسيط وتطبيقه على نص
+## **إنشاء قالب WordArt بسيط وتطبيقه على نص**
 
-**باستخدام Aspose.Slides**
+**باستخدام Aspose.Slides** 
 
-أولاً، نقوم بإنشاء نص بسيط باستخدام هذا الكود في C++: 
-
+أولاً، ننشئ نصًا بسيطًا باستخدام كود C++ التالي:
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -37,33 +52,33 @@ auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f,
 auto textFrame = autoShape->get_TextFrame();
 
 auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-portion->set_Text(u"آسبوز.سلايدز");
+portion->set_Text(u"Aspose.Slides");
 ```
 
-الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
 
+الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
 ``` cpp 
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
+
 **باستخدام Microsoft PowerPoint**
 
-اذهب إلى قائمة تأثيرات فن الكتابة في Microsoft PowerPoint:
+انتقل إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-من القائمة على اليمين، يمكنك اختيار تأثير فن الكتابة المحدد مسبقًا. من القائمة على اليسار، يمكنك تحديد الإعدادات لفن كتابة جديد.
+من القائمة اليمنى، يمكنك اختيار تأثير WordArt محدد مسبقًا. من القائمة اليسرى، يمكنك تحديد إعدادات WordArt جديد.
 
-هذه بعض المعلمات أو الخيارات المتاحة:
+هذه بعض المعاملات أو الخيارات المتاحة:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
 **باستخدام Aspose.Slides**
 
-هنا، نطبق لون نمط SmallGrid على النص ونضيف حدود نصية سوداء بعرض 1 باستخدام هذا الكود:
-
+هنا، نطبق لون نمط SmallGrid على النص ونضيف حد نص أسود بعرض 1 باستخدام هذا الكود:
 ``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
@@ -76,24 +91,24 @@ lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
+
 النص الناتج:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## تطبيق تأثيرات أخرى لفن الكتابة
+## **تطبيق تأثيرات WordArt أخرى**
 
 **باستخدام Microsoft PowerPoint**
 
-من واجهة البرنامج، يمكنك تطبيق هذه التأثيرات على نص، كتلة نصية، شكل، أو عنصر مشابه:
+من واجهة البرنامج، يمكنك تطبيق هذه التأثيرات على نص أو كتلة نصية أو شكل أو عنصر مشابه:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ ويمكن تطبيق تأثيرات التنسيق ثلاثي الأبعاد والتدوير ثلاثي الأبعاد على كتلة نصية؛ ويمكن تطبيق خاصية الحواف الناعمة على شكل كائن (لا يزال له تأثير عند عدم تعيين خاصية التنسيق ثلاثي الأبعاد).
+على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على نص؛ وتأثيرات تنسيق ثلاثي الأبعاد وتدوير ثلاثي الأبعاد على كتلة نصية؛ وخاصية الحواف الناعمة يمكن تطبيقها على كائن شكل (وما زال لها تأثير عندما لا يتم تعيين خاصية تنسيق ثلاثي الأبعاد).
 
-### تطبيق تأثيرات الظل
+### **تطبيق تأثيرات الظل على النص**
 
-هنا، ننوي ضبط الخصائص المتعلقة بنص فقط. نقوم بتطبيق تأثير الظل على النص باستخدام هذا الكود في C++:
-
+هنا، نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود في C++:
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
@@ -110,29 +125,29 @@ outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-يدعم Aspose.Slides API ثلاثة أنواع من الظلال: الظل الخارجي، الظل الداخلي، والظل المحدد مسبقًا.
 
- مع الظل المحدد مسبقًا، يمكنك تطبيق ظل على نص (باستخدام القيم المحددة مسبقًا).
+API الخاص بـ Aspose.Slides يدعم ثلاثة أنواع من الظلال: OuterShadow، InnerShadow، و PresetShadow.
+
+مع PresetShadow، يمكنك تطبيق ظل للنص (باستخدام قيم مسبقة).
 
 **باستخدام Microsoft PowerPoint**
 
-في PowerPoint، يمكنك استخدام نوع واحد من الظل. إليك مثال:
+في PowerPoint، يمكنك استخدام نوع واحد من الظل. إليك مثالاً:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **باستخدام Aspose.Slides**
 
-يسمح Aspose.Slides في الواقع بتطبيق نوعين من الظلال في وقت واحد: الظل الداخلي والظل المحدد مسبقًا.
+Aspose.Slides يتيح لك بالفعل تطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
 
 **ملاحظات:**
 
-- عند استخدام الظل الخارجي والظل المحدد مسبقًا معًا، يتم تطبيق تأثير الظل الخارجي فقط.
-- إذا تم استخدام الظل الخارجي والظل الداخلي في نفس الوقت، يعتمد التأثير الناتج أو المطبق على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. لكن في PowerPoint 2007، يتم تطبيق تأثير الظل الخارجي.
+- عندما يتم استخدام OuterShadow و PresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط.  
+- إذا تم استخدام OuterShadow و InnerShadow في نفس الوقت، فإن النتيجة أو التأثير المطبق يعتمد على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. لكن في PowerPoint 2007، يتم تطبيق تأثير OuterShadow. 
 
-### تطبيق العرض على النصوص
+### **تطبيق تأثيرات الانعكاس**
 
-نضيف العرض إلى النص من خلال هذا المثال البرمجي في C++:
-
+نضيف انعكاسًا إلى النص عبر عينة الكود هذه في C++:
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
@@ -150,10 +165,10 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### تطبيق تأثير التوهج على النصوص
 
-نقوم بتطبيق تأثير التوهج على النص لجعله يتألق أو يبرز باستخدام هذا الكود:
+### **تطبيق تأثيرات التوهج**
 
+نطبق تأثير التوهج على النص لجعله يبرق أو يبرز باستخدام هذا الكود:
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
@@ -164,46 +179,42 @@ glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetA
 glowEffect->set_Radius(7);
 ```
 
+
 نتيجة العملية:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-يمكنك تغيير معايير الظل، العرض، والتوهج. يتم تعيين خصائص التأثيرات على كل جزء من النص بشكل منفصل.
-
+يمكنك تغيير المعايير للظل، العرض، والتوهج. تُحدد خصائص التأثيرات لكل جزء من النص على حدة. 
 {{% /alert %}} 
 
-### استخدام التحويلات في فن الكتابة
+### **استخدام التحولات في WordArt**
 
-نستخدم طريقة set_Transform (الموروثة في الكتلة الكاملة من النص) من خلال هذا الكود:
-
+نستخدم الطريقة set_Transform (المطبقة على الكتلة النصية بأكملها) عبر هذا الكود:
 ``` cpp 
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
+
 
 النتيجة:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-توفر كل من Microsoft PowerPoint وAspose.Slides لـ C++ عددًا معينًا من أنواع التحويل المحددة مسبقًا.
-
+كل من Microsoft PowerPoint و Aspose.Slides for C++ يقدمان عددًا معينًا من أنواع التحويل المحددة مسبقًا. 
 {{% /alert %}} 
 
 **باستخدام PowerPoint**
 
-للوصول إلى أنواع التحويل المحددة مسبقًا، اذهب من خلال: **تنسيق** -> **تأثير النص** -> **تحويل**
+للوصول إلى أنواع التحويل المحددة مسبقًا، انتقل عبر: **Format** → **TextEffect** → **Transform**
 
 **باستخدام Aspose.Slides**
 
-لتحديد نوع تحويل، استخدم تعداد TextShapeType.
+لاختيار نوع التحويل، استخدم تعداد TextShapeType.
 
-### تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال
+### **تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال**
 
-نقوم بتعيين تأثير ثلاثي الأبعاد على شكل نص باستخدام هذا الكود التجريبي:
-
+نضبط تأثير ثلاثي الأبعاد على شكل نص باستخدام عينة الكود التالية:
 ``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
@@ -232,12 +243,12 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-النص الناتج وشكله:
+
+النص والشكل الناتجين:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-نطبق تأثير ثلاثي الأبعاد على النص بهذا الكود في C++:
-
+نطبق تأثيرًا ثلاثيًا الأبعاد على النص عبر هذا الكود C++:
 ``` cpp 
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
@@ -266,57 +277,55 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
+
 نتيجة العملية:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها والتفاعل بين التأثيرات قائم على قواعد معينة. 
 
-تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها والتفاعلات بين التأثيرات تعتمد على قواعد معينة.
+تخيل مشهدًا للنص والشكل الذي يحتويه. يتضمن تأثير ثلاثي الأبعاد تمثيلًا كائنًا ثلاثيًا الأبعاد والمشهد الذي وُضع عليه الكائن. 
 
-اعتبر مشهدًا لنص والشكل الذي يحتوي ذلك النص. يحتوي التأثير الثلاثي الأبعاد على تمثيل الكائن ثلاثي الأبعاد والمشهد الذي وُضع فيه الكائن.
+- عندما يتم تعيين المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى — يُهمل مشهد النص.  
+- عندما يفتقر الشكل إلى مشهد خاص به ولكن له تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص.  
+- وإلا — عندما لا يمتلك الشكل أصلاً تأثيرًا ثلاثيًا الأبعاد — يكون الشكل مسطحًا ويُطبق تأثير ثلاثي الأبعاد فقط على النص.  
 
-- عند تعيين المشهد لكل من الشكل والنص، يحصل شكل المشهد على أولوية أعلى—يتم تجاهل مشهد النص.
-- عند عدم وجود مشهد خاص بالشكل ولكن يحتوي على تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص.
-- بخلاف ذلك—عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد—يكون الشكل مسطحًا فقط ويُطبق التأثير الثلاثي الأبعاد على النص.
-
- تتصل هذه الأوصاف بطرق ThreeDFormat.getLightRig() وThreeDFormat.getCamera().
-
+هذه الأوصاف مرتبطة بالطرق ThreeDFormat.getLightRig() و ThreeDFormat.getCamera(). 
 {{% /alert %}} 
 
-## **تطبيق تأثيرات الظل الخارجي على النصوص**
-تقدم Aspose.Slides لـ C++ الفئات [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) و [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) التي تتيح لك تطبيق تأثيرات الظل على نص محمول بواسطة TextFrame. اتبع هذه الخطوات:
+## **تطبيق تأثيرات الظل الخارجي على الأشكال**
+Aspose.Slides for C++ يوفر الفصول [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) و [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) التي تسمح لك بتطبيق تأثيرات الظل على نص داخل TextFrame. اتبع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. الحصول على مرجع للشرائح باستخدام فهرسها.
-3. إضافة شكل أوتو من نوع المستطيل إلى الشريحة.
-4. الوصول إلى TextFrame المرتبط بالشكل أوتو.
-5. تعيين نوع التعبئة للشكل أوتو إلى NoFill.
-6. إنشاء فئة OuterShadow.
-7. تعيين BlurRadius للظل.
-8. تعيين اتجاه الظل.
-9. تعيين مسافة الظل.
-10. تعيين RectangleAlign إلى TopLeft.
-11. تعيين اللون المحدد للظل إلى الأسود.
-12. كتابة العرض كملف PPTX.
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. احصل على مرجع شريحة باستخدام فهرسها.  
+3. أضف AutoShape من النوع Rectangle إلى الشريحة.  
+4. احصل على TextFrame المرتبط بـ AutoShape.  
+5. اضبط FillType لـ AutoShape إلى NoFill.  
+6. أنشئ كائن OuterShadow.  
+7. اضبط BlurRadius للظل.  
+8. اضبط Direction للظل.  
+9. اضبط Distance للظل.  
+10. اضبط RectanglelAlign إلى TopLeft.  
+11. اضبط PresetColor للظل إلى Black.  
+12. احفظ العرض كملف PPTX.
 
-هذا المثال البرمجي في C++—تطبيق الخطوات أعلاه—يظهر لك كيفية تطبيق تأثير الظل الخارجي على نص:
-
-``` cpp
+توضح عينة الكود هذه في C++—تنفيذ للخطوات أعلاه—كيفية تطبيق تأثير الظل الخارجي على نص:
+```cpp
 auto pres = System::MakeObject<Presentation>();
-// احصل على مرجع الشريحة
+// الحصول على مرجع الشريحة
 auto sld = pres->get_Slides()->idx_get(0);
 
-// أضف شكل أوتو من نوع المستطيل
+// إضافة AutoShape من نوع مستطيل
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-// أضف نص إطار إلى المستطيل
-ashp->AddTextFrame(u"آسبوز نص صندوق");
+// إضافة TextFrame إلى المستطيل
+ashp->AddTextFrame(u"Aspose TextBox");
 
-// تعطيل تعبئة الشكل في حالة أردنا الحصول على ظل النص
+// تعطيل تعبئة الشكل في حالة رغبتنا بالحصول على ظل النص
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// إضافة ظل خارجي وضبط كافة المعلمات اللازمة
+// إضافة ظل خارجي وتعيين جميع المعلمات اللازمة
 ashp->get_EffectFormat()->EnableOuterShadowEffect();
 auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
 shadow->set_BlurRadius(4.0);
@@ -330,36 +339,35 @@ pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **تطبيق تأثير الظل الداخلي على الأشكال**
-اتبع هذه الخطوات:
+## **تطبيق تأثيرات الظل الداخلي على الأشكال**
+اتبع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. احصل على مرجع الشريحة.
-3. إضافة شكل أوتو من نوع المستطيل.
-4. تفعيل InnerShadowEffect.
-5. تعيين كافة المعلمات اللازمة.
-6. تعيين نوع اللون كـ Scheme.
-7. تعيين لون المخطط.
-8. كتابة العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. احصل على مرجع للشريحة.  
+3. أضف AutoShape من النوع Rectangle.  
+4. فعل InnerShadowEffect.  
+5. اضبط جميع المعلمات اللازمة.  
+6. اضبط ColorType إلى Scheme.  
+7. اضبط Scheme Color.  
+8. احفظ العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
-هذا المثال البرمجي (استنادًا إلى الخطوات أعلاه) يوضح لك كيفية إضافة وصلة بين شكلين في C++:
-
+توضح عينة الكود (استنادًا إلى الخطوات أعلاه) كيفية إضافة موصل بين شكلين في C++:
 ``` cpp
 auto presentation = System::MakeObject<Presentation>();
-// احصل على مرجع الشريحة
+// الحصول على مرجع شريحة
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// أضف شكل أوتو من نوع المستطيل
+// إضافة AutoShape من نوع مستطيل
 auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// أضف نص إطار إلى المستطيل
-ashp->AddTextFrame(u"آسبوز نص صندوق");
+// إضافة TextFrame إلى المستطيل
+ashp->AddTextFrame(u"Aspose TextBox");
 auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 auto pf = port->get_PortionFormat();
 pf->set_FontHeight(50.0f);
 
-// تفعيل InnerShadowEffect    
+// تمكين تأثير الظل الداخلي    
 auto ef = pf->get_EffectFormat();
 ef->EnableInnerShadowEffect();
 
@@ -370,7 +378,7 @@ shadow->set_Direction(90.0F);
 shadow->set_Distance(6.0);
 shadow->get_ShadowColor()->set_B(189);
 
-// تعيين نوع اللون كـ Scheme
+// تعيين نوع اللون إلى Scheme
 shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
 
 // تعيين لون المخطط
@@ -379,3 +387,22 @@ shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 // حفظ العرض
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص مختلفة (مثل العربية أو الصينية)؟**
+
+نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
+
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر الشريحة الرئيسية؟**
+
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في الشرائح الرئيسية، بما في ذلك عناصر النُسخ والعناوين، والتذييلات، أو النص الخلفي. التغييرات التي تُجريها على تخطيط الشريحة الرئيسية ستظهر في جميع الشرائح المرتبطة.
+
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
+
+تؤثر قليلًا. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئات التدرج حجم الملف قليلًا بسبب بيانات التنسيق الإضافية، لكن الفرق عادةً ما يكون ضئيلًا.
+
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
+
+نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام الطريقة `GetImage` من واجهة [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) أو [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.

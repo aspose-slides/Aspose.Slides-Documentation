@@ -1,35 +1,50 @@
 ---
-title: WordArt
+title: C++ で WordArt 効果を作成および適用する
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/cpp/wordart/
+keywords:
+- WordArt
+- WordArt を作成
+- WordArt テンプレート
+- WordArt 効果
+- 影効果
+- 表示効果
+- 発光効果
+- WordArt 変形
+- 3D 効果
+- 外部影効果
+- 内部影効果
+- PowerPoint
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ で WordArt 効果を作成およびカスタマイズします。このステップバイステップ ガイドは、開発者が C++ でプロフェッショナルなテキストを使用してプレゼンテーションを強化するのに役立ちます。"
 ---
 
-## **WordArtとは？**
-WordArtは、テキストに効果を適用して目立たせる機能です。たとえば、WordArtを使用すると、テキストにアウトラインを追加したり、色（またはグラデーション）で塗りつぶしたり、3D効果を追加したりできます。また、テキストの形を歪めたり、曲げたり、引き伸ばしたりすることもできます。
+## **WordArt とは?**
+WordArt（または Word Art）は、テキストに効果を適用して目立たせることができる機能です。たとえば WordArt を使用すると、テキストに輪郭線を付けたり、カラー（またはグラデーション）で塗りつぶしたり、3D 効果を追加したりできます。また、テキストの形状を傾けたり、曲げたり、伸ばしたりすることもできます。
 
 {{% alert color="primary" %}} 
-
-WordArtを使用すると、テキストをグラフィカルオブジェクトのように扱うことができます。一般的に、WordArtは、テキストをより魅力的または目立つようにするために加えられた効果や特別な修正の集合です。
-
+WordArt は、テキストをグラフィック オブジェクトのように扱うことができます。一般的に、WordArt はテキストをより魅力的または目立たせるために加える効果や特殊な変更から構成されています。 
 {{% /alert %}} 
 
-**Microsoft PowerPointにおけるWordArt**
+**Microsoft PowerPoint の WordArt**
 
-Microsoft PowerPointでWordArtを使用するには、定義済みのWordArtテンプレートのいずれかを選択する必要があります。WordArtテンプレートは、テキストまたはその形状に適用される効果のセットです。
+Microsoft PowerPoint で WordArt を使用するには、あらかじめ定義された WordArt テンプレートのいずれかを選択する必要があります。WordArt テンプレートは、テキストまたはその形状に適用される効果のセットです。
 
-**Aspose.SlidesにおけるWordArt**
+**Aspose.Slides の WordArt**
 
-Aspose.Slides for C++ 20.10では、WordArtのサポートを実装し、その機能を後続のAspose.Slides for C++リリースで改善しました。
+Aspose.Slides for C++ 20.10 では WordArt のサポートを実装し、以降の Aspose.Slides for C++ リリースで機能の改善を行いました。
 
-Aspose.Slides for C++を使用すると、自分自身のWordArtテンプレート（効果または効果の組み合わせ）をC++で簡単に作成し、テキストに適用できます。
+Aspose.Slides for C++ を使用すると、C++ で独自の WordArt テンプレート（単一の効果または複数効果の組み合わせ）を簡単に作成し、テキストに適用できます。
 
-## 簡単なWordArtテンプレートを作成し、テキストに適用する
+## **シンプルな WordArt テンプレートを作成しテキストに適用する**
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用** 
 
-最初に、このC++コードを使用して簡単なテキストを作成します：
-
+まず、以下の C++ コードを使用してシンプルなテキストを作成します： 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -40,30 +55,30 @@ auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(
 portion->set_Text(u"Aspose.Slides");
 ```
 
-次に、テキストのフォント高さを大きな値に設定して、このコードを通じて効果をより目立たせます：
 
+次に、以下のコードでテキストのフォント高さを大きく設定し、効果を目立たせます： 
 ``` cpp 
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Microsoft PowerPointを使用して**
 
-Microsoft PowerPointのWordArt効果メニューに移動します：
+**Microsoft PowerPoint の使用**
+
+Microsoft PowerPoint の WordArt 効果メニューを開きます： 
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-右側のメニューから、定義済みのWordArt効果を選択できます。左側のメニューからは、新しいWordArtの設定を指定することができます。
+右側のメニューから、あらかじめ定義された WordArt 効果を選択できます。左側のメニューから、新しい WordArt の設定を指定できます。 
 
-これらは利用可能なパラメータやオプションの一部です：
+これらは利用可能なパラメータまたはオプションの一例です： 
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用**
 
-ここでは、SmallGridパターンカラーをテキストに適用し、幅1の黒いテキストボーダーを追加するこのコードを使用します：
-
+ここでは、SmallGrid パターンの色をテキストに適用し、幅 1 の黒いテキスト枠線を以下のコードで追加します： 
 ``` cpp 
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
@@ -76,24 +91,24 @@ lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-結果のテキスト：
+
+結果のテキストは次のとおりです： 
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## 他のWordArt効果を適用する
+## **その他の WordArt 効果を適用する**
 
-**Microsoft PowerPointを使用して**
+**Microsoft PowerPoint の使用**
 
-プログラムのインターフェースから、テキスト、テキストブロック、形状、または類似の要素にこれらの効果を適用できます：
+プログラムのインターフェイスから、テキスト、テキストブロック、シェイプ、または類似の要素にこれらの効果を適用できます： 
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-たとえば、シャドウ、反射、グロウ効果をテキストに適用できます。また、3Dフォーマットと3D回転効果をテキストブロックに適用できます。ソフトエッジプロパティは、Shape Objectに適用できます（3Dフォーマットプロパティが設定されていなくても効果があります）。
+たとえば、影、反射、発光効果はテキストに適用でき、3D フォーマットと 3D 回転効果はテキストブロックに適用できます。Soft Edges プロパティはシェイプ オブジェクトに適用でき（3D フォーマット プロパティが設定されていなくても効果があります）。
 
-### シャドウ効果の適用
+### **テキストに影効果を適用する**
 
-ここでは、テキストのみに関するプロパティを設定することを意図しています。このコードをC++で使用して、テキストにシャドウ効果を適用します：
-
+ここでは、テキストにのみ関係するプロパティを設定することを意図しています。以下の C++ コードでテキストに影効果を適用します： 
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
@@ -110,29 +125,28 @@ outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides APIは、OuterShadow、InnerShadow、PresetShadowの3種類のシャドウをサポートしています。
 
-PresetShadowを使用すると、テキストにシャドウを適用できます（プリセット値を使用します）。
+Aspose.Slides API は、OuterShadow、InnerShadow、PresetShadow の 3 種類の影をサポートしています。  
 
-**Microsoft PowerPointを使用して**
+PresetShadow を使用すると、テキストに事前設定された値で影を適用できます。  
 
-PowerPointでは、1種類のシャドウを使用できます。以下はその例です：
+**Microsoft PowerPoint の使用**
+
+PowerPoint では 1 種類の影を使用できます。以下に例を示します： 
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用**
 
-Aspose.Slidesでは、実際にInnerShadowとPresetShadowの2種類のシャドウを同時に適用できます。
+Aspose.Slides では、InnerShadow と PresetShadow の 2 種類の影を同時に適用できます。  
 
-**注意事項：**
+注記: 
+- OuterShadow と PresetShadow を同時に使用すると、OuterShadow の効果のみが適用されます。 
+- OuterShadow と InnerShadow を同時に使用した場合、適用される効果は PowerPoint のバージョンに依存します。たとえば PowerPoint 2013 では効果が二倍になり、PowerPoint 2007 では OuterShadow の効果が適用されます。 
 
-- OuterShadowとPresetShadowを一緒に使用すると、OuterShadow効果のみが適用されます。
-- OuterShadowとInnerShadowを同時に使用すると、結果または適用される効果はPowerPointのバージョンに依存します。たとえば、PowerPoint 2013では効果が重複します。しかし、PowerPoint 2007ではOuterShadow効果が適用されます。
+### **反射効果を適用する**
 
-### テキストへの表示の適用
-
-このC++コードサンプルを使用して、テキストに表示を追加します：
-
+以下の C++ サンプルコードでテキストに反射効果を追加します： 
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
@@ -150,10 +164,10 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### テキストへのグロウ効果の適用
 
-このコードを使用して、テキストにグロウ効果を適用し、輝かせたり目立たせたりします：
+### **発光効果を適用する**
 
+以下のコードでテキストに発光効果を適用し、光らせます： 
 ``` cpp 
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
@@ -164,46 +178,42 @@ glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetA
 glowEffect->set_Radius(7);
 ```
 
-操作の結果：
+
+操作の結果は次のとおりです： 
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-シャドウ、表示、グロウのパラメータを変更できます。効果のプロパティは、テキストの各部分に別々に設定されます。
-
+影、表示、発光のパラメータを変更できます。効果のプロパティはテキストの各部分に個別に設定されます。 
 {{% /alert %}} 
 
-### WordArtでの変形の使用
+### **WordArt で変形を使用する**
 
-このコードを通じて、set_Transformメソッド（テキスト全体のブロックに内在）を使用します：
-
+以下のコードで set_Transform メソッド（テキスト全体に適用される）を使用します： 
 ``` cpp 
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-結果：
+
+結果は次のとおりです： 
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-Microsoft PowerPointとAspose.Slides for C++は、特定の数の定義済み変形タイプを提供します。
-
+Microsoft PowerPoint と Aspose.Slides for C++ の両方が、あらかじめ定義された変形タイプをいくつか提供しています。 
 {{% /alert %}} 
 
-**PowerPointを使用して**
+**PowerPoint の使用** 
 
-定義済みの変形タイプにアクセスするには、**フォーマット** -> **テキスト効果** -> **変形**を選択します。
+定義済みの変形タイプにアクセスするには、**書式** → **テキスト効果** → **変形** の順に操作します。 
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用** 
 
-変形タイプを選択するには、TextShapeType列挙型を使用します。
+変形タイプを選択するには、TextShapeType 列挙体を使用します。 
 
-### テキストと形状への3D効果の適用
+### **テキストとシェイプに 3D 効果を適用する**
 
-このサンプルコードを使用して、テキスト形状に3D効果を設定します：
-
+以下のサンプルコードでテキストシェイプに 3D 効果を設定します： 
 ``` cpp 
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
@@ -232,12 +242,12 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-結果のテキストとその形状：
+
+結果のテキストとその形状は次のとおりです： 
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-このC++コードを使用して、テキストに3D効果を適用します：
-
+以下の C++ コードでテキストに 3D 効果を適用します： 
 ``` cpp 
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
@@ -266,57 +276,55 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-操作の結果：
+
+操作の結果は次のとおりです： 
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+テキストやそのシェイプに 3D 効果を適用する際、および効果同士の相互作用は、特定のルールに基づきます。  
 
-テキストやその形状への3D効果の適用および効果間の相互作用は、特定のルールに基づいています。
+テキストと、そのテキストを含むシェイプのシーンを考えます。3D 効果は 3D オブジェクトの表現と、オブジェクトが配置されるシーンを含みます。  
 
-テキストとそのテキストを含む形状のシーンを考慮してください。3D効果は、3Dオブジェクトの表現と、そのオブジェクトが配置されたシーンを含みます。
+- 図形とテキストの両方にシーンが設定されている場合、図形のシーンが優先され、テキストのシーンは無視されます。  
+- 図形に独自のシーンがなく 3D 表現だけがある場合、テキストのシーンが使用されます。  
+- それ以外の場合（シェイプ元々に 3D 効果が無い場合）は、シェイプは平面のままで、3D 効果はテキストのみに適用されます。  
 
-- 形状とテキストの両方にシーンが設定されている場合、形状シーンの優先度が高く、テキストシーンは無視されます。
-- 形状に独自のシーンがなくても3D表現がある場合、テキストシーンが使用されます。
-- それ以外の場合（形状に元々3D効果がない場合）、形状は平坦で、3D効果はテキストのみに適用されます。
-
-これらの説明は、ThreeDFormat.getLightRig()およびThreeDFormat.getCamera()メソッドに関連しています。
-
+これらの説明は ThreeDFormat.getLightRig() および ThreeDFormat.getCamera() メソッドに関連しています。 
 {{% /alert %}} 
 
-## **テキストへの外側のシャドウ効果を適用する**
-Aspose.Slides for C++は、テキストをTextFrameで運ぶためにシャドウ効果を適用するための[**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow)および[**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow)クラスを提供しています。これらの手順に従ってください：
+## **シェイプに外部影効果を適用する**
+Aspose.Slides for C++ は、テキストフレームに含まれるテキストに影効果を適用できる [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) および [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) クラスを提供します。以下の手順を実行してください：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. スライドに矩形型のAutoShapeを追加します。
-4. AutoShapeに関連するTextFrameにアクセスします。
-5. AutoShapeのFillTypeをNoFillに設定します。
-6. OuterShadowクラスをインスタンス化します。
-7. シャドウのBlurRadiusを設定します。
-8. シャドウのDirectionを設定します。
-9. シャドウのDistanceを設定します。
-10. RectanglelAlignをTopLeftに設定します。
-11. シャドウのPresetColorをBlackに設定します。
-12. プレゼンテーションをPPTXファイルとして書き込みます。
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. スライドに矩形タイプの AutoShape を追加します。  
+4. AutoShape に関連付けられた TextFrame にアクセスします。  
+5. AutoShape の FillType を NoFill に設定します。  
+6. OuterShadow クラスのインスタンスを作成します。  
+7. 影の BlurRadius を設定します。  
+8. 影の Direction を設定します。  
+9. 影の Distance を設定します。  
+10. RectanglelAlign を TopLeft に設定します。  
+11. 影の PresetColor を Black に設定します。  
+12. プレゼンテーションを PPTX ファイルとして書き出します。  
 
-次のC++のサンプルコードは、上記の手順の実装であり、テキストに外側のシャドウ効果を適用する方法を示しています：
-
+上記手順を実装した C++ のサンプルコードは、テキストに外部影効果を適用する方法を示しています： 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
-// スライドの参照を取得
+// スライドの参照を取得する
 auto sld = pres->get_Slides()->idx_get(0);
 
-// 矩形型のAutoShapeを追加
+// 矩形タイプの AutoShape を追加する
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-// 矩形にTextFrameを追加
+// 矩形に TextFrame を追加する
 ashp->AddTextFrame(u"Aspose TextBox");
 
-// テキストのシャドウを取得する場合に備えてシェイプの塗りつぶしを無効にする
+// テキストの影を取得できるようにシェイプの塗りつぶしを無効にする
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// 外側のシャドウを追加し、必要なすべてのパラメータを設定
+// 外部影を追加し、すべての必要なパラメータを設定する
 ashp->get_EffectFormat()->EnableOuterShadowEffect();
 auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
 shadow->set_BlurRadius(4.0);
@@ -325,56 +333,71 @@ shadow->set_Distance(3);
 shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
 shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
 
-// プレゼンテーションをディスクに保存
+// プレゼンテーションをディスクに保存する
 pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ```
 
-## **形状に内側のシャドウ効果を適用する**
-これらの手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. スライドの参照を取得します。
-3. 矩形型のAutoShapeを追加します。
-4. InnerShadowEffectを有効にします。
-5. 必要なすべてのパラメータを設定します。
-6. ColorTypeをSchemeに設定します。
-7. Scheme Colorを設定します。
-8. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして書き込みます。
+## **シェイプに内部影効果を適用する**
+以下の手順を実行してください：
 
-次のサンプルコード（上記の手順に基づく）は、C++で2つの形状間にコネクタを追加する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+2. スライドの参照を取得します。  
+3. 矩形タイプの AutoShape を追加します。  
+4. InnerShadowEffect を有効にします。  
+5. 必要なすべてのパラメータを設定します。  
+6. ColorType を Scheme に設定します。  
+7. Scheme Color を設定します。  
+8. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。  
 
+上記手順に基づくサンプルコードは、C++ で 2 つのシェイプ間にコネクタを追加する方法を示しています： 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>();
-// スライドの参照を取得
+// スライドの参照を取得する
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// 矩形型のAutoShapeを追加
+// 矩形タイプの AutoShape を追加する
 auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// 矩形にTextFrameを追加
+// 矩形に TextFrame を追加する
 ashp->AddTextFrame(u"Aspose TextBox");
 auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 auto pf = port->get_PortionFormat();
 pf->set_FontHeight(50.0f);
 
-// InnerShadowEffectを有効にする    
+// 内部影効果を有効にする    
 auto ef = pf->get_EffectFormat();
 ef->EnableInnerShadowEffect();
 
-// 必要なすべてのパラメータを設定
+// すべての必要なパラメータを設定する
 auto shadow = ef->get_InnerShadowEffect();
 shadow->set_BlurRadius(8.0);
 shadow->set_Direction(90.0F);
 shadow->set_Distance(6.0);
 shadow->get_ShadowColor()->set_B(189);
 
-// ColorTypeをSchemeとして設定
+// ColorType を Scheme に設定する
 shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
 
-// Scheme Colorを設定
+// Scheme Color を設定する
 shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 
-// プレゼンテーションを保存
+// プレゼンテーションを保存する
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**異なるフォントやスクリプト（例: アラビア語、中国語）で WordArt 効果を使用できますか？**  
+はい、Aspose.Slides は Unicode をサポートしており、主要なフォントとスクリプトすべてで動作します。影、塗りつぶし、輪郭線などの WordArt 効果は言語に関係なく適用可能ですが、フォントの可用性や描画はシステムフォントに依存する場合があります。
+
+**スライドマスタの要素に WordArt 効果を適用できますか？**  
+はい、タイトルプレースホルダー、フッター、背景テキストなど、マスタースライド上のシェイプに WordArt 効果を適用できます。マスターのレイアウトを変更すると、関連するすべてのスライドに反映されます。
+
+**WordArt 効果はプレゼンテーションのファイルサイズに影響しますか？**  
+わずかに。影、発光、グラデーション塗りつぶしなどの WordArt 効果は、追加の書式メタデータによりファイルサイズが若干増加する可能性がありますが、差は通常ほとんど無視できる程度です。
+
+**プレゼンテーションを保存せずに WordArt 効果の結果をプレビューできますか？**  
+はい、[IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) または [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) インターフェイスの `GetImage` メソッドを使用して、WordArt を含むスライドを画像（PNG、JPEG など）にレンダリングできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。

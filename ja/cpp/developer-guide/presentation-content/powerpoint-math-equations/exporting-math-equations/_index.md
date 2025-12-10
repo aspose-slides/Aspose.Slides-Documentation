@@ -1,25 +1,33 @@
 ---
-title: 数学方程式のエクスポート
+title: プレゼンテーションから C++ の数式をエクスポート
+linktitle: 数式をエクスポート
 type: docs
 weight: 30
 url: /ja/cpp/exporting-math-equations/
-
+keywords:
+- 数式のエクスポート
+- MathML
+- LaTeX
+- PowerPoint
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して、PowerPoint から MathML への数式エクスポートをシームレスに実現します — フォーマットを保持し、互換性を向上させます。"
 ---
 
-# プレゼンテーションからの数学方程式のエクスポート
+## **プレゼンテーションから数式をエクスポートする**
 
-Aspose.Slides for C++ を使用すると、プレゼンテーションから数学方程式をエクスポートできます。たとえば、スライド上の数学的方程式を抽出して、他のプログラムやプラットフォームで使用する必要があるかもしれません。
+Aspose.Slides for C++ を使用すると、プレゼンテーションから数式をエクスポートできます。たとえば、特定のプレゼンテーション内のスライドにある数式を抽出し、別のプログラムやプラットフォームで使用したい場合があります。
 
 {{% alert color="primary" %}} 
 
-方程式を MathML 形式にエクスポートできます。これは、ウェブや多くのアプリケーションで見られる数学方程式や同様のコンテンツのための一般的な形式または標準です。
+数式を MathML にエクスポートできます。MathML は、Web や多くのアプリケーションで使用される数式や類似コンテンツの一般的なフォーマットまたは標準です。
 
 {{% /alert %}}
 
-人間は LaTeX のような方程式形式のコードを簡単に書きますが、MathML のコードを書くのには苦労します。なぜなら、MathML はアプリケーションによって自動的に生成されることを意図しているからです。プログラムは MathML を簡単に読み取り解析できます。なぜなら、そのコードは XML で記述されており、MathML は多くの分野で出力および印刷フォーマットとして一般的に使用されています。
+人間は LaTeX のような一部の数式フォーマットのコードを書きやすいですが、MathML のコードは自動的にアプリケーションによって生成されることを想定しているため、記述が難しいです。MathML のコードは XML 形式なので、プログラムは簡単に読み取り・解析できます。そのため、MathML は多くの分野で出力および印刷フォーマットとして広く使用されています。
 
-このサンプルコードでは、プレゼンテーションから MathML に数学方程式をエクスポートする方法を示します。
-
+このサンプルコードは、プレゼンテーションから数式を MathML にエクスポートする方法を示しています：
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -40,3 +48,26 @@ SharedPtr<Stream> stream = System::MakeObject<FileStream>(u"mathml.xml", FileMod
 
 mathParagraph->WriteAsMathMl(stream);
 ```
+
+
+## **FAQ**
+
+**MathML にエクスポートされるのは段落全体ですか、それとも個々の数式ブロックですか？**
+
+MathML には、全体の数式段落（[MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/)）または個別のブロック（[MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/)）のいずれかをエクスポートできます。両方のタイプに MathML へ書き出すメソッドが用意されています。
+
+**スライド上のオブジェクトが通常のテキストや画像ではなく数式であることは、どのように判断できますか？**
+
+数式は[MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/)に存在し、[MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/)を持ちます。[MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/)を持たない画像や通常のテキスト部分はエクスポート可能な数式ではありません。
+
+**プレゼンテーション内の MathML はどこから来るのですか？PowerPoint 固有ですか、標準ですか？**
+
+エクスポートは標準の MathML（XML）を対象としています。Aspose はプレゼンテーションサブセットである Presentation MathML を使用しており、これはアプリケーションや Web で広く利用されています。
+
+**テーブル、SmartArt、グループなど内部の数式のエクスポートはサポートされていますか？**
+
+はい、これらのオブジェクトに[MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/)を含むテキスト部分（実際の PowerPoint 数式）がある場合はエクスポートされます。数式が画像として埋め込まれている場合はエクスポートされません。
+
+**MathML へのエクスポートは元のプレゼンテーションを変更しますか？**
+
+いいえ。MathML の書き出しは数式の内容をシリアライズするだけで、プレゼンテーション ファイル自体は変更されません。

@@ -1,27 +1,43 @@
 ---
-title: المحور البياني
+title: تخصيص محاور المخططات في العروض التقديمية باستخدام C++
+linktitle: محور المخطط
 type: docs
 url: /ar/cpp/chart-axis/
-keywords: "محور الرسم البياني في باوربوينت، رسومات باوربوينت، C++، التحكم في محور الرسم البياني، بيانات الرسم البياني"
-description: "كيفية تعديل محور الرسم البياني في باوربوينت باستخدام C++"
+keywords:
+- محور المخطط
+- المحور العمودي
+- المحور الأفقي
+- تخصيص المحور
+- معالجة المحور
+- إدارة المحور
+- خصائص المحور
+- القيمة القصوى
+- القيمة الدنيا
+- خط المحور
+- تنسيق التاريخ
+- عنوان المحور
+- موضع المحور
+- PowerPoint
+- العرض التقديمي
+- C++
+- Aspose.Slides
+description: "اكتشف كيفية استخدام Aspose.Slides للـ C++ لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصورات."
 ---
 
+## **الحصول على القيم القصوى على المحور العمودي**
+Aspose.Slides for C++ يتيح لك الحصول على القيم الدنيا والقصوى على محور عمودي. اتبع الخطوات التالية:
 
-## **الحصول على القيم القصوى على المحور العمودي في الرسوم البيانية**
-يسمح لك Aspose.Slides لـ C++ بالحصول على القيم الدنيا والقصوى على المحور العمودي. اتبع هذه الخطوات:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. إنشاء مثال لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 1. الوصول إلى الشريحة الأولى.
-1. إضافة رسم بياني ببيانات افتراضية.
+1. إضافة مخطط ببيانات افتراضية.
 1. الحصول على القيمة القصوى الفعلية على المحور.
 1. الحصول على القيمة الدنيا الفعلية على المحور.
-1. الحصول على وحدة المحور الكبرى الفعلية.
-1. الحصول على وحدة المحور الصغرى الفعلية.
-1. الحصول على مقياس وحدة المحور الكبرى الفعلية.
-1. الحصول على مقياس وحدة المحور الصغرى الفعلية.
+1. الحصول على الوحدة الرئيسية الفعلية للمحور.
+1. الحصول على الوحدة الفرعية الفعلية للمحور.
+1. الحصول على مقياس الوحدة الرئيسية الفعلية للمحور.
+1. الحصول على مقياس الوحدة الفرعية الفعلية للمحور.
 
-يوضح لك هذا الكود المثال—تنفيذ الخطوات أعلاه—كيفية الحصول على القيم المطلوبة باستخدام C++:
-
+يعرض لك هذا الكود النموذجى—تنفيذ الخطوات السابقة—كيفية الحصول على القيم المطلوبة في C++:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -36,33 +52,31 @@ double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
 double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
 double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 
-// Saves the presentation
+// يحفظ العرض التقديمي
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 
 ## **تبديل البيانات بين المحاور**
-يسمح لك Aspose.Slides بتبديل البيانات بسرعة بين المحاور—البيانات الممثلة على المحور العمودي (محور y) تنتقل إلى المحور الأفقي (محور x) والعكس صحيح.
+يتيح لك Aspose.Slides تبديل البيانات بين المحاور بسرعة—فالبيانات الموجودة على المحور العمودي (y-axis) تنتقل إلى المحور الأفقي (x-axis) والعكس بالعكس. 
 
-يظهر لك هذا الكود بلغة C++ كيفية تنفيذ مهمة تبديل البيانات بين المحاور على رسم بياني:
-
+يعرض لك هذا الكود C++ كيفية تنفيذ مهمة تبديل البيانات بين المحاور على مخطط:
 ``` cpp
-// Creates empty presentation
+// إنشاء عرض تقديمي فارغ
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// Switches rows and columns
+// تبديل الصفوف والأعمدة
 chart->get_ChartData()->SwitchRowColumn();
 
-// Saves presentation
+// حفظ العرض التقديمي
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تعطيل المحور العمودي لرسوم البيانية الخطية**
 
-يظهر لك هذا الكود بلغة C++ كيفية إخفاء المحور العمودي لرسم بياني خطي:
-
+## **تعطيل المحور العمودي لمخططات الخط**
+يعرض لك هذا الكود C++ كيفية إخفاء المحور العمودي لمخطط خط:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -72,10 +86,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **تعطيل المحور الأفقي لرسوم البيانية الخطية**
 
-يظهر لك هذا الكود كيفية إخفاء المحور الأفقي لرسم بياني خطي:
-
+## **تعطيل المحور الأفقي لمخططات الخط**
+يعرض لك هذا الكود كيفية إخفاء المحور الأفقي لمخطط خط:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -85,10 +98,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **تغيير محور الفئة**
-
-باستخدام الطريقة **set_CategoryAxisType()**، يمكنك تحديد نوع محور الفئة المفضل لديك (**تاريخ** أو **نص**). يوضح هذا الكود بلغة C++ العملية:
-
+باستخدام طريقة **set_CategoryAxisType()**، يمكنك تحديد نوع محور الفئة المفضل لديك (**date** أو **text**). يوضح هذا الكود في C++ العملية: 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -102,9 +114,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين تنسيق التاريخ لقيمة محور الفئة**
-يسمح لك Aspose.Slides لـ C++ بتعيين تنسيق التاريخ لقيمة محور الفئة. يتم توضيح العملية في هذا الكود بلغة C++:
 
+## **تعيين تنسيق التاريخ لقيم محور الفئة**
+يتيح لك Aspose.Slides for C++ تعيين تنسيق التاريخ لقيمة محور الفئة. يتم توضيح العملية في هذا الكود C++:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
@@ -136,9 +148,9 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين زاوية الدوران لعنوان المحور البياني**
-يسمح لك Aspose.Slides لـ C++ بتعيين زاوية الدوران لعنوان المحور البياني. يوضح هذا الكود بلغة C++ العملية:
 
+## **تعيين زاوية الدوران لعنوان المحور**
+يتيح لك Aspose.Slides for C++ تعيين زاوية الدوران لعنوان محور المخطط. يوضح هذا الكود C++ العملية:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -150,9 +162,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين محور الموقع في محور فئة أو قيمة**
-يسمح لك Aspose.Slides لـ C++ بتعيين محور الموقع في محور فئة أو قيمة. يوضح لك هذا الكود بلغة C++ كيفية تنفيذ المهمة:
 
+## **تعيين موضع المحور على محور الفئة أو القيمة**
+يتيح لك Aspose.Slides for C++ تعيين موضع المحور في محور الفئة أو قيمة المحور. يوضح هذا الكود C++ كيفية تنفيذ المهمة:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -162,9 +174,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **تمكين عرض تسمية وحدة على محور قيمة الرسم البياني**
-يسمح لك Aspose.Slides لـ C++ بتكوين رسم بياني ليظهر تسمية وحدة على محور القيمة الخاص به. يوضح هذا الكود بلغة C++ العملية:
 
+## **تمكين تسمية وحدة العرض على محور قيمة المخطط**
+يتيح لك Aspose.Slides for C++ تكوين مخطط لعرض تسمية وحدة على محور قيمة المخطط. يوضح هذا الكود C++ العملية:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -173,3 +185,14 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني تعيين القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحور)؟**
+
+توفر المحاور [إعداد التقاطع](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/): يمكنك الاختيار للتقاطع عند الصفر، أو عند أقصى فئة/قيمة، أو عند قيمة عددية محددة. هذا مفيد لتحريك محور X لأعلى أو لأسفل أو لتسليط الضوء على خط أساس.
+
+**كيف يمكنني وضع تسميات العلامات بالنسبة إلى المحور (بجانب، خارج، داخل)؟**
+
+قم بتعيين [موضع التسمية](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) إلى "cross" أو "outside" أو "inside". يؤثر هذا على قابلية القراءة ويساعد على توفير المساحة، خاصة في المخططات الصغيرة.

@@ -1,44 +1,55 @@
 ---
-title: ActiveX
+title: إدارة عناصر التحكم ActiveX في العروض التقديمية باستخدام C++
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ar/cpp/activex/
+keywords:
+- ActiveX
+- تحكم ActiveX
+- إدارة ActiveX
+- إضافة ActiveX
+- تعديل ActiveX
+- مشغل وسائط
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تعلم كيف يستخدم Aspose.Slides لـ C++ تقنية ActiveX لأتمتة وتحسين عروض PowerPoint التقديمية، مما يمنح المطورين تحكمًا قويًا في الشرائح."
 ---
 
+يتم استخدام عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides for C++ إدارة عناصر التحكم ActiveX، لكن إدارتها أصعب قليلاً ومختلفة عن الأشكال العادية في العرض التقديمي. من الإصدار 18.1 من Aspose.Slides for C++، يدعم المكون إدارة عناصر التحكم ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر التحكم ActiveX المضاف مسبقًا في العرض التقديمي وتعديلّه أو حذفّه باستخدام خصائصه المتعددة. تذكر أن عناصر التحكم ActiveX ليست أشكالًا ولا هي جزء من IShapeCollection في العرض، بل هي ضمن IControlCollection المنفصل. توضح هذه المقالة كيفية التعامل معها.
 
-تستخدم عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides لـ C++ إدارة عناصر التحكم ActiveX، لكن إدارتها أكثر تعقيدًا وتختلف عن أشكال العرض التقديمي العادية. اعتبارًا من Aspose.Slides لـ C++ 18.1، يدعم المكون إدارة عناصر التحكم ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر التحكم ActiveX الذي تم إضافته مسبقًا في عرضك التقديمي وتعديله أو حذفه باستخدام الخصائص المختلفة الخاصة به. تذكر أن عناصر التحكم ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection للعرض التقديمي، ولكنها جزء من IControlCollection منفصلة. يوضح هذا المقال كيفية العمل معها.
-
-## **تعديل عنصر التحكم ActiveX**
+## **تعديل عنصر تحكم ActiveX**
 لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة:
 
-1. إنشاء مثيل لفئة Presentation وتحميل العرض التقديمي بعناصر التحكم ActiveX فيه.
-1. الحصول على مرجع الشريحة بواسطة مؤشرها.
-1. الوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى IControlCollection.
-1. الوصول إلى عنصر التحكم ActiveX المسمى TextBox1 باستخدام كائن ControlEx.
-1. تغيير الخصائص المختلفة لعنصر التحكم ActiveX TextBox1 بما في ذلك النص، الخط، ارتفاع الخط، وموقع الإطار.
+1. إنشاء مثال من فئة Presentation وتحميل العرض التقديمي الذي يحتوي على عناصر تحكم ActiveX.
+1. الحصول على مرجع الشريحة باستخدام فهرسها.
+1. الوصول إلى عناصر التحكم ActiveX في الشريحة عبر IControlCollection.
+1. الوصول إلى عنصر التحكم ActiveX TextBox1 باستخدام كائن ControlEx.
+1. تغيير الخصائص المختلفة لعنصر التحكم ActiveX TextBox1 بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.
 1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
-1. تغيير عنوان الزر، الخط، والمكان.
-1. نقل موقع إطارات عناصر التحكم ActiveX.
+1. تغيير تسمية الزر، الخط والموقع.
+1. تحريك موقع إطارات عناصر التحكم ActiveX.
 1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-يحدث الكود أدناه تحديثات على عناصر التحكم ActiveX في شرائح العرض التقديمي كما هو موضح أدناه.
-
+يقوم المقتطف البرمجي أدناه بتحديث عناصر التحكم ActiveX على شرائح العرض التقديمي كما هو موضح أدناه.
 ``` cpp
 // الوصول إلى العرض التقديمي مع عناصر التحكم ActiveX
 auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
 
-// الوصول إلى الشريحة الأولى في العرض التقديمي
+// Accessing the first slide in presentation
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// تغيير نص TextBox
+// تغيير نص مربع النص
 auto control = slide->get_Controls()->idx_get(0);
 
 if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
 {
-    String newText = u"تم تغيير النص";
+    String newText = u"Changed text";
     control->get_Properties()->idx_set(u"Value", newText);
 
-    // تغيير الصورة البديلة. سيستبدل Powerpoint هذه الصورة أثناء تنشيط ActiveX، لذا في بعض الأحيان يكون من الجيد ترك الصورة دون تغيير.
+    // تغيير الصورة البديلة. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX، لذا قد يكون من المقبول ترك الصورة دون تعديل.
     auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
     auto graphics = Graphics::FromImage(image);
     auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
@@ -67,7 +78,7 @@ if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
-// تغيير عنوان الزر
+// تغيير تسمية الزر
 control = slide->get_Controls()->idx_get(1);
 
 if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
@@ -75,7 +86,7 @@ if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nul
     String newCaption = u"MessageBox";
     control->get_Properties()->idx_set(u"Caption", newCaption);
 
-    // تغيير الصورة البديلة
+    // تغيير البديل
     auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
     auto graphics = Graphics::FromImage(image);
     auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
@@ -104,50 +115,65 @@ if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nul
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
-// تحريك إطارات ActiveX لأسفل بمقدار 100 نقطة
+// تحريك إطارات ActiveX أسفل 100 نقطة
 for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
 {
     SharedPtr<IShapeFrame> frame = control->get_Frame();
     control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
 }
 
-// حفظ العرض التقديمي مع عناصر التحكم ActiveX المعدلة
+// حفظ العرض التقديمي مع عناصر التحكم ActiveX التي تم تعديلها
 presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
 
-// الآن إزالة عناصر التحكم
+// الآن يتم إزالة العناصر
 slide->get_Controls()->Clear();
 
-// حفظ العرض التقديمي مع عناصر التحكم ActiveX المصححة
+// حفظ العرض التقديمي مع عناصر التحكم ActiveX المُزالة
 presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
+
 ## **إضافة عنصر تحكم Media Player ActiveX**
-تستخدم عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides لـ C++ إضافة وإدارة عناصر التحكم ActiveX، لكن إدارتها أكثر تعقيدًا وتختلف عن أشكال العرض التقديمي العادية. اعتبارًا من Aspose.Slides لـ C++ 18.1، تم إضافة دعم لإضافة عنصر Control ActiveX لمشغل الوسائط. تذكر أن عناصر التحكم ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection للعرض التقديمي، ولكنها جزء من IControlExCollection منفصلة. يوضح هذا المقال كيفية العمل معها. لإدارة عنصر تحكم Media Player ActiveX، يرجى تنفيذ الخطوات التالية:
+يتم استخدام عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides for C++ إضافة وإدارة عناصر التحكم ActiveX، لكن إدارتها أصعب قليلاً ومختلفة عن الأشكال العادية في العرض. من الإصدار 18.1 من Aspose.Slides for C++، تم إضافة دعم إضافة عنصر تحكم Media Player ActiveX في Aspose.Slides. تذكر أن عناصر التحكم ActiveX ليست أشكالًا ولا هي جزء من IShapeCollection في العرض، بل هي ضمن IControlExCollection المنفصل. توضح هذه المقالة كيفية التعامل معها. لإدارة عنصر تحكم Media Player ActiveX، يرجى تنفيذ الخطوات التالية:
 
-1. إنشاء مثيل لفئة Presentation وتحميل العرض التقديمي النموذجي مع عناصر التحكم Media Player ActiveX فيه.
-1. إنشاء مثيل لفئة Presentation المستهدفة وتوليد مثيل عرض تقديمي فارغ.
-1. استنساخ الشريحة التي تحتوي على عنصر التحكم Media Player ActiveX في العرض التقديمي النموذجي إلى العرض التقديمي المستهدف.
-1. الوصول إلى الشريحة المستنسخة في العرض التقديمي المستهدف.
-1. الوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى IControlCollection.
-1. الوصول إلى عنصر التحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
+1. إنشاء مثال من فئة Presentation وتحميل العرض التقديمي النموذجي الذي يحتوي على عناصر تحكم Media Player ActiveX.
+1. إنشاء مثال من فئة Presentation المستهدف وتوليد مثال عرض تقديمي فارغ.
+1. استنساخ الشريحة التي تحتوي على عنصر تحكم Media Player ActiveX من عرض القالب إلى عرض Presentation المستهدف.
+1. الوصول إلى الشريحة المستنسخة في عرض Presentation المستهدف.
+1. الوصول إلى عناصر التحكم ActiveX في الشريحة عبر IControlCollection.
+1. الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
 1. حفظ العرض التقديمي إلى ملف PPTX.
-
 ``` cpp
-// إنشاء مثيل لفئة Presentation التي تمثل ملف PPTX
+// إنشاء فئة Presentation التي تمثل ملف PPTX
 auto presentation = System::MakeObject<Presentation>(u"template.pptx");
 
-// إنشاء مثيل عرض تقديمي فارغ
+// إنشاء مثال عرض تقديمي فارغ
 auto newPresentation = System::MakeObject<Presentation>();
 
 // إزالة الشريحة الافتراضية
 newPresentation->get_Slides()->RemoveAt(0);
 
-// استنساخ شريحة تحتوي على عنصر التحكم Media Player ActiveX
+// استنساخ شريحة تحتوي على عنصر تحكم Media Player ActiveX
 newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
 
-// الوصول إلى عنصر التحكم Media Player ActiveX وتعيين مسار الفيديو
+// الوصول إلى عنصر تحكم Media Player ActiveX وتحديد مسار الفيديو
 newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
 
 // حفظ العرض التقديمي
 newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**هل يحافظ Aspose.Slides على عناصر التحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل C++؟**
+
+نعم. يعتبر Aspose.Slides أنها جزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها للحفاظ عليها.
+
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض التقديمي؟**
+
+عناصر التحكم ActiveX هي عناصر تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما [OLE](/slides/ar/cpp/manage-ole/) يشير إلى كائنات تطبيق مضمّنة (مثلاً ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة ولها نماذج خصائص مختلفة.
+
+**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
+
+يحافظ Aspose.Slides على العلامات والبيانات الوصفية الموجودة؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.

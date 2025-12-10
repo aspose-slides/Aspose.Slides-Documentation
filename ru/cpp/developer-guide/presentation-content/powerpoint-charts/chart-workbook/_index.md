@@ -1,17 +1,29 @@
 ---
-title: Рабочая тетрадь диаграмм
+title: Управление рабочими книгами диаграмм в презентациях с использованием C++
+linktitle: Рабочая книга диаграммы
 type: docs
 weight: 70
 url: /ru/cpp/chart-workbook/
-keywords: "Рабочая тетрадь диаграмм, данные диаграмм, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
-description: "Рабочая тетрадь диаграмм в презентации PowerPoint на C++"
+keywords:
+- рабочая книга диаграммы
+- данные диаграммы
+- ячейка рабочей книги
+- метка данных
+- лист
+- источник данных
+- внешняя рабочая книга
+- внешние данные
+- PowerPoint
+- презентация
+- C++
+- Aspose.Slides
+description: "Откройте для себя Aspose.Slides для C++: без усилий управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, оптимизируя данные вашей презентации."
 ---
 
-## **Установить данные диаграммы из рабочей тетради**
+## **Чтение и запись данных диаграммы из рабочей книги**
 
-Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) и [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e), которые позволяют читать и записывать рабочие тетради данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Обратите внимание**, что данные диаграммы должны быть организованы аналогичным образом или иметь структуру, схожую с источником.
-
-```cpp
+Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) и [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e), позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаково или иметь структуру, аналогичную исходным данным.
+``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
 auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -25,9 +37,9 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Этот код на C++ демонстрирует операцию по установке рабочей тетради данных диаграммы:
 
-```cpp
+Этот код C++ демонстрирует операцию установки рабочей книги данных диаграммы:
+``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Charts::ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
@@ -57,23 +69,22 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Установить ячейку рабочей тетради в качестве метки данных диаграммы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
+## **Установить ячейку рабочей книги в качестве метки данных диаграммы**
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму пузырьков с некоторыми данными.
+1. Добавьте пузырьковую диаграмму с некоторыми данными.
 1. Получите доступ к сериям диаграммы.
-1. Установите ячейку рабочей тетради в качестве метки данных.
+1. Установите ячейку рабочей книги в качестве метки данных.
 1. Сохраните презентацию.
 
-Этот код на C++ показывает, как установить ячейку рабочей тетради в качестве метки данных диаграмы:
-
-```cpp
-System::String lbl0 = u"Значение ячейки метки 0";
-System::String lbl1 = u"Значение ячейки метки 1";
-System::String lbl2 = u"Значение ячейки метки 2";
-
-// Создание экземпляра класса Presentation, который представляет файл презентации
+Этот код C++ показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
+``` cpp
+System::String lbl0 = u"Label 0 cell value";
+System::String lbl1 = u"Label 1 cell value";
+System::String lbl2 = u"Label 2 cell value";
+// Создает объект класса Presentation, представляющий файл презентации 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -93,11 +104,11 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
+
 ## **Управление листами**
 
-Этот код на C++ демонстрирует операцию, при которой свойство [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) используется для доступа к коллекции листов:
-
-```cpp
+Этот код C++ демонстрирует операцию, в которой используется свойство [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) для доступа к коллекции листов:
+```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
@@ -108,11 +119,11 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
+
 ## **Указать тип источника данных**
 
-Этот код на C++ показывает, как указать тип для источника данных:
-
-```cpp
+Этот код C++ показывает, как указать тип для источника данных:
+```c++
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
@@ -120,26 +131,26 @@ auto chartData = chart->get_ChartData();
 auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
 val->set_DataSourceType(DataSourceType::StringLiterals);
-val->set_Data(System::ObjectExt::Box<System::String>(u"ЛитералСтрока"));
+val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
 val = chartData->get_Series()->idx_get(1)->get_Name();
-val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"НоваяЯчейка")));
+val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Внешняя рабочая тетрадь**
+
+## **Внешняя рабочая книга**
 
 {{% alert color="primary" %}} 
-В [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4 мы реализовали поддержку внешних рабочих тетрадей в качестве источника данных для диаграмм.
+В [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4 мы реализовали поддержку внешних рабочих книг в качестве источника данных для диаграмм.
 {{% /alert %}} 
 
-### **Создание внешней рабочей тетради**
+### **Создать внешнюю рабочую книгу**
 
-С помощью методов **`ReadWorkbookStream`** и **`SetExternalWorkbook`** вы можете либо создать внешнюю рабочую тетрадь с нуля, либо сделать внутреннюю рабочую тетрадь внешней.
+Используя методы **`ReadWorkbookStream`** и **`SetExternalWorkbook`**, вы можете либо создать внешнюю рабочую книгу с нуля, либо сделать внутреннюю рабочую книгу внешней.
 
-Этот код на C++ демонстрирует процесс создания внешней рабочей тетради:
-
-```cpp
+Этот код C++ демонстрирует процесс создания внешней рабочей книги:
+```c++
 auto pres = System::MakeObject<Presentation>();
 
 const System::String workbookPath = u"externalWorkbook1.xlsx";
@@ -159,15 +170,15 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Установить внешнюю рабочую тетрадь**
 
-Используя метод **`IChartData.SetExternalWorkbook`**, вы можете назначить внешнюю рабочую тетрадь диаграмме в качестве источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей тетради (если последняя была перемещена).
+### **Установить внешнюю рабочую книгу**
 
-Хотя вы не можете редактировать данные в рабочих тетрадях, хранящихся в удаленных местах или ресурсах, вы все равно можете использовать такие рабочие тетради в качестве внешнего источника данных. Если предоставлен относительный путь для внешней рабочей тетради, он автоматически преобразуется в полный путь.
+С помощью метода **`IChartData.SetExternalWorkbook`** можно назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также можно использовать для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Этот код на C++ показывает, как установить внешнюю рабочую тетрадь:
+Хотя редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, нельзя, такие книги всё равно могут использоваться как внешний источник данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
 
-```cpp
+Этот код C++ показывает, как установить внешнюю рабочую книгу:
+```c++
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
@@ -189,12 +200,12 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Параметр `updateChartData` (в методе `SetExternalWorkbook`) используется для указания того, будет ли загружена рабочая тетрадь Excel или нет. 
 
-* Когда значение `updateChartData` установлено в `false`, обновляется только путь к рабочей тетради — данные диаграммы не будут загружены или обновлены из целевой рабочей тетради. Вы можете использовать эту настройку, когда целевая рабочая тетрадь не существует или недоступна. 
-* Когда значение `updateChartData` установлено в `true`, данные диаграммы обновляются из целевой рабочей тетради.
+Параметр `updateChartData` (в методе `SetExternalWorkbook`) используется для указания, будет ли загружена Excel‑рабочая книга.
 
-```cpp
+* Когда значение `updateChartData` установлено в `false`, обновляется только путь к рабочей книге — данные диаграммы не загружаются и не обновляются из целевой рабочей книги. Такой вариант полезен, если целевая рабочая книга отсутствует или недоступна. 
+* Когда значение `updateChartData` установлено в `true`, данные диаграммы обновляются из целевой рабочей книги.
+```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
@@ -206,17 +217,17 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Получить путь к внешнему источнику данных диаграммы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) .
+### **Получить путь к рабочей книге внешнего источника данных диаграммы**
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) .
 1. Получите ссылку на слайд по его индексу.
-1. Создайте объект для фигуры диаграммы.
+1. Создайте объект для формы диаграммы.
 1. Создайте объект для типа источника (`ChartDataSourceType`), который представляет источник данных диаграммы.
-1. Укажите соответствующее условие на основании того, что тип источника совпадает с типом источника данных внешней рабочей тетради.
+1. Укажите соответствующее условие в зависимости от того, совпадает ли тип источника с типом внешней рабочей книги.
 
-Этот код на C++ демонстрирует операцию:
-
-```cpp
+Этот код C++ демонстрирует эту операцию:
+```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto slide = pres->get_Slides()->idx_get(1);
@@ -231,13 +242,13 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
+
 ### **Редактировать данные диаграммы**
 
-Вы можете редактировать данные во внешних рабочих тетрадях так же, как вносить изменения в содержимое внутренних рабочих тетрадей. Когда внешняя рабочая тетрадь не может быть загружена, возникает исключение.
+Вы можете редактировать данные во внешних рабочих книгах так же, как и во внутренних. Если внешняя рабочая книга не может быть загружена, будет выброшено исключение.
 
-Этот код на C++ является реализацией описанного процесса:
-
-```cpp
+Этот код C++ реализует описанный процесс:
+```c++
 const String templatePath = u"../templates/presentation.pptx";
 	const String outPath = u"../out/presentation-out.pptx";
 	
@@ -250,3 +261,30 @@ const String templatePath = u"../templates/presentation.pptx";
 	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
+
+Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы удостовериться, что используется внешний файл.
+
+**Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
+
+Да. При указании относительного пути он автоматически преобразуется в абсолютный. Это удобно для портативности проектов; однако имейте в виду, что презентация сохраняет абсолютный путь в файле PPTX.
+
+**Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
+
+Да, такие рабочие книги могут использоваться как внешний источник данных. Однако прямое редактирование удалённых рабочих книг из Aspose.Slides не поддерживается — они могут использоваться только в качестве источника.
+
+**Перезаписывает ли Aspose.Slides внешнюю XLSX при сохранении презентации?**
+
+Нет. Презентация сохраняет [ссылку на внешний файл](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) и использует её только для чтения данных. При сохранении презентации внешний файл не изменяется.
+
+**Что делать, если внешний файл защищён паролем?**
+
+Aspose.Slides не принимает пароль при установке ссылки. Как правило, защищённость снимают заранее или создают расшифрованную копию (например, с помощью [Aspose.Cells](/cells/cpp/)) и ссылаются на неё.
+
+**Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
+
+Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, изменения в этом файле отразятся в каждой диаграмме при следующей загрузке данных.

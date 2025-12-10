@@ -1,86 +1,111 @@
 ---
-title: Форматирование фигур
+title: Форматирование фигур PowerPoint на C++
+linktitle: Форматирование фигур
 type: docs
 weight: 20
 url: /ru/cpp/shape-formatting/
-keywords: "Формат фигуры, формат линий, формат стилей соединений, градиентная заливка, заливка узором, заливка картинкой, сплошная заливка цветом, поворот фигур, эффекты 3d фаски, эффект 3d ротации, презентация PowerPoint, C++, Aspose.Slides для C++"
-description: "Форматирование фигуры в презентации PowerPoint на C++"
+keywords:
+- форматировать фигуру
+- форматировать линию
+- форматировать стиль соединения
+- градиентная заливка
+- заливка паттерном
+- заливка изображением
+- заливка текстурой
+- сплошная заливка цветом
+- прозрачность фигуры
+- поворот фигуры
+- 3d эффект фаски
+- 3d эффект вращения
+- сброс форматирования
+- PowerPoint
+- презентация
+- C++
+- Aspose.Slides
+description: "Узнайте, как форматировать фигуры PowerPoint на C++ с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
 ---
 
-В PowerPoint вы можете добавлять фигуры на слайды. Так как фигуры состоят из линий, вы можете форматировать фигуры, изменяя или применяя определенные эффекты к их составным линиям. Кроме того, вы можете форматировать фигуры, указывая настройки, которые определяют, как они (область внутри них) заполняются.
+## **Обзор**
+
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к их контурам. Кроме того, вы можете форматировать фигуры, указывая параметры, контролирующие заливку их внутренней части.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-**Aspose.Slides для C++** предоставляет интерфейсы и свойства, которые позволяют форматировать фигуры на основе известных опций в PowerPoint.
+Aspose.Slides for C++ предоставляет интерфейсы и методы, позволяющие форматировать фигуры с теми же параметрами, что доступны в PowerPoint.
 
-## **Форматировние линий**
+## **Форматирование линий**
 
-С помощью Aspose.Slides вы можете указать предпочтительный стиль линии для фигуры. Эти шаги описывают такую процедуру:
+С помощью Aspose.Slides вы можете задать пользовательский стиль линии для фигуры. Ниже перечислены шаги процедуры:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Установите цвет для линий фигуры.
-5. Установите ширину для линий фигуры.
-6. Установите [стиль линии](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a837c78839bf6ebb16979455cd1de59e4) для линии фигуры.
-7. Установите [стиль штриховки](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a7eaad354a35a3b567a7327d625be3c6e) для линии фигуры.
-8. Запишите измененную презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите [стиль линии](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) фигуры.
+1. Установите толщину линии.
+1. Установите [стиль штриха](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) линии.
+1. Установите цвет линии для фигуры.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код на C++ демонстрирует операцию, где мы отформатировали прямоугольник `AutoShape`:
-
+В следующем примере показано, как форматировать прямоугольный `AutoShape`:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет фигуру типа прямоугольник
+// Добавьте автофигуру типа Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Устанавливает цвет заливки для фигуры прямоугольника
-shape->get_FillFormat()->set_FillType(FillType::Solid);
-shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+// Установите цвет заливки для прямоугольной фигуры.
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Применяет некоторые настройки к линиям прямоугольника
+// Примените форматирование к линиям прямоугольника.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Устанавливает цвет для линии прямоугольника
+// Установите цвет линии прямоугольника.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpLn_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Сохраните файл PPTX на диск.
+presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Формат стилей соединений**
-Это 3 доступных варианта соединения:
 
-* Закругление
-* Скошенный угол
-* Фаска
 
-По умолчанию, когда PowerPoint соединяет две линии под углом (или угол фигуры), он использует настройку **Закругление**. Однако, если вы хотите нарисовать фигуру с очень острыми углами, вам может быть нужно выбрать **Скошенный угол**.
+Результат:
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
-Этот код на C++ демонстрирует операцию, где 3 прямоугольника (изображение выше) были созданы с настройками стиля соединения Скошенный угол, Фаска и Закругление:
+## **Форматирование стилей соединения**
 
+Вот три варианта типа соединения:
+
+* Round
+* Miter
+* Bevel
+
+По умолчанию PowerPoint использует настройку **Round**, когда соединяет две линии под углом (например, в углу фигуры). Однако если вы рисуете фигуру с острыми углами, вам может подойти вариант **Miter**.
+
+![The join style in the presentation](join-style-powerpoint.png)
+
+В следующем примере кода на C++ показано, как были созданы три прямоугольника (как на изображении выше) с использованием настроек соединения Miter, Bevel и Round:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет 3 фигуры типа прямоугольник
-SharedPtr<IAutoShape> shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
-SharedPtr<IAutoShape> shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 300, 100, 150, 75);
-SharedPtr<IAutoShape> shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 250, 150, 75);
+// Добавьте три автофигуры типа Rectangle.
+auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Устанавливает цвет заливки для фигуры прямоугольника
+// Установите цвет заливки для каждой прямоугольной фигуры.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -88,12 +113,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Устанавливает ширину линии
+// Установите толщину линии.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Устанавливает цвет для линии прямоугольника
+// Установите цвет линии для каждого прямоугольника.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -101,265 +126,366 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Устанавливает стиль соединения
+// Установите стиль соединения.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// Добавляет текст к каждому прямоугольнику
-shape1->get_TextFrame()->set_Text(u"Стиль соединения Скошенный угол");
-shape2->get_TextFrame()->set_Text(u"Стиль соединения Фаска");
-shape3->get_TextFrame()->set_Text(u"Стиль соединения Закругление");
+// Добавьте текст к каждому прямоугольнику.
+shape1->get_TextFrame()->set_Text(u"Miter Join Style");
+shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
+shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpLnJoin_out.pptx", Export::SaveFormat::Pptx);
+// Сохраните файл PPTX на диск.
+presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
 
 ## **Градиентная заливка**
-В PowerPoint градиентная заливка - это параметр форматирования, который позволяет вам применять непрерывный переход цветов к фигуре. Например, вы можете применить два или более цветов в настройке, где один цвет постепенно исчезает и сменяется другим цветом.
 
-Вот как вы используете Aspose.Slides для применения градиентной заливки к фигуре:
+В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применять плавный переход цветов к фигуре. Например, можно задать два и более цветов, где один постепенно переходит в другой.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) фигуры в `Gradient`.
-5. Добавьте ваши 2 предпочтительных цвета с определенными позициями, используя методы `Add`, предоставленные коллекцией `GradientStops`, связанной с классом `GradientFormat`.
-6. Запишите измененную презентацию в файл PPTX.
+Как применить градиентную заливку к фигуре с помощью Aspose.Slides:
 
-Этот C++ код демонстрирует операцию, где эффект градиентной заливки был использован на эллипсе:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) фигуры в значение `Gradient`.
+1. Добавьте два желаемых цвета с определёнными позициями, используя методы `Add` из коллекции остановок градиента, доступной через интерфейс [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) .
+1. Сохраните изменённую презентацию как файл PPTX.
 
+В следующем примере кода на C++ показано, как применить градиентный эффект к эллипсу:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
-    
-// Добавляет эллипс
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 150, 75, 150);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Применяет градиентное форматирование к эллипсу
-autoShape->get_FillFormat()->set_FillType(FillType::Gradient);
-autoShape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
+// Добавьте автофигуру типа Ellipse.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Устанавливает направление градиента
-autoShape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
+// Примените градиентное форматирование к эллипсу.
+shape->get_FillFormat()->set_FillType(FillType::Gradient);
+shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// Добавляет 2 градиентные остановки
-autoShape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
-autoShape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
+// Установите направление градиента.
+shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// Записывает файл PPTX на диск
-pres->Save(u"FillShapesGradient_out.pptx", Export::SaveFormat::Pptx);
+// Добавьте две градиентные остановки.
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
+
+// Сохраните файл PPTX на диск.
+presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Заливка узором**
-В PowerPoint заливка узором - это параметр форматирования, который позволяет применять двухцветный дизайн, состоящий из точек, полос, крестиков или клеток к фигуре. Кроме того, вы можете выбрать предпочтительные цвета для переднего и заднего плана вашего узора.
 
-Aspose.Slides предоставляет более 45 предопределенных стилей, которые можно использовать для форматирования фигур и обогащения презентаций. Даже после того, как вы выбрали предопределенный узор, вы все равно можете указать цвета, которые должен содержать узор.
+Результат:
 
-Вот как вы используете Aspose.Slides для применения заливки узором к фигуре:
+![The ellipse with gradient fill](gradient-fill.png)
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) фигуры в `Pattern`.
-5. Установите предпочтительный стиль узора для фигуры.
-6. Установите [Цвет фона](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#af55b6343b7bd80d0ad95070e96b8766e) для [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
-7. Установите [Цвет переднего плана](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#a4121d8c2233df4b90cbfd6ea4c312cbe) для [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
-8. Запишите измененную презентацию в файл PPTX.
+## **Заливка паттерном**
 
-Этот C++ код демонстрирует операцию, где заливка узором использовалась для украшения прямоугольника:
+В PowerPoint заливка паттерном — это параметр, позволяющий применить двухцветный дизайн (точки, полосы, перекрёстные штрихи или шахматы) к фигуре. Вы можете задать собственные цвета переднего и заднего плана паттерна.
 
+Aspose.Slides предоставляет более 45 предопределённых стилей паттернов, которые можно применить к фигурам для улучшения визуального восприятия презентаций. Даже после выбора предопределённого паттерна вы можете указать точные цвета, которые он будет использовать.
+
+Как применить заливку паттерном к фигуре с помощью Aspose.Slides:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) фигуры в значение `Pattern`.
+1. Выберите стиль паттерна из предопределённых вариантов.
+1. Установите [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) паттерна.
+1. Установите [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) паттерна.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+В следующем примере кода на C++ показано, как применить заливку паттерном к прямоугольнику:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет прямоугольник
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Добавьте автофигуру типа Rectangle.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Устанавливает тип заливки в узор
-autoShape->get_FillFormat()->set_FillType(FillType::Pattern);
+// Установите тип заливки в Pattern.
+shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Устанавливает стиль узора
-autoShape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
+// Установите стиль паттерна.
+shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Устанавливает цвета узора фона и переднего плана
-autoShape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
-autoShape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
+// Установите фон и передний цвет паттерна.
+shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
+shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpPatt_out.pptx", Export::SaveFormat::Pptx);
+// Сохраните файл PPTX на диск.
+presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Заливка картинкой**
-В PowerPoint заливка картинкой - это параметр форматирования, который позволяет разместить картинку внутри фигуры. По сути, вы можете использовать картинку в качестве фона фигуры.
 
-Вот как вы используете Aspose.Slides для заполнения фигуры картинкой:
+Результат:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) фигуры в `Picture`.
-5. Установите режим заливки картины в Тайлы.
-6. Создайте объект `IPPImage`, используя изображение, которое будет использоваться для заполнения фигуры.
-7. Установите свойство `Picture.Image` объекта `PictureFillFormat` на только что созданный `IPPImage`.
-8. Запишите измененную презентацию в файл PPTX.
+![The rectangle with pattern fill](pattern-fill.png)
 
-Этот C++ код показывает вам, как заполнить фигуру картинкой:
+## **Заливка изображением**
 
+В PowerPoint заливка изображением — это параметр, позволяющий вставить изображение внутрь фигуры, сделав его фоном фигуры.
+
+Как использовать Aspose.Slides для применения заливки изображением к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) фигуры в значение `Picture`.
+1. Установите режим заливки изображения в `Tile` (или другой предпочтительный режим).
+1. Создайте объект [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) из изображения, которое хотите использовать.
+1. Передайте изображение методу `ISlidesPicture.set_Image`.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+Допустим, у нас есть файл «lotus.png» со следующим изображением:
+
+![The lotus picture](lotus.png)
+
+В следующем примере кода на C++ показано, как заполнить фигуру изображением:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет прямоугольник
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Добавьте автофигуру типа Rectangle.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Устанавливает тип заливки в картинку
-autoShape->get_FillFormat()->set_FillType(FillType::Picture);
+// Установите тип заливки в Picture.
+shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Устанавливает режим заливки картинки
-autoShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
+// Установите режим заливки изображением.
+shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Устанавливает картинку
-auto img = Images::FromFile(u"Tulips.jpg");
-auto imgx = pres->get_Images()->AddImage(img);
-autoShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+// Загрузите изображение и добавьте его в ресурсы презентации.
+auto image = Images::FromFile(u"lotus.png");
+auto picture = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpPic_out.pptx", Export::SaveFormat::Pptx);
+// Установите изображение.
+shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
+
+// Сохраните файл PPTX на диск.
+presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+Результат:
+
+![The shape with picture fill](picture-fill.png)
+
+### **Мозаика изображения в качестве текстуры**
+
+Если нужно задать мозаичное изображение в качестве текстуры и настроить её параметры, используйте следующие методы интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) :
+
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) — задаёт режим заливки изображения: `Tile` или `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/) — определяет выравнивание плиток внутри фигуры.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/) — управляет зеркалированием плитки по горизонтали, вертикали или обоим направлениям.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/) — задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/) — задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/) — определяет горизонтальный масштаб плитки в процентах.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/) — определяет вертикальный масштаб плитки в процентах.
+
+В следующем примере кода показано, как добавить прямоугольник с мозаичной заливкой изображением и настроить параметры плитки:
+```cpp
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
+
+// Получите первый слайд.
+auto firstSlide = presentation->get_Slide(0);
+
+// Добавьте автофигуру прямоугольника.
+auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
+
+// Установите тип заливки фигуры в Picture.
+shape->get_FillFormat()->set_FillType(FillType::Picture);
+
+// Загрузите изображение и добавьте его в ресурсы презентации.
+auto sourceImage = Images::FromFile(u"lotus.png");
+auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
+sourceImage->Dispose();
+
+// Присвойте изображение фигуре.
+auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
+pictureFillFormat->get_Picture()->set_Image(presentationImage);
+
+// Настройте режим заливки изображением и свойства мозаики.
+pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+pictureFillFormat->set_TileOffsetX(-32);
+pictureFillFormat->set_TileOffsetY(-32);
+pictureFillFormat->set_TileScaleX(50);
+pictureFillFormat->set_TileScaleY(50);
+pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
+pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
+
+// Сохраните файл PPTX на диск.
+presentation->Save(u"tile.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+Результат:
+
+![The tile options](tile-options.png)
 
 ## **Сплошная заливка цветом**
-В PowerPoint сплошная заливка цветом - это параметр форматирования, который позволяет заполнять фигуру единым цветом. Выбранный цвет обычно является простым цветом. Цвет применяется к фону фигуры без каких-либо специальных эффектов или модификаций.
 
-Вот как вы используете Aspose.Slides для применения сплошной заливки цветом к фигуре:
+В PowerPoint сплошная заливка цветом — параметр, который заполняет фигуру одним однородным цветом без градиентов, текстур или паттернов.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) фигуры в `Solid`.
-5. Установите свой предпочтительный цвет для фигуры.
-6. Запишите измененную презентацию в файл PPTX.
+Чтобы применить сплошную заливку к фигуре с помощью Aspose.Slides, выполните следующие действия:
 
-Вышеупомянутые шаги реализованы в примере ниже.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) фигуры в значение `Solid`.
+1. Укажите желаемый цвет заливки.
+1. Сохраните изменённую презентацию как файл PPTX.
 
+В следующем примере кода на C++ показано, как применить сплошную заливку к прямоугольнику на слайде PowerPoint:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет прямоугольник
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Добавьте автофигуру типа Rectangle.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Устанавливает тип заливки в сплошной цвет
-autoShape->get_FillFormat()->set_FillType(FillType::Solid);
-
-// Устанавливает цвет для прямоугольника
-autoShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
-
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpSolid_out.pptx", Export::SaveFormat::Pptx);
-```
-
-## **Установить прозрачность**
-
-В PowerPoint, когда вы заполняете фигуры сплошными цветами, градиентами, картинками или текстурами, вы можете указать уровень прозрачности, который определяет непрозрачность заливки. Таким образом, например, если вы установите низкий уровень прозрачности, объект слайда или фон за (фигурой) покажется сквозь фигуру.
-
-Aspose.Slides позволяет вам установить уровень прозрачности для фигуры следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Используйте `Color.FromArgb` с установленным компонентом альфа.
-5. Сохраните объект как файл PowerPoint.
-
-Этот C++ код демонстрирует процесс:
-
-```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
-
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
-
-// Добавляет фигуру с плотной заливкой
-auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 75, 175, 75, 150);
-
-// Добавляет прозрачную фигуру на фигуру с плотной заливкой
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Установите тип заливки в Solid.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
-shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(128, 204, 102, 0));
-   
-// Записывает файл PPTX на диск
-pres->Save(u"ShapeTransparentOverSolid_out.pptx", Export::SaveFormat::Pptx);
+
+// Установите цвет заливки.
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
+
+// Сохраните файл PPTX на диск.
+presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+Результат:
+
+![The shape with solid color fill](solid-color-fill.png)
+
+## **Установка прозрачности**
+
+В PowerPoint, применяя сплошную, градиентную, картинную или текстурную заливку к фигурам, можно задать уровень прозрачности, контролирующий степень непрозрачности заливки. Чем выше значение прозрачности, тем более «прозрачной» будет фигура, позволяя видеть фон или объекты за ней.
+
+Aspose.Slides позволяет установить уровень прозрачности, изменяя альфа‑компонент цвета, используемого для заливки. Как это сделать:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) в `Solid`.
+1. Используйте `Color`, задав цвет с необходимой прозрачностью (компонент `alpha` контролирует прозрачность).
+1. Сохраните презентацию.
+
+В следующем примере кода на C++ показано, как задать прозрачный цвет заливки для прямоугольника:
+```cpp
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
+
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
+
+// Добавьте автофигуру прямоугольника (сплошную).
+auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
+
+// Добавьте автофигуру прямоугольника с прозрачностью поверх сплошной фигуры.
+auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
+transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
+transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
+
+// Сохраните файл PPTX на диск.
+presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+Результат:
+
+![The transparent shape](shape-transparency.png)
 
 ## **Поворот фигур**
-Aspose.Slides позволяет вам поворачивать фигуру, добавленную на слайд, следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-4. Поверните фигуру на необходимое количество градусов.
-5. Запишите измененную презентацию в файл PPTX.
+Aspose.Slides позволяет поворачивать фигуры в презентациях PowerPoint. Это может быть полезно при расположении визуальных элементов с определёнными требованиями к выравниванию или дизайну.
 
-Этот C++ код показывает вам, как повернуть фигуру на 90 градусов:
+Чтобы повернуть фигуру на слайде, выполните следующие шаги:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство поворота фигуры на требуемый угол.
+1. Сохраните презентацию.
+
+В следующем примере кода на C++ показано, как повернуть фигуру на 5 градусов:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+// Получите первый слайд.
+auto slide = presentation->get_Slide(0);
 
-// Добавляет фигуру типа прямоугольник
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Добавьте автофигуру типа Rectangle.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Поворачивает фигуру на 90 градусов
-autoShape->set_Rotation(90.f);
+// Поверните фигуру на 5 градусов.
+shape->set_Rotation(5);
 
-// Записывает файл PPTX на диск
-pres->Save(u"RectShpRot_out.pptx", Export::SaveFormat::Pptx);
+// Сохраните файл PPTX на диск.
+presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Добавить эффекты 3D фаски**
-Aspose.Slides позволяет вам добавлять эффекты 3D фаски к фигуре, изменяя свойства [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-3. Установите ваши предпочтительные параметры для свойств [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) фигуры.
-4. Запишите презентацию на диск.
+Результат:
 
-Этот C++ код показывает вам, как добавить эффекты 3D фаски к фигуре:
+![The shape rotation](shape-rotation.png)
 
+## **Добавление 3D‑эффектов фаски**
+
+Aspose.Slides позволяет применять к фигурам 3D‑эффекты фаски, настроив их свойства [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) .
+
+Чтобы добавить 3D‑эффекты фаски к фигуре, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Настройте свойства [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) фигуры, задав параметры фаски.
+1. Сохраните презентацию.
+
+В следующем примере кода на C++ показано, как применить 3D‑эффекты фаски к фигуре:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slide(0);
 
-// Добавляет фигуру на слайд
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 30, 200, 200);
+// Добавьте фигуру на слайд.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
-auto format = shape->get_LineFormat()->get_FillFormat();
-format->set_FillType(FillType::Solid);
-format->get_SolidFillColor()->set_Color(Color::get_Orange());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Устанавливает свойства 3D формата фигуры
+// Set the shape's ThreeDFormat properties.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -368,60 +494,80 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Записывает презентацию в файл PPTX
-pres->Save(u"Bavel_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Сохраните презентацию в файл PPTX.
+presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Добавить эффект 3D ротации**
-Aspose.Slides позволяет вам применять эффекты 3D ротации к фигуре, изменяя свойства [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) на слайд.
-3. Укажите ваши предпочтительные фигуры для [CameraType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_camera#aea0717e8ef5f3199df99ed2cb2ea2dcb) и [LightType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_light_rig#a2cd12029664967d0e2f93eee25a4963f).
-4. Запишите презентацию на диск.
+Результат:
 
-Этот C++ код показывает вам, как применить эффекты 3D ротации к фигуре:
+![The 3D bevel effect](3D-bevel-effect.png)
 
+## **Добавление 3D‑поворотов**
+
+Aspose.Slides позволяет применять к фигурам 3D‑повороты, настроив их свойства [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) .
+
+Чтобы применить 3D‑поворот к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) на слайд.
+1. Используйте методы [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) и [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) для определения 3D‑поворота.
+1. Сохраните презентацию.
+
+В следующем примере кода на C++ показано, как применить 3D‑повороты к фигуре:
 ```cpp
-// Создает экземпляр класса презентации, который представляет файл презентации
-auto pres = MakeObject<Presentation>();
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-// Получает первый слайд
-auto slide = pres->get_Slides()->idx_get(0);
-    
-// Добавляет фигуру на слайд
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 30, 200, 200);
+auto slide = presentation->get_Slide(0);
 
-// Устанавливает свойства 3D формата фигуры
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
+shape->get_TextFrame()->set_Text(u"Hello, Aspose!");
+
 shape->get_ThreeDFormat()->set_Depth(6);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Добавляет фигуру на слайд
-shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 300, 200, 200);
-
-// Устанавливает свойства 3D формата фигуры
-shape->get_ThreeDFormat()->set_Depth(6);
-shape->get_ThreeDFormat()->get_Camera()->SetRotation(0, 35, 20);
-shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
-shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
-
-// Записывает презентацию в файл PPTX
-pres->Save(u"Rotation_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Сохраните презентацию в файл PPTX.
+presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+Результат:
+
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Сброс форматирования**
 
-Этот C++ код показывает вам, как сбросить форматирование в слайде и вернуть позицию, размер и форматирование каждой фигуры, которая имеет заполнение на [LayoutSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.layout_slide), к их значениям по умолчанию:
+В следующем примере кода на C++ показано, как сбросить форматирование слайда и вернуть позицию, размер и форматирование всех фигур‑заполнителей на [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) к их значениям по умолчанию:
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-
-for (auto slide : pres->get_Slides())
+for (auto&& slide : presentation->get_Slides())
 {
-    // Каждая фигура на слайде, которая имеет заполнение на макете, будет возвращена
+    // Сбросьте каждую фигуру на слайде, имеющую заполнитель в макете.
     slide->Reset();
 }
+
+presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**Влияет ли форматирование фигур на конечный размер файла презентации?**
+
+Практически не влияет. Большую часть объёма занимают встроенные изображения и медиа, тогда как параметры фигур (цвета, эффекты, градиенты) сохраняются как метаданные и почти не увеличивают размер файла.
+
+**Как определить фигуры на слайде с одинаковым форматированием, чтобы их сгруппировать?**
+
+Сравните ключевые параметры форматирования каждой фигуры — параметры заливки, линий и эффектов. Если все соответствующие значения совпадают, считайте их стили идентичными и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
+
+**Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
+
+Да. Сохраните образцы фигур с требуемыми стилями в шаблоне презентации или файле‑шаблоне *.POTX*. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и применяйте их форматирование где необходимо.
