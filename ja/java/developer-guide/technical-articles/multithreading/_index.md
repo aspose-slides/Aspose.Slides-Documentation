@@ -1,31 +1,34 @@
 ---
-title: Aspose.Slidesにおけるマルチスレッド
+title: Java 用 Aspose.Slides のマルチスレッド化
+linktitle: マルチスレッド
 type: docs
 weight: 310
 url: /ja/java/multithreading/
 keywords:
+- マルチスレッディング
+- 複数スレッド
+- 並列処理
+- スライド変換
+- スライドから画像へ
 - PowerPoint
+- OpenDocument
 - プレゼンテーション
-- マルチスレッド
-- 並行作業
-- スライドを変換
-- スライドを画像に
 - Java
-- Aspose.Slides for Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のマルチスレッド化は PowerPoint と OpenDocument の処理を高速化します。効率的なプレゼンテーションワークフローのベストプラクティスをご紹介します。"
 ---
 
-## **はじめに**
+## **イントロダクション**
 
-プレゼンテーションとの並行作業は可能であり（解析/ロード/クローン処理を除く）、ほとんどの場合は問題なく処理されますが、ライブラリを複数のスレッドで使用する場合には、正しくない結果が得られる可能性がわずかにあります。
+プレゼンテーションの並列処理は（解析/ロード/クローンを除き）可能で、ほとんどの場合問題なく動作しますが、ライブラリを複数のスレッドで使用すると結果が正しくないことが稀にあります。
 
-マルチスレッド環境で単一の[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)インスタンスを使用しないことを強くお勧めします。これは、予測できないエラーや簡単には検出できない失敗を引き起こす可能性があります。
+マルチスレッド環境で単一の[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)インスタンスを使用しないことを強く推奨します。予測できないエラーや検出が難しい障害が発生する可能性があります。
 
-複数のスレッドで[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスをロード、保存、および/またはクローンすることは**安全ではありません**。そのような操作は**サポートされていません**。そのような作業を実行する必要がある場合は、複数の単一スレッドプロセスを使用して操作を並行化する必要があり、それぞれのプロセスは独自のプレゼンテーションインスタンスを使用する必要があります。
+複数のスレッドで[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスをロード、保存、またはクローンすることは安全ではありません。このような操作はサポートされていません。該当タスクが必要な場合は、複数の単一スレッドプロセスに分割して並列実行し、各プロセスが独自のプレゼンテーションインスタンスを使用する必要があります。
 
-## **プレゼンテーションのスライドを画像に並行して変換する**
+## **プレゼンテーションスライドを並列で画像に変換する**
 
-PowerPointプレゼンテーションのすべてのスライドをPNG画像に並行して変換したいとしましょう。複数のスレッドで単一の`Presentation`インスタンスを使用するのは安全ではないため、プレゼンテーションのスライドを個別のプレゼンテーションに分割し、各プレゼンテーションを別々のスレッドで使用してスライドを画像に並行して変換します。以下のコード例は、これを行う方法を示しています。
-
+PowerPointプレゼンテーションのすべてのスライドをPNG画像に並列変換したいとします。複数スレッドで単一の`Presentation`インスタンスを使用するのは安全でないため、スライドを別々のプレゼンテーションに分割し、各スレッドで個別のプレゼンテーションを使用して画像に変換します。以下のコード例に手順が示されています。
 ```java
 String inputFilePath = "sample.pptx";
 String outputFilePathTemplate = "slide_%d.png";
@@ -41,13 +44,13 @@ float slideHeight = (float) slideSize.getHeight();
 List<CompletableFuture<Void>> conversionTasks = new ArrayList<>(slideCount);
 
 for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
-    // スライドiを別のプレゼンテーションに抽出します。
+    // スライド i を別のプレゼンテーションに抽出します。
     Presentation slidePresentation = new Presentation();
     slidePresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.DoNotScale);
     slidePresentation.getSlides().removeAt(0);
     slidePresentation.getSlides().addClone(presentation.getSlides().get_Item(slideIndex));
 
-    // 別のタスクでスライドを画像に変換します。
+    // スライドを別のタスクで画像に変換します。
     final int slideNumber = slideIndex + 1;
     conversionTasks.add(CompletableFuture.runAsync(() -> {
         IImage image = null;
@@ -64,8 +67,27 @@ for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
     }));
 }
 
-// すべてのタスクが完了するのを待ちます。
+// すべてのタスクが完了するまで待機します。
 CompletableFuture.allOf(conversionTasks.toArray(new CompletableFuture[0])).join();
 
 presentation.dispose();
 ```
+
+
+## **よくある質問**
+
+**すべてのスレッドでライセンス設定を呼び出す必要がありますか？**
+
+No. スレッド開始前にプロセス/アプリドメインごとに一度実行すれば十分です。[ライセンス設定](/slides/ja/java/licensing/)が同時に呼び出される可能性がある場合（例：遅延初期化時）、その呼び出しを同期してください。ライセンス設定メソッド自体はスレッドセーフではありません。
+
+**`Presentation`または`Slide`オブジェクトをスレッド間で渡すことはできますか？**
+
+「ライブ」なプレゼンテーションオブジェクトをスレッド間で渡すことは推奨されません。スレッドごとに独立したインスタンスを使用するか、各スレッド用に事前に別々のプレゼンテーション/スライドコンテナを作成してください。この方法は、単一のプレゼンテーションインスタンスをスレッド間で共有しないという一般的な推奨事項に沿っています。
+
+**各スレッドが独自の`Presentation`インスタンスを持つ場合、PDF、HTML、画像など異なるフォーマットへのエクスポートを並列化しても安全ですか？**
+
+はい。独立したインスタンスと個別の出力パスを使用すれば、通常は正しく並列化できます。プレゼンテーションオブジェクトやI/Oストリームを共有しないようにしてください。
+
+**マルチスレッド環境でのグローバルフォント設定（フォルダー、代替設定）はどう扱うべきですか？**
+
+スレッド開始前にすべてのグローバル[フォント設定](/slides/ja/java/powerpoint-fonts/)を初期化し、並列処理中に変更しないでください。これにより、共有フォントリソースへの競合が防止されます。

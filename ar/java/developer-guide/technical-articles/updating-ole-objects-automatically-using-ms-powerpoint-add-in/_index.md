@@ -1,22 +1,47 @@
 ---
-title: تحديث كائنات OLE تلقائيًا باستخدام إضافة MS PowerPoint
+title: تحديث كائنات OLE تلقائيًا باستخدام إضافة PowerPoint
 type: docs
 weight: 10
 url: /ar/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+keywords:
+- OLE
+- كائن OLE
+- تحديث OLE
+- تلقائيًا
+- إضافة
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "اكتشف كيفية تحديث مخططات OLE وكائناتها تلقائيًا في PowerPoint باستخدام إضافة و Aspose.Slides for Java، مع عرض أمثلة عملية ونصائح تحسين."
 ---
 
-## **حول تحديث كائنات OLE تلقائيًا**
-أحد أبرز الأسئلة التي يطرحها عملاء Aspose.Slides هو كيفية إنشاء أو تغيير المخططات القابلة للتحرير أو أي كائنات OLE أخرى وتحديثها تلقائيًا عند فتح العرض التقديمي. للأسف، لا يدعم PowerPoint أي ماكرو تلقائي، المتوفر في Excel و Word. الوحيدان المتوفران هما ماكرو Auto_Open و Auto_Close. ومع ذلك، فإنهما يعملان تلقائيًا فقط من مكون إضافي. تُظهر هذه النصيحة التقنية القصيرة كيفية تحقيق ذلك.
+## **تحديث كائنات OLE تلقائيًا**
 
-أولاً، هناك العديد من المكونات الإضافية المجانية المتاحة التي تضيف ميزة ماكرو Auto_Open إلى PowerPoint على سبيل المثال [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) و [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
+إحدى أكثر الأسئلة شيوعًا التي يطرحها عملاء Aspose.Slides for Java هي كيفية إنشاء أو تعديل المخططات القابلة للتحرير (أو كائنات OLE أخرى) بحيث يتم تحديثها تلقائيًا عند فتح العرض التقديمي. للأسف، لا يدعم PowerPoint الماكروهات الذاتية بنفس الطريقة التي يدعمها Excel وWord. الماكروهات المتاحة فقط هي `Auto_Open` و `Auto_Close`، وهذه تعمل تلقائيًا فقط من خلال إضافة. توضح هذه النصيحة التقنية القصيرة كيفية تحقيق ذلك.
 
-بعد تثبيت مثل هذا المكون الإضافي، أضف فقط ماكرو Auto_Open() (OnPresentationOpen() في حالة "Event Generator") إلى عرضك التقديمي النموذجي كما هو موضح أدناه:
+أولاً، هناك عدة إضافات مجانية تضيف ميزة ماكرو Auto_Open إلى PowerPoint، على سبيل المثال [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) و[Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
 
-{{< gist "mannanfazil" "c31114d3fe29596f0a53817b8f8705ac" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-UpdateOLEObject-UpdateOLEObject.java" >}}
+بعد تثبيت إحدى هذه الإضافات، ما عليك سوى إضافة ماكرو `Auto_Open()` (أو `OnPresentationOpen()` إذا كنت تستخدم Event Generator) إلى عرض القالب الخاص بك كما هو موضح أدناه:
+```java
+// التكرار عبر كل شريحة في العرض التقديمي.
+for (var oSlide : ActivePresentation.Slides) {
+    // التكرار عبر جميع الأشكال في الشريحة الحالية.
+    for (var oShape : oSlide.Shapes) {
+        // التحقق مما إذا كان الشكل كائن OLE.
+        if ((oShape.Type == msoEmbeddedOLEObject)) {
+            // تم العثور على كائن OLE. احصل على مرجع الكائن ثم قم بتحديثه.
+            oObject = oShape.OLEFormat.Object;
+            oObject.Application.Update();
+            // الآن، أوقف برنامج خادم OLE.
+            // هذا يحرر الذاكرة ويمنع أي مشاكل.
+            // أيضًا، اضبط oObject على Nothing لتحرير الكائن.
+            oObject.Application.Quit();
+            oObject = null;
+        }
+    }
+}
+```
 
 
-{{% alert color="primary" %}} 
-
-أي تغيير تم إجراؤه على كائنات OLE باستخدام Aspose.Slides سيتم تحديثه تلقائيًا عند فتح PowerPoint العرض التقديمي. إذا كان لديك العديد من كائنات OLE في عرض تقديمي ولا تريد تحديثها جميعًا، فقط أضف علامة مخصصة إلى الأشكال التي تحتاج إلى معالجتها وتحقق منها في الماكرو.
-
-{{% /alert %}}
+سيتم تحديث أي تغييرات تُجرى على كائنات OLE باستخدام Aspose.Slides for Java تلقائيًا عندما يفتح PowerPoint العرض التقديمي. إذا كان لديك العديد من كائنات OLE ولا تريد تحديثها جميعًا، ما عليك سوى إضافة علامة مخصصة إلى الأشكال التي تريد معالجتها والتحقق منها في الماكرو.

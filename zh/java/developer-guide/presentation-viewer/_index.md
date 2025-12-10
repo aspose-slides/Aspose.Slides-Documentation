@@ -1,198 +1,179 @@
 ---
-title: 演示文稿查看器
+title: 在 Java 中创建演示文稿查看器
+linktitle: 演示文稿查看器
 type: docs
 weight: 50
 url: /zh/java/presentation-viewer/
-keywords: "PowerPoint PPT 查看器"
-description: "Java 中的 PowerPoint PPT 查看器"
+keywords:
+- 查看演示文稿
+- 演示文稿查看器
+- 创建演示文稿查看器
+- 查看 PPT
+- 查看 PPTX
+- 查看 ODP
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 Java 中创建自定义演示文稿查看器。轻松显示 PowerPoint 和 OpenDocument 文件，无需 Microsoft PowerPoint。"
 ---
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文稿来查看。但是，有时，开发人员也可能需要在他们最喜欢的图像查看器中将幻灯片视为图像，或创建他们自己的演示文稿查看器。在这种情况下，Aspose.Slides for Java 允许您将单个幻灯片导出为图像。本文描述了如何实现这一点。
-
-{{% /alert %}} 
-
-## **实时示例**
-您可以尝试 [**Aspose.Slides 查看器**](https://products.aspose.app/slides/viewer/) 免费应用，以了解您可以使用 Aspose.Slides API 实现的功能：
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
+Aspose.Slides for Java 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过在 Microsoft PowerPoint 等软件中打开演示文稿来查看。但是，有时开发人员可能需要在自己喜欢的图像查看器中将幻灯片查看为图像，或创建自己的演示文稿查看器。在这种情况下，Aspose.Slides 允许您将单个幻灯片导出为图像。本文介绍了具体做法。
 
 ## **从幻灯片生成 SVG 图像**
-要使用 Aspose.Slides for Java 从任何所需的幻灯片生成 SVG 图像，请按照以下步骤操作：
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-- 通过使用其 ID 或索引获取所需幻灯片的引用。
-- 在内存流中获取 SVG 图像。
-- 将内存流保存到文件。
+要使用 Aspose.Slides 从演示文稿幻灯片生成 SVG 图像，请按照以下步骤操作：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 打开文件流。  
+1. 将幻灯片保存为 SVG 图像到文件流中。  
 ```java
-// 实例化表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // 访问第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // 创建内存流对象
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 生成幻灯片的 SVG 图像并保存到内存流中
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **使用自定义形状 IDS 生成 SVG**
-Aspose.Slides for Java 可用于从幻灯片生成 [SVG](https://docs.fileformat.com/page-description-language/svg/) ，使用自定义形状 ID。为此，请使用来自 [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgShape) 的 ID 属性，该属性表示在生成的 SVG 中形状的自定义 ID。可以使用 CustomSvgShapeFormattingController 设置形状 ID。
 
+## **使用自定义形状 ID 生成 SVG**
+
+Aspose.Slides 可用于从带有自定义形状 ID 的幻灯片生成 [SVG](https://docs.fileformat.com/page-description-language/svg/)。为此，请使用来自 [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/) 的 `setId` 方法。可以使用 `CustomSvgShapeFormattingController` 来设置形状 ID。  
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+  
 ```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
+class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
+    public CustomSvgShapeFormattingController() {
         m_shapeIndex = 0;
     }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
+
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
         m_shapeIndex = shapeStartIndex;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
 ```
 
-## **创建幻灯片缩略图图像**
-Aspose.Slides for Java 可帮助您生成幻灯片的缩略图图像。要使用 Aspose.Slides for Java 生成任何所需幻灯片的缩略图：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在指定的比例下获取引用幻灯片的缩略图图像。
-1. 将缩略图图像保存为任何所需的图像格式。
+## **创建幻灯片缩略图**
 
+Aspose.Slides 帮助您生成幻灯片的缩略图。要使用 Aspose.Slides 生成幻灯片的缩略图，请按照以下步骤操作：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 按定义的比例获取引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```java
-// 实例化表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // 访问第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // 创建全尺寸图像
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 以 JPEG 格式将图像保存到磁盘
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **使用用户定义的尺寸创建缩略图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在指定的比例下获取引用幻灯片的缩略图图像。
-1. 将缩略图图像保存为任何所需的图像格式。
+## **使用用户定义尺寸创建幻灯片缩略图**
 
+要使用用户定义的尺寸创建幻灯片缩略图，请按照以下步骤操作：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 使用定义的尺寸获取引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```java
-// 实例化表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // 访问第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Dimension slideSize = new Dimension(1200, 800);
 
-    // 用户定义尺寸
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 获取 X 和 Y 的缩放值
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // 创建全尺寸图像
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // 以 JPEG 格式将图像保存到磁盘
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **在备注幻灯片视图中从幻灯片创建缩略图**
-要生成任何所需幻灯片在备注幻灯片视图中的缩略图，请使用 Aspose.Slides for Java：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在备注幻灯片视图中，以指定的比例获取引用幻灯片的缩略图图像。
-1. 将缩略图图像保存为任何所需的图像格式。
+## **使用演讲者备注创建幻灯片缩略图**
 
-下面的代码片段生成演示文稿中第一张幻灯片在备注幻灯片视图中的缩略图。
+要使用 Aspose.Slides 生成带有演讲者备注的幻灯片缩略图，请按照以下步骤操作：
 
+1. 创建 [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) 类的实例。  
+1. 使用 `RenderingOptions.setSlidesLayoutOptions` 方法设置演讲者备注的位置。  
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 使用渲染选项获取引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```java
-// 实例化表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // 访问第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // 用户定义尺寸
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // 获取 X 和 Y 的缩放值
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // 创建全尺寸图像
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 以 JPEG 格式将图像保存到磁盘
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **实时示例**
+
+您可以尝试免费应用 [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) 来了解使用 Aspose.Slides API 可以实现的功能：
+
+![在线 PowerPoint 查看器](online-PowerPoint-viewer.png)
+
+## **常见问题**
+
+**我可以在 Web 应用程序中嵌入演示文稿查看器吗？**
+
+可以。您可以在服务器端使用 Aspose.Slides 将幻灯片渲染为图像或 HTML，并在浏览器中显示。可以使用 JavaScript 实现导航和缩放功能，以获得交互式体验。
+
+**在自定义查看器中显示幻灯片的最佳方法是什么？**
+
+推荐的做法是将每张幻灯片渲染为图像（例如 PNG 或 SVG）或使用 Aspose.Slides 转换为 HTML，然后在桌面应用中放入图片框或在 Web 中放入 HTML 容器进行显示。
+
+**如何处理包含大量幻灯片的大型演示文稿？**
+
+对于大型文稿，建议采用懒加载或按需渲染的方式。即仅在用户导航到某张幻灯片时生成该幻灯片的内容，从而降低内存占用和加载时间。

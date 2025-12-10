@@ -1,44 +1,177 @@
----  
-title: Schutz auf Präsentation anwenden  
-type: docs  
-weight: 60  
-url: /de/java/applying-protection-to-presentation/  
----  
+---
+title: Verhindern von Präsentationsbearbeitungen mit Form‑Sperren
+linktitle: Verhindern von Präsentationsbearbeitungen
+type: docs
+weight: 60
+url: /de/java/applying-protection-to-presentation/
+keywords:
+- Bearbeitungen verhindern
+- Vor Bearbeitung schützen
+- Form sperren
+- Position sperren
+- Auswahl sperren
+- Größe sperren
+- Gruppierung sperren
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Entdecken Sie, wie Aspose.Slides für Java Formen in PPT-, PPTX- und ODP‑Dateien sperrt oder entsperrt, Präsentationen sichert und gleichzeitig kontrollierte Bearbeitungen sowie schnellere Bereitstellung ermöglicht."
+---
 
-{{% alert color="primary" %}}  
-  
-Eine häufige Verwendung von Aspose.Slides besteht darin, Microsoft PowerPoint 2007 (PPTX) Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Benutzer der Anwendung, die Aspose.Slides auf diese Weise verwenden, erhalten Zugriff auf die ausgegebenen Präsentationen. Sie vor Bearbeitung zu schützen, ist eine gängige Sorge. Es ist wichtig, dass automatisch generierte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.  
+## **Hintergrund**
 
-Dieser Artikel erklärt, wie [Präsentationen und Folien aufgebaut sind](/slides/de/java/applying-protection-to-presentation/) und wie Aspose.Slides für Java [Schutz anwenden kann](/slides/de/java/applying-protection-to-presentation/), und dann [ihn von](/slides/de/java/applying-protection-to-presentation/) einer Präsentation [entfernen kann](/slides/de/java/applying-protection-to-presentation/). Dieses Feature ist einzigartig für Aspose.Slides und zum Zeitpunkt des Schreibens nicht in Microsoft PowerPoint verfügbar. Es gibt Entwicklern eine Möglichkeit, zu kontrollieren, wie die von ihren Anwendungen erstellten Präsentationen verwendet werden.  
+Eine häufige Verwendung von Aspose.Slides besteht darin, Microsoft PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Benutzer von Anwendungen, die Aspose.Slides auf diese Weise einsetzen, haben Zugriff auf die erzeugten Präsentationen, sodass der Schutz vor Bearbeitung ein gängiges Anliegen ist. Es ist wichtig, dass automatisch erzeugte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.
 
-{{% /alert %}}  
-## **Aufbau einer Folie**  
-Eine PPTX-Folie besteht aus einer Vielzahl von Komponenten wie Aut Shapes, Tabellen, OLE-Objekten, gruppierten Formen, Bilderrahmen, Video-Frames, Verbindern und anderen verschiedenen Elementen, die zum Aufbau einer Präsentation verfügbar sind. In Aspose.Slides für Java wird jedes Element auf einer Folie in ein Shape-Objekt umgewandelt. Mit anderen Worten, jedes Element auf der Folie ist entweder ein Shape-Objekt oder ein von dem Shape-Objekt abgeleitetes Objekt. Die Struktur von PPTX ist komplex, sodass im Gegensatz zu PPT, wo ein generischer Lock für alle Arten von Formen verwendet werden kann, es unterschiedliche Lock-Arten für verschiedene Formtypen gibt. Die BaseShapeLock-Klasse ist die generische PPTX-Lock-Klasse. Die folgenden Lock-Arten werden in Aspose.Slides für Java für PPTX unterstützt.  
+Dieser Artikel erklärt, wie Präsentationen und Folien aufgebaut sind und wie Aspose.Slides für Java Schutz auf eine Präsentation anwenden und später wieder entfernen kann. Er gibt Entwicklern eine Möglichkeit, zu steuern, wie die von ihren Anwendungen erzeugten Präsentationen verwendet werden.
 
-- AutoShapeLock schützt Auto Shapes.  
-- ConnectorLock schützt Connector-Formen.  
-- GraphicalObjectLock schützt grafische Objekte.  
-- GroupshapeLock schützt Gruppenformen.  
-- PictureFrameLock schützt Bilderrahmen.  
-  Jede Aktion, die auf alle Shape-Objekte in einem Präsentationsobjekt ausgeführt wird, wird auf die gesamte Präsentation angewendet.  
-## **Schutz anwenden und entfernen**  
-Schutz anzuwenden stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik zum Schutz des Inhalts einer Präsentation.  
-## **Schutz auf PPTX-Formen anwenden**  
-Aspose.Slides für Java bietet die Shape-Klasse, um eine Form auf der Folie zu bearbeiten.  
+## **Aufbau einer Folie**
 
-Wie bereits erwähnt, hat jede Shape-Klasse eine zugehörige Shape-Lock-Klasse für den Schutz. Dieser Artikel konzentriert sich auf die NoSelect-, NoMove- und NoResize-Locks. Diese Locks stellen sicher, dass Formen nicht ausgewählt (durch Mausklicks oder andere Auswahlmethoden) und nicht verschoben oder in der Größe geändert werden können.  
+Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE-Objekten, Gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für Java wird jedes Element einer Folie durch ein Objekt repräsentiert, das das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface implementiert oder von einer entsprechenden Klasse erbt.
 
-Die folgenden Beispielcodes wenden Schutz auf alle Formtypen in einer Präsentation an.  
+Die Struktur von PPTX ist komplex, daher kann im Gegensatz zu PPT, wo ein generischer Lock für alle Formtypen verwendet werden kann, bei PPTX für unterschiedliche Formtypen unterschiedliche Locks erforderlich sein. Das [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/)‑Interface ist die generische Sperrklasse für PPTX. Die folgenden Lock‑Typen werden in Aspose.Slides für Java für PPTX unterstützt:
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-ApplyProtection-ApplyProtection.java" >}}  
-## **Schutz entfernen**  
-Der Schutz, der mit Aspose.Slides für .NET/Java angewendet wurde, kann nur mit Aspose.Slides für .NET/Java entfernt werden. Um eine Form zu entsperren, setzen Sie den Wert des angewendeten Locks auf false. Das folgende Codebeispiel zeigt, wie man Formen in einer gesperrten Präsentation entsperrt.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) sperrt Autoformen.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) sperrt Verbinderformen.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) sperrt grafische Objekte.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) sperrt Gruppierungsformen.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) sperrt Bildrahmen.  
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-RemoveProtection-RemoveProtection.java" >}}  
+Jede Aktion, die an allen Formobjekten in einem [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Objekt durchgeführt wird, wirkt sich auf die gesamte Präsentation aus.
 
-## **Zusammenfassung**  
-{{% alert color="primary" %}}  
-  
-Aspose.Slides bietet eine Reihe von Optionen für den Schutz von Formen in einer Präsentation. Es ist möglich, eine bestimmte Form zu sperren oder durch alle Formen in einer Präsentation zu iterieren und alle zu sperren, um die Präsentation effektiv zu sperren. Nur Aspose.Slides für Java kann den Schutz von einer Präsentation entfernen, die zuvor geschützt wurde. Entfernen Sie den Schutz, indem Sie den Wert eines Locks auf false setzen.  
+## **Schutz anwenden und entfernen**
 
-{{% /alert %}}
+Der Einsatz von Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik, um den Inhalt der Präsentation zu schützen.
+
+### **Schutz auf PPTX‑Formen anwenden**
+
+Aspose.Slides für Java stellt das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface bereit, um mit Formen auf einer Folie zu arbeiten.
+
+Wie bereits erwähnt, besitzt jede Formklasse eine zugehörige Form‑Lock‑Klasse für den Schutz. Dieser Artikel konzentriert sich auf die Locks NoSelect, NoMove und NoResize. Diese Locks verhindern, dass Formen ausgewählt werden können (durch Mausklicks oder andere Auswahlmethoden) und dass sie verschoben oder in der Größe verändert werden können.
+
+Das folgende Beispiel wendet Schutz auf alle Formtypen in einer Präsentation an.
+```java
+// Instanziieren der Presentation-Klasse, die eine PPTX-Datei repräsentiert.
+Presentation presentation = new Presentation("Sample.pptx");
+
+// Durchlaufen aller Folien in der Präsentation.
+for (ISlide slide : presentation.getSlides()) {
+
+    // Durchlaufen aller Formen in der Folie.
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            // Typumwandlung der Form in eine Autoform und Abrufen der Form-Sperre.
+            IAutoShape autoShape = (IAutoShape) shape;
+            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+
+            autoShapeLock.setPositionLocked(true);
+            autoShapeLock.setSelectLocked(true);
+            autoShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IGroupShape) {
+            // Typumwandlung der Form in eine Gruppierungsform und Abrufen der Form-Sperre.
+            IGroupShape groupShape = (IGroupShape) shape;
+            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+
+            groupShapeLock.setGroupingLocked(true);
+            groupShapeLock.setPositionLocked(true);
+            groupShapeLock.setSelectLocked(true);
+            groupShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IConnector) {
+            // Typumwandlung der Form in eine Verbindungslinie und Abrufen der Form-Sperre.
+            IConnector connectorShape = (IConnector) shape;
+            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+
+            connectorShapeLock.setPositionMove(true);
+            connectorShapeLock.setSelectLocked(true);
+            connectorShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IPictureFrame) {
+            // Typumwandlung der Form in einen Bildrahmen und Abrufen der Form-Sperre.
+            IPictureFrame pictureFrame = (IPictureFrame) shape;
+            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+
+            pictureFrameLock.setPositionLocked(true);
+            pictureFrameLock.setSelectLocked(true);
+            pictureFrameLock.setSizeLocked(true);
+        }
+    }
+}
+
+// Speichern der Präsentationsdatei.
+presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+### **Schutz entfernen**
+
+Um eine Form zu entsperren, setzen Sie den Wert des angewendeten Locks auf `false`. Das folgende Beispiel zeigt, wie Formen in einer gesperrten Präsentation freigegeben werden.
+```java
+// Instanziieren der Presentation-Klasse, die eine PPTX-Datei repräsentiert.
+Presentation presentation = new Presentation("ProtectedSample.pptx");
+
+// Durchlaufen aller Folien in der Präsentation.
+for (ISlide slide : presentation.getSlides()) {
+
+    // Durchlaufen aller Formen in der Folie.
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            // Typumwandlung der Form in eine Autoform und Abrufen der Form-Sperre.
+            IAutoShape autoShape = (IAutoShape) shape;
+            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+
+            autoShapeLock.setPositionLocked(false);
+            autoShapeLock.setSelectLocked(false);
+            autoShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IGroupShape) {
+            // Typumwandlung der Form in eine Gruppierungsform und Abrufen der Form-Sperre.
+            IGroupShape groupShape = (IGroupShape) shape;
+            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+
+            groupShapeLock.setGroupingLocked(false);
+            groupShapeLock.setPositionLocked(false);
+            groupShapeLock.setSelectLocked(false);
+            groupShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IConnector) {
+            // Typumwandlung der Form in eine Verbindungslinie und Abrufen der Form-Sperre.
+            IConnector connectorShape = (IConnector) shape;
+            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+
+            connectorShapeLock.setPositionMove(false);
+            connectorShapeLock.setSelectLocked(false);
+            connectorShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IPictureFrame) {
+            // Typumwandlung der Form in einen Bildrahmen und Abrufen der Form-Sperre.
+            IPictureFrame pictureFrame = (IPictureFrame) shape;
+            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+
+            pictureFrameLock.setPositionLocked(false);
+            pictureFrameLock.setSelectLocked(false);
+            pictureFrameLock.setSizeLocked(false);
+        }
+    }
+}
+
+// Speichern der Präsentationsdatei.
+presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **Fazit**
+
+Aspose.Slides bietet mehrere Möglichkeiten, Formen in einer Präsentation zu schützen. Sie können eine einzelne Form sperren oder alle Formen einer Präsentation durchlaufen und jede einzeln sperren, um die gesamte Datei effektiv zu sichern. Der Schutz kann entfernt werden, indem der Lock‑Wert auf `false` gesetzt wird.
+
+## **FAQ**
+
+**Kann ich Form‑Locks und Passwortschutz in derselben Präsentation kombinieren?**
+
+Ja. Locks begrenzen die Bearbeitung von Objekten innerhalb der Datei, während der [Passwortschutz](/slides/de/java/password-protected-presentation/) den Zugriff beim Öffnen und/oder Speichern von Änderungen steuert. Diese Mechanismen ergänzen sich gegenseitig und arbeiten zusammen.
+
+**Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
+
+Ja. Wenden Sie Locks auf die Formen der ausgewählten Folien an; die übrigen Folien bleiben editierbar.
+
+**Gelten Form‑Locks für gruppierte Objekte und Verbinder?**
+
+Ja. Für Gruppen, Verbinder, grafische Objekte und andere Formarten werden dedizierte Lock‑Typen unterstützt.

@@ -1,35 +1,42 @@
 ---
-title: إزالة شريحة من العرض التقديمي
+title: إزالة الشرائح من العروض التقديمية في جافا
+linktitle: إزالة شريحة
 type: docs
 weight: 30
 url: /ar/java/remove-slide-from-presentation/
-keywords: "إزالة شريحة، حذف شريحة، باوربوينت، عرض تقديمي، جافا، Aspose.Slides"
-description: "إزالة شريحة من باوربوينت بالإشارة أو الفهرس في جافا"
-
+keywords:
+- إزالة شريحة
+- حذف شريحة
+- إزالة شريحة غير مستخدمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "قم بإزالة الشرائح بسهولة من عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة جافا. احصل على أمثلة شفرة واضحة وعزز سير العمل الخاص بك."
 ---
 
-إذا أصبحت شريحة (أو محتوياتها) زائدة عن الحاجة، يمكنك حذفها. يوفر Aspose.Slides صنف [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) الذي يجسد [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/)، وهو مستودع لجميع الشرائح في العرض التقديمي. باستخدام المؤشرات (الإشارة أو الفهرس) لجسم [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها.
+إذا أصبحت الشريحة (أو محتوياتها) غير ضرورية، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) التي تغلف [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/)، وهي مستودع لجميع الشرائح في العرض التقديمي. باستخدام المؤشرات (مرجع أو فهرس) لكائن [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها. 
 
-## **إزالة الشريحة بالإشارة**
+## **إزالة شريحة بالمرجع**
 
-1. أنشئ مثيلًا من صنف [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. احصل على إشارة الشريحة التي تريد إزالتها من خلال معرفها أو فهرسها.
-1. قم بإزالة الشريحة المعينة من العرض التقديمي.
-1. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة التي تريد إزالتها عبر معرّفها أو فهرسها.
+3. إزالة الشريحة المرجعية من العرض التقديمي.
+4. حفظ العرض التقديمي المعدل. 
 
-يوضح هذا الرمز البرمجي بلغة جافا كيفية إزالة شريحة من خلال إشارته:
-
+يظهر لك هذا الكود Java كيفية إزالة شريحة عبر مرجعها:
 ```java
-// Instantiate a Presentation object that represents a presentation file
+// إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Accesses a slide through its index in the slides collection
+    // الوصول إلى شريحة عبر فهرستها في مجموعة الشرائح
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Removes a slide through its reference
+    // إزالة شريحة عبر مرجعها
     pres.getSlides().remove(slide);
     
-    // Saves the modified presentation
+    // حفظ العرض التقديمي المعدل
     pres.save("modified.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -37,32 +44,31 @@ try {
 ```
 
 
-## **إزالة الشريحة بالفهرس**
+## **إزالة شريحة بالفهرس**
 
-1. أنشئ مثيلًا من صنف [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. قم بإزالة الشريحة من العرض التقديمي من خلال موقع فهرسها.
-1. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. إزالة الشريحة من العرض التقديمي عبر موضع فهرسها.
+3. حفظ العرض التقديمي المعدل. 
 
-يوضح هذا الرمز البرمجي بلغة جافا كيفية إزالة شريحة من خلال فهرسها:
-
+يظهر لك هذا الكود Java كيفية إزالة شريحة عبر فهرسها:
 ```java
-// Instantiates a Presentation object that represents a presentation file
+// إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Removes a slide through its slide index
+    // إزالة شريحة عبر فهرسها
     pres.getSlides().removeAt(0);
     
-    // Saves the modified presentation
+    // حفظ العرض التقديمي المعدل
     pres.save("modified.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **إزالة شريحة التخطيط غير المستخدمة**
 
-يوفر Aspose.Slides طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (من صنف [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) للسماح لك بحذف شرائح التخطيط غير المرغوب فيها وغير المستخدمة. يوضح هذا الرمز البرمجي بلغة جافا كيفية إزالة شريحة تخطيط من عرض تقديمي باوربوينت:
+## **إزالة شرائح التخطيط غير المستخدمة**
 
+توفر Aspose.Slides طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) لتتيح لك حذف شرائح التخطيط غير المرغوب فيها وغير المستخدمة. يوضح لك هذا الكود Java كيفية إزالة شريحة تخطيط من عرض PowerPoint:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -74,10 +80,10 @@ try {
 }
 ```
 
-## **إزالة شريحة الماستر غير المستخدمة**
 
-يوفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من صنف [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) للسماح لك بحذف شرائح الماستر غير المرغوب فيها وغير المستخدمة. يوضح هذا الرمز البرمجي بلغة جافا كيفية إزالة شريحة الماستر من عرض تقديمي باوربوينت:
+## **إزالة شرائح القالب غير المستخدمة**
 
+توفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) لتتيح لك حذف الشرائح الرئيسية غير المرغوب فيها وغير المستخدمة. يوضح لك هذا الكود Java كيفية إزالة شريحة رئيسية من عرض PowerPoint:
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -88,3 +94,26 @@ Presentation pres = new Presentation("pres.pptx");
      if (pres != null) pres.dispose();
  }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ماذا يحدث لأرقام فهارس الشرائح بعد حذف شريحة؟**
+
+بعد الحذف، يُعيد [collection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) فهرسة الشرائح: كل شريحة تالية تتحرك إلى اليسار بموقع واحد، لذا تصبح أرقام الفهارس السابقة غير صالحة. إذا كنت بحاجة إلى مرجع ثابت، استخدم المعرف الدائم لكل شريحة بدلاً من فهرسها.
+
+**هل معرّف الشريحة يختلف عن فهرسها، وهل يتغير عند حذف الشرائح المجاورة؟**
+
+نعم. الفهرس هو موقع الشريحة وسيتغير عند إضافة أو حذف الشرائح. معرّف الشريحة هو معرف دائم ولا يتغيّر عند حذف شرائح أخرى.
+
+**كيف يؤثر حذف شريحة على أقسام الشرائح؟**
+
+إذا كانت الشريحة جزءًا من قسم، سيحتوي ذلك القسم على شريحة أقل. يظل هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [إزالة أو إعادة تنظيم الأقسام](/slides/ar/java/slide-section/) حسب الحاجة.
+
+**ماذا يحدث للملاحظات والتعليقات المرفقة بشريحة عند حذفها؟**
+
+[الملاحظات](/slides/ar/java/presentation-notes/) و[التعليقات](/slides/ar/java/presentation-comments/) مرتبطة بتلك الشريحة المحددة وتُحذف معها. لا يتأثر المحتوى في الشرائح الأخرى.
+
+**كيف يختلف حذف الشرائح عن تنظيف التخطيطات/القوالب غير المستخدمة؟**
+
+الحذف يزيل شرائح عادية محددة من العرض. تنظيف التخطيطات/القوالب غير المستخدمة يزيل شرائح التخطيط أو القالب التي لا يشير إليها أي شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هذان الإجراءان متكاملان: عادةً احذف أولًا، ثم قم بالتنظيف.

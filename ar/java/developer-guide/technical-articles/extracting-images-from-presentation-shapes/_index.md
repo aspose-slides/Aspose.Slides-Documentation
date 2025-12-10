@@ -1,23 +1,31 @@
 ---
-title: استخراج الصور من أشكال العروض التقديمية
+title: استخراج الصور من أشكال العرض التقديمي
+linktitle: صورة من الشكل
 type: docs
 weight: 100
 url: /ar/java/extracting-images-from-presentation-shapes/
-keywords: "استخراج صورة، PowerPoint، PPT، PPTX، عرض PowerPoint، Java، Aspose.Slides for Java"
-description: "استخراج الصور من عرض PowerPoint باستخدام Java"
-
+keywords:
+- استخراج صورة
+- استرجاع صورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Java — حل سريع ومناسب للمبرمجين."
 ---
 
+## **استخراج الصور من الأشكال**
+
 {{% alert color="primary" %}} 
+عادةً ما تتم إضافة الصور إلى الأشكال وتُستخدم أيضًا بشكل شائع كخلفيات للشرائح. يتم إضافة كائنات الصورة عبر [IImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/). 
 
-غالبًا ما تتم إضافة الصور إلى الأشكال وتستخدم أيضًا كخلفيات للشرائح. يتم إضافة كائنات الصورة عبر [IImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) . 
-
-تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
-
+توضح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك أولاً تحديد موقع الصورة من خلال المرور بكل شريحة ثم المرور بكل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
-
+لاستخراج صورة من عرض تقديمي، عليك أولاً تحديد موقع الصورة عبر استعراض كل شريحة ثم استعراض كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
 ```java
     public void extractImages()
     {
@@ -62,7 +70,7 @@ description: "استخراج الصور من عرض PowerPoint باستخدام 
 
             for (int j = 0; j < sl.getShapes().size(); j++)
             {
-                // الوصول إلى الشكل الذي يحتوي على صورة
+                //الوصول إلى الشكل الذي يحتوي على صورة
                 IShape sh = sl.getShapes().get_Item(j);
 
                 if (sh instanceof IAutoShape)
@@ -108,3 +116,22 @@ description: "استخراج الصور من عرض PowerPoint باستخدام 
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 ```
+
+
+## **FAQ**
+
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحولات الشكل؟**
+
+نعم. عند الوصول إلى صورة الشكل، تحصل على كائن الصورة من [مجموعة الصور](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getImages--) في العرض التقديمي، مما يعني الحصول على البكسلات الأصلية دون قص أو تأثيرات تنسيق. تت traversة العملية مجموعة الصور في العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ppimage/) التي تخزن البيانات الخام.
+
+**هل هناك خطر من تكرار الملفات المتطابقة عند حفظ العديد من الصور دفعة واحدة؟**
+
+نعم، إذا قمت بحفظ كل شيء دون التمييز. قد تحتوي [مجموعة الصور](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getImages--) في العرض التقديمي على بيانات ثنائية متطابقة يُشار إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرارات، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
+
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة معينة من مجموعة الصور في العرض التقديمي؟**
+
+لا يخزن Aspose.Slides روابط عكسية من [PPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ppimage/) إلى الأشكال. قم بإنشاء خريطة يدوية أثناء التجوال: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ppimage/)، سجّل أي أشكال تستخدمها.
+
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
+
+ليس مباشرةً، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العرض التقديمي عبر [PPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ppimage/)؛ OLE نوع كائن مختلف.

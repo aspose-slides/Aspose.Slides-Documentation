@@ -1,198 +1,179 @@
 ---
-title: Präsentationsansicht
+title: Erstelle einen Präsentationsbetrachter in Java
+linktitle: Präsentationsbetrachter
 type: docs
 weight: 50
 url: /de/java/presentation-viewer/
-keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer in Java"
+keywords:
+- Präsentation anzeigen
+- Präsentationsbetrachter
+- Präsentationsbetrachter erstellen
+- PPT anzeigen
+- PPTX anzeigen
+- ODP anzeigen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erstellen Sie einen benutzerdefinierten Präsentationsbetrachter in Java mit Aspose.Slides. Zeigen Sie PowerPoint- und OpenDocument-Dateien einfach ohne Microsoft PowerPoint an."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides für Java wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können beispielsweise durch Öffnen der Präsentationen in Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch die Folien als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder einen eigenen Präsentationsbetrachter erstellen. In solchen Fällen ermöglicht Aspose.Slides den Export einer einzelnen Folie als Bild. Dieser Artikel beschreibt, wie das funktioniert.
 
-Aspose.Slides für Java wird verwendet, um Präsentationsdateien zu erstellen, die Folien enthalten. Diese Folien können angezeigt werden, indem Präsentationen mit Microsoft PowerPoint geöffnet werden. Aber manchmal müssen Entwickler Folien möglicherweise auch als Bilder in ihrem bevorzugten Bildbetrachter ansehen oder ihren eigenen Präsentationsbetrachter erstellen. In solchen Fällen ermöglicht es Aspose.Slides für Java, eine einzelne Folie als Bild zu exportieren. Dieser Artikel beschreibt, wie dies gemacht wird.
+## **Ein SVG‑Bild aus einer Folie erzeugen**
 
-{{% /alert %}} 
+Um ein SVG‑Bild aus einer Präsentationsfolie mit Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
 
-## **Live-Beispiel**
-Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) ausprobieren, um zu sehen, was Sie mit der Aspose.Slides API umsetzen können:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **SVG-Bild aus Folie erstellen**
-Um mit Aspose.Slides für Java ein SVG-Bild aus einer gewünschten Folie zu generieren, befolgen Sie bitte die folgenden Schritte:
-
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-- Erhalten Sie die Referenz der gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-- Holen Sie das SVG-Bild in einem Speicherstream.
-- Speichern Sie den Speicherstream in einer Datei.
-
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.  
+1. Holen Sie die Folienreferenz über ihren Index.  
+1. Öffnen Sie einen Dateistream.  
+1. Speichern Sie die Folie als SVG‑Bild in den Dateistream.  
 ```java
-// Instanziieren Sie eine Präsentationsklasse, die die Präsentationsdatei darstellt
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Greifen Sie auf die erste Folie zu
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Erstellen Sie ein Speicherstream-Objekt
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Generieren Sie das SVG-Bild der Folie und speichern Sie es im Speicherstream
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **SVG mit benutzerdefinierten Form-IDs erstellen**
-Aspose.Slides für Java kann verwendet werden, um [SVG](https://docs.fileformat.com/page-description-language/svg/) aus Folien mit benutzerdefinierten Form-IDs zu generieren. Hierfür verwenden Sie die ID-Eigenschaft von [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgShape), die die benutzerdefinierte ID von Formen im generierten SVG darstellt. Der CustomSvgShapeFormattingController kann verwendet werden, um die Form-ID festzulegen.
 
+## **Ein SVG mit benutzerdefinierter Shape‑ID erzeugen**
+
+Aspose.Slides kann verwendet werden, um ein [SVG](https://docs.fileformat.com/page-description-language/svg/) aus einer Folie mit einer benutzerdefinierten Shape‑ID zu erzeugen. Verwenden Sie dazu die `setId`‑Methode von [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` kann verwendet werden, um die Shape‑ID festzulegen.  
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+
 ```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
+class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
+    public CustomSvgShapeFormattingController() {
         m_shapeIndex = 0;
     }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
+
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
         m_shapeIndex = shapeStartIndex;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
 ```
 
-## **Thumbnail-Bild aus Folien erstellen**
-Aspose.Slides für Java hilft Ihnen, Thumbnail-Bilder der Folien zu generieren. Um das Thumbnail einer gewünschten Folie mit Aspose.Slides für Java zu erstellen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+## **Ein Folien‑Thumbnail‑Bild erstellen**
 
+Aspose.Slides unterstützt Sie beim Erzeugen von Thumbnail‑Bildern von Folien. Um ein Thumbnail einer Folie mit Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.  
+1. Holen Sie die Folienreferenz über ihren Index.  
+1. Ermitteln Sie das Thumbnail‑Bild der referenzierten Folie in einem definierten Maßstab.  
+1. Speichern Sie das Thumbnail‑Bild in einem beliebigen gewünschten Bildformat.  
 ```java
-// Instanziieren Sie eine Präsentationsklasse, die die Präsentationsdatei darstellt
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Greifen Sie auf die erste Folie zu
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // Erstellen Sie ein Vollbildbild
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **Thumbnail mit benutzerd definierten Abmessungen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+## **Ein Folien‑Thumbnail mit benutzerdefinierten Abmessungen erstellen**
 
+Um ein Folien‑Thumbnail‑Bild mit benutzerdefinierten Abmessungen zu erstellen, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.  
+1. Holen Sie die Folienreferenz über ihren Index.  
+1. Ermitteln Sie das Thumbnail‑Bild der referenzierten Folie mit den definierten Abmessungen.  
+1. Speichern Sie das Thumbnail‑Bild in einem beliebigen gewünschten Bildformat.  
 ```java
-// Instanziieren Sie eine Präsentationsklasse, die die Präsentationsdatei darstellt
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Greifen Sie auf die erste Folie zu
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Dimension slideSize = new Dimension(1200, 800);
 
-    // Benutzerdefinierte Dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Berechnen Sie den skalierenden Wert von X und Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Erstellen Sie ein Vollbildbild
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Thumbnail aus Folie im Ansichtsmodus für Notizen erstellen**
-Um das Thumbnail einer gewünschten Folie im Notizenansichtsmodus mit Aspose.Slides für Java zu generieren:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab im Notizenansichtsmodus.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+## **Ein Folien‑Thumbnail mit Sprecher‑Notizen erstellen**
 
-Der folgende Code erzeugt ein Thumbnail der ersten Folie einer Präsentation im Notizenansichtsmodus.
+Um das Thumbnail einer Folie mit Sprecher‑Notizen mithilfe von Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
 
+1. Erstellen Sie eine Instanz der [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) Klasse.  
+1. Verwenden Sie die `RenderingOptions.setSlidesLayoutOptions`‑Methode, um die Position der Sprecher‑Notizen festzulegen.  
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.  
+1. Holen Sie die Folienreferenz über ihren Index.  
+1. Ermitteln Sie das Thumbnail‑Bild der referenzierten Folie mit den Rendering‑Optionen.  
+1. Speichern Sie das Thumbnail‑Bild in einem beliebigen gewünschten Bildformat.  
 ```java
-// Instanziieren Sie eine Präsentationsklasse, die die Präsentationsdatei darstellt
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Greifen Sie auf die erste Folie zu
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Benutzerdefinierte Dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // Berechnen Sie den skalierenden Wert von X und Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Erstellen Sie ein Vollbildbild
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **Live‑Beispiel**
+
+Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) ausprobieren, um zu sehen, was Sie mit der Aspose.Slides‑API umsetzen können:
+
+![Online PowerPoint-Viewer](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Kann ich einen Präsentations‑Viewer in eine Webanwendung einbetten?**
+
+Ja. Sie können Aspose.Slides serverseitig verwenden, um Folien als Bilder oder HTML zu rendern und im Browser anzuzeigen. Navigations‑ und Zoom‑Funktionen können mit JavaScript für ein interaktives Erlebnis implementiert werden.
+
+**Was ist der beste Weg, Folien in einem benutzerdefinierten Viewer anzuzeigen?**
+
+Der empfohlene Ansatz ist, jede Folie als Bild (z. B. PNG oder SVG) zu rendern oder sie mit Aspose.Slides in HTML zu konvertieren und das Ergebnis dann in einer Bildbox (für Desktop) oder einem HTML‑Container (für Web) anzuzeigen.
+
+**Wie gehe ich mit großen Präsentationen mit vielen Folien um?**
+
+Bei umfangreichen Decks sollten Sie Lazy‑Loading oder das Rendern von Folien bei Bedarf in Betracht ziehen. Das bedeutet, den Inhalt einer Folie nur zu erzeugen, wenn der Benutzer zu ihr navigiert, wodurch Speicher‑ und Ladezeiten reduziert werden.

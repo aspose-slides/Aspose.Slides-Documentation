@@ -3,114 +3,144 @@ title: ライセンス
 type: docs
 weight: 90
 url: /ja/java/licensing/
+keywords:
+- ライセンス
+- 一時ライセンス
+- ライセンス設定
+- ライセンス使用
+- ライセンス検証
+- ライセンスファイル
+- 評価版
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のライセンスを適用、管理、トラブルシューティングします。ステップバイステップのライセンス ガイドで、フル機能への継続的なアクセスを確保してください。"
 ---
 
-## **Aspose.Slidesの評価**
+## **Aspose.Slides の評価**
 
 {{% alert color="primary" %}} 
 
-**Aspose.Slides for Java**の評価版は[ダウンロードページ](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入したパッケージと同じです。評価版は、いくつかのコード行を追加することでライセンスされます（ライセンスを適用するために）。
+**Aspose.Slides for Java** の評価版は、[download page](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入パッケージと同一です。評価版は、ライセンスを適用するために数行のコードを追加すればすぐにライセンス版になります。
 
-**Aspose.Slides**の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。異なるサブスクリプションタイプを確認することをお勧めします。質問がある場合は、Asposeの営業チームにお問い合わせください。
+**Aspose.Slides** の評価に満足したら、[purchase a license](https://purchase.aspose.com/buy) からライセンスを購入できます。さまざまなサブスクリプションタイプをご確認ください。ご質問がある場合は Aspose の営業チームにお問い合わせください。
 
-すべてのAsposeライセンスには、サブスクリプション期間内にリリースされた新しいバージョンまたは修正への無料アップグレードの1年のサブスクリプションが付いてきます。ライセンスされた製品（または評価版）を持っているユーザーは、無料で無制限のテクニカルサポートを受けられます。
+すべての Aspose ライセンスには、サブスクリプション期間中の新バージョンや修正への無料アップグレードが 1 年間付属します。ライセンス製品（評価版を含む）を使用しているユーザーは、無制限の無料テクニカルサポートを受けられます。
 
 {{% /alert %}} 
 
 **評価版の制限**
 
-* Aspose.Slidesの評価版（ライセンスが指定されていない）は、完全な製品機能を提供しますが、ドキュメントを開くときや保存するときに評価用の透かしを挿入します。
-* プレゼンテーションスライドからテキストを抽出する際には、スライド1枚に制限されています。
+* ライセンスが指定されていない Aspose.Slides の評価版は完全な機能を提供しますが、開く・保存する際にドキュメント上部に評価用透かしが挿入されます。  
+* プレゼンテーションのスライドからテキストを抽出する場合、1 枚のスライドに限定されます。
 
 {{% alert color="primary" %}} 
 
-制限のないAspose.Slidesを試すには、**30日間の一時ライセンス**をリクエストできます。詳細については、[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)ページを参照してください。
+制限なしで Aspose.Slides をテストしたい場合は、**30 日間の一時ライセンス** を取得できます。詳細は [How to get a Temporary License](https://purchase.aspose.com/temporary-license) ページをご覧ください。
 
 {{% /alert %}}
 
-## **Aspose.Slidesのライセンス管理**
+## **Aspose.Slides のライセンス管理**
 
-* 評価版はライセンスを購入し、それに数行のコードを追加することでライセンスされます（ライセンスを適用するために）。
-* ライセンスは、製品名、ライセンスされた開発者の数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。 
-* ライセンスファイルはデジタル署名されているため、ファイルを変更しないでください。ファイルの内容に余分な改行を加えるだけでも無効になります。
-* Aspose.Slides for Javaは通常、次の場所でライセンスを探します。
-  * 明示的なパス
-  * Aspose.Slides.jarを含むフォルダ
-* 評価版に関連する制限を回避するには、**Aspose.Slides**を使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとにライセンスを1回設定するだけで済みます。
+* 評価版は、ライセンスを購入し、数行のコードでライセンスを適用すればライセンス版になります。  
+* ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象開発者数、サブスクリプション期限などが記載されています。  
+* ライセンス ファイルはデジタル署名されているため、ファイルを変更してはなりません。余計な改行を加えるだけでも無効になります。  
+* Aspose.Slides for Java は通常、次の場所でライセンスを検索します。  
+  * 明示的に指定したパス  
+  * Aspose.Slides.jar があるフォルダー  
+* 評価版の制限を回避するには、**Aspose.Slides** を使用する前にライセンスを設定する必要があります。ライセンスはアプリケーションまたはプロセスごとに一度だけ設定すれば完了です。
 
 {{% alert color="primary" %}} 
 
-[Metered Licensing](/slides/ja/java/metered-licensing/)を参照することをお勧めします。
+[Metered Licensing](/slides/ja/java/metered-licensing/) をご覧ください。
 
 {{% /alert %}} 
 
 
-## **ライセンスの適用**
+## **ライセンスの適用方法**
 
-ライセンスは**ファイル**または**ストリーム**から読み込むことができます。
+ライセンスは **ファイル** または **ストリーム** から読み込めます。
 
 {{% alert color="primary" %}}
 
-Aspose.Slidesはライセンス操作のための[License](https://reference.aspose.com/slides/java/com.aspose.slides/License)クラスを提供しています。
+Aspose.Slides はライセンス操作用に [License](https://reference.aspose.com/slides/java/com.aspose.slides/License) クラスを提供しています。
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}}
+
+新しいライセンスはバージョン 21.4 以降の Aspose.Slides のみで有効です。以前のバージョンは別のライセンス方式を使用しており、これらのライセンスは認識されません。
+
+{{% /alert %}}
+
 ### **ファイル**
 
-ライセンスを設定する最も簡単な方法は、ライセンスファイルをAspose.Slides.jarまたはアプリケーションのjarを含むフォルダーに配置することです。
+最も簡単なライセンス設定方法は、ライセンス ファイルを Aspose.Slides.jar があるフォルダーまたはアプリケーションの JAR と同じフォルダーに配置することです。
 
-このJavaコードは、ライセンスファイルの設定方法を示しています:
-
+次の Java コードはライセンス ファイルを設定する例です:
 ``` java
-// Licenseクラスをインスタンス化
+// License クラスをインスタンス化します
 com.aspose.slides.License license = new com.aspose.slides.License();
 
-// ライセンスファイルのパスを設定
+// ライセンス ファイルのパスを設定します
 license.setLicense("Aspose.Slides.Java.lic");
 ```
 
+
 {{% alert color="warning" %}} 
 
-ライセンスファイルを別のディレクトリに配置した場合、[SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-)メソッドを呼び出すとき、指定された明示的な末尾のライセンスファイル名は、ライセンスファイル名と同じでなければなりません。
+ライセンス ファイルを別のディレクトリーに置く場合、[SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) メソッドを呼び出す際に、指定した明示パスの末尾にあるライセンス ファイル名が実際のファイル名と一致している必要があります。
 
-例えば、ライセンスファイル名を*Aspose.Slides.Java.lic.xml*に変更することができます。すると、コード内で、（*Aspose.Slides.Java.lic.xml*で終了する）ファイルへのパスを[SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-)メソッドに渡す必要があります。
+たとえば、ライセンス ファイル名を *Aspose.Slides.Java.lic.xml* に変更した場合、コード内で [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) メソッドに *Aspose.Slides.Java.lic.xml* で終了するパスを渡す必要があります。
 
 {{% /alert %}}
 
 ### **ストリーム**
 
-ストリームからライセンスを読み込むことができます。このJavaコードは、ストリームからライセンスを適用する方法を示しています:
-
+ストリームからライセンスを読み込むこともできます。次の Java コードはストリームからライセンスを適用する例です:
 ``` java
-// Licenseクラスをインスタンス化
+// License クラスをインスタンス化します
 com.aspose.slides.License license = new com.aspose.slides.License();
 
-// ストリームを通じてライセンスを設定
+// ストリームを使用してライセンスを設定します
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 ```
 
-### **PHP/Java Bridge**
 
-PHP経由でJavaを使用してAspose.Slidesを使用する場合、PHP/Javaブリッジを通じてライセンスを設定できます。このブリッジにより、PHP構文内でJavaクラスを使用することができます。詳細については、[PHPのライセンス](/slides/ja/php-java/licensing/)を参照してください。
+### **PHP/Java ブリッジ**
+
+Java 経由で Aspose.Slides for PHP を使用する場合、PHP/Java ブリッジを通じてライセンスを設定できます。このブリッジを使用すると PHP 構文で Java クラスを利用できます。詳細は [License in PHP](/slides/ja/php-java/licensing/) を参照してください。
 
 ## **ライセンスの検証**
 
-ライセンスが正しく設定されているかどうかを確認するために、ライセンスを検証できます。このJavaコードは、ライセンスを検証する方法を示しています:
-
+ライセンスが正しく設定されたかどうかは、検証することで確認できます。次の Java コードはライセンスを検証する例です:
 ```java
 License license = new License();
-license.setLicense("Aspose.Slides.Java.lic");
+license.setLicense("Asplice.Slides.Java.lic");
 
 if (License.isLicensed()) 
 {
-    System.out.println("ライセンスが正常です！");
+    System.out.println("License is good!");
 }
 ```
 
-## **スレッドの安全性**
 
-{{% alert title="注意" color="warning" %}} 
+## **スレッド安全性**
 
-[SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.io.InputStream-)メソッドはスレッドセーフではありません。このメソッドが多くのスレッドから同時に呼び出される場合、問題を避けるために同期プリミティブ（ロックなど）を使用することを検討してください。 
+{{% alert title="Note" color="warning" %}} 
+
+[SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.io.InputStream-) メソッドはスレッドセーフではありません。複数スレッドから同時に呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を回避してください。 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**完全にオフラインの環境（インターネット接続なし）でライセンスを適用できますか？**
+
+はい。ライセンスの検証はローカルのライセンス ファイルで行われるため、インターネット接続は不要です。
+
+**1 年間のサブスクリプションが期限切れになった後はどうなりますか？ライブラリは動作しなくなりますか？**
+
+いいえ。ライセンスは永久的に有効です。サブスクリプション終了日以前にリリースされたバージョンは引き続き使用できますが、更新しない限り新しいリリースは利用できません。

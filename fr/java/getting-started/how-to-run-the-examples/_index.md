@@ -2,52 +2,61 @@
 title: Comment exécuter les exemples
 type: docs
 weight: 140
-url: /fr/java/comment-executer-les-exemples/
+url: /fr/java/how-to-run-the-examples/
+keywords:
+- exemples
+- exigences logicielles
+- GitHub
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Exécutez rapidement les exemples Aspose.Slides pour Java : clonez le dépôt, restaurez les packages, puis compilez et testez les fonctionnalités pour PPT, PPTX et ODP."
 ---
 
-## **Télécharger depuis GitHub**
-Tous les exemples d'Aspose.Slides pour Java sont hébergés sur [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). Vous pouvez soit cloner le dépôt en utilisant votre client Github préféré, soit télécharger le fichier ZIP [ici](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
+## **Télécharger Aspose.Slides depuis GitHub**
+Tous les exemples d'Aspose.Slides pour Java sont hébergés sur [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java). Vous pouvez soit cloner le dépôt avec votre client GitHub préféré, soit télécharger le fichier ZIP depuis [ici](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
-Extrayez le contenu du fichier ZIP dans n'importe quel dossier de votre ordinateur. Tous les exemples se trouvent dans le dossier **Examples**.
+Extrayez le contenu du fichier ZIP vers n'importe quel dossier de votre ordinateur. Tous les exemples se trouvent dans le dossier **Examples**.
 
 ![todo:image_alt_text](examples_directory.png)
 
 ## **Importer les exemples dans l'IDE**
-Le projet utilise le système de construction Maven. N'importe quel IDE moderne peut facilement ouvrir ou importer le projet et ses dépendances. Ci-dessous, nous vous montrons comment utiliser des IDE populaires pour construire et exécuter les exemples.
+Le projet utilise le système de construction Maven. Tout IDE moderne peut facilement ouvrir ou importer le projet et ses dépendances. Ci-dessous, nous vous montrons comment utiliser les IDE populaires pour compiler et exécuter les exemples.
 
 ### **IntelliJ IDEA**
-Cliquez sur le menu **Fichier** et choisissez **Ouvrir**. Parcourez le dossier du projet et sélectionnez le fichier **pom.xml**.
+Cliquez sur le menu **File** et choisissez **Open**. Parcourez le dossier du projet et sélectionnez le fichier **pom.xml**.
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-Cela ouvrira le projet et téléchargera automatiquement les dépendances. Dans l'onglet Projet, parcourez les exemples dans le dossier **src/main/java**. Pour exécuter un exemple, faites un clic droit sur le fichier et choisissez "Exécuter ..", l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de sortie de console intégrée.
+Il ouvrira le projet et téléchargera automatiquement les dépendances. Depuis l'onglet Project, parcourez les exemples dans le dossier **src/main/java**. Pour exécuter un exemple, faites simplement un clic droit sur le fichier et choisissez "Run ..", l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de console intégrée.
 
 ![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
-Cliquez sur le menu **Fichier** et choisissez **Importer**. Sélectionnez **Maven** - Projets Maven existants.
+Cliquez sur le menu **File** et choisissez **Import**. Sélectionnez **Maven** - Existing Maven Projects.
 
 ![todo:image_alt_text](eclipse_import.png)
 
-Parcourez le dossier que vous avez cloné ou téléchargé depuis GitHub et sélectionnez le fichier **pom.xml**. Cela ouvrira le projet et téléchargera automatiquement les dépendances. Dans l'onglet Package Explorer, parcourez les exemples dans le dossier **src/main/java**. Pour exécuter un exemple, faites un clic droit sur le fichier et choisissez **Exécuter en tant que** - **Application Java**, l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de sortie de console intégrée.
+Parcourez le dossier que vous avez cloné ou téléchargé depuis GitHub et sélectionnez le fichier **pom.xml**. Il ouvrira le projet et téléchargera automatiquement les dépendances. Depuis l'onglet Package Explorer, parcourez les exemples dans le dossier **src/main/java**. Pour exécuter un exemple, faites simplement un clic droit sur le fichier et choisissez **Run As** - **Java Application**, l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de console intégrée.
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
-Cliquez sur le menu **Fichier** et choisissez **Ouvrir le projet**. Parcourez le dossier que vous avez cloné ou téléchargé depuis GitHub. L'icône du dossier **Examples** indiquera qu'il s'agit d'un projet Maven. Sélectionnez Examples et ouvrez-le.
+Cliquez sur le menu **File** et choisissez **Open Project**. Parcourez le dossier que vous avez cloné ou téléchargé depuis GitHub. L'icône du dossier **Examples** indiquera qu'il s'agit d'un projet Maven. Sélectionnez **Examples** et ouvrez-le.
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-Cela ouvrira le projet et téléchargera automatiquement les dépendances. Dans l'onglet Projets, parcourez les exemples dans **source packages**. Pour exécuter un exemple, faites un clic droit sur le fichier et choisissez **Exécuter le fichier**, l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de sortie de console intégrée.
+Il ouvrira le projet et téléchargera automatiquement les dépendances. Depuis l'onglet Projects, parcourez les exemples dans **source packages**. Pour exécuter un exemple, faites simplement un clic droit sur le fichier et choisissez **Run File**, l'exemple sera exécuté et la sortie sera affichée dans la fenêtre de console intégrée.
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Ajouter la bibliothèque Aspose.Slides dans le dépôt local Maven**
-Lorsque vous importez le projet **Aspose.Slides Examples** dans l'IDE, Maven télécharge automatiquement le fichier JAR aspose.slides depuis [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). Dans le cas où vous n'avez pas accès à Internet, vous pouvez ajouter manuellement le JAR dans votre dépôt local.
+## **Ajouter la bibliothèque Aspose.Slides dans le référentiel Maven local**
+Lorsque vous importez le projet **Aspose.Slides Examples** dans l'IDE, Maven télécharge automatiquement le fichier JAR aspose.slides depuis le [Répertoire Maven d'Aspose](https://releases.aspose.com/java/repo/com/aspose/). Si vous n'avez pas d'accès à Internet, vous pouvez ajouter manuellement le JAR dans votre référentiel local.
 
 ### **mvn install**
-Téléchargez [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extrayez-le et copiez le aspose.slides-version.jar ailleurs, par exemple, sur le disque C. Exécutez la commande suivante :
-
+Téléchargez le [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extrayez-le et copiez le fichier aspose.slides-version.jar à un autre endroit, par exemple le lecteur C. Exécutez la commande suivante :
 ```
 mvn install:install-file
     -Dfile=c:\aspose.slides-version.jar
@@ -57,11 +66,11 @@ mvn install:install-file
     -Dpackaging=jar
 ```
 
-Maintenant, le JAR **aspose.slides** est copié dans votre dépôt local Maven.
+
+Le JAR **aspose.slides** est maintenant copié dans votre référentiel Maven local.
 
 ### **pom.xml**
-Après l'installation, déclarez simplement la coordonnée **aspose.slides** dans pom.xml. Ajoutez le dépôt suivant dans l'onglet repositories et la dépendance dans l'onglet dependencies.
-
+Après l'installation, il suffit de déclarer le coordinate **aspose.slides** dans le pom.xml. Ajoutez le dépôt suivant dans l'onglet repositories et la dépendance dans l'onglet dependencies.
 ``` xml
 <repository>
     <id>aspose-maven-repository</id>
@@ -76,10 +85,11 @@ Après l'installation, déclarez simplement la coordonnée **aspose.slides** dan
 </dependency>
 ```
 
-### **Fait**
-Construisez-le, maintenant le JAR **aspose.slides** est récupérable depuis votre dépôt local Maven.
+
+### **Terminé**
+Compilez-le, le JAR **aspose.slides** peut désormais être récupéré depuis votre référentiel Maven local.
 
 ## **Contribuer**
-Si vous souhaitez ajouter ou améliorer un exemple, nous vous encourageons à contribuer au projet. Tous les exemples et projets de démonstration dans ce dépôt sont open source et peuvent être librement utilisés dans vos propres applications.
+Si vous souhaitez ajouter ou améliorer un exemple, nous vous encourageons à contribuer au projet. Tous les exemples et projets de démonstration de ce référentiel sont open source et peuvent être utilisés librement dans vos propres applications.
 
-Pour contribuer, vous pouvez forker le dépôt, modifier le code source et soumettre une Pull Request. Nous examinerons les changements et les inclurons dans le dépôt s'ils sont jugés utiles.
+Pour contribuer, vous pouvez forker le référentiel, modifier le code source et soumettre une Pull Request. Nous examinerons les modifications et les inclurons dans le référentiel si elles sont utiles.
