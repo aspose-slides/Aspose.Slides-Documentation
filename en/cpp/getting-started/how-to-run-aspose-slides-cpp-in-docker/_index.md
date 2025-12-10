@@ -25,7 +25,7 @@ description: "Run Aspose.Slides in Docker containers: configure images, dependen
 
 Aspose.Slides for C++ can run inside docker containers. To run Aspose.Slides for C++ in a Linux environment, you can use a docker file. 
 
-## Dockerfile Description
+## **Dockerfile Description**
 
 For example, you can use this docker file for Aspose.Slides for C++ with Ubuntu 16.04: 
 
@@ -119,7 +119,7 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-## Building and Running an Image
+## **Building and Running an Image**
 
 1. [Install Docker](https://docs.docker.com/engine/install/) on a host system.
 

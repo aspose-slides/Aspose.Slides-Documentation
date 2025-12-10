@@ -263,7 +263,7 @@ presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What’s the difference between a master slide and a layout slide?**
 

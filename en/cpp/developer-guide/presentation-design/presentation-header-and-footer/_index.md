@@ -67,7 +67,7 @@ if (nullptr != masterNotesSlide)
 pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
 ```
 
-## **Manage Header and Footer in Handout and Notes Slides**
+## **Manage Headers and Footers on Handout and Notes Slides**
 Aspose.Slides for C++ supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
 - Load a [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)containing a video.
@@ -147,3 +147,20 @@ if (notesSlide != nullptr)
 presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
 ```
 
+## **FAQ**
+
+**Can I add a "header" to regular slides?**
+
+In PowerPoint, "Header" exists only for notes and handouts; on regular slides, the supported elements are the footer, date/time, and slide number. In Aspose.Slides this matches the same limitations: header only for Notes/Handout, and on slides—Footer/DateTime/SlideNumber.
+
+**What if the layout doesn’t contain a footer area—can I "turn on" its visibility?**
+
+Yes. Check the visibility via the header/footer manager and enable it if needed. These API indicators and methods are designed for cases when the placeholder is missing or hidden.
+
+**How do I make the slide number start from a value other than 1?**
+
+Set the presentation’s [first slide number](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/); after that, all numbering is recalculated. For example, you can start at 0 or 10, and hide the number on the title slide.
+
+**What happens to headers/footers when exporting to PDF/images/HTML?**
+
+They are rendered as regular text elements of the presentation. That is, if the elements are visible on slides/notes pages, they will also appear in the output format along with the rest of the content.

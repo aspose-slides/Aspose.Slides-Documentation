@@ -14,7 +14,7 @@ keywords:
 description: "Create your first C++ app with Aspose.Slides, a simple Hello World example that gets you ready to automate PPT, PPTX and ODP presentations."
 ---
 
-## **Steps to Create Hello World Application**
+## **Steps to Create a Hello World Application**
 In this simple application, we will create a PowerPoint presentation having **Hello World** text at a specified position of a slide. Please follow the steps below to create **Hello World** application by using Aspose.Slides for C++ API:
 
 - Create an instance of Presentation class

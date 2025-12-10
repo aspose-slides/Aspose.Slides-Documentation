@@ -23,7 +23,7 @@ A table in PowerPoint is an efficient way of displaying and portraying informati
 
 Aspose.Slides provides the [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interface, [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) class, [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations. 
 
-## **Create Table from Scratch**
+## **Create a Table from Scratch**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
@@ -86,7 +86,7 @@ tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cell
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Numbering in Standard Table**
+## **Numbering in a Standard Table**
 
 In a standard table, the numeration of cells is straightforward and zero-based. The first cell in a table is indexed as 0,0 (column 0, row 0). 
 
@@ -142,7 +142,7 @@ for (const auto& row : tbl->get_Rows())
 pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Access Existing Table**
+## **Access an Existing Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 
@@ -187,7 +187,7 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Align Text in Table**
+## **Align Text in a Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
@@ -237,7 +237,7 @@ cell->set_TextVerticalType(TextVerticalType::Vertical270);
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Set Text Formatting on Table Level**
+## **Set Text Formatting on the Table Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
@@ -289,7 +289,7 @@ table->set_StylePreset(TableStylePreset::DarkStyle1);
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Lock Aspect Ratio of Table**
+## **Lock Aspect Ratio of a Table**
 
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the `AspectRatioLocked()` property to allow you to lock the aspect ratio setting for tables and other shapes. 
 
@@ -309,3 +309,16 @@ Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
+## **FAQ**
+
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
+
+Yes. The table exposes a [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) method, and paragraphs have [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/). Using both ensures the correct RTL order and rendering inside cells.
+
+**How can I prevent users from moving or resizing a table in the final file?**
+
+Use [shape locks](/slides/cpp/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
+
+**Is inserting an image inside a cell as a background supported?**
+
+Yes. You can set a [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).
