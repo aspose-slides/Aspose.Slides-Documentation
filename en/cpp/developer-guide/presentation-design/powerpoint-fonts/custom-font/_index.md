@@ -58,7 +58,7 @@ pres->Save(outPath, Export::SaveFormat::Pptx);
 FontsLoader::ClearCache();
 ```
 
-## **Get Custom Fonts Folder**
+## **Get Custom Font Folders**
 Aspose.Slides provides [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
 This C++ code shows you how to use [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) method:
@@ -69,7 +69,7 @@ This C++ code shows you how to use [FontsLoader::GetFontFolders()](https://refer
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
-## **Specify Custom Fonts Used With Presentation**
+## **Specify Custom Fonts Used with a Presentation**
 Aspose.Slides provides the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
 
 This C++  code shows you how to use the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property:
@@ -109,3 +109,24 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
 ```
 
+## **FAQ**
+
+**Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
+
+Yes. Connected fonts are used by the renderer across all export formats.
+
+**Are custom fonts automatically embedded into the resulting PPTX?**
+
+No. Registering a font for rendering is not the same as embedding it into a PPTX. If you need the font carried inside the presentation file, you must use the explicit [embedding features](/slides/cpp/embedded-font/).
+
+**Can I control fallback behavior when a custom font lacks certain glyphs?**
+
+Yes. Configure [font substitution](/slides/cpp/font-substitution/), [replacement rules](/slides/cpp/font-replacement/), and [fallback sets](/slides/cpp/fallback-font/) to define exactly which font is used when the requested glyph is missing.
+
+**Can I use fonts in Linux/Docker containers without installing them system-wide?**
+
+Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
+
+**What about licensing—can I embed any custom font without restrictions?**
+
+You are responsible for font licensing compliance. Terms vary; some licenses prohibit embedding or commercial use. Always review the font’s EULA before distributing outputs.

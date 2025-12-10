@@ -19,7 +19,7 @@ description: "Run Aspose.Slides for C++ examples fast: clone the repo, restore p
 Please make sure you meet the following requirements before downloading and running the examples.
 
 1. Visual Studio 2015 or higher.
-## **Download from GitHub**
+## **Download Aspose.Slides from GitHub**
 All examples of Aspose.Slides for C++ are hosted on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C).
 
 - You can either clone the repository using your favorite GitHub client or download the ZIP file from [here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/refs/heads/master.zip).

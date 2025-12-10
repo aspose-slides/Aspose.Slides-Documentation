@@ -73,3 +73,28 @@ It is possible to format text and shapes on slides in a presentation document us
 |Text Formatting|<p>In Aspose.Slides for C++, the text is managed through text frames associated with the shapes. Hence, the text can be formatted using the paragraphs and portions associated with the text frames. The following text elements can be formatted through Aspose.Slides for C++.</p><p>- Font Type</p><p>- Font Size</p><p>- Font Color</p><p>- Font Shades</p><p>- Paragraph Alignment</p><p>- Paragraph Bulleting</p><p>- Paragraph Orientation</p>|
 |Shape Formatting|<p>In Aspose.Slides for C++, the basic element of a slide is shape. The following Shape elements can be formatted using Aspose.Slides for C++:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including Pattern, Gradient, Solid)</p><p>- Text</p><p>- Image</p>|
 
+## **FAQ**
+
+**Do I need to install Microsoft PowerPoint on the server/PC for the library to work?**
+
+No. PowerPoint is not required; Aspose.Slides is a standalone engine for creating, editing, converting, and rendering presentations.
+
+**How does multithreading work? Can processing be parallelized?**
+
+It is safe to process different documents in different threads; the same [presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object must not be used by [multiple threads](/slides/cpp/multithreading/) at the same time.
+
+**Are file passwords and encryption supported?**
+
+Yes. [You can](/slides/cpp/password-protected-presentation/) open encrypted presentations, set or remove an open and write password, and check the protection status.
+
+**Do I need to care about font packages in Linux containers?**
+
+Yes. It is recommended to install common font packages and/or explicitly [specify font directories](/slides/cpp/custom-font/) in your application to avoid unexpected substitutions.
+
+**Are there limitations in the evaluation version?**
+
+In [evaluation mode](/slides/cpp/licensing/), a watermark is added to the output and certain limitations apply; a [30-day temporary license](https://purchase.aspose.com/temporary-license/) is available for full-feature testing.
+
+**Is importing external formats into a presentation (PDF/HTML → PPTX) supported?**
+
+Yes. You can add [PDF pages and HTML content](/slides/cpp/import-presentation/) to a presentation, turning them into slides.

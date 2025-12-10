@@ -189,6 +189,33 @@ System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectF
 
 There are two approaches to fixing the chart-resizing issue. The choice of approach depends on the requirements and the use case. Both approaches work the same way whether the presentations are created from a template or created from scratch. Also, there is no limit to the size of the OLE object frame in this solution.
 
+## **FAQ**
+
+**Why does my embedded Excel chart change size after activating it in PowerPoint?**
+
+This happens because Excel tries to restore the original window size when first activated, whereas the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain aspect ratio, which can cause the resizing.
+
+**Is it possible to prevent this resizing issue entirely?**
+
+Yes. By matching the Excel workbook window size or chart size to the OLE object frame size before embedding, you can keep the chart sizes consistent.
+
+**Which approach should I take, setting the workbook window size or setting the chart size?**
+
+Use **Approach 1 (window size)** if you want to maintain the workbook's aspect ratio and possibly allow resizing later.
+Use **Approach 2 (chart size)** if the chart dimensions are fixed and will not change after embedding.
+
+**Will these methods work with both template-based presentations and new presentations?**
+
+Yes. Both approaches work the same for presentations created from templates and from scratch.
+
+**Is there a limit to the size of the OLE object frame?**
+
+No. You can set the OLE frame to any size as long as it scales appropriately to the workbook or chart size.
+
+**Can I use these methods with charts created in other spreadsheet programs?**
+
+The examples are designed for Excel charts created with Aspose.Cells, but the principles apply to other OLE-compatible spreadsheet programs as long as they support similar sizing options.
+
 ## **Related Sections**
 
 - [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

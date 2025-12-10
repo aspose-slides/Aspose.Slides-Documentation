@@ -49,7 +49,7 @@ The following code snippet shows you how to add a clone of the slide with some t
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SupportOfMorphTransition-SupportOfMorphTransition.cpp" >}}
 
-## **Morph Transition Type**
+## **Morph Transition Types**
 New Aspose.Slides.SlideShow.TransitionMorphType enum has been added. It represents different types of Morph slide transition.
 
 TransitionMorphType enum has three members:
@@ -75,3 +75,21 @@ In the example given below, we have set the transition effects.
 
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetTransitionEffects-SetTransitionEffects.cpp" >}}
+
+## **FAQ**
+
+**Can I control the playback speed of a slide transition?**
+
+Yes. Set the transition’s [speed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_speed/) using the [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) setting (e.g., slow/medium/fast).
+
+**Can I attach audio to a transition and make it loop?**
+
+Yes. You can embed a sound for the transition and control behavior via settings like sound mode and looping (e.g., [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_sound/), [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_soundmode/), [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_soundloop/), plus metadata such as [set_SoundIsBuiltIn](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_soundisbuiltin/) and [set_SoundName](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/set_soundname/)).
+
+**What’s the fastest way to apply the same transition to every slide?**
+
+Configure the desired transition type on each slide’s transition settings; transitions are stored per slide, so applying the same type across all slides gives a consistent result.
+
+**How can I check which transition is currently set on a slide?**
+
+Inspect the slide’s [transition settings](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_slideshowtransition/) and read its [transition type](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/slideshowtransition/get_type/); that value tells you exactly which effect is applied.

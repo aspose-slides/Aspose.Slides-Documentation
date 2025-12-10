@@ -54,7 +54,7 @@ presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Set a Solid Color Background for the Master Slide**
+## **Set a Solid Color Background for a Master Slide**
 
 Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that controls formatting for all slides, so when you choose a solid color for the master slide’s background, it applies to every slide.
 
@@ -245,3 +245,13 @@ else
     Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
 }
 ```
+
+## **FAQ**
+
+**Can I reset a custom background and restore the theme/layout background?**
+
+Yes. Remove the slide’s custom fill, and the background will be inherited again from the corresponding [layout](/slides/cpp/slide-layout/)/[master](/slides/cpp/slide-master/) slide (i.e., the [theme background](/slides/cpp/presentation-theme/)).
+
+**What happens to the background if I change the presentation’s theme later?**
+
+If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/cpp/slide-layout/)/[master](/slides/cpp/slide-master/), it will update to match the [new theme](/slides/cpp/presentation-theme/).

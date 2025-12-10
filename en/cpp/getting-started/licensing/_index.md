@@ -53,7 +53,7 @@ To test Aspose.Slides without limitations, you can request a **30-Day Temporary 
   * The folder containing the assembly that calls the component’s DLL
 * To avoid the limitations of the evaluation version, you must set the license before using Aspose.Slides. A license only needs to be set once per application or process.
 
-## **Applying a License**
+## **Apply a License**
 
 A license can be loaded from a **file**, a **stream**, or an **embedded resource**.
 
@@ -109,7 +109,7 @@ auto stream = File::OpenRead(u"Aspose.Slides.lic");
 license->SetLicense(stream);
 ```
 
-## **Validating a License**
+## **Validate a License**
 
 To check whether a license has been set properly, you can validate it. The following C++ code shows how to validate a license:
 
@@ -132,3 +132,13 @@ if (license->IsLicensed())
 The [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) method is **not thread-safe**. If you need to call this method from multiple threads simultaneously, it's recommended to use synchronization primitives (such as a lock) to prevent potential issues.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I apply the license in a completely offline environment (no internet access)?**
+
+Yes. License validation is performed locally using the license file; no internet connection is required.
+
+**What happens after the one-year subscription expires? Will the library stop working?**
+
+No. The license is perpetual: you can continue using versions released before your subscription end date; you just won’t be eligible to use newer releases without renewing.

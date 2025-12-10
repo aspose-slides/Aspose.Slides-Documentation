@@ -17,7 +17,7 @@ description: "Use Aspose.Slides for C++ with Qt Creator and Visual Studio to cre
 
 Qt is a C++ based cross-platform application development framework which is widely used to develop a variety of desktop, mobile, and embedded system applications. Aspose.Slides for C++ can be integrated within Qt in order to create and manipulate PowerPoint documents in your Qt applications.
 
-## Using Aspose.Slides for C++ within Qt Creator
+## **Using Aspose.Slides for C++ within Qt Creator**
 
 In order to use Aspose.Slides for C++ in your Qt application download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section. Once the API is downloaded, you can integrate the C++ library within Qt Creator or Visual Studio.
 
@@ -56,7 +56,7 @@ Note: See the [full demo project](https://github.com/aspose-slides/Aspose.Slides
 
 {{% /alert %}}
 
-## Using Aspose.Slides for C++ in Qt Applications within Visual Studio
+## **Using Aspose.Slides for C++ in Qt Applications within Visual Studio**
 
 In order to develop a Qt application using Visual Studio, you need to install [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123). Once you have the installation, download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section and follow the steps given below:
 

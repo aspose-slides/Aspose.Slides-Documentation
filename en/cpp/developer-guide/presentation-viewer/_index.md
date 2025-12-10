@@ -105,7 +105,7 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **Create a Slide Thumbnail with User Defined Dimensions**
+## **Create a Slide Thumbnail with User-Defined Dimensions**
 
 To create a slide thumbnail image with user defined dimensions, please follow the steps below:
 
@@ -163,3 +163,17 @@ presentation->Dispose();
 You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
 
 ![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Can I embed a presentation viewer in a web application?**
+
+Yes. You can use Aspose.Slides on the server side to render slides as images or HTML and display them in the browser. Navigation and zoom features can be implemented with JavaScript for an interactive experience.
+
+**What is the best way to display slides inside a custom viewer?**
+
+The recommended approach is to render each slide as an image (e.g., PNG or SVG) or convert it to HTML using Aspose.Slides, then display the output inside a picture box (for desktop) or HTML container (for web).
+
+**How do I handle large presentations with many slides?**
+
+For large decks, consider lazy-loading or on-demand rendering of slides. This means generating a slide's content only when the user navigates to it, reducing memory and load time.

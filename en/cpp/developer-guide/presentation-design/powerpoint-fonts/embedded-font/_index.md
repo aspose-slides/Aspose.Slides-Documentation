@@ -130,16 +130,12 @@ presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQs**
+## **FAQ**
 
-**What happens if I remove an embedded font that is used on a slide?**
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
 
-If you remove an embedded font that is still used in the presentation and that font is not installed on the system, PowerPoint will substitute it with a default font. This may cause layout shifts or visual inconsistencies in the text.
+Check the [substitution information](/slides/cpp/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/cpp/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
 
-**Can I embed only the characters that are actually used?**
+**Is it worth embedding "system" fonts like Arial/Calibri?**
 
-Yes. When using the `AddEmbeddedFont` method, you can specify `EmbedFontCharacters::OnlyUsed` to embed only the characters that appear in the presentation. This helps reduce the overall file size.
-
-**Can I embed fonts that are not currently used in the slides?**
-
-Yes, you can embed any font by creating a [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) object and calling `AddEmbeddedFont`, even if it's not applied to any slide content. However, this will increase the file size unnecessarily if the font is never used.
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

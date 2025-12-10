@@ -56,3 +56,13 @@ You can use Aspose.Slides for C++ when developing applications for Windows, Linu
 
 ### **macOS**
 - Xcode 13.4 or later.
+
+## **FAQ**
+
+**Do I need Microsoft PowerPoint installed for conversions and rendering?**
+
+No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creating](/slides/cpp/create-presentation/), modifying, [converting](/slides/cpp/convert-presentation/), and [rendering](/slides/cpp/convert-powerpoint-to-png/) presentations.
+
+**Which fonts are needed for correct rendering?**
+
+In practice, the fonts used in the presentation or proper [substitutes](/slides/cpp/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.

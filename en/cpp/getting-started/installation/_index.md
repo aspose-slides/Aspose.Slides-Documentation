@@ -68,7 +68,13 @@ If you are not familiar with [Aspose EULA](https://about.aspose.com/legal/eula),
 In the Package Manager Console, you can run the `Update-Package Aspose.Slides.Cpp` command to check for updates to the Aspose.Slides package. Updates (if found) get installed automatically. You can also use the `-prerelease` suffix to update the latest release.
 
 
-### Using Include and lib Folders
+### **Using Include and lib Folders**
 1. [Download](https://downloads.aspose.com/slides/cpp) the latest Aspose.Slides for C++ version.
 1. Unzip the folder to the production environment.
 1. To use Aspose.Slides for C++, reference Include and lib folders in your project
+
+## **FAQ**
+
+**Is there a free version or trial limitation?**
+
+Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/cpp/licensing/).

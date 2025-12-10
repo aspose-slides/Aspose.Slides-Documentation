@@ -67,7 +67,7 @@ pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_
 
 The new color is applied automatically on both elements.
 
-### **Set Theme Color from Additional Palette**
+### **Set Theme Color from an Additional Palette**
 
 When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
 
@@ -244,3 +244,16 @@ The resulting changes in fill color, fill type, shadow effect, etc:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
+## **FAQ**
+
+**Can I apply a theme to a single slide without changing the master?**
+
+Yes. Aspose.Slides support slide-level theme overrides, so you can apply a local theme to just that slide while keeping the master theme intact (via the [SlideThemeManager](https://reference.aspose.com/slides/cpp/aspose.slides.theme/slidethememanager/)).
+
+**What’s the safest way to carry a theme from one presentation to another?**
+
+[Clone slides](/slides/cpp/clone-slides/) together with their master into the target presentation. This preserves the original master, layouts, and the associated theme so the appearance remains consistent.
+
+**How can I see the "effective" values after all inheritance and overrides?**
+
+Use the API’s ["effective" views](/slides/cpp/shape-effective-properties/) for theme/color/font/effect. These return the resolved, final properties after applying the master plus any local overrides.

@@ -34,7 +34,7 @@ To convert a slide into an image, follow these steps:
 
 A [Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.).
 
-## **Convert Slides to Bitmap and Save the Images in PNG**
+## **Convert Slides to Bitmaps and Save the Images in PNG**
 
 You can convert a slide to a bitmap object and use it directly in your application. Alternatively, you can convert a slide to a bitmap and then save the image in JPEG or any other preferred format.
 
@@ -180,16 +180,16 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 presentation->Dispose();
 ```
 
-## **FAQs**
+## **FAQ**
 
-**1. Does Aspose.Slides support rendering slides with animations?**
+**Does Aspose.Slides support rendering slides with animations?**
 
 No, the `GetImage` method saves only a static image of the slide, without animations.
 
-**2. Can hidden slides be exported as images?**
+**Can hidden slides be exported as images?**
 
 Yes, hidden slides can be processed just like regular ones. Just make sure they are included in the processing loop.
 
-**3. Can images be saved with shadows and effects?**
+**Can images be saved with shadows and effects?**
 
 Yes, Aspose.Slides supports rendering shadows, transparency, and other graphic effects when saving slides as images.
