@@ -4,25 +4,25 @@ type: docs
 weight: 140
 url: /fr/net/examples/elements/smartart/
 keywords:
-- Exemple SmartArt
+- exemple SmartArt
 - ajouter SmartArt
-- accéder SmartArt
+- accéder à SmartArt
 - supprimer SmartArt
-- disposition SmartArt
+- mise en page SmartArt
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Créez et modifiez des SmartArt en C# avec Aspose.Slides : ajoutez des nœuds, changez les dispositions et les styles, convertissez en formes avec précision, puis exportez vers PPT, PPTX et ODP."
+description: "Créez et modifiez des SmartArt en C# avec Aspose.Slides : ajoutez des nœuds, changez les mises en page et les styles, convertissez en formes avec précision, puis exportez vers PPT, PPTX et ODP."
 ---
 
-Montre comment ajouter des graphiques SmartArt, y accéder, les supprimer et modifier les dispositions en utilisant **Aspose.Slides for .NET**.
+Montre comment ajouter des graphiques SmartArt, y accéder, les supprimer et modifier leurs dispositions en utilisant **Aspose.Slides for .NET**.
 
-## Ajouter SmartArt
+## **Ajouter SmartArt**
 
-Insérez un graphique SmartArt en utilisant l’une des dispositions intégrées.
+Insérez un graphique SmartArt en utilisant l'une des dispositions intégrées.
 ```csharp
 static void Add_SmartArt()
 {
@@ -34,9 +34,9 @@ static void Add_SmartArt()
 ```
 
 
-## Accéder au SmartArt
+## **Accéder à SmartArt**
 
-Récupérez le premier objet SmartArt d’une diapositive.
+Récupérez le premier objet SmartArt sur une diapositive.
 ```csharp
 static void Access_SmartArt()
 {
@@ -49,7 +49,7 @@ static void Access_SmartArt()
 ```
 
 
-## Supprimer SmartArt
+## **Supprimer SmartArt**
 
 Supprimez une forme SmartArt de la diapositive.
 ```csharp
@@ -64,9 +64,9 @@ static void Remove_SmartArt()
 ```
 
 
-## Modifier la disposition du SmartArt
+## **Modifier la disposition SmartArt**
 
-Mettez à jour le type de disposition d’un graphique SmartArt existant.
+Mettez à jour le type de disposition d'un graphique SmartArt existant.
 ```csharp
 static void Change_SmartArt_Layout()
 {

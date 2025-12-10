@@ -4,38 +4,38 @@ type: docs
 weight: 90
 url: /ja/net/examples/elements/section/
 keywords:
-- セクションの例
-- スライドのセクション
-- セクションを追加
-- セクションにアクセス
-- セクションを削除
+- セクション例
+- スライド セクション
+- セクションの追加
+- セクションへのアクセス
+- セクションの削除
 - セクションの名前変更
-- PowerPoint
-- OpenDocument
+- パワーポイント
+- オープンドキュメント
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用した C# でスライド セクションを管理します：セクションの作成、名前の変更、簡単な並び替え、セクション間のスライド移動、PPT、PPTX、ODP の表示制御が可能です。"
+description: "C# と Aspose.Slides を使用してスライド セクションを管理します。セクションの作成、名前変更、簡単な並び替え、セクション間のスライド移動、PPT、PPTX、ODP の表示制御が可能です。"
 ---
 
-**Aspose.Slides for .NET** を使用して、プレゼンテーション セクションをプログラムで管理する例—追加、アクセス、削除、名前変更。
+**Aspose.Slides for .NET** を使用して、プレゼンテーションのセクションをプログラムで管理する例です。セクションの追加、アクセス、削除、名前変更が可能です。
 
-## セクションの追加
+## **セクションの追加**
 
-特定のスライドから始まるセクションを作成します。
+特定のスライドから開始するセクションを作成します。
 ```csharp
 static void Add_Section()
 {
     using var pres = new Presentation();
 
-    // セクションの開始地点となるスライドを指定します
+    // セクションの開始を示すスライドを指定します
     pres.Sections.AddSection("New Section", pres.Slides[0]);
 }
 ```
 
 
-## セクションにアクセスする
+## **セクションへのアクセス**
 
 プレゼンテーションからセクション情報を読み取ります。
 ```csharp
@@ -51,7 +51,7 @@ static void Access_Section()
 ```
 
 
-## セクションの削除
+## **セクションの削除**
 
 以前に追加したセクションを削除します。
 ```csharp
@@ -66,7 +66,7 @@ static void Remove_Section()
 ```
 
 
-## セクションの名前変更
+## **セクションの名前変更**
 
 既存のセクションの名前を変更します。
 ```csharp

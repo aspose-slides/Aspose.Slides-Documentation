@@ -16,12 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) classes, méthodes, propriétés, etc., ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.11.0.
+Cette page répertorie toutes les [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) classes, méthodes, propriétés et ainsi de suite, ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.11.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
@@ -45,7 +45,7 @@ Aspose.Slides.Charts.DataLabelCollection.ShowValue
 #### **La nouvelle propriété FirstSlideNumber a été ajoutée à la classe Presentation**
 La nouvelle propriété FirstSlideNumber ajoutée à Presentation permet d'obtenir ou de définir le numéro de la première diapositive d'une présentation.
 
-Lorsqu'une nouvelle valeur FirstSlideNumber est spécifiée, tous les numéros de diapositives sont recalculés.
+Lorsque une nouvelle valeur FirstSlideNumber est spécifiée, tous les numéros de diapositives sont recalculés.
 
 ``` csharp
 

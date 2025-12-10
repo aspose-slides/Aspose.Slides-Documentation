@@ -1,138 +1,138 @@
 ---
-title: Wenden Sie ein Thema auf eine Präsentation an
+title: Ein Design auf eine Präsentation anwenden
 type: docs
 weight: 30
 url: /de/net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML-Präsentation:**
+## **OpenXML-Präsentation**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Wende Thema auf Präsentation an.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Thema.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
-WendeThemaAufPräsentation(FileName, ThemeFileName);
+ApplyThemeToPresentation(FileName, ThemeFileName);
 
-// Wenden Sie ein neues Thema auf die Präsentation an.
+// Wendet ein neues Design auf die Präsentation an. 
 
-public static void WendeThemaAufPräsentation(string präsentationsDatei, string temaPräsentation)
+public static void ApplyThemeToPresentation(string presentationFile, string themePresentation)
 
 {
 
-    using (PresentationDocument themaDokument = PresentationDocument.Open(temaPräsentation, false))
+    using (PresentationDocument themeDocument = PresentationDocument.Open(themePresentation, false))
 
-    using (PresentationDocument präsentationsDokument = PresentationDocument.Open(präsentationsDatei, true))
+    using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, true))
 
     {
 
-        WendeThemaAufPräsentation(präsentationsDokument, themaDokument);
+        ApplyThemeToPresentation(presentationDocument, themeDocument);
 
     }
 
 }
 
-// Wenden Sie ein neues Thema auf die Präsentation an.
+// Wendet ein neues Design auf die Präsentation an. 
 
-public static void WendeThemaAufPräsentation(PresentationDocument präsentationsDokument, PresentationDocument themaDokument)
+public static void ApplyThemeToPresentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
 
 {
 
-    if (präsentationsDokument == null)
+    if (presentationDocument == null)
 
     {
 
-        throw new ArgumentNullException("präsentationsDokument");
+        throw new ArgumentNullException("presentationDocument");
 
     }
 
-    if (themaDokument == null)
+    if (themeDocument == null)
 
     {
 
-        throw new ArgumentNullException("themaDokument");
+        throw new ArgumentNullException("themeDocument");
 
     }
 
-    // Holen Sie sich den Präsentationsteil des Präsentationsdokuments.
+    // Ruft den Präsentationsteil des Präsentationsdokuments ab.
 
-    PresentationPart präsentationsTeil = präsentationsDokument.PresentationPart;
+    PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Holen Sie sich den bestehenden Folienmasterteil.
+    // Ruft den bestehenden Folienmasterteil ab.
 
-    SlideMasterPart folienMasterTeil = präsentationsTeil.SlideMasterParts.ElementAt(0);
+    SlideMasterPart slideMasterPart = presentationPart.SlideMasterParts.ElementAt(0);
 
-    string beziehungsId = präsentationsTeil.GetIdOfPart(folienMasterTeil);
+    string relationshipId = presentationPart.GetIdOfPart(slideMasterPart);
 
-    // Holen Sie sich den neuen Folienmasterteil.
+    // Ruft den neuen Folienmasterteil ab.
 
-    SlideMasterPart neuerFolienMasterTeil = themaDokument.PresentationPart.SlideMasterParts.ElementAt(0);
+    SlideMasterPart newSlideMasterPart = themeDocument.PresentationPart.SlideMasterParts.ElementAt(0);
 
-    // Entfernen Sie den bestehenden Thementeil.
+    // Entfernt den bestehenden Designteil.
 
-    präsentationsTeil.DeletePart(präsentationsTeil.ThemePart);
+    presentationPart.DeletePart(presentationPart.ThemePart);
 
-    // Entfernen Sie den alten Folienmasterteil.
+    // Entfernt den alten Folienmasterteil.
 
-    präsentationsTeil.DeletePart(folienMasterTeil);
+    presentationPart.DeletePart(slideMasterPart);
 
-    // Importieren Sie den neuen Folienmasterteil und verwenden Sie die alte Beziehungs-ID.
+    // Importiert den neuen Folienmasterteil und verwendet die alte Beziehungs-ID erneut.
 
-    neuerFolienMasterTeil = präsentationsTeil.AddPart(neuerFolienMasterTeil, beziehungsId);
+    newSlideMasterPart = presentationPart.AddPart(newSlideMasterPart, relationshipId);
 
-    // Wechseln Sie zum neuen Thementeil.
+    // Wechselt zum neuen Designteil.
 
-    präsentationsTeil.AddPart(neuerFolienMasterTeil.ThemePart);
+    presentationPart.AddPart(newSlideMasterPart.ThemePart);
 
-    Dictionary<string, SlideLayoutPart> neueFolienLayouts = new Dictionary<string, SlideLayoutPart>();
+    Dictionary<string, SlideLayoutPart> newSlideLayouts = new Dictionary<string, SlideLayoutPart>();
 
-    foreach (var folienLayoutTeil in neuerFolienMasterTeil.SlideLayoutParts)
+    foreach (var slideLayoutPart in newSlideMasterPart.SlideLayoutParts)
 
     {
 
-        neueFolienLayouts.Add(GetSlideLayoutType(folienLayoutTeil), folienLayoutTeil);
+        newSlideLayouts.Add(GetSlideLayoutType(slideLayoutPart), slideLayoutPart);
 
     }
 
-    string layoutTyp = null;
+    string layoutType = null;
 
-    SlideLayoutPart neuerLayoutTeil = null;
+    SlideLayoutPart newLayoutPart = null;
 
-    // Fügen Sie den Code für das Layout für dieses Beispiel ein.
+    // Fügt den Code für das Layout dieses Beispiels ein.
 
-    string standardLayoutTyp = "Titel und Inhalt";
+    string defaultLayoutType = "Title and Content";
 
-    // Entfernen Sie die Folienlayoutbeziehung auf allen Folien.
+    // Entfernt die Folienlayout-Beziehung auf allen Folien. 
 
-    foreach (var folienTeil in präsentationsTeil.SlideParts)
+    foreach (var slidePart in presentationPart.SlideParts)
 
     {
 
-        layoutTyp = null;
+        layoutType = null;
 
-        if (folienTeil.SlideLayoutPart != null)
+        if (slidePart.SlideLayoutPart != null)
 
         {
 
-            // Bestimmen Sie den Folienlayouttyp für jede Folie.
+            // Bestimmt den Folienlayouttyp für jede Folie.
 
-            layoutTyp = GetSlideLayoutType(folienTeil.SlideLayoutPart);
+            layoutType = GetSlideLayoutType(slidePart.SlideLayoutPart);
 
-            // Löschen Sie den alten Layoutteil.
+            // Löscht den alten Layoutteil.
 
-            folienTeil.DeletePart(folienTeil.SlideLayoutPart);
+            slidePart.DeletePart(slidePart.SlideLayoutPart);
 
         }
 
-        if (layoutTyp != null && neueFolienLayouts.TryGetValue(layoutTyp, out neuerLayoutTeil))
+        if (layoutType != null && newSlideLayouts.TryGetValue(layoutType, out newLayoutPart))
 
         {
 
-            // Wenden Sie den neuen Layoutteil an.
+            // Wendet den neuen Layoutteil an.
 
-            folienTeil.AddPart(neuerLayoutTeil);
+            slidePart.AddPart(newLayoutPart);
 
         }
 
@@ -140,11 +140,11 @@ public static void WendeThemaAufPräsentation(PresentationDocument präsentation
 
         {
 
-            neuerLayoutTeil = neueFolienLayouts[standardLayoutTyp];
+            newLayoutPart = newSlideLayouts[defaultLayoutType];
 
-            // Wenden Sie den neuen Standardlayoutteil an.
+            // Wendet den neuen Standard-Layoutteil an.
 
-            folienTeil.AddPart(neuerLayoutTeil);
+            slidePart.AddPart(newLayoutPart);
 
         }
 
@@ -152,93 +152,93 @@ public static void WendeThemaAufPräsentation(PresentationDocument präsentation
 
 }
 
-// Holen Sie sich den Folienlayouttyp.
+// Ruft den Folienlayouttyp ab.
 
-public static string GetSlideLayoutType(SlideLayoutPart folienLayoutTeil)
+public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
 {
 
-    CommonSlideData folienDaten = folienLayoutTeil.SlideLayout.CommonSlideData;
+    CommonSlideData slideData = slideLayoutPart.SlideLayout.CommonSlideData;
 
-    // Bemerkungen: Wenn dies in Produktionscode verwendet wird, überprüfen Sie auf eine Nullreferenz.
+    // Hinweis: Wenn dies im Produktionscode verwendet wird, überprüfen Sie auf eine Nullreferenz.
 
-    return folienDaten.Name;
+    return slideData.Name;
 
 }   
 
 ``` 
 ## **Aspose.Slides**
-Um ein Thema anzuwenden, müssen wir die Folie mit dem Master klonen. Bitte befolgen Sie die folgenden Schritte:
+Um ein Design anzuwenden, müssen wir die Folie mit dem Master duplizieren. Bitte folgen Sie den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der Klasse Presentation, die die Quellpräsentation enthält, von der die Folie kopiert wird.
-- Erstellen Sie eine Instanz der Klasse Presentation, die die Zielpräsentation enthält, in die die Folie kopiert wird.
-- Greifen Sie auf die Folie zu, die kopiert werden soll, zusammen mit der Masterfolie.
-- Instanziieren Sie die Klasse IMasterSlideCollection, indem Sie die Masters-Sammlung referenzieren, die vom Präsentationsobjekt der Zielpräsentation bereitgestellt wird.
-- Rufen Sie die Methode AddClone des IMasterSlideCollection-Objekts auf und übergeben Sie die Masterfolie aus der Quell-PPTX als Parameter an die Methode AddClone.
-- Instanziieren Sie die Klasse ISlideCollection, indem Sie die Referenz auf die Slides-Sammlung setzen, die vom Präsentationsobjekt der Zielpräsentation bereitgestellt wird.
-- Rufen Sie die Methode AddClone des ISlideCollection-Objekts auf und übergeben Sie die Folie aus der Quellpräsentation, die kopiert werden soll, und die Masterfolie als Parameter an die Methode AddClone.
-- Schreiben Sie die modifizierte Zielpräsentationsdatei.
+- Erstellen Sie eine Instanz der Presentation-Klasse, die die Quellpräsentation enthält, von der die Folie geklont werden soll.
+- Erstellen Sie eine Instanz der Presentation-Klasse, die die Zielpräsentation enthält, in die die Folie geklont werden soll.
+- Greifen Sie auf die zu klonende Folie zusammen mit der Masterfolie zu.
+- Instanziieren Sie die IMasterSlideCollection-Klasse, indem Sie auf die Masters-Sammlung zugreifen, die vom Presentation-Objekt der Zielpräsentation bereitgestellt wird.
+- Rufen Sie die AddClone-Methode des IMasterSlideCollection-Objekts auf und übergeben Sie den Master aus der Quell-PPTX, der geklont werden soll, als Parameter.
+- Instanziieren Sie die ISlideCollection-Klasse, indem Sie die Referenz auf die Slides-Sammlung setzen, die vom Presentation-Objekt der Zielpräsentation bereitgestellt wird.
+- Rufen Sie die AddClone-Methode des ISlideCollection-Objekts auf und übergeben Sie die Folie aus der Quellpräsentation, die geklont werden soll, sowie die Masterfolie als Parameter.
+- Schreiben Sie die modifizierte Zieldatei der Präsentation.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Wende Thema auf Präsentation an.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Thema.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
-WendeThemaAufPräsentation(ThemeFileName, FileName);
+ApplyThemeToPresentation(ThemeFileName, FileName);
 
-public static void WendeThemaAufPräsentation(string präsentationsDatei, string ausgabeDatei)
+public static void ApplyThemeToPresentation(string presentationFile, string outputFile)
 
 {
 
-    // Instanziieren Sie die Präsentationsklasse, um die Quellpräsentationsdatei zu laden
+    //Instanziiert die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 
-    Presentation srcPres = new Presentation(präsentationsDatei);
+    Presentation srcPres = new Presentation(presentationFile);
 
-    // Instanziieren Sie die Präsentationsklasse für die Zielpräsentation (wo die Folie geklont werden soll)
+    //Instanziiert die Presentation-Klasse für die Zielpräsentation (wo die Folie geklont werden soll)
 
-    Presentation destPres = new Presentation(ausgabeDatei);
+    Presentation destPres = new Presentation(outputFile);
 
-    // Instanziieren Sie ISlide aus der Sammlung von Folien in der Quellpräsentation zusammen mit
+    //Instanziert ISlide aus der Sammlung von Folien in der Quellpräsentation zusammen mit
 
-    // Masterfolie
+    //der Masterfolie
 
-    ISlide QuelleFolie = srcPres.Slides[0];
+    ISlide SourceSlide = srcPres.Slides[0];
 
-    // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Master in der
+    //Klonet den gewünschten Master aus der Quellpräsentation in die Sammlung von Mastern in der
 
-    // Zielpräsentation
+    //Zielpräsentation
 
     IMasterSlideCollection masters = destPres.Masters;
 
-    IMasterSlide QuelleMaster = QuelleFolie.LayoutSlide.MasterSlide;
+    IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-    // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Master in der
+    //Klonet den gewünschten Master aus der Quellpräsentation in die Sammlung von Mastern in der
 
-    // Zielpräsentation
+    //Zielpräsentation
 
-    IMasterSlide iSlide = masters.AddClone(QuelleMaster);
+    IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-    // Klonen Sie die gewünschte Folie von der Quellpräsentation mit dem gewünschten Master ans Ende der
+    //Klonet die gewünschte Folie aus der Quellpräsentation mit dem gewünschten Master zum Ende der
 
-    // Sammlung der Folien in der Zielpräsentation
+    //Sammlung von Folien in der Zielpräsentation
 
     ISlideCollection slds = destPres.Slides;
 
-    slds.AddClone(QuelleFolie, iSlide, true);
+    slds.AddClone(SourceSlide, iSlide, true);
 
-    // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Master in der Zielpräsentation
+    //Klonet den gewünschten Master aus der Quellpräsentation in die Sammlung von Mastern in der//Zielpräsentation
 
-    // Speichern Sie die Zielpräsentation auf der Festplatte
+    //Speichert die Zielpräsentation auf dem Datenträger
 
-    destPres.Save(ausgabeDatei, SaveFormat.Pptx);
+    destPres.Save(outputFile, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Herunterladen des laufenden Codebeispiels**
+## **Beispielcode herunterladen**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **Beispielcode**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Apply%20Theme%20to%20Presentation)

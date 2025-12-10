@@ -15,7 +15,7 @@ keywords:
 - viñeta de párrafo
 - lista numerada
 - lista con viñetas
-- propiedades del párrafo
+- propiedades de párrafo
 - importar HTML
 - texto a HTML
 - párrafo a HTML
@@ -27,7 +27,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Domina el formato de párrafos con Aspose.Slides para .NET—optimiza la alineación, el espaciado y el estilo en presentaciones PPT, PPTX y ODP en C#."
+description: "Domina el formato de párrafos con Aspose.Slides para .NET—optimiza alineación, espaciado y estilo en presentaciones PPT, PPTX y ODP en C#."
 ---
 
 Aspose.Slides proporciona todas las interfaces y clases que necesita para trabajar con textos, párrafos y porciones de PowerPoint en C#.
@@ -42,25 +42,25 @@ Un objeto `IParagraph` es capaz de manejar textos con diferentes propiedades de 
 
 Estos pasos le muestran cómo agregar un marco de texto que contiene 3 párrafos y cada párrafo contiene 3 porciones:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregue un rectángulo [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
-4. Obtenga el ITextFrame asociado con el [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-5. Cree dos objetos [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) y agrégelos a la colección `IParagraphs` del [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-6. Cree tres objetos [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) para cada nuevo `IParagraph` (dos objetos Portion para el párrafo predeterminado) y agregue cada objeto `IPortion` a la colección IPortion de cada `IParagraph`.
-7. Asigne texto a cada porción.
-8. Aplique sus características de formato preferidas a cada porción usando las propiedades de formato expuestas por el objeto `IPortion`.
-9. Guarde la presentación modificada.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Agregar un rectángulo [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
+4. Obtener el ITextFrame asociado con el [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+5. Crear dos objetos [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) y agregarlos a la colección `IParagraphs` del [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+6. Crear tres objetos [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) para cada nuevo `IParagraph` (dos objetos Portion para el párrafo predeterminado) y agregar cada objeto `IPortion` a la colección IPortion de cada `IParagraph`.
+7. Establecer algún texto para cada porción.
+8. Aplicar sus características de formato preferidas a cada porción usando las propiedades de formato expuestas por el objeto `IPortion`.
+9. Guardar la presentación modificada.
 
 Este código C# es una implementación de los pasos para agregar párrafos que contienen porciones:
 ```c#
-// Instancia una clase Presentation que representa un archivo PPTX
+ // Instancia una clase Presentation que representa un archivo PPTX
 using (Presentation pres = new Presentation())
 {
     // Accede a la primera diapositiva
     ISlide slide = pres.Slides[0];
 
-    // Agrega un IAutoShape rectangular
+    // Añade un IAutoShape tipo rectángulo
     IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
     // Accede al TextFrame del AutoShape
@@ -119,20 +119,20 @@ using (Presentation pres = new Presentation())
 ## **Administrar viñetas de párrafo**
 Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con viñetas siempre son más fáciles de leer y comprender.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregue una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva seleccionada.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la autoshape. 
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
-8. Defina el `Type` de la viñeta del párrafo como `Symbol` y establezca el carácter de la viñeta.
-9. Defina el `Text` del párrafo.
-10. Defina el `Indent` del párrafo para la viñeta.
-11. Establezca un color para la viñeta.
-12. Establezca una altura para la viñeta.
-13. Agregue el nuevo párrafo a la colección de párrafos del `TextFrame`.
-14. Agregue el segundo párrafo y repita el proceso descrito en los pasos 7 a 13.
-15. Guarde la presentación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Agregar una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva seleccionada.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la autoshape. 
+5. Eliminar el párrafo predeterminado en el `TextFrame`.
+6. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
+8. Establecer el `Type` de la viñeta para el párrafo a `Symbol` y definir el carácter de la viñeta.
+9. Establecer el `Text` del párrafo.
+10. Establecer la `Indent` del párrafo para la viñeta.
+11. Definir un color para la viñeta.
+12. Definir una altura para la viñeta.
+13. Agregar el nuevo párrafo a la colección de párrafos del `TextFrame`.
+14. Agregar el segundo párrafo y repetir el proceso descrito en los pasos 7 a 13.
+15. Guardar la presentación.
 
 Este código C# le muestra cómo agregar una viñeta de párrafo:
 ```c#
@@ -144,10 +144,10 @@ using (Presentation pres = new Presentation())
     ISlide slide = pres.Slides[0];
 
 
-    // Agrega y accede a la forma AutoShape
+    // Añade y accede al Autoshape
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Accede al marco de texto del AutoShape
+    // Accede al marco de texto del autoshape
     ITextFrame txtFrm = aShp.TextFrame;
 
     // Elimina el párrafo predeterminado
@@ -156,7 +156,7 @@ using (Presentation pres = new Presentation())
     // Crea un párrafo
     Paragraph para = new Paragraph();
 
-    // Establece el estilo y el símbolo de viñeta del párrafo
+    // Establece el estilo de viñeta del párrafo y el símbolo
     para.ParagraphFormat.Bullet.Type = BulletType.Symbol;
     para.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
 
@@ -169,22 +169,22 @@ using (Presentation pres = new Presentation())
     // Establece el color de la viñeta
     para.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
     para.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // establecer IsBulletHardColor a true para usar el color propio de la viñeta
+    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // establecer IsBulletHardColor a true para usar color propio de la viñeta
 
     // Establece la altura de la viñeta
     para.ParagraphFormat.Bullet.Height = 100;
 
-    // Agrega el párrafo al marco de texto
+    // Añade el párrafo al marco de texto
     txtFrm.Paragraphs.Add(para);
 
-    // Crea el segundo párrafo
+    // Crea un segundo párrafo
     Paragraph para2 = new Paragraph();
 
     // Establece el tipo y estilo de viñeta del párrafo
     para2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
     para2.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
 
-    // Agrega el texto al párrafo
+    // Añade el texto del párrafo
     para2.Text = "This is numbered bullet";
 
     // Establece la sangría de la viñeta
@@ -192,12 +192,12 @@ using (Presentation pres = new Presentation())
 
     para2.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
     para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // establecer IsBulletHardColor a true para usar el color propio de la viñeta
+    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // establecer IsBulletHardColor a true para usar color propio de la viñeta
 
     // Establece la altura de la viñeta
     para2.ParagraphFormat.Bullet.Height = 100;
 
-    // Agrega el párrafo al marco de texto
+    // Añade el párrafo al marco de texto
     txtFrm.Paragraphs.Add(para2);
 
 
@@ -208,26 +208,26 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Administrar viñetas de imagen**
+## **Administrar viñetas con imágenes**
 Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con imágenes son fáciles de leer y comprender.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregue una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
-7. Cargue la imagen en [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
-8. Defina el tipo de viñeta como [Picture](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) y establezca la imagen.
-9. Defina el `Text` del párrafo.
-10. Defina el `Indent` del párrafo para la viñeta.
-11. Establezca un color para la viñeta.
-12. Establezca una altura para la viñeta.
-13. Agregue el nuevo párrafo a la colección de párrafos del `TextFrame`.
-14. Agregue el segundo párrafo y repita el proceso basándose en los pasos anteriores.
-15. Guarde la presentación modificada.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Agregar una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
+5. Eliminar el párrafo predeterminado en el `TextFrame`.
+6. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
+7. Cargar la imagen en [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
+8. Establecer el tipo de viñeta a [Picture](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) y definir la imagen.
+9. Establecer el `Text` del párrafo.
+10. Establecer la `Indent` del párrafo para la viñeta.
+11. Definir un color para la viñeta.
+12. Definir una altura para la viñeta.
+13. Agregar el nuevo párrafo a la colección de párrafos del `TextFrame`.
+14. Agregar el segundo párrafo y repetir el proceso basado en los pasos anteriores.
+15. Guardar la presentación modificada.
 
-Este código C# le muestra cómo agregar y administrar viñetas de imagen:
+Este código C# le muestra cómo agregar y administrar viñetas con imágenes:
 ```c#
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation presentation = new Presentation();
@@ -240,10 +240,10 @@ IImage image = Images.FromFile("bullets.png");
 IPPImage ippxImage = presentation.Images.AddImage(image);
 image.Dispose();
 
-// Agrega y accede al AutoShape
+// Añade y accede al Autoshape
 IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-// Accede al marco de texto del AutoShape
+// Accede al marco de texto del autoshape
 ITextFrame textFrame = autoShape.TextFrame;
 
 // Elimina el párrafo predeterminado
@@ -253,14 +253,14 @@ textFrame.Paragraphs.RemoveAt(0);
 Paragraph paragraph = new Paragraph();
 paragraph.Text = "Welcome to Aspose.Slides";
 
-// Establece el estilo y la imagen de viñeta del párrafo
+// Establece el estilo de viñeta del párrafo y la imagen
 paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
 paragraph.ParagraphFormat.Bullet.Picture.Image = ippxImage;
 
 // Establece la altura de la viñeta
 paragraph.ParagraphFormat.Bullet.Height = 100;
 
-// Agrega el párrafo al marco de texto
+// Añade el párrafo al marco de texto
 textFrame.Paragraphs.Add(paragraph);
 
 // Guarda la presentación como archivo PPTX
@@ -274,17 +274,17 @@ presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 ## **Administrar viñetas multinivel**
 Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Las viñetas multinivel son fáciles de leer y comprender.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregue una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) en la nueva diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) y establezca la profundidad en 0.
-7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 1.
-8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 2.
-9. Cree la cuarta instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad en 3.
-10. Agregue los nuevos párrafos a la colección de párrafos del `TextFrame`.
-11. Guarde la presentación modificada.
+1. Crear una instancia de la [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Agregar una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) en la nueva diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
+5. Eliminar el párrafo predeterminado en el `TextFrame`.
+6. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) y establecer la profundidad en 0.
+7. Crear la segunda instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad en 1.
+8. Crear la tercera instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad en 2.
+9. Crear la cuarta instancia de párrafo mediante la clase `Paragraph` y establecer la profundidad en 3.
+10. Agregar los nuevos párrafos a la colección de párrafos del `TextFrame`.
+11. Guardar la presentación modificada.
 
 Este código C# le muestra cómo agregar y administrar viñetas multinivel:
 ```c#
@@ -295,10 +295,10 @@ using (Presentation pres = new Presentation())
     // Accede a la primera diapositiva
     ISlide slide = pres.Slides[0];
     
-    // Agrega y accede al AutoShape
+    // Añade y accede al Autoshape
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Accede al marco de texto del AutoShape creado
+    // Accede al marco de texto del autoshape creado
     ITextFrame text = aShp.AddTextFrame("");
     
     // Elimina el párrafo predeterminado
@@ -311,7 +311,7 @@ using (Presentation pres = new Presentation())
     para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
     para1.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para1.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Establece el nivel de la viñeta
+    // Establece el nivel de viñeta
     para1.ParagraphFormat.Depth = 0;
 
     // Agrega el segundo párrafo
@@ -321,7 +321,7 @@ using (Presentation pres = new Presentation())
     para2.ParagraphFormat.Bullet.Char = '-';
     para2.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para2.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Establece el nivel de la viñeta
+    // Establece el nivel de viñeta
     para2.ParagraphFormat.Depth = 1;
 
     // Agrega el tercer párrafo
@@ -331,7 +331,7 @@ using (Presentation pres = new Presentation())
     para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
     para3.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para3.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Establece el nivel de la viñeta
+    // Establece el nivel de viñeta
     para3.ParagraphFormat.Depth = 2;
 
     // Agrega el cuarto párrafo
@@ -341,7 +341,7 @@ using (Presentation pres = new Presentation())
     para4.ParagraphFormat.Bullet.Char = '-';
     para4.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para4.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Establece el nivel de la viñeta
+    // Establece el nivel de viñeta
     para4.ParagraphFormat.Depth = 3;
 
     // Agrega los párrafos a la colección
@@ -356,65 +356,65 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Administrar párrafo con lista numerada personalizada**
+## **Administrar un párrafo con una lista numerada personalizada**
 La interfaz [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) proporciona la propiedad [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) y otras que le permiten administrar párrafos con numeración o formato personalizado. 
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. Acceda a la diapositiva que contiene el párrafo.
-3. Agregue una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
-5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) y establezca [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) en 2.
-7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` en 3.
-8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` en 7.
-9. Agregue los nuevos párrafos a la colección de párrafos del `TextFrame`.
-10. Guarde la presentación modificada.
+1. Crear una instancia de la [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+2. Acceder a la diapositiva que contiene el párrafo.
+3. Agregar una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la autoshape.
+5. Eliminar el párrafo predeterminado en el `TextFrame`.
+6. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) y establecer [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) en 2.
+7. Crear la segunda instancia de párrafo mediante la clase `Paragraph` y establecer `NumberedBulletStartWith` en 3.
+8. Crear la tercera instancia de párrafo mediante la clase `Paragraph` y establecer `NumberedBulletStartWith` en 7.
+9. Agregar los nuevos párrafos a la colección de párrafos del `TextFrame`.
+10. Guardar la presentación modificada.
 
 Este código C# le muestra cómo agregar y administrar párrafos con numeración o formato personalizado:
 ```c#
 using (var presentation = new Presentation())
 {
-	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-	// Accede al marco de texto del AutoShape creado
-	ITextFrame textFrame = shape.TextFrame;
+    // Accede al marco de texto del autoshape creado
+    ITextFrame textFrame = shape.TextFrame;
 
-	// Elimina el párrafo predeterminado existente
-	textFrame.Paragraphs.RemoveAt(0);
+    // Elimina el párrafo predeterminado existente
+    textFrame.Paragraphs.RemoveAt(0);
 
-	// Primera lista
-	var paragraph1 = new Paragraph { Text = "bullet 2" };
-	paragraph1.ParagraphFormat.Depth = 4; 
-	paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
-	paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph1);
+    // Primera lista
+    var paragraph1 = new Paragraph { Text = "bullet 2" };
+    paragraph1.ParagraphFormat.Depth = 4; 
+    paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
+    paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+    textFrame.Paragraphs.Add(paragraph1);
 
-	var paragraph2 = new Paragraph { Text = "bullet 3" };
-	paragraph2.ParagraphFormat.Depth = 4;
-	paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
-	paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
-	textFrame.Paragraphs.Add(paragraph2);
+    var paragraph2 = new Paragraph { Text = "bullet 3" };
+    paragraph2.ParagraphFormat.Depth = 4;
+    paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
+    paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
+    textFrame.Paragraphs.Add(paragraph2);
 
-	
-	var paragraph5 = new Paragraph { Text = "bullet 7" };
-	paragraph5.ParagraphFormat.Depth = 4;
-	paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
-	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph5);
+    
+    var paragraph5 = new Paragraph { Text = "bullet 7" };
+    paragraph5.ParagraphFormat.Depth = 4;
+    paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
+    paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+    textFrame.Paragraphs.Add(paragraph5);
 
-	presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Establecer sangría del párrafo**
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-1. Agregue un rectángulo [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
-1. Agregue un [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) con tres párrafos al rectángulo autoshape.
-1. Oculte las líneas del rectángulo.
-1. Establezca la sangría para cada [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) a través de su propiedad `BulletOffset`.
-1. Guarde la presentación modificada como archivo PPT.
+## **Establecer sangría de párrafo**
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+1. Agregar un rectángulo [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) a la diapositiva.
+1. Agregar un [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) con tres párrafos al rectángulo autoshape.
+1. Ocultar las líneas del rectángulo.
+1. Establecer la sangría para cada [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) mediante su propiedad BulletOffset.
+1. Guardar la presentación modificada como archivo PPT.
 
 Este código C# le muestra cómo establecer una sangría de párrafo:
 ```c#
@@ -430,16 +430,16 @@ IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 15
 // Agrega un TextFrame al rectángulo
 ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
 
-// Ajusta el texto al tamaño de la forma
+// Ajusta el texto para que encaje en la forma
 tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-// Oculta los bordes del rectángulo
+// Oculta las líneas del rectángulo
 rect.LineFormat.FillFormat.FillType = FillType.Solid;
 
-// Obtiene el primer párrafo del TextFrame y establece su sangría
+// Obtiene el primer párrafo en el TextFrame y establece su sangría
 IParagraph para1 = tf.Paragraphs[0];
 
-// Establece el estilo y el símbolo de viñeta del párrafo
+// Establece el estilo de viñeta del párrafo y el símbolo
 para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
 para1.ParagraphFormat.Alignment = TextAlignment.Left;
@@ -447,7 +447,7 @@ para1.ParagraphFormat.Alignment = TextAlignment.Left;
 para1.ParagraphFormat.Depth = 2;
 para1.ParagraphFormat.Indent = 30;
 
-// Obtiene el segundo párrafo del TextFrame y establece su sangría
+// Obtiene el segundo párrafo en el TextFrame y establece su sangría
 IParagraph para2 = tf.Paragraphs[1];
 para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
@@ -455,7 +455,7 @@ para2.ParagraphFormat.Alignment = TextAlignment.Left;
 para2.ParagraphFormat.Depth = 2;
 para2.ParagraphFormat.Indent = 40;
 
-// Obtiene el tercer párrafo del TextFrame y establece su sangría
+// Obtiene el tercer párrafo en el TextFrame y establece su sangría
 IParagraph para3 = tf.Paragraphs[2];
 para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
@@ -468,7 +468,7 @@ pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer sangría colgante para el párrafo**
+## **Establecer sangría colgante para un párrafo**
 
 Este código C# le muestra cómo establecer la sangría colgante para un párrafo:  
 ```c#
@@ -501,15 +501,15 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Administrar propiedades de ejecución final del párrafo**
+## **Administrar propiedades de ejecución de fin de párrafo**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. Obtenga la referencia de la diapositiva que contiene el párrafo mediante su posición.
-1. Agregue un rectángulo [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) a la diapositiva.
-1. Agregue un [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) con dos párrafos al rectángulo.
-1. Establezca `FontHeight` y el tipo de fuente para los párrafos.
-1. Establezca las propiedades End para los párrafos.
-1. Guarde la presentación modificada como archivo PPTX.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtener la referencia de la diapositiva que contiene el párrafo mediante su posición.
+1. Agregar un rectángulo [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) a la diapositiva.
+1. Agregar un [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) con dos párrafos al rectángulo.
+1. Establecer el `FontHeight` y el tipo de fuente para los párrafos.
+1. Establecer las propiedades End para los párrafos.
+1. Guardar la presentación modificada como archivo PPTX.
 
 Este código C# le muestra cómo establecer las propiedades End para los párrafos en PowerPoint:
 ```c#
@@ -536,24 +536,24 @@ using (Presentation pres = new Presentation("Test.pptx"))
 
 
 ## **Importar texto HTML en párrafos**
-Aspose.Slides ofrece soporte mejorado para importar texto HTML en párrafos.
+Aspose.Slides proporciona soporte mejorado para importar texto HTML en párrafos.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Agregue una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) a la diapositiva.
-4. Agregue y acceda al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la `autoshape`.
-5. Elimine el párrafo predeterminado en el `ITextFrame`.
-6. Lea el archivo HTML fuente en un TextReader.
-7. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
-8. Agregue el contenido del archivo HTML leído por el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/) del TextFrame.
-9. Guarde la presentación modificada.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Agregar una [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) a la diapositiva.
+4. Agregar y acceder al [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) de la autoshape.
+5. Eliminar el párrafo predeterminado en el `ITextFrame`.
+6. Leer el archivo HTML fuente en un TextReader.
+7. Crear la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/).
+8. Agregar el contenido del archivo HTML leído por el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/) del TextFrame.
+9. Guardar la presentación modificada.
 
 Este código C# es una implementación de los pasos para importar textos HTML en párrafos:
 ```c#
-// Crea una instancia de presentación vacía
+// Crea una instancia vacía de presentación
 using (Presentation pres = new Presentation())
 {
-    // Accede a la primera diapositiva predeterminada de la presentación
+    // Accede a la diapositiva predeterminada número uno de la presentación
     ISlide slide = pres.Slides[0];
 
     // Agrega el AutoShape para contener el contenido HTML
@@ -564,7 +564,7 @@ using (Presentation pres = new Presentation())
     // Agrega un marco de texto a la forma
     ashape.AddTextFrame("");
 
-    // Borra todos los párrafos del marco de texto añadido
+    // Borra todos los párrafos del marco de texto agregado
     ashape.TextFrame.Paragraphs.Clear();
 
     // Carga el archivo HTML usando StreamReader
@@ -579,17 +579,17 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Exportar textos de párrafos a HTML**
-Aspose.Slides ofrece soporte mejorado para exportar textos (contenidos en párrafos) a HTML.
+## **Exportar texto de párrafo a HTML**
+Aspose.Slides proporciona soporte mejorado para exportar textos (contenidos en párrafos) a HTML.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) y cargue la presentación deseada.
-2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Acceda a la forma que contiene el texto que se exportará a HTML.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la forma.
-5. Cree una instancia de `StreamWriter` y añada el nuevo archivo HTML.
-6. Proporcione un índice inicial a StreamWriter y exporte los párrafos que prefiera.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) y cargar la presentación deseada.
+2. Acceder a la referencia de la diapositiva correspondiente mediante su índice.
+3. Acceder a la forma que contiene el texto que se exportará a HTML.
+4. Acceder al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de la forma.
+5. Crear una instancia de `StreamWriter` y agregar el nuevo archivo HTML.
+6. Proporcionar un índice inicial a StreamWriter y exportar los párrafos preferidos.
 
-Este código C# le muestra cómo exportar textos de párrafos de PowerPoint a HTML:
+Este código C# le muestra cómo exportar textos de párrafo de PowerPoint a HTML:
 ```c#
 // Carga el archivo de presentación
 using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
@@ -606,7 +606,7 @@ using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 
     StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
 
-    // Escribe los datos de los párrafos a HTML especificando el índice de inicio del párrafo y la cantidad de párrafos a copiar
+    // Escribe los datos de los párrafos a HTML especificando el índice de inicio del párrafo y el número de párrafos a copiar
     sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
 
     sw.Close();
@@ -616,11 +616,11 @@ using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 
 ## **Guardar un párrafo como imagen**
 
-En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen obtener la imagen de una forma que contiene el párrafo usando los métodos `GetImage` de la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), calcular los límites del párrafo dentro de la forma y exportarlo como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones PowerPoint y guardarlas como imágenes separadas, lo cual puede ser útil para su uso posterior en varios escenarios.
+En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen la obtención de la imagen de una forma que contiene el párrafo usando los métodos `GetImage` de la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), el cálculo de los límites del párrafo dentro de la forma y su exportación como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones de PowerPoint y guardarlas como imágenes separadas, lo que puede ser útil para diversos escenarios.
 
 Supongamos que tenemos un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
 
 **Ejemplo 1**
 
@@ -629,27 +629,27 @@ En este ejemplo, obtenemos el segundo párrafo como una imagen. Para ello, extra
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
-// Save the shape in memory as a bitmap.
+// Guarda la forma en memoria como un mapa de bits.
 using var shapeImage = firstShape.GetImage();
 using var shapeImageStream = new MemoryStream();
 shapeImage.Save(shapeImageStream, ImageFormat.Png);
 
-// Create a shape bitmap from memory.
+// Crea un mapa de bits de la forma a partir de la memoria.
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// Calculate the boundaries of the second paragraph.
+// Calcula los límites del segundo párrafo.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 
-// Calculate the size for the output image (minimum size - 1x1 pixel).
+// Calcula el tamaño para la imagen de salida (tamaño mínimo - 1x1 píxel).
 var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
 var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
 
-// Prepare a bitmap for the paragraph.
+// Prepara un mapa de bits para el párrafo.
 using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
 
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+// Redibuja el párrafo del mapa de bits de la forma al mapa de bits del párrafo.
 using var imageGraphics = Graphics.FromImage(paragraphBitmap);
 var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
 imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
@@ -660,11 +660,11 @@ paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 
 El resultado:
 
-![The paragraph image](paragraph_to_image_output.png)
+![La imagen del párrafo](paragraph_to_image_output.png)
 
 **Ejemplo 2**
 
-En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite obtener una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan considerando la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para materiales impresos de alta calidad.
+En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan considerando la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para materiales impresos de alta calidad.
 ```csharp
 var imageScaleX = 2f;
 var imageScaleY = imageScaleX;
@@ -705,11 +705,11 @@ paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
 
-Sí. Utilice la configuración de ajuste del marco de texto ([WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/)) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco.
+Sí. Use la configuración de ajuste del marco de texto ([WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/)) para desactivar el ajuste y que las líneas no se quiebren en los bordes del marco.
 
 **¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
@@ -717,7 +717,7 @@ Puede obtener el rectángulo delimitador del párrafo (e incluso de una sola por
 
 **¿Dónde se controla la alineación del párrafo (izquierda/derecha/centro/justificado)?**
 
-[Alignment](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/alignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/); se aplica a todo el párrafo independientemente del formato individual de las porciones.
+[Alignment](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/alignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/); se aplica a todo el párrafo independientemente del formato de las porciones individuales.
 
 **¿Puedo establecer un idioma de corrección ortográfica solo para una parte del párrafo (por ejemplo, una palabra)?**
 

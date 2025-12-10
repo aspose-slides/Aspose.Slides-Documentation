@@ -1,18 +1,18 @@
 ---
-title: SmartArt‑Formknoten in Präsentationen mit .NET verwalten
-linktitle: SmartArt‑Formknoten
+title: Verwalten von SmartArt-Formknoten in Präsentationen in .NET
+linktitle: SmartArt-Formknoten
 type: docs
 weight: 30
 url: /de/net/manage-smartart-shape-node/
 keywords:
-- SmartArt‑Knoten
-- Unterknoten
+- SmartArt-Knoten
+- untergeordneter Knoten
 - Knoten hinzufügen
 - Knotenposition
-- Knotenzugriff
+- Knoten zugreifen
 - Knoten entfernen
 - benutzerdefinierte Position
-- Assistant‑Knoten
+- Assistenten-Knoten
 - Füllformat
 - Knoten rendern
 - PowerPoint
@@ -20,32 +20,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie SmartArt‑Formknoten in PPT und PPTX mit Aspose.Slides für .NET. Erhalten Sie klare Code‑Beispiele und Tipps, um Ihre Präsentationen zu optimieren."
+description: "Verwalten Sie SmartArt-Formknoten in PPT und PPTX mit Aspose.Slides für .NET. Erhalten Sie klare Codebeispiele und Tipps, um Ihre Präsentationen zu optimieren."
 ---
 
 ## **SmartArt‑Knoten hinzufügen**
-Aspose.Slides for .NET bietet die einfachste API, um SmartArt‑Formen auf einfachste Weise zu verwalten. Der folgende Beispielcode zeigt, wie ein Knoten und ein untergeordneter Knoten innerhalb einer SmartArt‑Form hinzugefügt werden.
+Aspose.Slides für .NET bietet die einfachste API zur Verwaltung von SmartArt‑Formen auf einfachste Weise. Der folgende Beispielcode zeigt, wie ein Knoten und ein untergeordneter Knoten innerhalb einer SmartArt‑Form hinzugefügt werden.
 
 - Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn dies der Fall ist.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
 - Fügen Sie einen neuen Knoten zur NodeCollection der SmartArt‑Form hinzu und setzen Sie den Text im TextFrame.
-- Fügen Sie nun einen untergeordneten Knoten zum gerade hinzugefügten SmartArt‑Knoten hinzu und setzen Sie den Text im TextFrame.
+- Fügen Sie nun einen untergeordneten Knoten zum neu hinzugefügten SmartArt‑Knoten hinzu und setzen Sie den Text im TextFrame.
 - Speichern Sie die Präsentation.
 ```c#
-// Lade die gewünschte Präsentation
+// Laden der gewünschten Präsentation
 Presentation pres = new Presentation("AddNodes.pptx");
 
-// Durchlaufen Sie jede Form auf der ersten Folie
+// Durchlaufen aller Formen in der ersten Folie
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
 
-    // Prüfen Sie, ob die Form vom Typ SmartArt ist
+    // Prüfen, ob die Form vom Typ SmartArt ist
     if (shape is Aspose.Slides.SmartArt.SmartArt)
     {
 
-        // Casten Sie die Form zu SmartArt
+        // Form zu SmartArt casten
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
         // Hinzufügen eines neuen SmartArt-Knotens
@@ -54,7 +54,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
         // Text hinzufügen
         TemNode.TextFrame.Text = "Test";
 
-        // Hinzufügen eines neuen untergeordneten Knotens im übergeordneten Knoten. Er wird am Ende der Sammlung hinzugefügt
+        // Hinzufügen eines neuen untergeordneten Knotens im übergeordneten Knoten.  Es wird am Ende der Sammlung hinzugefügt
         Aspose.Slides.SmartArt.SmartArtNode newNode = (Aspose.Slides.SmartArt.SmartArtNode)TemNode.ChildNodes.AddNode();
 
         // Text hinzufügen
@@ -68,28 +68,26 @@ pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-
-
 ## **SmartArt‑Knoten an einer bestimmten Position hinzufügen**
-Im folgenden Beispielcode wird erklärt, wie die untergeordneten Knoten zu den jeweiligen Knoten einer SmartArt‑Form an einer bestimmten Position eingefügt werden.
+Im folgenden Beispielcode wird erklärt, wie untergeordnete Knoten zu den jeweiligen Knoten einer SmartArt‑Form an einer bestimmten Position hinzugefügt werden.
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse.
+- Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
 - Fügen Sie der ausgewählten Folie eine SmartArt‑Form vom Typ StackedList hinzu.
 - Greifen Sie auf den ersten Knoten der hinzugefügten SmartArt‑Form zu.
 - Fügen Sie nun den untergeordneten Knoten für den ausgewählten Knoten an Position 2 hinzu und setzen Sie dessen Text.
 - Speichern Sie die Präsentation.
 ```c#
-// Eine Präsentationsinstanz erstellen
+// Erstellen einer Präsentationsinstanz
 Presentation pres = new Presentation();
 
-// Auf die Präsentationsfolie zugreifen
+// Zugriff auf die Präsentationsfolie
 ISlide slide = pres.Slides[0];
 
-// SmartArt IShape hinzufügen
+// SmartArt-IShape hinzufügen
 ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-// Zugriff auf den SmartArt-Knoten mit Index 0
+// Zugriff auf den SmartArt-Knoten bei Index 0
 ISmartArtNode node = smart.AllNodes[0];
 
 // Neuen untergeordneten Knoten an Position 2 im übergeordneten Knoten hinzufügen
@@ -103,23 +101,20 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 ```
 
 
+## **Auf einen SmartArt‑Knoten zugreifen**
+Der folgende Beispielcode zeigt, wie auf Knoten innerhalb einer SmartArt‑Form zugegriffen wird. Bitte beachten Sie, dass der LayoutType der SmartArt nur lesbar ist und ausschließlich beim Hinzufügen der SmartArt‑Form festgelegt wird.
 
-
-
-## **SmartArt‑Knoten zugreifen**
-Der folgende Beispielcode zeigt, wie auf Knoten innerhalb einer SmartArt‑Form zugegriffen werden kann. Bitte beachten Sie, dass der LayoutType der SmartArt nicht geändert werden kann, da er schreibgeschützt ist und nur beim Hinzufügen der SmartArt‑Form festgelegt wird.
-
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
+- Erstellen Sie eine Instanz der `Presentation`‑Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn dies der Fall ist.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
 - Durchlaufen Sie alle Knoten innerhalb der SmartArt‑Form.
-- Greifen Sie auf Informationen wie die Position des SmartArt‑Knotens, die Ebene und den Text zu und geben Sie sie aus.
-```c#
-  // Die gewünschte Präsentation laden
+- Greifen Sie auf Informationen wie Position, Ebene und Text des SmartArt‑Knotens zu und geben Sie sie aus.
+  ```c#
+  // Laden der gewünschten Präsentation
    Presentation pres = new Presentation("AccessSmartArt.pptx");
   
-  // Durchlaufen Sie jede Form auf der ersten Folie
+  // Durchlaufen aller Formen in der ersten Folie
   foreach (IShape shape in pres.Slides[0].Shapes)
   {
       // Prüfen, ob die Form vom Typ SmartArt ist
@@ -132,7 +127,7 @@ Der folgende Beispielcode zeigt, wie auf Knoten innerhalb einer SmartArt‑Form 
           // Durchlaufen aller Knoten innerhalb von SmartArt
           for (int i = 0; i < smart.AllNodes.Count; i++)
           {
-              // Zugriff auf SmartArt-Knoten mit Index i
+              // Zugriff auf SmartArt-Knoten bei Index i
               Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
   
               // Ausgabe der SmartArt-Knotenparameter
@@ -141,28 +136,24 @@ Der folgende Beispielcode zeigt, wie auf Knoten innerhalb einer SmartArt‑Form 
           }
       }
   }
-```
+  ```
 
 
-
-
-
-
-## **SmartArt‑Unterknoten zugreifen**
-Der folgende Beispielcode zeigt, wie auf die untergeordneten Knoten der jeweiligen Knoten einer SmartArt‑Form zugegriffen werden kann.
+## **Auf einen SmartArt‑untergeordneten Knoten zugreifen**
+Der folgende Beispielcode zeigt, wie auf die untergeordneten Knoten der jeweiligen Knoten einer SmartArt‑Form zugegriffen wird.
 
 - Erstellen Sie eine Instanz der PresentationEx‑Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArtEx, wenn dies der Fall ist.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArtEx, falls sie SmartArt ist.
 - Durchlaufen Sie alle Knoten innerhalb der SmartArt‑Form.
-- Für jeden ausgewählten SmartArt‑Knoten traversieren Sie alle untergeordneten Knoten des jeweiligen Knotens.
-- Greifen Sie auf Informationen wie die Position des Unterknotens, die Ebene und den Text zu und geben Sie sie aus.
+- Für jeden ausgewählten SmartArt‑Knoten durchlaufen Sie alle untergeordneten Knoten des jeweiligen Knotens.
+- Greifen Sie auf Informationen wie Position, Ebene und Text des untergeordneten Knotens zu und geben Sie sie aus.
 ```c#
-// Die gewünschte Präsentation laden
-Presentation pres = new Presentation("AccessChildNodes.pptx");
+ // Laden der gewünschten Präsentation
+ Presentation pres = new Presentation("AccessChildNodes.pptx");
 
-// Durchlaufen Sie jede Form auf der ersten Folie
+// Durchlaufen aller Formen in der ersten Folie
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
 
@@ -176,16 +167,16 @@ foreach (IShape shape in pres.Slides[0].Shapes)
         // Durchlaufen aller Knoten innerhalb von SmartArt
         for (int i = 0; i < smart.AllNodes.Count; i++)
         {
-            // Zugriff auf SmartArt-Knoten mit Index i
+            // Zugriff auf SmartArt-Knoten bei Index i
             Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
 
-            // Durchlaufen der untergeordneten Knoten im SmartArt-Knoten mit Index i
+            // Durchlaufen der untergeordneten Knoten im SmartArt-Knoten bei Index i
             for (int j = 0; j < node0.ChildNodes.Count; j++)
             {
                 // Zugriff auf den untergeordneten Knoten im SmartArt-Knoten
                 Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)node0.ChildNodes[j];
 
-                // Ausgabe der SmartArt-Unterknotenparameter
+                // Ausgabe der SmartArt‑untergeordneten Knotenparameter
                 string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", j, node.TextFrame.Text, node.Level, node.Position);
                 Console.WriteLine(outString);
             }
@@ -195,59 +186,55 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 ```
 
 
+## **Auf einen SmartArt‑untergeordneten Knoten an einer bestimmten Position zugreifen**
+In diesem Beispiel lernen wir, wie man untergeordnete Knoten an einer bestimmten Position der jeweiligen Knoten einer SmartArt‑Form abruft.
 
-
-## **SmartArt‑Unterknoten an einer bestimmten Position zugreifen**
-In diesem Beispiel lernen wir, wie man die untergeordneten Knoten an einer bestimmten Position zu den jeweiligen Knoten einer SmartArt‑Form zugreift.
-
-- Erstellen Sie eine Instanz der `Presentation`-Klasse.
+- Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
 - Fügen Sie eine SmartArt‑Form vom Typ StackedList hinzu.
 - Greifen Sie auf die hinzugefügte SmartArt‑Form zu.
 - Greifen Sie auf den Knoten mit Index 0 der ausgewählten SmartArt‑Form zu.
-- Greifen Sie nun mit der Methode GetNodeByPosition() auf den Unterknoten an Position 1 des ausgewählten SmartArt‑Knotens zu.
-- Greifen Sie auf Informationen wie die Position des Unterknotens, die Ebene und den Text zu und geben Sie sie aus.
+- Rufen Sie nun den untergeordneten Knoten an Position 1 des ausgewählten SmartArt‑Knotens mittels `GetNodeByPosition()`‑Methode ab.
+- Greifen Sie auf Informationen wie Position, Ebene und Text des untergeordneten Knotens zu und geben Sie sie aus.
 ```c#
-// Präsentation instanziieren
-Presentation pres = new Presentation();
+ // Instanziieren der Präsentation
+ Presentation pres = new Presentation();
 
-// Erste Folie zugreifen
-ISlide slide = pres.Slides[0];
+ // Zugriff auf die erste Folie
+ ISlide slide = pres.Slides[0];
 
-// SmartArt-Form in erster Folie hinzufügen
-ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
+ // Hinzufügen der SmartArt-Form in der ersten Folie
+ ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-// SmartArt‑Knoten an Index 0 zugreifen
-ISmartArtNode node = smart.AllNodes[0];
+ // Zugriff auf den SmartArt-Knoten bei Index 0
+ ISmartArtNode node = smart.AllNodes[0];
 
-// Untergeordneten Knoten an Position 1 im übergeordneten Knoten zugreifen
-int position = 1;
-SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
+ // Zugriff auf den untergeordneten Knoten an Position 1 im übergeordneten Knoten
+ int position = 1;
+ SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
 
-// Ausgabe der SmartArt‑Unterknotenparameter
-string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
-Console.WriteLine(outString);
+ // Ausgabe der SmartArt-untergeordneten Knotenparameter
+ string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
+ Console.WriteLine(outString);
 ```
 
 
+## **Einen SmartArt‑Knoten entfernen**
+In diesem Beispiel lernen wir, wie Knoten innerhalb einer SmartArt‑Form entfernt werden.
 
-
-## **SmartArt‑Knoten entfernen**
-In diesem Beispiel lernen wir, wie man Knoten innerhalb einer SmartArt‑Form entfernt.
-
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
+- Erstellen Sie eine Instanz der `Presentation`‑Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn dies der Fall ist.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
 - Prüfen Sie, ob die SmartArt mehr als 0 Knoten enthält.
 - Wählen Sie den zu löschenden SmartArt‑Knoten aus.
-- Entfernen Sie nun den ausgewählten Knoten mit der Methode RemoveNode() und speichern Sie die Präsentation.
+- Entfernen Sie nun den ausgewählten Knoten mittels `RemoveNode()`‑Methode und speichern Sie die Präsentation.
 ```c#
-// Die gewünschte Präsentation laden
+// Laden der gewünschten Präsentation
 using (Presentation pres = new Presentation("RemoveNode.pptx"))
 {
 
-    // Durchlaufen Sie jede Form auf der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
 
@@ -259,7 +246,7 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
 
             if (smart.AllNodes.Count > 0)
             {
-                // Zugriff auf SmartArt-Knoten mit Index 0
+                // Zugriff auf den SmartArt-Knoten bei Index 0
                 ISmartArtNode node = smart.AllNodes[0];
 
                 // Entfernen des ausgewählten Knotens
@@ -275,24 +262,22 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
 ```
 
 
+## **Einen SmartArt‑Knoten an einer bestimmten Position entfernen**
+In diesem Beispiel lernen wir, wie Knoten innerhalb einer SmartArt‑Form an einer bestimmten Position entfernt werden.
 
-
-## **SmartArt‑Knoten an einer bestimmten Position entfernen**
-In diesem Beispiel lernen wir, wie man Knoten innerhalb einer SmartArt‑Form an einer bestimmten Position entfernt.
-
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
+- Erstellen Sie eine Instanz der `Presentation`‑Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der ersten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn dies der Fall ist.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
 - Wählen Sie den SmartArt‑Knoten mit Index 0 aus.
-- Prüfen Sie nun, ob der ausgewählte SmartArt‑Knoten mehr als 2 untergeordnete Knoten enthält.
-- Entfernen Sie nun den Knoten an Position 1 mit der Methode RemoveNodeByPosition().
+- Prüfen Sie nun, ob der ausgewählte SmartArt‑Knoten mehr als 2 untergeordnete Knoten besitzt.
+- Entfernen Sie nun den Knoten an Position 1 mittels `RemoveNodeByPosition()`‑Methode.
 - Speichern Sie die Präsentation.
 ```c#
-// Die gewünschte Präsentation laden
+// Laden der gewünschten Präsentation             
 Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
-// Durchlaufen Sie jede Form auf der ersten Folie
+// Durchlaufen aller Formen in der ersten Folie
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
     // Prüfen, ob die Form vom Typ SmartArt ist
@@ -303,7 +288,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 
         if (smart.AllNodes.Count > 0)
         {
-            // Zugriff auf SmartArt-Knoten mit Index 0
+            // Zugriff auf den SmartArt-Knoten bei Index 0
             Aspose.Slides.SmartArt.ISmartArtNode node = smart.AllNodes[0];
 
             if (node.ChildNodes.Count >= 2)
@@ -321,12 +306,10 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 ```
 
 
-
-
-## **Benutzerdefinierte Position für Unterknoten in SmartArt festlegen**
-Jetzt unterstützt Aspose.Slides for .NET das Setzen der X‑ und Y‑Eigenschaften von SmartArtShape. Der nachstehende Codeausschnitt zeigt, wie benutzerdefinierte Position, Größe und Drehung einer SmartArtShape festgelegt werden können. Bitte beachten Sie, dass das Hinzufügen neuer Knoten eine Neuberechnung der Positionen und Größen aller Knoten auslöst.
+## **Eine benutzerdefinierte Position für einen untergeordneten Knoten in einem SmartArt‑Objekt festlegen**
+Aspose.Slides für .NET unterstützt jetzt das Setzen der X‑ und Y‑Eigenschaften von SmartArtShape. Der nachfolgende Code‑Auszug zeigt, wie benutzerdefinierte Position, Größe und Drehung einer SmartArt‑Form festgelegt werden können. Bitte beachten Sie, dass das Hinzufügen neuer Knoten eine Neuberechnung der Positionen und Größen aller Knoten auslöst.
 ```c#
-// Die gewünschte Präsentation laden
+// Laden der gewünschten Präsentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 {
@@ -338,7 +321,7 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 	shape.X += (shape.Width * 2);
 	shape.Y -= (shape.Height / 2);
 
-	// Breiten der SmartArt-Form ändern
+	// Breite der SmartArt-Form ändern
 	node = smart.AllNodes[2];
 	shape = node.Shapes[1];
 	shape.Width += (shape.Width / 2);
@@ -358,23 +341,21 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 ```
 
 
-
-
-## **Assistant‑Knoten prüfen**
-Im folgenden Beispielcode untersuchen wir, wie Assistant‑Knoten in der SmartArt‑Knoten‑Sammlung identifiziert und geändert werden können.
+## **Einen Assistent‑Knoten überprüfen**
+Im folgenden Beispielcode untersuchen wir, wie Assistent‑Knoten in der SmartArt‑Knoten‑Sammlung identifiziert und geändert werden.
 
 - Erstellen Sie eine Instanz der PresentationEx‑Klasse und laden Sie die Präsentation mit einer SmartArt‑Form.
 - Holen Sie sich die Referenz der zweiten Folie über deren Index.
-- Durchlaufen Sie jede Form auf der ersten Folie.
-- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArtEx, wenn dies der Fall ist.
-- Durchlaufen Sie alle Knoten innerhalb der SmartArt‑Form und prüfen Sie, ob sie Assistant‑Knoten sind.
-- Ändern Sie den Status des Assistant‑Knotens zu einem normalen Knoten.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArtEx, falls sie SmartArt ist.
+- Durchlaufen Sie alle Knoten innerhalb der SmartArt‑Form und prüfen Sie, ob sie Assistent‑Knoten sind.
+- Ändern Sie den Status des Assistent‑Knotens zu einem normalen Knoten.
 - Speichern Sie die Präsentation.
 ```c#
- // Eine Präsentationsinstanz erstellen
+// Erstellen einer Präsentationsinstanz
 using (Presentation pres = new Presentation("AssistantNode.pptx"))
 {
-    // Durchlaufen jeder Form auf der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
         // Prüfen, ob die Form vom Typ SmartArt ist
@@ -390,7 +371,7 @@ using (Presentation pres = new Presentation("AssistantNode.pptx"))
                 // Prüfen, ob der Knoten ein Assistent-Knoten ist
                 if (node.IsAssistant)
                 {
-                    // Setzen des Assistent-Knotens auf false und ihn zu einem normalen Knoten machen
+                    // Setzen des Assistent-Knotens auf false und Umwandeln in einen normalen Knoten
                     node.IsAssistant = false;
                 }
             }
@@ -402,12 +383,10 @@ using (Presentation pres = new Presentation("AssistantNode.pptx"))
 ```
 
 
+## **Füllformat für einen Knoten festlegen**
+Aspose.Slides für .NET ermöglicht das Hinzufügen benutzerdefinierter SmartArt‑Formen und das Festlegen ihrer Füllformate. Dieser Artikel erklärt, wie SmartArt‑Formen erstellt, darauf zugegriffen und ihr Füllformat über Aspose.Slides für .NET gesetzt wird.
 
-
-## **Füllformat des Knotens festlegen**
-Aspose.Slides for .NET ermöglicht das Hinzufügen benutzerdefinierter SmartArt‑Formen und das Festlegen ihrer Füllformate. Dieser Artikel erklärt, wie SmartArt‑Formen erstellt und zugegriffen sowie ihr Füllformat mit Aspose.Slides for .NET festgelegt wird.
-
-Bitte folgen Sie den nachstehenden Schritten:
+Bitte führen Sie die folgenden Schritte aus:
 
 - Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 - Holen Sie sich die Referenz einer Folie über deren Index.
@@ -438,18 +417,16 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-
-## **Miniaturansicht eines SmartArt‑Unterknotens erzeugen**
-Entwickler können eine Miniaturansicht eines Unterknotens einer SmartArt erzeugen, indem sie die folgenden Schritte ausführen:
+## **Ein Thumbnail eines SmartArt‑untergeordneten Knotens erzeugen**
+Entwickler können ein Thumbnail eines untergeordneten Knotens einer SmartArt‑Form erzeugen, indem sie die folgenden Schritte ausführen:
 
 1. Instanziieren Sie die `Presentation`‑Klasse, die die PPTX‑Datei repräsentiert.
-1. Fügen Sie SmartArt hinzu.
-1. Holen Sie sich die Referenz eines Knotens über dessen Index.
-1. Erzeugen Sie das Miniaturbild.
-1. Speichern Sie das Miniaturbild in einem beliebigen Bildformat.
+2. Fügen Sie eine SmartArt‑Form hinzu.
+3. Holen Sie sich die Referenz eines Knotens über dessen Index.
+4. Erzeugen Sie das Thumbnail‑Bild.
+5. Speichern Sie das Thumbnail‑Bild in einem gewünschten Bildformat.
 
-Das nachstehende Beispiel erzeugt eine Miniaturansicht eines SmartArt‑Unterknotens
+Das nachfolgende Beispiel erzeugt ein Thumbnail eines SmartArt‑untergeordneten Knotens.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -470,16 +447,16 @@ using (Presentation presentation = new Presentation())
 
 **Wird SmartArt‑Animation unterstützt?**
 
-Ja. SmartArt wird wie eine reguläre Form behandelt, sodass Sie [Standardanimationen](/slides/de/net/shape-animation/) (Eingang, Ausgang, Hervorhebung, Bewegungsbahnen) anwenden und das Timing anpassen können. Bei Bedarf können Sie auch Formen innerhalb von SmartArt‑Knoten animieren.
+Ja. SmartArt wird wie eine normale Form behandelt, sodass Sie [Standard‑Animationen](/slides/de/net/shape-animation/) (Eingang, Ausgang, Hervorhebung, Motion‑Paths) anwenden und das Timing anpassen können. Bei Bedarf können Sie auch Formen innerhalb von SmartArt‑Knoten animieren.
 
-**Wie finde ich zuverlässig eine bestimmte SmartArt‑Form auf einer Folie, wenn deren interne ID unbekannt ist?**
+**Wie finde ich zuverlässig ein bestimmtes SmartArt‑Objekt auf einer Folie, wenn die interne ID unbekannt ist?**
 
-Verwenden Sie und suchen Sie nach [alternativem Text](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). Wenn Sie der SmartArt einen eindeutigen AltText zuweisen, können Sie sie programmgesteuert finden, ohne sich auf interne Kennungen zu verlassen.
+Verwenden Sie und suchen Sie nach dem [alternativen Text]((https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/)). Durch das Festlegen eines eindeutigen AltText für das SmartArt‑Objekt können Sie es programmgesteuert finden, ohne interne Kennungen zu benötigen.
 
-**Wird das Aussehen von SmartArt beim Exportieren der Präsentation nach PDF beibehalten?**
+**Wird das Aussehen von SmartArt beim Export in PDF erhalten bleiben?**
 
 Ja. Aspose.Slides rendert SmartArt mit hoher visueller Treue während des [PDF‑Exports](/slides/de/net/convert-powerpoint-to-pdf/), wobei Layout, Farben und Effekte erhalten bleiben.
 
-**Kann ich ein Bild der gesamten SmartArt (für Vorschauen oder Berichte) extrahieren?**
+**Kann ich ein Bild des gesamten SmartArt‑Objekts extrahieren (für Vorschaubilder oder Berichte)?**
 
-Ja. Sie können eine SmartArt‑Form in [Rasterformate](/slides/de/net/shape-getimage/) oder in [SVG](/slides/de/net/shape-writeassvg/) rendern, um skalierbare Vektordaten zu erhalten, die sich für Miniaturansichten, Berichte oder Web‑Verwendung eignen.
+Ja. Sie können eine SmartArt‑Form in [Rasterformate]((https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)) oder in [SVG]((https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)) rendern, um skalierbare Vektorausgaben zu erhalten – ideal für Thumbnails, Berichte oder Web‑Nutzung.

@@ -5,7 +5,7 @@ weight: 100
 url: /es/net/examples/elements/animation/
 keywords:
 - ejemplo de animación
-- añadir animación
+- agregar animación
 - acceder a animación
 - eliminar animación
 - secuencia de animación
@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Domina las animaciones de diapositivas en C# con Aspose.Slides: agrega, edita y elimina efectos, tiempos y disparadores para crear presentaciones dinámicas en PPT, PPTX y ODP."
+description: "Domina las animaciones de diapositivas en C# con Aspose.Slides: agrega, edita y elimina efectos, temporizaciones y disparadores para crear presentaciones dinámicas en PPT, PPTX y ODP."
 ---
 
 Muestra cómo crear animaciones simples y gestionar su secuencia usando **Aspose.Slides for .NET**.
 
-## Añadir una animación
+## **Añadir una animación**
 
-Cree una forma rectangular y aplique un efecto de desvanecimiento activado al hacer clic.
+Cree una forma rectangular y aplique un efecto de desvanecimiento al hacer clic.
 ```csharp
 static void Add_Animation()
 {
@@ -36,7 +36,7 @@ static void Add_Animation()
 ```
 
 
-## Acceder a una animación
+## **Acceder a una animación**
 
 Recupere el primer efecto de animación de la línea de tiempo de la diapositiva.
 ```csharp
@@ -53,7 +53,7 @@ static void Access_Animation()
 ```
 
 
-## Eliminar una animación
+## **Eliminar una animación**
 
 Elimine un efecto de animación de la secuencia.
 ```csharp
@@ -70,9 +70,9 @@ static void Remove_Animation()
 ```
 
 
-## Secuenciar animaciones
+## **Secuenciar animaciones**
 
-Añada varios efectos y demuestre el orden en que ocurren las animaciones.
+Añada múltiples efectos y demuestre el orden en que ocurren las animaciones.
 ```csharp
 static void Sequence_Animations()
 {

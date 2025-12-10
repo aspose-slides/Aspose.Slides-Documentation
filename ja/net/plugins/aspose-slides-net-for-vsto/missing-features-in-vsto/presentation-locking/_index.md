@@ -6,50 +6,52 @@ url: /ja/net/presentation-locking/
 ---
 
 ## **プレゼンテーションのロック**
-**Aspose.Slides**の一般的な使用法は、Microsoft PowerPoint 2007 (PPTX) プレゼンテーションを自動化されたワークフローの一部として作成、更新、保存することです。このようにAspose.Slidesを使用するアプリケーションのユーザーは、出力されたプレゼンテーションにアクセスできます。それを編集から保護することは一般的な懸念です。自動生成されたプレゼンテーションが元のフォーマットと内容を保持することが重要です。
+**Aspose.Slides** の一般的な使用例は、Microsoft PowerPoint 2007 (PPTX) プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。このように Aspose.Slides を使用するアプリケーションのユーザーは、出力されたプレゼンテーションにアクセスできます。編集から保護することは一般的な関心事です。自動生成されたプレゼンテーションが元の書式や内容を保持することが重要です。
 
-これは、プレゼンテーションとスライドがどのように構築され、Aspose.Slides for .NETがプレゼンテーションに保護を適用し、その後それを削除できるかを説明します。この機能はAspose.Slidesに特有であり、執筆時点でMicrosoft PowerPointでは利用できません。これは、開発者がアプリケーションが作成するプレゼンテーションの使用方法を制御する手段を提供します。
+この文書では、プレゼンテーションとスライドがどのように構成され、Aspose.Slides for .NET がどのように保護を適用し、そしてプレゼンテーションから保護を除去できるかを説明します。この機能は Aspose.Slides に固有であり、執筆時点では Microsoft PowerPoint には存在しません。開発者は、アプリケーションが作成するプレゼンテーションの使用方法を制御する手段を得られます。
+
 ## **スライドの構成**
-PPTXスライドは、オートシェイプ、テーブル、OLEオブジェクト、グループ化されたシェイプ、ピクチャーフレーム、ビデオフレーム、コネクタおよびプレゼンテーションを構成するために使用できるその他のさまざまな要素など、いくつかのコンポーネントで構成されています。
+PPTX スライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、ピクチャーフレーム、ビデオフレーム、コネクタ、およびプレゼンテーションを構築するために利用できるさまざまな要素など、複数のコンポーネントで構成されています。
 
-Aspose.Slides for .NETでは、スライド上の各要素がShapeオブジェクトに変換されます。つまり、スライド上の各要素はShapeオブジェクトまたはShapeオブジェクトから派生したオブジェクトです。
+Aspose.Slides for .NET では、スライド上の各要素は Shape オブジェクトに変換されます。言い換えれば、スライド上の各要素は Shape オブジェクトあるいは Shape オブジェクトから派生したオブジェクトです。
 
-PPTXの構造は複雑であるため、すべてのシェイプタイプに対して一般的なロックを使用できるPPTとは異なり、異なるシェイプタイプに対して異なる種類のロックがあります。BaseShapeLockクラスは一般的なPPTXロッキングクラスです。Aspose.Slides for .NETでPPTXのためにサポートされているロックの種類は以下の通りです。
+PPTX の構造は複雑であるため、すべての形状タイプに対して汎用ロックを使用できる PPT とは異なり、形状タイプごとに異なるロックが用意されています。BaseShapeLock クラスは PPTX 用の汎用ロッククラスです。Aspose.Slides for .NET が PPTX でサポートするロックの種類は以下のとおりです。
 
-- AutoShapeLockはオートシェイプをロックします。
-- ConnectorLockはコネクタシェイプをロックします。
-- GraphicalObjectLockはグラフィカルオブジェクトをロックします。
-- GroupshapeLockはグループシェイプをロックします。
-- PictureFrameLockはピクチャーフレームをロックします。
+- AutoShapeLock はオートシェイプをロックします。
+- ConnectorLock はコネクタ形状をロックします。
+- GraphicalObjectLock はグラフィカルオブジェクトをロックします。
+- GroupShapeLock はグループ形状をロックします。
+- PictureFrameLock はピクチャーフレームをロックします。
 
-プレゼンテーションオブジェクト内のすべてのShapeオブジェクトに対して実行されるアクションは、プレゼンテーション全体に適用されます。
-## **保護の適用と削除**
-保護を適用すると、プレゼンテーションが編集できなくなります。これは、プレゼンテーションの内容を保護するための有用な手法です。
+Presentation オブジェクト内のすべての Shape オブジェクトに対して実行される操作は、プレゼンテーション全体に適用されます。
 
-**PPTX Shapesへの保護の適用**
+## **保護の適用と解除**
+保護を適用すると、プレゼンテーションを編集できなくなります。これはプレゼンテーションの内容を保護する有用な手法です。
 
-Aspose.Slides for .NETは、スライド上のシェイプを扱うためにShapeクラスを提供します。
+**PPTX シェイプへの保護の適用**
 
-前述のように、各シェイプクラスには保護用の関連するシェイプロッククラスがあります。この記事では、NoSelect、NoMove、NoResizeロックに焦点を当てています。これらのロックは、シェイプが選択できない（マウスクリックやその他の選択方法を通じて）こと、移動もリサイズもできないことを保証します。
+Aspose.Slides for .NET は、スライド上のシェイプを操作するための Shape クラスを提供します。
+
+前述のとおり、各シェイプ クラスには保護用のシェイプ ロック クラスが関連付けられています。本稿では NoSelect、NoMove、NoResize ロックに焦点を当てます。これらのロックにより、シェイプを選択（マウスクリックやその他の選択方法）できず、移動やサイズ変更もできなくなります。
 
 以下のコードサンプルは、プレゼンテーション内のすべてのシェイプタイプに保護を適用します。
 
 ``` csharp
 
- //PPTXファイルを表すPresentationクラスをインスタンス化する
+ //Instatiate Presentation class that represents a PPTX file
 
-PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//PPTXファイルを表すPresentationクラスをインスタンス化する
+PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
 
 
-//プレゼンテーション内のスライドにアクセスするためのISlideオブジェクト
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//一時的なシェイプを保持するためのIShapeオブジェクト
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//プレゼンテーション内のすべてのスライドを走査する
+//Traversing through all the slides in the presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -57,7 +59,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//スライド内のすべてのシェイプを走査する
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -65,19 +67,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//シェイプがオートシェイプの場合
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//オートシェイプにキャストしてオートシェイプロックを取得する
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = true;
 
@@ -87,19 +89,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがグループシェイプの場合
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//グループシェイプにキャストしてグループシェイプロックを取得する
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = true;
 
@@ -111,19 +113,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがコネクタの場合
+		//if shape is a connector
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//コネクタシェイプにキャストしてコネクタシェイプロックを取得する
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			ConnLock.PositionMove = true;
 
@@ -133,19 +135,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがピクチャーフレームの場合
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//ピクチャーフレームシェイプにキャストしてピクチャーフレームシェイプロックを取得する
+			//Type casting to picture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			PicLock.PositionLocked = true;
 
@@ -159,31 +161,31 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//プレゼンテーションファイルを保存する
+//Saving the presentation file
 
 pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 
-**保護の削除**
+**保護の解除**
 
-Aspose.Slides for .NETを使用して適用された保護は、Aspose.Slides for .NETでのみ削除できます。シェイプをロック解除するには、適用されたロックの値をfalseに設定します。以下のコードサンプルは、ロックされたプレゼンテーション内のシェイプをロック解除する方法を示しています。
+Aspose.Slides for .NET で適用した保護は、Aspose.Slides for .NET でのみ解除できます。シェイプのロックを解除するには、適用されたロックの値を false に設定します。以下のコードサンプルは、ロックされたプレゼンテーション内のシェイプを解除する方法を示しています。
 
 ``` csharp
 
- //目的のプレゼンテーションを開く
+ //Open the desired presentation
 
 PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
- 
-//プレゼンテーション内のスライドにアクセスするためのISlideオブジェクト
+
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//一時的なシェイプを保持するためのIShapeオブジェクト
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//プレゼンテーション内のすべてのスライドを走査する
+//Traversing through all the slides in presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -191,7 +193,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//スライド内のすべてのシェイプを走査する
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -199,19 +201,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//シェイプがオートシェイプの場合
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//オートシェイプにキャストしてオートシェイプロックを取得する
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = false;
 
@@ -221,19 +223,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがグループシェイプの場合
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//グループシェイプにキャストしてグループシェイプロックを取得する
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = false;
 
@@ -245,19 +247,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがコネクタの場合
+		//if shape is Connector shape
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//コネクタシェイプにキャストしてコネクタシェイプロックを取得する
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			ConnLock.PositionMove = false;
 
@@ -267,19 +269,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//シェイプがピクチャーフレームの場合
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//ピクチャーフレームシェイプにキャストしてピクチャーフレームシェイプロックを取得する
+			//Type casting to pitcture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//シェイプロックを適用する
+			//Applying shapes locks
 
 			PicLock.PositionLocked = false;
 
@@ -293,7 +295,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//プレゼンテーションファイルを保存する
+//Saving the presentation file
 
 pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 

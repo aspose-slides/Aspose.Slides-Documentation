@@ -5,16 +5,15 @@ weight: 120
 url: /ar/net/rendering-shapes-on-slide-as-images/
 ---
 
-يغطي هذا وظيفتين رئيسيتين:
+هذا يغطي وظيفتين رئيسيتين:
 
-- استخراج الصورة من الشكل إلى ملف.
+- استخراج صورة من الشكل إلى ملف.
 - استخراج الأشكال كملف صورة.
-## **استخراج الصورة من الشكل إلى ملف**
-تتم إضافة الصور في خلفية الشريحة والأشكال. في بعض الأحيان، من الضروري استخراج الصور المضافة في أشكال العرض التقديمي.
+## **استخراج صورة من شكل إلى ملف**
+يتم إضافة الصور في خلفية الشريحة والأشكال. في بعض الأحيان، يلزم استخراج الصور المضافة في أشكال العرض التقديمي.
 
-في **Aspose.Slides for .NET**، يمكن إضافة الصور إلى شكل الشريحة وخلفية الشريحة. يتم إضافة الصور في **ImageCollectionEx** من العرض التقديمي. في هذا المثال، سنمر عبر كل شكل داخل كل شريحة من العرض التقديمي وسنرى إذا كان هناك أي صورة مضافة في شكل الشريحة. إذا تم العثور على الصورة لأي شكل، سنقوم باستخراجها وحفظها في ملف. الكود التالي سيخدم هذا الغرض.
-
-```csharp
+في **Aspose.Slides for .NET**، يمكن إضافة الصور إلى شكل الشريحة وخلفية الشريحة. يتم إضافة الصور في **ImageCollectionEx** الخاصة بالعرض التقديمي. في هذا المثال، سنستعرض كل شكل داخل كل شريحة من العرض التقديمي ونرى ما إذا كان هناك أي صورة مضافة إلى شكل الشريحة. إذا تم العثور على صورة لأي شكل، سنستخرجها ونحفظها في ملف. مقتطف الشيفرة التالي سيؤدي الغرض.
+``` csharp
 
  //الوصول إلى العرض التقديمي
 
@@ -44,7 +43,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	{
 
-		// الوصول إلى الشكل مع الصورة
+		// الوصول إلى الشكل الذي يحتوي على صورة
 
 		ShapeEx sh = sl.Shapes[j];
 
@@ -95,7 +94,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		//
 
-		//تعيين تنسيق الصورة المطلوب
+		//تحديد تنسيق الصورة المطلوب
 
 		if (ifImageFound)
 
@@ -145,29 +144,29 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 			//
 
-			img.Image.Save(path+"نتيجة الصورة"+"." + ImageType, Format);
+			img.Image.Save(path+"ResultedImage"+"." + ImageType, Format);
 
 		}
 
 		ifImageFound = false;
 
 ``` 
-## **تنزيل الكود التجريبي**
+## **Download Sample Code**
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
-## **استخراج الأشكال كملف صورة**
+## **Extract Shapes as Image Files**
 ```cs
-//إنشاء كائن العرض التقديمي الذي يمثل ملف PPT
+//إنشاء كائن Presentation الذي يمثل ملف PPT
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
-//الوصول إلى شريحة باستخدام موضعها
+//Accessing a slide using its slide position
 ISlide slide = pres.Slides[2];
 
 for (int i = 0; i < slide.Shapes.Count; i++)
 {
     IShape shape = slide.Shapes[i];
 
-    //الحصول على صورة مصغرة للشكل
+    //الحصول على صورة المصغرة للشكل
     using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
     {
         //حفظ صورة المصغرة بصيغة gif
@@ -176,7 +175,8 @@ for (int i = 0; i < slide.Shapes.Count; i++)
 }
 ```
 
-*ملاحظة:* دعم استخراج الشكل حاليًا في ملف .ppt.
-## **تنزيل الكود التجريبي**
+
+*ملاحظة:* استخراج الشكل مدعوم حالياً في ملف .ppt.
+## **تحميل مثال الشيفرة**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

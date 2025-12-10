@@ -10,27 +10,27 @@ keywords:
 - 軸のカスタマイズ
 - 軸の操作
 - 軸の管理
-- 軸のプロパティ
+- 軸プロパティ
 - 最大値
 - 最小値
 - 軸線
 - 日付形式
 - 軸タイトル
-- 軸の位置
+- 軸位置
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、レポートやビジュアライゼーション用の PowerPoint プレゼンテーションでチャート軸をカスタマイズする方法を学びます。"
+description: "レポートや可視化のための PowerPoint プレゼンテーションで、Aspose.Slides for .NET を使用してチャート軸をカスタマイズする方法を紹介します。"
 ---
 
-## **チャートの縦軸で最大値を取得する**
-Aspose.Slides for .NET を使用すると、縦軸の最小値と最大値を取得できます。次の手順に従ってください。
+## **チャートの縦軸の最大値を取得する**
+Aspose.Slides for .NET を使用すると、縦軸の最小値と最大値を取得できます。以下の手順を実行してください。
 
-1. **[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)** クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. デフォルトデータでチャートを追加します。
+1. デフォルト データでチャートを追加します。
 1. 軸上の実際の最大値を取得します。
 1. 軸上の実際の最小値を取得します。
 1. 軸の実際の主単位を取得します。
@@ -38,7 +38,7 @@ Aspose.Slides for .NET を使用すると、縦軸の最小値と最大値を取
 1. 軸の実際の主単位スケールを取得します。
 1. 軸の実際の副単位スケールを取得します。
 
-このサンプルコード（上記手順の実装）は、C# で必要な値を取得する方法を示しています:
+以下のサンプル コードは、上記手順の実装例で、C# で必要な値を取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -58,9 +58,9 @@ using (Presentation pres = new Presentation())
 
 
 ## **軸間のデータを入れ替える**
-Aspose.Slides を使用すると、軸間のデータをすばやく入れ替えることができます。縦軸 (y 軸) のデータが横軸 (x 軸) に、逆も同様に移動します。
+Aspose.Slides を使用すると、軸間のデータをすばやく入れ替えることができます。縦軸（y 軸）のデータが横軸（x 軸）に、横軸のデータが縦軸に移動します。
 
-この C# コードは、チャートの軸間でデータを入れ替える方法を示しています:
+この C# コードは、チャートの軸間でデータを入れ替える方法を示しています。
 ```c#
 // 空のプレゼンテーションを作成します
 using (Presentation pres = new Presentation())
@@ -70,14 +70,15 @@ using (Presentation pres = new Presentation())
 	//行と列を入れ替えます
 	chart.ChartData.SwitchRowColumn();
 		   
-	// プレゼンテーションを保存します
+	 // プレゼンテーションを保存します
 	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
  }
 ```
 
 
-## **折れ線グラフの縦軸を無効にする**
-この C# コードは、折れ線グラフの縦軸を非表示にする方法を示しています:
+## **折れ線グラフの縦軸を非表示にする**
+
+この C# コードは、折れ線グラフの縦軸を非表示にする方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -89,8 +90,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **折れ線グラフの横軸を無効にする**
-このコードは、折れ線グラフの横軸を非表示にする方法を示しています:
+## **折れ線グラフの横軸を非表示にする**
+
+このコードは、折れ線グラフの横軸を非表示にする方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -102,8 +104,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **カテゴリ軸の変更**
-**CategoryAxisType** プロパティを使用すると、希望のカテゴリ軸タイプ（**date** または **text**）を指定できます。この C# コードはその操作を示しています:
+## **カテゴリ軸を変更する**
+
+**CategoryAxisType** プロパティを使用すると、希望するカテゴリ軸のタイプ（**date** または **text**）を指定できます。この C# のコードは、その操作をデモンストレーションしています。
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
@@ -118,7 +121,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 ## **カテゴリ軸値の日付書式を設定する**
-Aspose.Slides for .NET を使用すると、カテゴリ軸値の日付書式を設定できます。この操作は次の C# コードで示されています:
+Aspose.Slides for .NET を使用すると、カテゴリ軸値の日付書式を設定できます。操作は次の C# コードで示されています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -149,7 +152,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **チャート軸タイトルの回転角度を設定する**
-Aspose.Slides for .NET を使用すると、チャート軸タイトルの回転角度を設定できます。この C# コードはその操作を示しています:
+Aspose.Slides for .NET を使用すると、チャート軸タイトルの回転角度を設定できます。この C# コードはその操作を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -162,8 +165,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **カテゴリ軸または値軸の位置軸を設定する**
-Aspose.Slides for .NET を使用すると、カテゴリ軸または値軸の位置軸を設定できます。この C# コードはタスクの実行方法を示しています:
+## **カテゴリ軸または値軸の軸位置を設定する**
+Aspose.Slides for .NET を使用すると、カテゴリ軸または値軸の位置を設定できます。この C# コードはタスクの実行方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -176,7 +179,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **チャート値軸に表示単位ラベルを有効にする**
-Aspose.Slides for .NET を使用すると、チャートの値軸に単位ラベルを表示するよう構成できます。この C# コードはその操作を示しています:
+Aspose.Slides for .NET を使用すると、チャートの値軸に単位ラベルを表示するよう構成できます。この C# コードは操作をデモンストレーションしています。
 ```c#
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
@@ -189,8 +192,10 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 
 ## **FAQ**
 
-**軸が他方の軸と交差する位置（軸交差）を設定するにはどうすればよいですか？**  
-軸は [crossing setting](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) を提供しています。ゼロ、最大カテゴリ/値、または特定の数値で交差させるか選択できます。これは X 軸を上下にシフトしたり、ベースラインを強調したりするのに便利です。
+**軸が他の軸と交差する位置（軸交差）をどのように設定しますか？**
 
-**目盛りラベルを軸に対してどの位置に配置できますか（横並び、外側、内側）？**  
-[label position](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) を "cross"、"outside"、または "inside" に設定します。これにより可読性が向上し、特に小さなチャートでスペースを節約できます。
+軸には [crossing setting](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) があり、ゼロ、最大カテゴリ/値、または特定の数値で交差させるか選択できます。これにより、X 軸を上下にシフトしたり、ベースラインを強調したりできます。
+
+**目盛りラベルを軸に対してどの位置に配置できますか（側面、外側、内側）？**
+
+[label position](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) を "cross"、"outside"、"inside" に設定します。これにより可読性が向上し、特に小さなチャートでスペースを有効に活用できます。

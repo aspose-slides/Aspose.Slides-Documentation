@@ -30,28 +30,29 @@ description: "PowerPoint-Präsentationen in responsives HTML in .NET konvertiere
 
 ## **Übersicht**
 
-Verbessern Sie Ihren Arbeitsablauf, indem Sie PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für .NET in HTML konvertieren. Dieser Leitfaden bietet detaillierte Anweisungen, robuste Code‑Beispiele und getestete Methoden, um einen zuverlässigen und effizienten Konvertierungsprozess zu gewährleisten, der für die Webanzeige optimiert ist.
+Optimieren Sie Ihren Arbeitsablauf, indem Sie PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET in HTML konvertieren. Dieser Leitfaden bietet detaillierte Anweisungen, robuste Codebeispiele und getestete Methoden, um einen zuverlässigen und effizienten Konvertierungsprozess zu gewährleisten, der für die Anzeige im Web optimiert ist.
 
-Aspose.Slides stellt viele Optionen bereit – hauptsächlich aus der Klasse [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) – die den Konvertierungsprozess vom PowerPoint‑ (oder OpenDocument‑)Format nach HTML definieren:
+Aspose.Slides stellt viele Optionen – meist aus der [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions)-Klasse – zur Verfügung, die den Konvertierungsprozess von PowerPoint (oder OpenDocument) nach HTML definieren:
 
-* Konvertieren Sie eine komplette PowerPoint‑Präsentation in HTML.
-* Konvertieren Sie eine bestimmte Folie einer PowerPoint‑Präsentation in HTML.
-* Konvertieren Sie Präsentationsmedien (Bilder, Videos usw.) in HTML.
-* Konvertieren Sie eine PowerPoint‑Präsentation in responsives HTML.
-* Konvertieren Sie eine PowerPoint‑Präsentation in HTML mit einbezogenen oder ausgeschlossenen Sprecher‑Notizen.
-* Konvertieren Sie eine PowerPoint‑Präsentation in HTML mit einbezogenen oder ausgeschlossenen Kommentaren.
-* Konvertieren Sie eine PowerPoint‑Präsentation in HTML mit originalen oder eingebetteten Schriftarten.
-* Konvertieren Sie eine PowerPoint‑Präsentation in HTML unter Verwendung des neuen CSS‑Stils.
+* Eine gesamte PowerPoint-Präsentation in HTML konvertieren.
+* Eine bestimmte Folie einer PowerPoint-Präsentation in HTML konvertieren.
+* Präsentationsmedien (Bilder, Videos usw.) in HTML konvertieren.
+* Eine PowerPoint-Präsentation in responsives HTML konvertieren.
+* Eine PowerPoint-Präsentation in HTML mit eingeschlossenen oder ausgeschlossenen Referenten-Notizen konvertieren.
+* Eine PowerPoint-Präsentation in HTML mit eingeschlossenen oder ausgeschlossenen Kommentaren konvertieren.
+* Eine PowerPoint-Präsentation in HTML mit Original- oder eingebetteten Schriften konvertieren.
+* Eine PowerPoint-Präsentation in HTML mithilfe des neuen CSS‑Stils konvertieren.
 
-## **Eine Präsentation in HTML konvertieren**
+## **Präsentation in HTML konvertieren**
 
-Mit Aspose.Slides können Sie eine komplette PowerPoint‑ oder OpenDocument‑Präsentation wie folgt in HTML konvertieren:
+Mit Aspose.Slides können Sie eine gesamte PowerPoint‑ oder OpenDocument‑Präsentation wie folgt in HTML konvertieren:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Verwenden Sie die Methode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save), um das Objekt als HTML‑Datei zu speichern.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+1. Verwenden Sie die [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save)-Methode, um das Objekt als HTML‑Datei zu speichern.
 
+Dieser Code zeigt, wie Sie eine PowerPoint‑Präsentation in C# in HTML konvertieren:
 ```c#
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (z. B. PPT, PPTX, ODP usw.) darstellt.
+// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (z. B. PPT, PPTX, ODP usw.) darstellt.
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     // Speichern Sie die Präsentation als HTML.
@@ -60,10 +61,9 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 ```
 
 
-## **Eine Präsentation in responsives HTML konvertieren**
+## **Präsentation in responsives HTML konvertieren**
 
-Aspose.Slides bietet die Klasse [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller), die es ermöglicht, responsive HTML‑Dateien zu erzeugen. Dieser Code zeigt, wie Sie eine PowerPoint‑Präsentation in responsives HTML in C# konvertieren:
-
+Aspose.Slides stellt die [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller)-Klasse bereit, mit der Sie responsive HTML‑Dateien erzeugen können. Dieser Code demonstriert, wie Sie eine PowerPoint‑Präsentation in C# in responsives HTML konvertieren:
 ```c#
 // Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 using (Presentation presentation = new Presentation("presentation.pptx"))
@@ -81,32 +81,31 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 ```
 
 
-## **Eine Präsentation in HTML mit Sprecher‑Notizen konvertieren**
+## **Präsentation in HTML mit Referenten‑Notizen konvertieren**
 
-Beim Konvertieren einer PowerPoint‑ oder OpenDocument‑Präsentation nach HTML mit Sprecher‑Notizen ist es wichtig, die vollständige Essenz des Originaldokuments zu erfassen. Dieser Prozess stellt sicher, dass nicht nur die visuellen Elemente der Folien exakt wiedergegeben werden, sondern auch die begleitenden Sprecher‑Notizen erhalten bleiben, wodurch der Inhalt mit zusätzlichem Kontext und Erkenntnissen angereichert wird.
+Beim Konvertieren einer PowerPoint‑ oder OpenDocument‑Präsentation in HTML mit Referenten‑Notizen ist es wichtig, das vollständige Wesen des Originaldokuments zu erfassen. Dieser Vorgang stellt sicher, dass nicht nur die visuellen Elemente der Folien exakt wiedergegeben werden, sondern auch die begleitenden Referenten‑Notizen erhalten bleiben und den Inhalt mit zusätzlichem Kontext und Einsichten anreichern.
 
-Angenommen, wir haben eine PowerPoint‑Präsentation mit der folgenden Folie:
+Nehmen wir an, wir haben eine PowerPoint‑Präsentation mit der folgenden Folie:
 
-![Eine Präsentationsfolie mit Sprecher-Notizen](slide_with_notes.png)
+![A presentation slide with speaker notes](slide_with_notes.png)
 
-Dieser Code demonstriert, wie Sie eine PowerPoint‑Präsentation in HTML mit Sprecher‑Notizen in C# konvertieren:
-
+Dieser Code demonstriert, wie Sie eine PowerPoint‑Präsentation in C# in HTML mit Referenten‑Notizen konvertieren:
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-    // Optionen für Sprecher-Notizen festlegen.
+    // Optionen für Referenten-Notizen festlegen.
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
     {
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // Optionen für das Ausgabe‑HTML‑Dokument festlegen.
+    // Optionen für das Ausgabedokument HTML festlegen.
     HtmlOptions htmlOptions = new HtmlOptions
     {
         SlidesLayoutOptions = notesOptions
     };
 
-    // Präsentation als HTML mit Sprecher-Notizen speichern.
+    // Präsentation als HTML mit Referenten-Notizen speichern.
     presentation.Save("slide_with_notes.html", SaveFormat.Html, htmlOptions);
 }
 ```
@@ -114,20 +113,19 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 
 Das Ergebnis:
 
-![Ein HTML-Dokument mit der Folie und den Sprecher-Notizen](HTML_with_notes.png)
+![An HTML document with the slide and speaker notes](HTML_with_notes.png)
 
-## **Eine Präsentation in HTML mit originalen Schriftarten konvertieren**
+## **Präsentation in HTML mit Originalschriften konvertieren**
 
-Aspose.Slides stellt die Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) bereit, mit der Sie beim Konvertieren einer Präsentation nach HTML alle Schriftarten einbetten können.
+Aspose.Slides bietet die [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)-Klasse, mit der Sie beim Konvertieren einer Präsentation in HTML alle Schriften einbetten können.
 
-Um zu verhindern, dass bestimmte Schriftarten eingebettet werden, können Sie einem parametrisierten Konstruktor der Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) ein Array von Schriftartnamen übergeben. Beliebte Schriftarten wie Calibri oder Arial müssen nicht eingebettet werden, da die meisten Systeme diese bereits enthalten. Das Einbetten würde die Größe des resultierenden HTML‑Dokuments unnötig vergrößern.
+Um bestimmte Schriften davon auszuschließen, können Sie ein Array von Schriftartnamen an den parametrisierten Konstruktor der [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)-Klasse übergeben. Häufig genutzte Schriften wie Calibri oder Arial müssen nicht eingebettet werden, da die meisten Systeme diese bereits enthalten. Das Einbetten würde die Größe der resultierenden HTML‑Datei unnötig erhöhen.
 
-Die Klasse [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) unterstützt Vererbung und stellt die Methode [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) bereit, die überschrieben werden kann.
-
+Die [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)-Klasse unterstützt Vererbung und stellt die [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont)-Methode bereit, die überschrieben werden kann.
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
-    // Die Standardschriftarten der Präsentation ausschließen.
+    // Standard-Präsentationsschriften ausschließen.
     string[] excludeFonts = { "Calibri", "Arial" };
 
     EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(excludeFonts);
@@ -142,12 +140,11 @@ using (Presentation presentation = new Presentation("input.pptx"))
 ```
 
 
-## **Eine Präsentation in HTML mit hochqualitativen Bildern konvertieren**
+## **Präsentation in HTML mit hochqualitativen Bildern konvertieren**
 
-Standardmäßig erzeugt Aspose.Slides beim Konvertieren einer PowerPoint‑Präsentation nach HTML eine kleine HTML‑Datei mit Bildern bei 72 DPI und entfernt beschnittene Bereiche. Um HTML‑Dateien mit höherwertigen Bildern zu erhalten, müssen Sie die Eigenschaft `PicturesCompression` (aus der Klasse `HtmlOptions`) auf 96 (d.h. `PicturesCompression.Dpi96`) oder einen höheren Wert setzen, wie in [dieser Referenz](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression) beschrieben.
+Standardmäßig erzeugt Aspose.Slides beim Konvertieren einer PowerPoint‑Präsentation in HTML eine kleine HTML‑Datei mit Bildern von 72 DPI und entfernt beschnittene Bereiche. Um HTML‑Dateien mit Bildern höherer Qualität zu erhalten, müssen Sie die Eigenschaft `PicturesCompression` (aus der `HtmlOptions`‑Klasse) auf 96 (`PicturesCompression.Dpi96`) oder einen höheren Wert setzen, wie in [diesem Referenzdokument](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression) beschrieben.
 
-Dieser C#‑Code demonstriert, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren und dabei hochwertige Bilder mit 150 DPI (d.h. `PicturesCompression.Dpi150`) erhalten:
-
+Dieser C#‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren und dabei hochqualitative Bilder mit 150 DPI (`PicturesCompression.Dpi150`) erhalten:
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
@@ -161,8 +158,7 @@ using (Presentation presentation = new Presentation("input.pptx"))
 ```
 
 
-Dieser C#‑Code zeigt Ihnen, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren, ohne beschnittene Bereiche zu entfernen:
-
+Dieser C#‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren, ohne beschnittene Bereiche zu löschen:
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
@@ -176,10 +172,11 @@ using (Presentation presentation = new Presentation("input.pptx"))
 ```
 
 
-## **Eine Präsentationsfolie in HTML konvertieren**
+## **Präsentationsfolie in HTML konvertieren**
 
-Um eine bestimmte Folie einer PowerPoint‑Präsentation in HTML zu konvertieren, müssen Sie dieselbe Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) (wie beim Konvertieren kompletter Präsentationen) instanziieren und anschließend die Methode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) verwenden, um die Datei als HTML zu speichern. Die Klasse [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) kann verwendet werden, um zusätzliche Konvertierungsoptionen anzugeben.
+Um eine bestimmte Folie einer PowerPoint‑Präsentation in HTML zu konvertieren, müssen Sie dieselbe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse instanziieren (die auch für die Konvertierung ganzer Präsentationen verwendet wird) und anschließend die [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save)-Methode zum Speichern als HTML aufrufen. Mit der [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions)-Klasse können zusätzliche Konvertierungsoptionen angegeben werden.
 
+Dieser C#‑Code demonstriert, wie Sie eine Folie mit Referenten‑Notizen in einer PowerPoint‑Präsentation in HTML konvertieren:
 ```c#
 public static void Run()
 {
@@ -200,7 +197,7 @@ public static void Run()
         {
             int slideIndex = i + 1;
 
-            // Speichern Sie die Folie als HTML-Datei.
+            // Speichern Sie die Folie in einer HTML-Datei.
             string fileName = $"output_slide_{slideIndex}.html";
             presentation.Save(fileName, new[] { slideIndex }, SaveFormat.Html, htmlOptions);
         }
@@ -239,10 +236,9 @@ public class CustomFormattingController : IHtmlFormattingController
 
 ## **CSS und Bilder beim Export nach HTML speichern**
 
-Mit neuen CSS‑Stildateien können Sie das Aussehen der aus dem PowerPoint‑zu‑HTML‑Konvertierungsprozess erzeugten HTML‑Datei leicht ändern.
+Durch die Verwendung neuer CSS‑Stildateien können Sie das Erscheinungsbild der aus dem PowerPoint‑zu‑HTML‑Konvertierungsprozess erzeugten HTML‑Datei leicht ändern.
 
-Der C#‑Code in diesem Beispiel demonstriert, wie Sie überschreibbare Methoden verwenden, um ein benutzerdefiniertes HTML‑Dokument zu erstellen, das einen Link zu einer CSS‑Datei enthält:
-
+Der C#‑Code in diesem Beispiel zeigt, wie Sie überschreibbare Methoden nutzen, um ein benutzerdefiniertes HTML‑Dokument zu erstellen, das einen Verweis auf eine CSS‑Datei enthält:
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
 {
@@ -290,16 +286,15 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 ```
 
 
-## **Alle Schriftarten beim Konvertieren einer Präsentation nach HTML verlinken**
+## **Alle Schriften verlinken beim Konvertieren einer Präsentation in HTML**
 
-Wenn Sie Schriftarten nicht einbetten möchten (um die Größe des resultierenden HTML nicht zu erhöhen), können Sie alle Schriftarten verlinken, indem Sie Ihre eigene Version von `LinkAllFontsHtmlController` implementieren.
+Wenn Sie Schriften nicht einbetten möchten (um die Größe der resultierenden HTML‑Datei nicht zu erhöhen), können Sie alle Schriften verlinken, indem Sie Ihre eigene `LinkAllFontsHtmlController`‑Version implementieren.
 
-Dieser C#‑Code zeigt Ihnen, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren, während Sie alle Schriftarten verlinken und „Calibri“ sowie „Arial“ ausschließen (da sie bereits im System installiert sind):
-
+Dieser C#‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in HTML konvertieren, dabei alle Schriften verlinken und „Calibri“ sowie „Arial“ ausschließen (da sie bereits im System installiert sind):
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
 {
-    // Standard‑Schriftarten der Präsentation ausschließen.
+    // Standard-Präsentationsschriften ausschließen.
     string[] fontNameExcludeList = { "Calibri", "Arial" };
 
     LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
@@ -314,8 +309,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 ```
 
 
-Dieser C#‑Code zeigt, wie die `LinkAllFontsHtmlController`‑Klasse implementiert wird:
-
+Dieser C#‑Code zeigt, wie der `LinkAllFontsHtmlController` implementiert wird:
 ```c#
 public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 {
@@ -338,7 +332,7 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
         try
         {
             string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; // Einige Pfadbereinigungen können erforderlich sein.
+            string path = fontName + ".woff"; // Einige Pfadbereinigungen könnten erforderlich sein.
 
             File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
             
@@ -359,10 +353,9 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 ```
 
 
-## **Eine Präsentation mit SVG‑Bildern in responsives HTML konvertieren**
+## **Präsentation mit SVG‑Bildern in responsives HTML konvertieren**
 
-Dieser C#‑Code zeigt Ihnen, wie Sie eine PowerPoint‑Präsentation in responsives HTML konvertieren:
-
+Dieser C#‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in responsives HTML konvertieren:
 ```c#
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
@@ -380,13 +373,14 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 
 Mit Aspose.Slides für .NET können Sie Mediendateien wie folgt exportieren:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Holen Sie sich eine Referenz zur Folie.
-1. Fügen Sie der Folie ein Video hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+1. Holen Sie eine Referenz zur Folie.
+1. Fügen Sie ein Video zur Folie hinzu.
 1. Schreiben Sie die Präsentation als HTML‑Datei.
 
+Dieser C#‑Code zeigt, wie Sie ein Video zur Präsentation hinzufügen und anschließend als HTML speichern: 
 ```c#
-// Erstelle eine neue Präsentation.
+// Eine neue Präsentation erstellen.
 using (Presentation presentation = new Presentation())
 {
     string path = "C:/out/";
@@ -410,7 +404,7 @@ using (Presentation presentation = new Presentation())
     htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
     htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-    // Präsentation als HTML-Datei speichern.
+    // Die Präsentation als HTML-Datei speichern.
     presentation.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
 }
 ```
@@ -418,17 +412,17 @@ using (Presentation presentation = new Presentation())
 
 {{% alert color="primary" %}} 
 
-Aspose hat kostenlose [Präsentation nach HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)-Konverter entwickelt: [PPT nach HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX nach HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP nach HTML](https://products.aspose.app/slides/conversion/odp-to-html) usw. 
+Aspose hat kostenlose [Präsentation‑zu‑HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)-Konverter entwickelt: [PPT zu HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX zu HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP zu HTML](https://products.aspose.app/slides/conversion/odp-to-html) usw. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Schauen Sie sich weitere kostenlose Konverter von Aspose an.
+Weitere kostenlose Konverter von Aspose finden Sie unter [free converters from Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Neben den hier beschriebenen Konvertierungsprozessen unterstützt Aspose.Slides auch diese Konvertierungsoperationen, die das HTML‑Format betreffen: 
+Neben den hier beschriebenen Konvertierungsprozessen unterstützt Aspose.Slides folgende Konvertierungsoperationen im HTML‑Format: 
 
 * [HTML zu Bild](https://products.aspose.com/slides/net/conversion/html-to-image/)
 * [HTML zu JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
@@ -439,14 +433,14 @@ Neben den hier beschriebenen Konvertierungsprozessen unterstützt Aspose.Slides 
 
 ## **FAQ**
 
-**Wie ist die Leistung von Aspose.Slides beim Konvertieren mehrerer Präsentationen nach HTML?**
+**Wie ist die Leistung von Aspose.Slides beim Konvertieren mehrerer Präsentationen in HTML?**
 
-Die Leistung hängt von Größe und Komplexität der Präsentationen ab. Aspose.Slides ist hoch effizient und skalierbar für Batch‑Operationen. Für optimale Leistung bei der Konvertierung vieler Präsentationen empfiehlt sich, wenn möglich Multithreading oder Parallelverarbeitung zu nutzen.
+Die Leistung hängt von Größe und Komplexität der Präsentationen ab. Aspose.Slides ist sehr effizient und skalierbar für Batch‑Operationen. Für optimale Leistung beim Konvertieren vieler Präsentationen wird empfohlen, nach Möglichkeit Multithreading oder Parallel Processing zu nutzen.
 
 **Unterstützt Aspose.Slides das Exportieren von Hyperlinks nach HTML?**
 
-Ja, Aspose.Slides unterstützt das vollständige Exportieren eingebetteter Hyperlinks nach HTML. Beim Konvertieren von Präsentationen nach HTML bleiben Hyperlinks automatisch erhalten und bleiben anklickbar.
+Ja, Aspose.Slides unterstützt das Exportieren eingebetteter Hyperlinks nach HTML vollständig. Beim Konvertieren von Präsentationen nach HTML bleiben Hyperlinks automatisch erhalten und anklickbar.
 
-**Gibt es ein Limit für die Anzahl der Folien beim Konvertieren von Präsentationen nach HTML?**
+**Gibt es eine Begrenzung der Folienzahl beim Konvertieren von Präsentationen in HTML?**
 
-Es gibt kein Limit für die Folienanzahl bei der Verwendung von Aspose.Slides. Sie können Präsentationen jeder Größe konvertieren. Bei sehr großen Präsentationen kann die Leistung jedoch von den verfügbaren Ressourcen Ihres Servers oder Systems abhängen.
+Es gibt keine Begrenzung der Folienzahl bei der Verwendung von Aspose.Slides. Sie können Präsentationen jeder Größe konvertieren. Bei Präsentationen mit einer sehr großen Folienanzahl kann die Leistung jedoch von den verfügbaren Ressourcen Ihres Servers oder Systems abhängen.

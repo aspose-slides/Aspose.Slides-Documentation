@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentación PowerPoint PPT, PPTX y ODP."
+description: "Revise las actualizaciones de la API pública y los cambios que rompen la compatibilidad en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentación PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades y demás [añadido](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) o [eliminado](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) y otros cambios introducidos con la API de Aspose.Slides for .NET 15.8.0.
+Esta página enumera todas las [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) clases, métodos, propiedades y demás, y otros cambios introducidos con la API de Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
-## **Cambios de la API pública**
-#### **La propiedad DoughnutHoleSize se ha añadido a IChartSeries y ChartSeries**
-Especifica el tamaño del agujero en un gráfico de dona.
+## **Cambios de API pública**
+#### **La propiedad DoughnutHoleSize ha sido añadida a IChartSeries y ChartSeries**
+Especifica el tamaño del agujero en un gráfico de rosquilla.
 
 ``` csharp
 

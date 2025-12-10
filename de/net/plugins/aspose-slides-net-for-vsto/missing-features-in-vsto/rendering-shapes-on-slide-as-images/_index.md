@@ -1,19 +1,18 @@
 ---
-title: Formen auf Folien als Bilder rendern
+title: Rendern von Formen auf Folien als Bilder
 type: docs
 weight: 120
 url: /de/net/rendering-shapes-on-slide-as-images/
 ---
 
-Dies behandelt zwei Hauptfunktionen:
+Dies deckt zwei Hauptfunktionen ab:
 
 - Bild aus Form in Datei extrahieren.
 - Formen als Bilddatei extrahieren.
-## **Bild aus Form in Datei extrahieren**
+## **Ein Bild aus einer Form in eine Datei extrahieren**
 Bilder werden im Folienhintergrund und in Formen hinzugefügt. Manchmal ist es erforderlich, die in den Präsentationsformen hinzugefügten Bilder zu extrahieren.
 
-In **Aspose.Slides für .NET** können Bilder in Folienformen und im Folienhintergrund hinzugefügt werden. Die Bilder werden in **ImageCollectionEx** der Präsentation hinzugefügt. In diesem Beispiel werden wir jede Form in jeder Folie der Präsentation durchlaufen und prüfen, ob es eine Bild in der Folienform gibt. Wenn das Bild für eine Form gefunden wird, werden wir es extrahieren und in eine Datei speichern. Der folgende Codeausschnitt dient diesem Zweck.
-
+In **Aspose.Slides for .NET** können Bilder zu Folienformen und zum Folienhintergrund hinzugefügt werden. Die Bilder werden in **ImageCollectionEx** der Präsentation hinzugefügt. In diesem Beispiel traversieren wir jede Form in jeder Folie der Präsentation und prüfen, ob ein Bild in der Folienform hinzugefügt wurde. Wird ein Bild für eine Form gefunden, extrahieren wir es und speichern es in einer Datei. Das folgende Code‑Snippet erfüllt diesen Zweck.
 ``` csharp
 
  //Zugriff auf die Präsentation
@@ -152,31 +151,32 @@ for (int i = 0; i < pres.Slides.Count; i++)
 		ifImageFound = false;
 
 ``` 
-## **Beispielcode herunterladen**
+## **Download Sample Code**
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
-## **Formen als Bilddatei extrahieren**
+## **Extract Shapes as Image Files**
 ```cs
-//Instanziieren des Präsentationsobjekts, das eine PPT-Datei darstellt
+//Instanziieren des Presentation-Objekts, das eine PPT-Datei darstellt
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
-//Zugriff auf eine Folie anhand ihrer Folienposition
+//Zugriff auf eine Folie anhand ihrer Position
 ISlide slide = pres.Slides[2];
 
 for (int i = 0; i < slide.Shapes.Count; i++)
 {
     IShape shape = slide.Shapes[i];
 
-    //Erhalten des Miniaturbilds der Form
+    //Abrufen des Thumbnail-Bildes der Form
     using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
     {
-        //Speichern des Miniaturbilds im gif-Format
+        //Speichern des Thumbnail-Bildes im GIF-Format
         image.Save(i + ".gif", ImageFormat.Gif);
     }
 }
 ```
 
-*Hinweis:*Die Extraktion von Formen wird derzeit in .ppt-Dateien unterstützt.
+
+*Hinweis:*Die Extraktion von Formen wird derzeit in .ppt‑Dateien unterstützt.
 ## **Beispielcode herunterladen**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

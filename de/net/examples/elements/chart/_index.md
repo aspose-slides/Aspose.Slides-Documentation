@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in C# mit Aspose.Slides: Daten hinzufügen, Serien, Achsen und Beschriftungen formatieren, Typen ändern und exportieren - funktioniert mit PPT, PPTX und ODP."
+description: "Erstellen und Anpassen von Diagrammen in C# mit Aspose.Slides: Daten hinzufügen, Serien, Achsen und Beschriftungen formatieren, Typen ändern und exportieren – funktioniert mit PPT, PPTX und ODP."
 ---
 
-Beispiele zum Hinzufügen, Zugreifen, Entfernen und Aktualisieren verschiedener Diagrammtypen mit **Aspose.Slides for .NET**. Die nachstehenden Code-Beispiele zeigen grundlegende Diagrammoperationen.
+Beispiele zum Hinzufügen, Zugreifen, Entfernen und Aktualisieren verschiedener Diagrammtypen mit **Aspose.Slides for .NET**. Die nachfolgenden Codeausschnitte demonstrieren grundlegende Diagrammoperationen.
 
-## Diagramm hinzufügen
+## **Diagramm hinzufügen**
 
 Diese Methode fügt der ersten Folie ein einfaches Flächendiagramm hinzu.
 ```csharp
@@ -28,16 +28,16 @@ static void Add_Chart()
 {
     using var pres = new Presentation();
 
-    // Füge ein einfaches Säulendiagramm zur ersten Folie hinzu
+    // Füge ein einfaches Spaltendiagramm zur ersten Folie hinzu
     var slide = pres.Slides[0];
     var chart = slide.Shapes.AddChart(ChartType.Area, 50, 50, 400, 300);
 }
 ```
 
 
-## Auf ein Diagramm zugreifen
+## **Zugriff auf ein Diagramm**
 
-Nachdem Sie ein Diagramm erstellt haben, können Sie es über die Formen-Sammlung abrufen.
+Nachdem Sie ein Diagramm erstellt haben, können Sie es über die Formsammlung abrufen.
 ```csharp
 static void Access_Chart()
 {
@@ -45,13 +45,13 @@ static void Access_Chart()
     var slide = pres.Slides[0];
     var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 400, 300);
 
-    // Greife auf das erste Diagramm auf der Folie zu
+    // Zugriff auf das erste Diagramm auf der Folie
     var firstChart = slide.Shapes.OfType<IChart>().First();
 }
 ```
 
 
-## Diagramm entfernen
+## **Diagramm entfernen**
 
 Der folgende Code entfernt ein Diagramm von einer Folie.
 ```csharp
@@ -61,13 +61,13 @@ static void Remove_Chart()
     var slide = pres.Slides[0];
     var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 400, 300);
 
-    // Diagramm entfernen
+    // Entferne das Diagramm
     slide.Shapes.Remove(chart);
 }
 ```
 
 
-## Diagrammdaten aktualisieren
+## **Diagrammdaten aktualisieren**
 
 Sie können Diagrammeigenschaften wie den Titel ändern.
 ```csharp
@@ -77,7 +77,7 @@ static void Update_Chart_Data()
     var slide = pres.Slides[0];
     var chart = slide.Shapes.AddChart(ChartType.Column3D, 50, 50, 400, 300);
 
-    // Diagrammtitel ändern
+    // Ändere den Diagrammtitel
     chart.ChartTitle.AddTextFrameForOverriding("Sales Report");
 }
 ```

@@ -1,11 +1,11 @@
 ---
-title: Administrar callouts en gráficos de presentación en .NET
+title: Administrar llamadas en gráficos de presentación en .NET
 linktitle: Llamada
 type: docs
 url: /es/net/callout/
 keywords:
-- callout de gráfico
-- usar callout
+- llamada de gráfico
+- uso de llamada
 - etiqueta de datos
 - formato de etiqueta
 - PowerPoint
@@ -13,11 +13,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree y diseñe callouts en Aspose.Slides para .NET con ejemplos de código C# concisos, compatibles con PPT y PPTX, para automatizar flujos de trabajo de presentaciones."
+description: "Cree y diseñe llamadas en Aspose.Slides para .NET con ejemplos de código C# concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Uso de Callouts**
-Se ha agregado la nueva propiedad **ShowLabelAsDataCallout** a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, la cual determina si la etiqueta de datos del gráfico especificado se mostrará como un data callout o como una etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado los Callouts.
+## **Uso de llamadas**
+Nueva propiedad **ShowLabelAsDataCallout** se ha añadido a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, lo que determina si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado las llamadas.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -30,8 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Establecer Callout para Gráfico de Rosquilla**
-Aspose.Slides para .NET ofrece soporte para establecer la forma de callout de la etiqueta de datos de serie para un gráfico de rosquilla. A continuación se muestra un ejemplo.
+## **Establecer una llamada para un gráfico de dona**
+Aspose.Slides for .NET brinda soporte para establecer la forma de llamada de etiqueta de datos de la serie en un gráfico de dona. A continuación se muestra un ejemplo.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -94,10 +94,10 @@ pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **Preguntas frecuentes**
 
-**¿Se conservan los callouts al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+**¿Se conservan las llamadas al convertir una presentación a PDF, HTML5, SVG o imágenes?**
 
-Sí. Los callouts forman parte del renderizado del gráfico, por lo que al exportar a [PDF](/slides/es/net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/net/export-to-html5/), [SVG](/slides/es/net/render-a-slide-as-an-svg-image/) o [imágenes raster](/slides/es/net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+Sí. Las llamadas forman parte del renderizado del gráfico, por lo que cuando exportas a [PDF](/slides/es/net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/net/export-to-html5/), [SVG](/slides/es/net/render-a-slide-as-an-svg-image/) o [imágenes raster](/slides/es/net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
 
-**¿Funcionan fuentes personalizadas en los callouts y se puede conservar su apariencia al exportar?**
+**¿Funcionan las fuentes personalizadas en las llamadas y se puede preservar su apariencia al exportar?**
 
-Sí. Aspose.Slides admite [incrustación de fuentes](/slides/es/net/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/net/convert-powerpoint-to-pdf/), garantizando que los callouts se vean igual en diferentes sistemas.
+Sí. Aspose.Slides admite [incrustar fuentes](/slides/es/net/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/net/convert-powerpoint-to-pdf/), garantizando que las llamadas tengan el mismo aspecto en diferentes sistemas.

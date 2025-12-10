@@ -13,11 +13,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für .NET mit prägnanten C#-Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations-Workflows zu automatisieren."
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für .NET mit kompakten C#-Codebeispielen, kompatibel mit PPT und PPTX, um Präsentationsabläufe zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Die neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zum Interface **IDataLabelFormat** hinzugefügt. Sie bestimmt, ob das Datenbeschriftungselement eines angegebenen Diagramms als Daten-Callout oder als Datenbeschriftung angezeigt wird. Im nachstehenden Beispiel haben wir die Callouts gesetzt.
+Die neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zum Interface **IDataLabelFormat** hinzugefügt, die bestimmt, ob das Datenbeschriftung eines angegebenen Diagramms als Datenanmerkung oder als Datenbeschriftung angezeigt wird. Im nachstehenden Beispiel haben wir die Callouts festgelegt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -30,8 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Callout für Donut-Diagramm festlegen**
-Aspose.Slides for .NET bietet Unterstützung zum Festlegen der Callout-Form für Datenbeschriftungen von Serien in einem Donut-Diagramm. Nachfolgend ein Beispiel.
+## **Eine Callout für ein Donut-Diagramm festlegen**
+Aspose.Slides für .NET bietet Unterstützung zum Festlegen der Callout-Form für Datenbeschriftungen einer Serie in einem Donut-Diagramm. Untenstehendes Beispiel wird angezeigt.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -94,10 +94,10 @@ pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder erhalten?**
+**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
 
-Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Export nach [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/net/export-to-html5/), [SVG](/slides/de/net/render-a-slide-as-an-svg-image/) oder [Rasterbildern](/slides/de/net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Exportieren nach [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/net/export-to-html5/), [SVG](/slides/de/net/render-a-slide-as-an-svg-image/) oder [Rasterbilder](/slides/de/net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
 
-**Funktionieren benutzerdefinierte Schriftarten in Callouts und kann ihr Aussehen beim Export erhalten bleiben?**
+**Funktionieren benutzerdefinierte Schriftarten in Callouts, und kann ihr Aussehen beim Export beibehalten werden?**
 
-Ja. Aspose.Slides unterstützt das [Einbetten von Schriftarten](/slides/de/net/embedded-font/) in die Präsentation und steuert das Einbetten von Schriftarten bei Exporten wie [PDF](/slides/de/net/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriftarten](/slides/de/net/embedded-font/) in die Präsentation und steuert das Einbetten von Schriftarten während Exports wie [PDF](/slides/de/net/convert-powerpoint-to-pdf/), wodurch die Callouts auf verschiedenen Systemen gleich aussehen.

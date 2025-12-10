@@ -6,7 +6,7 @@ url: /es/net/examples/elements/math-text/
 keywords:
 - ejemplo de texto matemático
 - agregar texto matemático
-- acceder al texto matemático
+- acceder a texto matemático
 - eliminar texto matemático
 - formatear texto matemático
 - PowerPoint
@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaje con texto matemático en C# usando Aspose.Slides: cree y edite ecuaciones, fracciones, radicales, scripts, formato y renderice resultados para PPT y PPTX."
+description: "Trabaje con texto matemático en C# usando Aspose.Slides: cree y edite ecuaciones, fracciones, radicales, scripts, formateo y genere resultados para PPT y PPTX."
 ---
 
 Ilustra el trabajo con formas de texto matemático y el formato de ecuaciones usando **Aspose.Slides for .NET**.
 
-## Añadir texto matemático
-
-Cree una forma matemática que contenga una fracción y la fórmula pitagórica.
+## **Agregar texto matemático**
+Crear una forma matemática que contenga una fracción y la fórmula pitagórica.
 ```csharp
 static void Add_Math_Text()
 {
@@ -52,16 +51,15 @@ static void Add_Math_Text()
 ```
 
 
-## Acceder al texto matemático
-
-Ubique una forma que contenga un párrafo matemático en la diapositiva.
+## **Acceder a texto matemático**
+Ubicar una forma que contenga un párrafo matemático en la diapositiva.
 ```csharp
 static void Access_Math_Text()
 {
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // Encontrar la primera forma que contiene un párrafo matemático
+    // Buscar la primera forma que contiene un párrafo matemático
     var mathShape = slide.Shapes
         .OfType<IAutoShape>()
         .FirstOrDefault(s =>
@@ -73,7 +71,7 @@ static void Access_Math_Text()
     {
         var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-        // Ejemplo: crear una fracción (no añadido aquí)
+        // Ejemplo: crear una fracción (no agregada aquí)
         var fraction = new MathematicalText("x").Divide("y");
 
         // Usar mathParagraph o fraction según sea necesario...
@@ -82,9 +80,8 @@ static void Access_Math_Text()
 ```
 
 
-## Eliminar texto matemático
-
-Elimine una forma matemática de la diapositiva.
+## **Eliminar texto matemático**
+Eliminar una forma matemática de la diapositiva.
 ```csharp
 static void Remove_Math_Text()
 {
@@ -101,9 +98,8 @@ static void Remove_Math_Text()
 ```
 
 
-## Formatear texto matemático
-
-Establezca las propiedades de fuente para una porción matemática.
+## **Formato de texto matemático**
+Establecer propiedades de fuente para una porción matemática.
 ```csharp
 static void Format_Math_Text()
 {

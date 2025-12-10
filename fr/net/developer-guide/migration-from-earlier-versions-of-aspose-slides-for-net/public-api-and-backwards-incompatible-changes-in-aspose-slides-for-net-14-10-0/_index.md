@@ -1,6 +1,6 @@
 ---
-title: "API publique et modifications incompatibles rétroactives dans Aspose.Slides pour .NET 14.10.0"
-linktitle: "Aspose.Slides pour .NET 14.10.0"
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 14.10.0
+linktitle: Aspose.Slides pour .NET 14.10.0
 type: docs
 weight: 120
 url: /fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
@@ -16,18 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
-Cette page répertorie toutes les classes, méthodes, propriétés, etc., [added](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [removed](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ainsi que les autres modifications introduites avec l'API Aspose.Slides for .NET 14.10.0.
+
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 14.10.0.
+
 {{% /alert %}} 
 ## **Modifications de l'API publique**
-#### **Aspose.Slides.FieldType.Footer field type has been added**
-Le type de champ Aspose.Slides.FieldType.Footer a été ajouté. Le type de champ Footer a été ajouté pour permettre la création de champs de ce type et pour une sérialisation valide des présentations.
-#### **Enum element ShapeElementFillSource.Own has been deleted**
-L'élément d'énumération ShapeElementFillSource.Own a été supprimé car dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
-#### **Methods for chart data points, categories removing have been added**
+#### **Le type de champ Aspose.Slides.FieldType.Footer a été ajouté**
+Le type de champ Footer a été ajouté pour permettre la création de champs de ce type et pour une sérialisation valide des présentations.
+#### **L'élément d'énumération ShapeElementFillSource.Own a été supprimé**
+L'élément d'énumération ShapeElementFillSource.Own a été supprimé comme dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
+#### **Des méthodes de suppression de points de données et de catégories de graphique ont été ajoutées**
 Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d'une collection de points de données, ont été ajoutées :
 
 IChartDataPointCollection.Remove(IChartDataPoint)
@@ -64,9 +66,9 @@ IChartCategory.Remove()
 }
 
 ``` 
-#### **Obsolete Aspose.Slides.ParagraphFormat propertyies have been removed**
+#### **Les propriétés obsolètes Aspose.Slides.ParagraphFormat ont été supprimées**
 Les propriétés BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle ont été supprimées. Elles étaient marquées comme obsolètes depuis longtemps.
-#### **Unuseful and obsolete constructors have been removed**
+#### **Les constructeurs inutiles et obsolètes ont été supprimés**
 Les constructeurs suivants ont été supprimés :
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

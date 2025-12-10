@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint التقديمية إلى Markdown في .NET
+title: تحويل عروض PowerPoint إلى Markdown في .NET
 linktitle: PowerPoint إلى Markdown
 type: docs
 weight: 140
@@ -28,23 +28,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل شرائح PowerPoint—PPT، PPTX—إلى Markdown نظيفة باستخدام Aspose.Slides لـ .NET، أتمتة التوثيق والحفاظ على التنسيق."
+description: "قم بتحويل شرائح PowerPoint—PPT, PPTX—إلى Markdown نظيف باستخدام Aspose.Slides لـ .NET، قم بأتمتة التوثيق واحرص على الحفاظ على التنسيق."
 ---
 
 {{% alert color="info" %}} 
-تم تنفيذ دعم تحويل PowerPoint إلى markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
+تم تنفيذ دعم التحويل من PowerPoint إلى markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
-يكون تصدير PowerPoint إلى markdown **بدون صور** بشكل افتراضي. إذا أردت تصدير مستند PowerPoint يحتوي على صور، تحتاج إلى تعيين `ExportType = MarkdownExportType.Visual` وتحديد BasePath حيث سيتم حفظ الصور المشار إليها في وثيقة markdown.
+تصدير PowerPoint إلى markdown يكون **بدون صور** بشكل افتراضي. إذا كنت تريد تصدير مستند PowerPoint يحتوي على صور، تحتاج إلى تعيين `ExportType = MarkdownExportType.Visual` وتحديد BasePath حيث سيتم حفظ الصور المشار إليها في مستند markdown.
 {{% /alert %}} 
 
 ## **تحويل PowerPoint إلى Markdown**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) لتمثيل كائن العرض التقديمي.
-2. استخدم طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) لحفظ الكائن كملف markdown.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) لتمثيل كائن عرض تقديمي.
+2. استخدام طريقة [Save ](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save)لحفظ الكائن كملف markdown.
 
-يعرض هذا الكود C# طريقة تحويل PowerPoint إلى markdown:
+يُظهر لك هذا الكود C# كيفية تحويل PowerPoint إلى markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -53,11 +53,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **تحويل PowerPoint إلى نكهة Markdown**
+## **تحويل PowerPoint إلى تنسيق Markdown**
 
-يسمح Aspose.Slides لك بتحويل PowerPoint إلى markdown (يتضمن بناءً أساسيًا)، CommonMark، GitHub flavored markdown، Trello، XWiki، GitLab، و 17 نكهة markdown أخرى.
+يسمح Aspose.Slides لك بتحويل PowerPoint إلى markdown (الذي يحتوي على بناء أساسي)، CommonMark، GitHub flavored markdown، Trello، XWiki، GitLab، و17 نوعًا آخر من markdown.
 
-يعرض هذا الكود C# طريقة تحويل PowerPoint إلى CommonMark:
+يُظهر لك هذا الكود C# كيفية تحويل PowerPoint إلى CommonMark:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -69,15 +69,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-الـ 23 نكهة markdown المدعومة مُدرجة تحت تعداد Flavor من الفئة [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+الـ 23 نوعًا المدعوم من markdown مُدرجة تحت تعداد Flavor في فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
 ## **تحويل عرض تقديمي يحتوي على صور إلى Markdown**
 
-توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) خصائص وتعدادات تسمح لك باستخدام خيارات أو إعدادات معينة لملف markdown الناتج. يمكن، على سبيل المثال، تعيين تعداد [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) إلى قيم تحدد كيفية عرض أو معالجة الصور: `Sequential`، `TextOnly`، `Visual`.
+توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) خصائص وتعدادات تسمح لك باستخدام خيارات أو إعدادات معينة للملف markdown الناتج. يمكن ضبط تعداد [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) على قيم تحدد كيفية معالجة الصور: `Sequential`، `TextOnly`، `Visual`.
 
 ### **تحويل الصور تسلسليًا**
 
-إذا كنت ترغب في ظهور الصور واحدة تلو الأخرى في markdown الناتج، عليك اختيار الخيار التسلسلي. يعرض هذا الكود C# طريقة تحويل عرض تقديمي يحتوي على صور إلى markdown:
+إذا كنت تريد أن تظهر الصور واحدةً تلو الأخرى في markdown الناتج، يجب اختيار الخيار المتسلسل. يُظهر لك هذا الكود C# كيفية تحويل عرض تقديمي يحتوي على صور إلى markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -97,9 +97,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **تحويل الصور بصريًا**
 
-إذا كنت ترغب في ظهور الصور معًا في markdown الناتج، عليك اختيار الخيار البصري. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم بناء مسار نسبي لها في وثيقة markdown)، أو يمكنك تحديد المسار واسم المجلد المفضل لديك.
+إذا كنت تريد أن تظهر الصور معًا في markdown الناتج، يجب اختيار الخيار البصري. في هذه الحالة، تُحفظ الصور في الدليل الحالي للتطبيق (ويُبنى مسار نسبي لها في مستند markdown)، أو يمكنك تحديد المسار والمجلد المفضل لديك.
 
-يعرض هذا الكود C# العملية:
+يُظهر لك هذا الكود C# العملية:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -114,16 +114,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يتم الحفاظ على الروابط الفوقية عند التصدير إلى Markdown؟**
+**هل تبقى الروابط التشعبية بعد التصدير إلى Markdown؟**
 
-نعم. تُحافظ على الروابط النصية [hyperlinks](/slides/ar/net/manage-hyperlinks/) كروابط Markdown قياسية. لا يتم تحويل انتقالات الشرائح [transitions](/slides/ar/net/slide-transition/) والرسوم المتحركة [animations](/slides/ar/net/powerpoint-animation/).
+نعم. نص [الروابط التشعبية](/slides/ar/net/manage-hyperlinks/) يتم الاحتفاظ به كروابط Markdown قياسية. الشرائح [الانتقالات](/slides/ar/net/slide-transition/) و[الرسوم المتحركة](/slides/ar/net/powerpoint-animation/) لا يتم تحويلها.
 
 **هل يمكنني تسريع التحويل عن طريق تشغيله في عدة خيوط؟**
 
-يمكنك التوازي عبر الملفات، لكن لا تشارك نفس نسخة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) عبر الخيوط. استخدم نسخًا/عمليات منفصلة لكل ملف لتجنب التعارض.
+يمكنك تنفيذ التحويل بالتوازي عبر ملفات مختلفة، لكن لا تشارك نفس مثيل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بين الخيوط. استخدم مثيلات أو عمليات منفصلة لكل ملف لتجنب التضارب.
 
-**ماذا يحدث للصور—أين تُحفظ، وهل المسارات نسبية؟**
+**ماذا يحدث للصور — أين يتم حفظها، وهل المسارات نسبية؟**
 
-يتم تصدير [Images](/slides/ar/net/image/) إلى مجلد مخصص، وتُشير ملف Markdown إليها بمسارات نسبية بشكل افتراضي. يمكنك تكوين مسار الإخراج الأساسي واسم مجلد الأصول للحفاظ على بنية مستودع متوقعة.
+يتم تصدير [الصور](/slides/ar/net/image/) إلى مجلد مخصص، ويشير ملف Markdown إليها باستخدام مسارات نسبية بشكل افتراضي. يمكنك تكوين مسار الإخراج الأساسي واسم مجلد الأصول للحفاظ على هيكل مستودع متوقع.

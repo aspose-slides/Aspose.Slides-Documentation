@@ -4,9 +4,9 @@ type: docs
 weight: 190
 url: /de/net/examples/elements/connector/
 keywords:
-- Beispiel für Connector
+- Connector-Beispiel
 - Connector hinzufügen
-- Zugriff auf Connector
+- Connector abrufen
 - Connector entfernen
 - Formen neu verbinden
 - PowerPoint
@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zeichnen und steuern Sie Connectoren in C# mit Aspose.Slides: Hinzufügen, Routen, Umrouten, Festlegen von Verbindungspunkten, Pfeilen und Stilen, um Formen in PPT, PPTX und ODP zu verknüpfen."
+description: "Zeichnen und steuern Sie Verbinder in C# mit Aspose.Slides: Hinzufügen, Routen, Neu-Routen, Festlegen von Verbindungspunkten, Pfeilen und Stilen, um Formen in PPT, PPTX und ODP zu verknüpfen."
 ---
 
-Zeigt, wie man Formen mit Connectors verbindet und deren Ziele mithilfe von **Aspose.Slides for .NET** ändert.
+Zeigt, wie man Formen mit Verbindern verbindet und deren Zielpunkte mithilfe von **Aspose.Slides for .NET** ändert.
 
-## Connector hinzufügen
+## **Connector hinzufügen**
 
 Fügen Sie eine Connector-Form zwischen zwei Punkten auf der Folie ein.
 ```csharp
@@ -34,9 +34,9 @@ static void Add_Connector()
 ```
 
 
-## Zugriff auf einen Connector
+## **Zugriff auf einen Connector**
 
-Rufen Sie die erste zum Folie hinzugefügte Connector-Form ab.
+Rufen Sie die erste zur Folie hinzugefügte Connector-Form ab.
 ```csharp
 static void Access_Connector()
 {
@@ -49,7 +49,7 @@ static void Access_Connector()
 ```
 
 
-## Connector entfernen
+## **Connector entfernen**
 
 Löschen Sie einen Connector von der Folie.
 ```csharp
@@ -64,9 +64,9 @@ static void Remove_Connector()
 ```
 
 
-## Formen neu verbinden
+## **Formen neu verbinden**
 
-Verbinden Sie einen Connector mit zwei Formen, indem Sie Start- und Endziele zuweisen.
+Binden Sie einen Connector an zwei Formen, indem Sie Start- und Endziele zuweisen.
 ```csharp
 static void Reconnect_Shapes()
 {

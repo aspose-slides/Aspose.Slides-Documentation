@@ -1,47 +1,47 @@
 ---
-title: .NET でプレゼンテーションのチャート凡例をカスタマイズする
+title: .NET のプレゼンテーションでチャート凡例をカスタマイズ
 linktitle: チャート凡例
 type: docs
 url: /ja/net/chart-legend/
 keywords:
 - チャート凡例
-- 凡例位置
+- 凡例の位置
 - フォントサイズ
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用してチャート凡例をカスタマイズし、調整された凡例フォーマットで PowerPoint プレゼンテーションを最適化します。"
+description: "Aspose.Slides for .NET を使用してチャート凡例をカスタマイズし、目的に合わせた凡例の書式設定で PowerPoint プレゼンテーションを最適化します。"
 ---
 
 ## **凡例の位置設定**
 凡例のプロパティを設定するには、以下の手順に従ってください。
 
-- 【Presentation】クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)
+- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 - スライドの参照を取得します。
 - スライドにチャートを追加します。
 - 凡例のプロパティを設定します。
-- プレゼンテーションを PPTX ファイルとして書き出します。
+- プレゼンテーションを PPTX ファイルとして保存します。
 
 以下の例では、チャート凡例の位置とサイズを設定しています。
 ```c#
-// Presentation クラスのインスタンスを作成します
+// Presentation クラスのインスタンスを作成
 Presentation presentation = new Presentation();
 
-// スライドの参照を取得します
+// スライドの参照を取得
 ISlide slide = presentation.Slides[0];
 
-// スライドにクラスター化された縦棒グラフを追加します
+// スライドにクラスター化された列チャートを追加
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// 凡例のプロパティを設定します
+// 凡例のプロパティを設定
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// プレゼンテーションをディスクに保存します
+// プレゼンテーションをディスクに保存
 presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -51,12 +51,12 @@ presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ## **凡例のフォントサイズの設定**
 Aspose.Slides for .NET では、開発者が凡例のフォントサイズを設定できます。以下の手順に従ってください。
 
-- `Presentation` クラスのインスタンスを作成します。
+- `Presentation` クラスをインスタンス化します。
 - デフォルトのチャートを作成します。
 - フォントサイズを設定します。
 - 最小軸値を設定します。
 - 最大軸値を設定します。
-- プレゼンテーションをディスクに書き出します。
+- プレゼンテーションをディスクに保存します。
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -74,16 +74,16 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 
 
-## **個別凡例エントリのフォントサイズ設定**
-Aspose.Slides for .NET では、開発者が個々の凡例エントリのフォントサイズを設定できます。以下の手順に従ってください。
+## **個別の凡例エントリのフォントサイズの設定**
+Aspose.Slides for .NET では、開発者が個別の凡例エントリのフォントサイズを設定できます。以下の手順に従ってください。
 
-- `Presentation` クラスのインスタンスを作成します。
+- `Presentation` クラスをインスタンス化します。
 - デフォルトのチャートを作成します。
 - 凡例エントリにアクセスします。
 - フォントサイズを設定します。
 - 最小軸値を設定します。
 - 最大軸値を設定します。
-- プレゼンテーションをディスクに書き出します。
+- プレゼンテーションをディスクに保存します。
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -101,16 +101,16 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
-## **FAQ**
+## **よくある質問**
 
-**凡例を有効にし、チャートが凡例の上に重ねるのではなく自動的にスペースを確保するようにできますか？**
+**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
 
-はい。非オーバーレイモード（[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) = `false`）を使用します。この場合、プロット領域が縮小して凡例を収めます。
+はい。非オーバーレイ モード（[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/)=`false`）を使用します。この場合、プロット領域が縮小して凡例を収めます。
 
-**凡例ラベルを複数行にすることはできますか？**
+**Can I make multi-line legend labels?**
 
-はい。スペースが不足した場合、長いラベルは自動的に折り返されます。改行文字をシリーズ名に含めることで強制的に改行することもサポートされています。
+はい。スペースが不足すると長いラベルは自動的に折り返されます。改行文字をシリーズ名に入れることで強制改行もサポートされます。
 
-**凡例をプレゼンテーションのテーマカラースキームに従わせるにはどうすればよいですか？**
+**How do I make the legend follow the presentation theme’s color scheme?**
 
-凡例やそのテキストに対して明示的な色・塗りつぶし・フォントを設定しないでください。テーマから継承され、デザインが変更されたときに正しく更新されます。
+凡例やそのテキストに明示的な色・塗りつぶし・フォントを設定しないでください。テーマから継承され、デザインが変更されたときに正しく更新されます。

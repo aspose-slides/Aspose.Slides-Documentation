@@ -16,26 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Überblick über öffentliche API-Updates und breaking changes in Aspose.Slides für .NET, um Ihre PowerPoint PPT, PPTX und ODP Präsentationslösungen reibungslos zu migrieren."
+description: "Überprüfen Sie die öffentlichen API-Updates und Breaking Changes in Aspose.Slides für .NET, um Ihre PowerPoint‑PPT-, PPTX‑ und ODP‑Präsentationslösungen reibungslos zu migrieren."
 ---
 
 {{% alert color="primary" %}} 
 
-This page lists all [hinzugefügt](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) or [entfernt](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) classes, methods, properties and so on, and other changes introduced with the Aspose.Slides for .NET 16.2.0 API.
+Diese Seite listet alle [hinzugefügt](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) oder [entfernt](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) Klassen, Methoden, Eigenschaften usw. und weitere Änderungen, die mit der Aspose.Slides für .NET 16.2.0 API eingeführt wurden.
 
 {{% /alert %}} 
 ## **Öffentliche API-Änderungen**
 #### **Eigenschaften UpdateDateTimeFields und UpdateSlideNumberFields wurden entfernt**
-Eigenschaften UpdateDateTimeFields und UpdateSlideNumberFields wurden aus der Aspose.Slides.Presentation-Klasse und aus dem Aspose.Slides.IPresentation-Interface entfernt.
-Die Text-Eigenschaft von Aspose.Slides.TextFrame, Paragraph, Portion Klassen und Aspose.Slides.ITextFrame, IParagraph, IPortion Schnittstellen gibt Text mit aktualisierten "datetime"-Feldern zurück.
-Auch die Eigenschaften Presentation.DocumentProperties.CreatedTime, LastSavedTime und LastPrinted wurden schreibgeschützt.
-#### **Enum Slides.Charts.CategoryAxisType ist jetzt öffentlich**
-Wird in den Eigenschaften IAxis.CategoryAxisType und Axis.CategoryAxisType verwendet, um den Typ der Kategorie-Achse zu bestimmen.
-CategoryAxisType.Auto - Der Typ der Kategorie-Achse wird während der Serialisierung automatisch ermittelt (dieses Verhalten ist derzeit nicht implementiert)
-CategoryAxisType.Text - Der Typ der Kategorie-Achse ist Text
-CategoryAxisType.Date - Der Typ der Kategorie-Achse ist DateTime
+Die Eigenschaften UpdateDateTimeFields und UpdateSlideNumberFields wurden aus der Klasse Aspose.Slides.Presentation und aus dem Interface Aspose.Slides.IPresentation entfernt.
+Die Text‑Eigenschaft der Klassen Aspose.Slides.TextFrame, Paragraph, Portion sowie der Interfaces Aspose.Slides.ITextFrame, IParagraph, IPortion gibt Text mit aktualisierten „datetime“-Feldern zurück.
+Außerdem wurden die Eigenschaften Presentation.DocumentProperties.CreatedTime, LastSavedTime und LastPrinted schreibgeschützt.
+#### **Enum Slides.Charts.CategoryAxisType wurde öffentlich gemacht**
+Wird in den Eigenschaften IAxis.CategoryAxisType und Axis.CategoryAxisType verwendet, um den Typ der Kategorienachse zu bestimmen.
+CategoryAxisType.Auto - Der Typ der Kategorienachse wird bei der Serialisierung automatisch bestimmt (dieses Verhalten ist derzeit nicht implementiert)
+CategoryAxisType.Text - Der Typ der Kategorienachse ist Text
+CategoryAxisType.Date - Der Typ der Kategorienachse ist DateTime
 #### **Schnelle Textextraktion**
-Die neue statische Methode GetPresentationText wurde zur Presentation-Klasse hinzugefügt. Es gibt zwei Überladungen für diese Methode:
+Die neue statische Methode GetPresentationText wurde zur Klasse Presentation hinzugefügt. Es gibt zwei Überladungen für diese Methode:
 
 ``` csharp
 
@@ -45,22 +45,21 @@ PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
 
 ``` 
 
-Das ExtractionMode-Enum-Argument gibt den Modus zur Anordnung des Textergebnisses an und kann auf folgende Werte gesetzt werden:
+Das Enum‑Argument ExtractionMode gibt den Modus zur Organisation der Textausgabe an und kann auf die folgenden Werte gesetzt werden:
 Unarranged - Der Rohtext ohne Berücksichtigung der Position auf der Folie
 Arranged - Der Text ist in derselben Reihenfolge wie auf der Folie positioniert
 
-Der Unarranged-Modus kann verwendet werden, wenn Geschwindigkeit entscheidend ist; er ist schneller als der Arranged-Modus.
+Der Modus Unarranged kann verwendet werden, wenn Geschwindigkeit entscheidend ist; er ist schneller als der Modus Arranged.
 
-PresentationText repräsentiert den aus der Präsentation extrahierten Rohtext. Es enthält eine SlidesText-Eigenschaft aus dem Namespace Aspose.Slides.Util, die ein Array von ISlideText-Objekten zurückgibt. Jedes Objekt stellt den Text der entsprechenden Folie dar. Das ISlideText-Objekt besitzt die folgenden Eigenschaften:
-
+PresentationText stellt den aus der Präsentation extrahierten Rohtext dar. Es enthält eine SlidesText‑Eigenschaft aus dem Namespace Aspose.Slides.Util, die ein Array von ISlideText‑Objekten zurückgibt. Jedes Objekt repräsentiert den Text der jeweiligen Folie. ISlideText‑Objekte haben die folgenden Eigenschaften:
 ISlideText.Text - Der Text der Formen auf der Folie
-ISlideText.MasterText - Der Text der Formen auf der Master-Seite für diese Folie
-ISlideText.LayoutText - Der Text der Formen auf der Layout-Seite für diese Folie
-ISlideText.NotesText - Der Text der Formen auf der Notiz-Seite für diese Folie
+ISlideText.MasterText - Der Text der Formen auf der Masterseite für diese Folie
+ISlideText.LayoutText - Der Text der Formen auf der Layoutseite für diese Folie
+ISlideText.NotesText - Der Text der Formen auf der Notizenseite für diese Folie
 
-Es gibt außerdem eine SlideText-Klasse, die das ISlideText-Interface implementiert.
+Es gibt außerdem eine SlideText‑Klasse, die das ISlideText‑Interface implementiert.
 
-Die neue API kann wie folgt verwendet werden:
+Die neue API kann folgendermaßen verwendet werden:
 
 ``` csharp
 
@@ -77,19 +76,19 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
 
 ``` 
-#### **Interface ILegacyDiagram und Klasse LegacyDiagram wurden hinzugefügt**
-Das Interface Aspose.Slides.ILegacyDiagram und die Klasse Aspose.Slides.LegacyDiagram wurden hinzugefügt, um ein Legacy-Diagrammobjekt zu repräsentieren. Das Legacy-Diagrammobjekt ist ein altes Format von Diagrammen aus PowerPoint 97-2003.
-Die neue Klasse bietet Methoden zum Konvertieren des Legacy-Diagramms in ein modernes, editierbares SmartArt-Objekt oder in ein editierbares GroupShape.
-#### **Neues Aspose.Slides.TextAlignment-Enum-Mitglied hinzugefügt (JustifyLow)**
-Ein neues Mitglied des TextAlignment-Enums wurde hinzugefügt:
-JustifyLow - Kashida-Justierung niedrig.
+#### **ILegacyDiagram-Interface und LegacyDiagram-Klasse wurden hinzugefügt**
+Das Interface Aspose.Slides.ILegacyDiagram und die Klasse Aspose.Slides.LegacyDiagram wurden hinzugefügt, um ein Legacy-Diagrammobjekt zu repräsentieren. Ein Legacy-Diagrammobjekt ist ein altes Diagrammformat aus PowerPoint 97‑2003.
+Die neue Klasse stellt Methoden bereit, um das Legacy-Diagramm in ein modernes, bearbeitbares SmartArt‑Objekt oder in ein bearbeitbares GroupShape zu konvertieren.
+#### **Neues Aspose.Slides.TextAlignment‑Enum‑Mitglied hinzugefügt (JustifyLow)**
+Ein neues Mitglied des Enums TextAlignment wurde hinzugefügt:
+JustifyLow - Kashida‑Niedrig‑Justierung.
 #### **Neue Eigenschaften für Aspose.Slides.IOleObjectFrame und OleObjectFrame**
-Neue Eigenschaften wurden zum Interface IOleObjectFrame und zur Klasse OleObjectFrame, die dieses Interface implementiert, hinzugefügt. Diese Eigenschaften werden verwendet, um Informationen über ein in die Präsentation eingebettetes Objekt bereitzustellen:
+Eine neue Eigenschaft wurde zum Interface IOleObjectFrame und zur Klasse OleObjectFrame, die dieses Interface implementiert, hinzugefügt. Diese Eigenschaften dienen dazu, Informationen über ein in die Präsentation eingebettetes Objekt bereitzustellen:
 EmbeddedFileExtension - Gibt die Dateierweiterung des aktuellen eingebetteten Objekts zurück oder einen leeren String, wenn das Objekt kein Link ist
-EmbeddedFileLabel - Gibt den Dateinamen des eingebetteten OLE-Objekts zurück
-EmbeddedFileName - Gibt den Pfad des eingebetteten OLE-Objekts zurück
-#### **Neue Eigenschaft CategoryAxisType wurde zu IAxis- und Axis-Klassen hinzugefügt**
-Die Eigenschaft CategoryAxisType gibt den Typ der Kategorie-Achse an.
+EmbeddedFileLabel - Gibt den Dateinamen des eingebetteten OLE‑Objekts zurück
+EmbeddedFileName - Gibt den Pfad des eingebetteten OLE‑Objekts zurück
+#### **Neue Eigenschaft CategoryAxisType wurde zu IAxis‑ und Axis‑Klassen hinzugefügt**
+Die Eigenschaft CategoryAxisType gibt den Typ der Kategorienachse an.
 
 ``` csharp
 
@@ -112,8 +111,8 @@ Die Eigenschaft CategoryAxisType gibt den Typ der Kategorie-Achse an.
 }
 
 ``` 
-#### **Neue Eigenschaft ShowLabelAsDataCallout wurde zur DataLabelFormat-Klasse und zum IDataLabelFormat-Interface hinzugefügt**
-Die Eigenschaft ShowLabelAsDataCallout bestimmt, ob das Datenbeschriftungs-Label eines Diagramms als Daten-Callout oder als Daten-Label angezeigt wird.
+#### **Neue Eigenschaft ShowLabelAsDataCallout wurde zur DataLabelFormat‑Klasse und zum IDataLabelFormat‑Interface hinzugefügt**
+Die Eigenschaft ShowLabelAsDataCallout bestimmt, ob das Datenbeschriftungselement eines angegebenen Diagramms als Datenaufruf oder als Datenbeschriftung angezeigt wird.
 
 ``` csharp
 
@@ -135,8 +134,7 @@ Die Eigenschaft ShowLabelAsDataCallout bestimmt, ob das Datenbeschriftungs-Label
 
 ``` 
 #### **Eigenschaft DrawSlidesFrame wurde zu PdfOptions und XpsOptions hinzugefügt**
-Die boolesche Eigenschaft DrawSlidesFrame wurde zu den Interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions und zu den zugehörigen Klassen Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions hinzugefügt.
-Der schwarze Rahmen um jede Folie wird gezeichnet, wenn diese Eigenschaft auf "true" gesetzt ist.
+Die boolesche Eigenschaft DrawSlidesFrame wurde zu den Interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions und zu den zugehörigen Klassen Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions hinzugefügt. Der schwarze Rahmen um jede Folie wird gezeichnet, wenn diese Eigenschaft auf „true“ gesetzt ist.
 
 ``` csharp
 

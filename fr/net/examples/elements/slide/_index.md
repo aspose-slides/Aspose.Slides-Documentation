@@ -7,7 +7,7 @@ keywords:
 - exemple de diapositive
 - ajouter une diapositive
 - accéder à la diapositive
-- index de diapositive
+- indice de diapositive
 - dupliquer la diapositive
 - réorganiser les diapositives
 - supprimer la diapositive
@@ -17,35 +17,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérez les diapositives en C# avec Aspose.Slides : créez, dupliquez, réorganisez, masquez, définissez les arrière-plans et la taille, appliquez des transitions et exportez vers PowerPoint et OpenDocument."
+description: "Gérez les diapositives en C# avec Aspose.Slides: créez, clonez, réorganisez, masquez, définissez les arrière-plans et la taille, appliquez des transitions et exportez pour PowerPoint et OpenDocument."
 ---
 
-Cet article fournit une série d'exemples illustrant comment travailler avec les diapositives à l'aide de **Aspose.Slides for .NET**. Vous apprendrez comment ajouter, accéder, dupliquer, réorganiser et supprimer des diapositives en utilisant la classe `Presentation`.
+Cet article fournit une série d'exemples montrant comment travailler avec les diapositives à l'aide de **Aspose.Slides for .NET**. Vous apprendrez à ajouter, accéder, dupliquer, réorganiser et supprimer des diapositives en utilisant la classe `Presentation`.
 
-Chaque exemple ci‑dessous comprend une brève explication suivie d’un extrait de code en C#.
+Chaque exemple ci-dessous comprend une brève explication suivie d'un extrait de code en C#.
 
-## Ajouter une diapositive
+## **Ajouter une diapositive**
 
-Pour ajouter une nouvelle diapositive, vous devez d'abord sélectionner une disposition. Dans cet exemple, nous utilisons la disposition `Blank` et ajoutons une diapositive vide à la présentation.
+Pour ajouter une nouvelle diapositive, vous devez d'abord sélectionner une mise en page. Dans cet exemple, nous utilisons la mise en page `Blank` et ajoutons une diapositive vide à la présentation.
 ```csharp
 static void Add_Slide()
 {
     using var pres = new Presentation();
 
-    // Chaque diapositive est basée sur une disposition, qui elle‑même repose sur une diapositive maître.
-    // Utilisez la disposition Blank pour créer une nouvelle diapositive.
+    // Chaque diapositive est basée sur une mise en page, qui elle-même est basée sur une diapositive maître.
+    // Utilisez la mise en page Blank pour créer une nouvelle diapositive.
     var blankLayout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-    // Ajoutez une nouvelle diapositive vide en utilisant la disposition sélectionnée
+    // Ajoutez une nouvelle diapositive vide en utilisant la mise en page sélectionnée
     pres.Slides.AddEmptySlide(layout: blankLayout);
 }
-````
+```
 
 > 💡 **Tip:** Each slide layout is derived from a master slide, which defines the overall design and placeholder structure. The image below illustrates how master slides and their associated layouts are organized in PowerPoint.
 
 ![Master and Layout Relationship](master-layout-slide.png)
 
-## Access Slides by Index
+## **Access Slides by Index**
 
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
@@ -62,13 +62,13 @@ static void Access_Slide()
     var firstSlide = pres.Slides[0];
     var secondSlide = pres.Slides[1];
 
-    // Obtenez l'index de la diapositive à partir d'une référence, puis accédez‑y par index
+    // Obtenez l'index de la diapositive à partir d'une référence, puis accédez-y par index
     var secondSlideIndex = pres.Slides.IndexOf(secondSlide);
     var secondSlideByIndex = pres.Slides[secondSlideIndex];
 }
 ```
 
-## Clone a Slide
+## **Clone a Slide**
 
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
@@ -81,12 +81,12 @@ static void Clone_Slide()
     // Clonez la première diapositive ; elle sera ajoutée à la fin de la présentation
     var clonedSlide = pres.Slides.AddClone(sourceSlide: pres.Slides[0]);
 
-    // L'index de la diapositive clonée est 1 (deuxième diapositive de la présentation)
+    // L'index de la diapositive clonée est 1 (deuxième diapositive dans la présentation)
     var clonedSlideIndex = pres.Slides.IndexOf(clonedSlide);
 }
 ```
 
-## Reorder Slides
+## **Reorder Slides**
 
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
@@ -95,15 +95,15 @@ static void ReOrder_Slide()
 {
     using var pres = new Presentation();
 
-    // Ajoutez un clone de la première diapositive (créée par défaut).
+    // Ajoutez un clone de la première diapositive (créée par défaut)
     var clonedSlide = pres.Slides.AddClone(pres.Slides[0]);
 
-    // Déplacez le clone de la diapositive à la première position (les autres sont décalés vers le bas)
+    // Déplacez la diapositive clonée à la première position (les autres se déplacent vers le bas)
     pres.Slides.Reorder(index: 0, clonedSlide);
 }
 ```
 
-## Remove a Slide
+## **Remove a Slide**
 
 To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 

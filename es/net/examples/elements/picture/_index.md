@@ -17,9 +17,9 @@ keywords:
 description: "Trabaje con imágenes en C# usando Aspose.Slides: inserte, reemplace, recorte, comprima, ajuste la transparencia y los efectos, rellene formas y exporte a PPT, PPTX y ODP."
 ---
 
-Muestra cómo insertar y acceder a imágenes desde imágenes en memoria usando **Aspose.Slides for .NET**. Los ejemplos a continuación crean una imagen en memoria, la colocan en una diapositiva y luego la recuperan.
+Muestra cómo insertar y acceder a imágenes a partir de imágenes en memoria usando **Aspose.Slides for .NET**. Los ejemplos a continuación crean una imagen en memoria, la colocan en una diapositiva y luego la recuperan.
 
-## Añadir una imagen
+## **Agregar una imagen**
 
 Este código genera un bitmap pequeño, lo convierte en un flujo y lo inserta como un marco de imagen en la primera diapositiva.
 ```csharp
@@ -39,10 +39,10 @@ public static void Add_Picture()
     bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // Añadir la imagen a la presentación
+    // Agregar la imagen a la presentación
     var ppImage = pres.Images.AddImage(imageStream);
 
-    // Insertar un marco de imagen que muestra la imagen en la primera diapositiva
+    // Insertar un marco de imagen que muestre la imagen en la primera diapositiva
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
         x: 50, y: 50, width: bmp.Width, height: bmp.Height, ppImage);
 
@@ -51,7 +51,7 @@ public static void Add_Picture()
 ```
 
 
-## Acceder a una imagen
+## **Acceder a una imagen**
 
 Este ejemplo verifica que una diapositiva contenga un marco de imagen y luego accede al primero que encuentra.
 ```csharp
@@ -59,7 +59,7 @@ public static void Access_Picture()
 {
     using var pres = new Presentation();
 
-    // Asegúrese de que haya al menos un marco de imagen para trabajar
+    // Garantizar que haya al menos un marco de imagen para trabajar
     using var bmp = new Bitmap(40, 40);
 
     // Convertir Bitmap a MemoryStream
@@ -67,7 +67,7 @@ public static void Access_Picture()
     bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // Añadir la imagen a la presentación
+    // Agregar la imagen a la presentación
     var ppImage = pres.Images.AddImage(imageStream);
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, ppImage);
 

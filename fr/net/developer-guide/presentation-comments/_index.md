@@ -14,8 +14,8 @@ keywords:
 - accéder au commentaire
 - modifier le commentaire
 - répondre au commentaire
+- retirer le commentaire
 - supprimer le commentaire
-- effacer le commentaire
 - PowerPoint
 - présentation
 - .NET
@@ -30,14 +30,14 @@ Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur u
 
 Vous pouvez souhaiter utiliser les commentaires pour fournir des retours ou communiquer avec vos collègues lors de la révision des présentations.
 
-Pour vous permettre d'utiliser les commentaires dans les présentations PowerPoint, Aspose.Slides pour .NET propose
+Pour vous permettre d'utiliser les commentaires dans les présentations PowerPoint, Aspose.Slides for .NET fournit
 
-* La classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) qui contient les collections d'auteurs (via la propriété [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). Les auteurs ajoutent des commentaires aux diapositives. 
+* La classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) qui contient les collections d'auteurs (à partir de la propriété [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). Les auteurs ajoutent des commentaires aux diapositives. 
 * L'interface [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) qui contient la collection de commentaires pour chaque auteur. 
-* La classe [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, la date d'ajout, la position du commentaire, etc. 
-* La classe [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) qui contient des informations sur chaque auteur : le nom de l'auteur, ses initiales, les commentaires associés à son nom, etc. 
+* La classe [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l'heure à laquelle le commentaire a été ajouté, la position du commentaire, etc. 
+* La classe [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) qui contient des informations sur chaque auteur : le nom de l'auteur, ses initiales, les commentaires associés au nom de l'auteur, etc. 
 
-## **Ajouter un commentaire de diapositive**
+## **Ajouter des commentaires à une diapositive**
 Ce code C# montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
 ```c#
 // Instancie la classe Presentation
@@ -81,7 +81,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Accéder aux commentaires de diapositive**
+## **Accéder aux commentaires d'une diapositive**
 Ce code C# montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
 ```c#
 // Instancie la classe Presentation
@@ -101,6 +101,7 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **Répondre aux commentaires**
+
 Un commentaire parent est le commentaire principal ou original dans une hiérarchie de commentaires ou de réponses. En utilisant la propriété [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) (de l'interface [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)), vous pouvez définir ou obtenir un commentaire parent. 
 
 Ce code C# montre comment ajouter des commentaires et obtenir leurs réponses :
@@ -111,12 +112,12 @@ using (Presentation pres = new Presentation())
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
     IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // Ajoute une réponse au commentaire 1
+    // Ajoute une réponse à comment1
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
 
-    // Ajoute une autre réponse au commentaire 1
+    // Ajoute une autre réponse à comment1
     IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
@@ -148,7 +149,7 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Supprime le commentaire 1 et toutes ses réponses
+    // Supprime comment1 et toutes ses réponses
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
@@ -158,18 +159,18 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Attention" %}} 
 
-* Lorsque la méthode [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) de l'interface [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) est utilisée pour supprimer un commentaire, les réponses à ce commentaire sont également supprimées. 
+* Lorsque la méthode [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) (de l'interface [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) est utilisée pour supprimer un commentaire, les réponses au commentaire sont également supprimées. 
 * Si le paramètre [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) entraîne une référence circulaire, une [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) sera levée.
 
 {{% /alert %}}
 
-## **Ajouter un commentaire moderne**
+## **Ajouter des commentaires modernes**
 
-En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonctionnalité de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, ancrer les commentaires à des objets et du texte, et interagir beaucoup plus facilement qu'auparavant. 
+En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonctionnalité de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, les ancrer à des objets et à du texte, et interagir beaucoup plus facilement qu'auparavant. 
 
 Dans [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), nous avons implémenté la prise en charge des commentaires modernes en ajoutant la classe [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment). Les méthodes [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) et [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection). 
 
-Ce code C# montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint : 
+Ce code C# montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -181,10 +182,10 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Supprimer un commentaire**
+## **Supprimer des commentaires**
 
 ### **Supprimer tous les commentaires et auteurs**
-Ce code C# montre comment supprimer tous les commentaires et auteurs d'une présentation :
+Ce code C# montre comment supprimer tous les commentaires et auteurs d’une présentation :
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
@@ -239,14 +240,14 @@ using (var presentation = new Presentation())
 
 ## **FAQ**
 
-**Aspose.Slides prend-il en charge un statut tel que « résolu » pour les commentaires modernes ?**
+**Aspose.Slides prend‑t‑il en charge un état comme « résolu » pour les commentaires modernes ?**
 
-Oui. Les [commentaires modernes](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) exposent une propriété [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/). Vous pouvez lire et définir l'[état du commentaire](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
+Oui. Les [commentaires modernes](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) exposent une propriété [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) ; vous pouvez lire et définir l’[état du commentaire](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
 
 **Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
 
-Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), ce qui permet des chaînes de réponses arbitraires. L'API ne déclare pas de limite spécifique de profondeur d'imbrication.
+Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), ce qui permet des chaînes de réponses arbitraires. L’API ne définit pas de limite de profondeur d’imbrication spécifique.
 
-**Dans quel système de coordonnées la position du marqueur de commentaire est‑elle définie sur une diapositive ?**
+**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**
 
-La position est stockée sous forme de point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement à l'endroit souhaité.
+La position est stockée sous forme de point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement où vous le souhaitez.

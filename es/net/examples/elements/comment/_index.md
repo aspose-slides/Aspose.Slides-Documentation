@@ -7,7 +7,7 @@ keywords:
 - ejemplo de comentario
 - comentario moderno
 - agregar comentario
-- acceder al comentario
+- acceder comentario
 - eliminar comentario
 - responder al comentario
 - PowerPoint
@@ -16,13 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Administre los comentarios de diapositivas en C# con Aspose.Slides: agregue, lea, responda, edite, elimine y trabaje con comentarios en hilos para PowerPoint y OpenDocument."
+description: "Administra los comentarios de diapositivas en C# con Aspose.Slides: agrega, lee, responde, edita, elimina y trabaja con comentarios en hilos para PowerPoint y OpenDocument."
 ---
 
 Demuestra cómo agregar, leer, eliminar y responder a comentarios modernos usando **Aspose.Slides for .NET**.
 
-## Add a Modern Comment
-
+## **Agregar un comentario moderno**
 Cree un comentario creado por un usuario y guarde la presentación.
 ```csharp
 static void Add_Modern_Comment()
@@ -38,8 +37,7 @@ static void Add_Modern_Comment()
 ```
 
 
-## Access a Modern Comment
-
+## **Acceder a un comentario moderno**
 Lea un comentario moderno de una presentación existente.
 ```csharp
 static void Access_Modern_Comment()
@@ -53,8 +51,7 @@ static void Access_Modern_Comment()
 ```
 
 
-## Remove a Modern Comment
-
+## **Eliminar un comentario moderno**
 Elimine un comentario y guarde el archivo actualizado.
 ```csharp
 static void Remove_Modern_Comment()
@@ -70,8 +67,7 @@ static void Remove_Modern_Comment()
 ```
 
 
-## Reply to a Modern Comment
-
+## **Responder a un comentario moderno**
 Agregue respuestas a un comentario moderno principal.
 ```csharp
 static void Reply_To_Modern_Comment()

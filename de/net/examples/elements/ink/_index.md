@@ -5,7 +5,7 @@ weight: 180
 url: /de/net/examples/elements/ink/
 keywords:
 - Tintenbeispiel
-- Tinte zugreifen
+- Zugriff auf Tinte
 - Tinte entfernen
 - PowerPoint
 - OpenDocument
@@ -13,16 +13,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie digitale Tinte auf Folien in C# mit Aspose.Slides: Fügen Sie Pen‑Striche hinzu, bearbeiten Sie Pfade, setzen Sie Farbe und Breite und exportieren Sie die Ergebnisse für PowerPoint und OpenDocument."
+description: "Verwalten Sie digitale Tinte auf Folien in C# mit Aspose.Slides: Fügen Sie Stiftstriche hinzu, bearbeiten Sie Pfade, setzen Sie Farbe und Breite und exportieren Sie die Ergebnisse für PowerPoint und OpenDocument."
 ---
 
-Bietet Beispiele zum Zugriff auf vorhandene Ink-Formen und deren Entfernung mithilfe von **Aspose.Slides for .NET**.
+Bietet Beispiele für den Zugriff auf vorhandene Ink-Formen und deren Entfernung mit **Aspose.Slides for .NET**.
 
-> ❗ **Hinweis:** Ink-Formen stellen Benutzereingaben von speziellen Geräten dar. Aspose.Slides kann keine neuen Ink-Striche programmgesteuert erstellen, aber Sie können vorhandene Ink-Daten lesen und ändern.
+> ❗ **Hinweis:** Ink-Formen stellen Benutzereingaben von spezialisierten Geräten dar. Aspose.Slides kann keine neuen Ink-Striche programmgesteuert erzeugen, aber Sie können vorhandene Ink lesen und ändern.
 
-## Ink zugreifen
-
-Lese die Tags der ersten Ink-Form auf einer Folie.
+## **Access Ink**
+Liest die Tags der ersten Ink-Form auf einer Folie.
 ```csharp
 static void Access_Ink()
 {
@@ -42,9 +41,8 @@ static void Access_Ink()
 ```
 
 
-## Ink entfernen
-
-Lösche eine Ink-Form von der Folie, falls sie existiert.
+## **Remove Ink**
+Löscht eine Ink-Form von der Folie, falls eine vorhanden ist.
 ```csharp
 static void Remove_Ink()
 {

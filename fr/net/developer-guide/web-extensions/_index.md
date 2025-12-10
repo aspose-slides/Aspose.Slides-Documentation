@@ -6,13 +6,13 @@ url: /fr/net/web-extensions/
 keywords:
 - extension web
 - moteur de modèles
-- exporter PowerPoint
-- exporter OpenDocument
-- exporter présentation
-- exporter diapositive
-- exporter PPT
-- exporter PPTX
-- exporter ODP
+- export PowerPoint
+- export OpenDocument
+- export de présentation
+- export de diapositive
+- export PPT
+- export PPTX
+- export ODP
 - PowerPoint vers HTML
 - OpenDocument vers HTML
 - présentation vers HTML
@@ -23,30 +23,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Exportez des présentations en HTML avec des modèles, CSS et JS - sans SVG. Apprenez la sortie à page unique ou multi-pages, le contrôle des ressources et la personnalisation pour PPT, PPTX et ODP."
+description: "Exportez des présentations vers HTML avec des modèles, CSS et JS - pas de SVG. Apprenez la sortie en page unique ou multi-pages, le contrôle des ressources et la personnalisation pour PPT, PPTX et ODP."
 ---
 
-## Introduction
+## **Introduction**
 
-* Dans les anciennes versions de l'API Aspose.Slides, lorsque vous exportez PowerPoint en HTML, le HTML résultant était représenté sous forme de balisage SVG combiné avec du HTML. Chaque diapositive était exportée comme un conteneur SVG. 
-* Dans les nouvelles versions d'Aspose.Slides, lorsque vous utilisez le système WebExtensions pour exporter des présentations PowerPoint en HTML, vous pouvez personnaliser les paramètres d'exportation HTML afin d'obtenir les meilleurs résultats. 
+* Dans les anciennes versions de l'API Aspose.Slides, lorsque vous exportez PowerPoint vers HTML, le HTML résultant était représenté sous forme de balisage SVG combiné avec HTML. Chaque diapositive était exportée en tant que conteneur SVG. 
+* Dans les nouvelles versions d'Aspose.Slides, lorsque vous utilisez le système WebExtensions pour exporter des présentations PowerPoint vers HTML, vous pouvez personnaliser les paramètres d'exportation HTML afin d'obtenir les meilleurs résultats. 
 
-En utilisant le nouveau système WebExtensions, vous pouvez exporter une présentation complète en HTML avec un ensemble de classes CSS et d'animations JavaScript (sans SVG). Le nouveau système d'exportation fournit également un nombre illimité d'options et de méthodes qui définissent le processus d'exportation. 
+En utilisant le nouveau système WebExtensions, vous pouvez exporter une présentation complète en HTML avec un ensemble de classes CSS et d'animations JavaScript (sans SVG). Le nouveau système d'exportation offre également un nombre illimité d'options et de méthodes qui définissent le processus d'exportation. 
 
 Le nouveau système WebExtensions est utilisé pour générer du HTML à partir de présentations dans les cas et événements suivants :
 
-* lors de l'utilisation de styles CSS ou d'animations personnalisés ; en surchargeant le balisage de certains types de formes.  
-* lors de la surcharge de la structure du document, par ex. en utilisant une navigation personnalisée entre les pages.
-* lors de l'enregistrement de fichiers .html, .css, .js dans des dossiers avec une hiérarchie personnalisée, en incluant des types de fichiers spécifiques dans différents dossiers. Par exemple, exporter les diapositives vers un dossier basé sur le nom de la section.
-* lors de l'enregistrement des fichiers CSS et JS dans des dossiers séparés par défaut, puis de leur insertion dans un fichier HTML. Les images et les polices intégrées sont également enregistrées dans des fichiers séparés. Toutefois, elles peuvent être intégrées dans un fichier HTML (au format base64). Vous pouvez enregistrer une partie des ressources dans les fichiers et intégrer d'autres ressources dans le HTML en base64.
+* lors de l'utilisation de styles CSS personnalisés ou d'animations ; en remplaçant le balisage pour certains types de formes.  
+* lors du remplacement de la structure du document, par exemple en utilisant une navigation personnalisée entre les pages.
+* lors de l'enregistrement des fichiers .html, .css, .js dans des dossiers avec une hiérarchie personnalisée, incluant des types de fichiers spécifiques dans différents dossiers. Par exemple, exporter les diapositives vers un dossier basé sur le nom de la section.
+* lors de l'enregistrement des fichiers CSS et JS dans des dossiers séparés par défaut, puis de leur ajout à un fichier HTML. Les images et les polices intégrées sont également enregistrées dans des fichiers séparés. Cependant, elles peuvent être intégrées dans un fichier HTML (au format base64). Vous pouvez enregistrer certaines parties des ressources dans les fichiers et intégrer d’autres ressources dans le HTML en base64.
 
-Vous pouvez parcourir les exemples de PowerPoint vers HTML dans le [projet Aspose.Slides.WebExtensions](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) sur GitHub. Ce projet contient 2 parties : **Examples\\SinglePageApp** et **Examples\\MultiPageApp**. Les autres exemples utilisés dans cet article sont également disponibles dans le dépôt GitHub.
+Vous pouvez parcourir les exemples de conversion PowerPoint vers HTML dans le [projet Aspose.Slides.WebExtensions](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) sur GitHub. Ce projet contient 2 parties : **Examples\\SinglePageApp** et **Examples\\MultiPageApp**. Les autres exemples utilisés dans cet article sont également disponibles dans le dépôt GitHub.
 
-### **Templates**
+### **Modèles**
 
-Pour étendre davantage les capacités d'exportation HTML, nous vous recommandons d'utiliser le système de modèles ASP.NET Razor. L'instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) peut être utilisée avec un ensemble de modèles pour obtenir un document HTML en résultat d'exportation.
+Pour étendre davantage les capacités d'exportation HTML, nous vous recommandons d'utiliser le système de modèles ASP.NET Razor. L'instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) peut être utilisée avec un ensemble de modèles afin d'obtenir un document HTML en résultat d'exportation.
 
-**Demonstration**
+**Démonstration**
 
 Dans cet exemple, nous allons exporter du texte d'une présentation vers HTML. Tout d'abord, créons le modèle :
 ``` html
@@ -67,9 +67,9 @@ Dans cet exemple, nous allons exporter du texte d'une présentation vers HTML. T
 </html>
 ```
 
-Ce modèle est enregistré sur le disque sous le nom « shape-template-hello-world.html », qui sera utilisé à l'étape suivante.
+Ce modèle est enregistré sur le disque sous le nom "shape-template-hello-world.html", qui sera utilisé à l'étape suivante.
 
-Dans ce modèle, nous parcourons les cadres de texte des formes de la présentation pour afficher le texte. Générons le fichier HTML à l'aide de WebDocument, puis exportons la Presentation dans le fichier :
+Dans ce modèle, nous parcourons les cadres de texte des formes de la présentation pour afficher le texte. Générons le fichier HTML à l'aide de WebDocument puis exportons la Presentation dans le fichier :
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -78,21 +78,21 @@ using (Presentation pres = new Presentation())
                 
     WebDocumentOptions options = new WebDocumentOptions
     {
-        TemplateEngine = new RazorTemplateEngine(), // Nous prévoyons d'utiliser le moteur de modèles Razor. D'autres moteurs de modèles peuvent être utilisés en implémentant ITemplateEngine
-        OutputSaver = new FileOutputSaver() // D'autres enregistreurs de résultats peuvent être utilisés en implémentant l'interface IOutputSaver
+        TemplateEngine = new RazorTemplateEngine(), // Nous prévoyons d'utiliser le moteur de modèles Razor. D'autres moteurs de modèles peuvent être utilisés en implémentant ITemplateEngine  
+        OutputSaver = new FileOutputSaver() // D'autres sauvegardes de résultat peuvent être utilisées en implémentant l'interface IOutputSaver
     };
     WebDocument document = new WebDocument(options);
 
     // ajouter le document "input" - quelle source sera utilisée pour générer le document HTML
     document.Input
-        .AddTemplate<Presentation>( // le modèle aura Presentation comme objet "modèle" (Model.Object)
-        "index", // clé du modèle - nécessaire au moteur de modèles pour associer un objet (Presentation) au modèle chargé depuis le disque ("shape-template-hello-world.html")
+        .AddTemplate<Presentation>( // le modèle aura Presentation comme objet "modèle" (Model.Object) 
+        "index", // clé du modèle - requise par le moteur de modèles pour faire correspondre un objet (Presentation) au modèle chargé depuis le disque ("shape-template-hello-world.html")  
         @"custom-templates\shape-template-hello-world.html"); // modèle que nous avons créé précédemment
                 
-    // ajouter la sortie - comment le document HTML résultant sera présenté lorsqu'il sera exporté sur le disque
+    // ajouter la sortie - à quoi ressemblera le document HTML résultant lorsqu'il sera exporté sur le disque
     document.Output.Add(
         "hello-world.html", // chemin du fichier de sortie
-        "index", // clé du modèle qui sera utilisée pour ce fichier (nous l'avons définie dans une instruction précédente)
+        "index", // clé du modèle qui sera utilisée pour ce fichier (nous l'avons définie dans une instruction précédente)  
         pres); // une instance réelle de Model.Object 
                 
     document.Save();
@@ -108,7 +108,7 @@ Par exemple, nous voulons ajouter des styles CSS au résultat d'exportation pour
 ```
 
 
-Ensuite, nous l'ajoutons à l'entrée et à la sortie :
+Maintenant, nous l'ajoutons aux entrées et sorties :
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -142,10 +142,11 @@ Ajoutons la référence aux styles dans le modèle et la classe "text" :
 ### **Modèles par défaut**
 
 WebExtensions fournit 2 ensembles de modèles de base pour exporter des présentations en HTML :
-* Single-page : tout le contenu de la présentation est exporté dans un seul fichier HTML. Toutes les autres ressources (images, polices, styles, etc.) sont exportées dans des fichiers séparés.
-* Multi-page : chaque diapositive de la présentation est exportée dans un fichier HTML individuel. La logique par défaut d'exportation des ressources est la même que pour une page unique. 
 
-La classe `PresentationExtensions` peut être utilisée pour simplifier le processus d'exportation de présentation à l'aide de modèles. La classe `PresentationExtensions` contient un ensemble de méthodes d'extension pour la classe Presentation. Pour exporter une présentation en une seule page, incluez simplement l'espace de noms Aspose.Slides.WebExtensions et appelez deux méthodes. La première méthode, `ToSinglePageWebDocument`, crée une instance de `WebDocument`. La deuxième méthode enregistre le document HTML :
+* Single-page : tout le contenu de la présentation est exporté dans un seul fichier HTML. Toutes les autres ressources (images, polices, styles, etc.) sont exportées dans des fichiers séparés.
+* Multi-page : chaque diapositive de la présentation est exportée dans un fichier HTML individuel. La logique d'exportation des ressources par défaut est la même que pour une page unique. 
+
+La classe `PresentationExtensions` peut être utilisée pour simplifier le processus d'exportation de la présentation à l'aide de modèles. La classe `PresentationExtensions` contient un ensemble de méthodes d'extension pour la classe Presentation. Pour exporter une présentation en une seule page, il suffit d'inclure l'espace de noms Aspose.Slides.WebExtensions et d'appeler deux méthodes. La première méthode, `ToSinglePageWebDocument`, crée une instance de `WebDocument`. La deuxième méthode enregistre le document HTML :
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -157,7 +158,7 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 La méthode ToSinglePageWebDocument peut prendre deux paramètres : le dossier des modèles et le dossier d'exportation. 
 
-Pour exporter une présentation en plusieurs pages, utilisez la méthode ToMultiPageWebDocument avec les mêmes paramètres :
+Pour exporter la présentation en plusieurs pages, utilisez la méthode ToMultiPageWebDocument avec les mêmes paramètres :
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -167,9 +168,9 @@ using (Presentation pres = new Presentation("demo.pptx"))
 ```
 
 
-Dans WebExtensions, chaque modèle utilisé pour la génération de balisage est lié à une clé. La clé peut être utilisée dans les modèles. Par exemple, dans la directive @Include, vous pouvez insérer un certain modèle dans un autre à l'aide de la clé.
+Dans WebExtensions, chaque modèle utilisé pour la génération du balisage est lié à une clé. La clé peut être utilisée dans les modèles. Par exemple, dans la directive @Include, vous pouvez insérer un certain modèle dans un autre à l'aide de la clé.
 
-Nous pouvons démontrer la procédure avec l'exemple d'utilisation du modèle de portion de texte à l'intérieur du modèle de paragraphe. Vous pouvez trouver l'exemple dans le projet Aspose.Slides.WebExtensions : [Templates\\common\\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). Pour dessiner les portions dans un paragraphe, nous les parcourons avec la directive @foreach du Razor Engine :
+Nous pouvons démontrer la procédure avec l'exemple d'utilisation du modèle de portion de texte à l'intérieur du modèle de paragraphe. Vous pouvez trouver l'exemple dans le projet Aspose.Slides.WebExtensions : [Templates\\common\\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). Pour tracer les portions dans un paragraphe, nous les parcourons à l'aide de la directive @foreach du moteur Razor :
 ``` html
 @foreach (Portion portion in contextObject.Portions) 
 { 
@@ -187,14 +188,14 @@ La portion possède son propre modèle [portion.html](https://github.com/aspose-
 ```
 
 
-Pour chaque type de forme, nous utilisons un modèle personnalisé, qui est ajouté à l'ensemble général de modèles du projet Aspose.Slides.WebExtensions. Les modèles sont combinés dans les méthodes ToSinglePageWebDocument et ToMultiPageWebDocument pour fournir un résultat final. Voici les modèles communs utilisés à la fois pour les pages uniques et multiples :
+Pour chaque type de forme, nous utilisons un modèle personnalisé, qui est ajouté à l’ensemble général de modèles du projet Aspose.Slides.WebExtensions. Les modèles sont combinés dans les méthodes ToSinglePageWebDocument et ToMultiPageWebDocument pour fournir un résultat final. Voici les modèles communs utilisés à la fois pour les pages uniques et multiples :
 
 -templates
 +-common
-  ¦ +-scripts: scripts javascript pour les animations de transition de diapositives, en instance.
-  ¦ +-styles: styles CSS communs.
-  +-multi-page: modèles d'index, de menu, de diapositive pour la sortie multi-page.
-  +-single-page: modèles d'index, de diapositive pour la sortie single-page.
+  ¦ +-scripts : scripts javascript pour les animations de transition de diapositive, à titre d'exemple.
+  ¦ +-styles : styles CSS communs.
+  +-multi-page : modèles d'index, menu, diapositive pour la sortie multi‑page.
+  +-single-page : modèles d'index, diapositive pour la sortie à page unique.
 
 Vous pouvez découvrir comment la partie commune est liée à tous les modèles dans la méthode `PresentationExtensions.AddCommonInputOutput` [ici](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
 
@@ -202,7 +203,7 @@ Vous pouvez découvrir comment la partie commune est liée à tous les modèles 
 
 Vous pouvez modifier n'importe quel élément du modèle du modèle commun. Par exemple, vous pouvez décider de changer les styles de mise en forme du tableau tout en souhaitant que les autres styles de la page unique restent inchangés.
 
-Par défaut, Templates\\common\\table.html est utilisé, et le tableau a la même apparence que le tableau dans PowerPoint. Changeons la mise en forme du tableau en utilisant des styles CSS personnalisés :
+Par défaut, Templates\\common\\table.html est utilisé, et le tableau a la même apparence que le tableau dans PowerPoint. Modifions la mise en forme du tableau en utilisant des styles CSS personnalisés :
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -212,7 +213,7 @@ Par défaut, Templates\\common\\table.html est utilisé, et le tableau a la mêm
 ```
 
 
-Nous pouvons créer la même structure de modèles d'entrée et de fichiers de sortie (tel que généré) en appelant la méthode `PresentationExtensions.ToSinglePageWebDocument`. Ajoutons la méthode `ExportCustomTableStyles_AddCommonStructure` à cet effet. La différence entre cette méthode et `ToSinglePageWebDocument` — nous n'avons pas besoin d'ajouter le modèle standard pour le tableau et la page d'index principale (il sera remplacé pour inclure la référence aux styles personnalisés du tableau) :
+Nous pouvons créer la même structure de modèles d'entrée et de fichiers de sortie (telle qu'elle est générée) en appelant la méthode `PresentationExtensions.ToSinglePageWebDocument`. Ajoutons la méthode `ExportCustomTableStyles_AddCommonStructure` à cet effet. La différence entre cette méthode et `ToSinglePageWebDocument` — nous n'avons pas besoin d'ajouter le modèle standard pour le tableau et la page d'index principale (il sera remplacé pour inclure la référence aux styles de tableau personnalisés) :
 ``` csharp
 private static void ExportCustomTableStyles_AddCommonStructure(
     Presentation pres, 
@@ -243,7 +244,7 @@ private static void ExportCustomTableStyles_AddCommonStructure(
 
 
 Ajoutons plutôt un modèle personnalisé :
-``` csharp
+```csharp
 using (Presentation pres = new Presentation("table.pptx"))
 {
     const string templatesPath = "templates\\single-page";
@@ -270,7 +271,7 @@ using (Presentation pres = new Presentation("table.pptx"))
     document.Input.AddTemplate<Presentation>("table-custom-style", @"custom-templates\styles\table-custom-style.css");
     document.Output.Add(Path.Combine(outputPath, "table-custom-style.css"), "table-custom-style", pres);
                 
-    // ajouter un index personnalisé - il s'agit simplement d'une copie de l"index.html" standard, mais qui inclut une référence à "table-custom-style.css"
+    // ajouter un index personnalisé - c'est simplement une copie de l"index.html" standard, mais inclut une référence à "table-custom-style.css"
     document.Input.AddTemplate<Presentation>("index", @"custom-templates\index-table-custom-style.html");
                 
     document.Save();
@@ -327,9 +328,8 @@ using (Presentation pres = new Presentation("table.pptx"))
 ```
 
 
-**Note** que le modèle de tableau personnalisé a été ajouté avec la même clé « table » que le tableau standard. Ainsi, vous pouvez remplacer un modèle par défaut sans le réécrire. Vous pouvez également utiliser les modèles de la structure par défaut avec les mêmes clés. Par exemple, vous pouvez utiliser un modèle de paragraphe standard dans le modèle de tableau ; vous pouvez aussi le remplacer avec la clé.
-
-Vous pouvez également utiliser index.html pour inclure la référence aux styles CSS personnalisés du tableau :
+**Remarque** : le modèle de tableau personnalisé a été ajouté avec la même clé « table » que le tableau standard. Ainsi, vous pouvez remplacer un certain modèle par défaut sans le réécrire. Vous pouvez également utiliser les modèles de la structure par défaut avec les mêmes clés. Par exemple, vous pouvez utiliser un modèle de paragraphe standard dans le modèle de tableau ; vous pouvez également le remplacer par la clé.
+Vous pouvez aussi utiliser index.html pour inclure la référence aux styles CSS du tableau personnalisé :
 ``` html
 <!DOCTYPE html>    
     
@@ -361,9 +361,9 @@ WebDocumentOptions options = new WebDocumentOptions
 ```
 
 
-Créons un nouveau projet qui utilise Aspose.Slides et Aspose.Slides.WebExtensions pour créer un visualiseur HTML pour PDF avec des transitions de pages animées fluides. Ici, nous devons utiliser la fonction d'importation PDF d'Aspose.Slides.
+Créons un nouveau projet qui utilise Aspose.Slides et Aspose.Slides.WebExtensions pour créer un visualiseur HTML pour PDF avec des transitions de page animées fluides. Ici, nous devons utiliser la fonctionnalité d'importation PDF d'Aspose.Slides.
 
-Créons un projet PdfToPresentationToHtml et ajoutons le package NuGet Aspose.Slides.WebExtensions (le package Aspose.Slides sera également ajouté en tant que dépendance) :
+Créons un projet PdfToPresentationToHtml et ajoutons le package NuGet Aspose.Slides.WebExtensions (le package Aspose.Slides sera également ajouté comme dépendance) :
 ![NuGet Package](screen.png)
 
 Nous commençons par importer le document PDF, qui sera animé et exporté dans une présentation HTML :
@@ -376,7 +376,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Ensuite, nous pouvons configurer les transitions de diapositives animées (chaque diapositive est la page PDF importée). Nous avons utilisé 9 diapositives dans le document PDF d'exemple. Ajoutons des transitions de diapositives à chacune d'elles (démo lors de la visualisation du HTML) :
+Maintenant, nous pouvons configurer les transitions de diapositives animées (chaque diapositive correspond à une page PDF importée). Nous avons utilisé 9 diapositives dans le document PDF d'exemple. Ajoutons des transitions de diapositives à chacune d'elles (démo lors de la visualisation du HTML) :
 ``` csharp
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
 pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
@@ -390,7 +390,7 @@ pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
 ```
 
 
-Enfin, exportons-le en HTML en utilisant `WebDocument` avec la propriété `AnimateTransitions` définie sur `true` :
+Enfin, exportons-le en HTML à l'aide de `WebDocument` avec la propriété `AnimateTransitions` définie à `true` :
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -434,7 +434,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-C'est tout ce qu'il vous faut pour créer du HTML avec les transitions de pages animées générées à partir du document PDF. 
+C'est tout ce qu'il faut pour créer du HTML avec les transitions de page animées générées à partir du document PDF. 
 
 * [Télécharger le fichier HTML d'exemple](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
 * [Télécharger le projet d'exemple](/slides/fr/net/web-extensions/sample.zip).

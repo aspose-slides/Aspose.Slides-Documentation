@@ -1,26 +1,36 @@
 ---
-title: Примечания к презентации
+title: Управление заметками презентации в .NET
+linktitle: Заметки презентации
 type: docs
 weight: 110
 url: /ru/net/presentation-notes/
-keywords: "Примечания, Примечания PowerPoint, добавить примечания, удалить примечания, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Добавлять и удалять примечания в презентациях PowerPoint на C# или .NET"
+keywords:
+- заметки
+- слайд заметок
+- добавить заметки
+- удалить заметки
+- стиль заметок
+- главные заметки
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Настройте заметки презентации с помощью Aspose.Slides для .NET. Беспрепятственно работайте с заметками PowerPoint и OpenDocument, чтобы повысить свою производительность."
 ---
 
-Aspose.Slides поддерживает удаление слайдов с заметками из презентации. В этой статье мы представим новую возможность удаления заметок, а также добавления стилей заметок к слайдам любой презентации. Aspose.Slides для .NET предоставляет возможность удалять заметки с любого слайда, а также добавлять стиль к существующим заметкам. Разработчики могут удалять заметки следующими способами:
+Aspose.Slides поддерживает удаление слайдов с заметками из презентации. В этой статье мы представим новую возможность удаления заметок, а также добавления стилей заметок к слайдам в любой презентации. Aspose.Slides для .NET предоставляет возможность удаления заметок с любого слайда, а также добавления стиля к существующим заметкам. Разработчики могут удалять заметки следующими способами:
 
-- Удалить заметки с определённого слайда презентации.
+- Удалить заметки с конкретного слайда презентации.
 - Удалить заметки со всех слайдов презентации.
-
 ## **Удалить заметки со слайда**
-Заметки с конкретного слайда могут быть удалены, как показано в примере ниже:
+Заметки с некоторого конкретного слайда можно удалить, как показано в примере ниже:
 ```c#
-// Создать объект Presentation, который представляет файл презентации 
-// Удалить заметки первого слайда
-// Сохранить презентацию на диск
+// Создать объект Presentation, представляющий файл презентации 
 Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
 
-// Removing notes of first slide
+// Удаление заметок первого слайда
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
@@ -29,10 +39,11 @@ presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pp
 ```
 
 
+
 ## **Удалить заметки со всех слайдов**
-Заметки со всех слайдов презентации могут быть удалены, как показано в примере ниже:
+Заметки со всех слайдов презентации можно удалить, как показано в примере ниже:
 ```c#
-// Создать объект Presentation, представляющий файл презентации
+// Создать объект Presentation, представляющий файл презентации 
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Удаление заметок со всех слайдов
@@ -47,10 +58,11 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Добавить NotesStyle**
-Свойство NotesStyle было добавлено в интерфейс [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) соответственно. Это свойство задаёт стиль текста заметок. Реализация демонстрируется в примере ниже.
+
+## **Добавить стиль заметок**
+Свойство NotesStyle было добавлено в интерфейс [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) соответственно. Это свойство задает стиль текста заметок. Реализация продемонстрирована в примере ниже.
 ```c#
-// Создать объект Presentation, который представляет файл презентации
+// Создать объект Presentation, представляющий файл презентации
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
@@ -60,7 +72,7 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         // Получить стиль текста MasterNotesSlide
         ITextStyle notesStyle = notesMaster.NotesStyle;
 
-        //Set символный маркер для абзацев первого уровня
+        //Установить символный маркер для абзацев первого уровня
         IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
         paragraphFormat.Bullet.Type = BulletType.Symbol;
     }
@@ -76,8 +88,8 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 
 **Какой объект API предоставляет доступ к заметкам конкретного слайда?**
 
-Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) и [property](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/), который возвращает объект заметок, или `null`, если заметок нет.
+Заметки доступны через менеджер заметок слайда: у слайда есть объект [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) и [свойство](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/), которое возвращает объект заметок, или `null`, если заметок нет.
 
-**Существуют ли различия в поддержке заметок в разных версиях PowerPoint, с которыми работает библиотека?**
+**Есть ли различия в поддержке заметок в разных версиях PowerPoint, с которыми работает библиотека?**
 
-Библиотека поддерживает широкий спектр форматов Microsoft PowerPoint (97 и новее) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.
+Библиотека поддерживает широкий спектр форматов Microsoft PowerPoint (97‑и новее) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.

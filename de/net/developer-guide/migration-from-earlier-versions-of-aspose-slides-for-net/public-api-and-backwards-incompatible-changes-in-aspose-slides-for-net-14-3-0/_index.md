@@ -1,5 +1,5 @@
 ---
-title: Öffentliche API und rückwärtsinkompatible Änderungen in Aspose.Slides für .NET 14.3.0
+title: Öffentliche API und abwärtsinkompatible Änderungen in Aspose.Slides für .NET 14.3.0
 linktitle: Aspose.Slides für .NET 14.3.0
 type: docs
 weight: 50
@@ -16,29 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Überblick über Aktualisierungen der öffentlichen API und Breaking Changes in Aspose.Slides für .NET, um Ihre PowerPoint‑PPT, PPTX‑ und ODP‑Präsentationslösungen reibungslos zu migrieren."
+description: "Überprüfen Sie die Aktualisierungen der öffentlichen API und die kritischen Änderungen in Aspose.Slides für .NET, um Ihre PowerPoint PPT-, PPTX- und ODP-Präsentationslösungen reibungslos zu migrieren."
 ---
 
-## **Öffentliche API und rückwärtsinkompatible Änderungen**
-### **Aspose.Slides.ShapeThumbnailBounds‑Aufzählung und Aspose.Slides.IShape.GetThumbnail()-Methoden hinzugefügt**
-Die Methoden GetThumbnail() und GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) werden verwendet, um ein separates Shape‑Thumbnail zu erzeugen. Die Aufzählung ShapeThumbnailBounds definiert die möglichen Thumbnail‑Grenztypen für Shapes.
+## **Öffentliche API und abwärtsinkompatible Änderungen**
+### **Aspose.Slides.ShapeThumbnailBounds Aufzählung und Aspose.Slides.IShape.GetThumbnail() Methoden hinzugefügt**
+Die Methoden GetThumbnail() und GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) werden verwendet, um ein separates Shape‑Thumbnail zu erstellen. Die Aufzählung ShapeThumbnailBounds definiert die möglichen Typen für Shape‑Thumbnail‑Grenzen.
 ### **Eigenschaft UniqueId wurde zu Aspose.Slides.IShape hinzugefügt**
-Die Eigenschaft Aspose.Slides.IShape.UniqueId liefert einen eindeutigen Shape‑Bezeichner im Umfang einer Präsentation. Diese eindeutigen Bezeichner werden in benutzerdefinierten Shape‑Tags gespeichert.
+Die Eigenschaft Aspose.Slides.IShape.UniqueId liefert einen eindeutigen Shape‑Bezeichner im Geltungsbereich einer Präsentation. Diese eindeutigen Bezeichner werden in benutzerdefinierten Shape‑Tags gespeichert.
 ### **Signatur der SetGroupingItem‑Methode in IChartCategoryLevelsManager geändert**
 Signatur der IChartCategoryLevelsManager‑Methode
 
 ``` csharp
-
  void SetGroupingItem(int level, IChartDataCell value);
-
 ``` 
 
-ist jetzt veraltet und wurde durch die Signatur
+ist nun veraltet und wurde durch die Signatur
 
 ``` csharp
-
  void SetGroupingItem(int level, object value);
-
 ``` 
 
 ersetzt.
@@ -46,29 +42,23 @@ ersetzt.
 Aufrufe wie
 
 ``` csharp
-
  .SetGroupingItem(1, workbook.GetCell(0, "A2", "Group 1"));
-
 ``` 
 
-müssen zu Aufrufen wie
+müssen geändert werden zu Aufrufen wie
 
 ``` csharp
-
  .SetGroupingItem(1, "Group 1");
-
 ``` 
 
-geändert werden.
-
-Übergeben Sie einen Wert wie "Group 1" an SetGroupingItem, jedoch keinen Wert vom Typ IChartDataCell. Das Erstellen eines IChartDataCell mit definiertem Arbeitsblatt, Zeile und Spalte für Kategorienstufen muss einige Voraussetzungen erfüllen und wurde in die Methode SetGroupingItem(int, object) gekapselt.
-### **SlideId‑Eigenschaft zur Aspose.Slides.IBaseSlide‑Schnittstelle hinzugefügt**
-Die Eigenschaft SlideId liefert einen eindeutigen Folienbezeichner.
-### **SoundName‑Eigenschaft zu ISlideShowTransition hinzugefügt**
-Lese‑/schreibbare Zeichenkette. Gibt einen menschenlesbaren Namen für den Sound der Übergangsanimation an. Die Sound‑Eigenschaft muss zugewiesen sein, um den Soundnamen zu erhalten oder zu setzen. Dieser Name erscheint in der PowerPoint‑Benutzeroberfläche, wenn der Übergangssound manuell konfiguriert wird. Es kann eine PptxException ausgelöst werden, wenn die Sound‑Eigenschaft nicht zugewiesen ist.
+Übergeben Sie einen Wert wie "Group 1" an SetGroupingItem, jedoch keinen Wert vom Typ IChartDataCell. Das Erzeugen eines IChartDataCell mit einem definierten Arbeitsblatt, einer Zeile und einer Spalte für Kategorienstufen muss bestimmte Anforderungen erfüllen und wurde in der Methode SetGroupingItem(int, object) gekapselt.
+### **Eigenschaft SlideId zur Aspose.Slides.IBaseSlide‑Schnittstelle hinzugefügt**
+Die Eigenschaft SlideId liefert eine eindeutige Folienkennung.
+### **Eigenschaft SoundName zu ISlideShowTransition hinzugefügt**
+Lese‑/Schreib‑String. Gibt einen menschenlesbaren Namen für den Sound der Folienübergangs‑Animation an. Die Sound‑Eigenschaft muss zugewiesen sein, um den Soundnamen zu bekommen oder zu setzen. Dieser Name wird in der PowerPoint‑Benutzeroberfläche angezeigt, wenn der Übergangssound manuell konfiguriert wird. Kann PptxException werfen, wenn die Sound‑Eigenschaft nicht zugewiesen ist.
 ### **Typ der Eigenschaft ChartSeriesGroup.Type geändert**
-Die Eigenschaft ChartSeriesGroup.Type wurde von der Aufzählung ChartType zur neuen Aufzählung CombinableSeriesTypesGroup geändert. Die Aufzählung CombinableSeriesTypesGroup repräsentiert die Gruppen kombinierbarer Serienarten.
-### **Unterstützung zur Erzeugung einzelner Shape‑Thumbnails hinzugefügt**
+Die Eigenschaft ChartSeriesGroup.Type wurde von der Aufzählung ChartType zur neuen Aufzählung CombinableSeriesTypesGroup geändert. Das Enum CombinableSeriesTypesGroup repräsentiert Gruppen von kombinierbaren Serien‑Typen.
+### **Unterstützung für das Erzeugen einzelner Shape‑Thumbnails hinzugefügt**
 Aspose.Slides.ShapeThumbnailBounds
 
 Neue Mitglieder in Aspose.Slides.IShape, Aspose.Slides.Shape:

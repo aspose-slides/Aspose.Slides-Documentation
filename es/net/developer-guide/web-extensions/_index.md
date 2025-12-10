@@ -1,5 +1,5 @@
 ---
-title: Nuevo sistema de exportación HTML - Aspose.Slides.WebExtensions
+title: Nuevo Sistema de Exportación HTML - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /es/net/web-extensions/
@@ -23,28 +23,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Exporta presentaciones a HTML con plantillas, CSS y JS—sin SVG. Aprende sobre salida de una sola página o multipágina, control de recursos y personalización para PPT, PPTX y ODP."
+description: "Exportar presentaciones a HTML con plantillas, CSS y JS - sin SVG. Aprenda salida de una sola página o multipágina, control de recursos y personalización para PPT, PPTX y ODP."
 ---
 
-## Introducción
+## **Introducción**
 
-* En versiones antiguas de la API de Aspose.Slides, cuando exportas PowerPoint a HTML, el HTML resultante se representa como un marcado SVG combinado con HTML. Cada diapositiva se exporta como un contenedor SVG. 
-* En las versiones nuevas de Aspose.Slides, cuando utilizas el sistema WebExtensions para exportar presentaciones de PowerPoint a HTML, puedes personalizar la configuración de exportación HTML para obtener los mejores resultados. 
+* En versiones antiguas de la API de Aspose.Slides, al exportar PowerPoint a HTML, el HTML resultante se representaba como un marcado SVG combinado con HTML. Cada diapositiva se exportaba como un contenedor SVG.  
+* En las versiones nuevas de Aspose.Slides, cuando se utiliza el sistema WebExtensions para exportar presentaciones PowerPoint a HTML, se pueden personalizar los ajustes de exportación HTML para obtener los mejores resultados.  
 
-Usando el nuevo sistema WebExtensions, puedes exportar una presentación completa a HTML con un conjunto de clases CSS y animaciones JavaScript (sin SVG). El nuevo sistema de exportación también ofrece un número ilimitado de opciones y métodos que definen el proceso de exportación. 
+Usando el nuevo sistema WebExtensions, puede exportar una presentación completa a HTML con un conjunto de clases CSS y animaciones JavaScript (sin SVG). El nuevo sistema de exportación también ofrece un número ilimitado de opciones y métodos que definen el proceso de exportación.  
 
-El sistema WebExtensions se usa para generar HTML a partir de presentaciones en los siguientes casos y eventos:
+El sistema WebExtensions se utiliza para generar HTML a partir de presentaciones en los siguientes casos y eventos:
 
-* al usar estilos CSS o animaciones personalizados; sobrescribiendo el marcado de ciertos tipos de formas.  
-* al sobrescribir la estructura del documento, por ejemplo, usando navegación personalizada entre páginas.  
+* al usar estilos CSS o animaciones personalizados; sobrescribiendo el marcado para ciertos tipos de formas.  
+* al sobrescribir la estructura del documento, p.ej., usando navegación personalizada entre páginas.  
 * al guardar archivos .html, .css, .js en carpetas con una jerarquía personalizada, incluyendo tipos de archivo específicos en diferentes carpetas. Por ejemplo, exportar diapositivas a una carpeta basada en el nombre de la sección.  
-* al guardar archivos CSS y JS en carpetas separadas por defecto y luego añadirlos a un archivo HTML. Las imágenes y fuentes incrustadas también se guardan en archivos separados. Sin embargo, pueden incrustarse en un archivo HTML (en formato base64). Puedes guardar algunas partes de los recursos en archivos y incrustar otros recursos en HTML como base64.  
+* al guardar archivos CSS y JS en carpetas separadas por defecto y luego agregarlos a un archivo HTML. Las imágenes y fuentes incrustadas también se guardan en archivos separados. Sin embargo, pueden incrustarse en un archivo HTML (en formato base64). Puede guardar algunas partes de los recursos en los archivos y embebeder otros recursos en HTML como base64.  
 
-Puedes consultar los ejemplos de PowerPoint a HTML en el proyecto [Aspose.Slides.WebExtensions](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) en GitHub. Este proyecto contiene 2 partes: **Examples\SinglePageApp** y **Examples\MultiPageApp**. Los demás ejemplos utilizados en este artículo también se encuentran en el repositorio de GitHub.  
+Puede revisar los ejemplos de PowerPoint a HTML en el [Aspose.Slides.WebExtensions project](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) en GitHub. Este proyecto contiene 2 partes: **Examples\SinglePageApp** y **Examples\MultiPageApp**. Los demás ejemplos utilizados en este artículo también se encuentran en el repositorio de GitHub.  
 
 ### **Plantillas**
 
-Para ampliar aún más las capacidades de exportación HTML, te recomendamos usar el sistema de plantillas Razor de ASP.NET. La instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) puede usarse junto con un conjunto de plantillas para obtener un documento HTML como resultado de la exportación.  
+Para ampliar aún más las capacidades de exportación HTML, recomendamos usar el sistema de plantillas Razor de ASP.NET. La instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) puede usarse junto con un conjunto de plantillas para obtener un documento HTML como resultado de la exportación.  
 
 **Demostración**
 
@@ -67,7 +67,7 @@ En este ejemplo, exportaremos texto de una presentación a HTML. Primero, creemo
 </html>
 ```
 
-Esta plantilla se guarda en disco como "shape-template-hello-world.html", que se usará en el paso siguiente.  
+Esta plantilla se guarda en disco como "shape-template-hello-world.html", que se usará en el siguiente paso.  
 
 En esta plantilla, iteramos los marcos de texto en las formas de la presentación para mostrar el texto. Generemos el archivo HTML usando WebDocument y luego exportemos la Presentation al archivo: 
 ``` csharp
@@ -83,16 +83,16 @@ using (Presentation pres = new Presentation())
     };
     WebDocument document = new WebDocument(options);
 
-    // agregar documento "input" - qué origen se usará para generar el documento HTML
+    // agregar entrada del documento - qué fuente se usará para generar el documento HTML
     document.Input
-        .AddTemplate<Presentation>( // la plantilla tendrá Presentation como un objeto "model" (Model.Object) 
-        "index", // clave de plantilla - necesaria por el motor de plantillas para asociar un objeto (Presentation) con la plantilla cargada del disco ("shape-template-hello-world.html")  
-        @"custom-templates\shape-template-hello-world.html"); // plantilla que creamos antes
+        .AddTemplate<Presentation>( // la plantilla tendrá a Presentation como objeto "model" (Model.Object) 
+        "index", // clave de la plantilla - necesaria al motor de plantillas para asociar un objeto (Presentation) con la plantilla cargada del disco ("shape-template-hello-world.html")  
+        @"custom-templates\shape-template-hello-world.html"); // plantilla que creamos anteriormente
                 
-    // agregar salida - cómo será el documento HTML resultante cuando se exporte al disco
+    // agregar salida - cómo se verá el documento HTML resultante cuando se exporte al disco
     document.Output.Add(
         "hello-world.html", // ruta del archivo de salida
-        "index", // clave de plantilla que se usará para este archivo (la establecimos en una instrucción anterior)  
+        "index", // clave de la plantilla que se usará para este archivo (la establecimos en una sentencia anterior)  
         pres); // una instancia real de Model.Object 
                 
     document.Save();
@@ -100,7 +100,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Por ejemplo, queremos añadir estilos CSS al resultado de la exportación para cambiar el color del texto a rojo. Añadamos la plantilla CSS:
+Por ejemplo, queremos agregar estilos CSS al resultado de la exportación para cambiar el color del texto a rojo. Añadamos la plantilla CSS:
 ``` css
 .text {
     color: red;
@@ -108,7 +108,7 @@ Por ejemplo, queremos añadir estilos CSS al resultado de la exportación para c
 ```
 
 
-Ahora la insertamos en la entrada y salida:
+Ahora, la insertamos en la entrada y salida:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -128,7 +128,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Añadamos la referencia a los estilos en la plantilla y la clase "text":
+Añadamos la referencia a los estilos en la plantilla y a la clase "text":
 ``` html
 <!DOCTYPE html>
 <head>
@@ -141,11 +141,11 @@ Añadamos la referencia a los estilos en la plantilla y la clase "text":
 
 ### **Plantillas predeterminadas**
 
-WebExtensions proporciona 2 conjuntos de plantillas básicas para exportar presentaciones a HTML:
+WebExtensions ofrece 2 conjuntos de plantillas básicas para exportar presentaciones a HTML:
 * Página única: todo el contenido de la presentación se exporta a un solo archivo HTML. Todos los demás recursos (imágenes, fuentes, estilos, etc.) se exportan a archivos separados.  
-* Multipágina: cada diapositiva de la presentación se exporta a un archivo HTML individual. La lógica predeterminada para exportar recursos es la misma que en una página única.  
+* Múltiples páginas: cada diapositiva de la presentación se exporta a un archivo HTML individual. La lógica predeterminada para exportar recursos es la misma que en una página única.  
 
-La clase `PresentationExtensions` puede usarse para simplificar el proceso de exportación de presentaciones usando plantillas. La clase `PresentationExtensions` contiene un conjunto de métodos de extensión para la clase Presentation. Para exportar una presentación a una página única, solo incluye el espacio de nombres Aspose.Slides.WebExtensions y llama a dos métodos. El primer método, `ToSinglePageWebDocument`, crea una instancia de `WebDocument`. El segundo método guarda el documento HTML: 
+La clase `PresentationExtensions` puede usarse para simplificar el proceso de exportación de presentaciones mediante plantillas. La clase `PresentationExtensions` contiene un conjunto de métodos de extensión para la clase Presentation. Para exportar una presentación a una sola página, solo incluya el espacio de nombres Aspose.Slides.WebExtensions y llame a dos métodos. El primer método, `ToSinglePageWebDocument`, crea una instancia de `WebDocument`. El segundo método guarda el documento HTML: 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -155,9 +155,9 @@ using (Presentation pres = new Presentation("demo.pptx"))
 ```
 
 
-El método ToSinglePageWebDocument puede recibir dos parámetros: carpeta de plantillas y carpeta de exportación.  
+El método ToSinglePageWebDocument puede recibir dos parámetros: la carpeta de plantillas y la carpeta de exportación.  
 
-Para exportar la presentación a múltiples páginas, usa el método ToMultiPageWebDocument con los mismos parámetros:
+Para exportar la presentación a varias páginas, use el método ToMultiPageWebDocument con los mismos parámetros:
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -167,9 +167,9 @@ using (Presentation pres = new Presentation("demo.pptx"))
 ```
 
 
-En WebExtensions, cada plantilla usada para la generación de marcado está asociada a una clave. La clave puede usarse en las plantillas. Por ejemplo, en la directiva @Include, puedes insertar una plantilla determinada en otra mediante la clave.  
+En WebExtensions, cada plantilla usada para la generación de marcado está vinculada a una clave. La clave puede usarse en las plantillas. Por ejemplo, en la directiva @Include, puede insertar una plantilla determinada en otra mediante la clave.  
 
-Podemos demostrar el procedimiento en el ejemplo de uso de la plantilla de porción de texto dentro de la plantilla de párrafo. Puedes encontrar el ejemplo en el proyecto Aspose.Slides.WebExtensions: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). Para dibujar las porciones en un párrafo, las iteramos usando la directiva @foreach del motor Razor:
+Podemos demostrar el procedimiento con el ejemplo del uso de la plantilla de porción de texto dentro de la plantilla de párrafo. Puede encontrar el ejemplo en el proyecto Aspose.Slides.WebExtensions: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). Para dibujar las porciones en un párrafo, las iteramos usando la directiva @foreach del motor Razor:
 ``` html
 @foreach (Portion portion in contextObject.Portions) 
 { 
@@ -181,28 +181,28 @@ Podemos demostrar el procedimiento en el ejemplo de uso de la plantilla de porci
 ```
 
 
-La porción tiene su propia plantilla [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) y se genera un modelo para ella. Ese modelo se añadirá al template de salida paragraph.html:
+La porción tiene su propia plantilla [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) y se genera un modelo para ella. Ese modelo se añadirá al plantilla de salida paragraph.html:
 ``` html
 @Raw(Include("portion", subModel).ToString().Replace(Environment.NewLine, ""));
 ```
 
 
-Para cada tipo de forma, usamos una plantilla personalizada, que se agrega al conjunto general de plantillas del proyecto Aspose.Slides.WebExtensions. Las plantillas se combinan en los métodos ToSinglePageWebDocument y ToMultiPageWebDocument para proporcionar un resultado final. Estas son plantillas comunes usadas tanto en la página única como en la multipágina:
+Para cada tipo de forma, usamos una plantilla personalizada, que se agrega al conjunto general de plantillas del proyecto Aspose.Slides.WebExtensions. Las plantillas se combinan en los métodos ToSinglePageWebDocument y ToMultiPageWebDocument para proporcionar un resultado final. Estas son plantillas comunes usadas tanto en páginas únicas como en múltiples páginas:
 
 -templates  
 +-common  
-  ¦ +-scripts: scripts JavaScript para animaciones de transición de diapositivas, como instancia.  
+  ¦ +-scripts: scripts javascript para animaciones de transición de diapositivas, como instancia.  
   ¦ +-styles: estilos CSS comunes.  
-  +-multi-page: índices, menús, plantillas de diapositivas para la salida multipágina.  
-  +-single-page: índices, plantillas de diapositivas para la salida de página única.  
+  +-multi-page: índice, menú, plantillas de diapositiva para la salida de varias páginas.  
+  +-single-page: índice, plantillas de diapositiva para la salida de una sola página.  
 
-Puedes descubrir cómo se enlaza la parte común para todas las plantillas en el método `PresentationExtensions.AddCommonInputOutput` [aquí](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).  
+Puede descubrir cómo la parte común se vincula a todas las plantillas en el método `PresentationExtensions.AddCommonInputOutput` [aquí](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).  
 
 ### **Personalización de la plantilla predeterminada**
 
-Puedes modificar cualquier elemento en la plantilla del modelo común. Por ejemplo, podrías decidir cambiar los estilos de formato de tabla pero mantener sin cambios los demás estilos de la página única.  
+Puede modificar cualquier elemento en la plantilla del modelo común. Por ejemplo, puede decidir cambiar los estilos de formato de tabla pero mantener sin cambios los demás estilos de la página única.  
 
-Por defecto, se usa Templates\common\table.html, y la tabla tiene el mismo aspecto que la tabla en PowerPoint. Cambiemos el formato de tabla usando estilos CSS personalizados:
+Por defecto, se usa Templates\common\table.html, y la tabla tiene la misma apariencia que en PowerPoint. Cambiemos el formato de la tabla usando estilos CSS personalizados:
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -212,7 +212,7 @@ Por defecto, se usa Templates\common\table.html, y la tabla tiene el mismo aspec
 ```
 
 
-Podemos crear la misma estructura de plantillas de entrada y archivos de salida (tal como se genera) al llamar al método `PresentationExtensions.ToSinglePageWebDocument`. Añadamos el método `ExportCustomTableStyles_AddCommonStructure` para eso. La diferencia entre este método y `ToSinglePageWebDocument`—no necesitamos añadir la plantilla estándar para la tabla y la página de índice principal (se sustituirá para incluir la referencia a los estilos de tabla personalizados):
+Podemos crear la misma estructura de plantillas de entrada y archivos de salida (tal como se genera) mientras llamamos al método `PresentationExtensions.ToSinglePageWebDocument`. Añadamos el método `ExportCustomTableStyles_AddCommonStructure` para ello. La diferencia entre este método y `ToSinglePageWebDocument`: no necesitamos agregar la plantilla estándar para la tabla y la página de índice principal (se reemplazará para incluir la referencia a los estilos de tabla personalizados):
 ``` csharp
 private static void ExportCustomTableStyles_AddCommonStructure(
     Presentation pres, 
@@ -297,7 +297,7 @@ using (Presentation pres = new Presentation("table.pptx"))
 		var rowHeight = string.Format("height: {0}px", contextObject.Rows[i].Height);
 		<tr style="@rowHeight">
 		@for (int j = 0; j < contextObject.Columns.Count; j++)
-	{
+		{
 			var cell = contextObject[j, i];
 			if (cell.FirstRowIndex ==  i && cell.FirstColumnIndex == j)
 			{
@@ -327,8 +327,8 @@ using (Presentation pres = new Presentation("table.pptx"))
 ```
 
 
-**Nota** que la plantilla de tabla personalizada se añadió con la misma clave “table” que la tabla estándar. Por lo tanto, puedes reemplazar una plantilla predeterminada concreta sin reescribirla. También puedes usar las plantillas de la estructura predeterminada con las mismas claves. Por ejemplo, puedes usar una plantilla de párrafo estándar en la plantilla de tabla; también puedes reemplazarla con la clave.  
-También puedes usar index.html para incluir la referencia a los estilos CSS de tabla personalizada en él: 
+**Nota** que la plantilla de tabla personalizada se añadió con la misma clave “table” que la tabla estándar. Por lo tanto, puede reemplazar una plantilla predeterminada concreta sin reescribirla. También puede usar las plantillas de la estructura predeterminada con las mismas claves. Por ejemplo, puede usar una plantilla de párrafo estándar en la plantilla de tabla; también puede reemplazarla con la clave.  
+También puede usar index.html para incluir la referencia a los estilos CSS personalizados de tabla:
 ``` html
 <!DOCTYPE html>    
     
@@ -348,9 +348,9 @@ También puedes usar index.html para incluir la referencia a los estilos CSS de 
 ```
 
 
-## **Crear proyecto desde cero: transiciones de diapositivas animadas**
+## **Crear un proyecto desde cero: transiciones de diapositivas animadas**
 
-WebExtensions permite exportar presentaciones con transiciones de diapositivas animadas—solo necesitas establecer la propiedad `AnimateTransitions` en `WebDocumentOptions` a `true`:
+WebExtensions permite exportar presentaciones con transiciones de diapositivas animadas; solo necesita establecer la propiedad `AnimateTransitions` en `WebDocumentOptions` a `true`:
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -360,9 +360,9 @@ WebDocumentOptions options = new WebDocumentOptions
 ```
 
 
-Creemos un nuevo proyecto que use Aspose.Slides y Aspose.Slides.WebExtensions para crear un visor HTML para PDF con transiciones de página suaves animadas. Aquí, necesitaremos usar la función de importación de PDF de Aspose.Slides.  
+Creemos un nuevo proyecto que use Aspose.Slides y Aspose.Slides.WebExtensions para crear un visor HTML de PDF con transiciones de página animadas y suaves. Aquí, necesitamos usar la función de importación de PDF de Aspose.Slides.
 
-Creemos un proyecto PdfToPresentationToHtml y añadamos el paquete NuGet Aspose.Slides.WebExtensions (el paquete Aspose.Slides también se añadirá como dependencia):
+Creemos un proyecto PdfToPresentationToHtml y agreguemos el paquete NuGet Aspose.Slides.WebExtensions (el paquete Aspose.Slides también se añadirá como dependencia):
 ![NuGet Package](screen.png)
 
 Comenzamos importando el documento PDF, que será animado y exportado a una presentación HTML:
@@ -375,7 +375,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Ahora, podemos configurar las transiciones de diapositivas animadas (cada diapositiva es la página PDF importada). Usamos 9 diapositivas en el documento PDF de ejemplo. Añadamos transiciones de diapositiva a cada una de ellas (demostración al ver el HTML):
+Ahora, podemos configurar las transiciones de diapositivas animadas (cada diapositiva es la página PDF importada). Usamos 9 diapositivas en el documento PDF de ejemplo. Añadamos transiciones de diapositiva a cada una de ellas (demostración mientras se visualiza el HTML):
 ``` csharp
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
 pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
@@ -403,7 +403,7 @@ document.Save();
 ```
 
 
-Ejemplo completo del código fuente:
+Código fuente completo del ejemplo:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -433,7 +433,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Eso es todo lo que necesitas para crear HTML con transiciones de página animadas generadas a partir del documento PDF.  
+Eso es todo lo que necesita para crear HTML con transiciones de página animadas generadas a partir del documento PDF.  
 
-* [Descargar archivo HTML de muestra](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).  
-* [Descargar proyecto de muestra](/slides/es/net/web-extensions/sample.zip).
+* [Download sample HTML file](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).  
+* [Download sample project](/slides/es/net/web-extensions/sample.zip).

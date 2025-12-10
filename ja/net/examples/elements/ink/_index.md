@@ -4,8 +4,8 @@ type: docs
 weight: 180
 url: /ja/net/examples/elements/ink/
 keywords:
-- インク例
-- インクへのアクセス
+- インクの例
+- インクへアクセス
 - インクの削除
 - PowerPoint
 - OpenDocument
@@ -13,16 +13,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してスライド上のデジタルインクを操作します。ペンストロークの追加、パスの編集、色と幅の設定、そして PowerPoint と OpenDocument 用に結果をエクスポートできます。"
+description: "C# と Aspose.Slides を使用してスライド上のデジタルインクを処理します。ペンストロークの追加、パスの編集、色と幅の設定、そして PowerPoint と OpenDocument 用に結果をエクスポートします。"
 ---
 
-**Aspose.Slides for .NET** を使用して、既存のインクシェイプにアクセスし、それらを削除する例を提供します。
+既存のインク シェイプにアクセスし、削除する例を **Aspose.Slides for .NET** を使用して提供します。
 
-> ❗ **注:** インクシェイプは、特殊なデバイスからのユーザー入力を表します。Aspose.Slides はプログラムで新しいインクストロークを作成できませんが、既存のインクを読み取り、変更することは可能です。
+> ❗ **注意:** インク シェイプは特殊デバイスからのユーザー入力を表します。Aspose.Slides ではプログラムから新しいインク ストロークを作成できませんが、既存のインクを読み取り、変更することは可能です。
 
-## インクにアクセス
+## **インクにアクセス**
 
-スライド上の最初のインクシェイプからタグを読み取ります。
+スライド上の最初のインク シェイプからタグを読み取ります。
 ```csharp
 static void Access_Ink()
 {
@@ -35,16 +35,16 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // 必要に応じて tagName を使用します
+            // 必要に応じて tagName を使用
         }
     }
 }
 ```
 
 
-## インクの削除
+## **インクの削除**
 
-存在する場合、スライドからインクシェイプを削除します。
+存在する場合、スライドからインク シェイプを削除します。
 ```csharp
 static void Remove_Ink()
 {

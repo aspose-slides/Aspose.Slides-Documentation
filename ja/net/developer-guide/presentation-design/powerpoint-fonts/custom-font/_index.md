@@ -1,5 +1,5 @@
 ---
-title: .NET で PowerPoint フォントをカスタマイズ
+title: .NETでPowerPointフォントをカスタマイズ
 linktitle: カスタムフォント
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - フォント
 - カスタムフォント
 - 外部フォント
-- フォントの読み込み
+- フォントのロード
 - フォントの管理
 - フォントフォルダー
 - PowerPoint
@@ -17,62 +17,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET 用 Aspose.Slides で PowerPoint スライドのフォントをカスタマイズし、プレゼンテーションをどのデバイスでも鮮やかで一貫性のあるものにします。"
+description: "Aspose.Slides for .NET を使用して PowerPoint スライドのフォントをカスタマイズし、あらゆるデバイスでプレゼンテーションを鮮明かつ一貫性のあるものに保ちます。"
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose Slidesでは、[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/)メソッドを使用してこれらのフォントをロードできます。
+Aspose Slides は、[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) メソッドを使用して次のフォントを読み込むことができます。
 
-* TrueType（.ttf）およびTrueType Collection（.ttc）フォント。詳しくは[TrueType](https://en.wikipedia.org/wiki/TrueType)をご覧ください。
+* TrueType（.ttf）および TrueType コレクション（.ttc）フォント。 詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
 
-* OpenType（.otf）フォント。詳しくは[OpenType](https://en.wikipedia.org/wiki/OpenType)をご覧ください。
+* OpenType（.otf）フォント。 詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
 
 {{% /alert %}}
 
-## **カスタムフォントのロード**
+## **カスタムフォントの読み込み**
 
-Aspose.Slidesでは、フォントをシステムにインストールせずにプレゼンテーションで使用できるように、カスタムディレクトリからフォントをロードできます。
+Aspose.Slides を使用すると、プレゼンテーションで使用されるフォントをインストールせずに読み込むことができます。フォントはカスタムディレクトリから読み込まれます。
 
-1. [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/)クラスのインスタンスを作成し、[LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/)メソッドを呼び出します。
-2. レンダリング対象のプレゼンテーションをロードします。
-3. [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/)クラスでキャッシュをクリアします。
+1. [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) クラスのインスタンスを作成し、[LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) メソッドを呼び出します。  
+2. 表示するプレゼンテーションをロードします。  
+3. [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) クラスでキャッシュをクリアします。
 
-このC#コードはフォントのロード手順を示しています:
+この C# コードはフォント読み込みプロセスを示しています:
 ``` csharp
-// ドキュメント ディレクトリへのパス
+// ドキュメントディレクトリへのパス
 string dataDir = "C:\\";
 
 // フォントを検索するフォルダー
 String[] folders = new String[] { dataDir };
 
-// カスタム フォント ディレクトリのフォントをロード
+// カスタムフォントディレクトリのフォントをロード
 FontsLoader.LoadExternalFonts(folders);
 
-// 作業を行い、プレゼンテーション/スライドのレンダリングを実行
+// いくつかの作業を行い、プレゼンテーション/スライドのレンダリングを実行
 using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx"))
     presentation.Save(dataDir + "NewFonts_out.pptx", SaveFormat.Pptx);
 
-// フォント キャッシュをクリア
+// フォントキャッシュをクリア
 FontsLoader.ClearCache();
 ```
 
 
-## **カスタムフォント フォルダーの取得**
-Aspose.Slidesは、[GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)メソッドを提供し、フォントフォルダーを検索できます。このメソッドは、`LoadExternalFonts`メソッドで追加したフォルダーとシステムフォントフォルダーを返します。
+## **カスタムフォントフォルダーの取得**
+Aspose.Slides は、[GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) メソッドを提供し、フォントフォルダーを取得できるようにします。このメソッドは、`LoadExternalFonts` メソッドで追加されたフォルダーとシステムフォントフォルダーを返します。
 
-このC#コードは[GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)の使用例を示しています:
+この C# コードは [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) の使用方法を示しています:
 ```c#
- // この行はフォントファイルがチェックされるフォルダーを出力します。
- // これらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
+// この行はフォントファイルがチェックされるフォルダーを出力します。
+// それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
 
-## **プレゼンテーションで使用されるカスタムフォントの指定**
-Aspose.Slidesは、[DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/)プロパティを提供し、プレゼンテーションで使用する外部フォントを指定できます。
+## **プレゼンテーションで使用するカスタムフォントの指定**
+Aspose.Slides は、プレゼンテーションで使用する外部フォントを指定できるように、[DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) プロパティを提供します。
 
-このC#コードは[DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/)プロパティの使用例を示しています:
+この C# コードは [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) プロパティの使用方法を示しています:
 ```c#
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
@@ -82,17 +82,17 @@ loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
-    // プレゼンテーションで作業する
-    // CustomFont1、CustomFont2、そして assets\fonts と global\fonts フォルダーおよびそのサブフォルダーのフォントはプレゼンテーションで使用可能です
+    // プレゼンテーションで作業します
+    // CustomFont1、CustomFont2、および assets\fonts と global\fonts フォルダーとそのサブフォルダー内のフォントはプレゼンテーションで利用可能です
 }
 ```
 
 
-## **外部フォントの管理**
+## **フォントの外部管理**
 
-Aspose.Slidesは、バイナリデータから外部フォントをロードできる[LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data)メソッドを提供します。
+Aspose.Slides は、バイナリ データから外部フォントを読み込むために、[LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) メソッドを提供します。
 
-このC#コードはバイト配列によるフォントロードの手順を示しています: 
+この C# コードはバイト配列によるフォント読み込みプロセスを示しています:
 ```c#
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
@@ -102,7 +102,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // プレゼンテーションの実行中にロードされた外部フォント
+        // プレゼンテーションの存続期間中に外部フォントがロードされます
     }
 }
 finally
@@ -118,18 +118,18 @@ finally
 
 はい。接続されたフォントは、すべてのエクスポート形式でレンダラによって使用されます。
 
-**カスタムフォントは自動的に生成されるPPTXに埋め込まれますか？**
+**カスタムフォントは自動的に生成された PPTX に埋め込まれますか？**
 
-いいえ。レンダリング用にフォントを登録することは、PPTXに埋め込むこととは異なります。プレゼンテーションファイル内にフォントを含める必要がある場合は、明示的な[埋め込み機能](/slides/ja/net/embedded-font/)を使用してください。
+いいえ。フォントをレンダリング用に登録することは、PPTX に埋め込むこととは異なります。プレゼンテーション ファイルにフォントを含める必要がある場合は、明示的な [埋め込み機能](/slides/ja/net/embedded-font/) を使用してください。
 
 **カスタムフォントに特定のグリフが欠けている場合のフォールバック動作を制御できますか？**
 
-はい。[フォント置換](/slides/ja/net/font-substitution/)、[置換ルール](/slides/ja/net/font-replacement/)および[フォールバックセット](/slides/ja/net/fallback-font/)を構成して、要求されたグリフが欠落している場合に使用するフォントを正確に定義できます。
+はい。[フォント置換](/slides/ja/net/font-substitution/)、[置換ルール](/slides/ja/net/font-replacement/)、および [フォールバックセット](/slides/ja/net/fallback-font/) を構成して、要求されたグリフが欠如しているときに使用するフォントを正確に定義できます。
 
-**Linux/Docker コンテナ内でフォントをシステム全体にインストールせずに使用できますか？**
+**Linux/Docker コンテナー内でフォントをシステム全体にインストールせずに使用できますか？**
 
-はい。独自のフォントフォルダーを指すか、バイト配列からフォントをロードしてください。これにより、コンテナイメージ内のシステムフォントディレクトリへの依存がなくなります。
+はい。独自のフォント フォルダーを指すか、バイト配列からフォントを読み込むことで、コンテナー イメージ内のシステム フォント ディレクトリへの依存を取り除くことができます。
 
-**ライセンスはどうですか — カスタムフォントを制限なく埋め込めますか？**
+**ライセンスについて—カスタムフォントを制限なく埋め込むことはできますか？**
 
-フォントのライセンス遵守は利用者の責任です。ライセンス条件は異なり、埋め込みや商用利用を禁止するものもあります。出力を配布する前に必ずフォントのEULAを確認してください。
+フォントのライセンス遵守は利用者の責任です。ライセンス条件は様々で、埋め込みや商用利用を禁止しているものもあります。出力を配布する前に、必ずフォントの EULA を確認してください。

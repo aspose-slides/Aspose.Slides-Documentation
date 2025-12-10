@@ -15,24 +15,24 @@ keywords:
 - charger PPT
 - charger ODP
 - présentation protégée
-- présentation volumineuse
+- grande présentation
 - ressource externe
 - objet binaire
 - .NET
 - C#
 - Aspose.Slides
-description: "Ouvrez des présentations PowerPoint (.pptx, .ppt) et OpenDocument (.odp) facilement avec Aspose.Slides pour .NET — rapide, fiable, complet."
+description: "Ouvrez facilement les présentations PowerPoint (.pptx, .ppt) et OpenDocument (.odp) avec Aspose.Slides pour .NET - rapide, fiable, riche en fonctionnalités."
 ---
 
 ## **Vue d'ensemble**
 
-Outre la création de présentations PowerPoint à partir de zéro, Aspose.Slides vous permet également d'ouvrir des présentations existantes. Après le chargement d'une présentation, vous pouvez récupérer des informations à son sujet, modifier le contenu des diapositives, ajouter de nouvelles diapositives, supprimer celles existantes, et plus encore.
+Au-delà de la création de présentations PowerPoint à partir de zéro, Aspose.Slides vous permet également d'ouvrir des présentations existantes. Après avoir chargé une présentation, vous pouvez récupérer des informations à son sujet, modifier le contenu des diapositives, ajouter de nouvelles diapositives, supprimer celles existantes, etc.
 
 ## **Ouvrir des présentations**
 
 Pour ouvrir une présentation existante, créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) et transmettez le chemin du fichier à son constructeur.
 
-L'exemple C# suivant montre comment ouvrir une présentation et obtenir le nombre de diapositives :
+L'exemple C# suivant montre comment ouvrir une présentation et obtenir son nombre de diapositives :
 ```cs
 // Instanciez la classe Presentation et transmettez un chemin de fichier à son constructeur.
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -55,11 +55,11 @@ using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
 ```
 
 
-## **Ouvrir des présentations volumineuses**
+## **Ouvrir de grandes présentations**
 
-Aspose.Slides propose des options—en particulier la propriété [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) de la classe [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)—pour vous aider à charger des présentations volumineuses.
+Aspose.Slides propose des options—en particulier la propriété [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) de la classe [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)—pour vous aider à charger de grandes présentations.
 
-Le code C# suivant montre le chargement d'une présentation volumineuse (par exemple, 2 Go) :
+Le code C# suivant montre comment charger une grande présentation (par exemple, 2 Go) :
 ```cs
 const string filePath = "LargePresentation.pptx";
 
@@ -67,7 +67,7 @@ LoadOptions loadOptions = new LoadOptions
 {
     BlobManagementOptions = 
     {
-        // Choisissez le comportement KeepLocked — le fichier de présentation restera verrouillé pendant la durée de 
+        // Choisissez le comportement KeepLocked - le fichier de présentation restera verrouillé pendant toute la durée de 
         // l'instance Presentation, mais il n'est pas nécessaire de le charger en mémoire ou de le copier dans un fichier temporaire.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
@@ -77,32 +77,32 @@ LoadOptions loadOptions = new LoadOptions
 
 using (Presentation presentation = new Presentation(filePath, loadOptions))
 {
-    // La grande présentation a été chargée et peut être utilisée, tout en maintenant une consommation mémoire faible.
+    // La grande présentation a été chargée et peut être utilisée, tandis que la consommation mémoire reste faible.
 
     // Apportez des modifications à la présentation.
     presentation.Slides[0].Name = "Large presentation";
 
-    // Enregistrez la présentation dans un autre fichier. La consommation de mémoire reste faible pendant cette opération.
+    // Enregistrez la présentation dans un autre fichier. La consommation mémoire reste faible pendant cette opération.
     presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
-    // Ne faites pas cela ! Une exception d'E/S sera levée car le fichier est verrouillé jusqu'à la libération de l'objet présentation.
+    // Ne faites pas cela ! Une exception d'E/S sera levée car le fichier est verrouillé jusqu'à ce que l'objet Presentation soit libéré.
     File.Delete(filePath);
 }
 
-// Vous pouvez le faire ici. Le fichier source n'est plus verrouillé par l'objet présentation.
+// Il est correct de le faire ici. Le fichier source n'est plus verrouillé par l'objet Presentation.
 File.Delete(filePath);
 ```
 
 
 {{% alert color="info" title="Info" %}}
-Pour contourner certaines limitations lors de l'utilisation des flux, Aspose.Slides peut copier le contenu d'un flux. Charger une présentation volumineuse à partir d'un flux entraîne la copie de la présentation et peut ralentir le chargement. Ainsi, lorsque vous devez charger une présentation volumineuse, nous vous recommandons fortement d'utiliser le chemin du fichier de la présentation plutôt qu'un flux.
+Pour contourner certaines limitations lors de l’utilisation de flux, Aspose.Slides peut copier le contenu d’un flux. Charger une grande présentation depuis un flux entraîne la copie de la présentation et peut ralentir le chargement. Par conséquent, lorsque vous devez charger une grande présentation, nous recommandons fortement d’utiliser le chemin du fichier de la présentation plutôt qu’un flux.
 
-Lorsque vous créez une présentation contenant des objets volumineux (vidéo, audio, images haute résolution, etc.), vous pouvez utiliser la [gestion BLOB](/slides/fr/net/manage-blob/) pour réduire la consommation de mémoire.
+Lorsque vous créez une présentation contenant de gros objets (vidéo, audio, images haute résolution, etc.), vous pouvez utiliser la [gestion des BLOB](/slides/fr/net/manage-blob/) pour réduire la consommation mémoire.
 {{%/alert %}}
 
 ## **Contrôler les ressources externes**
 
-Aspose.Slides fournit l'interface [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) qui vous permet de gérer les ressources externes. Le code C# suivant montre comment utiliser l'interface `IResourceLoadingCallback` :
+Aspose.Slides fournit l’interface [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) qui vous permet de gérer les ressources externes. Le code C# suivant montre comment utiliser l’interface `IResourceLoadingCallback` :
 ```cs
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
@@ -145,19 +145,19 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 
 ## **Charger des présentations sans objets binaires intégrés**
 
-Une présentation PowerPoint peut contenir les types d'objets binaires intégrés suivants :
+Une présentation PowerPoint peut contenir les types d’objets binaires intégrés suivants :
 
-- Projet VBA (accessible via [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
-- Données intégrées d'objet OLE (accessible via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- Données binaires de contrôle ActiveX (accessible via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
+- projet VBA (accessible via [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
+- données intégrées d’objet OLE (accessibles via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- données binaires de contrôle ActiveX (accessibles via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
 
 En utilisant la propriété [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/), vous pouvez charger une présentation sans aucun objet binaire intégré.
 
-Cette propriété est utile pour supprimer d'éventuels contenus binaires malveillants. Le code C# suivant montre comment charger une présentation sans aucun contenu binaire intégré :
+Cette propriété est utile pour éliminer le contenu binaire potentiellement malveillant. Le code C# suivant montre comment charger une présentation sans aucun contenu binaire intégré :
 ```cs
 LoadOptions loadOptions = new LoadOptions()
 {
-    DeleteEmbeddedBinaryObjects = true
+	DeleteEmbeddedBinaryObjects = true
 }
 
 using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
@@ -169,14 +169,14 @@ using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 
 ## **FAQ**
 
-**Comment savoir qu'un fichier est corrompu et ne peut pas être ouvert ?**
+**Comment savoir si un fichier est corrompu et ne peut pas être ouvert ?**
 
-Vous recevrez une exception de validation d'analyse/format pendant le chargement. Ces erreurs mentionnent souvent une structure ZIP invalide ou des enregistrements PowerPoint endommagés.
+Une exception de validation d’analyse/format sera levée lors du chargement. De telles erreurs mentionnent souvent une structure ZIP invalide ou des enregistrements PowerPoint corrompus.
 
-**Que se passe-t-il si les polices requises sont manquantes lors de l'ouverture ?**
+**Que se passe-t-il si les polices requises sont manquantes lors de l’ouverture ?**
 
-Le fichier s'ouvrira, mais le [rendu/export](/slides/fr/net/convert-presentation/) ultérieur pourra substituer les polices. [Configurez les substitutions de polices](/slides/fr/net/font-substitution/) ou [ajoutez les polices requises](/slides/fr/net/custom-font/) à l'environnement d'exécution.
+Le fichier s’ouvrira, mais lors du [rendu/export](/slides/fr/net/convert-presentation/) ultérieur, des polices peuvent être substituées. [Configurez les substitutions de polices](/slides/fr/net/font-substitution/) ou [ajoutez les polices requises](/slides/fr/net/custom-font/) à l’environnement d’exécution.
 
-**Qu'en est‑il des médias intégrés (vidéo/audio) lors de l'ouverture ?**
+**Qu’en est-il des médias intégrés (vidéo/audio) lors de l’ouverture ?**
 
-Ils deviennent disponibles en tant que ressources de la présentation. Si les médias sont référencés via des chemins externes, assurez‑vous que ces chemins sont accessibles dans votre environnement ; sinon le [rendu/export](/slides/fr/net/convert-presentation/) pourra omettre les médias.
+Ils deviennent disponibles en tant que ressources de la présentation. Si les médias sont référencés via des chemins externes, assurez‑vous que ces chemins sont accessibles dans votre environnement ; sinon le [rendu/export](/slides/fr/net/convert-presentation/) peut omettre les médias.

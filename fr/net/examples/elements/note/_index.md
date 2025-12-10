@@ -18,11 +18,11 @@ keywords:
 description: "Ajouter, lire, modifier et exporter les notes du présentateur en C# avec Aspose.Slides : formater le texte, gérer les notes par diapositive et contrôler la visibilité dans PowerPoint et OpenDocument."
 ---
 
-Montre comment ajouter, lire, supprimer et mettre à jour des diapositives de notes en utilisant **Aspose.Slides for .NET**.
+Montre comment ajouter, lire, supprimer et mettre à jour des diapositives de notes à l'aide de **Aspose.Slides for .NET**.
 
-## Ajouter une diapositive de notes
+## **Ajouter une diapositive de notes**
 
-Créez une diapositive de notes et attribuez-lui du texte.
+Créez une diapositive de notes et affectez‑lui du texte.
 ```csharp
 static void Add_Note()
 {
@@ -35,9 +35,9 @@ static void Add_Note()
 ```
 
 
-## Accéder à une diapositive de notes
+## **Accéder à une diapositive de notes**
 
-Lisez le texte d'une diapositive de notes existante.
+Lire le texte d'une diapositive de notes existante.
 ```csharp
 static void Access_Note()
 {
@@ -50,7 +50,7 @@ static void Access_Note()
 ```
 
 
-## Supprimer une diapositive de notes
+## **Supprimer une diapositive de notes**
 
 Supprimez la diapositive de notes associée à une diapositive.
 ```csharp
@@ -65,7 +65,7 @@ static void Remove_Note()
 ```
 
 
-## Mettre à jour le texte des notes
+## **Mettre à jour le texte d'une diapositive de notes**
 
 Modifiez le texte d'une diapositive de notes.
 ```csharp

@@ -1,60 +1,70 @@
 ---
-title: Folien klonen
+title: "Präsentationsfolien klonen in .NET"
+linktitle: "Folien klonen"
 type: docs
 weight: 40
 url: /de/net/clone-slides/
-keywords: "Folien klonen, Folie kopieren, Folienkopie speichern, PowerPoint, Presentation, C#, Csharp, .NET, Aspose.Slides"
-description: "PowerPoint-Folie in C# oder .NET klonen"
+keywords:
+- "Folie klonen"
+- "Folie kopieren"
+- "Folie speichern"
+- "PowerPoint"
+- "OpenDocument"
+- "Präsentation"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Duplizieren Sie PowerPoint‑Folien schnell mit Aspose.Slides für .NET. Folgen Sie unseren klaren Code‑Beispielen, um die PPT‑Erstellung in Sekunden zu automatisieren und manuelle Arbeit zu vermeiden."
 ---
 
 ## **Folien in einer Präsentation klonen**
-Cloning ist der Vorgang, eine exakte Kopie oder ein Duplikat von etwas zu erstellen. Aspose.Slides for .NET ermöglicht es ebenfalls, eine Kopie oder einen Klon einer beliebigen Folie zu erstellen und diesen geklonten Folie in die aktuelle oder eine andere geöffnete Präsentation einzufügen. Der Vorgang des Folienklonens erzeugt eine neue Folie, die von Entwicklern geändert werden kann, ohne die Originalfolie zu verändern. Es gibt mehrere mögliche Methoden, eine Folie zu klonen:
+Klonen ist der Vorgang, bei dem eine exakte Kopie oder ein Duplikat von etwas erstellt wird. Aspose.Slides für .NET ermöglicht es zudem, jede Folie zu kopieren oder zu klonen und das geklonte Objekt in die aktuelle oder eine andere geöffnete Präsentation einzufügen. Der Vorgang des Folienklonens erzeugt eine neue Folie, die Entwickler ändern können, ohne die Originalfolie zu beeinflussen. Es gibt mehrere mögliche Methoden, eine Folie zu klonen:
 
 - Klon am Ende innerhalb einer Präsentation.
-- Klon an anderer Position innerhalb einer Präsentation.
+- Klon an einer anderen Position innerhalb einer Präsentation.
 - Klon am Ende in einer anderen Präsentation.
-- Klon an anderer Position in einer anderen Präsentation.
+- Klon an einer anderen Position in einer anderen Präsentation.
 - Klon an einer bestimmten Position in einer anderen Präsentation.
 
-In Aspose.Slides for .NET stellt die (eine Sammlung von [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) Objekte), die vom [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt bereitgestellt wird, die Methoden [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) und [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) zur Verfügung, um die oben genannten Arten des Folienklonens auszuführen
-## **Klon am Ende innerhalb einer Präsentation**
-Wenn Sie eine Folie klonen und sie anschließend in derselben Präsentationsdatei am Ende der vorhandenen Folien verwenden möchten, verwenden Sie die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode gemäß den unten aufgeführten Schritten:
+In Aspose.Slides für .NET stellt die (eine Sammlung von [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)-Objekten), die vom [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekt bereitgestellt wird, die Methoden [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) und [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) zur Verfügung, um die oben genannten Klon‑Typen auszuführen.
+## **Eine Folie am Ende einer Präsentation klonen**
+Wenn Sie eine Folie klonen und anschließend innerhalb derselben Präsentationsdatei am Ende der vorhandenen Folien verwenden möchten, nutzen Sie die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode gemäß den unten aufgeführten Schritten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Instanziieren Sie die Klasse [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) , indem Sie auf die von dem Objekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) bereitgestellte Slides‑Sammlung verweisen.
-3. Rufen Sie die vom Objekt [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode auf und übergeben Sie die zu klonende Folie als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode.
-4. Schreiben Sie die geänderte Präsentationsdatei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.  
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Klasse, indem Sie auf die von dem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekt bereitgestellte Folien‑Sammlung verweisen.  
+1. Rufen Sie die von dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Objekt bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode auf und übergeben Sie die zu klonende Folie als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode.  
+1. Schreiben Sie die modifizierte Präsentationsdatei.
 
-Im nachfolgenden Beispiel haben wir eine Folie (die sich an der ersten Position – Index 0 – der Präsentation befindet) an das Ende der Präsentation geklont.
+Im nachstehenden Beispiel haben wir eine Folie (die an erster Stelle – Index 0 – der Präsentation liegt) an das Ende der Präsentation geklont.
 ```c#
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
-using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
-{
-
-    // Klonen Sie die gewünschte Folie an das Ende der Foliensammlung in derselben Präsentation
-    ISlideCollection slds = pres.Slides;
-
-    slds.AddClone(pres.Slides[0]);
-
-    // Speichern Sie die modifizierte Präsentation auf der Festplatte
-    pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
-
-}
+ // Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei repräsentiert
+ using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
+ {
+ 
+     // Klonen Sie die gewünschte Folie an das Ende der Foliensammlung in derselben Präsentation
+     ISlideCollection slds = pres.Slides;
+ 
+     slds.AddClone(pres.Slides[0]);
+ 
+     // Schreiben Sie die modifizierte Präsentation auf die Festplatte
+     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
+ 
+ }
 ```
 
 
 
-## **Klon an anderer Position innerhalb einer Präsentation**
-Wenn Sie eine Folie klonen und sie anschließend in derselben Präsentationsdatei, jedoch an einer anderen Position verwenden möchten, verwenden Sie die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)‑Methode:
+## **Eine Folie an einer anderen Position innerhalb einer Präsentation klonen**
+Wenn Sie eine Folie klonen und anschließend innerhalb derselben Präsentationsdatei, jedoch an einer anderen Position verwenden möchten, nutzen Sie die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)-Methode:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Instanziieren Sie die Klasse, indem Sie auf die **Slides**‑Sammlung verweisen, die vom Objekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) bereitgestellt wird.
-3. Rufen Sie die vom Objekt [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) bereitgestellte [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)‑Methode auf und übergeben Sie die zu klonende Folie zusammen mit dem Index für die neue Position als Parameter an die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)‑Methode.
-4. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.  
+1. Instanziieren Sie die Klasse, indem Sie auf die **Slides**‑Sammlung verweisen, die vom [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekt bereitgestellt wird.  
+1. Rufen Sie die von dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Objekt bereitgestellte [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)-Methode auf und übergeben Sie die zu klonende Folie zusammen mit dem Index für die neue Position als Parameter an die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)-Methode.  
+1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Im nachfolgenden Beispiel haben wir eine Folie (die sich am Index 0 – Position 1 – der Präsentation befindet) auf Index 1 – Position 2 – der Präsentation geklont.
+Im nachstehenden Beispiel haben wir eine Folie (die am Index 0 – Position 1 – der Präsentation liegt) zu Index 1 – Position 2 – der Präsentation geklont.
 ```c#
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+ // Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
@@ -64,7 +74,7 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
     // Klonen Sie die gewünschte Folie an den angegebenen Index in derselben Präsentation
     slds.InsertClone(2, pres.Slides[1]);
 
-    // Speichern Sie die modifizierte Präsentation auf der Festplatte
+    // Schreiben Sie die modifizierte Präsentation auf die Festplatte
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
@@ -72,21 +82,21 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 
 
 
-## **Klon am Ende in einer anderen Präsentation**
-Wenn Sie eine Folie aus einer Präsentation klonen und sie in einer anderen Präsentationsdatei am Ende der vorhandenen Folien verwenden müssen:
+## **Eine Folie am Ende einer anderen Präsentation klonen**
+Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei am Ende der vorhandenen Folien einfügen möchten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Präsentation enthält, aus der die Folie geklont werden soll.
-2. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Zielpräsentation enthält, zu der die Folie hinzugefügt werden soll.
-3. Instanziieren Sie die Klasse [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) , indem Sie auf die **Slides**‑Sammlung verweisen, die vom Presentation‑Objekt der Zielpräsentation bereitgestellt wird.
-4. Rufen Sie die vom Objekt [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode.
-5. Schreiben Sie die geänderte Zielpräsentationsdatei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Zielpräsentation enthält, zu der die Folie hinzugefügt werden soll.  
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Klasse, indem Sie auf die **Slides**‑Sammlung verweisen, die vom Presentation‑Objekt der Zielpräsentation bereitgestellt wird.  
+1. Rufen Sie die von dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Objekt bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode auf und übergeben Sie die Folie aus der Quellpräsentation als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode.  
+1. Schreiben Sie die modifizierte Zielpräsentationsdatei.
 
-Im nachfolgenden Beispiel haben wir eine Folie (vom ersten Index der Quellpräsentation) an das Ende der Zielpräsentation geklont.
+Im nachstehenden Beispiel haben wir eine Folie (aus dem ersten Index der Quellpräsentation) an das Ende der Zielpräsentation geklont.
 ```c#
-// Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
+// Instanziieren Sie die Presentation‑Klasse, um die Quellpräsentationsdatei zu laden
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Instanziieren Sie die Presentation-Klasse für das Zielformat PPTX (wo die Folie geklont werden soll)
+    // Instanziieren Sie die Presentation‑Klasse für die Ziel‑PPTX (wo die Folie geklont werden soll)
     using (Presentation destPres = new Presentation())
     {
         // Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Foliensammlung in der Zielpräsentation
@@ -102,21 +112,21 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 
 
 
-## **Klon an anderer Position in einer anderen Präsentation**
-Wenn Sie eine Folie aus einer Präsentation klonen und sie in einer anderen Präsentationsdatei an einer bestimmten Position verwenden müssen:
+## **Eine Folie an einer anderen Position in einer anderen Präsentation klonen**
+Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei an einer bestimmten Position einfügen möchten:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Quellpräsentation enthält, aus der die Folie geklont werden soll.
-2. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Präsentation enthält, zu der die Folie hinzugefügt werden soll.
-3. Instanziieren Sie die Klasse [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) , indem Sie auf die Slides‑Sammlung verweisen, die vom Presentation‑Objekt der Zielpräsentation bereitgestellt wird.
-4. Rufen Sie die vom Objekt [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) bereitgestellte [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation zusammen mit der gewünschten Position als Parameter an die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)‑Methode.
-5. Schreiben Sie die geänderte Zielpräsentationsdatei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Zielpräsentation enthält, zu der die Folie hinzugefügt werden soll.  
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Klasse, indem Sie auf die Slides‑Sammlung verweisen, die vom Presentation‑Objekt der Zielpräsentation bereitgestellt wird.  
+1. Rufen Sie die von dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Objekt bereitgestellte [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)-Methode auf und übergeben Sie die Folie aus der Quellpräsentation zusammen mit der gewünschten Position als Parameter an die [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)-Methode.  
+1. Schreiben Sie die modifizierte Zielpräsentationsdatei.
 
-Im nachfolgenden Beispiel haben wir eine Folie (vom Index 0 der Quellpräsentation) auf Index 1 (Position 2) der Zielpräsentation geklont.
+Im nachstehenden Beispiel haben wir eine Folie (aus dem Index 0 der Quellpräsentation) zu Index 1 (Position 2) der Zielpräsentation geklont.
 ```c#
-// Instanziieren Sie die Presentation‑Klasse, um die Quellpräsentationsdatei zu laden
+// Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Instanziieren Sie die Presentation‑Klasse für die Ziel‑PPTX (wo die Folie geklont werden soll)
+    // Instanziieren Sie die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll)
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
@@ -131,25 +141,25 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 
 
 
-## **Klon an einer bestimmten Position in einer anderen Präsentation**
-Wenn Sie eine Folie mit einer Masterfolie aus einer Präsentation klonen und in einer anderen Präsentation verwenden müssen, müssen Sie zunächst die gewünschte Masterfolie von der Quellpräsentation in die Zielpräsentation klonen. Anschließend verwenden Sie diese Masterfolie, um die Folie mit Master zu klonen. Die Methode **AddClone(ISlide, IMasterSlide)** erwartet eine Masterfolie aus der Zielpräsentation und nicht aus der Quellpräsentation. Um die Folie mit einem Master zu klonen, befolgen Sie bitte die folgenden Schritte:
+## **Eine Folie an einer bestimmten Position in einer anderen Präsentation klonen**
+Wenn Sie eine Folie mit einer Master‑Folie aus einer Präsentation in eine andere Präsentation klonen möchten, müssen Sie zuerst die gewünschte Master‑Folie aus der Quellpräsentation in die Zielpräsentation klonen. Anschließend verwenden Sie diese Master‑Folie, um die Folie mit Master zu klonen. Die **AddClone(ISlide, IMasterSlide)**‑Methode erwartet eine Master‑Folie aus der Zielpräsentation und nicht aus der Quelle. Um die Folie mit Master zu klonen, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Quellpräsentation enthält, aus der die Folie geklont werden soll.
-2. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Zielpräsentation enthält, zu der die Folie geklont werden soll.
-3. Greifen Sie auf die zu klonende Folie zusammen mit der Masterfolie zu.
-4. Instanziieren Sie die Klasse [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) , indem Sie auf die Masters‑Sammlung verweisen, die vom Objekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) der Zielpräsentation bereitgestellt wird.
-5. Rufen Sie die vom Objekt [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode auf und übergeben Sie den Master aus der Quell‑PPTX, der geklont werden soll, als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode.
-6. Instanziieren Sie die Klasse [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) , indem Sie die Referenz auf die Slides‑Sammlung setzen, die vom Objekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) der Zielpräsentation bereitgestellt wird.
-7. Rufen Sie die vom Objekt [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation, die geklont werden soll, sowie die Masterfolie als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode.
-8. Schreiben Sie die geänderte Zielpräsentationsdatei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse, die die Zielpräsentation enthält, zu der die Folie geklont wird.  
+1. Greifen Sie auf die zu klonende Folie zusammen mit ihrer Master‑Folie zu.  
+1. Instanziieren Sie die [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)-Klasse, indem Sie auf die Masters‑Sammlung verweisen, die vom [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekt der Zielpräsentation bereitgestellt wird.  
+1. Rufen Sie die von dem [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)-Objekt bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode auf und übergeben Sie den Master aus der Quell‑PPTX, der geklont werden soll, als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode.  
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Klasse, indem Sie die Referenz auf die Slides‑Sammlung setzen, die vom [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekt der Zielpräsentation bereitgestellt wird.  
+1. Rufen Sie die von dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Objekt bereitgestellte [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode auf und übergeben Sie die zu klonende Folie aus der Quellpräsentation sowie die Master‑Folie als Parameter an die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode.  
+1. Schreiben Sie die modifizierte Zielpräsentationsdatei.
 
-Im nachfolgenden Beispiel haben wir eine Folie mit einem Master (die sich am Index 0 der Quellpräsentation befindet) an das Ende der Zielpräsentation geklont, wobei der Master aus der Quellfolie verwendet wurde.
+Im nachstehenden Beispiel haben wir eine Folie mit Master (die am Index 0 der Quellpräsentation liegt) an das Ende der Zielpräsentation geklont, wobei der Master aus der Quell‑Folie verwendet wurde.
 ```c#
 // Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
-    // Instanziieren Sie die Presentation-Klasse für die Zielpräsentation (in der die Folie geklont werden soll)
+    // Instanziieren Sie die Presentation-Klasse für die Zielpräsentation (in die die Folie geklont werden soll)
     using (Presentation destPres = new Presentation())
     {
 
@@ -158,21 +168,21 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Masterfolien in der
+        // Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung der Masterfolien in der
         // Zielpräsentation
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Masterfolien in der
+        // Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung der Masterfolien in der
         // Zielpräsentation
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // Klonen Sie die gewünschte Folie aus der Quellpräsentation mit der gewünschten Masterfolie an das Ende der
-        // Sammlung der Folien in der Zielpräsentation
+        // Klonen Sie die gewünschte Folie aus der Quellpräsentation mit dem gewünschten Master an das Ende der
+        // Foliensammlung in der Zielpräsentation
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // Klonen Sie die gewünschte Masterfolie von der Quellpräsentation in die Sammlung der Masterfolien in der // Zielpräsentation
+        // Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung der Masterfolien in der // Zielpräsentation
         // Speichern Sie die Zielpräsentation auf der Festplatte
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
@@ -183,10 +193,11 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
 
 
 
-## **Klon am Ende in einem angegebenen Abschnitt**
-Mit Aspose.Slides for .NET können Sie eine Folie aus einem Abschnitt einer Präsentation klonen und diese Folie in einen anderen Abschnitt derselben Präsentation einfügen. In diesem Fall müssen Sie die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)‑Methode aus dem Interface [ISlideCollection] verwenden. 
+## **Eine Folie am Ende eines angegebenen Abschnitts klonen**
 
-Dieser C#‑Code zeigt, wie Sie eine Folie klonen und die geklonte Folie in einen angegebenen Abschnitt einfügen:
+Mit Aspose.Slides für .NET können Sie eine Folie aus einem Abschnitt einer Präsentation klonen und diese Folie in einen anderen Abschnitt derselben Präsentation einfügen. Hierfür verwenden Sie die [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)-Methode des [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)-Interfaces.
+
+Der folgende C#‑Code zeigt, wie Sie eine Folie klonen und die geklonte Folie in einen angegebenen Abschnitt einfügen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -205,14 +216,14 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Werden Sprecher‑Notizen und Prüferkommentare geklont?**
+**Werden Sprecher‑Notizen und Review‑Kommentare geklont?**
 
-Ja. Die Notizenseite und Prüferkommentare sind im Klon enthalten. Wenn Sie sie nicht wünschen, [entfernen Sie sie](/slides/de/net/presentation-notes/) nach dem Einfügen.
+Ja. Die Notizenseite und die Review‑Kommentare werden mit geklont. Wenn Sie diese nicht benötigen, [entfernen Sie sie](/slides/de/net/presentation-notes/) nach dem Einfügen.
 
-**Wie werden Diagramme und deren Datenquellen behandelt?**
+**Wie werden Diagramme und ihre Datenquellen behandelt?**
 
-Das Diagrammobjekt, die Formatierung und die eingebetteten Daten werden kopiert. Wenn das Diagramm mit einer externen Quelle verknüpft war (z. B. einer OLE‑eingebetteten Arbeitsmappe), bleibt diese Verknüpfung als [OLE‑Objekt](/slides/de/net/manage-ole/) erhalten. Nach dem Verschieben zwischen Dateien sollten Sie die Datenverfügbarkeit und das Aktualisierungsverhalten überprüfen.
+Das Diagramm‑Objekt, die Formatierung und die eingebetteten Daten werden kopiert. Wenn das Diagramm mit einer externen Quelle (z. B. einer OLE‑eingebetteten Arbeitsmappe) verknüpft war, bleibt diese Verknüpfung als [OLE‑Objekt](/slides/de/net/manage-ole/) erhalten. Nach dem Verschieben zwischen Dateien sollten Sie die Datenverfügbarkeit prüfen und das Aktualisierungsverhalten testen.
 
-**Kann ich die Einfügeposition und Abschnitte für den Klon steuern?**
+**Kann ich die Einfügeposition und die Abschnitte für das Klon steuern?**
 
-Ja. Sie können den Klon an einem bestimmten Folienindex einfügen und in einen ausgewählten [Abschnitt](/slides/de/net/slide-section/) platzieren. Wenn der Zielabschnitt nicht existiert, erstellen Sie ihn zuerst und verschieben Sie anschließend die Folie dorthin.
+Ja. Sie können den Klon an einem bestimmten Folien‑Index einfügen und ihn in einen ausgewählten [Abschnitt](/slides/de/net/slide-section/) verschieben. Existiert der Ziel‑Abschnitt nicht, erstellen Sie ihn zuerst und verschieben anschließend die Folie dorthin.

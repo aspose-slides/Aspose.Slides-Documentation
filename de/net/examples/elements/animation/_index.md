@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Meistern Sie Folienanimationen in C# mit Aspose.Slides: Fügen Sie Effekte, Zeitsteuerungen und Trigger hinzu, bearbeiten und entfernen Sie sie, um dynamische Präsentationen in PPT, PPTX und ODP zu erstellen."
+description: "Meistern Sie Folienanimationen in C# mit Aspose.Slides: Effekte, Zeitangaben und Auslöser hinzufügen, bearbeiten und entfernen, um dynamische Präsentationen in PPT, PPTX und ODP zu erstellen."
 ---
 
-Zeigt, wie einfache Animationen erstellt und ihre Reihenfolge mit **Aspose.Slides for .NET** verwaltet werden.
+Zeigt, wie man einfache Animationen erstellt und deren Reihenfolge mit **Aspose.Slides for .NET** verwaltet.
 
-## Animation hinzufügen
-
-Erstellen Sie eine Rechteckform und wenden Sie einen Einblendeffekt an, der beim Klicken ausgelöst wird.
+## **Animation hinzufügen**
+Erstelle eine Rechteckform und wende einen Fade-In-Effekt an, der beim Klicken ausgelöst wird.
 ```csharp
 static void Add_Animation()
 {
@@ -36,9 +35,8 @@ static void Add_Animation()
 ```
 
 
-## Zugriff auf eine Animation
-
-Rufen Sie den ersten Animationseffekt aus der Folienzeitachse ab.
+## **Animation abrufen**
+Rufe den ersten Animationseffekt aus der Folienzeitachse ab.
 ```csharp
 static void Access_Animation()
 {
@@ -47,15 +45,14 @@ static void Access_Animation()
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
     slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 
-    // Zugriff auf den ersten Animationseffekt
+    // Ersten Animationseffekt abrufen
     var effect = slide.Timeline.MainSequence[0];
 }
 ```
 
 
-## Animation entfernen
-
-Entfernen Sie einen Animationseffekt aus der Sequenz.
+## **Animation entfernen**
+Entferne einen Animationseffekt aus der Sequenz.
 ```csharp
 static void Remove_Animation()
 {
@@ -70,9 +67,8 @@ static void Remove_Animation()
 ```
 
 
-## Animationen sequenzieren
-
-Fügen Sie mehrere Effekte hinzu und zeigen Sie die Reihenfolge, in der die Animationen ablaufen.
+## **Animationen sequenzieren**
+Füge mehrere Effekte hinzu und zeige die Reihenfolge, in der die Animationen ablaufen.
 ```csharp
 static void Sequence_Animations()
 {

@@ -1,12 +1,12 @@
 ---
-title: لماذا لا نستخدم Open XML SDK
+title: لماذا لا تستخدم Open XML SDK
 type: docs
 weight: 50
 url: /ar/net/why-not-open-xml-sdk/
 keywords:
 - Open XML SDK
 - مقارنة
-- نموذج كائن العرض التقديمي
+- نموذج كائن العرض
 - تحويل عالي الجودة
 - PowerPoint
 - OpenDocument
@@ -14,62 +14,57 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف لماذا Aspose.Slides هو الخيار الأفضل مقارنةً بـ Open XML SDK المجانية: قارن الميزات، التحويل بدون أتمتة، والدعم الواسع لـ PPT و PPTX و ODP."
+description: "انظر لماذا Aspose.Slides هو خيار أفضل من Open XML SDK المجاني: قارن الخصائص، التحويل بدون أتمتة، ودعم واسع لـ PPT و PPTX و ODP."
 ---
 
-## **ما هو Open XML SDK؟**
-أحيانًا نتلقى هذا السؤال: *لماذا يجب أن نستخدم منتجات Aspose بدلاً من Open XML SDK المجانية؟* 
+## **ما هو Open XML SDK?**
+أحيانًا، نتلقى هذا السؤال: *لماذا ينبغي لنا استخدام منتجات Aspose بدلاً من Open XML SDK المجاني؟* 
 
 نجد أنه من السهل الإجابة على هذا السؤال من حيث الميزات والوظائف. 
 
-وفقًا لـ[مكتبة MSDN](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk)، يتم تعريف Open XML SDK على النحو التالي: 
+وفقًا لـ [MSDN Library](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk)، يتم تعريف Open XML SDK على النحو التالي:
 
-> "The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree, and working with XML elements and attributes directly, Open XML SDK provides classes to do that."
+> "يبسط Open XML SDK 2.0 مهمة التلاعب بحزم Open XML وعناصر مخطط Open XML الأساسية داخل الحزمة. يضمّن Open XML SDK 2.0 العديد من المهام الشائعة التي يقوم بها المطورون على حزم Open XML، بحيث يمكنك تنفيذ عمليات معقدة ببضع أسطر من الكود فقط. مستندات OOXML هي في الأساس ملفات XML مضغوطة، ويُعد Open XML SDK مجموعة من الفئات التي تتيح لك العمل مع محتوى مستندات OOXML بطريقة ذات نوعية قوية. بدلاً من فك ضغط ملف لاستخراج XML، وتحميل ذلك XML إلى شجرة DOM، والعمل مباشرةً مع عناصر XML وسماته، يوفر Open XML SDK فئات للقيام بذلك."
 
 ## **ما هو Aspose.Slides؟**
-Aspose.Slides هي مكتبة فئات تسمح للتطبيقات بتنفيذ مهام معالجة العروض التقديمية التالية: 
+Aspose.Slides هي مكتبة فئات تسمح للتطبيقات بأداء مهام معالجة العروض التقديمية التالية:
 
-- البرمجة باستخدام نموذج كائن العرض التقديمي.
-
-- تحويلات عالية الجودة تشمل جميع صيغ عروض PowerPoint المدعومة، بما في ذلك التحويل إلى PDF وXPS وTIFF والطباعة.
-
-- إنشاء صور مصغرة للشرائح بصيغ معروفة مثل PNG وJPEG وBMP إلى جانب تصدير الشرائح إلى SVG.
-
-- إنشاء عروض تقديمية من الصفر أو عن طريق دمج عناصر من مستند واحد أو عدة مستندات.
-
+- البرمجة باستخدام نموذج كائن العرض.
+- تحويلات عالية الجودة تشمل جميع تنسيقات عروض PowerPoint المدعومة، بما في ذلك التحويل إلى PDF وXPS وTIFF والطباعة.
+- إنشاء صور مصغرة للشرائح بصيغ معروفة مثل PNG وJPEG وBMP بالإضافة إلى تصدير الشرائح إلى SVG.
+- إنشاء عروض تقديمية من الصفر أو عن طريق دمج العناصر من مستند واحد أو عدة مستندات.
 - إضافة الرسوم المتحركة، إطارات OLE، الجداول، إنشاء وإدارة المخططات.
+- التحكم (تحكم شامل) وإدارة تنسيق النص على مستويات TextFrames وParagraphs وPortions.
 
-- التحكم (التحكم الشامل) وإدارة تنسيق النص على مستويات TextFrames والفقرات والأقسام. 
-
-لمزيد من التفاصيل حول الميزات المتاحة، يرجى زيارة صفحة [ميزات Aspose.Slides](/slides/ar/net/product-overview/).
+لمزيد من التفاصيل حول الميزات المتاحة، يرجى الاطلاع على صفحة [Aspose.Slides Features](/slides/ar/net/product-overview/).
 
 ## **مقارنة Open XML SDK مع Aspose.Slides**
+يقارن هذا الجدول قدرات وميزات Open XML SDK مع Aspose.Slides.
+
 |**الميزة أو فئة الميزة**|**Open XML SDK**|**Aspose.Slides**|
 | :- | :- | :- |
-|صيغ العروض المدعومة|PPTX|PPT, POT, PPS, PPTX, POTX, PPSX, ODP|
-|التحويل من PPT إلى PPTX |No|Yes|
-|<p>البرمجة عالية المستوى باستخدام نموذج كائن مستند العرض (DOM): </p><p>- البحث والاستبدال للنصوص.</p><p>- تجميع الشرائح في العروض.</p>|No|Yes|
-|برمجة مفصلة باستخدام نموذج كائن المستند؛ وصول إلى العناصر الفردية والتنسيق مثل TextHolders وTextFrames والفقرات والأقسام.|Yes|Yes|
-|وصول منخفض المستوى مباشر وكامل إلى عناصر XML والسمات الأساسية مثل معرفات العلاقات، ومعرفات القوائم في مستند OOXML.|Yes|No|
-|<p>العرض والطباعة:</p><p>- تصيير العروض إلى PDF، ملاحظات PDF، XPS، صور TIFF.</p><p>- تصيير الصور المصغرة للشرائح إلى PNG، JPEG، BMP، SVG وTIFF.</p><p>- تحديد دقة الصورة، الجودة، الضغط وخيارات أخرى.</p><p>- طباعة العروض باستخدام بنية الطباعة في .NET. المكوّن يحتوي على طريقة طباعة مدمجة لطباعة العروض كما هو موضح في معاينة الطباعة لبرنامج MS PowerPoint.</p>|No|Yes|
-|المنصات المدعومة|Windows, .NET|Windows, Linux, Java, .NET, Mono|
+|تنسيقات العروض المدعومة|PPTX|PPT, POT, PPS, PPTX, POTX, PPSX, ODP|
+|التحويل من PPT إلى PPTX|No|Yes|
+|<p>البرمجة عالية المستوى باستخدام نموذج كائن مستند العرض (DOM): </p><p>- البحث عن النصوص واستبدالها.</p><p>- تجميع الشرائح في العروض.</p>|No|Yes|
+|البرمجة التفصيلية باستخدام نموذج كائن المستند؛ الوصول إلى العناصر الفردية والتنسيق مثل TextHolders وTextFrames وParagraphs وPortions.|Yes|Yes|
+|الوصول المباشر والمنخفض المستوى بالكامل إلى عناصر XML الأساسية والسمات مثل معرفات العلاقات ومعرفات القوائم في مستند OOXML.|Yes|No|
+|<p>العرض والطباعة:</p><p>- عرض العروض إلى PDF، ملاحظات PDF، XPS، صور TIFF.</p><p>- عرض الصور المصغرة للشرائح إلى PNG وJPEG وBMP وSVG وTIFF.</p><p>- تحديد دقة الصورة، الجودة، الضغط وخيارات أخرى.</p><p>- طباعة العروض باستخدام بنية .NET للطباعة. يحتوي المكوّن على طريقة طباعة مدمجة لطباعة العروض كما هو موضح في معاينة الطباعة لبرنامج MS PowerPoint.</p>|No|Yes|
+|الأنظمة المدعومة|Windows, .NET|Windows, Linux, Java, .NET, Mono|
 
 ## **الخلاصة**
-Open XML SDK و Aspose.Slides لا يتنافسان مباشرة لأنهما يلبيان احتياجات مختلفة إلى حد كبير، ويستهدفان جماهير مختلفة. 
+Open XML SDK و Aspose.Slides لا يتنافسان مباشرةً لأنها تلبي احتياجات مختلفة اختلافًا كبيرًا، وتستهدف جماهير مختلفة. 
 
 {{% alert color="primary" %}} 
-
-Open XML SDK هي مكتبة فئات توفر طريقة قوية النوع للعمل مع مستندات OOXML، بينما Aspose.Slides هي مكتبة معالجة عروض تقديمية ذات فائدة كبيرة توفر دعمًا ممتازًا لجميع صيغ ملفات Microsoft PowerPoint تقريبًا. 
-
+Open XML SDK هي مكتبة فئات توفر طريقة ذات نوعية قوية للعمل مع مستندات OOXML بينما Aspose.Slides هي مكتبة معالجة عروض تقديمية مفيدة للغاية توفر دعمًا كبيرًا لمعظم تنسيقات ملفات Microsoft PowerPoint. 
 {{% /alert %}} 
 
-إذا كان سير عملك عملية برمجة أساسية على مستند PPTX، فقد يكون Open XML SDK خيارًا جيدًا. مع Open XML SDK، يجب أن تكون قادرًا على تنفيذ مهام بسيطة مثل إنشاء مستند PPTX بسيط أو إزالة التعليقات، الرؤوس/التذييلات، استخراج الصور أو غيرها. بعض المهام يمكن تنفيذها باستخدام Open XML SDK ولا يمكن تنفيذها باستخدام Aspose.Slides. على سبيل المثال، إذا كنت بحاجة إلى الوصول مباشرة إلى عناصر XML وسماتها في مستند OOXML، فيجب عليك استخدام Open XML SDK. 
+إذا كانت سير عملك عملية برمجة أساسية على مستند PPTX، فقد يكون Open XML SDK خيارًا جيدًا. باستخدام Open XML SDK، يجب أن تكون قادرًا على تنفيذ مهام بسيطة مثل إنشاء مستند PPTX بسيط أو إزالة التعليقات، رؤوس/تذييلات الصفحات، استخراج الصور أو غيرها. يمكن تنفيذ بعض المهام باستخدام Open XML SDK ولا يمكن تنفيذها باستخدام Aspose.Slides. على سبيل المثال، إذا كنت بحاجة إلى الوصول مباشرةً إلى عناصر XML وسماتها في مستند OOXML، فيجب عليك استخدام Open XML SDK. 
 
-إذا كنت بحاجة إلى تنفيذ مهام معقدة على المستندات—مثل المهام المذكورة أدناه—فإن Aspose.Slides هو الخيار الأفضل لك. 
+إذا كنت بحاجة إلى تنفيذ مهام معقدة على المستندات—مثل المهام المذكورة في القائمة أدناه—فإن Aspose.Slides هو الخيار الأفضل لك. 
 
-- عمليات تتعلق بصيغ PowerPoint القديمة (وكذلك PPTX).  
-- نسخ أو استنساخ الأشكال داخل الشرائح بطريقة تجمع بين الكائنات والأنماط وعناصر التنسيق الأخرى بطريقة مناسبة.  
+- العمليات المتعلقة بتنسيقات PowerPoint القديمة (وأيضًا PPTX).  
+- نسخ أو استنساخ الأشكال داخل الشرائح بطريقة تجمع بين الكائنات والأنماط وعناصر التنسيق الأخرى بشكل مناسب.  
 - استبدال النص المنسق أو غير المنسق.  
 - تطبيق الرسوم المتحركة واستخدام الوصلات مع الأشكال.  
-- تحويل مستند إلى PDF أو TIFF أو XPS بحيث يبدو كما لو أن Microsoft PowerPoint قام بالتحويل.  
+- تحويل المستند إلى PDF أو TIFF أو XPS بحيث يبدو كما لو أن Microsoft PowerPoint قام بالتحويل.  
 - تطوير تطبيق .NET أو Java في بيئات سطح المكتب والويب.

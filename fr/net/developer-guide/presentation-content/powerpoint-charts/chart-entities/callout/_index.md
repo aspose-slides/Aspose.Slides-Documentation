@@ -1,11 +1,11 @@
 ---
-title: Gérer les callouts dans les graphiques de présentation dans .NET
-linktitle: Info-bulle
+title: Gérer les annotations dans les graphiques de présentation en .NET
+linktitle: Annotation
 type: docs
 url: /fr/net/callout/
 keywords:
-- callout de graphique
-- utiliser le callout
+- annotation de graphique
+- utiliser annotation
 - étiquette de données
 - format d'étiquette
 - PowerPoint
@@ -13,11 +13,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Créer et styliser des callouts dans Aspose.Slides pour .NET avec des exemples de code C# concis, compatibles avec PPT et PPTX pour automatiser les flux de travail de présentation."
+description: "Créez et stylisez les annotations dans Aspose.Slides pour .NET avec des exemples de code C# concis, compatibles avec PPT et PPTX pour automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des callouts**
-La nouvelle propriété **ShowLabelAsDataCallout** a ete ajoutee a la classe **DataLabelFormat** et a l'interface **IDataLabelFormat**, ce qui determine si le libelle de donnees d'un graphique specifie sera affiché comme callout de données ou comme libelle de données. Dans l'exemple ci-dessous, nous avons defini les callouts.
+## **Utilisation des annotations**
+Une nouvelle propriété **ShowLabelAsDataCallout** a été ajoutée à la classe **DataLabelFormat** et à l'interface **IDataLabelFormat**, qui détermine si l'étiquette de données du graphique spécifié sera affichée sous forme d'annotation de données ou d'étiquette de données. Dans l'exemple ci-dessous, nous avons configuré les annotations.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -30,9 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-## **Definir le callout pour le graphique en anneau**
-Aspose.Slides pour .NET prend en charge la definition de la forme de callout du libelle de donnees d'une serie pour un graphique en anneau. L'exemple ci-dessous est fourni.
+## **Définir une annotation pour un graphique en anneau**
+Aspose.Slides for .NET fournit la prise en charge de la définition de la forme d'annotation d'étiquette de données de série pour un graphique en anneau. L'exemple d'echantillon ci-dessous est fourni.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -95,10 +94,8 @@ pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Les callouts sont-ils conservés lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
+**Les annotations sont-elles conservees lors de la conversion d’une presentation en PDF, HTML5, SVG ou images?**
+Oui. Les annotations font partie du rendu du graphique, ainsi lorsque vous exportez vers [PDF](/slides/fr/net/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/net/export-to-html5/), [SVG](/slides/fr/net/render-a-slide-as-an-svg-image/), ou [images matricielles](/slides/fr/net/convert-powerpoint-to-png/), elles sont conservees avec le formatage de la diapositive.
 
-Oui. Les callouts font partie du rendu du graphique, de sorte que lors de l'exportation vers [PDF](/slides/fr/net/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/net/export-to-html5/), [SVG](/slides/fr/net/render-a-slide-as-an-svg-image/), ou [images raster](/slides/fr/net/convert-powerpoint-to-png/), ils sont conservés avec le formatage de la diapositive.
-
-**Les polices personnalisées fonctionnent-elles dans les callouts, et leur apparence peut-elle être conservée lors de l'exportation ?**
-
-Oui. Aspose.Slides prend en charge [l'intégration de polices](/slides/fr/net/embedded-font/) dans la présentation et contrôle l'intégration des polices lors des exportations telles que [PDF](/slides/fr/net/convert-powerpoint-to-pdf/), garantissant que les callouts conservent le même aspect sur différents systèmes.
+**Les polices personnalisees fonctionnent-elles dans les annotations, et leur apparence peut-elle etre conservee a l’exportation?**
+Oui. Aspose.Slides prend en charge [l’integration de polices](/slides/fr/net/embedded-font/) dans la presentation et controle l’integration des polices lors des exportations telles que [PDF](/slides/fr/net/convert-powerpoint-to-pdf/), garantissant que les annotations conservent le meme aspect sur differents systemes.

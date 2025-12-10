@@ -26,26 +26,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: تحويل شرائح PowerPoint و OpenDocument إلى XAML في .NET باستخدام Aspose.Slides—حل سريع بدون Office يحافظ على تنسيقك.
+description: "تحويل شرائح PowerPoint وOpenDocument إلى XAML في .NET باستخدام Aspose.Slides—حل سريع خالٍ من Office يحافظ على تخطيطك دون تغيير."
 ---
 
-# **تصدير العروض التقديمية إلى XAML**
+## **تصدير العروض التقديمية إلى XAML**
 
 {{% alert title="Info" color="info" %}} 
-
-في Aspose.Slides 21.6، قمنا بتنفيذ دعم تصدير XAML. يمكنك الآن تصدير عروضك التقديمية إلى XAML. 
-
+في [Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-6-release-notes/)، أضفنا دعمًا لتصدير XAML. يمكنك الآن تصدير العروض التقديمية إلى XAML. 
 {{% /alert %}} 
 
-# **حول XAML**
+## **حول XAML**
 
-XAML هي لغة برمجة وصفية تتيح لك بناء أو كتابة واجهات المستخدم للتطبيقات، خاصة تلك التي تستخدم WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin Forms.  
+XAML هي لغة برمجة وصفية تسمح لك بإنشاء أو كتابة واجهات المستخدم للتطبيقات، خاصةً تلك التي تستخدم WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin Forms.  
 
-XAML، التي هي لغة مبنية على XML، هي النسخة الخاصة بمايكروسوفت لوصف واجهة المستخدم الرسومية. من المحتمل أن تستخدم مصممًا للعمل على ملفات XAML معظم الوقت، لكن يمكنك أيضًا كتابة وتحرير واجهتك الرسومية يدويًا. 
+XAML، التي هي لغة مبنية على XML، هي نسخة مايكروسوفت لوصف واجهة المستخدم الرسومية. من المرجح أن تستخدم مصممًا للعمل على ملفات XAML في معظم الأوقات، لكن لا يزال بإمكانك كتابة وتحرير واجهة المستخدم الخاصة بك. 
 
 ## **تصدير العروض التقديمية إلى XAML باستخدام الخيارات الافتراضية**
 
-يعرض لك هذا الكود C# كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
+يُظهر لك هذا الكود C# كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -56,9 +54,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **تصدير العروض التقديمية إلى XAML باستخدام خيارات مخصصة**
 
-يمكنك اختيار خيارات من واجهة [IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) التي تتحكم في عملية التصدير وتحدد كيفية تصدير Aspose.Slides للعرض التقديمي إلى XAML. 
+يمكنك اختيار الخيارات من واجهة [IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) التي تتحكم في عملية التصدير وتحدد كيفية تصدير Aspose.Slides للعرض التقديمي إلى XAML. 
 
-على سبيل المثال، إذا كنت تريد أن تقوم Aspose.Slides بإضافة الشرائح المخفية من عرضك التقديمي عند تصديره إلى XAML، يمكنك تعيين الخاصية [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) إلى true. انظر هذا المثال من كود C#:
+على سبيل المثال، إذا كنت تريد أن تضيف Aspose.Slides الشرائح المخفية من عرضك التقديمي عند تصديره إلى XAML، يمكنك تعيين خاصية [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) إلى true. راجع هذا مثال الكود C#:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -67,16 +65,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني ضمان خطوط ثابتة إذا كان الخط الأصلي غير متوفر على الجهاز؟**
+**كيف يمكنني ضمان خطوط متوقعة إذا لم يتوفر الخط الأصلي على الجهاز؟**
 
-قم بتعيين [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) في [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) — يتم استخدامه كخط احتياطي عندما يكون الخط الأصلي مفقودًا. يساعد ذلك على تجنب الاستبدالات غير المتوقعة.
+قم بتعيين [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) في [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) — يُستخدم كخط احتياطي عندما يكون الخط الأصلي غير موجود. يساعد ذلك في تجنب الاستبدالات غير المتوقعة.
 
-**هل XAML المصدر مخصص فقط لـ WPF، أم يمكن استخدامه في أطر XAML أخرى أيضًا؟**
+**هل XAML المصدَّر مخصص فقط لـ WPF، أم يمكن استخدامه في مجموعات XAML أخرى أيضًا؟**
 
-XAML هي لغة توصيف عامة لواجهة المستخدم تُستخدم في WPF وUWP وXamarin.Forms. هدف التصدير هو التوافق مع أطر Microsoft XAML؛ السلوك الدقيق والدعم للتركيبات المحددة يعتمد على منصة الهدف. اختبر العلامات في بيئتك.
+XAML هي لغة توصيف واجهة مستخدم عامة تُستخدم في WPF وUWP وXamarin.Forms. يهدف التصدير إلى التوافق مع مجموعات XAML من مايكروسوفت؛ السلوك الدقيق ودعم العناصر المحددة يعتمد على المنصة المستهدفة. اختبر العلامات في بيئتك.
 
-**هل يتم دعم الشرائح المخفية، وكيف يمكنني منع تصديرها بشكل افتراضي؟**
+**هل تُدعم الشرائح المخفية، وكيف يمكنني منع تصديرها افتراضيًا؟**
 
-بشكل افتراضي، لا تُضمّن الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر الخاصية [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/exporthiddenslides/) في [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) — أبقِها غير مفعلة إذا لم تحتاج إلى تصديرها.
+بشكل افتراضي، لا تُضمن الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/exporthiddenslides/) في [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) — احتفظ به معطلًا إذا لم تكن بحاجة إلى تصديرها.

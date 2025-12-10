@@ -5,11 +5,11 @@ type: docs
 url: /ar/net/chart-data-label/
 keywords:
 - مخطط
-- تسمية بيانات
+- تسمية البيانات
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موقع التسمية
+- موضع التسمية
 - PowerPoint
 - عرض تقديمي
 - .NET
@@ -18,10 +18,11 @@ keywords:
 description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for .NET للحصول على شرائح أكثر جاذبية."
 ---
 
-تظهر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. إنها تتيح للقراء التعرف سريعًا على سلاسل البيانات وتساعد أيضًا في جعل المخططات أسهل للفهم.
+توفر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تمكّن القراء من التعرف بسرعة على سلاسل البيانات وتساعد أيضًا في جعل المخططات أسهل للفهم.
 
-## **تحديد دقة البيانات في تسميات بيانات المخطط**
+## **تعيين دقة البيانات في تسميات بيانات المخطط**
 
+يُظهر لك هذا الكود C# كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -34,11 +35,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **عرض النسبة المئوية كتسميات**
+## **عرض النسبة المئوية كعلامات**
 
-تسمح لك Aspose.Slides for .NET بتعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C# العملية:
+يتيح لك Aspose.Slides for .NET تعيين تسميات النسبة المئوية على المخططات المعروضة. يُظهر لك هذا الكود C# العملية:
 ```c#
-// ينشئ كائنًا من فئة Presentation
+// إنشاء مثيل من فئة Presentation
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -90,39 +91,41 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 ## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-يظهر لك هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
+يُظهر لك هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 ```c#
-// ينشئ نسخة من فئة Presentation
+// إنشاء مثيل من فئة Presentation
 Presentation presentation = new Presentation();
 
-// يحصل على مرجع الشريحة عبر الفهرس الخاص بها
 ISlide slide = presentation.Slides[0];
 
-// ينشئ مخطط PercentsStackedColumn على شريحة
+// الحصول على مرجع الشريحة عبر الفهرس
+// (هذه السطر تم ترجمته بالفعل أعلاه، يتم الاحتفاظ به كما هو لا تعديل الكود)
+
+// إنشاء مخطط PercentsStackedColumn على شريحة
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// يضبط خاصية NumberFormatLinkedToSource إلى false
+// تعيين NumberFormatLinkedToSource إلى false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// يحصل على ورقة بيانات المخطط
+// Gets the chart data worksheet
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// يضيف سلسلة جديدة
+// Adds new series
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// يضبط لون تعبئة السلسلة
+// Sets the fill color of series
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// يضبط خصائص تنسيق التسمية
+// Sets the LabelFormat properties
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -131,14 +134,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// يضيف سلسلة جديدة
+// Adds new series
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// يضبط نوع التعبئة واللون
+// Sets Fill type and color
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -148,37 +151,37 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// يكتب العرض التقديمي إلى القرص
+// حفظ العرض التقديمي إلى القرص
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **تحديد مسافة التسمية من المحور**
+## **تعيين مسافة التسمية من المحور**
 
-يظهر لك هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
+يُظهر لك هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
 ```c#
-// ينشئ كائنًا من فئة Presentation
+// إنشاء مثيل من فئة Presentation
 Presentation presentation = new Presentation();
 
-// يحصل على مرجع الشريحة
+// الحصول على مرجع الشريحة
 ISlide sld = presentation.Slides[0];
 
-// ينشئ مخططًا على الشريحة
+// إنشاء مخطط على الشريحة
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// يضبط مسافة التسمية من المحور
+// تعيين مسافة التسمية من المحور
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
-// يحفظ العرض التقديمي إلى القرص
+// حفظ العرض التقديمي إلى القرص
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **ضبط موقع التسمية**
+## **ضبط موضع التسمية**
 
-عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات للمخطط قريبة جدًا من حدّه. في مثل هذه الحالة، يجب ضبط موقع تسمية البيانات بحيث يتم عرض خطوط التوجيه بوضوح.
+عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تصبح تسميات بيانات المخطط قريبة جدًا من حافته. في هذه الحالة، يتعين عليك ضبط موضع التسمية بحيث يتم عرض خطوط الربط بوضوح.
 
-يظهر لك هذا الكود C# كيفية ضبط موقع التسمية في مخطط الفطيرة: 
+يُظهر لك هذا الكود C# كيفية ضبط موضع التسمية على مخطط الفطيرة:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -197,18 +200,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![مخطط فطيرة مع تعديل التسمية](pie-chart-adjusted-label.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكثفة؟**
 
-اجمع بين وضع التسمية التلقائي، وخطوط التوجيه، وصغر حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/الرئيسية.
+استخدم وضعية التسمية التلقائية، خطوط الربط، وتقليل حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/المفتاحية.
 
-**كيف يمكنني تعطيل التسميات فقط للقيم الصفرية أو السلبية أو الفارغة؟**
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
 
-قم بفلترة نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفقًا لقاعدة محددة.
+قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم الفارغة وفقاً لقاعدة محددة.
 
-**كيف يمكنني ضمان نمط تسميات متسق عند التصدير إلى PDF/صور؟**
+**كيف أضمن نمط تسميات متسق عند التصدير إلى PDF/صور؟**
 
-حدد الخطوط صراحة (العائلة، الحجم) وتأكد من توافر الخط على جانب العرض لتجنب fallback.
+حدّد الخطوط (العائلة، الحجم) صراحةً وتأكد من توفر الخط على جانب العرض لتجنّب الاعتماد على الخطوط البديلة.

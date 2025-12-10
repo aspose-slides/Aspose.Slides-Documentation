@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Controle encabezados y pies de página en C# con Aspose.Slides: agregue o edite fecha/hora, números de diapositiva y texto del pie de página, muestre u oculte marcadores de posición en PPT, PPTX y ODP."
+description: "Controla los encabezados y pies de página en C# con Aspose.Slides: agrega o edita fecha/hora, números de diapositiva y texto del pie de página, muestra u oculta los marcadores de posición en PPT, PPTX y ODP."
 ---
 
-Muestra cómo agregar pies de página y actualizar marcadores de posición de fecha y hora usando **Aspose.Slides for .NET**.
+Muestra cómo agregar pies de página y actualizar los marcadores de posición de fecha y hora usando **Aspose.Slides for .NET**.
 
-## Agregar un pie de página
+## **Agregar un pie de página**
 
-Agrega texto al área de pie de página de una diapositiva y hazlo visible.
+Agrega texto al área del pie de página de una diapositiva y hazlo visible.
 ```csharp
 static void Add_Header_Footer()
 {
@@ -33,7 +33,7 @@ static void Add_Header_Footer()
 ```
 
 
-## Actualizar fecha y hora
+## **Actualizar fecha y hora**
 
 Modifica el marcador de posición de fecha y hora en una diapositiva.
 ```csharp

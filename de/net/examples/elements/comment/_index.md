@@ -9,19 +9,19 @@ keywords:
 - Kommentar hinzufügen
 - Kommentar abrufen
 - Kommentar entfernen
-- Auf Kommentar antworten
+- Kommentar beantworten
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie Folienkommentare in C# mit Aspose.Slides: Hinzufügen, Lesen, Antworten, Bearbeiten, Löschen und Arbeiten mit verschachtelten Kommentaren für PowerPoint und OpenDocument."
+description: "Verwalten Sie Folienkommentare in C# mit Aspose.Slides: hinzufügen, lesen, beantworten, bearbeiten, löschen und mit verschachtelten Kommentaren für PowerPoint und OpenDocument arbeiten."
 ---
 
 Demonstriert das Hinzufügen, Lesen, Entfernen und Antworten auf moderne Kommentare mit **Aspose.Slides for .NET**.
 
-## Modernen Kommentar hinzufügen
+## **Einen modernen Kommentar hinzufügen**
 
 Erstellen Sie einen von einem Benutzer verfassten Kommentar und speichern Sie die Präsentation.
 ```csharp
@@ -38,7 +38,7 @@ static void Add_Modern_Comment()
 ```
 
 
-## Auf einen modernen Kommentar zugreifen
+## **Auf einen modernen Kommentar zugreifen**
 
 Lesen Sie einen modernen Kommentar aus einer vorhandenen Präsentation.
 ```csharp
@@ -53,7 +53,7 @@ static void Access_Modern_Comment()
 ```
 
 
-## Modernen Kommentar entfernen
+## **Einen modernen Kommentar entfernen**
 
 Entfernen Sie einen Kommentar und speichern Sie die aktualisierte Datei.
 ```csharp
@@ -70,7 +70,7 @@ static void Remove_Modern_Comment()
 ```
 
 
-## Auf einen modernen Kommentar antworten
+## **Auf einen modernen Kommentar antworten**
 
 Fügen Sie Antworten zu einem übergeordneten modernen Kommentar hinzu.
 ```csharp

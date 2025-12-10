@@ -16,24 +16,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API 更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行しましょう。"
 ---
 
 {{% alert color="primary" %}} 
-このページでは、追加された[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/)または削除された[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/)クラス、メソッド、プロパティ等、そして Aspose.Slides for .NET 15.2.0 APIで導入されたその他の変更をすべて一覧表示します。
+このページでは、[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) または [removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) クラス、メソッド、プロパティなど、すべての変更と、Aspose.Slides for .NET 15.2.0 API によって導入されたその他の変更を一覧表示します。
 {{% /alert %}} 
 ## **パブリック API の変更**
 #### **AddDataPointForDoughnutSeries メソッドが追加されました**
-ドーナツチャートタイプの系列にデータポイントを追加するために、IChartDataPointCollection.AddDataPointForDoughnutSeries() メソッドの2つのオーバーロードが追加されました。
+IChartDataPointCollection.AddDataPointForDoughnutSeries() メソッドの 2 つのオーバーロードが、ドーナツ チャート タイプのシリーズにデータ ポイントを追加するために追加されました。
 #### **Aspose.Slides.SmartArt.SmartArtShape クラスが Aspose.Slides.GeometryShape クラスから継承されました**
-Aspose.Slides.SmartArt.SmartArtShape クラスは Aspose.Slides.GeometryShape クラスから継承されました。この変更により Aspose.Slides のオブジェクトモデルが改善され、SmartArtShape クラスに新機能が追加されます。
-#### **インデックスでチャートのデータポイントとカテゴリを削除するメソッドが追加されました**
-IChartDataPointCollection.RemoveAt(int index) メソッドはインデックスでチャートデータポイントを削除するために追加されました。  
-IChartCategoryCollection.RemoveAt(int index) メソッドはインデックスでチャートカテゴリを削除するために追加されました。
-#### **PptXPptY 値が Aspose.Slides.Animation.PropertyType 列挙体に追加されました**
-PptXPptY 値が Aspose.Slides.Animation.PropertyType 列挙体に追加されました。これはシリアライズ問題の修正の範囲です。
-#### **System.Drawing.Color GetAutomaticSeriesColor() メソッドが Aspose.Slides.Charts.IChartSeries に追加されました**
-GetAutomaticSeriesColor メソッドは、シリーズインデックスとチャートスタイルに基づいてシリーズの自動カラーを返します。このカラーは FillType が NotDefined の場合にデフォルトで使用されます。
+Aspose.Slides.SmartArt.SmartArtShape クラスは Aspose.Slides.GeometryShape クラスから継承されました。この変更により Aspose.Slides のオブジェクト モデルが改善され、SmartArtShape クラスに新機能が追加されます。
+#### **インデックスでチャート データ ポイントとチャート カテゴリを削除するメソッドが追加されました**
+IChartDataPointCollection.RemoveAt(int index) メソッドが、インデックスでチャート データ ポイントを削除するために追加されました。  
+IChartCategoryCollection.RemoveAt(int index) メソッドが、インデックスでチャート カテゴリを削除するために追加されました。
+#### **Aspose.Slides.Animation.PropertyType 列挙体に PptXPptY 値が追加されました**
+シリアライズの問題修正の対象として、Aspose.Slides.Animation.PropertyType 列挙体に PptXPptY 値が追加されました。
+#### **Aspose.Slides.Charts.IChartSeries に System.Drawing.Color GetAutomaticSeriesColor() メソッドが追加されました**
+GetAutomaticSeriesColor メソッドは、シリーズのインデックスとチャート スタイルに基づいてシリーズの自動カラーを返します。FillType が NotDefined の場合、このカラーがデフォルトで使用されます。
 
 ``` csharp
 

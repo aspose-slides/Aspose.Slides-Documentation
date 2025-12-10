@@ -1,43 +1,43 @@
 ---
-title: Gestion des arrière-plans de présentation dans .NET
-linktitle: Arrière‑plan de diapositive
+title: Gérer les arrière-plans de présentation dans .NET
+linktitle: Arrière-plan de diapositive
 type: docs
 weight: 20
 url: /fr/net/presentation-background/
 keywords:
-- arrière‑plan de présentation
-- arrière‑plan de diapositive
+- arrière-plan de présentation
+- arrière-plan de diapositive
 - couleur unie
 - couleur dégradée
-- arrière‑plan d'image
-- transparence d'arrière‑plan
-- propriétés d'arrière‑plan
+- arrière-plan d'image
+- transparence de l'arrière-plan
+- propriétés de l'arrière-plan
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Apprenez à définir des arrière‑plans dynamiques dans les fichiers PowerPoint et OpenDocument en utilisant Aspose.Slides pour .NET, avec des astuces de code pour améliorer vos présentations."
+description: "Apprenez à définir des arrière-plans dynamiques dans les fichiers PowerPoint et OpenDocument en utilisant Aspose.Slides pour .NET, avec des astuces de code pour améliorer vos présentations."
 ---
 
-## **Vue d'ensemble**
+## **Aperçu**
 
-Les couleurs unies, les dégradés et les images sont couramment utilisés comme arrière-plans de diapositives. Vous pouvez définir l'arrière-plan pour une **diapositive normale** (une seule diapositive) ou une **diapositive maître** (s'applique à plusieurs diapositives à la fois).
+Les couleurs unies, les dégradés et les images sont couramment utilisés comme arrière-plan de diapositives. Vous pouvez définir l'arrière-plan pour une **diapositive normale** (une seule diapositive) ou une **diapositive maître** (s'applique à plusieurs diapositives à la fois).
 
 ![Arrière-plan PowerPoint](powerpoint-background.png)
 
-## **Définir un arrière-plan de couleur unie pour une diapositive normale**
+## **Définir un arrière-plan couleur unie pour une diapositive normale**
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour une diapositive spécifique dans une présentation — même si la présentation utilise une diapositive maître. La modification ne s'applique qu'à la diapositive sélectionnée.
+Aspose.Slides vous permet de définir une couleur unie comme arrière-plan d'une diapositive spécifique dans une présentation - même si la présentation utilise une diapositive maître. La modification s'applique uniquement à la diapositive sélectionnée.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
 2. Définissez le [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
-3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) d'arrière-plan de la diapositive sur `Solid`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Solid`.
 4. Utilisez la propriété [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) sur [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) pour spécifier la couleur d'arrière-plan unie.
 5. Enregistrez la présentation modifiée.
 
-L'exemple C# suivant montre comment définir une couleur bleue unie comme arrière-plan d'une diapositive normale :
+L'exemple C# suivant montre comment définir une couleur unie bleue comme arrière-plan pour une diapositive normale :
 ```cs
 // Créer une instance de la classe Presentation.
 using (Presentation presentation = new Presentation())
@@ -55,17 +55,17 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Définir un arrière-plan de couleur unie pour la diapositive maître**
+## **Définir un arrière-plan couleur unie pour une diapositive maître**
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour la diapositive maître d'une présentation. La diapositive maître agit comme un modèle qui contrôle le formatage de toutes les diapositives ; ainsi, lorsque vous choisissez une couleur unie pour l'arrière-plan de la diapositive maître, elle s'applique à chaque diapositive.
+Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour la diapositive maître d'une présentation. La diapositive maître agit comme un modèle qui contrôle le formatage de toutes les diapositives, ainsi lorsque vous choisissez une couleur unie pour l'arrière-plan de la diapositive maître, elle s'applique à chaque diapositive.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
 2. Définissez le [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositive maître (via `masters`) sur `OwnBackground`.
-3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) d'arrière-plan de la diapositive maître sur `Solid`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) de l'arrière-plan de la diapositive maître sur `Solid`.
 4. Utilisez le [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) pour spécifier la couleur d'arrière-plan unie.
 5. Enregistrez la présentation modifiée.
 
-L'exemple C# suivant montre comment définir une couleur unie (vert forêt) comme arrière-plan d'une diapositive maître :
+L'exemple C# suivant montre comment définir une couleur unie (vert forêt) comme arrière-plan pour une diapositive maître :
 ```cs
 // Créer une instance de la classe Presentation.
 using (Presentation presentation = new Presentation())
@@ -83,17 +83,17 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Définir un arrière-plan en dégradé pour une diapositive**
+## **Définir un arrière-plan dégradé pour une diapositive**
 
-Un dégradé est un effet graphique créé par un changement progressif de couleur. Lorsqu'il est utilisé comme arrière-plan de diapositive, le dégradé peut rendre les présentations plus artistiques et professionnelles. Aspose.Slides vous permet de définir une couleur de dégradé comme arrière-plan des diapositives.
+Un dégradé est un effet graphique créé par un changement progressif de couleur. Lorsqu'il est utilisé comme arrière-plan de diapositive, le dégradé peut rendre les présentations plus artistiques et professionnelles. Aspose.Slides vous permet de définir une couleur de dégradé comme arrière-plan pour les diapositives.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
 2. Définissez le [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
-3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) d'arrière-plan de la diapositive sur `Gradient`.
-4. Utilisez la propriété [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) sur [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) pour configurer les paramètres de votre dégradé préféré.
+3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Gradient`.
+4. Utilisez la propriété [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) sur [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) pour configurer vos paramètres de dégradé préférés.
 5. Enregistrez la présentation modifiée.
 
-L'exemple C# suivant montre comment définir une couleur de dégradé comme arrière-plan d'une diapositive :
+L'exemple C# suivant montre comment définir une couleur de dégradé comme arrière-plan pour une diapositive :
 ```cs
 // Créer une instance de la classe Presentation.
 using (Presentation presentation = new Presentation())
@@ -113,17 +113,17 @@ using (Presentation presentation = new Presentation())
 
 ## **Définir une image comme arrière-plan de diapositive**
 
-En plus des remplissages unis et en dégradé, Aspose.Slides vous permet d'utiliser des images comme arrière-plan de diapositive.
+En plus des remplissages unis et dégradés, Aspose.Slides vous permet d'utiliser des images comme arrière-plan de diapositive.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
 2. Définissez le [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
-3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) d'arrière-plan de la diapositive sur `Picture`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Picture`.
 4. Chargez l'image que vous souhaitez utiliser comme arrière-plan de la diapositive.
 5. Ajoutez l'image à la collection d'images de la présentation.
-6. Utilisez la propriété [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) sur [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) pour affecter l'image comme arrière-plan.
+6. Utilisez la propriété [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) sur [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) pour assigner l'image comme arrière-plan.
 7. Enregistrez la présentation modifiée.
 
-L'exemple C# suivant montre comment définir une image comme arrière-plan d'une diapositive :
+L'exemple C# suivant montre comment définir une image comme arrière-plan pour une diapositive :
 ```c#
 // Créer une instance de la classe Presentation.
 using (Presentation presentation = new Presentation())
@@ -168,7 +168,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Définir le mode de remplissage de l'image sur Carreau et ajuster les propriétés du carrelage.
+    // Définir le mode de remplissage d'image sur Carreau et ajuster les propriétés du carrelage.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -183,19 +183,19 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert color="primary" %}}
-En savoir plus : [**Image en mosaïque comme texture**](/slides/fr/net/shape-formatting/#tile-picture-as-texture).
+En savoir plus : [**Tile Picture As Texture**](/slides/fr/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Modifier la transparence de l'image d'arrière-plan**
 
-Vous pouvez souhaiter ajuster la transparence de l'image d'arrière-plan d'une diapositive afin de faire ressortir le contenu de la diapositive. Le code C# suivant montre comment modifier la transparence d'une image d'arrière-plan de diapositive :
+Vous pouvez souhaiter ajuster la transparence de l'image d'arrière-plan d'une diapositive afin que le contenu de la diapositive ressorte davantage. Le code C# suivant vous montre comment modifier la transparence d'une image d'arrière-plan de diapositive :
 ```cs
 var transparencyValue = 30; // Par exemple.
 
-// Get the collection of picture transform operations.
+// Obtenir la collection des opérations de transformation d'image.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
-// Find an existing fixed-percentage transparency effect.
+// Trouver un effet de transparence fixe en pourcentage existant.
 var transparencyOperation = null as IAlphaModulateFixed;
 foreach (var operation in imageTransform)
 {
@@ -206,7 +206,7 @@ foreach (var operation in imageTransform)
     }
 }
 
-// Set the new transparency value.
+// Définir la nouvelle valeur de transparence.
 if (transparencyOperation == null)
 {
     imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
@@ -218,9 +218,9 @@ else
 ```
 
 
-## **Obtenir la valeur de l'arrière-plan de la diapositive**
+## **Obtenir la valeur d'arrière-plan de la diapositive**
 
-Aspose.Slides fournit l'interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) pour récupérer les valeurs effectives d'arrière-plan d'une diapositive. Cette interface expose le [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) et le [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) effectifs.
+Aspose.Slides fournit l'interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) pour récupérer les valeurs d'arrière-plan effectives d'une diapositive. Cette interface expose le [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) et le [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
 
 En utilisant la propriété `background` de la classe [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/), vous pouvez obtenir l'arrière-plan effectif d'une diapositive.
 
@@ -231,7 +231,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Récupérer l'arrière-plan effectif, en tenant compte du maître, de la disposition et du thème.
+    // Récupérer l'arrière‑plan effectif, en tenant compte du maître, de la disposition et du thème.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -244,10 +244,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **FAQ**
 
-**Puis-je réinitialiser un arrière-plan personnalisé et restaurer l'arrière-plan du thème/mise en page ?**
+**Puis-je réinitialiser un arrière-plan personnalisé et restaurer l'arrière-plan du thème/disposition ?**
 
-Oui. Supprimez le remplissage personnalisé de la diapositive, et l'arrière‑plan sera de nouveau hérité de la diapositive correspondante [layout](/slides/fr/net/slide-layout/)/[master](/slides/fr/net/slide-master/) (c’est‑à‑dire le [theme background](/slides/fr/net/presentation-theme/)).
+Oui. Supprimez le remplissage personnalisé de la diapositive, et l'arrière-plan sera de nouveau hérité de la [disposition](/slides/fr/net/slide-layout/)/[maître](/slides/fr/net/slide-master/) correspondante (c’est-à-dire le [arrière-plan du thème](/slides/fr/net/presentation-theme/)).
 
-**Que se passe-t-il à l'arrière‑plan si je change le thème de la présentation plus tard ?**
+**Que se passe-t-il à l'arrière-plan si je modifie le thème de la présentation plus tard ?**
 
-Si une diapositive possède son propre remplissage, il restera inchangé. Si l'arrière‑plan est hérité du [layout](/slides/fr/net/slide-layout/)/[master](/slides/fr/net/slide-master/), il sera mis à jour pour correspondre au [new theme](/slides/fr/net/presentation-theme/).
+Si une diapositive possède son propre remplissage, il restera inchangé. Si l'arrière-plan est hérité de la [disposition](/slides/fr/net/slide-layout/)/[maître](/slides/fr/net/slide-master/), il sera mis à jour pour correspondre au [nouveau thème](/slides/fr/net/presentation-theme/).

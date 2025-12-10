@@ -5,22 +5,22 @@ weight: 170
 url: /de/net/examples/elements/group-shape/
 keywords:
 - Gruppenbeispiel
-- Gruppenform hinzufügen
-- Gruppenform zugreifen
-- Gruppenform entfernen
-- Gruppierung aufheben
+- Gruppe hinzufügen
+- Zugriff auf Gruppenform
+- Gruppe entfernen
+- Gruppen aufheben
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten Sie mit Gruppenformen in C# mit Aspose.Slides: erstellen und Gruppierung aufheben, untergeordnete Formen umordnen, Transformationen und Begrenzungen für PowerPoint und OpenDocument festlegen."
+description: "Arbeiten Sie mit Gruppenformen in C# mit Aspose.Slides: Erstellen und Aufheben von Gruppen, Neuordnen von untergeordneten Formen, Festlegen von Transformationen und Begrenzungen in PowerPoint und OpenDocument."
 ---
 
-Beispiele zum Erstellen von Gruppen von Formen, zum Zugriff auf diese, zum Aufheben von Gruppierungen und zum Entfernen mit **Aspose.Slides for .NET**.
+Beispiele für das Erstellen von Gruppen von Formen, den Zugriff darauf, das Aufheben von Gruppen und das Entfernen mit **Aspose.Slides for .NET**.
 
-## Gruppe hinzufügen
+## **Gruppenform hinzufügen**
 
 Erstellen Sie eine Gruppe, die zwei Grundformen enthält.
 ```csharp
@@ -36,9 +36,9 @@ static void Add_Group_Shape()
 ```
 
 
-## Auf eine Gruppe zugreifen
+## **Zugriff auf eine Gruppenform**
 
-Rufen Sie das erste Gruppen‑Shape von einer Folie ab.
+Rufen Sie die erste Gruppenform aus einer Folie ab.
 ```csharp
 static void Access_Group_Shape()
 {
@@ -52,9 +52,9 @@ static void Access_Group_Shape()
 ```
 
 
-## Gruppe entfernen
+## **Entfernen einer Gruppenform**
 
-Löschen Sie ein Gruppen‑Shape von der Folie.
+Löschen Sie eine Gruppenform von der Folie.
 ```csharp
 static void Remove_Group_Shape()
 {
@@ -67,9 +67,9 @@ static void Remove_Group_Shape()
 ```
 
 
-## Gruppierung aufheben
+## **Gruppen aufheben**
 
-Bewegen Sie Formen aus einem Gruppencontainer heraus.
+Verschieben Sie Formen aus einem Gruppencontainer heraus.
 ```csharp
 static void Ungroup_Shapes()
 {

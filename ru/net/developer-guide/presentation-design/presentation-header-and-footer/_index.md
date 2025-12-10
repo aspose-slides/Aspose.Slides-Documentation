@@ -1,5 +1,5 @@
 ---
-title: Управление заголовками и нижними колонтитулами презентации в .NET
+title: Управление заголовками и нижними колонтитулами презентаций в .NET
 linktitle: Заголовок и нижний колонтитул
 type: docs
 weight: 140
@@ -19,18 +19,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Используйте Aspose.Slides для .NET, чтобы добавлять и настраивать заголовки и нижние колонтитулы в презентациях PowerPoint и OpenDocument для профессионального вида."
+description: "Используйте Aspose.Slides for .NET для добавления и настройки заголовков и нижних колонтитулов в презентациях PowerPoint и OpenDocument, чтобы придать им профессиональный вид."
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
+[Aspose.Slides](/slides/ru/net/) предоставляет поддержку для работы с текстом заголовков и нижних колонтитулов слайдов, которые фактически находятся на уровне мастер‑слайда.
+{{% /alert %}} 
 
-[Aspose.Slides](/slides/ru/net/) предоставляет возможность работать с текстом заголовков и нижних колонтитулов слайдов, которые фактически поддерживаются на уровне мастер‑слайда.
-
-{{% /alert %}}
-
-[Aspose.Slides for .NET](/slides/ru/net/) предоставляет функцию управления заголовками и нижними колонтитулами внутри слайдов презентации. На самом деле они управляются на уровне мастер‑презентации.
+Aspose.Slides for .NET предоставляет возможность управления заголовками и нижними колонтитулами внутри слайдов презентации. Фактически они управляются на уровне мастера презентации.
 ## **Управление текстом заголовка и нижнего колонтитула**
-Заметки некоторого конкретного слайда можно обновить, как показано в примере ниже:
+Заметки некоторого конкретного слайда могут быть обновлены, как показано в примере ниже:
 ```c#
 // Загрузить презентацию
 Presentation pres = new Presentation("headerTest.pptx");
@@ -43,7 +41,7 @@ pres.HeaderFooterManager.SetAllFootersVisibility(true);
 IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
 if (null != masterNotesSlide)
 {
-    UpdateHeaderFooterText(masterNotesSlide);
+	UpdateHeaderFooterText(masterNotesSlide);
 }
 
 // Сохранить презентацию
@@ -51,7 +49,7 @@ pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 ```
 
 ```c#
-// Метод установки текста заголовка/нижнего колонтитула
+// Метод для установки текста заголовка/нижнего колонтитула
 public static void UpdateHeaderFooterText(IBaseSlide master)
 {
     foreach (IShape shape in master.Shapes)
@@ -68,37 +66,40 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
 ```
 
 
-## **Управление заголовком и нижним колонтитулом в раздаточных материалах и слайдах заметок**
-Aspose.Slides for .NET поддерживает заголовки и нижние колонтитулы в раздаточных материалах и слайдах заметок. Пожалуйста, выполните следующие шаги:
 
-- Load a [Презентацию](https://reference.aspose.com/slides/net/aspose.slides/presentation)содержащую видео.
+
+
+## **Управление заголовками и нижними колонтитулами на раздаточных и заметочных слайдах**
+Aspose.Slides for .NET поддерживает заголовки и нижние колонтитулы в раздаточных и заметочных слайдах. Пожалуйста, выполните следующие действия:
+
+- Загрузите [Презентацию ](https://reference.aspose.com/slides/net/aspose.slides/presentation)с видео.
 - Измените настройки заголовка и нижнего колонтитула для мастер‑страницы заметок и всех слайдов заметок.
-- Сделайте видимыми заполнители нижнего колонтитула на мастер‑слайде заметок и всех дочерних слайдах.
-- Сделайте видимыми заполнители даты и времени на мастер‑слайде заметок и всех дочерних слайдах.
+- Сделайте видимыми плейсхолдеры нижнего колонтитула на мастер‑слайде заметок и всех дочерних слайдах.
+- Сделайте видимыми плейсхолдеры даты и времени на мастер‑слайде заметок и всех дочерних слайдах.
 - Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок.
-- Сделайте видимым заполнитель заголовка на слайде заметок.
-- Установите текст в заполнитель заголовка слайда заметок.
-- Установите текст в заполнитель даты‑времени слайда заметок.
-- Запишите изменённый файл презентации.
+- Сделайте видимым плейсхолдер заголовка на слайде заметок.
+- Установите текст в плейсхолдер заголовка слайда заметок.
+- Установите текст в плейсхолдер даты и времени слайда заметок.
+- Сохраните изменённый файл презентации.
 
-Фрагмент кода предоставлен в примере ниже.
+Пример кода приведён ниже.
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-	// Изменить настройки заголовка и нижнего колонтитула для мастер-страницы заметок и всех слайдов заметок
+	// Изменить настройки заголовка и нижнего колонтитула для мастера заметок и всех слайдов заметок
 	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
 	if (masterNotesSlide != null)
 	{
 		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // сделать мастер-страницу заметок и все дочерние заполнители нижнего колонтитула видимыми
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // сделать мастер-страницу заметок и все дочерние заполнители заголовка видимыми
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // сделать мастер-страницу заметок и все дочерние заполнители номера слайда видимыми
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // сделать мастер-страницу заметок и все дочерние заполнители даты и времени видимыми
+		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // сделать мастер‑слайд заметок и все дочерние плейсхолдеры нижнего колонтитула видимыми
+		headerFooterManager.SetFooterAndChildFootersVisibility(true); // сделать мастер‑слайд заметок и все дочерние плейсхолдеры заголовка видимыми
+		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // сделать мастер‑слайд заметок и все дочерние плейсхолдеры номера слайда видимыми
+		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // сделать мастер‑слайд заметок и все дочерние плейсхолдеры даты и времени видимыми
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // установить текст для мастер-страницы заметок и всех дочерних заполнителей заголовка
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // установить текст для мастер-страницы заметок и всех дочерних заполнителей нижнего колонтитула
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // установить текст для мастер-страницы заметок и всех дочерних заполнителей даты и времени
+		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // установить текст в мастер‑слайд заметок и все дочерние плейсхолдеры заголовка
+		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // установить текст в мастер‑слайд заметок и все дочерние плейсхолдеры нижнего колонтитула
+		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // установить текст в мастер‑слайд заметок и все дочерние плейсхолдеры даты и времени
 	}
 
 	// Изменить настройки заголовка и нижнего колонтитула только для первого слайда заметок
@@ -107,20 +108,20 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 	{
 		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
 		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // сделать этот заполнитель заголовка слайда заметок видимым
+			headerFooterManager.SetHeaderVisibility(true); // сделать плейсхолдер заголовка этого слайда заметок видимым
 
 		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // сделать этот заполнитель нижнего колонтитула слайда заметок видимым
+			headerFooterManager.SetFooterVisibility(true); // сделать плейсхолдер нижнего колонтитула этого слайда заметок видимым
 
 		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // сделать этот заполнитель номера слайда заметок видимым
+			headerFooterManager.SetSlideNumberVisibility(true); // сделать плейсхолдер номера слайда этого слайда заметок видимым
 
 		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // сделать этот заполнитель даты и времени слайда заметок видимым
+			headerFooterManager.SetDateTimeVisibility(true); // сделать плейсхолдер даты и времени этого слайда заметок видимым
 
-		headerFooterManager.SetHeaderText("New header text"); // установить текст в заполнитель заголовка слайда заметок
-		headerFooterManager.SetFooterText("New footer text"); // установить текст в заполнитель нижнего колонтитула слайда заметок
-		headerFooterManager.SetDateTimeText("New date and time text"); // установить текст в заполнитель даты и времени слайда заметок
+		headerFooterManager.SetHeaderText("New header text"); // установить текст в плейсхолдер заголовка слайда заметок
+		headerFooterManager.SetFooterText("New footer text"); // установить текст в плейсхолдер нижнего колонтитула слайда заметок
+		headerFooterManager.SetDateTimeText("New date and time text"); // установить текст в плейсхолдер даты и времени слайда заметок
 	}
 	presentation.Save("testresult.pptx",SaveFormat.Pptx);
 }
@@ -129,19 +130,19 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я добавить «заголовок» к обычным слайдам?**
+**Могу ли я добавить "заголовок" к обычным слайдам?**
 
-В PowerPoint «Заголовок» существует только для заметок и раздаточных материалов; на обычных слайдах поддерживаемыми элементами являются нижний колонтитул, дата/время и номер слайда. В Aspose.Slides это соответствует тем же ограничениям: заголовок только для заметок/раздаточных материалов, а на слайдах — нижний колонтитул/дата‑время/номер слайда.
+В PowerPoint заголовок существует только для заметок и раздаточных материалов; на обычных слайдах поддерживаются лишь нижний колонтитул, дата/время и номер слайда. В Aspose.Slides действуют те же ограничения: заголовок только для заметок/раздаточных, а на слайдах — нижний колонтитул/дата‑время/номер слайда.
 
-**Что если в макете нет области нижнего колонтитула — могу ли я «включить» её видимость?**
+**Что если макет не содержит области нижнего колонтитула — могу ли я включить её видимость?**
 
-Да. Проверьте видимость через менеджер заголовков/нижних колонтитулов и включите её при необходимости. Эти индикаторы и методы API разработаны для случаев, когда заполнитель отсутствует или скрыт.
+Да. Проверьте видимость через менеджер заголовков/нижних колонтитулов и включите её при необходимости. Эти индикаторы API и методы предназначены для случаев, когда плейсхолдер отсутствует или скрыт.
 
-**Как заставить номер слайда начинаться с значения, отличного от 1?**
+**Как задать начальный номер слайда, отличающийся от 1?**
 
-Установите в презентации [первый номер слайда](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/); после этого нумерация пересчитывается. Например, можно начать с 0 или 10 и скрыть номер на титульном слайде.
+Установите [первый номер слайда](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/) презентации; после этого нумерация будет пересчитана. Например, можно начать с 0 или 10 и скрыть номер на титульном слайде.
 
 **Что происходит с заголовками/нижними колонтитулами при экспорте в PDF/изображения/HTML?**
 

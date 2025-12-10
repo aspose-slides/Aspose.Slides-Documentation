@@ -1,29 +1,29 @@
 ---
-title: Caja de texto
+title: Cuadro de texto
 type: docs
 weight: 40
 url: /es/net/examples/elements/text-box/
 keywords:
-- ejemplo de caja de texto
-- agregar caja de texto
-- acceder a caja de texto
-- eliminar caja de texto
+- ejemplo de cuadro de texto
+- agregar cuadro de texto
+- acceder a cuadro de texto
+- eliminar cuadro de texto
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Crear y formatear cajas de texto en C# con Aspose.Slides: establecer fuentes, alineación, ajuste de texto, autofit y enlaces para pulir diapositivas para PowerPoint y OpenDocument."
+description: "Crear y dar formato a cuadros de texto en C# con Aspose.Slides: establecer fuentes, alineación, ajuste de texto, autocondensado y enlaces para pulir diapositivas en PowerPoint y OpenDocument."
 ---
 
 En Aspose.Slides, un **cuadro de texto** se representa mediante un `AutoShape`. Casi cualquier forma puede contener texto, pero un cuadro de texto típico no tiene relleno ni borde y muestra solo texto.
 
-Esta guía explica cómo agregar, acceder y eliminar cuadros de texto programáticamente.
+Esta guía explica cómo agregar, acceder y eliminar cuadros de texto de forma programática.
 
-## Agregar un cuadro de texto
+## **Agregar un Cuadro de Texto**
 
-Un cuadro de texto es simplemente un `AutoShape` sin relleno ni borde y con algún texto formateado. Así es como se crea uno:
+Un cuadro de texto es simplemente un `AutoShape` sin relleno ni borde y con algo de texto formateado. Así es como se crea uno:
 
 ```csharp
 public static void Add_TextBox()
@@ -44,13 +44,13 @@ public static void Add_TextBox()
     // Assign the actual text content
     textBox.TextFrame.Text = "Some text...";
 }
-````
+```
 
 > 💡 **Nota:** Cualquier `AutoShape` que contenga un `TextFrame` no vacío puede funcionar como un cuadro de texto.
 
-## Acceder a los cuadros de texto por contenido
+## **Acceder a Cuadros de Texto por Contenido**
 
-Para encontrar todos los cuadros de texto que contengan una palabra clave específica (p. ej. "Slide"), recorra las formas y verifique su texto:
+Para encontrar todos los cuadros de texto que contengan una palabra clave específica (p.ej. "Slide"), recorra las formas y verifique su texto:
 
 ```csharp
 public static void Access_TextBox()
@@ -71,9 +71,9 @@ public static void Access_TextBox()
 }
 ```
 
-## Eliminar cuadros de texto por contenido
+## **Eliminar Cuadros de Texto por Contenido**
 
-Este ejemplo encuentra y elimina todos los cuadros de texto en la primera diapositiva que contengan una palabra clave específica:
+Este ejemplo encuentra y elimina todos los cuadros de texto en la primera diapositiva que contienen una palabra clave específica:
 
 ```csharp
 public static void Remove_TextBox()

@@ -1,5 +1,5 @@
 ---
-title: Управление аудио‑кадрами в презентациях .NET
+title: Управление аудио‑кадрами в презентациях в .NET
 linktitle: Аудио‑кадр
 type: docs
 weight: 10
@@ -10,54 +10,54 @@ keywords:
 - миниатюра
 - добавить аудио
 - свойства аудио
-- параметры аудио
-- извлечь аудио
+- опции аудио
+- извлечение аудио
 - .NET
 - C#
 - Aspose.Slides
-description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides for .NET — примеры C# для внедрения, обрезки, зацикливания и настройки воспроизведения в презентациях PPT, PPTX и ODP."
+description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides для .NET — примеры на C# по встраиванию, обрезке, зацикливанию и настройке воспроизведения в PPT, PPTX и ODP презентациях."
 ---
 
-## **Создание аудио‑кадров**
+## **Создать аудио‑кадры**
 
-Aspose.Slides for .NET позволяет добавлять аудиофайлы на слайды. Аудиофайлы внедряются в слайды в виде аудио‑кадров.
+Aspose.Slides for .NET позволяет добавлять аудиофайлы на слайды. Аудиофайлы встраиваются в слайды как аудио‑кадры. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Загрузите поток аудиофайла, который хотите внедрить в слайд.
-4. Добавьте внедрённый аудио‑кадр (содержащий аудиофайл) на слайд.
-5. Установите [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) и `Volume`, предоставляемые объектом [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe).
+3. Загрузите поток аудиофайла, который нужно встроить в слайд.
+4. Добавьте встроенный аудио‑кадр (содержащий аудиофайл) на слайд.
+5. Установите свойства [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) и `Volume`, доступные через объект [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe).
 6. Сохраните изменённую презентацию.
 
-Этот код C# показывает, как добавить внедрённый аудио‑кадр на слайд:
+Этот C#‑код демонстрирует, как добавить встроенный аудио‑кадр на слайд:
 ```c#
- // Создает экземпляр класса презентации, представляющего файл презентации
- using (Presentation pres = new Presentation())
- {
-     // Получает первый слайд
-     ISlide sld = pres.Slides[0];
-     
-     // Загружает wav‑файл звука в поток
-     FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+// Создаёт экземпляр класса презентации, представляющего файл презентации
+using (Presentation pres = new Presentation())
+{
+    // Получает первый слайд
+    ISlide sld = pres.Slides[0];
+    
+    // Загружает wav‑файл звука в поток
+    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
 
-     // Добавляет аудио‑кадр
-     IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+    // Добавляет аудио‑кадр
+    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
 
-     // Устанавливает режим воспроизведения и громкость аудио
-     audioFrame.PlayMode = AudioPlayModePreset.Auto;
-     audioFrame.Volume = AudioVolumeMode.Loud;
+    // Устанавливает режим воспроизведения и громкость аудио
+    audioFrame.PlayMode = AudioPlayModePreset.Auto;
+    audioFrame.Volume = AudioVolumeMode.Loud;
 
-     // Записывает файл PowerPoint на диск
-     pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
- }
+    // Сохраняет файл PowerPoint на диск
+    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
 ## **Изменить миниатюру аудио‑кадра**
 
-Когда вы добавляете аудиофайл в презентацию, он отображается как кадр со стандартным изображением по умолчанию (см. изображение в разделе ниже). Вы можете изменить миниатюру аудио‑кадра (установить желаемое изображение).
+При добавлении аудиофайла в презентацию он отображается как кадр со стандартным изображением по умолчанию (см. изображение ниже). Вы можете изменить миниатюру аудио‑кадра (установить своё изображение).
 
-Этот код C# показывает, как изменить миниатюру или предварительный образ аудио‑кадра:
+Этот C#‑код показывает, как изменить миниатюру или предварительный просмотр аудио‑кадра:
 ```c#
 using (var presentation = new Presentation())
 {
@@ -76,7 +76,7 @@ using (var presentation = new Presentation())
     // Устанавливает изображение для аудио‑кадра.
     audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
     
-	// Сохраняет изменённую презентацию на диск
+	//Saves the modified presentation to disk
     presentation.Save("example_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -84,37 +84,37 @@ using (var presentation = new Presentation())
 
 ## **Изменить параметры воспроизведения аудио**
 
-Aspose.Slides for .NET позволяет изменять параметры, управляющие воспроизведением аудио или его свойствами. Например, можно отрегулировать громкость, установить воспроизведение в цикле или даже скрыть значок аудио.
+Aspose.Slides for .NET позволяет менять параметры, управляющие воспроизведением аудио или его свойствами. Например, можно отрегулировать громкость, воспроизводить аудио в цикле или скрыть значок аудио.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+Область **Audio Options** в Microsoft PowerPoint:
 
-![example1_image](audio_frame_0.png)
+![пример_изображения](audio_frame_0.png)
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+Параметры PowerPoint **Audio Options**, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe):
 
-- Выпадающий список **Start** соответствует свойству [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode).
-- **Volume** соответствует свойству [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume).
-- **Play Across Slides** соответствует свойству [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides).
-- **Loop until Stopped** соответствует свойству [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode).
-- **Hide During Show** соответствует свойству [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing).
-- **Rewind after Playing** соответствует свойству [AudioFrame.RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio).
+- Выпадающий список **Start** соответствует свойству [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) 
+- **Volume** соответствует свойству [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) 
+- **Play Across Slides** соответствует свойству [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) 
+- **Loop until Stopped** соответствует свойству [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) 
+- **Hide During Show** соответствует свойству [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) 
+- **Rewind after Playing** соответствует свойству [AudioFrame.RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) 
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+Параметры PowerPoint **Editing**, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe):
 
-- **Fade In** соответствует свойству [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/).
-- **Fade Out** соответствует свойству [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/).
-- **Trim Audio Start Time** соответствует свойству [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/).
-- **Trim Audio End Time** равно длительности аудио за вычетом значения свойства [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/).
+- **Fade In** соответствует свойству [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/) 
+- **Fade Out** соответствует свойству [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/) 
+- **Trim Audio Start Time** соответствует свойству [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/) 
+- **Trim Audio End Time** равен длительности аудио минус значение свойства [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/) 
 
-Ползунок **Volume** на панели управления аудио в PowerPoint соответствует свойству [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/). Он позволяет изменить громкость аудио в процентах.
+Ползунок **Volume** на панели управления аудио в PowerPoint соответствует свойству [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/) . Он позволяет менять громкость аудио в процентах.
 
-Так изменяются параметры воспроизведения аудио:
+Как изменить параметры воспроизведения аудио:
 
-1. [Создать](#create-audio-frame) или получить аудио‑кадр.
-2. Установите новые значения свойств аудио‑кадра, которые требуется изменить.
+1. [Create](#create-audio-frame) или получите аудио‑кадр.
+2. Установите новые значения нужных вам свойств аудио‑кадра.
 3. Сохраните изменённый файл PowerPoint.
 
-Этот код C# демонстрирует операцию, при которой изменяются параметры аудио:
+Этот C#‑код демонстрирует операцию, в которой изменяются параметры аудио:
 ``` csharp 
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
@@ -127,7 +127,7 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
     // Устанавливает громкость на низкую
     audioFrame.Volume = AudioVolumeMode.Low;
 
-    // Устанавливает воспроизведение аудио сквозь слайды
+    // Устанавливает воспроизведение аудио на всех слайдах
     audioFrame.PlayAcrossSlides = true;
 
     // Отключает зацикливание аудио
@@ -145,7 +145,7 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 ```
 
 
-Этот пример C# показывает, как добавить новый аудио‑кадр с внедрённым аудио, обрезать его и задать длительности затухания:
+Этот пример на C# показывает, как добавить новый аудио‑кадр со встроенным аудио, обрезать его и задать длительность затухания:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -155,14 +155,14 @@ using (Presentation pres = new Presentation())
     IAudio audio = pres.Audios.AddAudio(audioData);
     IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-    // Устанавливает смещение начала обрезки в 1.5 секунды
+    // Устанавливает начальное смещение обрезки в 1.5 секунды
     audioFrame.TrimFromStart = 1500f;
-    // Устанавливает смещение конца обрезки в 2 секунды
+    // Устанавливает конечное смещение обрезки в 2 секунды
     audioFrame.TrimFromEnd = 2000f;
 
-    // Устанавливает длительность плавного входа в 200 мс
+    // Устанавливает длительность fade-in в 200 мс
     audioFrame.FadeInDuration = 200f;
-    // Устанавливает длительность плавного выхода в 500 мс
+    // Устанавливает длительность fade-out в 500 мс
     audioFrame.FadeOutDuration = 500f;
 
     pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
@@ -170,14 +170,14 @@ using (Presentation pres = new Presentation())
 ```
 
 
-Следующий образец кода показывает, как получить аудио‑кадр с внедрённым аудио и установить его громкость на 85 %:
+В следующем примере кода показано, как получить аудио‑кадр со встроенным аудио и установить его громкость на 85 %:
 ```c#
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
-    // Получает форму аудио‑кадра
+    // Получает форму AudioFrame
     IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
 
-    // Устанавливает громкость аудио в 85%
+    // Устанавливает громкость аудио на 85%
     audioFrame.VolumeValue = 85f;
     
     pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
@@ -185,28 +185,28 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 ```
 
 
-## **Извлечь аудио**
-
-Aspose.Slides for .NET позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, можно извлечь звук, применённый в конкретном слайде.
+## **Извлечение аудио**
+Aspose.Slides for .NET позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, можно извлечь звук, использованный в конкретном слайде.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) и загрузите презентацию, содержащую аудио.
 2. Получите ссылку на нужный слайд по его индексу.
-3. Доступ к переходам слайд‑шоу для этого слайда.
+3. Получите переходы слайд‑шоу для этого слайда.
 4. Извлеките звук в виде байтовых данных.
 
-Этот код C# показывает, как извлечь аудио, использованное в слайде:
+Этот C#‑код показывает, как извлечь аудио, использованное в слайде:
 ```c#
 string presName = "AudioSlide.pptx";
 
 // Создаёт экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation(presName);
 
-// Получает слайд
+// Получает доступ к слайду
 ISlide slide = pres.Slides[0];
 
-// Получает эффекты переходов слайд‑шоу для слайда
+// Получает эффекты переходов слайд-шоу для слайда
 ISlideShowTransition transition = slide.SlideShowTransition;
 
+//Extracts the sound in byte array
 //Извлекает звук в массив байтов
 byte[] audio = transition.Sound.BinaryData;
 
@@ -216,14 +216,14 @@ System.Console.WriteLine("Length: " + audio.Length);
 
 ## **FAQ**
 
-**Можно ли переиспользовать один и тот же аудио‑ресурс на нескольких слайдах без увеличения размера файла?**
+**Можно ли использовать один и тот же аудио‑ресурс на нескольких слайдах, не увеличивая размер файла?**
 
-Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) презентации и создайте дополнительные аудио‑кадры, ссылающиеся на уже существующий ресурс. Это предотвращает дублирование медиа‑данных и сохраняет размер презентации под контролем.
+Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) презентации и создайте дополнительные аудио‑кадры, ссылающиеся на существующий ресурс. Это предотвращает дублирование медиа‑данных и позволяет контролировать размер презентации.
 
 **Можно ли заменить звук в существующем аудио‑кадре без пересоздания формы?**
 
-Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/net/aspose.slides/audioframe/linkpathlong/) до нового файла. Для внедрённого звука замените объект [embedded audio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/embeddedaudio/) другим из [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) презентации. Форматирование кадра и большинство настроек воспроизведения сохранятся.
+Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/net/aspose.slides/audioframe/linkpathlong/) на новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/embeddedaudio/) другим из [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) презентации. Форматирование кадра и большинство настроек воспроизведения останутся без изменений.
 
-**Изменяет ли обрезка фактические аудио‑данные, хранящиеся в презентации?**
+**Изменяет ли обрезка (trimming) исходные аудио‑данные, хранящиеся в презентации?**
 
-Нет. Обрезка регулирует только границы воспроизведения. Исходные аудио‑байты остаются нетронутыми и доступны через внедрённый аудио‑объект или коллекцию аудио презентации.
+Нет. Обрезка изменяет только границы воспроизведения. Исходные аудио‑байты остаются нетронутыми и доступны через встроенное аудио или коллекцию аудио презентации.

@@ -1,28 +1,28 @@
 ---
-title: Table
+title: Tableau
 type: docs
 weight: 120
 url: /fr/net/examples/elements/table/
 keywords:
-- exemple de table
-- ajouter une table
-- accéder à la table
-- supprimer une table
-- fusionner les cellules
+- exemple de tableau
+- ajouter un tableau
+- accéder au tableau
+- supprimer le tableau
+- fusionner des cellules
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Créer et mettre en forme des tables en C# avec Aspose.Slides : insérer des données, fusionner des cellules, styliser les bordures, aligner le contenu et importer/exporter pour PPT, PPTX et ODP."
+description: "Créer et formater des tableaux en C# avec Aspose.Slides : insérer des données, fusionner des cellules, styliser les bordures, aligner le contenu, et importer/exporter pour PPT, PPTX et ODP."
 ---
 
-Exemples d'ajout de tables, d'accès à celles-ci, de suppression et de fusion de cellules à l'aide d'**Aspose.Slides for .NET**.
+Exemples d'ajout de tableaux, d'accès à ceux-ci, de suppression et de fusion de cellules à l'aide de **Aspose.Slides for .NET**.
 
-## Ajouter une table
+## **Ajouter un tableau**
 
-Créer une table simple avec deux lignes et deux colonnes.
+Créez un tableau simple avec deux lignes et deux colonnes.
 ```csharp
 static void Add_Table()
 {
@@ -36,9 +36,9 @@ static void Add_Table()
 ```
 
 
-## Accéder à une table
+## **Accéder à un tableau**
 
-Récupérer la première forme de table sur la diapositive.
+Récupérez la première forme de tableau sur la diapositive.
 ```csharp
 static void Access_Table()
 {
@@ -54,9 +54,9 @@ static void Access_Table()
 ```
 
 
-## Supprimer une table
+## **Supprimer un tableau**
 
-Supprimer une table d'une diapositive.
+Supprimez un tableau d'une diapositive.
 ```csharp
 static void Remove_Table()
 {
@@ -71,9 +71,9 @@ static void Remove_Table()
 ```
 
 
-## Fusionner les cellules d'une table
+## **Fusionner les cellules du tableau**
 
-Fusionner les cellules adjacentes d'une table en une seule cellule.
+Fusionnez les cellules adjacentes d'un tableau en une seule cellule.
 ```csharp
 static void Merge_Table_Cells()
 {

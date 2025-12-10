@@ -4,25 +4,24 @@ type: docs
 weight: 140
 url: /ar/net/examples/elements/smartart/
 keywords:
-- مثال SmartArt
-- إضافة SmartArt
-- الوصول إلى SmartArt
-- إزالة SmartArt
-- تخطيط SmartArt
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- .NET
-- C#
-- Aspose.Slides
+- "مثال SmartArt"
+- "إضافة SmartArt"
+- "الوصول إلى SmartArt"
+- "حذف SmartArt"
+- "تخطيط SmartArt"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
 description: "إنشاء وتعديل SmartArt في C# باستخدام Aspose.Slides: إضافة العقد، تغيير التخطيطات والأنماط، التحويل إلى أشكال بدقة، وتصدير للـ PPT و PPTX و ODP."
 ---
 
-يظهر كيفية إضافة رسومات SmartArt والوصول إليها وإزالتها وتغيير التخطيطات باستخدام **Aspose.Slides for .NET**.
+يعرض كيفية إضافة رسومات SmartArt، والوصول إليها، وإزالتها، وتغيير التخطيطات باستخدام **Aspose.Slides for .NET**.
 
-## إضافة SmartArt
-
-أدخل رسم SmartArt باستخدام أحد التخطيطات المدمجة.
+## **إضافة SmartArt**
+Insert a SmartArt graphic using one of the built-in layouts.
 ```csharp
 static void Add_SmartArt()
 {
@@ -34,9 +33,8 @@ static void Add_SmartArt()
 ```
 
 
-## الوصول إلى SmartArt
-
-استرجع أول كائن SmartArt في الشريحة.
+## **الوصول إلى SmartArt**
+Retrieve the first SmartArt object on a slide.
 ```csharp
 static void Access_SmartArt()
 {
@@ -49,9 +47,8 @@ static void Access_SmartArt()
 ```
 
 
-## إزالة SmartArt
-
-احذف شكل SmartArt من الشريحة.
+## **إزالة SmartArt**
+Delete a SmartArt shape from the slide.
 ```csharp
 static void Remove_SmartArt()
 {
@@ -64,9 +61,8 @@ static void Remove_SmartArt()
 ```
 
 
-## تغيير تخطيط SmartArt
-
-حدّث نوع تخطيط رسم SmartArt الموجود.
+## **تغيير تخطيط SmartArt**
+Update the layout type of an existing SmartArt graphic.
 ```csharp
 static void Change_SmartArt_Layout()
 {

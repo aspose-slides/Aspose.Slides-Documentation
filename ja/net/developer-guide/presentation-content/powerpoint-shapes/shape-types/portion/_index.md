@@ -1,12 +1,12 @@
 ---
-title: .NETでのプレゼンテーションにおけるテキスト部分の管理
+title: .NET のプレゼンテーションでテキスト部分を管理する
 linktitle: テキスト部分
 type: docs
 weight: 70
 url: /ja/net/portion/
 keywords:
 - テキスト部分
-- テキスト部
+- テキストパート
 - テキスト座標
 - テキスト位置
 - PowerPoint
@@ -17,8 +17,8 @@ keywords:
 description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションのテキスト部分を管理し、パフォーマンスとカスタマイズ性を向上させる方法を学びます。"
 ---
 
-## **部分の位置座標を取得**
-**GetCoordinates()** メソッドが IPortion と Portion クラスに追加され、部分の開始位置の座標を取得できるようになりました:
+## **テキスト部分の座標取得**
+**GetCoordinates()** メソッドが IPortion および Portion クラスに追加され、部分の開始位置の座標を取得できるようになりました:
 ```c#
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
@@ -39,18 +39,18 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 
 ## **よくある質問**
 
-**単一の段落内のテキストの一部だけにハイパーリンクを適用できますか？**
+**単一の段落内のテキストの一部にだけハイパーリンクを適用できますか？**
 
-はい、[ハイパーリンクを割り当てる](/slides/ja/net/manage-hyperlinks/)ことが個々の部分に対して可能です。そのフラグメントだけがクリック可能になり、段落全体はクリックできません。
+はい、個別の部分に対して[ハイパーリンクを割り当て](/slides/ja/net/manage-hyperlinks/)することができます。そのフラグメントだけがクリック可能になり、段落全体はクリックできません。
 
-**スタイル継承はどのように機能しますか: Portion がオーバーライドするもの、Paragraph/TextFrame から取得するものは何ですか？**
+**スタイルの継承はどのように機能しますか：Portion が上書きするものは何で、Paragraph/TextFrame から取得されるものは何ですか？**
 
-Portion レベルのプロパティが最も高い優先順位を持ちます。プロパティが [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) に設定されていない場合、エンジンは [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) から取得します。そこでも設定されていなければ、[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) または [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/) スタイルから取得します。
+Portion レベルのプロパティが最も優先されます。プロパティが [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) で設定されていない場合、エンジンは [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) から取得します。そこでも設定されていない場合は、[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) または [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/) のスタイルから取得されます。
 
-**Portion に指定したフォントが対象のマシン/サーバーに存在しない場合はどうなりますか？**
+**Portion 用に指定されたフォントが対象のマシン/サーバーに存在しない場合はどうなりますか？**
 
-[フォント置換ルール](/slides/ja/net/font-selection-sequence/) が適用されます。テキストは再フローする可能性があり、メトリクス、ハイフネーション、幅が変わるため、正確な配置に影響します。
+[フォント置換ルール](/slides/ja/net/font-selection-sequence/) が適用されます。テキストは再フローする可能性があり、メトリクス、ハイフネーション、幅が変わることがあり、正確な位置決めに影響します。
 
-**段落全体とは独立して、Portion 固有のテキスト塗りつぶしの透明度やグラデーションを設定できますか？**
+**段落全体とは独立して、Portion 固有のテキスト塗りつぶしの透過性やグラデーションを設定できますか？**
 
-はい、[Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) レベルでのテキストカラー、塗りつぶし、透明度は隣接するフラグメントと異なる設定が可能です。
+はい、[Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) レベルでテキストカラー、塗りつぶし、透過性を隣接するフラグメントとは異なる設定にできます。

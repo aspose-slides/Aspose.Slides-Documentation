@@ -5,22 +5,22 @@ weight: 10
 url: /es/net/add-a-comment-to-a-slide/
 ---
 
-## **Presentación OpenXML:**
+## **Presentación OpenXML**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Agregar un comentario a una diapositiva.pptx"; 
+string FileName = FilePath + "Add a comment to a slide.pptx"; 
 
 AddCommentToPresentation(FileName,
 
 "Zeeshan", "MZ",
 
-"Este es mi comentario agregado programáticamente.");
+"This is my programmatically added comment.");
 
-// Agrega un comentario a la primera diapositiva del documento de presentación.
+// Adds a comment to the first slide of the presentation document.
 
-// El documento de presentación debe contener al menos una diapositiva.
+// The presentation document must contain at least one slide.
 
 private static void AddCommentToPresentation(string file, string initials, string name, string text)
 
@@ -30,17 +30,17 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 {
 
-    // Declarar un objeto CommentAuthorsPart.
+    // Declare a CommentAuthorsPart object.
 
     CommentAuthorsPart authorsPart;
 
-    // Verificar que exista una parte de autores de comentario.
+    // Verify that there is an existing comment authors part.
 
     if (doc.PresentationPart.CommentAuthorsPart == null)
 
     {
 
-        // Si no, agregar una nueva.
+        // If not, add a new one.
 
         authorsPart = doc.PresentationPart.AddNewPart<CommentAuthorsPart>();
 
@@ -54,41 +54,41 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // Verificar que haya una lista de autores de comentario en la parte de autores de comentario.
+    // Verify that there is a comment author list in the comment authors part.
 
     if (authorsPart.CommentAuthorList == null)
 
     {
 
-        // Si no, agregar una nueva.
+        // If not, add a new one.
 
         authorsPart.CommentAuthorList = new CommentAuthorList();
 
     }
 
-    // Declarar un nuevo ID de autor.
+    // Declare a new author ID.
 
     uint authorId = 0;
 
     CommentAuthor author = null;
 
-    // Si hay elementos hijos existentes en la lista de autores de comentarios...
+    // If there are existing child elements in the comment authors list...
 
     if (authorsPart.CommentAuthorList.HasChildren)
 
     {
 
-        // Verificar que el autor pasado esté en la lista.
+        // Verify that the author passed in is on the list.
 
         var authors = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Where(a => a.Name == name && a.Initials == initials);
 
-        // Si es así...
+        // If so...
 
         if (authors.Any())
 
         {
 
-            // Asignar al nuevo autor de comentario el ID de autor existente.
+            // Assign the new comment author the existing author ID.
 
             author = authors.First();
 
@@ -96,13 +96,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         }
 
-        // Si no...
+        // If not...
 
         if (author == null)
 
         {
 
-            // Asignar al autor pasado un nuevo ID
+            // Assign the author passed in a new ID
 
             authorId = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Select(a => a.Id.Value).Max();
 
@@ -110,7 +110,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // Si no hay elementos hijos existentes en la lista de autores de comentarios.
+    // If there are no existing child elements in the comment authors list.
 
     if (author == null)
 
@@ -118,7 +118,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         authorId++;
 
-        // Agregar un nuevo elemento hijo (autor de comentario) a la lista de autores de comentario.
+        // Add a new child element(comment author) to the comment author list.
 
         author = authorsPart.CommentAuthorList.AppendChild<CommentAuthor>
 
@@ -138,21 +138,21 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // Obtener la primera diapositiva, usando el método GetFirstSlide.
+    // Get the first slide, using the GetFirstSlide method.
 
     SlidePart slidePart1 = GetFirstSlide(doc);
 
-    // Declarar una parte de comentarios.
+    // Declare a comments part.
 
     SlideCommentsPart commentsPart;
 
-    // Verificar que haya una parte de comentarios en la primera parte de la diapositiva.
+    // Verify that there is a comments part in the first slide part.
 
     if (slidePart1.GetPartsOfType<SlideCommentsPart>().Count() == 0)
 
     {
 
-        // Si no, agregar una nueva parte de comentarios.
+        // If not, add a new comments part.
 
         commentsPart = slidePart1.AddNewPart<SlideCommentsPart>();
 
@@ -162,31 +162,31 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     {
 
-        // De lo contrario, usar la primera parte de comentarios en la parte de la diapositiva.
+        // Else, use the first comments part in the slide part.
 
         commentsPart = slidePart1.GetPartsOfType<SlideCommentsPart>().First();
 
     }
 
-    // Si la lista de comentarios no existe.
+    // If the comment list does not exist.
 
     if (commentsPart.CommentList == null)
 
     {
 
-        // Agregar una nueva lista de comentarios.
+        // Add a new comments list.
 
         commentsPart.CommentList = new CommentList();
 
     }
 
-    // Obtener el nuevo ID de comentario.
+    // Get the new comment ID.
 
     uint commentIdx = author.LastIndex == null ? 1 : author.LastIndex + 1;
 
     author.LastIndex = commentIdx;
 
-    // Agregar un nuevo comentario.
+    // Add a new comment.
 
     Comment comment = commentsPart.CommentList.AppendChild<Comment>(
 
@@ -202,7 +202,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     });
 
-    // Agregar el nodo hijo de posición al elemento comentario.
+    // Add the position child node to the comment element.
 
     comment.Append(
 
@@ -210,11 +210,11 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     new Text() { Text = text });
 
-    // Guardar la parte de autores de comentario.
+    // Save the comment authors part.
 
     authorsPart.CommentAuthorList.Save();
 
-    // Guardar la parte de comentarios.
+    // Save the comments part.
 
     commentsPart.CommentList.Save();
 
@@ -222,13 +222,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 }
 
-// Obtener la parte de la diapositiva de la primera diapositiva en el documento de presentación.
+// Get the slide part of the first slide in the presentation document.
 
 private static SlidePart GetFirstSlide(PresentationDocument presentationDocument)
 
 {
 
-// Obtener el ID de relación de la primera diapositiva
+// Get relationship ID of the first slide
 
 PresentationPart part = presentationDocument.PresentationPart;
 
@@ -236,7 +236,7 @@ SlideId slideId = part.Presentation.SlideIdList.GetFirstChild<SlideId>();
 
 string relId = slideId.RelationshipId;
 
-// Obtener la parte de la diapositiva por el ID de relación.
+// Get the slide part by the relationship ID.
 
 SlidePart slidePart = (SlidePart)part.GetPartById(relId);
 
@@ -247,29 +247,29 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-En **Aspose.Slides** para .NET, la colección de comentarios de diapositivas de PPT está incluida en cada clase **Slide**. La clase **CommentCollection** se usa para contener los comentarios de una diapositiva particular. La clase **Comment** incluye información como el autor que agregó el comentario de la diapositiva, sus iniciales, la hora de creación, la posición del comentario en la diapositiva y el texto del comentario. La clase **CommentAuthor** se utiliza para agregar los autores de comentarios a nivel de presentación. La clase **Presentation** contiene la colección de autores para la presentación en la clase **CommentAuthors**.
+En **Aspose.Slides** para .NET, la colección de comentarios de diapositiva PPT está incluida en cada clase **Slide**. La clase **CommentCollection** se utiliza para contener los comentarios específicos de la diapositiva. La clase **Comment** incluye información como el autor que añadió el comentario a la diapositiva, sus iniciales, la hora de creación, la posición del comentario en la diapositiva y el texto del comentario. La clase **CommentAuthor** se usa para agregar los autores de los comentarios de diapositiva a nivel de presentación. La clase **Presentation** contiene la colección de autores de la presentación en la clase **CommentAuthors**.
 
-En el siguiente ejemplo, hemos agregado el fragmento de código para agregar los comentarios de la diapositiva.
+En el siguiente ejemplo, hemos añadido el fragmento de código para agregar los comentarios a la diapositiva.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Agregar un comentario a una diapositiva.pptx";
+string FileName = FilePath + "Add a comment to a slide.pptx";
 
 using (Presentation pres = new Presentation())
 
 {
 
-    //Agregando diapositiva vacía
+    //Adding Empty slide
 
     pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-    //Agregando autor
+    //Adding Autthor
 
     ICommentAuthor author = pres.CommentAuthors.AddAuthor("Zeeshan", "MZ");
 
-    //Posición de los comentarios
+    //Position of comments
 
     PointF point = new PointF();
 
@@ -277,16 +277,16 @@ using (Presentation pres = new Presentation())
 
     point.Y = 1;
 
-    //Agregando comentario de diapositiva para un autor en la diapositiva
+    //Adding slide comment for an author on slide
 
-    author.Comments.AddComment("Hola Zeeshan, este es un comentario de diapositiva", pres.Slides[0], point, DateTime.Now);
+    author.Comments.AddComment("Hello Zeeshan, this is slide comment", pres.Slides[0], point, DateTime.Now);
 
     pres.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Descargar Código de Ejemplo**
+## **Descargar código de ejemplo**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 - [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)

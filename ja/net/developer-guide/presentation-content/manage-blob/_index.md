@@ -1,12 +1,12 @@
 ---
-title: .NET でプレゼンテーション BLOB を管理し、メモリ使用を効率化する
-linktitle: BLOB の管理
+title: .NET でプレゼンテーション BLOB を管理して効率的なメモリ使用を実現
+linktitle: BLOB を管理
 type: docs
 weight: 10
 url: /ja/net/manage-blob/
 keywords:
 - 大きなオブジェクト
-- 大きな項目
+- 大きなアイテム
 - 大きなファイル
 - BLOB の追加
 - BLOB のエクスポート
@@ -21,22 +21,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET 用 Aspose.Slides の BLOB データを管理し、PowerPoint および OpenDocument ファイルの操作を効率化してプレゼンテーションの取り扱いを最適化します。"
+description: "Aspose.Slides for .NET における BLOB データを管理し、PowerPoint および OpenDocument ファイル操作を効率化して、プレゼンテーションの取り扱いを最適化します。"
 ---
 
 ## **BLOB について**
 
-**BLOB**（**Binary Large Object**）は、通常、バイナリ形式で保存された大きなアイテム（写真、プレゼンテーション、ドキュメント、またはメディア）です。
+**BLOB** (**Binary Large Object**) は、通常、バイナリ形式で保存された大きなアイテム（写真、プレゼンテーション、文書、またはメディア）です。
 
-Aspose.Slides for .NET は、大きなファイルが関与する場合にメモリ使用量を削減する方法で、オブジェクトに対して BLOB を使用できるようにします。
+Aspose.Slides for .NET は、大きなファイルが関与する場合にメモリ使用量を削減する方法で、オブジェクトに BLOB を使用できるようにします。
 
-## **BLOB を使用してメモリ使用量を削減する**
+## **メモリ消費を削減するための BLOB の使用**
 
 ### **BLOB を使用してプレゼンテーションに大きなファイルを追加する**
 
-[Aspose.Slides](/slides/ja/net/) for .NET は、BLOB を介したプロセスで大きなファイル（この場合は大きなビデオ ファイル）を追加し、メモリ使用量を削減できます。
+[Aspose.Slides](/slides/ja/net/) for .NET は、メモリ使用量を削減するために BLOB を介したプロセスで大きなファイル（この場合は大きなビデオ ファイル）を追加できます。
 
-以下の C# は、BLOB プロセスを使用して大きなビデオ ファイルをプレゼンテーションに追加する方法を示しています。
+この C# は、BLOB プロセスを通じて大きなビデオ ファイルをプレゼンテーションに追加する方法を示しています:
 ```c#
 const string pathToVeryLargeVideo = "veryLargeVideo.avi";
 
@@ -45,13 +45,13 @@ using (Presentation pres = new Presentation())
 {
     using (FileStream fileStream = new FileStream(pathToVeryLargeVideo, FileMode.Open))
     {
-        // プレゼンテーションにビデオを追加します - KeepLocked 動作を選択したのは、 
-        // 「veryLargeVideo.avi」ファイルにアクセスするつもりがないためです。
+        // ビデオをプレゼンテーションに追加します - KeepLocked 動作を選んだのは、  
+        // 「veryLargeVideo.avi」ファイルにアクセスしないつもりだからです。
         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         pres.Slides[0].Shapes.AddVideoFrame(0, 0, 480, 270, video);
 
-        // プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、メモリ消費は
-        // pres オブジェクトのライフサイクルを通じて低く保たれます 
+        // プレゼンテーションを保存します。大きなプレゼンテーションが出力されても、  
+        // pres オブジェクトのライフサイクルを通じてメモリ消費は低く保たれます
         pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     }
 }
@@ -59,25 +59,25 @@ using (Presentation pres = new Presentation())
 
 
 ### **BLOB を使用してプレゼンテーションから大きなファイルをエクスポートする**
-Aspose.Slides for .NET は、プレゼンテーションから BLOB を介したプロセスで大きなファイル（この場合はオーディオまたはビデオ ファイル）をエクスポートできます。たとえば、プレゼンテーションから大きなメディア ファイルを抽出したいが、そのファイルをコンピューターのメモリにロードしたくない場合があります。BLOB プロセスを通じてファイルをエクスポートすることで、メモリ使用量を低く抑えることができます。
+Aspose.Slides for .NET は、プレゼンテーションから BLOB を介したプロセスで大きなファイル（この場合は音声またはビデオ ファイル）をエクスポートできます。たとえば、プレゼンテーションから大きなメディア ファイルを抽出したいが、コンピューターのメモリに読み込ませたくない場合があります。BLOB プロセスでファイルをエクスポートすることで、メモリ消費を低く抑えることができます。
 
-以下の C# コードは、上記の操作を示しています。
+この C# コードは、上記の操作を示しています:
 ```c#
 const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
 	BlobManagementOptions = {
-		// ソースファイルをロックし、メモリに読み込まない
+		// ソースファイルをロックし、メモリに読み込まないようにします
 		PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
 	}
 };
 
-// Presentation のインスタンスを作成し、"hugePresentationWithAudiosAndVideos.pptx" ファイルをロックします。
+// プレゼンテーションのインスタンスを作成し、"hugePresentationWithAudiosAndVideos.pptx" ファイルをロックします。
 using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
 {
-	// 各ビデオをファイルに保存します。メモリ使用量が増えるのを防ぐために、バッファが必要です
-	// プレゼンテーションのビデオストリームから新しく作成したビデオファイル用ストリームへデータを転送するためのものです。
+	// 各ビデオをファイルに保存しましょう。メモリ使用量が高くなるのを防ぐために、バッファが必要です。
+	// プレゼンテーションのビデオストリームから、新しく作成したビデオファイル用のストリームへデータを転送するためです。
 	byte[] buffer = new byte[8 * 1024];
 
 	// ビデオを列挙します
@@ -85,10 +85,9 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 	{
 		IVideo video = pres.Videos[index];
 
-		// プレゼンテーションのビデオストリームを開きます。意図的にプロパティへのアクセスを回避したことに注意してください
-		// video.BinaryData のようなプロパティは、完全なビデオを含むバイト配列を返すため
-		// メモリにバイトを読み込んでしまいます。代わりに video.GetStream を使用し、これにより Stream が返され、メモリに全体を読み込む必要はありません。
-		//  require us to load the whole video into the memory.
+		// プレゼンテーションのビデオストリームを開きます。意図的にプロパティへのアクセスを避けていることに注意してください。
+		// video.BinaryData のようなプロパティは、フルビデオを含むバイト配列を返すため、
+		// メモリにバイトがロードされます。そのため video.GetStream を使用し、//  全ビデオをメモリに読み込む必要はありません。
 		using (Stream presVideoStream = video.GetStream())
 		{
 			using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
@@ -101,44 +100,44 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 			}
 		}
 
-		// ビデオやプレゼンテーションのサイズに関わらず、メモリ消費は低く保たれます、
+		// ビデオやプレゼンテーションのサイズに関係なく、メモリ消費は低く保たれます。
 	}
 
-	// 必要に応じて、オーディオファイルにも同じ手順を適用できます。 
+	// 必要に応じて、オーディオファイルにも同様の手順を適用できます。 
 }
 ```
 
 
-### **プレゼンテーションに画像を BLOB として追加する**
-[IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) インターフェイスと[ImageCollection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection) クラスのメソッドを使用すると、ストリームとして大きな画像を追加し、BLOB として扱うことができます。
+### **画像を BLOB としてプレゼンテーションに追加する**
+[**IImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) インターフェイスと[**ImageCollection** ](https://reference.aspose.com/slides/net/aspose.slides/imagecollection)クラスのメソッドを使用すると、ストリームとして大きな画像を追加し、BLOB として扱うことができます。
 
-以下の C# コードは、BLOB プロセスを使用して大きな画像を追加する方法を示しています。
+この C# コードは、BLOB プロセスを通じて大きな画像を追加する方法を示しています:
 ```c#
 string pathToLargeImage = "large_image.jpg";
 
-// 画像を追加する新しいプレゼンテーションを作成します。
+// 画像が追加される新しいプレゼンテーションを作成します。
 using (Presentation pres = new Presentation())
 {
 	using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
 	{
-		// 画像をプレゼンテーションに追加しましょう - KeepLocked 動作を選択したのは、
+		// プレゼンテーションに画像を追加します - KeepLocked 動作を選択したのは、  
 		// 「largeImage.png」ファイルにアクセスするつもりがないためです。
 		IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-		// プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、メモリ消費は
-		// pres オブジェクトのライフサイクルを通じて低く保たれます
+		// プレゼンテーションを保存します。大きなプレゼンテーションが出力されても、  
+		// pres オブジェクトのライフサイクル全体でメモリ消費は低く保たれます。
 		pres.Save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	}
 }
 ```
 
 
-## **メモリと大きなプレゼンテーション**
+## **メモリと大規模プレゼンテーション**
 
-通常、大きなプレゼンテーションをロードするには、コンピューターは多くの一時メモリを必要とします。プレゼンテーションのすべてのコンテンツがメモリにロードされ、プレゼンテーションがロードされた元のファイルは使用されなくなります。
+通常、大規模なプレゼンテーションを読み込むには、コンピューターは大量の一時メモリを必要とします。プレゼンテーションのすべてのコンテンツがメモリに読み込まれ、プレゼンテーションが読み込まれた元のファイルは使用されなくなります。
 
-たとえば、1.5 GB のビデオ ファイルを含む大きな PowerPoint プレゼンテーション（large.pptx）を考えてみましょう。標準的なロード方法は以下の C# コードに示されています。
+たとえば、1.5 GB のビデオ ファイルを含む大規模 PowerPoint プレゼンテーション（large.pptx）を考えてみます。プレゼンテーションを読み込む標準的な方法は、以下の C# コードで説明されています:
 ```c#
 using (Presentation pres = new Presentation("large.pptx"))
 {
@@ -147,11 +146,11 @@ using (Presentation pres = new Presentation("large.pptx"))
 ```
 
 
-しかし、この方法は約 1.6 GB の一時メモリを消費します。
+しかしこの方法は約 1.6 GB の一時メモリを消費します。
 
-### **BLOB として大きなプレゼンテーションをロードする**
+### **BLOB として大規模プレゼンテーションを読み込む**
 
-BLOB を介したプロセスを使用すると、メモリ使用量を抑えながら大きなプレゼンテーションをロードできます。以下の C# コードは、BLOB プロセスを使用して大きなプレゼンテーション ファイル（large.pptx）をロードする実装を示しています。
+BLOB を介したプロセスを使用すると、少ないメモリで大規模なプレゼンテーションを読み込むことができます。この C# コードは、BLOB プロセスを使用して large.pptx を読み込む実装を示しています:
 ```c#
 LoadOptions loadOptions = new LoadOptions
 {
@@ -169,9 +168,9 @@ using (Presentation pres = new Presentation("large.pptx", loadOptions))
 ```
 
 
-### **一時ファイルのフォルダーを変更する**
+### **一時ファイル用フォルダーを変更する**
 
-BLOB プロセスを使用すると、コンピューターはデフォルトの一時フォルダーに一時ファイルを作成します。別のフォルダーに一時ファイルを保存したい場合は、`TempFilesRootPath` を使用してストレージ設定を変更できます。
+BLOB プロセスを使用すると、コンピューターはデフォルトの一時ファイル フォルダーに一時ファイルを作成します。別のフォルダーに一時ファイルを保存したい場合は、`TempFilesRootPath` を使用してストレージ設定を変更できます:
 ```c#
 LoadOptions loadOptions = new LoadOptions
 {
@@ -191,22 +190,22 @@ LoadOptions loadOptions = new LoadOptions
 
 ## **FAQ**
 
-**Aspose.Slides のプレゼンテーションでどのデータが BLOB と見なされ、BLOB オプションで制御されますか？**
+**Aspose.Slides のプレゼンテーションで、どのデータが BLOB とみなされ、BLOB オプションで制御されますか？**
 
-画像、オーディオ、ビデオなどの大きなバイナリ オブジェクトが BLOB と見なされます。プレゼンテーション全体のファイルも、ロードまたは保存時に BLOB 処理が関与します。これらのオブジェクトは、メモリ使用量を管理し、必要に応じて一時ファイルにスピルできるようにする BLOB ポリシーによって制御されます。
+画像、音声、ビデオなどの大きなバイナリ オブジェクトが BLOB とみなされます。プレゼンテーション全体のファイルも、読み込みや保存時に BLOB 処理が関与します。これらのオブジェクトは BLOB ポリシーによって管理され、メモリ使用量を制御し、必要に応じて一時ファイルにスピルできます。
 
-**プレゼンテーションのロード時に BLOB 処理ルールはどこで設定しますか？**
+**プレゼンテーションの読み込み時に BLOB 処理ルールはどこで設定しますか？**
 
-[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) と [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/) を使用します。ここで BLOB のメモリ内上限を設定し、一時ファイルの使用可否、ルート パス、ソース ロック動作を指定できます。
+[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) と [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/) を組み合わせて使用します。ここで BLOB のメモリ上限を設定し、一時ファイルの使用可否、ルート パス、ソース ロック動作を指定できます。
 
 **BLOB 設定はパフォーマンスに影響しますか？速度とメモリのバランスはどう取りますか？**
 
-はい。BLOB をメモリに保持すると速度は最大化されますが RAM 使用量が増加します。メモリ上限を下げると処理が一時ファイルにシフトし、RAM は削減されますが I/O が増加します。作業負荷と環境に合わせて [MaxBlobsBytesInMemory](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/maxblobsbytesinmemory/) の閾値を調整し、最適なバランスを見つけてください。
+はい。BLOB をメモリに保持すると速度は最大化されますが RAM 使用量が増加します。メモリ上限を下げると処理の多くが一時ファイルに転送され、RAM は減りますが I/O が増加します。ワークロードと環境に合わせて [MaxBlobsBytesInMemory](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/maxblobsbytesinmemory/) の閾値を調整し、最適なバランスを見つけてください。
 
-**非常に大きなプレゼンテーション（例: ギガバイト規模）を開く際に BLOB オプションは役立ちますか？**
+**極めて大きなプレゼンテーション（例: 数ギガバイト）を開く際に BLOB オプションは役立ちますか？**
 
 はい。[BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/) はそのようなシナリオ向けに設計されており、一時ファイルの有効化とソース ロックの使用により、ピーク RAM 使用量を大幅に削減し、非常に大きなデッキの処理を安定させます。
 
-**ディスク ファイルではなくストリームからロードする場合にも BLOB ポリシーは使用できますか？**
+**ディスク ファイルではなくストリームから読み込む場合でも BLOB ポリシーは使用できますか？**
 
-はい。同じルールがストリームにも適用されます。プレゼンテーション インスタンスは入力ストリームを所有およびロックでき（選択したロック モードに依存）、許可されている場合は一時ファイルが使用され、処理中のメモリ使用量を予測可能に保ちます。
+はい。ストリームにも同じルールが適用されます。プレゼンテーション インスタンスは入力ストリームを所有およびロックでき（ロック モードによります）、許可されていれば一時ファイルが使用され、処理中のメモリ使用量を予測可能に保ちます。

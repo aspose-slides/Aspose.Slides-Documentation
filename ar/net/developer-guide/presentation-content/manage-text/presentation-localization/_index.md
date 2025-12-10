@@ -1,30 +1,30 @@
 ---
 title: أتمتة تعريب العروض التقديمية في .NET
-linktitle: تعريب العروض التقديمية
+linktitle: تعريب العرض التقديمي
 type: docs
 weight: 100
 url: /ar/net/presentation-localization/
 keywords:
 - تغيير اللغة
-- تدقيق إملائي
+- التدقيق الإملائي
 - معرف اللغة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "أتمتة تعريب شرائح PowerPoint وOpenDocument في .NET باستخدام Aspose.Slides، مع أمثلة عملية على كود C# ونصائح لتسريع النشر العالمي."
+description: "أتمتة تعريب شرائح PowerPoint وOpenDocument في .NET باستخدام Aspose.Slides، مع أمثلة عملية على شفرة C# ونصائح لتسريع النشر العالمي."
 ---
 
-## **تغيير اللغة لعرض النص في العروض التقديمية والشكل**
-- إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-- الحصول على مرجع الشريحة باستخدام فهرسها.
-- إضافة AutoShape من نوع Rectangle إلى الشريحة.
+## **تغيير اللغة لعرض تقديمي ونص الشكل**
+- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
+- إضافة AutoShape من النوع Rectangle إلى الشريحة.
 - إضافة بعض النص إلى TextFrame.
-- ضبط معرف اللغة (Language Id) للنص.
+- تعيين Language Id للنص.
 - حفظ العرض التقديمي كملف PPTX.
 
-يتم توضيح تنفيذ الخطوات المذكورة أعلاه في المثال أدناه.
+يتم توضيح تنفيذ الخطوات المذكورة أعلاه أدناه في مثال.
 ```c#
 using (Presentation pres = new Presentation("test0.pptx"))
 {
@@ -37,16 +37,16 @@ using (Presentation pres = new Presentation("test0.pptx"))
 ```
 
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**هل يؤدي معرف اللغة إلى ترجمة النص تلقائيًا؟**
+**هل يُؤدي Language ID إلى ترجمة النص تلقائياً؟**
 
-لا. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) في Aspose.Slides يخزن اللغة لتدقيق الإملاء وإثبات القواعد، لكنه لا يترجم أو يغير محتوى النص. إنها بيانات وصفية يفهمها PowerPoint للإثبات.
+لا. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) في Aspose.Slides يخزن اللغة للتدقيق الإملائي وإثبات القواعد، لكنه لا يترجم أو يغير محتوى النص. إنها بيانات وصفية يفهمها PowerPoint للإثبات.
 
-**هل يؤثر معرف اللغة على التجزئة والسطور أثناء العرض؟**
+**هل يؤثر Language ID على التجزئة والفواصل أثناء العرض؟**
 
-في Aspose.Slides، [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) مخصص للإثبات. جودة التجزئة وتغليف السطر تعتمد بشكل أساسي على توفر [الخطوط المناسبة](/slides/ar/net/powerpoint-fonts/) وإعدادات التخطيط/فواصل السطر لنظام الكتابة. لضمان عرض صحيح، احرص على توفير الخطوط المطلوبة، وتكوين [قواعد استبدال الخط](/slides/ar/net/font-substitution/)، و/أو [تضمين الخطوط](/slides/ar/net/embedded-font/) في العرض التقديمي.
+في Aspose.Slides، [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) مخصص للإثبات. تعتمد جودة التجزئة وتغليف السطر أساساً على توفر [proper fonts](/slides/ar/net/powerpoint-fonts/) وإعدادات التخطيط/إدراج الفواصل لنظام الكتابة. لضمان العرض الصحيح، احرص على توفير الخطوط المطلوبة، وتكوين [font substitution rules](/slides/ar/net/font-substitution/)، و/أو [embed fonts](/slides/ar/net/embedded-font/) في العرض التقديمي.
 
 **هل يمكنني تعيين لغات مختلفة داخل فقرة واحدة؟**
 
-نعم. يتم تطبيق [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) على مستوى جزء النص، وبالتالي يمكن لفقرة واحدة أن تحتوي على عدة لغات بإعدادات إثبات مختلفة.
+نعم. يتم تطبيق [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) على مستوى جزء النص، لذا يمكن لفقرة واحدة دمج عدة لغات بإعدادات إثبات متميزة.

@@ -14,16 +14,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 和 Aspose.Slides 创建和格式化文本框：设置字体、对齐、换行、自动调整大小以及链接，以优化 PowerPoint 和 OpenDocument 的幻灯片。"
+description: "使用 Aspose.Slides 在 C# 中创建和格式化文本框：设置字体、对齐、换行、自动适应以及链接，以完善 PowerPoint 和 OpenDocument 的幻灯片。"
 ---
 
-在 Aspose.Slides 中，**文本框**由 `AutoShape` 表示。几乎所有形状都可以包含文本，但典型的文本框没有填充或边框，只显示文本。
+在 Aspose.Slides 中，**文本框**由 `AutoShape` 表示。几乎任何形状都可以包含文本，但典型的文本框没有填充或边框，仅显示文本。
 
 本指南说明如何以编程方式添加、访问和删除文本框。
 
-## 添加文本框
+## **添加文本框**
 
-文本框实际上是一个没有填充和边框且包含一些格式化文本的 `AutoShape`。下面演示如何创建它：
+文本框就是一个没有填充和边框且带有一些格式化文本的 `AutoShape`。以下是创建方法：
 
 ```csharp
 public static void Add_TextBox()
@@ -46,11 +46,11 @@ public static void Add_TextBox()
 }
 ```
 
-> 💡 **注意：** 任何包含非空 `TextFrame` 的 `AutoShape` 都可以充当文本框。
+> 💡 **注意:** 任何包含非空 `TextFrame` 的 `AutoShape` 都可以充当文本框。
 
-## 按内容访问文本框
+## **按内容访问文本框**
 
-要查找所有包含特定关键字（例如 “Slide”）的文本框，请遍历形状并检查它们的文本：
+要查找所有包含特定关键字（例如 “Slide”）的文本框，可遍历形状并检查其文本：
 
 ```csharp
 public static void Access_TextBox()
@@ -71,9 +71,9 @@ public static void Access_TextBox()
 }
 ```
 
-## 按内容删除文本框
+## **按内容删除文本框**
 
-此示例查找并删除第一张幻灯片上包含特定关键字的所有文本框：
+此示例查找并删除第一张幻灯片上所有包含特定关键字的文本框：
 
 ```csharp
 public static void Remove_TextBox()
@@ -88,4 +88,4 @@ public static void Remove_TextBox()
 }
 ```
 
-> 💡 **提示：** 在迭代过程中修改形状集合前，请始终先创建该集合的副本，以避免集合修改错误。
+> 💡 **提示:** 在遍历时修改形状集合前，请始终先创建该集合的副本，以避免集合修改错误。

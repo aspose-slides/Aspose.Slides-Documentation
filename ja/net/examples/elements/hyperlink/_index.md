@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ja/net/examples/elements/hyperlink/
 keywords:
-- ハイパーリンクの例
+- ハイパーリンク例
 - ハイパーリンクの追加
 - ハイパーリンクへのアクセス
 - ハイパーリンクの削除
@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してハイパーリンクを追加、編集、削除します: テキスト、シェイプ、スライド、URL、メールのリンク; PPT、PPTX、ODP のターゲットとアクションを設定します。"
+description: "C# と Aspose.Slides を使用してハイパーリンクを追加、編集、削除します。テキスト、シェイプ、スライド、URL、メールアドレスにリンクし、PPT、PPTX、ODP の対象とアクションを設定できます。"
 ---
 
 **Aspose.Slides for .NET** を使用して、シェイプ上のハイパーリンクの追加、アクセス、削除、更新を示します。
 
-## ハイパーリンクの追加
-
-外部ウェブサイトにリンクするハイパーリンクを持つ矩形シェイプを作成します。
+## **ハイパーリンクの追加**
+外部ウェブサイトを指すハイパーリンクを持つ四角形シェイプを作成します。
 ```csharp
 static void Add_Hyperlink()
 {
@@ -35,9 +34,8 @@ static void Add_Hyperlink()
 ```
 
 
-## ハイパーリンクへのアクセス
-
-シェイプのテキスト部分からハイパーリンク情報を取得します。
+## **ハイパーリンクへのアクセス**
+シェイプのテキスト部分からハイパーリンク情報を読み取ります。
 ```csharp
 static void Access_Hyperlink()
 {
@@ -52,8 +50,7 @@ static void Access_Hyperlink()
 ```
 
 
-## ハイパーリンクの削除
-
+## **ハイパーリンクの削除**
 シェイプのテキストからハイパーリンクをクリアします。
 ```csharp
 static void Remove_Hyperlink()
@@ -69,9 +66,8 @@ static void Remove_Hyperlink()
 ```
 
 
-## ハイパーリンクの更新
-
-既存のハイパーリンクの対象先を変更します。`HyperlinkManager` を使用して、既にハイパーリンクが含まれているテキストを変更し、PowerPoint がハイパーリンクを安全に更新する方法を模倣します。
+## **ハイパーリンクの更新**
+既存のハイパーリンクのターゲットを変更します。`HyperlinkManager` を使用して、既にハイパーリンクが含まれているテキストを変更し、PowerPoint がハイパーリンクを安全に更新する方法を模倣します。
 ```csharp
 static void Update_Hyperlink()
 {
@@ -82,10 +78,9 @@ static void Update_Hyperlink()
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-    // 既存のテキスト内のハイパーリンクを変更するには、
-    // プロパティを直接設定するのではなく、HyperlinkManager を使用すべきです。
+    // 既存のテキスト内のハイパーリンクを変更する場合は、
+    // HyperlinkManager を使用し、プロパティを直接設定しないでください。
     // これは、PowerPoint がハイパーリンクを安全に更新する方法を模倣しています。
     portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }
 ```
-

@@ -32,23 +32,19 @@ description: "Convertir diapositivas de PowerPoint—PPT, PPTX—a Markdown limp
 ---
 
 {{% alert color="info" %}} 
-
-El soporte para la conversión de PowerPoint a markdown se implementó en [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
-
+La compatibilidad para la conversión de PowerPoint a markdown se implementó en [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
-
-La exportación de PowerPoint a markdown es **sin imágenes** por defecto. Si desea exportar un documento de PowerPoint que contenga imágenes, debe establecer `ExportType = MarkdownExportType.Visual` y establecer el BasePath donde se guardarán las imágenes referenciadas en el documento markdown.
-
+La exportación de PowerPoint a markdown es **sin imágenes** por defecto. Si deseas exportar un documento PowerPoint que contenga imágenes, debes establecer `ExportType = MarkdownExportType.Visual` y configurar la BasePath donde se guardarán las imágenes referenciadas en el documento markdown.
 {{% /alert %}} 
 
 ## **Convertir PowerPoint a Markdown**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) para representar un objeto de presentación.
-2. Utilice el método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) para guardar el objeto como un archivo markdown.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) para representar un objeto de presentación.  
+2. Utiliza el método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) para guardar el objeto como un archivo markdown.
 
-Este código C# le muestra cómo convertir PowerPoint a markdown:
+Este código C# muestra cómo convertir PowerPoint a markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -59,9 +55,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **Convertir PowerPoint a un sabor de Markdown**
 
-Aspose.Slides le permite convertir PowerPoint a markdown (con sintaxis básica), CommonMark, markdown con formato de GitHub, Trello, XWiki, GitLab y 17 sabores de markdown adicionales.
+Aspose.Slides permite convertir PowerPoint a markdown (con sintaxis básica), CommonMark, markdown con sabor de GitHub, Trello, XWiki, GitLab y 17 sabores de markdown adicionales.
 
-Este código C# le muestra cómo convertir PowerPoint a CommonMark:
+Este código C# muestra cómo convertir PowerPoint a CommonMark:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -73,15 +69,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-Los 23 sabores de markdown compatibles se [enumeran bajo la enumeración Flavor](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la clase [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+Los 23 sabores de markdown compatibles se enumeran bajo la enumeración [Flavor](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la clase [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-## **Convertir presentación que contiene imágenes a Markdown**
+## **Convertir una presentación que contiene imágenes a Markdown**
 
-La clase [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) proporciona propiedades y enumeraciones que le permiten usar ciertas opciones o configuraciones para el archivo markdown resultante. La enumeración [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) se puede establecer, por ejemplo, en valores que determinan cómo se renderizan o manejan las imágenes: `Sequential`, `TextOnly`, `Visual`.
+La clase [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) proporciona propiedades y enumeraciones que permiten usar ciertas opciones o configuraciones para el archivo markdown resultante. El enum [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) se puede establecer en valores que determinan cómo se renderizan o manejan las imágenes: `Sequential`, `TextOnly`, `Visual`.
 
 ### **Convertir imágenes secuencialmente**
 
-Si desea que las imágenes aparezcan individualmente una tras otra en el markdown resultante, debe elegir la opción secuencial. Este código C# le muestra cómo convertir una presentación que contiene imágenes a markdown:
+Si deseas que las imágenes aparezcan individualmente una tras otra en el markdown resultante, debes elegir la opción secuencial. Este código C# muestra cómo convertir una presentación que contiene imágenes a markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -101,7 +97,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Convertir imágenes visualmente**
 
-Si desea que las imágenes aparezcan juntas en el markdown resultante, debe elegir la opción visual. En este caso, las imágenes se guardarán en el directorio actual de la aplicación (y se construirá una ruta relativa para ellas en el documento markdown), o puede especificar la ruta y el nombre de carpeta que prefiera.
+Si deseas que las imágenes aparezcan juntas en el markdown resultante, debes elegir la opción visual. En este caso, las imágenes se guardarán en el directorio actual de la aplicación (y se construirá una ruta relativa para ellas en el documento markdown), o puedes especificar la ruta y el nombre de carpeta que prefieras.
 
 Este código C# demuestra la operación:
 ```c#
@@ -126,8 +122,8 @@ Sí. Los [hipervínculos](/slides/es/net/manage-hyperlinks/) de texto se conserv
 
 **¿Puedo acelerar la conversión ejecutándola en varios hilos?**
 
-Puede paralelizar por archivos, pero [no comparta](/slides/es/net/multithreading/) la misma instancia de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) entre hilos. Utilice instancias o procesos separados por archivo para evitar contención.
+Puedes paralelizar entre archivos, pero no compartas la misma instancia de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) entre hilos. Usa instancias/procesos separados por archivo para evitar contención.
 
-**¿Qué ocurre con las imágenes—dónde se guardan y son las rutas relativas?**
+**¿Qué ocurre con las imágenes, dónde se guardan y son las rutas relativas?**
 
-Las [imágenes](/slides/es/net/image/) se exportan a una carpeta dedicada, y el archivo Markdown las referencia con rutas relativas por defecto. Puede configurar la ruta base de salida y el nombre de la carpeta de recursos para mantener una estructura de repositorio predecible.
+Las [imágenes](/slides/es/net/image/) se exportan a una carpeta dedicada, y el archivo Markdown las referencia con rutas relativas por defecto. Puedes configurar la ruta base de salida y el nombre de la carpeta de recursos para mantener una estructura de repositorio predecible.

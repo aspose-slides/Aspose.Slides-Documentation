@@ -27,112 +27,121 @@ description: "使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中创建
 
 ## **使用编辑点更改形状**
 
-考虑一个正方形。在 PowerPoint 中，使用 **编辑点**，您可以  
+考虑一个正方形。在 PowerPoint 中，使用 **编辑点**，您可以
 
-* 将正方形的角向内或向外移动  
-* 指定角或点的曲率  
-* 向正方形添加新点  
-* 操纵正方形上的点，等等  
+* 将正方形的角向内或向外移动
+* 为角或点指定曲率
+* 向正方形添加新点
+* 操作正方形上的点，等等
 
-本质上，您可以对任何形状执行上述任务。使用编辑点，您可以更改形状或从现有形状创建新形状。  
+本质上，您可以对任何形状执行上述任务。通过编辑点，您可以更改形状或从现有形状创建新形状。
 
 ## **形状编辑技巧**
 
 ![overview_image](custom_shape_0.png)
 
-在通过编辑点开始编辑 PowerPoint 形状之前，您可能想要考虑以下关于形状的要点：
+在通过编辑点开始编辑 PowerPoint 形状之前，您可能想先考虑以下关于形状的要点：
 
-* 形状（或其路径）可以是闭合的，也可以是开放的。  
-* 所有形状至少由 2 个锚点组成，这些锚点通过线段相连  
-* 线段可以是直的，也可以是曲的。锚点决定线段的性质。  
-* 锚点以拐点、直点或平滑点的形式存在：  
-  * 拐点是两条直线在一个角度处相交的点。  
-  * 平滑点是两个控制柄位于同一直线上，且线段在此处形成平滑曲线的点。在这种情况下，两个控制柄与锚点的距离相等。  
-  * 直点是两个控制柄位于同一直线上，且该线段在此处形成平滑曲线的点。在这种情况下，控制柄与锚点的距离不必相等。  
-* 通过移动或编辑锚点（从而改变线段的角度），您可以改变形状的外观。  
+* 形状（或其路径）可以是闭合的，也可以是打开的。
+* 所有形状至少由 2 个锚点组成，这些锚点通过线相连。
+* 线段可以是直线或曲线。锚点决定线段的性质。
+* 锚点有角点、直线点或平滑点：
+  * 角点是两条直线在一个角度相连的点。
+  * 平滑点是两个控制柄在同一直线上，且线段以平滑曲线相连的点。在这种情况下，所有控制柄与锚点的距离相等。
+  * 直线点是两个控制柄在同一直线上，但线段仍以平滑曲线相连的点。在这种情况下，控制柄与锚点的距离不必相等。
+* 通过移动或编辑锚点（从而改变线段的角度），可以改变形状的外观。
 
 要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类和 [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) 接口。
 
-* 一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 实例代表 [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) 对象的几何路径。  
-* 要从 `IGeometryShape` 实例检索 `GeometryPath`，可以使用 [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) 方法。  
-* 要为形状设置 `GeometryPath`，可以使用以下方法：针对 *实心形状* 使用 [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath)；针对 *复合形状* 使用 [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths)。  
-* 要添加线段，可以使用 [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) 下的方法。  
-* 使用 [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) 和 [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) 属性，可以设置几何路径的外观。  
-* 使用 [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) 属性，可以将 `GeometryShape` 的几何路径检索为路径段数组。  
-* 要访问其他形状几何自定义选项，可以将 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 转换为 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)。  
-* 使用 [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) 和 [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) 方法（来自 [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) 类）在 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 和 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 之间相互转换。  
+* 一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 实例表示 [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) 对象的几何路径。
+* 要从 `IGeometryShape` 实例检索 `GeometryPath`，可以使用 [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) 方法。
+* 要为形状设置 `GeometryPath`，可以使用以下方法：针对*实心形状*使用 [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath)，针对*复合形状*使用 [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths)。
+* 要添加段，可使用 [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) 下的方法。
+* 使用 [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) 和 [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) 属性，可以设置几何路径的外观。
+* 使用 [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) 属性，可将 `GeometryShape` 的几何路径检索为路径段数组。
+* 要访问其他形状几何自定义选项，可以将 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 转换为 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)。
+* 使用来自 [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) 类的 [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) 和 [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) 方法，可在 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 与 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 之间相互转换。
 
 ## **简单编辑操作**
 
-以下 C# 代码演示如何  
+下面的 C# 代码演示如何
 
 **在路径末尾添加直线**  
 ``` csharp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-  
+
+
 **在路径的指定位置添加直线**：  
 ``` csharp    
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
-  
+
+
 **在路径末尾添加三次贝塞尔曲线**：  
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-  
+
+
 **在路径的指定位置添加三次贝塞尔曲线**：  
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
-  
+
+
 **在路径末尾添加二次贝塞尔曲线**：  
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-  
+
+
 **在路径的指定位置添加二次贝塞尔曲线**：  
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
-  
-**向路径追加给定弧线**：  
+
+
+**向路径追加给定弧段**：  
 ``` csharp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-  
+
+
 **关闭路径的当前图形**：  
 ``` csharp
 void CloseFigure();
 ```
-  
+
+
 **设置下一个点的位置**：  
 ``` csharp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-  
+
+
 **删除给定索引处的路径段**：  
 ``` csharp
 void RemoveAt(int index);
 ```
-  
+
 
 ## **向形状添加自定义点**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例并将其类型设置为 [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype)。  
-2. 从形状获取 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。  
-3. 在路径的两个顶部点之间添加一个新点。  
-4. 在路径的两个底部点之间添加一个新点。  
-5. 将路径应用于形状。  
+1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例，并将 [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) 类型设置为矩形。
+2. 从形状获取一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。
+3. 在路径的两个顶部点之间添加一个新点。
+4. 在路径的两个底部点之间添加一个新点。
+5. 将路径应用到形状。
 
-以下 C# 代码演示如何向形状添加自定义点：  
+下面的 C# 代码演示如何向形状添加自定义点：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -150,12 +159,12 @@ using (Presentation pres = new Presentation())
 
 ## **从形状中移除点**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例并将其类型设置为 [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype)。  
-2. 从形状获取 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。  
-3. 移除路径的线段。  
-4. 将路径应用于形状。  
+1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例，并将 [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) 类型设置为心形。 
+2. 从形状获取一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。
+3. 删除路径的段。
+4. 将路径应用到形状。
 
-以下 C# 代码演示如何从形状中移除点：  
+下面的 C# 代码演示如何从形状中移除点：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -167,17 +176,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example2_image](custom_shape_2.png)
 
 ## **创建自定义形状**
 
-1. 计算形状的点。  
-2. 创建 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。  
-3. 用这些点填充路径。  
-4. 创建 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。  
-5. 将路径应用于形状。  
+1. 计算形状的点。
+2. 创建一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。 
+3. 使用这些点填充路径。
+4. 创建一个 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。 
+5. 将路径应用到形状。
 
-以下 C# 显示了如何创建自定义形状：  
+下面的 C# 代码演示如何创建自定义形状：  
 ``` csharp
 List<PointF> points = new List<PointF>();
 
@@ -215,16 +225,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example3_image](custom_shape_3.png)
 
 ## **创建复合自定义形状**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。  
-2. 创建第一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。  
-3. 创建第二个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。  
-4. 将这些路径应用于形状。  
+1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。
+2. 创建第一个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。
+3. 创建第二个 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 类的实例。
+4. 将路径应用到形状。
 
-以下 C# 代码演示如何创建复合自定义形状：  
+下面的 C# 代码演示如何创建复合自定义形状：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -248,11 +259,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example4_image](custom_shape_4.png)
 
 ## **创建带曲线角的自定义形状**
 
-以下 C# 代码演示如何创建带曲线角（向内）的自定义形状；  
+下面的 C# 代码演示如何创建带曲线角（向内）的自定义形状；  
 ```c#
 var shapeX = 20f;
 var shapeY = 20f;
@@ -298,7 +310,7 @@ using (var presentation = new Presentation())
 
 ## **判断形状几何是否闭合**
 
-闭合形状的定义是其所有边缘相连，形成没有间隙的单一边界。此类形状可以是简单的几何形状，也可以是复杂的自定义轮廓。以下代码示例展示了如何检查形状几何是否闭合：  
+闭合形状的定义是其所有边都相连，形成没有间隙的单一边界。此类形状可以是简单的几何形状，也可以是复杂的自定义轮廓。下面的代码示例演示如何检查形状几何是否闭合：  
 ```cs
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
@@ -324,12 +336,12 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 
 ## **将 GeometryPath 转换为 GraphicsPath (System.Drawing.Drawing2D)**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。  
-2. 在 [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 命名空间中创建 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) 类的实例。  
-3. 使用 [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) 将 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) 实例转换为 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 实例。  
-4. 将路径应用于形状。  
+1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) 类的实例。
+2. 创建一个位于 [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 命名空间下的 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) 类的实例。
+3. 使用 [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) 将 [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) 实例转换为 [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) 实例。
+4. 将路径应用到形状。
 
-以下 C# 代码实现了上述步骤，演示了 **GeometryPath** 到 **GraphicsPath** 的转换过程：  
+下面的 C# 代码实现了上述步骤，演示了 **GeometryPath** 到 **GraphicsPath** 的转换过程：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -349,15 +361,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example5_image](custom_shape_5.png)
 
 ## **常见问题**
 
 **替换几何后填充和轮廓会怎样？**  
-样式仍保留在形状上；仅轮廓会改变。填充和轮廓会自动应用到新的几何形状上。
+样式仍保留在形状上；仅轮廓发生变化。填充和轮廓会自动应用到新几何上。
 
 **如何正确旋转自定义形状以及其几何？**  
-使用形状的 [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) 属性；几何会随形状一起旋转，因为它绑定在形状自身的坐标系上。
+使用形状的 [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) 属性；几何会随形状一起旋转，因为它绑定在形状的坐标系上。
 
-**我能将自定义形状转换为图像以“锁定”结果吗？**  
-可以。将所需的 [slide](/slides/zh/net/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/net/create-shape-thumbnails/) 本身导出为光栅格式；这可以简化对复杂几何的后续操作。
+**我可以将自定义形状转换为图像以“锁定”结果吗？**  
+可以。将所需的 [slide](/slides/zh/net/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/net/create-shape-thumbnails/) 本身导出为栅格格式；这可简化对复杂几何的后续处理。

@@ -4,9 +4,9 @@ type: docs
 weight: 20
 url: /de/net/examples/elements/layout-slide/
 keywords:
-- Beispiel für Layout-Folien
+- Beispiel für Layout-Folie
 - Layout-Folie hinzufügen
-- Zugriff auf Layout-Folie
+- Layout-Folie zugreifen
 - Layout-Folie entfernen
 - Unbenutzte Layout-Folie
 - Layout-Folie duplizieren
@@ -16,14 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwenden Sie C# zur Verwaltung von Layout-Folien mit Aspose.Slides: Erstellen, Anwenden, Duplizieren, Umbenennen und Anpassen von Platzhaltern und Designs in Präsentationen für PPT, PPTX und ODP."
+description: "Verwenden Sie C#, um Layout-Folien mit Aspose.Slides zu verwalten: Erstellen, Anwenden, Duplizieren, Umbenennen und Anpassen von Platzhaltern und Designs in Präsentationen für PPT, PPTX und ODP."
 ---
 
-Dieser Artikel demonstriert, wie man mit **Layout Slides** in Aspose.Slides für .NET arbeitet. Ein Layout‑Slide definiert das Design und die Formatierung, die von normalen Folien geerbt werden. Sie können Layout‑Slides hinzufügen, darauf zugreifen, sie klonen und entfernen sowie ungenutzte Slides bereinigen, um die Präsentationsgröße zu reduzieren.
+Dieser Artikel zeigt, wie man mit **Layout‑Folien** in Aspose.Slides für .NET arbeitet. Eine Layout‑Folie definiert das Design und die Formatierung, die von normalen Folien übernommen werden. Sie können Layout‑Folien hinzufügen, darauf zugreifen, duplizieren und entfernen sowie ungenutzte Folien bereinigen, um die Präsentationsgröße zu reduzieren.
 
-## Layout‑Slide hinzufügen
+## **Eine Layout‑Folie hinzufügen**
 
-Sie können ein benutzerdefiniertes Layout‑Slide erstellen, um wiederverwendbare Formatierungen zu definieren. Beispielsweise können Sie ein Textfeld hinzufügen, das auf allen Folien, die dieses Layout verwenden, angezeigt wird.
+Sie können eine benutzerdefinierte Layout‑Folie erstellen, um wiederverwendbare Formatierungen zu definieren. Zum Beispiel können Sie ein Textfeld hinzufügen, das auf allen Folien mit diesem Layout erscheint.
 
 ```csharp
 static void Add_Layout_Slide()
@@ -41,19 +41,19 @@ static void Add_Layout_Slide()
     pres.Slides.AddEmptySlide(layoutSlide);
     pres.Slides.AddEmptySlide(layoutSlide);
 }
-```
+````
 
-> 💡 **Tipp 1:** Layout‑Slides fungieren als Vorlagen für einzelne Folien. Sie können gemeinsame Elemente einmal definieren und sie über viele Folien hinweg wiederverwenden.
+> 💡 **Tipp 1:** Layout‑Folien fungieren als Vorlagen für einzelne Folien. Sie können gemeinsame Elemente einmal definieren und sie auf vielen Folien wiederverwenden.
 
-> 💡 **Tipp 2:** Wenn Sie Formen oder Text zu einem Layout‑Slide hinzufügen, zeigen alle darauf basierenden Folien diesen gemeinsamen Inhalt automatisch an.
-
-> Das untenstehende Bildschirmfoto zeigt zwei Folien, die jeweils ein Textfeld vom gleichen Layout‑Slide erben.
+> 💡 **Tipp 2:** Wenn Sie Formen oder Text zu einer Layout‑Folie hinzufügen, wird dieser gemeinsame Inhalt automatisch auf allen darauf basierenden Folien angezeigt.  
+> Das untenstehende Bildschirmfoto zeigt zwei Folien, die jeweils ein Textfeld von derselben Layout‑Folie erben.
 
 ![Slides Inheriting Layout Content](layout-slide-result.png)
 
-## Zugriff auf ein Layout‑Slide
 
-Layout‑Slides können über den Index oder über den Layout‑Typ (z. B. `Blank`, `Title`, `SectionHeader` usw.) zugegriffen werden.
+## **Auf eine Layout‑Folie zugreifen**
+
+Layout‑Folien können über den Index oder den Layout‑Typ (z. B. `Blank`, `Title`, `SectionHeader` usw.) abgerufen werden.
 
 ```csharp
 static void Access_Layout_Slide()
@@ -68,9 +68,9 @@ static void Access_Layout_Slide()
 }
 ```
 
-## Layout‑Slide entfernen
+## **Eine Layout‑Folie entfernen**
 
-Sie können ein bestimmtes Layout‑Slide entfernen, wenn es nicht mehr benötigt wird.
+Sie können eine bestimmte Layout‑Folie entfernen, wenn sie nicht mehr benötigt wird.
 
 ```csharp
 static void Remove_Layout_Slide()
@@ -83,9 +83,9 @@ static void Remove_Layout_Slide()
 }
 ```
 
-## Unbenutzte Layout‑Slides entfernen
+## **Unbenutzte Layout‑Folien entfernen**
 
-Um die Präsentationsgröße zu reduzieren, möchten Sie möglicherweise Layout‑Slides entfernen, die von keiner normalen Folie verwendet werden.
+Um die Präsentationsgröße zu reduzieren, sollten Sie Layout‑Folien entfernen, die von keiner normalen Folie verwendet werden.
 
 ```csharp
 static void RemoveUnused_Layout_Slides()
@@ -97,9 +97,9 @@ static void RemoveUnused_Layout_Slides()
 }
 ```
 
-## Layout‑Slide duplizieren
+## **Eine Layout‑Folie duplizieren**
 
-Sie können ein Layout‑Slide mithilfe der Methode `AddClone` duplizieren.
+Sie können eine Layout‑Folie mit der Methode `AddClone` duplizieren.
 
 ```csharp
 static void Clone_Layout_Slides()
@@ -114,4 +114,4 @@ static void Clone_Layout_Slides()
 }
 ```
 
-> ✅ **Zusammenfassung:** Layout‑Slides sind leistungsstarke Werkzeuge zur Verwaltung konsistenter Formatierungen über Folien hinweg. Aspose.Slides bietet vollständige Kontrolle über das Erstellen, Verwalten und Optimieren von Layout‑Slides.
+> ✅ **Zusammenfassung:** Layout‑Folien sind leistungsstarke Werkzeuge zur Verwaltung konsistenter Formatierungen über alle Folien hinweg. Aspose.Slides bietet vollständige Kontrolle über das Erstellen, Verwalten und Optimieren von Layout‑Folien.

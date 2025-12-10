@@ -4,10 +4,10 @@ type: docs
 weight: 80
 url: /ja/net/examples/elements/video/
 keywords:
-- ビデオの例
+- ビデオ例
 - ビデオフレーム
 - ビデオの追加
-- ビデオへのアクセス
+- ビデオの取得
 - ビデオの削除
 - ビデオ再生
 - PowerPoint
@@ -16,13 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してビデオを操作します：挿入、置換、トリミング、ポスターフレームや再生オプションの設定、そして PPT、PPTX、ODP 用にプレゼンテーションをエクスポートします。"
+description: "Aspose.Slides を使用して C# でビデオを操作します：挿入、置換、トリミング、ポスターフレームと再生オプションの設定、そして PPT、PPTX、ODP 用にプレゼンテーションをエクスポートします。"
 ---
 
-**Aspose.Slides for .NET** を使用してビデオフレームを埋め込み、再生オプションを設定する方法を示します。
+**Aspose.Slides for .NET** を使用して、ビデオフレームを埋め込み、再生オプションを設定する方法を示します。
 
-## ビデオフレームの追加
-
+## **Add a Video Frame**
 スライドに空のビデオフレームを挿入します。
 ```csharp
 static void Add_Video()
@@ -36,8 +35,7 @@ static void Add_Video()
 ```
 
 
-## ビデオフレームへのアクセス
-
+## **Access a Video Frame**
 スライドに追加された最初のビデオフレームを取得します。
 ```csharp
 static void Access_Video()
@@ -52,8 +50,7 @@ static void Access_Video()
 ```
 
 
-## ビデオフレームの削除
-
+## **Remove a Video Frame**
 スライドからビデオフレームを削除します。
 ```csharp
 static void Remove_Video()
@@ -68,8 +65,7 @@ static void Remove_Video()
 ```
 
 
-## ビデオ再生の設定
-
+## **Set Video Playback**
 スライドが表示されたときにビデオが自動的に再生されるように設定します。
 ```csharp
 static void Set_Video_Playback()
@@ -78,7 +74,7 @@ static void Set_Video_Playback()
     var slide = pres.Slides[0];
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // ビデオを自動再生するように設定
+    // ビデオを自動的に再生するように設定
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

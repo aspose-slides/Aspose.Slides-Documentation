@@ -5,7 +5,7 @@ weight: 180
 url: /es/net/examples/elements/ink/
 keywords:
 - ejemplo de tinta
-- acceso a tinta
+- acceder a tinta
 - eliminar tinta
 - PowerPoint
 - OpenDocument
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Manipula tinta digital en diapositivas en C# con Aspose.Slides: agrega trazos de lápiz, edita rutas, establece color y ancho, y exporta los resultados para PowerPoint y OpenDocument."
+description: "Maneja tinta digital en diapositivas en C# con Aspose.Slides: agrega trazos de lápiz, edita rutas, establece color y ancho, y exporta los resultados para PowerPoint y OpenDocument."
 ---
 
-Proporciona ejemplos de acceso a formas de tinta existentes y su eliminación utilizando **Aspose.Slides for .NET**.
+Proporciona ejemplos de acceso a formas de tinta existentes y su eliminación usando **Aspose.Slides for .NET**.
 
-> ❗ **Nota:** Las formas de tinta representan la entrada del usuario desde dispositivos especializados. Aspose.Slides no puede crear nuevos trazos de tinta de forma programática, pero puedes leer y modificar la tinta existente.
+> ❗ **Nota:** Las formas de tinta representan la entrada del usuario desde dispositivos especializados. Aspose.Slides no puede crear nuevos trazos de tinta mediante código, pero puedes leer y modificar la tinta existente.
 
-## Acceso a la tinta
+## **Acceder a la tinta**
 
 Lee las etiquetas de la primera forma de tinta en una diapositiva.
 ```csharp
@@ -35,14 +35,14 @@ static void Access_Ink()
         if (tags.Count > 0)
         {
             var tagName = tags.GetNameByIndex(0);
-            // Usa tagName según sea necesario
+            // Utilice tagName según sea necesario
         }
     }
 }
 ```
 
 
-## Eliminar tinta
+## **Eliminar tinta**
 
 Elimina una forma de tinta de la diapositiva si existe.
 ```csharp

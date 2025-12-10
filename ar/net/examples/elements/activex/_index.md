@@ -5,9 +5,9 @@ weight: 200
 url: /ar/net/examples/elements/activex/
 keywords:
 - مثال ActiveX
-- عنصر تحكم ActiveX
+- تحكم ActiveX
 - إضافة ActiveX
-- وصول ActiveX
+- الوصول إلى ActiveX
 - إزالة ActiveX
 - خصائص ActiveX
 - PowerPoint
@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية العثور على عناصر تحكم ActiveX وتعديلها وإزالتها في C# باستخدام Aspose.Slides، بما في ذلك تحديث الخصائص لعروض PowerPoint."
+description: "تعرف على كيفية العثور على عناصر تحكم ActiveX وتعديلها وإزالتها في C# باستخدام Aspose.Slides، بما في ذلك تحديث الخصائص لعروض PowerPoint التقديمية."
 ---
 
-يوضح كيفية إضافة، الوصول، إزالة وتكوين عناصر التحكم ActiveX في عرض تقديمي باستخدام **Aspose.Slides for .NET**.
+يوضح كيفية إضافة والوصول وإزالة وتكوين عناصر التحكم ActiveX في عرض تقديمي باستخدام **Aspose.Slides for .NET**.
 
-## إضافة عنصر تحكم ActiveX
-
-إدراج عنصر تحكم ActiveX جديد واختيارياً تعيين خصائصه.
+## **إضافة عنصر تحكم ActiveX**
+إدراج عنصر تحكم ActiveX جديد وتعيين خصائصه اختياريًا.
 ```csharp
 static void Add_ActiveX()
 {
@@ -32,7 +31,7 @@ static void Add_ActiveX()
     // إضافة عنصر تحكم ActiveX جديد (TextBox)
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-    // خيارياً تعيين بعض الخصائص
+    // اختياريًا تعيين بعض الخصائص
     control.Properties["Value"] = "Default text";
 
     pres.Save("add_activex.pptm", SaveFormat.Pptm);
@@ -40,16 +39,15 @@ static void Add_ActiveX()
 ```
 
 
-## الوصول إلى عنصر تحكم ActiveX
-
-قراءة المعلومات من أول عنصر تحكم ActiveX في الشريحة.
+## **الوصول إلى عنصر تحكم ActiveX**
+قراءة المعلومات من أول عنصر تحكم ActiveX على الشريحة.
 ```csharp
 static void Access_ActiveX()
 {
     using var pres = new Presentation("add_activex.pptm");
     var slide = pres.Slides[0];
 
-    // الوصول إلى عنصر التحكم ActiveX الأول
+    // الوصول إلى أول عنصر تحكم ActiveX
     var control = slide.Controls.FirstOrDefault();
     if (control != null)
     {
@@ -60,8 +58,7 @@ static void Access_ActiveX()
 ```
 
 
-## إزالة عنصر تحكم ActiveX
-
+## **إزالة عنصر تحكم ActiveX**
 حذف عنصر تحكم ActiveX موجود من الشريحة.
 ```csharp
 static void Remove_ActiveX()
@@ -80,8 +77,7 @@ static void Remove_ActiveX()
 ```
 
 
-## تعيين خصائص ActiveX
-
+## **تعيين خصائص ActiveX**
 إضافة عنصر تحكم وتكوين عدة خصائص لـ ActiveX.
 ```csharp
 static void Set_ActiveX_Properties()

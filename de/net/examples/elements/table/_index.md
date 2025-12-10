@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Tabellen in C# mit Aspose.Slides: Daten einfügen, Zellen zusammenführen, Rahmen gestalten, Inhalte ausrichten und für PPT, PPTX und ODP importieren/exportieren."
+description: "Erstellen und formatieren Sie Tabellen in C# mit Aspose.Slides: Daten einfügen, Zellen zusammenführen, Rahmen gestalten, Inhalt ausrichten und für PPT, PPTX und ODP importieren/exportieren."
 ---
 
-Beispiele zum Hinzufügen von Tabellen, zum Zugriff darauf, zum Entfernen und zum Zusammenführen von Zellen mithilfe von **Aspose.Slides for .NET**.
+Beispiele zum Hinzufügen von Tabellen, zum Zugriff darauf, zum Entfernen und zum Zusammenführen von Zellen mit **Aspose.Slides for .NET**.
 
-## Tabelle hinzufügen
+## **Tabelle hinzufügen**
 
 Erstellen Sie eine einfache Tabelle mit zwei Zeilen und zwei Spalten.
 ```csharp
@@ -36,7 +36,7 @@ static void Add_Table()
 ```
 
 
-## Zugriff auf eine Tabelle
+## **Auf eine Tabelle zugreifen**
 
 Rufen Sie die erste Tabellengestalt auf der Folie ab.
 ```csharp
@@ -54,7 +54,7 @@ static void Access_Table()
 ```
 
 
-## Tabelle entfernen
+## **Tabelle entfernen**
 
 Löschen Sie eine Tabelle von einer Folie.
 ```csharp
@@ -71,9 +71,9 @@ static void Remove_Table()
 ```
 
 
-## Tabellenzellen zusammenführen
+## **Tabellenzellen zusammenführen**
 
-Führen Sie benachbarte Zellen einer Tabelle zu einer einzigen Zelle zusammen.
+Führen Sie benachbarte Zellen einer Tabelle zu einer einzelnen Zelle zusammen.
 ```csharp
 static void Merge_Table_Cells()
 {

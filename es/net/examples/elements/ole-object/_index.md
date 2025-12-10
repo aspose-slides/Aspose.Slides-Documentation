@@ -1,14 +1,14 @@
 ---
-title: Objeto OLE
+title: ObjetoOLE
 type: docs
 weight: 210
 url: /es/net/examples/elements/ole-object/
 keywords:
 - Ejemplo de objeto OLE
-- Agregar objeto OLE
-- Acceder a objeto OLE
-- Eliminar objeto OLE
-- Actualizar objeto OLE
+- agregar objeto OLE
+- acceder a objeto OLE
+- eliminar objeto OLE
+- actualizar objeto OLE
 - PowerPoint
 - OpenDocument
 - presentación
@@ -18,11 +18,11 @@ keywords:
 description: "Trabaje con objetos OLE en C# usando Aspose.Slides: inserte o actualice archivos incrustados, establezca íconos o enlaces, extraiga contenido, controle el comportamiento para PPT, PPTX y ODP."
 ---
 
-Demuestra cómo incrustar un archivo como un objeto OLE y actualizar sus datos usando **Aspose.Slides for .NET**.
+Demuestra la inserción de un archivo como objeto OLE y la actualización de sus datos usando **Aspose.Slides for .NET**.
 
-## Agregar un objeto OLE
+## **Agregar un objeto OLE**
 
-Incruste un archivo PDF en la presentación.
+Inserte un archivo PDF en la presentación.
 ```csharp
 static void Add_Ole_Object()
 {
@@ -35,9 +35,9 @@ static void Add_Ole_Object()
 ```
 
 
-## Acceder a un objeto OLE
+## **Acceder a un objeto OLE**
 
-Recupere el primer fotograma de objeto OLE en una diapositiva.
+Recupere el primer marco de objeto OLE en una diapositiva.
 ```csharp
 static void Access_Ole_Object()
 {
@@ -51,7 +51,7 @@ static void Access_Ole_Object()
 ```
 
 
-## Eliminar un objeto OLE
+## **Eliminar un objeto OLE**
 
 Elimine un objeto OLE incrustado de la diapositiva.
 ```csharp
@@ -67,7 +67,7 @@ static void Remove_Ole_Object()
 ```
 
 
-## Actualizar datos del objeto OLE
+## **Actualizar datos del objeto OLE**
 
 Reemplace los datos incrustados en un objeto OLE existente.
 ```csharp

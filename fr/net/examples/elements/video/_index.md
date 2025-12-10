@@ -6,9 +6,9 @@ url: /fr/net/examples/elements/video/
 keywords:
 - exemple de vidéo
 - cadre vidéo
-- ajouter vidéo
+- ajouter une vidéo
 - accéder à la vidéo
-- supprimer vidéo
+- supprimer la vidéo
 - lecture vidéo
 - PowerPoint
 - OpenDocument
@@ -16,14 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Travailler avec la vidéo en C# avec Aspose.Slides: insérer, remplacer, couper, définir les images d'affiche et les options de lecture, et exporter les présentations aux formats PPT, PPTX et ODP."
+description: "Travaillez avec la vidéo en C# utilisant Aspose.Slides : insérez, remplacez, coupez, définissez les images d’affiche et les options de lecture, et exportez les présentations aux formats PPT, PPTX et ODP."
 ---
 
-Montre comment intégrer des cadres vidéo et définir les options de lecture à l’aide de **Aspose.Slides for .NET**.
+Présente comment incorporer des cadres vidéo et définir les options de lecture en utilisant **Aspose.Slides for .NET**.
 
-## Ajouter un cadre vidéo
+## **Ajouter un cadre vidéo**
 
-Insérer un cadre vidéo vide sur une diapositive.
+Insérez un cadre vidéo vide sur une diapositive.
 ```csharp
 static void Add_Video()
 {
@@ -36,9 +36,9 @@ static void Add_Video()
 ```
 
 
-## Accéder à un cadre vidéo
+## **Accéder à un cadre vidéo**
 
-Récupérer le premier cadre vidéo ajouté à une diapositive.
+Récupérez le premier cadre vidéo ajouté à une diapositive.
 ```csharp
 static void Access_Video()
 {
@@ -52,9 +52,9 @@ static void Access_Video()
 ```
 
 
-## Supprimer un cadre vidéo
+## **Supprimer un cadre vidéo**
 
-Supprimer un cadre vidéo de la diapositive.
+Supprimez un cadre vidéo de la diapositive.
 ```csharp
 static void Remove_Video()
 {
@@ -68,9 +68,9 @@ static void Remove_Video()
 ```
 
 
-## Définir la lecture vidéo
+## **Définir la lecture vidéo**
 
-Configurer la vidéo pour qu’elle se lance automatiquement lorsque la diapositive est affichée.
+Configurez la vidéo pour qu'elle se lise automatiquement lorsque la diapositive est affichée.
 ```csharp
 static void Set_Video_Playback()
 {
@@ -78,7 +78,7 @@ static void Set_Video_Playback()
     var slide = pres.Slides[0];
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Configurer la vidéo pour qu'elle se lance automatiquement
+    // Configurer la vidéo pour qu'elle se lise automatiquement
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

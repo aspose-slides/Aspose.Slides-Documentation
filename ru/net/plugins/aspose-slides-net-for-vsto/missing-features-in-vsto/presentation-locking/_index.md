@@ -6,50 +6,50 @@ url: /ru/net/presentation-locking/
 ---
 
 ## **Блокировка презентации**
-Распространенное использование **Aspose.Slides** — создание, обновление и сохранение презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к выходным презентациям. Защита их от редактирования — распространенная проблема. Важно, чтобы автоматически генерируемые презентации сохраняли оригинальное форматирование и содержание.
+Обычное использование **Aspose.Slides** — создание, обновление и сохранение презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к готовым презентациям. Защита их от редактирования является распространённой задачей. Важно, чтобы автоматически сгенерированные презентации сохраняли оригинальное форматирование и содержимое.
 
-Это объясняет, как конструируются презентации и слайды, и как Aspose.Slides для .NET может применять защиту к презентации и затем удалять ее. Эта функция уникальна для Aspose.Slides и на момент написания недоступна в Microsoft PowerPoint. Это дает разработчикам способ контролировать, как используются презентации, создаваемые их приложениями.
+В этой статье объясняется, как построены презентации и слайды, а также как Aspose.Slides for .NET может применять защиту к презентации и затем удалять её. Эта возможность уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контролировать использование презентаций, создаваемых их приложениями.
 ## **Состав слайда**
-Слайд PPTX состоит из множества компонентов, таких как автоформы, таблицы, OLE-объекты, сгруппированные формы, рамки для изображений, видеокадры, соединители и другие различные элементы, доступные для создания презентации.
+Слайд PPTX состоит из множества компонентов: автофигур, таблиц, OLE‑объектов, сгруппированных фигур, рамок изображений, видеорамок, соединителей и других элементов, доступных для построения презентации.
 
-В Aspose.Slides для .NET каждый элемент на слайде превращается в объект Shape. Другими словами, каждый элемент на слайде — это либо объект Shape, либо объект, производный от объекта Shape.
+В Aspose.Slides for .NET каждый элемент на слайде превращается в объект Shape. Иными словами, каждый элемент на слайде является либо объектом Shape, либо объектом, наследующимся от Shape.
 
-Структура PPTX сложна, поэтому в отличие от PPT, где можно использовать универсальную блокировку для всех типов форм, для разных типов форм существуют разные типы блокировок. Класс BaseShapeLock — это универсальный класс блокировки PPTX. В Aspose.Slides для .NET поддерживаются следующие типы блокировок для PPTX.
+Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать общий замок для всех типов фигур, в PPTX существуют разные типы замков для разных типов фигур. Класс BaseShapeLock — общий класс блокировки PPTX. В Aspose.Slides for .NET для PPTX поддерживаются следующие типы замков.
 
-- AutoShapeLock блокирует автоформы.
-- ConnectorLock блокирует соединительные формы.
+- AutoShapeLock блокирует автофигуры.
+- ConnectorLock блокирует соединительные фигуры.
 - GraphicalObjectLock блокирует графические объекты.
-- GroupshapeLock блокирует групповые формы.
-- PictureFrameLock блокирует рамки для изображений.
+- GroupshapeLock блокирует групповые фигуры.
+- PictureFrameLock блокирует рамки изображений.
 
-Любое действие, выполняемое над всеми объектами Shape в объекте Presentation, применяется ко всей презентации.
-## **Применение и снятие защиты**
-Применение защиты гарантирует, что презентация не может быть отредактирована. Это полезная техника для защиты содержания презентации.
+Любое действие, выполненное над всеми объектами Shape в объекте Presentation, применяется ко всей презентации.
+## **Применение и удаление защиты**
+Применение защиты гарантирует, что презентацию нельзя будет редактировать. Это полезная техника для защиты содержимого презентации.
 
-**Применение защиты к формам PPTX**
+**Применение защиты к фигурам PPTX**
 
-Aspose.Slides для .NET предоставляет класс Shape для работы с формой на слайде.
+Aspose.Slides for .NET предоставляет класс Shape для работы с фигурой на слайде.
 
-Как было упомянуто ранее, каждый класс формы имеет связанный класс блокировки формы для защиты. Эта статья фокусируется на блокировках NoSelect, NoMove и NoResize. Эти блокировки гарантируют, что формы не могут быть выбраны (через щелчки мыши или другие методы выбора), и их нельзя перемещать или изменять размер.
+Как упоминалось ранее, каждый класс фигуры имеет соответствующий класс замка для защиты. В данной статье рассматриваются замки NoSelect, NoMove и NoResize. Эти замки обеспечивают, что фигуры нельзя выбрать (кликами мыши или другими методами), а также нельзя перемещать или изменять их размер.
 
-Приведенные ниже примеры кода применяют защиту ко всем типам форм в презентации.
+Ниже приведённые примеры кода применяют защиту ко всем типам фигур в презентации.
 
 ``` csharp
 
- //Создаем объект класса Presentation, который представляет файл PPTX
+ //Instatiate Presentation class that represents a PPTX file
 
-PresentationEx pTemplate = new PresentationEx("Применение защиты.pptx");//Создаем объект класса Presentation, который представляет файл PPTX
+PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
 
 
-//Объект ISlide для доступа к слайдам в презентации
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//Объект IShape для хранения временных форм
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Перебираем все слайды в презентации
+//Traversing through all the slides in the presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -57,7 +57,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Перебираем все формы в слайде
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -65,19 +65,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//если форма является автоформой
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Приведение к автоформе и получение блокировки автоформы
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Применение блокировок форм
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = true;
 
@@ -87,19 +87,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является групповой формой
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Приведение к групповой форме и получение блокировки групповой формы
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Применение блокировок форм
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = true;
 
@@ -111,19 +111,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является соединителем
+		//if shape is a connector
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Приведение к соединительной форме и получение блокировки соединительной формы
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Применение блокировок форм
+			//Applying shapes locks
 
 			ConnLock.PositionMove = true;
 
@@ -133,19 +133,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является рамкой для изображения
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Приведение к рамке для изображения и получение блокировки рамки
+			//Type casting to picture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Применение блокировок форм
+			//Applying shapes locks
 
 			PicLock.PositionLocked = true;
 
@@ -159,31 +159,31 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Сохранение файла презентации
+//Saving the presentation file
 
-pTemplate.Save("ЗаблокированныйШаблон.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 
-**Снятие защиты**
+**Удаление защиты**
 
-Защита, примененная с использованием Aspose.Slides для .NET, может быть снята только с помощью Aspose.Slides для .NET. Чтобы разблокировать форму, установите значение примененной блокировки в false. Пример кода, который следует, показывает, как разблокировать формы в заблокированной презентации.
+Защита, применённая с помощью Aspose.Slides for .NET, может быть удалена только с помощью Aspose.Slides for .NET. Чтобы разблокировать фигуру, установите значение соответствующего замка в false. Ниже приведён пример кода, показывающий, как разблокировать фигуры в защищённой презентации.
 
 ``` csharp
 
- //Открываем нужную презентацию
+ //Open the desired presentation
 
-PresentationEx pTemplate = new PresentationEx("ЗаблокированныйШаблон.pptx");
- 
-//Объект ISlide для доступа к слайдам в презентации
+PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
+
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//Объект IShape для хранения временных форм
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Перебираем все слайды в презентации
+//Traversing through all the slides in presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -191,7 +191,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Перебираем все формы в слайде
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -199,19 +199,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//если форма является автоформой
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Приведение к автоформе и получение блокировки автоформы
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Применение разблокировки форм
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = false;
 
@@ -221,19 +221,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является групповой формой
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Приведение к групповой форме и получение блокировки групповой формы
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Применение разблокировки форм
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = false;
 
@@ -245,19 +245,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является соединителем
+		//if shape is Connector shape
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Приведение к соединительной форме и получение блокировки соединительной формы
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Применение разблокировки форм
+			//Applying shapes locks
 
 			ConnLock.PositionMove = false;
 
@@ -267,19 +267,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//если форма является рамкой для изображения
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Приведение к рамке для изображения и получение блокировки рамки
+			//Type casting to pitcture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Применение разблокировки форм
+			//Applying shapes locks
 
 			PicLock.PositionLocked = false;
 
@@ -293,9 +293,9 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Сохранение файла презентации
+//Saving the presentation file
 
-pTemplate.Save("СнятиеЗащитыПример.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 ## **Скачать пример кода**

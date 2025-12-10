@@ -1,5 +1,5 @@
 ---
-title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.4.0
+title: Cambios en la API pública y incompatibilidades hacia atrás en Aspose.Slides para .NET 15.4.0
 linktitle: Aspose.Slides para .NET 15.4.0
 type: docs
 weight: 150
@@ -21,18 +21,18 @@ description: "Revisa las actualizaciones de la API pública y los cambios incomp
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades, etc., [añadidos](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides for .NET 15.4.0.
+Esta página enumera todas las clases, métodos, propiedades y demás que han sido [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides for .NET 15.4.0 API.
 
 {{% /alert %}} 
-## **Cambios de la API pública**
-#### **Enum OrganizationChartLayoutType ha sido añadido**
+## **Cambios de API Pública**
+#### **Se ha añadido el Enum OrganizationChartLayoutType**
 El enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representa el tipo de formato de los nodos hijos en un organigrama.
-#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts ha sido añadido**
-El método Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts establece desplazamientos predeterminados distintos de cero para el sangrado de párrafo y MarginLeft cuando las viñetas están habilitadas (como hace PowerPoint al habilitar viñetas/numeración de párrafo). Si las viñetas están deshabilitadas, solo restablece el sangrado de párrafo y MarginLeft (como hace PowerPoint al deshabilitar viñetas/numeración de párrafo).
+#### **Se ha añadido el método IBulletFormat.ApplyDefaultParagraphIndentsShifts**
+El método Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts establece desplazamientos predeterminados diferentes de cero para la sangría de párrafo y el margen izquierdo cuando los viñetas están habilitados (como PowerPoint hace al habilitar los viñetas/numeración de párrafo). Si los viñetas están deshabilitados, simplemente restablece la sangría de párrafo y el margen izquierdo (como PowerPoint hace al deshabilitar los viñetas/numeración de párrafo).
 
 Vea ejemplos [aquí](/slides/es/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Method IConnector.Reroute ha sido añadido**
-El método Aspose.Slides.IConnector.Reroute recalcula la ruta del conector para que tome el camino más corto posible entre las formas que conecta. Para ello, el método Reroute() puede cambiar StartShapeConnectionSiteIndex y EndShapeConnectionSiteIndex.
+#### **Se ha añadido el método IConnector.Reroute**
+El método Aspose.Slides.IConnector.Reroute redirige el conector para que tome la ruta más corta posible entre las formas que conecta. Para ello, el método Reroute() puede cambiar los índices StartShapeConnectionSiteIndex y EndShapeConnectionSiteIndex.
 
 ``` csharp
 
@@ -59,8 +59,8 @@ El método Aspose.Slides.IConnector.Reroute recalcula la ruta del conector para 
 }
 
 ``` 
-#### **Method IPresentation.GetSlideById ha sido añadido**
-El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una Slide, MasterSlide o LayoutSlide por Id de diapositiva.
+#### **Se ha añadido el método IPresentation.GetSlideById**
+El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una Slide, MasterSlide o LayoutSlide según el ID de la diapositiva.
 
 ``` csharp
 
@@ -77,8 +77,8 @@ El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una 
 }
 
 ``` 
-#### **Property IShape.ConnectionSiteCount ha sido añadido**
-La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de sitios de conexión en la forma.
+#### **Se ha añadido la propiedad IShape.ConnectionSiteCount**
+La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de puntos de conexión en la forma.
 
 ``` csharp
 
@@ -113,8 +113,8 @@ La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de sit
 }
 
 ``` 
-#### **Property ISmartArt.IsReversed ha sido añadido**
-La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o establecer el estado del diagrama SmartArt respecto a LTR (izquierda a derecha) o RTL (derecha a izquierda), si el diagrama admite inversión.
+#### **Se ha añadido la propiedad ISmartArt.IsReversed**
+La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o establecer el estado del diagrama SmartArt respecto a (izquierda a derecha) LTR o (derecha a izquierda) RTL, si el diagrama admite la inversión.
 
 ``` csharp
 
@@ -131,7 +131,7 @@ La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o estab
 }
 
 ``` 
-#### **Property ISmartArt.Nodes ha sido añadido**
+#### **Se ha añadido la propiedad ISmartArt.Nodes**
 La propiedad Aspose.Slides.SmartArt.ISmartArt.Nodes devuelve la colección de nodos raíz en el objeto SmartArt.
 
 ``` csharp
@@ -151,8 +151,8 @@ La propiedad Aspose.Slides.SmartArt.ISmartArt.Nodes devuelve la colección de no
 }
 
 ``` 
-#### **Property ISmartArtNode.IsHidden ha sido añadido**
-La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve true si este nodo está oculto en el modelo de datos.
+#### **Se ha añadido la propiedad ISmartArtNode.IsHidden**
+La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve true si este nodo es un nodo oculto en el modelo de datos.
 
 ``` csharp
 
@@ -179,7 +179,7 @@ La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve true si este
 }
 
 ``` 
-#### **Property ISmartArtNode.OrganizationChartLayout ha sido añadido**
+#### **Se ha añadido la propiedad ISmartArtNode.OrganizationChartLayout**
 La propiedad Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout permite obtener o establecer el tipo de organigrama asociado al nodo actual.
 
 ``` csharp
@@ -197,7 +197,7 @@ La propiedad Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout permit
 }
 
 ``` 
-#### **Set method for property ISmartArt.Layout ha sido añadido**
+#### **Se ha añadido el método set para la propiedad ISmartArt.Layout**
 Se ha añadido el método set para la propiedad Aspose.Slides.SmartArt.ISmartArt.Layout. Permite cambiar el tipo de diseño de un diagrama existente.
 
 ``` csharp
@@ -215,8 +215,9 @@ Se ha añadido el método set para la propiedad Aspose.Slides.SmartArt.ISmartArt
 }
 
 ``` 
-#### **Minor API changes**
+#### **Cambios menores de API**
 **Esta es la lista de cambios menores de API:**
+
 
 |Enum Aspose.Slides.BevelColorMode |eliminado, enum no usado |
 | :- | :- |

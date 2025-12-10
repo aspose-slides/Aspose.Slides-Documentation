@@ -1,43 +1,43 @@
 ---
-title: Incrustar fuentes en presentaciones en .NET
-linktitle: Incrustar fuente
+title: Incorporar fuentes en presentaciones en .NET
+linktitle: Incorporar fuente
 type: docs
 weight: 40
 url: /es/net/embedded-font/
 keywords:
-- agregar fuente
-- incrustar fuente
-- incrustación de fuentes
-- obtener fuente incrustada
-- agregar fuente incrustada
-- eliminar fuente incrustada
-- comprimir fuente incrustada
-- PowerPoint
-- OpenDocument
-- presentación
-- .NET
-- C#
-- Aspose.Slides
-description: "Incruste fuentes TrueType en presentaciones PowerPoint y OpenDocument con Aspose.Slides para .NET, garantizando una renderización precisa en todas las plataformas."
+  - agregar fuente
+  - incorporar fuente
+  - incorporación de fuentes
+  - obtener fuente incorporada
+  - agregar fuente incorporada
+  - eliminar fuente incorporada
+  - comprimir fuente incorporada
+  - PowerPoint
+  - OpenDocument
+  - presentación
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Incorpore fuentes TrueType en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para .NET, garantizando una representación precisa en todas las plataformas."
 ---
 
-**Incorporar fuentes en PowerPoint** garantiza que su presentación mantenga su apariencia prevista en diferentes sistemas. Ya sea que utilice fuentes únicas por creatividad o fuentes estándar, incrustar fuentes evita la alteración del texto y el diseño.
+**Incorporar fuentes en PowerPoint** garantiza que su presentación mantenga su apariencia prevista en diferentes sistemas. Ya sea que utilice fuentes únicas por creatividad o fuentes estándar, incorporar fuentes evita la alteración del texto y el diseño.
 
-Si utilizó una fuente de terceros o no estándar porque quiso ser creativo con su trabajo, entonces tiene aún más motivos para incrustar la fuente. De lo contrario (sin fuentes incrustadas), los textos o números en sus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos.
+Si utilizó una fuente de terceros o no estándar porque se volvió creativo con su trabajo, entonces tiene aún más motivos para incorporar su fuente. De lo contrario (sin fuentes incorporadas), los textos o números en sus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos. 
 
-Utilice las clases FontsManager, FontData y Compress para gestionar las fuentes incrustadas.
+Utilice las clases [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/), y [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) para administrar fuentes incorporadas.
 
-## **Obtener y eliminar fuentes incrustadas**
+## **Obtener y eliminar fuentes incorporadas**
 
-Recupere o elimine fuentes incrustadas de una presentación sin esfuerzo con los métodos GetEmbeddedFonts y RemoveEmbeddedFont.
+Recupere o elimine fuentes incorporadas de una presentación sin esfuerzo con los métodos [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) y [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
 
-Este código C# le muestra cómo obtener y eliminar fuentes incrustadas de una presentación:
+Este código C# le muestra cómo obtener y eliminar fuentes incorporadas de una presentación:
 ```c#
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Renderiza una diapositiva que contiene un marco de texto que usa la fuente incrustada "FunSized"
+    // Renderiza una diapositiva que contiene un cuadro de texto que usa la fuente incrustada "FunSized"
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture1_out.png", ImageFormat.Png);
@@ -47,7 +47,7 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
-    // Busca la fuente "Calibri"
+    // Encuentra la fuente "Calibri"
     IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
@@ -62,15 +62,15 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
         image.Save("picture2_out.png", ImageFormat.Png);
     }
 
-    // Guarda la presentación sin la fuente "Calibri" incrustada en disco
+    // Guarda la presentación sin la fuente incrustada "Calibri" en disco
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 }
 ```
 
 
-## **Agregar fuentes incrustadas**
+## **Agregar fuentes incorporadas**
 
-Usando el enum EmbedFontCharacters y dos sobrecargas del método AddEmbeddedFont, puede seleccionar la regla de (incrustación) que prefiera para incrustar las fuentes en una presentación. Este código C# le muestra cómo incrustar y agregar fuentes a una presentación:
+Utilizando el enumerado [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) y dos sobrecargas del método [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/), puede seleccionar la regla de (incorporación) que prefiera para incorporar las fuentes en una presentación. Este código C# le muestra cómo incorporar y añadir fuentes a una presentación:
 ```c#
 // Carga la presentación
 Presentation presentation = new Presentation("Fonts.pptx");
@@ -90,11 +90,11 @@ presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Comprimir fuentes incrustadas**
+## **Comprimir fuentes incorporadas**
 
-Optimice el tamaño del archivo comprimiendo las fuentes incrustadas mediante CompressEmbeddedFonts.
+Optimice el tamaño del archivo comprimiendo las fuentes incorporadas mediante [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
 
-Ejemplo de código para la compresión:
+Código de ejemplo para la compresión:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -106,10 +106,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo saber que una fuente específica en la presentación seguirá siendo sustituida durante la renderización a pesar de estar incrustada?**
+**¿Cómo puedo saber si una fuente específica en la presentación seguirá siendo sustituida durante la renderización a pesar de estar incorporada?**
 
-Consulte la [substitution information](/slides/es/net/font-substitution/) en el gestor de fuentes y las [fallback/substitution rules](/slides/es/net/fallback-font/): si la fuente no está disponible o está restringida, se utilizará una alternativa.
+Consulte la [información de sustitución](/slides/es/net/font-substitution/) en el administrador de fuentes y las [reglas de sustitución/reemplazo](/slides/es/net/fallback-font/): si la fuente no está disponible o está restringida, se utilizará una alternativa.
 
-**¿Vale la pena incrustar fuentes “del sistema” como Arial/Calibri?**
+**¿Vale la pena incorporar fuentes del "sistema" como Arial/Calibri?**
 
-Normalmente no, ya que casi siempre están disponibles. Pero para una portabilidad total en entornos “delgados” (Docker, un servidor Linux sin fuentes preinstaladas), incrustar fuentes del sistema puede eliminar el riesgo de sustituciones inesperadas.
+Por lo general, no—casi siempre están disponibles. Pero para una portabilidad total en entornos "delgados" (Docker, un servidor Linux sin fuentes preinstaladas), incorporar fuentes del sistema puede eliminar el riesgo de sustituciones inesperadas.

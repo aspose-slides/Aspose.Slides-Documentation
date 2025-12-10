@@ -1,5 +1,5 @@
 ---
-title: Как создать презентацию Hello World в .NET
+title: Как создавать презентации Hello World в .NET
 linktitle: Презентация Hello World
 type: docs
 weight: 10
@@ -7,9 +7,9 @@ url: /ru/net/how-to-create-hello-world-presentation-document/
 keywords:
 - миграция
 - hello world
-- устаревший код
+- наследуемый код
 - современный код
-- устаревший подход
+- наследуемый подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -17,17 +17,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-- description: "Создайте презентацию Hello World в PowerPoint PPT, PPTX и ODP в .NET с помощью Aspose.Slides, используя как устаревший, так и современный API, в простом руководстве."
+description: "Создайте презентацию PowerPoint PPT, PPTX и ODP Hello World в .NET с помощью Aspose.Slides, используя как наследуемые, так и современные API, в простом руководстве."
 ---
 
 {{% alert color="primary" %}} 
-Выпущен новый [Aspose.Slides for .NET API](/slides/ru/net/), и теперь этот единственный продукт поддерживает возможность создавать документы PowerPoint с нуля и редактировать существующие.
+
+Выпущен новый [Aspose.Slides for .NET API](/slides/ru/net/), и теперь этот единый продукт поддерживает возможность создавать документы PowerPoint с нуля и редактировать существующие.
+
 {{% /alert %}} 
 ## **Поддержка устаревшего кода**
-Чтобы использовать устаревший код, разработанный с Aspose.Slides for .NET версиями ранее 13.x, необходимо внести небольшие изменения в ваш код, и он будет работать как раньше. Все классы, которые были в старой Aspose.Slides for .NET в пространствах имен Aspose.Slide и Aspose.Slides.Pptx, теперь объединены в едином пространстве имен Aspose.Slides. Пожалуйста, ознакомьтесь со следующим простым примером кода для создания презентации Hello World в устаревшем API Aspose.Slides и следуйте шагам, описывающим, как перейти к новому объединённому API.
-## **Подход устаревшего Aspose.Slides for .NET**
+Чтобы использовать устаревший код, разработанный с использованием Aspose.Slides for .NET версии до 13.x, необходимо внести несколько небольших изменений в ваш код, и он будет работать как прежде. Все классы, которые находились в старых пространствах имен Aspose.Slide и Aspose.Slides.Pptx, теперь объединены в едином пространстве имен Aspose.Slides. Пожалуйста, ознакомьтесь со следующим простым фрагментом кода для создания презентации Hello World в устаревшем API Aspose.Slides и следуйте инструкциям, описывающим процесс миграции к новому объединённому API.
+## **Устаревший подход Aspose.Slides for .NET**
 ```c#
-//Создать объект Presentation, представляющий PPT‑файл
+//Создать объект Presentation, представляющий файл PPT
 Presentation pres = new Presentation();
 
 //Создать объект License
@@ -40,25 +42,27 @@ license.SetLicense("Aspose.Slides.lic");
 //этот пустой слайд
 Slide slide = pres.AddEmptySlide();
 
-//Добавление прямоугольника (X=2400, Y=1800, Ширина=1000 & Высота=500) к слайду
+//Добавление прямоугольника (X=2400, Y=1800, Ширина=1000 и Высота=500) на слайд
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
 //Скрытие линий прямоугольника
 rect.LineFormat.ShowLines = false;
 
-//Добавление текстового кадра в прямоугольник с текстом "Hello World" по умолчанию
+//Добавление текстового кадра в прямоугольник с текстом по умолчанию "Hello World"
 rect.AddTextFrame("Hello World");
 
 //Удаление первого слайда презентации, который всегда добавляется
 //Aspose.Slides for .NET по умолчанию при создании презентации
 pres.Slides.RemoveAt(0);
 
-//Запись презентации в виде PPT‑файла
+//Запись презентации в файл PPT
 pres.Write("C:\\hello.ppt");
 ```
 
 
-## **Подход новой Aspose.Slides for .NET 13.x**
+
+
+## **Новый подход Aspose.Slides for .NET 13.x**
 ```c#
 // Создать объект Presentation
 Presentation pres = new Presentation();
@@ -72,16 +76,16 @@ IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50)
 // Добавить ITextFrame к прямоугольнику
 ashp.AddTextFrame("Hello World");
 
-// Изменить цвет текста на Black (по умолчанию White)
+// Change the text color to Black (which is White by default)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Изменить цвет линии прямоугольника на White
+// Change the line color of the rectangle to White
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-// Удалить любые параметры заливки в фигуре
+// Remove any fill formatting in the shape
 ashp.FillFormat.FillType = FillType.NoFill;
 
-// Сохранить презентацию на диск
+// Save the presentation to disk
 pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
 ```

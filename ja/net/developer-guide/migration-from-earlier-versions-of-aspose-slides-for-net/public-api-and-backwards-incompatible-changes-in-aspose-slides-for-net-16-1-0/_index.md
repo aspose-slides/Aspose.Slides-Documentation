@@ -1,34 +1,34 @@
 ---
-title: Aspose.Slides for .NET 16.1.0 のパブリック API と後方互換性がない変更
-linktitle: .NET 用 Aspose.Slides 16.1.0
+title: Aspose.Slides for .NET 16.1.0 の公開 API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 16.1.0
 type: docs
 weight: 220
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
-  - 移行
-  - レガシーコード
-  - モダンコード
-  - レガシーアプローチ
-  - モダンアプローチ
-  - PowerPoint
-  - OpenDocument
-  - プレゼンテーション
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX および ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET の公開 API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 16.1.0 APIで導入された、[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) または [removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) クラス、メソッド、プロパティ等、およびその他の変更を一覧表示します。
+このページでは、Aspose.Slides for .NET 16.1.0 API に導入された、追加された[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)または削除された[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)クラス、メソッド、プロパティ等と、その他の変更を一覧します。
 
 {{% /alert %}} 
-## **Public API Changes**
-
+## **パブリック API の変更**
 
 #### **IChartTextBlockFormat と ITextFrameFormat インターフェイスに Property RotationAngle が追加されました**
-Property RotationAngle がインターフェイス Aspose.Slides.Charts.IChartTextBlockFormat と Aspose.Slides.ITextFrameFormat に追加されました。これは、バウンディング ボックス内のテキストに適用されるカスタム回転を指定します。
+Property RotationAngle が Aspose.Slides.Charts.IChartTextBlockFormat と Aspose.Slides.ITextFrameFormat インターフェイスに追加されました。  
+このプロパティは、バウンディング ボックス内のテキストに適用されるカスタム回転角度を指定します。
 
 ``` csharp
 

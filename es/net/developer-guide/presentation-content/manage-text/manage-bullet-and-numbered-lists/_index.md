@@ -1,6 +1,6 @@
 ---
-title: Administrar listas con viñetas y numeradas en presentaciones en .NET
-linktitle: Administrar listas
+title: Gestionar listas con viñetas y numeradas en presentaciones en .NET
+linktitle: Gestionar listas
 type: docs
 weight: 70
 url: /es/net/manage-bullet-and-numbered-lists
@@ -13,63 +13,62 @@ keywords:
 - viñeta personalizada
 - lista multinivel
 - crear viñeta
-- añadir viñeta
-- añadir lista
+- agregar viñeta
+- agregar lista
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a administrar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para .NET. Guía paso a paso."
+description: "Aprenda a gestionar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para .NET. Guía paso a paso."
 ---
 
-En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas de la misma manera que lo haces en Word y otros editores de texto. **Aspose.Slides for .NET** también permite usar viñetas y números en diapositivas de tus presentaciones. 
+En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas de la misma manera que lo haces en Word y otros editores de texto. **Aspose.Slides for .NET** también te permite usar viñetas y números en diapositivas de tus presentaciones. 
 
 ## **¿Por qué usar listas con viñetas?**
 
-Las listas con viñetas te ayudan a organizar y presentar información de forma rápida y eficiente. 
+Las listas con viñetas te ayudan a organizar y presentar la información de forma rápida y eficiente. 
 
 **Ejemplo de lista con viñetas**
 
 En la mayoría de los casos, una lista con viñetas cumple estas tres funciones principales:
 
-- atrae la atención de tus lectores o espectadores a la información importante
+- atrae la atención de tus lectores o espectadores a información importante
 - permite a tus lectores o espectadores escanear fácilmente los puntos clave
-- comunica y entrega detalles importantes de forma eficiente.
+- comunica y entrega los detalles importantes de manera eficiente.
 
 ## **¿Por qué usar listas numeradas?**
 
-Las listas numeradas también ayudan a organizar y presentar información. Idealmente, deberías usar números (en lugar de viñetas) cuando el orden de las entradas (por ejemplo, *paso 1, paso 2*, etc.) es importante o cuando una entrada debe ser referenciada (por ejemplo, *ver paso 3*).
+Las listas numeradas también ayudan a organizar y presentar la información. Idealmente, debes usar números (en lugar de viñetas) cuando el orden de los elementos (por ejemplo, *paso 1, paso 2*, etc.) es importante o cuando un elemento debe ser referenciado (por ejemplo, *ver paso 3*).
 
 **Ejemplo de lista numerada**
 
-Este es un resumen de los pasos (paso 1 al paso 15) en el procedimiento **Creación de viñetas** a continuación:
+Este es un resumen de los pasos (del paso 1 al paso 15) en el procedimiento **Creating Bullets** que se muestra a continuación:
 
 1. Crea una instancia de la clase Presentation. 
-2. Realiza varias tareas (paso 3 al paso 14).
+2. Realiza varias tareas (del paso 3 al paso 14).
 3. Guarda la presentación. 
 
-## **Creación de viñetas**
+## **Crear viñetas**
 
 Para crear una lista con viñetas, sigue estos pasos:
 
 1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Accede a la diapositiva (en la que deseas añadir una lista con viñetas) en la colección de diapositivas mediante el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
-3. Añade una [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
+2. Accede a la diapositiva (en la que deseas agregar una lista con viñetas) en la colección de diapositivas mediante el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
+3. Añade un [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
 4. Accede al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) de la forma añadida.
 5. Elimina el párrafo predeterminado en el [TextFrame]().
 6. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph).
-8. Establece el tipo de viñeta a Symbol y luego establece el carácter de la viñeta.
+8. Establece el tipo de viñeta a Symbol y luego define el carácter de viñeta.
 9. Establece el texto del párrafo.
-10. Establece la sangría del párrafo para ajustar la viñeta.
+10. Establece la sangría del párrafo para colocar la viñeta.
 11. Establece el color de la viñeta.
 12. Establece la altura de la viñeta.
 13. Añade el párrafo creado en la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
 14. Añade el segundo párrafo y repite los pasos 7-12.
 15. Guarda la presentación.
 
-Este código de ejemplo en C#—una implementación de los pasos anteriores—te muestra cómo crear una lista con viñetas en una diapositiva:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -96,37 +95,36 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Creación de viñetas con imágenes**
+## **Crear viñetas con imágenes**
 
-Aspose.Slides for .NET te permite cambiar las viñetas en listas con viñetas. Puedes reemplazar las viñetas con símbolos o imágenes personalizados. Si deseas añadir interés visual a una lista o atraer aún más la atención a las entradas de una lista, puedes usar tu propia imagen como viñeta. 
+Aspose.Slides for .NET permite cambiar las viñetas en las listas con viñetas. Puedes sustituir las viñetas por símbolos o imágenes personalizados. Si deseas añadir un interés visual a una lista o atraer aún más la atención a los elementos de una lista, puedes usar tu propia imagen como viñeta. 
 
 {{% alert color="primary" %}} 
 
-Idealmente, si deseas reemplazar el símbolo de viñeta regular por una imagen, deberías seleccionar una imagen gráfica simple con fondo transparente. Estas imágenes funcionan mejor como símbolos de viñeta personalizados. 
+Idealmente, si pretendes sustituir el símbolo de viñeta estándar por una imagen, deberías seleccionar una gráfica sencilla con fondo transparente. Ese tipo de imágenes funciona mejor como símbolos de viñeta personalizados. 
 
-En cualquier caso, la imagen que elijas se reducirá a un tamaño muy pequeño, por lo que recomendamos encarecidamente que selecciones una imagen que se vea bien (como reemplazo del símbolo de viñeta) en una lista. 
+En cualquier caso, la imagen que elijas se reducirá a un tamaño muy pequeño, por lo que recomendamos encarecidamente seleccionar una imagen que se vea bien (como sustituto del símbolo de viñeta) en una lista. 
 
 {{% /alert %}} 
 
 Para crear una viñeta con imagen, sigue estos pasos:
 
 1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
-3. Añade una [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
+2. Accede a la diapositiva deseada en la colección de diapositivas mediante el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
+3. Añade un [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
 4. Accede al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) de la forma añadida.
 5. Elimina el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
 6. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph).
-7. Carga la imagen desde el disco y añádela a [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/images) y luego usa la instancia [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) que se devolvió del método [AddImage](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index).
-8. Establece el tipo de viñeta a Picture y luego establece la imagen.
+7. Carga la imagen desde el disco y añádela a [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/images) y luego usa la instancia [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) que devuelve el método [AddImage](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index).
+8. Establece el tipo de viñeta a Picture y luego asigna la imagen.
 9. Establece el texto del párrafo.
-10. Establece la sangría del párrafo para ajustar la viñeta.
+10. Establece la sangría del párrafo para colocar la viñeta.
 11. Establece el color de la viñeta.
 12. Establece la altura de las viñetas.
 13. Añade el párrafo creado en la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
 14. Añade el segundo párrafo y repite los pasos 7-13.
 15. Guarda la presentación.
 
-Este código en C# te muestra cómo crear una viñeta con imagen en una diapositiva:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -147,19 +145,19 @@ using (Presentation pres = new Presentation())
     textFrame.Paragraphs.Add(paragraph);
     
     // ...
-    
+
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Creación de viñetas multinivel**
+## **Crear viñetas multinivel**
 
-Para crear una lista con viñetas que contenga elementos en diferentes niveles—listas adicionales bajo la lista principal—sigue estos pasos:
+Para crear una lista con viñetas que contenga elementos en diferentes niveles —listas adicionales bajo la lista principal— sigue estos pasos:
 
 1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
-3. Añade una [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
+2. Accede a la diapositiva deseada en la colección de diapositivas mediante el objeto [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index).
+3. Añade un [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) en la diapositiva seleccionada.
 4. Accede al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) de la forma añadida.
 5. Elimina el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
 6. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) y con la profundidad establecida en 0.
@@ -169,7 +167,6 @@ Para crear una lista con viñetas que contenga elementos en diferentes niveles�
 10. Añade los párrafos creados en la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
 11. Guarda la presentación.
 
-Este código, que es una implementación de los pasos anteriores, te muestra cómo crear una lista con viñetas multinivel en C#:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -203,9 +200,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Creación de números**
+## **Crear números**
 
-Este código en C# te muestra cómo crear una lista numerada en una diapositiva:
+Este código C# muestra cómo crear una lista numerada en una diapositiva:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -233,14 +230,14 @@ using (Presentation pres = new Presentation())
 
 ## **Preguntas frecuentes**
 
-**¿Pueden exportarse las listas con viñetas y numeradas creadas con Aspose.Slides a otros formatos como PDF o imágenes?**
+**¿Se pueden exportar las listas con viñetas y numeradas creadas con Aspose.Slides a otros formatos como PDF o imágenes?**
 
-Sí, Aspose.Slides conserva completamente el formato y la estructura de las listas con viñetas y numeradas cuando las presentaciones se exportan a formatos como PDF, imágenes y otros, garantizando resultados consistentes.
+Sí, Aspose.Slides preserva completamente el formato y la estructura de las listas con viñetas y numeradas cuando las presentaciones se exportan a formatos como PDF, imágenes y otros, garantizando resultados consistentes.
 
 **¿Es posible importar listas con viñetas o numeradas de presentaciones existentes?**
 
-Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes mientras se conserva su formato y apariencia original.
+Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes mientras se mantiene su formato y apariencia original.
 
 **¿Aspose.Slides admite listas con viñetas y numeradas en presentaciones creadas en varios idiomas?**
 
-Sí, Aspose.Slides admite completamente presentaciones multilingües, permitiendo crear listas con viñetas y numeradas en cualquier idioma, incluido el uso de caracteres especiales o no latinos.
+Sí, Aspose.Slides admite plenamente presentaciones multilingües, lo que permite crear listas con viñetas y numeradas en cualquier idioma, incluidos caracteres especiales o no latinos.

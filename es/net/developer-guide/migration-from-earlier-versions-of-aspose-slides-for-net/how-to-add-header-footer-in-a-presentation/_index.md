@@ -18,37 +18,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo agregar encabezados y pies de página en presentaciones PowerPoint PPT, PPTX y ODP en .NET usando tanto las API heredadas como modernas de Aspose.Slides."
+description: "Aprenda cómo agregar encabezados y pies de página en presentaciones PowerPoint PPT, PPTX y ODP en .NET usando tanto las API heredadas como las modernas de Aspose.Slides."
 ---
 
-{{% alert color="primary" %}}
-Se ha lanzado una nueva [Aspose.Slides for .NET API](/slides/es/net/) y ahora este único producto admite la capacidad de generar documentos PowerPoint desde cero y editar los existentes.
-{{% /alert %}}
-## **Compatibilidad con código heredado**
-Para utilizar el código heredado desarrollado con versiones de Aspose.Slides para .NET anteriores a la 13.x, necesita realizar algunos cambios menores en su código y este seguirá funcionando como antes. Todas las clases que estaban presentes en la antigua Aspose.Slides para .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora están combinadas en un único espacio de nombres Aspose.Slides. Por favor, revise el siguiente fragmento de código sencillo para agregar encabezado y pie de página en una presentación en la API heredada de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API combinada.
-## **Enfoque heredado de Aspose.Slides para .NET**
+{{% alert color="primary" %}} 
+
+Se ha lanzado una nueva API de Aspose.Slides para .NET y ahora este único producto admite la capacidad de generar documentos de PowerPoint desde cero y editar los existentes.
+
+{{% /alert %}} 
+## **Soporte para Código Legado**
+Para usar el código legado desarrollado con versiones de Aspose.Slides para .NET anteriores a la 13.x, es necesario realizar algunos cambios menores en su código y este seguirá funcionando como antes. Todas las clases que estaban presentes en el antiguo Aspose.Slides para .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora están fusionadas en un único espacio de nombres Aspose.Slides. Por favor, revise el siguiente fragmento de código simple para agregar encabezado y pie de página en una presentación en la API heredada de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API fusionada.
+## **Enfoque Legado de Aspose.Slides para .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Estableciendo propiedades de visibilidad del encabezado y pie de página
+//Setting Header Footer visibility properties
 sourcePres.UpdateSlideNumberFields = true;
 
-//Actualizar los campos de fecha y hora
+//Update the Date Time Fields
 sourcePres.UpdateDateTimeFields = true;
 
-//Mostrar el marcador de posición de fecha y hora
+//Show date time placeholder
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Mostrar el marcador de posición del pie de página
+//Show the footer place holder
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Mostrar número de diapositiva
+//Show Slide Number
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Establecer la visibilidad del encabezado y pie de página en la diapositiva de título
+//Set the  header footer visibility on Title Slide
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Escribir la presentación en el disco
+//Write the presentation to the disk
 sourcePres.Write("NewSource.pptx");
 ```
 
@@ -77,10 +79,10 @@ hf.DateTimeVisible = true;
 //Establecer el formato de fecha y hora
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//Establecer texto del encabezado
+//Establecer el texto del encabezado
 hf.HeaderText = "Header Text";
 
-//Establecer texto del pie de página
+//Establecer el texto del pie de página
 hf.FooterText = "Footer Text";
 
 //Escribir la presentación en el disco
@@ -88,11 +90,13 @@ pres.Write("HeadFoot.ppt");
 ```
 
 
-## **Nuevo enfoque de Aspose.Slides para .NET 13.x**
+
+
+## **Enfoque Nuevo de Aspose.Slides para .NET 13.x**
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //Estableciendo propiedades de visibilidad del encabezado y pie de página
+    //Estableciendo las propiedades de visibilidad del encabezado y pie de página
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
     //Actualizar los campos de fecha y hora
@@ -104,7 +108,7 @@ using (Presentation sourcePres = new Presentation())
     //Mostrar el marcador de posición del pie de página
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Establecer la visibilidad del encabezado y pie de página en la diapositiva de título
+    //Establecer la  visibilidad del encabezado y pie de página en la diapositiva de título
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Escribir la presentación en el disco

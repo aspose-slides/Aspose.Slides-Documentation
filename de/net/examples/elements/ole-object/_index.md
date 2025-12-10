@@ -20,7 +20,7 @@ description: "Arbeiten Sie mit OLE-Objekten in C# mithilfe von Aspose.Slides: Ei
 
 Demonstriert das Einbetten einer Datei als OLE-Objekt und das Aktualisieren ihrer Daten mit **Aspose.Slides for .NET**.
 
-## OLE-Objekt hinzufügen
+## **OLE-Objekt hinzufügen**
 
 Betten Sie eine PDF-Datei in die Präsentation ein.
 ```csharp
@@ -35,9 +35,9 @@ static void Add_Ole_Object()
 ```
 
 
-## Auf OLE-Objekt zugreifen
+## **OLE-Objekt zugreifen**
 
-Rufen Sie den ersten OLE-Objekt-Frame auf einer Folie ab.
+Rufen Sie den ersten OLE-Objektrahmen in einer Folie ab.
 ```csharp
 static void Access_Ole_Object()
 {
@@ -51,7 +51,7 @@ static void Access_Ole_Object()
 ```
 
 
-## OLE-Objekt entfernen
+## **OLE-Objekt entfernen**
 
 Löschen Sie ein eingebettetes OLE-Objekt von der Folie.
 ```csharp
@@ -67,7 +67,7 @@ static void Remove_Ole_Object()
 ```
 
 
-## OLE-Objektdaten aktualisieren
+## **OLE-Objektdaten aktualisieren**
 
 Ersetzen Sie die in einem vorhandenen OLE-Objekt eingebetteten Daten.
 ```csharp

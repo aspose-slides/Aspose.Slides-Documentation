@@ -1,5 +1,5 @@
 ---
-title: API publique et modifications incompatibles rétroactives dans Aspose.Slides pour .NET 15.10.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 15.10.0
 linktitle: Aspose.Slides pour .NET 15.10.0
 type: docs
 weight: 200
@@ -16,13 +16,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
-
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/), ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.10.0.
-
+Cette page répertorie toutes les [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) classes, méthodes, propriétés, etc., et les autres changements introduits avec l'API Aspose.Slides for .NET 15.10.0.
 {{% /alert %}} 
 ## **Modifications de l'API publique**
 #### **Un nouveau VideoPlayerHtmlController ajouté pour prendre en charge l'exportation de fichiers multimédias vers HTML**
@@ -32,7 +30,7 @@ Les constructeurs de VideoPlayerHtmlController acceptent les paramètres suivant
 path : Le chemin où les fichiers vidéo et audio seront générés  
 fileName : Le nom du fichier HTML  
 
-baseUri : L'URI de base qui sera utilisée pour générer les liens  
+baseUri : L'URI de base qui sera utilisé pour générer les liens  
 Exemple d'utilisation :
 
 ``` csharp
@@ -63,7 +61,7 @@ Exemple d'utilisation :
 
 ``` 
 #### **L'API d'animation des séries de graphiques a été ajoutée**
-Les 2 nouvelles méthodes ont été ajoutées à l'interface Aspose.Slides.Animation.ISequence.
+Les deux nouvelles méthodes ont été ajoutées à l'interface Aspose.Slides.Animation.ISequence.
 
 ``` csharp
 
@@ -74,12 +72,12 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 ``` 
 
 Ces méthodes sont destinées à prendre en charge les animations des éléments du graphique :
-- par séries
-- par catégories
-- par éléments de séries
-- par éléments de catégories
+par série  
+par catégorie  
+par éléments de série  
+par éléments de catégorie  
 
-Les deux nouveaux enums EffectChartMajorGroupingType et EffectChartMinorGroupingType liés à l'animation des éléments du graphique ont été introduits.
+Les deux nouveaux énumérateurs EffectChartMajorGroupingType et EffectChartMinorGroupingType liés à l'animation des éléments du graphique ont été introduits.
 
 Pour ajouter une animation de série au graphique, le code suivant peut être utilisé :
 
@@ -177,7 +175,7 @@ Animation des catégories :
 
 ``` 
 
-Animation des éléments de séries :
+Animation des éléments de série :
 
 ``` csharp
 
@@ -273,7 +271,7 @@ Animation des éléments de séries :
 
 ``` 
 
-Animation des éléments de catégories :
+Animation des éléments de catégorie :
 
 ``` csharp
 

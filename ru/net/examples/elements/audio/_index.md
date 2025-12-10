@@ -5,7 +5,7 @@ weight: 70
 url: /ru/net/examples/elements/audio/
 keywords:
 - пример аудио
-- аудио-фрейм
+- аудиофрейм
 - добавить аудио
 - доступ к аудио
 - удалить аудио
@@ -16,28 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Работайте с аудио в C# используя Aspose.Slides: добавляйте, заменяйте, извлекайте и обрезайте звуки, задавайте громкость и воспроизведение для слайдов и фигур в PowerPoint и OpenDocument."
+description: "Работа с аудио в C# с помощью Aspose.Slides: добавление, замена, извлечение и обрезка звуков, настройка громкости и воспроизведения для слайдов и фигур в PowerPoint и OpenDocument."
 ---
 
-Иллюстрирует, как внедрять аудиофреймы и управлять воспроизведением с помощью **Aspose.Slides for .NET**. Ниже приведены примеры базовых операций с аудио.
+Илюстрирует, как внедрять аудиофреймы и управлять воспроизведением с помощью **Aspose.Slides for .NET**. Следующие примеры показывают базовые операции с аудио.
 
-## Добавить аудиофрейм
+## **Add an Audio Frame**
+Добавить аудиофрейм
 
-Вставьте пустой аудиофрейм, который позже может содержать встроенные звуковые данные.
+Insert an empty audio frame that can later hold embedded sound data.
+Вставьте пустой аудиофрейм, который позже может содержать внедрённые звуковые данные.
 ```csharp
 static void Add_Audio()
 {
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // Создайте пустой аудиофрейм (аудио будет встроено позже)
+    // Создать пустой аудио фрейм (аудио будет внедрено позже)
     var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 }
 ```
 
 
-## Получить доступ к аудиофрейму
+## **Access an Audio Frame**
+Доступ к аудиофрейму
 
+This code retrieves the first audio frame on a slide.
 Этот код извлекает первый аудиофрейм на слайде.
 ```csharp
 static void Access_Audio()
@@ -46,14 +50,16 @@ static void Access_Audio()
     var slide = pres.Slides[0];
     slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, new MemoryStream());
 
-    // Доступ к первому аудиофрейму на слайде
+    // Получить первый аудиофрейм на слайде
     var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 }
 ```
 
 
-## Удалить аудиофрейм
+## **Remove an Audio Frame**
+Удалить аудиофрейм
 
+Delete a previously added audio frame.
 Удалите ранее добавленный аудиофрейм.
 ```csharp
 static void Remove_Audio()
@@ -68,9 +74,11 @@ static void Remove_Audio()
 ```
 
 
-## Настроить воспроизведение аудио
+## **Set Audio Playback**
+Настроить воспроизведение аудио
 
-Настройте аудиофрейм на автоматическое воспроизведение при появлении слайда.
+Configure the audio frame to play automatically when the slide appears.
+Настройте аудиофрейм для автоматического воспроизведения при появлении слайда.
 ```csharp
 static void Set_Audio_Playback()
 {

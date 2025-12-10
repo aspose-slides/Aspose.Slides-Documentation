@@ -1,112 +1,142 @@
 ---
-title: Что такое Slide Master в PowerPoint? Определение и руководство по использованию
-linktitle: Slide Master
+title: "Управление мастер‑слайдами презентации в .NET"
+linktitle: "Мастер‑слайд"
 type: docs
 weight: 80
 url: /ru/net/slide-master/
-keywords: "Добавить Slide Master, PPT мастер слайд, slide master PowerPoint, Изображение в Slide Master, Заполнитель, Несколько Slide Masters, Сравнить Slide Masters, C#, Csharp, .NET, Aspose.Slides"
-description: "Узнайте, что такое Slide Master в PowerPoint и как он помогает контролировать макеты слайдов, шрифты, цвета и фирменный стиль. Простой пошаговый гид с примерами на C# или .NET."
+keywords:
+- "мастер‑слайд"
+- "мастер‑слайд"
+- "мастер‑слайд PPT"
+- "несколько мастер‑слайдов"
+- "сравнение мастер‑слайдов"
+- "фон"
+- "заполнитель"
+- "клонирование мастер‑слайда"
+- "копирование мастер‑слайда"
+- "дубликат мастер‑слайда"
+- "неиспользуемый мастер‑слайд"
+- "PowerPoint"
+- "OpenDocument"
+- "презентация"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Управляйте мастер‑слайдами в Aspose.Slides для .NET: создавайте, редактируйте и применяйте макеты, темы и заполнители к PPT, PPTX и ODP с помощью кратких примеров на C#."
 ---
 
-## **Что такое Slide Master в PowerPoint**
-**Slide Master** в PowerPoint — это функция, управляющая макетом, шрифтами и стилями на нескольких слайдах. Она помогает поддерживать согласованность и фирменный стиль в презентациях. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, используйте Slide Master. 
+## **Что такое мастер‑слайд в PowerPoint**
+**Мастер‑слайд** в PowerPoint — это функция, управляющая макетом, шрифтами и стилями на нескольких слайдах. Он помогает поддерживать единообразие и фирменный стиль в презентациях. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, вы можете использовать мастер‑слайд. 
 
-Slide Master полезен тем, что позволяет задать и изменить внешний вид всех слайдов презентации сразу. Aspose.Slides поддерживает механизм Slide Master из PowerPoint. 
+Мастер‑слайд полезен тем, что позволяет задать и изменить внешний вид всех слайдов презентации одновременно. Aspose.Slides поддерживает механизм мастер‑слайдов из PowerPoint. 
 
-VBA также позволяет работать со Slide Master и выполнять те же операции, поддерживаемые в PowerPoint: менять фон, добавлять фигуры, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы для использования Slide Master и выполнения базовых задач с ними. 
+VBA также позволяет манипулировать мастер‑слайдом и выполнять те же операции, что поддерживаются в PowerPoint: изменять фон, добавлять фигуры, настраивать макет и т.д. Aspose.Slides предоставляет гибкие механизмы для использования мастер‑слайдов и выполнения базовых задач с ними. 
 
-Это основные операции со Slide Master:
+Это базовые операции с мастер‑слайдом:
 
-- Создать Slide Master.
-- Применить Slide Master к слайдам презентации.
-- Изменить фон Slide Master. 
-- Добавить изображение, заполнитель, Smart Art и т.п. в Slide Master.
+- Создание или редактирование мастер‑слайда.  
+- Применение мастер‑слайда к слайдам презентации.  
+- Изменение фона мастер‑слайда.  
+- Добавление изображения, заполнителя, Smart Art и т.п. к мастер‑слайду.  
 
-Это более продвинутые операции со Slide Master: 
+Это более продвинутые операции с мастер‑слайдом:  
 
-- Сравнить Slide Master.
-- Объединить Slide Master.
-- Применить несколько Slide Master.
-- Скопировать слайд с Slide Master в другую презентацию.
-- Найти дублирующие Slide Master в презентациях.
-- Установить Slide Master как представление по умолчанию для презентации.
+- Сравнение мастер‑слайдов.  
+- Объединение мастер‑слайдов.  
+- Применение нескольких мастер‑слайдов.  
+- Копирование слайда с мастер‑слайдом в другую презентацию.  
+- Поиск дублирующихся мастер‑слайдов в презентациях.  
+- Установка мастер‑слайда как представления по умолчанию для презентации.  
 
 {{% alert color="primary" %}} 
-Возможно, вам будет полезен Aspose [**Онлайн‑просмотрщик PowerPoint**](https://products.aspose.app/slides/viewer), так как он демонстрирует живую реализацию некоторых основных процессов, описанных здесь.
+
+Возможно, вам будет интересно посмотреть Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer), поскольку это живой пример некоторых основных процессов, описанных здесь.
+
 {{% /alert %}} 
 
-## **Как применяется Slide Master**
-Прежде чем работать со Slide Master, стоит понять, как они используются в презентациях и применяются к слайдам. 
 
-* Каждая презентация имеет как минимум один Slide Master по умолчанию. 
-* Презентация может содержать несколько Slide Master. Вы можете добавить несколько Slide Master и использовать их для стилизации разных частей презентации по‑разному. 
+## **Как применяется мастер‑слайд**
+Прежде чем работать с мастер‑слайдом, стоит понять, как они используются в презентациях и применяются к слайдам. 
 
-В **Aspose.Slides** Slide Master представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide). 
+* Каждая презентация имеет как минимум один мастер‑слайд по умолчанию.  
+* Презентация может содержать несколько мастер‑слайдов. Вы можете добавить несколько мастер‑слайдов и использовать их для стилизации разных частей презентации по‑разному.  
 
-Объект [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) Aspose.Slides содержит список [**Masters** ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), в котором хранится перечень всех мастер‑слайдов, определённых в презентации. 
+В **Aspose.Slides** мастер‑слайд представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide). 
 
-Помимо CRUD‑операций, интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) предоставляет полезные методы: [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) и [**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone). Эти методы унаследованы от базовой функции клонирования слайдов. При работе с Slide Master они позволяют реализовывать сложные сценарии. 
+Объект [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) в Aspose.Slides содержит список [**Masters** ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), который хранит все мастер‑слайды, определённые в презентации. 
 
-Когда в презентацию добавляется новый слайд, к нему автоматически применяется Slide Master. По умолчанию выбирается Slide Master предыдущего слайда. 
+Помимо CRUD‑операций, интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) содержит полезные методы: [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/addclone) и [**InsertClone**](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/methods/insertclone). Эти методы унаследованы от базовой функции клонирования слайдов. Но при работе с мастер‑слайдами они позволяют реализовывать сложные настройки. 
 
-**Примечание**: Слайды презентации хранятся в списке [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), и каждый новый слайд добавляется в конец коллекции. Если в презентации есть единственный Slide Master, он будет выбран для всех новых слайдов. Поэтому вам не нужно вручную указывать Slide Master для каждого создаваемого слайда.
+Когда в презентацию добавляется новый слайд, к нему автоматически применяется мастер‑слайд. По умолчанию выбирается мастер‑слайд предыдущего слайда. 
 
-Принцип одинаков для PowerPoint и Aspose.Slides. Например, в PowerPoint, добавив новый слайд, вы можете просто кликнуть на пустую строку под последним слайдом — и будет создан новый слайд (с последним используемым Slide Master):
+**Note**: Слайды презентации хранятся в списке [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), и каждый новый слайд добавляется в конец коллекции по умолчанию. Если презентация содержит один единственный мастер‑слайд, этот мастер‑слайд будет выбран для всех новых слайдов. Поэтому вам не нужно задавать мастер‑слайд для каждого нового слайда.  
+
+Принцип тот же, что и в PowerPoint. Например, в PowerPoint, когда вы добавляете новый слайд, достаточно щёлкнуть по нижней линии под последним слайдом — будет создан новый слайд (с мастер‑слайдом последней презентации):
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-В Aspose.Slides то же самое достигается вызовом метода [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) у класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+В Aspose.Slides вы можете выполнить эквивалентную задачу с помощью метода [AddClone(ISlide)](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addclone) класса [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 
-## **Slide Master в иерархии Slides**
-Использование Slide Layout вместе со Slide Master обеспечивает максимальную гибкость. Slide Layout позволяет задать такие же стили, как у Slide Master (фон, шрифты, фигуры и т.д.). Однако при комбинировании нескольких Slide Layout на одном Slide Master появляется новый стиль. Применив Slide Layout к отдельному слайду, вы можете изменить его стиль, переопределив стиль Slide Master.
 
-Slide Master превосходит все остальные элементы настройки: Slide Master → Slide Layout → Slide:
+## **Мастер‑слайд в иерархии слайдов**
+Использование макетов слайдов вместе с мастер‑слайдом обеспечивает максимальную гибкость. Макет слайда позволяет задать те же стили, что и мастер‑слайд (фон, шрифты, фигуры и т.п.). Однако, когда несколько макетов слайдов объединяются на одном мастер‑слайде, появляется новый стиль. При применении макета к отдельному слайду вы можете изменить его стиль относительно того, который задаёт мастер‑слайд.
+
+Мастер‑слайд имеет приоритет над всеми настройками: Мастер‑слайд → Макет слайда → Слайд:
 
 ![todo:image_alt_text](slide-master_2)
 
-Каждый объект [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) имеет свойство [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) — список Slide Layout. Объект типа [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) имеет свойство [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide), указывающее на применённый к нему Slide Layout. Взаимодействие слайда и Slide Master происходит через Slide Layout.
+
+
+Каждый объект [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) имеет свойство [**LayoutSlides**](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/layoutslides) со списком макетов слайдов. Тип [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) имеет свойство [**LayoutSlide**](https://reference.aspose.com/slides/net/aspose.slides/islide/properties/layoutslide), указывающее на макет, применённый к этому слайду. Взаимодействие между слайдом и мастер‑слайдом происходит через макет слайда.
 
 {{% alert color="info" title="Note" %}}
-* В Aspose.Slides все настройки слайда (Slide Master, Slide Layout и сам слайд) реализованы как объекты, реализующие интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide).
-* Поэтому Slide Master и Slide Layout могут иметь одинаковые свойства, и важно понимать, как их значения применяются к объекту [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/). Сначала к слайду применяется Slide Master, затем — Slide Layout. Например, если и Slide Master, и Slide Layout задают фон, окончательный фон будет взят из Slide Layout.
+
+* В Aspose.Slides все настройки слайда (Мастер‑слайд, Макет слайда и сам слайд) являются объектами слайдов, реализующими интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide).  
+* Поэтому Мастер‑слайд и Макет слайда могут реализовывать одинаковые свойства, и вам нужно знать, как их значения будут применяться к объекту [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/). Сначала к слайду применяется Мастер‑слайд, затем — Макет слайда. Например, если у Мастер‑слайда и у Макета слайда задан фон, в итоге у слайда будет фон из Макета слайда.
+
 {{% /alert %}}
 
-## **Из чего состоит Slide Master**
-Чтобы понять, как можно изменить Slide Master, необходимо знать его составные части. Это основные свойства [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/):
 
-- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) — получить/установить фон слайда.
-- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) — получить/установить стили текста тела слайда.
-- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) — получить/установить все фигуры Slide Master (заполнители, рамки изображений и т.п.).
-- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) — получить/установить элементы ActiveX.
-- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) — получить менеджер тем.
-- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) — получить менеджер колонтитулов.
+## **Содержание мастер‑слайда**
+Чтобы понять, как можно изменять мастер‑слайд, следует знать его составные части. Ниже перечислены основные свойства [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/).
 
-Методы Slide Master:
+- [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/background) — получение/установка фона слайда.  
+- [BodyStyle](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/bodystyle) — получение/установка стилей текста тела слайда.  
+- [Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/shapes) — получение/установка всех фигур мастер‑слайда (заполнители, рамки изображений и т.п.).  
+- [Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/controls) — получение/установка элементов ActiveX.  
+- [ThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/imasterthemeable/properties/thememanager) — получение менеджера тем.  
+- [HeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/properties/headerfootermanager) — получение менеджера верхних и нижних колонтитулов.  
 
-- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) — получить все слайды, зависящие от данного Slide Master.
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) — позволяет создать новый Slide Master на основе текущего и новой темы, после чего новый мастер будет применён ко всем зависимым слайдам.
+Методы мастер‑слайда:
 
-## **Получить Slide Master**
-В PowerPoint Slide Master доступен через меню Вид → Slide Master:
+- [GetDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/getdependingslides) — получение всех слайдов, зависящих от данного мастер‑слайда.  
+- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/methods/applyexternalthemetodependingslides) — позволяет создать новый мастер‑слайд на основе текущего и новой темы. Новый мастер‑слайд затем будет применён ко всем зависимым слайдам.
+
+
+## **Получить мастер‑слайд**
+В PowerPoint мастер‑слайд доступен через меню Вид → Мастер‑слайд:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-В Aspose.Slides доступ к Slide Master выглядит так:
+
+
+В Aspose.Slides вы можете получить мастер‑слайд так:
 ```c#
 IMasterSlide master = pres.Masters[0];
 ```
 
 
-Интерфейс [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) представляет Slide Master. Свойство [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) (относящееся к типу [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)) содержит список всех Slide Master, определённых в презентации. 
+Интерфейс [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) представляет мастер‑слайд. Свойство [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) (связано с типом [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection)) содержит список всех мастер‑слайдов, определённых в презентации. 
 
-## **Добавить изображение в Slide Master**
-При добавлении изображения в Slide Master оно появится на всех слайдах, зависящих от этого мастера. 
 
-Например, разместив логотип компании и несколько изображений на Slide Master, вы увидите их на каждом слайде после возврата в режим редактирования.
+## **Добавить изображение в мастер‑слайд**
+При добавлении изображения в мастер‑слайд это изображение будет отображаться на всех слайдах, зависящих от данного мастер‑слайда. 
+
+Например, вы можете разместить логотип вашей компании и несколько изображений на мастер‑слайде, затем вернуться в режим редактирования слайдов. Вы увидите изображение на каждом слайде. 
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Добавить изображения в Slide Master можно с помощью Aspose.Slides: 
+Вы можете добавить изображения в мастер‑слайд с помощью Aspose.Slides: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -119,32 +149,35 @@ using (Presentation pres = new Presentation())
 
 
 {{% alert color="primary" title="See also" %}} 
-Для получения дополнительной информации о добавлении изображений на слайд см. статью [Picture Frame](/slides/ru/net/picture-frame/#create-picture-frame).
+
+Для получения дополнительной информации о добавлении изображений см. статью [Picture Frame](/slides/ru/net/picture-frame/#create-picture-frame).
+
 {{% /alert %}}
 
-## **Добавить заполнитель в Slide Master**
-Это стандартные заполняющие текстовые поля на Slide Master: 
 
-* Click to edit Master title style
-* Edit Master text styles
-* Second level
-* Third level 
+## **Добавить заполнитель в мастер‑слайд**
+Эти текстовые поля являются стандартными заполнителями на мастер‑слайде: 
 
-Они также отображаются на слайдах, основанных на Slide Master. Вы можете отредактировать эти заполнители на Slide Master, и изменения автоматически применятся к слайдам. 
+* Щёлкните, чтобы отредактировать стиль заголовка мастера  
+* Отредактировать стили текста мастера  
+* Уровень 2  
+* Уровень 3  
 
-В PowerPoint добавить заполнитель можно через путь Slide Master → Insert Placeholder:
+Они также отображаются на слайдах, основанных на мастер‑слайде. Вы можете редактировать эти заполнители на мастер‑слайде, и изменения автоматически применятся к слайдам. 
+
+В PowerPoint вы можете добавить заполнитель через путь Мастер‑слайд → Вставить заполнитель:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим, что слайд содержит заполнители, полученные из Slide Master:
+Рассмотрим более сложный пример заполнителей с Aspose.Slides. Предположим, есть слайд с заполнителями, полученными из мастер‑слайда:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Мы хотим изменить форматирование заголовка и подзаголовка на Slide Master следующим образом:
+Мы хотим изменить форматирование заголовка и подзаголовка на мастер‑слайде следующим образом:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Сначала получаем содержимое заполнителя заголовка из объекта Slide Master и затем используем поле `PlaceHolder.FillFormat`:
+Сначала получаем содержимое заполнителя заголовка из объекта мастер‑слайда, затем используем поле `PlaceHolder.FillFormat`: 
 ```c#
 public static void Main()
 {
@@ -180,18 +213,20 @@ static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
 ```
 
 
-Стиль и форматирование заголовка изменятся на всех слайдах, основанных на данном мастере:
+Стиль заголовка и форматирование изменятся на всех слайдах, основанных на данном мастер‑слайде:
 
 ![todo:image_alt_text](slide-master_8.png)
 
 {{% alert color="primary" title="See also" %}} 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/net/manage-placeholder/)
+
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/net/manage-placeholder/)  
 * [Text Formatting](https://docs.aspose.com/slides/net/text-formatting/)
+
 {{% /alert %}}
 
-## **Изменить фон Slide Master**
-При изменении цвета фона мастер‑слайда новый цвет будет применён ко всем обычным слайдам презентации. Ниже пример кода на C#:
 
+## **Изменить фон мастер‑слайда**
+При изменении цвета фона мастер‑слайда все обычные слайды презентации получат новый цвет. Этот C#‑код демонстрирует операцию:
 ```c#
 using (var pres = new Presentation())
 {
@@ -205,14 +240,15 @@ using (var pres = new Presentation())
 ```
 
 
+
 {{% alert color="primary" title="See also" %}} 
-- [Presentation Background](https://docs.aspose.com/slides/net/presentation-background/)
+- [Presentation Background](https://docs.aspose.com/slides/net/presentation-background/)  
 - [Presentation Theme](https://docs.aspose.com/slides/net/presentation-theme/)
+
 {{% /alert %}}
 
-## **Клонировать Slide Master в другую презентацию**
-Чтобы клонировать Slide Master в другую презентацию, вызовите метод [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) у целевой презентации, передав в него нужный Slide Master. Пример кода на C#:
-
+## **Клонировать мастер‑слайд в другую презентацию**
+Чтобы клонировать мастер‑слайд в другую презентацию, вызовите метод [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) из целевой презентации, передав в него мастер‑слайд. Этот C#‑код показывает, как клонировать мастер‑слайд в другую презентацию:
 ```c#
 using (Presentation presSource = new Presentation(), presTarget = new Presentation())
 {
@@ -221,39 +257,39 @@ using (Presentation presSource = new Presentation(), presTarget = new Presentati
 ```
 
 
-## **Добавить несколько Slide Master в презентацию**
-Aspose.Slides позволяет добавить несколько Slide Master и Slide Layout в любую презентацию. Это даёт возможность задавать стили, макеты и параметры форматирования слайдов различными способами. 
 
-В PowerPoint новые Slide Master и Layout добавляются через меню «Slide Master» следующим образом:
+## **Добавить несколько мастер‑слайдов в презентацию**
+Aspose.Slides позволяет добавить несколько мастер‑слайдов и макетов слайдов в любую презентацию. Это даёт возможность настраивать стили, макеты и параметры форматирования слайдов множеством способов. 
+
+В PowerPoint новые мастер‑слайды и макеты (из меню «Мастер‑слайд») добавляются так:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-В Aspose.Slides новый Slide Master добавляется вызовом метода [AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/):
-
+В Aspose.Slides вы можете добавить новый мастер‑слайд, вызвав метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/):
 ```c#
 pres.Masters.AddClone(pres.Masters[0]);
 ```
 
 
-## **Сравнить Slide Master**
-Slide Master реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide), содержащий метод [Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals), которым можно сравнивать мастеры. Метод возвращает `true`, если мастеры идентичны по структуре и статическому содержимому. 
 
-Два Slide Master считаются равными, если их фигуры, стили, тексты, анимации и прочие настройки совпадают. При сравнении игнорируются уникальные идентификаторы (например, SlideId) и динамический контент (например, текущая дата в заполнителе Date).
+## **Сравнение мастер‑слайдов**
+Мастер‑слайд реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) с методом [Equals](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/methods/equals), который можно использовать для сравнения слайдов. Он возвращает `true`, если мастер‑слайды идентичны по структуре и статическому содержимому. 
 
-## **Установить Slide Master как представление по умолчанию для презентации**
-Aspose.Slides позволяет задать Slide Master в качестве представления по умолчанию для презентации. Это то, что пользователь видит первым при открытии файла. 
+Два мастер‑слайда считаются равными, если их фигуры, стили, тексты, анимация и другие настройки совпадают. При сравнении не учитываются уникальные идентификаторы (например, SlideId) и динамическое содержимое (например, текущая дата в заполняющем поле даты). 
 
-Ниже пример кода на C#, показывающий, как установить Slide Master в качестве представления по умолчанию:
 
+## **Установить мастер‑слайд как представление по умолчанию для презентации**
+Aspose.Slides позволяет установить мастер‑слайд как представление по умолчанию для презентации. Представление по умолчанию — это то, что вы видите первым при открытии презентации. 
+
+Этот код показывает, как установить мастер‑слайд как представление по умолчанию в C#:
 ```c#
 pres.ViewProperties.LastView = ViewType.SlideMasterView;
 ```
 
 
-## **Удалить неиспользуемый Master Slide**
+## **Удалить неиспользуемые мастер‑слайды**
 
-Aspose.Slides предоставляет метод [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) класса [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/), позволяющий удалить ненужные и неиспользуемые мастер‑слайды. Пример кода на C#:
-
+Aspose.Slides предоставляет метод [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (класса [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)), позволяющий удалять нежелательные и неиспользуемые мастер‑слайды. Этот C#‑код показывает, как удалить мастер‑слайд из презентации PowerPoint:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -266,41 +302,41 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Что такое Slide Master в PowerPoint?**
+**Что такое мастер‑слайд в PowerPoint?**
 
-Slide Master — шаблон слайда, определяющий макет, стили, темы, шрифты, фон и другие свойства всех слайдов презентации. Он позволяет задать и изменить внешний вид всех слайдов сразу.  
+Мастер‑слайд — это шаблон слайда, определяющий макет, стили, темы, шрифты, фон и другие свойства слайдов презентации. Он позволяет задать и изменить внешний вид всех слайдов презентации одновременно.  
 
-**Как применяется Slide Master в презентации?**
+**Как применяется мастер‑слайд в презентации?**
 
-Каждая презентация имеет как минимум один Slide Master по умолчанию. При добавлении нового слайда к нему автоматически применяется Slide Master, обычно наследующийся от мастера предыдущего слайда. Презентация может содержать несколько Slide Master для индивидуального оформления разных частей.  
+Каждая презентация имеет как минимум один мастер‑слайд по умолчанию. Когда добавляется новый слайд, к нему автоматически применяется мастер‑слайд, обычно наследующийся от мастера предыдущего слайда. Презентация может содержать несколько мастер‑слайдов для стилизации разных частей по‑отдельности.  
 
-**Какие элементы можно настроить в Slide Master?**
+**Какие элементы можно настраивать в мастер‑слайде?**
 
-Slide Master состоит из нескольких основных свойств, которые можно настроить:
+Мастер‑слайд состоит из нескольких основных свойств, которые можно изменять:
 
-- **Background**: задать фон слайда.
-- **BodyStyle**: определить стили текста тела.
-- **Shapes**: управлять всеми фигурами мастер‑слайда, включая заполнители и рамки изображений.
-- **Controls**: работать с элементами ActiveX.
-- **ThemeManager**: доступ к менеджеру тем.
-- **HeaderFooterManager**: управлять колонтитулами.  
+- **Background**: задаёт фон слайда.  
+- **BodyStyle**: определяет стили текста тела слайда.  
+- **Shapes**: управляет всеми фигурами на мастер‑слайде, включая заполнители и рамки изображений.  
+- **Controls**: работает с элементами ActiveX.  
+- **ThemeManager**: предоставляет доступ к менеджеру тем.  
+- **HeaderFooterManager**: управляет верхними и нижними колонтитулами.  
 
-**Как добавить изображение в Slide Master?**
+**Как добавить изображение в мастер‑слайд?**
 
-Добавление изображения в Slide Master гарантирует его отображение на всех слайдах, зависящих от данного мастера. Например, разместив логотип компании на Slide Master, вы увидите его на каждом слайде презентации.  
+Добавление изображения в мастер‑слайд гарантирует его отображение на всех слайдах, зависящих от данного мастера. Например, размещение логотипа компании на мастер‑слайде сделает его видимым на каждом слайде презентации.  
 
-**Как Slide Master взаимодействует с Slide Layout?**
+**Как мастер‑слайды связаны с макетами слайдов?**
 
-Slide Layout работает совместно со Slide Master, обеспечивая гибкость дизайна. Slide Master задаёт глобальные стили и темы, а Slide Layout позволяет варьировать расположение контента. Иерархия выглядит так:
+Макеты слайдов работают совместно с мастер‑слайдами, обеспечивая гибкость дизайна. Пока мастер‑слайд задаёт общие стили и темы, макет слайда позволяет варьировать расположение контента. Иерархия выглядит так:
 
-- **Slide Master** → задаёт глобальные стили.
-- **Slide Layout** → предлагает разные варианты расположения контента.
-- **Slide** → наследует дизайн от выбранного Slide Layout.
+- **Мастер‑слайд** → определяет глобальные стили.  
+- **Макет слайда** → предоставляет разные варианты расположения контента.  
+- **Слайд** → наследует дизайн от своего макета слайда.  
 
-**Можно ли использовать несколько Slide Master в одной презентации?**
+**Можно ли иметь несколько мастер‑слайдов в одной презентации?**
 
-Да, презентация может содержать несколько Slide Master. Это даёт возможность оформлять разные секции презентации по‑разному, увеличивая гибкость дизайна.  
+Да, презентация может содержать несколько мастер‑слайдов. Это позволяет стилизовать разные разделы презентации различными способами, обеспечивая гибкость дизайна.  
 
-**Как получить доступ к Slide Master и изменить его с помощью Aspose.Slides?**
+**Как получить и изменить мастер‑слайд с помощью Aspose.Slides?**
 
-В Aspose.Slides Slide Master представлен интерфейсом `IMasterSlide`. Доступ к нему осуществляется через свойство `Masters` объекта `Presentation`.
+В Aspose.Slides мастер‑слайд представлен интерфейсом `IMasterSlide`. Вы можете получить мастер‑слайд, используя свойство `Masters` объекта `Presentation`.

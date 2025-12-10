@@ -6,7 +6,7 @@ url: /es/net/examples/elements/hyperlink/
 keywords:
 - ejemplo de hipervínculo
 - agregar hipervínculo
-- acceder hipervínculo
+- acceder al hipervínculo
 - eliminar hipervínculo
 - actualizar hipervínculo
 - PowerPoint
@@ -20,7 +20,7 @@ description: "Agregar, editar y eliminar hipervínculos en C# con Aspose.Slides:
 
 Demuestra cómo agregar, acceder, eliminar y actualizar hipervínculos en formas usando **Aspose.Slides for .NET**.
 
-## Agregar un hipervínculo
+## **Agregar un hipervínculo**
 
 Cree una forma rectangular con un hipervínculo que apunta a un sitio web externo.
 ```csharp
@@ -35,9 +35,9 @@ static void Add_Hyperlink()
 ```
 
 
-## Acceder a un hipervínculo
+## **Acceder a un hipervínculo**
 
-Lea la información del hipervínculo desde la porción de texto de una forma.
+Lea la información del hipervínculo de la porción de texto de una forma.
 ```csharp
 static void Access_Hyperlink()
 {
@@ -52,7 +52,7 @@ static void Access_Hyperlink()
 ```
 
 
-## Eliminar un hipervínculo
+## **Eliminar un hipervínculo**
 
 Elimine el hipervínculo del texto de una forma.
 ```csharp
@@ -69,7 +69,7 @@ static void Remove_Hyperlink()
 ```
 
 
-## Actualizar un hipervínculo
+## **Actualizar un hipervínculo**
 
 Cambie el destino de un hipervínculo existente. Use `HyperlinkManager` para modificar texto que ya contiene un hipervínculo, lo que imita cómo PowerPoint actualiza los hipervínculos de forma segura.
 ```csharp
@@ -82,7 +82,7 @@ static void Update_Hyperlink()
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-    // Cambiar un hipervínculo dentro del texto existente debe hacerse mediante
+    // Cambiar un hipervínculo dentro del texto existente debe hacerse vía
     // HyperlinkManager en lugar de establecer la propiedad directamente.
     // Esto imita cómo PowerPoint actualiza los hipervínculos de forma segura.
     portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");

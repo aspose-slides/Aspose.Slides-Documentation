@@ -5,24 +5,24 @@ weight: 140
 url: /es/net/examples/elements/smartart/
 keywords:
 - Ejemplo de SmartArt
-- agregar SmartArt
-- acceder a SmartArt
-- eliminar SmartArt
-- diseño de SmartArt
+- Agregar SmartArt
+- Acceder a SmartArt
+- Eliminar SmartArt
+- Diseño de SmartArt
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree y edite SmartArt en C# con Aspose.Slides: agregue nodos, cambie diseños y estilos, convierta a formas con precisión y exporte a PPT, PPTX y ODP."
+description: "Crear y editar SmartArt en C# con Aspose.Slides: agregar nodos, cambiar diseños y estilos, convertir a formas con precisión y exportar a PPT, PPTX y ODP."
 ---
 
-Muestra cómo agregar gráficos SmartArt, acceder a ellos, eliminarlos y cambiar diseños usando **Aspose.Slides for .NET**.
+Muestra cómo agregar gráficos SmartArt, acceder a ellos, eliminarlos y cambiar los diseños utilizando **Aspose.Slides for .NET**.
 
-## Agregar SmartArt
+## **Agregar SmartArt**
 
-Inserte un gráfico SmartArt usando uno de los diseños incorporados.
+Inserte un gráfico SmartArt utilizando uno de los diseños incorporados.
 ```csharp
 static void Add_SmartArt()
 {
@@ -34,7 +34,7 @@ static void Add_SmartArt()
 ```
 
 
-## Acceder a SmartArt
+## **Acceder a SmartArt**
 
 Recupere el primer objeto SmartArt en una diapositiva.
 ```csharp
@@ -49,7 +49,7 @@ static void Access_SmartArt()
 ```
 
 
-## Eliminar SmartArt
+## **Eliminar SmartArt**
 
 Elimine una forma SmartArt de la diapositiva.
 ```csharp
@@ -64,7 +64,7 @@ static void Remove_SmartArt()
 ```
 
 
-## Cambiar diseño de SmartArt
+## **Cambiar diseño de SmartArt**
 
 Actualice el tipo de diseño de un gráfico SmartArt existente.
 ```csharp

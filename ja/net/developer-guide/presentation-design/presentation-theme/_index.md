@@ -1,41 +1,40 @@
 ---
-title: .NET でプレゼンテーションテーマを管理
-linktitle: プレゼンテーションテーマ
+title: ".NET でプレゼンテーションテーマを管理する"
+linktitle: "プレゼンテーションテーマ"
 type: docs
 weight: 10
 url: /ja/net/presentation-theme/
 keywords:
-- PowerPoint テーマ
-- プレゼンテーション テーマ
-- スライド テーマ
-- テーマの設定
-- テーマの変更
-- テーマの管理
-- テーマカラー
-- 追加パレット
-- テーマフォント
-- テーマスタイル
-- テーマ効果
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET でマスタープレゼンテーションテーマを使用し、一貫したブランディングで PowerPoint ファイルの作成、カスタマイズ、変換を行う。"
+- "PowerPoint テーマ"
+- "プレゼンテーションテーマ"
+- "スライドテーマ"
+- "テーマ設定"
+- "テーマ変更"
+- "テーマ管理"
+- "テーマカラー"
+- "追加パレット"
+- "テーマフォント"
+- "テーマスタイル"
+- "テーマエフェクト"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET でプレゼンテーションテーマをマスターし、ブランド一貫性のある PowerPoint ファイルの作成、カスタマイズ、変換を行います。"
 ---
 
-プレゼンテーション テーマは、デザイン要素のプロパティを定義します。プレゼンテーション テーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んでいることになります。
+プレゼンテーションテーマはデザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選ぶことになります。
 
-PowerPoint では、テーマは色、[fonts](/slides/ja/net/powerpoint-fonts/)、[background styles](/slides/ja/net/presentation-background/)、および効果で構成されます。
+PowerPoint では、テーマはカラー、[フォント](/slides/ja/net/powerpoint-fonts/)、[背景スタイル](/slides/ja/net/presentation-background/)、およびエフェクトで構成されます。
 
 ![theme-constituents](theme-constituents.png)
 
-## **テーマの色を変更**
+## **テーマカラーの変更**
 
-PowerPoint のテーマは、スライド上のさまざまな要素に対して特定のカラーセットを使用します。色が気に入らない場合は、テーマに新しいカラーを適用して色を変更します。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) 列挙体の値を提供します。
+PowerPoint のテーマはスライド上のさまざまな要素に対して特定のカラーセットを使用します。カラーが好みでない場合は、テーマに新しいカラーを適用して変更します。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) 列挙体の値を提供します。
 
-この C# コードは、テーマのアクセントカラーを変更する方法を示しています:
 ```c#
 using (Presentation pres = new Presentation())
     
@@ -49,7 +48,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-この方法で、結果として得られるカラーの実際の値を確認できます:
+この方法で結果のカラーの実効値を求めることができます。
+
 ```c#
 var fillEffective = shape.FillFormat.GetEffective();
 
@@ -57,7 +57,8 @@ Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFil
 ```
 
 
-色変更操作をさらに示すために、別の要素を作成し、最初の操作で取得したアクセントカラーを割り当てます。その後、テーマ内のカラーを変更します:
+カラー変更操作をさらに示すために、別の要素を作成し、アクセントカラー（最初の操作から取得）を割り当てます。その後、テーマ内のカラーを変更します。
+
 ```c#
 IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -69,19 +70,17 @@ pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 ```
 
 
-新しいカラーは、両方の要素に自動的に適用されます。
+新しいカラーは両方の要素に自動的に適用されます。
 
 ### **追加パレットからテーマカラーを設定**
 
-メインテーマカラー(1)に輝度変換を適用すると、追加パレット(2)からカラーが生成されます。その後、これらのテーマカラーの取得と設定が可能です。
+メインテーマカラー（1）に輝度変換を適用すると、追加パレット（2）からカラーが生成されます。その後、これらのテーマカラーを取得および設定できます。
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - メインテーマカラー
+**1** - メインテーマカラー  
+**2** - 追加パレットのカラー。
 
-**2** - 追加パレットからのカラー。
-
-この C# コードは、メインテーマカラーから追加パレットのカラーを取得し、それらをシェイプで使用する操作を示しています:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -117,14 +116,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // アクセント 4、暗く 25%
+    // アクセント 4、暗さ 25%
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // アクセント 4、暗く 50%
+    // アクセント 4、暗さ 50%
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -136,16 +135,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **テーマフォントを変更**
+## **テーマフォントの変更**
 
-テーマやその他の目的でフォントを選択できるように、Aspose.Slides は以下の特別な識別子（PowerPoint で使用されるものと同様）を使用します:
+テーマやその他の目的でフォントを選択できるように、Aspose.Slides はこれらの特別な識別子（PowerPoint で使用されるものと同様）を使用します。
 
-* **+mn-lt** - 本文フォント Latin（マイナー Latin フォント）
-* **+mj-lt** - 見出しフォント Latin（メジャー Latin フォント）
-* **+mn-ea** - 本文フォント 東アジア（マイナー 東アジア フォント）
-* **+mj-ea** - 本文フォント 東アジア（マイナー 東アジア フォント）
+* **+mn-lt** - 本文フォント ラテン文字 (Minor Latin Font)
+* **+mj-lt** - 見出しフォント ラテン文字 (Major Latin Font)
+* **+mn-ea** - 本文フォント 東アジア (Minor East Asian Font)
+* **+mj-ea** - 本文フォント 東アジア (Minor East Asian Font)
 
-この C# コードは、Latin フォントをテーマ要素に割り当てる方法を示しています:
 ```c#
 IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
@@ -161,7 +159,8 @@ portion.PortionFormat.LatinFont = new FontData("+mn-lt");
 ```
 
 
-この C# コードは、プレゼンテーションのテーマフォントを変更する方法を示しています:
+この C# コードはプレゼンテーションのテーマフォントを変更する方法を示します。
+
 ```c#
 pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 ```
@@ -170,16 +169,17 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 すべてのテキスト ボックスのフォントが更新されます。
 
 {{% alert color="primary" title="TIP" %}} 
-[PowerPoint fonts](/slides/ja/net/powerpoint-fonts/) をご覧になると便利です。 
+以下をご覧になると便利です: [PowerPoint フォント](/slides/ja/net/powerpoint-fonts/). 
 {{% /alert %}}
 
-## **テーマの背景スタイルを変更**
+## **テーマ背景スタイルの変更**
 
-デフォルトでは、PowerPoint アプリは 12 個の事前定義された背景を提供しますが、典型的なプレゼンテーションではそのうち 3 個のみが保存されます。
+デフォルトでは、PowerPoint アプリは 12 の事前定義された背景を提供しますが、典型的なプレゼンテーションに保存されるのはそのうち 3 つだけです。 
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-例として、PowerPoint アプリでプレゼンテーションを保存した後、以下の C# コードを実行すると、プレゼンテーションに含まれる事前定義背景の数を確認できます:
+例えば、PowerPoint アプリでプレゼンテーションを保存した後、以下の C# コードを実行してプレゼンテーション内の事前定義背景の数を確認できます：
+
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -192,10 +192,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 
 {{% alert color="warning" %}} 
-[BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) プロパティを [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/) クラスから使用することで、PowerPoint テーマの背景スタイルを追加または取得できます。 
+[BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) を使用して、PowerPoint テーマの背景スタイルを追加または取得できます。 
 {{% /alert %}}
 
-この C# コードは、プレゼンテーションの背景を設定する方法を示しています:
 ```c#
 pres.Masters[0].Background.StyleIndex = 2;
 ```
@@ -204,18 +203,17 @@ pres.Masters[0].Background.StyleIndex = 2;
 **インデックスガイド**: 0 は塗りなしを表します。インデックスは 1 から始まります。
 
 {{% alert color="primary" title="TIP" %}} 
-[PowerPoint Background](/slides/ja/net/presentation-background/) をご覧になると便利です。 
+以下をご覧になると便利です: [PowerPoint 背景](/slides/ja/net/presentation-background/). 
 {{% /alert %}}
 
-## **テーマ効果を変更**
+## **テーマエフェクトの変更**
 
-PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を持ちます。これらの配列は 3 つの効果（サブトル、モデレート、インテンス）に結合されます。たとえば、特定のシェイプに効果を適用した結果は次のとおりです:
+PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は、微妙、適度、強烈という 3 つのエフェクトに結合されます。例えば、特定の形状にエフェクトを適用した結果は次のとおりです：
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme) クラスの 3 つのプロパティ（[FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles)、[LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles)、[EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)）を使用すると、PowerPoint のオプションよりも柔軟にテーマの要素を変更できます。
+[FormatScheme] クラスの 3 つのプロパティ（[FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles)、[LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles)、[EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)）を使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
 
-この C# コードは、要素の一部を変更してテーマ効果を変更する方法を示しています:
 ```c#
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
@@ -232,20 +230,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 ```
 
 
-結果として、塗りカラー、塗りタイプ、影効果などが変更されます:
+結果として、塗りの色、塗りタイプ、影エフェクトなどが変更されます：
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **よくある質問**
+## **FAQ**
 
-**マスタを変更せずに、単一のスライドにテーマを適用できますか？**
+**マスターを変更せずに単一スライドにテーマを適用できますか？**
 
-はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスタテーマをそのままにして、特定のスライドにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/) を使用）。
+はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスターテーマをそのままにして、対象スライドだけにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/) を使用）。
 
-**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に移行する最良の方法は何ですか？**
+**テーマをあるプレゼンテーションから別のプレゼンテーションに安全に移行する最適な方法は何ですか？**
 
-[Clone slides](/slides/ja/net/clone-slides/) とマスタをターゲットのプレゼンテーションにコピーすることで、元のマスタ、レイアウト、および関連するテーマを保持し、外観の一貫性を保ちます。
+[Clone slides](/slides/ja/net/clone-slides/) とそのマスターをターゲットプレゼンテーションにコピーします。これにより、元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫します。
 
-**すべての継承とオーバーライド後の「実効」値を確認するにはどうすればよいですか？**
+**すべての継承とオーバーライド後の“実効”値はどのように確認できますか？**
 
-API の ["effective" views](/slides/ja/net/shape-effective-properties/)（テーマ/カラー/フォント/エフェクト）を使用します。これらは、マスタとローカルオーバーライドを適用した後の解決済み最終プロパティを返します。
+API の ["effective" views](/slides/ja/net/shape-effective-properties/)（テーマ/カラー/フォント/エフェクト）を使用してください。これらは、マスターとローカルオーバーライドを適用した後の解決済みの最終プロパティを返します。

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.6.0 公共 API 和向后不兼容的更改
+title: Aspose.Slides for .NET 14.6.0 的公共 API 与向后不兼容的更改
 linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
@@ -8,7 +8,7 @@ keywords:
 - 迁移
 - 遗留代码
 - 现代代码
-- 遗留方法
+- 传统方法
 - 现代方法
 - PowerPoint
 - OpenDocument
@@ -16,20 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "审阅 Aspose.Slides for .NET 中的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
+description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
 
 {{% alert color="primary" %}} 
 
-此页面列出了所有 [已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 类、方法、属性等，任何新的 [限制](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 和其他 [更改](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)，这些都是在 Aspose.Slides for .NET 14.6.0 API 中引入的。
+此页面列出所有[已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)的类、方法、属性等，以及因 Aspose.Slides for .NET 14.6.0 API 引入的任何新[限制](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)和其他[更改](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)。
 
 {{% /alert %}} 
 ## **公共 API 更改**
 ### **已添加的接口、方法和属性**
 #### **已添加 Aspose.Slides.Charts.IErrorBarsFormat 接口**
-此接口表示图表系列的误差线。
+它表示图表系列的误差条。
 
-在自定义值类型的情况下，要指定值，请使用 series 的 DataPoints 集合中特定数据点的 ErrorBarCustomValues 属性。
+在自定义值类型的情况下，要指定值，请使用系列的 DataPoints 集合中特定数据点的 ErrorBarCustomValues 属性。
 
 ``` csharp
 
@@ -175,7 +175,7 @@ description: "审阅 Aspose.Slides for .NET 中的公共 API 更新和破坏性�
 
 ``` 
 #### **已添加 Aspose.Slides.IShapeCollection.AddClone(...), 和 .InsertClone(...) 方法**
-以下方法向集合中添加/插入指定形状的副本。 
+以下方法向集合中添加/插入指定形状的副本。
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -213,8 +213,8 @@ description: "审阅 Aspose.Slides for .NET 中的公共 API 更新和破坏性�
 }
 
 ``` 
-#### **已添加 ViewType 枚举、IViewProperties 接口、ViewProperties 类以及 IPresentation.ViewProperties 属性**
-IPresentation.ViewProperties 允许开发者在 PowerPoint 中打开演示文稿时更改视图类型和备注的可见性。
+#### **已添加 ViewType 枚举、IViewProperties 接口、ViewProperties 类和 IPresentation.ViewProperties 属性**
+IPresentation.ViewProperty 允许开发者在 PowerPoint 中打开演示文稿时更改视图类型和注释的可见性。
 
 ``` csharp
 

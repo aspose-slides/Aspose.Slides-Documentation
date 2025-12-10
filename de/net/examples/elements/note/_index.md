@@ -4,7 +4,7 @@ type: docs
 weight: 240
 url: /de/net/examples/elements/elements/note/
 keywords:
-- Beispiel für Notiz
+- Notizbeispiel
 - Notizfolie hinzufügen
 - Zugriff auf Notizfolie
 - Notizfolie entfernen
@@ -15,13 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Notizen in C# mit Aspose.Slides hinzufügen, lesen, bearbeiten und exportieren: Text formatieren, Notizen pro Folie verwalten und Sichtbarkeit in PowerPoint und OpenDocument steuern."
+description: "Notizen hinzufügen, lesen, bearbeiten und exportieren in C# mit Aspose.Slides: Text formatieren, Notizen pro Folie verwalten und Sichtbarkeit in PowerPoint und OpenDocument steuern."
 ---
 
 Zeigt, wie man Notizfolien hinzufügt, liest, entfernt und aktualisiert, indem man **Aspose.Slides for .NET** verwendet.
 
-## Add a Notes Slide
-Eine Notizfolie hinzufügen
+## **Notizfolie hinzufügen**
 
 Erstellen Sie eine Notizfolie und weisen Sie ihr Text zu.
 ```csharp
@@ -36,10 +35,9 @@ static void Add_Note()
 ```
 
 
-## Access a Notes Slide
-Auf eine Notizfolie zugreifen
+## **Zugriff auf eine Notizfolie**
 
-Lesen Sie den Text einer bestehenden Notizfolie.
+Lesen Sie Text von einer vorhandenen Notizfolie.
 ```csharp
 static void Access_Note()
 {
@@ -52,10 +50,9 @@ static void Access_Note()
 ```
 
 
-## Remove a Notes Slide
-Eine Notizfolie entfernen
+## **Notizfolie entfernen**
 
-Entfernen Sie die mit einer Folie verbundene Notizfolie.
+Entfernen Sie die Notizfolie, die einer Folie zugeordnet ist.
 ```csharp
 static void Remove_Note()
 {
@@ -68,8 +65,7 @@ static void Remove_Note()
 ```
 
 
-## Update Notes Text
-Notiztext aktualisieren
+## **Notiztext aktualisieren**
 
 Ändern Sie den Text einer Notizfolie.
 ```csharp

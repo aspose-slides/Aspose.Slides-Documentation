@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中绘制和控制连接器：添加、路由、重新路由、设置连接点、箭头和样式，以在 PPT、PPTX 和 ODP 中链接形状。"
+description: "使用 C# 和 Aspose.Slides 绘制和控制连接器：添加、路由、重新路由、设置连接点、箭头和样式，以在 PPT、PPTX 和 ODP 中链接形状。"
 ---
 
 展示如何使用 **Aspose.Slides for .NET** 将形状通过连接线连接并更改其目标。
 
-## 添加连接线
+## **添加连接线**
 
 在幻灯片的两个点之间插入一个连接线形状。
 ```csharp
@@ -34,9 +34,9 @@ static void Add_Connector()
 ```
 
 
-## 访问连接线
+## **访问连接线**
 
-检索添加到幻灯片的第一个连接线形状。
+获取添加到幻灯片的第一个连接线形状。
 ```csharp
 static void Access_Connector()
 {
@@ -49,7 +49,7 @@ static void Access_Connector()
 ```
 
 
-## 删除连接线
+## **删除连接线**
 
 从幻灯片中删除连接线。
 ```csharp
@@ -64,7 +64,7 @@ static void Remove_Connector()
 ```
 
 
-## 重新连接形状
+## **重新连接形状**
 
 通过分配起始和结束目标，将连接线附加到两个形状上。
 ```csharp

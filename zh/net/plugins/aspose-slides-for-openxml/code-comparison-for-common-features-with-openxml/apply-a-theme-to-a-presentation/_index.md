@@ -1,13 +1,12 @@
 ---
-title: 将主题应用于演示文稿
+title: 为演示文稿应用主题
 type: docs
 weight: 30
 url: /zh/net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML 演示文稿:**
+## **OpenXML 演示文稿**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Apply Theme to Presentation.pptx";
@@ -16,7 +15,7 @@ string ThemeFileName = FilePath + "Theme.pptx";
 
 ApplyThemeToPresentation(FileName, ThemeFileName);
 
-// 将新主题应用于演示文稿。
+// 将新主题应用到演示文稿。
 
 public static void ApplyThemeToPresentation(string presentationFile, string themePresentation)
 
@@ -34,7 +33,7 @@ public static void ApplyThemeToPresentation(string presentationFile, string them
 
 }
 
-// 将新主题应用于演示文稿。
+// 将新主题应用到演示文稿。
 
 public static void ApplyThemeToPresentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
 
@@ -78,11 +77,11 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     presentationPart.DeletePart(slideMasterPart);
 
-    // 导入新的幻灯片母版部分，并重用旧的关系 ID。
+    // 导入新的幻灯片母版部分，并复用旧的关系 ID。
 
     newSlideMasterPart = presentationPart.AddPart(newSlideMasterPart, relationshipId);
 
-    // 更改为新的主题部分。
+    // 更换为新的主题部分。
 
     presentationPart.AddPart(newSlideMasterPart.ThemePart);
 
@@ -100,9 +99,9 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     SlideLayoutPart newLayoutPart = null;
 
-    // 插入本示例的布局代码。
+    // 为本示例插入布局代码。
 
-    string defaultLayoutType = "标题和内容";
+    string defaultLayoutType = "Title and Content";
 
     // 删除所有幻灯片上的幻灯片布局关系。
 
@@ -116,7 +115,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
         {
 
-            // 确定每个幻灯片的幻灯片布局类型。
+            // 确定每张幻灯片的布局类型。
 
             layoutType = GetSlideLayoutType(slidePart.SlideLayoutPart);
 
@@ -165,22 +164,20 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
     return slideData.Name;
 
 }   
-
 ``` 
 ## **Aspose.Slides**
-为了应用主题，我们需要克隆带有母版的幻灯片，请按照以下步骤操作：
+为了应用主题，我们需要克隆包含母版的幻灯片，请按照以下步骤操作：
 
-- 创建一个包含要克隆的源演示文稿的 Presentation 类实例。
-- 创建一个包含要克隆到的目标演示文稿的 Presentation 类实例。
-- 访问要克隆的幻灯片以及母版幻灯片。
-- 通过引用目标演示文稿的 Presentation 对象公开的 Masters 集合来实例化 IMasterSlideCollection 类。
-- 调用 IMasterSlideCollection 对象公开的 AddClone 方法，并将要克隆的源 PPTX 中的母版作为参数传递给 AddClone 方法。
-- 通过设置对目标演示文稿的 Presentation 对象公开的 Slides 集合的引用来实例化 ISlideCollection 类。
-- 调用 ISlideCollection 对象公开的 AddClone 方法，并将要克隆的源演示文稿中的幻灯片和母版幻灯片作为参数传递给 AddClone 方法。
-- 写入修改后的目标演示文稿文件。
+- 创建一个包含要克隆幻灯片的源演示文稿的 Presentation 类实例。
+- 创建一个包含目标演示文稿的 Presentation 类实例，幻灯片将被克隆到此演示文稿中。
+- 访问要克隆的幻灯片及其母版幻灯片。
+- 通过引用目标演示文稿的 Presentation 对象公开的 Masters 集合，实例化 IMasterSlideCollection 类。
+- 调用 IMasterSlideCollection 对象公开的 AddClone 方法，并将源 PPTX 中要克隆的母版作为参数传递给 AddClone 方法。
+- 通过设置对目标演示文稿的 Presentation 对象公开的 Slides 集合的引用，实例化 ISlideCollection 类。
+- 调用 ISlideCollection 对象公开的 AddClone 方法，并将源演示文稿中的幻灯片和母版幻灯片作为参数传递给 AddClone 方法。
+- 将修改后的目标演示文稿文件写入磁盘。
 
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Apply Theme to Presentation.pptx";
@@ -197,40 +194,35 @@ public static void ApplyThemeToPresentation(string presentationFile, string outp
 
     Presentation srcPres = new Presentation(presentationFile);
 
-    // 实例化目标演示文稿的 Presentation 类（要克隆幻灯片的地方）
+    // 实例化 Presentation 类用于目标演示文稿（要克隆幻灯片的地方）
 
     Presentation destPres = new Presentation(outputFile);
 
-    // 实例化源演示文稿的幻灯片集合中的 ISlide 以及
-
-    // 母版幻灯片
+    // 实例化 ISlide，从源演示文稿的幻灯片集合中获取幻灯片及其母版幻灯片
 
     ISlide SourceSlide = srcPres.Slides[0];
 
-    // 从源演示文稿的母版集合中克隆所需的母版幻灯片到目标演示文稿的母版集合中
+    // 将所需的母版幻灯片从源演示文稿克隆到目标演示文稿的母版集合中
 
     IMasterSlideCollection masters = destPres.Masters;
 
     IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-    // 从源演示文稿的母版集合中克隆所需的母版幻灯片到目标演示文稿的母版集合中
+    // 将所需的母版幻灯片从源演示文稿克隆到目标演示文稿的母版集合中
 
     IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-    // 将所需的源演示文稿中的幻灯片与所需的母版克隆到目标演示文稿的幻灯片集合末尾
+    // 将所需的幻灯片从源演示文稿克隆到目标演示文稿的幻灯片集合末尾，并使用所克隆的母版
 
     ISlideCollection slds = destPres.Slides;
 
     slds.AddClone(SourceSlide, iSlide, true);
-
-    // 从源演示文稿的母版集合中克隆所需的母版幻灯片到目标演示文稿的母版集合中
 
     // 将目标演示文稿保存到磁盘
 
     destPres.Save(outputFile, SaveFormat.Pptx);
 
 }
-
 ``` 
 ## **下载运行代码示例**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

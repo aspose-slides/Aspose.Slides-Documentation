@@ -1,5 +1,5 @@
 ---
-title: API العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides for .NET 15.10.0
+title: واجهة برمجة تطبيقات عامة وتغييرات غير متوافقة للوراء في Aspose.Slides لـ .NET 15.10.0
 linktitle: Aspose.Slides لـ .NET 15.10.0
 type: docs
 weight: 200
@@ -16,23 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "راجع تحديثات API العامة والتغييرات الجذرية في Aspose.Slides for .NET لتتمكن من ترحيل حلول العروض التقديمية PowerPoint PPT و PPTX و ODP بسلاسة."
+description: "راجع تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسّرة في Aspose.Slides لـ .NET لتتمكن من ترحيل حلول عروض PowerPoint (PPT, PPTX) و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-هذه الصفحة تسرد جميع الفئات، الدوال، الخصائص وما إلى ذلك التي تم [مضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) مع تغييرات أخرى تم تقديمها مع Aspose.Slides for .NET 15.10.0 API.
+تقوم هذه الصفحة بسرد جميع الفئات، والطرق، والخصائص وما إلى ذلك التي تم [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) والبدالات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.10.0 API.
 
 {{% /alert %}} 
 ## **تغييرات API العامة**
-#### **تم إضافة VideoPlayerHtmlController جديد لدعم تصدير ملفات الوسائط إلى HTML**
-تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة الأسماء Aspose.Slides.Export. باستخدام نسخة من هذه الفئة يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
-تقبل مُنشئات VideoPlayerHtmlController المعاملات التالية:
+#### **إضافة VideoPlayerHtmlController جديد لدعم تصدير ملفات الوسائط إلى HTML**
+تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة الأسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
+تقبل مُنشئات VideoPlayerHtmlController المعلمات التالية:
 
-path: مسار إنشاء ملفات الفيديو والصوت  
-fileName: اسم ملف HTML  
+- path: المسار الذي سيتم فيه إنشاء ملفات الفيديو والصوت
+- fileName: اسم ملف HTML
+- baseUri: عنوان URI الأساسي الذي سيُستخدم لإنشاء الروابط
 
-baseUri: عنوان URI الأساسي الذي سيُستخدم لإنشاء الروابط  
 مثال على الاستخدام:
 
 ``` csharp
@@ -62,7 +62,7 @@ baseUri: عنوان URI الأساسي الذي سيُستخدم لإنشاء ا
 }
 
 ``` 
-#### **تم إضافة API للرسوم المتحركة لسلسلة المخطط**
+#### **تم إضافة واجهة برمجة تطبيقات رسوم متحركة لسلسلة المخطط**
 تمت إضافة طريقتين جديدتين إلى واجهة Aspose.Slides.Animation.ISequence.
 
 ``` csharp
@@ -73,15 +73,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-هذه الطرق مخصصة لدعم رسوم متحركة لعناصر المخطط:
-by series
-by categories
-by series elements
-by categories elements
+تهدف هذه الطرق إلى دعم رسومات المتحركة لعناصر المخطط:
+- حسب السلسلة
+- حسب الفئات
+- حسب عناصر السلسلة
+- حسب عناصر الفئات
 
-تم تقديم تعدادين جديدين EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقين برسوم متحركة عناصر المخطط.
+تم تقديم عددين جديدين من القيم (enums) EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقين برسوم المتحركة لعناصر المخطط.
 
-لإضافة رسوم متحركة للسلسلة إلى المخطط يمكن استخدام الكود التالي:
+لإضافة رسم متحرك لسلسلة إلى المخطط يمكن استخدام الشيفرة التالية:
 
 ``` csharp
 
@@ -129,7 +129,7 @@ by categories elements
 
 ``` 
 
-رسوم متحركة الفئات:
+رسوم متحركة للفئات:
 
 ``` csharp
 
@@ -177,7 +177,7 @@ by categories elements
 
 ``` 
 
-رسوم متحركة عناصر السلسلة:
+رسوم متحركة لعناصر السلسلة:
 
 ``` csharp
 
@@ -273,7 +273,7 @@ by categories elements
 
 ``` 
 
-رسوم متحركة عناصر الفئات:
+رسوم متحركة لعناصر الفئات:
 
 ``` csharp
 

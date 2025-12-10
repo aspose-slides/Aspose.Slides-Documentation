@@ -4,10 +4,10 @@ type: docs
 weight: 110
 url: /ar/net/examples/elements/slide-transition/
 keywords:
-- مثال على انتقال الشريحة
+- مثال انتقال شريحة
 - إضافة انتقال شريحة
-- الوصول إلى انتقال الشريحة
-- إزالة انتقال الشريحة
+- الوصول إلى انتقال شريحة
+- إزالة انتقال شريحة
 - مدة الانتقال
 - PowerPoint
 - OpenDocument
@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في انتقالات الشرائح باستخدام C# و Aspose.Slides: اختر الأنواع والسرعة والصوت والتوقيت لتحسين العروض التقديمية في صيغ PPT و PPTX و ODP."
+description: "التحكم في انتقالات الشرائح في C# باستخدام Aspose.Slides: اختيار الأنواع والسرعة والصوت والتوقيت لتصميم عروض تقديمية متقنة في صيغ PPT، PPTX و ODP."
 ---
 
-يوضح تطبيق تأثيرات الانتقال بين الشرائح وتوقيتاتها باستخدام **Aspose.Slides for .NET**.
+يعرض تطبيق تأثيرات انتقال الشرائح والتوقيتات باستخدام **Aspose.Slides for .NET**.
 
-## إضافة انتقال للشرائح
+## **إضافة انتقال شريحة**
 
-تطبيق تأثير انتقال خافت على الشريحة الأولى.
+تطبيق تأثير انتقال تلاشي على الشريحة الأولى.
 ```csharp
 static void Add_Slide_Transition()
 {
@@ -35,9 +35,9 @@ static void Add_Slide_Transition()
 ```
 
 
-## الوصول إلى انتقال الشريحة
+## **الوصول إلى انتقال شريحة**
 
-قراءة نوع الانتقال المعين حاليًا إلى شريحة.
+قراءة نوع الانتقال المعين حاليًا لشريحة.
 ```csharp
 static void Access_Slide_Transition()
 {
@@ -51,7 +51,7 @@ static void Access_Slide_Transition()
 ```
 
 
-## إزالة انتقال الشريحة
+## **إزالة انتقال شريحة**
 
 إزالة أي تأثير انتقال عن طريق تعيين النوع إلى `None`.
 ```csharp
@@ -61,15 +61,15 @@ static void Remove_Slide_Transition()
     var slide = pres.Slides[0];
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // إزالة الانتقال بتعيين لا شيء
+    // إزالة الانتقال عن طريق تعيين none
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
 
-## تحديد مدة الانتقال
+## **تعيين مدة الانتقال**
 
-تحديد مدة عرض الشريحة قبل الانتقال التلقائي.
+حدد المدة التي تُعرض فيها الشريحة قبل الانتقال تلقائيًا.
 ```csharp
 static void Set_Transition_Duration()
 {
@@ -77,6 +77,6 @@ static void Set_Transition_Duration()
     var slide = pres.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
-    slide.SlideShowTransition.AdvanceAfterTime = 2000; // بالمللي ثانية
+    slide.SlideShowTransition.AdvanceAfterTime = 2000; // بالملي ثانية
 }
 ```

@@ -16,23 +16,23 @@ keywords:
 description: "Descubra cómo crear y personalizar gráficos de rosquilla en Aspose.Slides para .NET, compatible con formatos de PowerPoint para presentaciones dinámicas."
 ---
 
-## **Especificar espacio central en el gráfico de rosquilla**
+## **Especificar el espacio central en un gráfico de rosquilla**
 Para especificar el tamaño del agujero en un gráfico de rosquilla, siga los pasos a continuación:
 
 - Instanciar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Agregar un gráfico de rosquilla en la diapositiva.
-- Especificar el tamaño del agujero en un gráfico de rosquilla.
+- Agregar un gráfico de rosquilla a la diapositiva.
+- Especificar el tamaño del agujero en el gráfico de rosquilla.
 - Guardar la presentación en disco.
 
 En el ejemplo a continuación, hemos establecido el tamaño del agujero en un gráfico de rosquilla.
 ```c#
-// Crear una instancia de la clase Presentation
+ // Crear una instancia de la clase Presentation
 Presentation presentation = new Presentation();
 
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
 chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
 
-// Guardar la presentación en disco
+ // Guardar la presentación en disco
 presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -41,12 +41,12 @@ presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 
 **¿Puedo crear una rosquilla multinivel con varios anillos?**
 
-Sí. Agregue varias series a un solo gráfico de rosquilla; cada serie se convierte en un anillo independiente. El orden de los anillos está determinado por el orden de las series en la colección.
+Sí. Añada varias series a un único gráfico de rosquilla; cada serie se convierte en un anillo separado. El orden de los anillos se determina por el orden de las series en la colección.
 
-**¿Se admite una rosquilla "explosada" (segmentos separados)?**
+**¿Se admite una rosquilla "explosada" (rebanadas separadas)?**
 
-Sí. Existe un tipo de gráfico Rosquilla explotada [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) y una propiedad de explosión en los puntos de datos; puede separar segmentos individuales.
+Sí. Existe un tipo de gráfico Exploded Doughnut [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) y una propiedad de explosión en los puntos de datos; puede separar rebanadas individuales.
 
 **¿Cómo puedo obtener una imagen de un gráfico de rosquilla (PNG/SVG) para un informe?**
 
-Un gráfico es una forma; puede renderizarlo como una [imagen rasterizada](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) o exportar el gráfico a una [imagen SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).
+Un gráfico es una forma; puede renderizarlo a una [imagen rasterizada](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) o exportar el gráfico a una [imagen SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).

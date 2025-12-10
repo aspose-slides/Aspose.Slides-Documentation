@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 的 Aspose.Slides 创建和格式化表格：插入数据、合并单元格、设置边框样式、对齐内容，并支持 PPT、PPTX 和 ODP 的导入/导出。"
+description: "使用 Aspose.Slides 在 C# 中创建和格式化表格：插入数据、合并单元格、设置边框样式、对齐内容，并支持 PPT、PPTX 和 ODP 的导入/导出。"
 ---
 
-使用 **Aspose.Slides for .NET** 添加表格、访问表格、删除表格以及合并单元格的示例。
+使用 **Aspose.Slides for .NET** 添加表格、访问表格、删除表格和合并单元格的示例。
 
-## 添加表格
+## **添加表格**
 
 创建一个包含两行两列的简单表格。
 ```csharp
@@ -36,7 +36,7 @@ static void Add_Table()
 ```
 
 
-## 访问表格
+## **访问表格**
 
 获取幻灯片上的第一个表格形状。
 ```csharp
@@ -54,7 +54,7 @@ static void Access_Table()
 ```
 
 
-## 删除表格
+## **删除表格**
 
 从幻灯片中删除表格。
 ```csharp
@@ -71,9 +71,9 @@ static void Remove_Table()
 ```
 
 
-## 合并表格单元格
+## **合并表格单元格**
 
-将表格相邻的单元格合并为一个单元格。
+将表格中相邻的单元格合并为一个单元格。
 ```csharp
 static void Merge_Table_Cells()
 {

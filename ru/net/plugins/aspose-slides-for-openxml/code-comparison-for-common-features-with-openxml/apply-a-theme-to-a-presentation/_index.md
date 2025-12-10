@@ -1,22 +1,22 @@
 ---
-title: Применение темы к презентации
+title: Применить тему к презентации
 type: docs
 weight: 30
 url: /ru/net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML Презентация:**
+## **OpenXML Презентация**
 ``` csharp
 
- string FilePath = @"..\..\..\..\Примеры Файлы\";
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Применение темы к презентации.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Тема.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
 ApplyThemeToPresentation(FileName, ThemeFileName);
 
-// Применить новую тему к презентации. 
+// Apply a new theme to the presentation. 
 
 public static void ApplyThemeToPresentation(string presentationFile, string themePresentation)
 
@@ -34,7 +34,7 @@ public static void ApplyThemeToPresentation(string presentationFile, string them
 
 }
 
-// Применить новую тему к презентации. 
+// Apply a new theme to the presentation. 
 
 public static void ApplyThemeToPresentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
 
@@ -56,33 +56,33 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     }
 
-    // Получите часть презентации документа презентации.
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получите существующую часть мастер-слайда.
+    // Get the existing slide master part.
 
     SlideMasterPart slideMasterPart = presentationPart.SlideMasterParts.ElementAt(0);
 
     string relationshipId = presentationPart.GetIdOfPart(slideMasterPart);
 
-    // Получите новую часть мастер-слайда.
+    // Get the new slide master part.
 
     SlideMasterPart newSlideMasterPart = themeDocument.PresentationPart.SlideMasterParts.ElementAt(0);
 
-    // Удалите существующую часть темы.
+    // Remove the existing theme part.
 
     presentationPart.DeletePart(presentationPart.ThemePart);
 
-    // Удалите старую часть мастер-слайда.
+    // Remove the old slide master part.
 
     presentationPart.DeletePart(slideMasterPart);
 
-    // Импортируйте новую часть мастер-слайда и повторно используйте старый идентификатор отношения.
+    // Import the new slide master part, and reuse the old relationship ID.
 
     newSlideMasterPart = presentationPart.AddPart(newSlideMasterPart, relationshipId);
 
-    // Смените на новую часть темы.
+    // Change to the new theme part.
 
     presentationPart.AddPart(newSlideMasterPart.ThemePart);
 
@@ -100,11 +100,11 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     SlideLayoutPart newLayoutPart = null;
 
-    // Вставьте код для компоновки для этого примера.
+    // Insert the code for the layout for this example.
 
-    string defaultLayoutType = "Заголовок и содержимое";
+    string defaultLayoutType = "Title and Content";
 
-    // Удалите отношение компоновки слайдов на всех слайдах. 
+    // Remove the slide layout relationship on all slides. 
 
     foreach (var slidePart in presentationPart.SlideParts)
 
@@ -116,11 +116,11 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
         {
 
-            // Определите тип компоновки слайда для каждого слайда.
+            // Determine the slide layout type for each slide.
 
             layoutType = GetSlideLayoutType(slidePart.SlideLayoutPart);
 
-            // Удалите старую часть компоновки.
+            // Delete the old layout part.
 
             slidePart.DeletePart(slidePart.SlideLayoutPart);
 
@@ -130,7 +130,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
         {
 
-            // Примените новую часть компоновки.
+            // Apply the new layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -142,7 +142,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
             newLayoutPart = newSlideLayouts[defaultLayoutType];
 
-            // Примените новую часть компоновки по умолчанию.
+            // Apply the new default layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -152,7 +152,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
 }
 
-// Получите тип компоновки слайда.
+// Get the slide layout type.
 
 public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
@@ -160,7 +160,7 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
     CommonSlideData slideData = slideLayoutPart.SlideLayout.CommonSlideData;
 
-    // Примечания: если это используется в продуктивном коде, проверьте на наличие нулевой ссылки.
+    // Remarks: If this is used in production code, check for a null reference.
 
     return slideData.Name;
 
@@ -168,24 +168,24 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
 ``` 
 ## **Aspose.Slides**
-Чтобы применить тему, нам нужно клонировать слайд с мастером, пожалуйста, следуйте приведенным ниже шагам:
+Для применения темы необходимо клонировать слайд вместе с мастер‑слайдом, следуйте приведённым ниже шагам:
 
-- Создайте экземпляр класса Presentation, содержащий исходную презентацию, из которой слайд будет клонироваться.
-- Создайте экземпляр класса Presentation, содержащий целевую презентацию, в которую слайд будет клонироваться.
-- Получите слайд, который нужно клонировать, вместе с мастер-слайдом.
+- Создайте экземпляр класса Presentation, содержащий исходную презентацию, из которой будет клонироваться слайд.
+- Создайте экземпляр класса Presentation, содержащий целевую презентацию, в которую будет клонироваться слайд.
+- Получите доступ к слайду, который будет клонироваться, вместе с мастер‑слайдом.
 - Создайте экземпляр класса IMasterSlideCollection, ссылаясь на коллекцию Masters, предоставляемую объектом Presentation целевой презентации.
-- Вызовите метод AddClone, предоставленный объектом IMasterSlideCollection, и передайте мастер из исходного PPTX, который нужно клонировать, в качестве параметра метода AddClone.
+- Вызовите метод AddClone, предоставляемый объектом IMasterSlideCollection, и передайте мастер из исходного PPTX, который нужно клонировать, в качестве параметра.
 - Создайте экземпляр класса ISlideCollection, установив ссылку на коллекцию Slides, предоставляемую объектом Presentation целевой презентации.
-- Вызовите метод AddClone, предоставленный объектом ISlideCollection, и передайте слайд из исходной презентации для клонирования и мастер-слайд в качестве параметра метода AddClone.
-- Запишите измененный файл целевой презентации.
+- Вызовите метод AddClone, предоставляемый объектом ISlideCollection, и передайте слайд из исходной презентации, который нужно клонировать, и мастер‑слайд в качестве параметров.
+- Запишите изменённый файл целевой презентации.
 
 ``` csharp
 
- string FilePath = @"..\..\..\..\Примеры Файлы\";
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Применение темы к презентации.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Тема.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
 ApplyThemeToPresentation(ThemeFileName, FileName);
 
@@ -193,54 +193,52 @@ public static void ApplyThemeToPresentation(string presentationFile, string outp
 
 {
 
-    //Создайте экземпляр класса Presentation для загрузки файла исходной презентации
+    //Instantiate Presentation class to load the source presentation file
 
     Presentation srcPres = new Presentation(presentationFile);
 
-    //Создайте экземпляр класса Presentation для целевой презентации (где слайд должен быть клонирован)
+    //Instantiate Presentation class for destination presentation (where slide is to be cloned)
 
     Presentation destPres = new Presentation(outputFile);
 
-    //Создайте ISlide из коллекции слайдов в исходной презентации вместе с
+    //Instantiate ISlide from the collection of slides in source presentation along with
 
-    //мастер-слайдом
+    //master slide
 
     ISlide SourceSlide = srcPres.Slides[0];
 
-    //Клонируйте желаемый мастер-слайд из исходной презентации в коллекцию мастеров в
+    //Clone the desired master slide from the source presentation to the collection of masters in the
 
-    //целевой презентации
+    //destination presentation
 
     IMasterSlideCollection masters = destPres.Masters;
 
     IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-    //Клонируйте желаемый мастер-слайд из исходной презентации в коллекцию мастеров в
+    //Clone the desired master slide from the source presentation to the collection of masters in the
 
-    //целевой презентации
+    //destination presentation
 
     IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-    //Клонируйте желаемый слайд из исходной презентации с желаемым мастером в конец коллекции
+    //Clone the desired slide from the source presentation with the desired master to the end of the
 
-    //слайдов в целевой презентации
+    //collection of slides in the destination presentation
 
     ISlideCollection slds = destPres.Slides;
 
     slds.AddClone(SourceSlide, iSlide, true);
 
-    //Клонируйте желаемый мастер-слайд из исходной презентации в коллекцию мастеров в 
+    //Clone the desired master slide from the source presentation to the collection of masters in the//destination presentation
 
-    //целевой презентации
-
-    //Сохраните целевую презентацию на диск
+    //Save the destination presentation to disk
 
     destPres.Save(outputFile, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Скачайте пример работающего кода**
+## **Скачать работающий пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **Пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Apply%20Theme%20to%20Presentation)

@@ -5,9 +5,9 @@ weight: 170
 url: /fr/net/examples/elements/group-shape/
 keywords:
 - exemple de groupe
-- ajouter une forme de groupe
-- accéder à une forme de groupe
-- supprimer une forme de groupe
+- ajouter une forme groupe
+- accéder à la forme groupe
+- supprimer la forme groupe
 - dissocier les formes
 - PowerPoint
 - OpenDocument
@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Travailler avec les formes de groupe en C# avec Aspose.Slides : créer et dissocier, réorganiser les formes enfants, définir les transformations et les limites dans PowerPoint et OpenDocument."
+description: "Travaillez avec les formes groupées en C# à l'aide d'Aspose.Slides : créez et dissociez, réordonnez les formes enfants, définissez les transformations et les limites dans PowerPoint et OpenDocument."
 ---
 
-Exemples de création de groupes de formes, d'accès à ceux-ci, de dissociation et de suppression à l'aide de **Aspose.Slides pour .NET**.
+Exemples de création de groupes de formes, d'accès, de dissociation et de suppression à l'aide d'**Aspose.Slides for .NET**.
 
-## Ajouter un groupe de formes
+## **Ajouter une forme groupe**
 
 Créer un groupe contenant deux formes de base.
 ```csharp
@@ -36,9 +36,9 @@ static void Add_Group_Shape()
 ```
 
 
-## Accéder à un groupe de formes
+## **Accéder à une forme groupe**
 
-Récupérer le premier groupe de formes d'une diapositive.
+Récupérer la première forme groupe d'une diapositive.
 ```csharp
 static void Access_Group_Shape()
 {
@@ -52,9 +52,9 @@ static void Access_Group_Shape()
 ```
 
 
-## Supprimer un groupe de formes
+## **Supprimer une forme groupe**
 
-Supprimer un groupe de formes de la diapositive.
+Supprimer une forme groupe de la diapositive.
 ```csharp
 static void Remove_Group_Shape()
 {
@@ -67,9 +67,9 @@ static void Remove_Group_Shape()
 ```
 
 
-## Dissocier les formes
+## **Dissocier les formes**
 
-Déplacer les formes hors d'un conteneur de groupe.
+Déplacer les formes hors d'un conteneur groupe.
 ```csharp
 static void Ungroup_Shapes()
 {

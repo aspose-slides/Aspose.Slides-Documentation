@@ -1,5 +1,5 @@
 ---
-title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.1.0
+title: Cambios en la API pública y incompatibilidades retroactivas en Aspose.Slides para .NET 15.1.0
 linktitle: Aspose.Slides para .NET 15.1.0
 type: docs
 weight: 130
@@ -16,31 +16,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentación PowerPoint PPT, PPTX y ODP."
+description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades, etc. [agregados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.1.0.
+Esta página enumera todos los [added](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) o [removed](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) clases, métodos, propiedades y demás, y otros cambios introducidos con la API de Aspose.Slides for .NET 15.1.0 API.
 
-{{% /alert %}}
-## **Cambios de la API pública**
+{{% /alert %}} 
+## **Cambios de la API Pública**
 #### **Se ha añadido la funcionalidad de sustitución de fuentes**
-Se ha añadido la posibilidad de reemplazar fuentes globalmente en toda la presentación y de forma temporal para la renderización.
+Se ha añadido la posibilidad de reemplazar fuentes de forma global en toda la presentación y de forma temporal para la renderización.
 
-Se ha introducido una nueva propiedad "FontsManager" de la clase Presentation. La clase FontsManager tiene los siguientes miembros:
+Se ha introducido la nueva propiedad "FontsManager" de la clase Presentation. La clase FontsManager tiene los siguientes miembros:
 
-**IFontSubstRuleCollection FontSubstRuleList** Propiedad
+Propiedad **IFontSubstRuleCollection FontSubstRuleList**
 
-Esta colección de instancias IFontSubstRule se usa para sustituir fuentes durante la renderización. IFontSubstRule tiene las propiedades SourceFont y DestFont que implementan la interfaz IFontData, y la propiedad ReplaceFontCondition que permite elegir la condición de sustitución ("WhenInaccessible" o "Always").
+Esta colección de instancias IFontSubstRule se utiliza para sustituir fuentes durante la renderización. IFontSubstRule tiene las propiedades SourceFont y DestFont que implementan la interfaz IFontData y la propiedad ReplaceFontCondition que permite elegir la condición de sustitución ("WhenInaccessible" o "Always").
 
-**IFontData[] GetFonts()** Método
+Método **IFontData[] GetFonts()**
 
-Utilizada para recuperar todas las fuentes usadas en la presentación actual.
+Se utiliza para obtener todas las fuentes usadas en la presentación actual.
 
-**ReplaceFont** Métodos
+Métodos **ReplaceFont**
 
-Utilizados para reemplazar de forma persistente una fuente en la presentación.
+Se utilizan para reemplazar permanentemente una fuente en la presentación. 
 
 El siguiente ejemplo muestra cómo reemplazar una fuente en la presentación:
 
@@ -59,7 +59,7 @@ El siguiente ejemplo muestra cómo reemplazar una fuente en la presentación:
 
 ``` 
 
-Otro ejemplo muestra la sustitución de fuentes para la renderización cuando la fuente no está disponible:
+Otro ejemplo muestra la sustitución de fuentes para la renderización cuando no están accesibles:
 
 ``` csharp
 

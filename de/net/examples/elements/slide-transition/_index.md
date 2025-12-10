@@ -1,12 +1,12 @@
 ---
-title: Folienübergang
+title: FolienÜbergang
 type: docs
 weight: 110
 url: /de/net/examples/elements/slide-transition/
 keywords:
 - Beispiel für Folienübergang
 - Folienübergang hinzufügen
-- Zugriff auf Folienübergang
+- Folienübergang abrufen
 - Folienübergang entfernen
 - Übergangsdauer
 - PowerPoint
@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Steuern Sie Folienübergänge in C# mit Aspose.Slides: wählen Sie Typen, Geschwindigkeit, Sound und Timing, um Präsentationen in PPT, PPTX und ODP zu verfeinern."
+description: "Steuern Sie Folienübergänge in C# mit Aspose.Slides: Wählen Sie Typen, Geschwindigkeit, Sound und Timing, um Präsentationen in PPT, PPTX und ODP zu verfeinern."
 ---
 
-Demonstriert die Anwendung von Folienübergangseffekten und -zeiten mit **Aspose.Slides for .NET**.
+Demonstriert das Anwenden von Folienübergangseffekten und -zeiten mit **Aspose.Slides for .NET**.
 
-## Folienübergang hinzufügen
+## **Folie-Übergang hinzufügen**
 
-Wenden Sie einen Fade-Übergangseffekt auf die erste Folie an.
+Wenden Sie einen Fade‑Übergangseffekt auf die erste Folie an.
 ```csharp
 static void Add_Slide_Transition()
 {
@@ -35,7 +35,7 @@ static void Add_Slide_Transition()
 ```
 
 
-## Zugriff auf einen Folienübergang
+## **Zugriff auf Folien‑Übergang**
 
 Lesen Sie den aktuell einer Folie zugewiesenen Übergangstyp.
 ```csharp
@@ -51,7 +51,7 @@ static void Access_Slide_Transition()
 ```
 
 
-## Folienübergang entfernen
+## **Folien‑Übergang entfernen**
 
 Entfernen Sie alle Übergangseffekte, indem Sie den Typ auf `None` setzen.
 ```csharp
@@ -67,9 +67,9 @@ static void Remove_Slide_Transition()
 ```
 
 
-## Übergangsdauer festlegen
+## **Übergangsdauer festlegen**
 
-Geben Sie an, wie lange die Folie angezeigt wird, bevor sie automatisch weiterspringt.
+Geben Sie an, wie lange die Folie angezeigt wird, bevor sie automatisch weitergeht.
 ```csharp
 static void Set_Transition_Duration()
 {

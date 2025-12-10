@@ -17,18 +17,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل PPTX إلى PPT بسهولة باستخدام Aspose.Slides لـ .NET — يضمن توافقًا سلسًا مع صيغ PowerPoint مع الحفاظ على تخطيط وعرض الشرائح وجودتها."
+description: "حوّل PPTX إلى PPT بسهولة باستخدام Aspose.Slides لـ .NET—ضمن توافقًا سلسًا مع صيغ PowerPoint مع الحفاظ على تخطيط وجودة عرضك التقديمي."
 ---
 
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تحويل عرض PowerPoint بتنسيق PPTX إلى تنسيق PPT باستخدام C#. يتم تغطية الموضوع التالي.
+تشرح هذه المقالة كيفية تحويل عرض PowerPoint بتنسيق PPTX إلى تنسيق PPT باستخدام C#. تم تغطية الموضوع التالي.
 
-- تحويل PPTX إلى PPT في C#
+- تحويل PPTX إلى PPT باستخدام C#
 
-## **C# Convert PPTX to PPT**
+## **تحويل PPTX إلى PPT في .NET**
 
-للحصول على مثال كود C# لتحويل PPTX إلى PPT، يرجى الاطلاع على القسم أدناه أي [تحويل PPTX إلى PPT](#convert-pptx-to-ppt). يقوم فقط بتحميل ملف PPTX وحفظه بتنسيق PPT. عن طريق تحديد تنسيقات حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX بصيغ أخرى مثل PDF و XPS و ODP و HTML وغيرها كما هو موضح في هذه المقالات.
+للحصول على عينة كود C# لتحويل PPTX إلى PPT، يرجى مراجعة القسم أدناه أي [تحويل PPTX إلى PPT](#convert-pptx-to-ppt). يقوم فقط بتحميل ملف PPTX وحفظه بتنسيق PPT. عبر تحديد تنسيقات حفظ مختلفة، يمكنك أيضًا حفظ ملف PPTX إلى صيغ متعددة أخرى مثل PDF و XPS و ODP و HTML وغيرها كما هو موضح في هذه المقالات.
 
 - [C# تحويل PPTX إلى PDF](https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/)
 - [C# تحويل PPTX إلى XPS](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)
@@ -37,26 +37,26 @@ description: "تحويل PPTX إلى PPT بسهولة باستخدام Aspose.Sl
 - [C# تحويل PPTX إلى Image](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
 
 ## **تحويل PPTX إلى PPT**
-لتحويل PPTX إلى PPT ببساطة مرّر اسم الملف وتنسيق الحفظ إلى طريقة [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) في فئة [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/). يوضح مثال الكود C# أدناه كيفية تحويل عرض تقديمي من PPTX إلى PPT باستخدام الإعدادات الافتراضية.
+لتحويل PPTX إلى PPT، ما عليك سوى تمرير اسم الملف وتنسيق الحفظ إلى طريقة [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) لفئة [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) . يوضح العينة البرمجية C# أدناه كيفية تحويل عرض تقديمي من PPTX إلى PPT باستخدام الخيارات الافتراضية.
 ```c#
-// إنشاء كائن Presentation يمثل ملف PPTX
-Presentation pres = new Presentation("presentation.pptx");
+ // إنشاء كائن Presentation يمثل ملف PPTX
+ Presentation pres = new Presentation("presentation.pptx");
 
-// حفظ عرض PPTX بصيغة PPT
-pres.Save("presentation.ppt", SaveFormat.Ppt);
+ // حفظ عرض PPTX إلى تنسيق PPT
+ pres.Save("presentation.ppt", SaveFormat.Ppt);
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل جميع تأثيرات وميزات PPTX تُحافظ عليها عند الحفظ بتنسيق PPT القديم (97–2003)؟**
+**هل تبقى جميع التأثيرات والميزات في PPTX عند حفظها بتنسيق PPT القديم (97–2003)؟**
 
-ليس دائمًا. تنسيق PPT يفتقر إلى بعض القدرات newer (مثل بعض التأثيرات والكائنات والسلوكيات)، لذا قد يتم تبسيط أو تحويل الميزات إلى Raster أثناء التحويل.
+ليس دائماً. يفتقر تنسيق PPT إلى بعض القدرات الأحدث (مثل بعض التأثيرات، الكائنات، والسلوكيات)، لذلك قد يتم تبسيط الميزات أو تحويلها إلى رسومات نقطية أثناء التحويل.
 
-**هل يمكنني تحويل الشرائح المحددة فقط إلى PPT بدلاً من العرض الكامل؟**
+**هل يمكنني تحويل شرائح محددة فقط إلى PPT بدلاً من العرض التقديمي بالكامل؟**
 
-الحفظ المباشر يستهدف العرض بالكامل. لتحويل شرائح معينة، أنشئ عرض تقديمي جديد يحتوي على تلك الشرائح فقط واحفظه كـ PPT؛ أو استخدم خدمة/API تدعم معلمات التحويل لكل شريحة.
+الحفظ المباشر يستهدف العرض التقديمي بأكمله. لتحويل شرائح معينة، قم بإنشاء عرض تقديمي جديد يحتوي فقط على تلك الشرائح واحفظه كملف PPT؛ أو استخدم خدمة/واجهة برمجة تطبيقات تدعم معايير التحويل لكل شريحة.
 
-**هل يتم دعم العروض المحمية بكلمة مرور؟**
+**هل يتم دعم العروض التقديمية المحمية بكلمة مرور؟**
 
-نعم. يمكنك اكتشاف ما إذا كان الملف محميًا، فتحه باستخدام كلمة مرور، وكذلك [تكوين إعدادات الحماية/التشفير](/slides/ar/net/password-protected-presentation/) للـ PPT المحفوظ.
+نعم. يمكنك اكتشاف ما إذا كان الملف محمياً، فتحه باستخدام كلمة مرور، وكذلك [تكوين إعدادات الحماية/التشفير](/slides/ar/net/password-protected-presentation/) للـ PPT المحفوظ.

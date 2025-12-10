@@ -4,23 +4,23 @@ type: docs
 weight: 120
 url: /ja/net/examples/elements/table/
 keywords:
-- テーブルの例
-- テーブルの追加
-- テーブルへのアクセス
-- テーブルの削除
-- セルの結合
+- テーブル例
+- テーブル追加
+- テーブルアクセス
+- テーブル削除
+- セル結合
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# で Aspose.Slides を使用してテーブルを作成および書式設定します: データの挿入、セルの結合、罫線のスタイル設定、コンテンツの配置、PPT、PPTX、ODP のインポート/エクスポート。"
+description: "C# と Aspose.Slides を使用してテーブルを作成および書式設定します。データの挿入、セルの結合、罫線のスタイル設定、コンテンツの配置、PPT、PPTX、ODP へのインポート/エクスポートが可能です。"
 ---
 
-**Aspose.Slides for .NET** を使用したテーブルの追加、アクセス、削除、セルの結合の例。
+**Aspose.Slides for .NET** を使用したテーブルの追加、アクセス、削除、セル結合の例。
 
-## テーブルの追加
+## **テーブルの追加**
 
 2 行 2 列のシンプルなテーブルを作成します。
 ```csharp
@@ -36,9 +36,9 @@ static void Add_Table()
 ```
 
 
-## テーブルへのアクセス
+## **テーブルへのアクセス**
 
-スライド上の最初のテーブル シェイプを取得します。
+スライド上の最初のテーブルシェイプを取得します。
 ```csharp
 static void Access_Table()
 {
@@ -54,7 +54,7 @@ static void Access_Table()
 ```
 
 
-## テーブルの削除
+## **テーブルの削除**
 
 スライドからテーブルを削除します。
 ```csharp
@@ -71,7 +71,7 @@ static void Remove_Table()
 ```
 
 
-## テーブル セルの結合
+## **テーブルセルの結合**
 
 テーブルの隣接するセルを 1 つのセルに結合します。
 ```csharp

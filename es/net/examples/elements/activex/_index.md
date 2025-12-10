@@ -6,10 +6,10 @@ url: /es/net/examples/elements/activex/
 keywords:
 - Ejemplo de ActiveX
 - Control ActiveX
-- Agregar ActiveX
-- Acceder a ActiveX
-- Eliminar ActiveX
-- Propiedades de ActiveX
+- agregar ActiveX
+- acceder a ActiveX
+- eliminar ActiveX
+- propiedades ActiveX
 - PowerPoint
 - presentación
 - .NET
@@ -20,7 +20,7 @@ description: "Aprenda cómo encontrar, editar y eliminar controles ActiveX en C#
 
 Demuestra cómo agregar, acceder, eliminar y configurar controles ActiveX en una presentación usando **Aspose.Slides for .NET**.
 
-## Agregar un control ActiveX
+## **Agregar un control ActiveX**
 
 Inserte un nuevo control ActiveX y, opcionalmente, establezca sus propiedades.
 ```csharp
@@ -40,9 +40,9 @@ static void Add_ActiveX()
 ```
 
 
-## Acceder a un control ActiveX
+## **Acceder a un control ActiveX**
 
-Lea la información del primer control ActiveX en la diapositiva.
+Lea información del primer control ActiveX en la diapositiva.
 ```csharp
 static void Access_ActiveX()
 {
@@ -60,7 +60,7 @@ static void Access_ActiveX()
 ```
 
 
-## Eliminar un control ActiveX
+## **Eliminar un control ActiveX**
 
 Elimine un control ActiveX existente de la diapositiva.
 ```csharp
@@ -80,7 +80,7 @@ static void Remove_ActiveX()
 ```
 
 
-## Establecer propiedades ActiveX
+## **Establecer propiedades ActiveX**
 
 Agregue un control y configure varias propiedades ActiveX.
 ```csharp

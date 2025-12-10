@@ -16,37 +16,43 @@ keywords:
 description: "Узнайте, как создавать и настраивать кольцевые диаграммы в Aspose.Slides для .NET, поддерживая форматы PowerPoint для динамических презентаций."
 ---
 
-## **Укажите центральный зазор в кольцевой диаграмме**
-Чтобы задать размер отверстия в кольцевой диаграмме, выполните следующие шаги:
+## **Specify the Center Gap in a Doughnut Chart**
+Для указания размера отверстия в кольцевой диаграмме выполните следующие действия:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 - Добавьте кольцевую диаграмму на слайд.
 - Укажите размер отверстия в кольцевой диаграмме.
-- Запишите презентацию на диск.
+- Сохраните презентацию на диск.
 
 В приведённом ниже примере мы задали размер отверстия в кольцевой диаграмме.
 ```c#
- // Создайте экземпляр класса Presentation
+// Создать экземпляр класса Presentation
 Presentation presentation = new Presentation();
 
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
 chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
 
- // Сохраните презентацию на диск
+// Сохранить презентацию на диск
 presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **FAQ**
 
-**Могу ли я создать многоуровневую кольцевую диаграмму с несколькими кольцами?**
+**Can I create a multi-level doughnut with multiple rings?**
 
-Да. Добавьте несколько серий в одну кольцевую диаграмму — каждая серия становится отдельным кольцом. Порядок колец определяется порядком серий в коллекции.
+Могу ли я создать многоуровневую кольцевую диаграмму с несколькими кольцами?
 
-**Поддерживается ли «взрывная» кольцевая диаграмма (разделённые сектора)?**
+Да. Добавьте несколько рядов в одну кольцевую диаграмму — каждый ряд становится отдельным кольцом. Порядок колец определяется порядком рядов в коллекции.
 
-Да. Существует тип диаграммы Exploded Doughnut [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) и свойство взрыва для точек данных; вы можете разделять отдельные сектора.
+**Is an "exploded" doughnut (separated slices) supported?**
 
-**Как получить изображение кольцевой диаграммы (PNG/SVG) для отчёта?**
+Поддерживается ли «взрывная» кольцевая диаграмма (разделённые сегменты)?
 
-Диаграмма является фигурой; её можно отрисовать в [растровое изображение](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) или экспортировать диаграмму в [SVG‑изображение](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).
+Да. Существует тип диаграммы Exploded Doughnut [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) и свойство взрыва для точек данных; вы можете отделять отдельные сегменты.
+
+**How can I get an image of a doughnut chart (PNG/SVG) for a report?**
+
+Как получить изображение кольцевой диаграммы (PNG/SVG) для отчёта?
+
+Диаграмма является фигурой; её можно отрисовать в [raster image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) или экспортировать диаграмму в [SVG image](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).

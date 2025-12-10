@@ -1,28 +1,38 @@
 ---
-title: إزالة شريحة من العرض التقديمي
+title: إزالة الشرائح من العروض التقديمية في .NET
+linktitle: إزالة شريحة
 type: docs
 weight: 30
 url: /ar/net/remove-slide-from-presentation/
-keywords: "إزالة الشريحة, حذف الشريحة, PowerPoint, عرض تقديمي, C#, Csharp, .NET, Aspose.Slides"
-description: "إزالة شريحة من PowerPoint بواسطة المرجع أو الفهرس باستخدام C# أو .NET"
+keywords:
+- إزالة شريحة
+- حذف شريحة
+- إزالة شريحة غير مستخدمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "قم بإزالة الشرائح بسهولة من عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides لـ .NET. احصل على أمثلة شفرة C# واضحة ورفع كفاءة سير العمل الخاص بك."
 ---
 
-إذا أصبحت الشريحة (أو محتواها) زائدة، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) التي تُغلف [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)، وهي مستودع لجميع الشرائح في عرض تقديمي. باستخدام مؤشرات (مرجع أو فهرس) لكائن [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها. 
+إذا أصبحت شريحة (أو محتوياتها) غير ضرورية، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) التي تضمّ [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)، وهو مستودع لجميع الشرائح في العرض التقديمي. باستخدام مؤشرات (مرجعية أو فهرس) لكائن [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) معروف، يمكنك تحديد الشريحة التي تريد إزالتها. 
 
-## **إزالة شريحة بواسطة المرجع**
+## **إزالة شريحة عبر المرجع**
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. الحصول على مرجع للشريحة التي تريد إزالتها عبر معرّفها أو فهرسها.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+1. الحصول على مرجع للشريحة التي تريد إزالتها من خلال معرّفها أو فهرسها.
 1. إزالة الشريحة المشار إليها من العرض التقديمي.
-1. حفظ العرض التقديمي المعدل. 
+1. حفظ العرض التقديمي المعدّل. 
 
-يعرض هذا الكود C# الطريقة لإزالة شريحة عبر مرجعها:
+هذا الكود C# يوضح لك كيفية إزالة شريحة عبر مرجعها:
 ```c#
 // ينشئ كائن Presentation يمثل ملف عرض تقديمي
 using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 {
 
-    // يصل إلى شريحة عبر فهرستها في مجموعة الشرائح
+    // الوصول إلى شريحة عبر فهرستها في مجموعة الشرائح
     ISlide slide = pres.Slides[0];
 
     // يزيل شريحة عبر مرجعها
@@ -35,13 +45,13 @@ using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 
 
 
-## **إزالة شريحة بواسطة الفهرس**
+## **إزالة شريحة عبر الفهرس**
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. إزالة الشريحة من العرض التقديمي عبر موضع فهرسها.
-1. حفظ العرض التقديمي المعدل. 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+1. إزالة الشريحة من العرض التقديمي عبر موضع فهرستها.
+1. حفظ العرض التقديمي المعدّل. 
 
-يعرض هذا الكود C# الطريقة لإزالة شريحة عبر فهرسها:
+هذا الكود C# يوضح لك كيفية إزالة شريحة عبر فهرستها:
 ```c#
 // ينشئ كائن Presentation يمثل ملف عرض تقديمي
 using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
@@ -56,9 +66,9 @@ using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 ```
 
 
-## **إزالة شريحة تخطيط غير مستخدمة**
+## **إزالة شرائح التخطيط غير المستخدمة**
 
-توفر Aspose.Slides الطريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) (من الفئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) لتتيح لك حذف شرائح التخطيط غير المرغوب فيها وغير المستخدمة. يعرض هذا الكود C# كيفية إزالة شريحة تخطيط من عرض تقديمي PowerPoint:
+توفر Aspose.Slides الطريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) (من الفئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) لتسمح لك بحذف شرائح التخطيط غير المرغوب فيها وغير المستخدمة. هذا الكود C# يوضح لك كيفية إزالة شريحة تخطيط من عرض PowerPoint:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -69,9 +79,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **إزالة شريحة رئيسية غير مستخدمة**
+## **إزالة شرائح القالب غير المستخدمة**
 
-توفر Aspose.Slides الطريقة [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من الفئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) لتتيح لك حذف الشرائح الرئيسية غير المرغوب فيها وغير المستخدمة. يعرض هذا الكود C# كيفية إزالة شريحة رئيسية من عرض تقديمي PowerPoint:
+توفر Aspose.Slides الطريقة [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من الفئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)) لتسمح لك بحذف شرائح القالب غير المرغوب فيها وغير المستخدمة. هذا الكود C# يوضح لك كيفية إزالة شريحة قالب من عرض PowerPoint:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -82,24 +92,24 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**ماذا يحدث لفهارس الشرائح بعد حذف شريحة؟**
+**ماذا يحدث لمؤشرات الشرائح بعد حذف شريحة؟**
 
-بعد الحذف، تقوم [collection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) بإعادة فهرسة الشرائح: كل شريحة تالية تتحرك إلى اليسار موضعًا واحدًا، لذا تصبح أرقام الفهارس السابقة قديمة. إذا كنت بحاجة إلى مرجع ثابت، استخدم المعرّف الدائم لكل شريحة بدلاً من فهرسها.
+بعد الحذف، تقوم [collection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) بإعادة فهرسة: كل شريحة لاحقة تتحرك إلى اليسار بموقع واحد، لذا تصبح أرقام الفهرس السابقة غير صالحة. إذا كنت بحاجة إلى مرجع ثابت، استخدم المعرّف الدائم لكل شريحة بدلاً من فهرسها.
 
-**هل معرف الشريحة مختلف عن فهرسها، وهل يتغير عند حذف الشرائح المجاورة؟**
+**هل يختلف معرّف الشريحة عن فهرسها، وهل يتغير عند حذف الشرائح المجاورة؟**
 
-نعم. الفهرس هو موضع الشريحة وسيتغير عند إضافة أو حذف شرائح. معرف الشريحة هو معرّف ثابت ولا يتغير عندما تُحذف الشرائح الأخرى.
+نعم. الفهرس هو موضع الشريحة وسييتغير عندما تُضاف أو تُحذف شرائح. معرّف الشريحة هو معرف ثابت ولا يتغير عندما تُحذف شرائح أخرى.
 
 **كيف يؤثر حذف شريحة على أقسام الشرائح؟**
 
-إذا كانت الشريحة تنتمي إلى قسم، سيحتوي ذلك القسم ببساطة على شريحة أقل. يبقى هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [remove or reorganize sections](/slides/ar/net/slide-section/) حسب الحاجة.
+إذا كانت الشريحة تنتمي إلى قسم، سيحتوي ذلك القسم على شريحة أقل. يبقى هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [remove or reorganize sections](/slides/ar/net/slide-section/) حسب الحاجة.
 
 **ماذا يحدث للملاحظات والتعليقات المرتبطة بشريحة عند حذفها؟**
 
-[Notes](/slides/ar/net/presentation-notes/) و[comments](/slides/ar/net/presentation-comments/) مرتبطان بتلك الشريحة المحددة ويتم حذفهما معها. المحتوى في الشرائح الأخرى لا يتأثر.
+[Notes](/slides/ar/net/presentation-notes/) و[comments](/slides/ar/net/presentation-comments/) مرتبطان بهذه الشريحة المحددة ويتم إزالتهما معها. المحتوى في الشرائح الأخرى لا يتأثر.
 
-**كيف يختلف حذف الشرائح عن تنظيف التخطيطات/الرؤوس غير المستخدمة؟**
+**كيف يختلف حذف الشرائح عن تنظيف التخطيطات/القوالب غير المستخدمة؟**
 
-الحذف يزيل شرائح عادية محددة من المجموعة. تنظيف التخطيطات/الرؤوس غير المستخدمة يزيل شرائح التخطيط أو الرؤوس التي لا يشير إليها أي شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هذان الإجراءان مكملان لبعضهما: عادةً ما يتم الحذف أولاً، ثم التنظيف.
+الحذف يزيل الشرائح العادية المحددة من العرض. تنظيف التخطيطات/القوالب غير المستخدمة يزيل شرائح التخطيط أو القالب التي لا يشير إليها شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هاتان العمليتان مكملتان: عادةً احذف أولاً، ثم نظّف.

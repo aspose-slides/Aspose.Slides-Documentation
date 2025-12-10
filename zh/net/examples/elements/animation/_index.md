@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 和 Aspose.Slides 掌握幻灯片动画：添加、编辑和删除效果、时间和触发器，以在 PPT、PPTX 和 ODP 中创建动态演示文稿。"
+description: "使用 Aspose.Slides 在 C# 中掌握幻灯片动画：添加、编辑和删除效果、时间和触发器，以创建 PPT、PPTX 和 ODP 动态演示文稿。"
 ---
 
-展示如何使用 **Aspose.Slides for .NET** 创建简单动画并管理它们的顺序。
+展示如何使用 **Aspose.Slides for .NET** 创建简单动画并管理其顺序。
 
-## 添加动画
+## **添加动画**
 
-创建一个矩形形状并应用点击触发的淡入效果。
+创建一个矩形形状，并在点击时应用淡入效果。
 ```csharp
 static void Add_Animation()
 {
@@ -36,7 +36,7 @@ static void Add_Animation()
 ```
 
 
-## 访问动画
+## **访问动画**
 
 从幻灯片时间轴检索第一个动画效果。
 ```csharp
@@ -53,7 +53,7 @@ static void Access_Animation()
 ```
 
 
-## 移除动画
+## **删除动画**
 
 从序列中移除动画效果。
 ```csharp
@@ -70,7 +70,7 @@ static void Remove_Animation()
 ```
 
 
-## 序列动画
+## **顺序动画**
 
 添加多个效果并演示动画发生的顺序。
 ```csharp

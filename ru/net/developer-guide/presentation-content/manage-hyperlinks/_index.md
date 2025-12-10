@@ -11,11 +11,11 @@ keywords:
 - форматировать гиперссылку
 - удалить гиперссылку
 - обновить гиперссылку
-- текстовая гиперссылка
-- гиперссылка на слайд
-- гиперссылка на форму
-- гиперссылка на изображение
-- гиперссылка на видео
+- гиперссылка текста
+- гиперссылка слайда
+- гиперссылка фигуры
+- гиперссылка изображения
+- гиперссылка видео
 - изменяемая гиперссылка
 - PowerPoint
 - OpenDocument
@@ -23,27 +23,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Легко управлять гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — улучшайте интерактивность и рабочий процесс за считанные минуты."
+description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — улучшите интерактивность и рабочий процесс за считанные минуты."
 ---
 
-Гиперссылка — это ссылка на объект, данные или место в чём‑то. Это распространённые гиперссылки в презентациях PowerPoint:
+Гиперссылка — это ссылка на объект, данные или место в каком‑то документе. Это общие виды гиперссылок в презентациях PowerPoint:
 
 * Ссылки на веб‑сайты внутри текста, фигур или медиа
 * Ссылки на слайды
 
-Aspose.Slides for .NET позволяет выполнять множество задач, связанных с гиперссылками в презентациях. 
+Aspose.Slides для .NET позволяет выполнять множество задач, связанных с гиперссылками в презентациях. 
 
 {{% alert color="primary" %}} 
 
-Возможно, вам будет интересно ознакомиться с простым Aspose, [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/editor)
+Возможно, вам будет интересно попробовать простой, [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
-## **Добавление URL‑гиперссылок**
+## **Add URL Hyperlinks**
 
-### **Добавление URL‑гиперссылок к тексту**
+### **Add URL Hyperlinks to Text**
 
-Этот код на C# показывает, как добавить веб‑сайт в виде гиперссылки к тексту:
+Этот код C# показывает, как добавить гиперссылку на веб‑сайт в текст:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -58,9 +58,9 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-### **Добавление URL‑гиперссылок к фигурам или кадрам**
+### **Add URL Hyperlinks to Shapes or Frames**
 
-Этот пример кода на C# показывает, как добавить веб‑сайт в виде гиперссылки к фигуре:
+Этот пример кода C# показывает, как добавить гиперссылку на веб‑сайт в фигуру:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -74,9 +74,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **Добавление URL‑гиперссылок к медиа**
+### **Add URL Hyperlinks to Media**
 
-Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио‑ и видеофайлам. 
+Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио и видеофайлам. 
 
 Этот пример кода показывает, как добавить гиперссылку к **изображению**:
 ```c#
@@ -84,7 +84,7 @@ using (Presentation pres = new Presentation())
 {
     // Добавляет изображение в презентацию
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Создает рамку изображения на слайде 1 на основе ранее добавленного изображения
+    // Создаёт рамку изображения на слайде 1 на основе ранее добавленного изображения
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -127,13 +127,14 @@ using (Presentation pres = new Presentation())
 
 {{%  alert  title="Tip"  color="primary"  %}} 
 
-Возможно, вам будет интересно посмотреть *[Управление OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
+Вам может быть полезно посмотреть *[Управление OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Использование гиперссылок для создания оглавления**
 
-Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, их можно использовать для создания оглавления.
+## **Use Hyperlinks to Create a Table of Contents**
+
+Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, их можно использовать для создания оглавления. 
 
 Этот пример кода показывает, как создать оглавление с гиперссылками:
 ```c#
@@ -164,11 +165,11 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Форматирование гиперссылок**
+## **Format Hyperlinks**
 
-### **Цвет**
+### **Color**
 
-С помощью свойства [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) в интерфейсе [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink) можно установить цвет гиперссылки, а также получить информацию о цвете из гиперссылок. Эта возможность впервые появилась в PowerPoint 2019, поэтому изменения, касающиеся свойства, не применяются к более ранним версиям PowerPoint.
+С помощью свойства [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) в интерфейсе [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink) можно задавать цвет гиперссылок и также получать информацию о цвете из гиперссылок. Эта возможность впервые появилась в PowerPoint 2019, поэтому изменения, связанные со свойством, не применимы к более старым версиям PowerPoint.
 
 Этот пример кода демонстрирует операцию, при которой гиперссылки с разными цветами были добавлены на один слайд:
 ```c#
@@ -189,15 +190,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Звук**
+### **Sound**
 
 Aspose.Slides предоставляет следующие свойства, позволяющие подчеркнуть гиперссылку звуком:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Добавление звука к гиперссылке**
+#### **Add a Hyperlink Sound**
 
-Этот код на C# показывает, как установить гиперссылку, воспроизводящую звук, и остановить её другой гиперссылкой:
+Этот код C# показывает, как установить гиперссылку, которая воспроизводит звук, и остановить его другой гиперссылкой:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -206,7 +207,7 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Добавляет новую форму с гиперссылкой на следующий слайд
+	// Добавляет новую фигуру со ссылкой на следующий слайд
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
@@ -220,11 +221,11 @@ using (Presentation pres = new Presentation())
 	// Добавляет пустой слайд 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// Добавляет новую форму с гиперссылкой NoAction
+	// Добавляет новую фигуру с гиперссылкой NoAction
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Устанавливает флаг гиперссылки "Stop previous sound"
+	// Устанавливает флаг гиперссылки "Остановить предыдущий звук"
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
@@ -232,15 +233,15 @@ using (Presentation pres = new Presentation())
 ```
 
 
-#### **Извлечение звука из гиперссылки**
+#### **Extract a Hyperlink Sound**
 
-Этот код на C# показывает, как извлечь звук, используемый в гиперссылке:
+Этот код C# показывает, как извлечь звук, используемый в гиперссылке:
 ```c#
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// Получает гиперссылку первой формы
+	// Получает гиперссылку первой фигуры
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
@@ -252,11 +253,11 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 ```
 
 
-## **Удаление гиперссылок в презентациях**
+## **Remove Hyperlinks from Presentations**
 
-### **Удаление гиперссылок из текста**
+### **Remove Hyperlinks from Text**
 
-Этот код на C# показывает, как удалить гиперссылку из текста на слайде презентации:
+Этот код C# показывает, как удалить гиперссылку из текста в слайде презентации:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -281,9 +282,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-### **Удаление гиперссылок из фигур или кадров**
+### **Remove Hyperlinks from Shapes or Frames**
 
-Этот код на C# показывает, как удалить гиперссылку из фигуры на слайде презентации:
+Этот код C# показывает, как удалить гиперссылку из фигуры в слайде презентации: 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
@@ -297,16 +298,16 @@ using (Presentation pres = new Presentation("demo.pptx"))
 ```
 
 
-## **Изменяемая гиперссылка**
+## **Mutable Hyperlink**
 
-Класс [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) изменяемый. С помощью этого класса можно менять значения следующих свойств:
+Класс [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) изменяемый. С его помощью можно менять значения следующих свойств:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Этот фрагмент кода показывает, как добавить гиперссылку на слайд и позже изменить её всплывающую подсказку:
+Этот фрагмент кода показывает, как добавить гиперссылку на слайд и позже изменить её подсказку:
 ```c#
 using (Presentation presentation = new Presentation())
 {   
@@ -325,7 +326,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Поддерживаемые свойства в IHyperlinkQueries**
+## **Supported Properties in IHyperlinkQueries**
 
 Вы можете получить доступ к IHyperlinkQueries из презентации, слайда или текста, для которого определена гиперссылка. 
 
@@ -342,14 +343,14 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Как создать внутреннюю навигацию не только к слайду, но и к "разделу" или к первому слайду раздела?**
+**Как я могу создать внутреннюю навигацию не только к слайду, но и к «разделу» или первому слайду раздела?**
 
-Разделы в PowerPoint представляют собой группы слайдов; навигация технически нацелена на конкретный слайд. Чтобы «перейти к разделу», обычно связываются с его первым слайдом.
+Разделы в PowerPoint представляют собой группировки слайдов; навигация технически направлена на конкретный слайд. Чтобы «перейти к разделу», обычно делают ссылку на его первый слайд.
 
-**Можно ли прикрепить гиперссылку к элементам слайда‑шаблона, чтобы она работала на всех слайдах?**
+**Могу ли я привязать гиперссылку к элементам шаблона слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы слайда‑шаблона и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и являются кликабельными во время демонстрации.
+Да. Элементы шаблона слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время показа.
 
-**Сохраняются ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+**Будут ли гиперссылки сохранены при экспорте в PDF, HTML, изображения или видео?**
 
-В [PDF](/slides/ru/net/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/net/convert-powerpoint-to-html/) — да, ссылки, как правило, сохраняются. При экспорте в [изображения](/slides/ru/net/convert-powerpoint-to-png/) и [видео](/slides/ru/net/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за особенностей этих форматов (растровые кадры/видео не поддерживают гиперссылки).
+В [PDF](/slides/ru/net/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/net/convert-powerpoint-to-html/) да — ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/net/convert-powerpoint-to-png/) и [видео](/slides/ru/net/convert-powerpoint-to-video/) кликабельность не переносится из‑за особенностей этих форматов (растровые кадры/видео не поддерживают гиперссылки).

@@ -1,6 +1,6 @@
 ---
-title: .NET でデフォルトのプレゼンテーションフォントを指定する
-linktitle: デフォルトフォント
+title: ".NET でデフォルトのプレゼンテーション フォントを指定する"
+linktitle: "デフォルト フォント"
 type: docs
 weight: 30
 url: /ja/net/default-font/
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET でデフォルトフォントを設定し、PowerPoint（PPT、PPTX）および OpenDocument（ODP）の PDF、XPS、画像への変換を正しく行えるようにします。"
+description: "Aspose.Slides for .NET のデフォルトフォントを設定し、PowerPoint (PPT, PPTX) および OpenDocument (ODP) の PDF、XPS、画像への変換を適切に行えるようにします。"
 ---
 
 ## **プレゼンテーションのレンダリングにデフォルトフォントを使用する**
-Aspose.Slides を使用すると、プレゼンテーションを PDF、XPS、またはサムネイルにレンダリングする際のデフォルトフォントを設定できます。この記事では、DefaultRegularFont と DefaultAsianFont をデフォルトフォントとして定義する方法を示します。以下の手順に従って、Aspose.Slides for .NET API を使用して外部ディレクトリからフォントをロードしてください。
+Aspose.Slides では、プレゼンテーションを PDF、XPS、サムネイルにレンダリングする際のデフォルトフォントを設定できます。本稿では、DefaultRegularFont と DefaultAsianFont をデフォルトフォントとして定義する方法を示します。以下の手順に従って、Aspose.Slides for .NET API を使用して外部ディレクトリからフォントをロードしてください。
 
 1. LoadOptions のインスタンスを作成します。
-1. DefaultRegularFont を目的のフォントに設定します。以下の例では Wingdings を使用しています。
-1. DefaultAsianFont を目的のフォントに設定します。こちらのサンプルでも Wingdings を使用しています。
-1. Presentation を使用してプレゼンテーションをロードし、ロードオプションを設定します。
-1. スライドのサムネイル、PDF、XPS を生成し、結果を確認します。
+1. DefaultRegularFont を希望のフォントに設定します。以下の例では Wingdings を使用しています。
+1. DefaultAsianFont を希望のフォントに設定します。以下のサンプルでも Wingdings を使用しています。
+1. Presentation を使用し、ロードオプションを設定してプレゼンテーションを読み込みます。
+1. これで、スライドのサムネイル、PDF、XPS を生成し、結果を確認できます。
 
-上記の実装例は以下のとおりです。
+上記の実装例は以下です。
 ```c#
-// ロードオプションを使用してデフォルトのレギュラーフォントとアジアフォントを指定します
+// デフォルトのレギュラーフォントとアジアフォントを指定するためにロードオプションを使用します
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.DefaultRegularFont = "Wingdings";
 loadOptions.DefaultAsianFont = "Wingdings";
@@ -52,22 +52,22 @@ using (Presentation pptx = new Presentation("DefaultFonts.pptx", loadOptions))
 
 ## **FAQ**
 
-**DefaultRegularFont と DefaultAsianFont は正確には何に影響しますか—エクスポートだけですか、サムネイル、PDF、XPS、HTML、SVG も対象ですか？**
+**DefaultRegularFont と DefaultAsianFont は正確に何に影響しますか — エクスポートのみに影響するのか、サムネイル、PDF、XPS、HTML、SVG にも影響するのか？**
 
-これらはサポートされているすべての出力に対するレンダリング パイプラインに参加します。スライドのサムネイル、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/net/convert-powerpoint-to-xps/)、[ラスタ画像](/slides/ja/net/convert-powerpoint-to-png/)、[HTML](/slides/ja/net/convert-powerpoint-to-html/)、および[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/) が対象です。Aspose.Slides はこれらのターゲット間で同じレイアウトおよびグリフ解決ロジックを使用します。
+それらはすべてのサポートされている出力のレンダリング パイプラインに参加します。これにはスライドサムネイル、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/net/convert-powerpoint-to-xps/)、[ラスタ画像](/slides/ja/net/convert-powerpoint-to-png/)、[HTML](/slides/ja/net/convert-powerpoint-to-html/) および[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/) が含まれます。Aspose.Slides はこれらのターゲット間で同じレイアウトとグリフ解決ロジックを使用しているためです。
 
-**単に PPTX を読み込んで保存するだけの場合、デフォルトフォントは適用されますか？**
+**単に PPTX を読み込んで保存するだけで、レンダリングせずにデフォルトフォントは適用されますか？**
 
-いいえ。デフォルトフォントはテキストを測定・描画する必要があるときに意味を持ちます。プレゼンテーションを単に開いて保存するだけでは、フォント ランやファイル構造は変更されません。デフォルトフォントは、レンダリングやテキストの再フローが行われる操作時に作用します。
+いいえ。デフォルトフォントはテキストの測定や描画が必要なときにのみ意味があります。プレゼンテーションを単に開いて保存するだけでは、保存されたフォントランやファイル構造は変更されません。デフォルトフォントはテキストをレンダリングしたり再配置したりする操作で使用されます。
 
-**独自のフォントフォルダーを追加したりメモリからフォントを供給したりすると、デフォルトフォントの選択に考慮されますか？**
+**独自のフォントフォルダーを追加したり、メモリからフォントを提供したりした場合、デフォルトフォントの選択時に考慮されますか？**
 
-はい。[カスタム フォント ソース](/slides/ja/net/custom-font/) を使用すると、エンジンが利用できるファミリとグリフのカタログが拡張されます。デフォルトフォントおよび任意の[フォールバック ルール](/slides/ja/net/fallback-font/) は、これらのソースを優先的に参照して解決され、サーバーやコンテナー上でのカバレッジが向上します。
+はい。[Custom font sources](/slides/ja/net/custom-font/) により、エンジンが使用できるフォントファミリーとグリフのカタログが拡張されます。デフォルトフォントおよび任意の[fallback rules](/slides/ja/net/fallback-font/) は、まずこれらのソースを参照して解決されるため、サーバーやコンテナ内でのカバレッジがより信頼性の高いものになります。
 
-**デフォルトフォントはテキスト メトリクス（カーニング、アドバンス）に影響し、行の折り返しや改行に影響しますか？**
+**デフォルトフォントはテキストメトリクス（カーニング、アドバンス）に影響し、結果として改行や折り返しに影響しますか？**
 
-はい。フォントを変更するとグリフのメトリクスが変わり、レンダリング時の行の折り返し、ラッピング、ページ分割が変化する可能性があります。レイアウトの安定性を保つには、[元のフォントを埋め込む](/slides/ja/net/embedded-font/)か、メトリック的に互換性のあるデフォルトおよびフォールバック ファミリを選択してください。
+はい。フォントを変更するとグリフのメトリクスが変わり、レンダリング時の改行、折り返し、ページングが変化する可能性があります。レイアウトの安定性を保つためには、[embed the original fonts](/slides/ja/net/embedded-font/) を使用するか、メトリック的に互換性のあるデフォルトおよびフォールバックファミリーを選択してください。
 
-**プレゼンテーション内のすべてのフォントが埋め込まれている場合、デフォルトフォントを設定する意味はありますか？**
+**プレゼンテーションで使用されているすべてのフォントが埋め込まれている場合、デフォルトフォントを設定する意味はありますか？**
 
-多くの場合不要です。なぜなら[埋め込みフォント](/slides/ja/net/embedded-font/) が外観の一貫性を保証するからです。ただし、埋め込みサブセットに含まれない文字がある場合や、埋め込みフォントと非埋め込みテキストが混在するファイルでは、デフォルトフォントが安全ネットとして機能します。
+多くの場合、必要ありません。[embedded fonts](/slides/ja/net/embedded-font/) が既に一貫した外観を保証しているためです。ただし、埋め込みサブセットに含まれない文字や、ファイルが埋め込みテキストと非埋め込みテキストを混在させている場合の安全策として、デフォルトフォントは依然として有用です。

@@ -7,7 +7,7 @@ keywords:
 - exemple de commentaire
 - commentaire moderne
 - ajouter un commentaire
-- accéder au commentaire
+- accès au commentaire
 - supprimer le commentaire
 - répondre au commentaire
 - PowerPoint
@@ -16,14 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérez les commentaires de diapositives en C# avec Aspose.Slides : ajoutez, lisez, répondez, modifiez, supprimez et travaillez avec des commentaires en fil de discussion pour PowerPoint et OpenDocument."
+description: "Gérez les commentaires de diapositives en C# avec Aspose.Slides : ajoutez, lisez, répondez, modifiez, supprimez et travaillez avec des commentaires en fil pour PowerPoint et OpenDocument."
 ---
 
-Démontre l'ajout, la lecture, la suppression et la réponse aux commentaires modernes à l'aide de **Aspose.Slides for .NET**.
+Démontre comment ajouter, lire, supprimer et répondre aux commentaires modernes à l'aide de **Aspose.Slides for .NET**.
 
-## Ajouter un commentaire moderne
-
-Créer un commentaire rédigé par un utilisateur et enregistrer la présentation.
+## **Add a Modern Comment**
+Créez un commentaire rédigé par un utilisateur et enregistrez la présentation.
 ```csharp
 static void Add_Modern_Comment()
 {
@@ -38,9 +37,8 @@ static void Add_Modern_Comment()
 ```
 
 
-## Accéder à un commentaire moderne
-
-Lire un commentaire moderne à partir d'une présentation existante.
+## **Access a Modern Comment**
+Lisez un commentaire moderne à partir d'une présentation existante.
 ```csharp
 static void Access_Modern_Comment()
 {
@@ -53,9 +51,8 @@ static void Access_Modern_Comment()
 ```
 
 
-## Supprimer un commentaire moderne
-
-Supprimer un commentaire et enregistrer le fichier mis à jour.
+## **Remove a Modern Comment**
+Supprimez un commentaire et enregistrez le fichier mis à jour.
 ```csharp
 static void Remove_Modern_Comment()
 {
@@ -70,9 +67,8 @@ static void Remove_Modern_Comment()
 ```
 
 
-## Répondre à un commentaire moderne
-
-Ajouter des réponses à un commentaire moderne parent.
+## **Reply to a Modern Comment**
+Ajoutez des réponses à un commentaire moderne parent.
 ```csharp
 static void Reply_To_Modern_Comment()
 {

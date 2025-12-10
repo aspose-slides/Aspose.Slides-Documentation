@@ -13,11 +13,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Flash-Objekte aus PowerPoint- und OpenDocument-Folien in .NET mit Aspose.Slides extrahieren, inklusive vollständiger C#-Beispielcode und bewährter Vorgehensweisen."
+description: "Erfahren Sie, wie Sie Flash-Objekte aus PowerPoint- und OpenDocument-Folien in .NET mit Aspose.Slides extrahieren, komplette C#-Codebeispiele und bewährte Methoden."
 ---
 
-## **Flash-Objekte aus Präsentation extrahieren**
-Aspose.Slides für .NET bietet eine Möglichkeit, Flash-Objekte aus einer Präsentation zu extrahieren. Sie können die Flash-Steuerung über ihren Namen zugreifen und sie aus der Präsentation extrahieren sowie die SWF-Objektdaten speichern.
+## **Flash-Objekte aus Präsentationen extrahieren**
+Aspose.Slides für .NET bietet eine Möglichkeit, Flash-Objekte aus einer Präsentation zu extrahieren. Sie können das Flash-Steuerelement nach Namen aufrufen und es aus der Präsentation extrahieren sowie die SWF-Objektdaten speichern.
 ```c#
 using (Presentation pres = new Presentation("withFlash.pptm"))
 {
@@ -38,16 +38,16 @@ using (Presentation pres = new Presentation("withFlash.pptm"))
 
 **Welche Präsentationsformate werden beim Extrahieren von Flash-Inhalten unterstützt?**
 
-[Aspose.Slides unterstützt](/slides/de/net/supported-file-formats/) die wichtigsten PowerPoint-Formate wie PPT und PPTX, da es diese Container laden und auf deren Steuerelemente zugreifen kann, einschließlich Flash-bezogener ActiveX-Elemente.
+[Aspose.Slides unterstützt](/slides/de/net/supported-file-formats/) die gängigen PowerPoint-Formate wie PPT und PPTX, da es diese Container laden und auf deren Steuerelemente zugreifen kann, einschließlich Flash-bezogener ActiveX-Elemente.
 
-**Kann ich eine Präsentation mit Flash in HTML5 konvertieren und die Flash-Interaktivität beibehalten?**
+**Kann ich eine Präsentation mit Flash nach HTML5 konvertieren und die Flash-Interaktivität beibehalten?**
 
-Nein. Aspose.Slides führt keinen SWF-Inhalt aus und konvertiert seine Interaktivität nicht. Während der Export zu [HTML](/slides/de/net/convert-powerpoint-to-html/)/[HTML5](/slides/de/net/export-to-html5/) unterstützt wird, wird Flash in modernen Browsern aufgrund des Endes der Unterstützung nicht abgespielt. Der empfohlene Weg ist, Flash vor dem Export durch Alternativen wie Video oder HTML5-Animationen zu ersetzen.
+Nein. Aspose.Slides führt keinen SWF-Inhalt aus und konvertiert dessen Interaktivität nicht. Obwohl der Export nach [HTML](/slides/de/net/convert-powerpoint-to-html/)/[HTML5](/slides/de/net/export-to-html5/) unterstützt wird, wird Flash in modernen Browsern aufgrund des Endes der Unterstützung nicht mehr abgespielt. Der empfohlene Weg ist, Flash vor dem Export durch Alternativen wie Video oder HTML5-Animationen zu ersetzen.
 
-**Wird aus Sicherheitssicht von Aspose.Slides SWF‑Dateien beim Lesen einer Präsentation ausgeführt?**
+**Wird aus Sicherheitsperspektive von Aspose.Slides SWF-Dateien beim Einlesen einer Präsentation ausgeführt?**
 
-Nein. Aspose.Slides behandelt Flash als binäre Daten, die in die Datei eingebettet sind, und führt während der Verarbeitung keinen SWF‑Inhalt aus.
+Nein. Aspose.Slides behandelt Flash als binäre Daten, die in der Datei eingebettet sind, und führt während der Verarbeitung keinen SWF-Inhalt aus.
 
-**Wie sollte ich Präsentationen handhaben, die Flash zusammen mit anderen eingebetteten Dateien über OLE enthalten?**
+**Wie sollte ich Präsentationen behandeln, die Flash zusammen mit anderen über OLE eingebetteten Dateien enthalten?**
 
-Aspose.Slides unterstützt das [Extrahieren eingebetteter OLE‑Objekte](/slides/de/net/manage-ole/), sodass Sie alle zugehörigen eingebetteten Inhalte in einem Durchgang verarbeiten können, indem Sie Flash‑Steuerelemente und andere OLE‑eingebettete Dokumente gemeinsam behandeln.
+Aspose.Slides unterstützt das [Extrahieren eingebetteter OLE-Objekte](/slides/de/net/manage-ole/), sodass Sie alle zugehörigen eingebetteten Inhalte in einem Durchlauf verarbeiten können, indem Sie Flash-Steuerelemente und andere über OLE eingebettete Dokumente gemeinsam behandeln.

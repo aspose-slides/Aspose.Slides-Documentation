@@ -1,5 +1,5 @@
 ---
-title: .NET のプレゼンテーションから段落の境界を取得
+title: .NET のプレゼンテーションから段落の境界を取得する
 linktitle: 段落
 type: docs
 weight: 60
@@ -17,14 +17,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET で段落とテキストポーションの境界を取得し、PowerPoint プレゼンテーションでのテキスト配置を最適化する方法を学びます。"
+description: "Aspose.Slides for .NET で段落とテキストポーションの境界を取得し、PowerPoint プレゼンテーションにおけるテキスト配置を最適化する方法を学びます。"
 ---
 
-## **テキストフレーム内の段落およびポーションの座標を取得**
-Aspose.Slides for .NET を使用すると、開発者は TextFrame の段落コレクション内の段落の矩形座標を取得できます。また、段落のポーションコレクション内のポーションの座標も取得できます。このトピックでは、例を使って段落の矩形座標と段落内のポーションの位置を取得する方法を示します。
+## **テキストフレーム内の段落とポーションの座標を取得する**
+Aspose.Slides for .NET を使用すると、開発者は TextFrame の段落コレクション内の Paragraph の矩形座標を取得できるようになりました。また、段落のポーションコレクション内のポーションの座標も取得できます。本トピックでは、例を使って段落の矩形座標と段落内のポーションの位置を取得する方法を示します。
 
-## **段落の矩形座標を取得**
-新しいメソッド **GetRect()** が追加されました。これにより、段落の境界矩形を取得できます。
+## **段落の長方形座標を取得する**
+新しいメソッド **GetRect()** が追加されました。これにより段落の境界矩形を取得できます。
 ```c#
 // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します
 using (Presentation presentation = new Presentation("Shapes.pptx"))
@@ -36,11 +36,10 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 ```
 
 
-## **テーブルセルのテキストフレーム内の段落とポーションのサイズを取得**
+## **テーブルセルのテキストフレーム内の段落とポーションのサイズを取得する**
+テーブルセルのテキストフレーム内で [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) または [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) のサイズと座標を取得するには、[IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) および [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) メソッドを使用できます。
 
-テーブルセルのテキストフレーム内で [ポーション](https://reference.aspose.com/slides/net/aspose.slides/portion) または [段落](https://reference.aspose.com/slides/net/aspose.slides/paragraph) のサイズと座標を取得するには、[IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) と [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) メソッドを使用できます。
-
-このサンプルコードは上記の操作を示しています:
+このサンプルコードは上記の操作を示しています：
 ```csharp
 using (Presentation pres = new Presentation("source.pptx"))
 {
@@ -88,16 +87,16 @@ using (Presentation pres = new Presentation("source.pptx"))
 
 **段落およびテキストポーションの座標はどの単位で返されますか？**
 
-ポイント単位です。1インチ = 72ポイントです。スライド上のすべての座標と寸法はこの単位で表されます。
+ポイント単位です。1インチ = 72ポイントです。スライド上のすべての座標とサイズはこの単位が適用されます。
 
-**単語の折り返しは段落の境界に影響しますか？**
+**ワードラップは段落の境界に影響しますか？**
 
-はい。[折り返し](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) が [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) で有効になっている場合、テキストは領域幅に合わせて折り返され、段落の実際の境界が変わります。
+はい。[wrapping](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) が [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) で有効になっている場合、テキストは領域の幅に合わせて折り返され、段落の実際の境界が変わります。
 
-**エクスポートした画像のピクセルに段落座標を確実にマッピングできますか？**
+**段落の座標をエクスポートされた画像のピクセルに確実にマッピングできますか？**
 
 はい。ポイントをピクセルに変換するには、pixels = points × (DPI / 72) を使用します。結果はレンダリング/エクスポート時に選択した DPI に依存します。
 
-**スタイル継承を考慮した「有効な」段落書式設定パラメータを取得するにはどうすればよいですか？**
+**スタイル継承を考慮した「実効」段落書式設定パラメータを取得するにはどうすればよいですか？**
 
-[有効な段落書式設定データ構造](/slides/ja/net/shape-effective-properties/) を使用します。これにより、インデント、間隔、折り返し、RTL などの最終的な統合値が返されます。
+[実効段落書式データ構造](/slides/ja/net/shape-effective-properties/) を使用します。インデント、間隔、ラップ、RTL などの最終的に統合された値を返します。

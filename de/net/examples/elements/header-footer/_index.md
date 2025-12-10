@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Steuern Sie Kopf- und Fußzeilen in C# mit Aspose.Slides: Datum/Uhrzeit, Folienzahlen und Fußzeilentext hinzufügen oder bearbeiten, Platzhalter in PPT, PPTX und ODP anzeigen oder ausblenden."
+description: "Steuern Sie Kopf- und Fußzeilen in C# mit Aspose.Slides: Datum/Uhrzeit, Foliennummern und Fußzeilentext hinzufügen oder bearbeiten, Platzhalter in PPT, PPTX und ODP ein- oder ausblenden."
 ---
 
-Zeigt, wie man Fußzeilen hinzufügt und Platzhalter für Datum und Uhrzeit mit **Aspose.Slides for .NET** aktualisiert.
+Zeigt, wie man Fußzeilen hinzufügt und Platzhalter für Datum und Uhrzeit aktualisiert, indem **Aspose.Slides for .NET** verwendet wird.
 
-## Fußzeile hinzufügen
+## **Fußzeile hinzufügen**
 
-Text zum Fußzeilenbereich einer Folie hinzufügen und sichtbar machen.
+Fügen Sie Text zum Fußzeilenbereich einer Folie hinzu und machen Sie ihn sichtbar.
 ```csharp
 static void Add_Header_Footer()
 {
@@ -33,9 +33,9 @@ static void Add_Header_Footer()
 ```
 
 
-## Datum und Uhrzeit aktualisieren
+## **Datum und Uhrzeit aktualisieren**
 
-Den Platzhalter für Datum und Uhrzeit auf einer Folie ändern.
+Ändern Sie den Platzhalter für Datum und Uhrzeit auf einer Folie.
 ```csharp
 static void Update_Date_Time()
 {

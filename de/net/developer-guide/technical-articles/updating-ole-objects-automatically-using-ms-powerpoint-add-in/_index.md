@@ -1,43 +1,48 @@
 ---
-title: Automatisches Aktualisieren von OLE-Objekten mit MS PowerPoint Add-In
+title: OLE-Objekte automatisch aktualisieren mit einem PowerPoint-Add-In
 type: docs
 weight: 10
 url: /de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+keywords:
+- OLE
+- OLE-Objekt
+- OLE aktualisieren
+- automatisch
+- Add-In
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie OLE-Diagramme und -Objekte in PowerPoint mit einem Add-In und Aspose.Slides für .NET automatisch aktualisieren, inklusive praktischer Code-Beispiele und Optimierungstipps."
 ---
 
-## **Über das automatische Aktualisieren von OLE-Objekten**
-Eine der häufigsten Fragen, die von den Kunden von Aspose.Slides für .NET gestellt wird, ist, wie man bearbeitbare Diagramme oder andere OLE-Objekte erstellt oder ändert und diese beim Öffnen der Präsentation automatisch aktualisiert. Leider unterstützt PowerPoint keine automatischen Makros, die in Excel und Word verfügbar sind. Die einzigen verfügbaren sind die Makros Auto_Open und Auto_Close. Diese werden jedoch nur automatisch aus einem Add-in ausgeführt. Dieser kurze technische Hinweis zeigt, wie man das erreichen kann.
+## **OLE-Objekte automatisch aktualisieren**
 
-Zuerst stehen mehrere Freeware-Add-ins zur Verfügung, die die Auto_Open-Makrofunktion zu PowerPoint hinzufügen, beispielsweise [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) und [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
+Eine der häufigsten Fragen, die Kunden von Aspose.Slides für .NET stellen, ist, wie man editierbare Diagramme (oder andere OLE-Objekte) erstellt oder ändert, sodass sie beim Öffnen der Präsentation automatisch aktualisiert werden. Leider unterstützt PowerPoint automatische Makros nicht auf dieselbe Weise wie Excel und Word. Die einzigen verfügbaren Makros sind `Auto_Open` und `Auto_Close`, und diese werden nur automatisch aus einem Add-In ausgeführt. Dieser kurze technische Hinweis zeigt, wie das erreicht werden kann.
 
-Nach der Installation eines solchen Add-ins fügen Sie einfach das Auto_Open() Makro (OnPresentationOpen() im Fall des "Event Generator") Ihrer Vorlage-Präsentation hinzu, wie unten gezeigt:
+Zunächst stehen mehrere kostenlose Add-Ins zur Verfügung, die die Auto_Open-Makrofunktion zu PowerPoint hinzufügen, zum Beispiel [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) und [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
 
-```c#
+Nach der Installation eines dieser Add-Ins fügen Sie einfach das Makro `Auto_Open()` (oder `OnPresentationOpen()`, wenn Sie den Event Generator verwenden) zu Ihrer Vorlage‑Präsentation hinzu, wie unten gezeigt:
+```cs
 public void Auto_Open()
 {
-    Shape oShape;
-    Slide oSlide;
-    object oGraph;
-
-    // Durchlaufen Sie jede Folie in der Präsentation.
+    // Durchläuft jede Folie in der Präsentation.
     foreach (var oSlide in ActivePresentation.Slides)
     {
-
-        // Durchlaufen Sie alle Formen auf der aktuellen Folie.
+        // Durchläuft alle Formen auf der aktuellen Folie.
         foreach (var oShape in oSlide.Shapes)
         {
-
-            // Überprüfen Sie, ob die Form ein OLE-Objekt ist.
+            // Prüft, ob die Form ein OLE-Objekt ist.
             if (oShape.Type == msoEmbeddedOLEObject)
             {
-
-                // OLE-Objekt gefunden; Objektreferenz abrufen und dann aktualisieren.
+                // OLE-Objekt gefunden. Holt die Objektreferenz und aktualisiert sie.
                 oObject = oShape.OLEFormat.Object;
                 oObject.Application.Update();
 
-                // Beenden Sie nun das OLE-Serverprogramm. Dies gibt
-                // Speicher frei und verhindert Probleme. Setzen Sie auch oObject gleich
-                // auf Nothing, um das Objekt freizugeben.
+                // Jetzt das OLE-Server-Programm beenden.
+                // Dadurch wird Speicher freigegeben und Probleme vermieden.
+                // Außerdem oObject auf Nothing setzen, um das Objekt freizugeben.
                 oObject.Application.Quit();
                 oObject = null;
             }
@@ -46,8 +51,5 @@ public void Auto_Open()
 }
 ```
 
-{{% alert color="primary" %}} 
 
-Änderungen an OLE-Objekten mit Aspose.Slides für .NET werden automatisch aktualisiert, wenn PowerPoint die Präsentation öffnet. Wenn Sie viele OLE-Objekte in einer Präsentation haben und nicht alle aktualisieren möchten, fügen Sie einfach ein benutzerdefiniertes Tag zu den Formen hinzu, die Sie verarbeiten möchten, und überprüfen Sie es im Makro. 
-
-{{% /alert %}}
+Alle Änderungen an OLE-Objekten mit Aspose.Slides für .NET werden automatisch aktualisiert, wenn PowerPoint die Präsentation öffnet. Wenn Sie viele OLE-Objekte haben und nicht alle aktualisieren möchten, fügen Sie einfach ein benutzerdefiniertes Tag zu den Formen hinzu, die Sie verarbeiten müssen, und prüfen Sie dieses im Makro.

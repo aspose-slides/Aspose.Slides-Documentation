@@ -5,9 +5,9 @@ weight: 140
 url: /ja/net/examples/elements/smartart/
 keywords:
 - SmartArt の例
-- SmartArt の追加
-- SmartArt へのアクセス
-- SmartArt の削除
+- SmartArt を追加
+- SmartArt にアクセス
+- SmartArt を削除
 - SmartArt のレイアウト
 - PowerPoint
 - OpenDocument
@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用して SmartArt を作成および編集します：ノードの追加、レイアウトとスタイルの変更、正確にシェイプへ変換、そして PPT、PPTX、ODP 用にエクスポートします。"
+description: "C# と Aspose.Slides を使用して SmartArt を作成および編集します：ノードの追加、レイアウトやスタイルの変更、正確にシェイプへ変換、PPT、PPTX、ODP へのエクスポートが可能です。"
 ---
 
-**Aspose.Slides for .NET** を使用して、SmartArt グラフィックの追加、アクセス、削除、レイアウト変更方法を示します。
+Aspose.Slides for .NET を使用して、SmartArt グラフィックの追加、アクセス、削除、レイアウトの変更方法を示します。
 
-## SmartArt の追加
-
-組み込みレイアウトのいずれかを使用して SmartArt グラフィックを挿入します。
+## **SmartArt の追加**
+組み込みのレイアウトのいずれかを使用して SmartArt グラフィックを挿入します。
 ```csharp
 static void Add_SmartArt()
 {
@@ -34,8 +33,7 @@ static void Add_SmartArt()
 ```
 
 
-## SmartArt へのアクセス
-
+## **SmartArt へのアクセス**
 スライド上の最初の SmartArt オブジェクトを取得します。
 ```csharp
 static void Access_SmartArt()
@@ -49,8 +47,7 @@ static void Access_SmartArt()
 ```
 
 
-## SmartArt の削除
-
+## **SmartArt の削除**
 スライドから SmartArt シェイプを削除します。
 ```csharp
 static void Remove_SmartArt()
@@ -64,9 +61,8 @@ static void Remove_SmartArt()
 ```
 
 
-## SmartArt レイアウトの変更
-
-既存の SmartArt グラフィックのレイアウト タイプを更新します。
+## **SmartArt レイアウトの変更**
+既存の SmartArt グラフィックのレイアウトタイプを更新します。
 ```csharp
 static void Change_SmartArt_Layout()
 {

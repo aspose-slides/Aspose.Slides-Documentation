@@ -1,5 +1,5 @@
 ---
-title: Gestionar etiquetas de datos de gráficos en presentaciones en .NET
+title: Administrar etiquetas de datos de gráficos en presentaciones en .NET
 linktitle: Etiqueta de datos
 type: docs
 url: /es/net/chart-data-label/
@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a agregar y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para .NET para obtener diapositivas más atractivas."
+description: "Aprenda a agregar y dar formato a las etiquetas de datos de los gráficos en presentaciones de PowerPoint usando Aspose.Slides para .NET para diapositivas más atractivas."
 ---
 
-Las etiquetas de datos en un gráfico muestran detalles sobre las series de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.
+Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
 
 ## **Establecer precisión de los datos en etiquetas de datos del gráfico**
 
-Este código C# muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
+Este código C# le muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -36,8 +36,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **Mostrar porcentaje como etiquetas**
-
-Aspose.Slides for .NET le permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código C# demuestra la operación:
+Aspose.Slides para .NET le permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código C# demuestra la operación:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
@@ -89,9 +88,8 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer signo de porcentaje con etiquetas de datos del gráfico**
-
-Este código C# muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
+## **Establecer signo de porcentaje en las etiquetas de datos del gráfico**
+Este código C# le muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
@@ -139,7 +137,7 @@ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInd
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// Establece el tipo y color de relleno
+// Establece el tipo de relleno y el color
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -154,9 +152,8 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer distancia de la etiqueta desde el eje**
-
-Este código C# muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trabaja con un gráfico trazado a partir de ejes:
+## **Establecer distancia de la etiqueta desde un eje**
+Este código C# le muestra cómo establecer la distancia de la etiqueta desde un eje de categoría cuando se trabaja con un gráfico trazado a partir de ejes:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
@@ -177,9 +174,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Ajustar ubicación de la etiqueta**
 
-Cuando crea un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas de guía se muestren claramente.
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En ese caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
 
-Este código C# muestra cómo ajustar la ubicación de la etiqueta en un gráfico circular:
+Este código C# le muestra cómo ajustar la ubicación de la etiqueta en un gráfico circular: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -198,18 +195,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![etiqueta-ajustada-del-gráfico-de-tarta](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas de guía y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para puntos extremos o clave.
+Combine la colocación automática de etiquetas, líneas guías y un tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para puntos extremos o clave.
 
-**¿Cómo puedo desactivar etiquetas solo para valores cero, negativos o vacíos?**
+**¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
 
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores 0, valores negativos o valores faltantes según una regla definida.
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
 
 **¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
 
-Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar el uso de fuentes de reemplazo.
+Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.

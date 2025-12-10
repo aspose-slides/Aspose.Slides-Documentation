@@ -1,13 +1,13 @@
 ---
-title: Comment ajouter des en-têtes et pieds de page aux présentations en .NET
-linktitle: Ajouter en-tête & pied de page
+title: Comment ajouter des en-têtes et des pieds de page aux présentations en .NET
+linktitle: Ajouter un en-tête & un pied de page
 type: docs
 weight: 20
 url: /fr/net/how-to-add-header-footer-in-a-presentation/
 keywords:
 - migration
-- ajouter en-tête
-- ajouter pied de page
+- ajouter un en-tête
+- ajouter un pied de page
 - code hérité
 - code moderne
 - approche héritée
@@ -18,37 +18,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Apprenez à ajouter des en-têtes et des pieds de page aux présentations PowerPoint PPT, PPTX et ODP en .NET en utilisant les API Aspose.Slides legacy et modernes."
+description: "Apprenez comment ajouter des en-têtes et des pieds de page aux présentations PowerPoint PPT, PPTX et ODP en .NET en utilisant les API Aspose.Slides héritées et modernes."
 ---
 
 {{% alert color="primary" %}} 
-Une nouvelle [Aspose.Slides for .NET API](/slides/fr/net/) a été publiée et ce produit unique prend désormais en charge la génération de documents PowerPoint à partir de zéro ainsi que la modification des documents existants.
+
+Une nouvelle [Aspose.Slides for .NET API](/slides/fr/net/) a été publiée et ce produit unique prend désormais en charge la génération de documents PowerPoint à partir de zéro ainsi que l'édition des documents existants.
+
 {{% /alert %}} 
-## **Prise en charge du code hérité**
-Pour utiliser le code hérité développé avec les versions d'Aspose.Slides pour .NET antérieures à 13.x, vous devez apporter quelques modifications mineures à votre code et celui‑ci fonctionnera comme précédemment. Toutes les classes qui existaient dans l'ancienne version d'Aspose.Slides pour .NET sous les espaces de noms Aspose.Slide et Aspose.Slides.Pptx sont désormais fusionnées dans un seul espace de noms Aspose.Slides. Veuillez consulter le fragment de code simple suivant pour ajouter un en‑tête et un pied de page à une présentation dans l'API legacy d'Aspose.Slides et suivre les étapes décrivant comment migrer vers la nouvelle API fusionnée.
+## **Support du code hérité**
+Afin d'utiliser le code hérité développé avec les versions d'Aspose.Slides pour .NET antérieures à 13.x, vous devez apporter quelques modifications mineures à votre code et celui‑ci fonctionnera comme auparavant. Toutes les classes qui existaient dans l'ancienne Aspose.Slides pour .NET sous les espaces de noms Aspose.Slide et Aspose.Slides.Pptx sont désormais fusionnées dans un seul espace de noms Aspose.Slides. Veuillez consulter le fragment de code simple suivant pour ajouter un en‑tête et un pied de page à une présentation dans l'API Aspose.Slides héritée et suivre les étapes décrivant comment migrer vers la nouvelle API fusionnée.
 ## **Approche legacy d'Aspose.Slides pour .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Définition des propriétés de visibilité des en-têtes et pieds de page
+//Définir les propriétés de visibilité de l'en-tête et du pied de page
 sourcePres.UpdateSlideNumberFields = true;
 
 //Mettre à jour les champs de date et d'heure
 sourcePres.UpdateDateTimeFields = true;
 
-//Afficher le texte de remplacement de la date et l'heure
+//Afficher l'espace réservé de date et d'heure
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Afficher le texte de remplacement du pied de page
+//Afficher l'espace réservé du pied de page
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
 //Afficher le numéro de diapositive
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Définir la visibilité des en-têtes et pieds de page sur la diapositive de titre
+//Définir la visibilité de l'en-tête et du pied de page sur la diapositive titre
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Enregistrer la présentation sur le disque
+//Écrire la présentation sur le disque
 sourcePres.Write("NewSource.pptx");
 ```
 
@@ -83,7 +85,7 @@ hf.HeaderText = "Header Text";
 //Définir le texte du pied de page
 hf.FooterText = "Footer Text";
 
-//Enregistrer la présentation sur le disque
+//Écrire la présentation sur le disque
 pres.Write("HeadFoot.ppt");
 ```
 
@@ -92,19 +94,19 @@ pres.Write("HeadFoot.ppt");
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //Définition des propriétés de visibilité des en-têtes et pieds de page
+    //Définir les propriétés de visibilité de l'en-tête et du pied de page
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Mettre à jour les champs Date et Heure
+    //Mettre à jour les champs de date et d'heure
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Afficher le champ de texte de remplacement de la date et de l'heure
+    //Afficher le champ de date et d'heure
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Afficher le champ de texte de remplacement du pied de page
+    //Afficher le champ de pied de page
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Définir la visibilité des en-têtes et pieds de page sur la diapositive de titre
+    //Définir la visibilité de l'en-tête et du pied de page sur la diapositive titre
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Enregistrer la présentation sur le disque

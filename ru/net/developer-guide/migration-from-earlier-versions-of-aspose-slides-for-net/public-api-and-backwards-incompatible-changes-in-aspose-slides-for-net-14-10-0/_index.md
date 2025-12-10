@@ -1,14 +1,14 @@
 ---
-title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 14.10.0
+title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 14.10.0
 linktitle: Aspose.Slides для .NET 14.10.0
 type: docs
 weight: 120
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - миграция
-- устаревший код
+- наследуемый код
 - современный код
-- устаревший подход
+- наследуемый подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -16,26 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides для .NET, позволяющий плавно перенести ваши решения презентаций PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET для плавной миграции ваших решений по работе с презентациями PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-На этой странице перечислены все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) классы, методы, свойства и т.д., а также другие изменения, внесённые в API Aspose.Slides для .NET 14.10.0.
+Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в Aspose.Slides for .NET 14.10.0 API.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
-#### **Тип поля Aspose.Slides.FieldType.Footer был добавлен**
-Тип поля Footer был добавлен для реализации возможности создавать поля этого типа и для корректной сериализации презентаций.
-#### **Элемент перечисления ShapeElementFillSource.Own был удалён**
+#### **Тип поля Aspose.Slides.FieldType.Footer добавлен**
+Тип поля Footer был добавлен для реализации возможности создания полей этого типа и для корректной сериализации презентации.
+#### **Элемент перечисления ShapeElementFillSource.Own удалён**
 Элемент перечисления ShapeElementFillSource.Own был удалён как дублирующий. Вместо ShapeElementFillSource.Own используйте ShapeElementFillSource.Shape.
-#### **Добавлены методы для удаления точек данных диаграммы и категорий**
+#### **Добавлены методы удаления точек данных и категорий диаграммы**
 Были добавлены следующие методы, позволяющие удалять точку данных диаграммы из коллекции точек данных:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-Был добавлен следующий метод, позволяющий удалить категорию диаграммы из содержащей её коллекции:
+Был добавлен следующий метод, позволяющий удалять категорию диаграммы из содержащей её коллекции:
 
 IChartCategory.Remove()
 
@@ -66,9 +66,9 @@ IChartCategory.Remove()
 }
 
 ``` 
-#### **Устаревшие свойства Aspose.Slides.ParagraphFormat были удалены**
+#### **Устаревшие свойства Aspose.Slides.ParagraphFormat удалены**
 Свойства BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle были удалены. Они были помечены как устаревшие давно.
-#### **Бесполезные и устаревшие конструкторы были удалены**
+#### **Бесполезные и устаревшие конструкторы удалены**
 Были удалены следующие конструкторы:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

@@ -4,7 +4,7 @@ type: docs
 weight: 150
 url: /zh/net/examples/elements/vba-macro/
 keywords:
-- vba 宏示例
+- vba 宏 示例
 - 添加 vba 宏
 - 访问 vba 宏
 - 删除 vba 宏
@@ -19,7 +19,7 @@ description: "使用 Aspose.Slides 在 C# 中处理 VBA 宏：添加或编辑项
 
 演示如何使用 **Aspose.Slides for .NET** 添加、访问和删除 VBA 宏。
 
-## 添加 VBA 宏
+## **添加 VBA 宏**
 
 创建一个包含 VBA 项目和简单宏模块的演示文稿。
 ```csharp
@@ -34,7 +34,7 @@ static void Add_Vba_Macro()
 ```
 
 
-## 访问 VBA 宏
+## **访问 VBA 宏**
 
 从 VBA 项目中检索第一个模块。
 ```csharp
@@ -51,7 +51,7 @@ static void Access_Vba_Macro()
 ```
 
 
-## 删除 VBA 宏
+## **删除 VBA 宏**
 
 从 VBA 项目中删除一个模块。
 ```csharp

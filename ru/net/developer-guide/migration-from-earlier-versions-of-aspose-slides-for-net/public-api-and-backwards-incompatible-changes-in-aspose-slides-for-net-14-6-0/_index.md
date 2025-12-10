@@ -1,5 +1,5 @@
 ---
-title: Обобщенный API и обратные несовместимые изменения в Aspose.Slides для .NET 14.6.0
+title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 14.6.0
 linktitle: Aspose.Slides для .NET 14.6.0
 type: docs
 weight: 80
@@ -8,7 +8,7 @@ keywords:
 - миграция
 - унаследованный код
 - современный код
-- унаследованный подход
+- устаревший подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -16,18 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Обзор обновлений публичного API и разрывных изменений в Aspose.Slides для .NET, позволяющий плавно мигрировать решения по работе с презентациями PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET, чтобы плавно перенести решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), введённые в API Aspose.Slides for .NET 14.6.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) внедрённые в API Aspose.Slides for .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 ### **Добавленные интерфейсы, методы и свойства**
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsFormat**
-Этот интерфейс представляет полосы ошибок серии диаграммы.
+Это представляет линии ошибок серий диаграммы.
 
 В случае пользовательского типа значения, чтобы указать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
 
@@ -214,7 +214,7 @@ description: "Обзор обновлений публичного API и раз
 
 ``` 
 #### **Добавлены перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и свойство IPresentation.ViewProperties**
-IPresentation.ViewProperties позволяет разработчикам изменять тип представления презентации и видимость заметок при открытии презентации в PowerPoint.
+Свойство IPresentation.ViewProperty позволяет разработчикам изменять тип представления презентации и видимость заметок при открытии презентации в PowerPoint.
 
 ``` csharp
 

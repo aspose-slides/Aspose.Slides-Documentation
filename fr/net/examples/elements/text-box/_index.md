@@ -1,27 +1,27 @@
 ---
-title: Zone de texte
+title: Boîte de texte
 type: docs
 weight: 40
 url: /fr/net/examples/elements/text-box/
 keywords:
-- exemple de zone de texte
-- ajouter une zone de texte
-- accéder à la zone de texte
-- supprimer la zone de texte
+- exemple de boîte de texte
+- ajouter une boîte de texte
+- accéder à la boîte de texte
+- supprimer la boîte de texte
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Créer et mettre en forme des zones de texte en C# avec Aspose.Slides: définir les polices, l'alignement, le renvoi à la ligne, l'ajustement automatique et les liens pour peaufiner les diapositives PowerPoint et OpenDocument."
+description: "Créez et formatez des boîtes de texte en C# avec Aspose.Slides : définissez les polices, l’alignement, le retour à la ligne, l’ajustement automatique et les liens pour peaufiner les diapositives PowerPoint et OpenDocument."
 ---
 
 Dans Aspose.Slides, une **zone de texte** est représentée par un `AutoShape`. Pratiquement n'importe quelle forme peut contenir du texte, mais une zone de texte typique n'a ni remplissage ni bordure et n'affiche que du texte.
 
-Ce guide explique comment ajouter, accéder et supprimer des zones de texte par programmation.
+Ce guide explique comment ajouter, accéder et supprimer des zones de texte par programme.
 
-## Ajouter une zone de texte
+## **Ajouter une zone de texte**
 
 Une zone de texte est simplement un `AutoShape` sans remplissage ni bordure et contenant du texte formaté. Voici comment en créer une :
 
@@ -44,13 +44,13 @@ public static void Add_TextBox()
     // Assign the actual text content
     textBox.TextFrame.Text = "Some text...";
 }
-```
+````
 
-> 💡 **Remarque:** Tout `AutoShape` qui contient un `TextFrame` non vide peut fonctionner comme une zone de texte.
+> 💡 **Remarque:** Tout `AutoShape` contenant un `TextFrame` non vide peut fonctionner comme une zone de texte.
 
-## Accéder aux zones de texte par contenu
+## **Accéder aux zones de texte par contenu**
 
-Pour trouver toutes les zones de texte contenant un mot‑clé spécifique (par ex. « Slide »), parcourez les formes et vérifiez leur texte :
+Pour trouver toutes les zones de texte contenant un mot‑clé spécifique (par ex. «Slide»), parcourez les formes et vérifiez leur texte :
 
 ```csharp
 public static void Access_TextBox()
@@ -71,9 +71,9 @@ public static void Access_TextBox()
 }
 ```
 
-## Supprimer les zones de texte par contenu
+## **Supprimer les zones de texte par contenu**
 
-Cet exemple trouve et supprime toutes les zones de texte de la première diapositive qui contiennent un mot‑clé spécifique :
+Cet exemple trouve et supprime toutes les zones de texte de la première diapositive qui contiennent un mot‑clé spécifique:
 
 ```csharp
 public static void Remove_TextBox()
@@ -88,4 +88,4 @@ public static void Remove_TextBox()
 }
 ```
 
-> 💡 **Conseil:** Créez toujours une copie de la collection de formes avant de la modifier pendant l'itération afin d'éviter les erreurs de modification de collection.
+> 💡 **Astuce:** Créez toujours une copie de la collection de formes avant de la modifier pendant l'itération afin d'éviter les erreurs de modification de collection.

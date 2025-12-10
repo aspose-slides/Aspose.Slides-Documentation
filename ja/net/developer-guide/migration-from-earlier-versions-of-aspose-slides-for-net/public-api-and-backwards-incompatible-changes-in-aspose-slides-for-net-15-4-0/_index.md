@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.4.0 の公開 API と後方互換性がない変更
+title: Aspose.Slides for .NET 15.4.0 のパブリック API と後方互換性のない変更
 linktitle: Aspose.Slides for .NET 15.4.0
 type: docs
 weight: 150
@@ -16,23 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できます。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、および ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページは、Aspose.Slides for .NET 15.4.0 APIで導入された、追加されたまたは削除されたクラス、メソッド、プロパティなどすべての項目とその他の変更を一覧表示します。
+このページは、Aspose.Slides for .NET 15.4.0 APIで導入された、[追加](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)または[削除](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)されたクラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。
 
 {{% /alert %}} 
 ## **パブリック API の変更**
 #### **Enum OrganizationChartLayoutType が追加されました**
-Aspose.Slides.SmartArt.OrganizationChartLayoutType 列挙体は、組織図内の子ノードの書式設定タイプを表します。
+Aspose.Slides.SmartArt.OrganizationChartLayoutType 列挙体は、組織図の子ノードの書式設定タイプを表します。  
 #### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts が追加されました**
-Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts メソッドは、箇条書きが有効なとき（PowerPoint で段落の箇条書き/番号付けを有効にした場合と同様）に、実際の段落インデントと左余白に対してデフォルトの非0シフトを設定します。箇条書きが無効な場合は、段落インデントと左余白をリセットするだけです（PowerPoint で段落の箇条書き/番号付けを無効にした場合と同様）。
+Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts は、箇条書きが有効な場合に効果的な段落インデントと左余白に対してデフォルトの非ゼロシフトを設定します（PowerPoint が段落の箇条書き/番号付けを有効にしたときと同様）。箇条書きが無効な場合は、段落インデントと左余白をリセットします（PowerPoint が無効にしたときと同様）。
 
-例は[here](/slides/ja/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx)をご覧ください：
+例は[こちら](/slides/ja/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx)をご覧ください。  
 #### **Method IConnector.Reroute が追加されました**
-Aspose.Slides.IConnector.Reroute メソッドは、コネクタが接続する形状間で可能な限り最短の経路を取るように再ルーティングします。このため、Reroute() メソッドは StartShapeConnectionSiteIndex と EndShapeConnectionSiteIndex を変更する場合があります。
+Method Aspose.Slides.IConnector.Reroute は、コネクタが接続する図形間の最短経路を取るように再ルーティングします。その際、Reroute() メソッドは StartShapeConnectionSiteIndex と EndShapeConnectionSiteIndex を変更する可能性があります。
 
 ``` csharp
 
@@ -60,7 +60,7 @@ Aspose.Slides.IConnector.Reroute メソッドは、コネクタが接続する�
 
 ``` 
 #### **Method IPresentation.GetSlideById が追加されました**
-Aspose.Slides.IPresentation.GetSlideById(System.UInt32) メソッドは、スライド ID に基づいて Slide、MasterSlide、または LayoutSlide を返します。
+Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) は、スライド ID によって Slide、MasterSlide、または LayoutSlide を返します。
 
 ``` csharp
 
@@ -78,7 +78,7 @@ Aspose.Slides.IPresentation.GetSlideById(System.UInt32) メソッドは、スラ
 
 ``` 
 #### **Property IShape.ConnectionSiteCount が追加されました**
-Aspose.Slides.IShape.ConnectionSiteCount プロパティは、形状上の接続サイトの数を返します。
+Property Aspose.Slides.IShape.ConnectionSiteCount は、図形上の接続サイトの数を返します。
 
 ``` csharp
 
@@ -114,7 +114,7 @@ Aspose.Slides.IShape.ConnectionSiteCount プロパティは、形状上の接続
 
 ``` 
 #### **Property ISmartArt.IsReversed が追加されました**
-Aspose.Slides.SmartArt.ISmartArt.IsReversed プロパティは、SmartArt 図が左から右 (LTR) か右から左 (RTL) かの状態を取得または設定します（図が反転に対応している場合）。
+Property Aspose.Slides.SmartArt.ISmartArt.IsReversed は、SmartArt 図が左から右 (LTR) か右から左 (RTL) かの状態を取得または設定します（図が反転をサポートしている場合）。
 
 ``` csharp
 
@@ -132,7 +132,7 @@ Aspose.Slides.SmartArt.ISmartArt.IsReversed プロパティは、SmartArt 図が
 
 ``` 
 #### **Property ISmartArt.Nodes が追加されました**
-Aspose.Slides.SmartArt.ISmartArt.Nodes プロパティは、SmartArt オブジェクト内のルートノードのコレクションを返します。
+Property Aspose.Slides.SmartArt.ISmartArt.Nodes は、SmartArt オブジェクトのルート ノード コレクションを返します。
 
 ``` csharp
 
@@ -142,7 +142,7 @@ Aspose.Slides.SmartArt.ISmartArt.Nodes プロパティは、SmartArt オブジ�
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // select second root node
+  ISmartArtNode node = smart.Nodes[1]; // 2 番目のルート ノードを選択
 
   node.TextFrame.Text = "Second root node";
 
@@ -152,7 +152,7 @@ Aspose.Slides.SmartArt.ISmartArt.Nodes プロパティは、SmartArt オブジ�
 
 ``` 
 #### **Property ISmartArtNode.IsHidden が追加されました**
-Aspose.Slides.SmartArt.ISmartArtNode.IsHidden プロパティは、データモデルでこのノードが非表示ノードである場合に true を返します。
+Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden は、このノードがデータモデルで非表示ノードであるかどうかを true で返します。
 
 ``` csharp
 
@@ -164,13 +164,13 @@ Aspose.Slides.SmartArt.ISmartArtNode.IsHidden プロパティは、データモ�
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; //returns true
+  bool hidden = node.IsHidden; // true が返ります
 
   if(hidden)
 
   {
 
-    //do some actions or notifications
+    // 何らかの処理や通知を行います
 
   }
 
@@ -180,7 +180,7 @@ Aspose.Slides.SmartArt.ISmartArtNode.IsHidden プロパティは、データモ�
 
 ``` 
 #### **Property ISmartArtNode.OrganizationChartLayout が追加されました**
-Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout プロパティは、現在のノードに関連付けられた組織図の種類を取得または設定します。
+Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout は、現在のノードに関連付けられた組織図の種類を取得または設定します。
 
 ``` csharp
 
@@ -197,8 +197,8 @@ Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout プロパティは�
 }
 
 ``` 
-#### **Set method for property ISmartArt.Layout が追加されました**
-Aspose.Slides.SmartArt.ISmartArt.Layout プロパティの set メソッドが追加されました。既存の図のレイアウトタイプを変更できるようになります。
+#### **Set Method for Property ISmartArt.Layout が追加されました**
+Property Aspose.Slides.SmartArt.ISmartArt.Layout の set メソッドが追加されました。これにより、既存の図のレイアウト タイプを変更できます。
 
 ``` csharp
 
@@ -215,12 +215,12 @@ Aspose.Slides.SmartArt.ISmartArt.Layout プロパティの set メソッドが�
 }
 
 ``` 
-#### **Minor API changes**
-**こちらはマイナー API の変更一覧です:**
+#### **Minor API Changes**
+**この一覧はマイナー API 変更の一覧です:**
 
-|Enum Aspose.Slides.BevelColorMode |削除されました、未使用の列挙体 |
+|Enum Aspose.Slides.BevelColorMode |削除、未使用の列挙体 |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |削除されました、未使用のプロパティ |
-|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |追加されました |
-|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |削除されました |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |廃止として削除されました |
+|Property ThreeDFormatEffectiveData.BevelColorMode |削除、未使用のプロパティ |
+|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |追加 |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |削除 |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |廃止として削除 |

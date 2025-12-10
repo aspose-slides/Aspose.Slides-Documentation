@@ -5,22 +5,23 @@ weight: 160
 url: /fr/net/examples/elements/math-text/
 keywords:
 - exemple de texte mathématique
-- ajouter texte mathématique
-- accéder texte mathématique
-- supprimer texte mathématique
-- formater texte mathématique
+- ajouter du texte mathématique
+- accéder au texte mathématique
+- supprimer le texte mathématique
+- formater le texte mathématique
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Travaillez avec du texte mathématique en C# à l’aide d’Aspose.Slides : créez et modifiez des équations, fractions, radicaux, indices, mise en forme, et générez les résultats pour PPT et PPTX."
+description: "Travailler avec du texte mathématique en C# à l'aide d'Aspose.Slides : créer et modifier des équations, fractions, radicaux, scripts, mise en forme, et rendre les résultats pour PPT et PPTX."
 ---
 
-Illustre la manipulation de formes de texte mathématique et le formatage d'équations à l'aide de **Aspose.Slides for .NET**.
+Illustre la manipulation de formes de texte mathématique et le formatage d’équations avec **Aspose.Slides for .NET**.
 
-## Add Math Text
+## **Ajouter du texte mathématique**
+
 Créez une forme mathématique contenant une fraction et la formule de Pythagore.
 ```csharp
 static void Add_Math_Text()
@@ -51,7 +52,8 @@ static void Add_Math_Text()
 ```
 
 
-## Access Math Text
+## **Accéder au texte mathématique**
+
 Localisez une forme qui contient un paragraphe mathématique sur la diapositive.
 ```csharp
 static void Access_Math_Text()
@@ -80,7 +82,8 @@ static void Access_Math_Text()
 ```
 
 
-## Remove Math Text
+## **Supprimer le texte mathématique**
+
 Supprimez une forme mathématique de la diapositive.
 ```csharp
 static void Remove_Math_Text()
@@ -98,8 +101,9 @@ static void Remove_Math_Text()
 ```
 
 
-## Format Math Text
-Définissez les propriétés de police pour une portion mathématique.
+## **Formater le texte mathématique**
+
+Définissez les propriétés de police pour une partie mathématique.
 ```csharp
 static void Format_Math_Text()
 {

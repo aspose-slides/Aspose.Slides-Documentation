@@ -1,14 +1,14 @@
 ---
-title: Administrar controles ActiveX en presentaciones en .NET
+title: Gestionar controles ActiveX en presentaciones en .NET
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /es/net/activex/
 keywords:
 - ActiveX
-- control ActiveX
-- administrar ActiveX
-- añadir ActiveX
+- Control ActiveX
+- gestionar ActiveX
+- agregar ActiveX
 - modificar ActiveX
 - reproductor multimedia
 - PowerPoint
@@ -19,23 +19,23 @@ keywords:
 description: "Aprenda cómo Aspose.Slides para .NET aprovecha ActiveX para automatizar y mejorar presentaciones de PowerPoint, ofreciendo a los desarrolladores un control potente sobre las diapositivas."
 ---
 
-Los controles ActiveX se utilizan en presentaciones. Aspose.Slides para .NET le permite administrar controles ActiveX, pero su gestión es un poco más complicada y diferente de las formas normales de la presentación. Desde Aspose.Slides para .NET 6.9.0, el componente admite la administración de controles ActiveX. En este momento, puede acceder a los controles ActiveX ya añadidos en su presentación y modificarlos o eliminarlos mediante sus diversas propiedades. Recuerde que los controles ActiveX no son formas y no forman parte de la IShapeCollection de la presentación, sino de la IControlCollection separada. Este artículo muestra cómo trabajar con ellos.
+Los controles ActiveX se utilizan en presentaciones. Aspose.Slides for .NET le permite gestionar controles ActiveX, pero manejarlos es un poco más complicado y diferente de las formas normales de la presentación. Desde Aspose.Slides for .NET 6.9.0, el componente admite la gestión de controles ActiveX. En este momento, puede acceder a los controles ActiveX ya añadidos en su presentación y modificarlos o eliminarlos mediante sus diversas propiedades. Recuerde que los controles ActiveX no son formas y no forman parte de la IShapeCollection de la presentación sino de la IControlCollection separada. Este artículo muestra cómo trabajar con ellos.
 ## **Modificar controles ActiveX**
-Para administrar un control ActiveX simple como un cuadro de texto y un botón de comando simple en una diapositiva:
+Para gestionar un control ActiveX sencillo como un cuadro de texto y un botón de comando simple en una diapositiva:
 
-1. Crear una instancia de la clase Presentation y cargar la presentación con controles ActiveX.
-1. Obtener una referencia a la diapositiva por su índice.
-1. Acceder a los controles ActiveX en la diapositiva mediante la IControlCollection.
-1. Acceder al control ActiveX TextBox1 usando el objeto ControlEx.
-1. Cambiar las diferentes propiedades del control ActiveX TextBox1, incluido el texto, la fuente, la altura de la fuente y la posición del marco.
-1. Acceder al segundo control llamado CommandButton1.
-1. Cambiar el texto del botón, la fuente y la posición.
-1. Desplazar la posición de los marcos de los controles ActiveX.
-1. Escribir la presentación modificada en un archivo PPTX.
+1. Cree una instancia de la clase Presentation y cargue la presentación con controles ActiveX.
+1. Obtenga una referencia a la diapositiva por su índice.
+1. Acceda a los controles ActiveX en la diapositiva mediante la IControlCollection.
+1. Acceda al control ActiveX TextBox1 usando el objeto ControlEx.
+1. Cambie las diferentes propiedades del control ActiveX TextBox1, incluidos el texto, la fuente, la altura de la fuente y la posición del marco.
+1. Acceda al segundo control llamado CommandButton1.
+1. Cambie el texto del botón, la fuente y la posición.
+1. Desplace la posición de los marcos de los controles ActiveX.
+1. Guarde la presentación modificada en un archivo PPTX.
 
 El fragmento de código a continuación actualiza los controles ActiveX en las diapositivas de la presentación como se muestra a continuación.
 ```c#
-// Accediendo a la presentación con controles ActiveX
+// Accediendo a la presentación con  controles ActiveX
 Presentation presentation = new Presentation("ActiveX.pptm");
 
 // Accediendo a la primera diapositiva de la presentación
@@ -49,7 +49,7 @@ if (control.Name == "TextBox1" && control.Properties != null)
     string newText = "Changed text";
     control.Properties["Value"] = newText;
 
-    // cambiando la imagen de sustitución. PowerPoint reemplazará esta imagen durante la activación de ActiveX, así que a veces está bien dejar la imagen sin cambios.
+    // cambiando la imagen sustituta. PowerPoint reemplazará esta imagen durante la activación de ActiveX, por lo que a veces está bien dejar la imagen sin cambios.
 
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
@@ -82,7 +82,7 @@ if (control.Name == "TextBox1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// cambiando el título del botón
+// cambiando el texto del Button
 control = slide.Controls[1];
 
 if (control.Name == "CommandButton1" && control.Properties != null)
@@ -90,7 +90,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     String newCaption = "MessageBox";
     control.Properties["Caption"] = newCaption;
 
-    // cambiando la sustitución
+    // cambiando sustituto
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
     Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
@@ -130,29 +130,29 @@ foreach (Control ctl in slide.Controls)
         frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// Guardar la presentación con los controles ActiveX editados
+// Guardando la presentación con los controles ActiveX editados
 presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
-// Ahora eliminando los controles
+// Ahora eliminando controles
 slide.Controls.Clear();
 
-// Guardar la presentación con los controles ActiveX eliminados
+// Guardando la presentación con los controles ActiveX eliminados
 presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
 
 
-## **Agregar control ActiveX Media Player**
-Para agregar el control ActiveX Media Player, realice los siguientes pasos:
+## **Añadir un control ActiveX Media Player**
+Para añadir un control ActiveX Media Player, siga los siguientes pasos:
 
-1. Crear una instancia de la clase Presentation y cargar la presentación de ejemplo con controles ActiveX Media Player.
-1. Crear una instancia de la clase Presentation objetivo y generar una instancia de presentación vacía.
-1. Clonar la diapositiva con el control ActiveX Media Player de la presentación plantilla a la presentación objetivo.
-1. Acceder a la diapositiva clonada en la presentación objetivo.
-1. Acceder a los controles ActiveX en la diapositiva mediante la IControlCollection.
-1. Acceder al control ActiveX Media Player y establecer la ruta del video usando sus propiedades.
-1. Guardar la presentación en un archivo PPTX.
+1. Cree una instancia de la clase Presentation y cargue la presentación de ejemplo con controles ActiveX Media Player.
+1. Cree una instancia de la clase Presentation de destino y genere una instancia de presentación vacía.
+1. Clone la diapositiva con el control ActiveX Media Player de la presentación modelo en la Presentation de destino.
+1. Acceda a la diapositiva clonada en la Presentation de destino.
+1. Acceda a los controles ActiveX en la diapositiva mediante la IControlCollection.
+1. Acceda al control ActiveX Media Player y establezca la ruta del vídeo usando sus propiedades.
+1. Guarde la presentación en un archivo PPTX.
 ```c#
 // Instanciar la clase Presentation que representa un archivo PPTX
 Presentation presentation = new Presentation("template.pptx");
@@ -174,16 +174,16 @@ newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Aspose.Slides conserva los controles ActiveX al leer y volver a guardar si no pueden ejecutarse en tiempo de ejecución .NET?**
+**¿Aspose.Slides conserva los controles ActiveX al leer y volver a guardar si no pueden ejecutarse en el tiempo de ejecución .NET?**
 
-Sí. Aspose.Slides los trata como parte de la presentación y puede leer/modificar sus propiedades y marcos; no se requiere ejecutar los controles para conservarlos.
+Sí. Aspose.Slides los trata como parte de la presentación y puede leer/modificar sus propiedades y marcos; no es necesario ejecutar los propios controles para conservarlos.
 
 **¿En qué se diferencian los controles ActiveX de los objetos OLE en una presentación?**
 
-Los controles ActiveX son controles gestionados e interactivos (botones, cuadros de texto, reproductor multimedia), mientras que [OLE](/slides/es/net/manage-ole/) se refiere a objetos de aplicación incrustados (por ejemplo, una hoja de cálculo de Excel). Se almacenan y manejan de forma diferente y tienen modelos de propiedades distintos.
+Los controles ActiveX son controles administrados interactivos (botones, cuadros de texto, reproductor multimedia), mientras que [OLE](/slides/es/net/manage-ole/) se refiere a objetos de aplicación incrustados (por ejemplo, una hoja de cálculo de Excel). Se almacenan y gestionan de forma diferente y tienen modelos de propiedades distintos.
 
-**¿Funcionan los eventos ActiveX y las macros VBA si el archivo ha sido modificado por Aspose.Slides?**
+**¿Los eventos ActiveX y las macros VBA funcionan si el archivo ha sido modificado por Aspose.Slides?**
 
-Aspose.Slides conserva el marcado y los metadatos existentes; sin embargo, los eventos y las macros se ejecutan solo dentro de PowerPoint en Windows cuando la seguridad lo permite. La biblioteca no ejecuta VBA.
+Aspose.Slides conserva el marcado y los metadatos existentes; sin embargo, los eventos y las macros solo se ejecutan dentro de PowerPoint en Windows cuando la seguridad lo permite. La biblioteca no ejecuta VBA.

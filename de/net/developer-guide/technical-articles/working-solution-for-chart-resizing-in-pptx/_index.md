@@ -1,10 +1,10 @@
 ---
-title: Arbeitslösung für Diagrammskalierung in PPTX
+title: Arbeitslösung für Diagrammgrößenänderung in PPTX
 type: docs
 weight: 60
 url: /de/net/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- Diagrammskalierung
+- Diagrammgrößenänderung
 - Excel-Diagramm
 - OLE-Objekt
 - Diagramm einbetten
@@ -13,50 +13,48 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Unerwartete Diagrammskalierung in PPTX beim Einsatz eingebetteter Excel-OLE-Objekte mit Aspose.Slides für .NET beheben. Lernen Sie zwei Methoden mit Code, um die Größen konsistent zu halten."
+description: "Behebt unerwartete Diagrammgrößenänderungen in PPTX bei Verwendung eingebetteter Excel-OLE-Objekte mit Aspose.Slides für .NET. Erfahren Sie zwei Methoden mit Code, um die Größen konsistent zu halten."
 ---
 
 ## **Hintergrund**
 
-Es wurde beobachtet, dass Excel‑Diagramme, die als OLE‑Objekte in einer PowerPoint‑Präsentation über Aspose‑Komponenten eingebettet sind, nach ihrer ersten Aktivierung auf einen nicht spezifizierten Maßstab skaliert werden. Dieses Verhalten führt zu einem deutlich sichtbaren visuellen Unterschied in der Präsentation zwischen dem Zustand vor und nach der Aktivierung des Diagramms. Das Aspose‑Team hat das Problem im Detail untersucht und eine Lösung gefunden. Dieser Artikel beschreibt die Ursachen des Problems und die entsprechende Behebung.
+Es wurde beobachtet, dass in PowerPoint-Präsentationen eingebettete Excel-Diagramme als OLE-Objekte über Aspose-Komponenten nach ihrer ersten Aktivierung auf einen nicht angegebenen Maßstab skaliert werden. Dieses Verhalten führt zu einem sichtbaren Unterschied in der Präsentation zwischen dem Vor- und Nach-Aktivierungszustand des Diagramms. Das Aspose-Team hat das Problem detailliert untersucht und eine Lösung gefunden. Dieser Artikel beschreibt die Ursachen des Problems und die entsprechende Lösung.
 
-Im [vorherigen Artikel](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man mit Aspose.Cells für .NET ein Excel‑Diagramm erstellt und es mit Aspose.Slides für .NET in eine PowerPoint‑Präsentation einbettet. Um das [Objekt‑Vorschau‑Problem](/slides/de/net/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir das Diagrammbild dem OLE‑Objekt‑Frame des Diagramms zugewiesen. In der erzeugten Präsentation wird das OLE‑Objekt‑Frame, das das Diagrammbild anzeigt, bei einem Doppelklick aktiviert und das Excel‑Diagramm wird geöffnet. Endbenutzer können dann beliebige Änderungen in der zugrundeliegenden Excel‑Arbeitsmappe vornehmen und anschließend zur entsprechenden Folie zurückkehren, indem sie außerhalb der aktivierten Arbeitsmappe klicken. Die Größe des OLE‑Objekt‑Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt, und der Skalierungsfaktor variiert je nach den ursprünglichen Größen sowohl des OLE‑Objekt‑Frames als auch der eingebetteten Excel‑Arbeitsmappe.
+Im [vorherigen Artikel](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man mit Aspose.Cells für .NET ein Excel-Diagramm erstellt und es mit Aspose.Slides für .NET in eine PowerPoint-Präsentation einbettet. Um das [Objektvorschau-Problem](/slides/de/net/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir das Diagrammbild dem OLE-Objektrahmen des Diagramms zugewiesen. In der erzeugten Präsentation wird das Excel-Diagramm aktiviert, wenn Sie den OLE-Objektrahmen, der das Diagrammbild anzeigt, doppelklicken. Endbenutzer können beliebige Änderungen an der zugrunde liegenden Excel-Arbeitsmappe vornehmen und dann durch Klicken außerhalb der aktivierten Arbeitsmappe zur entsprechenden Folie zurückkehren. Die Größe des OLE-Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt, und der Skalierungsfaktor variiert je nach den ursprünglichen Größen sowohl des OLE-Objektrahmens als auch der eingebetteten Excel-Arbeitsmappe.
 
-## **Ursache der Skalierung**
+## **Ursache der Größenänderung**
 
-Da die Excel‑Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, bei ihrer ersten Aktivierung ihre ursprüngliche Größe beizubehalten. Der OLE‑Objekt‑Frame hat jedoch seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Arbeitsmappe über die Größe und erhalten das korrekte Seitenverhältnis im Rahmen des Einbettungsprozesses. Abhängig von den Unterschieden zwischen der Excel‑Fenstergröße und der Größe bzw. Position des OLE‑Objekt‑Frames kommt es zu einer Größenanpassung.
+Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie bei der ersten Aktivierung, ihre ursprüngliche Größe beizubehalten. Der OLE-Objektrahmen hat jedoch seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Arbeitsmappe die Größe und erhalten im Einbettungsprozess die korrekten Proportionen. Abhängig von den Unterschieden zwischen der Fenstergröße von Excel und der Größe bzw. Position des OLE-Objektrahmens kommt es zur Größenänderung.
 
 ## **Funktionierende Lösung**
 
-Es gibt zwei mögliche Szenarien für die Erstellung von PowerPoint‑Präsentationen mit Aspose.Slides für .NET.
+Es gibt zwei mögliche Szenarien zur Erstellung von PowerPoint-Präsentationen mit Aspose.Slides für .NET.
 
-**Szenario 1:** Erstellung einer Präsentation basierend auf einer vorhandenen Vorlage.
-
+**Szenario 1:** Erstellung einer Präsentation basierend auf einer vorhandenen Vorlage.  
 **Szenario 2:** Erstellung einer Präsentation von Grund auf.
 
-Die hier vorgestellte Lösung gilt für beide Szenarien. Die Grundlage aller Lösungsansätze ist dieselbe: **die Fenstergröße des eingebetteten OLE‑Objekts muss der Größe des OLE‑Objekt‑Frames in der PowerPoint‑Folien entsprechen**. Im Folgenden werden die beiden Vorgehensweisen erläutert.
+Die hier bereitgestellte Lösung gilt für beide Szenarien. Die Grundlage aller Lösungsansätze ist dieselbe: **Die Fenstergröße des eingebetteten OLE-Objekts muss dem OLE-Objektrahmen in der PowerPoint-Folie entsprechen**. Im Folgenden werden die beiden Ansätze zu dieser Lösung erläutert.
 
 ## **Erster Ansatz**
 
-In diesem Ansatz lernen wir, wie man die Fenstergröße der eingebetteten Excel‑Arbeitsmappe so festlegt, dass sie der Größe des OLE‑Objekt‑Frames in der PowerPoint‑Folien entspricht.
+In diesem Ansatz lernen wir, wie die Fenstergröße der eingebetteten Excel-Arbeitsmappe so eingestellt wird, dass sie der Größe des OLE-Objektrahmens in der PowerPoint-Folie entspricht.
 
-**Szenario 1**
-
-Angenommen, wir haben eine Vorlage definiert und möchten Präsentationen darauf aufbauen. Es gibt ein Shape mit Index 2 in der Vorlage, an dem wir einen OLE‑Frame mit einer eingebetteten Excel‑Arbeitsmappe platzieren wollen. In diesem Szenario ist die Größe des OLE‑Objekt‑Frames vordefiniert – sie entspricht der Größe des Shapes mit Index 2 in der Vorlage. Wir müssen lediglich die Fenstergröße der Arbeitsmappe auf dieselbe Größe setzen. Der folgende Code‑Snippet erfüllt diesen Zweck:
+**Szenario 1**  
+Angenommen, wir haben eine Vorlage definiert und möchten darauf basierend Präsentationen erstellen. Nehmen wir an, es gibt in der Vorlage ein Shape mit Index 2, an dem wir einen OLE-Rahmen mit einer eingebetteten Excel-Arbeitsmappe platzieren wollen. In diesem Szenario ist die Größe des OLE-Objektrahmens vordefiniert – sie entspricht der Größe des Shapes mit Index 2 in der Vorlage. Wir müssen lediglich die Fenstergröße der Arbeitsmappe an die Größe dieses Shapes anpassen. Das folgende Code‑Snippet erfüllt diesen Zweck:
 ```cs
-// Definiere die Diagrammgröße mit einem Fenster. 
+// Definieren Sie die Diagrammgröße mit einem Fenster. 
 chart.SizeWithWindow = true;
 
-// Setze die Fensterbreite der Arbeitsmappe in Zoll (geteilt durch 72, da PowerPoint 72 Pixel pro Zoll verwendet).
+// Setzen Sie die Fensterbreite der Arbeitsmappe in Zoll (geteilt durch 72, da PowerPoint 72 Pixel pro Zoll verwendet).
 workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
 
-// Setze die Fensterhöhe der Arbeitsmappe in Zoll.
+// Setzen Sie die Fensterhöhe der Arbeitsmappe in Zoll.
 workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
 
-// Speichere die Arbeitsmappe in einen Speicher-Stream.
+// Speichern Sie die Arbeitsmappe in einen Speicherstrom.
 MemoryStream workbookStream = workbook.SaveToStream();
 
-// Erstelle einen OLE-Objekt-Frame mit den eingebetteten Excel-Daten.
+// Erstellen Sie einen OLE-Objektrahmen mit den eingebetteten Excel-Daten.
 Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     slide.Shapes[2].X,
     slide.Shapes[2].Y,
@@ -67,9 +65,8 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 ```
 
 
-**Szenario 2**
-
-Nehmen wir an, wir wollen eine Präsentation von Grund auf erstellen und dabei einen OLE‑Objekt‑Frame beliebiger Größe mit einer eingebetteten Excel‑Arbeitsmappe einfügen. Im folgenden Code‑Snippet erstellen wir einen OLE‑Objekt‑Frame mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll bei x = 0,5 Zoll und y = 1 Zoll auf der Folie. Anschließend setzen wir das Excel‑Arbeitsmappe‑Fenster auf dieselbe Größe – 4 Zoll hoch und 9,5 Zoll breit.
+**Szenario 2**  
+Angenommen, wir möchten eine Präsentation von Grund auf erstellen und einen OLE-Objektrahmen beliebiger Größe mit einer eingebetteten Excel-Arbeitsmappe einfügen. Im folgenden Code‑Snippet erstellen wir einen OLE‑Objektrahmen mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll bei x = 0,5 Zoll und y = 1 Zoll auf der Folie. Anschließend setzen wir das Excel‑Arbeitsmappen‑Fenster auf dieselbe Größe – 4 Zoll hoch und 9,5 Zoll breit.
 ```cs
 // Unsere gewünschte Höhe.
 int desiredHeight = 288; // 4 Zoll (4 * 72)
@@ -77,19 +74,19 @@ int desiredHeight = 288; // 4 Zoll (4 * 72)
 // Unsere gewünschte Breite.
 int desiredWidth = 684;//9.5 Zoll (9.5 * 72)
 
-// Definiere die Diagrammgröße mit einem Fenster.
+// Diagrammgröße mit einem Fenster definieren.
 chart.SizeWithWindow = true;
 
-// Setze die Fensterbreite der Arbeitsmappe in Zoll.
+// Fensterbreite der Arbeitsmappe in Zoll festlegen.
 workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
 
-// Setze die Fensterhöhe der Arbeitsmappe in Zoll.
+// Fensterhöhe der Arbeitsmappe in Zoll festlegen.
 workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
 
-// Speichere die Arbeitsmappe in einen Speicher-Stream.
+// Arbeitsmappe in einen Speicherstrom speichern.
 MemoryStream workbookStream = workbook.SaveToStream();
 
-// Erstelle einen OLE-Objekt-Frame mit den eingebetteten Excel-Daten.
+// OLE-Objektrahmen mit den eingebetteten Excel-Daten erstellen.
 Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     36,
     72,
@@ -102,28 +99,27 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 
 ## **Zweiter Ansatz**
 
-In diesem Ansatz lernen wir, wie man die Diagrammgröße in der eingebetteten Excel‑Arbeitsmappe so einstellt, dass sie der Größe des OLE‑Objekt‑Frames in der PowerPoint‑Folien entspricht. Dieser Ansatz ist sinnvoll, wenn die Diagrammgröße im Voraus bekannt ist und sich nie ändert.
+In diesem Ansatz lernen wir, wie die Größe des Diagramms in der eingebetteten Excel-Arbeitsmappe so eingestellt wird, dass sie der Größe des OLE-Objektrahmens in der PowerPoint-Folie entspricht. Dieser Ansatz ist nützlich, wenn die Diagrammgröße im Voraus bekannt ist und sich nie ändert.
 
-**Szenario 1**
-
-Angenommen, wir haben eine Vorlage definiert und möchten Präsentationen darauf aufbauen. Es gibt ein Shape mit Index 2 in der Vorlage, an dem wir einen OLE‑Frame mit einer eingebetteten Excel‑Arbeitsmappe platzieren wollen. In diesem Szenario ist die Größe des OLE‑Frames vordefiniert – sie entspricht der Größe des Shapes mit Index 2 in der Vorlage. Wir müssen lediglich die Diagrammgröße in der Arbeitsmappe auf dieselbe Größe setzen. Der folgende Code‑Snippet erfüllt diesen Zweck:
+**Szenario 1**  
+Angenommen, wir haben eine Vorlage definiert und möchten darauf basierend Präsentationen erstellen. Nehmen wir an, es gibt in der Vorlage ein Shape mit Index 2, an dem wir einen OLE‑Rahmen mit einer eingebetteten Excel‑Arbeitsmappe platzieren wollen. In diesem Szenario ist die Größe des OLE‑Rahmens vordefiniert – sie entspricht der Größe des Shapes mit Index 2 in der Vorlage. Wir müssen lediglich die Diagrammgröße in der Arbeitsmappe an die Größe dieses Shapes anpassen. Das folgende Code‑Snippet erfüllt diesen Zweck:
 ```cs
-// Definiere die Diagrammgröße ohne Fenster. 
+// Diagrammgröße ohne Fenster definieren. 
 chart.SizeWithWindow = false;
 
-// Setze die Diagrammbreite in Pixel (multipliziere mit 96, da Excel 96 Pixel pro Zoll verwendet).    
+// Diagrammbreite in Pixeln festlegen (mit 96 multiplizieren, da Excel 96 Pixel pro Zoll verwendet).    
 chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
 
-// Setze die Diagrammhöhe in Pixel.
+// Diagrammhöhe in Pixeln festlegen.
 chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
 
-// Definiere die Druckgröße des Diagramms.
+// Diagrammdruckgröße definieren.
 chart.PrintSize = PrintSizeType.Custom;
 
-// Speichere die Arbeitsmappe in einen Speicher-Stream.
+// Arbeitsmappe in einen Speicherstrom speichern.
 MemoryStream workbookStream = workbook.SaveToStream();
 
-// Erstelle einen OLE-Objekt-Frame mit den eingebetteten Excel-Daten.
+// OLE-Objektrahmen mit den eingebetteten Excel-Daten erstellen.
 Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     slide.Shapes[2].X,
     slide.Shapes[2].Y,
@@ -134,9 +130,8 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 ```
 
 
-**Szenario 2**
-
-Nehmen wir an, wir wollen eine Präsentation von Grund auf erstellen und dabei einen OLE‑Objekt‑Frame beliebiger Größe mit einer eingebetteten Excel‑Arbeitsmappe einfügen. Im folgenden Code‑Snippet erstellen wir einen OLE‑Objekt‑Frame mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll bei x = 0,5 Zoll und y = 1 Zoll auf der Folie. Zusätzlich setzen wir die zugehörige Diagrammgröße auf dieselben Abmessungen: Höhe 4 Zoll, Breite 9,5 Zoll.
+**Szenario 2**  
+Angenommen, wir möchten eine Präsentation von Grund auf erstellen und einen OLE‑Objektrahmen beliebiger Größe mit einer eingebetteten Excel‑Arbeitsmappe einfügen. Im folgenden Code‑Snippet erstellen wir einen OLE‑Objektrahmen mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll bei x = 0,5 Zoll und y = 1 Zoll auf der Folie. Zusätzlich setzen wir die entsprechende Diagrammgröße auf dieselben Abmessungen: eine Höhe von 4 Zoll und eine Breite von 9,5 Zoll.
 ```cs
  // Unsere gewünschte Höhe.
 int desiredHeight = 288; // 4 Zoll (4 * 576)
@@ -144,19 +139,19 @@ int desiredHeight = 288; // 4 Zoll (4 * 576)
 // Unsere gewünschte Breite.
 int desiredWidth = 684; // 9,5 Zoll (9,5 * 576)
 
-// Definiere die Diagrammgröße ohne Fenster. 
+// Diagrammgröße ohne Fenster definieren. 
 chart.SizeWithWindow = false;
 
-// Setze die Diagrammbreite in Pixel.   
+// Diagrammbreite in Pixeln festlegen.   
 chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
 
-// Setze die Diagrammhöhe in Pixel.    
+// Diagrammhöhe in Pixeln festlegen.    
 chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
 
-// Save the workbook to a memory stream.
+// Arbeitsmappe in einen Speicherstrom speichern.
 MemoryStream workbookStream = workbook.SaveToStream();
 
-// Create an OLE object frame with the embedded Excel data.
+// OLE‑Objektrahmen mit den eingebetteten Excel‑Daten erstellen.
 Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     36,
     72,
@@ -169,30 +164,30 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 
 ## **Fazit**
 
-Es gibt zwei Ansätze zur Behebung des Diagramm‑Skalierungsproblems. Die Wahl des Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren gleich, unabhängig davon, ob die Präsentationen aus einer Vorlage oder neu erstellt werden. Außerdem gibt es keine Begrenzung für die Größe des OLE‑Objekt‑Frames in dieser Lösung.
+Es gibt zwei Ansätze zur Behebung des Diagramm‑Größenänderungsproblems. Die Wahl des Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren gleichermaßen, egal ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Außerdem gibt es in dieser Lösung keine Begrenzung der Größe des OLE‑Objektrahmens.
 
-## FAQ
+## **FAQ**
 
-**F: Warum ändert sich die Größe meines eingebetteten Excel‑Diagramms nach der Aktivierung in PowerPoint?**  
-Dies geschieht, weil Excel beim ersten Aktivieren versucht, die ursprüngliche Fenstergröße wiederherzustellen, während der OLE‑Objekt‑Frame in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu wahren, was zu einer Skalierung führen kann.
+**Warum ändert mein eingebettetes Excel-Diagramm nach der Aktivierung in PowerPoint seine Größe?**  
+Das passiert, weil Excel bei der ersten Aktivierung versucht, die ursprüngliche Fenstergröße wiederherzustellen, während der OLE‑Objektrahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis beizubehalten, was zu einer Größenänderung führen kann.
 
-**F: Gibt es eine Möglichkeit, dieses Skalierungsproblem vollständig zu verhindern?**  
-Ja. Indem man die Fenstergröße der Excel‑Arbeitsmappe oder die Diagrammgröße an die Größe des OLE‑Objekt‑Frames anpasst, bevor man das Objekt einbettet, bleibt die Diagrammgröße konsistent.
+**Ist es möglich, dieses Größenänderungsproblem vollständig zu verhindern?**  
+Ja. Durch das Angleichen der Excel‑Arbeitsmappen‑Fenstergröße bzw. der Diagrammgröße an die Größe des OLE‑Objektrahmens vor dem Einbetten können die Diagrammgrößen konsistent gehalten werden.
 
-**F: Welchen Ansatz soll ich wählen, die Fenstergröße der Arbeitsmappe oder die Diagrammgröße?**  
-Verwenden Sie **Ansatz 1 (Fenstergröße)**, wenn Sie das Seitenverhältnis der Arbeitsmappe beibehalten und später eventuell eine Größenänderung zulassen möchten.  
-Verwenden Sie **Ansatz 2 (Diagrammgröße)**, wenn die Diagrammabmessungen feststehen und nach dem Einbetten nicht mehr geändert werden.
+**Welchen Ansatz sollte ich wählen, die Fenstergröße der Arbeitsmappe einstellen oder die Diagrammgröße festlegen?**  
+Verwenden Sie **Ansatz 1 (Fenstergröße)**, wenn Sie das Seitenverhältnis der Arbeitsmappe beibehalten und später eventuell eine Größenanpassung zulassen möchten.  
+Verwenden Sie **Ansatz 2 (Diagrammgröße)**, wenn die Diagrammabmessungen fest vorgegeben sind und sich nach dem Einbetten nicht ändern.
 
-**F: Funktionieren diese Methoden sowohl für vorlagenbasierte als auch für neue Präsentationen?**  
-Ja. Beide Ansätze funktionieren gleichermaßen für Präsentationen, die aus Vorlagen oder von Grund auf erstellt werden.
+**Werden diese Methoden sowohl bei vorlagenbasierten Präsentationen als auch bei neuen Präsentationen funktionieren?**  
+Ja. Beide Ansätze funktionieren gleich für Präsentationen, die aus Vorlagen erstellt wurden, sowie für neue Präsentationen.
 
-**F: Gibt es ein Limit für die Größe des OLE‑Objekt‑Frames?**  
-Nein. Der OLE‑Frame kann auf jede Größe gesetzt werden, solange er angemessen zum Arbeitsmappe‑ bzw. Diagramm‑Fenster skaliert wird.
+**Gibt es eine Begrenzung für die Größe des OLE‑Objektrahmens?**  
+Nein. Der OLE‑Rahmen kann auf jede beliebige Größe gesetzt werden, solange er angemessen zur Arbeitsmappe oder Diagrammgröße skaliert.
 
-**F: Kann ich diese Methoden mit Diagrammen aus anderen Tabellenkalkulationsprogrammen verwenden?**  
-Die Beispiele sind für Excel‑Diagramme mit Aspose.Cells gedacht, aber die Grundprinzipien gelten auch für andere OLE‑kompatible Tabellenkalkulationsprogramme, sofern sie ähnliche Größenoptionen unterstützen.
+**Kann ich diese Methoden mit Diagrammen verwenden, die in anderen Tabellenkalkulationsprogrammen erstellt wurden?**  
+Die Beispiele sind für Excel‑Diagramme, die mit Aspose.Cells erstellt wurden, aber die Prinzipien gelten auch für andere OLE‑kompatible Tabellenkalkulationsprogramme, sofern sie ähnliche Größenoptionen unterstützen.
 
 ## **Verwandte Abschnitte**
 
-- [Excel‑Diagramme erstellen und als OLE‑Objekte in Präsentationen einbetten](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [OLE‑Objekte automatisch mit einem PowerPoint‑Add‑In aktualisieren](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Excel-Diagramme erstellen und als OLE‑Objekte in Präsentationen einbetten](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [OLE‑Objekte automatisch mit einem PowerPoint-Add‑In aktualisieren](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

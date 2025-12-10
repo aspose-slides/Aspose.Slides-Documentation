@@ -5,22 +5,22 @@ weight: 10
 url: /zh/net/add-a-comment-to-a-slide/
 ---
 
-## **OpenXML 演示文稿:**
+## **OpenXML 演示文稿**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "在幻灯片上添加注释.pptx"; 
+string FileName = FilePath + "Add a comment to a slide.pptx"; 
 
 AddCommentToPresentation(FileName,
 
 "Zeeshan", "MZ",
 
-"这是我程序matically添加的注释。");
+"This is my programmatically added comment.");
 
-// 在演示文稿文档的第一张幻灯片上添加注释。
+// Adds a comment to the first slide of the presentation document.
 
-// 演示文稿文档必须至少包含一张幻灯片。
+// The presentation document must contain at least one slide.
 
 private static void AddCommentToPresentation(string file, string initials, string name, string text)
 
@@ -30,17 +30,17 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 {
 
-    // 声明一个 CommentAuthorsPart 对象。
+    // Declare a CommentAuthorsPart object.
 
     CommentAuthorsPart authorsPart;
 
-    // 验证是否存在已存在的注释作者部分。
+    // Verify that there is an existing comment authors part.
 
     if (doc.PresentationPart.CommentAuthorsPart == null)
 
     {
 
-        // 如果没有，则添加一个新的。
+        // If not, add a new one.
 
         authorsPart = doc.PresentationPart.AddNewPart<CommentAuthorsPart>();
 
@@ -54,41 +54,41 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // 验证评论作者部分中是否有评论作者列表。
+    // Verify that there is a comment author list in the comment authors part.
 
     if (authorsPart.CommentAuthorList == null)
 
     {
 
-        // 如果没有，则添加一个新的。
+        // If not, add a new one.
 
         authorsPart.CommentAuthorList = new CommentAuthorList();
 
     }
 
-    // 声明一个新的作者 ID。
+    // Declare a new author ID.
 
     uint authorId = 0;
 
     CommentAuthor author = null;
 
-    // 如果评论作者列表中存在现有子元素...
+    // If there are existing child elements in the comment authors list...
 
     if (authorsPart.CommentAuthorList.HasChildren)
 
     {
 
-        // 验证传入的作者是否在列表中。
+        // Verify that the author passed in is on the list.
 
         var authors = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Where(a => a.Name == name && a.Initials == initials);
 
-        // 如果是...
+        // If so...
 
         if (authors.Any())
 
         {
 
-            // 将新评论作者分配给现有作者 ID。
+            // Assign the new comment author the existing author ID.
 
             author = authors.First();
 
@@ -96,13 +96,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         }
 
-        // 如果不是...
+        // If not...
 
         if (author == null)
 
         {
 
-            // 给传入的作者分配一个新的 ID
+            // Assign the author passed in a new ID
 
             authorId = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Select(a => a.Id.Value).Max();
 
@@ -110,7 +110,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // 如果评论作者列表中没有现有子元素。
+    // If there are no existing child elements in the comment authors list.
 
     if (author == null)
 
@@ -118,7 +118,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         authorId++;
 
-        // 向评论作者列表添加一个新子元素（评论作者）。
+        // Add a new child element(comment author) to the comment author list.
 
         author = authorsPart.CommentAuthorList.AppendChild<CommentAuthor>
 
@@ -138,21 +138,21 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // 使用 GetFirstSlide 方法获取第一张幻灯片。
+    // Get the first slide, using the GetFirstSlide method.
 
     SlidePart slidePart1 = GetFirstSlide(doc);
 
-    // 声明一个评论部分。
+    // Declare a comments part.
 
     SlideCommentsPart commentsPart;
 
-    // 验证第一张幻灯片部分中是否有评论部分。
+    // Verify that there is a comments part in the first slide part.
 
     if (slidePart1.GetPartsOfType<SlideCommentsPart>().Count() == 0)
 
     {
 
-        // 如果没有，则添加一个新的评论部分。
+        // If not, add a new comments part.
 
         commentsPart = slidePart1.AddNewPart<SlideCommentsPart>();
 
@@ -162,31 +162,31 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     {
 
-        // 否则，使用幻灯片部分中的第一评论部分。
+        // Else, use the first comments part in the slide part.
 
         commentsPart = slidePart1.GetPartsOfType<SlideCommentsPart>().First();
 
     }
 
-    // 如果评论列表不存在。
+    // If the comment list does not exist.
 
     if (commentsPart.CommentList == null)
 
     {
 
-        // 添加一个新的评论列表。
+        // Add a new comments list.
 
         commentsPart.CommentList = new CommentList();
 
     }
 
-    // 获取新的评论 ID。
+    // Get the new comment ID.
 
     uint commentIdx = author.LastIndex == null ? 1 : author.LastIndex + 1;
 
     author.LastIndex = commentIdx;
 
-    // 添加一个新评论。
+    // Add a new comment.
 
     Comment comment = commentsPart.CommentList.AppendChild<Comment>(
 
@@ -202,7 +202,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     });
 
-    // 将位置子节点添加到评论元素。
+    // Add the position child node to the comment element.
 
     comment.Append(
 
@@ -210,11 +210,11 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     new Text() { Text = text });
 
-    // 保存评论作者部分。
+    // Save the comment authors part.
 
     authorsPart.CommentAuthorList.Save();
 
-    // 保存评论部分。
+    // Save the comments part.
 
     commentsPart.CommentList.Save();
 
@@ -222,13 +222,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 }
 
-// 获取演示文稿文档中第一张幻灯片的幻灯片部分。
+// Get the slide part of the first slide in the presentation document.
 
 private static SlidePart GetFirstSlide(PresentationDocument presentationDocument)
 
 {
 
-// 获取第一张幻灯片的关系 ID
+// Get relationship ID of the first slide
 
 PresentationPart part = presentationDocument.PresentationPart;
 
@@ -236,7 +236,7 @@ SlideId slideId = part.Presentation.SlideIdList.GetFirstChild<SlideId>();
 
 string relId = slideId.RelationshipId;
 
-// 通过关系 ID 获取幻灯片部分。
+// Get the slide part by the relationship ID.
 
 SlidePart slidePart = (SlidePart)part.GetPartById(relId);
 
@@ -247,29 +247,29 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-在 **Aspose.Slides** for .NET 中，PPT 幻灯片注释集合包含在每个 **Slide** 类中。**CommentCollection** 类用于保存特定幻灯片的注释。**Comment** 类包含信息，如添加幻灯片注释的作者，他的首字母，创建时间，幻灯片上注释的位置和注释文本。**CommentAuthor** 类用于在演示文稿级别为幻灯片注释添加作者。**Presentation** 类在 **CommentAuthors** 类中保存演示文稿的作者集合。
+在 **Aspose.Slides** for .NET 中，PPT 幻灯片注释集合包含在每个 **Slide** 类中。**CommentCollection** 类用于保存特定幻灯片的注释。**Comment** 类包括添加注释的作者、作者缩写、创建时间、注释在幻灯片上的位置以及注释文本等信息。**CommentAuthor** 类用于在演示文稿级别为幻灯片注释添加作者。**Presentation** 类在 **CommentAuthors** 类中保存演示文稿的作者集合。
 
-在下面的示例中，我们添加了用于添加幻灯片注释的代码片段。
+下面的示例演示了添加幻灯片注释的代码片段。
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "在幻灯片上添加注释.pptx";
+string FileName = FilePath + "Add a comment to a slide.pptx";
 
 using (Presentation pres = new Presentation())
 
 {
 
-    // 添加空幻灯片
+    //Adding Empty slide
 
     pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-    // 添加作者
+    //Adding Autthor
 
     ICommentAuthor author = pres.CommentAuthors.AddAuthor("Zeeshan", "MZ");
 
-    // 注释的位置
+    //Position of comments
 
     PointF point = new PointF();
 
@@ -277,9 +277,9 @@ using (Presentation pres = new Presentation())
 
     point.Y = 1;
 
-    // 在幻灯片上为作者添加幻灯片注释
+    //Adding slide comment for an author on slide
 
-    author.Comments.AddComment("你好Zeeshan，这是幻灯片注释", pres.Slides[0], point, DateTime.Now);
+    author.Comments.AddComment("Hello Zeeshan, this is slide comment", pres.Slides[0], point, DateTime.Now);
 
     pres.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 

@@ -1,109 +1,122 @@
 ---
-title: Aspose.Slides Visual Studio Plugin
+title: Aspose.Slides Visual Studio-Plugin
 type: docs
 weight: 10
 url: /de/net/aspose-slides-visual-studio-plugin/
 ---
 
-## **Einführung**
-Microsoft Visual Studio ist eine integrierte Entwicklungsumgebung (IDE) von Microsoft. Es wird verwendet, um Computerprogramme für Microsoft Windows sowie Webseiten, Webanwendungen und Webdienste zu entwickeln. Visual Studio nutzt Microsoft-Softwareentwicklungsplattformen wie Windows API, Windows Forms, Windows Presentation Foundation, Windows Store und Microsoft Silverlight. Es kann sowohl nativen Code als auch verwalteten Code erzeugen.
+## **Einleitung**
+Microsoft Visual Studio ist eine integrierte Entwicklungsumgebung (IDE) von Microsoft. Sie wird verwendet, um Computerprogramme für Microsoft Windows sowie Websites, Webanwendungen und Webdienste zu entwickeln. Visual Studio nutzt Microsoft‑Softwareentwicklungsplattformen wie Windows API, Windows Forms, Windows Presentation Foundation, Windows Store und Microsoft Silverlight. Es kann sowohl nativen Code als auch verwalteten Code erzeugen.
+
 ### **Aspose.Slides für .NET**
-Aspose.Slides für .NET ist eine einzigartige PowerPoint®-Verwaltungs-API, die .NET-Anwendungen ermöglicht, PowerPoint-Dokumente zu lesen, zu schreiben und zu manipulieren, ohne Microsoft PowerPoint zu verwenden.
+Aspose.Slides for .NET ist eine einzigartige PowerPoint®‑Verwaltungs‑API, die .NET‑Anwendungen ermöglicht, PowerPoint‑Dokumente zu lesen, zu schreiben und zu manipulieren, ohne Microsoft PowerPoint zu verwenden.
 
-Aspose.Slides für .NET ist die erste und einzige .NET PowerPoint API, die Funktionalität zur Verwaltung von PowerPoint-Dokumenten in Ihren eigenen Anwendungen bietet. Wie alle Aspose .NET-Module ist auch Aspose.Slides in verwaltetem C# geschrieben, unglaublich preiswert und blitzschnell.
+Aspose.Slides for .NET ist die erste und einzige .NET PowerPoint‑API, die Funktionen zur Verwaltung von PowerPoint‑Dokumenten innerhalb Ihrer eigenen Anwendungen bereitstellt. Wie bei allen Aspose .NET‑Komponenten ist Aspose.Slides in verwaltetem C# geschrieben, unglaublich preiswert und blitzschnell.
 
-Für weitere Informationen über [Aspose.Slides für .NET API](http://www.aspose.com/.net/powerpoint-component.aspx)
-### **Erkunden Sie Aspose.Slides für .NET Beispiele mit Visual Studio**
-Das Aspose Visual Studio Plugin - **Erkunden Sie Aspose.Slides für .NET Beispiele** ist ein großartiges Werkzeug, um schnell Beispiele für das Aspose.Slides für .NET API herunterzuladen und zu erkunden. Es spart viel Zeit und Mühe, indem es eine sehr einfache Möglichkeit bietet, die neuesten Beispielprojekte nahtlos auszuwählen, herunterzuladen und zu öffnen, ohne Visual Studio zu verlassen.
+Für weitere Details siehe [Aspose.Slides für .NET API](http://www.aspose.com/.net/powerpoint-component.aspx)
+
+### **Explore Aspose.Slides for .NET Examples Using Visual Studio**
+Aspose Visual Studio Plugin – **Explore Aspose.Slides for .NET Examples** ist ein großartiges Werkzeug, um Aspose.Slides für .NET API‑Beispiele schnell herunterzuladen und zu erkunden. Es spart viel Zeit und Aufwand, indem es eine sehr einfache Möglichkeit bietet, die neuesten Beispielprojekte nahtlos auszuwählen, herunterzuladen und zu öffnen, ohne Visual Studio zu verlassen.
 
 Diese Version bietet die folgenden Funktionen:
 
-- Unterstützt Visual Studio 2010, 2012 und 2013.
-- Einfach über das **Datei > Aspose** Menü in Visual Studio zu starten.
+- Unterstützt Visual Studio 2010, Visual Studio 2012 und Visual Studio 2013.
+- Einfach zu starten über das Menü **Datei > Aspose** in Visual Studio
 - Spart Zeit und reduziert die Lernkurve.
-- Ermöglicht Ihnen, die neuesten Aspose.Slides für .NET API Beispiele, die auf Github.com gehostet sind, auszuwählen und zu öffnen.
-- Erlaubt Ihnen das Öffnen von **C#** oder **VB.NET** Beispielprojekten.
-- Ein ausgewähltes Projekt wird automatisch in Visual Studio mit allen erforderlichen Referenzen geöffnet, um Ihnen eine lauffähige und erkundbare Umgebung zu bieten.
-- Lädt automatisch die neuesten API-Bibliotheken von **NuGet** und Beispiele von **GitHub** herunter.
+- Ermöglicht das Auswählen und Öffnen der neuesten Aspose.Slides für .NET API‑Beispiele, die auf Github.com gehostet werden.
+- Erlaubt das Öffnen von **C#**‑ oder **VB.NET**‑Beispielprojekten
+- Ein ausgewähltes Projekt wird automatisch in Visual Studio geöffnet, wobei alle erforderlichen Verweise gesetzt sind, um Ihnen eine einsatzbereite Umgebung zum Ausprobieren und Erkunden zu bieten.
+- Lädt automatisch die neuesten API‑Bibliotheken von **NuGet** und Beispiele von **GitHub** herunter.
 
 ![todo:image_alt_text](aspose-slides-visual-studio-plugin_1)
-## **Systemanforderungen und Unterstützte Plattformen**
-Um das Aspose Visual Studio Plugin zu installieren und zu verwenden, müssen Sie eine der folgenden Visual Studio-Versionen installiert haben:
+
+## **Systemanforderungen und unterstützte Plattformen**
+Um das Aspose Visual Studio Plugin zu installieren und zu verwenden, muss eine der folgenden Visual Studio‑Versionen installiert sein:
 
 - Visual Studio 2010, 2012, 2013
 
-Bitte zögern Sie nicht, uns zu kontaktieren, wenn Sie Probleme bei der Installation oder Verwendung dieses Plugins feststellen.
+Bitte kontaktieren Sie uns, falls Sie Probleme bei der Installation oder Verwendung dieses Plugins feststellen.
+
 ## **Herunterladen**
 Sie können das Aspose Visual Studio Plugin von einem der folgenden Orte herunterladen:
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/releases)
-- [Code.MSDN ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
-- [Visual Studio Galerie ](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
-- [Github ](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/untagged-ab3cb4109f5bc061a98c)
-## **Installieren**
-Es ist sehr einfach und leicht, das Aspose Visual Studio Plugin zu installieren. Bitte befolgen Sie diese einfachen Schritte:
+- [CodePlex](https://asposeSlidesvs.codeplex.com/releases)
+- [Code.MSDN](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
+- [Visual Studio Galerie](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/untagged-ab3cb4109f5bc061a98c)
 
-- Doppelklicken Sie auf die heruntergeladene MSI-Datei.
-- Befolgen Sie die Schritte, Sie können einfach auf Weiter auf jedem Bildschirm drücken, um es mit den Standardeinstellungen zu installieren.
+## **Installation**
+Die Installation des Aspose Visual Studio Plugins ist sehr einfach; bitte folgen Sie diesen Schritten:
 
-Sie erhalten ein Erfolgsdialogfeld, sobald die Installation abgeschlossen ist.
+- Doppelklicken Sie auf die heruntergeladene MSI‑Datei
+- Folgen Sie den Anweisungen und klicken Sie einfach auf Weiter auf jedem Bildschirm, um es mit den Standardeinstellungen zu installieren.
+
+Nach Abschluss der Installation erscheint ein Erfolgsdialog.
 
 ![todo:image_alt_text](aspose-slides-visual-studio-plugin_2)
 
 **Hinweis:** Bitte stellen Sie sicher, dass Sie Visual Studio neu starten, damit die Änderungen wirksam werden.
-## **Benutzung**
-Sobald das Plugin installiert ist, können Sie es einfach starten und verwenden, wie unten beschrieben:
-**1.** Öffnen Sie das Plugin, indem Sie **Datei > Aspose** gefolgt von **Neues Aspose.Slides Beispielprojekt** in Visual Studio auswählen.
+
+## **Verwendung**
+Nach der Installation können Sie das interaktive Plugin einfach starten und verwenden, wie unten beschrieben:
+
+**1.** Öffnen Sie das Plugin, indem Sie **Datei > Aspose** wählen und anschließend **Neues Aspose.Slides Beispielprojekt** in Visual Studio auswählen.
 
 ![todo:image_alt_text](aspose-slides-visual-studio-plugin_3)
 
-**2.** Beim ersten Öffnen des Plugins sehen Sie den API-Auswahldialog, wie unten gezeigt. Es wird einige Minuten dauern, um die neuesten APIs und deren Bibliotheken von **NuGet** sowie den neuesten Beispielquellcode von **GitHub** herunterzuladen.
+**2.** Beim ersten Öffnen des Plugins sehen Sie das API‑Auswahldialog wie unten gezeigt. Es dauert ein paar Minuten, bis die neuesten APIs und deren Bibliotheken von **NuGet** sowie der aktuelle Quellcode der Beispiele von **GitHub** heruntergeladen sind.
 
 ![todo:image_alt_text](aspose-slides-visual-studio-plugin_4)
 
-**3.** Im Dialogfeld "Wählen Sie eine API aus, um Beispiele anzuzeigen" können Sie den Speicherort auswählen oder ändern, an dem die Beispielprojekte erstellt werden, und auch den Beispielprojekttyp als **C#** oder **VB.NET** auswählen oder ändern und auf **Fortfahren** klicken, um das Beispielprojekt in Visual Studio zu öffnen.
+**3.** Im Dialog **Select an API to View Examples** wählen Sie den Speicherort, an dem die Beispielprojekte erstellt werden sollen, und wählen bzw. ändern Sie den Typ des Beispielprojekts zu **C#** oder **VB.NET** und klicken Sie auf **Continue**, um das Beispielprojekt in Visual Studio zu öffnen.
 
 ![todo:image_alt_text](aspose-slides-visual-studio-plugin_1)
 
-**4.** Neue Beispielprojekte entsprechend der Projektauswahl **C#** oder **VB.NET** in Visual Studio.
+**4.** Neue Beispielprojekte werden je nach Auswahl des Projekttyps **C#** oder **VB.NET** in Visual Studio erstellt.
 
-|**C# Beispiele** |**VB.NET Beispiele** |
+|**C#‑Beispiele**|**VB.NET‑Beispiele**|
 | :- | :- |
 |![todo:image_alt_text](aspose-slides-visual-studio-plugin_6)|![todo:image_alt_text](aspose-slides-visual-studio-plugin_7)|
-## **Video Demo**
-Bitte schauen Sie sich [das Video](https://www.youtube.com/watch?v=FyJ2TFlbLE4) unten an, um das Modul in Aktion zu sehen.
-## **Support, Erweitern und Beitragen**
-### **Support**
-Von den ersten Tagen an wusste Aspose, dass es nicht ausreicht, unseren Kunden nur gute Produkte zu geben. Wir mussten auch guten Service bieten. Wir sind selbst Entwickler und verstehen, wie frustrierend es ist, wenn ein technisches Problem oder eine Eigenheit in der Software Sie daran hindert, das zu tun, was Sie tun müssen. Wir sind hier, um Probleme zu lösen, nicht um sie zu schaffen.
 
-Deshalb bieten wir kostenlosen Support an. Jeder, der unser Produkt nutzt, egal ob er es gekauft hat oder eine Bewertung verwendet, verdient unsere volle Aufmerksamkeit und Respekt.
+## **Video-Demo**
+Bitte sehen Sie sich das [Video](https://www.youtube.com/watch?v=FyJ2TFlbLE4) unten an, um das Modul in Aktion zu sehen.
 
-Sie können alle Probleme oder Vorschläge im Zusammenhang mit dem Aspose Visual Studio Plugin über eine der folgenden Plattformen melden:
+## **Unterstützung, Erweiterung und Mitwirkung**
+### **Unterstützung**
+Schon in den ersten Tagen von Aspose wussten wir, dass es nicht ausreicht, unseren Kunden nur gute Produkte zu bieten. Wir mussten auch einen guten Service liefern. Wir sind selbst Entwickler und verstehen, wie frustrierend es ist, wenn ein technisches Problem oder ein Eigenfehler in der Software Sie daran hindert, zu tun, was Sie benötigen. Wir sind hier, um Probleme zu lösen, nicht zu schaffen.
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/workitem/list/basic)
-- [Visual Studio Galerie - Fragen und Antworten](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
-- [Github ](https://github.com/asposeSlides/Aspose.Slides-for-.NET/issues)
-- [Microsoft Developer Network - Fragen und Antworten ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed/view/Discussions#content)
-### **Erweitern und Beitragen**
-**Erforschen Sie Aspose.Slides für .NET Beispiele** für Visual Studio ist Open Source und der Quellcode ist auf den großen sozialen Codier-Websites verfügbar, die unten aufgeführt sind. Entwickler sind eingeladen, den Quellcode herunterzuladen und die Funktionalität gemäß ihren eigenen Anforderungen zu erweitern.
+Deshalb bieten wir kostenlosen Support an. Jeder, der unser Produkt verwendet, egal ob er es gekauft hat oder eine Testversion nutzt, verdient unsere volle Aufmerksamkeit und unseren Respekt.
+
+Sie können Probleme oder Vorschläge zum Aspose Visual Studio Plugin über eine der folgenden Plattformen melden:
+
+- [CodePlex](https://asposeSlidesvs.codeplex.com/workitem/list/basic)
+- [Visual Studio Galerie – Fragen und Antworten](https://visualstudiogallery.msdn.microsoft.com/b45659c0-9414-4ede-aed2-acc0c27a6b15)
+- [GitHub](https://github.com/asposeSlides/Aspose.Slides-for-.NET/issues)
+- [Microsoft Developer Network – Fragen und Antworten](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed/view/Discussions#content)
+
+### **Erweitern und Mitwirken**
+Explore Aspose.Slides für .NET Beispiele für Visual Studio ist Open Source und der Quellcode ist auf den nachstehenden wichtigen Social‑Coding-Websites verfügbar. Entwickler werden ermutigt, den Quellcode herunterzuladen und die Funktionalität nach ihren eigenen Anforderungen zu erweitern.
+
 #### **Quellcode**
-Sie können den neuesten Quellcode von einem der folgenden Orte erhalten:
+Den neuesten Quellcode erhalten Sie von einem der folgenden Orte:
 
-- [CodePlex ](https://asposeSlidesvs.codeplex.com/SourceControl/latest)
-- [Github ](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Microsoft Developer Network ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
+- [CodePlex](https://asposeSlidesvs.codeplex.com/SourceControl/latest)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
+- [Microsoft Developer Network](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
+
 #### **Wie man den Quellcode konfiguriert**
-Sie müssen das Folgende installiert haben, um den Quellcode zu öffnen und zu erweitern:
+Um den Quellcode zu öffnen und zu erweitern, müssen Sie Folgendes installiert haben:
 
 - Visual Studio 2010
 
-Bitte befolgen Sie diese einfachen Schritte, um loszulegen:
+Bitte folgen Sie diesen einfachen Schritten, um zu beginnen:
 
-1. Laden Sie den Quellcode herunter oder klonen Sie ihn.
-1. Öffnen Sie Visual Studio 2010 und wählen Sie **Datei** > **Projekt öffnen**.
-1. Durchsuchen Sie den neuesten Quellcode, den Sie heruntergeladen haben, und öffnen Sie **AsposeVisualStudioPlugin.sln**.
-#### **Überblick über den Quellcode**
-Es gibt zwei Projekte in der Lösung:
+1. Laden Sie den Quellcode herunter/klonen Sie ihn.
+2. Öffnen Sie Visual Studio 2010 und wählen Sie **Datei** > **Projekt öffnen**.
+3. Navigieren Sie zum heruntergeladenen Quellcode und öffnen Sie **AsposeVisualStudioPlugin.sln**.
 
-- **AsposeVisualStudioPlugin** - Enthält die Integration mit Visual Studio, die Auswahl und den automatischen Download von Aspose APIs und Beispielen.
-- **Installer** - Wix-Installationsprojekt zur Erstellung einer MSI-Installationsdatei für das Plugin.
+#### **Übersicht über den Quellcode**
+Die Lösung enthält zwei Projekte:
+
+- **AsposeVisualStudioPlugin** – Enthält die Integration mit Visual Studio, die Auswahl und das automatische Herunterladen von Aspose‑APIs und Beispielen.
+- **Installer** – Wix‑Installationsprojekt zum Erzeugen einer MSI‑Installationsdatei für das Plugin.

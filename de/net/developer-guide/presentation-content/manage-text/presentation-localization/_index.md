@@ -1,5 +1,5 @@
 ---
-title: Automatisierte Präsentationslokalisierung in .NET
+title: Automatisierung der Präsentationslokalisierung in .NET
 linktitle: Präsentationslokalisierung
 type: docs
 weight: 100
@@ -13,18 +13,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Automatisieren Sie die Lokalisierung von PowerPoint- und OpenDocument-Folien in .NET mit Aspose.Slides, mithilfe praktischer C#-Codebeispiele und Tipps für eine schnellere globale Bereitstellung."
+description: "Automatisieren Sie die Lokalisierung von PowerPoint- und OpenDocument‑Folien in .NET mit Aspose.Slides, indem Sie praktische C#‑Codebeispiele und Tipps für eine schnellere globale Bereitstellung nutzen."
 ---
 
-## **Sprache für Präsentation und Text von Formen ändern**
-- Eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse erstellen.
-- Die Referenz einer Folie über deren Index erhalten.
-- Ein AutoShape vom Typ Rechteck zur Folie hinzufügen.
-- Etwas Text zum TextFrame hinzufügen.
-- Sprach‑Id für den Text festlegen.
-- Die Präsentation als PPTX‑Datei speichern.
+## **Sprache für eine Präsentation und Formtext ändern**
+- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
+- Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
+- Fügen Sie der Folie eine AutoShape vom Typ Rechteck hinzu.
+- Fügen Sie dem TextFrame etwas Text hinzu.
+- Setzen Sie die Language Id für den Text.
+- Schreiben Sie die Präsentation als PPTX‑Datei.
 
-Die Umsetzung der oben genannten Schritte wird unten in einem Beispiel gezeigt.
+Die Implementierung der obigen Schritte wird im Folgenden anhand eines Beispiels gezeigt.
 ```c#
 using (Presentation pres = new Presentation("test0.pptx"))
 {
@@ -39,14 +39,14 @@ using (Presentation pres = new Presentation("test0.pptx"))
 
 ## **FAQ**
 
-**Löst die Sprach‑Id eine automatische Textübersetzung aus?**
+**Wird die Sprach‑ID eine automatische Textübersetzung auslösen?**
 
-Nein. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) in Aspose.Slides speichert die Sprache für Rechtschreib‑ und Grammatikprüfung, übersetzt jedoch nicht den Textinhalt und ändert ihn nicht. Es handelt sich um Metadaten, die PowerPoint für die Prüfung versteht.
+Nein. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) in Aspose.Slides speichert die Sprache für Rechtschreib‑ und Grammatikprüfung, übersetzt den Text jedoch nicht und ändert den Inhalt nicht. Es handelt sich um Metadaten, die PowerPoint für die Prüfung versteht.
 
-**Beeinflusst die Sprach‑Id die Silbentrennung und den Zeilenumbruch bei der Darstellung?**
+**Beeinflusst die Sprach‑ID die Silbentrennung und Zeilenumbrüche beim Rendern?**
 
-In Aspose.Slides dient [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) der Prüfung. Die Qualität der Silbentrennung und des Zeilenumbruchs hängt hauptsächlich von der Verfügbarkeit geeigneter [proper fonts](/slides/de/net/powerpoint-fonts/) sowie von Layout‑/Zeilenumbruch‑Einstellungen für das Schriftsystem ab. Stellen Sie sicher, dass die benötigten Schriftarten verfügbar sind, konfigurieren Sie [font substitution rules](/slides/de/net/font-substitution/) und/oder betten Sie [embed fonts](/slides/de/net/embedded-font/) in die Präsentation ein.
+In Aspose.Slides dient die [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) der Rechtschreibprüfung. Die Qualität der Silbentrennung und das Zeilenumbruchverhalten hängen hauptsächlich von der Verfügbarkeit geeigneter Schriften ([proper fonts](/slides/de/net/powerpoint-fonts/)) sowie von Layout‑ und Zeilenumbruch‑Einstellungen für das Schriftsystem ab. Stellen Sie die erforderlichen Schriften bereit, konfigurieren Sie [font substitution rules](/slides/de/net/font-substitution/), und/oder [embed fonts](/slides/de/net/embedded-font/) in die Präsentation, um korrektes Rendering sicherzustellen.
 
-**Kann ich verschiedene Sprachen innerhalb eines einzigen Absatzes festlegen?**
+**Kann ich verschiedene Sprachen innerhalb eines einzelnen Absatzes festlegen?**
 
-Ja. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) wird auf Ebene des Textabschnitts angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Prüf­einstellungen mischen kann.
+Ja. Die [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) wird auf Textebene (Portion) angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Prüf‑Einstellungen mischen kann.

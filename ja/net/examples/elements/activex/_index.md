@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用して PowerPoint プレゼンテーションの ActiveX コントロールを検索、編集、削除し、プロパティの更新方法を学びます。"
+description: "C# と Aspose.Slides を使用して PowerPoint プレゼンテーションの ActiveX コントロールを検索、編集、削除し、プロパティを更新する方法を学びます。"
 ---
 
-**Aspose.Slides for .NET** を使用して、プレゼンテーション内の ActiveX コントロールを追加、アクセス、削除、および設定する方法を示します。
+**Aspose.Slides for .NET** を使用して、プレゼンテーションに ActiveX コントロールを追加、アクセス、削除、および構成する方法を示します。
 
-## ActiveX コントロールの追加
+## **ActiveX コントロールの追加**
 
-新しい ActiveX コントロールを挿入し、必要に応じてそのプロパティを設定します。
+新しい ActiveX コントロールを挿入し、必要に応じてプロパティを設定します。
 ```csharp
 static void Add_ActiveX()
 {
@@ -32,7 +32,7 @@ static void Add_ActiveX()
     // 新しい ActiveX コントロール (TextBox) を追加
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-    // オプションでいくつかのプロパティを設定
+    // 任意でいくつかのプロパティを設定
     control.Properties["Value"] = "Default text";
 
     pres.Save("add_activex.pptm", SaveFormat.Pptm);
@@ -40,9 +40,9 @@ static void Add_ActiveX()
 ```
 
 
-## ActiveX コントロールへのアクセス
+## **ActiveX コントロールへのアクセス**
 
-スライド上の最初の ActiveX コントロールから情報を取得します。
+スライド上の最初の ActiveX コントロールから情報を読み取ります。
 ```csharp
 static void Access_ActiveX()
 {
@@ -60,7 +60,7 @@ static void Access_ActiveX()
 ```
 
 
-## ActiveX コントロールの削除
+## **ActiveX コントロールの削除**
 
 スライドから既存の ActiveX コントロールを削除します。
 ```csharp
@@ -80,9 +80,9 @@ static void Remove_ActiveX()
 ```
 
 
-## ActiveX プロパティの設定
+## **ActiveX プロパティの設定**
 
-コントロールを追加し、複数の ActiveX プロパティを設定します。
+コントロールを追加し、複数の ActiveX プロパティを構成します。
 ```csharp
 static void Set_ActiveX_Properties()
 {

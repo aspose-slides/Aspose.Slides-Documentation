@@ -1,5 +1,5 @@
 ---
-title: "Open XML SDK を使用して .NET で PPT、PPTX、ODP ファイルからテキストを抽出する方法"
+title: ".NET で Open XML SDK を使用して PPT、PPTX、ODP ファイルからテキストを抽出する方法"
 linktitle: Open XML SDK
 type: docs
 weight: 20
@@ -13,23 +13,21 @@ keywords:
 - プレゼンテーションテキスト抽出
 - マスタースライド
 - スピーカーノート
-- スライドからテキストを抽出
+- スライドからテキスト抽出
 - C#
-description: "Open XML SDK を使用して .NET で PPT、PPTX、ODP からテキストを抽出する方法を学びます。XML ベースのアクセス、パフォーマンスに関するヒント、クラウドアプリ向けの変換回避策も紹介します。"
+description: "Open XML SDK を使用して .NET で PPT、PPTX、ODP からテキストを抽出する方法を学びます。XML ベースのアクセス、パフォーマンスのヒント、クラウド アプリ向けの変換回避策が含まれます。"
 ---
 
-# Open XML SDK を使用した PPT、PPTX、ODP からのテキスト抽出
+## **Open XML SDK**
 
-## Open XML SDK
+**Open XML SDK** は、特に Open XML 標準に準拠した **PPTX** からプレゼンテーション ファイルのテキストを抽出するための、非常に構造化され効率的な方法を提供します。基になる XML へ直接アクセスできるため、従来の方法に比べてスライド コンテンツの処理がより高速かつ柔軟になります。
 
-**Open XML SDK** は、プレゼンテーション ファイル（特に Open XML 標準に準拠した **PPTX**）からテキストを抽出するための、非常に構造化され効率的な手段を提供します。基礎となる XML へ直接アクセスできるため、従来の方法と比べてスライド コンテンツの処理がより高速かつ柔軟になります。
+## **Direct XML Access**
 
-## 直接 XML アクセス
+- **Analyze Text Directly**: Open XML SDK を使用すると、スライドをレンダリングせずに XML パーツからテキストを抽出できます。
+- **Structured Elements**: テキストは明確に定義された XML タグに格納されているため、取得および処理が容易です。
 
-- **テキストを直接解析**: Open XML SDK を使用すると、スライドをレンダリングせずに XML パーツからテキストを抽出できます。
-- **構造化された要素**: テキストは明確に定義された XML タグに保存されているため、取得と処理がシンプルになります。
-
-### 例: スライド XML コンテンツからテキストを直接抽出
+### **Example: Extracting Text Directly from Slide XML Content**
 ```csharp
 using (PresentationDocument presentation = PresentationDocument.Open("presentation.pptx", false))
 {
@@ -46,13 +44,13 @@ using (PresentationDocument presentation = PresentationDocument.Open("presentati
 ```
 
 
-## パフォーマンス上の利点
+## **Performance Advantages**
 
-- **高速な抽出**: PowerPoint やその他の高レベル API を開くオーバーヘッドを回避します。
-- **低メモリ使用量**: 関連する XML パーツだけにアクセスするため、リソース消費が削減されます。
-- **Microsoft PowerPoint 不要**: 追加インストールの要件が不要になります。
+- **Faster Extraction**: PowerPoint やその他の高レベル API を開くオーバーヘッドを回避します。
+- **Lower Memory Usage**: 関連する XML パーツだけにアクセスするため、リソース消費が削減されます。
+- **No Microsoft PowerPoint Needed**: 追加のインストール要件が不要になります。
 
-### 例: プレゼンテーション全体をロードせずに効率的にテキストを抽出
+### **Example: Efficiently Extracting Text Without Loading the Entire Presentation**
 ```csharp
 using (PresentationDocument presentation = PresentationDocument.Open("presentation.pptx", false))
 {
@@ -65,24 +63,24 @@ using (PresentationDocument presentation = PresentationDocument.Open("presentati
 ```
 
 
-## テキスト要素の特定
+## **Identifying Text Elements**
 
-### プレゼンテーションからテキストを抽出する際の詳細
+### **Specifics of Extracting Text from Presentations**
 
-プレゼンテーションからテキストを抽出する際は、以下の点を考慮してください。
+プレゼンテーションからテキストを抽出する際は、以下の点に注意してください。
 
-- **テキストはさまざまなセクションに存在する可能性**: 通常のスライド、マスタースライド、レイアウト、またはスピーカーノート。
-- **デフォルトのプレースホルダー**: マスタースライドやレイアウトには、実際のプレゼンテーション コンテンツではないプレースホルダー（例: “Click to edit Master title style”）が含まれることがあります。
-- **空または非表示テキストのフィルタリング**: 一部の要素は空であるか、表示を意図していない場合があります。
+- **Text May Reside in Different Sections**: 通常スライド、マスタースライド、レイアウト、またはスピーカーノートに存在する可能性があります。
+- **Default Placeholders**: マスタースライドやレイアウトには、実際のプレゼンテーション コンテンツではないプレースホルダー（例: “Click to edit Master title style”）が含まれることがあります。
+- **Filtering Empty or Hidden Text**: 空の要素や表示されないテキストが含まれることがあります。
 
-### テキストを含むタグ
+### **Tags Containing Text**
 
-**PPTX** ファイルでは、テキストは通常次の場所に保存されます。
+**PPTX** ファイルでは、テキストは一般的に以下の要素に格納されます。
 
-- `<a:p>`（段落）内の `<a:t>` 要素
+- `<a:t>` 要素（`<a:p>`（段落）内）
 - `<a:r>` 要素（段落内のテキスト セグメント）
 
-### 例: スライドからすべてのテキスト要素を抽出
+### **Example: Extracting All Text Elements from a Slide**
 ```csharp
 var textElements = slidePart.Slide.Descendants<DocumentFormat.OpenXml.Drawing.Text>();
 foreach (var text in textElements)
@@ -92,36 +90,36 @@ foreach (var text in textElements)
 ```
 
 
-## ODP と PPT
+## **ODP and PPT**
 
-### テキストを直接抽出できない理由
+### **Inability to Extract Text Directly**
 
-- **PPTX** とは異なり、**PPT**（バイナリ形式）および **ODP**（OpenDocument Presentation）は Open XML SDK で **サポートされていません**。
-- **PPT** はクローズド バイナリ形式でコンテンツを保存しているため、テキスト抽出が複雑になります。
+- **PPTX** と異なり、**PPT**（バイナリ形式）および **ODP**（OpenDocument Presentation）は Open XML SDK では **サポートされていません**。
+- **PPT** は閉鎖的なバイナリ形式でコンテンツを保存しているため、テキスト抽出が困難です。
 - **ODP** は **OpenDocument XML** に依存しており、構造が PPTX と異なります。
 
-### 回避策: PPTX への変換
+### **Workaround: Converting to PPTX**
 
-**PPT** または **ODP** からテキストを抽出するには、以下の手順が推奨されます。
+**PPT** または **ODP** からテキストを抽出する推奨手順は次のとおりです。
 
-1. PowerPoint またはサードパーティ製ツールを使用して **PPT → PPTX** に変換します。
-2. LibreOffice または PowerPoint を使用して **ODP → PPTX** に変換します。
-3. 変換後の PPTX から Open XML SDK を使って **テキストを抽出** します。
+1. **Convert PPT → PPTX** を PowerPoint またはサードパーティ ツールで実行します。  
+2. **Convert ODP → PPTX** を LibreOffice または PowerPoint で実行します。  
+3. 新しい PPTX から Open XML SDK を使用してテキストを抽出します。
 
-### 例: LibreOffice のコマンドラインで ODP を PPTX に変換
+### **Example: Converting ODP to PPTX via LibreOffice Command Line**
 ```sh
 soffice --headless --convert-to pptx presentation.odp
 ```
 
 
-## サポートされているプラットフォームとフレームワーク
+## **Supported Platforms and Frameworks**
 
-- **Windows**: .NET Framework 4.6.1 以降、.NET Core 2.1 以降、.NET 5/6/7。
-- **Linux/macOS**: .NET Core 2.1 以降、.NET 5/6/7。
-- **クラウド環境**: Microsoft Azure Functions、AWS Lambda（.NET Core）、Docker コンテナ。
-- **Office アプリケーションとの互換性**: Microsoft Office のインストールは不要です。
-- **サポートされているプログラミング言語**: Open XML SDK は **C#**、**VB.NET**、**F#**、その他 .NET 対応言語で使用可能です。
+- **Windows**: .NET Framework 4.6.1 以上、.NET Core 2.1 以降、.NET 5/6/7。  
+- **Linux/macOS**: .NET Core 2.1 以降、.NET 5/6/7。  
+- **Cloud Environments**: Microsoft Azure Functions、AWS Lambda（.NET Core）、Docker コンテナ。  
+- **Compatibility with Office Applications**: Microsoft Office のインストールは不要です。  
+- **Supported Programming Languages**: Open XML SDK は **C#**、**VB.NET**、**F#** など、.NET がサポートする言語で使用できます。
 
-## 結論
+## **Conclusion**
 
-**Open XML SDK** を活用した **PPTX テキスト抽出** は、効率性と明快さの両方を提供します。一方、**PPT と ODP** ではスムーズな処理のために最初に変換ステップが必要です。このアプローチを採用することで、**高いパフォーマンス**、**柔軟性**、そして最新の .NET アプリケーションとの **幅広い互換性** が確保されます。
+**Open XML SDK** を利用した **PPTX テキスト抽出** は、効率と明快さの両方を提供します。一方、**PPT** および **ODP** はスムーズな処理のために最初に変換ステップが必要です。このアプローチを採用することで、**高性能**、**柔軟性**、そして最新の .NET アプリケーションとの **広範な互換性** が確保されます。

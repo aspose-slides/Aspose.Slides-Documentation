@@ -17,125 +17,125 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in PowerPoint PPT-, PPTX- und ODP-Präsentationen in .NET mit Aspose.Slides sowohl mit der Legacy- als auch mit der modernen Diagramm-API erstellen."
+description: "Erfahren Sie, wie Sie in .NET mit Aspose.Slides Diagramme in PowerPoint PPT-, PPTX- und ODP-Präsentationen sowohl mit der Legacy- als auch mit der modernen Diagramm-API erstellen."
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides for .NET API](/slides/de/net/) wurde veröffentlicht und unterstützt nun die Möglichkeit, PowerPoint‑Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
+Eine neue [Aspose.Slides for .NET API](/slides/de/net/) wurde veröffentlicht und unterstützt jetzt die Möglichkeit, PowerPoint‑Dokumente von Grund auf zu erstellen und vorhandene zu bearbeiten.
 
 {{% /alert %}} 
-## **Unterstützung für Legacy‑Code**
-Um den mit Aspose.Slides for .NET entwickelten Legacy‑Code, der für Versionen vor 13.x erstellt wurde, zu verwenden, müssen Sie einige kleine Änderungen in Ihrem Code vornehmen, und der Code funktioniert wie zuvor. Alle Klassen, die im alten Aspose.Slides for .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind nun in einem einzigen Aspose.Slides‑Namespace zusammengeführt. Bitte sehen Sie sich das folgende einfache Code‑Snippet an, das ein normales Diagramm von Grund auf in einer Präsentation erstellt, und folgen Sie den Schritten, die beschreiben, wie man zur neuen zusammengeführten API migriert.
-## **Legacy Aspose.Slides for .NET Ansatz**
+## **Support for Legacy Code**
+Um den mit früheren Aspose.Slides für .NET‑Versionen (vor 13.x) entwickelten Legacy‑Code zu verwenden, müssen Sie einige kleine Änderungen an Ihrem Code vornehmen, und der Code wird wie zuvor funktionieren. Alle Klassen, die in den alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind jetzt in einem einzigen Aspose.Slides‑Namespace zusammengeführt. Bitte schauen Sie sich das folgende einfache Code‑Snippet an, das ein normales Diagramm von Grund auf in einer Präsentation mit der Legacy‑Aspose.Slides‑API erstellt, und folgen Sie den Schritten, die die Migration zur neuen zusammengeführten API beschreiben.
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
-//Instanziiere die PresentationEx‑Klasse, die die PPTX‑Datei repräsentiert
-using (PresentationEx pres = new PresentationEx())
-{
-	//Zugriff auf die erste Folie
-	SlideEx sld = pres.Slides[0];
+	//Instanziiere PresentationEx class that represents PPTX file
+	using (PresentationEx pres = new PresentationEx())
+	{
+		//Greife auf first slide
+		SlideEx sld = pres.Slides[0];
 
-	// Diagramm mit Standarddaten hinzufügen
-	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
+		// Diagram with default data
+		ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-	//Diagrammtitel festlegen
-	chart.ChartTitle.Text.Text = "Sample Title";
-	chart.ChartTitle.Text.CenterText = true;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
+		//Diagrammtitel festlegen
+		chart.ChartTitle.Text.Text = "Sample Title";
+		chart.ChartTitle.Text.CenterText = true;
+		chart.ChartTitle.Height = 20;
+		chart.HasTitle = true;
 
-	//Erste Serie so einstellen, dass Werte angezeigt werden
-	chart.ChartData.Series[0].Labels.ShowValue = true;
+		//Erste Serie auf Show Values setzen
+		chart.ChartData.Series[0].Labels.ShowValue = true;
 
-	//Index des Diagrammdatenblatts festlegen 
-	int defaultWorksheetIndex = 0;
+		//Index des chart data sheet festlegen 
+		int defaultWorksheetIndex = 0;
 
-	//Diagrammdaten‑Arbeitsblatt abrufen
-	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
+		//Diagrammdaten worksheet abrufen
+		ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-	//Standardgenerierte Serien und Kategorien löschen
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-	int s = chart.ChartData.Series.Count;
-	s = chart.ChartData.Categories.Count;
+		//Standardmäßig generierte series and categories löschen
+		chart.ChartData.Series.Clear();
+		chart.ChartData.Categories.Clear();
+		int s = chart.ChartData.Series.Count;
+		s = chart.ChartData.Categories.Count;
 
-	//Neue Serien hinzufügen
-	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+		//Neue series hinzufügen
+		chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
+		chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-	//Neue Kategorien hinzufügen
-	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+		//Neue categories hinzufügen
+		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-	//Erste Diagrammserie übernehmen
-	ChartSeriesEx series = chart.ChartData.Series[0];
+		//Erste chart series übernehmen
+		ChartSeriesEx series = chart.ChartData.Series[0];
 
-	//Jetzt Daten für die Serie füllen
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+		//Jetzt populating series data
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-	//Füllfarbe für die Serie festlegen
-	series.Format.Fill.FillType = FillTypeEx.Solid;
-	series.Format.Fill.SolidFillColor.Color = Color.Red;
-
-
-	//Zweite Diagrammserie übernehmen
-	series = chart.ChartData.Series[1];
-
-	//Jetzt Daten für die Serie füllen
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-	//Füllfarbe für die Serie festlegen
-	series.Format.Fill.FillType = FillTypeEx.Solid;
-	series.Format.Fill.SolidFillColor.Color = Color.Green;
+		//Füllfarbe für series festlegen
+		series.Format.Fill.FillType = FillTypeEx.Solid;
+		series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-	//Benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie erstellen
+		//Zweite chart series übernehmen
+		series = chart.ChartData.Series[1];
 
-	//Erste Beschriftung zeigt den Kategorienamen
-	DataLabelEx lbl = new DataLabelEx(series);
-	lbl.ShowCategoryName = true;
-	lbl.Id = 0;
-	series.Labels.Add(lbl);
+		//Jetzt populating series data
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
+		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-	//Zweite Beschriftung zeigt den Seriennamen
-	lbl = new DataLabelEx(series);
-	lbl.ShowSeriesName = true;
-	lbl.Id = 1;
-	series.Labels.Add(lbl);
+		//Füllfarbe für series festlegen
+		series.Format.Fill.FillType = FillTypeEx.Solid;
+		series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-	//Dritte Beschriftung zeigt den Wert
-	lbl = new DataLabelEx(series);
-	lbl.ShowValue = true;
-	lbl.ShowSeriesName = true;
-	lbl.Separator = "/";
-	lbl.Id = 2;
-	series.Labels.Add(lbl);
 
-	//Wert und benutzerdefinierten Text anzeigen
-	lbl = new DataLabelEx(series);
-	lbl.TextFrame.Text = "My text";
-	lbl.Id = 3;
-	series.Labels.Add(lbl);
+		//Benutzerdefinierte labels für each of categories für new series erstellen
 
-	//Präsentation mit Diagramm speichern
-	pres.Write(@"D:\AsposeChart.pptx");
-}
+		//Erste label will be show Category name
+		DataLabelEx lbl = new DataLabelEx(series);
+		lbl.ShowCategoryName = true;
+		lbl.Id = 0;
+		series.Labels.Add(lbl);
+
+		//Serie-Name für second label anzeigen
+		lbl = new DataLabelEx(series);
+		lbl.ShowSeriesName = true;
+		lbl.Id = 1;
+		series.Labels.Add(lbl);
+
+		//Wert für third label anzeigen
+		lbl = new DataLabelEx(series);
+		lbl.ShowValue = true;
+		lbl.ShowSeriesName = true;
+		lbl.Separator = "/";
+		lbl.Id = 2;
+		series.Labels.Add(lbl);
+
+		//Wert und custom text anzeigen
+		lbl = new DataLabelEx(series);
+		lbl.TextFrame.Text = "My text";
+		lbl.Id = 3;
+		series.Labels.Add(lbl);
+
+		//Präsentation mit chart speichern
+		pres.Write(@"D:\AsposeChart.pptx");
+	}
 ```
 
 
 
 
-## **Neuer Aspose.Slides for .NET 13.x Ansatz**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 //Instanziiere Presentation-Klasse, die PPTX-Datei repräsentiert//Instanziiere Presentation-Klasse, die PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 
-//Zugriff auf die erste Folie
+//Greife auf die erste Folie zu
 ISlide sld = pres.Slides[0];
 
 // Diagramm mit Standarddaten hinzufügen
@@ -148,16 +148,16 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//Erste Serie so einstellen, dass Werte angezeigt werden
+//Erste Serie auf Werte anzeigen setzen
 chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-//Index des Diagrammdatenblatts festlegen
+//Index des Diagrammdatentabells festlegen
 int defaultWorksheetIndex = 0;
 
 //Diagrammdaten-Arbeitsblatt abrufen
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//Standardgenerierte Serien und Kategorien löschen
+//Standardmäßig erzeugte Serien und Kategorien löschen
 chart.ChartData.Series.Clear();
 chart.ChartData.Categories.Clear();
 int s = chart.ChartData.Series.Count;
@@ -175,13 +175,13 @@ chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caeteg
 //Erste Diagrammserie übernehmen
 IChartSeries series = chart.ChartData.Series[0];
 
-//Jetzt Daten für die Serie füllen
+//Jetzt die Seriendaten befüllen
 
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-//Füllfarbe für die Serie festlegen
+//Füllfarbe für Serie festlegen
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
@@ -189,17 +189,17 @@ series.Format.Fill.SolidFillColor.Color = Color.Red;
 //Zweite Diagrammserie übernehmen
 series = chart.ChartData.Series[1];
 
-//Jetzt Daten für die Serie füllen
+//Jetzt die Seriendaten befüllen
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-//Füllfarbe für die Serie festlegen
+//Füllfarbe für Serie festlegen
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-//Benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie erstellen
+//Benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serien erstellen
 
 //Erste Beschriftung zeigt den Kategorienamen
 IDataLabel lbl = series.DataPoints[0].Label;
@@ -208,7 +208,7 @@ lbl.DataLabelFormat.ShowCategoryName = true;
 lbl = series.DataPoints[1].Label;
 lbl.DataLabelFormat.ShowSeriesName = true;
 
-//Dritte Beschriftung zeigt den Wert
+//Wert für die dritte Beschriftung anzeigen
 lbl = series.DataPoints[2].Label;
 lbl.DataLabelFormat.ShowValue = true;
 lbl.DataLabelFormat.ShowSeriesName = true;
@@ -219,9 +219,9 @@ pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 
-Bitte sehen Sie sich das folgende einfache Code‑Snippet an, das ein Streudiagramm von Grund auf in einer Präsentation erstellt, und wie man dies mit der neuen zusammengeführten API erreicht.
+Bitte schauen Sie sich das folgende einfache Code‑Snippet an, das ein Streudiagramm von Grund auf in einer Präsentation mit der Legacy‑Aspose.Slides‑API erstellt, und wie es mit der neuen zusammengeführten API erreicht wird.
 
-## **Legacy Aspose.Slides for .NET Ansatz**
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 using (PresentationEx pres = new PresentationEx())
 {
@@ -230,10 +230,10 @@ using (PresentationEx pres = new PresentationEx())
     //Erstellen des Standarddiagramms
     ChartEx chart = slide.Shapes.AddChart(ChartTypeEx.ScatterWithSmoothLines, 0, 0, 400, 400);
 
-    //Abrufen des Index des Standarddiagramm-Datenarbeitsblatts
+    //Abrufen des Index des Standard-Datenarbeitsblatts des Diagramms
     int defaultWorksheetIndex = 0;
 
-    //Zugriff auf das Diagrammdaten-Arbeitsblatt
+    //Zugriff auf das Diagramm-Datenarbeitsblatt
     ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
     //Demo-Serien löschen
@@ -257,7 +257,7 @@ using (PresentationEx pres = new PresentationEx())
     //Typ der Serie bearbeiten
     series.Type = ChartTypeEx.ScatterWithStraightLinesAndMarkers;
 
-    //Diagramm-Serienmarker ändern
+    //Diagrammserien-Marker ändern
     series.MarkerSize = 10;
     series.MarkerSymbol = MarkerStyleTypeEx.Star;
 
@@ -280,7 +280,7 @@ using (PresentationEx pres = new PresentationEx())
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
-    //Diagramm-Serienmarker ändern
+    //Diagrammserien-Marker ändern
     series.MarkerSize = 10;
     series.MarkerSymbol = MarkerStyleTypeEx.Circle;
 
@@ -290,8 +290,7 @@ using (PresentationEx pres = new PresentationEx())
 
 
 
-
-## **Neuer Aspose.Slides for .NET 13.x Ansatz**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 Presentation pres = new Presentation();
 
@@ -300,10 +299,10 @@ ISlide slide = pres.Slides[0];
 //Erstellen des Standarddiagramms
 IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
 
-//Abrufen des Index des Standarddiagrammdaten-Arbeitsblatts
+//Abrufen des Index des Standard-Datenarbeitsblatts des Diagramms
 int defaultWorksheetIndex = 0;
 
-//Zugriff auf das Diagrammdaten-Arbeitsblatt
+//Zugriff auf das Diagramm-Datenarbeitsblatt
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 //Demo-Serien löschen
@@ -325,7 +324,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //Typ der Serie bearbeiten
 series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-//Diagramm-Serienmarker ändern
+//Diagrammserien-Marker ändern
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Star;
 
@@ -344,7 +343,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //Neuen Punkt (5:1) hinzufügen.
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
-//Diagramm-Serienmarker ändern
+//Diagrammserien-Marker ändern
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Circle;
 

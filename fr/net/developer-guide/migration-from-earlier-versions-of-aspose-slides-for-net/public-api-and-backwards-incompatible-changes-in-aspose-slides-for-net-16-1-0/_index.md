@@ -16,20 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les classes, méthodes, propriétés et ainsi de suite [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/), ainsi que les autres modifications introduites avec l'API Aspose.Slides for .NET 16.1.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ainsi que les autres changements introduits avec l'API Aspose.Slides pour .NET 16.1.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
 
 
-#### **La propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat**
-La propriété RotationAngle a été ajoutée aux interfaces Aspose.Slides.Charts.IChartTextBlockFormat et Aspose.Slides.ITextFrameFormat.
-Elle indique la rotation personnalisée appliquée au texte à l'intérieur de la zone de délimitation.
+#### **La propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat**  
+La propriété RotationAngle a été ajoutée aux interfaces Aspose.Slides.Charts.IChartTextBlockFormat et Aspose.Slides.ITextFrameFormat.  
+Elle spécifie la rotation personnalisée qui est appliquée au texte à l'intérieur de la boîte de délimitation.
 
 ``` csharp
 
@@ -55,4 +55,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException déplacée de Aspose.Slides.Odp vers l'espace de noms Aspose.Slides**
+#### **OdpException déplacé de Aspose.Slides.Odp vers l'espace de noms Aspose.Slides**

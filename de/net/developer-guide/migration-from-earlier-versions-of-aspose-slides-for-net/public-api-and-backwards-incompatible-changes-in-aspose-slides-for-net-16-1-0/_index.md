@@ -1,14 +1,14 @@
 ---
-title: Öffentliche API- und rückwärtsinkompatible Änderungen in Aspose.Slides für .NET 16.1.0
-linktitle: Aspose.Slides for .NET 16.1.0
+title: Öffentliche API- und abwärtskompatibilitätsunverträgliche Änderungen in Aspose.Slides für .NET 16.1.0
+linktitle: Aspose.Slides für .NET 16.1.0
 type: docs
 weight: 220
 url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
 - Migration
 - Legacy-Code
-- Modern-Code
-- Altansatz
+- Moderner Code
+- Legacy-Ansatz
 - Moderner Ansatz
 - PowerPoint
 - OpenDocument
@@ -20,12 +20,15 @@ description: "Überprüfen Sie die öffentlichen API-Updates und breaking change
 ---
 
 {{% alert color="primary" %}} 
-Diese Seite listet alle [added](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) oder [removed](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) Klassen, Methoden, Eigenschaften und so weiter sowie weitere Änderungen, die mit der Aspose.Slides für .NET 16.1.0 API eingeführt wurden.
-{{% /alert %}} 
-## **Öffentliche API-Änderungen**
 
-#### **Eigenschaft RotationAngle wurde zu den Schnittstellen IChartTextBlockFormat und ITextFrameFormat hinzugefügt**
-Die Eigenschaft RotationAngle wurde zu den Schnittstellen Aspose.Slides.Charts.IChartTextBlockFormat und Aspose.Slides.ITextFrameFormat hinzugefügt.
+Diese Seite listet alle hinzugefügten oder entfernten Klassen, Methoden, Eigenschaften usw. sowie weitere Änderungen auf, die mit der Aspose.Slides für .NET 16.1.0 API eingeführt wurden.
+
+{{% /alert %}} 
+## **Änderungen der öffentlichen API**
+
+
+#### **Die Eigenschaft RotationAngle wurde zu den Interfaces IChartTextBlockFormat und ITextFrameFormat hinzugefügt**
+Die Eigenschaft RotationAngle wurde zu den Interfaces Aspose.Slides.Charts.IChartTextBlockFormat und Aspose.Slides.ITextFrameFormat hinzugefügt.
 Sie gibt die benutzerdefinierte Drehung an, die auf den Text innerhalb des Begrenzungsrahmens angewendet wird.
 
 ``` csharp
@@ -52,4 +55,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException wurde vom Namespace Aspose.Slides.Odp in den Namespace Aspose.Slides verschoben**
+#### **OdpException von Aspose.Slides.Odp nach Aspose.Slides Namespace verschoben**

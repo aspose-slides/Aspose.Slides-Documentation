@@ -14,42 +14,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "学习使用 Aspose.Slides for .NET 在 PowerPoint 幻灯片中分组和取消分组形状——快速、一步步的指南，提供免费 C# 代码。"
+description: "学习使用 Aspose.Slides for .NET 对 PowerPoint 幻灯片进行形状的分组和解除分组——快速、一步步的指南，附带免费 C# 代码。"
 ---
 
 ## **添加组形状**
-Aspose.Slides 支持在幻灯片上使用组形状。此功能帮助开发者创建更丰富的演示文稿。Aspose.Slides for .NET 支持添加或访问组形状。可以向已添加的组形状中添加形状以填充它，或访问组形状的任何属性。使用 Aspose.Slides for .NET 将组形状添加到幻灯片的方法如下：
+Aspose.Slides 支持在幻灯片上使用组形状。此功能帮助开发者创建更丰富的演示文稿。Aspose.Slides for .NET 支持添加或访问组形状。可以向已添加的组形状中添加子形状以填充它，或访问组形状的任何属性。使用 Aspose.Slides for .NET 将组形状添加到幻灯片的步骤如下：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。  
-2. 使用其索引获取幻灯片的引用。  
-3. 向幻灯片添加组形状。  
-4. 向已添加的组形状中添加形状。  
-5. 将修改后的演示文稿另存为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 使用索引获取幻灯片的引用。
+1. 向幻灯片添加组形状。
+1. 向已添加的组形状中添加子形状。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
 下面的示例向幻灯片添加了一个组形状。
 ```c#
-// 实例化 Presentation 类
+// 实例化 Presentation 类 
 using (Presentation pres = new Presentation())
 {
-    // 获取第一张幻灯片
+    // 获取第一张幻灯片 
     ISlide sld = pres.Slides[0];
 
-    // 访问幻灯片的形状集合
+    // 访问幻灯片的形状集合 
     IShapeCollection slideShapes = sld.Shapes;
 
-    // 向幻灯片添加组形状
+    // 向幻灯片添加组形状 
     IGroupShape groupShape = slideShapes.AddGroupShape();
 
-    // 向已添加的组形状中添加形状
+    // 在添加的组形状中添加形状 
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // 添加组形状框架
+    // 添加组形状框架 
     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
-    // 将 PPTX 文件写入磁盘
+    // 将 PPTX 文件写入磁盘 
     pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -58,13 +58,13 @@ using (Presentation pres = new Presentation())
 
 
 ## **访问 AltText 属性**
-本主题展示了添加组形状并访问幻灯片上组形状 AltText 属性的简要步骤和代码示例。使用 Aspose.Slides for .NET 在幻灯片中访问组形状的 AltText：
+本章节展示了添加组形状并访问幻灯片上组形状 AltText 属性的简要步骤及代码示例。使用 Aspose.Slides for .NET 在幻灯片中访问组形状的 AltText 的步骤如下：
 
-1. 实例化表示 PPTX 文件的 `Presentation` 类。  
-2. 使用其索引获取幻灯片的引用。  
-3. 访问幻灯片的形状集合。  
-4. 访问组形状。  
-5. 访问 AltText 属性。
+1. 实例化表示 PPTX 文件的 `Presentation` 类。
+1. 使用索引获取幻灯片的引用。
+1. 访问幻灯片的形状集合。
+1. 访问组形状。
+1. 访问 AltText 属性。
 
 下面的示例访问了组形状的替代文本。
 ```c#
@@ -96,14 +96,14 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
 ## **常见问题**
 
-**是否支持嵌套分组（组内还有组）？**
+**是否支持嵌套分组（组内包含组）？**
 
-是的。[GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) 具有 [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/) 属性，直接表明支持层级结构（一个组可以是另一个组的子级）。
+是的。[GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) 拥有一个 [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/) 属性，直接指示层次结构支持（一个组可以是另一个组的子级）。
 
 **如何控制组相对于幻灯片上其他对象的 Z 顺序？**
 
-使用 [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) 的 [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) 属性检查其在显示堆栈中的位置。
+使用 [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) 的 [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) 属性即可检查其在显示堆栈中的位置。
 
-**我能阻止移动/编辑/取消组合吗？**
+**我能阻止移动/编辑/取消分组吗？**
 
-可以。组的锁定部分通过 [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/) 公开，您可以限制对该对象的操作。
+可以。组的锁定部分通过 [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/) 暴露，您可以限制对该对象的操作。

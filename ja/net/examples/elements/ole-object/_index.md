@@ -1,26 +1,26 @@
 ---
-title: OleObject
+title: OLEオブジェクト
 type: docs
 weight: 210
 url: /ja/net/examples/elements/ole-object/
 keywords:
-- OLEオブジェクトの例
-- OLEオブジェクトの追加
-- OLEオブジェクトへのアクセス
-- OLEオブジェクトの削除
-- OLEオブジェクトの更新
+- OLE オブジェクト例
+- OLE オブジェクトの追加
+- OLE オブジェクトへのアクセス
+- OLE オブジェクトの削除
+- OLE オブジェクトの更新
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# で Aspose.Slides を使用して OLE オブジェクトを操作します: 埋め込みファイルの挿入または更新、アイコンやリンクの設定、コンテンツの抽出、PPT、PPTX、ODP の動作を制御します。"
+description: "C# で Aspose.Slides を使用して OLE オブジェクトを操作します。埋め込みファイルの挿入や更新、アイコンやリンクの設定、コンテンツの抽出、PPT、PPTX、ODP の動作制御が可能です。"
 ---
 
-**Aspose.Slides for .NET** を使用して、ファイルを OLE オブジェクトとして埋め込み、そのデータを更新する方法を示します。
+OLE オブジェクトとしてファイルを埋め込み、そのデータを更新する方法を **Aspose.Slides for .NET** を使用して示します。
 
-## OLE オブジェクトの追加
+## **OLE オブジェクトの追加**
 
 PDF ファイルをプレゼンテーションに埋め込みます。
 ```csharp
@@ -35,9 +35,9 @@ static void Add_Ole_Object()
 ```
 
 
-## OLE オブジェクトへのアクセス
+## **OLE オブジェクトへのアクセス**
 
-スライド上の最初の OLE オブジェクト フレームを取得します。
+スライド上の最初の OLE オブジェクトフレームを取得します。
 ```csharp
 static void Access_Ole_Object()
 {
@@ -51,7 +51,7 @@ static void Access_Ole_Object()
 ```
 
 
-## OLE オブジェクトの削除
+## **OLE オブジェクトの削除**
 
 スライドから埋め込まれた OLE オブジェクトを削除します。
 ```csharp
@@ -67,7 +67,7 @@ static void Remove_Ole_Object()
 ```
 
 
-## OLE オブジェクト データの更新
+## **OLE オブジェクト データの更新**
 
 既存の OLE オブジェクトに埋め込まれたデータを置き換えます。
 ```csharp

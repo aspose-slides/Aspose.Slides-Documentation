@@ -13,16 +13,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérez l'encre numérique sur les diapositives en C# avec Aspose.Slides : ajoutez des traits de stylet, modifiez les chemins, définissez la couleur et la largeur, et exportez les résultats pour PowerPoint et OpenDocument."
+description: "Manipulez l'encre numérique sur les diapositives en C# avec Aspose.Slides : ajoutez des traits de stylet, modifiez les tracés, définissez la couleur et la largeur, puis exportez les résultats vers PowerPoint et OpenDocument."
 ---
 
 Fournit des exemples d'accès aux formes d'encre existantes et de leur suppression à l'aide de **Aspose.Slides for .NET**.
 
-> ❗ **Remarque:** Les formes d'encre représentent les entrées utilisateur provenant d'appareils spécialisés. Aspose.Slides ne peut pas créer de nouveaux traits d'encre programmétiquement, mais vous pouvez lire et modifier l'encre existante.
+> ❗ **Note:** Les formes d'encre représentent les entrées utilisateur provenant d'appareils spécialisés. Aspose.Slides ne peut pas créer de nouveaux traits d'encre programmaticalement, mais vous pouvez lire et modifier l'encre existante.
 
-## Accéder à l'encre
+## **Accéder à l'encre**
 
-Lire les balises de la première forme d'encre d'une diapositive.
+Lire les balises de la première forme d'encre sur une diapositive.
 ```csharp
 static void Access_Ink()
 {
@@ -42,7 +42,7 @@ static void Access_Ink()
 ```
 
 
-## Supprimer l'encre
+## **Supprimer l'encre**
 
 Supprimer une forme d'encre de la diapositive si elle existe.
 ```csharp

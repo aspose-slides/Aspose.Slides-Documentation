@@ -1,12 +1,12 @@
 ---
-title: TransiciónDeDiapositiva
+title: Transición de diapositiva
 type: docs
 weight: 110
 url: /es/net/examples/elements/slide-transition/
 keywords:
 - ejemplo de transición de diapositiva
 - agregar transición de diapositiva
-- acceder a transición de diapositiva
+- acceder a la transición de diapositiva
 - eliminar transición de diapositiva
 - duración de la transición
 - PowerPoint
@@ -18,9 +18,10 @@ keywords:
 description: "Controla las transiciones de diapositivas en C# con Aspose.Slides: elige tipos, velocidad, sonido y temporización para perfeccionar presentaciones en PPT, PPTX y ODP."
 ---
 
-Demuestra cómo aplicar efectos de transición de diapositivas y sincronizaciones con **Aspose.Slides for .NET**.
+Demuestra cómo aplicar efectos de transición de diapositiva y tiempos con **Aspose.Slides for .NET**.
 
-## Añadir una transición de diapositiva
+## **Agregar una transición de diapositiva**
+
 Aplica un efecto de transición de desvanecimiento a la primera diapositiva.
 ```csharp
 static void Add_Slide_Transition()
@@ -34,7 +35,8 @@ static void Add_Slide_Transition()
 ```
 
 
-## Acceder a una transición de diapositiva
+## **Acceder a una transición de diapositiva**
+
 Lee el tipo de transición asignado actualmente a una diapositiva.
 ```csharp
 static void Access_Slide_Transition()
@@ -49,7 +51,8 @@ static void Access_Slide_Transition()
 ```
 
 
-## Eliminar una transición de diapositiva
+## **Eliminar una transición de diapositiva**
+
 Elimina cualquier efecto de transición estableciendo el tipo a `None`.
 ```csharp
 static void Remove_Slide_Transition()
@@ -58,13 +61,14 @@ static void Remove_Slide_Transition()
     var slide = pres.Slides[0];
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // Eliminar la transición estableciendo none
+    // Eliminar la transición estableciendo None
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
 
-## Establecer duración de la transición
+## **Establecer la duración de la transición**
+
 Especifica cuánto tiempo se muestra la diapositiva antes de avanzar automáticamente.
 ```csharp
 static void Set_Transition_Duration()

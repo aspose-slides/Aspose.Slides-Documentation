@@ -20,7 +20,7 @@ description: "使用 Aspose.Slides 在 C# 中处理数学文本：创建和编�
 
 演示如何使用 **Aspose.Slides for .NET** 处理数学文本形状并格式化公式。
 
-## 添加数学文本
+## **添加数学文本**
 
 创建一个包含分数和勾股公式的数学形状。
 ```csharp
@@ -29,17 +29,17 @@ static void Add_Math_Text()
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // 向幻灯片添加数学形状
+    // 向幻灯片添加一个数学形状
     var mathShape = slide.Shapes.AddMathShape(0, 0, 720, 150);
 
     // 访问数学段落
     var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-    // 添加一个简单的分数：x / y
+    // 添加一个简单分数：x / y
     var fraction = new MathematicalText("x").Divide("y");
     mathParagraph.Add(new MathBlock(fraction));
 
-    // 添加方程式：c² = a² + b²
+    // 添加等式：c² = a² + b²
     var mathBlock = new MathematicalText("c")
         .SetSuperscript("2")
         .Join("=")
@@ -52,9 +52,9 @@ static void Add_Math_Text()
 ```
 
 
-## 访问数学文本
+## **访问数学文本**
 
-在幻灯片上定位包含数学段落的形状。
+定位幻灯片中包含数学段落的形状。
 ```csharp
 static void Access_Math_Text()
 {
@@ -82,8 +82,7 @@ static void Access_Math_Text()
 ```
 
 
-
-## 删除数学文本
+## **删除数学文本**
 
 从幻灯片中删除数学形状。
 ```csharp
@@ -102,7 +101,7 @@ static void Remove_Math_Text()
 ```
 
 
-## 格式化数学文本
+## **格式化数学文本**
 
 为数学部分设置字体属性。
 ```csharp

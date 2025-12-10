@@ -15,16 +15,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Masterfolien in C# mit Aspose.Slides verwalten: Erstellen, Bearbeiten, Klonen und Formatieren von Designs, Hintergründen, Platzhaltern, um Folien in PowerPoint und OpenDocument zu vereinheitlichen."
+description: "Verwalten Sie Masterfolien in C# mit Aspose.Slides: Erstellen, Bearbeiten, Klonen und Formatieren von Designs, Hintergründen und Platzhaltern, um Folien in PowerPoint und OpenDocument zu vereinheitlichen."
 ---
 
-Masterfolien bilden die oberste Ebene der Folienvererbungshierarchie in PowerPoint. Eine **Masterfolie** definiert gemeinsame Designelemente wie Hintergründe, Logos und Textformatierung. **Layoutfolien** erben von Masterfolien, und **Normalfolien** erben von Layoutfolien.
+Masterfolien bilden die oberste Ebene der Folienvererbungs‑Hierarchie in PowerPoint. Eine **Masterfolie** definiert gemeinsame Designelemente wie Hintergründe, Logos und Textformatierung. **Layoutfolien** erben von Masterfolien, und **Normalfolien** erben von Layoutfolien.
 
 Dieser Artikel zeigt, wie man Masterfolien mit Aspose.Slides für .NET erstellt, ändert und verwaltet.
 
-## Masterfolie hinzufügen
+## **Masterfolie hinzufügen**
 
-Dieses Beispiel zeigt, wie man eine neue Masterfolie erstellt, indem man die Standardfolie dupliziert. Anschließend fügt es einen Firmenname-Banner zu allen Folien über die Layout-Vererbung hinzu.
+Dieses Beispiel zeigt, wie man eine neue Masterfolie erstellt, indem man die Standardfolie klont. Anschließend wird ein Firmenname‑Banner zu allen Folien über die Layout‑Vererbung hinzugefügt.
 
 ```csharp
 static void Add_Master_Slide()
@@ -50,18 +50,16 @@ static void Add_Master_Slide()
     pres.Slides[0].LayoutSlide = layoutSlide;
 }
 ````
+> 💡 **Tipp 1:** Masterfolien bieten eine Möglichkeit, konsistentes Branding oder gemeinsam genutzte Designelemente über alle Folien hinweg anzuwenden. Änderungen an der Masterfolie werden automatisch auf abhängige Layout‑ und Normalfolien übertragen.
 
-> 💡 **Tipp 1:** Masterfolien bieten die Möglichkeit, einheitliches Branding oder gemeinsam genutzte Designelemente auf alle Folien anzuwenden. Alle Änderungen an der Masterfolie werden automatisch auf abhängige Layout‑ und Normalfolien übertragen.
-
-> 💡 **Tipp 2:** Alle Formen oder Formatierungen, die einer Masterfolie hinzugefügt werden, werden von Layoutfolien und damit von allen Normalfolien, die diese Layouts verwenden, geerbt.
-
-Das Bild unten zeigt, wie ein auf einer Masterfolie hinzugefügtes Textfeld automatisch auf der endgültigen Folie dargestellt wird.
+> 💡 **Tipp 2:** Alle Formen oder Formatierungen, die zu einer Masterfolie hinzugefügt werden, werden von Layoutfolien und anschließend von allen Normalfolien, die diese Layouts verwenden, geerbt.  
+> Das Bild unten veranschaulicht, wie ein Textfeld, das auf einer Masterfolie hinzugefügt wurde, automatisch auf der endgültigen Folie dargestellt wird.
 
 ![Beispiel für Master‑Vererbung](master-slide-banner.png)
 
-## Auf eine Masterfolie zugreifen
+## **Zugriff auf eine Masterfolie**
 
-Sie können Masterfolien über die Sammlung `Presentation.Masters` abrufen. So holen und bearbeiten Sie sie:
+Sie können Masterfolien über die Sammlung `Presentation.Masters` abrufen. So holen Sie sie ab und arbeiten mit ihnen:
 
 ```csharp
 static void Access_Master_Slide()
@@ -76,7 +74,7 @@ static void Access_Master_Slide()
 }
 ```
 
-## Masterfolie entfernen
+## **Masterfolie entfernen**
 
 Masterfolien können entweder nach Index oder nach Referenz entfernt werden.
 
@@ -94,9 +92,9 @@ static void Remove_Master_Slide()
 }
 ```
 
-## Unbenutzte Masterfolien entfernen
+## **Unbenutzte Masterfolien entfernen**
 
-Einige Präsentationen enthalten Masterfolien, die nicht verwendet werden. Das Entfernen dieser Folien kann die Dateigröße reduzieren.
+Einige Präsentationen enthalten Masterfolien, die nicht verwendet werden. Das Entfernen dieser Folien kann helfen, die Dateigröße zu verringern.
 
 ```csharp
 static void RemoveUnused_Master_Slide()
@@ -108,4 +106,4 @@ static void RemoveUnused_Master_Slide()
 }
 ```
 
-> ⚙️ **Tipp:** Verwenden Sie `RemoveUnused(true)`, um unbenutzte Masterfolien zu bereinigen und die Präsentationsgröße zu minimieren.
+> ⚙️ **Tipp:** Verwenden Sie `RemoveUnused(true)`, um unbenutzte Masterfolien zu bereinigen und die Größe der Präsentation zu minimieren.

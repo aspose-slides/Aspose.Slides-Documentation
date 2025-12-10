@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理演示文稿的图表数据标签
+title: 在 .NET 中管理演示文稿中的图表数据标签
 linktitle: 数据标签
 type: docs
 url: /zh/net/chart-data-label/
@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以打造更具吸引力的幻灯片。"
 ---
 
 图表中的数据标签显示有关图表数据系列或单个数据点的详细信息。它们帮助读者快速识别数据系列，并使图表更易于理解。
 
-## **设置图表数据标签中的数据精度**
+## **设置图表数据标签的数据精度**
 
 此 C# 代码演示如何在图表数据标签中设置数据精度：
 ```c#
@@ -35,8 +35,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **显示百分比为标签**
-Aspose.Slides for .NET 允许在显示的图表上设置百分比标签。此 C# 代码演示了该操作：
+## **将百分比显示为标签**
+Aspose.Slides for .NET 允许在显示的图表上设置百分比标签。此 C# 代码演示该操作：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -89,7 +89,7 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 
 ## **在图表数据标签中设置百分号**
-此 C# 代码展示如何为图表数据标签设置百分号：
+此 C# 代码演示如何为图表数据标签设置百分号：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -121,7 +121,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// 设置 LabelFormat 属性
+// 设置标签格式属性
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -153,7 +153,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 
 ## **设置标签与坐标轴的距离**
-此 C# 代码展示在使用坐标轴绘制的图表时，如何设置标签与分类坐标轴之间的距离：
+此 C# 代码演示在使用坐标轴绘制图表时，如何设置标签与分类坐标轴的距离：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -164,7 +164,7 @@ ISlide sld = presentation.Slides[0];
 // 在幻灯片上创建图表
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// 设置标签距离轴的距离
+// 设置标签与坐标轴的距离
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
 // 将演示文稿写入磁盘
@@ -174,9 +174,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **调整标签位置**
 
-当您创建的图表不依赖任何坐标轴（例如饼图）时，图表的数据标签可能会过于靠近图表边缘。这种情况下，需要调整数据标签的位置，以便指示线能够清晰显示。
+当创建不依赖任何坐标轴的图表（例如饼图）时，图表的数据标签可能会过于靠近边缘。此时需要调整数据标签的位置，以便清晰显示指引线。
 
-此 C# 代码展示如何在饼图上调整标签位置： 
+此 C# 代码演示如何在饼图上调整标签位置： 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -197,16 +197,16 @@ using (Presentation pres = new Presentation())
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **常见问题**
+## **FAQ**
 
-**如何防止密集图表上的数据标签重叠？**
+**如何防止密集图表中的数据标签重叠？**
 
-可以结合自动标签布局、指示线以及减小字体大小；如有必要，可隐藏某些字段（例如类别），或仅对极值/关键点显示标签。
+结合自动标签布局、指引线和缩小字体大小；如有必要，可隐藏某些字段（例如类别），或仅对极端/关键点显示标签。
 
-**如何仅对零、负数或空值禁用标签？**
+**如何仅对零值、负值或空值禁用标签？**
 
-在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的标签显示。
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负值或缺失值的显示。
 
-**在导出为 PDF/图片时，如何确保标签样式一致？**
+**如何在导出为 PDF/图片时确保标签样式一致？**
 
-显式设置字体（系列、大小），并确认渲染端已安装该字体，以避免回退。
+显式设置字体（系列、大小），并确认渲染端已安装相应字体，以避免回退。

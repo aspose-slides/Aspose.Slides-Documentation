@@ -6,7 +6,7 @@ url: /es/net/examples/elements/table/
 keywords:
 - ejemplo de tabla
 - agregar tabla
-- acceder a la tabla
+- acceder tabla
 - eliminar tabla
 - combinar celdas
 - PowerPoint
@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree y formatee tablas en C# con Aspose.Slides: inserte datos, combine celdas, estilice bordes, alinee contenido e importe/exporte para PPT, PPTX y ODP."
+description: "Crear y dar formato a tablas en C# con Aspose.Slides: insertar datos, combinar celdas, dar estilo a los bordes, alinear contenido e importar/exportar para PPT, PPTX y ODP."
 ---
 
 Ejemplos para agregar tablas, acceder a ellas, eliminarlas y combinar celdas usando **Aspose.Slides for .NET**.
 
-## Agregar una tabla
+## **Agregar una tabla**
 
 Cree una tabla simple con dos filas y dos columnas.
 ```csharp
@@ -36,7 +36,7 @@ static void Add_Table()
 ```
 
 
-## Acceder a una tabla
+## **Acceder a una tabla**
 
 Recupere la primera forma de tabla en la diapositiva.
 ```csharp
@@ -54,7 +54,7 @@ static void Access_Table()
 ```
 
 
-## Eliminar una tabla
+## **Eliminar una tabla**
 
 Elimine una tabla de una diapositiva.
 ```csharp
@@ -71,9 +71,9 @@ static void Remove_Table()
 ```
 
 
-## Combinar celdas de tabla
+## **Combinar celdas de tabla**
 
-Combine celdas adyacentes de una tabla en una única celda.
+Combine celdas adyacentes de una tabla en una sola celda.
 ```csharp
 static void Merge_Table_Cells()
 {

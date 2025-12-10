@@ -14,35 +14,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Travaillez avec les images en C# en utilisant Aspose.Slides : insérez, remplacez, recadrez, compressez, ajustez la transparence et les effets, remplissez les formes, et exportez au format PPT, PPTX et ODP."
+description: "Travailler avec les images en C# avec Aspose.Slides : insérer, remplacer, recadrer, compresser, ajuster la transparence et les effets, remplir des formes, et exporter vers PPT, PPTX et ODP."
 ---
 
-Montre comment insérer et accéder aux images a partir d'images en memoire en utilisant **Aspose.Slides for .NET**. Les exemples ci-dessous creent une image en memoire, la placent sur une diapositive, puis la recuperent.
+Montre comment inserer et acceder aux images a partir d'images en memoire en utilisant **Aspose.Slides for .NET**. Les exemples ci-dessous creent une image en memoire, la placent sur une diapositive, puis la recuperent.
 
-## Add a Picture
+## **Ajouter une image**
 
-Ce code genere un petit bitmap, le convertit en flux et l'insere comme cadre d'image sur la premiere diapositive.
+Ce code genere un petit bitmap, le convertit en flux, et l'insere comme un cadre d'image sur la premiere diapositive.
 ```csharp
 public static void Add_Picture()
 {
     using var pres = new Presentation();
 
-    // Créer une image simple en mémoire
+    // Crée une image simple en mémoire
     using var bmp = new Bitmap(width: 100, height: 100);
     using (var g = Graphics.FromImage(bmp))
     {
         g.Clear(Color.LightGreen);
     }
 
-    // Convertir le bitmap en MemoryStream
+    // Convertit le Bitmap en MemoryStream
     using var imageStream = new MemoryStream();
     bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;
 
-    // Ajouter l'image à la présentation
+    // Ajoute l'image à la présentation
     var ppImage = pres.Images.AddImage(imageStream);
 
-    // Insérer un cadre d'image affichant l'image sur la première diapositive
+    // Insère un cadre d'image affichant l'image sur la première diapositive
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
         x: 50, y: 50, width: bmp.Width, height: bmp.Height, ppImage);
 
@@ -51,18 +51,18 @@ public static void Add_Picture()
 ```
 
 
-## Access a Picture
+## **Acceder à une image**
 
-Cet exemple verifie qu'une diapositive contient un cadre d'image, puis accede au premier trouve.
+Cet exemple s'assure qu'une diapositive contient un cadre d'image, puis accede au premier trouve.
 ```csharp
 public static void Access_Picture()
 {
     using var pres = new Presentation();
 
-    // S'assurer qu'il y a au moins un cadre d'image à manipuler
+    // Assurez-vous qu'il y a au moins un cadre d'image à utiliser
     using var bmp = new Bitmap(40, 40);
 
-    // Convertir le bitmap en MemoryStream
+    // Convertir le Bitmap en MemoryStream
     using var imageStream = new MemoryStream();
     bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
     imageStream.Position = 0;

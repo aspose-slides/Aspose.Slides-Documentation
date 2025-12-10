@@ -12,50 +12,48 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Passen Sie Diagrammlegenden mit Aspose.Slides für .NET an, um PowerPoint-Präsentationen mit individuell gestalteter Legendenformatierung zu optimieren."
+description: "Passen Sie Diagrammlegenden mit Aspose.Slides für .NET an, um PowerPoint-Präsentationen mit individuell gestalteten Legenden zu optimieren."
 ---
 
 ## **Legendenpositionierung**
-Um die Legenden‑Eigenschaften festzulegen, folgen Sie bitte den untenstehenden Schritten:
+Um die Legenden‑Eigenschaften festzulegen, folgen Sie den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
-- Holen Sie sich die Referenz der Folie.
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Holen Sie die Referenz der Folie.
 - Fügen Sie ein Diagramm auf der Folie hinzu.
 - Legen Sie die Eigenschaften der Legende fest.
 - Schreiben Sie die Präsentation als PPTX‑Datei.
 
 Im nachstehenden Beispiel haben wir die Position und Größe der Diagrammlegende festgelegt.
 ```c#
-// Erstellen Sie eine Instanz der Presentation-Klasse
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
-// Holen Sie die Referenz der Folie
+// Hole die Referenz der Folie
 ISlide slide = presentation.Slides[0];
 
-// Fügen Sie ein gruppiertes Säulendiagramm auf der Folie hinzu
+// Füge ein gruppiertes Säulendiagramm auf der Folie hinzu
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// Legenden-Eigenschaften festlegen
+// Legendeigenschaften festlegen
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// Präsentation auf die Festplatte speichern
+// Schreibe die Präsentation auf die Festplatte
 presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Schriftgröße einer Legende festlegen**
+Aspose.Slides für .NET ermöglicht es Entwicklern, die Schriftgröße der Legende festzulegen. Bitte folgen Sie den untenstehenden Schritten:
 
-
-## **Schriftgröße der Legende festlegen**
-Aspose.Slides für .NET ermöglicht Entwicklern, die Schriftgröße der Legende festzulegen. Bitte folgen Sie den untenstehenden Schritten:
-
-- Instanziieren Sie die `Presentation`‑Klasse.
+- Instanziieren Sie die Klasse `Presentation`.
 - Erstellen Sie das Standarddiagramm.
 - Legen Sie die Schriftgröße fest.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
 - Schreiben Sie die Präsentation auf die Festplatte.
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
@@ -73,16 +71,15 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
+## **Schriftgröße einer einzelnen Legende festlegen**
+Aspose.Slides für .NET ermöglicht es Entwicklern, die Schriftgröße einzelner Legenden­einträge festzulegen. Bitte folgen Sie den untenstehenden Schritten:
 
-## **Schriftgröße einzelner Legendeinträge festlegen**
-Aspose.Slides für .NET ermöglicht Entwicklern, die Schriftgröße einzelner Legendeinträge festzulegen. Bitte folgen Sie den untenstehenden Schritten:
-
-- Instanziieren Sie die `Presentation`‑Klasse.
+- Instanziieren Sie die Klasse `Presentation`.
 - Erstellen Sie das Standarddiagramm.
-- Greifen Sie auf den Legendeeintrag zu.
+- Greifen Sie auf den Legenden­eintrag zu.
 - Legen Sie die Schriftgröße fest.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
 - Schreiben Sie die Präsentation auf die Festplatte.
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
@@ -105,12 +102,12 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 **Kann ich die Legende aktivieren, sodass das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**
 
-Ja. Verwenden Sie den Nicht-Überlagerungsmodus ([Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/)=`false`); in diesem Fall wird der Plot‑Bereich verkleinert, um die Legende aufzunehmen.
+Ja. Verwenden Sie den Nicht‑Overlay‑Modus ([Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) = `false`); in diesem Fall verkleinert sich der Plot‑Bereich, um die Legende aufzunehmen.
 
 **Kann ich mehrzeilige Legendenbeschriftungen erstellen?**
 
-Ja. Lange Beschriftungen werden automatisch umgebrochen, wenn nicht genug Platz vorhanden ist; erzwungene Zeilenumbrüche werden über Zeilenumbruch‑Zeichen im Seriennamen unterstützt.
+Ja. Lange Beschriftungen werden automatisch umgebrochen, wenn nicht genug Platz vorhanden ist; erzwungene Zeilenumbrüche werden über Zeilenumbruchzeichen im Seriennamen unterstützt.
 
-**Wie bringe ich die Legende dazu, das Farbschema des Präsentationsthemas zu übernehmen?**
+**Wie kann ich die Legende an das Farbschema des Präsentationsthemas anpassen?**
 
-Setzen Sie keine expliziten Farben/Füllungen/Schriften für die Legende oder deren Text. Sie übernehmen dann das Theme und werden bei einer Designänderung korrekt aktualisiert.
+Setzen Sie keine expliziten Farben/Füllungen/Schriftarten für die Legende oder deren Text. Sie übernehmen dann das Theme und werden bei Designänderungen korrekt aktualisiert.

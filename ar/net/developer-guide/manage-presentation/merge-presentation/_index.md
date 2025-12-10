@@ -1,6 +1,6 @@
 ---
-title: دمج العروض التقديمية بفعالية في .NET
-linktitle: دمج العروض التقديمية
+title: دمج العروض التقديمية بكفاءة في .NET
+linktitle: دمج العروض
 type: docs
 weight: 40
 url: /ar/net/merge-presentation/
@@ -20,81 +20,81 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "قم بدمج عروض PowerPoint (PPT, PPTX) وعروض OpenDocument (ODP) بسهولة مع Aspose.Slides لـ .NET، مما يبسط سير العمل الخاص بك."
+description: "دمج عروض PowerPoint (PPT, PPTX) ومستندات OpenDocument (ODP) بسهولة مع Aspose.Slides لـ .NET، مما يُبسّط سير عملك."
 ---
 
 ## **تحسين دمج العروض التقديمية**
 
-مع [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)، يمكنك دمج عروض PowerPoint بسلاسة مع الحفاظ على الأنماط والتصاميم وجميع العناصر. على عكس الأدوات الأخرى، يقوم Aspose.Slides بدمج العروض دون المساومة على الجودة أو فقدان البيانات. يمكنك دمج عروض تقديمية كاملة، أو شرائح محددة، وحتى تنسيقات ملفات مختلفة (PPT إلى PPTX، إلخ).
+مع [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)، يمكنك دمج عروض PowerPoint بسلاسة مع الحفاظ على الأنماط والتنسيقات وجميع العناصر. على عكس الأدوات الأخرى، يقوم Aspose.Slides بدمج العروض دون التضحية بالجودة أو فقدان البيانات. دمج العروض بالكامل، أو شرائح محددة، وحتى صيغ ملفات مختلفة (PPT إلى PPTX، إلخ).
 
 ### **ميزات الدمج**
 
-- **Full Presentation Merge:** دمج كامل للعرض التقديمي: تجميع جميع الشرائح في ملف واحد.  
-- **Specific Slide Merge:** دمج شرائح محددة: اختيار ودمج الشرائح المحددة.  
-- **Cross-Format Merge:** دمج عبر التنسيقات: دمج عروض بأشكال مختلفة مع الحفاظ على سلامتها.  
+- **دمج العرض الكامل:** تجميع جميع الشرائح في ملف واحد.
+- **دمج شرائح محددة:** اختيار ودمج الشرائح المختارة.
+- **دمج عبر الصيغ:** دمج عروض بصيغ مختلفة مع الحفاظ على سلامتها.
 
 {{% alert title="Tip" color="primary" %}}  
 
-هل تبحث عن أداة سريعة **مجانية على الإنترنت** ل**دمج عروض PowerPoint**؟ جرّب [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+تبحث عن أداة **مجانية على الإنترنت** لدمج عروض PowerPoint؟ جرّب [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
 
-- **Merge PowerPoint files easily**: دمج ملفات PowerPoint بسهولة: دمج عروض متعددة بصيغ **PPT، PPTX، ODP** في ملف واحد.  
-- **Supports different formats**: يدعم صيغ مختلفة: دمج **PPT إلى PPTX**، **PPTX إلى ODP**، وغيرها.  
-- **No installation required**: لا يتطلب تثبيت: يعمل مباشرة في المتصفح الخاص بك، سريع وآمن.  
+- **دمج ملفات PowerPoint بسهولة**: دمج عدة عروض **PPT, PPTX, ODP** في ملف واحد.  
+- **دعم صيغ مختلفة**: دمج **PPT إلى PPTX**, **PPTX إلى ODP**, وأكثر.  
+- **بدون تثبيت**: يعمل مباشرة في المتصفح، بسرعة وأمان.  
 
-[![دمج ملفات PowerPoint على الإنترنت](slides-merger.png)](https://products.aspose.app/slides/merger)  
+[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
 
-ابدأ بدمج ملفات PowerPoint الخاصة بك باستخدام **أداة Aspose المجانية على الإنترنت** اليوم!  
+ابدأ دمج ملفات PowerPoint الخاصة بك باستخدام **أداة Aspose المجانية على الإنترنت** اليوم!  
 
 {{% /alert %}}
 
 ## **دمج العروض التقديمية**
 
-عند [دمج عرض تقديمي إلى آخر](https://products.aspose.com/slides/net/merger/ppt/)، تقوم فعليًا بدمج شرائحه في عرض تقديمي واحد للحصول على ملف واحد. 
+عندما تقوم بـ[دمج عرض تقديمي بآخر](https://products.aspose.com/slides/net/merger/ppt/)، فإنك في الواقع تجمع شرائحه في عرض واحد للحصول على ملف موحد. 
 
 {{% alert title="Info" color="info" %}}
 
-معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة.  
+معظم برامج العروض (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة. 
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/)، ومع ذلك، يتيح لك دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيق، التعليقات، الرسوم المتحركة، إلخ دون القلق بشأن فقدان الجودة أو البيانات.  
+[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) يسمح لك بدمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيقات، التعليقات، الرسوم المتحركة، إلخ دون القلق بشأن فقدان الجودة أو البيانات. 
 
-**انظر أيضًا**  
+**انظر أيضاً**
 
-[استنساخ الشرائح](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
 
 {{% /alert %}}
 
-### **ما الذي يمكن دمجه**
+### **ما يمكن دمجه**
 
-مع Aspose.Slides، يمكنك دمج  
+مع Aspose.Slides، يمكنك دمج 
 
-* العروض التقديمية كاملة. جميع الشرائح من العروض تندمج في عرض واحد  
-* شرائح محددة. الشرائح المختارة تندمج في عرض واحد  
-* العروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) أو بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض.  
+* العروض بالكامل. جميع الشرائح من العروض تنتهي في عرض واحد
+* شرائح محددة. الشرائح المختارة تنتهي في عرض واحد
+* عروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) أو بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) مع بعضها البعض. 
 
 {{% alert title="Note" color="warning" %}} 
 
-بالإضافة إلى العروض التقديمية، يتيح لك Aspose.Slides دمج ملفات أخرى:
+إضافةً إلى العروض، يسمح لك Aspose.Slides بدمج ملفات أخرى:
 
-* [Images](https://products.aspose.com/slides/net/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* Documents، مثل [PDF إلى PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* وأيضًا ملفين مختلفين مثل [image to PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).  
+* [الصور](https://products.aspose.com/slides/net/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/net/merger/png-to-png/)
+* المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/net/merger/html-to-html/)
+* وملفين مختلفين مثل [صورة إلى PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
 ### **خيارات الدمج**
 
-يمكنك تطبيق خيارات تحدد ما إذا كان  
+يمكنك تطبيق خيارات تحدد ما إذا كان
 
-* كل شريحة في العرض الناتج تحتفظ بنمط فريد  
-* نمط محدد يُستخدم لجميع الشرائح في العرض الناتج.  
+* كل شريحة في العرض الناتج تحتفظ بنمط فريد
+* يُستخدم نمط محدد لجميع الشرائح في العرض الناتج. 
 
-لدمج العروض، يوفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). هناك عدة تطبيقات لطرق `AddClone` تحدد معلمات عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)، لذا يمكنك استدعاء طريقة `AddClone` من العرض الذي تريد دمج الشرائح إليه.  
+لدمج العروض، يوفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). هناك عدة تطبيقات لطرق `AddClone` تحدد معلمات عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)، لذا يمكنك استدعاء طريقة `AddClone` من العرض الذي تريد دمج الشرائح فيه. 
 
-طريقة `AddClone` تُعيد كائن `ISlide`، وهو نسخة من الشريحة المصدر. الشرائح في العرض الناتج هي مجرد نسخة من الشرائح المصدر. لذلك يمكنك تعديل الشرائح الناتجة (على سبيل المثال، تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثر العروض المصدر.  
+طريقة `AddClone` تُعيد كائن `ISlide`، وهو نسخة مطابقة من الشريحة المصدر. الشرائح في العرض الناتج هي مجرد نسخة من الشرائح المصدر. لذلك يمكنك تعديل الشرائح الناتجة (مثلاً، تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثيرها على العروض المصدرية. 
 
-## **دمج العروض التقديمية** 
+## **دمج العروض** 
 
-يوفر Aspose.Slides طريقة [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) التي تسمح لك بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها (معلمات افتراضية). 
+يوفر Aspose.Slides طريقة [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) التي تسمح لك بدمج الشرائح مع بقاء تخطيطاتها وأنماطها (المعلمات الافتراضية). 
 
 هذا الكود C# يوضح كيفية دمج العروض:
 ```c#
@@ -111,11 +111,11 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **دمج العروض التقديمية مع ماستر شريحة** 
+## **دمج العروض مع شريحة رئيسية (Slide Master)**
 
-يوفر Aspose.Slides طريقة [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) التي تسمح لك بدمج الشرائح مع تطبيق قالب ماستر شريحة. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج. 
+يوفر Aspose.Slides طريقة [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) التي تسمح بدمج الشرائح مع تطبيق قالب شريحة رئيسية. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج. 
 
-هذا الكود C# يوضح العملية الموصوفة:
+هذا الكود C# يوضح العملية المذكورة:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
@@ -132,16 +132,17 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 {{% alert title="Note" color="warning" %}} 
 
-تُحدد تخطيط الشريحة للماستر تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط معامل Boolean `allowCloneMissingLayout` في طريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدر. وإلا، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception). 
+تُحدد تخطيط الشريحة للماستر تلقائياً. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط معلمة `allowCloneMissingLayout` من نوع Boolean في طريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدر. وإلا، سيتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception). 
 
 {{% /alert %}}
 
-إذا رغبت أن تكون للشرائح في العرض الناتج تخطيط شريحة مختلف، استخدم طريقة [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) بدلاً من ذلك أثناء الدمج. 
+إذا أردت أن تتضمن الشرائح في العرض الناتج تخطيط شريحة مختلف، استخدم طريقة [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) بدلاً من ذلك عند الدمج. 
 
-## **دمج شرائح محددة من العروض التقديمية** 
+## **دمج شرائح محددة من العروض**
 
-دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعة شرائح مخصصة. يتيح لك Aspose.Slides for .NET اختيار واستيراد الشرائح التي تحتاجها فقط. API يحافظ على التنسيق والتخطيط وتصميم الشرائح الأصلية. 
+دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعات شرائح مخصصة. يتيح Aspose.Slides for .NET لك اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ الـ API على التنسيق، التخطيط، وتصميم الشرائح الأصلية.
 
+الكود C# التالي ينشئ عرضاً جديداً، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
 ```cs
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
@@ -178,7 +179,7 @@ static ISlide GetTitleSlide(IPresentation presentation)
 ```
 
 
-## **دمج العروض التقديمية مع تخطيط الشريحة** 
+## **دمج العروض مع تخطيط شريحة**
 
 هذا الكود C# يوضح كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضلة للحصول على عرض نهائي واحد:
 ```c#
@@ -195,17 +196,17 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **دمج العروض التقديمية بأحجام شرائح مختلفة** 
+## **دمج العروض بأحجام شرائح مختلفة**
 
 {{% alert title="Note" color="warning" %}} 
 
-لا يمكنك دمج عروض ذات أحجام شرائح مختلفة. 
+لا يمكن دمج عروض بأحجام شرائح مختلفة. 
 
 {{% /alert %}}
 
-لدمج عرضين بحجم شريحة مختلف، يجب تعديل حجم أحد العروض لتطابق حجم العرض الآخر. 
+لدمج عرضين بأحجام شرائح مختلفة، عليك تعديل حجم أحد العروض لتطابق حجم العرض الآخر. 
 
-هذا الكود يوضح العملية الموصوفة:
+الكود النموذجي يوضح العملية المذكورة:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
@@ -222,9 +223,9 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **دمج الشرائح إلى قسم في العرض التقديمي** 
+## **دمج الشرائح إلى قسم في العرض**
 
-هذا الكود C# يوضح كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
+هذا الكود C# يوضح كيفية دمج شريحة محددة إلى قسم في العرض:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
@@ -240,28 +241,28 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-يتم إضافة الشريحة في نهاية القسم. 
+تُضاف الشريحة في نهاية القسم. 
 
 {{% alert title="Tip" color="primary" %}}
 
-توفر Aspose تطبيق ويب [FREE Collage](https://products.aspose.app/slides/collage) مجاني. باستخدام هذه الخدمة على الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات الصور](https://products.aspose.app/slides/collage/photo-grid)، وغيرها. 
+توفر Aspose تطبيق ويب مجاني للتجميع [FREE Collage](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
 
 {{% /alert %}}
 
-## **الأسئلة الشائعة** 
+## **الأسئلة المتكررة**
 
-**هل يتم حفظ ملاحظات المتحدث أثناء الدمج؟**  
+**هل يتم الاحتفاظ بملاحظات المتحدث أثناء الدمج؟**
 
-نعم. عند استنساخ الشرائح، يقوم Aspose.Slides بنقل جميع عناصر الشريحة بما فيها الملاحظات والتنسيقات والرسوم المتحركة.  
+نعم. عند استنساخ الشرائح، ينقل Aspose.Slides جميع عناصر الشريحة، بما في ذلك الملاحظات، التنسيق، والرسوم المتحركة.
 
-**هل يتم نقل التعليقات ومؤلفيها؟**  
+**هل يتم نقل التعليقات ومؤلفيها؟**
 
-التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحفظ تسميات مؤلف التعليق ككائنات تعليق في العرض الناتج.  
+التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ تسميات مؤلفي التعليقات ككائنات تعليق في العرض الناتج.
 
-**ماذا لو كان العرض المصدر محميًا بكلمة مرور؟**  
+**ماذا لو كان العرض المصدر محمياً بكلمة مرور؟**
 
-يجب أن يُـ[فتح باستخدام كلمة المرور](/slides/ar/net/password-protected-presentation/) عبر [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي كذلك).  
+يجب [فتح العرض باستخدام كلمة المرور](/slides/ar/net/password-protected-presentation/) عبر [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي أيضاً).
 
-**ما مدى أمان الخيوط (thread-safe) لعملية الدمج؟**  
+**ما مدى أمان الخيوط (thread‑safe) لعملية الدمج؟**
 
-لا تقم باستخدام نفس كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/net/multithreading/). القاعدة الموصى بها هي "مستند واحد — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
+لا تستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/net/multithreading/). القاعدة المفضلة هي "مستند واحد — خيط واحد"; يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.

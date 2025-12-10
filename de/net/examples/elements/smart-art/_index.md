@@ -4,24 +4,24 @@ type: docs
 weight: 140
 url: /de/net/examples/elements/smartart/
 keywords:
-- SmartArt-Beispiel
-- SmartArt hinzufügen
-- SmartArt zugreifen
-- SmartArt entfernen
-- SmartArt-Layout
-- PowerPoint
-- OpenDocument
-- Präsentation
-- .NET
-- C#
-- Aspose.Slides
+  - SmartArt Beispiel
+  - SmartArt hinzufügen
+  - SmartArt zugreifen
+  - SmartArt entfernen
+  - SmartArt Layout
+  - PowerPoint
+  - OpenDocument
+  - Präsentation
+  - .NET
+  - C#
+  - Aspose.Slides
 description: "Erstellen und bearbeiten Sie SmartArt in C# mit Aspose.Slides: Knoten hinzufügen, Layouts und Stile ändern, präzise in Formen konvertieren und für PPT, PPTX und ODP exportieren."
 ---
 
-Zeigt, wie man SmartArt‑Grafiken hinzufügt, darauf zugreift, sie entfernt und Layouts ändert, wobei **Aspose.Slides for .NET** verwendet wird.
+Zeigt, wie SmartArt-Grafiken hinzugefügt, darauf zugegriffen, entfernt und Layouts geändert werden können, indem **Aspose.Slides for .NET** verwendet wird.
 
-## Add SmartArt
-Fügen Sie eine SmartArt‑Grafik mithilfe eines der integrierten Layouts ein.
+## **SmartArt hinzufügen**
+Fügen Sie eine SmartArt-Grafik ein, indem Sie eines der integrierten Layouts verwenden.
 ```csharp
 static void Add_SmartArt()
 {
@@ -33,8 +33,8 @@ static void Add_SmartArt()
 ```
 
 
-## Access SmartArt
-Rufen Sie das erste SmartArt‑Objekt auf einer Folie ab.
+## **Auf SmartArt zugreifen**
+Rufen Sie das erste SmartArt-Objekt auf einer Folie ab.
 ```csharp
 static void Access_SmartArt()
 {
@@ -47,8 +47,8 @@ static void Access_SmartArt()
 ```
 
 
-## Remove SmartArt
-Löschen Sie eine SmartArt‑Form von der Folie.
+## **SmartArt entfernen**
+Löschen Sie eine SmartArt-Form von der Folie.
 ```csharp
 static void Remove_SmartArt()
 {
@@ -61,8 +61,8 @@ static void Remove_SmartArt()
 ```
 
 
-## Change SmartArt Layout
-Aktualisieren Sie den Layouttyp einer vorhandenen SmartArt‑Grafik.
+## **SmartArt-Layout ändern**
+Aktualisieren Sie den Layouttyp einer vorhandenen SmartArt-Grafik.
 ```csharp
 static void Change_SmartArt_Layout()
 {

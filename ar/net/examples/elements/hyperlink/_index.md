@@ -6,22 +6,21 @@ url: /ar/net/examples/elements/hyperlink/
 keywords:
 - مثال على الارتباط التشعبي
 - إضافة ارتباط تشعبي
-- الوصول إلى الارتباط التشعبي
-- إزالة الارتباط التشعبي
-- تحديث الارتباط التشعبي
+- الوصول إلى ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إضافة وتعديل وإزالة الروابط التشعبية في C# باستخدام Aspose.Slides: ربط النص، الأشكال، الشرائح، عناوين URL والبريد الإلكتروني؛ تعيين الأهداف والإجراءات لملفات PPT و PPTX و ODP."
+description: "إضافة وتحرير وإزالة الروابط التشعبية في C# باستخدام Aspose.Slides: ربط النص، الأشكال، الشرائح، عناوين URL والبريد الإلكتروني؛ تعيين الأهداف والإجراءات لملفات PPT و PPTX و ODP."
 ---
 
-يعرض إضافة والوصول وإزالة وتحديث الروابط التشعبية على الأشكال باستخدام **Aspose.Slides for .NET**.
+يوضح إضافة، وصول، إزالة وتحديث الارتباطات التشعبية على الأشكال باستخدام **Aspose.Slides for .NET**.
 
-## إضافة ارتباط تشعبي
-
+## **إضافة ارتباط تشعبي**
 إنشاء شكل مستطيل يحتوي على ارتباط تشعبي يشير إلى موقع ويب خارجي.
 ```csharp
 static void Add_Hyperlink()
@@ -35,8 +34,7 @@ static void Add_Hyperlink()
 ```
 
 
-## الوصول إلى ارتباط تشعبي
-
+## **الوصول إلى ارتباط تشعبي**
 قراءة معلومات الارتباط التشعبي من جزء النص في الشكل.
 ```csharp
 static void Access_Hyperlink()
@@ -52,9 +50,8 @@ static void Access_Hyperlink()
 ```
 
 
-## إزالة ارتباط تشعبي
-
-مسح الارتباط التشعبي من نص الشكل.
+## **إزالة ارتباط تشعبي**
+إزالة الارتباط التشعبي من نص الشكل.
 ```csharp
 static void Remove_Hyperlink()
 {
@@ -69,9 +66,8 @@ static void Remove_Hyperlink()
 ```
 
 
-## تحديث ارتباط تشعبي
-
-تغيير وجهة الارتباط التشعبي الموجود. استخدم `HyperlinkManager` لتعديل النص الذي يحتوي بالفعل على ارتباط تشعبي، مما يحاكي طريقة تحديث PowerPoint للارتباطات التشعبية بأمان.
+## **تحديث ارتباط تشعبي**
+تغيير هدف ارتباط تشعبي موجود. استخدم `HyperlinkManager` لتعديل النص الذي يحتوي بالفعل على ارتباط تشعبي، وهو ما يحاكي طريقة تحديث PowerPoint للروابط التشعبية بأمان.
 ```csharp
 static void Update_Hyperlink()
 {
@@ -82,9 +78,9 @@ static void Update_Hyperlink()
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-    // يجب تعديل ارتباط تشعبي داخل نص موجود عبر
-    // HyperlinkManager بدلاً من تعيين الخاصية مباشرةً.
-    // هذا يحاكي الطريقة التي يحدّث بها PowerPoint الروابط التشعبية بأمان.
+    // يجب تغيير ارتباط تشعبي داخل النص الموجود عبر
+    // HyperlinkManager بدلاً من تعيين الخاصية مباشرة.
+    // هذا يحاكي طريقة تحديث PowerPoint للروابط التشعبية بأمان.
     portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }
 ```

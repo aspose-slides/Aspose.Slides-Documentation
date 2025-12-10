@@ -13,26 +13,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيفية إنشاء وتخصيص مخططات الدونات في Aspose.Slides لـ .NET، مع دعم تنسيقات PowerPoint للعروض التقديمية الديناميكية."
+description: "اكتشف كيفية إنشاء وتخصيص مخططات الدونات في Aspose.Slides لـ .NET، مع دعم صيغ PowerPoint للعروض التقديمية الديناميكية."
 ---
 
 ## **تحديد الفجوة المركزية في مخطط الدونات**
-لتحديد حجم الفتحة في مخطط الدونات، يرجى اتباع الخطوات التالية:
+لتحديد حجم الفتحة في مخطط الدونات، يرجى اتباع الخطوات أدناه:
 
 - إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- إضافة مخطط دونات إلى الشريحة.
+- إضافة مخطط الدونات إلى الشريحة.
 - تحديد حجم الفتحة في مخطط الدونات.
 - كتابة العرض التقديمي إلى القرص.
 
-في المثال المعطى أدناه، قمنا بتحديد حجم الفتحة في مخطط الدونات.
+في المثال المعروض أدناه، قمنا بتعيين حجم الفتحة في مخطط الدونات.
 ```c#
-// إنشاء مثيل لفئة Presentation
+// إنشاء كائن من فئة Presentation
 Presentation presentation = new Presentation();
 
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
 chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
 
-// كتابة العرض التقديمي إلى القرص
+// حفظ العرض التقديمي إلى القرص
 presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -41,11 +41,11 @@ presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 
 **هل يمكنني إنشاء دونات متعددة المستويات مع حلقات متعددة؟**
 
-نعم. أضف سلاسل متعددة إلى مخطط دونات واحد—كل سلسلة تصبح حلقة منفصلة. يتم تحديد ترتيب الحلقات حسب ترتيب السلاسل في المجموعة.
+نعم. أضف عدة سلاسل إلى مخطط الدونات الواحد—كل سلسلة تصبح حلقة منفصلة. يتم تحديد ترتيب الحلقات بحسب ترتيب السلاسل في المجموعة.
 
-**هل يتم دعم الدونات "المتفجرة" (شرائح منفصلة)؟**
+**هل يدعم الدونات "المتفجر" (شرائح منفصلة)؟**
 
-نعم. هناك نوع مخطط دونات متفجر [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) وخاصية الانفجار على نقاط البيانات؛ يمكنك فصل الشرائح الفردية.
+نعم. هناك نوع مخطط [Exploded Doughnut](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) وخصية الانفجار على نقاط البيانات؛ يمكنك فصل الشرائح الفردية.
 
 **كيف يمكنني الحصول على صورة لمخطط الدونات (PNG/SVG) لتقرير؟**
 

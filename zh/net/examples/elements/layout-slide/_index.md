@@ -7,7 +7,7 @@ keywords:
 - 布局幻灯片示例
 - 添加布局幻灯片
 - 访问布局幻灯片
-- 删除布局幻灯片
+- 移除布局幻灯片
 - 未使用的布局幻灯片
 - 克隆布局幻灯片
 - PowerPoint
@@ -16,14 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 和 Aspose.Slides 管理布局幻灯片：在 PPT、PPTX 和 ODP 演示文稿中创建、应用、克隆、重命名以及自定义占位符和主题。"
+description: "使用 C# 与 Aspose.Slides 管理布局幻灯片：在 PPT、PPTX 和 ODP 演示文稿中创建、应用、克隆、重命名并自定义占位符和主题。"
 ---
 
-本文演示如何在 Aspose.Slides for .NET 中使用 **Layout Slides**。布局幻灯片定义了普通幻灯片继承的设计和格式。您可以添加、访问、克隆和删除布局幻灯片，还可以清理未使用的布局幻灯片以减小演示文稿大小。
+本文演示如何在 Aspose.Slides for .NET 中使用 **Layout Slides**。布局幻灯片定义了普通幻灯片继承的设计和格式。您可以添加、访问、克隆和移除布局幻灯片，还可以清理未使用的布局以减小演示文稿的大小。
 
-## 添加布局幻灯片
+## **添加布局幻灯片**
 
-您可以创建自定义布局幻灯片以定义可复用的格式。例如，您可以添加一个在使用此布局的所有幻灯片上出现的文本框。
+您可以创建自定义布局幻灯片以定义可重用的格式。例如，您可以在使用此布局的所有幻灯片上添加一个文本框。
 
 ```csharp
 static void Add_Layout_Slide()
@@ -41,18 +41,19 @@ static void Add_Layout_Slide()
     pres.Slides.AddEmptySlide(layoutSlide);
     pres.Slides.AddEmptySlide(layoutSlide);
 }
-````
+```
 
-> 💡 **提示 1:** 布局幻灯片充当单个幻灯片的模板。您可以一次定义公共元素，然后在多个幻灯片中复用它们。
+> 💡 **提示 1：** 布局幻灯片充当单个幻灯片的模板。您可以一次定义公共元素，然后在多个幻灯片中复用它们。
 
-> 💡 **提示 2:** 当您向布局幻灯片添加形状或文本时，所有基于该布局的幻灯片会自动显示这些共享内容。
-> 下图显示了两张幻灯片，它们各自继承了同一布局幻灯片中的文本框。
+> 💡 **提示 2：** 当您向布局幻灯片添加形状或文本时，基于该布局的所有幻灯片将自动显示这些共享内容。  
+> 以下截图显示了两个幻灯片，它们各自从同一个布局幻灯片继承了文本框。
 
 ![继承布局内容的幻灯片](layout-slide-result.png)
 
-## 访问布局幻灯片
 
-布局幻灯片可以通过索引或布局类型（例如 `Blank`、`Title`、`SectionHeader` 等）进行访问。
+## **访问布局幻灯片**
+
+布局幻灯片可以通过索引或布局类型（例如 `Blank`、`Title`、`SectionHeader` 等）访问。
 
 ```csharp
 static void Access_Layout_Slide()
@@ -67,9 +68,9 @@ static void Access_Layout_Slide()
 }
 ```
 
-## 删除布局幻灯片
+## **移除布局幻灯片**
 
-如果不再需要特定布局幻灯片，可以将其删除。
+如果不再需要特定的布局幻灯片，可以将其移除。
 
 ```csharp
 static void Remove_Layout_Slide()
@@ -82,9 +83,9 @@ static void Remove_Layout_Slide()
 }
 ```
 
-## 删除未使用的布局幻灯片
+## **移除未使用的布局幻灯片**
 
-为了减小演示文稿大小，您可能希望删除未被任何普通幻灯片使用的布局幻灯片。
+为了减小演示文稿的大小，您可能希望删除未被任何普通幻灯片使用的布局幻灯片。
 
 ```csharp
 static void RemoveUnused_Layout_Slides()
@@ -96,7 +97,7 @@ static void RemoveUnused_Layout_Slides()
 }
 ```
 
-## 克隆布局幻灯片
+## **克隆布局幻灯片**
 
 您可以使用 `AddClone` 方法复制布局幻灯片。
 
@@ -113,4 +114,4 @@ static void Clone_Layout_Slides()
 }
 ```
 
-> ✅ **总结:** 布局幻灯片是管理幻灯片之间一致格式的强大工具。Aspose.Slides 提供了对创建、管理和优化布局幻灯片的完整控制。
+> ✅ **摘要：** 布局幻灯片是管理幻灯片间一致格式的强大工具。Aspose.Slides 提供了对创建、管理和优化布局幻灯片的完整控制。

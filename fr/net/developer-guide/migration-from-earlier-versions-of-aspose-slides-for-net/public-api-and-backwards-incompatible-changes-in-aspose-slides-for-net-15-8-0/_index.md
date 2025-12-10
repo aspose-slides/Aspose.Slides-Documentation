@@ -1,5 +1,5 @@
 ---
-title: API publique et changements rétrocompatibles incompatibles dans Aspose.Slides pour .NET 15.8.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 15.8.0
 linktitle: Aspose.Slides pour .NET 15.8.0
 type: docs
 weight: 190
@@ -16,12 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint (PPT, PPTX) et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les classes, méthodes, propriétés et ainsi de suite [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/), ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.8.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/), ainsi que les autres modifications introduites avec l'API Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**

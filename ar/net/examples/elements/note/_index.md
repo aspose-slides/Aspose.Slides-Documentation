@@ -4,7 +4,7 @@ type: docs
 weight: 240
 url: /ar/net/examples/elements/elements/note/
 keywords:
-- مثال ملاحظة
+- مثال على الملاحظة
 - إضافة شريحة ملاحظات
 - الوصول إلى شريحة ملاحظات
 - إزالة شريحة ملاحظات
@@ -15,13 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إضافة وقراءة وتعديل وتصدير ملاحظات المتحدث في C# باستخدام Aspose.Slides: تنسيق النص، إدارة الملاحظات لكل شريحة، والتحكم في رؤيتها في PowerPoint وOpenDocument."
+description: "إضافة، قراءة، تعديل وتصدير ملاحظات المتحدث في C# باستخدام Aspose.Slides: تنسيق النص، إدارة الملاحظات لكل شريحة، والتحكم في وضوحها في PowerPoint وOpenDocument."
 ---
 
-يعرض كيفية إضافة، قراءة، إزالة وتحديث شرائح الملاحظات باستخدام **Aspose.Slides for .NET**.
+يعرض كيفية إضافة وقرأة وإزالة وتحديث شرائح الملاحظات باستخدام **Aspose.Slides for .NET**.
 
-## إضافة شريحة ملاحظات
-
+## **إضافة شريحة ملاحظات**
 إنشاء شريحة ملاحظات وتعيين نص لها.
 ```csharp
 static void Add_Note()
@@ -35,8 +34,7 @@ static void Add_Note()
 ```
 
 
-## الوصول إلى شريحة ملاحظات
-
+## **الوصول إلى شريحة ملاحظات**
 قراءة النص من شريحة ملاحظات موجودة.
 ```csharp
 static void Access_Note()
@@ -50,8 +48,7 @@ static void Access_Note()
 ```
 
 
-## إزالة شريحة ملاحظات
-
+## **إزالة شريحة ملاحظات**
 إزالة شريحة الملاحظات المرتبطة بشريحة.
 ```csharp
 static void Remove_Note()
@@ -65,8 +62,7 @@ static void Remove_Note()
 ```
 
 
-## تحديث نص الملاحظات
-
+## **تحديث نص الملاحظات**
 تغيير نص شريحة الملاحظات.
 ```csharp
 static void Update_Note_Text()

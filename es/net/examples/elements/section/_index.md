@@ -7,7 +7,7 @@ keywords:
 - ejemplo de sección
 - sección de diapositiva
 - agregar sección
-- acceder a la sección
+- acceder a sección
 - eliminar sección
 - renombrar sección
 - PowerPoint
@@ -16,12 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Administre las secciones de diapositivas en C# con Aspose.Slides: cree, renombre y reordene fácilmente, mueva diapositivas entre secciones y controle la visibilidad para PPT, PPTX y ODP."
+description: "Gestiona las secciones de diapositivas en C# con Aspose.Slides: crea, renombra, reordena fácilmente, mueve diapositivas entre secciones y controla la visibilidad para PPT, PPTX y ODP."
 ---
 
-Ejemplos para administrar secciones de presentación—agregar, acceder, eliminar y renombrar programáticamente usando **Aspose.Slides for .NET**.
+Ejemplos de cómo gestionar secciones de una presentación: agregar, acceder, eliminar y renombrar programáticamente usando **Aspose.Slides for .NET**.
 
-## Agregar una sección
+## **Agregar una sección**
 
 Cree una sección que comience en una diapositiva específica.
 ```csharp
@@ -29,13 +29,13 @@ static void Add_Section()
 {
     using var pres = new Presentation();
 
-    // Especifique la diapositiva que marca el comienzo de la sección
+    // Especifica la diapositiva que marca el comienzo de la sección
     pres.Sections.AddSection("New Section", pres.Slides[0]);
 }
 ```
 
 
-## Acceder a una sección
+## **Acceder a una sección**
 
 Lea la información de la sección de una presentación.
 ```csharp
@@ -51,9 +51,9 @@ static void Access_Section()
 ```
 
 
-## Eliminar una sección
+## **Eliminar una sección**
 
-Elimine una sección previamente agregada.
+Elimine una sección añadida previamente.
 ```csharp
 static void Remove_Section()
 {
@@ -66,7 +66,7 @@ static void Remove_Section()
 ```
 
 
-## Renombrar una sección
+## **Renombrar una sección**
 
 Cambie el nombre de una sección existente.
 ```csharp

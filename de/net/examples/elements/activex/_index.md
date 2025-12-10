@@ -7,7 +7,7 @@ keywords:
 - ActiveX-Beispiel
 - ActiveX-Steuerelement
 - ActiveX hinzufügen
-- ActiveX zugreifen
+- ActiveX-Zugriff
 - ActiveX entfernen
 - ActiveX-Eigenschaften
 - PowerPoint
@@ -18,11 +18,11 @@ keywords:
 description: "Erfahren Sie, wie Sie ActiveX-Steuerelemente in C# mit Aspose.Slides finden, bearbeiten und entfernen, einschließlich der Aktualisierung von Eigenschaften für PowerPoint-Präsentationen."
 ---
 
-Demonstriert, wie man ActiveX-Steuerelemente zu einer Präsentation hinzufügt, darauf zugreift, sie entfernt und konfiguriert, wobei **Aspose.Slides for .NET** verwendet wird.
+Zeigt, wie man ActiveX‑Steuerelemente in einer Präsentation hinzufügt, darauf zugreift, sie entfernt und konfiguriert, wobei **Aspose.Slides for .NET** verwendet wird.
 
-## Add an ActiveX Control
+## **Ein ActiveX‑Steuerelement hinzufügen**
 
-Fügen Sie ein neues ActiveX-Steuerelement ein und setzen Sie optional dessen Eigenschaften.
+Fügen Sie ein neues ActiveX‑Steuerelement ein und setzen Sie optional dessen Eigenschaften.
 ```csharp
 static void Add_ActiveX()
 {
@@ -40,16 +40,16 @@ static void Add_ActiveX()
 ```
 
 
-## Access an ActiveX Control
+## **Zugriff auf ein ActiveX‑Steuerelement**
 
-Lesen Sie Informationen vom ersten ActiveX-Steuerelement auf der Folie.
+Lesen Sie Informationen vom ersten ActiveX‑Steuerelement auf der Folie.
 ```csharp
 static void Access_ActiveX()
 {
     using var pres = new Presentation("add_activex.pptm");
     var slide = pres.Slides[0];
 
-    // Greife auf das erste ActiveX-Steuerelement zu
+    // Zugriff auf das erste ActiveX-Steuerelement
     var control = slide.Controls.FirstOrDefault();
     if (control != null)
     {
@@ -60,9 +60,9 @@ static void Access_ActiveX()
 ```
 
 
-## Remove an ActiveX Control
+## **Ein ActiveX‑Steuerelement entfernen**
 
-Löschen Sie ein vorhandenes ActiveX-Steuerelement von der Folie.
+Löschen Sie ein vorhandenes ActiveX‑Steuerelement von der Folie.
 ```csharp
 static void Remove_ActiveX()
 {
@@ -80,16 +80,16 @@ static void Remove_ActiveX()
 ```
 
 
-## Set ActiveX Properties
+## **ActiveX‑Eigenschaften festlegen**
 
-Fügen Sie ein Steuerelement hinzu und konfigurieren Sie mehrere ActiveX-Eigenschaften.
+Fügen Sie ein Steuerelement hinzu und konfigurieren Sie mehrere ActiveX‑Eigenschaften.
 ```csharp
 static void Set_ActiveX_Properties()
 {
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // Füge einen CommandButton hinzu und konfiguriere Eigenschaften
+    // Füge einen CommandButton hinzu und konfiguriere die Eigenschaften
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 150, 50);
     control.Properties["Caption"] = "Click Me";
     control.Properties["Enabled"] = "true";

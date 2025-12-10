@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中控制页眉和页脚：添加或编辑日期/时间、幻灯片编号和页脚文本，在 PPT、PPTX 和 ODP 中显示或隐藏占位符。"
+description: "使用 Aspose.Slides 在 C# 中控制页眉和页脚：添加或编辑日期/时间、页码和页脚文本，显示或隐藏 PPT、PPTX 和 ODP 中的占位符。"
 ---
 
 展示如何使用 **Aspose.Slides for .NET** 添加页脚并更新日期和时间占位符。
 
-## 添加页脚
+## **添加页脚**
 
-在幻灯片的页脚区域添加文本并使其可见。
+向幻灯片的页脚区域添加文本并使其可见。
 ```csharp
 static void Add_Header_Footer()
 {
@@ -33,7 +33,7 @@ static void Add_Header_Footer()
 ```
 
 
-## 更新日期和时间
+## **更新日期和时间**
 
 修改幻灯片上的日期和时间占位符。
 ```csharp

@@ -1,27 +1,28 @@
 ---
-title: الرسوم المتحركة
+title: تحريك
 type: docs
 weight: 100
 url: /ar/net/examples/elements/animation/
 keywords:
-- مثال على الرسوم المتحركة
-- إضافة حركة
-- الوصول إلى الحركة
-- إزالة الحركة
-- تسلسل الحركة
+- مثال على التحريك
+- إضافة تحريك
+- الوصول إلى التحريك
+- إزالة التحريك
+- تسلسل التحريك
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في رسوم الشرائح المتحركة باستخدام C# و Aspose.Slides: أضف، عدّل، وأزل التأثيرات، التوقيتات، والمحفّزات لإنشاء عروض تقديمية ديناميكية بصيغ PPT، PPTX و ODP."
+description: "تحكم في رسوم الشرائح المتحركة في C# باستخدام Aspose.Slides: أضف، حرّر، وأزل التأثيرات، التوقيتات، والمحفّزات لإنشاء عروض تقديمية ديناميكية في PPT و PPTX و ODP."
 ---
 
-يظهر كيفية إنشاء رسومات متحركة بسيطة وإدارة تسلسلها باستخدام **Aspose.Slides for .NET**.
+يوضح كيفية إنشاء رسوم متحركة بسيطة وإدارة تسلسلها باستخدام **Aspose.Slides for .NET**.
 
-## إضافة حركة
-إنشاء شكل مستطيل وتطبيق تأثير ظهور تدريجي يتم تفعيله عند النقر.
+## **إضافة حركة**
+
+إنشاء شكل مستطيل وتطبيق تأثير تلاشي عند النقر.
 ```csharp
 static void Add_Animation()
 {
@@ -35,8 +36,9 @@ static void Add_Animation()
 ```
 
 
-## الوصول إلى حركة
-استرداد التأثير المتحرك الأول من جدول زمني الشريحة.
+## **الوصول إلى حركة**
+
+استرداد أول تأثير حركة من جدول زمني الشريحة.
 ```csharp
 static void Access_Animation()
 {
@@ -45,14 +47,15 @@ static void Access_Animation()
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
     slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 
-    // الوصول إلى التأثير الحركي الأول
+    // الوصول إلى أول تأثير حركة
     var effect = slide.Timeline.MainSequence[0];
 }
 ```
 
 
-## إزالة حركة
-إزالة تأثير الحركة من التسلسل.
+## **إزالة حركة**
+
+إزالة تأثير حركة من التسلسل.
 ```csharp
 static void Remove_Animation()
 {
@@ -67,7 +70,8 @@ static void Remove_Animation()
 ```
 
 
-## تسلسل الحركات
+## **تسلسل الحركات**
+
 إضافة تأثيرات متعددة وإظهار الترتيب الذي تحدث فيه الحركات.
 ```csharp
 static void Sequence_Animations()

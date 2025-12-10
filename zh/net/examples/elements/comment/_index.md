@@ -16,12 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中管理幻灯片评论：添加、读取、回复、编辑、删除，并在 PowerPoint 和 OpenDocument 中使用线程评论。"
+description: "使用 Aspose.Slides 在 C# 中管理幻灯片评论：添加、读取、回复、编辑、删除，并在 PowerPoint 和 OpenDocument 中使用线程式评论。"
 ---
 
 演示如何使用 **Aspose.Slides for .NET** 添加、读取、删除和回复现代评论。
 
-## 添加现代评论
+## **添加现代评论**
 
 创建由用户撰写的评论并保存演示文稿。
 ```csharp
@@ -38,7 +38,7 @@ static void Add_Modern_Comment()
 ```
 
 
-## 访问现代评论
+## **访问现代评论**
 
 从现有演示文稿中读取现代评论。
 ```csharp
@@ -53,7 +53,7 @@ static void Access_Modern_Comment()
 ```
 
 
-## 删除现代评论
+## **删除现代评论**
 
 删除评论并保存更新后的文件。
 ```csharp
@@ -70,9 +70,9 @@ static void Remove_Modern_Comment()
 ```
 
 
-## 回复现代评论
+## **回复现代评论**
 
-为父级现代评论添加回复。
+向父级现代评论添加回复。
 ```csharp
 static void Reply_To_Modern_Comment()
 {

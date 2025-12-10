@@ -7,8 +7,8 @@ url: /ru/net/manage-cells/
 keywords:
 - ячейка таблицы
 - объединение ячеек
-- удаление границы
-- разбиение ячейки
+- удалить границу
+- разделить ячейку
 - изображение в ячейке
 - цвет фона
 - PowerPoint
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Легко управлять ячейками таблиц в PowerPoint с помощью Aspose.Slides для .NET. Освойте быстрый доступ, изменение и стилизацию ячеек для беспроблемной автоматизации слайдов."
+description: "Легко управлять ячейками таблиц в PowerPoint с помощью Aspose.Slides для .NET. Освойте быстрый доступ, изменение и стилизацию ячеек для бесшовной автоматизации слайдов."
 ---
 
-## **Определение объединённых ячеек таблицы**
+## **Определить объединённую ячейку таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите таблицу с первого слайда.
-3. Пройдитесь по строкам и столбцам таблицы, чтобы найти объединённые ячейки.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+2. Получите таблицу с первого слайда. 
+3. Итерируйте строки и столбцы таблицы, чтобы найти объединённые ячейки.
 4. Выведите сообщение, когда найдены объединённые ячейки.
 
-Этот код C# показывает, как определить объединённые ячейки таблицы в презентации:
+Этот код на C# показывает, как определить объединённые ячейки таблицы в презентации:
 ```c#
 using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
@@ -49,30 +49,30 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 ```
 
 
-## **Удаление границ ячеек таблицы**
+## **Удалить границы ячеек таблицы**
 1. Создайте экземпляр класса `Presentation`.
-2. Получите ссылку на слайд по его индексу.
+2. Получите ссылку на слайд по его индексу. 
 3. Определите массив столбцов с шириной.
 4. Определите массив строк с высотой.
 5. Добавьте таблицу на слайд с помощью метода `AddTable`.
-6. Пройдитесь по каждой ячейке, чтобы очистить верхнюю, нижнюю, правую и левую границы.
+6. Итерируйте каждую ячейку, чтобы очистить верхнюю, нижнюю, правую и левую границы.
 7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код C# показывает, как удалить границы из ячеек таблицы:
+Этот код на C# показывает, как удалить границы из ячеек таблицы:
 ```c#
- // Создает объект класса Presentation, представляющий файл PPTX
- using (Presentation pres = new Presentation())
- {
-    // Получает первый слайд
-     Slide sld = (Slide)pres.Slides[0];
- 
+ // Создаёт экземпляр класса Presentation, представляющего файл PPTX
+using (Presentation pres = new Presentation())
+{
+   // Получает первый слайд
+    Slide sld = (Slide)pres.Slides[0];
+
     // Определяет столбцы с ширинами и строки с высотами
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
- 
+
     // Добавляет форму таблицы на слайд
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
- 
+
     // Устанавливает формат границы для каждой ячейки
     foreach (IRow row in tbl.Rows)
         foreach (ICell cell in row)
@@ -82,17 +82,17 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
             cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
             cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
         }
- 
+
     // Записывает файл PPTX на диск
     pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
- }
+}
 ```
 
 
 ## **Нумерация в объединённых ячейках**
-Если мы объединим 2 пары ячеек (1, 1) x (2, 1) и (1, 2) x (2, 2), полученная таблица будет пронумерована. Этот код C# демонстрирует процесс:
+Если объединить 2 пары ячеек (1, 1) x (2, 1) и (1, 2) x (2, 2), получившаяся таблица будет пронумерована. Этот код на C# демонстрирует процесс:
 ```c#
-// Создает экземпляр класса Presentation, представляющего файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation presentation = new Presentation())
 {
     // Получает первый слайд
@@ -139,9 +139,9 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Затем мы дополнительно объединяем ячейки, объединяя (1, 1) и (1, 2). В результате получается таблица, содержащая большую объединённую ячейку в центре:
+Затем мы продолжим объединять ячейки, объединив (1, 1) и (1, 2). В результате получим таблицу с большой объединённой ячейкой в центре: 
 ```c#
-// Создает экземпляр класса Presentation, представляющего файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation presentation = new Presentation())
 {
     // Получает первый слайд
@@ -193,68 +193,68 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Нумерация в раздельных ячейках**
-В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или система нумерации в остальных ячейках не менялась.
+## **Нумерация в разделённой ячейке**
+В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или система номеров в остальных ячейках не изменялась. 
 
-В этот раз мы возьмём обычную таблицу (таблицу без объединённых ячеек) и затем попробуем разделить ячейку (1,1), чтобы получить особую таблицу. Обратите внимание на нумерацию этой таблицы, которая может показаться странной. Однако так Microsoft PowerPoint нумерует ячейки таблицы, и Aspose.Slides делает то же самое.
+В этот раз мы берём обычную таблицу (без объединённых ячеек) и пытаемся разделить ячейку (1,1), получая особую таблицу. Обратите внимание на нумерацию этой таблицы, которая может показаться странной. Однако именно так Microsoft PowerPoint нумерует ячейки таблицы, и Aspose.Slides делает то же самое. 
 
-Этот код C# демонстрирует описанный процесс:
+Этот код на C# демонстрирует описанный процесс:
 ```c#
-// Создает экземпляр класса Presentation, представляющего файл PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Получает первый слайд
-    ISlide slide = presentation.Slides[0];
-
-    // Определяет столбцы с ширинами и строки с высотами
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Добавляет форму таблицы на слайд
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Устанавливает формат границы для каждой ячейки
-    foreach (IRow row in table.Rows)
+    // Создаёт экземпляр класса Presentation, представляющего файл PPTX
+    using (Presentation presentation = new Presentation())
     {
-        foreach (ICell cell in row)
+        // Получает первый слайд
+        ISlide slide = presentation.Slides[0];
+
+        // Определяет столбцы с ширинами и строки с высотами
+        double[] dblCols = { 70, 70, 70, 70 };
+        double[] dblRows = { 70, 70, 70, 70 };
+
+        // Добавляет форму таблицы на слайд
+        ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+
+        // Устанавливает формат границы для каждой ячейки
+        foreach (IRow row in table.Rows)
         {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+            foreach (ICell cell in row)
+            {
+                cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+                cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+                cell.CellFormat.BorderTop.Width = 5;
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+                cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+                cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+                cell.CellFormat.BorderBottom.Width = 5;
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+                cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+                cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+                cell.CellFormat.BorderLeft.Width = 5;
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
+                cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+                cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+                cell.CellFormat.BorderRight.Width = 5;
 
+            }
         }
+
+        // Объединяет ячейки (1, 1) x (2, 1)
+        table.MergeCells(table[1, 1], table[2, 1], false);
+
+        // Объединяет ячейки (1, 2) x (2, 2)
+        table.MergeCells(table[1, 2], table[2, 2], false);
+
+        // Делит ячейку (1, 1).
+        table[1, 1].SplitByWidth(table[2, 1].Width / 2);
+
+        // Записывает файл PPTX на диск
+        presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
     }
-
-    // Объединяет ячейки (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Объединяет ячейки (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
-    // Разделяет ячейку (1, 1). 
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
-
-    //Записывает файл PPTX на диск
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
-}
 ```
 
 
-## **Изменение цвета фона ячейки таблицы**
+## **Изменить цвет фона ячейки таблицы**
 
-Этот код C# показывает, как изменить цвет фона ячейки таблицы:
+Этот код на C# показывает, как изменить цвет фона ячейки таблицы:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -276,22 +276,22 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Добавление изображения в ячейку таблицы**
+## **Добавить изображение внутри ячейки таблицы**
 
 1. Создайте экземпляр класса `Presentation`.
 2. Получите ссылку на слайд по его индексу.
 3. Определите массив столбцов с шириной.
 4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд с помощью метода `AddTable`.
+5. Добавьте таблицу на слайд с помощью метода `AddTable`. 
 6. Создайте объект `Bitmap` для хранения файла изображения.
 7. Добавьте bitmap‑изображение в объект `IPPImage`.
 8. Установите `FillFormat` для ячейки таблицы в значение `Picture`.
 9. Добавьте изображение в первую ячейку таблицы.
-10. Сохраните изменённую презентацию в файл PPTX
+10. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код C# показывает, как разместить изображение внутри ячейки таблицы при её создании:
+Этот код на C# показывает, как разместить изображение внутри ячейки таблицы при её создании:
 ```c#
-// Создает экземпляр класса Presentation, представляющего файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation presentation = new Presentation())
 {
     // Получает первый слайд
@@ -322,18 +322,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Могу ли я задать разную толщину линий и стили для разных сторон одной ячейки?**
+**Могу ли я задать разную толщину и стили линий для разных сторон одной ячейки?**
 
-Да. У границ [верхней](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[нижней](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[левой](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[правой](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) есть отдельные свойства, поэтому толщина и стиль каждой стороны могут различаться. Это логично следует из управления границами каждой стороны ячейки, продемонстрированного в статье.
+Да. Границы [верхняя](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[нижняя](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[левая](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[правая](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут отличаться. Это логично вытекает из управления границами каждой стороны ячейки, продемонстрированного в статье.
 
-**Что происходит с изображением, если я изменю размер столбца/строки после установки картинки как фона ячейки?**
+**Что происходит с изображением, если я изменю размер столбца/строки после установки картинки как фон ячейки?**
 
-Поведение зависит от [режима заполнения](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (растяжка/замощение). При растяжении изображение адаптируется к новой ячейке; при замощении тайлы пересчитываются. В статье упомянуты режимы отображения изображения в ячейке.
+Поведение зависит от [режима заливки](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (растягивание/мозаика). При растягивании изображение подстраивается под новую ячейку; при мозаичном режиме плитки пересчитываются. В статье упоминаются режимы отображения изображения в ячейке.
 
 **Могу ли я назначить гиперссылку всему содержимому ячейки?**
 
-[Гиперссылки](/slides/ru/net/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового кадра ячейки или на уровне всей таблицы/фигуры. На практике вы назначаете ссылку отдельной части или всему тексту в ячейке.
+[Hyperlinks](/slides/ru/net/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/формы. На практике вы назначаете ссылку части текста или всему тексту в ячейке.
 
-**Могу ли я задать разные шрифты в одной ячейке?**
+**Могу ли я задать разные шрифты внутри одной ячейки?**
 
-Да. Текстовый кадр ячейки поддерживает [части](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) с независимым форматированием — семейство шрифта, стиль, размер и цвет.
+Да. Текстовый фрейм ячейки поддерживает [части](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) с независимым форматированием — семейство шрифтов, стиль, размер и цвет.

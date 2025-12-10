@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Contrôlez les en-têtes et pieds de page en C# avec Aspose.Slides : ajoutez ou modifiez la date/heure, les numéros de diapositive et le texte du pied de page, affichez ou masquez les espaces réservés dans PPT, PPTX et ODP."
+description: "Contrôlez les en-têtes et pieds de page en C# avec Aspose.Slides: ajoutez ou modifiez la date/heure, les numéros de diapositive et le texte du pied de page, affichez ou masquez les espaces réservés dans PPT, PPTX et ODP."
 ---
 
 Montre comment ajouter des pieds de page et mettre à jour les espaces réservés de date et d'heure en utilisant **Aspose.Slides for .NET**.
 
-## Ajouter un pied de page
+## **Ajouter un pied de page**
 
-Ajoutez du texte à la zone de pied de page d’une diapositive et rendez-le visible.
+Ajouter du texte à la zone de pied de page d'une diapositive et le rendre visible.
 ```csharp
 static void Add_Header_Footer()
 {
@@ -33,9 +33,9 @@ static void Add_Header_Footer()
 ```
 
 
-## Mettre à jour la date et l'heure
+## **Mettre à jour la date et l'heure**
 
-Modifiez l’espace réservé de date et d'heure sur une diapositive.
+Modifier l'espace réservé de date et d'heure sur une diapositive.
 ```csharp
 static void Update_Date_Time()
 {

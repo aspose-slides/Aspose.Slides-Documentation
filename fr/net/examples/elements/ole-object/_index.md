@@ -1,10 +1,10 @@
 ---
-title: ObjetOLE
+title: Objet OLE
 type: docs
 weight: 210
 url: /fr/net/examples/elements/ole-object/
 keywords:
-- exemple d'objet OLE
+- Exemple d'objet OLE
 - ajouter un objet OLE
 - accéder à un objet OLE
 - supprimer un objet OLE
@@ -15,13 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Travailler avec des objets OLE en C# à l'aide d'Aspose.Slides : insérer ou mettre à jour des fichiers incorporés, définir des icônes ou des liens, extraire le contenu, contrôler le comportement pour PPT, PPTX et ODP."
+description: "Travaillez avec les objets OLE en C# avec Aspose.Slides : insérez ou mettez à jour des fichiers intégrés, définissez des icônes ou des liens, extrayez le contenu, contrôlez le comportement pour PPT, PPTX et ODP."
 ---
 
 Démontre l'intégration d'un fichier en tant qu'objet OLE et la mise à jour de ses données à l'aide de **Aspose.Slides for .NET**.
 
-## Ajouter un objet OLE
-
+## **Ajouter un objet OLE**
 Intégrez un fichier PDF dans la présentation.
 ```csharp
 static void Add_Ole_Object()
@@ -35,9 +34,8 @@ static void Add_Ole_Object()
 ```
 
 
-## Accéder à un objet OLE
-
-Récupérez le premier cadre d'objet OLE sur une diapositive.
+## **Accéder à un objet OLE**
+Récupérez le premier cadre d'objet OLE d'une diapositive.
 ```csharp
 static void Access_Ole_Object()
 {
@@ -51,8 +49,7 @@ static void Access_Ole_Object()
 ```
 
 
-## Supprimer un objet OLE
-
+## **Supprimer un objet OLE**
 Supprimez un objet OLE intégré de la diapositive.
 ```csharp
 static void Remove_Ole_Object()
@@ -67,8 +64,7 @@ static void Remove_Ole_Object()
 ```
 
 
-## Mettre à jour les données d'un objet OLE
-
+## **Mettre à jour les données d'un objet OLE**
 Remplacez les données intégrées dans un objet OLE existant.
 ```csharp
 static void Update_Ole_Object_Data()

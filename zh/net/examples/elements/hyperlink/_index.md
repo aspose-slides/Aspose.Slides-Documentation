@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 和 Aspose.Slides 添加、编辑和删除超链接：链接文本、形状、幻灯片、URL 和电子邮件；为 PPT、PPTX 和 ODP 设置目标和操作。"
+description: "在 C# 中使用 Aspose.Slides 添加、编辑和删除超链接：链接文字、形状、幻灯片、URL 和电子邮件；为 PPT、PPTX 和 ODP 设置目标和操作。"
 ---
 
-演示如何在形状上添加、访问、删除和更新超链接，使用 **Aspose.Slides for .NET**。
+演示如何使用 **Aspose.Slides for .NET** 在形状上添加、访问、删除和更新超链接。
 
-## 添加超链接
+## **添加超链接**
 
-创建一个带有指向外部网站的超链接的矩形形状。
+创建一个矩形形状，并为其添加指向外部网站的超链接。
 ```csharp
 static void Add_Hyperlink()
 {
@@ -35,9 +35,9 @@ static void Add_Hyperlink()
 ```
 
 
-## 访问超链接
+## **访问超链接**
 
-读取形状文本部分的超链接信息。
+读取形状文本部分中的超链接信息。
 ```csharp
 static void Access_Hyperlink()
 {
@@ -52,7 +52,7 @@ static void Access_Hyperlink()
 ```
 
 
-## 删除超链接
+## **删除超链接**
 
 清除形状文本中的超链接。
 ```csharp
@@ -69,9 +69,9 @@ static void Remove_Hyperlink()
 ```
 
 
-## 更新超链接
+## **更新超链接**
 
-更改现有超链接的目标。使用 `HyperlinkManager` 修改已包含超链接的文本，这模拟了 PowerPoint 安全更新超链接的方式。
+更改现有超链接的目标。使用 `HyperlinkManager` 修改已经包含超链接的文本，这模仿了 PowerPoint 安全更新超链接的方式。
 ```csharp
 static void Update_Hyperlink()
 {
@@ -82,9 +82,9 @@ static void Update_Hyperlink()
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-    // 在现有文本中更改超链接应通过
-    // 使用 HyperlinkManager 而不是直接设置属性。
-    // 这模拟了 PowerPoint 安全更新超链接的方式。
+    // 更改已存在文本中的超链接应通过
+    // HyperlinkManager 而不是直接设置属性。
+    // 这模仿了 PowerPoint 安全更新超链接的方式。
     portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }
 ```

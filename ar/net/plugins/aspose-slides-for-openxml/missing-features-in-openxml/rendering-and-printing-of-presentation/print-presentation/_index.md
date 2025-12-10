@@ -4,12 +4,13 @@ type: docs
 url: /ar/net/print-the-presentation/
 ---
 
-توفر Aspose.Slides لـ .NET أربعة طرق تحميل لطباعة العروض التقديمية. هذه الطرق مرنة بما يكفي لطباعة العرض التقديمي إلى الطابعة الافتراضية أو إلى أي طابعة متاحة مع إعدادات مخصصة. تحتاج فقط إلى اختيار طريقة الطباعة المناسبة وفقًا للمتطلبات.
-## **الطباعة إلى الطابعة الافتراضية**
-طباعة العرض التقديمي إلى الطابعة الافتراضية بسيطة للغاية في Aspose.Slides لـ .NET. قم بالخطوات التالية لطباعة العرض التقديمي إلى الطابعة الافتراضية:
+توفر Aspose.Slides for .NET أربع طرق محملة للطبعات الخاصة بالعروض التقديمية. هذه الطرق مرنة بما يكفي لطباعة العرض على الطابعة الافتراضية أو على أي طابعة متاحة مع إعدادات مخصصة. كل ما عليك هو اختيار طريقة الطباعة المناسبة وفقًا للمطلب.
 
-- قم بإنشاء مثيل من فئة Presentation لتحميل عرض تقديمي سيتم طباعته
-- استدعِ طريقة Print بدون معلمات كما هو موضح من قبل كائن Presentation
+## **الطباعة إلى الطابعة الافتراضية**
+الطباعة إلى الطابعة الافتراضية في Aspose.Slides for .NET بسيطة جدًا. اتبع الخطوات التالية لطباعة العرض على الطابعة الافتراضية:
+
+- إنشاء كائن من فئة Presentation لتحميل العرض الذي سيتم طباعته
+- استدعاء طريقة Print بدون معاملات كما هو متاح في كائن Presentation
 
 ``` csharp
 
@@ -25,11 +26,11 @@ public static void PrintByDefaultPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //تحميل العرض التقديمي
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //استدعِ طريقة الطباعة لطباعة العرض التقديمي بالكامل إلى الطابعة الافتراضية
+    //Call the print method to print whole presentation to the default printer
 
     asposePresentation.Print();
 
@@ -41,21 +42,21 @@ public static void PrintBySpecificPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //تحميل العرض التقديمي
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //استدعِ طريقة الطباعة لطباعة العرض التقديمي بالكامل إلى الطابعة المطلوبة
+    //Call the print method to print whole presentation to the desired printer
 
     asposePresentation.Print("LaserJet1100");
 
 
 ``` 
-## **الطباعة إلى طابعة معينة**
-تتطلب طباعة العرض التقديمي إلى الطابعة المحددة اسم الطابعة كمعامل لطريقة Print في Presentation. قم بالخطوات التالية لطباعة العرض التقديمي إلى الطابعة المطلوبة:
+## **الطباعة إلى طابعة محددة**
+الطباعة إلى طابعة محددة تتطلب اسم الطابعة كمعامل لطريقة Print في فئة Presentation. اتبع الخطوات التالية لطباعة العرض على الطابعة المطلوبة:
 
-- قم بإنشاء مثيل من فئة Presentation لتحميل عرض تقديمي سيتم طباعته
-- استدعِ طريقة Print من فئة Presentation مع اسم الطابعة كمعامل نصي لطريقة Print
+- إنشاء كائن من فئة Presentation لتحميل العرض الذي سيتم طباعته
+- استدعاء طريقة Print في فئة Presentation مع اسم الطابعة كمعامل نصي
 
 ``` csharp
 
@@ -65,19 +66,19 @@ public static void PrintBySpecificPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //تحميل العرض التقديمي
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //استدعِ طريقة الطباعة لطباعة العرض التقديمي بالكامل إلى الطابعة المطلوبة
+    //Call the print method to print whole presentation to the desired printer
 
     asposePresentation.Print("LaserJet1100");
 
 }
 
 ``` 
-## **تحميل شفرة العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Print%20Presentation%20%28Aspose.Slides%29.zip)
+## **تحميل كود العينة**
+- [كودبلكس](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+- [جيتهاب](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [كود.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+- [بيتباكت](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Print%20Presentation%20%28Aspose.Slides%29.zip)

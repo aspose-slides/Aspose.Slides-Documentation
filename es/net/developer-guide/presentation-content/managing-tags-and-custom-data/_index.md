@@ -8,31 +8,29 @@ keywords:
 - propiedades del documento
 - etiqueta
 - datos personalizados
-- añadir etiqueta
-- valores de pares
+- agregar etiqueta
+- pares de valores
 - PowerPoint
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo agregar, leer, actualizar y eliminar etiquetas y datos personalizados en Aspose.Slides para .NET, con ejemplos para presentaciones de PowerPoint y OpenDocument."
+description: "Aprenda a agregar, leer, actualizar y eliminar etiquetas y datos personalizados en Aspose.Slides para .NET, con ejemplos para presentaciones de PowerPoint y OpenDocument."
 ---
 
 ## **Almacenamiento de datos en archivos de presentación**
 
-Los archivos PPTX—elementos con la extensión .pptx—se guardan en el formato PresentationML, que forma parte de la especificación Office Open XML. El formato Office Open XML define la estructura de los datos contenidos en presentaciones. 
+Los archivos PPTX—elementos con la extensión .pptx—se almacenan en el formato PresentationML, que forma parte de la especificación Office Open XML. El formato Office Open XML define la estructura de los datos contenidos en las presentaciones. 
 
-Con una *diapositiva* como uno de los elementos de las presentaciones, una *parte de diapositiva* contiene el contenido de una única diapositiva. A una parte de diapositiva se le pueden asignar relaciones explícitas a muchas partes—como Etiquetas definidas por el usuario—definidas por ISO/IEC 29500. 
+Con una *diapositiva* siendo uno de los elementos en las presentaciones, una *parte de diapositiva* contiene el contenido de una sola diapositiva. A una parte de diapositiva se le permite tener relaciones explícitas con muchas partes—como las etiquetas definidas por el usuario—definidas por ISO/IEC 29500. 
 
 Los datos personalizados (específicos de una presentación) o del usuario pueden existir como etiquetas ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) y CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
 
 {{% alert color="primary" %}} 
-
-Las etiquetas son esencialmente pares de valores cadena-clave. 
-
+Las etiquetas son esencialmente valores de pares cadena‑clave. 
 {{% /alert %}} 
 
-## **Obtener los valores de las etiquetas**
+## **Obtener valores de etiquetas**
 
 En las diapositivas, una etiqueta corresponde a la propiedad IDocumentProperties.Keywords. Este fragmento de código muestra cómo obtener el valor de una etiqueta con Aspose.Slides para .NET para [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 ```c#
@@ -45,12 +43,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **Agregar etiquetas a presentaciones**
 
-Aspose.Slides permite agregar etiquetas a presentaciones. Una etiqueta normalmente consta de dos elementos: 
+Aspose.Slides le permite agregar etiquetas a presentaciones. Una etiqueta normalmente consta de dos elementos: 
 
 - el nombre de una propiedad personalizada - `MyTag` 
 - el valor de la propiedad personalizada - `My Tag Value`
 
-Si necesita clasificar algunas presentaciones según una regla o propiedad específica, puede beneficiarse de agregar etiquetas a esas presentaciones. Por ejemplo, si desea agrupar todas las presentaciones de países de América del Norte, puede crear una etiqueta "North American" y luego asignar los países relevantes (EE. UU., México y Canadá) como valores. 
+Si necesita clasificar algunas presentaciones según una regla o propiedad específica, entonces puede beneficiarse de agregar etiquetas a esas presentaciones. Por ejemplo, si desea categorizar o agrupar todas las presentaciones de países de América del Norte, puede crear una etiqueta North American y luego asignar los países relevantes (EE. UU., México y Canadá) como los valores. 
 
 Este fragmento de código muestra cómo agregar una etiqueta a una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) usando Aspose.Slides para .NET:
 ```c#
@@ -84,7 +82,7 @@ using(Presentation pres = new Presentation())
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Puedo eliminar todas las etiquetas de una presentación, diapositiva o forma en una sola operación?**
 
@@ -92,8 +90,8 @@ Sí. La [tag collection](https://reference.aspose.com/slides/net/aspose.slides/t
 
 **¿Cómo elimino una sola etiqueta por su nombre sin iterar sobre toda la colección?**
 
-Use la operación [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) en [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) para eliminar la etiqueta por su clave.
+Utilice la operación [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) en [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) para eliminar la etiqueta por su clave.
 
 **¿Cómo puedo obtener la lista completa de nombres de etiquetas para análisis o filtrado?**
 
-Use [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) en la [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); devuelve una matriz con todos los nombres de etiquetas.
+Utilice [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) en la [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); devuelve una matriz con todos los nombres de etiquetas.

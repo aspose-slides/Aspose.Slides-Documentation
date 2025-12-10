@@ -1,26 +1,26 @@
 ---
-title: PowerPoint テキストを .NET でアニメートする
+title: PowerPoint テキストを .NET でアニメーション化
 linktitle: アニメーションテキスト
 type: docs
 weight: 60
 url: /ja/net/animated-text/
 keywords:
-  - アニメーションテキスト
-  - テキストアニメーション
-  - アニメーション段落
-  - 段落アニメーション
-  - アニメーション効果
-  - PowerPoint
-  - プレゼンテーション
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument プレゼンテーションで動的なアニメーションテキストを作成し、分かりやすく最適化された C# コード例を提供します。"
+- アニメーションテキスト
+- テキストアニメーション
+- アニメーション段落
+- 段落アニメーション
+- アニメーション効果
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して、PowerPoint と OpenDocument プレゼンテーション内に動的なアニメーションテキストを作成し、わかりやすく最適化された C# コード例を提供します。"
 ---
 
 ## **段落へのアニメーション効果の追加**
 
-Sequence クラスと ISequence クラスに [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) メソッドを追加しました。このメソッドを使用すると、単一の段落にアニメーション効果を追加できます。このサンプルコードは、単一の段落にアニメーション効果を追加する方法を示しています:
+We added the [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
@@ -28,7 +28,7 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // 選択した段落に Fly アニメーション効果を追加
+    // 選択した段落に Fly アニメーションエフェクトを追加
     IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
 
@@ -37,11 +37,11 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 ```
 
 
-## **段落内のアニメーション効果の取得**
+## **段落のアニメーション効果の取得**
 
-段落に追加されたアニメーション効果を確認したい場合があります。たとえば、あるシナリオでは、別の段落やシェイプにその効果を適用するために、段落内のアニメーション効果を取得したいことがあります。
+You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
-Aspose.Slides for .NET を使用すると、テキスト フレーム（シェイプ）に含まれる段落に適用されたすべてのアニメーション効果を取得できます。このサンプルコードは、段落内のアニメーション効果を取得する方法を示しています:
+Aspose.Slides for .NET allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -61,14 +61,14 @@ using (Presentation pres = new Presentation("Test.pptx"))
 
 ## **よくある質問**
 
-**テキスト アニメーションはスライドトランジションとどのように異なり、組み合わせることはできますか？**
+**テキストアニメーションはスライドトランジションとどのように異なり、組み合わせることはできますか？**
 
-テキスト アニメーションはスライド上のオブジェクトの動作を時間的に制御し、[transitions](/slides/ja/net/slide-transition/) はスライドの切り替え方法を制御します。両者は独立しており、一緒に使用できます。再生順序はアニメーション タイムラインとトランジション設定によって決まります。
+Text animations control object behavior over time on a slide, while [トランジション](/slides/ja/net/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
 
-**テキスト アニメーションは PDF や画像にエクスポートすると保持されますか？**
+**テキストアニメーションはPDFや画像にエクスポートしたときに保持されますか？**
 
-いいえ。PDF とラスタ画像は静的であるため、スライドの動きのない単一の状態が表示されます。動きを保持したい場合は、[video](/slides/ja/net/convert-powerpoint-to-video/) または [HTML](/slides/ja/net/export-to-html5/) エクスポートを使用してください。
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [ビデオ](/slides/ja/net/convert-powerpoint-to-video/) or [HTML](/slides/ja/net/export-to-html5/) export.
 
-**テキスト アニメーションはレイアウトやスライド マスターでも機能しますか？**
+**レイアウトやスライドマスターでもテキストアニメーションは機能しますか？**
 
-レイアウト/マスター オブジェクトに適用された効果はスライドに継承されますが、タイミングやスライドレベルのアニメーションとの相互作用は、スライド上の最終シーケンスに依存します。
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

@@ -1,18 +1,32 @@
 ---
-title: Notes de présentation
+title: Gérer les notes de présentation en .NET
+linktitle: Notes de présentation
 type: docs
 weight: 110
 url: /fr/net/presentation-notes/
-keywords: "Notes, notes PowerPoint, ajouter des notes, supprimer des notes, présentation PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Ajouter et supprimer des notes dans les présentations PowerPoint en C# ou .NET"
+keywords:
+- notes
+- diapositive de notes
+- ajouter des notes
+- supprimer des notes
+- style de notes
+- notes maîtres
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Personnalisez les notes de présentation avec Aspose.Slides pour .NET. Travaillez sans effort avec les notes PowerPoint et OpenDocument pour augmenter votre productivité."
 ---
 
-Aspose.Slides prend en charge la suppression des diapositives de notes d'une présentation. Dans ce sujet, nous présenterons cette nouvelle fonctionnalité de suppression des notes ainsi que l'ajout de diapositives de style de notes à partir de toute présentation. Aspose.Slides pour .NET offre la fonctionnalité de supprimer les notes de n'importe quelle diapositive ainsi que d'ajouter un style aux notes existantes. Les développeurs peuvent supprimer les notes de les manières suivantes :
+Aspose.Slides prend en charge la suppression des diapositives de notes d’une présentation. Dans cet article, nous présenterons cette nouvelle fonctionnalité de suppression des notes ainsi que l’ajout de diapositives de style de notes à partir de n’importe quelle présentation. Aspose.Slides pour .NET offre la possibilité de supprimer les notes de n’importe quelle diapositive ainsi que d’ajouter du style aux notes existantes. Les développeurs peuvent supprimer les notes de la manière suivante :
 
-- Supprimer les notes d'une diapositive spécifique d'une présentation.
-- Supprimer les notes de toutes les diapositives d'une présentation.
+- Supprimer les notes d’une diapositive spécifique d’une présentation.  
+- Supprimer les notes de toutes les diapositives d’une présentation.  
+
 ## **Supprimer les notes d'une diapositive**
-Les notes d'une diapositive précise peuvent être supprimées comme indique dans l'exemple ci-dessous :
+Les notes d’une diapositive précise peuvent être supprimées comme le montre l’exemple ci‑dessous :
 ```c#
 // Instancier un objet Presentation qui représente un fichier de présentation 
 Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
@@ -21,13 +35,13 @@ Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
-// Enregistrer la présentation sur disque
+// Enregistrer la présentation sur le disque
 presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **Supprimer les notes de toutes les diapositives**
-Les notes de toutes les diapositives d'une présentation peuvent être supprimées comme indique dans l'exemple ci-dessous :
+Les notes de toutes les diapositives d’une présentation peuvent être supprimées comme le montre l’exemple ci‑dessous :
 ```c#
 // Instancier un objet Presentation qui représente un fichier de présentation 
 Presentation presentation = new Presentation("AccessSlides.pptx");
@@ -39,13 +53,13 @@ for (int i = 0; i < presentation.Slides.Count; i++)
     mgr = presentation.Slides[i].NotesSlideManager;
     mgr.RemoveNotesSlide();
 }
-// Enregistrer la présentation sur disque
+// Enregistrer la présentation sur le disque
 presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Ajouter NotesStyle**
-La propriete NotesStyle a ete ajoutee a l'interface [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) et a la classe [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) respectivement. Cette propriete specifie le style du texte des notes. L'implementation est illustree dans l'exemple ci-dessous.
+## **Ajouter un style de notes**
+La propriété NotesStyle a été ajoutée à l’interface [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) et à la classe [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) respectivement. Cette propriété indique le style du texte des notes. L’implémentation est illustrée dans l’exemple ci‑dessous.
 ```c#
 // Instancier la classe Presentation qui représente le fichier de présentation
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
@@ -54,10 +68,10 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 
     if (notesMaster != null)
     {
-        // Obtient le style de texte du MasterNotesSlide
+        // Obtenir le style de texte du MasterNotesSlide
         ITextStyle notesStyle = notesMaster.NotesStyle;
 
-        //Définir un symbole de puce pour les paragraphes de premier niveau
+        //Définir une puce symbole pour les paragraphes de premier niveau
         IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
         paragraphFormat.Bullet.Type = BulletType.Symbol;
     }
@@ -71,10 +85,10 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 
 ## **FAQ**
 
-**Quel element de l'API permet d'acceder aux notes d'une diapositive specifique?**
+**Quel entité API fournit l’accès aux notes d’une diapositive spécifique ?**
 
-Les notes sont accessibles via le gestionnaire de notes de la diapositive: la diapositive possède un [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) et une [property](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) qui renvoie l'objet notes, ou `null` s'il n'y a aucune note.
+Les notes sont accessibles via le gestionnaire de notes de la diapositive : la diapositive possède un [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) et une [property](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) qui renvoie l’objet notes, ou `null` s’il n’y a pas de notes.
 
-**Existe-t-il des differences de prise en charge des notes selon les versions de PowerPoint compatibles avec la bibliotheque?**
+**Existe‑t‑il des différences de prise en charge des notes selon les versions de PowerPoint avec lesquelles la bibliothèque fonctionne ?**
 
-La bibliotheque cible une large gamme de formats Microsoft PowerPoint (97-plus recent) et ODP; les notes sont prises en charge dans ces formats sans dependre d'une copie installee de PowerPoint.
+La bibliothèque cible un large éventail de formats Microsoft PowerPoint (97‑plus récent) ainsi que ODP ; les notes sont prises en charge dans ces formats sans dépendre d’une copie installée de PowerPoint.

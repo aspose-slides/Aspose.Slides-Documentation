@@ -14,11 +14,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo gestionar porciones de texto en presentaciones de PowerPoint usando Aspose.Slides para .NET, mejorando el rendimiento y la personalización."
+description: "Aprenda a gestionar porciones de texto en presentaciones de PowerPoint usando Aspose.Slides para .NET, mejorando el rendimiento y la personalización."
 ---
 
-## **Obtener coordenadas de posición de la porción**
-Se ha añadido el método **GetCoordinates()** a IPortion y a la clase Portion, lo que permite recuperar las coordenadas del inicio de la porción:
+## **Obtener coordenadas de una porción de texto**
+**GetCoordinates()** se ha añadido a la interfaz IPortion y a la clase Portion, lo que permite obtener las coordenadas del inicio de la porción:
 ```c#
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
@@ -37,20 +37,20 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Puedo aplicar un hipervínculo solo a una parte del texto dentro de un mismo párrafo?**
+**¿Puedo aplicar un hipervínculo solo a una parte del texto dentro de un solo párrafo?**
 
 Sí, puedes [asignar un hipervínculo](/slides/es/net/manage-hyperlinks/) a una porción individual; solo ese fragmento será clicable, no todo el párrafo.
 
-**¿Cómo funciona la herencia de estilos: qué sobrescribe una Portion y qué se toma de Paragraph/TextFrame?**
+**¿Cómo funciona la herencia de estilos: qué anula una Porción y qué se toma de Paragraph/TextFrame?**
 
-Las propiedades a nivel de Portion tienen la mayor precedencia. Si una propiedad no está establecida en el [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/), el motor la toma del [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); si tampoco está establecida allí, la toma del [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) o del estilo del [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/).
+Las propiedades a nivel de Porción tienen la mayor precedencia. Si una propiedad no está establecida en la [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/), el motor la toma de la [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); si tampoco está establecida allí, se toma de la [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) o del estilo del [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/).
 
-**¿Qué ocurre si la fuente especificada para una Portion no está disponible en la máquina/servidor de destino?**
+**¿Qué ocurre si la fuente especificada para una Porción no está presente en la máquina/servidor de destino?**
 
-Se aplican las [reglas de sustitución de fuentes](/slides/es/net/font-selection-sequence/). El texto puede refluenciar: métricas, guión y ancho pueden cambiar, lo que afecta a la posición precisa.
+Se aplican las [reglas de sustitución de fuentes](/slides/es/net/font-selection-sequence/). El texto puede volver a fluir: las métricas, el guionado y el ancho pueden cambiar, lo que es importante para el posicionamiento preciso.
 
-**¿Puedo establecer una transparencia o degradado de relleno de texto específico para una Portion independiente del resto del párrafo?**
+**¿Puedo establecer la transparencia o el degradado del relleno del texto a nivel de Porción, independiente del resto del párrafo?**
 
-Sí, el color, relleno y transparencia del texto a nivel de [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) pueden diferir de los fragmentos vecinos.
+Sí, el color del texto, el relleno y la transparencia a nivel de [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) pueden ser diferentes de los fragmentos vecinos.

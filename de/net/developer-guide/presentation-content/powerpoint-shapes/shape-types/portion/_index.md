@@ -1,11 +1,11 @@
 ---
-title: Textportionen in Präsentationen in .NET verwalten
-linktitle: Textportion
+title: Textabschnitte in Präsentationen mit .NET verwalten
+linktitle: Textabschnitt
 type: docs
 weight: 70
 url: /de/net/portion/
 keywords:
-- Textportion
+- Textabschnitt
 - Textteil
 - Textkoordinaten
 - Textposition
@@ -14,11 +14,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Textportionen in PowerPoint-Präsentationen mit Aspose.Slides für .NET verwalten und dabei Leistung und Anpassbarkeit steigern."
+description: "Lernen Sie, wie Sie Textabschnitte in PowerPoint-Präsentationen mit Aspose.Slides für .NET verwalten, um Leistung und Anpassbarkeit zu steigern."
 ---
 
-## **Positionskoordinaten der Portion abrufen**
-**GetCoordinates()**-Methode wurde zu IPortion und Portion-Klasse hinzugefügt, wodurch die Koordinaten des Beginns der Portion abgerufen werden können:
+## **Koordinaten eines Textabschnitts abrufen**
+**GetCoordinates()**-Methode wurde zur IPortion- und Portion-Klasse hinzugefügt, die das Abrufen der Koordinaten des Beginns des Abschnitts ermöglicht:
 ```c#
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
@@ -39,18 +39,18 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 
 ## **FAQ**
 
-**Kann ich einen Hyperlink nur auf einen Teil des Textes in einem einzigen Absatz anwenden?**
+**Kann ich einen Hyperlink nur auf einen Teil des Textes innerhalb eines einzelnen Absatzes anwenden?**
 
-Ja, Sie können [einen Hyperlink zuweisen](/slides/de/net/manage-hyperlinks/) einer einzelnen Portion; nur dieses Fragment wird anklickbar sein, nicht der gesamte Absatz.
+Ja, Sie können [einen Hyperlink zuweisen](/slides/de/net/manage-hyperlinks/) zu einem einzelnen Abschnitt; nur dieses Fragment ist anklickbar, nicht der gesamte Absatz.
 
-**Wie funktioniert die Stilvererbung: Was überschreibt eine Portion und was wird aus Paragraph/TextFrame übernommen?**
+**Wie funktioniert die Stilvererbung: Was überschreibt ein Portion und was wird von Paragraph/TextFrame übernommen?**
 
-Eigenschaften auf Portion‑Ebene haben die höchste Priorität. Wenn eine Eigenschaft nicht auf der [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) festgelegt ist, übernimmt die Engine sie vom [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); ist sie dort ebenfalls nicht festgelegt, wird sie vom [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) oder vom [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/) Stil übernommen.
+Eigenschaften auf Portion-Ebene haben die höchste Priorität. Wenn eine Eigenschaft nicht im [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) festgelegt ist, übernimmt die Engine sie vom [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); ist sie dort ebenfalls nicht gesetzt, wird sie vom [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) oder vom [Theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/)-Stil übernommen.
 
-**Was passiert, wenn die für eine Portion angegebene Schriftart auf dem Zielrechner/-server fehlt?**
+**Was passiert, wenn die für einen Portion angegebene Schriftart auf dem Zielrechner/Server fehlt?**
 
-[Schriftart‑Ersetzungsregeln](/slides/de/net/font-selection-sequence/) gelten. Der Text kann neu fließen: Metriken, Silbentrennung und Breite können sich ändern, was für genaue Positionierung wichtig ist.
+[Font substitution rules](/slides/de/net/font-selection-sequence/) gelten. Der Text kann umfließen: Metriken, Silbentrennung und Breite können sich ändern, was für präzise Positionierung wichtig ist.
 
-**Kann ich für eine Portion eine eigene Textfülltransparenz oder einen eigenen Farbverlauf festlegen, unabhängig vom Rest des Absatzes?**
+**Kann ich eine portionsspezifische Textfüll‑Transparenz oder einen Farbverlauf unabhängig vom Rest des Absatzes festlegen?**
 
-Ja, Textfarbe, Füllung und Transparenz auf der [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) Ebene können von benachbarten Fragmenten abweichen.
+Ja, Textfarbe, Füllung und Transparenz auf [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/)-Ebene können von benachbarten Fragmenten abweichen.

@@ -1,49 +1,51 @@
 ---
-title: Управление узлами формы SmartArt в презентациях на .NET
-linktitle: Узел формы SmartArt
+title: Управление узлами фигур SmartArt в презентациях на .NET
+linktitle: Узел фигуры SmartArt
 type: docs
 weight: 30
 url: /ru/net/manage-smartart-shape-node/
 keywords:
-- узел SmartArt
-- дочерний узел
-- добавить узел
-- позиция узла
-- доступ к узлу
-- удалить узел
-- пользовательская позиция
-- узел‑ассистент
-- формат заливки
-- отрисовка узла
+- Узел SmartArt
+- Дочерний узел
+- Добавить узел
+- Позиция узла
+- Доступ к узлу
+- Удалить узел
+- Пользовательская позиция
+- Узел‑ассистент
+- Формат заливки
+- Отрисовка узла
 - PowerPoint
-- презентация
+- Презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Управляйте узлами формы SmartArt в PPT и PPTX с помощью Aspose.Slides для .NET. Получите понятные примеры кода и советы для оптимизации ваших презентаций."
+description: "Управление узлами фигур SmartArt в PPT и PPTX с помощью Aspose.Slides for .NET. Получите понятные примеры кода и советы по оптимизации ваших презентаций."
 ---
 
 ## **Добавить узел SmartArt**
-Aspose.Slides for .NET предоставил самый простой API для управления формами SmartArt самым простым способом. Следующий пример кода поможет добавить узел и дочерний узел внутри формы SmartArt.
+Aspose.Slides for .NET предоставляет самый простой API для управления фигурами SmartArt самым простым способом. Следующий пример кода поможет добавить узел и дочерний узел внутри фигуры SmartArt.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) и загрузите презентацию с формой SmartArt.
+- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArt, если это SmartArt.
-- Добавьте новый узел в коллекцию NodeCollection формы SmartArt и задайте текст в TextFrame.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение типа выбранной фигуры к SmartArt, если это SmartArt.
+- Добавьте новый узел в коллекцию NodeCollection фигуры SmartArt и задайте текст в TextFrame.
 - Затем добавьте дочерний узел в только что добавленный узел SmartArt и задайте текст в TextFrame.
 - Сохраните презентацию.
 ```c#
 // Загрузить нужную презентацию
 Presentation pres = new Presentation("AddNodes.pptx");
 
-// Пройтись по каждой фигуре внутри первого слайда
+// Перебрать все фигуры на первом слайде
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
-    // Проверить, является ли фигура типа SmartArt
+
+    // Проверить, является ли фигура типом SmartArt
     if (shape is Aspose.Slides.SmartArt.SmartArt)
     {
-        // Привести тип фигуры к SmartArt
+
+        // Преобразовать тип фигуры к SmartArt
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
         // Добавление нового узла SmartArt
@@ -69,28 +71,28 @@ pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 
 ## **Добавить узел SmartArt в определённой позиции**
-В следующем примере кода мы объяснили, как добавить дочерние узлы, принадлежащие соответствующим узлам формы SmartArt, в определённой позиции.
+В приведённом ниже примере кода мы объяснили, как добавить дочерние узлы, принадлежащие соответствующим узлам фигуры SmartArt, в определённой позиции.
 
 - Создайте экземпляр класса `Presentation`.
 - Получите ссылку на первый слайд, используя его индекс.
-- Добавьте форму SmartArt типа StackedList на выбранный слайд.
-- Получите доступ к первому узлу в добавленной форме SmartArt.
-- Затем добавьте дочерний узел для выбранного узла на позицию 2 и задайте его текст.
+- Добавьте фигуру SmartArt типа StackedList на доступный слайд.
+- Получите доступ к первому узлу в добавленной фигуре SmartArt.
+- Затем добавьте дочерний узел для выбранного узла в позиции 2 и задайте его текст.
 - Сохраните презентацию.
 ```c#
 // Создание экземпляра презентации
 Presentation pres = new Presentation();
 
-// Доступ к слайду презентации
+// Получить слайд презентации
 ISlide slide = pres.Slides[0];
 
-// Добавление Smart Art IShape
+// Добавить Smart Art IShape
 ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
 // Доступ к узлу SmartArt с индексом 0
 ISmartArtNode node = smart.AllNodes[0];
 
-// Добавление нового дочернего узла на позицию 2 в родительском узле
+// Добавление нового дочернего узла в позицию 2 родительского узла
 SmartArtNode chNode = (SmartArtNode)((SmartArtNodeCollection)node.ChildNodes).AddNodeByPosition(2);
 
 // Добавить текст
@@ -105,29 +107,29 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 
 
 ## **Доступ к узлу SmartArt**
-Следующий пример кода поможет получить доступ к узлам внутри формы SmartArt. Обратите внимание, что тип LayoutType SmartArt нельзя изменить, так как он только для чтения и устанавливается только при добавлении формы SmartArt.
+Следующий пример кода поможет получить доступ к узлам внутри фигуры SmartArt. Обратите внимание, что вы не можете изменить LayoutType SmartArt, так как он доступен только для чтения и устанавливается только при добавлении фигуры SmartArt.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArt, если это SmartArt.
-- Пройдитесь по всем узлам внутри формы SmartArt.
-- Получите доступ и отобразите информацию, такую как позиция узла SmartArt, уровень и текст.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение типа выбранной фигуры к SmartArt, если это SmartArt.
+- Пройдите по всем узлам внутри фигуры SmartArt.
+- Получите и отобразите информацию, такую как позиция узла SmartArt, уровень и текст.
   ```c#
   // Загрузить нужную презентацию
    Presentation pres = new Presentation("AccessSmartArt.pptx");
   
-  // Пройтись по каждой фигуре внутри первого слайда
+  // Перебрать все фигуры на первом слайде
   foreach (IShape shape in pres.Slides[0].Shapes)
   {
-      // Проверить, является ли объект типа SmartArt
+      // Проверить, является ли фигура типом SmartArt
       if (shape is Aspose.Slides.SmartArt.SmartArt)
       {
   
-          // Привести тип объекта к SmartArt
+          // Привести тип фигуры к SmartArt
           Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
   
-          // Пройтись по всем узлам внутри SmartArt
+          // Перебрать все узлы внутри SmartArt
           for (int i = 0; i < smart.AllNodes.Count; i++)
           {
               // Доступ к узлу SmartArt с индексом i
@@ -144,29 +146,30 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 
 
 
-## **Доступ к дочернему узлу SmartArt**
-Следующий пример кода поможет получить доступ к дочерним узлам, принадлежащим соответствующим узлам формы SmartArt.
 
-- Создайте экземпляр класса PresentationEx и загрузите презентацию с формой SmartArt.
+## **Доступ к дочернему узлу SmartArt**
+Следующий пример кода поможет получить доступ к дочерним узлам, принадлежащим соответствующим узлам фигуры SmartArt.
+
+- Создайте экземпляр класса PresentationEx и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArtEx, если это SmartArt.
-- Пройдитесь по всем узлам внутри формы SmartArt.
-- Для каждого выбранного узла формы SmartArt пройдитесь по всем дочерним узлам внутри конкретного узла.
-- Получите доступ и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение выбранной фигуры к SmartArtEx, если это SmartArt.
+- Пройдите по всем узлам внутри фигуры SmartArt.
+- Для каждого выбранного узла фигуры SmartArt пройдите по всем дочерним узлам внутри конкретного узла.
+- Получите и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
 ```c#
  // Загрузить нужную презентацию
  Presentation pres = new Presentation("AccessChildNodes.pptx");
 
- // Пройтись по каждой фигуре внутри первого слайда
+ // Пройтись по всем фигурам первого слайда
  foreach (IShape shape in pres.Slides[0].Shapes)
  {
 
-     // Проверить, является ли объект типа SmartArt
+     // Проверить, является ли фигура типом SmartArt
      if (shape is Aspose.Slides.SmartArt.SmartArt)
      {
 
-         // Привести тип объекта к SmartArt
+         // Преобразовать тип фигуры к SmartArt
          Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
          // Пройтись по всем узлам внутри SmartArt
@@ -175,7 +178,7 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
              // Доступ к узлу SmartArt с индексом i
              Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
 
-             // Проход по дочерним узлам узла SmartArt с индексом i
+             // Пройтись по дочерним узлам узла SmartArt с индексом i
              for (int j = 0; j < node0.ChildNodes.Count; j++)
              {
                  // Доступ к дочернему узлу в узле SmartArt
@@ -194,63 +197,63 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 
 
 ## **Доступ к дочернему узлу SmartArt в определённой позиции**
-В этом примере мы узнаем, как получить доступ к дочерним узлам в определённой позиции, принадлежащим соответствующим узлам формы SmartArt.
+В этом примере мы научимся получать доступ к дочерним узлам в определённой позиции, принадлежащим соответствующим узлам фигуры SmartArt.
 
 - Создайте экземпляр класса `Presentation`.
 - Получите ссылку на первый слайд, используя его индекс.
-- Добавьте форму SmartArt типа StackedList.
-- Получите доступ к добавленной форме SmartArt.
-- Получите узел с индексом 0 для выбранной формы SmartArt.
-- Затем получите дочерний узел на позиции 1 для выбранного узла SmartArt, используя метод GetNodeByPosition().
-- Получите доступ и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
+- Добавьте фигуру SmartArt типа StackedList.
+- Получите доступ к добавленной фигуре SmartArt.
+- Получите узел с индексом 0 в полученной фигуре SmartArt.
+- Затем получите дочерний узел в позиции 1 для выбранного узла SmartArt, используя метод GetNodeByPosition().
+- Получите и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
 ```c#
-// Создать экземпляр презентации
-Presentation pres = new Presentation();
+ // Создать экземпляр презентации
+ Presentation pres = new Presentation();
 
-// Доступ к первому слайду
-ISlide slide = pres.Slides[0];
+ // Получение первого слайда
+ ISlide slide = pres.Slides[0];
 
-// Добавление формы SmartArt на первый слайд
-ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
+ // Добавление фигуры SmartArt на первый слайд
+ ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-// Доступ к узлу SmartArt с индексом 0
-ISmartArtNode node = smart.AllNodes[0];
+ // Доступ к узлу SmartArt  с индексом 0
+ ISmartArtNode node = smart.AllNodes[0];
 
-// Доступ к дочернему узлу на позиции 1 в родительском узле
-int position = 1;
-SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
+ // Доступ к дочернему узлу в позиции 1 родительского узла
+ int position = 1;
+ SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
 
-// Вывод параметров дочернего узла SmartArt
-string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
-Console.WriteLine(outString);
+ // Вывод параметров дочернего узла SmartArt
+ string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
+ Console.WriteLine(outString);
 ```
 
 
 
 
 ## **Удалить узел SmartArt**
-В этом примере мы узнаем, как удалить узлы внутри формы SmartArt.
+В этом примере мы научимся удалять узлы внутри фигуры SmartArt.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArt, если это SmartArt.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение типа выбранной фигуры к SmartArt, если это SmartArt.
 - Проверьте, содержит ли SmartArt более 0 узлов.
-- Выберите узел SmartArt, который нужно удалить.
-- Затем удалите выбранный узел, используя метод RemoveNode(), и сохраните презентацию.
+- Выберите узел SmartArt для удаления.
+- Затем удалите выбранный узел с помощью метода RemoveNode() и сохраните презентацию.
 ```c#
 // Загрузить нужную презентацию
 using (Presentation pres = new Presentation("RemoveNode.pptx"))
 {
 
-    // Пройтись по каждой фигуре внутри первого слайда
+    // Перебрать все фигуры на первом слайде
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
 
-        // Проверить, является ли объект типа SmartArt
+        // Проверить, является ли фигура типом SmartArt
         if (shape is ISmartArt)
         {
-            // Привести тип объекта к SmartArtEx
+            // Привести тип фигуры к SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
             if (smart.AllNodes.Count > 0)
@@ -274,27 +277,27 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
 
 
 ## **Удалить узел SmartArt в определённой позиции**
-В этом примере мы узнаем, как удалить узлы внутри формы SmartArt в определённой позиции.
+В этом примере мы научимся удалять узлы внутри фигуры SmartArt в определённой позиции.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArt, если это SmartArt.
-- Выберите узел формы SmartArt с индексом 0.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение типа выбранной фигуры к SmartArt, если это SmartArt.
+- Выберите узел фигуры SmartArt с индексом 0.
 - Затем проверьте, содержит ли выбранный узел SmartArt более 2 дочерних узлов.
-- Затем удалите узел на позиции 1, используя метод RemoveNodeByPosition().
+- Затем удалите узел в позиции 1 с помощью метода RemoveNodeByPosition().
 - Сохраните презентацию.
 ```c#
- // Загрузить нужную презентацию             
- Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
+// Загрузить нужную презентацию
+Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
-// Пройтись по каждой фигуре внутри первого слайда
+// Перебрать все фигуры на первом слайде
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
-    // Проверить, является ли объект типа SmartArt
+    // Проверить, является ли фигура типом SmartArt
     if (shape is Aspose.Slides.SmartArt.SmartArt)
     {
-        // Привести тип объекта к SmartArt
+        // Привести тип фигуры к SmartArt
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
         if (smart.AllNodes.Count > 0)
@@ -304,7 +307,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 
             if (node.ChildNodes.Count >= 2)
             {
-                // Удаление дочернего узла на позиции 1
+                // Удалить дочерний узел на позиции 1
                 ((Aspose.Slides.SmartArt.SmartArtNodeCollection)node.ChildNodes).RemoveNode(1);
             }
 
@@ -319,37 +322,37 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 
 
 
-## **Установить пользовательскую позицию для дочернего узла в SmartArt**
-Теперь Aspose.Slides for .NET поддерживает установку свойств X и Y для SmartArtShape. Ниже приведён фрагмент кода, показывающий, как задать пользовательскую позицию, размер и вращение SmartArtShape; также обратите внимание, что добавление новых узлов вызывает перерасчёт позиций и размеров всех узлов.
+## **Установить пользовательскую позицию для дочернего узла в объекте SmartArt**
+Теперь Aspose.Slides for .NET поддерживает установку свойств X и Y для SmartArtShape. Приведённый ниже фрагмент кода показывает, как задать пользовательскую позицию, размер и вращение SmartArtShape; также обратите внимание, что добавление новых узлов приводит к перерасчёту позиций и размеров всех узлов.
 ```c#
 // Загрузить нужную презентацию
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 {
-	ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
+    ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-	// Переместить форму SmartArt в новое положение
-	ISmartArtNode node = smart.AllNodes[1];
-	ISmartArtShape shape = node.Shapes[1];
-	shape.X += (shape.Width * 2);
-	shape.Y -= (shape.Height / 2);
+    // Переместить фигуру SmartArt в новое положение
+    ISmartArtNode node = smart.AllNodes[1];
+    ISmartArtShape shape = node.Shapes[1];
+    shape.X += (shape.Width * 2);
+    shape.Y -= (shape.Height / 2);
 
-	// Изменить ширину формы SmartArt
-	node = smart.AllNodes[2];
-	shape = node.Shapes[1];
-	shape.Width += (shape.Width / 2);
+    // Изменить ширину фигуры SmartArt
+    node = smart.AllNodes[2];
+    shape = node.Shapes[1];
+    shape.Width += (shape.Width / 2);
 
-	// Изменить высоту формы SmartArt
-	node = smart.AllNodes[3];
-	shape = node.Shapes[1];
-	shape.Height += (shape.Height / 2);
+    // Изменить высоту фигуры SmartArt
+    node = smart.AllNodes[3];
+    shape = node.Shapes[1];
+    shape.Height += (shape.Height / 2);
 
-	// Изменить вращение формы SmartArt
-	node = smart.AllNodes[4];
-	shape = node.Shapes[1];
-	shape.Rotation = 90;
+    // Изменить вращение фигуры SmartArt
+    node = smart.AllNodes[4];
+    shape = node.Shapes[1];
+    shape.Rotation = 90;
 
-	pres.Save("SmartArt.pptx", SaveFormat.Pptx);
+    pres.Save("SmartArt.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -359,34 +362,34 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 ## **Проверить узел‑ассистент**
 В следующем примере кода мы исследуем, как определить узлы‑ассистенты в коллекции узлов SmartArt и изменить их.
 
-- Создайте экземпляр класса PresentationEx и загрузите презентацию с формой SmartArt.
+- Создайте экземпляр класса PresentationEx и загрузите презентацию с фигурой SmartArt.
 - Получите ссылку на второй слайд, используя его индекс.
-- Пройдитесь по каждой форме внутри первого слайда.
-- Проверьте, является ли форма типа SmartArt, и приведите выбранную форму к типу SmartArtEx, если это SmartArt.
-- Пройдитесь по всем узлам внутри формы SmartArt и проверьте, являются ли они узлами‑ассистентами.
+- Пройдите по всем фигурам внутри первого слайда.
+- Проверьте, является ли фигура типом SmartArt, и выполните приведение выбранной фигуры к SmartArtEx, если это SmartArt.
+- Пройдите по всем узлам внутри фигуры SmartArt и проверьте, являются ли они узлами‑ассистентами.
 - Измените статус узла‑ассистента на обычный узел.
 - Сохраните презентацию.
 ```c#
 // Создание экземпляра презентации
 using (Presentation pres = new Presentation("AssistantNode.pptx"))
 {
-    // Пройтись по каждой фигуре внутри первого слайда
+    // Перебор всех фигур на первом слайде
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
-        // Проверить, является ли объект типа SmartArt
+        // Проверка, является ли фигура типом SmartArt
         if (shape is Aspose.Slides.SmartArt.ISmartArt)
         {
-            // Привести тип объекта к SmartArtEx
+            // Приведение типа фигуры к SmartArtEx
             Aspose.Slides.SmartArt.ISmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-            // Проход по всем узлам формы SmartArt
+            // Перебор всех узлов фигуры SmartArt
 
             foreach (Aspose.Slides.SmartArt.ISmartArtNode node in smart.AllNodes)
             {
                 String tc = node.TextFrame.Text;
-                // Проверить, является ли узел узлом‑ассистентом
+                // Проверка, является ли узел узлом‑ассистентом
                 if (node.IsAssistant)
                 {
-                    // Установить свойство Assistant в false и сделать его обычным узлом
+                    // Установка свойства Assistant в false и преобразование в обычный узел
                     node.IsAssistant = false;
                 }
             }
@@ -401,22 +404,20 @@ using (Presentation pres = new Presentation("AssistantNode.pptx"))
 
 
 ## **Задать формат заливки узла**
-Aspose.Slides for .NET позволяет добавлять пользовательские формы SmartArt и задавать их форматы заливки. Эта статья объясняет, как создавать и получать доступ к формам SmartArt и задавать их формат заливки с помощью Aspose.Slides for .NET.
-
-Выполните следующие шаги:
+Aspose.Slides for .NET позволяет добавлять пользовательские фигуры SmartArt и задавать их форматы заливки. В этой статье объясняется, как создавать и получать доступ к фигурам SmartArt и задавать их формат заливки с помощью Aspose.Slides for .NET.
 
 - Создайте экземпляр класса `Presentation`.
 - Получите ссылку на слайд, используя его индекс.
-- Добавьте форму SmartArt, задав её LayoutType.
-- Задайте FillFormat для узлов формы SmartArt.
-- Запишите изменённую презентацию в файл PPTX.
+- Добавьте фигуру SmartArt, задав её LayoutType.
+- Задайте FillFormat для узлов фигуры SmartArt.
+- Запишите изменённую презентацию в виде файла PPTX.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Доступ к слайду
+    // Получение слайда
     ISlide slide = presentation.Slides[0];
 
-    // Добавление формы SmartArt и узлов
+    // Добавление фигуры SmartArt и узлов
     var chevron = slide.Shapes.AddSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
     var node = chevron.AllNodes.AddNode();
     node.TextFrame.Text = "Some text";
@@ -437,15 +438,15 @@ using (Presentation presentation = new Presentation())
 
 
 ## **Создать миниатюру дочернего узла SmartArt**
-Разработчики могут создать миниатюру дочернего узла SmartArt, следуя нижеуказанным шагам:
+Разработчики могут создать миниатюру дочернего узла SmartArt, следуя приведённым ниже шагам:
 
 1. Создайте экземпляр класса `Presentation`, представляющего файл PPTX.
 2. Добавьте SmartArt.
 3. Получите ссылку на узел, используя его индекс.
 4. Получите изображение миниатюры.
-5. Сохраните изображение миниатюры в любом нужном формате изображения.
+5. Сохраните изображение миниатюры в любом желаемом формате изображения.
 
-Ниже приведён пример создания миниатюры дочернего узла SmartArt
+Пример ниже генерирует миниатюру дочернего узла SmartArt
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -466,16 +467,16 @@ using (Presentation presentation = new Presentation())
 
 **Поддерживается ли анимация SmartArt?**
 
-Да. SmartArt рассматривается как обычная форма, поэтому вы можете [применять стандартные анимации](/slides/ru/net/shape-animation/) (вход, выход, акцент, траектории движения) и настраивать время. При необходимости можно анимировать формы внутри узлов SmartArt.
+Да. SmartArt рассматривается как обычная фигура, поэтому вы можете [применять стандартные анимации](/slides/ru/net/shape-animation/) (вход, выход, акцент, траектории движения) и регулировать тайминг. При необходимости можно также анимировать фигуры внутри узлов SmartArt.
 
-**Как надёжно найти определённый SmartArt на слайде, если его внутренний ID неизвестен?**
+**Как надёжно найти конкретный SmartArt на слайде, если его внутренний идентификатор неизвестен?**
 
-Назначьте и ищите по [альтернативному тексту](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). Установка отличительного AltText для SmartArt позволяет находить его программно без зависимости от внутренних идентификаторов.
+Назначьте и ищите по [альтернативному тексту](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). Установка отличительного AltText для SmartArt позволяет находить его программно, не полагаясь на внутренние идентификаторы.
 
-**Сохранится ли внешний вид SmartArt при конвертации презентации в PDF?**
+**Сохраняется ли внешний вид SmartArt при конвертации презентации в PDF?**
 
-Да. Aspose.Slides рендерит SmartArt с высокой визуальной точностью при [экспорте в PDF](/slides/ru/net/convert-powerpoint-to-pdf/), сохраняя макет, цвета и эффекты.
+Да. Aspose.Slides отображает SmartArt с высокой визуальной точностью при [экспорте в PDF](/slides/ru/net/convert-powerpoint-to-pdf/), сохраняя макет, цвета и эффекты.
 
-**Можно ли извлечь изображение всего SmartArt (для превью или отчетов)?**
+**Могу ли я извлечь изображение всего SmartArt (для превью или отчётов)?**
 
-Да. Вы можете отрисовать форму SmartArt в [растровые форматы](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) или в [SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) для масштабируемого векторного вывода, что делает его подходящим для миниатюр, отчетов или веб‑использования.
+Да. Вы можете отрисовать фигуру SmartArt в [растровые форматы](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) или в [SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) для масштабируемого векторного вывода, что делает её подходящей для миниатюр, отчётов или веб‑использования.

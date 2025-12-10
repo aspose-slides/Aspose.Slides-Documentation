@@ -6,7 +6,7 @@ url: /de/net/examples/elements/text-box/
 keywords:
 - Beispiel für Textfeld
 - Textfeld hinzufügen
-- Zugriff auf Textfeld
+- Textfeld zugreifen
 - Textfeld entfernen
 - PowerPoint
 - OpenDocument
@@ -14,16 +14,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Textfelder in C# mit Aspose.Slides: Schriftarten, Ausrichtung, Zeilenumbruch, automatisches Anpassen und Links festlegen, um Folien für PowerPoint und OpenDocument zu optimieren."
+description: "Erstellen und formatieren Sie Textfelder in C# mit Aspose.Slides: Schriftarten, Ausrichtung, Umbruch, Autofit und Links festlegen, um Folien für PowerPoint und OpenDocument zu optimieren."
 ---
 
-In Aspose.Slides wird ein **Textfeld** durch ein `AutoShape` dargestellt. Fast jede Form kann Text enthalten, aber ein typisches Textfeld hat keine Füllung oder keinen Rand und zeigt nur Text an.
+In Aspose.Slides wird ein **Textfeld** durch ein `AutoShape` dargestellt. Praktisch jede Form kann Text enthalten, aber ein typisches Textfeld hat keine Füllung oder Rahmen und zeigt nur Text an.
 
-Dieser Leitfaden erklärt, wie man Textfelder programmgesteuert hinzufügt, darauf zugreift und sie entfernt.
+Dieser Leitfaden erklärt, wie Textfelder programmgesteuert hinzugefügt, zugegriffen und entfernt werden.
 
-## Textfeld hinzufügen
+## **Textfeld hinzufügen**
 
-Ein Textfeld ist einfach ein `AutoShape` ohne Füllung oder Rand und mit formatiertem Text. So erstellen Sie eines:
+Ein Textfeld ist einfach ein `AutoShape` ohne Füllung oder Rahmen und mit etwas formatiertem Text. So erstellen Sie eines:
 
 ```csharp
 public static void Add_TextBox()
@@ -44,13 +44,13 @@ public static void Add_TextBox()
     // Assign the actual text content
     textBox.TextFrame.Text = "Some text...";
 }
-```
+````
 
-> 💡 **Hinweis:** Jedes `AutoShape`, das ein nicht leeres `TextFrame` enthält, kann als Textfeld fungieren.
+> 💡 **Hinweis:** Jedes `AutoShape`, das ein nicht leeres `TextFrame` enthält, kann als Textfeld verwendet werden.
 
-## Textfelder nach Inhalt zugreifen
+## **Zugriff auf Textfelder nach Inhalt**
 
-Um alle Textfelder zu finden, die ein bestimmtes Schlüsselwort (z. B. „Slide“) enthalten, iterieren Sie über die Formen und prüfen deren Text:
+Um alle Textfelder zu finden, die ein bestimmtes Schlüsselwort (z. B. "Slide") enthalten, iterieren Sie über die Formen und prüfen deren Text:
 
 ```csharp
 public static void Access_TextBox()
@@ -71,7 +71,7 @@ public static void Access_TextBox()
 }
 ```
 
-## Textfelder nach Inhalt entfernen
+## **Entfernen von Textfeldern nach Inhalt**
 
 Dieses Beispiel findet und löscht alle Textfelder auf der ersten Folie, die ein bestimmtes Schlüsselwort enthalten:
 
@@ -88,4 +88,4 @@ public static void Remove_TextBox()
 }
 ```
 
-> 💡 **Tipp:** Erstellen Sie stets eine Kopie der Formensammlung, bevor Sie sie während einer Iteration ändern, um Fehler durch Änderungen an der Sammlung zu vermeiden.
+> 💡 **Tipp:** Erstellen Sie immer eine Kopie der Formensammlung, bevor Sie sie während einer Iteration ändern, um Fehler beim Ändern der Sammlung zu vermeiden.

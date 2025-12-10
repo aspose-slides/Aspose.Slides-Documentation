@@ -1,5 +1,5 @@
 ---
-title: API pública y cambios incompatibles retroactivos en Aspose.Slides para .NET 14.10.0
+title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 14.10.0
 linktitle: Aspose.Slides para .NET 14.10.0
 type: docs
 weight: 120
@@ -16,26 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
+description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentación PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades y demás [añadidos](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/), y otros cambios introducidos con la API de Aspose.Slides for .NET 14.10.0.
+Esta página enumera todos los [added](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) o [removed](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) clases, métodos, propiedades y demás, y los demás cambios introducidos con la API Aspose.Slides for .NET 14.10.0.
 
 {{% /alert %}} 
 ## **Cambios en la API pública**
 #### **Se ha añadido el tipo de campo Aspose.Slides.FieldType.Footer**
-Se ha añadido el tipo de campo Footer para permitir la creación de campos de este tipo y la serialización válida de presentaciones.
-#### **Se ha eliminado el elemento de enumeración ShapeElementFillSource.Own**
-El elemento de enumeración ShapeElementFillSource.Own se ha eliminado por estar duplicado. Use ShapeElementFillSource.Shape en lugar de ShapeElementFillSource.Own.
-#### **Se han añadido métodos para eliminar puntos de datos del gráfico y categorías**
-Se han añadido los siguientes métodos, que permiten eliminar un punto de datos del gráfico de una colección de puntos de datos del gráfico:
+Se ha añadido el tipo de campo Footer para permitir la creación de campos de este tipo y para una serialización válida de presentaciones.
+#### **Se ha eliminado el elemento enum ShapeElementFillSource.Own**
+El elemento enum ShapeElementFillSource.Own se ha eliminado por estar duplicado. Use ShapeElementFillSource.Shape en lugar de ShapeElementFillSource.Own.
+#### **Se han añadido métodos para eliminar puntos de datos y categorías de gráficos**
+Los siguientes métodos, que permiten eliminar un punto de datos de una colección de puntos de datos de gráfico, se han añadido:
 
-IChartDataPointCollection.Remove(IChartDataPoint)  
+IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-Se ha añadido el siguiente método, que permite eliminar una categoría del gráfico de la colección que la contiene:
+El siguiente método, que permite eliminar una categoría de gráfico de la colección contenedora, se ha añadido:
 
 IChartCategory.Remove()
 
@@ -66,10 +66,10 @@ IChartCategory.Remove()
 }
 
 ``` 
-#### **Se han eliminado las propiedades obsoletas de Aspose.Slides.ParagraphFormat**
+#### **Se han eliminado propiedades obsoletas de Aspose.Slides.ParagraphFormat**
 Se han eliminado las propiedades BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle. Fueron marcadas como obsoletas hace mucho tiempo.
-#### **Se han eliminado los constructores inútiles y obsoletos**
-Se han eliminado los siguientes constructores:
+#### **Se han eliminado constructores inútiles y obsoletos**
+Los siguientes constructores han sido eliminados:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

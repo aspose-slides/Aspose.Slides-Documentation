@@ -15,16 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء وتنسيق الجداول في C# باستخدام Aspose.Slides: إدخال البيانات، دمج الخلايا، تنسيق الحدود، محاذاة المحتوى، والاستيراد/التصدير لملفات PPT و PPTX و ODP."
+description: "إنشاء وتنسيق الجداول في C# باستخدام Aspose.Slides: إدراج البيانات، دمج الخلايا، تنسيق الحدود، محاذاة المحتوى، والاستيراد/التصدير لـ PPT و PPTX و ODP."
 ---
 
-أمثلة لإضافة الجداول، الوصول إليها، إزالتها، ودمج الخلايا باستخدام **Aspose.Slides for .NET**.
+أمثلة لإضافة الجداول، والوصول إليها، وإزالتها، ودمج الخلايا باستخدام **Aspose.Slides for .NET**.
 
-## Add a Table
-إضافة جدول
+## **إضافة جدول**
 
-Create a simple table with two rows and two columns.
-إنشاء جدول بسيط يتكون من صفين وعمودين.
+إنشاء جدول بسيط مكوّن من صفين وعمودين.
 ```csharp
 static void Add_Table()
 {
@@ -38,11 +36,9 @@ static void Add_Table()
 ```
 
 
-## Access a Table
-الوصول إلى جدول
+## **الوصول إلى جدول**
 
-Retrieve the first table shape on the slide.
-استرجاع أول شكل جدول في الشريحة.
+استرجاع الشكل الأول للجدول في الشريحة.
 ```csharp
 static void Access_Table()
 {
@@ -52,17 +48,15 @@ static void Access_Table()
     double[] heights = { 30, 30 };
     var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-    // الوصول إلى أول جدول في الشريحة
+    // الوصول إلى الجدول الأول في الشريحة
     var firstTable = slide.Shapes.OfType<ITable>().First();
 }
 ```
 
 
-## Remove a Table
-إزالة جدول
+## **إزالة جدول**
 
-Delete a table from a slide.
-حذف جدول من الشريحة.
+حذف جدول من شريحة.
 ```csharp
 static void Remove_Table()
 {
@@ -77,11 +71,9 @@ static void Remove_Table()
 ```
 
 
-## Merge Table Cells
-دمج خلايا الجدول
+## **دمج خلايا الجدول**
 
-Merge adjacent cells of a table into a single cell.
-دمج الخلايا المتجاورة في جدول إلى خلية واحدة.
+دمج الخلايا المتجاورة في الجدول لتصبح خلية واحدة.
 ```csharp
 static void Merge_Table_Cells()
 {

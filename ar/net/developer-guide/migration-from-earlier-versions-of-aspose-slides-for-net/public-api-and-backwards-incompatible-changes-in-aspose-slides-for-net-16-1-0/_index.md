@@ -1,6 +1,6 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides لـ .NET 16.1.0
-linktitle: Aspose.Slides لـ .NET 16.1.0
+title: تغييرات API العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides ل .NET 16.1.0
+linktitle: Aspose.Slides ل .NET 16.1.0
 type: docs
 weight: 220
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
@@ -11,24 +11,24 @@ keywords:
 - نهج قديم
 - نهج حديث
 - PowerPoint
-- مستند مفتوح
+- OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "راجع تحديثات واجهة برمجة التطبيقات العامة والتغييرات المتقطعة في Aspose.Slides لـ .NET لتتمكن من ترحيل حلول عروض PowerPoint PPT و PPTX و ODP بسلاسة."
+description: "استعراض تحديثات API العامة والتغييرات المتعارضة في Aspose.Slides ل .NET لتسهيل ترحيل حلول عروض PowerPoint PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تُظهر هذه الصفحة جميع الفئات [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) المُضافة أو المُزالة، والطرق، والخصائص وما إلى ذلك، وغيرها من التغييرات التي تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides لـ .NET 16.1.0.
+هذه الصفحة تسرد جميع الفئات والطرق والخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)، والتغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 16.1.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
+## **تغييرات API العامة**
 
 
-#### **تمت إضافة الخاصية RotationAngle إلى واجهتي IChartTextBlockFormat و ITextFrameFormat**
-تمت إضافة الخاصية RotationAngle إلى الواجهات Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat. تحدد هذه الخاصية الدوران المخصص الذي يتم تطبيقه على النص داخل الصندوق المحدد.
+#### **تم إضافة خاصية RotationAngle إلى واجهات IChartTextBlockFormat و ITextFrameFormat**
+تم إضافة خاصية RotationAngle إلى الواجهات Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat. تحدد هذه الخاصية الدوران المخصص الذي يُطبق على النص داخل مربع الحدود.
 
 ``` csharp
 

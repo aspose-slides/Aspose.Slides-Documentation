@@ -1,30 +1,30 @@
 ---
-title: Diapositive maîtresse
+title: Diapositive maître
 type: docs
 weight: 30
 url: /fr/net/examples/elements/master-slide/
 keywords:
-- exemple de diapositive maîtresse
-- ajouter diapositive maîtresse
-- accéder à la diapositive maîtresse
-- supprimer diapositive maîtresse
-- diapositive maîtresse inutilisée
+- exemple de diapositive maître
+- ajouter une diapositive maître
+- accéder à une diapositive maître
+- supprimer une diapositive maître
+- diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérez les diapositives maîtresses en C# avec Aspose.Slides: créez, modifiez, clonez et formatez les thèmes, arrière-plans, espaces réservés pour uniformiser les diapositives dans PowerPoint et OpenDocument."
+description: "Gérez les diapositives maîtres en C# avec Aspose.Slides : créez, modifiez, clonez et formatez les thèmes, arrière-plans et espaces réservés pour unifier les diapositives dans PowerPoint et OpenDocument."
 ---
 
-Les diapositives maîtresses constituent le niveau supérieur de la hiérarchie d'héritage des diapositives dans PowerPoint. Une **diapositive maîtresse** définit des éléments de conception communs tels que les arrière‑plans, les logos et le formatage du texte. Les **diapositives de mise en page** héritent des diapositives maîtresses, et les **diapositives normales** héritent des diapositives de mise en page.
+Les diapositives maîtres constituent le niveau supérieur de la hiérarchie d’héritage des diapositives dans PowerPoint. Une **diapositive maître** définit des éléments de conception communs tels que les arrière-plans, les logos et le formatage du texte. Les **diapositives de mise en page** héritent des diapositives maîtres, et les **diapositives normales** héritent des diapositives de mise en page.
 
-Cet article montre comment créer, modifier et gérer les diapositives maîtresses à l’aide d’Aspose.Slides pour .NET.
+Cet article montre comment créer, modifier et gérer des diapositives maîtres en utilisant Aspose.Slides pour .NET.
 
-## Ajouter une diapositive maîtresse
+## **Ajouter une diapositive maître**
 
-Cet exemple montre comment créer une nouvelle diapositive maîtresse en clonant celle par défaut. Il ajoute ensuite une bannière avec le nom de l’entreprise à toutes les diapositives via l’héritage de la mise en page.
+Cet exemple montre comment créer une nouvelle diapositive maître en dupliquant celle par défaut. Il ajoute ensuite une bannière avec le nom de l’entreprise à toutes les diapositives grâce à l’héritage de la mise en page.
 
 ```csharp
 static void Add_Master_Slide()
@@ -49,18 +49,17 @@ static void Add_Master_Slide()
     // Assign the layout slide to the first slide in the presentation
     pres.Slides[0].LayoutSlide = layoutSlide;
 }
-```
+````
 
-> 💡 **Astuce 1 :** Les diapositives maîtresses offrent un moyen d’appliquer une identité visuelle cohérente ou des éléments de conception partagés à l’ensemble des diapositives. Toute modification apportée à la maîtresse se reflète automatiquement sur les diapositives de mise en page et les diapositives normales dépendantes.
+> 💡 **Conseil 1 :** Les diapositives maîtres offrent un moyen d’appliquer une identité visuelle cohérente ou des éléments de conception partagés à toutes les diapositives. Toute modification apportée au maître se répercutera automatiquement sur les mises en page et les diapositives normales dépendantes.
 
-> 💡 **Astuce 2 :** Toutes les formes ou le formatage ajoutés à une diapositive maîtresse sont hérités par les diapositives de mise en page et, à leur tour, par toutes les diapositives normales utilisant ces mises en page.  
-> L’image ci‑dessous illustre comment une zone de texte ajoutée sur une diapositive maîtresse est automatiquement rendue sur la diapositive finale.
+> 💡 **Conseil 2 :** Toutes les formes ou le formatage ajoutés à une diapositive maître sont hérités par les diapositives de mise en page et, à leur tour, par toutes les diapositives normales utilisant ces mises en page. > L’image ci‑dessous illustre comment une zone de texte ajoutée sur une diapositive maître est automatiquement rendue sur la diapositive finale.
 
-![Master Inheritance Example](master-slide-banner.png)
+![Exemple d'héritage de la diapositive maître](master-slide-banner.png)
 
-## Accéder à une diapositive maîtresse
+## **Accéder à une diapositive maître**
 
-Vous pouvez accéder aux diapositives maîtresses via la collection `Presentation.Masters`. Voici comment les récupérer et les manipuler :
+Vous pouvez accéder aux diapositives maîtres en utilisant la collection `Presentation.Masters`. Voici comment les récupérer et travailler avec elles :
 
 ```csharp
 static void Access_Master_Slide()
@@ -75,9 +74,9 @@ static void Access_Master_Slide()
 }
 ```
 
-## Supprimer une diapositive maîtresse
+## **Supprimer une diapositive maître**
 
-Les diapositives maîtresses peuvent être supprimées soit par index, soit par référence.
+Les diapositives maîtres peuvent être supprimées soit par indice, soit par référence.
 
 ```csharp
 static void Remove_Master_Slide()
@@ -93,9 +92,9 @@ static void Remove_Master_Slide()
 }
 ```
 
-## Supprimer les diapositives maîtresses inutilisées
+## **Supprimer les diapositives maîtres inutilisées**
 
-Certaines présentations contiennent des diapositives maîtresses qui ne sont pas utilisées. Les supprimer peut aider à réduire la taille du fichier.
+Certaines présentations contiennent des diapositives maîtres qui ne sont pas utilisées. Les supprimer peut aider à réduire la taille du fichier.
 
 ```csharp
 static void RemoveUnused_Master_Slide()
@@ -107,4 +106,4 @@ static void RemoveUnused_Master_Slide()
 }
 ```
 
-> ⚙️ **Astuce :** Utilisez `RemoveUnused(true)` pour nettoyer les diapositives maîtresses inutilisées et minimiser la taille de la présentation.
+> ⚙️ **Conseil :** Utilisez `RemoveUnused(true)` pour nettoyer les diapositives maîtres inutilisées et minimiser la taille de la présentation.

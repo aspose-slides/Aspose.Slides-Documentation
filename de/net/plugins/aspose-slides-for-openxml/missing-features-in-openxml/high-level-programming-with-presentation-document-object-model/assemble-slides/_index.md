@@ -1,27 +1,26 @@
 ---
-title: Folien Zusammenstellen
+title: Folien zusammenstellen
 type: docs
 weight: 10
 url: /de/net/assemble-slides/
 ---
 
-Es werden die folgenden Funktionen abgedeckt:
-## **Folie zur Präsentation hinzufügen**
-Bevor wir über das Hinzufügen von Folien zu den Präsentationsdateien sprechen, lassen Sie uns einige Fakten über die Folien besprechen. Jede PowerPoint-Präsentationsdatei enthält Master-/Layoutfolien und andere Normalfolien. Das bedeutet, dass eine Präsentationsdatei mindestens eine oder mehrere Folien enthält. Es ist wichtig zu wissen, dass Präsentationsdateien ohne Folien von Aspose.Slides für .NET nicht unterstützt werden. Jede Folie hat eine eindeutige ID und alle Normalfolien sind in der Reihenfolge angeordnet, die durch den nullbasierten Index angegeben ist.
+## **Eine Folie zu einer Präsentation hinzufügen**
+Bevor wir über das Hinzufügen von Folien zu den Präsentationsdateien sprechen, lassen Sie uns einige Fakten über die Folien diskutieren. Jede PowerPoint-Präsentationsdatei enthält eine Master-/Layout‑Folie und weitere Normalfolien. Das bedeutet, dass eine Präsentationsdatei mindestens eine oder mehrere Folien enthält. Es ist wichtig zu wissen, dass Präsentationsdateien ohne Folien von Aspose.Slides für .NET nicht unterstützt werden. Jede Folie hat eine eindeutige Id und alle Normalfolien sind in einer Reihenfolge angeordnet, die durch den nullbasierten Index festgelegt wird.
 
-Aspose.Slides für .NET ermöglicht es Entwicklern, leere Folien zu ihrer Präsentation hinzuzufügen. Um eine leere Folie in die Präsentation hinzuzufügen, folgen Sie bitte den folgenden Schritten:
+Aspose.Slides für .NET ermöglicht Entwicklern, leere Folien zu ihrer Präsentation hinzuzufügen. Um eine leere Folie in der Präsentation hinzuzufügen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der **Presentation**-Klasse
-- Instanziieren Sie die **SlideCollection**-Klasse, indem Sie eine Referenz auf die Slides (Sammlung von Inhalt-Folien) Eigenschaft, die vom Presentation-Objekt bereitgestellt wird, setzen.
-- Fügen Sie eine leere Folie am Ende der Sammlung von Inhaltsfolien hinzu, indem Sie die **AddEmptySlide**-Methoden verwenden, die vom **SlideCollection**-Objekt bereitgestellt werden
-- Arbeiten Sie mit der neu hinzugefügten leeren Folie
-- Schreiben Sie schließlich die Präsentationsdatei mit dem **Presentation**-Objekt
+- Eine Instanz der **Presentation**‑Klasse erstellen
+- Die **SlideCollection**‑Klasse instanziieren, indem Sie einen Verweis auf die Slides‑Eigenschaft (Sammlung von Inhalts‑Slide‑Objekten) setzen, die vom Presentation‑Objekt bereitgestellt wird.
+- Eine leere Folie am Ende der Inhaltsfoliensammlung zur Präsentation hinzufügen, indem Sie die von **SlideCollection** bereitgestellten **AddEmptySlide**‑Methoden aufrufen.
+- Arbeiten Sie mit der neu hinzugefügten leeren Folie.
+- Schließlich die Präsentationsdatei mit dem **Presentation**‑Objekt schreiben.
 
 ``` csharp
 
  PresentationEx pres = new PresentationEx();
 
-//Instanziieren Sie die SlideCollection-Klasse
+//Instantiate SlideCollection class
 
 SlideExCollection slds = pres.Slides;
 
@@ -29,104 +28,104 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 
 {
 
-	//Fügen Sie der Slides-Sammlung eine leere Folie hinzu
+	//Add an empty slide to the Slides collection
 
 	slds.AddEmptySlide(pres.LayoutSlides[i]);
 
 }
 
-//Speichern Sie die PPTX-Datei auf der Festplatte
+//Save the PPTX file to the Disk
 
 pres.Write("EmptySlide.pptx");
 
 ``` 
-## **Zugriff auf Folien der Präsentation**
-Aspose.Slides für .NET bietet die Presentation-Klasse, die verwendet werden kann, um eine gewünschte Folie in der Präsentation zu finden und darauf zuzugreifen.
+## **Zugriff auf Folien einer Präsentation**
+Aspose.Slides für .NET stellt die Presentation‑Klasse bereit, mit der Sie jede gewünschte Folie in der Präsentation finden und darauf zugreifen können.
 
-**Verwendung der Folienkollektion**
+**Verwendung der Slides‑Sammlung**
 
-Die **Presentation**-Klasse stellt eine Präsentationsdatei dar und bietet alle Folien darin als eine **SlideCollection**-Sammlung (das ist eine Sammlung von **Slide**-Objekten) an. Alle diese Folien können von dieser **Slides**-Sammlung unter Verwendung eines Folienindex zugegriffen werden.
+`Presentation`‑Klasse repräsentiert eine Präsentationsdatei und stellt alle Folien darin als `SlideCollection`‑Sammlung (eine Sammlung von `Slide`‑Objekten) bereit. Auf alle diese Folien kann über die `Slides`‑Sammlung mittels eines Folien‑Index zugegriffen werden.
 
 ``` csharp
 
- //Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+ //Instantiate a Presentation object that represents a presentation file
 
 PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
-//Zugriff auf eine Folie unter Verwendung ihres Folienindex
+//Accessing a slide using its slide index
 
 SlideEx slide = pres.Slides[0];
 
 ``` 
 ## **Folien entfernen**
-Wir wissen, dass die Präsentationsklasse in **Aspose.Slides für .NET** eine Präsentationsdatei darstellt. Die Präsentationsklasse kapselt eine **SlideCollection**, die als Repository aller Folien fungiert, die Teil der Präsentation sind. Entwickler können eine Folie aus dieser Slides-Sammlung auf zwei Arten entfernen:
+Wir wissen, dass die Presentation‑Klasse in **Aspose.Slides für .NET** eine Präsentationsdatei repräsentiert. Die Presentation‑Klasse kapselt eine **SlideCollection**, die als Repository aller Folien dient, die Teil der Präsentation sind. Entwickler können eine Folie aus dieser Slides‑Sammlung auf zwei Arten entfernen:
 
-- Verwendung der Folienreferenz
-- Verwendung des Folienindex
+- Verwenden einer Folienreferenz
+- Verwenden eines Folien‑Index
 
-**Verwendung der Folienreferenz**
+**Verwenden einer Folienreferenz**
 
-Um eine Folie anhand ihrer Referenz zu entfernen, folgen Sie bitte den folgenden Schritten:
+Um eine Folie über ihre Referenz zu entfernen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz einer Folie, indem Sie ihre ID oder ihren Index verwenden
-- Entfernen Sie die referenzierte Folie aus der Präsentation
-- Schreiben Sie die modifizierte Präsentationsdatei
+- Eine Instanz der Presentation‑Klasse erstellen
+- Den Verweis einer Folie über ihre Id oder ihren Index erhalten
+- Die referenzierte Folie aus der Präsentation entfernen
+- Die geänderte Präsentationsdatei schreiben
 
 ``` csharp
 
- //Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+ //Instantiate a Presentation object that represents a presentation file
 
 PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
-//Zugriff auf eine Folie unter Verwendung ihres Index in der Slides-Sammlung
+//Accessing a slide using its index in the slides collection
 
 SlideEx slide = pres.Slides[0];
 
-//Entfernen einer Folie anhand ihrer Referenz
+//Removing a slide using its reference
 
 pres.Slides.Remove(slide);
 
-//Schreiben der Präsentationsdatei
+//Writing the presentation file
 
 pres.Write("modified.pptx");
 
 ``` 
-## **Position der Folie ändern:**
-Es ist sehr einfach, die Position einer Folie in der Präsentation zu ändern. Folgen Sie einfach den folgenden Schritten:
+## **Position einer Folie ändern**
+Es ist sehr einfach, die Position einer Folie in der Präsentation zu ändern. Folgen Sie einfach den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden
-- Ändern Sie die Foliennummer der referenzierten Folie
-- Schreiben Sie die modifizierte Präsentationsdatei
+- Eine Instanz der Presentation‑Klasse erstellen
+- Den Verweis einer Folie über ihren Index erhalten
+- Die SlideNumber der referenzierten Folie ändern
+- Die geänderte Präsentationsdatei schreiben
 
-Im folgenden Beispiel haben wir die Position einer Folie (die sich an der Null-Index-Position 1 befindet) der Präsentation auf Index 1 (Position 2) geändert.
+Im untenstehenden Beispiel haben wir die Position einer Folie (die an der nullbasierten Indexposition 1 lag) der Präsentation auf Index 1 (Position 2) geändert.
 
 ``` csharp
 
- private static string MyDir = @"..\..\..\Beispieldateien\";
+ private static string MyDir = @"..\..\..\Sample Files\";
 
 static void Main(string[] args)
 
 {
 
-FolieZurPräsentationHinzufügen();
+AddingSlidetoPresentation();
 
-ZugriffAufFolienDerPräsentation();
+AccessingSlidesOfPresentation();
 
-FolienEntfernen();
+RemovingSlides();
 
-PositionDerFolieÄndern();
+ChangingPositionOfSlide();
 
 }
 
-public static void FolieZurPräsentationHinzufügen()
+public static void AddingSlidetoPresentation()
 
 {
 
 Presentation pres = new Presentation();
 
-//Instanziieren Sie die SlideCollection-Klasse
+//Instantiate SlideCollection class
 
 ISlideCollection slds = pres.Slides;
 
@@ -134,75 +133,75 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 
 {
 
-    //Fügen Sie der Slides-Sammlung eine leere Folie hinzu
+    //Add an empty slide to the Slides collection
 
     slds.AddEmptySlide(pres.LayoutSlides[i]);
 
 }
 
-//Speichern Sie die PPTX-Datei auf der Festplatte
+//Save the PPTX file to the Disk
 
-pres.Save(MyDir + "Folien Zusammenstellen.pptx", SaveFormat.Pptx);
+pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
 }
 
-public static void ZugriffAufFolienDerPräsentation()
+public static void AccessingSlidesOfPresentation()
 
 {
 
-//Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+//Instantiate a Presentation object that represents a presentation file
 
-Presentation pres = new Presentation(MyDir + "Folien Zusammenstellen.pptx");
+Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//Zugriff auf eine Folie unter Verwendung ihres Folienindex
+//Accessing a slide using its slide index
 
 ISlide slide = pres.Slides[0];
 
 }
 
-public static void FolienEntfernen()
+public static void RemovingSlides()
 
 {
 
-//Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+//Instantiate a Presentation object that represents a presentation file
 
-Presentation pres = new Presentation(MyDir + "Folien Zusammenstellen.pptx");
+Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//Zugriff auf eine Folie unter Verwendung ihres Index in der Slides-Sammlung
+//Accessing a slide using its index in the slides collection
 
 ISlide slide = pres.Slides[0];
 
-//Entfernen einer Folie anhand ihrer Referenz
+//Removing a slide using its reference
 
 pres.Slides.Remove(slide);
 
-//Schreiben der Präsentationsdatei
+//Writing the presentation file
 
-pres.Save(MyDir + "Folien Zusammenstellen.pptx", SaveFormat.Pptx);
+pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
 }
 
-public static void PositionDerFolieÄndern()
+public static void ChangingPositionOfSlide()
 
 {
 
-//Instanziieren Sie die Präsentationsklasse zum Laden der Quelldatei 
+//Instantiate Presentation class to load the source presentation file
 
-Presentation pres = new Presentation(MyDir + "Folien Zusammenstellen.pptx");
+Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
 {
 
-    //Holen Sie sich die Folie, deren Position geändert werden soll
+    //Get the slide whose position is to be changed
 
     ISlide sld = pres.Slides[0];
 
-    //Setzen Sie die neue Position für die Folie
+    //Set the new position for the slide
 
     sld.SlideNumber = 2;
 
-    //Schreiben Sie die Präsentation auf die Festplatte
+    //Write the presentation to disk
 
-    pres.Save(MyDir + "Folien Zusammenstellen.pptx", SaveFormat.Pptx);
+    pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
 }
 

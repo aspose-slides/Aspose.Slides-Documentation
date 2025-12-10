@@ -16,14 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaje con audio en C# usando Aspose.Slides: agregue, reemplace, extraiga y recorte sonidos, establezca volumen y reproducción para diapositivas y formas en PowerPoint y OpenDocument."
+description: "Trabaje con audio en C# usando Aspose.Slides: agregue, reemplace, extraiga y recorte sonidos, configure el volumen y la reproducción para diapositivas y formas en PowerPoint y OpenDocument."
 ---
 
 Ilustra cómo incrustar marcos de audio y controlar la reproducción con **Aspose.Slides for .NET**. Los siguientes ejemplos muestran operaciones básicas de audio.
 
-## Agregar un marco de audio
+## **Agregar un Marco de Audio**
 
-Insertar un marco de audio vacío que luego pueda contener datos de sonido incrustados.
+Inserte un marco de audio vacío que luego pueda contener datos de sonido incrustados.
 ```csharp
 static void Add_Audio()
 {
@@ -36,7 +36,7 @@ static void Add_Audio()
 ```
 
 
-## Acceder a un marco de audio
+## **Acceder a un Marco de Audio**
 
 Este código recupera el primer marco de audio en una diapositiva.
 ```csharp
@@ -52,9 +52,9 @@ static void Access_Audio()
 ```
 
 
-## Eliminar un marco de audio
+## **Eliminar un Marco de Audio**
 
-Eliminar un marco de audio añadido previamente.
+Elimine un marco de audio agregado previamente.
 ```csharp
 static void Remove_Audio()
 {
@@ -68,9 +68,9 @@ static void Remove_Audio()
 ```
 
 
-## Configurar la reproducción de audio
+## **Establecer la Reproducción de Audio**
 
-Configurar el marco de audio para que se reproduzca automáticamente cuando la diapositiva aparezca.
+Configure el marco de audio para que se reproduzca automáticamente cuando aparezca la diapositiva.
 ```csharp
 static void Set_Audio_Playback()
 {

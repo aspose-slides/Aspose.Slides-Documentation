@@ -7,22 +7,22 @@ keywords:
 - Exemple ActiveX
 - Contrôle ActiveX
 - ajouter ActiveX
-- accès ActiveX
+- accéder ActiveX
 - supprimer ActiveX
-- Propriétés ActiveX
+- propriétés ActiveX
 - PowerPoint
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Apprenez à trouver, modifier et supprimer les contrôles ActiveX en C# avec Aspose.Slides, y compris les mises à jour des propriétés pour les présentations PowerPoint."
+description: "Apprenez comment trouver, modifier et supprimer des contrôles ActiveX en C# avec Aspose.Slides, y compris les mises à jour des propriétés pour les présentations PowerPoint."
 ---
 
-Démontre comment ajouter, accéder, supprimer et configurer les contrôles ActiveX dans une présentation en utilisant **Aspose.Slides for .NET**.
+Démontre comment ajouter, accéder, supprimer et configurer des contrôles ActiveX dans une présentation en utilisant **Aspose.Slides for .NET**.
 
-## Ajouter un contrôle ActiveX
+## **Ajouter un contrôle ActiveX**
 
-Insérez un nouveau contrôle ActiveX et, si vous le souhaitez, définissez ses propriétés.
+Insérez un nouveau contrôle ActiveX et définissez éventuellement ses propriétés.
 ```csharp
 static void Add_ActiveX()
 {
@@ -32,7 +32,7 @@ static void Add_ActiveX()
     // Ajouter un nouveau contrôle ActiveX (TextBox)
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-    // Optionnellement définir certaines propriétés
+    // Optionnellement définir quelques propriétés
     control.Properties["Value"] = "Default text";
 
     pres.Save("add_activex.pptm", SaveFormat.Pptm);
@@ -40,7 +40,7 @@ static void Add_ActiveX()
 ```
 
 
-## Accéder à un contrôle ActiveX
+## **Accéder à un contrôle ActiveX**
 
 Lisez les informations du premier contrôle ActiveX sur la diapositive.
 ```csharp
@@ -60,7 +60,7 @@ static void Access_ActiveX()
 ```
 
 
-## Supprimer un contrôle ActiveX
+## **Supprimer un contrôle ActiveX**
 
 Supprimez un contrôle ActiveX existant de la diapositive.
 ```csharp
@@ -80,7 +80,7 @@ static void Remove_ActiveX()
 ```
 
 
-## Définir les propriétés ActiveX
+## **Définir les propriétés ActiveX**
 
 Ajoutez un contrôle et configurez plusieurs propriétés ActiveX.
 ```csharp

@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Crea y personaliza gráficos en C# con Aspose.Slides: agrega datos, formatea series, ejes y etiquetas, cambia tipos y exporta—funciona con PPT, PPTX y ODP."
+description: "Cree y personalice gráficos en C# con Aspose.Slides: añada datos, formatee series, ejes y etiquetas, cambie tipos y exporte—compatible con PPT, PPTX y ODP."
 ---
 
 Ejemplos de cómo agregar, acceder, eliminar y actualizar diferentes tipos de gráficos con **Aspose.Slides for .NET**. Los fragmentos a continuación demuestran operaciones básicas con gráficos.
 
-## Añadir un gráfico
+## **Agregar un gráfico**
 
-Este método añade un gráfico de áreas simple a la primera diapositiva.
+Este método añade un gráfico de área sencillo a la primera diapositiva.
 ```csharp
 static void Add_Chart()
 {
@@ -35,7 +35,7 @@ static void Add_Chart()
 ```
 
 
-## Acceder a un gráfico
+## **Acceder a un gráfico**
 
 Después de crear un gráfico, puedes recuperarlo a través de la colección de formas.
 ```csharp
@@ -51,7 +51,7 @@ static void Access_Chart()
 ```
 
 
-## Eliminar un gráfico
+## **Eliminar un gráfico**
 
 El siguiente código elimina un gráfico de una diapositiva.
 ```csharp
@@ -67,7 +67,7 @@ static void Remove_Chart()
 ```
 
 
-## Actualizar datos del gráfico
+## **Actualizar datos del gráfico**
 
 Puedes cambiar propiedades del gráfico, como el título.
 ```csharp

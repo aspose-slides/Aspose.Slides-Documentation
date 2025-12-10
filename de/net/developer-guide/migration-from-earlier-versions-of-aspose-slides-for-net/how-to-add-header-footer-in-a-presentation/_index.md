@@ -1,6 +1,6 @@
 ---
-title: Wie man Kopf- und Fußzeilen zu Präsentationen in .NET hinzufügt
-linktitle: Header & Footer hinzufügen
+title: "So fügen Sie Header & Footer zu Präsentationen in .NET hinzu"
+linktitle: "Header & Footer hinzufügen"
 type: docs
 weight: 20
 url: /de/net/how-to-add-header-footer-in-a-presentation/
@@ -18,36 +18,36 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie in .NET mithilfe sowohl der Legacy- als auch der modernen Aspose.Slides-APIs Kopf- und Fußzeilen in PowerPoint PPT-, PPTX- und ODP-Präsentationen hinzufügen."
+description: "Erfahren Sie, wie Sie Header und Footer in PowerPoint PPT-, PPTX- und ODP-Präsentationen in .NET mit sowohl der Legacy- als auch der modernen Aspose.Slides-API hinzufügen."
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides for .NET API](/slides/de/net/) wurde veröffentlicht und unterstützt nun die Möglichkeit, PowerPoint‑Dokumente von Grund auf zu erstellen und vorhandene zu bearbeiten.
+Eine neue [Aspose.Slides for .NET API](/slides/de/net/) wurde veröffentlicht und jetzt unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint‑Dokumente von Grund auf zu erstellen und vorhandene zu bearbeiten.
 
 {{% /alert %}} 
-## **Unterstützung für Legacy-Code**
-Um den mit früheren Aspose.Slides für .NET‑Versionen (vor 13.x) entwickelten Legacy‑Code zu verwenden, müssen Sie einige kleine Änderungen an Ihrem Code vornehmen, damit er wie zuvor funktioniert. Alle Klassen, die in der alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind jetzt in einem einzigen Aspose.Slides‑Namespace zusammengeführt. Bitte werfen Sie einen Blick auf das folgende einfache Code‑Snippet zum Hinzufügen von Kopf‑ und Fußzeilen in einer Präsentation mit der Legacy‑Aspose.Slides‑API und folgen Sie den Schritten, die beschreiben, wie Sie zur neuen zusammengeführten API migrieren.
-## **Legacy Aspose.Slides für .NET Ansatz**
+## **Support for Legacy Code**
+Um den mit älteren Aspose.Slides for .NET‑Versionen (vor 13.x) entwickelten Legacy‑Code zu verwenden, müssen Sie einige kleine Änderungen an Ihrem Code vornehmen, damit er wie zuvor funktioniert. Alle Klassen, die in der alten Aspose.Slides for .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, wurden jetzt in einen einzigen Aspose.Slides‑Namespace zusammengeführt. Bitte werfen Sie einen Blick auf das folgende einfache Code‑Snippet zum Hinzufügen von Kopf‑ und Fußzeilen in einer Präsentation mit der Legacy‑Aspose.Slides‑API und folgen Sie den Schritten, die beschreiben, wie Sie zur neuen zusammengeführten API migrieren.
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Festlegen der Sichtbarkeit von Kopf- und Fußzeilen
+//Einstellen der Sichtbarkeits‑Eigenschaften für Kopf‑ und Fußzeile
 sourcePres.UpdateSlideNumberFields = true;
 
-//Aktualisieren der Datums- und Uhrzeitfelder
+//Aktualisieren der Datums‑ und Zeitfelder
 sourcePres.UpdateDateTimeFields = true;
 
-//Datum-Uhrzeit-Platzhalter anzeigen
+//Datums‑ und Zeit‑Platzhalter anzeigen
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Fußzeilen-Platzhalter anzeigen
+//Fußzeilen‑Platzhalter anzeigen
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
 //Foliennummer anzeigen
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Sichtbarkeit von Kopf- und Fußzeilen auf der Titelfolie festlegen
+//Sichtbarkeit von Kopf‑ und Fußzeile auf Titelfolie festlegen
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
 //Präsentation auf die Festplatte schreiben
@@ -61,22 +61,22 @@ Presentation pres = new Presentation();
 //Erste Folie abrufen
 Slide sld = pres.GetSlideByPosition(1);
 
-//Header / Footer der Folie zugreifen
+//Zugriff auf Header / Footer der Folie
 HeaderFooter hf = sld.HeaderFooter;
 
-//Seitenzahl Sichtbarkeit festlegen
+//Seitennummer-Sichtbarkeit festlegen
 hf.PageNumberVisible = true;
 
-//Footer Sichtbarkeit festlegen
+//Footer-Sichtbarkeit festlegen
 hf.FooterVisible = true;
 
-//Header Sichtbarkeit festlegen
+//Header-Sichtbarkeit festlegen
 hf.HeaderVisible = true;
 
-//Datum/Uhrzeit Sichtbarkeit festlegen
+//Datum/Uhrzeit-Sichtbarkeit festlegen
 hf.DateTimeVisible = true;
 
-//Datum/Uhrzeit Format festlegen
+//Datum/Uhrzeit-Format festlegen
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
 //Header-Text festlegen
@@ -92,23 +92,23 @@ pres.Write("HeadFoot.ppt");
 
 
 
-## **Neuer Aspose.Slides für .NET 13.x Ansatz**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //Festlegen der Sichtbarkeit von Kopf- und Fußzeilen
+    //Festlegen der Sichtbarkeits‑Eigenschaften für Kopf‑ und Fußzeile
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Datums- und Uhrzeitfelder aktualisieren
+    //Datums‑ und Zeitfelder aktualisieren
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Datums- und Uhrzeit-Platzhalter anzeigen
+    //Datums‑ und Zeit‑Platzhalter anzeigen
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Fußzeilen-Platzhalter anzeigen
+    //Fußzeilen‑Platzhalter anzeigen
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Sichtbarkeit von Kopf- und Fußzeilen auf Titelfolie festlegen
+    //Sichtbarkeit von Kopf‑ und Fußzeile auf Titelfolien festlegen
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Präsentation auf die Festplatte schreiben

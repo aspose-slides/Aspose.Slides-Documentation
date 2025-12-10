@@ -4,24 +4,24 @@ type: docs
 weight: 150
 url: /de/net/examples/elements/vba-macro/
 keywords:
-- vba-Makro-Beispiel
-- vba-Makro hinzufügen
-- vba-Makro abrufen
-- vba-Makro entfernen
+- vba-makro-beispiel
+- vba-makro hinzufügen
+- vba-makro zugreifen
+- vba-makro entfernen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten Sie mit VBA-Makros in C# mit Aspose.Slides: Projekte und Module hinzufügen oder bearbeiten, Makros signieren oder entfernen und Präsentationen in PPT, PPTX und ODP speichern."
+description: "Arbeiten Sie mit VBA-Makros in C# unter Verwendung von Aspose.Slides: Fügen Sie Projekte und Module hinzu oder bearbeiten Sie sie, signieren oder entfernen Sie Makros und speichern Sie Präsentationen in PPT, PPTX und ODP."
 ---
 
-Zeigt, wie VBA-Makros mit **Aspose.Slides for .NET** hinzugefügt, abgerufen und entfernt werden.
+Veranschaulicht, wie man VBA-Makros mit **Aspose.Slides for .NET** hinzufügt, darauf zugreift und sie entfernt.
 
-## VBA-Makro hinzufügen
+## **Ein VBA-Makro hinzufügen**
 
-Erstellen Sie eine Präsentation mit einem VBA-Projekt und einem einfachen Makro-Modul.
+Erstellen Sie eine Präsentation mit einem VBA-Projekt und einem einfachen Makromodul.
 ```csharp
 static void Add_Vba_Macro()
 {
@@ -34,7 +34,7 @@ static void Add_Vba_Macro()
 ```
 
 
-## Zugriff auf ein VBA-Makro
+## **Zugriff auf ein VBA-Makro**
 
 Rufen Sie das erste Modul aus dem VBA-Projekt ab.
 ```csharp
@@ -51,7 +51,7 @@ static void Access_Vba_Macro()
 ```
 
 
-## VBA-Makro entfernen
+## **Ein VBA-Makro entfernen**
 
 Löschen Sie ein Modul aus dem VBA-Projekt.
 ```csharp

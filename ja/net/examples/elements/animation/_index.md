@@ -4,7 +4,7 @@ type: docs
 weight: 100
 url: /ja/net/examples/elements/animation/
 keywords:
-- アニメーションの例
+- アニメーション例
 - アニメーションの追加
 - アニメーションへのアクセス
 - アニメーションの削除
@@ -15,14 +15,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してスライド アニメーションをマスターし、効果、タイミング、トリガーを追加、編集、削除して、PPT、PPTX、ODP で動的なプレゼンテーションを作成します。"
+description: "C# と Aspose.Slides を使用してスライド アニメーションをマスターし、効果、タイミング、トリガーを追加、編集、削除して、PPT、PPTX、ODP 形式の動的なプレゼンテーションを作成します。"
 ---
 
 **Aspose.Slides for .NET** を使用して、シンプルなアニメーションを作成し、そのシーケンスを管理する方法を示します。
 
-## アニメーションを追加
-
-矩形シェイプを作成し、クリック時にトリガーされるフェードイン効果を適用します。
+## **アニメーションの追加**
+クリックでトリガーされるフェードイン効果を持つ長方形のシェイプを作成し、適用します。
 ```csharp
 static void Add_Animation()
 {
@@ -36,8 +35,7 @@ static void Add_Animation()
 ```
 
 
-## アニメーションにアクセス
-
+## **アニメーションへのアクセス**
 スライドのタイムラインから最初のアニメーション効果を取得します。
 ```csharp
 static void Access_Animation()
@@ -53,8 +51,7 @@ static void Access_Animation()
 ```
 
 
-## アニメーションを削除
-
+## **アニメーションの削除**
 シーケンスからアニメーション効果を削除します。
 ```csharp
 static void Remove_Animation()
@@ -64,15 +61,14 @@ static void Remove_Animation()
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
     var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 
-    // 効果を削除
+    // エフェクトを削除
     slide.Timeline.MainSequence.Remove(effect);
 }
 ```
 
 
-## アニメーションのシーケンス
-
-複数の効果を追加し、アニメーションが発生する順序を示します。
+## **アニメーションのシーケンス**
+複数の効果を追加し、アニメーションが実行される順序を示します。
 ```csharp
 static void Sequence_Animations()
 {

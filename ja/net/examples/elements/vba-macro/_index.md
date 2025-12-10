@@ -14,13 +14,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用して C# で VBA マクロを操作します：プロジェクトやモジュールの追加・編集、マクロへの署名または削除、そして PPT、PPTX、ODP 形式でプレゼンテーションを保存します。"
+description: "C#でAspose.Slidesを使用してVBAマクロを操作: プロジェクトやモジュールの追加または編集、マクロの署名または削除、PPT、PPTX、ODP形式でプレゼンテーションを保存します。"
 ---
 
 **Aspose.Slides for .NET** を使用して VBA マクロを追加、アクセス、削除する方法を示します。
 
-## Add a VBA Macro
-VBA プロジェクトとシンプルなマクロ モジュールを含むプレゼンテーションを作成します。
+## **VBA マクロの追加**
+
+VBA プロジェクトとシンプルなマクロモジュールを含むプレゼンテーションを作成します。
 ```csharp
 static void Add_Vba_Macro()
 {
@@ -33,7 +34,8 @@ static void Add_Vba_Macro()
 ```
 
 
-## Access a VBA Macro
+## **VBA マクロへのアクセス**
+
 VBA プロジェクトから最初のモジュールを取得します。
 ```csharp
 static void Access_Vba_Macro()
@@ -49,7 +51,8 @@ static void Access_Vba_Macro()
 ```
 
 
-## Remove a VBA Macro
+## **VBA マクロの削除**
+
 VBA プロジェクトからモジュールを削除します。
 ```csharp
 static void Remove_Vba_Macro()

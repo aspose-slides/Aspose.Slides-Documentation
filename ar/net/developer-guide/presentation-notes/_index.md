@@ -1,21 +1,34 @@
 ---
-title: ملاحظات العرض التقديمي
+title: إدارة ملاحظات العرض التقديمي في .NET
+linktitle: ملاحظات العرض التقديمي
 type: docs
 weight: 110
 url: /ar/net/presentation-notes/
-keywords: "ملاحظات, ملاحظات PowerPoint, إضافة ملاحظات, إزالة ملاحظات, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إضافة وإزالة الملاحظات في عروض PowerPoint باستخدام C# أو .NET"
+keywords:
+- ملاحظات
+- شريحة ملاحظات
+- إضافة ملاحظات
+- إزالة ملاحظات
+- نمط الملاحظات
+- الملاحظات الرئيسية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "خصّص ملاحظات العرض التقديمي باستخدام Aspose.Slides لـ .NET. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لتعزيز إنتاجيتك."
 ---
 
-يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة الجديدة لإزالة الملاحظات وكذلك إضافة شرائح نمط الملاحظات من أي عرض تقديمي. يوفر Aspose.Slides for .NET ميزة إزالة ملاحظات أي شريحة بالإضافة إلى إضافة نمط للملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
+يدعم Aspose.Slides حذف شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة الجديدة لحذف الملاحظات وإضافة شرائح نمط الملاحظات من أي عرض تقديمي. يوفر Aspose.Slides for .NET إمكانية حذف ملاحظات أي شريحة بالإضافة إلى إضافة نمط للملاحظات الموجودة. يمكن للمطورين حذف الملاحظات بالطرق التالية:
 
-- إزالة ملاحظات شريحة محددة من عرض تقديمي.
-- إزالة ملاحظات جميع الشرائح من عرض تقديمي.
+- حذف ملاحظات شريحة محددة من العرض التقديمي.
+- حذف ملاحظات جميع الشرائح من العرض التقديمي.
 
-## **إزالة الملاحظات من الشريحة**
-يمكن إزالة ملاحظات شريحة معينة كما هو موضح في المثال أدناه:
+## **حذف الملاحظات من شريحة**
+يمكن حذف ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
 ```c#
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
+// إنشاء كائن Presentation يمثل ملف عرض تقديمي 
 Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
 
 // إزالة ملاحظات الشريحة الأولى
@@ -27,8 +40,8 @@ presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pp
 ```
 
 
-## **إزالة الملاحظات من جميع الشرائح**
-يمكن إزالة ملاحظات جميع شرائح العرض التقديمي كما هو موضح في المثال أدناه:
+## **حذف الملاحظات من جميع الشرائح**
+يمكن حذف ملاحظات جميع شرائح العرض التقديمي كما هو موضح في المثال أدناه:
 ```c#
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي 
 Presentation presentation = new Presentation("AccessSlides.pptx");
@@ -45,8 +58,8 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **إضافة NotesStyle**
-تم إضافة خاصية NotesStyle إلى واجهة [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) والفئة [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
+## **إضافة نمط ملاحظات**
+تمت إضافة الخاصية NotesStyle إلى واجهة [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) وفئة [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. تم توضيح التنفيذ في المثال أدناه.
 ```c#
 // إنشاء فئة Presentation التي تمثل ملف العرض التقديمي
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
@@ -55,7 +68,7 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 
     if (notesMaster != null)
     {
-        // الحصول على نمط النص في MasterNotesSlide
+        // الحصول على نمط نص MasterNotesSlide
         ITextStyle notesStyle = notesMaster.NotesStyle;
 
         // تعيين نقطه رمزية للمستوى الأول من الفقرات
@@ -70,10 +83,10 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما الكيان API الذي يوفر الوصول إلى ملاحظات شريحة محددة؟**
-يتم الوصول إلى الملاحظات من خلال مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) و[خاصية](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) تُرجِع كائن الملاحظات، أو `null` إذا لم تكن هناك ملاحظات.
+**ما كيان الـ API الذي يتيح الوصول إلى ملاحظات شريحة محددة؟**
+يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) و[خاصية](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) تُعيد كائن الملاحظات، أو `null` إذا لم توجد ملاحظات.
 
-**هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي يعمل معها المكتبة؟**
-تستهدف المكتبة مجموعة واسعة من تنسيقات Microsoft PowerPoint (97 وما بعد) وODP؛ يتم دعم الملاحظات ضمن هذه التنسيقات دون الاعتماد على نسخة مثبتة من PowerPoint.
+**هل توجد اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي يعمل معها المكتبة؟**
+تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (97 وما بعد) وODP؛ يتم دعم الملاحظات ضمن هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.

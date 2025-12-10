@@ -1,11 +1,11 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.8.0
-linktitle: Aspose.Slides لـ .NET 15.8.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for .NET 15.8.0
+linktitle: Aspose.Slides for .NET 15.8.0
 type: docs
 weight: 190
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
 keywords:
-- الترحيل
+- ترحيل
 - كود قديم
 - كود حديث
 - نهج قديم
@@ -16,21 +16,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides لـ .NET لإجراء ترحيل سلس لحلول عرض PowerPoint PPT و PPTX و ODP."
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for .NET للترحيل السلس لحلول عروض PowerPoint PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
-تُظهر هذه الصفحة جميع [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) أو [المزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) الفئات، والطرق، والخصائص وما إلى ذلك، وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 15.8.0 API.
+
+هذه الصفحة تسرد جميع الفئات والطرق والخصائص وما إلى ذلك التي تم [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/)، وغيرها من التغييرات التي تم إدخالها مع Aspose.Slides for .NET 15.8.0 API.
+
 {{% /alert %}} 
-## **التغييرات العامة لواجهة برمجة التطبيقات**
-#### **تمت إضافة الخاصية DoughnutHoleSize إلى IChartSeries و ChartSeries**
-تحدد حجم الفتحة في مخطط الدونت.
+## **تغييرات API العامة**
+#### **تمت إضافة خاصية DoughnutHoleSize إلى IChartSeries و ChartSeries**
+تحدد حجم الفتحة في مخطط الدونات.
 
 ``` csharp
+
  using (Presentation pres = new Presentation())
+
 {
+
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
+
    chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
+
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
+
 }
+
 ```

@@ -9,26 +9,26 @@ keywords:
 - تحريك النص
 - فقرة متحركة
 - تحريك الفقرة
-- تأثير الرسوم المتحركة
+- تأثير الحركة
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء نص متحرك ديناميكي في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET، مع أمثلة شفرة C# سهلة المتابعة ومُحسّنة."
+description: "إنشاء نص متحرك ديناميكي في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET، مع أمثلة كود C# سهلة المتابعة ومُحسّنة."
 ---
 
-## **إضافة تأثيرات الرسوم المتحركة إلى الفقرات**
+## **إضافة تأثيرات الحركة إلى الفقرات**
 
-أضفنا الطريقة [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) إلى الفئات [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) و[**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). تسمح لك هذه الطريقة بإضافة تأثيرات الرسوم المتحركة إلى فقرة واحدة. يوضح لك رمز العينة كيفية إضافة تأثير رسومي إلى فقرة واحدة:
+أضفنا الطريقة [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) إلى الفئتين [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) و[**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). تتيح لك هذه الطريقة إضافة تأثيرات الحركة إلى فقرة واحدة. يوضح لك هذا المثال البرمجي كيفية إضافة تأثير حركة إلى فقرة واحدة:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
-    // اختر الفقرة لإضافة التأثير
+    // تحديد الفقرة لإضافة تأثير
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // أضف تأثير التحليق للفقرة المحددة
+    // إضافة تأثير الطيران للفقرة المحددة
     IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
 
@@ -37,11 +37,11 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 ```
 
 
-## **الحصول على تأثيرات الرسوم المتحركة في الفقرات**
+## **الحصول على تأثيرات الحركة للفقرات**
 
-قد تقرر معرفة تأثيرات الرسوم المتحركة المضافة إلى فقرة — على سبيل المثال، في سيناريو ما، قد تريد الحصول على تأثيرات الرسوم المتحركة في فقرة لأنك تنوي تطبيق هذه التأثيرات على فقرة أو شكل آخر.
+قد ترغب في معرفة تأثيرات الحركة المضافة إلى فقرة—على سبيل المثال، في أحد السيناريوهات، تريد الحصول على تأثيرات الحركة في فقرة لأنك تخطط لتطبيق هذه التأثيرات على فقرة أو شكل آخر.
 
-تتيح لك Aspose.Slides for .NET الحصول على جميع تأثيرات الرسوم المتحركة المطبقة على الفقرات الموجودة داخل إطار نص (شكل). يوضح لك رمز العينة كيفية الحصول على تأثيرات الرسوم المتحركة في فقرة:
+يسمح لك Aspose.Slides for .NET بالحصول على جميع تأثيرات الحركة المطبقة على الفقرات الموجودة داخل إطار نص (شكل). يوضح لك هذا المثال البرمجي كيفية الحصول على تأثيرات الحركة في فقرة:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -59,16 +59,16 @@ using (Presentation pres = new Presentation("Test.pptx"))
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف تختلف الرسوم المتحركة للنص عن انتقالات الشرائح، وهل يمكن دمجهما؟**
+**كيف تختلف تحريك النص عن انتقالات الشريحة، وهل يمكن دمجهما؟**
 
-تتحكم الرسوم المتحركة للنص في سلوك الكائن على مدار الوقت داخل الشريحة، بينما تتحكم [الانتقالات](/slides/ar/net/slide-transition/) في كيفية تغيير الشرائح. هما مستقلان ويمكن استخدامهما معًا؛ يتم تحديد ترتيب التشغيل بواسطة جدول توقيت الرسوم المتحركة وإعدادات الانتقال.
+تحكم تحريكات النص سلوك الكائن بمرور الوقت على الشريحة، بينما تتحكم [transitions](/slides/ar/net/slide-transition/) في كيفية تغير الشرائح. هما مستقلان ويمكن استخدامهما معًا؛ يتم تحديد ترتيب التشغيل بواسطة جدول زمني للتحريك وإعدادات الانتقال.
 
-**هل يتم الحفاظ على الرسوم المتحركة للنص عند التصدير إلى PDF أو الصور؟**
+**هل يتم الحفاظ على تحريكات النص عند التصدير إلى PDF أو الصور؟**
 
-لا. ملفات PDF والصور النقطية ثابتة، لذلك سترى حالة واحدة فقط من الشريحة بدون حركة. للحفاظ على الحركة، استخدم تصدير [فيديو](/slides/ar/net/convert-powerpoint-to-video/) أو [HTML](/slides/ar/net/export-to-html5/).
+لا. ملفات PDF والصور النقطية ثابتة، لذلك ستظهر حالة واحدة من الشريحة بدون حركة. للحفاظ على الحركة، استخدم تصدير [video](/slides/ar/net/convert-powerpoint-to-video/) أو [HTML](/slides/ar/net/export-to-html5/).
 
-**هل تعمل الرسوم المتحركة للنص في التخطيطات وماستر الشريحة؟**
+**هل تعمل تحريكات النص في التخطيطات ورئيس الشريحة؟**
 
-التأثيرات المطبقة على كائنات التخطيط/الماستر تُورّث إلى الشرائح، لكن توقيتها وتفاعلها مع الرسوم المتحركة على مستوى الشريحة يعتمد على التسلسل النهائي في الشريحة.
+التأثيرات المطبقة على كائنات التخطيط/الرئيس تُورّث إلى الشرائح، ولكن توقيتها وتفاعلها مع تحريكات مستوى الشريحة يعتمد على التسلسل النهائي في الشريحة.

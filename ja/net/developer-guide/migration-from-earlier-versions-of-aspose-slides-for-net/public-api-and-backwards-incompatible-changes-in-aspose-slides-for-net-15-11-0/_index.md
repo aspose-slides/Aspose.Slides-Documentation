@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.11.0 のパブリック API と下位互換性のない変更
+title: Aspose.Slides for .NET 15.11.0 のパブリック API と後方互換性がない変更
 linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
@@ -8,26 +8,26 @@ keywords:
 - 移行
 - レガシーコード
 - モダンコード
-- レガシーアプローチ
-- モダンアプローチ
+- 従来のアプローチ
+- 現代的アプローチ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行します。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できます。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 15.11.0 APIで導入された、追加または削除されたクラス、メソッド、プロパティなど、およびその他の変更をすべて一覧表示します。
+このページでは、[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)クラス、メソッド、プロパティなど、その他の変更を一覧表示します。
 
 {{% /alert %}} 
-## **パブリックAPIの変更**
+## **パブリック API の変更**
 
-#### **DataLabelCollection クラスの廃止予定プロパティが削除されました**
-DataLabelCollection クラスの廃止予定プロパティが削除されました:
+#### **DataLabelCollection クラスの旧式プロパティが削除されました**
+旧式プロパティは以下のとおり削除されました:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource

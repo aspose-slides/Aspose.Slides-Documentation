@@ -5,7 +5,7 @@ weight: 190
 url: /es/net/examples/elements/connector/
 keywords:
 - ejemplo de conector
-- añadir conector
+- agregar conector
 - acceder al conector
 - eliminar conector
 - reconectar formas
@@ -20,7 +20,7 @@ description: "Dibuja y controla conectores en C# con Aspose.Slides: agrega, enru
 
 Muestra cómo conectar formas con conectores y cambiar sus destinos usando **Aspose.Slides for .NET**.
 
-## Añadir un conector
+## **Agregar un Conector**
 
 Inserte una forma de conector entre dos puntos en la diapositiva.
 ```csharp
@@ -34,7 +34,7 @@ static void Add_Connector()
 ```
 
 
-## Acceder a un conector
+## **Acceder a un Conector**
 
 Recupere la primera forma de conector añadida a una diapositiva.
 ```csharp
@@ -49,7 +49,7 @@ static void Access_Connector()
 ```
 
 
-## Eliminar un conector
+## **Eliminar un Conector**
 
 Elimine un conector de la diapositiva.
 ```csharp
@@ -64,7 +64,7 @@ static void Remove_Connector()
 ```
 
 
-## Reconectar formas
+## **Reconectar Formas**
 
 Adjunte un conector a dos formas asignando los destinos de inicio y fin.
 ```csharp

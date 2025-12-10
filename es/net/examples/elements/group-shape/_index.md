@@ -1,5 +1,5 @@
 ---
-title: Forma de grupo
+title: GroupShape
 type: docs
 weight: 170
 url: /es/net/examples/elements/group-shape/
@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaja con grupos de formas en C# usando Aspose.Slides: crea y desagrupa, reordena las formas hijas, establece transformaciones y límites en PowerPoint y OpenDocument."
+description: "Trabajar con formas de grupo en C# usando Aspose.Slides: crear y desagrupar, reordenar formas hijas, establecer transformaciones y límites en PowerPoint y OpenDocument."
 ---
 
-Ejemplos de creación de grupos de formas, acceso a ellos, desagrupación y eliminación usando **Aspose.Slides for .NET**.
+Ejemplos de creación de grupos de formas, acceso a ellos, desagrupar y eliminar usando **Aspose.Slides for .NET**.
 
-## Agregar una forma de grupo
+## **Agregar una Forma de Grupo**
 
-Crear un grupo que contiene dos formas básicas.
+Crear un grupo que contenga dos formas básicas.
 ```csharp
 static void Add_Group_Shape()
 {
@@ -36,9 +36,9 @@ static void Add_Group_Shape()
 ```
 
 
-## Acceder a una forma de grupo
+## **Acceder a una Forma de Grupo**
 
-Recuperar la primera forma de grupo de una diapositiva.
+Obtener la primera forma de grupo de una diapositiva.
 ```csharp
 static void Access_Group_Shape()
 {
@@ -52,7 +52,7 @@ static void Access_Group_Shape()
 ```
 
 
-## Eliminar una forma de grupo
+## **Eliminar una Forma de Grupo**
 
 Eliminar una forma de grupo de la diapositiva.
 ```csharp
@@ -67,7 +67,7 @@ static void Remove_Group_Shape()
 ```
 
 
-## Desagrupar formas
+## **Desagrupar Formas**
 
 Mover las formas fuera de un contenedor de grupo.
 ```csharp

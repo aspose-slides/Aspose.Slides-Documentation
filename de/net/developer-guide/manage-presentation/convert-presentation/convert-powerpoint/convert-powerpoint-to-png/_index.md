@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Folien in PNG konvertieren in .NET
+title: PowerPoint‑Folien zu PNG in .NET konvertieren
 linktitle: PowerPoint zu PNG
 type: docs
 weight: 30
@@ -22,46 +22,46 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder konvertieren mit Aspose.Slides für .NET und dabei präzise, automatisierte Ergebnisse gewährleisten."
+description: "PowerPoint‑Präsentationen schnell in hochwertige PNG‑Bilder konvertieren mit Aspose.Slides für .NET, um präzise, automatisierte Ergebnisse zu gewährleisten."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man PowerPoint‑Präsentationen mit C# in das PNG‑Format konvertiert. Er behandelt die folgenden Themen.
+Dieser Artikel erklärt, wie man eine PowerPoint‑Präsentation mit C# in das PNG‑Format konvertiert. Er behandelt die folgenden Themen.
 
-- [PowerPoint in PNG konvertieren in C#](#convert-powerpoint-to-png)
-- [PPT in PNG konvertieren in C#](#convert-powerpoint-to-png)
-- [PPTX in PNG konvertieren in C#](#convert-powerpoint-to-png)
-- [ODP in PNG konvertieren in C#](#convert-powerpoint-to-png)
-- [PowerPoint‑Folie in Bild konvertieren in C#](#convert-powerpoint-to-png)
+- [PowerPoint nach PNG in C#](#convert-powerpoint-to-png)
+- [PPT nach PNG in C#](#convert-powerpoint-to-png)
+- [PPTX nach PNG in C#](#convert-powerpoint-to-png)
+- [ODP nach PNG in C#](#convert-powerpoint-to-png)
+- [PowerPoint‑Folien in Bild in C# konvertieren](#convert-powerpoint-to-png)
 
-## **C# PowerPoint zu PNG**
+## **PowerPoint nach PNG in .NET**
 
-Für C#‑Beispielcode zum Konvertieren von PowerPoint in PNG siehe bitte den nachfolgenden Abschnitt, d. h. [PowerPoint in PNG konvertieren](#convert-powerpoint-to-png). Der Code kann verschiedene Formate wie PPT, PPTX und ODP im Presentation‑Objekt laden und anschließend die Folien‑Miniatur im PNG‑Format speichern. Die anderen PowerPoint‑zu‑Bild‑Konvertierungen, die ähnlich sind, wie JPG, BMP, TIFF und SVG, werden in diesen Artikeln behandelt.
+Für C#‑Beispielcode zum Konvertieren von PowerPoint nach PNG siehe den Abschnitt unten, d. h. [PowerPoint nach PNG](#convert-powerpoint-to-png). Der Code kann verschiedene Formate wie PPT, PPTX und ODP im Presentation‑Objekt laden und dann die Folien‑Miniaturbilder im PNG‑Format speichern. Die anderen PowerPoint‑zu‑Bild‑Konvertierungen, die ähnlich sind, wie JPG, BMP, TIFF und SVG, werden in diesen Artikeln behandelt.
 
-- [C# PowerPoint zu JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint zu BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint zu TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint zu SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
+- [C# PowerPoint nach JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint nach BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint nach TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
+- [C# PowerPoint nach SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
 
-## **Über die PowerPoint‑zu‑PNG-Konvertierung**
+## **Über die PowerPoint‑zu‑PNG‑Konvertierung**
 
-Das PNG‑Format (Portable Network Graphics) ist nicht so verbreitet wie JPEG (Joint Photographic Experts Group), ist aber weiterhin sehr beliebt.
+Das PNG‑Format (Portable Network Graphics) ist nicht so beliebt wie JPEG (Joint Photographic Experts Group), aber es ist immer noch sehr verbreitet.
 
-**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe kein Thema ist, ist PNG ein besseres Bildformat als JPEG.
+**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe kein Problem darstellt, ist PNG ein besseres Bildformat als JPEG.
 
-{{% alert title="Tip" color="primary" %}} Vielleicht möchten Sie sich die kostenlosen Aspose **PowerPoint‑zu‑PNG‑Konverter** ansehen: [PPTX zu PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT zu PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live‑Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Vielleicht möchten Sie die kostenlosen Aspose **PowerPoint‑zu‑PNG‑Konverter** ansehen: [PPTX nach PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT nach PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live‑Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
 
-## **PowerPoint zu PNG konvertieren**
+## **PowerPoint in PNG konvertieren**
 
 Führen Sie die folgenden Schritte aus:
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Rufen Sie das Folien‑Objekt aus der Sammlung [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) über die Schnittstelle [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) ab.
-3. Verwenden Sie die Methode [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/), um die Miniatur für jede Folie zu erhalten.
-4. Verwenden Sie die Methode [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5), um die Folien‑Miniatur im PNG-Format zu speichern.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Rufen Sie das Folienobjekt aus der Sammlung [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) unter der Schnittstelle [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) ab.
+3. Verwenden Sie die Methode [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) , um das Miniaturbild für jede Folie zu erhalten.
+4. Verwenden Sie die Methode [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) , um das Miniaturbild der Folie im PNG‑Format zu speichern.
 
-Dieser C#‑Code zeigt, wie man eine PowerPoint‑Präsentation in PNG konvertiert. Das Presentation‑Objekt kann PPT, PPTX, ODP usw. laden, und jede Folie im Presentation‑Objekt wird dann in das PNG-Format oder ein anderes Bildformat konvertiert.
+Dieser C#‑Code zeigt, wie man eine PowerPoint‑Präsentation in PNG konvertiert. Das Presentation‑Objekt kann PPT, PPTX, ODP usw. laden, dann wird jede Folie im Präsentationsobjekt in das PNG‑Format oder andere Bildformate konvertiert.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -78,11 +78,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **PowerPoint zu PNG mit benutzerdefinierten Abmessungen konvertieren**
+## **PowerPoint in PNG mit benutzerdefinierten Abmessungen konvertieren**
 
-Wenn Sie PNG‑Dateien in einer bestimmten Größe erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen der resultierenden Miniatur bestimmen.
+Wenn Sie PNG‑Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen der resultierenden Miniatur bestimmen.
 
-Dieser C#‑Code demonstriert den beschriebenen Vorgang:
+Dieser C#‑Code demonstriert die beschriebene Vorgehensweise:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -101,11 +101,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **PowerPoint zu PNG mit benutzerdefinierter Größe konvertieren**
+## **PowerPoint in PNG mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie PNG‑Dateien in einer bestimmten Größe erhalten möchten, können Sie die gewünschten `width`‑ und `height`‑Argumente für `imageSize` übergeben.
+Wenn Sie PNG‑Dateien in einer bestimmten Größe erhalten möchten, können Sie Ihre bevorzugten Argumente `width` und `height` für `imageSize` übergeben.
 
-Dieser Code zeigt, wie man ein PowerPoint in PNG konvertiert, während man die Größe der Bilder angibt:
+Dieser Code zeigt, wie man PowerPoint nach PNG konvertiert und dabei die Größe der Bilder angibt:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -125,11 +125,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Wie kann ich nur eine bestimmte Form (z. B. Diagramm oder Bild) statt der gesamten Folie exportieren?**  
-Aspose.Slides unterstützt das [Erzeugen von Miniaturbildern für einzelne Formen](/slides/de/net/create-shape-thumbnails/); Sie können eine Form als PNG‑Bild rendern.
+**Wie kann ich nur eine bestimmte Form (z. B. Diagramm oder Bild) anstatt der gesamten Folie exportieren?**  
+Aspose.Slides unterstützt das [Erzeugen von Miniaturansichten für einzelne Formen](/slides/de/net/create-shape-thumbnails/); Sie können eine Form als PNG‑Bild rendern.
 
 **Wird parallele Konvertierung auf einem Server unterstützt?**  
-Ja, aber [nicht teilen](/slides/de/net/multithreading/) Sie keine einzelne Präsentationsinstanz über Threads hinweg. Verwenden Sie pro Thread oder Prozess eine separate Instanz.
+Ja, jedoch sollten Sie eine einzelne Präsentationsinstanz nicht über Threads hinweg [teilen](/slides/de/net/multithreading/). Verwenden Sie pro Thread oder Prozess eine separate Instanz.
 
-**Was sind die Einschränkungen der Testversion beim Exportieren nach PNG?**  
-Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und erzwingt [weitere Einschränkungen](/slides/de/net/licensing/), bis eine Lizenz angewendet wird.
+**Welche Einschränkungen gelten für die Testversion beim Export nach PNG?**  
+Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und erzwingt weitere [Beschränkungen](/slides/de/net/licensing/), bis eine Lizenz angewendet wird.

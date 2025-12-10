@@ -1,5 +1,5 @@
 ---
-title: API publique et changements incompatibles en arrière dans Aspose.Slides pour .NET 14.6.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 14.6.0
 linktitle: Aspose.Slides pour .NET 14.6.0
 type: docs
 weight: 80
@@ -16,20 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
+description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles de Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les classes, méthodes, propriétés et ainsi de suite [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), ainsi que toute nouvelle [restriction](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) et d'autres [modifications](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introduites avec l'API Aspose.Slides for .NET 14.6.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutés](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), les nouvelles [restrictions](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ainsi que les autres [modifications](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introduites avec l’API Aspose.Slides for .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
-### **Interfaces, méthodes et propriétés ajoutées**
+### **Interfaces, Méthodes et Propriétés ajoutées**
 #### **Ajout de l'interface Aspose.Slides.Charts.IErrorBarsFormat**
-Cela représente les barres d'erreur des séries de graphiques.
+Représente les barres d’erreur d’une série de graphique.
 
-Dans le cas d'un type de valeur personnalisé, pour spécifier une valeur, utilisez la propriété ErrorBarCustomValues du point de données spécifique dans la collection DataPoints de la série.
+Dans le cas d’un type de valeur personnalisé, pour spécifier une valeur, utilisez la propriété ErrorBarCustomValues du point de données spécifique dans la collection DataPoints de la série.
 
 ``` csharp
 
@@ -175,7 +175,7 @@ Spécifie les types de valeurs dans la liste des propriétés ChartDataPoint.Err
 
 ``` 
 #### **Ajout des méthodes Aspose.Slides.IShapeCollection.AddClone(...), et .InsertClone(...)**
-Les méthodes suivantes ajoutent/insèrent une copie d'une forme spécifiée dans la collection. 
+Les méthodes suivantes ajoutent/insèrent une copie d’une forme spécifiée dans la collection. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -214,7 +214,7 @@ Les méthodes suivantes ajoutent/insèrent une copie d'une forme spécifiée dan
 
 ``` 
 #### **Ajout de l'énumération ViewType, de l'interface IViewProperties, de la classe ViewProperties et des propriétés IPresentation.ViewProperties**
-La propriété IPresentation.ViewProperty permet aux développeurs de modifier le type de vue de la présentation et la visibilité des notes lorsqu'une présentation est ouverte dans PowerPoint.
+La propriété IPresentation.ViewProperty permet aux développeurs de modifier le type d’affichage de la présentation et la visibilité des notes lorsqu’une présentation est ouverte dans PowerPoint.
 
 ``` csharp
 

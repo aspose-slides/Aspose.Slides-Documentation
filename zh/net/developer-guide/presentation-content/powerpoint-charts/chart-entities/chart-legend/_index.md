@@ -1,6 +1,6 @@
 ---
 title: 在 .NET 中自定义演示文稿的图表图例
-linktitle: 图表图例
+linktitle: 图例
 type: docs
 url: /zh/net/chart-legend/
 keywords:
@@ -12,7 +12,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 自定义图表图例，以优化 PowerPoint 演示文稿的图例格式."
+description: "使用 Aspose.Slides for .NET 自定义图表图例，以针对性图例格式优化 PowerPoint 演示文稿。"
 ---
 
 ## **图例定位**
@@ -24,7 +24,7 @@ description: "使用 Aspose.Slides for .NET 自定义图表图例，以优化 Po
 - 设置图例的属性。
 - 将演示文稿写入为 PPTX 文件。
 
-以下示例中，我们已设置图表图例的位置和大小。
+在下面的示例中，我们已为图表图例设置了位置和大小。
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -32,7 +32,7 @@ Presentation presentation = new Presentation();
 // 获取幻灯片的引用
 ISlide slide = presentation.Slides[0];
 
-// 在幻灯片上添加簇状柱形图
+// 在幻灯片上添加聚合柱形图表
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
 // 设置图例属性
@@ -48,8 +48,8 @@ presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 
 
 
-## **设置图例字体大小**
-Aspose.Slides for .NET 允许开发人员设置图例的字体大小。请按照以下步骤操作：
+## **设置图例的字体大小**
+Aspose.Slides for .NET 允许开发者设置图例的字体大小。请按照以下步骤操作：
 
 - 实例化 `Presentation` 类。
 - 创建默认图表。
@@ -75,7 +75,7 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 
 ## **设置单个图例项的字体大小**
-Aspose.Slides for .NET 允许开发人员设置单个图例项的字体大小。请按照以下步骤操作：
+Aspose.Slides for .NET 允许开发者设置单个图例项的字体大小。请按照以下步骤操作：
 
 - 实例化 `Presentation` 类。
 - 创建默认图表。
@@ -103,14 +103,14 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 ## **常见问题**
 
-**我可以启用图例，使图表自动为其分配空间而不是覆盖吗？**
+**我可以启用图例，让图表自动为其分配空间而不是覆盖吗？**
 
-可以。使用非覆盖模式（[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/)=`false`）；此时绘图区会缩小以容纳图例。
+是的。使用非覆盖模式（[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) = `false`）；在这种情况下，绘图区域会收缩以容纳图例。
 
-**我可以制作多行图例标签吗？**
+**我可以创建多行图例标签吗？**
 
-可以。当空间不足时，长标签会自动换行；通过在系列名称中加入换行符可以实现强制换行。
+是的。当空间不足时，长标签会自动换行；可以通过在系列名称中使用换行字符来强制换行。
 
 **如何让图例遵循演示文稿主题的配色方案？**
 
-不要为图例或其文本显式设置颜色、填充或字体。这样它们会继承主题的设置，并在设计更改时正确更新。
+不要为图例或其文本设置显式的颜色/填充/字体。它们将从主题继承，并在设计更改时正确更新。

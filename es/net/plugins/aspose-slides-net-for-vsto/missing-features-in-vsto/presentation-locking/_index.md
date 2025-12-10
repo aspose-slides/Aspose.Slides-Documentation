@@ -6,50 +6,50 @@ url: /es/net/presentation-locking/
 ---
 
 ## **Bloqueo de Presentación**
-Un uso común de **Aspose.Slides** es crear, actualizar y guardar presentaciones de Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que utiliza Aspose.Slides de esta manera tienen acceso a las presentaciones resultantes. Protegerlas contra la edición es una preocupación común. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido originales.
+Un uso común de **Aspose.Slides** es crear, actualizar y guardar presentaciones Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que utiliza Aspose.Slides de esta manera obtienen acceso a las presentaciones de salida. Protegerlas contra la edición es una preocupación frecuente. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido originales.
 
-Esto explica cómo se construyen las presentaciones y las diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a, y luego quitarla de, una presentación. Esta función es única de Aspose.Slides y, en el momento de escribir, no está disponible en Microsoft PowerPoint. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
+Esto explica cómo se construyen las presentaciones y diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a una presentación y luego eliminarla. Esta característica es única de Aspose.Slides y, al momento de escribir, no está disponible en Microsoft PowerPoint. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
 ## **Composición de una Diapositiva**
-Una diapositiva PPTX está compuesta por varios componentes como formas automáticas, tablas, objetos OLE, formas agrupadas, marcos de imágenes, marcos de video, conectores y otros elementos disponibles para construir una presentación.
+Una diapositiva PPTX se compone de varios componentes como formas automáticas, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de video, conectores y los diversos demás elementos disponibles para construir una presentación.
 
-En Aspose.Slides para .NET, cada elemento en una diapositiva se convierte en un objeto Shape. En otras palabras, cada elemento en la diapositiva es un objeto Shape o un objeto derivado del objeto Shape.
+En Aspose.Slides para .NET, cada elemento de una diapositiva se convierte en un objeto Shape. En otras palabras, cada elemento de la diapositiva es un objeto Shape o un objeto derivado del objeto Shape.
 
-La estructura de PPTX es compleja, por lo que a diferencia de PPT, donde se puede usar un bloqueo genérico para todos los tipos de formas, hay diferentes tipos de bloqueos para diferentes tipos de formas. La clase BaseShapeLock es la clase de bloqueo genérico de PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX.
+La estructura de PPTX es compleja, por lo que a diferencia de PPT, donde se puede usar un bloqueo genérico para todo tipo de formas, existen diferentes tipos de bloqueos para cada tipo de forma. La clase BaseShapeLock es la clase genérica de bloqueo PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX.
 
 - AutoShapeLock bloquea formas automáticas.
 - ConnectorLock bloquea formas de conector.
 - GraphicalObjectLock bloquea objetos gráficos.
-- GroupshapeLock bloquea formas grupales.
-- PictureFrameLock bloquea marcos de imágenes.
+- GroupshapeLock bloquea formas agrupadas.
+- PictureFrameLock bloquea marcos de imagen.
 
-Cualquier acción realizada en todos los objetos Shape en un objeto Presentation se aplica a toda la presentación.
-## **Aplicando y Eliminando Protección**
-Aplicar protección asegura que una presentación no pueda ser editada. Es una técnica útil para proteger el contenido de una presentación.
+Cualquier acción realizada sobre todos los objetos Shape en un objeto Presentation se aplica a toda la presentación.
+## **Aplicar y Eliminar Protección**
+Aplicar protección garantiza que una presentación no pueda ser editada. Es una técnica útil para proteger el contenido de una presentación.
 
-**Aplicando Protección a Formas PPTX**
+**Aplicar protección a formas PPTX**
 
 Aspose.Slides para .NET proporciona la clase Shape para manejar una forma en la diapositiva.
 
-Como se mencionó anteriormente, cada clase de forma tiene una clase de bloqueo asociada para protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que las formas no puedan ser seleccionadas (a través de clics del mouse u otros métodos de selección), y no puedan ser movidas o redimensionadas.
+Como se mencionó antes, cada clase de forma tiene una clase de bloqueo de forma asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que las formas no puedan ser seleccionadas (mediante clics del ratón u otros métodos de selección), y que no puedan moverse ni redimensionarse.
 
-Los ejemplos de código que siguen aplican protección a todos los tipos de formas en una presentación.
+Los fragmentos de código a continuación aplican protección a todos los tipos de forma en una presentación.
 
 ``` csharp
 
- //Instanciar la clase Presentation que representa un archivo PPTX
+ //Instatiate Presentation class that represents a PPTX file
 
-PresentationEx pTemplate = new PresentationEx("Aplicando Protección.pptx");//Instanciar la clase Presentation que representa un archivo PPTX
+PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
 
 
-//ISlide objeto para acceder a las diapositivas en la presentación
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//IShape objeto para contener formas temporales
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Recorriendo todas las diapositivas en la presentación
+//Traversing through all the slides in the presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -57,7 +57,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Recorriendo todas las formas en las diapositivas
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -65,19 +65,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//si la forma es una forma automática
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Casting a forma automática y obteniendo el bloqueo de forma automática
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = true;
 
@@ -87,19 +87,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es una forma grupal
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Casting a forma grupal y obteniendo el bloqueo de forma grupal
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = true;
 
@@ -111,19 +111,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es un conector
+		//if shape is a connector
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Casting a forma de conector y obteniendo el bloqueo de forma de conector
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			ConnLock.PositionMove = true;
 
@@ -133,19 +133,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es un marco de imagen
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Casting a forma de marco de imagen y obteniendo el bloqueo de forma de marco de imagen
+			//Type casting to picture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			PicLock.PositionLocked = true;
 
@@ -159,30 +159,31 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Guardar el archivo de presentación
+//Saving the presentation file
 
-pTemplate.Save("SampleProtegido.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 
-**Eliminando Protección**
+**Eliminar Protección**
 
-La protección aplicada mediante Aspose.Slides para .NET solo puede ser eliminada con Aspose.Slides para .NET. Para desbloquear una forma, establezca el valor del bloqueo aplicado en false. El ejemplo de código que sigue muestra cómo desbloquear formas en una presentación bloqueada.
+La protección aplicada con Aspose.Slides para .NET solo puede eliminarse con Aspose.Slides para .NET. Para desbloquear una forma, establezca el valor del bloqueo aplicado a false. El fragmento de código a continuación muestra cómo desbloquear formas en una presentación bloqueada.
 
 ``` csharp
 
- //Abrir la presentación deseada
+ //Open the desired presentation
 
-PresentationEx pTemplate = new PresentationEx("SampleProtegido.pptx");
-//ISlide objeto para acceder a las diapositivas en la presentación
+PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
+
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//IShape objeto para contener formas temporales
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Recorriendo todas las diapositivas en la presentación
+//Traversing through all the slides in presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -190,7 +191,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Recorriendo todas las formas en las diapositivas
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -198,19 +199,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//si la forma es una forma automática
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Casting a forma automática y obteniendo el bloqueo de forma automática
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = false;
 
@@ -220,19 +221,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es una forma grupal
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Casting a forma grupal y obteniendo el bloqueo de forma grupal
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = false;
 
@@ -244,19 +245,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es una forma de conector
+		//if shape is Connector shape
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Casting a forma de conector y obteniendo el bloqueo de forma de conector
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			ConnLock.PositionMove = false;
 
@@ -266,19 +267,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//si la forma es un marco de imagen
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Casting a forma de marco de imagen y obteniendo el bloqueo de forma de marco de imagen
+			//Type casting to pitcture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Aplicando bloqueos de formas
+			//Applying shapes locks
 
 			PicLock.PositionLocked = false;
 
@@ -292,11 +293,11 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Guardar el archivo de presentación
+//Saving the presentation file
 
-pTemplate.Save("SampleEliminarProtección.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
-## **Descargar Código de Ejemplo**
+## **Descargar código de ejemplo**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812535)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

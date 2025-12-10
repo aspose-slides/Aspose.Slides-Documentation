@@ -12,29 +12,29 @@ keywords:
 - Form duplizieren
 - Form entfernen
 - Form ausblenden
-- Formenreihenfolge ändern
-- Interop-Form-ID abrufen
-- Form-Alternativtext
-- Form-Layoutformate
+- Reihenfolge von Formen ändern
+- Interop-Shape-ID abrufen
+- Alternative Text für Form
+- Layoutformate für Formen
 - Form als SVG
-- Form zu SVG
+- Form in SVG
 - Form ausrichten
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für .NET erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint-Präsentationen bereitstellen."
+description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für .NET erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint‑Präsentationen bereitstellen."
 ---
 
-## **Form in Folie finden**
-Dieses Thema beschreibt eine einfache Technik, um es Entwicklern zu erleichtern, ein bestimmtes Formobjekt auf einer Folie zu finden, ohne dessen interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint-Präsentationsdateien keine Möglichkeit bieten, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Es scheint für Entwickler schwierig zu sein, eine Form anhand ihrer internen eindeutigen Id zu finden. Allen zu den Folien hinzugefügten Formen ist ein Alternativtext zugeordnet. Wir empfehlen Entwicklern, den Alternativtext zur Suche nach einer bestimmten Form zu verwenden. Sie können in MS PowerPoint den Alternativtext für Objekte definieren, die Sie in Zukunft ändern möchten.
+## **Eine Form auf einer Folie finden**
+Dieses Thema beschreibt eine einfache Methode, die es Entwicklern erleichtert, eine bestimmte Form auf einer Folie zu finden, ohne deren interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint‑Präsentationsdateien keine Möglichkeit bieten, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Es ist für Entwickler häufig schwierig, eine Form anhand ihrer internen eindeutigen Id zu finden. Alle zur Folie hinzugefügten Formen besitzen einen Alt‑Text. Wir empfehlen Entwicklern, den Alternativtext zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint nutzen, um den Alternativtext für Objekte festzulegen, die Sie zukünftig ändern möchten.
 
-Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides for .NET öffnen und alle Formen einer Folie durchlaufen. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem passenden Alternativtext ist die gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1), erstellt, die das Finden einer bestimmten Form in einer Folie übernimmt und dann einfach diese Form zurückgibt.
+Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides for .NET öffnen und durch alle zu einer Folie hinzugefügten Formen iterieren. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem passenden Alternativtext ist die gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) erstellt, die das Auffinden einer bestimmten Form auf einer Folie übernimmt und anschließend die Form zurückgibt.
 ```c#
 public static void Run()
 {
-    // Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
+    // Instanziieren einer Presentation-Klasse, die die Präsentationsdatei darstellt
     using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
     {
 
@@ -48,14 +48,14 @@ public static void Run()
     }
 }
         
-// Methodenimplementierung zum Finden einer Form in einer Folie mithilfe ihres Alternativtextes
+// Methodenimplementierung zum Finden einer Form in einer Folie über deren Alternativtext
 public static IShape FindShape(ISlide slide, string alttext)
 {
     // Durchlaufen aller Formen innerhalb der Folie
     for (int i = 0; i < slide.Shapes.Count; i++)
     {
-        // Wenn der Alternativtext der Folie mit dem gewünschten übereinstimmt, dann
-        // Rückgabe der Form
+        // Wenn der Alternativtext der Folie mit dem gesuchten übereinstimmt dann
+        // Form zurückgeben
         if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
             return slide.Shapes[i];
     }
@@ -64,21 +64,19 @@ public static IShape FindShape(ISlide slide, string alttext)
 ```
 
 
-
-
-## **Form duplizieren**
+## **Eine Form duplizieren**
 Um eine Form auf einer Folie mit Aspose.Slides for .NET zu duplizieren:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
-1. Holen Sie sich den Verweis auf eine Folie, indem Sie ihren Index verwenden.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
+1. Holen Sie die Referenz einer Folie anhand ihres Index.
 1. Greifen Sie auf die Formsammlung der Quellfolie zu.
-1. Fügen Sie eine neue Folie zur Präsentation hinzu.
+1. Fügen Sie der Präsentation eine neue Folie hinzu.
 1. Duplizieren Sie Formen aus der Formsammlung der Quellfolie in die neue Folie.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Das folgende Beispiel fügt einer Folie eine Gruppierung von Formen hinzu.
+Das nachstehende Beispiel fügt einer Folie eine Gruppierungsform hinzu.
 ```c#
- // Instanziieren Sie die Presentation-Klasse
+// Instanziieren der Presentation-Klasse
 using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 {
 	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
@@ -89,24 +87,22 @@ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 	destShapes.AddClone(sourceShapes[2]);                 
 	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
-	// Schreiben Sie die PPTX-Datei auf die Festplatte
+	// Schreiben der PPTX-Datei auf die Festplatte
 	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+## **Eine Form entfernen**
+Aspose.Slides for .NET ermöglicht Entwicklern das Entfernen beliebiger Formen. Um eine Form von einer Folie zu entfernen, führen Sie die folgenden Schritte aus:
 
-
-## **Form entfernen**
-Aspose.Slides for .NET ermöglicht Entwicklern das Entfernen jeder Form. Um eine Form von einer Folie zu entfernen, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
+1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit dem jeweiligen AlternativeText.
+1. Suchen Sie die Form mit dem entsprechenden AlternativeText.
 1. Entfernen Sie die Form.
 1. Speichern Sie die Datei auf dem Datenträger.
 ```c#
- // Präsentationsobjekt erstellen
+// Presentation-Objekt erstellen
 Presentation pres = new Presentation();
 
 // Erste Folie abrufen
@@ -131,18 +127,16 @@ pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Eine Form ausblenden**
+Aspose.Slides for .NET ermöglicht Entwicklern das Ausblenden beliebiger Formen. Um die Form von einer Folie auszublenden, führen Sie die folgenden Schritte aus:
 
-
-## **Form ausblenden**
-Aspose.Slides for .NET ermöglicht Entwicklern das Ausblenden jeder Form. Um eine Form auf einer Folie auszublenden, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
+1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit dem jeweiligen AlternativeText.
+1. Suchen Sie die Form mit dem entsprechenden AlternativeText.
 1. Blenden Sie die Form aus.
 1. Speichern Sie die Datei auf dem Datenträger.
 ```c#
-// Instanziieren Sie die Presentation‑Klasse, die das PPTX repräsentiert
+// Präsentationsklasse instanziieren, die die PPTX darstellt
 Presentation pres = new Presentation();
 
 // Erste Folie abrufen
@@ -162,22 +156,20 @@ for (int i = 0; i < iCount; i++)
 	}
 }
 
-// Präsentation auf die Festplatte speichern
+// Präsentation auf Festplatte speichern
 pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Reihenfolge von Formen ändern**
+Aspose.Slides for .NET ermöglicht Entwicklern das Neuordnen von Formen. Durch das Neuordnen wird festgelegt, welche Form im Vordergrund und welche im Hintergrund liegt. Um die Reihenfolge von Formen auf einer Folie zu ändern, führen Sie die folgenden Schritte aus:
 
-
-## **Formenreihenfolge ändern**
-Aspose.Slides for .NET ermöglicht Entwicklern das Neuanordnen von Formen. Das Neuanordnen bestimmt, welche Form im Vordergrund bzw. im Hintergrund liegt. Um die Reihenfolge von Formen auf einer Folie zu ändern, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
+1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie eine Form hinzu.
-1. Fügen Sie Text in den Textrahmen der Form ein.
+1. Fügen Sie im Textfeld der Form einen Text hinzu.
 1. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.
-1. Ordnen Sie die Formen neu an.
+1. Ordnen Sie die Formen neu.
 1. Speichern Sie die Datei auf dem Datenträger.
 ```c#
 Presentation presentation1 = new Presentation("HelloWorld.pptx");
@@ -196,39 +188,40 @@ presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 ```
 
 
-
-## **Interop-Form-ID abrufen**
-Aspose.Slides for .NET ermöglicht Entwicklern das Abrufen einer eindeutigen Form‑Kennung im Folien‑Umfang im Gegensatz zur UniqueId‑Eigenschaft, die eine eindeutige Kennung im Präsentations‑Umfang liefert. Die Eigenschaft OfficeInteropShapeId wurde zu den IShape‑Interfaces und zur Shape‑Klasse hinzugefügt. Der von OfficeInteropShapeId zurückgegebene Wert entspricht dem Id‑Wert des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Unten finden Sie ein Beispielcode.
+## **Interop‑Shape‑ID abrufen**
+Aspose.Slides for .NET ermöglicht Entwicklern das Abrufen einer eindeutigen Shape‑Kennung im Folien‑Umfang im Gegensatz zur UniqueId‑Eigenschaft, die eine eindeutige Kennung im Präsentations‑Umfang liefert. Die Property OfficeInteropShapeId wurde den IShape‑Schnittstellen und der Shape‑Klasse hinzugefügt. Der von der OfficeInteropShapeId‑Property zurückgegebene Wert entspricht der Id des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Unten ist ein Beispielcode angegeben.
 ```c#
 public static void Run()
 {
 	using (Presentation presentation = new Presentation("Presentation.pptx"))
 	{
-		// Abrufen des eindeutigen Formidentifikators im Folienbereich
+		// Einzigartige Shape-Kennung im Folienumfang ermitteln
 		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
 	}
 }
 ```
 
 
+## **Alternativtext für eine Form festlegen**
+Aspose.Slides for .NET ermöglicht Entwicklern das Festlegen von AlternateText für beliebige Formen.
 
+Formen in einer Präsentation können anhand des AlternativeText‑ oder Shape‑Name‑Eigenschaft unterschieden werden.
 
-## **Alternativtext für Form festlegen**
-Aspose.Slides for .NET ermöglicht Entwicklern das Festlegen von AlternateText für jede Form. 
-Formen in einer Präsentation können über das AlternativeText‑ oder Shape‑Name‑Property unterschieden werden. 
-Die AlternativeText‑Eigenschaft kann sowohl von Aspose.Slides als auch von Microsoft PowerPoint gelesen oder gesetzt werden. 
-Durch die Verwendung dieser Eigenschaft können Sie eine Form kennzeichnen und verschiedene Vorgänge ausführen, z. B. das Entfernen, Ausblenden oder Neuanordnen von Formen auf einer Folie.
-Um den AlternateText einer Form festzulegen, folgen Sie bitte den untenstehenden Schritten:
+Die AlternativeText‑Eigenschaft kann sowohl mit Aspose.Slides als auch mit Microsoft PowerPoint gelesen oder gesetzt werden.
+
+Durch die Verwendung dieser Eigenschaft können Sie eine Form kennzeichnen und verschiedene Vorgänge wie das Entfernen einer Form, das Ausblenden einer Form oder das Neuordnen von Formen auf einer Folie durchführen.
+
+Um den AlternateText einer Form festzulegen, führen Sie die folgenden Schritte aus:
 
 1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie eine beliebige Form zur Folie hinzu.
 1. Arbeiten Sie mit der neu hinzugefügten Form.
-1. Durchlaufen Sie die Formen, um die gewünschte Form zu finden.
-1. Setzen Sie das AlternativeText‑Property.
+1. Durchlaufen Sie die Formen, um eine bestimmte Form zu finden.
+1. Setzen Sie den AlternativeText.
 1. Speichern Sie die Datei auf dem Datenträger.
 ```c#
-// Instanziieren Sie die Presentation-Klasse, die das PPTX darstellt
+// Presentation-Klasse instanziieren, die die PPTX darstellt
 Presentation pres = new Presentation();
 
 // Erste Folie abrufen
@@ -250,18 +243,15 @@ for (int i = 0; i < sld.Shapes.Count; i++)
     }
 }
 
-// Präsentation auf die Festplatte speichern
+// Präsentation auf Festplatte speichern
 pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Layout‑Formate für eine Form abrufen**
+Aspose.Slides for .NET bietet eine einfache API zum Abrufen von Layout‑Formaten für eine Form. Dieser Artikel zeigt, wie Sie Layout‑Formate zugreifen können.
 
-
-
-## **Layout‑Formate für Form zugreifen**
-Aspose.Slides for .NET bietet eine einfache API zum Zugriff auf Layout‑Formate einer Form. Dieser Artikel zeigt, wie Sie Layout‑Formate abrufen können.
-
-Unten finden Sie Beispielcode.
+Unten ist ein Beispielcode angegeben.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -274,8 +264,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **Form als SVG rendern**
-Jetzt unterstützt Aspose.Slides for .NET das Rendern einer Form als SVG. Die Methode WriteAsSvg (und ihre Überladung) wurde zur Shape‑Klasse und zum IShape‑Interface hinzugefügt. Diese Methode ermöglicht das Speichern des Inhalts einer Form als SVG‑Datei. Der untenstehende Code‑Auszug zeigt, wie Sie die Form einer Folie in eine SVG‑Datei exportieren.
+## **Eine Form als SVG rendern**
+Jetzt unterstützt Aspose.Slides for .NET das Rendern einer Form als SVG. Die Methode WriteAsSvg (und ihre Überladung) wurde der Shape‑Klasse und dem IShape‑Interface hinzugefügt. Diese Methode ermöglicht das Speichern des Inhalts einer Form als SVG‑Datei. Das nachstehende Code‑Snippet zeigt, wie man die Form einer Folie in eine SVG‑Datei exportiert.
 ```c#
 public static void Run()
 {
@@ -291,8 +281,7 @@ public static void Run()
 ```
 
 
-## **Form ausrichten**
-
+## **Eine Form ausrichten**
 Über die überladene Methode [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) können Sie
 
 * Formen relativ zu den Folienrändern ausrichten. Siehe Beispiel 1.
@@ -302,8 +291,8 @@ Die Aufzählung [ShapesAlignmentType](https://reference.aspose.com/slides/net/as
 
 **Beispiel 1**
 
-Dieser C#‑Code zeigt, wie Sie die Formen mit den Indizes 1, 2 und 4 entlang des oberen Randes einer Folie ausrichten:
-Der Quellcode unten richtet die Formen mit den Indizes 1, 2 und 4 entlang des oberen Randes der Folie aus.
+Dieser C#‑Code zeigt, wie man Formen mit den Indizes 1, 2 und 4 entlang des oberen Randes einer Folie ausrichtet:
+Der nachstehende Quellcode richtet die Formen mit den Indizes 1, 2 und 4 am oberen Rand der Folie aus.
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -323,7 +312,7 @@ using (Presentation pres = new Presentation("example.pptx"))
 
 **Beispiel 2**
 
-Dieser C#‑Code zeigt, wie Sie eine komplette Form‑Sammlung relativ zur untersten Form in der Sammlung ausrichten:
+Dieser C#‑Code zeigt, wie man eine gesamte Formsammlung relativ zur untersten Form in der Sammlung ausrichtet:
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -332,27 +321,26 @@ using (Presentation pres = new Presentation("example.pptx"))
 ```
 
 
-## **Flip‑Eigenschaften**
+## **Spiegelungs‑Eigenschaften**
+In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides.shapeframe/) Kontrolle über die horizontale und vertikale Spiegelung von Formen über die Eigenschaften `FlipH` und `FlipV`. Beide Eigenschaften haben den Typ [NullableBool](https://reference.aspose.com/slides/net/aspose.slides.nullablebool/), wobei `True` eine Spiegelung, `False` keine Spiegelung und `NotDefined` das Standardverhalten bedeutet. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/net/aspose.slides.ishape/frame/) einer Form zugänglich.
 
-In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) Kontrolle über die horizontale und vertikale Spiegelung von Formen über die Eigenschaften `FlipH` und `FlipV`. Beide Eigenschaften sind vom Typ [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) und können die Werte `True` (Spiegelung), `False` (keine Spiegelung) oder `NotDefined` (Standardverhalten) annehmen. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) einer Form zugänglich.
+Um die Spiegelungseinstellungen zu ändern, wird eine neue [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides.shapeframe/)‑Instanz mit der aktuellen Position und Größe der Form sowie den gewünschten `FlipH`‑ und `FlipV`‑Werten und dem Rotationswinkel erstellt. Durch Zuweisung dieser Instanz zum [Frame](https://reference.aspose.com/slides/net/aspose.slides.ishape/frame/) der Form und dem anschließenden Speichern der Präsentation werden die Spiegelungs‑Transformationen angewendet und in die Ausgabedatei übernommen.
 
-Um die Flip‑Einstellungen zu ändern, wird eine neue [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/)-Instanz mit der aktuellen Position und Größe der Form, den gewünschten Werten für `FlipH` und `FlipV` sowie dem Rotationswinkel erstellt. Durch Zuweisen dieser Instanz zum [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) der Form und dem anschließenden Speichern der Präsentation werden die Spiegelungen angewendet und in die Ausgabedatei übernommen.
-
-Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit Standard‑Flip‑Einstellungen enthält, wie unten gezeigt.
+Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit den Standard‑Spiegelungseinstellungen enthält, wie unten gezeigt.
 
 ![The shape to be flipped](shape_to_be_flipped.png)
 
-Der folgende Code‑Beispiel liest die aktuellen Flip‑Eigenschaften der Form aus und spiegelt sie horizontal und vertikal.
+Das folgende Code‑Beispiel ermittelt die aktuellen Spiegelungseigenschaften der Form und spiegelt sie sowohl horizontal als auch vertikal.
 ```cs
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     IShape shape = presentation.Slides[0].Shapes[0];
 
-    // Abrufen der horizontalen Flip‑Eigenschaft der Form.
+    // Die horizontale Spiegelungseigenschaft der Form abrufen.
     NullableBool horizontalFlip = shape.Frame.FlipH;
     Console.WriteLine($"Horizontal flip: {horizontalFlip}");
 
-    // Abrufen der vertikalen Flip‑Eigenschaft der Form.
+    // Die vertikale Spiegelungseigenschaft der Form abrufen.
     NullableBool verticalFlip = shape.Frame.FlipV;
     Console.WriteLine($"Vertical flip: {verticalFlip}");
 
@@ -371,20 +359,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 ```
 
 
-Das Ergebnis:
-
-![The flipped shape](flipped_shape.png)
-
 ## **FAQ**
 
-**Kann ich Formen (Vereinigung/Schnitt/Menge) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
+**Kann ich Formen (Vereinigung/Überschneidung/Subtraktion) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
 
-Es gibt keine integrierte API für Boolesche Operationen. Sie können dies approximieren, indem Sie die gewünschte Kontur selbst erzeugen – z. B. die resultierende Geometrie über [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) berechnen und eine neue Form mit diesem Umriss erstellen, optional die Originale entfernen.
+Es gibt keine integrierte API für Boolesche Operationen. Sie können dies annähern, indem Sie die gewünschte Kontur selbst erstellen – z. B. die resultierende Geometrie über [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides.geometrypath/) berechnen und eine neue Form mit dieser Kontur erzeugen, optional die Originalformen entfernen.
 
-**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, sodass eine Form immer „oben“ bleibt?**
+**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, sodass eine Form immer "oben" bleibt?**
 
-Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollte die Z‑Order nach allen anderen Folien‑Modifikationen finalisiert werden.
+Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/net/aspose.slides.baseslide/shapes/)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollten Sie den Z‑Order nach allen anderen Folienänderungen abschließen.
 
-**Kann ich eine Form „sperren“, um zu verhindern, dass Benutzer sie in PowerPoint bearbeiten?**
+**Kann ich eine Form "sperren", um zu verhindern, dass Benutzer sie in PowerPoint bearbeiten?**
 
-Ja. Setzen Sie die [shape‑level‑Schutzflags](/slides/de/net/applying-protection-to-presentation/) (z. B. Auswahl, Bewegung, Größenänderung, Textbearbeitung). Bei Bedarf können Sie Beschränkungen auf dem Master‑ oder Layout‑Level spiegeln. Beachten Sie, dass dies ein UI‑Schutz ist, kein Sicherheits‑Feature; für stärkeren Schutz kombinieren Sie ihn mit Dateischutz‑Optionen wie [schreibgeschützte Empfehlungen oder Passwörter](/slides/de/net/password-protected-presentation/).
+Ja. Setzen Sie die [shape-level protection flags](/slides/de/net/applying-protection-to-presentation/) (z. B. Auswahl, Verschiebung, Größenänderung, Textbearbeitung sperren). Bei Bedarf können Sie die Einschränkungen auf dem Master‑ oder Layout‑Folientyp spiegeln. Beachten Sie, dass dies ein UI‑basierter Schutz ist und keine Sicherheitsfunktion darstellt; für stärkeren Schutz kombinieren Sie ihn mit dateibasierten Einschränkungen wie [Empfehlungen für schreibgeschützten Zugriff oder Passwörter](/slides/de/net/password-protected-presentation/).

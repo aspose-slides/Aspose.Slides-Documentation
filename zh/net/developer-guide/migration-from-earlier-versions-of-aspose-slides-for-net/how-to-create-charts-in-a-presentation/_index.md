@@ -1,5 +1,5 @@
 ---
-title: 如何在 .NET 中创建演示文稿的图表
+title: 在 .NET 中创建演示文稿图表的方法
 linktitle: 创建图表
 type: docs
 weight: 30
@@ -7,9 +7,9 @@ url: /zh/net/how-to-create-charts-in-a-presentation/
 keywords:
 - 迁移
 - 创建图表
-- 旧版代码
+- 遗留代码
 - 现代代码
-- 旧版方法
+- 遗留方法
 - 现代方法
 - PowerPoint
 - OpenDocument
@@ -17,98 +17,95 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何在 .NET 中使用 Aspose.Slides，通过旧版和现代图表 API 在 PowerPoint PPT、PPTX 和 ODP 演示文稿中创建图表。"
+description: "了解如何在 .NET 中使用 Aspose.Slides 通过遗留和现代图表 API 在 PowerPoint PPT、PPTX 和 ODP 演示文稿中创建图表。"
 ---
 
 {{% alert color="primary" %}} 
-
-全新发布了 [Aspose.Slides for .NET API](/slides/zh/net/)，现在此单一产品支持从头创建 PowerPoint 文档以及编辑现有文档的功能。
-
+全新发布了 [Aspose.Slides for .NET API](/slides/zh/net/) ，该产品现在具备从头生成 PowerPoint 文档以及编辑现有文档的功能。
 {{% /alert %}} 
-## **对旧代码的支持**
-为了使用在 Aspose.Slides for .NET 13.x 之前版本中开发的旧版代码，您需要对代码进行少量更改，代码即可像以前一样工作。旧版 Aspose.Slides for .NET 中位于 Aspose.Slide 和 Aspose.Slides.Pptx 命名空间的所有类现在已合并到单一的 Aspose.Slides 命名空间。请查看下面使用旧版 Aspose.Slides API 在演示文稿中从头创建普通图表的简单代码片段，并遵循步骤了解如何迁移到新的合并 API。
-## **旧版 Aspose.Slides for .NET 方法**
+## **支持旧版代码**
+为了使用早于 13.x 版本的 Aspose.Slides for .NET 开发的旧版代码，您只需对代码做少量修改，即可像以前一样工作。旧版 Aspose.Slides for .NET 中位于 Aspose.Slide 和 Aspose.Slides.Pptx 命名空间的所有类现已合并到单一的 Aspose.Slides 命名空间。请查看以下使用旧版 Aspose.Slides API 从头在演示文稿中创建普通图表的简单代码片段，并按照步骤了解如何迁移到新的合并 API。
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 //实例化表示 PPTX 文件的 PresentationEx 类
 using (PresentationEx pres = new PresentationEx())
 {
 	//访问第一张幻灯片
-	SlideEx sld = pres.Slides[0];
 
-	// 添加带默认数据的图表
+	//添加带有默认数据的图表
 	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-	// 设置图表标题
+	//设置图表标题
 	chart.ChartTitle.Text.Text = "Sample Title";
 	chart.ChartTitle.Text.CenterText = true;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	// 将第一系列设置为显示数值
+	//设置第一系列显示数值
 	chart.ChartData.Series[0].Labels.ShowValue = true;
 
-	// 设置图表数据工作表的索引 
+	//设置图表数据表的索引 
 	int defaultWorksheetIndex = 0;
 
-	// 获取图表数据工作表
+	//获取图表数据工作表
 	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-	// 删除默认生成的系列和类别
+	//删除默认生成的系列和类别
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 	int s = chart.ChartData.Series.Count;
 	s = chart.ChartData.Categories.Count;
 
-	// 添加新系列
+	//添加新系列
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-	// 添加新类别
+	//添加新类别
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-	// 获取第一条图表系列
+	//获取第一条图表系列
 	ChartSeriesEx series = chart.ChartData.Series[0];
 
-	// 现在填充系列数据
+	//现在填充系列数据
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-	// 设置系列的填充颜色
+	//设置系列的填充颜色
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-	// 获取第二条图表系列
+	//获取第二条图表系列
 	series = chart.ChartData.Series[1];
 
-	// 现在填充系列数据
+	//现在填充系列数据
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-	// 设置系列的填充颜色
+	//设置系列的填充颜色
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-	// 为新系列的每个类别创建自定义标签
+	//为新系列的每个类别创建自定义标签
 
-	// 第一个标签将显示类别名称
+	//第一个标签将显示类别名称
 	DataLabelEx lbl = new DataLabelEx(series);
 	lbl.ShowCategoryName = true;
 	lbl.Id = 0;
 	series.Labels.Add(lbl);
 
-	// 第二个标签显示系列名称
+	//第二个标签显示系列名称
 	lbl = new DataLabelEx(series);
 	lbl.ShowSeriesName = true;
 	lbl.Id = 1;
 	series.Labels.Add(lbl);
 
-	// 第三个标签显示数值
+	//第三个标签显示数值
 	lbl = new DataLabelEx(series);
 	lbl.ShowValue = true;
 	lbl.ShowSeriesName = true;
@@ -116,21 +113,20 @@ using (PresentationEx pres = new PresentationEx())
 	lbl.Id = 2;
 	series.Labels.Add(lbl);
 
-	// 显示数值和自定义文本
+	//显示数值和自定义文本
 	lbl = new DataLabelEx(series);
 	lbl.TextFrame.Text = "My text";
 	lbl.Id = 3;
 	series.Labels.Add(lbl);
 
-	// 保存带图表的演示文稿
+	//保存包含图表的演示文稿
 	pres.Write(@"D:\AsposeChart.pptx");
 }
 ```
 
 
 
-
-## **新版 Aspose.Slides for .NET 13.x 方法**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 //实例化表示 PPTX 文件的 Presentation 类//实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
@@ -138,7 +134,7 @@ Presentation pres = new Presentation();
 //访问第一张幻灯片
 ISlide sld = pres.Slides[0];
 
-// 添加带默认数据的图表
+// 添加带有默认数据的图表
 IChart chart = sld.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
 
 //设置图表标题
@@ -148,7 +144,7 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//将第一系列设置为显示数值
+//设置第一系列显示数值
 chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //设置图表数据工作表的索引
@@ -214,14 +210,13 @@ lbl.DataLabelFormat.ShowValue = true;
 lbl.DataLabelFormat.ShowSeriesName = true;
 lbl.DataLabelFormat.Separator = "/";
 
-//保存带图表的演示文稿
+//保存包含图表的演示文稿
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
 
-请查看下面使用旧版 Aspose.Slides API 在演示文稿中从头创建散点图的简单代码片段，以及如何使用新合并 API 实现它。
-
-## **旧版 Aspose.Slides for .NET 方法**
+请查看以下使用旧版 Aspose.Slides API 从头在演示文稿中创建散点图的简单代码片段，以及如何使用新合并 API 实现相同功能。
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 using (PresentationEx pres = new PresentationEx())
 {
@@ -246,7 +241,7 @@ using (PresentationEx pres = new PresentationEx())
     //获取第一条图表系列
     ChartSeriesEx series = chart.ChartData.Series[0];
 
-    //在此处添加新点 (1:3)。
+    //在此添加新点 (1:3)。
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 1));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
@@ -264,7 +259,7 @@ using (PresentationEx pres = new PresentationEx())
     //获取第二条图表系列
     series = chart.ChartData.Series[1];
 
-    //在此处添加新点 (5:2)。
+    //在此添加新点 (5:2)。
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
@@ -290,7 +285,7 @@ using (PresentationEx pres = new PresentationEx())
 
 
 
-## **新版 Aspose.Slides for .NET 13.x 方法**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 Presentation pres = new Presentation();
 
@@ -315,7 +310,7 @@ chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2")
 //获取第一条图表系列
 IChartSeries series = chart.ChartData.Series[0];
 
-//在此处添加新点 (1:3)。
+//在此添加新点 (1:3)。
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 1), fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
 //添加新点 (2:10)
@@ -331,7 +326,7 @@ series.Marker.Symbol = MarkerStyleType.Star;
 //获取第二条图表系列
 series = chart.ChartData.Series[1];
 
-//在此处添加新点 (5:2)。
+//在此添加新点 (5:2)。
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 5), fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
 //添加新点 (3:1)

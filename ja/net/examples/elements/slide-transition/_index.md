@@ -5,9 +5,9 @@ weight: 110
 url: /ja/net/examples/elements/slide-transition/
 keywords:
 - スライドトランジションの例
-- スライドトランジションを追加
-- スライドトランジションにアクセス
-- スライドトランジションを削除
+- スライドトランジションの追加
+- スライドトランジションへのアクセス
+- スライドトランジションの削除
 - トランジション期間
 - PowerPoint
 - OpenDocument
@@ -15,27 +15,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用した C# でスライドトランジションを制御します。種類、速度、サウンド、タイミングを選択して、PPT、PPTX、ODP のプレゼンテーションを磨きます。"
+description: "Aspose.Slides を使用した C# でスライド トランジションを制御します：種類、速度、サウンド、タイミングを選択して、PPT、PPTX、ODP のプレゼンテーションを洗練させます。"
 ---
 
-**Aspose.Slides for .NET** を使用したスライドのトランジション効果とタイミングの適用を示します。
+**Aspose.Slides for .NET** を使用してスライドのトランジション効果とタイミングを適用する方法を示します。
 
-## スライドトランジションを追加する
+## **スライドトランジションの追加**
 
-最初のスライドにフェードトランジション効果を適用します。
+最初のスライドにフェード トランジション効果を適用します。
 ```csharp
 static void Add_Slide_Transition()
 {
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // フェード遷移を適用
+    // フェード トランジションを適用する
     slide.SlideShowTransition.Type = TransitionType.Fade;
 }
 ```
 
 
-## スライドトランジションにアクセスする
+## **スライドトランジションへのアクセス**
 
 スライドに現在割り当てられているトランジションの種類を取得します。
 ```csharp
@@ -45,13 +45,13 @@ static void Access_Slide_Transition()
     var slide = pres.Slides[0];
     slide.SlideShowTransition.Type = TransitionType.Push;
 
-    // トランジションタイプにアクセス
+    // トランジションの種類にアクセス
     var type = slide.SlideShowTransition.Type;
 }
 ```
 
 
-## スライドトランジションを削除する
+## **スライドトランジションの削除**
 
 `None` に設定して、すべてのトランジション効果をクリアします。
 ```csharp
@@ -61,15 +61,15 @@ static void Remove_Slide_Transition()
     var slide = pres.Slides[0];
     slide.SlideShowTransition.Type = TransitionType.Fade;
 
-    // none を設定してトランジションを削除
+    // none に設定してトランジションを削除
     slide.SlideShowTransition.Type = TransitionType.None;
 }
 ```
 
 
-## トランジションの期間を設定する
+## **トランジション期間の設定**
 
-スライドが自動的に進むまでの表示時間を指定します。
+自動的に次へ進む前に、スライドが表示される時間を指定します。
 ```csharp
 static void Set_Transition_Duration()
 {
@@ -77,6 +77,6 @@ static void Set_Transition_Duration()
     var slide = pres.Slides[0];
 
     slide.SlideShowTransition.AdvanceOnClick = true;
-    slide.SlideShowTransition.AdvanceAfterTime = 2000; // ミリ秒で
+    slide.SlideShowTransition.AdvanceAfterTime = 2000; // ミリ秒単位
 }
 ```

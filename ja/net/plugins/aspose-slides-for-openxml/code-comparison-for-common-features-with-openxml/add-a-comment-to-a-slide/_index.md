@@ -5,7 +5,7 @@ weight: 10
 url: /ja/net/add-a-comment-to-a-slide/
 ---
 
-## **OpenXML プレゼンテーション:**
+## **OpenXML プレゼンテーション**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
@@ -18,9 +18,9 @@ AddCommentToPresentation(FileName,
 
 "This is my programmatically added comment.");
 
-// プレゼンテーションドキュメントの最初のスライドにコメントを追加します。
+// Adds a comment to the first slide of the presentation document.
 
-// プレゼンテーションドキュメントには少なくとも1つのスライドが含まれている必要があります。
+// The presentation document must contain at least one slide.
 
 private static void AddCommentToPresentation(string file, string initials, string name, string text)
 
@@ -30,17 +30,17 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 {
 
-    // CommentAuthorsPart オブジェクトを宣言します。
+    // Declare a CommentAuthorsPart object.
 
     CommentAuthorsPart authorsPart;
 
-    // 既存のコメント著者パートがあるか確認します。
+    // Verify that there is an existing comment authors part.
 
     if (doc.PresentationPart.CommentAuthorsPart == null)
 
     {
 
-        // なければ、新しいものを追加します。
+        // If not, add a new one.
 
         authorsPart = doc.PresentationPart.AddNewPart<CommentAuthorsPart>();
 
@@ -54,41 +54,41 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // コメント著者パートにコメント著者リストがあるか確認します。
+    // Verify that there is a comment author list in the comment authors part.
 
     if (authorsPart.CommentAuthorList == null)
 
     {
 
-        // なければ、新しいものを追加します。
+        // If not, add a new one.
 
         authorsPart.CommentAuthorList = new CommentAuthorList();
 
     }
 
-    // 新しい著者 ID を宣言します。
+    // Declare a new author ID.
 
     uint authorId = 0;
 
     CommentAuthor author = null;
 
-    // コメント著者リストに既存の子要素がある場合...
+    // If there are existing child elements in the comment authors list...
 
     if (authorsPart.CommentAuthorList.HasChildren)
 
     {
 
-        // 渡された著者がリストにあるか確認します。
+        // Verify that the author passed in is on the list.
 
         var authors = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Where(a => a.Name == name && a.Initials == initials);
 
-        // もしあれば...
+        // If so...
 
         if (authors.Any())
 
         {
 
-            // 新しいコメント著者に既存の著者 ID を割り当てます。
+            // Assign the new comment author the existing author ID.
 
             author = authors.First();
 
@@ -96,13 +96,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         }
 
-        // そうでなければ...
+        // If not...
 
         if (author == null)
 
         {
 
-            // 渡された著者に新しい ID を割り当てます。
+            // Assign the author passed in a new ID
 
             authorId = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Select(a => a.Id.Value).Max();
 
@@ -110,7 +110,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // コメント著者リストに既存の子要素がない場合。
+    // If there are no existing child elements in the comment authors list.
 
     if (author == null)
 
@@ -118,7 +118,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         authorId++;
 
-        // コメント著者リストに新しい子要素（コメント著者）を追加します。
+        // Add a new child element(comment author) to the comment author list.
 
         author = authorsPart.CommentAuthorList.AppendChild<CommentAuthor>
 
@@ -138,21 +138,21 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // 最初のスライドを取得し、GetFirstSlide メソッドを使用します。
+    // Get the first slide, using the GetFirstSlide method.
 
     SlidePart slidePart1 = GetFirstSlide(doc);
 
-    // コメントパートを宣言します。
+    // Declare a comments part.
 
     SlideCommentsPart commentsPart;
 
-    // 最初のスライドパートにコメントパートがあるか確認します。
+    // Verify that there is a comments part in the first slide part.
 
     if (slidePart1.GetPartsOfType<SlideCommentsPart>().Count() == 0)
 
     {
 
-        // なければ、新しいコメントパートを追加します。
+        // If not, add a new comments part.
 
         commentsPart = slidePart1.AddNewPart<SlideCommentsPart>();
 
@@ -162,31 +162,31 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     {
 
-        // そうでなければ、スライドパート内の最初のコメントパートを使用します。
+        // Else, use the first comments part in the slide part.
 
         commentsPart = slidePart1.GetPartsOfType<SlideCommentsPart>().First();
 
     }
 
-    // コメントリストが存在しない場合。
+    // If the comment list does not exist.
 
     if (commentsPart.CommentList == null)
 
     {
 
-        // 新しいコメントリストを追加します。
+        // Add a new comments list.
 
         commentsPart.CommentList = new CommentList();
 
     }
 
-    // 新しいコメント ID を取得します。
+    // Get the new comment ID.
 
     uint commentIdx = author.LastIndex == null ? 1 : author.LastIndex + 1;
 
     author.LastIndex = commentIdx;
 
-    // 新しいコメントを追加します。
+    // Add a new comment.
 
     Comment comment = commentsPart.CommentList.AppendChild<Comment>(
 
@@ -202,7 +202,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     });
 
-    // コメント要素に位置の子ノードを追加します。
+    // Add the position child node to the comment element.
 
     comment.Append(
 
@@ -210,11 +210,11 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     new Text() { Text = text });
 
-    // コメント著者パートを保存します。
+    // Save the comment authors part.
 
     authorsPart.CommentAuthorList.Save();
 
-    // コメントパートを保存します。
+    // Save the comments part.
 
     commentsPart.CommentList.Save();
 
@@ -222,13 +222,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 }
 
-// プレゼンテーションドキュメントの最初のスライドのスライドパートを取得します。
+// Get the slide part of the first slide in the presentation document.
 
 private static SlidePart GetFirstSlide(PresentationDocument presentationDocument)
 
 {
 
-// 最初のスライドのリレーションシップ ID を取得します。
+// Get relationship ID of the first slide
 
 PresentationPart part = presentationDocument.PresentationPart;
 
@@ -236,7 +236,7 @@ SlideId slideId = part.Presentation.SlideIdList.GetFirstChild<SlideId>();
 
 string relId = slideId.RelationshipId;
 
-// リレーションシップ ID によってスライドパートを取得します。
+// Get the slide part by the relationship ID.
 
 SlidePart slidePart = (SlidePart)part.GetPartById(relId);
 
@@ -247,9 +247,9 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-**Aspose.Slides** for .NET では、PPT スライドコメントコレクションがすべての **Slide** クラスに含まれています。 **CommentCollection** クラスは特定のスライドコメントを保持するために使用されます。 **Comment** クラスには、スライドコメントを追加した著者、そのイニシャル、作成時間、スライド上のスライドコメントの位置、コメントテキストなどの情報が含まれています。 **CommentAuthor** クラスは、プレゼンテーションレベルでスライドコメントの著者を追加するために使用されます。 **Presentation** クラスは、**CommentAuthors** クラス内でプレゼンテーションの著者のコレクションを保持します。
+**Aspose.Slides** for .NET では、PPT スライドコメントコレクションがすべての **Slide** クラスに含まれています。**CommentCollection** クラスは特定のスライドコメントを保持するために使用されます。**Comment** クラスは、スライドコメントを追加した作者、イニシャル、作成時刻、スライド上のコメント位置、およびコメントテキストといった情報を含みます。**CommentAuthor** クラスは、プレゼンテーションレベルでスライドコメントの作者を追加するために使用されます。**Presentation** クラスは **CommentAuthors** クラス内にプレゼンテーションの作者コレクションを保持します。
 
-以下の例では、スライドコメントを追加するためのコードスニペットを追加しました。
+以下の例では、スライドコメントを追加するコードスニペットを示しています。
 
 ``` csharp
 
@@ -261,15 +261,15 @@ using (Presentation pres = new Presentation())
 
 {
 
-    //空のスライドを追加
+    //Adding Empty slide
 
     pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-    //著者を追加
+    //Adding Autthor
 
     ICommentAuthor author = pres.CommentAuthors.AddAuthor("Zeeshan", "MZ");
 
-    //コメントの位置
+    //Position of comments
 
     PointF point = new PointF();
 
@@ -277,7 +277,7 @@ using (Presentation pres = new Presentation())
 
     point.Y = 1;
 
-    //スライド上の著者のためにスライドコメントを追加
+    //Adding slide comment for an author on slide
 
     author.Comments.AddComment("Hello Zeeshan, this is slide comment", pres.Slides[0], point, DateTime.Now);
 
@@ -286,7 +286,7 @@ using (Presentation pres = new Presentation())
 }
 
 ``` 
-## **サンプルコードをダウンロード**
+## **サンプルコードのダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 - [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)

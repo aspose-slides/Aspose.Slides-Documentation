@@ -1,6 +1,6 @@
 ---
 title: Personalizar leyendas de gráficos en presentaciones en .NET
-linktitle: Leyenda del gráfico
+linktitle: Leyenda de gráfico
 type: docs
 url: /es/net/chart-legend/
 keywords:
@@ -12,27 +12,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Personalice las leyendas de los gráficos con Aspose.Slides para .NET para optimizar presentaciones de PowerPoint con formato de leyenda a medida."
+description: "Personalice las leyendas de gráficos con Aspose.Slides para .NET para optimizar presentaciones de PowerPoint con un formato de leyenda a medida."
 ---
 
-## **Posición de la leyenda**
+## **Posicionamiento de la leyenda**
 Para establecer las propiedades de la leyenda, siga los pasos a continuación:
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Obtenga una referencia de la diapositiva.
-- Agregue un gráfico a la diapositiva.
-- Establezca las propiedades de la leyenda.
-- Guarde la presentación como un archivo PPTX.
+- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Obtener la referencia de la diapositiva.
+- Agregar un gráfico en la diapositiva.
+- Establecer las propiedades de la leyenda.
+- Guardar la presentación como archivo PPTX.
 
-En el ejemplo siguiente, hemos configurado la posición y el tamaño de la leyenda del gráfico.
+En el ejemplo a continuación, hemos configurado la posición y el tamaño de la leyenda del gráfico.
 ```c#
 // Crear una instancia de la clase Presentation
 Presentation presentation = new Presentation();
 
-// Obtener referencia de la diapositiva
+// Obtener la referencia de la diapositiva
 ISlide slide = presentation.Slides[0];
 
-// Añadir un gráfico de columnas agrupadas en la diapositiva
+// Agregar un gráfico de columnas agrupadas en la diapositiva
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
 // Establecer propiedades de la leyenda
@@ -46,15 +46,15 @@ presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer tamaño de fuente de la leyenda**
-Aspose.Slides para .NET permite a los desarrolladores establecer el tamaño de fuente de la leyenda. Por favor, siga los pasos a continuación:
+## **Establecer el tamaño de fuente de una leyenda**
+Aspose.Slides for .NET permite a los desarrolladores establecer el tamaño de fuente de la leyenda. Por favor, siga los pasos a continuación:
 
-- Instancie la clase `Presentation`.
-- Cree el gráfico predeterminado.
-- Establezca el tamaño de fuente.
-- Establezca el valor mínimo del eje.
-- Establezca el valor máximo del eje.
-- Guarde la presentación en disco.
+- Instanciar la clase `Presentation`.
+- Crear el gráfico predeterminado.
+- Establecer el tamaño de fuente.
+- Establecer el valor mínimo del eje.
+- Establecer el valor máximo del eje.
+- Guardar la presentación en disco.
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -71,16 +71,16 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
-## **Establecer tamaño de fuente de la leyenda individual**
-Aspose.Slides para .NET permite a los desarrolladores establecer el tamaño de fuente de las entradas individuales de la leyenda. Por favor, siga los pasos a continuación:
+## **Establecer el tamaño de fuente de una leyenda individual**
+Aspose.Slides for .NET permite a los desarrolladores establecer el tamaño de fuente de entradas individuales de la leyenda. Por favor, siga los pasos a continuación:
 
-- Instancie la clase `Presentation`.
-- Cree el gráfico predeterminado.
-- Acceda a la entrada de la leyenda.
-- Establezca el tamaño de fuente.
-- Establezca el valor mínimo del eje.
-- Establezca el valor máximo del eje.
-- Guarde la presentación en disco.
+- Instanciar la clase `Presentation`.
+- Crear el gráfico predeterminado.
+- Acceder a la entrada de la leyenda.
+- Establecer el tamaño de fuente.
+- Establecer el valor mínimo del eje.
+- Establecer el valor máximo del eje.
+- Guardar la presentación en disco.
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -102,12 +102,12 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 **¿Puedo habilitar la leyenda para que el gráfico asigne automáticamente espacio para ella en lugar de superponerse?**
 
-Sí. Use el modo sin superposición ([Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/)=`false`); en este caso, el área del gráfico se reducirá para acomodar la leyenda.
+Sí. Use el modo sin superposición (Overlay = `false`); en este caso, el área del gráfico se reducirá para acomodar la leyenda.
 
-**¿Puedo crear etiquetas de leyenda multilínea?**
+**¿Puedo crear etiquetas de leyenda de varias líneas?**
 
 Sí. Las etiquetas largas se ajustan automáticamente cuando el espacio es insuficiente; los saltos de línea forzados se admiten mediante caracteres de nueva línea en el nombre de la serie.
 
-**¿Cómo hago que la leyenda siga el esquema de color del tema de la presentación?**
+**¿Cómo hago que la leyenda siga el esquema de colores del tema de la presentación?**
 
-No establezca colores, rellenos o fuentes explícitos para la leyenda o su texto. Entonces heredarán del tema y se actualizarán correctamente cuando cambie el diseño.
+No establezca colores/rellenos/fuentes explícitos para la leyenda ni su texto. Entonces heredarán del tema y se actualizarán correctamente cuando el diseño cambie.

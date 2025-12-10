@@ -6,9 +6,9 @@ weight: 220
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
 - миграция
-- устаревший код
+- наследованный код
 - современный код
-- устаревший подход
+- наследованный подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -20,15 +20,14 @@ description: "Обзор обновлений публичного API и нес
 ---
 
 {{% alert color="primary" %}} 
-
-На этой странице перечислены все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классы, методы, свойства и т.д., а также другие изменения, внесённые в API Aspose.Slides for .NET 16.1.0.
-
+На этой странице перечислены все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в API Aspose.Slides for .NET 16.1.0.
 {{% /alert %}} 
 ## **Изменения публичного API**
 
 
 #### **Свойство RotationAngle было добавлено в интерфейсы IChartTextBlockFormat и ITextFrameFormat**
-Свойство RotationAngle было добавлено в интерфейсы Aspose.Slides.Charts.IChartTextBlockFormat и Aspose.Slides.ITextFrameFormat. Оно указывает пользовательский поворот, применяемый к тексту внутри ограничивающего прямоугольника.
+Свойство RotationAngle было добавлено в интерфейсы Aspose.Slides.Charts.IChartTextBlockFormat и Aspose.Slides.ITextFrameFormat.  
+Оно задаёт пользовательский угол поворота, применяемый к тексту внутри ограничивающего прямоугольника.
 
 ``` csharp
 
@@ -54,4 +53,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException перемещён из Aspose.Slides.Odp в пространство имён Aspose.Slides**
+#### **OdpException перемещён из пространства имён Aspose.Slides.Odp в пространство имён Aspose.Slides**

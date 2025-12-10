@@ -1,5 +1,5 @@
 ---
-title: تخصيص محاور المخططات في العروض التقديمية في .NET
+title: تخصيص محاور المخطط في العروض التقديمية في .NET
 linktitle: محور المخطط
 type: docs
 url: /ar/net/chart-axis/
@@ -22,23 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيفية استخدام Aspose.Slides for .NET لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصورات."
+description: "اكتشف كيفية استخدام Aspose.Slides for .NET لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والتصورات."
 ---
 
-## **الحصول على القيم العظمى للمحور العمودي في المخططات**
-Aspose.Slides for .NET يسمح لك بالحصول على القيم الدنيا والعظمى للمحور العمودي. اتبع هذه الخطوات:
+## **الحصول على القيم القصوى على المحور العمودي في المخططات**
+Aspose.Slides for .NET يتيح لك الحصول على القيم الدنيا والعليا على المحور العمودي. اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 1. الوصول إلى الشريحة الأولى.
 1. إضافة مخطط ببيانات افتراضية.
 1. الحصول على القيمة العظمى الفعلية للمحور.
-1. الحصول على القيمة الدنيا الفعلية للمحور.
-1. الحصول على الوحدة الرئيسية الفعلية للمحور.
-1. الحصول على الوحدة الفرعية الفعلية للمحور.
-1. الحصول على مقياس الوحدة الرئيسية الفعلي للمحور.
-1. الحصول على مقياس الوحدة الفرعية الفعلي للمحور.
+1. الحصول على القيمة الصغرى الفعلية للمحور.
+1. الحصول على وحدة المحور الرئيسية الفعلية.
+1. الحصول على وحدة المحور الفرعية الفعلية.
+1. الحصول على مقياس الوحدة الرئيسية للمحور الفعلي.
+1. الحصول على مقياس الوحدة الفرعية للمحور الفعلي.
 
-هذا الكود النموذجي—تنفيذ للخطوات أعلاه—يوضح لك كيفية الحصول على القيم المطلوبة في C#:
+هذا الكود العيني — تنفيذ للخطوات أعلاه — يظهر لك كيفية الحصول على القيم المطلوبة في C#:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -51,16 +51,16 @@ using (Presentation pres = new Presentation())
 	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
 	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
 	
-	// يحفظ العرض التقديمي
+	// حفظ العرض التقديمي
 	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ## **تبديل البيانات بين المحاور**
-Aspose.Slides يسمح لك بتبديل البيانات بين المحاور بسرعة—البيانات الموجودة على المحور العمودي (محور y) تنتقل إلى المحور الأفقي (محور x) والعكس بالعكس.
+Aspose.Slides يتيح لك تبديل البيانات بين المحاور بسرعة — البيانات الموجودة على المحور العمودي (محور ص) تنتقل إلى المحور الأفقي (محور س) والعكس بالعكس.
 
-هذا الكود C# يوضح لك كيفية تنفيذ عملية تبديل البيانات بين المحاور في مخطط:
+هذا الكود في C# يوضح لك كيفية تنفيذ عملية تبديل البيانات بين المحاور في مخطط:
 ```c#
 // إنشاء عرض تقديمي فارغ
 using (Presentation pres = new Presentation())
@@ -68,6 +68,7 @@ using (Presentation pres = new Presentation())
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
 	//تبديل الصفوف والأعمدة
+	chart.ChartData.SwitchRowColumn();
 		   
 	// حفظ العرض التقديمي
 	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
@@ -76,7 +77,8 @@ using (Presentation pres = new Presentation())
 
 
 ## **إلغاء تفعيل المحور العمودي للمخططات الخطية**
-هذا الكود C# يوضح لك كيفية إخفاء المحور العمودي لمخطط خطي:
+
+هذا الكود في C# يوضح لك كيفية إخفاء المحور العمودي لمخطط خطي:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -89,6 +91,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **إلغاء تفعيل المحور الأفقي للمخططات الخطية**
+
 هذا الكود يوضح لك كيفية إخفاء المحور الأفقي لمخطط خطي:
 ```c#
 using (Presentation pres = new Presentation())
@@ -102,6 +105,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **تغيير محور الفئات**
+
 باستخدام الخاصية **CategoryAxisType**، يمكنك تحديد نوع محور الفئات المفضل لديك (**date** أو **text**). هذا الكود في C# يوضح العملية:
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
@@ -116,8 +120,8 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **تعيين تنسيق التاريخ لقيمة محور الفئات**
-Aspose.Slides for .NET يسمح لك بتعيين تنسيق التاريخ لقيمة محور الفئات. يتم توضيح العملية في هذا الكود C#:
+## **تحديد تنسيق التاريخ لقيم محور الفئات**
+Aspose.Slides for .NET يتيح لك تحديد تنسيق التاريخ لقيمة محور الفئات. يتم عرض العملية في هذا الكود C#:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -147,8 +151,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **تعيين زاوية الدوران لعنوان محور المخطط**
-Aspose.Slides for .NET يسمح لك بتعيين زاوية الدوران لعنوان محور المخطط. هذا الكود C# يوضح العملية:
+## **تحديد زاوية الدوران لعنوان محور المخطط**
+Aspose.Slides for .NET يتيح لك تحديد زاوية الدوران لعنوان محور المخطط. هذا الكود C# يوضح العملية:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -161,8 +165,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **تعيين موضع المحور في محور الفئات أو القيمة**
-Aspose.Slides for .NET يسمح لك بتعيين موضع المحور في محور الفئات أو القيمة. هذا الكود C# يوضح كيفية تنفيذ المهمة:
+## **تحديد موضع المحور على محور الفئة أو القيمة**
+Aspose.Slides for .NET يتيح لك تحديد موضع المحور في محور الفئة أو القيمة. هذا الكود C# يوضح كيفية تنفيذ المهمة:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -175,7 +179,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **تمكين تسمية وحدة العرض على محور قيمة المخطط**
-Aspose.Slides for .NET يسمح لك بتهيئة مخطط لعرض تسمية وحدة على محور قيمة المخطط. هذا الكود C# يوضح العملية:
+Aspose.Slides for .NET يتيح لك تهيئة مخطط لإظهار تسمية الوحدة على محور قيمة المخطط. هذا الكود C# يوضح العملية:
 ```c#
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
@@ -186,12 +190,12 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 ```
 
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني تعيين القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
+**كيف يمكنني تحديد القيمة التي يقطع فيها محور مع الآخر (تقاطع المحاور)؟**
 
-المحاور توفر [إعداد التقاطع](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/)؛ يمكنك اختيار التقاطع عند الصفر، أو عند الفئة/القيمة القصوى، أو عند قيمة رقمية محددة. يُستخدم ذلك لتعديل موضع المحور السيني صعودًا أو هبوطًا أو لتسليط الضوء على خط الأساس.
+المحاور توفر إعداد [crossing](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) : يمكنك اختيار التقاطع عند الصفر، عند أقصى فئة/قيمة، أو عند قيمة عددية محددة. هذا مفيد لتحريك محور X للأعلى أو الأسفل أو لتسليط الضوء على خط أساس.
 
-**كيف يمكنني وضع تسميات العلامات بالنسبة إلى المحور (بجانب، خارج، داخل)؟**
+**كيف يمكنني موضعة تسميات الفواصل بالنسبة إلى المحور (بجانب، خارج، داخل)؟**
 
-قم بتعيين [موضع التسمية](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) إلى "cross" أو "outside" أو "inside". يؤثر ذلك على قابلية القراءة ويساعد في توفير المساحة، خاصة في المخططات الصغيرة.
+قم بتحديد [موضع التسمية](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) إلى "cross"، "outside"، أو "inside". هذا يؤثر على قابلية القراءة ويساعد في توفير المساحة، خاصة في المخططات الصغيرة.

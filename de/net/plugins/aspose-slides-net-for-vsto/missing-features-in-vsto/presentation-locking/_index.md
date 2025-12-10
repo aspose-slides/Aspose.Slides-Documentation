@@ -1,57 +1,55 @@
 ---
-title: Präsentation Locking
+title: Präsentationssperrung
 type: docs
 weight: 110
 url: /de/net/presentation-locking/
 ---
 
-## **Präsentation Locking**
-Ein häufiges Einsatzgebiet für **Aspose.Slides** ist das Erstellen, Aktualisieren und Speichern von Microsoft PowerPoint 2007 (PPTX) Präsentationen im Rahmen eines automatisierten Workflows. Benutzer der Anwendung, die Aspose.Slides auf diese Weise verwenden, erhalten Zugriff auf die ausgegebenen Präsentationen. Diese vor Bearbeitung zu schützen, ist ein häufiges Anliegen. Es ist wichtig, dass automatisch generierte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.
+## **Präsentationssperrung**
+Eine häufige Verwendung von **Aspose.Slides** besteht darin, Microsoft PowerPoint 2007 (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Benutzer der Anwendung, die Aspose.Slides auf diese Weise nutzt, erhalten Zugang zu den erzeugten Präsentationen. Sie vor einer Bearbeitung zu schützen, ist ein gängiges Anliegen. Es ist wichtig, dass automatisch erzeugte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.
 
-Hier wird erklärt, wie Präsentationen und Folien aufgebaut sind und wie Aspose.Slides für .NET Schutz auf eine Präsentation anwenden und diesen dann wieder entfernen kann. Diese Funktion ist einzigartig für Aspose.Slides und ist zum Zeitpunkt des Schreibens in Microsoft PowerPoint nicht verfügbar. Sie bietet Entwicklern die Möglichkeit, zu steuern, wie die Präsentationen, die ihre Anwendungen erstellen, verwendet werden.
+Dies erklärt, wie Präsentationen und Folien aufgebaut sind und wie Aspose.Slides für .NET Schutz auf eine Präsentation anwenden und anschließend wieder entfernen kann. Dieses Feature ist einzigartig für Aspose.Slides und zum Zeitpunkt der Erstellung nicht in Microsoft PowerPoint verfügbar. Es bietet Entwicklern eine Möglichkeit, zu steuern, wie die von ihren Anwendungen erstellten Präsentationen verwendet werden.
+## **Aufbau einer Folie**
+Eine PPTX‑Folie besteht aus einer Reihe von Komponenten wie Autoformen, Tabellen, OLE‑Objekten, Gruppierten Formen, Bildrahmen, Videorahmen, Verbindungslinien und weiteren Elementen, die zum Aufbau einer Präsentation zur Verfügung stehen.
 
-## **Zusammensetzung einer Folie**
-Eine PPTX-Folie besteht aus verschiedenen Komponenten wie Autoformen, Tabellen, OLE-Objekten, gruppierten Formen, Bilderrahmen, Videorahmen, Verbindern und den verschiedenen anderen Elementen, die zur Erstellung einer Präsentation verfügbar sind.
+In Aspose.Slides für .NET wird jedes Element einer Folie in ein Shape‑Objekt umgewandelt. Mit anderen Worten ist jedes Element entweder ein Shape‑Objekt oder ein von Shape abgeleitetes Objekt.
 
-In Aspose.Slides für .NET wird jedes Element auf einer Folie in ein Shape-Objekt umgesetzt. Mit anderen Worten, jedes Element auf der Folie ist entweder ein Shape-Objekt oder ein Objekt, das vom Shape-Objekt abgeleitet ist.
-
-Die Struktur von PPTX ist komplex, daher gibt es im Gegensatz zu PPT, wo ein generischer Lock für alle Arten von Shapes verwendet werden kann, verschiedene Arten von Locks für verschiedene Shape-Typen. Die BaseShapeLock-Klasse ist die generische PPTX-Locking-Klasse. Folgende Typen von Locks werden in Aspose.Slides für .NET für PPTX unterstützt.
+Die Struktur von PPTX ist komplex, sodass im Gegensatz zu PPT, wo ein generischer Sperrmechanismus für alle Formtypen verwendet werden kann, verschiedene Sperrtypen für unterschiedliche Formtypen existieren. Die Klasse BaseShapeLock ist die generische PPTX‑Sperrklasse. Die folgenden Sperrtypen werden in Aspose.Slides für .NET für PPTX unterstützt.
 
 - AutoShapeLock sperrt Autoformen.
-- ConnectorLock sperrt Verbindungsformen.
+- ConnectorLock sperrt Verbindungslinien.
 - GraphicalObjectLock sperrt grafische Objekte.
-- GroupshapeLock sperrt Gruppenformen.
-- PictureFrameLock sperrt Bilderrahmen.
+- GroupshapeLock sperrt Gruppierungsformen.
+- PictureFrameLock sperrt Bildrahmen.
 
-Jede Aktion, die an allen Shape-Objekten in einem Präsentationsobjekt durchgeführt wird, wird auf die gesamte Präsentation angewendet.
+Jede Aktion, die an allen Shape‑Objekten eines Presentation‑Objekts durchgeführt wird, gilt für die gesamte Präsentation.
+## **Schutz anwenden und entfernen**
+Der angewendete Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Methode, um den Inhalt einer Präsentation zu schützen.
 
-## **Anwenden und Entfernen von Schutz**
-Das Anwenden von Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik, um den Inhalt einer Präsentation zu schützen.
+**Schutz auf PPTX‑Shapes anwenden**
 
-**Anwendung des Schutzes auf PPTX Shapes**
+Aspose.Slides für .NET stellt die Klasse Shape zur Verfügung, um eine Form auf der Folie zu bearbeiten.
 
-Aspose.Slides für .NET bietet die Shape-Klasse zur Handhabung einer Form auf der Folie.
+Wie bereits erwähnt, besitzt jede Shape‑Klasse eine zugehörige ShapeLock‑Klasse zum Schutz. Dieser Artikel konzentriert sich auf die Sperren NoSelect, NoMove und NoResize. Diese Sperren verhindern, dass Formen ausgewählt (durch Mausklicks oder andere Auswahlmethoden) werden können und verhindern, dass sie verschoben oder in der Größe geändert werden.
 
-Wie bereits erwähnt, hat jede Shape-Klasse eine zugehörige Shape-Lock-Klasse zum Schutz. Dieser Artikel konzentriert sich auf die NoSelect-, NoMove- und NoResize-Locks. Diese Locks stellen sicher, dass Shapes nicht ausgewählt (durch Mausklicks oder andere Auswahlmethoden) und nicht bewegt oder in der Größe verändert werden können.
-
-Die folgenden Codebeispiele wenden Schutz auf alle Shape-Typen in einer Präsentation an.
+Die folgenden Codebeispiele wenden den Schutz auf alle Formtypen in einer Präsentation an.
 
 ``` csharp
 
- //Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt
+ //Instatiate Presentation class that represents a PPTX file
 
-PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt
+PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
 
 
-//ISlide-Objekt zum Zugreifen auf die Folien in der Präsentation
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//IShape-Objekt zum Halten von temporären Shapes
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Durchlaufen aller Folien in der Präsentation
+//Traversing through all the slides in the presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -59,7 +57,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Durchlaufen aller Shapes in den Folien
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -67,19 +65,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//wenn shape eine Autoform ist
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Typumwandlung in Autoform und Abrufen des Autoform-Locks
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = true;
 
@@ -89,19 +87,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape eine Gruppenform ist
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Typumwandlung in Gruppenform und Abrufen des Gruppenform-Locks
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = true;
 
@@ -113,19 +111,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape ein Verbindungsstück ist
+		//if shape is a connector
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Typumwandlung in Verbindungsform und Abrufen des Verbindungsform-Locks
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			ConnLock.PositionMove = true;
 
@@ -135,19 +133,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape ein Bilderrahmen ist
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Typumwandlung in Bilderrahmen-Form und Abrufen des Bilderrahmen-Locks
+			//Type casting to picture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			PicLock.PositionLocked = true;
 
@@ -161,31 +159,31 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Speichern der Präsentationsdatei
+//Saving the presentation file
 
 pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 
-**Entfernen des Schutzes**
+**Schutz entfernen**
 
-Der durch Aspose.Slides für .NET angewendete Schutz kann nur mit Aspose.Slides für .NET entfernt werden. Um ein Shape zu entsperren, setzen Sie den Wert des angewendeten Locks auf false. Das folgende Codebeispiel zeigt, wie Sie Shapes in einer gesperrten Präsentation entsperren.
+Der mit Aspose.Slides für .NET angewendete Schutz kann nur mit Aspose.Slides für .NET entfernt werden. Um eine Form zu entsperren, setzen Sie den Wert der jeweiligen Sperre auf false. Das folgende Codebeispiel zeigt, wie Formen in einer gesperrten Präsentation wieder entsperrt werden.
 
 ``` csharp
 
- //Öffnen der gewünschten Präsentation
+ //Open the desired presentation
 
 PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
 
-//ISlide-Objekt zum Zugreifen auf die Folien in der Präsentation
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//IShape-Objekt zum Halten von temporären Shapes
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//Durchlaufen aller Folien in der Präsentation
+//Traversing through all the slides in presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -193,7 +191,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//Durchlaufen aller Shapes in den Folien
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -201,19 +199,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//wenn shape eine Autoform ist
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//Typumwandlung in Autoform und Abrufen des Autoform-Locks
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = false;
 
@@ -223,19 +221,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape eine Gruppenform ist
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//Typumwandlung in Gruppenform und Abrufen des Gruppenform-Locks
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = false;
 
@@ -247,19 +245,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape eine Verbindungsform ist
+		//if shape is Connector shape
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//Typumwandlung in Verbindungsform und Abrufen des Verbindungsform-Locks
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			ConnLock.PositionMove = false;
 
@@ -269,19 +267,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//wenn shape ein Bilderrahmen ist
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//Typumwandlung in Bilderrahmen-Form und Abrufen des Bilderrahmen-Locks
+			//Type casting to pitcture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//Anwenden der Shape-Locks
+			//Applying shapes locks
 
 			PicLock.PositionLocked = false;
 
@@ -295,11 +293,11 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//Speichern der Präsentationsdatei
+//Saving the presentation file
 
 pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
-## **Beispielcode Herunterladen**
+## **Beispielcode herunterladen**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812535)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

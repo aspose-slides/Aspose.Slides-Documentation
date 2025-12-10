@@ -4,23 +4,23 @@ type: docs
 weight: 220
 url: /ja/net/examples/elements/elements/header-footer/
 keywords:
-- ヘッダー フッターの例
-- ヘッダーとフッターを追加
-- ヘッダーとフッターを更新
+- ヘッダーとフッターの例
+- ヘッダーとフッターの追加
+- ヘッダーとフッターの更新
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してヘッダーとフッターを制御します：日付/時刻やスライド番号、フッターテキストを追加または編集し、PPT、PPTX、ODP でプレースホルダーの表示/非表示を切り替えます。"
+description: "C# と Aspose.Slides を使用してヘッダーとフッターを制御します: 日付/時刻、スライド番号、フッターテキストを追加または編集し、PPT、PPTX、ODP でプレースホルダーの表示/非表示を切り替えます。"
 ---
 
-**Aspose.Slides for .NET** を使用して、フッターを追加し、日付と時刻のプレースホルダーを更新する方法を示します。
+Aspose.Slides for .NET を使用してフッターを追加し、日付と時刻のプレースホルダーを更新する方法を示します。
 
-## フッターを追加
+## **フッターを追加**
 
-スライドのフッター領域にテキストを追加し、表示させます。
+スライドのフッター領域にテキストを追加し、表示できるようにします。
 ```csharp
 static void Add_Header_Footer()
 {
@@ -33,7 +33,7 @@ static void Add_Header_Footer()
 ```
 
 
-## 日付と時刻を更新
+## **日付と時刻の更新**
 
 スライド上の日付と時刻のプレースホルダーを変更します。
 ```csharp

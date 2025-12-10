@@ -1,5 +1,5 @@
 ---
-title: إدارة عقد شكل SmartArt في العروض التقديمية باستخدام .NET
+title: إدارة عقد شكل SmartArt في العروض التقديمية في .NET
 linktitle: عقدة شكل SmartArt
 type: docs
 weight: 30
@@ -14,30 +14,30 @@ keywords:
 - موضع مخصص
 - عقدة مساعد
 - تنسيق تعبئة
-- عقدة العرض
+- تصيير العقدة
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة عقد شكل SmartArt في ملفات PPT و PPTX باستخدام Aspose.Slides لـ .NET. احصل على أمثلة شفرة واضحة ونصائح لتبسيط عروضك التقديمية."
+description: "إدارة عقد شكل SmartArt في ملفات PPT و PPTX باستخدام Aspose.Slides for .NET. احصل على أمثلة شفرة واضحة ونصائح لتبسيط عروضك التقديمية."
 ---
 
 ## **إضافة عقدة SmartArt**
-قدمت Aspose.Slides for .NET أبسط واجهة برمجة تطبيقات لإدارة الأشكال SmartArt بأبسط طريقة. سيساعدك الكود التالي على إضافة عقدة وعقدة فرعية داخل شكل SmartArt.
+قدمت Aspose.Slides for .NET أبسط واجهة برمجة تطبيقات لإدارة أشكال SmartArt بأبسط طريقة. سيساعدك رمز العينة التالي في إضافة عقدة وعقدة فرعية داخل شكل SmartArt.
 
-- إنشاء مثال من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArt إذا كان كذلك.
+- إنشاء مثيل من الفئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
 - إضافة عقدة جديدة إلى مجموعة العقد NodeCollection في شكل SmartArt وتعيين النص في TextFrame.
-- الآن، إضافة عقدة فرعية إلى العقدة SmartArt التي تم إضافتها حديثًا وتعيين النص في TextFrame.
+- الآن، إضافة عقدة فرعية إلى عقدة SmartArt التي تم إضافتها حديثًا وتعيين النص في TextFrame.
 - حفظ العرض التقديمي.
 ```c#
 // تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AddNodes.pptx");
 
-// التجول عبر كل شكل داخل الشريحة الأولى
+// التنقل عبر كل شكل داخل الشريحة الأولى
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
 
@@ -68,29 +68,30 @@ pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-## **إضافة عقدة SmartArt في موضع محدد**
-في الكود التالي نشرح كيفية إضافة العقد الفرعية التابعة للعقد المقابلة في شكل SmartArt في موضع معين.
 
-- إنشاء مثال من فئة `Presentation`.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+## **إضافة عقدة SmartArt في موضع محدد**
+في رمز العينة التالي شرحنا كيفية إضافة العقد الفرعية التابعة للعقد المقابلة في شكل SmartArt في موضع معين.
+
+- إنشاء مثيل من الفئة `Presentation`.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
 - إضافة شكل SmartArt من نوع StackedList إلى الشريحة التي تم الوصول إليها.
-- الوصول إلى العقدة الأولى في شكل SmartArt المضاف.
+- الوصول إلى العقدة الأولى في الشكل SmartArt المضاف.
 - الآن، إضافة العقدة الفرعية للعقدة المحددة في الموضع 2 وتعيين نصها.
 - حفظ العرض التقديمي.
 ```c#
-// إنشاء مثيل للعرض التقديمي
+// إنشاء نسخة عرض تقديمي
 Presentation pres = new Presentation();
 
 // الوصول إلى شريحة العرض التقديمي
 ISlide slide = pres.Slides[0];
 
-// إضافة Smart Art IShape
+// إضافة شكل Smart Art
 ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-// الوصول إلى عقدة SmartArt في الفهرس 0
+// الوصول إلى عقدة SmartArt ذات الفهرس 0
 ISmartArtNode node = smart.AllNodes[0];
 
-// إضافة عقدة فرعية جديدة في الموضع 2 داخل العقدة الأب
+// إضافة عقدة فرعية جديدة في الموضع 2 داخل العقدة الأصلية
 SmartArtNode chNode = (SmartArtNode)((SmartArtNodeCollection)node.ChildNodes).AddNodeByPosition(2);
 
 // إضافة نص
@@ -101,15 +102,16 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 ```
 
 
-## **الوصول إلى عقدة SmartArt**
-سيساعدك الكود التالي على الوصول إلى العقد داخل شكل SmartArt. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويُحدد فقط عند إضافة الشكل.
 
-- إنشاء مثال من فئة `Presentation` وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArt إذا كان كذلك.
-- استعراض جميع العقد داخل شكل SmartArt.
-- الوصول إلى معلومات مثل موضع عقدة SmartArt، المستوى والنص.
+## **الوصول إلى عقدة SmartArt**
+سيساعدك رمز العينة التالي في الوصول إلى العقد داخل شكل SmartArt. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويُحدد فقط عند إضافة الشكل SmartArt.
+
+- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+- التجول عبر جميع العقد داخل شكل SmartArt.
+- الوصول إلى معلومات مثل موضع عقدة SmartArt، المستوى والنص وعرضها.
   ```c#
   // تحميل العرض التقديمي المطلوب
    Presentation pres = new Presentation("AccessSmartArt.pptx");
@@ -127,7 +129,7 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
           // التجول عبر جميع العقد داخل SmartArt
           for (int i = 0; i < smart.AllNodes.Count; i++)
           {
-              // الوصول إلى عقدة SmartArt في الفهرس i
+              // الوصول إلى عقدة SmartArt عند الفهرس i
               Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
   
               // طباعة معلمات عقدة SmartArt
@@ -139,21 +141,22 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
   ```
 
 
-## **الوصول إلى العقدة الفرعية في SmartArt**
-سيساعدك الكود التالي على الوصول إلى العقد الفرعية التابعة للعقد المقابلة في شكل SmartArt.
 
-- إنشاء مثال من فئة PresentationEx وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArtEx إذا كان كذلك.
-- استعراض جميع العقد داخل شكل SmartArt.
-- بالنسبة لكل عقدة SmartArt مختارة، استعراض جميع العقد الفرعية داخل العقدة المحددة.
-- الوصول إلى معلومات مثل موضع العقدة الفرعية، المستوى والنص.
+## **الوصول إلى عقدة فرعية في SmartArt**
+سيساعدك رمز العينة التالي في الوصول إلى العقد الفرعية التابعة للعقد المقابلة في شكل SmartArt.
+
+- إنشاء مثيل من الفئة PresentationEx وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArtEx إذا كان SmartArt.
+- التجول عبر جميع العقد داخل شكل SmartArt.
+- لكل عقدة SmartArt مختارة، التجول عبر جميع العقد الفرعية داخل العقدة المحددة.
+- الوصول إلى معلومات مثل موضع العقدة الفرعية، المستوى والنص وعرضها.
 ```c#
-// تحميل العرض التقديمي المطلوب
+ // تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 
-// التجول عبر كل شكل داخل الشريحة الأولى
+// التنقل عبر كل شكل داخل الشريحة الأولى
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
 
@@ -164,13 +167,13 @@ foreach (IShape shape in pres.Slides[0].Shapes)
         // تحويل الشكل إلى SmartArt
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
-        // التجول عبر جميع العقد داخل SmartArt
+        // التنقل عبر جميع العقد داخل SmartArt
         for (int i = 0; i < smart.AllNodes.Count; i++)
         {
-            // الوصول إلى عقدة SmartArt في الفهرس i
+            // الوصول إلى عقدة SmartArt عند الفهرس i
             Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
 
-            // التجول عبر العقد الفرعية في عقدة SmartArt في الفهرس i
+            // التنقل عبر العقد الفرعية في عقدة SmartArt عند الفهرس i
             for (int j = 0; j < node0.ChildNodes.Count; j++)
             {
                 // الوصول إلى العقدة الفرعية في عقدة SmartArt
@@ -186,16 +189,17 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 ```
 
 
-## **الوصول إلى العقدة الفرعية في SmartArt في موضع محدد**
-في هذا المثال سنتعلم كيفية الوصول إلى العقد الفرعية في موضع معين تخص العقد المقابلة في شكل SmartArt.
 
-- إنشاء مثال من فئة `Presentation`.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+## **الوصول إلى عقدة فرعية في SmartArt في موضع محدد**
+في هذا المثال، سنتعلم كيفية الوصول إلى العقد الفرعية في موضع معين تابعة للعقد المقابلة في شكل SmartArt.
+
+- إنشاء مثيل من الفئة `Presentation`.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
 - إضافة شكل SmartArt من نوع StackedList.
 - الوصول إلى شكل SmartArt المضاف.
-- الوصول إلى العقدة في الفهرس 0 لشكل SmartArt الذي تم الوصول إليه.
-- الآن، الوصول إلى العقدة الفرعية في الموضع 1 للعقدة SmartArt باستخدام الطريقة GetNodeByPosition().
-- الوصول إلى معلومات مثل موضع العقدة الفرعية، المستوى والنص.
+- الوصول إلى العقدة ذات الفهرس 0 لشكل SmartArt الذي تم الوصول إليه.
+- الآن، الوصول إلى العقدة الفرعية في الموضع 1 للعقدة SmartArt باستخدام طريقة `GetNodeByPosition()`.
+- عرض معلومات مثل موضع العقدة الفرعية، المستوى والنص.
 ```c#
  // إنشاء نسخة من العرض التقديمي
  Presentation pres = new Presentation();
@@ -206,10 +210,10 @@ foreach (IShape shape in pres.Slides[0].Shapes)
  // إضافة شكل SmartArt في الشريحة الأولى
  ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
- // الوصول إلى عقدة SmartArt في الفهرس 0
+ // الوصول إلى عقدة SmartArt ذات الفهرس 0
  ISmartArtNode node = smart.AllNodes[0];
 
- // الوصول إلى العقدة الفرعية في الموضع 1 داخل العقدة الأم
+ // الوصول إلى العقدة الفرعية في الموضع 1 داخل العقدة الأصلية
  int position = 1;
  SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
 
@@ -219,65 +223,67 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 ```
 
 
-## **إزالة عقدة SmartArt**
-في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt.
 
-- إنشاء مثال من فئة `Presentation` وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArt إذا كان كذلك.
+## **إزالة عقدة SmartArt**
+في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل SmartArt.
+
+- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
 - التحقق مما إذا كان SmartArt يحتوي على أكثر من 0 عقد.
 - اختيار عقدة SmartArt التي سيتم حذفها.
-- الآن، إزالة العقدة المحددة باستخدام طريقة RemoveNode()* حفظ العرض التقديمي.
+- الآن، إزالة العقدة المحددة باستخدام طريقة `RemoveNode()` وحفظ العرض التقديمي.
 ```c#
-// تحميل العرض التقديمي المطلوب
-using (Presentation pres = new Presentation("RemoveNode.pptx"))
-{
-
-    // الانتقال عبر كل شكل داخل الشريحة الأولى
-    foreach (IShape shape in pres.Slides[0].Shapes)
-    {
-
-        // التحقق مما إذا كان الشكل من نوع SmartArt
-        if (shape is ISmartArt)
-        {
-            // تحويل الشكل إلى SmartArtEx
-            ISmartArt smart = (ISmartArt)shape;
-
-            if (smart.AllNodes.Count > 0)
-            {
-                // الوصول إلى عقدة SmartArt في الفهرس 0
-                ISmartArtNode node = smart.AllNodes[0];
-
-                // إزالة العقدة المحددة
-                smart.AllNodes.RemoveNode(node);
-
-            }
-        }
-    }
-
-    // حفظ العرض التقديمي
-    pres.Save("RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+ // تحميل العرض التقديمي المطلوب
+ using (Presentation pres = new Presentation("RemoveNode.pptx"))
+ {
+ 
+     // التنقل عبر كل شكل داخل الشريحة الأولى
+     foreach (IShape shape in pres.Slides[0].Shapes)
+     {
+ 
+         // التحقق مما إذا كان الشكل من نوع SmartArt
+         if (shape is ISmartArt)
+         {
+             // تحويل الشكل إلى SmartArtEx
+             ISmartArt smart = (ISmartArt)shape;
+ 
+             if (smart.AllNodes.Count > 0)
+             {
+                 // الوصول إلى عقدة SmartArt عند الفهرس 0
+                 ISmartArtNode node = smart.AllNodes[0];
+ 
+                 // إزالة العقدة المحددة
+                 smart.AllNodes.RemoveNode(node);
+ 
+             }
+         }
+     }
+ 
+     // حفظ العرض التقديمي
+     pres.Save("RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+ }
 ```
 
 
-## **إزالة عقدة SmartArt في موضع محدد**
-في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt في موضع معين.
 
-- إنشاء مثال من فئة `Presentation` وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArt إذا كان كذلك.
-- اختيار عقدة شكل SmartArt في الفهرس 0.
-- الآن، التحقق مما إذا كانت العقدة SmartArt المختارة تحتوي على أكثر من عقدتين فرعيتين.
-- الآن، إزالة العقدة في الموضع 1 باستخدام طريقة RemoveNodeByPosition().
+## **إزالة عقدة SmartArt في موضع محدد**
+في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل SmartArt في موضع معين.
+
+- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+- اختيار عقدة الشكل SmartArt ذات الفهرس 0.
+- الآن، التحقق مما إذا كان للعقدة المحددة أكثر من عقدتين فرعيتين.
+- الآن، إزالة العقدة في الموضع 1 باستخدام طريقة `RemoveNodeByPosition()`.
 - حفظ العرض التقديمي.
 ```c#
-// تحميل العرض التقديمي المطلوب
+// تحميل العرض التقديمي المطلوب             
 Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
-// استعراض كل شكل داخل الشريحة الأولى
+// التجول عبر كل شكل داخل الشريحة الأولى
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
     // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -288,7 +294,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 
         if (smart.AllNodes.Count > 0)
         {
-            // الوصول إلى عقدة SmartArt في الفهرس 0
+            // الوصول إلى عقدة SmartArt عند الفهرس 0
             Aspose.Slides.SmartArt.ISmartArtNode node = smart.AllNodes[0];
 
             if (node.ChildNodes.Count >= 2)
@@ -306,8 +312,9 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 ```
 
 
-## **تعيين موضع مخصص للعقدة الفرعية في SmartArt**
-الآن تدعم Aspose.Slides for .NET تعيين خصائص X و Y لشكل SmartArt. يوضح المقتطف التالي كيفية تعيين موضع وحجم ودوران مخصص لشكل SmartArt، يرجى ملاحظة أن إضافة عقد جديدة يتسبب في إعادة حساب مواضع وأحجام جميع العقد.
+
+## **تعيين موضع مخصص لعقدة فرعية في كائن SmartArt**
+الآن تدعم Aspose.Slides for .NET إعداد خصائص X و Y الخاصة بـ SmartArtShape. يوضح مقتطف الشيفرة أدناه كيفية تعيين موضع SmartArtShape مخصص وحجمه ودورانه. يرجى ملاحظة أن إضافة عقد جديدة تتسبب في إعادة حساب المواقع والأحجام لجميع العقد.
 ```c#
 // تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AccessChildNodes.pptx");
@@ -341,58 +348,60 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 ```
 
 
-## **التحقق من عقدة المساعد**
-في الكود التالي سنستكشف كيفية تحديد عقد المساعد في مجموعة عقد SmartArt وتغييرها.
 
-- إنشاء مثال من فئة PresentationEx وتحميل العرض مع شكل SmartArt.
-- الحصول على مرجع الشريحة الثانية باستخدام فهرسها.
-- استعراض كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المختار إلى SmartArtEx إذا كان كذلك.
-- استعراض جميع العقد داخل شكل SmartArt والتحقق مما إذا كانت عقد مساعد.
+## **التحقق من عقدة المساعد**
+في رمز العينة التالي سنستكشف كيفية تحديد العقد المساعدة في مجموعة عقد SmartArt وتغييرها.
+
+- إنشاء مثيل من الفئة PresentationEx وتحميل العرض التقديمي مع شكل SmartArt.
+- الحصول على مرجع الشريحة الثانية باستخدام فهرستها.
+- التجول عبر كل شكل داخل الشريحة الأولى.
+- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArtEx إذا كان SmartArt.
+- التجول عبر جميع العقد داخل شكل SmartArt والتحقق مما إذا كانت عقد مساعدة.
 - تغيير حالة عقدة المساعد إلى عقدة عادية.
 - حفظ العرض التقديمي.
 ```c#
-// إنشاء نسخة من العرض التقديمي
-using (Presentation pres = new Presentation("AssistantNode.pptx"))
-{
-    // التجول عبر كل شكل داخل الشريحة الأولى
-    foreach (IShape shape in pres.Slides[0].Shapes)
-    {
-        // التحقق مما إذا كان الشكل من نوع SmartArt
-        if (shape is Aspose.Slides.SmartArt.ISmartArt)
-        {
-            // تحويل الشكل إلى SmartArtEx
-            Aspose.Slides.SmartArt.ISmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-            // التجول عبر جميع العقد في شكل SmartArt
+ // إنشاء نسخة عرض تقديمي
+ using (Presentation pres = new Presentation("AssistantNode.pptx"))
+ {
+     // التنقل عبر كل شكل داخل الشريحة الأولى
+     foreach (IShape shape in pres.Slides[0].Shapes)
+     {
+         // التحقق مما إذا كان الشكل من نوع SmartArt
+         if (shape is Aspose.Slides.SmartArt.ISmartArt)
+         {
+             // تحويل الشكل إلى SmartArtEx
+             Aspose.Slides.SmartArt.ISmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
+             // التنقل عبر جميع العقد في شكل SmartArt
 
-            foreach (Aspose.Slides.SmartArt.ISmartArtNode node in smart.AllNodes)
-            {
-                String tc = node.TextFrame.Text;
-                // التحقق مما إذا كانت العقدة مساعدة
-                if (node.IsAssistant)
-                {
-                    // تعيين العقدة المساعدة إلى false وجعلها عقدة عادية
-                    node.IsAssistant = false;
-                }
-            }
-        }
-    }
-    // حفظ العرض التقديمي
-    pres.Save("ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+             foreach (Aspose.Slides.SmartArt.ISmartArtNode node in smart.AllNodes)
+             {
+                 String tc = node.TextFrame.Text;
+                 // التحقق مما إذا كانت العقدة مساعدة
+                 if (node.IsAssistant)
+                 {
+                     // ضبط العقدة المساعدة إلى false وجعلها عقدة عادية
+                     node.IsAssistant = false;
+                 }
+             }
+         }
+     }
+     // حفظ العرض التقديمي
+     pres.Save("ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+ }
 ```
 
 
+
 ## **تعيين تنسيق تعبئة العقدة**
-تمكّن Aspose.Slides for .NET من إضافة أشكال SmartArt مخصصة وتعيين تنسيقات التعبئة لها. يشرح هذا المقال كيفية إنشاء والوصول إلى أشكال SmartArt وتعيين تنسيق التعبئة باستخدام Aspose.Slides for .NET.
+تمكّن Aspose.Slides for .NET من إضافة أشكال SmartArt مخصصة وتعيين تنسيقات تعبئتها. توضح هذه المقالة كيفية إنشاء والوصول إلى أشكال SmartArt وتعيين تنسيق التعبئة باستخدام Aspose.Slides for .NET.
 
-يرجى اتباع الخطوات التالية:
+يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثال من فئة `Presentation`.
-- الحصول على مرجع شريحة باستخدام فهرسها.
-- إضافة شكل SmartArt بتحديد LayoutType الخاص به.
+- إنشاء مثيل من الفئة `Presentation`.
+- الحصول على مرجع شريحة باستخدام فهرستها.
+- إضافة شكل SmartArt عن طريق تعيين LayoutType الخاص به.
 - تعيين FillFormat لعقد شكل SmartArt.
-- كتابة العرض المعدل كملف PPTX.
+- كتابة العرض التقديمي المعدل كملف PPTX.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -417,16 +426,17 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **إنشاء صورة مصغرة للعقدة الفرعية في SmartArt**
-يمكن للمطورين إنشاء صورة مصغرة للعقدة الفرعية في SmartArt باتباع الخطوات التالية:
 
-1. إنشاء مثال من فئة `Presentation` يمثل ملف PPTX.
+## **إنشاء صورة مصغرة لعقدة فرعية في SmartArt**
+يمكن للمطورين إنشاء صورة مصغرة لعقدة فرعية في SmartArt باتباع الخطوات أدناه:
+
+1. إنشاء مثيل من الفئة `Presentation` التي تمثل ملف PPTX.
 2. إضافة SmartArt.
-3. الحصول على مرجع عقدة باستخدام فهرسها.
+3. الحصول على مرجع لعقدة باستخدام فهرستها.
 4. الحصول على صورة المصغرة.
 5. حفظ صورة المصغرة بأي تنسيق صورة مطلوب.
 
-المثال أدناه يُظهر إنشاء صورة مصغرة لعقدة فرعية في SmartArt
+المثال أدناه يولد صورة مصغرة لعقدة فرعية في SmartArt
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -443,20 +453,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يتم دعم الرسوم المتحركة في SmartArt؟**
+**هل يتم دعم الرسوم المتحركة لـ SmartArt؟**
 
-نعم. يُعامل SmartArt كشكل عادي، لذا يمكنك [تطبيق الرسوم المتحركة القياسية](/slides/ar/net/shape-animation/) (دخول، خروج، تأكيد، مسارات الحركة) وضبط التوقيت. يمكنك أيضًا تحريك الأشكال داخل عقد SmartArt عند الحاجة.
+نعم. يتم التعامل مع SmartArt كشكل عادي، لذا يمكنك [تطبيق الرسوم المتحركة القياسية](/slides/ar/net/shape-animation/) (دخول، خروج، تأكيد، مسارات حركة) وضبط التوقيت. يمكنك أيضًا تحريك الأشكال داخل عقد SmartArt عند الحاجة.
 
-**كيف يمكنني العثور بشكل موثوق على SmartArt محدد في الشريحة إذا كان معرّفه الداخلي غير معروف؟**
+**كيف يمكنني تحديد موقع SmartArt معين على شريحة إذا كان معرّفه الداخلي غير معروف؟**
 
-استخدم وابحث عبر [النص البديل](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). تعيين AltText مميز على SmartArt يتيح لك العثور عليه برمجيًا دون الاعتماد على المعرفات الداخلية.
+عيّن وابحث باستخدام [النص البديل]https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). إعداد AltText مميز على SmartArt يتيح لك العثور عليه برمجةً دون الاعتماد على المعرفات الداخلية.
 
-**هل سيُحافظ على مظهر SmartArt عند تحويل العرض إلى PDF؟**
+**هل سيُحافظ على مظهر SmartArt عند تحويل العرض التقديمي إلى PDF؟**
 
-نعم. تقوم Aspose.Slides بتصrender SmartArt بدقة بصرية عالية أثناء [تصدير PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مع الحفاظ على التخطيط والألوان والتأثيرات.
+نعم. تقوم Aspose.Slides بتصحيح SmartArt بدقة عالية أثناء [تصدير PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مع الحفاظ على التخطيط، الألوان، والتأثيرات.
 
 **هل يمكنني استخراج صورة لكامل SmartArt (للعروض أو التقارير)؟**
 
-نعم. يمكنك تصrender شكل SmartArt إلى [تنسيقات نقطية](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) أو إلى [SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) لإخراج متجه قابل للتوسيع، مما يجعله مناسبًا للصور المصغرة، التقارير أو الاستخدام على الويب.
+نعم. يمكنك تصيير شكل SmartArt إلى [تنسيقات نقطية]https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/ أو إلى [SVG]https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/ لإنتاج مخرجات متجهية قابلة للتوسع، ما يجعلها مناسبة للصور المصغرة، التقارير، أو الاستخدام عبر الويب.

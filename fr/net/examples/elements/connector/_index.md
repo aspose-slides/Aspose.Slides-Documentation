@@ -8,21 +8,21 @@ keywords:
 - ajouter un connecteur
 - accéder au connecteur
 - supprimer le connecteur
-- reconnecter des formes
+- reconnecter les formes
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Dessinez et contrôlez les connecteurs en C# avec Aspose.Slides: ajoutez, définissez le tracé, reroutez, définissez les points de connexion, les flèches et les styles pour lier des formes dans PPT, PPTX et ODP."
+description: "Dessinez et contrôlez les connecteurs en C# avec Aspose.Slides: ajoutez, routez, reroutez, définissez les points de connexion, les flèches et les styles pour lier des formes dans PPT, PPTX et ODP."
 ---
 
 Montre comment connecter des formes avec des connecteurs et modifier leurs cibles en utilisant **Aspose.Slides for .NET**.
 
-## Ajouter un connecteur
+## **Ajouter un connecteur**
 
-Insérer une forme de connecteur entre deux points sur la diapositive.
+Insérez une forme de connecteur entre deux points sur la diapositive.
 ```csharp
 static void Add_Connector()
 {
@@ -34,9 +34,9 @@ static void Add_Connector()
 ```
 
 
-## Accéder à un connecteur
+## **Accéder à un connecteur**
 
-Récupérer la première forme de connecteur ajoutée à une diapositive.
+Récupérez la première forme de connecteur ajoutée à une diapositive.
 ```csharp
 static void Access_Connector()
 {
@@ -49,9 +49,9 @@ static void Access_Connector()
 ```
 
 
-## Supprimer un connecteur
+## **Supprimer un connecteur**
 
-Supprimer un connecteur de la diapositive.
+Supprimez un connecteur de la diapositive.
 ```csharp
 static void Remove_Connector()
 {
@@ -64,9 +64,9 @@ static void Remove_Connector()
 ```
 
 
-## Reconnecter des formes
+## **Reconnecter des formes**
 
-Attacher un connecteur à deux formes en assignant des cibles de début et de fin.
+Attachez un connecteur à deux formes en attribuant des cibles de départ et d'arrivée.
 ```csharp
 static void Reconnect_Shapes()
 {

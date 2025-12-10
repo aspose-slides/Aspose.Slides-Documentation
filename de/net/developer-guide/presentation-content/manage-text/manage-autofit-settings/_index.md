@@ -1,52 +1,52 @@
 ---
-title: Verbessern Sie Ihre Präsentationen mit AutoFit in .NET
-linktitle: Autofit-Einstellungen
+title: Präsentationen mit AutoFit in .NET verbessern
+linktitle: AutoFit-Einstellungen
 type: docs
 weight: 30
 url: /de/net/manage-autofit-settings/
 keywords:
 - Textfeld
-- Autofit
-- Kein Autofit
+- AutoFit
+- kein AutoFit
 - Text anpassen
 - Text verkleinern
 - Text umbrechen
-- Formgröße anpassen
+- Formgröße ändern
 - PowerPoint
 - Präsentation
 - C#
 - .NET
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie die AutoFit‑Einstellungen in Aspose.Slides für .NET verwalten, um die Textdarstellung in Ihren PowerPoint‑ und OpenDocument‑Präsentationen zu optimieren und die Lesbarkeit des Inhalts zu verbessern."
+description: "Erfahren Sie, wie Sie AutoFit-Einstellungen in Aspose.Slides für .NET verwalten, um die Textanzeige in Ihren PowerPoint- und OpenDocument-Präsentationen zu optimieren und die Lesbarkeit des Inhalts zu verbessern."
 ---
 
 ## **Übersicht**
 
-Standardmäßig verwendet Microsoft PowerPoint für das Textfeld die Einstellung **Größe der Form an Text anpassen** – es passt das Textfeld automatisch an, damit der Text immer hineinpasst.
+Standardmäßig verwendet Microsoft PowerPoint, wenn Sie ein Textfeld hinzufügen, die Einstellung **Resize shape to fit text** für das Textfeld – es passt die Größe des Textfelds automatisch an, um sicherzustellen, dass sein Text immer hineinpasst.
 
 ![Ein Textfeld in PowerPoint](textbox-in-powerpoint.png)
 
-* Wenn der Text im Textfeld länger oder größer wird, vergrößert PowerPoint das Textfeld automatisch – indem es die Höhe erhöht – damit mehr Text hineinpassen kann.
-* Wenn der Text im Textfeld kürzer oder kleiner wird, reduziert PowerPoint das Textfeld automatisch – indem es die Höhe verringert – um überflüssigen Raum zu entfernen.
+* Wenn der Text im Textfeld länger oder größer wird, vergrößert PowerPoint das Textfeld automatisch – die Höhe wird erhöht – um mehr Text aufnehmen zu können.
+* Wenn der Text im Textfeld kürzer oder kleiner wird, verkleinert PowerPoint das Textfeld automatisch – die Höhe wird reduziert – um überflüssigen Platz zu entfernen.
 
-In PowerPoint gibt es vier wichtige Parameter bzw. Optionen, die das Autofit‑Verhalten eines Textfelds steuern:
+In PowerPoint sind dies die vier wichtigen Parameter oder Optionen, die das Autofit‑Verhalten für ein Textfeld steuern:
 
-* **Kein AutoFit**
-* **Text bei Überlauf verkleinern**
-* **Größe der Form an Text anpassen**
-* **Text in Form umbrechen**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape**
 
-![AutoFit-Optionen in PowerPoint](autofit-options-powerpoint.png)
+![Autofit‑Optionen in PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides für .NET bietet ähnliche Optionen – Eigenschaften der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) – mit denen Sie das Autofit‑Verhalten von Textfeldern in Präsentationen steuern können.
+Aspose.Slides für .NET bietet ähnliche Optionen – Eigenschaften der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) – die es Ihnen ermöglichen, das Autofit‑Verhalten von Textfeldern in Präsentationen zu steuern.
 
-## **Größe der Form an Text anpassen**
+## **Größe einer Form an Text anpassen**
 
-Wenn der Text in einem Feld stets in dieses Feld passen soll, nachdem Änderungen am Text vorgenommen wurden, müssen Sie die Option **Größe der Form an Text anpassen** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `Shape`.
+Wenn Sie möchten, dass der Text in einem Feld nach Änderungen stets in dieses Feld passt, müssen Sie die Option **Resize shape to fit text** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `Shape`.
 
-![Größe der Form an Text anpassen](alwaysfit-setting-powerpoint.png)
+![Formgröße an Text anpassen](alwaysfit-setting-powerpoint.png)
 
-Dieser C#‑Code zeigt, wie Sie festlegen, dass Text immer in sein Feld passen muss, in einer PowerPoint‑Präsentation:
+Dieser C#‑Code zeigt, wie Sie festlegen, dass Text immer in sein Feld in einer PowerPoint‑Präsentation passt:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -66,15 +66,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Wird der Text länger oder größer, wird das Textfeld automatisch vergrößert (Höhe erhöht), damit der gesamte Text hineinpasst. Wird der Text kürzer, geschieht das Gegenteil.
+Wenn der Text länger oder größer wird, wird das Textfeld automatisch in der Größe angepasst (Höhe erhöht), sodass der gesamte Text hineinpassen kann. Wird der Text kürzer, geschieht das Gegenteil.
 
-## **Kein AutoFit**
+## **Do Not Autofit**
 
-Wenn ein Textfeld oder eine Form ihre Abmessungen unabhängig von Änderungen am enthaltenen Text beibehalten soll, müssen Sie die Option **Kein AutoFit** verwenden. Setzen Sie dazu die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `None`.
+Wenn Sie möchten, dass ein Textfeld oder eine Form ihre Abmessungen beibehält, egal welche Änderungen am enthaltenen Text vorgenommen werden, müssen Sie die Option **Do not Autofit** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `None`.
 
-!["Kein AutoFit"-Einstellung in PowerPoint](donotautofit-setting-powerpoint.png)
+!["Do not Autofit" Einstellung in PowerPoint](donotautofit-setting-powerpoint.png)
 
-Dieser C#‑Code zeigt, wie Sie festlegen, dass ein Textfeld seine Abmessungen in einer PowerPoint‑Präsentation stets beibehält:
+Dieser C#‑Code zeigt, wie Sie festlegen, dass ein Textfeld in einer PowerPoint‑Präsentation stets seine Abmessungen beibehält:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -94,15 +94,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Wird der Text zu lang für das Feld, läuft er über den Rand hinaus.
+Wenn der Text zu lang für sein Feld wird, läuft er heraus.
 
-## **Text bei Überlauf verkleinern**
+## **Shrink Text on Overflow**
 
-Wenn der Text zu lang für das Feld wird, können Sie mit der Option **Text bei Überlauf verkleinern** festlegen, dass Größe und Abstand des Textes reduziert werden, damit er in das Feld passt. Setzen Sie dazu die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `Normal`.
+Wenn der Text zu lang für sein Feld wird, können Sie über die Option **Shrink text on overflow** festlegen, dass die Größe und der Abstand des Textes reduziert werden, damit er in das Feld passt. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft `AutofitType` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `Normal`.
 
-!["Text bei Überlauf verkleinern"-Einstellung in PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
+!["Shrink text on overflow" Einstellung in PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Dieser C#‑Code zeigt, wie Sie festlegen, dass Text bei Überlauf in einer PowerPoint‑Präsentation verkleinert wird:
+Dieser C#‑Code zeigt, wie Sie festlegen, dass Text bei Überlauf in einer PowerPoint‑Präsentation verkleinert werden muss:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -123,14 +123,14 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert title="Info" color="info" %}}
-Wenn die **Text bei Überlauf verkleinern**‑Option verwendet wird, wird die Einstellung nur angewendet, wenn der Text zu lang für das Feld wird.
+Wenn die Option **Shrink text on overflow** verwendet wird, wird die Einstellung nur angewendet, wenn der Text zu lang für sein Feld wird.
 {{% /alert %}}
 
-## **Text umbrechen**
+## **Wrap Text**
 
-Wenn der Text in einer Form umbrochen werden soll, sobald er die Breite der Form überschreitet, verwenden Sie den Parameter **Text in Form umbrechen**. Setzen Sie dazu die Eigenschaft `WrapText` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `NullableBool.True`.
+Wenn Sie möchten, dass der Text in einer Form umgebrochen wird, sobald er über die Formgrenze (nur Breite) hinausgeht, müssen Sie den Parameter **Wrap text in shape** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft `WrapText` der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) auf `NullableBool.True`.
 
-Dieser C#‑Code zeigt, wie Sie die Einstellung „Text umbrechen“ in einer PowerPoint‑Präsentation verwenden:
+Dieser C#‑Code zeigt, wie Sie die Einstellung Wrap Text in einer PowerPoint‑Präsentation verwenden:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -150,20 +150,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-{{% alert title="Hinweis" color="warning" %}}
-Wenn Sie die Eigenschaft `WrapText` für eine Form auf `NullableBool.False` setzen, erstreckt sich der Text bei Überschreitung der Formbreite in einer einzigen Zeile über die Formgrenzen hinaus.
+{{% alert title="Note" color="warning" %}} 
+Wenn Sie die Eigenschaft `WrapText` für eine Form auf `NullableBool.False` setzen, wird der Text, sobald er länger als die Breite der Form wird, über die Formgrenzen hinweg in einer einzigen Zeile fortgesetzt.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Beeinflussen die internen Ränder des Textframes AutoFit?**
+**Beeinflussen die internen Ränder des Textfelds AutoFit?**
 
-Ja. Innenabstände (Padding) verringern den nutzbaren Textbereich, sodass AutoFit früher greift – die Schrift wird verkleinert oder die Form früher angepasst. Prüfen und passen Sie die Ränder an, bevor Sie AutoFit Feinjustieren.
+Ja. Innenabstände (Padding) reduzieren den nutzbaren Textbereich, sodass AutoFit früher greift – die Schrift wird früher verkleinert oder die Form früher geändert. Prüfen und passen Sie die Ränder an, bevor Sie AutoFit optimieren.
 
 **Wie interagiert AutoFit mit manuellen und weichen Zeilenumbrüchen?**
 
-Erzwungene Umbrüche bleiben erhalten, und AutoFit passt Schriftgröße und Abstand um diese herum an. Das Entfernen unnötiger Umbrüche reduziert häufig, wie aggressiv AutoFit den Text verkleinern muss.
+Erzwungene Umbrüche bleiben erhalten, und AutoFit passt die Schriftgröße und den Abstand um sie herum an. Das Entfernen unnötiger Umbrüche reduziert häufig, wie aggressiv AutoFit den Text verkleinern muss.
 
-**Beeinflusst das Ändern der Design‑Schriftart oder das Auslösen einer Schriftart‑Substitution die AutoFit‑Ergebnisse?**
+**Beeinflusst das Ändern der Designschriftart oder das Auslösen einer Schriftart‑Substitution die AutoFit‑Ergebnisse?**
 
-Ja. Das Ersetzen durch eine Schriftart mit anderen Glyph‑Metriken ändert Breite/Höhe des Textes, was die endgültige Schriftgröße und Zeilenumbrüche ändern kann. Nach jeder Schriftart‑Änderung oder -Substitution sollten Sie die Folien erneut prüfen.
+Ja. Das Ersetzen durch eine Schriftart mit anderen Glyphenmaßen ändert Textbreite/-höhe, was die endgültige Schriftgröße und Zeilenumbrüche ändern kann. Nach jeder Schriftartänderung oder Substitution sollten die Folien erneut überprüft werden.

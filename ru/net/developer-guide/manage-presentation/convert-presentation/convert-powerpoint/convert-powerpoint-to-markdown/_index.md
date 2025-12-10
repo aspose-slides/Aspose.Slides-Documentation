@@ -28,23 +28,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Конвертировать слайды PowerPoint — PPT, PPTX — в чистый Markdown с помощью Aspose.Slides для .NET, автоматизировать документацию и сохранять форматирование."
+description: "Конвертировать слайды PowerPoint - PPT, PPTX - в чистый Markdown с помощью Aspose.Slides для .NET, автоматизировать документацию и сохранять форматирование."
 ---
 
 {{% alert color="info" %}} 
+
 Поддержка преобразования PowerPoint в markdown была реализована в [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
+
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
-Экспорт PowerPoint в markdown **без изображений** по умолчанию. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, необходимо установить `ExportType = MarkdownExportType.Visual` и задать BasePath, где будут сохраняться изображения, на которые ссылается markdown‑документ.
+
+Экспорт PowerPoint в markdown **без изображений** по умолчанию. Если вам нужно экспортировать документ PowerPoint с изображениями, необходимо установить `ExportType = MarkdownExportType.Visual` и задать BasePath, куда будут сохраняться изображения, упомянутые в markdown‑документе.
+
 {{% /alert %}} 
 
-## **Преобразовать PowerPoint в Markdown**
+## **Преобразование PowerPoint в Markdown**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), представляющего объект презентации.  
-2. Используйте метод [Save ](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save)для сохранения объекта в файл markdown.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) для представления объекта презентации.  
+2. Используйте метод [Save ]для сохранения объекта в файл markdown.
 
-Этот C# код показывает, как преобразовать PowerPoint в markdown:
+Этот C#‑код показывает, как преобразовать PowerPoint в markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -53,11 +57,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **Преобразовать PowerPoint в Markdown‑вариант**
+## **Преобразование PowerPoint в варианты Markdown**
 
-Aspose.Slides позволяет конвертировать PowerPoint в markdown (с базовым синтаксисом), CommonMark, GitHub‑flavored markdown, Trello, XWiki, GitLab и ещё 17 вариантов markdown.
+Aspose.Slides позволяет преобразовать PowerPoint в markdown (с базовым синтаксисом), CommonMark, GitHub‑flavored markdown, Trello, XWiki, GitLab и еще 17 других вариантов markdown.
 
-Этот C# код показывает, как преобразовать PowerPoint в CommonMark:
+Этот C#‑код показывает, как преобразовать PowerPoint в CommonMark:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -69,15 +73,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-23 поддерживаемых варианта markdown перечислены в [Flavor enumeration](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+23 поддерживаемых варианта markdown перечислены в [списке Flavor enumeration](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-## **Преобразовать презентацию с изображениями в Markdown**
+## **Преобразование презентации с изображениями в Markdown**
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие задавать параметры создаваемого файла markdown. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) может принимать значения, определяющие способ обработки изображений: `Sequential`, `TextOnly`, `Visual`.
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие задавать различные параметры для получаемого markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) можно установить в значения, определяющие способ обработки изображений: `Sequential`, `TextOnly`, `Visual`.
 
-### **Преобразовать изображения последовательно**
+### **Преобразование изображений последовательно**
 
-Если нужно, чтобы изображения выводились по отдельности друг за другом в итоговом markdown, выберите последовательный вариант. Этот C# код показывает, как преобразовать презентацию с изображениями в markdown:
+Если вам нужно, чтобы изображения отображались одно за другим в полученном markdown, выберите последовательный вариант. Этот C#‑код показывает, как преобразовать презентацию с изображениями в markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -95,11 +99,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-### **Преобразовать изображения визуально**
+### **Преобразование изображений визуально**
 
-Если нужно, чтобы изображения выводились вместе в итоговом markdown, выберите визуальный вариант. В этом случае изображения будут сохранены в текущий каталог приложения (и для них будет построен относительный путь в markdown‑документе), либо можно указать предпочитаемый путь и имя папки.
+Если вам нужно, чтобы изображения отображались вместе в полученном markdown, выберите визуальный вариант. В этом случае изображения будут сохранены в текущий каталог приложения (и в markdown‑документе будет сформирован относительный путь), либо вы можете указать свой путь и имя папки.
 
-Этот C# код демонстрирует операцию:
+Этот C#‑код демонстрирует операцию:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -116,11 +120,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Сохраняются ли гиперссылки при экспорте в Markdown?**  
-Да. Текстовые [hyperlinks](/slides/ru/net/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. Слайды [transitions](/slides/ru/net/slide-transition/) и [animations](/slides/ru/net/powerpoint-animation/) не конвертируются.
+**Сохраняются ли гиперссылки при экспорте в Markdown?**
 
-**Могу ли я ускорить конвертацию, запустив её в нескольких потоках?**  
-Можно выполнять параллельную обработку файлов, но [don’t share](/slides/ru/net/multithreading/) один и тот же объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры/процессы для каждого файла, чтобы избежать конфликтов.
+Да. Текстовые [hyperlinks](/slides/ru/net/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. Слайды с [transitions](/slides/ru/net/slide-transition/) и [animations](/slides/ru/net/powerpoint-animation/) не конвертируются.
 
-**Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**  
-[Images](/slides/ru/net/image/) экспортируются в отдельную папку, а Markdown‑файл ссылается на них относительными путями по умолчанию. Можно настроить базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.
+**Могу ли я ускорить конвертацию, запустив её в нескольких потоках?**
+
+Можно распараллелить обработку по файлам, но [не делите](/slides/ru/net/multithreading/) один и тот же объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры или процессы для каждого файла, чтобы избежать конфликтов.
+
+**Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**
+
+[Images](/slides/ru/net/image/) экспортируются в отдельную папку, а markdown‑файл ссылается на них относительными путями по умолчанию. Вы можете задать базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.

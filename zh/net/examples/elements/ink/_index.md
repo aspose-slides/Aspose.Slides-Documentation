@@ -1,5 +1,5 @@
 ---
-title: 墨迹
+title: Ink
 type: docs
 weight: 180
 url: /zh/net/examples/elements/ink/
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中处理幻灯片上的数字墨迹：添加笔画、编辑路径、设置颜色和宽度，并将结果导出为 PowerPoint 和 OpenDocument。"
+description: "在 C# 中使用 Aspose.Slides 处理幻灯片上的数字墨迹：添加笔画、编辑路径、设置颜色和宽度，并将结果导出为 PowerPoint 和 OpenDocument。"
 ---
 
-提供使用 **Aspose.Slides for .NET** 访问现有墨迹形状并将其删除的示例。
+提供了使用 **Aspose.Slides for .NET** 访问现有墨迹形状并将其删除的示例。
 
-> ❗ **注意:** 墨迹形状表示来自专用设备的用户输入。Aspose.Slides 无法以编程方式创建新的墨迹笔画，但您可以读取和修改现有的墨迹。
+> ❗ **注意：** 墨迹形状代表来自专用设备的用户输入。Aspose.Slides 无法以编程方式创建新的墨迹笔画，但您可以读取并修改现有的墨迹。
 
-## 访问墨迹
+## **访问 Ink**
 
 读取幻灯片上第一个墨迹形状的标签。
 ```csharp
@@ -42,9 +42,9 @@ static void Access_Ink()
 ```
 
 
-## 删除墨迹
+## **删除 Ink**
 
-如果幻灯片中存在墨迹形状，则将其删除。
+如果存在，则从幻灯片中删除墨迹形状。
 ```csharp
 static void Remove_Ink()
 {

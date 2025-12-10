@@ -25,146 +25,145 @@ description: "Aspose.Slides für .NET ermöglicht das Erstellen, Bearbeiten und 
 ---
 
 ## **Produktbeschreibung**
-Aspose.Slides für .NET ist eine Microsoft PowerPoint®‑Verwaltungs‑API, die .NET‑Anwendungen ermöglicht, PowerPoint®‑Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. 
+Aspose.Slides for .NET ist eine Microsoft PowerPoint®‑Verwaltungs‑API, die .NET‑Anwendungen das Lesen und Schreiben von PowerPoint®‑Dokumenten ermöglicht, ohne Microsoft PowerPoint® zu verwenden. 
 
 ### **Warum Sie Aspose.Slides für .NET verwenden sollten**
+- Aspose.Slides for .NET ist die erste und einzige Komponente, die die Funktionen bietet, die zum Verwalten von PowerPoint®‑Dokumenten erforderlich sind. 
+- Aspose.Slides for .NET bietet viele wichtige Funktionen wie das Verwalten von Texten, Formen, Tabellen & Animationen, das Hinzufügen von Audio und Video zu Folien, die Vorschau von Folien, das Exportieren von Folien nach SVG, PDF und anderen Formaten und vieles mehr. 
+- Aspose.Slides for .NET lässt Sie nicht nur PowerPoint‑Dateien aus verschiedenen Quellen öffnen, sondern ermöglicht Ihnen auch, Ihre Präsentationen auf verschiedene Arten zu speichern. Zum Beispiel können Sie Ihre Präsentationen im PPT‑Format speichern; Sie können Ihre Folien auch als Bilder speichern. 
 
-- Aspose.Slides für .NET ist die erste und einzige Komponente, die die zum Verwalten von PowerPoint®‑Dokumenten erforderlichen Funktionen bereitstellt. 
-- Aspose.Slides für .NET bietet zahlreiche Schlüssel­funktionen wie das Verwalten von Texten, Formen, Tabellen & Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien nach SVG, PDF und anderen Formaten sowie viele weitere Möglichkeiten. 
-- Aspose.Slides für .NET ermöglicht nicht nur das Öffnen von PowerPoint‑Dateien aus verschiedenen Quellen, sondern auch das Speichern Ihrer Präsentationen auf vielfältige Weise. Zum Beispiel können Sie Ihre Präsentationen im PPT‑Format speichern; Sie können Ihre Folien auch als Bilder speichern. 
-
-- Aspose.Slides für .NET stellt fast alle Funktionen bereit, die Sie möglicherweise (oder nicht) in Microsoft PowerPoint finden. Aufgrund der Vielseitigkeit von Aspose.Slides für .NET können Sie neben Tabellen und verschiedenen Formen auch unterschiedliche Rahmen — Text‑, Audio‑ und Video‑Frames — zu Ihren Folien hinzufügen. 
-- Aspose.Slides für .NET wurde in Managed C# entwickelt. Sie können Aspose.Slides für .NET mit jeder .NET‑Sprache wie C#, VB.NET, J# usw. verwenden. Aspose.Slides für .NET kann außerdem mit jeder Art von Anwendung — Web‑ oder Windows‑Anwendung — eingesetzt werden. 
-- Aspose.Slides für .NET stellt zudem voll ausgestattete Demos und Beispiel‑Anwendungen bereit, um Entwicklern ein besseres Verständnis der API zu ermöglichen.
-
+- Aspose.Slides for .NET bietet Ihnen fast alle Funktionen, die Sie eventuell in Microsoft PowerPoint finden. Angesichts der Vielseitigkeit von Aspose.Slides for .NET können Sie neben Tabellen und verschiedenen Formen auch verschiedene Arten von Rahmen — Text‑, Audio‑ und Video‑Frames — zu Ihren Folien hinzufügen. 
+- Aspose.Slides for .NET ist in Managed C# entwickelt. Sie können Aspose.Slides for .NET mit jeder .NET‑Sprache wie C#, VB.NET, J# usw. verwenden. Aspose.Slides for .NET kann auch mit jeder Art von Anwendung — Web‑ oder Windows‑Anwendung — verwendet werden. 
+- Aspose.Slides for .NET bietet außerdem vollständige Demo‑Programme und Beispiel‑Code, um Entwicklern ein besseres Verständnis der API zu vermitteln.
 
 ## **Aspose.Slides‑Funktionen**
-Die Funktionen von Aspose.Slides für .NET lassen sich in folgende Gruppen einteilen:
+Aspose.Slides for .NET‑Funktionen können in diese Gruppen unterteilt werden:
 
-1. Präsentations‑Funktionen.
-1. Folien‑Funktionen.
-1. Grafik‑ und Multimedia‑Funktionen.
-1. Tabellen‑Funktionen.
-1. Text‑ & Absatz‑Funktionen
-1. Erweiterte Funktionen
-### **Präsentations‑Funktionen**
-- Öffnen von Microsoft PowerPoint‑Präsentationen aus verschiedenen Quellen.
-- Speichern von Präsentationen in verschiedenen Microsoft PowerPoint‑Formaten.
-- Erstellen von Präsentationen von Grund auf.
-- Konvertieren von Präsentationen in PDF‑Dokumente ohne Verwendung einer anderen Komponente.
-- Lesen oder Ändern von Dokument‑Eigenschaften einer Präsentation.
-- Anwenden von Schutz auf Präsentationen.
-- Exportieren von Präsentationen nach PDF.
-- Exportieren von Präsentationen nach TIFF.
-- Exportieren von Präsentationen nach XPS.
-- Exportieren von Präsentationen nach SWF.
-- Exportieren von Präsentationen nach PDF‑Hinweis / Tiff‑Hinweise.
-- Exportieren von Präsentationen nach HTML.
-### **Folien‑Funktionen**
-- Erstellen neuer Folien von Grund auf und Hinzufügen zu Präsentationen.
-- Zugriff auf jede Folie über ihre Position in einer Präsentation.
-- Kopieren oder Klonen von Folien in dieselbe oder eine andere Präsentation.
-- Bearbeiten und Löschen von Folien.
-- Kopieren von Master‑Folien zusammen mit den Folien automatisch.
-- Vorschau von Folien.
-- Abrufen oder Festlegen des Namens einer Folie.
-- Speichern von Folien als Bilder.
-- Exportieren von Folien ins SVG‑Format.
-- Arbeiten mit vielen Master‑Folien in Präsentationen.
-- Befüllen des Folienhintergrunds mit jedem unterstützten Stil.
-- Hinzufügen neuer oder Verwalten von Folien‑Notizen.
-- Dynamisches Festlegen neuer Folien‑Master und Stile.
-- Hinzufügen oder Ändern von Folien‑Übergängen.
-- Hinzufügen von Morph‑Übergängen
-### **Grafik‑ & Multimedia‑Funktionen**
-- Erstellen oder Verwalten von Formen wie Linien, Rechtecken, Ellipsen und Polylinien.
-- Verwalten von Linienstilen in Formen.
-- Abrufen des Alternativtexts einer Form.
-- Drehen und Spiegeln von Formen.
-- Befüllen von Formen in verschiedenen Stilen — z. B. massiv, Verlauf, Muster, Textur und Bild.
-- Verwenden von 48 vordefinierten Mustern und 24 Texturen.
-- Zuweisen von Links zu Formen.
-- Lesen, Ändern und Hinzufügen neuer Animations‑Effekte zu Folien und Formen.
-- Hinzufügen neuer Bilder zu Präsentationen und Verwalten vorhandener Bilder.
-- Hinzufügen neuer Bild‑Aufzählungszeichen zu Präsentationen und Verwalten vorhandener Aufzählungszeichen.
-- Hinzufügen neuer Audio‑Frames zu Präsentationen und Verwalten vorhandener Audio‑Frames.
-- Hinzufügen neuer Video‑Frames zu Präsentationen und Verwalten vorhandener Video‑Frames.
+1. Präsentationsfunktionen.  
+1. Folienfunktionen.  
+1. Grafik‑ und Multimedia‑Funktionen.  
+1. Tabellen‑Funktionen.  
+1. Text‑ und Absatz‑Funktionen  
+1. Erweiterte Funktionen  
+
+### **Präsentationsfunktionen**
+- Öffnen von Microsoft PowerPoint‑Präsentationen aus verschiedenen Quellen.  
+- Speichern von Präsentationen in verschiedenen Microsoft PowerPoint‑Formaten.  
+- Erstellen von Präsentationen von Grund auf.  
+- Konvertieren von Präsentationen in PDF‑Dokumente ohne Verwendung einer anderen Komponente  
+- Lesen oder Ändern der Dokumenteigenschaften einer Präsentation  
+- Schutz auf Präsentationen anwenden  
+- Exportieren der Präsentation nach PDF  
+- Exportieren der Präsentation nach TIFF  
+- Exportieren der Präsentation nach XPS  
+- Exportieren der Präsentation nach SWF  
+- Exportieren der Präsentation zu PDF‑Anmerkungen / TIFF‑Anmerkungen  
+- Exportieren der Präsentation nach HTML  
+
+### **Folie‑Funktionen**
+- Erstellen neuer Folien von Grund auf und Hinzufügen zu Präsentationen.  
+- Zugriff auf jede Folie über ihre Position in einer Präsentation.  
+- Kopieren oder Klonen von Folien in dieselbe oder eine andere Präsentation.  
+- Bearbeiten und Löschen von Folien.  
+- Automatisches Kopieren von Master‑Folien zusammen mit Folien.  
+- Vorschau von Folien.  
+- Abrufen oder Festlegen des Namens einer Folie.  
+- Speichern von Folien als Bilder.  
+- Exportieren von Folien in das SVG‑Format.  
+- Arbeiten mit mehreren Mastern in Präsentationen.  
+- Füllen des Folienhintergrunds mit jedem unterstützten Stil.  
+- Hinzufügen neuer oder Verwalten von Folien‑Notizen.  
+- Dynamisches Festlegen neuer Folienmaster und -stile.  
+- Hinzufügen oder Ändern von Folienpräsentations‑Übergängen.  
+- Hinzufügen von Morph‑Übergängen  
+
+### **Grafik‑ und Multimedia‑Funktionen**
+- Erstellen oder Verwalten von Formen wie Linien, Rechtecken, Ellipsen und Polylinien.  
+- Verwalten von Linienstilen in Formen.  
+- Abrufen des Alternativtexts einer Form.  
+- Drehen und Spiegeln von Formen.  
+- Füllen von Formen in verschiedenen Stilen — z. B. einfarbig, Verlauf, Muster, Textur und Bild.  
+- Verwenden von 48 vordefinierten Mustern und 24 Texturen.  
+- Zuweisen von Links zu Formen.  
+- Lesen, Ändern und Hinzufügen neuer Animationseffekte zu Folien und Formen.  
+- Hinzufügen neuer Bilder zu Präsentationen und Verwalten vorhandener Bilder.  
+- Hinzufügen neuer Bild‑Aufzählungszeichen zu Präsentationen und Verwalten vorhandener Aufzählungszeichen.  
+- Hinzufügen neuer Audio‑Frames zu Präsentationen und Verwalten vorhandener Frames.  
+- Hinzufügen neuer Video‑Frames zu Präsentationen und Verwalten vorhandener Frames.  
+
 ### **Tabellen‑Funktionen**
-- Erstellen von Tabellen von Grund auf und Hinzufügen zu Folien.
-- Ändern der Größe und Verschieben von Tabellen.
-- Zugriff auf jede Zelle einer Tabelle.
-- Ändern von Format und Rahmen einer Zelle.
-- Ändern der Größe von Spalten und Zeilen.
-- Hinzufügen und Löschen von Spalten und Zeilen.
-- Festlegen von Rahmenbreite und -farbe für die gesamte Tabelle.
-### **Text‑ & Absatz‑Funktionen**
-- Abrufen und Festlegen von Texten in Text‑Platzhaltern und Text‑Frames.
-- Abrufen des Typs eines Platzhalters.
-- Ändern der Textformatierung in einem Text‑Frame.
-- Hinzufügen neuer Schriftarten oder Verwalten der bereits in einer Präsentation verwendeten Schriftarten.
-- Ändern von Texten und Textformatierung.
-- Erstellen oder Verwalten von Links im Text.
-- Unterstützen von Tabs und effektiven Tabs.
-- Hinzufügen neuer Text‑Frames zu fast jedem Formtyp.
-- Zugriff auf und Ändern von Rändern sowie Text‑Umbruch‑Einstellungen von Text‑Frames.
-- Zugriff auf und Ändern von Absatz‑Einzügen.
+- Erstellen von Tabellen von Grund auf und Hinzufügen zu Folien.  
+- Größenänderung und Verschieben von Tabellen.  
+- Zugriff auf jede Zelle in einer Tabelle.  
+- Ändern des Formats und der Rahmen einer Zelle.  
+- Größenanpassung von Spalten und Zeilen.  
+- Hinzufügen und Löschen von Spalten und Zeilen.  
+- Festlegen von Rahmenbreite und -farbe für die gesamte Tabelle.  
+
+### **Text‑ und Absatz‑Funktionen**
+- Abrufen und Festlegen von Texten in Text‑Platzhaltern und Text‑Frames.  
+- Abrufen des Typs eines Platzhalters.  
+- Ändern der Textformatierung in einem Text‑Frame.  
+- Hinzufügen neuer Schriftarten oder Verwalten der bereits in einer Präsentation verwendeten Schriftarten.  
+- Ändern von Texten und Textformatierung.  
+- Erstellen oder Verwalten von Links im Text.  
+- Unterstützung von Tabulatoren und effektiven Tabulatoren.  
+- Hinzufügen neuer Text‑Frames zu fast jedem Formtyp.  
+- Zugriff auf und Ändern von Rändern und Textumbruch‑Einstellungen von Text‑Frames.  
+- Zugriff auf und Ändern von Absatz‑Einzügen.  
+
 ### **Erweiterte Funktionen**
-- Zugriff auf OLE‑Objekte, die in Präsentationen eingebettet sind.
-- Sperren von Präsentationen.
+- Zugriff auf in Präsentationen eingebettete OLE‑Objekte.  
+- Sperren von Präsentationen.  
 
 ## **Technischer Support**
-Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Benutzern (einschließlich Benutzern mit Evaluierungspaketen) zur Verfügung. Wenn Sie Hilfe zu Aspose.Slides für .NET benötigen, beachten Sie Folgendes:
+Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Benutzern zur Verfügung (einschließlich Benutzern mit Evaluierungspaketen). Wenn Sie Hilfe zu Aspose.Slides für .NET benötigen, beachten Sie Folgendes:
+- Hauptkontakt für Support ist das [Aspose Forums](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides forum](https://forum.aspose.com/c/slides/11) — und Sie erhalten innerhalb weniger Stunden eine Antwort. Das Aspose.Slides‑Support‑Team beantwortet Fragen, die im Forum gestellt werden, direkt.
+- Bitte beachten Sie, dass Aspose keinen telefonischen technischen Support anbietet. Telefonischer Support ist nur für Vertriebs‑ und Kauf‑Fragen verfügbar.
+- Wenn Sie eine Antwort im Forum erwarten, seien Sie bitte geduldig und berücksichtigen Sie Zeitverschiebungen.
 
-- Der Hauptweg für Support ist das [Aspose‑Forum](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/11) — und Sie erhalten innerhalb weniger Stunden eine Antwort. Das Aspose.Slides‑Support‑Team beantwortet Fragen, die im Forum gepostet werden, direkt.
-- Bitte beachten Sie, dass Aspose keinen telefonischen technischen Support anbietet. Telefonischer Support ist nur für Vertriebs‑ und Kauffragen verfügbar.
-- Wenn Sie im Forum auf eine Antwort warten, haben Sie Geduld und berücksichtigen Sie Zeitzonen‑Unterschiede.
+Wenn Sie ein Problem mit Aspose.Slides für .NET haben, befolgen Sie diese Richtlinien, um es möglichst effizient zu lösen:
+- Prüfen und bestätigen Sie zunächst, dass Sie die neueste Version von Aspose.Slides für .NET verwenden, bevor Sie das Problem melden. Möglicherweise wurde das von Ihnen erlebte Problem bereits in einem Update behoben.
 
-Wenn Sie ein Problem mit Aspose.Slides für .NET haben, folgen Sie diesen Richtlinien, um es so effizient wie möglich zu lösen:
+Siehe [Aspose.Slides download](https://www.nuget.org/packages/Aspose.Slides.NET/) für Informationen zur neuesten Produktversion.
+- Bevor Sie ein Problem melden, sollten Sie unsere Foren, diese Dokumentation und die API‑Referenz prüfen. Möglicherweise wurde die Antwort auf Ihre Frage bereits bereitgestellt.
+- Wenn Sie ein Problem melden, fügen Sie bitte das Originaldokument und (wenn möglich) einen Codeauszug, der das Problem betrifft, bei. Wenn Sie mehrere Dateien anhängen müssen, packen Sie sie in ein ZIP‑Archiv.
 
-- Prüfen und bestätigen Sie zuerst, dass Sie die neueste Version von Aspose.Slides für .NET verwenden, bevor Sie das Problem melden. Vielleicht wurde das von Ihnen erlebte Problem bereits in einem Update behoben.  
+Sie können Ihre Dokumente sicher im Aspose.Forums anhängen, da nur Sie und die Aspose‑Entwickler Zugriff auf die angehängten Dateien haben.
+- Erstellen Sie für jedes spezifische Problem einen Thread. Wenn Sie ein weiteres Problem haben, müssen Sie einen neuen Thread erstellen, um es zu melden.
 
-  Siehe [Aspose.Slides‑Download](https://www.nuget.org/packages/Aspose.Slides.NET/) für Informationen zur neuesten Produktversion.
+Die folgende Tabelle listet wichtige technische Ressourcen für Aspose.Slides für .NET auf.
 
-- Bevor Sie ein Problem melden, sollten Sie unsere Foren, diese Dokumentation und die API‑Referenz durchsuchen. Vielleicht wurde Ihre Frage bereits beantwortet. 
-
-- Beim Melden eines Problems fügen Sie bitte das Original‑Dokument und (wenn möglich) einen Code‑Auszug, der das Problem betrifft, bei. Wenn Sie mehrere Dateien anhängen müssen, packen Sie diese in ein ZIP‑Archiv. 
-
-  Sie können Ihre Dokumente sicher im Aspose‑Forum hochladen, da nur Sie und die Aspose‑Entwickler Zugriff auf die angehängten Dateien haben.
-
-- Erstellen und benutzen Sie einen Thread für ein bestimmtes Problem. Wenn Sie ein weiteres Problem haben, müssen Sie einen neuen Thread eröffnen. 
-
-Diese Tabelle listet wichtige technische Ressourcen zu Aspose.Slides für .NET auf.
-
-|**Ressource**|**Beschreibung**|
+|**Resource**|**Description**|
 | :- | :- |
-|[Aspose.Slides für .NET‑Startseite](https://products.aspose.com/slides/net/)|Produkt‑Startseite.|
-|[Aspose.Slides‑Blog](https://blog.aspose.com/category/slides/)|Besuchen Sie diese Seite regelmäßig für Informationen zu neuen Releases und nützlichen Tipps zu Aspose.Slides.|
-|[Aspose.Slides für .NET‑Download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir veröffentlichen regelmäßig neue Versionen.|
-|[Aspose.Slides‑Support‑Forum](https://forum.aspose.com/c/slides/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
-|[Aspose.Slides für .NET‑Produktdokumentation](/slides/de/net/)|Vollständige Online‑Dokumentation, die dieses Dokument und die Aspose.Slides‑API‑Referenz enthält.|
+|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net/)|Produkt‑Startseite.|
+|[Aspose.Slide blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie diese Seite regelmäßig für Informationen zu neuen Versionen und nützlichen Tipps zu Aspose.Slides.|
+|[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir veröffentlichen häufig neue Versionen.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
+|[Aspose.Slides for .NET product documentation](/slides/de/net/)|Vollständige Online‑Dokumentation, die dieses Dokument und die Aspose.Slides API‑Referenz enthält.|
+
 ## **Erklärung**
-Alle Aspose‑.NET‑Komponenten erfordern das Full‑Trust‑Berechtigungs‑Set. Der Grund: Aspose‑.NET‑Komponenten benötigen höchste Privilegien, um auf Registrierungseinstellungen, Systemdateien und virtuelle Verzeichnisse zuzugreifen und bestimmte Vorgänge wie das Parsen von Schriftarten und ähnliche Aufgaben auszuführen. Außerdem basieren Aspose‑.NET‑Komponenten auf den Kern‑.NET‑Systemklassen, die in vielen Fällen ebenfalls das Full‑Trust‑Berechtigungs‑Set erfordern. 
+Alle Aspose .NET‑Komponenten erfordern das Full Trust‑Berechtigungsset. Der Grund: Aspose .NET‑Komponenten benötigen höchste Berechtigungen, um auf Registrierungseinstellungen, Systemdateien und virtuelle Verzeichnisse zuzugreifen, um bestimmte Vorgänge wie das Parsen von Schriftarten und ähnliche Aufgaben auszuführen. Darüber hinaus basieren Aspose .NET‑Komponenten auf den Kern‑.NET‑Systemklassen, die in vielen Fällen ebenfalls das Full Trust‑Berechtigungsset benötigen.
 
-Internet‑Service‑Provider, die mehrere Anwendungen verschiedener Unternehmen hosten, setzen meist das Sicherheitsniveau Medium‑Trust durch. Im Fall von .NET 2.0 gelten dabei folgende Einschränkungen:
-
-- OleDbPermission ist nicht verfügbar. Das bedeutet, dass Sie den verwalteten ADO.NET‑OLE‑DB‑Datenprovider nicht zum Zugriff auf Datenbanken verwenden können.
+Internet‑Service‑Provider, die mehrere Anwendungen verschiedener Unternehmen hosten, setzen meist das Sicherheitsniveau Medium Trust durch. Im Fall von .NET 2.0 gelten folgende Einschränkungen:
+- OleDbPermission ist nicht verfügbar. Das bedeutet, dass Sie den verwalteten ADO.NET OLE DB‑Datenprovider nicht zum Zugriff auf Datenbanken verwenden können.
 - EventLogPermission ist nicht verfügbar. Das bedeutet, dass Sie nicht auf das Windows‑Ereignisprotokoll zugreifen können.
-- ReflectionPermission ist nicht verfügbar. Das bedeutet, dass Sie keine Reflexion verwenden können.
+- ReflectionPermission ist nicht verfügbar. Das bedeutet, dass Sie Reflection nicht verwenden können.
 - RegistryPermission ist nicht verfügbar. Das bedeutet, dass Sie nicht auf die Registrierung zugreifen können.
 - WebPermission ist eingeschränkt. Das bedeutet, dass Ihre Anwendung nur mit einer Adresse oder einem Adressbereich kommunizieren kann, den Sie im <trust>-Element definiert haben.
-- FileIOPermission ist eingeschränkt. Das bedeutet, dass Sie nur auf Dateien in der virtuellen Verzeichnis‑Hierarchie Ihrer Anwendung zugreifen können.
+- FileIOPermission ist eingeschränkt. Das bedeutet, dass Sie nur auf Dateien im virtuellen Verzeichnisbaum Ihrer Anwendung zugreifen können.
 
-Aus den genannten Gründen können Aspose‑.NET‑Komponenten nur auf Servern verwendet werden, die das Full‑Trust‑Berechtigungs‑Set gewähren. 
+Aufgrund der oben genannten Gründe können Aspose .NET‑Komponenten nur auf Servern verwendet werden, die das Full Trust‑Berechtigungsset gewähren.
 
 ## **FAQ**
 
 **Unterstützt es PDF‑Konformitätsstufen für Archivierung und Barrierefreiheit (PDF/A und PDF/UA)?**
 
-Ja. Sie können mit PDF‑Export‑Optionen nach PDF/A‑2a/2b/2u, PDF/A‑3a/3b sowie PDF/UA speichern.
+Ja. Sie können mit PDF‑Export‑Optionen zu PDF/A‑2a/2b/2u, PDF/A‑3a/3b sowie PDF/UA speichern.
 
-**Gibt es einen Font‑Substitutions‑Mechanismus und Unterstützung für benutzerdefinierte Schriften, um korrektes Rendering sicherzustellen?**
+**Gibt es einen Mechanismus für Schriftart‑Substitution und Unterstützung für benutzerdefinierte Schriftarten, um eine korrekte Darstellung zu gewährleisten?**
 
-Ja. Die Bibliothek ermöglicht das [Laden benutzerdefinierter Schriften](/slides/de/net/custom-font/) und das [Definieren von Fallback‑Regeln](/slides/de/net/fallback-font/), sodass fehlende Glyphen zuverlässig während Konvertierung und Rendering ersetzt werden.
+Ja. Die Bibliothek ermöglicht das [Laden benutzerdefinierter Schriftarten](/slides/de/net/custom-font/) und das [Definieren von Fallback‑Regeln](/slides/de/net/fallback-font/), sodass fehlende Glyphen zuverlässig während der Konvertierung und Darstellung ersetzt werden.
 
 **Kann ich erkennen, ob eine Datei passwortgeschützt ist, ohne sie vollständig zu öffnen?**
 
@@ -172,32 +171,32 @@ Ja. Sie können eine Präsentation [untersuchen](/slides/de/net/examine-presenta
 
 **Ist Microsoft PowerPoint für die Verarbeitung und Konvertierung erforderlich?**
 
-Nein. Aspose.Slides ist eine eigenständige Engine; PowerPoint wird auf Server oder Workstation nicht benötigt.
+Nein. Aspose.Slides ist eine eigenständige Engine; PowerPoint wird auf dem Server oder Arbeitsplatz nicht benötigt.
 
-**Ist die Verarbeitung von Präsentationen aus mehreren Threads sicher?**
+**Ist es sicher, Präsentationen aus mehreren Threads zu verarbeiten?**
 
-Ja, Sie können verschiedene Dokumente parallel in separaten Threads verarbeiten; vermeiden Sie jedoch die gleichzeitige Verwendung derselben Präsentationsinstanz [über Threads hinweg](/slides/de/net/multithreading/).
+Ja, Sie können verschiedene Dokumente parallel in separaten Threads verarbeiten; verwenden Sie jedoch nicht dieselbe Präsentationsinstanz gleichzeitig [across threads](/slides/de/net/multithreading/).
 
 **Werden Makros beibehalten und kann ich VBA in PPTM/PPSM‑Dateien verwalten?**
 
-Ja. Präsentationen mit Makros [werden unterstützt](/slides/de/net/presentation-via-vba/), und Sie können VBA‑Projekte [untersuchen und verwalten](https://reference.aspose.com/slides/net/aspose.slides.vba/) in diesen Dateien.
+Ja. Präsentationen mit Makros [werden unterstützt](/slides/de/net/presentation-via-vba/), und Sie können [VBA‑Projekte untersuchen und verwalten](https://reference.aspose.com/slides/net/aspose.slides.vba/) in diesen Dateien.
 
-**Kann ich PDF‑ oder HTML‑Inhalte zurück in PowerPoint‑Folien konvertieren?**
+**Kann ich PDF oder HTML zurück in PowerPoint‑Folien konvertieren?**
 
-Ja. Sie können PDF‑Seiten oder HTML‑Inhalte [importieren](/slides/de/net/import-presentation/), um Folien in einer Präsentation zu erstellen oder zu befüllen.
+Ja. Sie können [PDF‑Seiten oder HTML‑Inhalte importieren](/slides/de/net/import-presentation/), um Folien in einer Präsentation zu erstellen oder zu füllen.
 
-**Wird der XPS‑Export unterstützt und kann ich Qualität und Inhalt der XPS‑Ausgabe steuern?**
+**Wird XPS‑Export unterstützt und kann ich die Qualität und den Inhalt der XPS‑Ausgabe steuern?**
 
-Ja. Der [Export nach XPS](/slides/de/net/convert-powerpoint-to-xps/) ist verfügbar, und [Speicheroptionen](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) ermöglichen das Anpassen von Ausgabequalität und enthaltenen Inhalten.
+Ja. [Export nach XPS](/slides/de/net/convert-powerpoint-to-xps/) ist verfügbar, und [Speicheroptionen](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) ermöglichen die Feinabstimmung von Ausgabequalität und enthaltenem Inhalt.
 
 **Kann ich Folien in Bilder konvertieren und die Ausgabequalität steuern?**
 
-Ja. Folien können in [PNG, JPEG, GIF, BMP, TIFF](/slides/de/net/convert-powerpoint-to-png/) und andere Formate gerendert werden, wobei Sie feinkörnig Größe und Qualität steuern können.
+Ja. Folien können zu PNG, JPEG, GIF, BMP, TIFF usw. gerendert werden, wobei Sie Größe und Qualität granular steuern können.
 
 **Werden mathematische Formeln unterstützt (MathML/MathText) und können sie exportiert werden?**
 
-Ja. Sie können mathematischen Text [erstellen und bearbeiten](/slides/de/net/powerpoint-math-equations/) und [Gleichungen exportieren](/slides/de/net/exporting-math-equations/), auch nach MathML.
+Ja. Sie können [mathematischen Text erstellen und bearbeiten](/slides/de/net/powerpoint-math-equations/) und [Formeln exportieren](/slides/de/net/exporting-math-equations/), einschließlich nach MathML.
 
-**Wie geht die Bibliothek mit Verschlüsselung und Passwörtern (öffnen, setzen, entfernen) um?**
+**Wie geht die Bibliothek mit Verschlüsselung und Passwörtern um (öffnen, setzen, entfernen)?**
 
-[Sie unterstützt](/slides/de/net/password-protected-presentation/) das Öffnen verschlüsselter Präsentationen, das Setzen oder Entfernen von Passwörtern zum Öffnen und Ändern sowie das Prüfen des Schutzstatus einer Datei.
+[Ihre Bibliothek unterstützt](/slides/de/net/password-protected-presentation/) das Öffnen verschlüsselter Präsentationen, das Setzen oder Entfernen von Passwörtern zum Öffnen und Ändern sowie das Überprüfen des Schutzstatus einer Datei.

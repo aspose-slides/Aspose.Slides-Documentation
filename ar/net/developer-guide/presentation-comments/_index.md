@@ -1,6 +1,6 @@
 ---
-title: إدارة تعليقات العرض التقديمي في .NET
-linktitle: تعليقات العرض التقديمي
+title: إدارة تعليقات العرض في .NET
+linktitle: تعليقات العرض
 type: docs
 weight: 100
 url: /ar/net/presentation-comments/
@@ -8,39 +8,39 @@ keywords:
 - تعليق
 - تعليق حديث
 - تعليقات PowerPoint
-- تعليقات العرض التقديمي
+- تعليقات العرض
 - تعليقات الشريحة
 - إضافة تعليق
 - الوصول إلى التعليق
-- تعديل تعليق
+- تحرير التعليق
 - الرد على التعليق
-- إزالة تعليق
-- حذف تعليق
+- إزالة التعليق
+- حذف التعليق
 - PowerPoint
-- عرض تقديمي
+- عرض
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في تعليقات العرض التقديمي باستخدام Aspose.Slides for .NET: أضف، واقرأ، وعدل، واحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
+description: "تحكم في تعليقات العرض باستخدام Aspose.Slides لـ .NET: إضافة، قراءة، تحرير، وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
 ---
 
-في PowerPoint، يظهر التعليق كملاحظة أو توضيح على الشريحة. عند النقر على التعليق، يتم الكشف عن محتوياته أو رسائله. 
+في PowerPoint، يظهر التعليق كملحوظة أو توضيح على شريحة. عند النقر على التعليق، يتم الكشف عن محتوياته أو رسائله. 
 
-## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
+## **لماذا نضيف التعليقات إلى العروض التقديمية؟**
 
-قد ترغب في استخدام التعليقات لتقديم الملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
+قد ترغب في استخدام التعليقات لتقديم ملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
 
-للسماح لك باستخدام التعليقات في عروض PowerPoint، يوفر Aspose.Slides for .NET:
+للسماح لك باستخدام التعليقات في عروض PowerPoint، توفر Aspose.Slides للـ .NET ما يلي:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على مجموعات المؤلفين (من الخاصية [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). يضيف المؤلفون تعليقات إلى الشرائح. 
-* الواجهة [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) التي تحتوي على مجموعة التعليقات لكل مؤلف. 
-* الفئة [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موضع التعليق، إلخ. 
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) التي تحتوي على معلومات حول كل مؤلف: اسم المؤلف، حروفه الأولى، التعليقات المرتبطة باسم المؤلف، إلخ. 
+* الفئة [Presentation]، التي تحتوي على مجموعات المؤلفين (من الخاصية [CommentAuthorCollection]). المؤلفون يضيفون تعليقات إلى الشرائح. 
+* الواجهة [ICommentCollection]، التي تحتوي على مجموعة التعليقات للمؤلفين الفرديين. 
+* الفئة [IComment]، التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موقع التعليق، إلخ. 
+* الفئة [CommentAuthor]، التي تحتوي على معلومات حول المؤلفين الفرديين: اسم المؤلف، أحرفه الأولى، التعليقات المرتبطة باسم المؤلف، إلخ. 
 
-## **إضافة تعليق إلى شريحة**
+## **إضافة تعليقات إلى الشريحة**
 هذا الكود C# يوضح لك كيفية إضافة تعليق إلى شريحة في عرض PowerPoint:
 ```c#
-// ينشئ فئة Presentation
+// ينشئ كائن الفئة Presentation
 using (Presentation presentation = new Presentation())
 {
     // يضيف شريحة فارغة
@@ -49,7 +49,7 @@ using (Presentation presentation = new Presentation())
     // يضيف مؤلفًا
     ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 
-    // يحدد الموقع للتعليقات
+    // يحدد موضع التعليقات
     PointF point = new PointF();
     point.X = 0.2f;
     point.Y = 0.2f;
@@ -63,7 +63,7 @@ using (Presentation presentation = new Presentation())
     // يصل إلى ISlide 1
     ISlide slide = presentation.Slides[0];
 
-    // عند تمرير null كمعامل، يتم جلب التعليقات من جميع المؤلفين إلى الشريحة المحددة
+    // عندما يتم تمرير null كمعامل، يتم جلب التعليقات من جميع المؤلفين إلى الشريحة المختارة
     IComment[] Comments = slide.GetSlideComments(author);
 
     // يصل إلى التعليق في الفهرس 0 للشريحة 1
@@ -73,7 +73,7 @@ using (Presentation presentation = new Presentation())
 
     if (Comments.GetLength(0) > 0)
     {
-        // يختار مجموعة تعليقات المؤلف في الفهرس 0
+        // يحدد مجموعة تعليقات المؤلف في الفهرس 0
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
@@ -84,7 +84,7 @@ using (Presentation presentation = new Presentation())
 ## **الوصول إلى تعليقات الشريحة**
 هذا الكود C# يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint:
 ```c#
-// ينشئ فئة Presentation
+// ينشئ كائن الفئة Presentation
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
@@ -101,22 +101,22 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **الرد على التعليقات**
-التعليق الأصلي هو أعلى أو أول تعليق في تسلسل هرمي من التعليقات أو الردود. باستخدام خاصية [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) (من الواجهة [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) يمكنك تعيين أو الحصول على التعليق الأصلي. 
+التعليق الأصلي هو التعليق الأعلى أو الأول في تسلسل هرمي من التعليقات أو الردود. باستخدام الخاصية [ParentComment] (من الواجهة [IComment])، يمكنك تعيين أو الحصول على التعليق الأصلي. 
 
 هذا الكود C# يوضح لك كيفية إضافة تعليقات والحصول على الردود عليها:
 ```c#
 using (Presentation pres = new Presentation())
 {
-    // يضيف تعليق
+    // يضيف تعليقًا
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
     IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // يضيف ردًا على comment1
+    // يضيف ردًا على التعليق 1
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
 
-    // يضيف ردًا آخر على comment1
+    // يضيف ردًا آخر على التعليق 1
     IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // يعرض تسلسل التعليقات الهرمي على وحدة التحكم
+    // يعرض تسلسل هرم التعليقات على وحدة التحكم
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // يزيل comment1 وجميع الردود عليه
+    // يزيل التعليق 1 وجميع الردود عليه
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
@@ -158,16 +158,16 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Attention" %}} 
 
-* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) (من الواجهة [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) لحذف تعليق، يتم أيضًا حذف الردود على التعليق. 
-* إذا أدت إعدادات [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) إلى مرجع دائري، سيتم رمي الاستثناء [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
+* عند استخدام طريقة [Remove] (من الواجهة [IComment]) لحذف تعليق، يتم حذف الردود على التعليق أيضًا. 
+* إذا أدّى ضبط [ParentComment] إلى إشارة دائرية، سيتم إلقاء استثناء [PptxEditException].
 
 {{% /alert %}}
 
-## **إضافة تعليق حديث**
+## **إضافة تعليقات حديثة**
 
-في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. تُحسن ميزة التعليقات الحديثة بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يتمكن مستخدمو PowerPoint من حل التعليقات، ربط التعليقات بالأجسام والنصوص، والتفاعل بسهولة أكبر مما كان من قبل. 
+في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. تحسّن ميزة التعليقات الحديثة بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يحصل مستخدمو PowerPoint على إمكانية حل التعليقات، ربط التعليقات بالكائنات والنصوص، والتفاعل بسهولة أكبر مما كان قبل ذلك. 
 
-في [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/)، قمنا بتنفيذ دعم التعليقات الحديثة بإضافة الفئة [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment). تمت إضافة الطريقتين [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) و [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) إلى الفئة [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection). 
+في [Aspose Slides for .NET 21.11]، نفّذنا دعم التعليقات الحديثة بإضافة الفئة [ModernComment]. أضيفت الطريقتان [AddModernComment] و [InsertModernComment] إلى الفئة [CommentCollection]. 
 
 هذا الكود C# يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint: 
 ```c#
@@ -181,21 +181,21 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **إزالة التعليق**
+## **إزالة التعليقات**
 
 ### **حذف جميع التعليقات والمؤلفين**
 
-هذا الكود C# يوضح لك كيفية حذف جميع التعليقات والمؤلفين في عرض تقديمي:
+هذا الكود C# يوضح لك كيفية إزالة جميع التعليقات والمؤلفين في عرض تقديمي:
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
-    // حذف جميع التعليقات من العرض التقديمي
+    // يحذف جميع التعليقات من العرض
     foreach (var author in presentation.CommentAuthors)
     {
         author.Comments.Clear();
     }
 
-    // حذف جميع المؤلفين
+    // يحذف جميع المؤلفين
     presentation.CommentAuthors.Clear();
 
     presentation.Save("example_out.pptx", SaveFormat.Pptx);
@@ -216,7 +216,7 @@ using (var presentation = new Presentation())
     author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
     author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
     
-    // إزالة جميع التعليقات التي تحتوي على النص "comment 1"
+    // إزالة جميع التعليقات التي تحتوي على نص "comment 1"
     foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
     {
         List<IComment> toRemove = new List<IComment>();
@@ -239,16 +239,16 @@ using (var presentation = new Presentation())
 ```
 
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**هل يدعم Aspose.Slides حالة مثل 'محلول' للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة مثل 'تم الحل' للتعليقات الحديثة؟**
 
-نعم. تُظهر [Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) خاصية [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/); يمكنك قراءة وتعيين [حالة التعليق](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) (على سبيل المثال، وضع علامة بأنه محلول)، وهذه الحالة تُحفظ في الملف وتُعترف بها من قبل PowerPoint.
+نعم. التعليقات الحديثة ([ModernComment]) توفر خاصية [Status]؛ يمكنك قراءة وتعيين حالة التعليق (على سبيل المثال، وضعه كـ "تم الحل")، ويتم حفظ هذه الحالة في الملف وتُعترف بها في PowerPoint.
 
-**هل تدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الرد) وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/)، مما يتيح سلاسل ردود غير محدودة. لا تُحدد الواجهة حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment] الخاص به، مما يتيح سلاسل رد غير محدودة. لا تحدد الـ API حدًا محددًا لعمق التعشيق.
 
 **في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يتم تخزين الموضع كنقطة ذات نقطة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في المكان الذي تحتاجه.
+يُخزن الموضع كنقطة ذات قيم فاصلة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضع علامة التعليق بدقة في المكان المطلوب.

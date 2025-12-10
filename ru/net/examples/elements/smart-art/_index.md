@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Создавайте и редактируйте SmartArt на C# с помощью Aspose.Slides: добавляйте узлы, меняйте макеты и стили, точно преобразуйте в формы и экспортируйте в PPT, PPTX и ODP."
+description: "Создавайте и редактируйте SmartArt в C# с помощью Aspose.Slides: добавляйте узлы, меняйте макеты и стили, точно преобразуйте в фигуры и экспортируйте в PPT, PPTX и ODP."
 ---
 
-Показывает, как добавлять графику SmartArt, получать к ней доступ, удалять её и изменять макеты с помощью **Aspose.Slides for .NET**.
+Показывает, как добавлять графику SmartArt, получать к ней доступ, удалять её и менять макеты с помощью **Aspose.Slides for .NET**.
 
-## Добавить SmartArt
+## **Добавить SmartArt**
 
 Вставьте графику SmartArt, используя один из встроенных макетов.
 ```csharp
@@ -34,7 +34,7 @@ static void Add_SmartArt()
 ```
 
 
-## Доступ к SmartArt
+## **Доступ к SmartArt**
 
 Получите первый объект SmartArt на слайде.
 ```csharp
@@ -49,9 +49,9 @@ static void Access_SmartArt()
 ```
 
 
-## Удалить SmartArt
+## **Удалить SmartArt**
 
-Удалите форму SmartArt со слайда.
+Удалите объект SmartArt со слайда.
 ```csharp
 static void Remove_SmartArt()
 {
@@ -64,7 +64,7 @@ static void Remove_SmartArt()
 ```
 
 
-## Изменить макет SmartArt
+## **Изменить макет SmartArt**
 
 Обновите тип макета существующей графики SmartArt.
 ```csharp

@@ -8,8 +8,8 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии к презентации
-- комментарии к слайдам
+- комментарии презентации
+- комментарии слайда
 - добавить комментарий
 - доступ к комментариям
 - редактировать комментарий
@@ -21,26 +21,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Управляйте комментариями презентаций с помощью Aspose.Slides для .NET: быстро и легко добавляйте, читайте, редактируйте и удаляйте комментарии в файлах PowerPoint."
+description: "Эффективно управляйте комментариями презентаций с помощью Aspose.Slides для .NET: добавляйте, читайте, редактируйте и удаляйте комментарии в файлах PowerPoint быстро и легко."
 ---
 
-В PowerPoint комментарий отображается как заметка или аннотация на слайде. При щелчке по комментарию его содержимое или сообщения раскрываются.  
+В PowerPoint комментарий отображается как заметка или аннотация на слайде. При щелчке по комментарию его содержимое или сообщения раскрываются. 
 
-## **Зачем добавлять комментарии в презентации?**
+## **Зачем добавлять комментарии к презентациям?**
 
-Вы можете использовать комментарии, чтобы дать обратную связь или общаться с коллегами при просмотре презентаций.
+Вы можете использовать комментарии для предоставления обратной связи или общения с коллегами при просмотре презентаций.
 
-Чтобы позволить вам использовать комментарии в презентациях PowerPoint, Aspose.Slides для .NET предоставляет  
+Чтобы вы могли использовать комментарии в презентациях PowerPoint, Aspose.Slides для .NET предоставляет
 
-* Класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), который содержит коллекцию авторов (из свойства [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). Авторы добавляют комментарии к слайдам.  
-* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection), который содержит коллекцию комментариев для отдельных авторов.  
-* Класс [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment), который содержит информацию о авторах и их комментариях: кто добавил комментарий, время добавления, позиция комментария и т.д.  
-* Класс [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor), который содержит информацию об отдельных авторах: имя автора, его инициалы, комментарии, связанные с именем автора, и т.д.  
+* Класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), который содержит коллекции авторов (из свойства [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). Авторы добавляют комментарии к слайдам. 
+* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection), который содержит коллекцию комментариев для отдельных авторов. 
+* Класс [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment), который содержит информацию об авторах и их комментариях: кто добавил комментарий, время его добавления, позицию комментария и т.д. 
+* Класс [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor), который содержит информацию об отдельных авторах: имя автора, его инициалы, комментарии, связанные с именем автора, и т.д. 
 
-## **Добавить комментарий к слайду**
-Этот код C# показывает, как добавить комментарий к слайду в презентации PowerPoint:
+## **Добавление комментариев к слайдам**
+Этот код на C# показывает, как добавить комментарий к слайду в презентации PowerPoint:
 ```c#
-// Создаёт экземпляр класса Presentation
+// Создает экземпляр класса Presentation
 using (Presentation presentation = new Presentation())
 {
     // Добавляет пустой слайд
@@ -60,13 +60,13 @@ using (Presentation presentation = new Presentation())
     // Добавляет комментарий к слайду для автора на слайде 2
     author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
 
-    // Получает ISlide 1
+    // Доступ к ISlide 1
     ISlide slide = presentation.Slides[0];
 
-    // Когда в качестве аргумента передаётся null, комментарии всех авторов добавляются к выбранному слайду
+    // Когда в качестве аргумента передается null, комментарии от всех авторов добавляются к выбранному слайду
     IComment[] Comments = slide.GetSlideComments(author);
 
-    // Получает комментарий с индексом 0 для слайда 1
+    // Доступ к комментарию с индексом 0 для слайда 1
     String str = Comments[0].Text;
 
     presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
@@ -81,10 +81,10 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Получить комментарии слайда**
-Этот код C# показывает, как получить существующий комментарий на слайде в презентации PowerPoint:
+## **Получение комментариев со слайда**
+Этот код на C# показывает, как получить существующий комментарий на слайде в презентации PowerPoint:
 ```c#
-// Создаёт экземпляр класса Presentation
+// Создает экземпляр класса Presentation
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
@@ -101,9 +101,9 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **Ответы на комментарии**
-Родительский комментарий — это верхний или исходный комментарий в иерархии комментариев или ответов. С помощью свойства [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) (из интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) можно установить или получить родительский комментарий.  
+Родительский комментарий — это верхний или исходный комментарий в иерархии комментариев или ответов. С помощью свойства [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) (из интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) можно установить или получить родительский комментарий. 
 
-Этот код C# показывает, как добавлять комментарии и получать ответы на них:
+Этот код на C# показывает, как добавить комментарии и получить ответы на них:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // Отображает иерархию комментариев в консоли
+    // Выводит иерархию комментариев в консоль
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -157,17 +157,19 @@ using (Presentation pres = new Presentation())
 
 
 {{% alert color="warning" title="Attention" %}} 
-* При использовании метода [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) (из интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) для удаления комментария, также удаляются ответы на этот комментарий.  
-* Если установка [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) приводит к циклической ссылке, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).  
+
+* При использовании метода [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) (из интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) для удаления комментария, также удаляются ответы на этот комментарий. 
+* Если настройка [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) приводит к циклической ссылке, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
+
 {{% /alert %}}
 
-## **Добавить современный комментарий**
+## **Добавление современных комментариев**
 
-В 2021 году Microsoft представила *современные комментарии* в PowerPoint. Эта функция существенно улучшила совместную работу в PowerPoint. С помощью современных комментариев пользователи PowerPoint могут разрешать комментарии, привязывать их к объектам и тексту, а также участвовать во взаимодействиях гораздо проще, чем ранее.  
+В 2021 году Microsoft внедрила *современные комментарии* в PowerPoint. Функция современных комментариев существенно улучшает совместную работу в PowerPoint. С помощью современных комментариев пользователи PowerPoint могут разрешать комментарии, привязывать их к объектам и тексту, а также взаимодействовать гораздо проще, чем раньше. 
 
-В [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) мы реализовали поддержку современных комментариев, добавив класс [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment). Методы [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) и [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) были добавлены в класс [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection).  
+В [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), мы реализовали поддержку современных комментариев, добавив класс [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment). В класс [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) были добавлены методы [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) и [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment). 
 
-Этот код C# показывает, как добавить современный комментарий к слайду в презентации PowerPoint: 
+Этот код на C# показывает, как добавить современный комментарий к слайду в презентации PowerPoint: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -179,10 +181,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Удалить комментарий**
+## **Удаление комментариев**
 
 ### **Удалить все комментарии и авторов**
-Этот код C# показывает, как удалить все комментарии и авторов в презентации:
+
+Этот код на C# показывает, как удалить все комментарии и авторов в презентации:
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
@@ -200,19 +203,20 @@ using (var presentation = new Presentation("example.pptx"))
 ```
 
 
-### **Удалить конкретные комментарии**
-Этот код C# показывает, как удалить конкретные комментарии на слайде:
+### **Удалить отдельные комментарии**
+
+Этот код на C# показывает, как удалить конкретные комментарии на слайде:
 ```c#
 using (var presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
     
-    // добавляем комментарии...
+    // добавить комментарии...
     ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
     author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
     author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
     
-    // удаляем все комментарии, содержащие текст "comment 1"
+    // удалить все комментарии, содержащие текст "comment 1"
     foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
     {
         List<IComment> toRemove = new List<IComment>();
@@ -235,13 +239,16 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус, например «разрешён», для современных комментариев?**  
-Да. [Современные комментарии](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) предоставляют свойство [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/). Вы можете читать и задавать состояние [комментария](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) (например, пометить его как разрешённый), и это состояние сохраняется в файле и распознаётся PowerPoint.
+**Поддерживает ли Aspose.Slides статус, например «resolved», для современных комментариев?**
 
-**Поддерживаются ли дискуссии в виде цепочек ответов и существует ли ограничение вложенности?**  
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), что позволяет создавать произвольные цепочки ответов. API не объявляет конкретного ограничения глубины вложенности.
+Да. Современные комментарии предоставляют свойство [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/); вы можете читать и задавать состояние комментария (например, пометить его как «resolved»), и это состояние сохраняется в файле и распознаётся PowerPoint.
 
-**В какой системе координат определяется позиция маркера комментария на слайде?**  
-Позиция хранится как точка с плавающей запятой в системе координат слайда. Это позволяет разместить маркер комментария точно там, где необходимо.
+**Поддерживаются ли цепочки обсуждений (ответов) и существует ли ограничение вложенности?**
+
+Да. Каждый комментарий может ссылаться на свой родительский комментарий, что позволяет создавать произвольные цепочки ответов. API не задаёт конкретного ограничения глубины вложенности.
+
+**В какой системе координат определяется позиция маркера комментария на слайде?**
+
+Позиция хранится как точка с плавающей запятой в системе координат слайда. Это позволяет разместить маркер комментария точно в нужном месте.

@@ -1,52 +1,52 @@
 ---
-title: Mejore sus presentaciones con AutoFit en .NET
+title: Mejora tus presentaciones con AutoFit en .NET
 linktitle: Configuración de Autofit
 type: docs
 weight: 30
 url: /es/net/manage-autofit-settings/
 keywords:
 - cuadro de texto
-- ajuste automático
-- no ajustar automáticamente
+- autofit
+- no autoajuste
 - ajustar texto
 - reducir texto
-- ajuste de texto
+- envolver texto
 - redimensionar forma
 - PowerPoint
 - presentación
 - C#
 - .NET
 - Aspose.Slides
-description: "Aprenda a gestionar la configuración de AutoFit en Aspose.Slides para .NET para optimizar la visualización del texto en sus presentaciones de PowerPoint y OpenDocument y mejorar la legibilidad del contenido."
+description: "Aprende cómo gestionar la configuración de AutoFit en Aspose.Slides para .NET para optimizar la visualización de texto en tus presentaciones de PowerPoint y OpenDocument y mejorar la legibilidad del contenido."
 ---
 
-## **Descripción general**
+## **Resumen**
 
-De forma predeterminada, cuando agrega un cuadro de texto, Microsoft PowerPoint usa la configuración **Resize shape to fit text** para el cuadro de texto; redimensiona automáticamente el cuadro de texto para garantizar que su texto siempre quepa en él.
+Por defecto, cuando añades un cuadro de texto, Microsoft PowerPoint usa la configuración **Redimensionar forma para ajustarse al texto**; redimensiona automáticamente el cuadro de texto para que su contenido siempre quepa.
 
 ![Un cuadro de texto en PowerPoint](textbox-in-powerpoint.png)
 
-* Cuando el texto en el cuadro de texto se vuelve más largo o más grande, PowerPoint amplía automáticamente el cuadro de texto—incrementando su altura—para permitir que contenga más texto.
-* Cuando el texto en el cuadro de texto se vuelve más corto o más pequeño, PowerPoint reduce automáticamente el cuadro de texto—disminuyendo su altura—para eliminar el espacio redundante.
+* Cuando el texto del cuadro se vuelve más largo o más grande, PowerPoint amplía automáticamente el cuadro—incrementando su altura—para permitirle contener más texto.
+* Cuando el texto del cuadro se vuelve más corto o más pequeño, PowerPoint reduce automáticamente el cuadro—disminuyendo su altura—para eliminar el espacio sobrante.
 
-En PowerPoint, estos son los cuatro parámetros u opciones importantes que controlan el comportamiento de autofit para un cuadro de texto:
+En PowerPoint, estos son los cuatro parámetros u opciones importantes que controlan el comportamiento de ajuste automático para un cuadro de texto:
 
-* **Do not Autofit**
-* **Shrink text on overflow**
-* **Resize shape to fit text**
-* **Wrap text in shape**
+* **No ajustar automáticamente**
+* **Reducir texto en desbordamiento**
+* **Redimensionar forma para ajustarse al texto**
+* **Ajustar texto en la forma**
 
-![Opciones de Autofit en PowerPoint](autofit-options-powerpoint.png)
+![Opciones de ajuste automático en PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides para .NET ofrece opciones similares—propiedades bajo la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)—que le permiten controlar el comportamiento de autofit para los cuadros de texto en presentaciones.
+Aspose.Slides for .NET proporciona opciones similares—propiedades bajo la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)—que permiten controlar el comportamiento de ajuste automático para cuadros de texto en presentaciones.
 
-## **Redimensionar forma para ajustar texto**
+## **Redimensionar una forma para ajustarse al texto**
 
-Si desea que el texto en un cuadro siempre quepa en ese cuadro después de realizar cambios en el texto, debe usar la opción **Resize shape to fit text**. Para especificar esta configuración, establezca la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) a `Shape`.
+Si deseas que el texto de un recuadro siempre quepa dentro de ese recuadro después de modificarlo, debes usar la opción **Redimensionar forma para ajustarse al texto**. Para especificar esta configuración, establece la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) en `Shape`.
 
-![Redimensionar forma para ajustar texto](alwaysfit-setting-powerpoint.png)
+![Redimensionar forma para ajustarse al texto](alwaysfit-setting-powerpoint.png)
 
-Este código C# muestra cómo especificar que el texto siempre debe ajustarse a su cuadro en una presentación de PowerPoint:
+Este código C# muestra cómo especificar que el texto siempre debe ajustarse a su recuadro en una presentación de PowerPoint:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -66,15 +66,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumentando su altura) para garantizar que todo el texto quepa en él. Si el texto se vuelve más corto, ocurre lo contrario.
+Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumentando su altura) para que todo el texto quepa. Si el texto se vuelve más corto, ocurrirá lo contrario.
 
-## **No Autoajustar**
+## **No ajustar automáticamente**
 
-Si desea que un cuadro de texto o una forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debe usar la opción **Do not Autofit**. Para especificar esta configuración, establezca la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) a `None`.
+Si deseas que un cuadro de texto o forma conserve sus dimensiones sin importar los cambios realizados en el texto que contiene, debes usar la opción **No ajustar automáticamente**. Para especificar esta configuración, establece la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) en `None`.
 
-!["Configuración \"Do not Autofit\" en PowerPoint"](donotautofit-setting-powerpoint.png)
+!["No ajustar automáticamente" configuración en PowerPoint](donotautofit-setting-powerpoint.png)
 
-Este código C# muestra cómo especificar que un cuadro de texto debe mantener siempre sus dimensiones en una presentación de PowerPoint:
+Este código C# muestra cómo especificar que un cuadro de texto debe conservar siempre sus dimensiones en una presentación de PowerPoint:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -94,15 +94,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Cuando el texto se vuelve demasiado largo para su cuadro, se desborda.
+Cuando el texto se vuelve demasiado largo para su recuadro, se desborda.
 
-## **Reducir texto al desbordarse**
+## **Reducir texto en desbordamiento**
 
-Si el texto se vuelve demasiado largo para su cuadro, a través de la opción **Shrink text on overflow** puede especificar que el tamaño y el espaciado del texto deben reducirse para que quepan en su cuadro. Para especificar esta configuración, establezca la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) a `Normal`.
+Si el texto se vuelve demasiado largo para su recuadro, mediante la opción **Reducir texto en desbordamiento** puedes especificar que el tamaño y el espaciado del texto deben reducirse para que quepa en su recuadro. Para especificar esta configuración, establece la propiedad `AutofitType` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) en `Normal`.
 
-!["Reducir texto al desbordarse" setting in PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
+!["Reducir texto en desbordamiento" configuración en PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Este código C# muestra cómo especificar que el texto debe reducirse al desbordarse en una presentación de PowerPoint:
+Este código C# muestra cómo especificar que el texto debe reducirse en caso de desbordamiento en una presentación de PowerPoint:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -123,14 +123,14 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert title="Info" color="info" %}}
-Cuando se usa la opción **Shrink text on overflow**, la configuración se aplica solo cuando el texto se vuelve demasiado largo para su cuadro.
+Cuando se usa la opción **Reducir texto en desbordamiento**, la configuración se aplica solo cuando el texto se vuelve demasiado largo para su recuadro.
 {{% /alert %}}
 
 ## **Ajustar texto**
 
-Si desea que el texto en una forma se ajuste dentro de esa forma cuando el texto supera el borde de la forma (solo ancho), debe usar el parámetro **Wrap text in shape**. Para especificar esta configuración, debe establecer la propiedad `WrapText` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) a `NullableBool.True`.
+Si deseas que el texto dentro de una forma se ajuste dentro de esa forma cuando el texto exceda el borde de la forma (solo ancho), debes usar el parámetro **Ajustar texto en forma**. Para especificar esta configuración, establece la propiedad `WrapText` de la clase [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) en `NullableBool.True`.
 
-Este código C# muestra cómo usar la configuración Wrap Text en una presentación de PowerPoint:
+Este código C# muestra cómo usar la configuración Ajustar texto en una presentación de PowerPoint:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -151,19 +151,19 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert title="Note" color="warning" %}} 
-Si establece la propiedad `WrapText` en `NullableBool.False` para una forma, cuando el texto dentro de la forma supera el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea.
+Si estableces la propiedad `WrapText` en `NullableBool.False` para una forma, cuando el texto dentro de la forma se vuelve más largo que el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea.
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Afectan los márgenes internos del marco de texto a AutoFit?**
+**¿Los márgenes internos del marco de texto afectan al AutoFit?**
 
-Sí. El relleno (márgenes internos) reduce el área utilizable para el texto, por lo que AutoFit se activará antes—encogiendo la fuente o redimensionando la forma más pronto. Revise y ajuste los márgenes antes de afinar AutoFit.
+Sí. El relleno (márgenes internos) reduce el área útil para el texto, por lo que AutoFit se activa antes—reduciendo la fuente o redimensionando la forma antes. Revisa y ajusta los márgenes antes de afinar AutoFit.
 
 **¿Cómo interactúa AutoFit con los saltos de línea manuales y suaves?**
 
-Los saltos forzados permanecen en su lugar, y AutoFit adapta el tamaño de fuente y el espaciado a su alrededor. Eliminar saltos innecesarios a menudo reduce la agresividad con la que AutoFit necesita encoger el texto.
+Los saltos forzados permanecen, y AutoFit adapta el tamaño de fuente y el espaciado a su alrededor. Eliminar saltos innecesarios a menudo reduce la agresividad con que AutoFit necesita reducir el texto.
 
 **¿Cambiar la fuente del tema o activar la sustitución de fuentes afecta los resultados de AutoFit?**
 
-Sí. Sustituir a una fuente con métricas de glifos diferentes cambia el ancho/alto del texto, lo que puede alterar el tamaño final de la fuente y el ajuste de línea. Después de cualquier cambio o sustitución de fuente, vuelva a comprobar las diapositivas.
+Sí. Sustituir a una fuente con métricas de glifo diferentes cambia el ancho/altura del texto, lo que puede alterar el tamaño final de la fuente y el ajuste de líneas. Después de cualquier cambio o sustitución de fuente, vuelve a comprobar las diapositivas.

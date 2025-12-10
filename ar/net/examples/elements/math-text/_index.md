@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "العمل مع النص الرياضي في C# باستخدام Aspose.Slides: إنشاء وتحرير المعادلات والكسرات والجذور والسكريبتات والتنسيق، وعرض النتائج لصيغتي PPT و PPTX."
+description: "العمل مع نص رياضي في C# باستخدام Aspose.Slides: إنشاء وتحرير المعادلات، الكسور، الجذور، النصوص المتدرجة، التنسيق، وعرض النتائج للـ PPT و PPTX."
 ---
 
-يوضح العمل مع أشكال النص الرياضي وتنسيق المعادلات باستخدام **Aspose.Slides for .NET**.
+يوضح كيفية العمل مع أشكال النص الرياضي وتنسيق المعادلات باستخدام **Aspose.Slides for .NET**.
 
-## إضافة نص رياضي
+## **إضافة نص رياضي**
 
 إنشاء شكل رياضي يحتوي على كسر وصيغة فيثاغورس.
 ```csharp
@@ -29,7 +29,7 @@ static void Add_Math_Text()
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // إضافة شكل رياضي إلى الشريحة
+    // أضف شكل رياضي إلى الشريحة
     var mathShape = slide.Shapes.AddMathShape(0, 0, 720, 150);
 
     // الوصول إلى الفقرة الرياضية
@@ -52,16 +52,16 @@ static void Add_Math_Text()
 ```
 
 
-## الوصول إلى نص رياضي
+## **الوصول إلى نص رياضي**
 
-العثور على شكل يحتوي على فقرة رياضية في الشريحة.
+تحديد شكل يحتوي على فقرة رياضية في الشريحة.
 ```csharp
 static void Access_Math_Text()
 {
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // العثور على الشكل الأول الذي يحتوي على فقرة رياضية
+    // ابحث عن الشكل الأول الذي يحتوي على فقرة رياضية
     var mathShape = slide.Shapes
         .OfType<IAutoShape>()
         .FirstOrDefault(s =>
@@ -73,7 +73,7 @@ static void Access_Math_Text()
     {
         var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-        // مثال: إنشاء كسر (لم يتم إضافته هنا)
+        // مثال: إنشاء كسر (غير مضاف هنا)
         var fraction = new MathematicalText("x").Divide("y");
 
         // استخدم mathParagraph أو fraction حسب الحاجة...
@@ -82,7 +82,7 @@ static void Access_Math_Text()
 ```
 
 
-## إزالة نص رياضي
+## **إزالة نص رياضي**
 
 حذف شكل رياضي من الشريحة.
 ```csharp
@@ -101,7 +101,7 @@ static void Remove_Math_Text()
 ```
 
 
-## تنسيق نص رياضي
+## **تنسيق نص رياضي**
 
 تعيين خصائص الخط لجزء رياضي.
 ```csharp

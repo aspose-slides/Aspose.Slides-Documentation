@@ -4,12 +4,13 @@ type: docs
 url: /ja/net/print-the-presentation/
 ---
 
-Aspose.Slides for .NETは、プレゼンテーションの印刷のための4つのオーバーロードメソッドを提供します。これらのメソッドは、デフォルトのプリンターやカスタマイズ設定のある任意の利用可能なプリンターに印刷するために十分に柔軟です。要件に応じて適切な印刷メソッドを選択するだけで済みます。
-## **デフォルトプリンターへの印刷**
-Aspose.Slides for .NETでプレゼンテーションをデフォルトプリンターに印刷するのは非常に簡単です。デフォルトプリンターにプレゼンテーションを印刷するためには、以下のステップを実行します：
+Aspose.Slides for .NET は、プレゼンテーションの印刷に 4 つのオーバーロード メソッドを提供します。これらのメソッドは柔軟で、デフォルトのプリンターまたは利用可能な任意のプリンターにカスタマイズ設定で印刷できます。要件に応じて適切な印刷メソッドを選択してください。
 
-- 印刷するプレゼンテーションをロードするためにPresentationクラスのインスタンスを作成します
-- Presentationオブジェクトが公開しているパラメータなしのPrintメソッドを呼び出します
+## **デフォルトプリンターへの印刷**
+Aspose.Slides for .NET でプレゼンテーションをデフォルトプリンターに印刷するのは非常に簡単です。次の手順でデフォルトプリンターに印刷します。
+
+- 印刷するプレゼンテーションを読み込むために Presentation クラスのインスタンスを作成する
+- Presentation オブジェクトが公開するパラメーターなしの Print メソッドを呼び出す
 
 ``` csharp
 
@@ -25,11 +26,11 @@ public static void PrintByDefaultPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //プレゼンテーションをロードします
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //デフォルトプリンターにプレゼンテーション全体を印刷するために印刷メソッドを呼び出します
+    //Call the print method to print whole presentation to the default printer
 
     asposePresentation.Print();
 
@@ -41,21 +42,21 @@ public static void PrintBySpecificPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //プレゼンテーションをロードします
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //指定されたプリンターにプレゼンテーション全体を印刷するために印刷メソッドを呼び出します
+    //Call the print method to print whole presentation to the desired printer
 
     asposePresentation.Print("LaserJet1100");
 
 
 ``` 
 ## **特定のプリンターへの印刷**
-特定のプリンターへのプレゼンテーションの印刷には、PresentationのPrintメソッドのパラメータとしてプリンターの名前が必要です。望むプリンターにプレゼンテーションを印刷するためには、以下のステップを実行します：
+特定のプリンターに印刷するには、Print メソッドにプリンター名を文字列パラメーターとして渡します。次の手順で目的のプリンターに印刷します。
 
-- 印刷するプレゼンテーションをロードするためにPresentationクラスのインスタンスを作成します
-- Printメソッドへの文字列パラメータとしてプリンター名を使用してPresentationクラスのPrintメソッドを呼び出します
+- 印刷するプレゼンテーションを読み込むために Presentation クラスのインスタンスを作成する
+- Presentation クラスの Print メソッドにプリンター名を文字列パラメーターとして渡して呼び出す
 
 ``` csharp
 
@@ -65,11 +66,11 @@ public static void PrintBySpecificPrinter()
 
     string MyDir = @"..\..\..\Sample Files\";
 
-    //プレゼンテーションをロードします
+    //Load the presentation
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //指定されたプリンターにプレゼンテーション全体を印刷するために印刷メソッドを呼び出します
+    //Call the print method to print whole presentation to the desired printer
 
     asposePresentation.Print("LaserJet1100");
 

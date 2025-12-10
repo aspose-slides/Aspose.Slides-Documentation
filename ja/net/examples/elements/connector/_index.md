@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides を使用して C# でコネクタを描画および制御します。追加、ルーティング、再ルーティング、接続ポイント、矢印、スタイルを設定して、PPT、PPTX、ODP のシェイプをリンクします。"
+description: "C#でAspose.Slidesを使用してコネクタを描画および制御します：シェイプをPPT、PPTX、ODPでリンクするために、追加、ルート設定、再ルート、接続点、矢印、スタイルを設定します。"
 ---
 
 **Aspose.Slides for .NET** を使用して、シェイプをコネクタで接続し、ターゲットを変更する方法を示します。
 
-## コネクタを追加
+## **コネクタを追加**
 
-スライド上の2点間にコネクタ形状を挿入します。
+スライド上の2点間にコネクタシェイプを挿入します。
 ```csharp
 static void Add_Connector()
 {
@@ -34,9 +34,9 @@ static void Add_Connector()
 ```
 
 
-## コネクタにアクセス
+## **コネクタにアクセス**
 
-スライドに追加された最初のコネクタ形状を取得します。
+スライドに追加された最初のコネクタシェイプを取得します。
 ```csharp
 static void Access_Connector()
 {
@@ -49,7 +49,7 @@ static void Access_Connector()
 ```
 
 
-## コネクタを削除
+## **コネクタを削除**
 
 スライドからコネクタを削除します。
 ```csharp
@@ -64,7 +64,7 @@ static void Remove_Connector()
 ```
 
 
-## シェイプを再接続
+## **シェイプの再接続**
 
 開始ターゲットと終了ターゲットを割り当てて、コネクタを2つのシェイプに接続します。
 ```csharp

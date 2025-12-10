@@ -1,37 +1,43 @@
 ---
-title: إضافة شريحة إلى العرض التقديمي
+title: إضافة شرائح إلى العروض التقديمية في .NET
+linktitle: إضافة شريحة
 type: docs
 weight: 10
 url: /ar/net/add-slide-to-presentation/
-keywords: "إضافة شريحة إلى العرض التقديمي, C#, Csharp, .NET, Aspose.Slides"
-description: "إضافة شريحة إلى العرض التقديمي في C# أو .NET"
+keywords:
+- إضافة شريحة
+- إنشاء شريحة
+- شريحة فارغة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "أضف الشرائح بسهولة إلى عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides for .NET—إدراج شرائح سلس وفعال في ثوانٍ."
 ---
 
-## **إضافة شريحة إلى العرض التقديمي**
-قبل التطرق إلى إضافة الشرائح إلى ملفات العرض التقديمي، دعونا نناقش بعض الحقائق حول الشرائح. يحتوي كل ملف عرض تقديمي PowerPoint على شريحة Master / Layout وشريحة Normal أخرى. يعني ذلك أن ملف العرض التقديمي يحتوي على شريحة واحدة على الأقل أو أكثر. من المهم معرفة أن ملفات العرض التقديمي بدون شرائح غير مدعومة من قبل Aspose.Slides for .NET. لكل شريحة معرف فريد وتُرتب جميع الشرائح Normal وفقًا لترتيب يُحدده الفهرس القائم على الصفر. يسمح Aspose.Slides for .NET للمطورين بإضافة شرائح فارغة إلى العرض التقديمي الخاص بهم. لإضافة شريحة فارغة إلى العرض التقديمي، يرجى اتباع الخطوات أدناه:
+## **إضافة شريحة إلى عرض تقديمي**
+قبل الحديث عن إضافة الشرائح إلى ملفات العرض التقديمي، دعونا نناقش بعض الحقائق حول الشرائح. كل ملف عرض تقديمي PowerPoint يحتوي على شريحة Master / Layout وشريحات عادية أخرى. هذا يعني أن ملف العرض التقديمي يحتوي على شريحة واحدة على الأقل أو أكثر. من المهم معرفة أن ملفات العرض التقديمي بدون شرائح غير مدعومة بواسطة Aspose.Slides for .NET. لكل شريحة معرف فريد وتتم ترتيب جميع الشرائح العادية بترتيب محدد بواسطة الفهرس الصفري. يسمح Aspose.Slides for .NET للمطورين بإضافة شرائح فارغة إلى عرضهم التقديمي. لإضافة شريحة فارغة في العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-- إنشاء فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق ضبط مرجع إلى خاصية Slides (مجموعة كائنات Slide المحتوى) المعروضة من قبل كائن Presentation .
-- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة الشرائح المحتوى عن طريق استدعاء أساليب AddEmptySlide المعروضة من قبل كائن ISlideCollection .
-- القيام ببعض الأعمال مع الشريحة الفارغة التي تم إضافتها حديثًا .
-- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+- إنشاء مثيل للفئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق تعيين مرجع إلى الخاصية Slides (مجموعة كائنات Slide المحتوى) التي تعرضها كائن Presentation .
+- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة الشرائح المحتوى عبر استدعاء طريقة AddEmptySlide المعروضة من قبل كائن ISlideCollection .
+- قم بأداء بعض الأعمال على الشريحة الفارغة التي تم إضافتها حديثًا .
+- أخيرًا، احفظ ملف العرض التقديمي باستخدام كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-AddSlides-AddSlides.cs" >}}
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني إدراج شريحة جديدة في موضع محدد، وليس فقط في النهاية؟**
-
-نعم. تدعم المكتبة مجموعات الشرائح وعمليات [insert](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertclone/) ، لذا يمكنك إضافة شريحة في الفهرس المطلوب بدلاً من الإضافة فقط في النهاية.
+**هل يمكنني إدراج شريحة جديدة في موقع محدد، وليس فقط في النهاية؟**
+نعم. تدعم المكتبة مجموعات الشرائح وعمليتي [insert](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertclone/) ، لذا يمكنك إضافة شريحة في الفهرس المطلوب بدلاً من النهاية فقط.
 
 **هل يتم الحفاظ على السمات/الأنماط عند إضافة شريحة بناءً على تخطيط؟**
+نعم. يرث التخطيط التنسيق من الـ master الخاص به، وتورث الشريحة الجديدة من التخطيط المختار والـ master المرتبط به.
 
-نعم. يرث التخطيط التنسيق من الـ master الخاص به، وتُرث الشريحة الجديدة من التخطيط المحدد والـ master المرتبط به.
+**أي شريحة توجد في عرض تقديمي جديد "فارغ" قبل إضافة الشرائح؟**
+يحتوي العرض التقديمي الذي تم إنشاؤه حديثًا بالفعل على شريحة فارغة واحدة ذات فهرس صفر. من المهم مراعاة ذلك عند حساب مؤشرات الإدراج.
 
-**أي شريحة تكون موجودة في عرض تقديمي "فارغ" جديد قبل إضافة الشرائح؟**
-
-العرض التقديمي الذي تم إنشاؤه حديثًا يحتوي بالفعل على شريحة فارغة واحدة ذات فهرس صفر. من المهم أخذ ذلك في الاعتبار عند حساب فهارس الإدراج.
-
-**كيف أختار التخطيط "الصحيح" لشريحة جديدة إذا كان الـ master يحتوي على العديد من الخيارات؟**
-
-عموماً اختر [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) الذي يتوافق مع الهيكل المطلوب ([Title and Content, Two Content, etc.](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/)). إذا كان هذا التخطيط غير موجود، يمكنك [add it to the master](/slides/ar/net/slide-layout/) ثم استخدامه.
+**كيف يمكنني اختيار التخطيط "الصحيح" لشريحة جديدة إذا كان الـ master يحتوي على خيارات عديدة؟**
+عمومًا اختر الـ [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) الذي يطابق البنية المطلوبة ([Title and Content, Two Content, إلخ](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/)). إذا كان هذا التخطيط غير موجود، يمكنك [إضافته إلى الـ master](/slides/ar/net/slide-layout/) ثم استخدامه.

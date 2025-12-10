@@ -18,37 +18,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إضافة رؤوس وتذييلات في عروض PowerPoint بصيغ PPT و PPTX و ODP في .NET باستخدام كل من واجهات Aspose.Slides القديمة والحديثة."
+description: "تعلم كيفية إضافة رؤوس وتذييلات إلى عروض PowerPoint بصيغ PPT و PPTX و ODP في .NET باستخدام كلٍ من واجهات Aspose.Slides القديمة والحديثة."
 ---
 
 {{% alert color="primary" %}} 
-تم إصدار [واجهة برمجة تطبيقات Aspose.Slides for .NET](/slides/ar/net/) جديدة الآن، وتدعم هذه المنتج الوحيد القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
+تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديد الآن ويدعم هذا المنتج القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
 {{% /alert %}} 
-## **دعم الشيفرة القديمة**
-للاستخدام الشيفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET السابقة للنسخة 13.x، تحتاج إلى إجراء بعض التعديلات الطفيفة في شفرتك وسوف تعمل الشيفرة كما كانت سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديمة تحت مساحتي الاسم Aspose.Slide و Aspose.Slides.Pptx تم دمجها الآن في مساحة الاسم الوحيدة Aspose.Slides. يرجى إلقاء نظرة على مقتطف الشيفرة البسيط التالي لإضافة ترويسة وتذييل في العرض التقديمي باستخدام Aspose.Slides API القديمة، واتباع الخطوات التي تصف كيفية الانتقال إلى API المدمجة الجديدة.
+## **الدعم للشفرة القديمة**
+من أجل استخدام الشفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET التي تسبق 13.x، تحتاج إلى إجراء بعض التغييرات الطفيفة في الكود وسيعمل الكود كما كان مسبقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم الآن دمجها في مساحة الاسم الواحدة Aspose.Slides. يرجى إلقاء نظرة على المقتطف البسيط التالي لإضافة رأس وتذييل في العرض التقديمي باستخدام Aspose.Slides API القديمة واتبع الخطوات التي تصف كيفية التحويل إلى الواجهة المدمجة الجديدة.
 ## **النهج القديم لـ Aspose.Slides for .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//تعيين خصائص إظهار الترويسة والتذييل
+//تعيين خصائص رؤية رأس وتذييل الشريحة
+//تحديث حقول التاريخ والوقت
+//إظهار عنصر نائب للتاريخ والوقت
+//إظهار عنصر نائب للتذييل
+//إظهار رقم الشريحة
+//تعيين رؤية رأس وتذييل الشريحة في شريحة العنوان
+//كتابة العرض التقديمي إلى القرص
 sourcePres.UpdateSlideNumberFields = true;
 
-//تحديث حقول التاريخ والوقت
+//Update the Date Time Fields
 sourcePres.UpdateDateTimeFields = true;
 
-//إظهار عنصر نائب التاريخ والوقت
+//Show date time placeholder
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//إظهار عنصر نائب التذييل
+//Show the footer place holder
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//إظهار رقم الشريحة
+//Show Slide Number
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//تعيين إظهار الترويسة والتذييل في شريحة العنوان
+//Set the  header footer visibility on Title Slide
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//كتابة العرض التقديمي إلى القرص
+//Write the presentation to the disk
 sourcePres.Write("NewSource.pptx");
 ```
 
@@ -59,25 +65,25 @@ Presentation pres = new Presentation();
 //الحصول على الشريحة الأولى
 Slide sld = pres.GetSlideByPosition(1);
 
-//الوصول إلى الترويسة / التذييل في الشريحة
+//الوصول إلى رأس / تذييل الشريحة
 HeaderFooter hf = sld.HeaderFooter;
 
-//تعيين إظهار رقم الصفحة
+//تعيين رؤية رقم الصفحة
 hf.PageNumberVisible = true;
 
-//تعيين إظهار التذييل
+//تعيين رؤية التذييل
 hf.FooterVisible = true;
 
-//تعيين إظهار الترويسة
+//تعيين رؤية الرأس
 hf.HeaderVisible = true;
 
-//تعيين إظهار التاريخ والوقت
+//تعيين رؤية التاريخ والوقت
 hf.DateTimeVisible = true;
 
 //تعيين تنسيق التاريخ والوقت
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//تعيين نص الترويسة
+//تعيين نص الرأس
 hf.HeaderText = "Header Text";
 
 //تعيين نص التذييل
@@ -92,19 +98,19 @@ pres.Write("HeadFoot.ppt");
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //تعيين خصائص إظهار الترويسة والتذييل
+    //تعيين خصائص رؤية رأس وتذييل الشريحة
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
     //تحديث حقول التاريخ والوقت
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //إظهار عنصر نائب التاريخ والوقت
+    //إظهار عنصر نائب للتاريخ والوقت
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //إظهار عنصر نائب التذييل
+    //إظهار عنصر نائب للتذييل
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //تعيين إظهار الترويسة والتذييل في شريحة العنوان
+    //تعيين  رؤية رأس وتذييل الشريحة في شريحة العنوان
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //كتابة العرض التقديمي إلى القرص

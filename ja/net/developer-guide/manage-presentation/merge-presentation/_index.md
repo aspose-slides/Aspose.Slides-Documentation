@@ -1,100 +1,100 @@
 ---
-title: .NET でプレゼンテーションを効率的にマージ
-linktitle: プレゼンテーションのマージ
+title: ".NET でプレゼンテーションを効率的にマージ"
+linktitle: "プレゼンテーションのマージ"
 type: docs
 weight: 40
 url: /ja/net/merge-presentation/
 keywords:
-- PowerPoint のマージ
-- プレゼンテーションのマージ
-- スライドのマージ
-- PPT のマージ
-- PPTX のマージ
-- ODP のマージ
-- PowerPoint の統合
-- プレゼンテーションの統合
-- スライドの統合
-- PPT の統合
-- PPTX の統合
-- ODP の統合
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint (PPT, PPTX) と OpenDocument (ODP) のプレゼンテーションを手軽にマージし、ワークフローを簡素化します。"
+- "PowerPoint をマージ"
+- "プレゼンテーションをマージ"
+- "スライドをマージ"
+- "PPT をマージ"
+- "PPTX をマージ"
+- "ODP をマージ"
+- "PowerPoint を結合"
+- "プレゼンテーションを結合"
+- "スライドを結合"
+- "PPT を結合"
+- "PPTX を結合"
+- "ODP を結合"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して、PowerPoint (PPT, PPTX) および OpenDocument (ODP) プレゼンテーションを手軽にマージし、ワークフローを効率化します。"
 ---
 
-## **プレゼンテーションのマージを最適化する**
+## **プレゼンテーションマージの最適化**
 
-Aspose.Slides for .NET を使用して、スタイル、レイアウト、すべての要素を保持しながら PowerPoint プレゼンテーションをシームレスに結合できます。他のツールとは異なり、Aspose.Slides は品質やデータを失うことなくプレゼンテーションをブレンドします。プレゼンテーション全体、特定のスライド、さらには異なるファイル形式（PPT から PPTX など）もマージできます。
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) を使用すると、スタイル、レイアウト、すべての要素を保持したまま PowerPoint プレゼンテーションをシームレスに結合できます。他のツールとは異なり、Aspose.Slides は品質やデータを失うことなくプレゼンテーションをブレンドします。プレゼンテーション全体、特定のスライド、さらには異なるファイル形式（PPT から PPTX など）をマージできます。
 
 ### **マージ機能**
 
-- **フルプレゼンテーションマージ:** すべてのスライドを 1 つのファイルにまとめます。
-- **特定スライドマージ:** 選択したスライドを選んで結合します。
-- **クロスフォーマットマージ:** さまざまな形式のプレゼンテーションを統合し、完全性を維持します。
+- **フルプレゼンテーション マージ:** すべてのスライドを 1 つのファイルにまとめます。
+- **特定スライド マージ:** 選択したスライドを組み合わせます。
+- **クロスフォーマット マージ:** 形式が異なるプレゼンテーションを統合し、完全性を維持します。
 
 {{% alert title="Tip" color="primary" %}}  
 
-手軽で**無料のオンラインツール**で**PowerPoint プレゼンテーションをマージ**したいですか？[**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger) をお試しください。  
+PowerPoint プレゼンテーションを **無料でオンライン** にマージしたいですか？[**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger) を試してください。  
 
-- **PowerPoint ファイルを簡単にマージ**: 複数の **PPT, PPTX, ODP** プレゼンテーションを 1 つのファイルに結合します。  
-- **異なる形式に対応**: **PPT から PPTX**、**PPTX から ODP** などをマージします。  
-- **インストール不要**: ブラウザ上で直接動作し、迅速かつ安全です。  
+- **PowerPoint ファイルを簡単にマージ**: 複数の **PPT、PPTX、ODP** プレゼンテーションを 1 つのファイルに結合できます。  
+- **異なる形式に対応**: **PPT から PPTX**、**PPTX から ODP** などをマージできます。  
+- **インストール不要**: ブラウザ上で直接動作し、速く安全です。  
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+[![オンラインでPowerPointファイルをマージ](slides-merger.png)](https://products.aspose.app/slides/merger)  
 
-今すぐ **Aspose の無料オンラインツール**で PowerPoint ファイルのマージを開始しましょう！  
+今日から **Aspose の無料オンラインツール** で PowerPoint ファイルのマージを開始しましょう！  
 
 {{% /alert %}}
 
 ## **プレゼンテーションのマージ**
 
-プレゼンテーションを[別のプレゼンテーションにマージ](https://products.aspose.com/slides/net/merger/ppt/)すると、スライドを 1 つのプレゼンテーションに効果的に結合して 1 つのファイルが得られます。 
+[1 つのプレゼンテーションを別のプレゼンテーションにマージする](https://products.aspose.com/slides/net/merger/ppt/) と、スライドを 1 つのプレゼンテーションに結合して 1 つのファイルにします。
 
 {{% alert title="Info" color="info" %}}
 
-ほとんどのプレゼンテーションプログラム（PowerPoint や OpenOffice）には、このようにプレゼンテーションを結合する機能がありません。 
+ほとんどのプレゼンテーション ソフトウェア（PowerPoint や OpenOffice）には、プレゼンテーションをこのように結合する機能がありません。
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) は、さまざまな方法でプレゼンテーションをマージできます。形状、スタイル、テキスト、書式設定、コメント、アニメーションなど、すべての要素を失うことなくプレゼンテーションをマージできます。 
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) は、さまざまな方法でプレゼンテーションを結合できるようにします。形状、スタイル、テキスト、書式設定、コメント、アニメーションなど、すべての要素を失うことなくマージできます。
 
-**参照**
+**関連項目**
 
-[スライドのクローン](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
 
 {{% /alert %}}
 
-### **何をマージできるか**
+### **マージできる対象**
 
-Aspose.Slides を使用すると、次のものをマージできます  
+Aspose.Slides を使用すると、次のものをマージできます。
 
-* 完全なプレゼンテーション。すべてのプレゼンテーションのスライドが 1 つのプレゼンテーションにまとめられます  
-* 特定のスライド。選択したスライドが 1 つのプレゼンテーションにまとめられます  
-* 同一形式（PPT から PPT、PPTX から PPTX など）および異なる形式（PPT から PPTX、PPTX から ODP など）のプレゼンテーションを相互にマージできます。 
+* プレゼンテーション全体。すべてのスライドが 1 つのプレゼンテーションにまとめられます。
+* 特定のスライド。選択したスライドが 1 つのプレゼンテーションにまとめられます。
+* 同一形式（PPT → PPT、PPTX → PPTX など）および異なる形式（PPT → PPTX、PPTX → ODP など）のプレゼンテーション同士を相互にマージします。
 
 {{% alert title="Note" color="warning" %}} 
 
-プレゼンテーションに加えて、Aspose.Slides は他のファイルのマージも可能です：
+プレゼンテーションに加えて、Aspose.Slides は次のファイルもマージできます。
 
-* [画像]、たとえば [JPG から JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) や [PNG から PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* 文書、たとえば [PDF から PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) や [HTML から HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* 異なる種類のファイルを組み合わせることもできます。たとえば [画像から PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) や [JPG から PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/)、[TIFF から PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/)  
+* [画像](https://products.aspose.com/slides/net/merger/image-to-image/)（例: [JPG から JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) や [PNG から PNG](https://products.aspose.com/slides/net/merger/png-to-png/)）
+* 文書（例: [PDF から PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) や [HTML から HTML](https://products.aspose.com/slides/net/merger/html-to-html/)）
+* 異なる種類のファイル（例: [画像から PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) や [JPG から PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/)、[TIFF から PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/)）
 
 {{% /alert %}}
 
-### **マージオプション**
+### **マージ オプション**
 
-次のことを決定するオプションを適用できます  
+次のいずれかを決定するオプションを適用できます。
 
-* 出力プレゼンテーションの各スライドが固有のスタイルを保持するか  
-* 出力プレゼンテーションのすべてのスライドに特定のスタイルを使用するか  
+* 出力プレゼンテーションの各スライドが固有のスタイルを保持するか
+* 出力プレゼンテーションのすべてのスライドに共通のスタイルを使用するか
 
-プレゼンテーションをマージするには、Aspose.Slides は [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) メソッド（[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) インターフェイスから）を提供します。`AddClone` メソッドにはプレゼンテーション マージ処理のパラメータを定義する複数の実装があります。すべての Presentation オブジェクトには [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) コレクションがあるため、スライドをマージしたいプレゼンテーションから `AddClone` メソッドを呼び出すことができます。  
+プレゼンテーションをマージするには、Aspose.Slides は [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) メソッド（[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) インターフェイスから）を提供します。`AddClone` メソッドには、マージ プロセスのパラメーターを定義する複数の実装があります。各 Presentation オブジェクトは [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) コレクションを持っているため、スライドをマージしたいプレゼンテーションから `AddClone` メソッドを呼び出せます。
 
-`AddClone` メソッドは `ISlide` オブジェクトを返し、これはソーススライドのクローンです。出力プレゼンテーションのスライドは単にソースのスライドのコピーです。そのため、元のプレゼンテーションに影響を与えることなく、結果のスライドに変更（たとえばスタイルや書式設定オプション、レイアウトの適用）を加えることができます。 
+`AddClone` メソッドは、ソース スライドのクローンである `ISlide` オブジェクトを返します。出力プレゼンテーションのスライドは、単にソースからコピーされたものです。したがって、ソース プレゼンテーションに影響を与えることなく、結果のスライド（例: スタイルや書式設定オプション、レイアウトの適用）を変更できます。
 
-## **プレゼンテーションのマージ** 
+## **プレゼンテーションをマージ**
 
-Aspose.Slides は、スライドがレイアウトとスタイルを保持したまま結合できるデフォルト パラメータの [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) メソッドを提供します。 
+Aspose.Slides は、スライドのレイアウトとスタイルを保持したままスライドを結合できる [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) メソッドを提供します（デフォルト パラメーター）。
 
 この C# コードはプレゼンテーションのマージ方法を示しています:
 ```c#
@@ -111,11 +111,11 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **スライドマスターでプレゼンテーションをマージ** 
+## **スライド マスターを使用したプレゼンテーションのマージ**
 
-Aspose.Slides は、スライド マスター プレゼンテーション テンプレートを適用しながらスライドを結合できる [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) メソッドを提供します。この方法により、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。 
+Aspose.Slides は、[**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) メソッドを提供し、スライド マスター テンプレートを適用してスライドを結合できます。この方法により、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。
 
-この C# コードは上記の操作を示しています:
+この C# コードが上記の操作を示しています:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
@@ -132,17 +132,17 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 {{% alert title="Note" color="warning" %}} 
 
-スライド マスターのレイアウトは自動的に決定されます。適切なレイアウトが決定できない場合、`AddClone` メソッドの `allowCloneMissingLayout` ブール パラメータが true に設定されていれば、ソーススライドのレイアウトが使用されます。そうでなければ、[PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) がスローされます。 
+スライド マスターのスライド レイアウトは自動的に決定されます。適切なレイアウトが決定できない場合、`AddClone` メソッドの `allowCloneMissingLayout` ブール パラメーターが true に設定されていれば、ソース スライドのレイアウトが使用されます。それ以外の場合は、[PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) がスローされます。 
 
 {{% /alert %}}
 
-出力プレゼンテーションのスライドに別のレイアウトを使用したい場合は、マージ時に [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) メソッドを代わりに使用してください。 
+出力プレゼンテーションのスライドに別のレイアウトを使用したい場合は、マージ時に [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) メソッドを代わりに使用してください。
 
-## **プレゼンテーションから特定のスライドをマージ** 
+## **プレゼンテーションから特定スライドをマージ**
 
-複数のプレゼンテーションから特定のスライドをマージすることは、カスタム スライド デッキを作成する際に便利です。Aspose.Slides for .NET は、必要なスライドだけを選択してインポートできます。API は元のスライドの書式設定、レイアウト、デザインを保持します。 
+複数のプレゼンテーションから特定スライドをマージすると、カスタム スライド デックの作成に便利です。Aspose.Slides for .NET は、必要なスライドだけを選択してインポートできます。API は元のスライドの書式設定、レイアウト、デザインを保持します。
 
-以下の C# コードは新しいプレゼンテーションを作成し、他の 2 つのプレゼンテーションからタイトル スライドを追加して、結果をファイルに保存します:
+以下の C# コードは新しいプレゼンテーションを作成し、2 つの別のプレゼンテーションからタイトル スライドを追加して、結果をファイルに保存します:
 ```cs
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
@@ -179,9 +179,9 @@ static ISlide GetTitleSlide(IPresentation presentation)
 ```
 
 
-## **スライドレイアウトでプレゼンテーションをマージ** 
+## **スライド レイアウトを使用したプレゼンテーションのマージ**
 
-この C# コードは、好みのスライド レイアウトを適用しながらプレゼンテーションからスライドを結合し、1 つの出力プレゼンテーションを作成する方法を示しています:
+この C# コードは、プレゼンテーションからスライドを結合し、好みのスライド レイアウトを適用して 1 つの出力プレゼンテーションを作成する方法を示しています:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
@@ -196,17 +196,17 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **異なるスライドサイズのプレゼンテーションをマージ** 
+## **異なるスライド サイズのプレゼンテーションをマージ**
 
 {{% alert title="Note" color="warning" %}} 
 
-異なるスライドサイズのプレゼンテーションはマージできません。 
+サイズが異なるスライドを持つプレゼンテーションはマージできません。 
 
 {{% /alert %}}
 
-サイズが異なる 2 つのプレゼンテーションをマージするには、いずれかのプレゼンテーションのサイズをもう一方に合わせて変更する必要があります。 
+サイズが異なる 2 つのプレゼンテーションをマージするには、どちらか一方のスライド サイズをもう一方に合わせてリサイズする必要があります。
 
-このサンプルコードは上記の操作を示しています:
+このサンプル コードは上記の操作を示しています:
 ```c#
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
@@ -223,7 +223,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-## **スライドをプレゼンテーションのセクションにマージ** 
+## **スライドをプレゼンテーション セクションにマージ**
 
 この C# コードは、特定のスライドをプレゼンテーションのセクションにマージする方法を示しています:
 ```c#
@@ -241,28 +241,28 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 
-スライドはセクションの末尾に追加されます。 
+スライドはセクションの末尾に追加されます。
 
 {{% alert title="Tip" color="primary" %}}
 
-Aspose は、[FREE Collage web app](https://products.aspose.app/slides/collage) を提供しています。このオンラインサービスを使用すると、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG 画像をマージしたり、[photo grids](https://products.aspose.app/slides/collage/photo-grid) を作成したりできます。 
+Aspose は、[FREE Collage Web アプリ](https://products.aspose.app/slides/collage) を提供しています。このオンラインサービスを使用すると、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG の画像をマージしたり、[フォト グリッド](https://products.aspose.app/slides/collage/photo-grid) を作成したりできます。 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**マージ中にスピーカーノートは保持されますか？**
+**マージ時にスピーカーノートは保持されますか？**
 
-はい。スライドをクローンすると、Aspose.Slides はノート、書式設定、アニメーションを含むすべてのスライド要素を引き継ぎます。
+はい。スライドをクローンすると、ノート、書式設定、アニメーションを含むすべてのスライド要素が引き継がれます。
 
-**コメントとその作成者は転送されますか？**
+**コメントと作者情報は転送されますか？**
 
-コメントはスライド内容の一部としてスライドとともにコピーされます。コメント作成者のラベルは結果のプレゼンテーション内のコメントオブジェクトとして保持されます。
+コメントはスライド コンテンツの一部としてコピーされます。コメントの作者ラベルは結果のプレゼンテーション内のコメント オブジェクトとして保持されます。
 
-**ソースのプレゼンテーションがパスワードで保護されている場合はどうなりますか？**
+**元のプレゼンテーションがパスワードで保護されている場合は？**
 
-[パスワードで開く](/slides/ja/net/password-protected-presentation/)必要があり、[LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) を使用します。読み込んだ後、そのスライドは保護されていないターゲット ファイル（または保護されたファイル）に安全にクローンできます。
+[LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) を使用してパスワードで [開く](/slides/ja/net/password-protected-presentation/) 必要があります。ロード後、これらのスライドは保護されていないターゲット ファイル（または保護されたファイル）に安全にクローンできます。
 
 **マージ操作はどの程度スレッドセーフですか？**
 
-同じ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) インスタンスを [複数のスレッド](/slides/ja/net/multithreading/) から使用しないでください。推奨ルールは「1 ドキュメント – 1 スレッド」です。別々のファイルは別スレッドで並行処理できます。
+同じ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) インスタンスを [複数のスレッド](/slides/ja/net/multithreading/) から使用しないでください。推奨ルールは「1 ドキュメント — 1 スレッド」です。別々のファイルは別々のスレッドで並行処理できます。

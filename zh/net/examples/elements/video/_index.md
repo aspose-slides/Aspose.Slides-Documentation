@@ -16,13 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C# 中处理视频：插入、替换、剪辑、设置海报帧和播放选项，并将演示文稿导出为 PPT、PPTX 和 ODP。"
+description: "使用 Aspose.Slides 在 C# 中处理视频：插入、替换、裁剪、设置海报帧和播放选项，并将演示文稿导出为 PPT、PPTX 和 ODP。"
 ---
 
 展示如何嵌入视频帧并使用 **Aspose.Slides for .NET** 设置播放选项。
 
-## 添加视频帧
-
+## **添加视频帧**
 在幻灯片上插入一个空的视频帧。
 ```csharp
 static void Add_Video()
@@ -36,8 +35,7 @@ static void Add_Video()
 ```
 
 
-## 访问视频帧
-
+## **访问视频帧**
 检索添加到幻灯片的第一个视频帧。
 ```csharp
 static void Access_Video()
@@ -52,8 +50,7 @@ static void Access_Video()
 ```
 
 
-## 删除视频帧
-
+## **删除视频帧**
 从幻灯片中删除视频帧。
 ```csharp
 static void Remove_Video()
@@ -68,9 +65,8 @@ static void Remove_Video()
 ```
 
 
-## 设置视频播放
-
-配置视频在幻灯片展示时自动播放。
+## **设置视频播放**
+配置视频，使其在显示幻灯片时自动播放。
 ```csharp
 static void Set_Video_Playback()
 {

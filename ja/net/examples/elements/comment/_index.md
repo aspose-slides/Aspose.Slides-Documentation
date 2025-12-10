@@ -16,14 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides を使用してスライドコメントを管理します：追加、読み取り、返信、編集、削除、そして PowerPoint と OpenDocument のスレッド化されたコメントを操作します。"
+description: "C# と Aspose.Slides を使用してスライド コメントを管理します：追加、読み取り、返信、編集、削除、そして PowerPoint と OpenDocument 用のスレッド化されたコメントを操作します。"
 ---
 
-**Aspose.Slides for .NET** を使用して、モダン コメントの追加、読み取り、削除、および返信を示します。
+**Aspose.Slides for .NET** を使用して、モダン コメントの追加、読み取り、削除、および返信を実演します。
 
-## Add a Modern Comment
+## **モダン コメントを追加**
 
-ユーザーが作成したコメントを作成し、プレゼンテーションを保存します。
+ユーザーが作成したコメントを追加し、プレゼンテーションを保存します。
 ```csharp
 static void Add_Modern_Comment()
 {
@@ -38,7 +38,7 @@ static void Add_Modern_Comment()
 ```
 
 
-## Access a Modern Comment
+## **モダン コメントにアクセス**
 
 既存のプレゼンテーションからモダン コメントを読み取ります。
 ```csharp
@@ -53,7 +53,7 @@ static void Access_Modern_Comment()
 ```
 
 
-## Remove a Modern Comment
+## **モダン コメントを削除**
 
 コメントを削除し、更新されたファイルを保存します。
 ```csharp
@@ -70,7 +70,7 @@ static void Remove_Modern_Comment()
 ```
 
 
-## Reply to a Modern Comment
+## **モダン コメントに返信**
 
 親のモダン コメントに返信を追加します。
 ```csharp

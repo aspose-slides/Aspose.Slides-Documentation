@@ -13,41 +13,41 @@ keywords:
 - Animation steuern
 - Animationseffekt
 - PowerPoint-Animation
-- Animationszeitlinie
-- interaktive Animation
-- benutzerdefinierte Animation
+- Animationszeitachse
+- Interaktive Animation
+- Benutzerdefinierte Animation
 - Formanimation
-- animiertes Diagramm
-- animierter Text
-- animierte Form
-- animiertes OLE-Objekt
-- animiertes Bild
-- animierte Tabelle
+- Animiertes Diagramm
+- Animierter Text
+- Animierte Form
+- Animiertes OLE-Objekt
+- Animiertes Bild
+- Animierte Tabelle
 - PowerPoint-Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für .NET beim Umgang mit PowerPoint-Animationen. Dieser allgemeine Überblick hebt wichtige Funktionen hervor und bietet Einblicke, um Ihre Präsentationen zu verbessern."
+description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für .NET bei der Handhabung von PowerPoint-Animationen. Dieser allgemeine Überblick hebt wichtige Funktionen hervor und bietet Einblicke, um Ihre Präsentationen zu verbessern."
 ---
 
 ## **Übersicht**
 
-Da Präsentationen dazu gedacht sind, etwas zu präsentieren, werden ihr visuelles Erscheinungsbild und ihr interaktives Verhalten bereits bei der Erstellung berücksichtigt.
+Da Präsentationen dazu bestimmt sind, etwas zu zeigen, werden ihr visuelles Erscheinungsbild und ihr interaktives Verhalten bei der Erstellung stets berücksichtigt.
 
-**PowerPoint-Animationen** spielen eine wichtige Rolle, um eine Präsentation für Zuschauer auffällig und ansprechend zu gestalten. Aspose.Slides für .NET bietet eine breite Palette von Optionen, um PowerPoint‑Präsentationen zu animieren:
+**PowerPoint-Animationen** spielen eine wichtige Rolle, um eine Präsentation auffällig und ansprechend für die Zuschauer zu gestalten. Aspose.Slides for .NET bietet eine breite Palette von Optionen, um Animationen zu PowerPoint‑Präsentationen hinzuzufügen:
 
 - Wenden Sie verschiedene Arten von PowerPoint‑Animationseffekten auf Formen, Diagramme, Tabellen, OLE‑Objekte und andere Präsentationselemente an.
 - Verwenden Sie mehrere PowerPoint‑Animationseffekte auf einer einzigen Form.
-- Nutzen Sie die Animationszeitlinie, um Animationseffekte zu steuern.
+- Nutzen Sie die Animations‑Zeitleiste, um Animationseffekte zu steuern.
 - Erstellen Sie benutzerdefinierte Animationen.
 
-In Aspose.Slides für .NET können verschiedene Animationseffekte auf Formen angewendet werden. Da jedes Element auf einer Folie, einschließlich Text, Bilder, OLE‑Objekte und Tabellen, als Form betrachtet wird, können Animationseffekte auf jedes Element auf der Folie angewendet werden.
+In Aspose.Slides for .NET können verschiedene Animationseffekte auf Formen angewendet werden. Da jedes Element auf einer Folie, einschließlich Text, Bilder, OLE‑Objekte und Tabellen, als Form betrachtet wird, können Animationseffekte auf jedes Element der Folie angewendet werden.
 
 [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/) namespace bietet Klassen zur Arbeit mit PowerPoint‑Animationen.
 
-## **Animationseffekte**
+## **Animations‑Effekte**
 
-Aspose.Slides unterstützt **mehr als 150 Animationseffekte**, darunter Basis‑Effekte wie Bounce, PathFootball und Zoom sowie spezifische Effekte wie OLEObjectShow und OLEObjectOpen. Eine vollständige Liste der Animationseffekte finden Sie in der Aufzählung [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype).
+Aspose.Slides unterstützt **mehr als 150 Animationseffekte**, darunter Basis‑Effekte wie Bounce, PathFootball und Zoom sowie spezifische Effekte wie OLEObjectShow und OLEObjectOpen. Eine vollständige Liste der Animationseffekte finden Sie in der [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype)‑Aufzählung.
 
 Zusätzlich können diese Animationseffekte in Kombination mit den folgenden verwendet werden:
 
@@ -64,54 +64,54 @@ Zusätzlich können diese Animationseffekte in Kombination mit den folgenden ver
 
 Es ist möglich, eigene **benutzerdefinierte Animationen** in Aspose.Slides zu erstellen. Dies kann erreicht werden, indem mehrere Verhaltensweisen zu einer neuen benutzerdefinierten Animation kombiniert werden.
 
-[Behaviour](https://reference.aspose.com/slides/net/aspose.slides.animation/behavior) ist ein Baustein jedes PowerPoint‑Animationseffekts. Alle Animationseffekte bestehen im Wesentlichen aus einer Menge von Verhaltensweisen, die zu einer Strategie zusammengesetzt sind. Sie können Verhaltensweisen zu einer benutzerdefinierten Animation kombinieren und diese dann in anderen Präsentationen wiederverwenden. Wenn Sie einer Standard‑PowerPoint‑Animation ein neues Verhalten hinzufügen, entsteht eine weitere benutzerdefinierte Animation. Beispielsweise können Sie einer Animation ein Wiederholungs‑Verhalten hinzufügen, damit sie mehrere Male wiederholt wird.
+[Behaviour](https://reference.aspose.com/slides/net/aspose.slides.animation/behavior) ist ein Baustein jedes PowerPoint‑Animationseffekts. Alle Animationseffekte sind im Wesentlichen ein Satz von Verhaltensweisen, die zu einer Strategie zusammengesetzt sind. Sie können Verhaltensweisen zu einer benutzerdefinierten Animation kombinieren und sie anschließend in anderen Präsentationen wiederverwenden. Wenn Sie einer Standard‑PowerPoint‑Animation ein neues Verhalten hinzufügen, entsteht eine weitere benutzerdefinierte Animation. Beispielsweise können Sie ein Wiederhol‑Verhalten zu einer Animation hinzufügen, damit sie mehrmals abgespielt wird.
 
 [Animation Point](https://reference.aspose.com/slides/net/aspose.slides.animation/point) ist ein Punkt, an dem ein Verhalten angewendet werden soll.
 
-## **Animationszeitlinie**
+## **Animations‑Zeitachse**
 
 [Sequence](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) ist eine Sammlung von Animationseffekten, die auf eine bestimmte Form angewendet werden.
 
-[Timeline](https://reference.aspose.com/slides/net/aspose.slides.animation/animationtimeline) ist ein Satz von Sequenzen, die in einer bestimmten Folie verwendet werden. Es ist eine Animations‑Engine, die in PowerPoint 2002 eingeführt wurde. In früheren Versionen von PowerPoint war das Hinzufügen von Animationseffekten zu Präsentationen schwierig und nur mit verschiedenen Work‑arounds möglich. Die Zeitlinie ersetzt die alte AnimationSettings‑Klasse und bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animationszeitlinie besitzen.
+[Timeline](https://reference.aspose.com/slides/net/aspose.slides.animation/animationtimeline) ist ein Satz von Sequenzen, die in einer bestimmten Folie verwendet werden. Sie ist eine Animations‑Engine, die in PowerPoint 2002 eingeführt wurde. In früheren PowerPoint‑Versionen war das Hinzufügen von Animationseffekten zu Präsentationen schwierig und nur mit verschiedenen Work‑arounds möglich. Die Zeitachse ersetzt die alte AnimationSettings‑Klasse und bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animations‑Zeitachse besitzen.
 
 ## **Interaktive Animation**
 
-[Trigger](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttriggertype) ermöglicht es, Benutzeraktionen (z. B. einen Klick auf einen Button) zu definieren, die eine bestimmte Animation starten. Trigger wurden in der neuesten PowerPoint‑Version eingeführt.
+[Trigger](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttriggertype) ermöglicht es, Benutzeraktionen (z. B. einen Button‑Klick) zu definieren, die eine bestimmte Animation starten. Trigger wurden in der neuesten PowerPoint‑Version eingeführt.
 
 ## **Form‑Animation**
 
-Aspose.Slides ermöglicht das Anwenden von Animationen auf Formen, zu denen Text, Rechtecke, Linien, Rahmen, OLE‑Objekte und mehr gehören können.
+Aspose.Slides ermöglicht das Anwenden von Animationen auf Formen, zu denen Text, Rechtecke, Linien, Rahmen, OLE‑Objekte und mehr gehören.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über Shape‑Animation**](/slides/de/net/shape-animation/).
+Mehr erfahren [**Über Shape‑Animation**](/slides/de/net/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
 
-Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. PowerPoint‑Animationen können jedoch nur auf Diagrammkategorien oder Diagrammreihen angewendet werden. Sie können Animationseffekte auch auf ein Kategorie‑Element oder ein Reihen‑Element anwenden.
+Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. PowerPoint‑Animationen können jedoch nur auf Diagrammkategorien oder Diagrammreihen angewendet werden. Sie können Animationseffekte auch auf ein Kategorienelement oder ein Reihen‑Element anwenden.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über animierte Diagramme**](/slides/de/net/animated-charts/).
+Mehr erfahren [**Über animierte Diagramme**](/slides/de/net/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
 
-Neben animiertem Text ist es auch möglich, Animationen auf einen Absatz anzuwenden.
+Neben animiertem Text ist es auch möglich, eine Animation auf einen Absatz anzuwenden.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über animierten Text**](/slides/de/net/animated-text/).
+Mehr erfahren [**Über animierten Text**](/slides/de/net/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Werden Animationen beim Exportieren nach PDF beibehalten?**
+**Werden Animationen beim Exportieren in PDF beibehalten?**
 
-Nein. PDF ist ein statisches Format, sodass Animationen und [Folienübergänge](/slides/de/net/slide-transition/) nicht abgespielt werden. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen nach [HTML5](/slides/de/net/export-to-html5/), [animiertem GIF](/slides/de/net/convert-powerpoint-to-animated-gif/) oder [Video](/slides/de/net/convert-powerpoint-to-video/).
+Nein. PDF ist ein statisches Format, sodass Animationen und [Folienübergänge](/slides/de/net/slide-transition/) nicht abgespielt werden. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen zu [HTML5](/slides/de/net/export-to-html5/), [animiertem GIF](/slides/de/net/convert-powerpoint-to-animated-gif/) oder [Video](/slides/de/net/convert-powerpoint-to-video/).
 
-**Kann ich eine animierte Präsentation in ein Video umwandeln und die Bildrate sowie die Bildgröße steuern?**
+**Kann ich eine animierte Präsentation in ein Video umwandeln und dabei Bildrate und Bildgröße steuern?**
 
-Ja. Sie können die Präsentation als einzelne Bilder [rendern](/slides/de/net/convert-powerpoint-to-video/) und diese mit einem Tool wie ffmpeg zu einem Video zusammenfügen, wobei Sie FPS und Auflösung wählen. Animationen und Folienübergänge werden beim Rendern abgespielt.
+Ja. Sie können die Präsentation als Einzelbilder [rendern](/slides/de/net/convert-powerpoint-to-video/) und diese mit einem Tool wie ffmpeg zu einem Video zusammenfügen, wobei Sie FPS und Auflösung auswählen. Animationen und Folienübergänge werden beim Rendern abgespielt.
 
-**Bleiben Animationen intakt, wenn mit ODP (nicht nur PPTX) gearbeitet wird?**
+**Bleiben Animationen erhalten, wenn ich mit ODP (nicht nur PPTX) arbeite?**
 
-PPT, PPTX und ODP werden zum [Lesen](/slides/de/net/open-presentation/) und [Schreiben](/slides/de/net/save-presentation/) unterstützt, aber Unterschiede im Format können dazu führen, dass bestimmte Effekte leicht unterschiedlich aussehen oder sich anders verhalten. Validieren Sie kritische Fälle mit echten Beispielen.
+PPT, PPTX und ODP werden zum [Lesen](/slides/de/net/open-presentation/) und [Schreiben](/slides/de/net/save-presentation/) unterstützt, aber Formatunterschiede können dazu führen, dass bestimmte Effekte leicht abweichen. Validieren Sie kritische Fälle mit echten Beispielen.

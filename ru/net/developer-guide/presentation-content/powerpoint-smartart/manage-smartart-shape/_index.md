@@ -14,80 +14,80 @@ keywords:
 - Редактирование SmartArt
 - Изменение SmartArt
 - Доступ к SmartArt
-- Тип макета SmartArt
+- Тип размещения SmartArt
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Автоматизируйте создание, редактирование и стилизацию SmartArt в PowerPoint с помощью .NET и Aspose.Slides, предлагая лаконичные примеры кода и рекомендации, ориентированные на производительность."
+description: "Автоматизируйте создание, редактирование и стилизацию SmartArt в PowerPoint на .NET с помощью Aspose.Slides, предоставляя лаконичные примеры кода и рекомендации, ориентированные на производительность."
 ---
 
-## **Создание фигуры SmartArt**
-Aspose.Slides for .NET теперь позволяет добавлять пользовательские фигуры SmartArt в свои слайды с нуля. Aspose.Slides for .NET предоставляет самый простой API для создания фигур SmartArt самым лёгким способом. Чтобы создать фигуру SmartArt на слайде, выполните следующие шаги:
+## **Создать форму SmartArt**
+Aspose.Slides for .NET теперь позволяет добавлять пользовательские элементы SmartArt в слайды с нуля. Aspose.Slides for .NET предоставляет самый простой API для создания элементов SmartArt самым простым способом. Чтобы создать элемент SmartArt в слайде, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 - Получите ссылку на слайд, используя его индекс.
-- Добавьте фигуру SmartArt, установив её LayoutType.
-- Сохраните изменённую презентацию как файл PPTX.
+- Добавьте элемент SmartArt, задав его LayoutType.
+- Сохраните изменённую презентацию в файл PPTX.
 ```c#
-// Создать презентацию
+// Создать экземпляр презентации
 using (Presentation pres = new Presentation())
 {
 
-    // Доступ к слайду презентации
+    // Получить доступ к слайду презентации
     ISlide slide = pres.Slides[0];
 
     // Добавить форму Smart Art
     ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
 
-    // Сохранение презентации
+    // Сохранить презентацию
     pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **Доступ к фигуре SmartArt на слайде**
-Следующий код будет использоваться для доступа к фигурам SmartArt, добавленным в слайд презентации. В примере кода мы пройдемся по каждой фигуре внутри слайда и проверим, является ли она фигурой SmartArt. Если фигура типа SmartArt, то мы приведём её к экземпляру SmartArt.
+## **Доступ к элементу SmartArt на слайде**
+В следующем коде будет продемонстрирован доступ к элементам SmartArt, добавленным в слайд презентации. В примере кода мы перебираем все формы на слайде и проверяем, является ли форма элементом SmartArt. Если форма относится к типу SmartArt, мы приводим её к экземпляру SmartArt.
 ```c#
- // Загрузить нужную презентацию
- using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
- {
- 
-     // Пройтись по всем фигурам на первом слайде
-     foreach (IShape shape in pres.Slides[0].Shapes)
-     {
-         // Проверить, является ли фигура типом SmartArt
-         if (shape is ISmartArt)
-         {
-             // Приведение типа фигуры к SmartArtEx
-             ISmartArt smart = (ISmartArt)shape;
-             System.Console.WriteLine("Shape Name:" + smart.Name);
- 
-         }
-     }
- }
+// Загрузить нужную презентацию
+using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
+{
+
+    // Обойти все формы на первом слайде
+    foreach (IShape shape in pres.Slides[0].Shapes)
+    {
+        // Проверить, является ли форма типом SmartArt
+        if (shape is ISmartArt)
+        {
+            // Привести форму к SmartArt
+            ISmartArt smart = (ISmartArt)shape;
+            System.Console.WriteLine("Shape Name:" + smart.Name);
+
+        }
+    }
+}
 ```
 
 
-## **Доступ к фигуре SmartArt с определённым типом LayoutType**
-Следующий пример кода поможет получить доступ к фигуре SmartArt с определённым LayoutType. Обратите внимание, что изменить LayoutType у SmartArt нельзя, так как он только для чтения и задаётся только при добавлении фигуры SmartArt.
+## **Доступ к элементу SmartArt с определённым типом LayoutType**
+В следующем примере кода показано, как получить доступ к элементу SmartArt с определённым LayoutType. Обратите внимание, что изменить LayoutType у SmartArt нельзя, так как он только для чтения и задаётся лишь при добавлении элемента SmartArt.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с элементом SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по всем фигурам на первом слайде.
-- Проверьте, является ли фигура типом SmartArt, и если да, выполните приведение типа выбранной фигуры к SmartArt.
-- Проверьте фигуру SmartArt с определённым LayoutType и выполните необходимые дальнейшие действия.
+- Пройдитесь по всем формам на первом слайде.
+- Проверьте, относится ли форма к типу SmartArt, и при необходимости приведите выбранную форму к SmartArt.
+- Проверьте элемент SmartArt с определённым LayoutType и выполните необходимые действия.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Пройтись по всем фигурам на первом слайде
+    // Пройтись по всем формам на первом слайде
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Проверить, является ли фигура типом SmartArt
+        // Проверить, является ли форма типом SmartArt
         if (shape is ISmartArt)
         {
-            // Привести фигуру к типу SmartArtEx
+            // Привести форму к SmartArtEx
             ISmartArt smart = (ISmartArt) shape;
 
             // Проверка макета SmartArt
@@ -101,26 +101,26 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
-## **Изменение стиля фигуры SmartArt**
-Следующий пример кода поможет получить доступ к фигуре SmartArt с определённым LayoutType.
+## **Изменить стиль элемента SmartArt**
+В следующем примере кода показано, как получить доступ к элементу SmartArt с определённым LayoutType.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с элементом SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по всем фигурам на первом слайде.
-- Проверьте, является ли фигура типом SmartArt, и если да, выполните приведение типа выбранной фигуры к SmartArt.
-- Найдите фигуру SmartArt с определённым Style.
-- Установите новый Style для фигуры SmartArt.
+- Пройдитесь по всем формам на первом слайде.
+- Проверьте, относится ли форма к типу SmartArt, и при необходимости приведите выбранную форму к SmartArt.
+- Найдите элемент SmartArt с определённым стилем.
+- Установите новый стиль для элемента SmartArt.
 - Сохраните презентацию.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Пройтись по всем фигурам на первом слайде
+    // Пройтись по всем формам на первом слайде
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Проверить, является ли фигура типом SmartArt
+        // Проверить, является ли форма типом SmartArt
         if (shape is ISmartArt)
         {
-            // Привести фигуру к типу SmartArtEx
+            // Привести форму к SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
             // Проверка стиля SmartArt
@@ -138,32 +138,32 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
-## **Изменение цветового стиля фигуры SmartArt**
-В этом примере мы узнаем, как изменить цветовой стиль любой фигуры SmartArt. В следующем примере кода будет получен доступ к фигуре SmartArt с определённым цветовым стилем и изменён её стиль.
+## **Изменить цветовой стиль элемента SmartArt**
+В следующем примере кода показано, как получить доступ к элементу SmartArt с определённым цветовым стилем и изменить его стиль.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с фигурой SmartArt.
+- Создайте экземпляр класса `Presentation` и загрузите презентацию с элементом SmartArt.
 - Получите ссылку на первый слайд, используя его индекс.
-- Пройдитесь по всем фигурам на первом слайде.
-- Проверьте, является ли фигура типом SmartArt, и если да, выполните приведение типа выбранной фигуры к SmartArt.
-- Найдите фигуру SmartArt с определённым Color Style.
-- Установите новый Color Style для фигуры SmartArt.
+- Пройдитесь по всем формам на первом слайде.
+- Проверьте, относится ли форма к типу SmartArt, и при необходимости приведите выбранную форму к SmartArt.
+- Найдите элемент SmartArt с определённым цветовым стилем.
+- Установите новый цветовой стиль для элемента SmartArt.
 - Сохраните презентацию.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Пройтись по всем фигурам на первом слайде
+    // Пройтись по всем формам на первом слайде
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Проверить, является ли фигура типом SmartArt
+        // Проверить, является ли форма типом SmartArt
         if (shape is ISmartArt)
         {
-            // Привести фигуру к типу SmartArtEx
+            // Привести форму к SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
-            // Проверка цветового типа SmartArt
+            // Проверка типа цвета SmartArt
             if (smart.ColorStyle == SmartArtColorType.ColoredFillAccent1)
             {
-                // Изменение цветового типа SmartArt
+                // Изменение типа цвета SmartArt
                 smart.ColorStyle = SmartArtColorType.ColorfulAccentColors;
             }
         }
@@ -177,22 +177,22 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 
 ## **FAQ**
 
-**Могу ли я анимировать SmartArt как единый объект?**
+**Можно ли анимировать SmartArt как один объект?**
 
-Да. SmartArt — это фигура, поэтому вы можете применять [standard animations](/slides/ru/net/powerpoint-animation/) через API анимаций (вход, выход, выделение, пути движения) как и для других фигур.
+Да. SmartArt — это форма, поэтому её можно анимировать с помощью [стандартных анимаций](/slides/ru/net/powerpoint-animation/) через API анимаций (вход, выход, акцент, траектории движения), как и другие формы.
 
 **Как найти конкретный SmartArt на слайде, если я не знаю его внутренний ID?**
 
-Задайте и используйте альтернативный текст (AltText) и ищите фигуру по этому значению — это рекомендованный способ найти нужную фигуру.
+Установите и используйте альтернативный текст (AltText) и ищите форму по этому значению — рекомендованный способ находить нужную форму.
 
-**Могу ли я сгруппировать SmartArt с другими фигурами?**
+**Можно ли группировать SmartArt с другими формами?**
 
-Да. Вы можете сгруппировать SmartArt с другими фигурами (изображения, таблицы и т.д.), а затем [manipulate the group](/slides/ru/net/group/).
+Да. Вы можете сгруппировать SmartArt с другими формами (изображениями, таблицами и т.д.) и затем [управлять группой](/slides/ru/net/group/).
 
 **Как получить изображение конкретного SmartArt (например, для превью или отчёта)?**
 
-Экспортируйте миниатюру/изображение фигуры; библиотека может [render individual shapes](/slides/ru/net/create-shape-thumbnails/) в растр‑файлы (PNG/JPG/TIFF).
+Экспортируйте миниатюру/изображение формы; библиотека может [рендерить отдельные формы](/slides/ru/net/create-shape-thumbnails/) в растровые файлы (PNG/JPG/TIFF).
 
-**Сохраняется ли внешний вид SmartArt при конвертации всей презентации в PDF?**
+**Сохранится ли внешний вид SmartArt при конвертации всей презентации в PDF?**
 
-Да. Рендеринговый движок обеспечивает высокую точность при [PDF export](/slides/ru/net/convert-powerpoint-to-pdf/), предоставляя разнообразные параметры качества и совместимости.
+Да. Функция рендеринга обеспечивает высокую точность при [экспорте в PDF](/slides/ru/net/convert-powerpoint-to-pdf/), предлагая различные параметры качества и совместимости.

@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ja/net/how-to-run-examples/
 keywords:
-- サンプル
+- 例
 - ソフトウェア要件
 - NuGet
 - GitHub
@@ -14,49 +14,47 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のサンプルをすばやく実行するには、リポジトリをクローンし、パッケージを復元してから、PPT、PPTX、ODP の機能をビルドおよびテストします。"
+description: "Aspose.Slides for .NET のサンプルをすばやく実行するには、リポジトリをクローンし、パッケージを復元してからビルドし、PPT、PPTX、ODP の機能をテストします。"
 ---
 
 ## **ソフトウェア要件**
-サンプルをダウンロードして実行する前に、環境が以下の要件を満たしているか確認してください。
+例をダウンロードして実行する前に、環境が以下の要件を満たしていることを確認してください。
 
 - Visual Studio 2010 以上。
 - Visual Studio に NuGet パッケージ マネージャーがインストールされていること。最新の NuGet API バージョンがインストールされていることを確認してください。
 
-NuGet パッケージ マネージャーのインストール手順は、次のページをご覧ください: https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools
+NuGet パッケージ マネージャーのインストール手順については、次のページをご参照ください: https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools
 
 1. **Tools** > **Options** > **NuGet Package Manager** に進みます。
 
-1. **NuGet Package Manager** を展開します（ダブルクリック）。次に **Package Sources** を選択します。
+1. **NuGet Package Manager** を展開（ダブルクリック）し、**Package Sources** を選択します。
 
 1. nuget.org パラメーターが選択されていることを確認します。
 
-   サンプル プロジェクトは NuGet の自動パッケージ復元機能を使用しているため、インターネットに接続できる環境が必要です。
+   このサンプル プロジェクトは NuGet の自動パッケージ復元機能を使用しているため、インターネット接続が必要です。
 
-   実行環境のマシンでインターネットに接続できない場合は、[インストール](https://docs.aspose.com/slides/net/installation/) を確認し、サンプル プロジェクトに Aspose.Slides.dll への参照を手動で追加してください。
-## **GitHub からのダウンロード**
-すべての Aspose.Slides for .NET サンプルは [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET) にホストされています。
+   例を実行するマシンでインターネット接続が利用できない場合は、[Installation](https://docs.aspose.com/slides/net/installation/) を確認し、（手動で）例のプロジェクトに Aspose.Slides.dll の参照を追加してください。
 
-お好きな GitHub クライアントでリポジトリをクローンするか、ZIP ファイルを [ここ](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/master.zip) からダウンロードできます。
+## **GitHub から Aspose.Slides をダウンロード**
+.NET 用 Aspose.Slides のすべてのサンプルは [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET) でホストされています。
 
-1. ZIP ファイルをダウンロードした場合は、その内容をコンピューター上のフォルダーに展開する必要があります。
+好きな GitHub クライアントでリポジトリをクローンするか、ZIP ファイルを [here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/master.zip) からダウンロードできます。
 
-   すべてのサンプルは **Examples** フォルダーに格納されています。
+1. ZIP ファイルをダウンロードした場合は、内容をコンピューター上のフォルダーに展開する必要があります。  
+   すべてのサンプルは **Examples** フォルダーに格納されています。  
+   C# の Visual Studio ソリューション ファイルがあります。プロジェクトは Visual Studio 2013 で作成されていますが、ソリューション ファイルは Visual Studio 2010 SP1 以降と互換性があります。
 
-   C# 用の Visual Studio ソリューション ファイルがあります。プロジェクトは Visual Studio 2013 で作成されていますが、ソリューション ファイルは Visual Studio 2010 SP1 以降と互換性があります。
-
-2. ソリューション ファイルを Visual Studio で開き、プロジェクトをビルドします。
-
-   初回実行時に、依存関係が NuGet を介して自動的にダウンロードされます。
-
-   **Examples** のルート フォルダーにある **Data** フォルダーには、C# サンプルで使用される入力ファイルが含まれています。**Data** フォルダーもサンプル プロジェクトと一緒にダウンロードする必要があります。
+2. Visual Studio でソリューション ファイルを開き、プロジェクトをビルドします。  
+   初回の実行時に、依存関係が NuGet を通じて自動的にダウンロードされます。  
+   **Examples** のルート フォルダーにある **Data** フォルダーには、C# のサンプルで使用される入力ファイルが含まれています。**Data** フォルダーをサンプル プロジェクトと一緒にダウンロードする必要があります。
 
 3. RunExamples.cs ファイルを開きます。すべてのサンプルはここから呼び出されます。
 
-4. 実行したいサンプルのコメントを解除します。
+4. プロジェクト内で実行したいサンプルのコメントを解除します。
 
-設定やサンプルの実行に問題がある場合は、フォーラムで遠慮なくお問い合わせください。
+セットアップやサンプルの実行に問題がある場合は、フォーラムでお気軽にお問い合わせください。
+
 ## **貢献**
-サンプルを追加したり改善したりすることで、プロジェクトに貢献できます。リポジトリ内のすべてのサンプルとショーケース プロジェクトはオープン ソースであり、あなたや他の人が自由にアプリケーションで使用できます。
+サンプルを追加または改善することでプロジェクトに貢献できます。リポジトリ内のすべてのサンプルとショーケース プロジェクトはオープンソースであるため、あなた（および他のユーザー）はアプリケーションで自由に利用できます。
 
 貢献するには、リポジトリをフォークし、ソースコードを編集してプル リクエストを作成してください。変更内容を確認し、有用と判断した場合はリポジトリに追加します。

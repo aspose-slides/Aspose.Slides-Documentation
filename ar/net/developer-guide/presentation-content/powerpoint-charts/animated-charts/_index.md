@@ -1,5 +1,5 @@
 ---
-title: تحريك المخططات في PowerPoint باستخدام .NET
+title: تحريك مخططات PowerPoint في .NET
 linktitle: مخططات متحركة
 type: docs
 weight: 80
@@ -19,21 +19,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "أنشئ مخططات متحركة مذهلة في .NET باستخدام Aspose.Slides. عزّز العروض التقديمية بمرئيات ديناميكية في ملفات PPT وPPTX—ابدأ الآن."
+description: "إنشاء مخططات متحركة مذهلة في .NET باستخدام Aspose.Slides. عزز العروض التقديمية بصور ديناميكية في ملفات PPT و PPTX—ابدأ الآن."
 ---
 
-يدعم Aspose.Slides for .NET تحريك عناصر المخطط. يمكن تحريك **السلاسل**، **الفئات**، **عناصر السلسلة**، **عناصر الفئات** باستخدام طريقة [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) واثنين من التعدادات [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) و[**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
-## **تحريك سلسلة المخطط**
-إذا كنت تريد تحريك سلسلة مخطط، اكتب الكود وفق الخطوات المذكورة أدناه:
+يدعم Aspose.Slides for .NET تحريك عناصر المخطط. **السلاسل**، **الفئات**، **عناصر السلسلة**، **عناصر الفئات** يمكن تحريكها باستخدام طريقة [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) واثنين من التعدادات [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) و[**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
+
+## **تحريك سلاسل المخطط**
+If you want to animate a chart series, write the code according to the steps listed below:
 
 1. تحميل عرض تقديمي.
 1. الحصول على مرجع كائن المخطط.
 1. تحريك السلسلة.
 1. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال أدناه، قمنا بتحريك سلسلة المخطط.
+في المثال المعطى أدناه، قمنا بتحريك سلاسل المخطط.
 ```c#
-// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي 
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي 
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // الحصول على مرجع كائن المخطط
@@ -61,25 +62,25 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     EffectChartMajorGroupingType.BySeries, 3,
     EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // حفظ العرض التقديمي المعدل إلى القرص 
+    // حفظ العرض التقديمي المعدل على القرص 
     presentation.Save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ## **تحريك فئة المخطط**
-إذا كنت تريد تحريك فئة مخطط، اكتب الكود وفق الخطوات المذكورة أدناه:
+If you want to animate a chart series, write the code according to the steps listed below:
 
 1. تحميل عرض تقديمي.
 1. الحصول على مرجع كائن المخطط.
 1. تحريك الفئة.
 1. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال أدناه، قمنا بتحريك فئة المخطط.
+في المثال المعطى أدناه، قمنا بتحريك فئة المخطط.
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // الحصول على مرجع كائن المخطط
+    // احصل على مرجع كائن المخطط
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -108,14 +109,14 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 ## **تحريك عنصر السلسلة**
-إذا كنت تريد تحريك عناصر السلسلة، اكتب الكود وفق الخطوات المذكورة أدناه:
+If you want to animate series elements, write the code according to the steps listed below:
 
 1. تحميل عرض تقديمي.
 1. الحصول على مرجع كائن المخطط.
 1. تحريك عناصر السلسلة.
 1. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال أدناه، قمنا بتحريك عناصر السلسلة.
+في المثال المعطى أدناه، لقد قمنا بتحريك عناصر السلسلة.
 ```c#
 // تحميل عرض تقديمي
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
@@ -143,21 +144,21 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // حفظ ملف العرض التقديمي إلى القرص
+    // حفظ ملف العرض التقديمي إلى القرص 
     presentation.Save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ## **تحريك عنصر الفئة**
-إذا كنت تريد تحريك عناصر الفئات، اكتب الكود وفق الخطوات المذكورة أدناه:
+If you want to animate categories elements, write the code according to the steps listed below:
 
 1. تحميل عرض تقديمي.
 1. الحصول على مرجع كائن المخطط.
 1. تحريك عناصر الفئات.
 1. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال أدناه، قمنا بتحريك عناصر الفئات.
+في المثال المعطى أدناه، لقد قمنا بتحريك عناصر الفئات.
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
@@ -191,22 +192,22 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **الأسئلة الشائعة**
 
-**هل يتم دعم أنواع تأثير مختلفة (مثل الدخول، التشديد، الخروج) للمخططات كما هو الحال للأشكال العادية؟**
+**هل يتم دعم أنواع تأثير مختلفة (مثل الدخول، التأكيد، الخروج) للمخططات كما في الأشكال العادية؟**
 
-نعم. يُعامل المخطط كشكل، لذا فإنه يدعم أنواع تأثيرات الرسوم المتحركة القياسية، بما في ذلك الدخول، التشديد، والخروج، مع التحكم الكامل عبر خط زمن الشريحة وتسلسلات الرسوم المتحركة.
+نعم. يُعامل المخطط كك shape، لذا يدعم أنواع تأثيرات الرسوم المتحركة القياسية، بما في ذلك الدخول، التأكيد، والخروج، مع تحكم كامل عبر مخطط الشريحة وتسلسلات الرسوم المتحركة.
 
-**هل يمكن الجمع بين تحريك المخطط وانتقالات الشريحة؟**
+**هل يمكنني دمج تحريك المخطط مع انتقالات الشرائح؟**
 
-نعم. [الانتقالات](/slides/ar/net/slide-transition/) تُطبق على الشريحة، بينما تُطبق تأثيرات الرسوم المتحركة على الكائنات داخل الشريحة. يمكنك استخدامهما معًا في نفس العرض التقديمي والتحكم فيهما بشكل مستقل.
+نعم. [Transitions](/slides/ar/net/slide-transition/) تُطبق على الشريحة، بينما تُطبق تأثيرات الرسوم المتحركة على العناصر داخل الشريحة. يمكنك استخدام كليهما معًا في نفس العرض التقديمي والتحكم فيهما بشكل مستقل.
 
-**هل تُحفظ تحريكات المخطط عند حفظ الملف كـ PPTX؟**
+**هل يتم الحفاظ على تحريكات المخطط عند الحفظ إلى PPTX؟**
 
-نعم. عند [الحفظ كـ PPTX](/slides/ar/net/save-presentation/)، تُحفظ جميع تأثيرات الرسوم المتحركة وترتيبها لأنّها جزء من نموذج الرسوم المتحركة الأصلي للعرض التقديمي.
+نعم. عندما تقوم بـ[save to PPTX](/slides/ar/net/save-presentation/)، تُحفظ جميع تأثيرات الرسوم المتحركة وترتيبها لأنّها جزء من نموذج الرسوم المتحركة الأصلي للعرض التقديمي.
 
-**هل يمكنني قراءة تحريكات المخطط الموجودة في عرض تقديمي وتعديلها؟**
+**هل يمكنني قراءة تحريكات المخطط الموجودة من العرض التقديمي وتعديلها؟**
 
-نعم. توفر الـ[API](https://reference.aspose.com/slides/net/aspose.slides.animation/) إمكانية الوصول إلى خط زمن الشريحة، التسلسلات، والتأثيرات، مما يسمح لك بفحص تحريكات المخطط الحالية وتعديلها دون الحاجة إلى إعادة إنشاء كل شيء من الصفر.
+نعم. توفر الـ[API](https://reference.aspose.com/slides/net/aspose.slides.animation/) إمكانية الوصول إلى مخطط الشريحة، والتسلسلات، والتأثيرات، مما يسمح لك بفحص تحريكات المخطط الحالية وتعديلها دون الحاجة إلى إعادة إنشائها من الصفر.
 
 **هل يمكنني إنتاج فيديو يتضمن تحريكات المخطط باستخدام Aspose.Slides؟**
 
-نعم. يمكنك [تصدير العرض التقديمي إلى فيديو](/slides/ar/net/convert-powerpoint-to-video/) مع الحفاظ على الرسوم المتحركة، وتكوين الفواصل الزمنية وإعدادات التصدير الأخرى بحيث يعكس الفيديو النهائي تشغيل الرسوم المتحركة.
+نعم. يمكنك [export a presentation to video](/slides/ar/net/convert-powerpoint-to-video/) مع الحفاظ على التحريكات، وضبط التوقيتات وإعدادات التصدير الأخرى بحيث يعكس المقطع الناتج تشغيل الرسوم المتحركة.

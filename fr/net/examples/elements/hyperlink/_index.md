@@ -15,12 +15,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ajouter, modifier et supprimer des hyperliens en C# avec Aspose.Slides : texte du lien, formes, diapositives, URL et e-mail ; définir les cibles et les actions pour PPT, PPTX et ODP."
+description: "Ajouter, modifier et supprimer des hyperliens en C# avec Aspose.Slides: texte du lien, formes, diapositives, URL et e-mail; définir les cibles et les actions pour PPT, PPTX et ODP."
 ---
 
-Démontre comment ajouter, accéder, supprimer et mettre à jour des hyperliens sur des formes en utilisant **Aspose.Slides for .NET**.
+Démontre l'ajout, l'accès, la suppression et la mise à jour des hyperliens sur les formes à l'aide de **Aspose.Slides for .NET**.
 
-## Ajouter un hyperlien
+## **Ajouter un hyperlien**
 
 Créez une forme rectangulaire avec un hyperlien pointant vers un site Web externe.
 ```csharp
@@ -35,9 +35,9 @@ static void Add_Hyperlink()
 ```
 
 
-## Accéder à un hyperlien
+## **Accéder à un hyperlien**
 
-Lisez les informations de l'hyperlien à partir de la partie texte d'une forme.
+Lisez les informations d'hyperlien à partir de la portion de texte d'une forme.
 ```csharp
 static void Access_Hyperlink()
 {
@@ -52,9 +52,9 @@ static void Access_Hyperlink()
 ```
 
 
-## Supprimer un hyperlien
+## **Supprimer un hyperlien**
 
-Supprimez l'hyperlien du texte d'une forme.
+Effacez l'hyperlien du texte d'une forme.
 ```csharp
 static void Remove_Hyperlink()
 {
@@ -69,9 +69,9 @@ static void Remove_Hyperlink()
 ```
 
 
-## Mettre à jour un hyperlien
+## **Mettre à jour un hyperlien**
 
-Modifiez la cible d'un hyperlien existant. Utilisez `HyperlinkManager` pour modifier le texte contenant déjà un hyperlien, ce qui imite la façon dont PowerPoint met à jour les hyperliens en toute sécurité.
+Modifiez la cible d'un hyperlien existant. Utilisez `HyperlinkManager` pour modifier le texte contenant déjà un hyperlien, ce qui reproduit la façon dont PowerPoint met à jour les hyperliens en toute sécurité.
 ```csharp
 static void Update_Hyperlink()
 {
@@ -82,8 +82,8 @@ static void Update_Hyperlink()
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-    // Modifier un hyperlien dans un texte existant doit se faire via
-    // HyperlinkManager plutôt que de définir directement la propriété.
+    // Modifier un hyperlien dans le texte existant doit être effectué via
+    // HyperlinkManager plutôt que de définir la propriété directement.
     // Cela reproduit la façon dont PowerPoint met à jour les hyperliens en toute sécurité.
     portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }

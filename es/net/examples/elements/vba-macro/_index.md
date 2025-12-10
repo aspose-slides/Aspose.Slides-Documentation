@@ -1,12 +1,12 @@
 ---
-title: MacroVba
+title: VbaMacro
 type: docs
 weight: 150
 url: /es/net/examples/elements/vba-macro/
 keywords:
 - ejemplo de macro vba
 - agregar macro vba
-- acceder macro vba
+- acceder a macro vba
 - eliminar macro vba
 - PowerPoint
 - OpenDocument
@@ -19,9 +19,9 @@ description: "Trabaje con macros VBA en C# usando Aspose.Slides: agregue o edite
 
 Ilustra cómo agregar, acceder y eliminar macros VBA usando **Aspose.Slides for .NET**.
 
-## Agregar una macro VBA
+## **Agregar una macro VBA**
 
-Crear una presentación con un proyecto VBA y un módulo de macro sencillo.
+Cree una presentación con un proyecto VBA y un módulo de macro simple.
 ```csharp
 static void Add_Vba_Macro()
 {
@@ -34,9 +34,9 @@ static void Add_Vba_Macro()
 ```
 
 
-## Acceder a una macro VBA
+## **Acceder a una macro VBA**
 
-Obtener el primer módulo del proyecto VBA.
+Recupere el primer módulo del proyecto VBA.
 ```csharp
 static void Access_Vba_Macro()
 {
@@ -51,9 +51,9 @@ static void Access_Vba_Macro()
 ```
 
 
-## Eliminar una macro VBA
+## **Eliminar una macro VBA**
 
-Eliminar un módulo del proyecto VBA.
+Elimine un módulo del proyecto VBA.
 ```csharp
 static void Remove_Vba_Macro()
 {

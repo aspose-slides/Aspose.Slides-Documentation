@@ -1,33 +1,33 @@
 ---
-title: API pública y cambios incompatibles retroactivos en Aspose.Slides para .NET 14.6.0
+title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 14.6.0
 linktitle: Aspose.Slides para .NET 14.6.0
 type: docs
 weight: 80
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
-- migración
-- código heredado
-- código moderno
-- enfoque heredado
-- enfoque moderno
-- PowerPoint
-- OpenDocument
-- presentación
-- .NET
-- C#
-- Aspose.Slides
-description: "Revisa las actualizaciones de la API pública y los cambios críticos en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
+  - migración
+  - código heredado
+  - código moderno
+  - enfoque heredado
+  - enfoque moderno
+  - PowerPoint
+  - OpenDocument
+  - presentación
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades y demás [added](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), cualquier nueva [restrictions](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) y otros [changes](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introducidos con la API de Aspose.Slides for .NET 14.6.0.
+Esta página enumera todas las [clases agregadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), métodos, propiedades y demás, cualquier [restricción nueva](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) y otros [cambios](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introducidos con la API Aspose.Slides for .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Cambios en la API pública**
-### **Interfaces, métodos y propiedades añadidos**
-#### **Añadida la interfaz Aspose.Slides.Charts.IErrorBarsFormat**
-Esto representa las barras de error de una serie de gráfico.
+### **Interfaces, métodos y propiedades agregados**
+#### **Se agregó la interfaz Aspose.Slides.Charts.IErrorBarsFormat**
+Representa las barras de error de una serie de gráfico.
 
 En caso de tipo de valor personalizado, para especificar un valor, use la propiedad ErrorBarCustomValues del punto de datos específico en la colección DataPoints de la serie.
 
@@ -66,7 +66,7 @@ En caso de tipo de valor personalizado, para especificar un valor, use la propie
 }
 
 ``` 
-#### **Añadida la interfaz Aspose.Slides.Charts.IErrorBarsCustomValues**
+#### **Se agregó la interfaz Aspose.Slides.Charts.IErrorBarsCustomValues**
 Cuando la propiedad IErrorBarsFormat.ValueType es igual a Custom, para especificar un valor, use la propiedad ErrorBarCustomValues del punto de datos específico en la colección DataPoints.
 
 ``` csharp
@@ -120,7 +120,7 @@ Cuando la propiedad IErrorBarsFormat.ValueType es igual a Custom, para especific
 }
 
 ``` 
-#### **Añadida la interfaz Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+#### **Se agregó la interfaz Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Especifica los tipos de valores en la lista de propiedades ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
@@ -174,7 +174,7 @@ Especifica los tipos de valores en la lista de propiedades ChartDataPoint.ErrorB
 }
 
 ``` 
-#### **Añadidos los métodos Aspose.Slides.IShapeCollection.AddClone(...), e .InsertClone(...)**
+#### **Se agregaron los métodos Aspose.Slides.IShapeCollection.AddClone(...), y .InsertClone(...)**
 Los siguientes métodos añaden/insertan una copia de una forma especificada en la colección. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
@@ -213,8 +213,8 @@ Los siguientes métodos añaden/insertan una copia de una forma especificada en 
 }
 
 ``` 
-#### **Añadidos el enumerado ViewType, la interfaz IViewProperties, la clase ViewProperties y la propiedad IPresentation.ViewProperties**
-La propiedad IPresentation.ViewProperty permite a los desarrolladores cambiar el tipo de vista de la presentación y la visibilidad de las notas cuando una presentación se abre en PowerPoint.
+#### **Se agregó el enum ViewType, la interfaz IViewProperties, la clase ViewProperties y la propiedad IPresentation.ViewProperties**
+IPresentation.ViewProperty permite a los desarrolladores cambiar el tipo de vista de la presentación y la visibilidad de notas cuando una presentación se abre en PowerPoint.
 
 ``` csharp
 

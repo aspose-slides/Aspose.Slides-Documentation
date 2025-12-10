@@ -16,14 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Работа с видео в C# с использованием Aspose.Slides: вставка, замена, обрезка, установка постеров и параметров воспроизведения, а также экспорт презентаций в форматы PPT, PPTX и ODP."
+description: "Работайте с видео в C# с помощью Aspose.Slides: вставка, замена, обрезка, установка постеров и параметров воспроизведения, экспорт презентаций в форматы PPT, PPTX и ODP."
 ---
 
-Показывает, как вставлять видеокадры и задавать параметры воспроизведения с помощью **Aspose.Slides for .NET**.
+Показано, как встраивать видеокадры и задавать параметры воспроизведения с использованием **Aspose.Slides for .NET**.
 
-## Добавить видеокадр
-
-Вставьте пустой видеокадр на слайд.
+## **Add a Video Frame**
+Insert an empty video frame onto a slide.
 ```csharp
 static void Add_Video()
 {
@@ -36,9 +35,8 @@ static void Add_Video()
 ```
 
 
-## Получить видеокадр
-
-Получите первый видеокадр, добавленный на слайд.
+## **Access a Video Frame**
+Retrieve the first video frame added to a slide.
 ```csharp
 static void Access_Video()
 {
@@ -52,9 +50,8 @@ static void Access_Video()
 ```
 
 
-## Удалить видеокадр
-
-Удалите видеокадр со слайда.
+## **Remove a Video Frame**
+Delete a video frame from the slide.
 ```csharp
 static void Remove_Video()
 {
@@ -68,9 +65,8 @@ static void Remove_Video()
 ```
 
 
-## Настроить воспроизведение видео
-
-Настройте видео так, чтобы оно воспроизводилось автоматически при отображении слайда.
+## **Set Video Playback**
+Configure the video to play automatically when the slide is displayed.
 ```csharp
 static void Set_Video_Playback()
 {

@@ -15,14 +15,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何在 C# 中使用 Aspose.Slides 查找、编辑和删除 ActiveX 控件，包括对 PowerPoint 演示文稿的属性更新。"
+description: "了解如何使用 Aspose.Slides 在 C# 中查找、编辑和删除 ActiveX 控件，以及对 PowerPoint 演示文稿进行属性更新。"
 ---
 
 演示如何在演示文稿中使用 **Aspose.Slides for .NET** 添加、访问、删除和配置 ActiveX 控件。
 
-## 添加 ActiveX 控件
+## **添加 ActiveX 控件**
 
-插入一个新的 ActiveX 控件，并可选地设置其属性。
+插入一个新的 ActiveX 控件，并可选择性地设置其属性。
 ```csharp
 static void Add_ActiveX()
 {
@@ -40,7 +40,7 @@ static void Add_ActiveX()
 ```
 
 
-## 访问 ActiveX 控件
+## **访问 ActiveX 控件**
 
 读取幻灯片上第一个 ActiveX 控件的信息。
 ```csharp
@@ -60,9 +60,9 @@ static void Access_ActiveX()
 ```
 
 
-## 删除 ActiveX 控件
+## **删除 ActiveX 控件**
 
-从幻灯片中删除已有的 ActiveX 控件。
+从幻灯片中删除已存在的 ActiveX 控件。
 ```csharp
 static void Remove_ActiveX()
 {
@@ -80,7 +80,7 @@ static void Remove_ActiveX()
 ```
 
 
-## 设置 ActiveX 属性
+## **设置 ActiveX 属性**
 
 添加控件并配置多个 ActiveX 属性。
 ```csharp
@@ -89,7 +89,7 @@ static void Set_ActiveX_Properties()
     using var pres = new Presentation();
     var slide = pres.Slides[0];
 
-    // 添加 CommandButton 并配置属性
+    // 添加一个 CommandButton 并配置属性
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 150, 50);
     control.Properties["Caption"] = "Click Me";
     control.Properties["Enabled"] = "true";
