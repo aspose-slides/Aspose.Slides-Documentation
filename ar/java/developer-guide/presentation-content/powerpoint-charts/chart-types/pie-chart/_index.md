@@ -1,32 +1,32 @@
 ---
-title: تخصيص مخططات الفطيرة في العروض التقديمية باستخدام جافا
-linktitle: مخطط الفطيرة
+title: تخصيص المخططات الدائرية في العروض التقديمية باستخدام Java
+linktitle: مخطط دائري
 type: docs
 url: /ar/java/pie-chart/
 keywords:
-- مخطط فطيرة
+- مخطط دائري
 - إدارة المخطط
 - تخصيص المخطط
 - خيارات المخطط
 - إعدادات المخطط
 - خيارات الرسم
-- لون الشريحة
+- لون القطعة
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتخصيص مخططات الفطيرة في جافا باستخدام Aspose.Slides، قابلة للتصدير إلى PowerPoint، مما يعزز سرد البيانات الخاص بك في ثوانٍ."
+description: "تعرّف على كيفية إنشاء وتخصيص المخططات الدائرية في Java باستخدام Aspose.Slides، وتصديرها إلى PowerPoint، مما يعزز سرد بياناتك في ثوانٍ."
 ---
 
-## **خيارات المخطط الثانوي لمخطط Pie of Pie ومخطط Bar of Pie**
-Aspose.Slides for Java الآن يدعم خيارات المخطط الثانوي لمخطط Pie of Pie أو Bar of Pie. في هذا الموضوع، سنوضح لك كيفية تحديد هذه الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، قم بما يلي:
+## **خيارات المخطط الثانوي لمخططات Pie of Pie و Bar of Pie**
+أصبح Aspose.Slides for Java يدعم الآن خيارات المخطط الثانوي لمخططي Pie of Pie أو Bar of Pie. في هذا الموضوع، سنوضح لك كيفية تحديد تلك الخيارات باستخدام Aspose.Slides. لتحديد الخصائص، قم بما يلي:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 1. إضافة مخطط إلى الشريحة.
 1. تحديد خيارات المخطط الثانوي للمخطط.
-1. حفظ العرض التقديمي إلى القرص.
+1. كتابة العرض التقديمي إلى القرص.
 
-في المثال المعروض أدناه، قمنا بتعيين خصائص مختلفة لمخطط Pie of Pie.
+في المثال المعطى أدناه، قمنا بتعيين خصائص مختلفة لمخطط Pie of Pie.
 ```java
 // إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
@@ -40,7 +40,7 @@ try {
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
     
-    // حفظ العرض التقديمي إلى القرص
+    // كتابة العرض التقديمي إلى القرص
     pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -48,26 +48,26 @@ try {
 ```
 
 
-## **تعيين ألوان شرائح مخطط الفطيرة تلقائيًا**
-Aspose.Slides for Java يوفر واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح مخطط الفطيرة تلقائيًا. يطبق كود العينة تعيين الخصائص المذكورة أعلاه.
+## **تعيين ألوان شرائح المخطط الدائري تلقائيًا**
+يوفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح المخطط الدائري تلقائيًا. يطبق كود المثال ضبط الخصائص المذكورة أعلاه.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط مع البيانات الافتراضية.
+1. إضافة مخطط ببيانات افتراضية.
 1. تعيين عنوان المخطط.
-1. تعيين السلسلة الأولى لعرض القيم.
-1. تعيين فهرس ورقة بيانات المخطط.
+1. ضبط السلسلة الأولى لعرض القيم.
+1. تحديد فهرس ورقة بيانات المخطط.
 1. الحصول على ورقة عمل بيانات المخطط.
 1. حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
 1. إضافة فئات جديدة.
-1. إضافة سلاسل جديدة.
+1. إضافة سلسلة جديدة.
 
-احفظ العرض التقديمي المعدل إلى ملف PPTX.
+كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```java
 // إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // إضافة مخطط مع البيانات الافتراضية
+    // إضافة مخطط ببيانات افتراضية
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
 
     // تعيين عنوان المخطط
@@ -85,7 +85,7 @@ try {
     // الحصول على ورقة عمل بيانات المخطط
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
+    // حذف السلاسل والفئات المولدة افتراضيًا
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -110,12 +110,12 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل يتم دعم تنوعات 'Pie of Pie' و 'Bar of Pie'؟**
 
-نعم، المكتبة [تدعم](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) مخططًا ثانويًا لمخططات الفطيرة، بما في ذلك النوعين 'Pie of Pie' و 'Bar of Pie'.
+نعم، المكتبة [تدعم](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) مخططًا ثانويًا لمخططات الدائري، بما في ذلك نوعي 'Pie of Pie' و 'Bar of Pie'.
 
-**هل يمكنني تصدير المخطط فقط كصورة (على سبيل المثال، PNG)؟**
+**هل يمكنني تصدير المخطط فقط كصورة (مثلاً PNG)؟**
 
-نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) (مثل PNG) دون الحاجة إلى تصدير العرض التقديمي بالكامل.
+نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) (مثل PNG) دون الحاجة إلى تصدير العرض التقديمي بأكمله.

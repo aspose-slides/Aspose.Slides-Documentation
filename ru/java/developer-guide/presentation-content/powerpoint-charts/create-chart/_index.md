@@ -1,6 +1,6 @@
 ---
-title: Создание или обновление диаграмм презентаций PowerPoint на Java
-linktitle: Создание или обновление диаграмм
+title: Создать или обновить диаграммы PowerPoint презентаций на Java
+linktitle: Создать или обновить диаграммы
 type: docs
 weight: 10
 url: /ru/java/create-chart/
@@ -10,109 +10,109 @@ keywords:
 - редактировать диаграмму
 - изменить диаграмму
 - обновить диаграмму
-- разбросанная диаграмма
+- точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма Tree Map
-- диаграмма фондового рынка
-- коробчатая диаграмма
-- воронкообразная диаграмма
-- диаграмма Sunburst
+- диаграмма древовидной карты
+- диаграмма акций
+- диаграмма ящик с усами
+- диаграмма воронки
+- взрывная диаграмма
 - гистограмма
-- радиальная диаграмма
-- диаграмма с несколькими категориями
+- радарная диаграмма
+- мультикатегориальная диаграмма
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для Java. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на Java."
+description: "Создавайте и настраивайте диаграммы в PowerPoint презентациях с помощью Aspose.Slides для Java. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на Java."
 ---
 
 ## Обзор
 
-Эта статья описывает, как **создавать диаграммы PowerPoint Presentation на Java**. Вы также можете **обновлять диаграммы на Java**. Рассмотрены следующие темы.
+Эта статья описывает, как **создавать диаграммы PowerPoint презентаций на Java**. Вы также можете **обновлять диаграммы на Java**. Она охватывает следующие темы.
 
-_Диаграмма_: **Normal**
-- [Java Создать диаграмму PowerPoint](#java-create-powerpoint-chart)
-- [Java Создать диаграмму презентации](#java-create-presentation-chart)
-- [Java Создать диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-chart)
+_Диаграмма_: **Обычная**
+- [Java Создать PowerPoint Диаграмму](#java-create-powerpoint-chart)
+- [Java Создать Презентационную Диаграмму](#java-create-presentation-chart)
+- [Java Создать PowerPoint Презентационную Диаграмму](#java-create-powerpoint-presentation-chart)
 
-_Диаграмма_: **Scattered**
-- [Java Создать разбросанную диаграмму](#java-create-scattered-chart)
-- [Java Создать разбросанную диаграмму PowerPoint](#java-create-powerpoint-scattered-chart)
-- [Java Создать разбросанную диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-scattered-chart)
+_Диаграмма_: **Точечная**
+- [Java Создать Точечную Диаграмму](#java-create-scattered-chart)
+- [Java Создать PowerPoint Точечную Диаграмму](#java-create-powerpoint-scattered-chart)
+- [Java Создать PowerPoint Презентационную Точечную Диаграмму](#java-create-powerpoint-presentation-scattered-chart)
 
-_Диаграмма_: **Pie**
-- [Java Создать круговую диаграмму](#java-create-pie-chart)
-- [Java Создать круговую диаграмму PowerPoint](#java-create-powerpoint-pie-chart)
-- [Java Создать круговую диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-pie-chart)
+_Диаграмма_: **Круговая**
+- [Java Создать Круговую Диаграмму](#java-create-pie-chart)
+- [Java Создать PowerPoint Круговую Диаграмму](#java-create-powerpoint-pie-chart)
+- [Java Создать PowerPoint Презентационную Круговую Диаграмму](#java-create-powerpoint-presentation-pie-chart)
 
-_Диаграмма_: **Tree Map**
-- [Java Создать диаграмму Tree Map](#java-create-tree-map-chart)
-- [Java Создать диаграмму Tree Map PowerPoint](#java-create-powerpoint-tree-map-chart)
-- [Java Создать диаграмму Tree Map PowerPoint Presentation](#java-create-powerpoint-presentation-tree-map-chart)
+_Диаграмма_: **Древовидная карта**
+- [Java Создать Древовидную карту Диаграмму](#java-create-tree-map-chart)
+- [Java Создать PowerPoint Древовидную карту Диаграмму](#java-create-powerpoint-tree-map-chart)
+- [Java Создать PowerPoint Презентационную Древовидную карту Диаграмму](#java-create-powerpoint-presentation-tree-map-chart)
 
-_Диаграмма_: **Stock**
-- [Java Создать стохастическую диаграмму](#java-create-stock-chart)
-- [Java Создать стохастическую диаграмму PowerPoint](#java-create-powerpoint-stock-chart)
-- [Java Создать стохастическую диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-stock-chart)
+_Диаграмма_: **Акции**
+- [Java Создать Акций Диаграмму](#java-create-stock-chart)
+- [Java Создать PowerPoint Акций Диаграмму](#java-create-powerpoint-stock-chart)
+- [Java Создать PowerPoint Презентационную Акций Диаграмму](#java-create-powerpoint-presentation-stock-chart)
 
-_Диаграмма_: **Box and Whisker**
-- [Java Создать диаграмму Box and Whisker](#java-create-box-and-whisker-chart)
-- [Java Создать диаграмму Box and Whisker PowerPoint](#java-create-powerpoint-box-and-whisker-chart)
-- [Java Создать диаграмму Box and Whisker PowerPoint Presentation](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_Диаграмма_: **Ящик с усами**
+- [Java Создать Ящик с усами Диаграмму](#java-create-box-and-whisker-chart)
+- [Java Создать PowerPoint Ящик с усами Диаграмму](#java-create-powerpoint-box-and-whisker-chart)
+- [Java Создать PowerPoint Презентационную Ящик с усами Диаграмму](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
-_Диаграмма_: **Funnel**
-- [Java Создать диаграмму Funnel](#java-create-funnel-chart)
-- [Java Создать диаграмму Funnel PowerPoint](#java-create-powerpoint-funnel-chart)
-- [Java Создать диаграмму Funnel PowerPoint Presentation](#java-create-powerpoint-presentation-funnel-chart)
+_Диаграмма_: **Воронка**
+- [Java Создать Воронку Диаграмму](#java-create-funnel-chart)
+- [Java Создать PowerPoint Воронку Диаграмму](#java-create-powerpoint-funnel-chart)
+- [Java Создать PowerPoint Презентационную Воронку Диаграмму](#java-create-powerpoint-presentation-funnel-chart)
 
-_Диаграмма_: **Sunburst**
-- [Java Создать диаграмму Sunburst](#java-create-sunburst-chart)
-- [Java Создать диаграмму Sunburst PowerPoint](#java-create-powerpoint-sunburst-chart)
-- [Java Создать диаграмму Sunburst PowerPoint Presentation](#java-create-powerpoint-presentation-sunburst-chart)
+_Диаграмма_: **Взрывная**
+- [Java Создать Взрывную Диаграмму](#java-create-sunburst-chart)
+- [Java Создать PowerPoint Взрывную Диаграмму](#java-create-powerpoint-sunburst-chart)
+- [Java Создать PowerPoint Презентационную Взрывную Диаграмму](#java-create-powerpoint-presentation-sunburst-chart)
 
-_Диаграмма_: **Histogram**
-- [Java Создать гистограмму](#java-create-histogram-chart)
-- [Java Создать гистограмму PowerPoint](#java-create-powerpoint-histogram-chart)
-- [Java Создать гистограмму PowerPoint Presentation](#java-create-powerpoint-presentation-histogram-chart)
+_Диаграмма_: **Гистограмма**
+- [Java Создать Гистограмму Диаграмму](#java-create-histogram-chart)
+- [Java Создать PowerPoint Гистограмму Диаграмму](#java-create-powerpoint-histogram-chart)
+- [Java Создать PowerPoint Презентационную Гистограмму Диаграмму](#java-create-powerpoint-presentation-histogram-chart)
 
-_Диаграмма_: **Radar**
-- [Java Создать радиальную диаграмму](#java-create-radar-chart)
-- [Java Создать радиальную диаграмму PowerPoint](#java-create-powerpoint-radar-chart)
-- [Java Создать радиальную диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-radar-chart)
+_Диаграмма_: **Радарная**
+- [Java Создать Радарную Диаграмму](#java-create-radar-chart)
+- [Java Создать PowerPoint Радарную Диаграмму](#java-create-powerpoint-radar-chart)
+- [Java Создать PowerPoint Презентационную Радарную Диаграмму](#java-create-powerpoint-presentation-radar-chart)
 
-_Диаграмма_: **Multi Category**
-- [Java Создать мультикатегориальную диаграмму](#java-create-multi-category-chart)
-- [Java Создать мультикатегориальную диаграмму PowerPoint](#java-create-powerpoint-multi-category-chart)
-- [Java Создать мультикатегориальную диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-multi-category-chart)
+_Диаграмма_: **Мультикатегория**
+- [Java Создать Мультикатегорию Диаграмму](#java-create-multi-category-chart)
+- [Java Создать PowerPoint Мультикатегорию Диаграмму](#java-create-powerpoint-multi-category-chart)
+- [Java Создать PowerPoint Презентационную Мультикатегорию Диаграмму](#java-create-powerpoint-presentation-multi-category-chart)
 
-_Диаграмма_: **Map**
-- [Java Создать картографическую диаграмму](#java-create-map-chart)
-- [Java Создать картографическую диаграмму PowerPoint](#java-create-powerpoint-map-chart)
-- [Java Создать картографическую диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-map-chart)
+_Диаграмма_: **Карта**
+- [Java Создать Карту Диаграмму](#java-create-map-chart)
+- [Java Создать PowerPoint Карту Диаграмму](#java-create-powerpoint-map-chart)
+- [Java Создать PowerPoint Презентационную Карту Диаграмму](#java-create-powerpoint-presentation-map-chart)
 
-_Действие_: **Update Chart**
-- [Java Обновить диаграмму PowerPoint](#java-update-powerpoint-chart)
-- [Java Обновить диаграмму презентации](#java-update-presentation-chart)
-- [Java Обновить диаграмму PowerPoint Presentation](#java-update-powerpoint-presentation-chart)
-
-
-## **Создание диаграмм**
-Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронных таблиц. 
+_Действие_: **Обновить диаграмму**
+- [Java Обновить PowerPoint Диаграмму](#java-update-powerpoint-chart)
+- [Java Обновить Презентационную Диаграмму](#java-update-presentation-chart)
+- [Java Обновить PowerPoint Презентационную Диаграмму](#java-update-powerpoint-presentation-chart)
 
 
-**Почему создают диаграммы?**
+## **Создать диаграмму**
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы. 
 
-С помощью диаграмм вы можете
 
-* агрегировать, сжать или суммировать большие объёмы данных на одном слайде презентации
+**Зачем создавать диаграммы?**
+
+Используя диаграммы, вы можете
+
+* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации
 * выявлять шаблоны и тенденции в данных
-* определять направление и динамику данных во времени или относительно конкретной единицы измерения 
-* обнаруживать выбросы, аномалии, отклонения, ошибки, нелогичные данные и т.п. 
-* передавать или представлять сложные данные
+* определять направление и импульс данных во времени или относительно конкретной единицы измерения 
+* обнаруживать выбросы, отклонения, ошибки, нелогичные данные и т.п. 
+* эффективно передавать или представлять сложные данные
 
-В PowerPoint вы можете создавать диаграммы через функцию вставки, которая предоставляет шаблоны для разных типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы. 
+В PowerPoint вы можете создавать диаграммы через функцию вставки, которая предоставляет шаблоны для большинства типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы. 
 
 {{% alert color="primary" %}} 
 
@@ -120,33 +120,33 @@ _Действие_: **Update Chart**
 
 {{% /alert %}} 
 
-### **Создание обычных диаграмм**
+### **Создать обычные диаграммы**
 
-_Шаги: Создать диаграмму_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in Java</strong></a>
+_Steps: Create Chart_
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Шаги:</em> Создать PowerPoint Диаграмму на Java</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Шаги:</em> Создать Презентационную Диаграмму на Java</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Диаграмму на Java</strong></a>
 
-**Шаги кода:**
+_Кодовые шаги:_
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными и укажите желаемый тип диаграммы. 
+3. Добавьте диаграмму с данными и укажите предпочитаемый тип диаграммы. 
 4. Добавьте заголовок к диаграмме. 
-5. Получите доступ к листу данных диаграммы.
-6. Очистите все серии и категории по умолчанию.
-7. Добавьте новые серии и категории.
-8. Добавьте новые данные к сериям диаграммы.
-9. Установите цвет заливки для серий диаграммы.
-10. Добавьте подписи для серий диаграммы. 
-11. Запишите изменённую презентацию в файл PPTX.
+5. Получите доступ к листу данных диаграммы. 
+6. Очистите все серии и категории по умолчанию. 
+7. Добавьте новые серии и категории. 
+8. Добавьте новые данные для серии диаграммы. 
+9. Укажите цвет заливки для серии диаграммы. 
+10. Добавьте подписи для серии диаграммы. 
+11. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует, как создать обычную диаграмму:
+Этот код на Java показывает, как создать обычную диаграмму:
 ```java
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получает первый слайд
+    // Получает доступ к первому слайду
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Добавляет диаграмму с данными по умолчанию
@@ -158,7 +158,7 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.hasTitle();
     
-    // Устанавливает отображение значений для первой серии
+    // Настраивает первую серию для отображения значений
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
     // Устанавливает индекс листа данных диаграммы
@@ -167,7 +167,7 @@ try {
     // Получает лист данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Удаляет серии и категории, сгенерированные по умолчанию
+    // Удаляет сгенерированные по умолчанию серии и категории
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -182,7 +182,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Берет первую серию диаграммы
+    // Берёт первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Заполняет данные серии
@@ -194,7 +194,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Берет вторую серию диаграммы
+    // Берёт вторую серию диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Заполняет данные серии
@@ -206,8 +206,8 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Создает пользовательские подписи для каждой категории новой серии
-    // Устанавливает первую подпись для отображения имени категории
+    //Создаёт пользовательские подписи для каждой категории новой серии
+    // Устанавливает первую подпись для отображения названия категории
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -228,37 +228,37 @@ try {
 ```
 
 
-### **Создание разбросанных диаграмм**
-Разбросанные диаграммы (также известные как scatter plot или графики x‑y) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными. 
+### **Создать точечные диаграммы**
+Точечные диаграммы (также известные как точечные графики или графики x‑y) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными. 
 
-Вы можете использовать разбросанную диаграмму, когда 
+Вы можете использовать точечную диаграмму, когда 
 
 * у вас есть парные числовые данные
-* у вас есть 2 переменные, которые хорошо сочетаются
+* есть 2 переменные, которые логично сопоставляются
 * вы хотите определить, связаны ли 2 переменные
-* у вас есть независимая переменная с несколькими значениями для зависимой переменной
+* имеется независимая переменная с несколькими значениями зависимой переменной
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Шаги:</em> Создать Точечную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Шаги:</em> Создать PowerPoint Точечную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Точечную Диаграмму на Java</strong></a>
 
-1. Пожалуйста, следуйте шагам, описанным в разделе [Creating Normal Charts](#creating-normal-charts)
-2. Для третьего шага добавьте диаграмму с данными и укажите тип диаграммы из следующих вариантов
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Представляет разбросанную диаграмму с маркерами._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет разбросанную диаграмму, соединённую плавными линиями, с маркерами данных._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет разбросанную диаграмму, соединённую плавными линиями, без маркеров данных._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет разбросанную диаграмму, соединённую прямыми линиями, с маркерами данных._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет разбросанную диаграмму, соединённую прямыми линиями, без маркеров данных._
+1. Пожалуйста, выполните шаги, описанные выше в [Creating Normal Charts](#creating-normal-charts)
+2. На третьем шаге добавьте диаграмму с данными и укажите тип диаграммы как один из следующих
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Представляет точечную диаграмму._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет точечную диаграмму, соединённую кривыми, с маркерами данных._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет точечную диаграмму, соединённую кривыми, без маркеров данных._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет точечную диаграмму, соединённую прямыми линиями, с маркерами данных._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет точечную диаграмму, соединённую прямыми линиями, без маркеров данных._
 
-Этот Java‑код демонстрирует, как создать разбросанную диаграмму с различными маркерами: 
+Этот код на Java показывает, как создать точечные диаграммы с разными типами маркеров: 
 ```java
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получает первый слайд
+    // Получает доступ к первому слайду
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Создает диаграмму по умолчанию
+    // Создаёт диаграмму по умолчанию
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
     // Получает индекс листа данных диаграммы по умолчанию
@@ -274,7 +274,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Берет первую серию диаграммы
+    // Берёт первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Добавляет новую точку (1:3) в серию
@@ -283,14 +283,14 @@ try {
     // Добавляет новую точку (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Меняет тип серии
+    // Изменяет тип серии
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Меняет маркер серии диаграммы
+    // Изменяет маркер серии диаграммы
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Берет вторую серию диаграммы
+    // Берёт вторую серию диаграммы
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Добавляет новую точку (5:2) туда
@@ -305,7 +305,7 @@ try {
     // Добавляет новую точку (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Меняет маркер серии диаграммы
+    // Изменяет маркер серии диаграммы
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -316,33 +316,33 @@ try {
 ```
 
 
-### **Создание круговых диаграмм**
+### **Создать Круговые Диаграммы**
 
-Круговые диаграммы лучше всего использовать для отображения отношений «часть‑целое», особенно когда данные содержат категориальные метки с числовыми значениями. Однако если у вас много частей или меток, лучше применить столбчатую диаграмму.
+Круговые диаграммы лучше всего использовать для отображения соотношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если данных слишком много, лучше использовать гистограмму. 
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Шаги:</em> Создать Круговую Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Шаги:</em> Создать PowerPoint Круговую Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Круговую Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie.
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные к сериям диаграммы.
+7. Добавьте новые данные для серии диаграммы.
 8. Добавьте новые точки и задайте пользовательские цвета для секторов круговой диаграммы.
-9. Установите подписи для серий.
-10. Установите линии‑выноски для подписи серий.
-11. Задайте угол вращения для слайдов с круговой диаграммой.
-12. Запишите изменённую презентацию в файл PPTX.
+9. Установите подписи для серии.
+10. Установите линии‑выноски для подписей серии.
+11. Установите угол поворота для слайдов с круговой диаграммой.
+12. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует, как создать круговую диаграмму:
+Этот код на Java показывает, как создать круговую диаграмму:
 ```java
-// Создает экземпляр класса презентации, представляющего файл PPTX
+// Создаёт экземпляр класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получает первый слайд
+    // Получает доступ к первому слайду
     ISlide slides = pres.getSlides().get_Item(0);
     
     // Добавляет диаграмму с данными по умолчанию
@@ -354,7 +354,7 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Устанавливает отображение значений для первой серии
+    // Настраивает первую серию для отображения значений
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
     // Устанавливает индекс листа данных диаграммы
@@ -363,7 +363,7 @@ try {
     // Получает лист данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Удаляет серии и категории, сгенерированные по умолчанию
+    // Удаляет сгенерированные по умолчанию серии и категории
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -372,7 +372,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Добавляет новую серию
+    // Добавляет новые серии
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
     // Заполняет данные серии
@@ -388,7 +388,7 @@ try {
     IChartDataPoint point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-	
+    
     // Устанавливает границу сектора
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
@@ -418,7 +418,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Создает пользовательские подписи для каждой категории новой серии
+    // Создаёт пользовательские подписи для каждой категории новой серии
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -447,20 +447,20 @@ try {
 ```
 
 
-### **Создание линейных диаграмм**
+### **Создать Линейные Диаграммы**
 
-Линейные диаграммы (также известные как line graphs) лучше всего подходят для демонстрации изменения величины во времени. С их помощью можно сравнивать большие объёмы данных, отслеживать изменения и тенденции, выделять аномалии в рядах данных и т.д.
+Линейные диаграммы (также известные как линейные графики) лучше всего подходят для демонстрации изменения значений со временем. С их помощью можно сравнивать множество данных одновременно, отслеживать изменения и тенденции, выделять аномалии и т.д.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Line`.
-1. Получите доступ к рабочей книге данных диаграммы IChartDataWorkbook.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае `ChartType.Line`).
+1. Получите доступ к листу данных IChartDataWorkbook.
 1. Очистите серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
-1. Добавьте новые данные к сериям диаграммы.
-1. Запишите изменённую презентацию в файл PPTX.
+1. Добавьте новые данные для серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует, как создать линейную диаграмму:
+Этот код на Java показывает, как создать линейную диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -473,7 +473,7 @@ try {
 ```
 
 
-По умолчанию точки линейной диаграммы соединены сплошными прямыми линиями. Если хотите соединять их пунктиром, укажите нужный тип штриха так:
+По умолчанию точки линейной диаграммы соединяются сплошными линиями. Чтобы соединить их пунктиром, укажите желаемый тип штриха так:
 ```java
 IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
 
@@ -484,24 +484,24 @@ for (IChartSeries series : lineChart.getChartData().getSeries())
 ```
 
 
-### **Создание диаграмм Tree Map**
+### **Создать Древовидные карты**
 
-Диаграммы Tree Map лучше всего подходят для данных о продажах, когда нужно показать относительный размер категорий и быстро привлечь внимание к крупным вкладам внутри каждой категории. 
+Древовидные карты лучше всего подходят для отображения объёма категорий продаж и одновременного выделения крупных вкладчиков в каждой категории. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Шаги:</em> Создать Древовидную карту Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Шаги:</em> Создать PowerPoint Древовидную карту Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Древовидную карту Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap.
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
+4. Получите доступ к листу данных [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные к сериям диаграммы.
-8. Запишите изменённую презентацию в файл PPTX.
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX
 
-Этот Java‑код демонстрирует, как создать диаграмму Tree Map:
+Этот код на Java показывает, как создать древовидную карту диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -556,23 +556,23 @@ try {
 ```
 
 
-### **Создание стохастических диаграмм**
+### **Создать Акций Диаграммы**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Шаги:</em> Создать Акций Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Шаги:</em> Создать PowerPoint Акций Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Акций Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
+4. Получите доступ к листу данных [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные к сериям диаграммы.
+7. Добавьте новые данные для серии диаграммы.
 8. Укажите формат HiLowLines.
-9. Запишите изменённую презентацию в файл PPTX.
+9. Сохраните изменённую презентацию в файл PPTX
 
-Пример Java‑кода для создания стохастической диаграммы:
+Пример кода на Java, используемый для создания акций диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -628,22 +628,22 @@ try {
 ```
 
 
-### **Создание диаграмм Box and Whisker**
+### **Создать Ящик с усами Диаграммы**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Шаги:</em> Создать Ящик с усами Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Шаги:</em> Создать PowerPoint Ящик с усами Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Ящик с усами Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
+4. Получите доступ к листу данных [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные к сериям диаграммы.
-8. Запишите изменённую презентацию в файл PPTX.
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX
 
-Этот Java‑код демонстрирует, как создать диаграмму Box and Whisker:
+Этот код на Java показывает, как создать ящик с усами диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -683,19 +683,19 @@ try {
 ```
 
 
-### **Создание диаграмм Funnel**
+### **Создать Воронка Диаграммы**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Шаги:</em> Создать Воронка Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Шаги:</em> Создать PowerPoint Воронка Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Воронка Диаграмму на Java</strong></a>
 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
-4. Запишите изменённую презентацию в файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
+4. Сохраните изменённую презентацию в файл PPTX
 
-Java‑код, демонстрирующий создание диаграммы Funnel:
+Код Java, показывающий, как создать воронку диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -730,18 +730,18 @@ try {
 ```
 
 
-### **Создание диаграмм Sunburst**
+### **Создать Взрывные Диаграммы**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Шаги:</em> Создать Взрывную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Шаги:</em> Создать PowerPoint Взрывную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Взрывную Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип (в данном случае [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
-4. Запишите изменённую презентацию в файл PPTX.
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае,[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
+4. Сохраните изменённую презентацию в файл PPTX
 
-Этот Java‑код демонстрирует создание диаграммы Sunburst:
+Этот код на Java показывает, как создать взрывную диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -794,21 +794,21 @@ try {
 ```
 
 
-### **Создание гистограмм**
+### **Создать Гистограммы**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Шаги:</em> Создать Гистограмму Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Шаги:</em> Создать PowerPoint Гистограмму Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Гистограмму Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
+4. Получите доступ к листу данных [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Запишите изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию в файл PPTX
 
-Этот Java‑код демонстрирует создание гистограммы:
+Этот код на Java показывает, как создать гистограмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -836,18 +836,18 @@ try {
 ```
 
 
-### **Создание радиальных диаграмм**
+### **Создать Радарные Диаграммы**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Шаги:</em> Создать Радарную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Шаги:</em> Создать PowerPoint Радарную Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Радарную Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу. 
-3. Добавьте диаграмму с данными и укажите тип `ChartType.Radar`.
-4. Запишите изменённую презентацию в файл PPTX.
+3. Добавьте диаграмму с данными и укажите предпочитаемый тип диаграммы (`ChartType.Radar` в данном случае).
+4. Сохраните изменённую презентацию в файл PPTX
 
-Этот Java‑код демонстрирует создание радиальной диаграммы:
+Этот код на Java показывает, как создать радарную диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -859,22 +859,22 @@ try {
 ```
 
 
-### **Создание мультикатегориальных диаграмм**
+### **Создать Мультикатегорийные Диаграммы**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Шаги:</em> Создать Мультикатегорию Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Шаги:</em> Создать PowerPoint Мультикатегорию Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Мультикатегорию Диаграмму на Java</strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу. 
-3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Получите доступ к рабочей книге данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
+4. Получите доступ к листу данных [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные к сериям диаграммы.
-8. Запишите изменённую презентацию в файл PPTX.
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует создание мультикатегориальной диаграммы:
+Этот код на Java показывает, как создать мультикатегориальную диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -923,15 +923,15 @@ try {
 ```
 
 
-### **Создание картографических диаграмм**
+### **Создать Карту Диаграммы**
 
-Картографическая диаграмма визуализирует область, содержащую данные. Такие диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
+Карта диаграмма визуализирует область, содержащую данные. Такие диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Шаги:</em> Создать Карту Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Шаги:</em> Создать PowerPoint Карту Диаграмму на Java</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Шаги:</em> Создать PowerPoint Презентационную Карту Диаграмму на Java</strong></a>
 
-Этот Java‑код демонстрирует создание картографической диаграммы:
+Этот код на Java показывает, как создать карту диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -943,13 +943,13 @@ try {
 ```
 
 
-### **Создание комбинированных диаграмм**
+### **Создать Комбинационные Диаграммы**
 
-Комбинированная диаграмма (или combo chart) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или анализировать различия между наборами данных, помогая выявлять взаимосвязи.
+Комбинационная (или комбинированная) диаграмма объединяет два и более типа диаграмм в одном графике. Этот тип позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая определить их взаимосвязи.
 
 ![The combination chart](combination_chart.png)
 
-Следующий Java‑код демонстрирует создание комбинированной диаграммы, показанной выше, в презентации PowerPoint:
+Следующий код на Java показывает, как создать комбинационную диаграмму, показанную выше, в презентации PowerPoint:
 ```java
 static void createComboChart() {
     Presentation presentation = new Presentation();
@@ -1055,11 +1055,11 @@ static void setPrimaryAxesFormat(IChart chart) {
     // Установить вертикальную ось.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Установить цвет основных линий сетки вертикальной оси.
+    // Установить цвет основных линий сетки по вертикали.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
@@ -1096,25 +1096,25 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 ```
 
 
-## **Обновление диаграмм**
+## **Обновить диаграммы**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Шаги:</em> Обновить PowerPoint Диаграмму на Java</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Шаги:</em> Обновить Презентационную Диаграмму на Java</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Шаги:</em> Обновить PowerPoint Презентационную Диаграмму на Java</strong></a>
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), представляющий презентацию, содержащую диаграмму, которую нужно обновить. 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), представляющего презентацию, содержащую диаграмму, которую необходимо обновить. 
 2. Получите ссылку на слайд, используя его индекс.
 3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
 4. Получите доступ к листу данных диаграммы.
-5. Измените данные серии диаграммы, изменив значения серии.
+5. Измените данные серии, изменив значения серии.
 6. Добавьте новую серию и заполните её данными.
-7. Запишите изменённую презентацию в файл PPTX.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует обновление диаграммы:
+Этот код на Java показывает, как обновить диаграмму:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Получить первый слайд
+    // Доступ к первому слайду
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Получить диаграмму с данными по умолчанию
@@ -1148,7 +1148,7 @@ try {
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Сейчас добавляем новую серию
+    // Теперь добавляем новую серию
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
     // Получить третью серию диаграммы
@@ -1169,17 +1169,17 @@ try {
 ```
 
 
-## **Установка диапазона данных для диаграмм**
+## **Установить диапазон данных для диаграммы**
 
-Чтобы задать диапазон данных для диаграммы, выполните следующее:
+Чтобы установить диапазон данных для диаграммы, выполните следующее:
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), представляющий презентацию, содержащую диаграмму.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), представляющего презентацию, содержащую диаграмму.
 2. Получите ссылку на слайд по его индексу.
 3. Пройдитесь по всем фигурам, чтобы найти нужную диаграмму.
 4. Получите доступ к данным диаграммы и задайте диапазон.
 5. Сохраните изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует установку диапазона данных для диаграммы:
+Этот код на Java показывает, как установить диапазон данных для диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1195,10 +1195,10 @@ try {
 ```
 
 
-## **Использование стандартных маркеров в диаграммах**
-При использовании стандартного маркера в диаграммах каждая серия получает автоматически различный символ маркера.
+## **Использовать стандартные маркеры в диаграммах**
+При использовании стандартного маркера в диаграммах каждая серия автоматически получает различный маркер.
 
-Этот Java‑код демонстрирует автоматическую настройку маркера серии диаграммы:
+Этот код на Java показывает, как автоматически задать маркер серии диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1245,16 +1245,16 @@ try {
 
 **Какие типы диаграмм поддерживает Aspose.Slides?**
 
-Aspose.Slides поддерживает широкий набор [типов диаграмм](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), включая столбчатые, линейные, круговые, областные, разбросанные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать оптимальный тип диаграммы для визуализации ваших данных.
+Aspose.Slides поддерживает широкий набор [типов диаграмм](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), включая столбчатые, линейные, кольцевые, областные, точечные, гистограммы, радарные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для визуализации ваших данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте объект класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) , получите нужный слайд по индексу и затем вызовите метод добавления диаграммы, указывая тип диаграммы и начальные данные. Это внедрит диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) , получите нужный слайд по индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и добавив свои собственные данные. Это позволит обновить диаграмму с учётом последних данных.
+Вы можете обновить данные диаграммы, получив доступ к её листу данных ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), очистив любые серии и категории по умолчанию, а затем добавив свои пользовательские данные. Это позволяет обновить диаграмму до актуального состояния.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/java/chart-entities/), чтобы адаптировать внешний вид диаграммы под ваши требования.
+Да, Aspose.Slides предоставляет обширные возможности настройки. Вы можете изменить цвета, шрифты, подписи, легенды и другие [элементы форматирования](/slides/ru/java/chart-entities/), чтобы адаптировать внешний вид диаграммы к вашим требованиям дизайна.

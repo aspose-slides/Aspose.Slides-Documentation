@@ -1,46 +1,48 @@
 ---
-title: إدارة الروابط التشعبية للعرض التقديمي في جافا
-linktitle: إدارة الرابط التشعبي
+title: إدارة ارتباطات العروض التقديمية في Java
+linktitle: إدارة الارتباط التشعبي
 type: docs
 weight: 20
 url: /ar/java/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة رابط تشعبي
-- إنشاء رابط تشعبي
-- تنسيق رابط تشعبي
-- إزالة رابط تشعبي
-- تحديث رابط تشعبي
-- رابط تشعبي للنص
-- رابط تشعبي للشرائح
-- رابط تشعبي للشكل
-- رابط تشعبي للصورة
-- رابط تشعبي للفيديو
-- رابط تشعبي قابل للتعديل
+- إضافة ارتباط تشعبي
+- إنشاء ارتباط تشعبي
+- تنسيق ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشريحة
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
+- ارتباط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - Java
 - Aspose.Slides
-description: "بسهولة إدارة الروابط التشعبية في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides for Java—عزز التفاعل وسير العمل في دقائق."
+description: "إدارة الارتباطات التشعبية بسهولة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Java—احصل على تفاعل أفضل وسير عمل أسرع في دقائق."
 ---
 
-الرابط التشعبي هو مرجع لكائن أو بيانات أو مكان في شيء ما. هذه هي الروابط التشعبية الشائعة في عروض PowerPoint التقديمية:
+الارتباط التشعبي هو مرجع إلى كائن أو بيانات أو مكان في شيء ما. هذه روابط شائعة في عروض PowerPoint التقديمية:
 
 * روابط إلى مواقع الويب داخل النصوص أو الأشكال أو الوسائط
 * روابط إلى الشرائح
 
-Aspose.Slides for Java يسمح لك بأداء العديد من المهام المتعلقة بالروابط التشعبية في العروض التقديمية.
+Aspose.Slides for Java يسمح لك بأداء العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية. 
 
 {{% alert color="primary" %}} 
-قد ترغب في الاطلاع على أسبوز البسيط، [محرر PowerPoint المجاني على الإنترنت.](https://products.aspose.app/slides/editor)
+
+قد ترغب في تجربة أداة Aspose البسيطة, [محرر PowerPoint المجاني على الإنترنت.](https://products.aspose.app/slides/editor)
+
 {{% /alert %}} 
 
-## **إضافة روابط URL**
+## **إضافة ارتباطات URL**
 
-### **إضافة روابط URL إلى النص**
+### **إضافة ارتباطات URL إلى النص**
 
-يعرض لك هذا الكود Java كيفية إضافة رابط موقع ويب إلى نص:
+يعرض لك هذا الكود Java كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -59,9 +61,9 @@ try {
 ```
 
 
-### **إضافة روابط URL إلى الأشكال أو الإطارات**
+### **إضافة ارتباطات URL إلى الأشكال أو الإطارات**
 
-يعرض لك هذا الكود النموذجي في Java كيفية إضافة رابط موقع ويب إلى شكل:
+يعرض لك هذا المثال البرمجي بلغة Java كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,11 +79,11 @@ try {
 ```
 
 
-### **إضافة روابط URL إلى الوسائط**
+### **إضافة ارتباطات URL إلى الوسائط**
 
-Aspose.Slides يسمح لك بإضافة روابط تشعبية إلى الصور وملفات الصوت والفيديو.
+Aspose.Slides يسمح لك بإضافة ارتباطات تشعبية إلى ملفات الصور والصوت والفيديو. 
 
-يعرض لك هذا الكود النموذجي كيفية إضافة رابط تشعبي إلى **صورة**:
+يعرض لك هذا المثال البرمجي كيفية إضافة ارتباط تشعبي إلى **صورة**:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -107,7 +109,7 @@ try {
 ```
 
 
-يعرض لك هذا الكود النموذجي كيفية إضافة رابط تشعبي إلى **ملف صوتي**:
+يعرض لك هذا المثال البرمجي كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -125,7 +127,7 @@ try {
 ```
 
 
-يعرض لك هذا الكود النموذجي كيفية إضافة رابط تشعبي إلى **فيديو**:
+يعرض لك هذا المثال البرمجي كيفية إضافة ارتباط تشعبي إلى **فيديو**:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -144,14 +146,16 @@ try {
 
 
 {{%  alert  title="Tip"  color="primary"  %}} 
-قد ترغب في الاطلاع على *[إدارة OLE](/slides/ar/java/manage-ole/)*.
+
+قد ترغب في رؤية *[إدارة OLE](/slides/ar/java/manage-ole/)*.
+
 {{% /alert %}}
 
-## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
+## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
 
-نظرًا لأن الروابط التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
+نظرًا لأن الارتباطات التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
 
-يعرض لك هذا الكود النموذجي كيفية إنشاء جدول محتويات باستخدام الروابط التشعبية:
+يعرض لك هذا المثال البرمجي كيفية إنشاء جدول محتويات باستخدام الارتباطات التشعبية:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -182,13 +186,13 @@ try {
 ```
 
 
-## **تنسيق الروابط التشعبية**
+## **تنسيق الارتباطات التشعبية**
 
 ### **اللون**
 
-باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink)، يمكنك تعيين اللون للروابط التشعبية وكذلك الحصول على معلومات اللون من الروابط التشعبية. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint القديمة.
+باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink)، يمكنك تعيين اللون للارتباطات التشعبية والحصول أيضًا على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint القديمة.
 
-يعرض لك هذا الكود النموذجي عملية تم فيها إضافة روابط تشعبية بألوان مختلفة إلى الشريحة نفسها:
+يعرض لك هذا المثال البرمجي عملية تم فيها إضافة ارتباطات تشعبية ذات ألوان مختلفة إلى الشريحة نفسها:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -211,11 +215,11 @@ try {
 ```
 
 
-## **إزالة الروابط التشعبية في العروض التقديمية**
+## **إزالة الارتباطات التشعبية من العروض التقديمية**
 
-### **إزالة الروابط التشعبية من النص**
+### **إزالة الارتباطات التشعبية من النص**
 
-يعرض لك هذا الكود Java كيفية إزالة الرابط التشعبي من نص في شريحة عرض تقديمي:
+يعرض لك هذا الكود Java كيفية إزالة الارتباط التشعبي من نص في شريحة عرض تقديمي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -242,9 +246,9 @@ try {
 ```
 
 
-### **إزالة الروابط التشعبية من الأشكال أو الإطارات**
+### **إزالة الارتباطات التشعبية من الأشكال أو الإطارات**
 
-يعرض لك هذا الكود Java كيفية إزالة الرابط التشعبي من شكل في شريحة عرض تقديمي:
+يعرض لك هذا الكود Java كيفية إزالة الارتباط التشعبي من شكل في شريحة عرض تقديمي: 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -260,9 +264,9 @@ try {
 ```
 
 
-## **الرابط التشعبي القابل للتعديل**
+## **الارتباط التشعبي القابل للتغيير**
 
-الفئة [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير القيم لهذه الخصائص:
+الفئة [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) قابلة للتغيير. باستخدام هذه الفئة، يمكنك تعديل القيم لهذه الخصائص:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -270,7 +274,7 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-يعرض لك مقطع الشيفرة كيفية إضافة رابط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
+يعرض لك مقطع الكود كيفية إضافة ارتباط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -291,29 +295,29 @@ try {
 
 ## **الخصائص المدعومة في IHyperlinkQueries**
 
-يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) من عرض تقديمي أو شريحة أو نص تم تعريف الرابط التشعبي له. 
+يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي له. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-The [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) class supports these methods and properties: 
+فئة [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) تدعم هذه الأساليب والخصائص: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو الشريحة الأولى من قسم؟**
 
-الأقسام في PowerPoint هي تجميعات للشرائح؛ التقنية تستهدف شريحة محددة. للتنقل إلى قسم، عادةً ما ترتبط بأول شريحة له.
+الأقسام في PowerPoint هي تجميعات للشرائح؛ التقنية تستهدف شريحة محددة. للـ "تنقل إلى قسم"، عادةً ما يتم ربطه بالشريحة الأولى من ذلك القسم.
 
-**هل يمكنني إرفاق رابط تشعبي بعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسة (Master) ليعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر الشريحة الرئيسية والتخطيط الروابط التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر أثناء عرض الشرائح.
+نعم. تدعم عناصر الشريحة الرئيسة وتخطيطاتها الارتباطات التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر خلال عرض الشرائح.
 
-**هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+**هل سيُحافظ على الارتباطات التشعبية عند التصدير إلى PDF أو HTML أو الصور أو الفيديو؟**
 
-في [PDF](/slides/ar/java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/java/convert-powerpoint-to-html/)، نعم—عادةً ما يتم الحفاظ على الروابط. عند التصدير إلى [الصور](/slides/ar/java/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/java/convert-powerpoint-to-video/)، لن يتم نقل القابلية للنقر بسبب طبيعة تلك الصيغ (الإطارات/الفيديو النقطية لا تدعم الروابط التشعبية).
+في [PDF](/slides/ar/java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/java/convert-powerpoint-to-html/)، نعم—عادةً ما تُحافظ الروابط. عند التصدير إلى [الصور](/slides/ar/java/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/java/convert-powerpoint-to-video/)، لن يتم نقل قابلية النقر بسبب طبيعة هذه الصيغ (الإطارات/الفيديوهات النقطية لا تدعم الارتباطات التشعبية).

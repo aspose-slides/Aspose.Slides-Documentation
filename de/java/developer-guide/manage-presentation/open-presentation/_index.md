@@ -1,102 +1,126 @@
 ---
-title: Präsentation in Java öffnen
+title: Präsentationen in Java öffnen
 linktitle: Präsentation öffnen
 type: docs
 weight: 20
 url: /de/java/open-presentation/
-keywords: "PowerPoint öffnen, PPTX, PPT, Präsentation öffnen, Präsentation laden, Java"
-description: "Präsentation PPT, PPTX, ODP in Java öffnen oder laden"
+keywords:
+- PowerPoint öffnen
+- OpenDocument öffnen
+- Präsentation öffnen
+- PPTX öffnen
+- PPT öffnen
+- ODP öffnen
+- Präsentation laden
+- PPTX laden
+- PPT laden
+- ODP laden
+- geschützte Präsentation
+- große Präsentation
+- externe Ressource
+- Binärobjekt
+- Java
+- Aspose.Slides
+description: "Öffnen Sie PowerPoint (.pptx, .ppt) und OpenDocument (.odp) Präsentationen mühelos mit Aspose.Slides für Java – schnell, zuverlässig, voll funktionsfähig."
 ---
 
-Neben der Erstellung von PowerPoint-Präsentationen von Grund auf ermöglicht Aspose.Slides das Öffnen vorhandener Präsentationen. Nachdem Sie eine Präsentation geladen haben, können Sie Informationen über die Präsentation abrufen, die Präsentation bearbeiten (Inhalte auf ihren Folien), neue Folien hinzufügen oder vorhandene entfernen usw.
+## **Übersicht**
 
-## Präsentation öffnen
+Neben dem Erstellen von PowerPoint‑Präsentationen von Grund auf ermöglicht Aspose.Slides auch das Öffnen vorhandener Präsentationen. Nachdem Sie eine Präsentation geladen haben, können Sie Informationen darüber abrufen, Folieninhalte bearbeiten, neue Folien hinzufügen, vorhandene entfernen und vieles mehr.
 
-Um eine vorhandene Präsentation zu öffnen, müssen Sie einfach die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse instanziieren und den Dateipfad (der Präsentation, die Sie öffnen möchten) an den Konstruktor übergeben.
+## **Präsentationen öffnen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine Präsentation öffnen und auch die Anzahl der Folien, die sie enthält, herausfinden können:
+Um eine vorhandene Präsentation zu öffnen, instanziieren Sie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)-Klasse und übergeben Sie ihr den Dateipfad im Konstruktor.
 
+Das folgende Java‑Beispiel zeigt, wie eine Präsentation geöffnet und die Folienanzahl ermittelt wird:
 ```java
-// Instanziiert die Presentation-Klasse und übergibt den Dateipfad an den Konstruktor
-Presentation pres = new Presentation("Presentation.pptx");
+// Instanziieren Sie die Presentation-Klasse und übergeben Sie ihr einen Dateipfad im Konstruktor.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // Gibt die Gesamtzahl der Folien in der Präsentation aus
-    System.out.println(pres.getSlides().size());
+    // Geben Sie die Gesamtzahl der Folien in der Präsentation aus.
+    System.out.println(presentation.getSlides().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Passwortgeschützte Präsentation öffnen**
 
-Wenn Sie eine passwortgeschützte Präsentation öffnen müssen, können Sie das Passwort über die [Password](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getPassword--) Eigenschaft (der [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) Klasse) übergeben, um die Präsentation zu entschlüsseln und zu laden. Dieser Java-Code demonstriert die Operation:
+## **Kennwortgeschützte Präsentationen öffnen**
 
-```java
- LoadOptions loadOptions = new LoadOptions();
- loadOptions.setPassword("DEIN_PASSWORT");
- Presentation pres = new Presentation("pres.pptx", loadOptions);
- try {
- // Führen Sie einige Arbeiten mit der entschlüsselten Präsentation durch
- } finally {
-     if (pres != null) pres.dispose();
- }
-```
-
-## Große Präsentation öffnen
-
-Aspose.Slides bietet Optionen (insbesondere die [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) Eigenschaft) unter der [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions) Klasse, um das Laden großer Präsentationen zu ermöglichen.
-
-Dieser Java-Code demonstriert eine Operation, in der eine große Präsentation (sagen wir 2 GB groß) geladen wird:
-
+Wenn Sie eine kennwortgeschützte Präsentation öffnen müssen, übergeben Sie das Kennwort über die [setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)-Methode der [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/)-Klasse, um sie zu entschlüsseln und zu laden. Der folgende Java‑Code demonstriert diesen Vorgang:
 ```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
-loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
+loadOptions.setPassword("YOUR_PASSWORD");
 
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 try {
-    // Die große Präsentation wurde geladen und kann verwendet werden, aber der Speicherverbrauch bleibt niedrig.
-    // Änderungen an der Präsentation vornehmen.
-    pres.getSlides().get_Item(0).setName("Sehr große Präsentation");
-
-    // Die Präsentation wird in die andere Datei gespeichert. Der Speicherverbrauch bleibt während der Operation niedrig
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // Führen Sie Operationen an der entschlüsselten Präsentation aus.
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="info" title="Info" %}}
 
-Um bestimmte Einschränkungen beim Arbeiten mit einem Stream zu umgehen, kann Aspose.Slides den Inhalt des Streams kopieren. Das Laden einer großen Präsentation über ihren Stream führt zu einer Kopie der Inhalte der Präsentation und verursacht ein langsames Laden. Daher empfehlen wir dringend, beim Laden einer großen Präsentation den Dateipfad der Präsentation und nicht ihren Stream zu verwenden.
+## **Große Präsentationen öffnen**
 
-Wenn Sie eine Präsentation erstellen möchten, die große Objekte (Video, Audio, große Bilder usw.) enthält, können Sie die [Blob-Funktion](https://docs.aspose.com/slides/java/manage-blob/) verwenden, um den Speicherverbrauch zu reduzieren.
+Aspose.Slides stellt Optionen bereit – insbesondere die [getBlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--)‑Methode in der [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/)-Klasse – um Ihnen beim Laden großer Präsentationen zu helfen.
 
-{{%/alert %}} 
-
-## Präsentation laden
-
-Aspose.Slides bietet [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) mit einer einzelnen Methode, um externe Ressourcen zu verwalten. Dieser Java-Code zeigt Ihnen, wie Sie das `IResourceLoadingCallback`-Interface verwenden:
-
+Der folgende Java‑Code zeigt das Laden einer großen Präsentation (zum Beispiel 2 GB):
 ```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
+final String filePath = "LargePresentation.pptx";
 
-Presentation pres = new Presentation("presentation.pptx", opts);
+LoadOptions loadOptions = new LoadOptions();
+// Wählen Sie das KeepLocked-Verhalten – die Präsentationsdatei bleibt für die gesamte Lebensdauer von
+// der Presentation-Instanz gesperrt, muss jedoch nicht in den Speicher geladen oder in eine temporäre Datei kopiert werden.
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
+loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+
+Presentation presentation = new Presentation(filePath, loadOptions);
+try {
+    // Die große Präsentation wurde geladen und kann verwendet werden, während der Speicherverbrauch gering bleibt.
+
+    // Änderungen an der Präsentation vornehmen.
+    presentation.getSlides().get_Item(0).setName("Large presentation");
+
+    // Speichern Sie die Präsentation in eine andere Datei. Der Speicherverbrauch bleibt während dieses Vorgangs gering.
+    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
+
+    // Machen Sie das nicht! Es wird eine I/O-Ausnahme ausgelöst, weil die Datei gesperrt ist, bis das Präsentationsobjekt freigegeben wird.
+    //Files.delete(Paths.get(filePath));
+} finally {
+    presentation.dispose();
+}
+
+// Hier ist es in Ordnung, dies zu tun. Die Quelldatei ist nicht mehr durch das Präsentationsobjekt gesperrt.
+Files.delete(Paths.get(filePath));
+```
+
+
+{{% alert color="info" title="Info" %}}
+Um bestimmte Einschränkungen beim Arbeiten mit Streams zu umgehen, kann Aspose.Slides den Inhalt eines Streams kopieren. Das Laden einer großen Präsentation aus einem Stream führt dazu, dass die Präsentation kopiert wird und das Laden verlangsamen kann. Daher empfehlen wir dringend, beim Laden einer großen Präsentation den Dateipfad anstelle eines Streams zu verwenden.
+
+Wenn Sie eine Präsentation erstellen, die große Objekte (Video, Audio, hochauflösende Bilder usw.) enthält, können Sie das [BLOB‑Management](/slides/de/java/manage-blob/) nutzen, um den Speicherverbrauch zu reduzieren.
+{{%/alert %}}
+
+## **Externe Ressourcen steuern**
+
+Aspose.Slides bietet das [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/)-Interface, mit dem Sie externe Ressourcen verwalten können. Der folgende Java‑Code zeigt, wie das `IResourceLoadingCallback`‑Interface verwendet wird:
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // lädt das Ersatzbild
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        if (args.getOriginalUri().endsWith(".jpg")) {
+            try {
+                // Ein Ersatzbild laden.
+                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
+                args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {
                 return ResourceLoadingAction.Skip;
@@ -104,58 +128,51 @@ class ImageLoadingHandler implements IResourceLoadingCallback
                 ex.printStackTrace();
             }
         } else if (args.getOriginalUri().endsWith(".png")) {
-            // setzt die Ersatz-URL
+            // Eine Ersatz-URL setzen.
             args.setUri("http://www.google.com/images/logos/ps_logo2.png");
             return ResourceLoadingAction.Default;
         }
-        // überspringt alle anderen Bilder
+        // Alle anderen Bilder überspringen.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## Präsentation ohne eingebettete Binärobjekte laden
 
-Die PowerPoint-Präsentation kann die folgenden Typen von eingebetteten Binärobjekten enthalten:
+## **Präsentationen ohne eingebettete Binärobjekte laden**
 
-- VBA-Projekt ([IPresentation.VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/));
-- OLE-Objekt eingebettete Daten ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- ActiveX-Steuerelemente Binärdaten ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+Eine PowerPoint‑Präsentation kann folgende Arten von eingebetteten Binärobjekten enthalten:
 
-Mit der [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) Eigenschaft können Sie die Präsentation ohne eingebettete Binärobjekte laden.
+- VBA‑Projekt (zugänglich über [IPresentation.getVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getVbaProject--));
+- OLE‑Objekt‑eingebettete Daten (zugänglich über [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- ActiveX‑Steuerungs‑Binärdaten (zugänglich über [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
 
-Diese Eigenschaft kann nützlich sein, um potenziell schädliche Binärinhalte zu entfernen.
+Mit der [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-)‑Methode können Sie eine Präsentation laden, ohne eingebettete Binärobjekte zu übernehmen.
 
-Der Code demonstriert, wie man eine Präsentation ohne Malware-Inhalte lädt und speichert:
-
+Diese Methode ist nützlich, um potenziell schädliche Binärinhalte zu entfernen. Der folgende Java‑Code demonstriert, wie Sie eine Präsentation ohne eingebettete Binärinhalte laden:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation pres = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("malware.ppt", loadOptions);
 try {
-    pres.save("clean.ppt", SaveFormat.Ppt);
+    // Vorgänge an der Präsentation ausführen.
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## Präsentation öffnen und speichern
 
-Schritte zum Öffnen und Speichern einer Präsentation:
+## **FAQ**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse und übergeben Sie die Datei, die Sie öffnen möchten. 
-2. Speichern Sie die Präsentation.
+**Wie kann ich erkennen, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
 
-```java
-// Instanziiert ein Presentation-Objekt, das eine PPT-Datei repräsentiert
-Presentation pres = new Presentation();
-try {
-    // ...hier einige Arbeiten ausführen...
-    
-    // Speichert Ihre Präsentation in einer Datei
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
-```
+Beim Laden erhalten Sie eine Parsing‑/Format‑Validierungs‑Exception. Solche Fehler erwähnen häufig eine ungültige ZIP‑Struktur oder beschädigte PowerPoint‑Datensätze.
+
+**Was passiert, wenn beim Öffnen erforderliche Schriftarten fehlen?**
+
+Die Datei wird geöffnet, aber beim anschließenden [Rendern/Exportieren](/slides/de/java/convert-presentation/) können Schriftarten substituiert werden. [Schriftart‑Substitutionen konfigurieren](/slides/de/java/font-substitution/) oder [die erforderlichen Schriftarten hinzufügen](/slides/de/java/custom-font/) in der Laufzeitumgebung.
+
+**Wie werden beim Öffnen eingebettete Medien (Video/Audio) behandelt?**
+
+Sie werden als Präsentations‑Ressourcen verfügbar. Wenn Medien über externe Pfade referenziert werden, stellen Sie sicher, dass diese Pfade in Ihrer Umgebung erreichbar sind; andernfalls kann das [Rendern/Exportieren](/slides/de/java/convert-presentation/) die Medien weglassen.

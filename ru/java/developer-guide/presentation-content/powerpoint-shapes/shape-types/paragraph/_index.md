@@ -1,14 +1,26 @@
 ---
-title: Параграф
+title: Получить границы абзаца в презентациях на Java
+linktitle: Абзац
 type: docs
 weight: 60
 url: /ru/java/paragraph/
+keywords:
+- границы абзаца
+- границы текстового фрагмента
+- координаты абзаца
+- координаты фрагмента
+- размер абзаца
+- размер текстового фрагмента
+- текстовый фрейм
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Узнайте, как получить границы абзаца и текстовых фрагментов в Aspose.Slides для Java, чтобы оптимизировать размещение текста в презентациях PowerPoint."
 ---
 
-
-## Получение координат параграфа и порций в TextFrame ##
-С использованием Aspose.Slides для Java разработчики теперь могут получать прямоугольные координаты для параграфов из коллекции параграфов в TextFrame. Это также позволяет получить [координаты порции](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) из коллекции порций параграфа. В этой теме мы собираемся продемонстрировать с помощью примера, как получить прямоугольные координаты для параграфа, а также положение порции внутри параграфа.
-
+## **Получить координаты абзаца и фрагмента в TextFrame**
+С помощью Aspose.Slides for Java разработчики теперь могут получать прямоугольные координаты абзаца (Paragraph) внутри коллекции абзацев TextFrame. Это также позволяет получать [координаты фрагмента](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) внутри коллекции фрагментов абзаца. В этой статье мы продемонстрируем на примере, как получить прямоугольные координаты абзаца вместе с положением фрагмента внутри абзаца.
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
@@ -20,9 +32,8 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 ```
 
 
-## **Получение прямоугольных координат параграфа**
-С помощью метода [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) разработчики могут получить прямоугольные границы параграфа.
-
+## **Получить прямоугольные координаты абзаца**
+С помощью метода [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) разработчики могут получить ограничивающий прямоугольник абзаца.
 ```java
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
@@ -35,12 +46,9 @@ try {
 }
 ```
 
-## **Получение размера параграфа и порции внутри текстового фрейма ячейки таблицы** ##
 
-Чтобы получить размер и координаты [Порции](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) или [Параграфа](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) в текстовом фрейме ячейки таблицы, вы можете использовать методы [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) и [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--).
-
-Этот пример кода демонстрирует описанную операцию:
-
+## **Получить размер абзаца и фрагмента внутри TextFrame ячейки таблицы**
+Чтобы получить размер и координаты [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) или [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) в текстовом фрейме ячейки таблицы, можно использовать методы [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) и [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--).
 ```java
 Presentation pres = new Presentation("source.pptx");
 try {
@@ -81,3 +89,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**В каких единицах измеряются координаты, возвращаемые для абзаца и текстовых фрагментов?**  
+В пунктах, где 1 дюйм = 72 пункта. Это относится ко всем координатам и размерам на слайде.
+
+**Влияет ли перенос слов на границы абзаца?**  
+Да. Если [перенос](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-) включён в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/), текст разбивается, чтобы вписаться в ширину области, что изменяет фактические границы абзаца.
+
+**Можно ли надёжно сопоставить координаты абзаца с пикселями в экспортированном изображении?**  
+Да. Преобразуйте пункты в пиксели по формуле: pixels = points × (DPI / 72). Результат зависит от выбранного DPI для рендеринга/экспорта.
+
+**Как получить «эффективные» параметры форматирования абзаца, учитывающие наследование стилей?**  
+Используйте [структуру данных эффективного форматирования абзаца](/slides/ru/java/shape-effective-properties/); она возвращает окончательные агрегированные значения отступов, интервалов, переноса, направления RTL и др.

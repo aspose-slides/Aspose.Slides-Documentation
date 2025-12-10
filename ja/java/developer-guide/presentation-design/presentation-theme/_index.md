@@ -1,24 +1,40 @@
 ---
-title: プレゼンテーションテーマ
+title: Java でプレゼンテーションテーマを管理する
+linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
 url: /ja/java/presentation-theme/
-keywords: "テーマ, PowerPoint テーマ, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaのPowerPointプレゼンテーションテーマ"
+keywords:
+- PowerPoint テーマ
+- プレゼンテーションテーマ
+- スライドテーマ
+- テーマの設定
+- テーマの変更
+- テーマの管理
+- テーマカラー
+- 追加パレット
+- テーマフォント
+- テーマスタイル
+- テーマエフェクト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Java 向け Aspose.Slides でプレゼンテーションテーマをマスターし、PowerPoint ファイルを一貫したブランディングで作成、カスタマイズ、変換します。"
 ---
 
-プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、特定の視覚要素とそのプロパティのセットを選択することになります。
+プレゼンテーションテーマはデザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選ぶことになります。
 
-PowerPointでは、テーマは色、[フォント](/slides/ja/java/powerpoint-fonts/)、[背景スタイル](/slides/ja/java/presentation-background/)、および効果で構成されています。
+PowerPoint では、テーマは色、[fonts](/slides/ja/java/powerpoint-fonts/)、[background styles](/slides/ja/java/presentation-background/)、およびエフェクトで構成されます。
 
-![theme-constituents](theme-constituents.png)
+![テーマ構成要素](theme-constituents.png)
 
-## **テーマカラーの変更**
+## **テーマの色を変更**
 
-PowerPointテーマは、スライド上の異なる要素に対して特定のセットの色を使用します。色が気に入らない場合は、新しい色をテーマに適用することで変更できます。新しいテーマカラーを選択できるようにするために、Aspose.Slidesは[SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor) 列挙の下に値を提供します。
+PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して色を変更します。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor) 列挙体の値を提供します。
 
-このJavaコードは、テーマのアクセントカラーを変更する方法を示しています：
-
+この Java コードは、テーマのアクセントカラーを変更する方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -32,8 +48,8 @@ try {
 }
 ```
 
-結果として得られる色の有効値をこのようにして決定できます：
 
+この方法で、結果として得られる色の実効値を確認できます：
 ```java
 IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
 
@@ -43,8 +59,8 @@ System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
         effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
-カラー変更操作をさらに示すために、別の要素を作成し、アクセントカラー（最初の操作から）をそれに割り当てます。その後、テーマ内の色を変更します：
 
+色変更操作をさらに示すために、別の要素を作成し、最初の操作で取得したアクセントカラーを割り当てます。その後、テーマ内の色を変更します：
 ```java
 IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -55,20 +71,19 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
 ```
 
+
 新しい色は両方の要素に自動的に適用されます。
 
 ### **追加パレットからテーマカラーを設定**
 
-主要テーマカラー(1) に輝度変換を適用すると、追加パレット(2) から色が形成されます。その後、これらのテーマカラーを設定および取得できます。
+メインテーマカラー(1)に輝度変換を適用すると、追加パレット(2)から色が生成されます。その後、これらのテーマカラーを設定および取得できます。
 
-![additional-palette-colors](additional-palette-colors.png)
+![追加パレットの色](additional-palette-colors.png)
 
-**1** - 主テーマカラー
+**1** - メインテーマカラー  
+**2** - 追加パレットの色
 
-**2** - 追加パレットからの色。
-
-このJavaコードは、主要テーマカラーから追加パレットカラーを取得し、それを形状に使用する操作を示しています：
-
+この Java コードは、メインテーマカラーから追加パレットの色を取得し、それらをシェイプで使用する操作を示しています：
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -80,7 +95,7 @@ try {
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // アクセント 4, 明るい 80%
+    // アクセント 4、明るさ 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -88,7 +103,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // アクセント 4, 明るい 60%
+    // アクセント 4、明るさ 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -96,7 +111,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // アクセント 4, 明るい 40%
+    // アクセント 4、明るさ 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -104,14 +119,14 @@ try {
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // アクセント 4, 暗く 25%
+    // アクセント 4、暗く 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // アクセント 4, 暗く 50%
+    // アクセント 4、暗く 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.getFillFormat().setFillType(FillType.Solid);
@@ -124,23 +139,23 @@ try {
 }
 ```
 
-## **テーマフォントの変更**
 
-テーマやその他の目的のためにフォントを選択できるようにするために、Aspose.Slidesはこれらの特別な識別子を使用しています（PowerPointで使用されるものと類似）：
+## **テーマフォントを変更**
 
-* **+mn-lt** - ボディフォントラテン（マイナーラテンフォント）
-* **+mj-lt** - ヘッディングフォントラテン（メジャーラテンフォント）
-* **+mn-ea** - ボディフォント東アジア（マイナー東アジアフォント）
-* **+mj-ea** - ボディフォント東アジア（メジャー東アジアフォント）
+テーマやその他の目的でフォントを選択できるように、Aspose.Slides は以下の特別な識別子（PowerPoint で使用されるものと類似）を使用します。
 
-このJavaコードは、テーマ要素にラテンフォントを割り当てる方法を示しています：
+* **+mn-lt** - 本文フォント ラテン文字 (Minor Latin Font)  
+* **+mj-lt** - 見出しフォント ラテン文字 (Major Latin Font)  
+* **+mn-ea** - 本文フォント 東アジア (Minor East Asian Font)  
+* **+mj-ea** - 本文フォント 東アジア (Major East Asian Font)
 
+この Java コードは、ラテンフォントをテーマ要素に割り当てる方法を示しています：
 ```java
 IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
 Paragraph paragraph = new Paragraph();
 
-Portion portion = new Portion("テーマテキスト形式");
+Portion portion = new Portion("Theme text format");
 
 paragraph.getPortions().add(portion);
 
@@ -149,69 +164,63 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
 ```
 
-このJavaコードは、プレゼンテーションテーマフォントを変更する方法を示しています：
 
+この Java コードは、プレゼンテーションのテーマフォントを変更する方法を示しています：
 ```java
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
 ```
 
+
 すべてのテキストボックスのフォントが更新されます。
 
-{{% alert color="primary" title="ヒント" %}} 
-
-[PowerPointフォント](/slides/ja/java/powerpoint-fonts/)を確認することをお勧めします。
-
+{{% alert color="primary" title="TIP" %}} 
+[PowerPoint フォント](/slides/ja/java/powerpoint-fonts/) をご覧になるとよいでしょう。 
 {{% /alert %}}
 
-## **テーマ背景スタイルの変更**
+## **テーマの背景スタイルを変更**
 
-デフォルトでは、PowerPointアプリは12のプリセット背景を提供しますが、その12の背景のうち3つのみが通常のプレゼンテーションに保存されます。
+デフォルトでは、PowerPoint アプリは 12 の事前定義された背景を提供しますが、典型的なプレゼンテーションではそのうちの 3 つだけが保存されます。
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-たとえば、PowerPointアプリでプレゼンテーションを保存した後、このJavaコードを実行して、プレゼンテーション内の定義済み背景の数を確認できます：
-
+例えば、PowerPoint アプリでプレゼンテーションを保存した後、以下の Java コードを実行してプレゼンテーションに含まれる事前定義背景の数を調べることができます：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
 
-    System.out.println("テーマの背景フィルスタイルの数は " + numberOfBackgroundFills);
+    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 {{% alert color="warning" %}} 
-
-[FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme)クラスの[BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--)プロパティを使用すると、PowerPointテーマで背景スタイルを追加またはアクセスできます。 
-
+[BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) クラスから使用して、PowerPoint テーマの背景スタイルを追加または取得できます。 
 {{% /alert %}} 
 
-このJavaコードは、プレゼンテーションの背景を設定する方法を示しています：
-
+この Java コードは、プレゼンテーションの背景を設定する方法を示しています：
 ```java
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-**インデックスガイド**：0はノーフィルに使用されます。インデックスは1から始まります。
 
-{{% alert color="primary" title="ヒント" %}} 
+**インデックスガイド**: 0 は塗りなしを意味します。インデックスは 1 から始まります。
 
-[PowerPoint背景](/slides/ja/java/presentation-background/)を確認することをお勧めします。
-
+{{% alert color="primary" title="TIP" %}} 
+[PowerPoint 背景](/slides/ja/java/presentation-background/) をご覧になるとよいでしょう。 
 {{% /alert %}}
 
-## **テーマ効果の変更**
+## **テーマエフェクトを変更**
 
-PowerPointテーマには、通常、各スタイル配列に対して3つの値が含まれています。これらの配列は、微妙、中程度、強烈のこの3つの効果に組み合わされます。たとえば、特定の形状に効果を適用したときの結果は次のようになります：
+PowerPoint テーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は、微妙、適度、強烈という 3 つのエフェクトに結合されます。例えば、特定のシェイプにエフェクトを適用した結果は以下の通りです：
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme)クラスの3つのプロパティ（[FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)）を使用して、テーマ内の要素を変更できます（PowerPointのオプションよりも柔軟に）。
+3 つのプロパティ（[FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)）を [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) クラスから使用すると、PowerPoint のオプションよりも柔軟にテーマ内の要素を変更できます。
 
-このJavaコードは、要素の一部を変更することでテーマ効果を変更する方法を示しています：
-
+この Java コードは、要素の一部を変更してテーマエフェクトを変更する方法を示しています：
 ```java
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -229,6 +238,20 @@ try {
 }
 ```
 
-フィルカラー、フィルタイプ、シャドウ効果などの結果としての変更：
 
+結果として、塗りの色、塗りタイプ、影エフェクトなどが変更されます：
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **よくある質問**
+
+**マスターを変更せずに、単一のスライドにテーマを適用できますか？**
+
+はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスターテーマをそのままにして、対象のスライドにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/slidethememanager/) を使用）。
+
+**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に移行する最善の方法は何ですか？**
+
+[スライドのクローン](/slides/ja/java/clone-slides/) をマスターと共にターゲットプレゼンテーションにコピーすると、元のマスター、レイアウト、関連するテーマが保持され、外観が一貫したままになります。
+
+**すべての継承とオーバーライドの後の「実効」値を確認するにはどうすればよいですか？**
+
+API の [「実効」ビュー](/slides/ja/java/shape-effective-properties/)（テーマ/色/フォント/エフェクト）を使用します。これらは、マスターとローカルオーバーライドを適用した後に解決された最終プロパティを返します。

@@ -1,14 +1,14 @@
 ---
-title: Java でプレゼンテーションのハイパーリンクを管理する
-linktitle: ハイパーリンクを管理する
+title: Javaでプレゼンテーションのハイパーリンクを管理する
+linktitle: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/java/manage-hyperlinks/
 keywords:
-- URL を追加
+- URLを追加
 - ハイパーリンクを追加
 - ハイパーリンクを作成
-- ハイパーリンクを書式設定
+- ハイパーリンクの書式設定
 - ハイパーリンクを削除
 - ハイパーリンクを更新
 - テキストハイパーリンク
@@ -22,25 +22,25 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint と OpenDocument のプレゼンテーションのハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument のプレゼンテーション内のハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
 
-ハイパーリンクはオブジェクトやデータ、または何かの中の場所への参照です。これらは PowerPoint プレゼンテーションで一般的に使用されるハイパーリンクです：
+ハイパーリンクは、オブジェクトやデータ、または何かの場所への参照です。これらは PowerPoint プレゼンテーションで一般的に使用されるハイパーリンクです：
 
 * テキスト、図形、またはメディア内のウェブサイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for Java を使用すると、プレゼンテーション内のハイパーリンクに関するさまざまなタスクを実行できます。
+Aspose.Slides for Java を使用すると、プレゼンテーション内のハイパーリンクに関するさまざまな操作を実行できます。
 
 {{% alert color="primary" %}} 
-Aspose のシンプルで[無料のオンライン PowerPoint エディタ](https://products.aspose.app/slides/editor) をぜひご覧ください。
+Aspose simple、[無料のオンライン PowerPoint エディター](https://products.aspose.app/slides/editor)をご確認ください。
 {{% /alert %}} 
 
 ## **URL ハイパーリンクの追加**
 
 ### **テキストへの URL ハイパーリンクの追加**
 
-この Java コードはテキストにウェブサイトのハイパーリンクを追加する方法を示しています：
+この Java コードは、テキストにウェブサイトへのハイパーリンクを追加する方法を示しています。
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -61,7 +61,7 @@ try {
 
 ### **図形またはフレームへの URL ハイパーリンクの追加**
 
-この Java サンプルコードは図形にウェブサイトのハイパーリンクを追加する方法を示しています：
+この Java のサンプルコードは、図形にウェブサイトへのハイパーリンクを追加する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -81,11 +81,11 @@ try {
 
 Aspose.Slides を使用すると、画像、音声、ビデオ ファイルにハイパーリンクを追加できます。
 
-このサンプルコードは **画像** にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
-	// プレゼンテーションに画像を追加
+	// プレゼンテーションに画像を追加します
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -93,7 +93,7 @@ try {
     } finally {
           if (image != null) image.dispose();
     }
-	// 以前に追加した画像を基にスライド 1 に画像フレームを作成
+	// 以前に追加した画像を基にスライド1に画像フレームを作成します
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
@@ -107,7 +107,7 @@ try {
 ```
 
 
-このサンプルコードは **音声ファイル** にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -125,7 +125,7 @@ try {
 ```
 
 
-このサンプルコードは **ビデオ** にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**ビデオ**にハイパーリンクを追加する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -143,15 +143,15 @@ try {
 ```
 
 
-{{% alert title="Tip" color="primary" %}} 
-ご覧になりたい場合は *[OLE の管理](/slides/ja/java/manage-ole/)*。
+{{%  alert  title="Tip"  color="primary"  %}} 
+次をご覧ください *[OLE の管理](/slides/ja/java/manage-ole/)*。
 {{% /alert %}}
 
-## **ハイパーリンクを使用した目次の作成**
+## **ハイパーリンクを使用して目次を作成する**
 
-ハイパーリンクを使用すると、オブジェクトや場所への参照を追加できるため、目次を作成できます。
+ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次の作成に利用できます。
 
-このサンプルコードはハイパーリンク付きの目次を作成する方法を示しています：
+このサンプルコードは、ハイパーリンク付きの目次を作成する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -186,9 +186,9 @@ try {
 
 ### **色**
 
-[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) インターフェイスの [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関わる変更は古いバージョンの PowerPoint には適用されません。
+[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) インターフェイスの [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は古いバージョンの PowerPoint には適用されません。
 
-このサンプルコードは、同じスライドに異なる色のハイパーリンクが追加された操作を示しています：
+このサンプルコードは、異なる色のハイパーリンクを同じスライドに追加する操作を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -215,7 +215,7 @@ try {
 
 ### **テキストからハイパーリンクを削除する**
 
-この Java コードはプレゼンテーション スライドのテキストからハイパーリンクを削除する方法を示しています：
+この Java コードは、プレゼンテーションのスライド内のテキストからハイパーリンクを削除する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -244,7 +244,7 @@ try {
 
 ### **図形またはフレームからハイパーリンクを削除する**
 
-この Java コードはプレゼンテーション スライドの図形からハイパーリンクを削除する方法を示しています： 
+この Java コードは、プレゼンテーションのスライド内の図形からハイパーリンクを削除する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -260,9 +260,9 @@ try {
 ```
 
 
-## **変更可能なハイパーリンク**
+## **可変ハイパーリンク**
 
-[Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) クラスは変更可能です。このクラスを使用すると、次のプロパティの値を変更できます：
+[Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) クラスは可変です。このクラスを使用すると、以下のプロパティの値を変更できます：
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -270,7 +270,7 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-このコード スニペットはスライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています：
+このコード スニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -291,26 +291,29 @@ try {
 
 ## **IHyperlinkQueries のサポートされているプロパティ**
 
-プレゼンテーション、スライド、またはハイパーリンクが定義されているテキストから [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) にアクセスできます。
+ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストから [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) を取得できます。
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) クラスは次のメソッドとプロパティをサポートします：
+[IHyperlinkQueries] クラスは、以下のメソッドとプロパティをサポートしています。
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **よくある質問**
+## **FAQ**
 
-**スライドだけでなく「セクション」やセクションの最初のスライドへ内部ナビゲーションを作成するにはどうすればよいですか？**  
-PowerPoint のセクションはスライドのグループ化です。ナビゲーションは技術的には特定のスライドを対象にします。セクションへ「移動」する場合は、通常その最初のスライドへリンクします。
+**スライドだけでなく「セクション」やセクションの最初のスライドへの内部ナビゲーションを作成するにはどうすればよいですか？**
 
-**マスタースライドの要素にハイパーリンクを付けることで、すべてのスライドで機能させることはできますか？**  
-はい。マスタースライドやレイアウトの要素はハイパーリンクをサポートします。これらのリンクは子スライドに表示され、スライドショー中にクリック可能です。
+PowerPoint のセクションはスライドのグループです。ナビゲーションは技術的には特定のスライドを対象とします。「セクションへ移動」するには、通常その最初のスライドにリンクします。
 
-**PDF、HTML、画像、またはビデオへエクスポートした場合、ハイパーリンクは保持されますか？**  
-[PDF](/slides/ja/java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/java/convert-powerpoint-to-html/) では、リンクは一般的に保持されます。[画像](/slides/ja/java/convert-powerpoint-to-png/) や [ビデオ](/slides/ja/java/convert-powerpoint-to-video/) にエクスポートする場合は、ラスタフレームやビデオはハイパーリンクをサポートしないため、クリック可能性は失われます。
+**マスタースライドの要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
+
+はい。マスタースライドやレイアウト要素はハイパーリンクをサポートしています。これらのリンクは子スライドに表示され、スライドショー中にクリック可能です。
+
+**PDF、HTML、画像、またはビデオへエクスポートしたときにハイパーリンクは保持されますか？**
+
+[PDF](/slides/ja/java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/java/convert-powerpoint-to-html/) では、リンクは通常保持されます。[画像](/slides/ja/java/convert-powerpoint-to-png/) や [ビデオ](/slides/ja/java/convert-powerpoint-to-video/) へエクスポートする場合、これらの形式はハイパーリンクをサポートしないため、クリック可能性は失われます。

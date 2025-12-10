@@ -1,25 +1,34 @@
 ---
-title: 管理单元格
+title: 使用 Java 管理演示文稿中的表格单元格
+linktitle: 管理单元格
 type: docs
 weight: 30
 url: /zh/java/manage-cells/
-keywords: "表格, 合并单元格, 拆分单元格, 表格单元格中的图像, Java, Aspose.Slides for Java"
-description: "Java 中 PowerPoint 演示文稿中的表格单元格"
+keywords:
+- 表格单元格
+- 合并单元格
+- 删除边框
+- 拆分单元格
+- 单元格中的图像
+- 背景颜色
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Java，轻松管理 PowerPoint 中的表格单元格。快速掌握访问、修改和样式设置，实现无缝的幻灯片自动化。"
 ---
-
 
 ## **识别合并的表格单元格**
 1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 从第一个幻灯片中获取表格。
-3. 迭代表格的行和列以查找合并单元格。
-4. 当找到合并单元格时打印消息。
+2. 从第一张幻灯片获取表格。
+3. 遍历表格的行和列以查找合并的单元格。
+4. 发现合并单元格时打印信息。
 
-以下 Java 代码演示了如何识别演示文稿中的合并表格单元格：
-
+以下 Java 代码展示了如何在演示文稿中识别合并的表格单元格：
 ```java
 Presentation pres = new Presentation("SomePresentationWithTable.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // 假设 Slide#0.Shape#0 是一个表格
+    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // 假设 Slide#0.Shape#0 是表格
     for (int i = 0; i < table.getRows().size(); i++)
     {
         for (int j = 0; j < table.getColumns().size(); j++)
@@ -27,7 +36,7 @@ try {
             ICell currentCell = table.getRows().get_Item(i).get_Item(j);
             if (currentCell.isMergedCell())
             {
-                System.out.println(String.format("单元格 %d;%d 是合并单元格的一部分，RowSpan=%d 和 ColSpan=%d，起始于单元格 %d;%d.",
+                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
                         i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
             }
         }
@@ -37,32 +46,32 @@ try {
 }
 ```
 
-## **移除表格单元格边框**
+
+## **删除表格单元格边框**
 1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 定义一个具有宽度的列数组。
-4. 定义一个具有高度的行数组。
+3. 定义列宽数组。
+4. 定义行高数组。
 5. 通过 [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 方法向幻灯片添加表格。
-6. 迭代每个单元格以清除上、下、右和左边框。
+6. 遍历每个单元格，清除上、下、右、左边框。
 7. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 Java 代码演示了如何从表格单元格中移除边框：
-
+以下 Java 代码展示了如何删除表格单元格的边框：
 ```java
-// 实例化代表 PPTX 文件的 Presentation 类
+// 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     Slide sld = (Slide)pres.getSlides().get_Item(0);
 
-    // 定义具有宽度的列和高度的行
+    // 定义列宽和行高
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
     // 向幻灯片添加表格形状
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 设置每个单元格的边框格式
+    // 为每个单元格设置边框格式
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -81,24 +90,24 @@ try {
 }
 ```
 
-## **合并单元格中的编号**
-如果我们合并单元格 (1, 1) x (2, 1) 和 (1, 2) x (2, 2)，结果表格将被编号。此 Java 代码演示了该过程：
 
+## **合并单元格中的编号**
+如果我们将两个单元格对 (1,1) x (2,1) 和 (1,2) x (2,2) 合并，生成的表格将具有编号。以下 Java 代码演示了该过程：
 ```java
-// 实例化代表 PPTX 文件的 Presentation 类
+// 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 定义具有宽度的列和高度的行
+    // 定义列宽和行高
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
     // 向幻灯片添加表格形状
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 设置每个单元格的边框格式
+    // 为每个单元格设置边框格式
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -133,23 +142,23 @@ try {
 }
 ```
 
-然后我们进一步合并单元格，通过合并 (1, 1) 和 (1, 2)。结果是一个表格，其中包含一个大型合并单元格在其中心：
 
+然后我们进一步合并单元格，合并 (1,1) 和 (1,2)。结果是表格中心出现一个大型合并单元格：
 ```java
-// 实例化代表 PPTX 文件的 Presentation 类
+// 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 定义具有宽度的列和高度的行
+    // 定义列宽和行高
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
     // 向幻灯片添加表格形状
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 设置每个单元格的边框格式
+    // 为每个单元格设置边框格式
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -180,7 +189,7 @@ try {
 
     // 合并单元格 (1, 1) x (1, 2)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
+	
 	// 将 PPTX 文件写入磁盘
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -188,28 +197,28 @@ try {
 }
 ```
 
+
 ## **拆分单元格中的编号**
-在前面的示例中，当表格单元格被合并时，其他单元格中的编号或数字系统没有改变。
+在之前的示例中，当表格单元格合并时，其他单元格的编号或编号系统保持不变。
 
-这次，我们将使用一个普通的表格（没有合并单元格的表格），然后尝试拆分单元格 (1,1) 来获得一个特殊的表格。您可能想关注这个表格的编号，这被认为是奇怪的。然而，这就是 Microsoft PowerPoint 为表格单元格编号的方式，Aspose.Slides 也以同样的方式操作。
+这一次，我们使用一个常规表格（没有合并单元格的表格），尝试拆分单元格 (1,1) 来得到一个特殊的表格。您可能需要注意该表格的编号方式，可能会显得奇怪。不过，这正是 Microsoft PowerPoint 对表格单元格进行编号的方式，Aspose.Slides 也采用相同的实现。
 
-以下 Java 代码演示了我们所描述的过程：
-
+以下 Java 代码演示了我们描述的过程：
 ```java
-// 实例化代表 PPTX 文件的 Presentation 类
+// 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 定义具有宽度的列和高度的行
+    // 定义列宽和行高
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
     // 向幻灯片添加表格形状
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 设置每个单元格的边框格式
+    // 为每个单元格设置边框格式
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -241,17 +250,16 @@ try {
     // 拆分单元格 (1, 1)
     tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
 
-    // 将 PPTX 文件写入磁盘
+    //将 PPTX 文件写入磁盘
     pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **更改表格单元格背景颜色**
-
-以下 Java 代码演示了如何更改表格单元格的背景颜色：
-
+以下 Java 代码展示了如何更改表格单元格的背景颜色：
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -274,36 +282,35 @@ try {
 }
 ```
 
-## **在表格单元格中添加图像**
 
+## **在表格单元格中添加图像**
 1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 定义一个具有宽度的列数组。
-4. 定义一个具有高度的行数组。
+3. 定义列宽数组。
+4. 定义行高数组。
 5. 通过 [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 方法向幻灯片添加表格。
-6. 创建一个 `Images` 对象来保存图像文件。
+6. 创建 `Images` 对象以保存图像文件。
 7. 将 `IImage` 图像添加到 `IPPImage` 对象。
 8. 将表格单元格的 `FillFormat` 设置为 `Picture`。
 9. 将图像添加到表格的第一个单元格。
-10. 将修改后的演示文稿保存为 PPTX 文件。
+10. 将修改后的演示文稿保存为 PPTX 文件
 
-以下 Java 代码演示了如何在创建表格时将图像放置在表格单元格中：
-
+以下 Java 代码展示了在创建表格时如何将图像放置在表格单元格中：
 ```java
-// 实例化代表 PPTX 文件的 Presentation 类
+// 实例化表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     ISlide islide = pres.getSlides().get_Item(0);
 
-    // 定义具有宽度的列和高度的行
+    // 定义列宽和行高
     double[] dblCols = {150, 150, 150, 150};
     double[] dblRows = {100, 100, 100, 100, 90};
 
     // 向幻灯片添加表格形状
     ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // 使用图像文件创建一个 IPPImage 对象
+    // 使用图像文件创建 IPPImage 对象
     IPPImage picture;
     IImage image = Images.fromFile("image.jpg");
     try {
@@ -325,3 +332,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+**我可以为单个单元格的不同侧设置不同的线条粗细和样式吗？**
+
+可以。单元格的 [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)、[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)、[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)、[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) 边框拥有独立的属性，因此每一侧的粗细和样式可以不同。这与文章中展示的对单元格的每侧边框控制逻辑相符。
+
+**如果在将图片设为单元格背景后更改列/行大小，会发生什么？**
+
+行为取决于 [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/)（拉伸/平铺）。拉伸时，图像会适应新的单元格；平铺时，平铺块会重新计算。文章中提到了单元格内图像的显示模式。
+
+**我可以为单元格的全部内容分配超链接吗？**
+
+[Hyperlinks](/slides/zh/java/manage-hyperlinks/) 在单元格的文本框内的文本（段落）级别或整个表格/形状级别设置。实际操作中，您可以将链接分配给段落或整个单元格的所有文本。
+
+**我可以在单个单元格内设置不同的字体吗？**
+
+可以。单元格的文本框支持具有独立格式的 [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/)（文本段），包括字体系列、样式、大小和颜色。

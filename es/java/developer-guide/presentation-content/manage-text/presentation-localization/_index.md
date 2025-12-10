@@ -6,8 +6,8 @@ weight: 100
 url: /es/java/presentation-localization/
 keywords:
 - cambiar idioma
-- corrector ortográfico
-- id de idioma
+- revisión ortográfica
+- identificador de idioma
 - PowerPoint
 - OpenDocument
 - presentación
@@ -16,13 +16,13 @@ keywords:
 description: "Automatiza la localización de diapositivas PowerPoint y OpenDocument en Java con Aspose.Slides, usando ejemplos de código prácticos y consejos para un despliegue global más rápido."
 ---
 
-## **Cambiar el idioma para la presentación y el texto de la forma**
+## **Cambiar el idioma de una presentación y dar forma al texto**
 - Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- Obtener la referencia de una diapositiva usando su índice.
+- Obtener la referencia de una diapositiva utilizando su índice.
 - Agregar un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) de tipo [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) a la diapositiva.
 - Agregar texto al TextFrame.
-- [Setting Language Id](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) al texto.
-- Guardar la presentación como un archivo PPTX.
+- [Establecer Id de idioma](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) al texto.
+- Guardar la presentación como archivo PPTX.
 
 La implementación de los pasos anteriores se muestra a continuación en un ejemplo.
 ```java
@@ -44,12 +44,12 @@ try {
 
 **¿El ID de idioma activa la traducción automática del texto?**
 
-No. El [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) en Aspose.Slides almacena el idioma para la corrección ortográfica y la revisión gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
+No. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) en Aspose.Slides almacena el idioma para la corrección ortográfica y de gramática, pero no traduce ni modifica el contenido del texto. Es metadatos que PowerPoint interpreta para la revisión.
 
-**¿El ID de idioma afecta la separación silábica y los saltos de línea durante la renderización?**
+**¿El ID de idioma afecta la separación silábica y los saltos de línea durante la representación?**
 
-En Aspose.Slides, el [language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) se usa para la revisión. La calidad de la separación silábica y el ajuste de línea dependen principalmente de la disponibilidad de [proper fonts](/slides/es/java/powerpoint-fonts/) y la configuración de diseño/saltos de línea para el sistema de escritura. Para asegurar una renderización correcta, haga que las fuentes requeridas estén disponibles, configure las [font substitution rules](/slides/es/java/font-substitution/) y/o [embed fonts](/slides/es/java/embedded-font/) en la presentación.
+En Aspose.Slides, [language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) se utiliza para la revisión. La calidad de la separación silábica y el ajuste de líneas dependen principalmente de la disponibilidad de [fuentes adecuadas](/slides/es/java/powerpoint-fonts/) y de la configuración de diseño/ruptura de línea para el sistema de escritura. Para garantizar una representación correcta, haga que las fuentes necesarias estén disponibles, configure [reglas de sustitución de fuentes](/slides/es/java/font-substitution/) y/o [incorpore fuentes](/slides/es/java/embedded-font/) en la presentación.
 
 **¿Puedo establecer diferentes idiomas dentro de un solo párrafo?**
 
-Sí. El [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) se aplica a nivel de porción de texto, por lo que un solo párrafo puede mezclar varios idiomas con configuraciones de revisión distintas.
+Sí. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) se aplica a nivel de porción de texto, por lo que un solo párrafo puede mezclar varios idiomas con configuraciones de revisión distintas.

@@ -1,21 +1,21 @@
 ---
-title: Настройка 3D-диаграмм в презентациях с использованием Java
-linktitle: 3D-диаграмма
+title: "Настройка 3D диаграмм в презентациях с помощью Java"
+linktitle: "3D-диаграмма"
 type: docs
 url: /ru/java/3d-chart/
 keywords:
-- 3D-диаграмма
-- вращение
+- 3D диаграмма
+- поворот
 - глубина
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как создавать и настраивать 3-D диаграммы в Aspose.Slides для Java с поддержкой файлов PPT и PPTX — улучшите свои презентации уже сегодня."
+description: "Узнайте, как создавать и настраивать 3‑D диаграммы в Aspose.Slides для Java с поддержкой файлов PPT и PPTX — улучшите свои презентации уже сегодня."
 ---
 
 ## **Установите свойства RotationX, RotationY и DepthPercents 3D‑диаграммы**
-Aspose.Slides for Java предоставляет простой API для установки этих свойств. В следующей статье показано, как задать различные свойства, такие как **X, Y Rotation, DepthPercents** и т.д. Пример кода применяет указанные свойства.
+Aspose.Slides for Java предоставляет простой API для установки этих свойств. Эта статья поможет вам установить различные свойства, такие как **X,Y Rotation, DepthPercents** и т.п. Пример кода демонстрирует установку указанных свойств.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 1. Получите доступ к первому слайду.
@@ -37,7 +37,7 @@ try {
     // Получение листа данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Добавить серию
+    // Добавить серии
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
@@ -78,12 +78,12 @@ try {
 
 **Какие типы диаграмм поддерживают 3D‑режим в Aspose.Slides?**
 
-Aspose.Slides поддерживает 3D‑варианты столбчатых диаграмм, включая Column 3D, Clustered Column 3D, Stacked Column 3D и 100 % Stacked Column 3D, а также связанные 3D‑типы, доступные через класс [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/). Для точного и актуального списка проверьте члены [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) в справочнике API установленной версии.
+Aspose.Slides поддерживает 3D‑варианты столбчатых диаграмм, включая Column 3D, Clustered Column 3D, Stacked Column 3D и 100% Stacked Column 3D, а также связанные 3D‑типы, доступные через класс [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/). Для точного актуального списка см. члены [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) в справке API установленной версии.
 
-**Можно ли получить растровое изображение 3D‑диаграммы для отчёта или веба?**
+**Могу ли я получить растровое изображение 3D‑диаграммы для отчёта или веба?**
 
-Да. Вы можете экспортировать диаграмму в изображение через [chart API](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) или [рендерить весь слайд](/slides/ru/java/convert-powerpoint-to-png/) в форматы PNG или JPEG. Это полезно, когда нужен пиксель‑точный предпросмотр или требуется вставить диаграмму в документы, панели мониторинга или веб‑страницы без необходимости использовать PowerPoint.
+Да. Вы можете экспортировать диаграмму в изображение с помощью [chart API](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) или [render the entire slide](/slides/ru/java/convert-powerpoint-to-png/) в форматы PNG или JPEG. Это удобно, когда нужен пиксель‑совершенный предпросмотр или необходимо встроить диаграмму в документы, панели мониторинга или веб‑страницы без использования PowerPoint.
 
-**Насколько производительно построение и рендеринг больших 3D‑диаграмм?**
+**Насколько эффективна сборка и рендеринг больших 3D‑диаграмм?**
 
-Производительность зависит от объёма данных и визуальной сложности. Для лучших результатов минимизируйте 3D‑эффекты, избегайте тяжелых текстур на стенах и областях графика, по возможности ограничивайте количество точек данных в серии и рендерите с подходящим разрешением и размерами, соответствующими требованиям отображения или печати.
+Производительность зависит от объёма данных и визуальной сложности. Для оптимальных результатов минимизируйте 3D‑эффекты, избегайте тяжёлых текстур на стенках и областях построения, по возможности ограничьте количество точек данных в серии и рендерьте в вывод соответствующего размера (разрешение и размеры), соответствующий целевому отображению или печати.

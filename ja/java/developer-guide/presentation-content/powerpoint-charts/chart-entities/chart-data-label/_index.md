@@ -6,10 +6,10 @@ url: /ja/java/chart-data-label/
 keywords:
 - チャート
 - データ ラベル
-- データ精度
+- データ 精度
 - パーセンテージ
-- ラベル間隔
-- ラベル位置
+- ラベル 距離
+- ラベル 位置
 - PowerPoint
 - プレゼンテーション
 - Java
@@ -17,11 +17,11 @@ keywords:
 description: "Aspose.Slides for Java を使用して PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
 
-チャートのデータ ラベルは、チャートのデータ系列または個々のデータ ポイントの詳細を示します。これにより、読者はデータ系列をすばやく識別でき、チャートの理解も容易になります。
+チャートのデータ ラベルは、チャートのデータ系列または個々のデータ ポイントに関する詳細を表示します。読者はデータ系列をすばやく識別でき、チャートの理解もしやすくなります。
 
-## **チャート データ ラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度を設定**
 
-この Java コードは、チャート データ ラベルのデータ精度を設定する方法を示します：
+この Java コードは、チャート データ ラベルのデータ精度を設定する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,8 +37,9 @@ try {
 ```
 
 
-## **ラベルとしてパーセンテージを表示する**
-Aspose.Slides for Java を使用すると、表示されたチャートにパーセンテージ ラベルを設定できます。この Java コードはその操作を示しています：
+## **パーセンテージをラベルとして表示**
+
+Aspose.Slides for Java を使用すると、表示されるチャートにパーセンテージ ラベルを設定できます。この Java コードはその操作を示します:
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -89,13 +90,14 @@ try {
 ```
 
 
-## **チャート データ ラベルにパーセンテージ記号を設定する**
-この Java コードは、チャート データ ラベルにパーセンテージ記号を設定する方法を示します：
+## **チャート データ ラベルにパーセンテージ記号を設定**
+
+この Java コードは、チャート データ ラベルのパーセンテージ記号を設定する方法を示します:
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
-    // インデックスでスライドの参照を取得します
+    // インデックスを使用してスライドの参照を取得します
     ISlide slide = pres.getSlides().get_Item(0);
     
     // スライド上に PercentsStackedColumn チャートを作成します
@@ -108,21 +110,21 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // チャート データのワークシートを取得します
+    // チャートデータのワークシートを取得します
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // 新しい系列を追加します
+    // 新しいシリーズを追加します
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
     
-    // 系列の塗りつぶし色を設定します
+    // シリーズの塗りつぶし色を設定します
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // LabelFormat プロパティを設定します
+    // ラベルフォーマットのプロパティを設定します
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
@@ -131,7 +133,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // 新しい系列を追加します
+    // 新しいシリーズを追加します
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
@@ -156,8 +158,9 @@ try {
 ```
 
 
-## **軸からのラベル間隔を設定する**
-この Java コードは、軸上にプロットされたチャートでカテゴリ軸からのラベル間隔を設定する方法を示します：
+## **軸からのラベル距離を設定**
+
+この Java コードは、軸からプロットされたチャートでカテゴリ軸からラベル距離を設定する方法を示します:
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -168,7 +171,7 @@ try {
     // スライド上にチャートを作成します
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // 軸からのラベル距離を設定します
+    // 軸からラベルの距離を設定します
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
     // プレゼンテーションをディスクに保存します
@@ -179,11 +182,11 @@ try {
 ```
 
 
-## **ラベルの位置を調整する**
+## **ラベル位置を調整**
 
-円グラフなど軸に依存しないチャートを作成する場合、チャートのデータ ラベルがエッジに近すぎることがあります。そのような場合、リーダー ラインが明確に表示されるようにデータ ラベルの位置を調整する必要があります。
+円グラフのように軸に依存しないチャートを作成すると、チャートのデータ ラベルがエッジに近すぎることがあります。その場合、データ ラベルの位置を調整して、リーダー ラインがはっきり表示されるようにする必要があります。
 
-この Java コードは、円グラフでラベルの位置を調整する方法を示します：
+この Java コードは、円グラフ上でラベル位置を調整する方法を示します:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,18 +207,18 @@ try {
 ```
 
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![調整されたラベルの円グラフ](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **よくある質問**
 
-**密集したチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**
+**密集したチャートでデータ ラベルの重なりを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダー ライン、フォントサイズの縮小を組み合わせます。必要に応じて、いくつかのフィールド（例: カテゴリ）を非表示にするか、極端なポイントまたは重要なポイントにのみラベルを表示します。
+自動ラベル配置、リーダー ライン、フォント サイズの縮小を組み合わせます。必要に応じて、いくつかのフィールド（例: カテゴリ）を非表示にするか、極端または重要なポイントのみラベルを表示します。
 
 **ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
 
 ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
 
-**PDF/画像にエクスポートする際に、ラベルのスタイルを一貫させるにはどうすればよいですか？**
+**PDF/画像にエクスポートする際に一貫したラベルスタイルを保証するにはどうすればよいですか？**
 
-フォント（ファミリー、サイズ）を明示的に設定し、フォントがレンダリング側で利用可能であることを確認してフォールバックを防ぎます。
+フォント（ファミリ、サイズ）を明示的に設定し、フォールバックを防ぐためにレンダリング側でフォントが利用可能であることを確認します。

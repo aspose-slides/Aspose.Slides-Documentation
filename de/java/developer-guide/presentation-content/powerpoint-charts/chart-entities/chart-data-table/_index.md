@@ -6,24 +6,24 @@ url: /de/java/chart-data-table/
 keywords:
 - Diagrammdaten
 - Datentabelle
-- Schrifteigenschaften
+- Schriftattribute
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Passen Sie Diagrammdatentabellen in Java für PPT und PPTX mit Aspose.Slides an, um Effizienz und Attraktivität in Präsentationen zu steigern."
+description: "Passen Sie Diagrammdatentabellen in Java für PPT und PPTX mit Aspose.Slides an, um die Effizienz und Attraktivität von Präsentationen zu steigern."
 ---
 
-## **Schrifteigenschaften für Diagrammdatentabelle festlegen**
-Aspose.Slides für Java bietet Unterstützung zum Ändern der Farbe von Kategorien in einer Serienfarbe.
+## **Schriftattribute für eine Diagrammdatentabelle festlegen**
+Aspose.Slides for Java bietet Unterstützung für das Ändern der Farbe von Kategorien in einer Serienfarbe.  
 
 1. Instanziieren Sie das Klassenobjekt [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Fügen Sie dem Folie ein Diagramm hinzu.
-1. Diagrammtabelle festlegen.
-1. Schriftgröße festlegen.
+1. Fügen Sie dem Folieninhalt ein Diagramm hinzu.
+1. Legen Sie die Diagrammtabelle fest.
+1. Legen Sie die Schriftgröße fest.
 1. Speichern Sie die geänderte Präsentation.
 
-Unten finden Sie ein Beispiel.  
+Ein Beispiel wird unten angegeben.  
 ```java
 // Leere Präsentation erstellen
 Presentation pres = new Presentation();
@@ -44,18 +44,18 @@ try {
 
 ## **FAQ**
 
-**Kann ich kleine Legenden‑Schlüssel neben den Werten in der Datentabelle des Diagramms anzeigen?**
+**Kann ich kleine Legenden‑Schlüssel neben den Werten in der Diagrammdatentabelle anzeigen?**
 
-Ja. Die Datentabelle unterstützt [Legenden‑Schlüssel](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-), und Sie können sie ein‑ oder ausschalten.
+Ja. Die Datentabelle unterstützt [legend keys](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-), und Sie können sie ein- oder ausschalten.
 
-**Wird die Datentabelle beim Exportieren der Präsentation in PDF, HTML oder Bilder beibehalten?**
+**Wird die Datentabelle beim Exportieren der Präsentation nach PDF, HTML oder Bild erhalten bleiben?**
 
 Ja. Aspose.Slides rendert das Diagramm als Teil der Folie, sodass das exportierte [PDF](/slides/de/java/convert-powerpoint-to-pdf/)/[HTML](/slides/de/java/convert-powerpoint-to-html/)/[image](/slides/de/java/convert-powerpoint-to-png/) das Diagramm mit seiner Datentabelle enthält.
 
 **Werden Datentabellen für Diagramme unterstützt, die aus einer Vorlagendatei stammen?**
 
-Ja. Für jedes Diagramm, das aus einer vorhandenen Präsentation oder Vorlage geladen wird, können Sie mithilfe der Diagrammeigenschaften prüfen und ändern, ob eine Datentabelle [angezeigt wird](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--).
+Ja. Für jedes Diagramm, das aus einer vorhandenen Präsentation oder Vorlage geladen wird, können Sie mit den Eigenschaften des Diagramms prüfen und ändern, ob eine Datentabelle [is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--).
 
-**Wie kann ich schnell herausfinden, welche Diagramme in einer Datei die Datentabelle aktiviert haben?**
+**Wie kann ich schnell herausfinden, welche Diagramme in einer Datei die aktivierte Datentabelle besitzen?**
 
-Prüfen Sie die Eigenschaft jedes Diagramms, die anzeigt, ob die Datentabelle [angezeigt wird](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--), und iterieren Sie über die Folien, um die Diagramme zu identifizieren, bei denen sie aktiviert ist.
+Untersuchen Sie die Eigenschaft jedes Diagramms, die angibt, ob die Datentabelle [is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) ist, und gehen Sie die Folien durch, um die Diagramme zu identifizieren, bei denen sie aktiviert ist.

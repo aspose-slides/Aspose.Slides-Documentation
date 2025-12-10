@@ -1,6 +1,6 @@
 ---
-title: أتمتة توطين العروض التقديمية في Java
-linktitle: توطين العروض التقديمية
+title: أتمتة توطين العروض التقديمية في جافا
+linktitle: توطين العرض التقديمي
 type: docs
 weight: 100
 url: /ar/java/presentation-localization/
@@ -8,23 +8,23 @@ keywords:
 - تغيير اللغة
 - التدقيق الإملائي
 - معرف اللغة
-- PowerPoint
-- OpenDocument
+- باوربوينت
+- مستند مفتوح
 - عرض تقديمي
-- Java
+- جافا
 - Aspose.Slides
-description: "أتمتة توطين شرائح PowerPoint و OpenDocument في Java باستخدام Aspose.Slides، مع أمثلة شيفرة عملية ونصائح لتسريع الإطلاق العالمي."
+description: "أتمتة توطين شرائح PowerPoint و OpenDocument في جافا باستخدام Aspose.Slides، مع نماذج شفرة عملية ونصائح لتسريع النشر العالمي."
 ---
 
-## **تغيير لغة العرض ونص الشكل**
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-- الحصول على مرجع الشريحة باستخدام فهرستها.
+## **تغيير لغة العرض والنص داخل الشكل**
+- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- الحصول على مرجع شريحة باستخدام فهرسها.
 - إضافة [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) من نوع [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) إلى الشريحة.
 - إضافة بعض النص إلى TextFrame.
 - [تعيين معرف اللغة](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) للنص.
-- حفظ العرض كملف PPTX.
+- كتابة العرض كملف PPTX.
 
-يتم توضيح تنفيذ الخطوات السابقة في المثال أدناه.
+تم توضيح تنفيذ الخطوات السابقة أدناه في مثال.
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -40,16 +40,16 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل يؤدي معرف اللغة إلى ترجمة النص تلقائيًا؟**
 
-لا. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) في Aspose.Slides يخزن اللغة لتدقيق الإملاء وتصحيح القواعد، لكنه لا يترجم أو يغير محتوى النص. إنها بيانات وصفية يفهمها PowerPoint للتدقيق.
+لا. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) في Aspose.Slides يخزن اللغة للتدقيق الإملائي وإثبات القواعد، لكنه لا يترجم أو يغيّر محتوى النص. إنها بيانات وصفية يفهمها PowerPoint للتدقيق.
 
-**هل يؤثر معرف اللغة على تجزئة الكلمات وفواصل الأسطر أثناء العرض؟**
+**هل يؤثر معرف اللغة على التجزيء وفواصل السطر أثناء العرض؟**
 
-في Aspose.Slides، يُستخدم [معرف اللغة](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) للتدقيق. تعتمد جودة تجزئة الكلمات وتغليف السطور بشكل أساسي على توفر [الخطوط المناسبة](/slides/ar/java/powerpoint-fonts/) وإعدادات تخطيط/كسر السطر لنظام الكتابة. لضمان العرض الصحيح، احرص على توفير الخطوط المطلوبة، وتكوين [قواعد استبدال الخطوط](/slides/ar/java/font-substitution/)، و/أو [تضمين الخطوط](/slides/ar/java/embedded-font/) في العرض.
+في Aspose.Slides، [language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) مخصص للإثبات. جودة التجزيء ولف السطر تعتمد أساسًا على توفر [proper fonts](/slides/ar/java/powerpoint-fonts/) وإعدادات التخطيط/فواصل السطر لنظام الكتابة. لضمان العرض الصحيح، وفر الخطوط المطلوبة، ضبط [font substitution rules](/slides/ar/java/font-substitution/)، و/أو [embed fonts](/slides/ar/java/embedded-font/) في العرض.
 
 **هل يمكنني تعيين لغات مختلفة داخل فقرة واحدة؟**
 
-نعم. يُطبق [معرف اللغة](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) على مستوى جزء النص، لذا يمكن للفقرة الواحدة دمج لغات متعددة بإعدادات تدقيق مختلفة.
+نعم. يُطبق [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) على مستوى جزء النص، لذا يمكن لفقرة واحدة دمج عدة لغات بإعدادات إثبات مختلفة.

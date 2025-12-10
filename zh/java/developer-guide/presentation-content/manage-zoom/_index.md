@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中管理演示文稿缩放
+title: 管理 Java 中的演示文稿缩放
 linktitle: 管理缩放
 type: docs
 weight: 60
@@ -15,38 +15,38 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 创建和自定义缩放——在章节间跳转，为 PPT、PPTX 和 ODP 演示文稿添加缩略图和过渡效果。"
+description: "使用 Aspose.Slides for Java 创建和自定义缩放 — 在 PPT、PPTX 和 ODP 演示文稿中在章节间跳转、添加缩略图和过渡效果。"
 ---
 
-## **概述**
-PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分快速跳转。当您进行演示时，这种快速跨内容导航的能力可能非常有用。 
+## **概览**
+PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分之间来回跳转。在演示时，这种快速浏览内容的能力可能非常有用。 
 
 ![overview_image](overview.png)
 
-* 要在单张幻灯片上概览整个演示文稿，请使用[Summary Zoom](#Summary-Zoom)。
-* 要仅显示选定的幻灯片，请使用[Slide Zoom](#Slide-Zoom)。
-* 要仅显示单个章节，请使用[Section Zoom](#Section-Zoom)。
+* 要在单张幻灯片上概括整个演示文稿，请使用[Summary Zoom](#Summary-Zoom)。
+* 若只显示选定的幻灯片，请使用[Slide Zoom](#Slide-Zoom)。
+* 若只显示单个章节，请使用[Section Zoom](#Section-Zoom)。
 
 ## **幻灯片缩放**
-幻灯片缩放可以让您的演示更具动感，允许您以任意顺序自由在幻灯片之间导航，而不会中断演示的流畅性。幻灯片缩放非常适合没有太多章节的简短演示，但在不同的演示场景中仍然可以使用。
+幻灯片缩放可以使您的演示更具活力，让您能够以任意顺序在幻灯片之间自由导航，而不会中断演示流程。幻灯片缩放非常适合章节不多的短篇演示，但在其他演示场景中也同样可用。
 
-幻灯片缩放帮助您在看似单一画布的情况下深入多个信息块。 
+幻灯片缩放帮助您在感觉仍在同一画布上的情况下，深入查看多个信息片段。 
 
 ![overview_image](slidezoomsel.png)
 
-对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) 枚举、[IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的若干方法。
+对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) 枚举、[IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的部分方法。
 
 ### **创建缩放框架**
 
-您可以按以下方式在幻灯片上添加缩放框架：
+您可以按下面的方式在幻灯片上添加缩放框架：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 创建您打算链接到缩放框架的新幻灯片。  
-3. 为创建的幻灯片添加标识文本和背景。  
-4. 在第一张幻灯片上添加缩放框架（包含对创建的幻灯片的引用）。  
-5. 将修改后的演示保存为 PPTX 文件。  
+2. 创建要链接缩放框架的新幻灯片。  
+3. 向已创建的幻灯片添加标识文本和背景。  
+4. 在第一张幻灯片上添加缩放框架（包含对已创建幻灯片的引用）。  
+5. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何在幻灯片上创建缩放框架：
+此 Java 代码演示了如何在幻灯片上创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -84,15 +84,16 @@ try {
 ```
 
 ### **使用自定义图像创建缩放框架**
-使用 Aspose.Slides for Java，您可以按以下方式创建带有不同幻灯片预览图像的缩放框架： 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 创建您打算链接到缩放框架的新幻灯片。  
-3. 为该幻灯片添加标识文本和背景。  
-4. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
-5. 在第一张幻灯片上添加缩放框架（包含对创建的幻灯片的引用）。  
-6. 将修改后的演示保存为 PPTX 文件。  
+使用 Aspose.Slides for Java，您可以按下面的方式创建带有不同幻灯片预览图像的缩放框架：
 
-下面的 Java 代码展示了如何使用不同图像创建缩放框架：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
+2. 创建要链接缩放框架的新幻灯片。  
+3. 向该幻灯片添加标识文本和背景。  
+4. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
+5. 在第一张幻灯片上添加缩放框架（包含对已创建幻灯片的引用）。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
+
+此 Java 代码演示了如何使用不同图像创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -108,7 +109,7 @@ try {
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
 
-    // 为 zoom 对象创建新图像
+    // 为缩放对象创建新图像
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -128,25 +129,25 @@ try {
 ```
 
 ### **格式化缩放框架**
-在前面的章节中，我们展示了如何创建简单的缩放框架。要创建更复杂的缩放框架，您需要更改简单框架的格式。可以对缩放框架应用多种格式化选项。 
+在前面的章节中，我们展示了如何创建简单的缩放框架。要创建更复杂的缩放框架，您需要更改简单框架的格式。您可以对缩放框架应用多种格式化选项。
 
-您可以按以下方式在幻灯片上控制缩放框架的格式：
+您可以按下面的方式在幻灯片上控制缩放框架的格式：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 创建您打算链接到缩放框架的新幻灯片。  
-3. 为创建的幻灯片添加一些标识文本和背景。  
-4. 在第一张幻灯片上添加缩放框架（包含对创建的幻灯片的引用）。  
+2. 创建要链接缩放框架的新幻灯片。  
+3. 向已创建的幻灯片添加一些标识文本和背景。  
+4. 在第一张幻灯片上添加缩放框架（包含对已创建幻灯片的引用）。  
 5. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
 6. 为第一个缩放框架对象设置自定义图像。  
 7. 更改第二个缩放框架对象的线条格式。  
 8. 移除第二个缩放框架对象图像的背景。  
-5. 将修改后的演示保存为 PPTX 文件。  
+5. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何在幻灯片上更改缩放框架的格式： 
+此 Java 代码演示了如何在幻灯片上更改缩放框架的格式：
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //添加新幻灯片到演示文稿
+    //向演示文稿添加新幻灯片
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
@@ -172,7 +173,7 @@ try {
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // 为 zoom 对象创建新图像
+    // 为缩放对象创建新图像
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -189,7 +190,7 @@ try {
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // 为 zoomFrame2 对象设置不显示背景
+    // 设置 zoomFrame2 对象不显示背景
     zoomFrame2.setShowBackground(false);
 
     // 保存演示文稿
@@ -203,24 +204,24 @@ try {
 
 ## **章节缩放**
 
-章节缩放是指向演示文稿中某个章节的链接。您可以使用章节缩放返回您想要重点强调的章节，或用来突出演示中各部分之间的关联。 
+章节缩放是链接到演示文稿中某一章节的快捷方式。您可以使用章节缩放返回需要特别强调的章节，或用来突出演示中各部分之间的关联。 
 
 ![overview_image](seczoomsel.png)
 
-对于章节缩放对象，Aspose.Slides 提供了 [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的若干方法。
+对于章节缩放对象，Aspose.Slides 提供了 [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的部分方法。
 
 ### **创建章节缩放框架**
 
-您可以按以下方式在幻灯片上添加章节缩放框架：
+您可以按下面的方式在幻灯片上添加章节缩放框架：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
 2. 创建一张新幻灯片。  
-3. 为创建的幻灯片添加标识背景。  
-4. 创建您打算链接到缩放框架的新章节。  
-5. 在第一张幻灯片上添加章节缩放框架（包含对创建的章节的引用）。  
-6. 将修改后的演示保存为 PPTX 文件。  
+3. 向已创建的幻灯片添加标识背景。  
+4. 创建要链接缩放框架的新章节。  
+5. 在第一张幻灯片上添加章节缩放框架（包含对已创建章节的引用）。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何在幻灯片上创建缩放框架：
+此 Java 代码演示了如何在幻灯片上创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -230,10 +231,10 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 1", slide);
 
-    // 添加 SectionZoomFrame 对象
+    // 向演示文稿添加 SectionZoomFrame 对象
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
     // 保存演示文稿
@@ -245,17 +246,17 @@ try {
 
 ### **使用自定义图像创建章节缩放框架**
 
-使用 Aspose.Slides for Java，您可以按以下方式创建带有不同幻灯片预览图像的章节缩放框架： 
+使用 Aspose.Slides for Java，您可以按下面的方式创建带有不同幻灯片预览图像的章节缩放框架：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
 2. 创建一张新幻灯片。  
-3. 为创建的幻灯片添加标识背景。  
-4. 创建您打算链接到缩放框架的新章节。  
+3. 向已创建的幻灯片添加标识背景。  
+4. 创建要链接缩放框架的新章节。  
 5. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
-5. 在第一张幻灯片上添加章节缩放框架（包含对创建的章节的引用）。  
-6. 将修改后的演示保存为 PPTX 文件。  
+5. 在第一张幻灯片上添加章节缩放框架（包含对已创建章节的引用）。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何使用不同图像创建缩放框架：
+此 Java 代码演示了如何使用不同图像创建缩放框架：
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -265,10 +266,10 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 1", slide);
 
-    // 为 zoom 对象创建新图像
+    // 为缩放对象创建新图像
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -290,25 +291,25 @@ try {
 
 ### **格式化章节缩放框架**
 
-要创建更复杂的章节缩放框架，您需要更改简单框架的格式。可以对章节缩放框架应用多种格式化选项。 
+要创建更复杂的章节缩放框架，您需要更改简单框架的格式。您可以对章节缩放框架应用多种格式化选项。
 
-您可以按以下方式在幻灯片上控制章节缩放框架的格式：
+您可以按下面的方式在幻灯片上控制章节缩放框架的格式：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
 2. 创建一张新幻灯片。  
-3. 为创建的幻灯片添加标识背景。  
-4. 创建您打算链接到缩放框架的新章节。  
-5. 在第一张幻灯片上添加章节缩放框架（包含对创建的章节的引用）。  
-6. 更改创建的章节缩放对象的大小和位置。  
+3. 向已创建的幻灯片添加标识背景。  
+4. 创建要链接缩放框架的新章节。  
+5. 在第一张幻灯片上添加章节缩放框架（包含对已创建章节的引用）。  
+6. 更改已创建章节缩放对象的大小和位置。  
 7. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
-8. 为创建的章节缩放框架对象设置自定义图像。  
-9. 设置 *从链接的章节返回原始幻灯片* 的功能。  
+8. 为已创建的章节缩放框架对象设置自定义图像。  
+9. 设置 *返回链接章节的原始幻灯片* 的功能。  
 10. 移除章节缩放框架对象图像的背景。  
 11. 更改第二个缩放框架对象的线条格式。  
-12. 更改过渡持续时间。  
-13. 将修改后的演示保存为 PPTX 文件。  
+12. 更改过渡时长。  
+13. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何更改章节缩放框架的格式：
+此 Java 代码演示了如何更改章节缩放框架的格式：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -324,7 +325,7 @@ try {
     // 添加 SectionZoomFrame 对象
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // SectionZoomFrame 的格式设置
+    // 为 SectionZoomFrame 设置格式
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
@@ -361,22 +362,22 @@ try {
 
 ## **摘要缩放**
 
-摘要缩放相当于一个着陆页，展示演示文稿的所有部分。当您进行演示时，可以使用缩放在演示的任意位置之间跳转，顺序自如。您可以创造性地前进、倒退或重新浏览幻灯片的某些部分，而不会中断演示的流畅性。 
+摘要缩放类似于一个登录页，展示了演示文稿的所有片段。当您进行演示时，可以使用缩放在演示的任意位置之间跳转，顺序任意。您可以创意性地跳过或重新查看幻灯片的任何部分，而不会中断演示的流畅性。
 
 ![overview_image](sumzoomsel.png)
 
-对于摘要缩放对象，Aspose.Slides 提供了 [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) 和 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的若干方法。
+对于摘要缩放对象，Aspose.Slides 提供了 [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) 和 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) 接口下的部分方法。
 
 ### **创建摘要缩放**
 
-您可以按以下方式在幻灯片上添加摘要缩放框架：
+您可以按下面的方式在幻灯片上添加摘要缩放框架：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 为创建的幻灯片添加标识背景并创建新章节。  
+2. 为新创建的幻灯片添加标识背景并创建新章节。  
 3. 将摘要缩放框架添加到第一张幻灯片。  
-4. 将修改后的演示保存为 PPTX 文件。  
+4. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何在幻灯片上创建摘要缩放框架：
+此 Java 代码演示了如何在幻灯片上创建摘要缩放框架：
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -386,7 +387,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 1", slide);
 
     //向演示文稿添加新幻灯片
@@ -395,7 +396,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 2", slide);
 
     //向演示文稿添加新幻灯片
@@ -404,7 +405,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 3", slide);
 
     //向演示文稿添加新幻灯片
@@ -413,10 +414,10 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 4", slide);
 
-    // 添加 SummaryZoomFrame 对象
+    // 向演示文稿添加 SummaryZoomFrame 对象
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
     // 保存演示文稿
@@ -429,51 +430,51 @@ try {
 
 ### **添加和删除摘要缩放章节**
 
-摘要缩放框架中的所有章节均由 [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) 对象表示，这些对象存储在 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 对象中。您可以通过 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 接口按以下方式添加或删除摘要缩放章节对象：
+摘要缩放框架中的所有章节均由 [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) 对象表示，这些对象存储在 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 中。您可以通过 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) 接口按下面的方式添加或删除摘要缩放章节对象：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 为创建的幻灯片添加标识背景并创建新章节。  
+2. 为新创建的幻灯片添加标识背景并创建新章节。  
 3. 将摘要缩放框架添加到第一张幻灯片。  
-4. 向演示文稿中添加新幻灯片和章节。  
-5. 将创建的章节添加到摘要缩放框架。  
+4. 为演示文稿添加新幻灯片和新章节。  
+5. 将创建的章节添加到摘要缩放框架中。  
 6. 从摘要缩放框架中移除第一章节。  
-7. 将修改后的演示保存为 PPTX 文件。  
+7. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何在摘要缩放框架中添加和删除章节：
+此 Java 代码演示了如何在摘要缩放框架中添加和移除章节：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //添加一个新幻灯片到演示文稿
+    //向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加一个新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 1", slide);
 
-    //添加一个新幻灯片到演示文稿
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加一个新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 2", slide);
 
-    // 添加 SummaryZoomFrame 对象
+    // 向演示文稿添加 SummaryZoomFrame 对象
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    //添加一个新幻灯片到演示文稿
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加一个新章节到演示文稿
+    // 向演示文稿添加新章节
     ISection section3 = pres.getSections().addSection("Section 3", slide);
 
-    // 添加章节到 Summary Zoom
+    // 向 Summary Zoom 添加章节
     summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
 
     // 从 Summary Zoom 中移除章节
@@ -489,22 +490,22 @@ try {
 
 ### **格式化摘要缩放章节**
 
-要创建更复杂的摘要缩放章节对象，您需要更改简单框架的格式。可以对摘要缩放章节对象应用多种格式化选项。 
+要创建更复杂的摘要缩放章节对象，您需要更改简单框架的格式。您可以对摘要缩放章节对象应用多种格式化选项。 
 
-您可以按以下方式在摘要缩放框架中控制摘要缩放章节对象的格式：
+您可以按下面的方式在摘要缩放框架中控制摘要缩放章节对象的格式：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 为创建的幻灯片添加标识背景并创建新章节。  
+2. 为新创建的幻灯片添加标识背景并创建新章节。  
 3. 将摘要缩放框架添加到第一张幻灯片。  
-4. 从 `ISummaryZoomSectionCollection` 中获取第一章节对象。  
+4. 从 `ISummaryZoomSectionCollection` 中获取第一个章节对象。  
 7. 通过向与 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 对象关联的 images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) 对象，用于填充框架。  
 8. 为创建的章节缩放框架对象设置自定义图像。  
-9. 设置 *从链接的章节返回原始幻灯片* 的功能。  
+9. 设置 *返回链接章节的原始幻灯片* 的功能。  
 11. 更改第二个缩放框架对象的线条格式。  
-12. 更改过渡持续时间。  
-13. 将修改后的演示保存为 PPTX 文件。  
+12. 更改过渡时长。  
+13. 将修改后的演示文稿写入为 PPTX 文件。  
 
-下面的 Java 代码展示了如何更改摘要缩放章节对象的格式：
+此 Java 代码演示了如何更改摘要缩放章节对象的格式：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -514,7 +515,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 1", slide);
 
     //向演示文稿添加新幻灯片
@@ -523,7 +524,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 添加新章节到演示文稿
+    // 向演示文稿添加新章节
     pres.getSections().addSection("Section 2", slide);
 
     // 添加 SummaryZoomFrame 对象
@@ -560,16 +561,16 @@ try {
 ```
 
 
-## **常见问题**
+## **FAQ**
 
-**我可以控制在显示目标后返回“父”幻灯片吗？**
+**是否可以控制在显示目标后返回“父”幻灯片？**
 
-是的。[Zoom frame](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) 或 [section](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) 具有 `ReturnToParent` 行为，启用后会在观看者访问目标内容后返回到原始幻灯片。
+可以。[Zoom frame](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) 或 [section](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) 具有 `ReturnToParent` 行为，启用后，观众在访问目标内容后会返回到原始幻灯片。
 
-**我可以调整缩放过渡的“速度”或持续时间吗？**
+**是否可以调整 Zoom 过渡的“速度”或时长？**
 
-可以。缩放支持设置 `TransitionDuration`，从而控制跳转动画的时长。
+可以。Zoom 支持设置 `TransitionDuration`，从而控制跳转动画的时长。
 
-**演示文稿中可以包含多少个缩放对象有限制吗？**
+**演示文稿能包含多少个 Zoom 对象有限制吗？**
 
-文档中没有硬性 API 限制。实际限制取决于演示的整体复杂度和观看设备的性能。您可以添加许多缩放框架，但需考虑文件大小和渲染时间。
+文档中未列出硬性的 API 限制。实际限制取决于演示文稿的整体复杂度和查看器的性能。您可以添加许多 Zoom 框架，但需考虑文件大小和渲染时间。

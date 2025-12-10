@@ -1,6 +1,6 @@
 ---
-title: Экспорт диаграмм презентации в Java
-linktitle: Экспорт диаграммы
+title: Экспортировать диаграммы презентации в Java
+linktitle: Экспортировать диаграмму
 type: docs
 weight: 90
 url: /ru/java/export-chart/
@@ -13,11 +13,12 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как экспортировать диаграммы презентаций с помощью Aspose.Slides для Java, поддерживая форматы PPT и PPTX, и упростить создание отчетов в любом процессе."
+description: "Узнайте, как экспортировать диаграммы презентаций с помощью Aspose.Slides для Java, поддерживая форматы PPT и PPTX, и упростите составление отчетов в любой рабочий процесс."
 ---
 
 ## **Получить изображение диаграммы**
 Aspose.Slides for Java предоставляет возможность извлекать изображение конкретной диаграммы. Ниже приведён пример.
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -36,24 +37,24 @@ try {
 ```
 
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли экспортировать диаграмму как вектор (SVG), а не как растровое изображение?**
+**Могу ли я экспортировать диаграмму как вектор (SVG), а не растровое изображение?**
 
-Да. Диаграмма является фигурой, и её содержимое можно сохранить в SVG с помощью метода [shape-to-SVG saving method](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Да. Диаграмма является фигурой, и её содержимое можно сохранить в SVG с помощью [метода сохранения shape-to-SVG](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
 
-**Как задать точный размер экспортируемой диаграммы в пикселях?**
+**Как установить точный размер экспортируемой диаграммы в пикселях?**
 
-Используйте перегрузки рендеринга изображения, позволяющие указать размер или масштаб — библиотека поддерживает рендеринг объектов с заданными размерами/масштабом.
+Используйте перегрузки рендеринга изображения, позволяющие задавать размер или масштаб — библиотека поддерживает отрисовку объектов с указанными размерами/масштабом.
 
-**Что делать, если после экспорта шрифты в подпищиках и легенде отображаются неправильно?**
+**Что делать, если шрифты в подписьах и легенде выглядят неверно после экспорта?**
 
-[Load the required fonts](/slides/ru/java/custom-font/) через [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) чтобы рендеринг диаграммы сохранял метрики и внешний вид текста.
+[Загрузите требуемые шрифты](/slides/ru/java/custom-font/) через [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/), чтобы при рендеринге диаграммы сохранялась метрика и отображение текста.
 
-**Учитывается ли при экспорте тема, стили и эффекты PowerPoint?**
+**Сохраняет ли экспорт тему, стили и эффекты PowerPoint?**
 
 Да. Рендерер Aspose.Slides учитывает форматирование презентации (темы, стили, заливки, эффекты), поэтому внешний вид диаграммы сохраняется.
 
-**Где можно найти доступные возможности рендеринга/экспорта помимо изображений диаграмм?**
+**Где можно найти информацию о доступных возможностях рендеринга/экспорта помимо изображений диаграмм?**
 
-Смотрите [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[documentation](/slides/ru/java/convert-powerpoint/) для целевых форматов вывода ([PDF](/slides/ru/java/convert-powerpoint-to-pdf/), [SVG](/slides/ru/java/render-a-slide-as-an-svg-image/), [XPS](/slides/ru/java/convert-powerpoint-to-xps/), [HTML](/slides/ru/java/convert-powerpoint-to-html/), и т.д.) и связанные параметры рендеринга.
+Смотрите [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[документацию](/slides/ru/java/convert-powerpoint/) для целевых форматов вывода ([PDF](/slides/ru/java/convert-powerpoint-to-pdf/), [SVG](/slides/ru/java/render-a-slide-as-an-svg-image/), [XPS](/slides/ru/java/convert-powerpoint-to-xps/), [HTML](/slides/ru/java/convert-powerpoint-to-html/), и т.д.) и связанные параметры рендеринга.

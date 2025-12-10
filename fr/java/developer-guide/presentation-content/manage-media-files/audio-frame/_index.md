@@ -14,25 +14,26 @@ keywords:
 - extraire audio
 - Java
 - Aspose.Slides
-description: "Créer et contrôler les cadres audio dans Aspose.Slides pour Java — exemples de code pour incorporer, rogner, boucler et configurer la lecture dans les présentations PPT, PPTX et ODP."
+description: "Créer et contrôler les cadres audio dans Aspose.Slides for Java—exemples de code pour incorporer, rogner, mettre en boucle et configurer la lecture dans les présentations PPT, PPTX et ODP."
 ---
 
 ## **Créer des cadres audio**
 
-Aspose.Slides for Java vous permet d’ajouter des fichiers audio aux diapositives. Les fichiers audio sont incorporés dans les diapositives sous forme de cadres audio. 
+Aspose.Slides for Java vous permet d'ajouter des fichiers audio aux diapositives. Les fichiers audio sont incorporés dans les diapositives sous forme de cadres audio. 
 
-1. Créez une instance de la classe [Présentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenez la référence d’une diapositive via son index.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez une référence à la diapositive via son index.
 3. Chargez le flux du fichier audio que vous souhaitez incorporer dans la diapositive.
 4. Ajoutez le cadre audio incorporé (contenant le fichier audio) à la diapositive.
-5. Définissez le [PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioPlayModePreset) et `Volume` exposés par l’objet [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAudioFrame).
+5. Définissez [PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioPlayModePreset) et `Volume` exposés par l'objet [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAudioFrame).
 6. Enregistrez la présentation modifiée.
 
+Ce code Java vous montre comment ajouter un cadre audio incorporé à une diapositive :
 ```java
-// Crée une instance de la classe Presentation qui représente un fichier de présentation
+// Instancie une classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation();
 try {
-    // Récupère la première diapositive
+    // Obtient la première diapositive
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Charge le fichier son wav dans un flux
@@ -55,10 +56,11 @@ try {
 ```
 
 
-## **Modifier la vignette du cadre audio**
+## **Modifier la miniature du cadre audio**
 
-Lorsque vous ajoutez un fichier audio à une présentation, l’audio apparaît sous forme de cadre avec une image par défaut standard (voir l’image dans la section ci‑dessous). Vous pouvez modifier l’image de prévisualisation du cadre audio (définir votre image préférée).
+Lorsque vous ajoutez un fichier audio à une présentation, l'audio apparaît sous forme d'un cadre avec une image par défaut standard (voir l'image dans la section ci‑dessous). Vous pouvez modifier l'image d'aperçu du cadre audio (définir votre image préférée).
 
+Ce code Java vous montre comment modifier la miniature ou l'image d'aperçu d'un cadre audio :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -78,7 +80,7 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Définit l'image pour le cadre audio.
+    // Définit l'image du cadre audio.
     audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
 
     //Enregistre la présentation modifiée sur le disque
@@ -92,36 +94,33 @@ try {
 
 ## **Modifier les options de lecture audio**
 
-Aspose.Slides for Java vous permet de modifier les options qui contrôlent la lecture ou les propriétés d’un audio. Par exemple, vous pouvez régler le volume d’un audio, définir la lecture en boucle, ou même masquer l’icône audio.
+Aspose.Slides for Java vous permet de modifier les options qui contrôlent la lecture ou les propriétés d'un audio. Par exemple, vous pouvez ajuster le volume d'un audio, définir la lecture en boucle, ou même masquer l'icône audio.
 
-Le volet **Options audio** dans Microsoft PowerPoint :
-
+Le volet **Audio Options** dans Microsoft PowerPoint :
 ![example1_image](audio_frame_0.png)
 
-Les **Options audio** de PowerPoint qui correspondent aux propriétés [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) d’Aspose.Slides :
+Les **Audio Options** de PowerPoint qui correspondent aux propriétés [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) d’Aspose.Slides :
+- **Start** (liste déroulante) correspond à la méthode [AudioFrame.setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayMode-int-).
+- **Volume** correspond à la méthode [AudioFrame.setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolume-int-).
+- **Play Across Slides** correspond à la méthode [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-).
+- **Loop until Stopped** correspond à la méthode [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-).
+- **Hide During Show** correspond à la méthode [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-).
+- **Rewind after Playing** correspond à la méthode [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-).
 
-- **Démarrer** la liste déroulante correspond à la méthode [AudioFrame.setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayMode-int-)
-- **Volume** correspond à la méthode [AudioFrame.setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolume-int-)
-- **Lecture sur toutes les diapositives** correspond à la méthode [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-)
-- **Boucler jusqu’à l’arrêt** correspond à la méthode [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-)
-- **Masquer pendant le diaporama** correspond à la méthode [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-)
-- **Rembobiner après la lecture** correspond à la méthode [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-)
+Les options **Editing** de PowerPoint qui correspondent aux propriétés [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) d’Aspose.Slides :
+- **Fade In** correspond à la méthode [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeInDuration-float-).
+- **Fade Out** correspond à la méthode [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-).
+- **Trim Audio Start Time** correspond à la méthode [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromStart-float-).
+- **Trim Audio End Time** correspond à la durée de l'audio moins la valeur de la méthode [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-).
 
-Les options **Édition** de PowerPoint qui correspondent aux propriétés [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) d’Aspose.Slides :
-
-- **Fondu d’entrée** correspond à la méthode [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeInDuration-float-)
-- **Fondu de sortie** correspond à la méthode [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-)
-- **Rogner le début de l’audio** correspond à la méthode [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromStart-float-)
-- **Rogner la fin de l’audio** : la valeur correspond à la durée de l’audio moins la valeur de la méthode [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-)
-
-Le **contrôle du volume** de PowerPoint dans le panneau de contrôle audio correspond à la méthode [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolumeValue-float-). Il vous permet de modifier le volume audio en pourcentage.
+Le **Volume controll** de PowerPoint sur le panneau de contrôle audio correspond à la méthode [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolumeValue-float-). Il vous permet de modifier le volume audio en pourcentage.
 
 Voici comment modifier les options de lecture audio :
-
 1. [Créer](#create-audio-frame) ou obtenir le cadre audio.
 2. Définissez de nouvelles valeurs pour les propriétés du cadre audio que vous souhaitez ajuster.
 3. Enregistrez le fichier PowerPoint modifié.
 
+Ce code Java montre une opération dans laquelle les options d'un audio sont ajustées :
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
@@ -140,7 +139,7 @@ try {
     // Désactive la boucle pour l'audio
     audioFrame.setPlayLoopMode(false);
 
-    // Masque l'AudioFrame pendant le diaporama
+    // Masque le AudioFrame pendant le diaporama
     audioFrame.setHideAtShowing(true);
 
     // Rembobine l'audio au début après la lecture
@@ -154,6 +153,7 @@ try {
 ```
 
 
+Cet exemple Java montre comment ajouter un nouveau cadre audio avec audio incorporé, le rogner et définir les durées de fondu :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -163,14 +163,14 @@ try {
     IAudio audio = pres.getAudios().addAudio(audioData);
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-    // Définit le décalage de début du rognage à 1,5 seconde
+    // Définit le décalage de début du rognage à 1.5 seconde
     audioFrame.setTrimFromStart(1500f);
     // Définit le décalage de fin du rognage à 2 secondes
     audioFrame.setTrimFromEnd(2000f);
 
-    // Définit la durée du fondu d'entrée à 200 ms
+    // Définit la durée du fondu entrant à 200 ms
     audioFrame.setFadeInDuration(200f);
-    // Définit la durée du fondu de sortie à 500 ms
+    // Définit la durée du fondu sortant à 500 ms
     audioFrame.setFadeOutDuration(500f);
 
     pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
@@ -180,6 +180,7 @@ try {
 ```
 
 
+L'exemple de code suivant montre comment récupérer un cadre audio avec audio incorporé et définir son volume à 85 % :
 ```java
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
@@ -201,13 +202,14 @@ finally {
 
 ## **Extraire l’audio**
 
-Aspose.Slides for Java vous permet d’extraire le son utilisé dans les transitions du diaporama. Par exemple, vous pouvez extraire le son utilisé dans une diapositive spécifique.
+Aspose.Slides for Java vous permet d'extraire le son utilisé dans les transitions de diaporama. Par exemple, vous pouvez extraire le son utilisé dans une diapositive spécifique.
 
-1. Créez une instance de la classe [Présentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) et chargez la présentation contenant l’audio.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) et chargez la présentation contenant l'audio.
 2. Obtenez la référence de la diapositive concernée via son index.
-3. Accédez aux [transitions du diaporama](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--) pour la diapositive.
-4. Extrayez le son sous forme de données octetées.
+3. Accédez aux [slideshow transitions](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--) de la diapositive.
+4. Extrayez le son sous forme de données binaires.
 
+Ce code Java montre comment extraire l'audio utilisé dans une diapositive :
 ```java
 // Instancie une classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("AudioSlide.pptx");
@@ -229,14 +231,14 @@ try {
 
 ## **FAQ**
 
-**Puis-je réutiliser le même fichier audio sur plusieurs diapositives sans gonfler la taille du fichier ?**
+**Puis-je réutiliser le même fichier audio sur plusieurs diapositives sans augmenter la taille du fichier ?**
 
-Oui. Ajoutez l’audio une fois à la [collection audio](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) partagée de la présentation et créez des cadres audio supplémentaires qui font référence à cet asset existant. Cela évite la duplication des données multimédia et maintient la taille de la présentation sous contrôle.
+Oui. Ajoutez l’audio une fois à la [audio collection](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) partagée de la présentation et créez des cadres audio supplémentaires qui font référence à cet même actif. Cela évite la duplication des données multimédia et maintient la taille de la présentation sous contrôle.
 
-**Puis-je remplacer le son d’un cadre audio existant sans recréer la forme ?**
+**Puis-je remplacer le son dans un cadre audio existant sans recréer la forme ?**
 
-Oui. Pour un son lié, mettez à jour le [chemin du lien](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) pour qu’il pointe vers le nouveau fichier. Pour un son incorporé, remplacez l’objet [audio incorporé](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) par un autre provenant de la [collection audio](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) de la présentation. Le format du cadre et la plupart des paramètres de lecture restent intacts.
+Oui. Pour un son lié, mettez à jour le [link path](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) afin qu’il pointe vers le nouveau fichier. Pour un son incorporé, remplacez l’objet [embedded audio](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) par un autre provenant de la [audio collection](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) de la présentation. Le format du cadre et la plupart des paramètres de lecture restent intacts.
 
-**Le rognage modifie-t-il les données audio sous‑jacent stockées dans la présentation ?**
+**Le rognage modifie-t-il les données audio sous‑jacentes stockées dans la présentation ?**
 
 Non. Le rognage n’ajuste que les limites de lecture. Les octets audio originaux restent intacts et accessibles via l’audio incorporé ou la collection audio de la présentation.

@@ -7,64 +7,64 @@ url: /de/java/chart-formatting/
 keywords:
 - Diagramm formatieren
 - Diagrammformatierung
-- Diagramm-Entität
+- Diagrammobjekt
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
-- Schriftarteigenschaften
-- Abgerundete Rahmen
+- Schrifteigenschaften
+- abgerundete Kante
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie mehr über die Diagrammformatierung in Aspose.Slides für Java und verbessern Sie Ihre PowerPoint-Präsentation mit professionellem, ansprechendem Design."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für Java formatieren und verleihen Sie Ihrer PowerPoint-Präsentation mit professionellem, auffälligem Design einen höheren Anspruch."
 ---
 
-## **Diagramm‑Entitäten formatieren**
-Aspose.Slides for Java ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Artikel erklärt, wie verschiedene Diagramm‑Entitäten formatiert werden, einschließlich Kategorien‑ und Werte‑Achse.
+## **Diagrammobjekte formatieren**
+Aspose.Slides for Java ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Artikel erklärt, wie verschiedene Diagrammobjekte einschließlich Diagrammkategorie‑ und Werteachse formatiert werden.
 
-Aspose.Slides for Java bietet eine einfache API zum Verwalten verschiedener Diagramm‑Entitäten und zum Formatieren mit benutzerdefinierten Werten:
+Aspose.Slides for Java stellt eine einfache API zum Verwalten verschiedener Diagrammobjekte und deren Formatierung mit benutzerdefinierten Werten bereit:
 
-1. Erstellen Sie eine Instanz der [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse.
-1. Holen Sie sich einen Folien‑Verweis anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten sowie dem gewünschten Typ hinzu (in diesem Beispiel verwenden wir ChartType.LineWithMarkers).
-1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. **Line format** für Hauptgitternetzlinien der Werte‑Achse festlegen
-   1. **Line format** für Neben­gitternetzlinien der Werte‑Achse festlegen
-   1. **Number Format** für die Werte‑Achse festlegen
-   1. **Min, Max, Major and Minor units** für die Werte‑Achse festlegen
-   1. **Text Properties** für die Werte‑Achsendaten festlegen
-   1. **Title** für die Werte‑Achse festlegen
-   1. **Line Format** für die Werte‑Achse festlegen
-1. Greifen Sie auf die Kategorien‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. **Line format** für Hauptgitternetzlinien der Kategorien‑Achse festlegen
-   1. **Line format** für Neben­gitternetzlinien der Kategorien‑Achse festlegen
-   1. **Text Properties** für die Kategorien‑Achsendaten festlegen
-   1. **Title** für die Kategorien‑Achse festlegen
-   1. **Label Positioning** für die Kategorien‑Achse festlegen
-   1. **Rotation Angle** für die Kategorien‑Achsen‑Beschriftungen festlegen
+1. Erstellen Sie eine Instanz der [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.
+1. Holen Sie sich die Referenz einer Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu, wobei Sie einen beliebigen gewünschten Typ auswählen (in diesem Beispiel verwenden wir ChartType.LineWithMarkers).
+1. Greifen Sie auf die Werteachse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
+   1. Festlegen des **Line format** für Hauptgitternetzlinien der Werteachse
+   1. Festlegen des **Line format** für Nebengitternetzlinien der Werteachse
+   1. Festlegen des **Number Format** für die Werteachse
+   1. Festlegen von **Min, Max, Major and Minor units** für die Werteachse
+   1. Festlegen von **Text Properties** für die Daten der Werteachse
+   1. Festlegen des **Title** für die Werteachse
+   1. Festlegen des **Line Format** für die Werteachse
+1. Greifen Sie auf die Kategorienachse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
+   1. Festlegen des **Line format** für Hauptgitternetzlinien der Kategorienachse
+   1. Festlegen des **Line format** für Nebengitternetzlinien der Kategorienachse
+   1. Festlegen von **Text Properties** für die Daten der Kategorienachse
+   1. Festlegen des **Title** für die Kategorienachse
+   1. Festlegen von **Label Positioning** für die Kategorienachse
+   1. Festlegen von **Rotation Angle** für die Beschriftungen der Kategorienachse
 1. Greifen Sie auf die Legende des Diagramms zu und setzen Sie die **Text Properties** dafür
-1. Legenden des Diagramms anzeigen, ohne das Diagramm zu überlappen
+1. Legenden des Diagramms anzeigen, ohne dass sie das Diagramm überlappen
 1. Greifen Sie auf die **Secondary Value Axis** des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Sekundäre **Value Axis** aktivieren
-   1. **Line Format** für die sekundäre Werte‑Achse festlegen
-   1. **Number Format** für die sekundäre Werte‑Achse festlegen
-   1. **Min, Max, Major and Minor units** für die sekundäre Werte‑Achse festlegen
-1. Plotten Sie nun die erste Diagramm‑Serie auf der sekundären Werte‑Achse
-1. Setzen Sie die Füllfarbe der Rückwand des Diagramms
-1. Setzen Sie die Füllfarbe des Diagramm‑Plot‑Bereichs
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei
+   1. Aktivieren Sie die sekundäre **Value Axis**
+   1. Festlegen des **Line Format** für die sekundäre Value Axis
+   1. Festlegen des **Number Format** für die sekundäre Value Axis
+   1. Festlegen von **Min, Max, Major and Minor units** für die sekundäre Value Axis
+1. Plotten Sie nun die erste Diagrammreihe auf der sekundären Value Axis
+1. Legen Sie die Füllfarbe der Hintergrundwand des Diagramms fest
+1. Legen Sie die Füllfarbe des Diagrammbereichs fest
+1. Speichern Sie die geänderte Präsentation in einer PPTX-Datei
 ```java
-// Instanz der Presentation-Klasse erstellen
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
     // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Beispielfragment hinzufügen
+    // Hinzufügen des Beispieldiagramms
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Diagrammtitel festlegen
+    // Festlegen des Diagrammtitels
     chart.hasTitle();
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
@@ -75,23 +75,23 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Format der Hauptgitternetzlinien für die Werte‑Achse festlegen
+    // Festlegen des Formats der Hauptgitternetzlinien für die Werteachse
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Format der Nebengitternetzlinien für die Werte‑Achse festlegen
+    // Festlegen des Formats der Nebengitternetzlinien für die Werteachse
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Zahlenformat für die Werte‑Achse festlegen
+    // Festlegen des Zahlenformats der Werteachse
     chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Diagramm‑Maximal‑ und Minimalwerte festlegen
+    // Festlegen der maximalen und minimalen Werte des Diagramms
     chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
@@ -102,7 +102,7 @@ try {
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Text‑Eigenschaften der Werte‑Achse festlegen
+    // Festlegen der Text-Eigenschaften der Werteachse
     IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
     txtVal.setFontBold(NullableBool.True);
     txtVal.setFontHeight(16);
@@ -111,7 +111,7 @@ try {
     txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
     txtVal.setLatinFont(new FontData("Times New Roman"));
 
-    // Titel der Werte‑Achse festlegen
+    // Festlegen des Titels der Werteachse
     chart.getAxes().getVerticalAxis().hasTitle();
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
@@ -122,17 +122,17 @@ try {
     valtitle.getPortionFormat().setFontBold(NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Format der Hauptgitternetzlinien für die Kategorie‑Achse festlegen
+    // Festlegen des Formats der Hauptgitternetzlinien für die Kategorienachse
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Format der Nebengitternetzlinien für die Kategorie‑Achse festlegen
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillFormat().setFillType(FillType.Solid);
+    // Festlegen des Formats der Nebengitternetzlinien für die Kategorienachse
+    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Text‑Eigenschaften der Kategorie‑Achse festlegen
+    // Festlegen der Text-Eigenschaften der Kategorienachse
     IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
     txtCat.setFontBold(NullableBool.True);
     txtCat.setFontHeight(16);
@@ -141,7 +141,7 @@ try {
     txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     txtCat.setLatinFont(new FontData("Arial"));
 
-    // Titel der Kategorie‑Achse festlegen
+    // Festlegen des Titels der Kategorienachse
     chart.getAxes().getHorizontalAxis().hasTitle();
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
@@ -153,13 +153,13 @@ try {
     catTitle.getPortionFormat().setFontBold(NullableBool.True);
     catTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Beschriftungsposition der Kategorie‑Achse festlegen
+    // Festlegen der Beschriftungsposition der Kategorienachse
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
 
-    // Drehwinkel der Beschriftung der Kategorie‑Achse festlegen
+    // Festlegen des Rotationswinkels der Beschriftungen der Kategorienachse
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Text‑Eigenschaften der Legenden festlegen
+    // Festlegen der Text-Eigenschaften der Legenden
     IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
     txtleg.setFontBold(NullableBool.True);
     txtleg.setFontHeight(16);
@@ -168,21 +168,22 @@ try {
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
     // Legenden anzeigen, ohne das Diagramm zu überlappen
+
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
 
     chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Sekundäre Werte‑Achse festlegen
+    // Festlegen der sekundären Werteachse
     chart.getAxes().getSecondaryVerticalAxis().isVisible();
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
 
-    // Zahlenformat der sekundären Werte‑Achse festlegen
+    // Festlegen des Zahlenformats der sekundären Werteachse
     chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
-    // Diagramm‑Maximal‑ und Minimalwerte festlegen
+    // Festlegen der maximalen und minimalen Werte des Diagramms
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
@@ -193,14 +194,14 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
 
-    // Rückwandfarbe des Diagramms festlegen
+    // Festlegen der Hintergrundwandfarbe des Diagramms
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Plot‑Bereichsfarbe festlegen
+    // Festlegen der Farbe des Diagrammbereichs
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
@@ -212,15 +213,15 @@ try {
 ```
 
 
-## **Schriftarteigenschaften für Diagramm festlegen**
-Aspose.Slides for Java unterstützt das Festlegen von schriftspezifischen Eigenschaften für Diagramme. Bitte folgen Sie den nachstehenden Schritten, um die Schriftarteigenschaften für ein Diagramm festzulegen.
+## **Schriftarteigenschaften für ein Diagramm festlegen**
+Aspose.Slides for Java bietet Unterstützung zum Festlegen von schriftbezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den untenstehenden Schritten, um die Schriftarteigenschaften für das Diagramm festzulegen.
 
-- Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Objekt.
+- Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klassenobjekt.
 - Fügen Sie ein Diagramm zur Folie hinzu.
-- Schriftgröße festlegen.
-- Modifizierte Präsentation speichern.
+- Stellen Sie die Schriftgröße ein.
+- Speichern Sie die geänderte Präsentation.
 
-Untenstehendes Beispiel wird angegeben.
+Ein Beispiel unten ist angegeben.
 ```java
 // Instanz der Presentation-Klasse erstellen
 Presentation pres = new Presentation();
@@ -237,43 +238,43 @@ try {
 ```
 
 
-## **Numerische Formate festlegen**
-Aspose.Slides for Java bietet eine einfache API zum Verwalten von Diagramm‑Datenformaten:
+## **Numerisches Format festlegen**
+Aspose.Slides for Java stellt eine einfache API zum Verwalten des Datenformats von Diagrammen bereit:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)‑Klasse.
-1. Holen Sie sich einen Folien‑Verweis anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten sowie dem gewünschten Typ hinzu (dieses Beispiel verwendet **ChartType.ClusteredColumn**).
-1. Setzen Sie das voreingestellte Zahlenformat aus den möglichen voreingestellten Werten.
-1. Durchlaufen Sie jede Datenzelle jeder Diagramm‑Serie und setzen Sie das Diagramm‑Daten‑Zahlenformat.
-1. Präsentation speichern.
-1. Benutzerdefiniertes Zahlenformat festlegen.
-1. Durchlaufen Sie die Datenzellen jeder Diagramm‑Serie und setzen Sie ein unterschiedliches Diagramm‑Daten‑Zahlenformat.
-1. Präsentation speichern.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
+1. Holen Sie sich die Referenz einer Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und wählen Sie einen beliebigen gewünschten Typ (dieses Beispiel verwendet **ChartType.ClusteredColumn**).
+1. Legen Sie das vordefinierte Zahlenformat aus den möglichen vordefinierten Werten fest.
+1. Durchlaufen Sie die Datenzellen jedes Diagrammserien und setzen Sie das Zahlenformat der Diagrammdaten.
+1. Speichern Sie die Präsentation.
+1. Legen Sie das benutzerdefinierte Zahlenformat fest.
+1. Durchlaufen Sie die Datenzellen innerhalb jeder Diagrammreihe und setzen ein unterschiedliches Zahlenformat für die Diagrammdaten.
+1. Speichern Sie die Präsentation.
 ```java
 // Instanz der Presentation-Klasse erstellen
 Presentation pres = new Presentation();
 try {
-    // Auf die erste Folie der Präsentation zugreifen
+    // Zugriff auf die erste Folie der Präsentation
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Standard-Clustered-Column-Diagramm hinzufügen
+    // Hinzufügen eines standardmäßigen gruppierten Säulendiagramms
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-    // Auf die Diagramm-Serien-Sammlung zugreifen
+    // Zugriff auf die Sammlung der Diagrammserien
     IChartSeriesCollection series = chart.getChartData().getSeries();
     
-    // Durch jede Diagramm-Serie iterieren
+    // Durchlaufen jeder Diagrammserie
     for (IChartSeries ser : series) 
     {
-        // Durch jede Datenzelle in der Serie iterieren
+        // Durchlaufen jeder Datenzelle in der Serie
         for (IChartDataPoint cell : ser.getDataPoints()) 
         {
-            // Das Zahlenformat festlegen
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
+            // Festlegen des Zahlenformats
+            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // Präsentation speichern
+    // Speichern der Präsentation
     pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -281,9 +282,9 @@ try {
 ```
 
 
-Die möglichen voreingestellten Zahlenformat‑Werte zusammen mit ihrem Index sind unten aufgeführt:
+Die möglichen vordefinierten Zahlenformatwerte zusammen mit ihrem Index, die verwendet werden können, sind unten angegeben:
 
-|**0**|General|
+|**0**|Allgemein|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -321,16 +322,16 @@ Die möglichen voreingestellten Zahlenformat‑Werte zusammen mit ihrem Index si
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Abgerundete Rahmen für Diagrammbereich festlegen**
-Aspose.Slides for Java unterstützt das Festlegen des Diagrammbereichs. Die Methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) und [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) wurden dem Interface [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) und der Klasse [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) hinzugefügt.
+## **Abgerundete Ränder des Diagrammbereichs festlegen**
+Aspose.Slides for Java bietet Unterstützung zum Festlegen des Diagrammbereichs. Die Methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) und [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) wurden zum [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) Interface und zur [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) Klasse hinzugefügt.
 
-1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)‑Objekt.
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klassenobjekt.
 1. Fügen Sie ein Diagramm zur Folie hinzu.
-1. Fülltyp und Füllfarbe des Diagramms festlegen
-1. Eigenschaft für abgerundete Ecken auf **True** setzen.
-1. Modifizierte Präsentation speichern.
+1. Legen Sie den Fülltyp und die Füllfarbe des Diagramms fest
+1. Setzen Sie die Eigenschaft für abgerundete Ecken auf True.
+1. Speichern Sie die geänderte Präsentation.
 
-Untenstehendes Beispiel wird angegeben. 
+Ein Beispiel unten ist angegeben. 
 ```java
 // Instanz der Presentation-Klasse erstellen
 Presentation pres = new Presentation();
@@ -351,14 +352,14 @@ try {
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen und gleichzeitig die Kontur undurchsichtig lassen?**
+**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen, während die Kontur undurchsichtig bleibt?**
 
-Ja. Transparenz der Füllung und Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit von Gittern und Daten in dichten Visualisierungen zu verbessern.
+Ja. Die Fülltransparenz und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitters und der Daten in dicht gepackten Visualisierungen zu verbessern.
 
-**Wie gehe ich mit Datenbeschriftungen um, wenn sie sich überlappen?**
+**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie überlappen?**
 
-Die Schriftgröße reduzieren, nicht wesentliche Beschriftungskomponenten deaktivieren (z. B. Kategorien), den Beschriftungs‑Offset/Position einstellen, Beschriftungen ggf. nur für ausgewählte Punkte anzeigen oder das Format zu „Wert + Legende“ wechseln.
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), setzen Sie den Beschriftungsversatz/-position, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu "Wert + Legende".
 
-**Kann ich Farbverlauf‑ oder Muster‑Füllungen auf Serien anwenden?**
+**Kann ich Farbverläufe oder Musterfüllungen auf Reihen anwenden?**
 
-Ja. Sowohl einfarbige als auch Verlauf‑/Muster‑Füllungen sind in der Regel verfügbar. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Gitter und zum Text verringern.
+Ja. Sowohl einfarbige als auch Verlauf‑/Musterfüllungen sind in der Regel verfügbar. Verwenden Sie Verläufe sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitter und zum Text verringern.

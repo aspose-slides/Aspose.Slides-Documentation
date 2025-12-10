@@ -1,5 +1,5 @@
 ---
-title: Export von Präsentationsdiagrammen in Java
+title: Diagramme aus Präsentationen in Java exportieren
 linktitle: Diagramm exportieren
 type: docs
 weight: 90
@@ -13,11 +13,11 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Präsentationsdiagramme mit Aspose.Slides für Java exportieren, unterstützt PPT- und PPTX-Formate, und vereinfachen Sie das Reporting in jeden Workflow."
+description: "Erfahren Sie, wie Sie Präsentationsdiagramme mit Aspose.Slides für Java exportieren, PPT- und PPTX-Formate unterstützen und das Reporting in jeden Workflow optimieren."
 ---
 
 ## **Diagrammbild abrufen**
-Aspose.Slides für Java unterstützt das Extrahieren eines Bildes eines bestimmten Diagramms. Nachfolgend ein Beispiel.
+Aspose.Slides for Java bietet Unterstützung zum Extrahieren eines Bildes eines bestimmten Diagramms. Unten ist ein Beispiel angegeben.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -38,22 +38,22 @@ try {
 
 ## **FAQ**
 
-**Kann ich ein Diagramm als Vektor (SVG) statt als Rasterbild exportieren?**
+**Kann ich ein Diagramm als Vektor (SVG) statt eines Rasterbilds exportieren?**
 
-Ja. Ein Diagramm ist ein Shape, und dessen Inhalt kann mithilfe der [shape-to-SVG saving method](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) als SVG gespeichert werden.
+Ja. Ein Diagramm ist eine Form, und dessen Inhalte können mit der [shape-to-SVG saving method](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) als SVG gespeichert werden.
 
-**Wie kann ich die genaue Größe des exportierten Diagramms in Pixel festlegen?**
+**Wie kann ich die genaue Größe des exportierten Diagramms in Pixeln festlegen?**
 
-Verwenden Sie die Bildrender‑Überladungen, die es ermöglichen, Größe oder Maßstab anzugeben – die Bibliothek unterstützt das Rendern von Objekten mit angegebenen Abmessungen/Maßstab.
+Verwenden Sie die image-rendering Überladungen, die Ihnen erlauben, Größe oder Skalierung anzugeben – die Bibliothek unterstützt das Rendern von Objekten mit angegebenen Abmessungen/Skalierung.
 
-**Was soll ich tun, wenn Schriftarten in Beschriftungen und der Legende nach dem Export falsch dargestellt werden?**
+**Was soll ich tun, wenn Schriften in Beschriftungen und Legende nach dem Export falsch aussehen?**
 
-[Load the required fonts](/slides/de/java/custom-font/) über [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) damit die Diagrammrenderung Metriken und Textdarstellung beibehält.
+[Laden Sie die erforderlichen Schriften](/slides/de/java/custom-font/) über [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/), damit das Diagrammrendering Metriken und Textdarstellung beibehält.
 
-**Wird beim Export das PowerPoint‑Design, die Formatvorlagen und Effekte berücksichtigt?**
+**Berücksichtigt der Export das PowerPoint-Thema, Formatvorlagen und Effekte?**
 
-Ja. Aspose.Slides’ Renderer folgt der Formatierung der Präsentation (Designs, Formatvorlagen, Füllungen, Effekte), sodass das Aussehen des Diagramms erhalten bleibt.
+Ja. Der Renderer von Aspose.Slides folgt der Formatierung der Präsentation (Themen, Formatvorlagen, Füllungen, Effekte), sodass das Aussehen des Diagramms erhalten bleibt.
 
-**Wo finde ich weitere Rendering‑/Exportmöglichkeiten neben Diagrammbildern?**
+**Wo finde ich verfügbare Rendering/Export‑Fähigkeiten über Diagrammbilder hinaus?**
 
-Siehe die [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[Dokumentation](/slides/de/java/convert-powerpoint/) für Ausgabeziele ([PDF](/slides/de/java/convert-powerpoint-to-pdf/), [SVG](/slides/de/java/render-a-slide-as-an-svg-image/), [XPS](/slides/de/java/convert-powerpoint-to-xps/), [HTML](/slides/de/java/convert-powerpoint-to-html/), etc.) und zugehörige Rendering‑Optionen.
+Siehe die [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[documentation](/slides/de/java/convert-powerpoint/) für Ausgabeziele ([PDF](/slides/de/java/convert-powerpoint-to-pdf/), [SVG](/slides/de/java/render-a-slide-as-an-svg-image/), [XPS](/slides/de/java/convert-powerpoint-to-xps/), [HTML](/slides/de/java/convert-powerpoint-to-html/), etc.) und zugehörige Rendering‑Optionen.

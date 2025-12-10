@@ -17,30 +17,30 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java facilite la création, la modification et la duplication des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant ainsi l'automatisation de vos présentations."
+description: "Aspose.Slides for Java facilite la création, la modification et le clonage des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant ainsi l'automatisation de vos présentations."
 ---
 
-Les textes sur les diapositives existent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter du texte à une diapositive, vous devez ajouter une zone de texte puis y placer du texte. Aspose.Slides for Java fournit l’interface [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) qui permet d’ajouter une forme contenant du texte.
+Les textes sur les diapositives se trouvent généralement dans des zones de texte ou des formes. Ainsi, pour ajouter du texte à une diapositive, vous devez ajouter une zone de texte, puis y placer du texte. Aspose.Slides for Java fournit l’interface [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) qui permet d’ajouter une forme contenant du texte.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides fournit également l’interface [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) qui permet d’ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l’interface `IShape` ne peuvent pas contenir du texte. En revanche, les formes ajoutées via l’interface [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) peuvent contenir du texte. 
+Aspose.Slides fournit également l’interface [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) qui permet d’ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l’interface `IShape` ne peuvent pas contenir de texte. En revanche, les formes ajoutées via l’interface [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) peuvent contenir du texte. 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-Par conséquent, lorsque vous traitez une forme à laquelle vous souhaitez ajouter du texte, vous devez vérifier et confirmer qu’elle a été castée via l’interface `IAutoShape`. Ce n’est qu’alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), qui est une propriété de `IAutoShape`. Consultez la section [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) de cette page. 
+Par conséquent, lorsque vous traitez une forme à laquelle vous souhaitez ajouter du texte, il est conseillé de vérifier et de confirmer qu’elle a été castée via l’interface `IAutoShape`. Ce n’est qu’alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), qui est une propriété de `IAutoShape`. Consultez la section [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) de cette page. 
 {{% /alert %}}
 
 ## **Créer une zone de texte sur une diapositive**
 
 Pour créer une zone de texte sur une diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation). 
-2. Obtenez une référence à la première diapositive de la présentation nouvellement créée. 
-3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) avec [ShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setShapeType-int-) défini sur `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l’objet `IAutoShape` ajouté. 
-4. Ajoutez la propriété `TextFrame` à l’objet `IAutoShape` qui contiendra du texte. Dans l’exemple ci‑dessous, nous avons ajouté ce texte : *Aspose TextBox* 
-5. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
+2. Obtenez une référence à la première diapositive de la présentation nouvellement créée.  
+3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) avec le `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et récupérez la référence de l’objet `IAutoShape` ajouté.  
+4. Ajoutez une propriété `TextFrame` à l’objet `IAutoShape` qui contiendra du texte. Dans l’exemple ci‑dessous, nous avons ajouté ce texte : *Aspose TextBox*  
+5. Enfin, écrivez le fichier PPTX via l’objet `Presentation`.  
 
-Ce code Java—une implémentation des étapes ci‑dessus—vous montre comment ajouter du texte à une diapositive :
+Ce code Java – une implémentation des étapes ci‑dessus – montre comment ajouter du texte à une diapositive :
 ```java
 // Instancie la présentation
 Presentation pres = new Presentation();
@@ -48,10 +48,10 @@ try {
     // Obtient la première diapositive de la présentation
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Ajoute une AutoShape avec le type défini sur Rectangle
+    // Ajoute une AutoShape dont le type est Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Ajoute un TextFrame au Rectangle
+    // Ajoute un TextFrame au rectangle
     ashp.addTextFrame(" ");
 
     // Accède au cadre de texte
@@ -74,13 +74,13 @@ try {
 ```
 
 
-## **Vérifier la forme de zone de texte**
+## **Vérifier la présence d’une forme de zone de texte**
 
 Aspose.Slides fournit la méthode [isTextBox](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#isTextBox--) de l’interface [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) qui permet d’examiner les formes et d’identifier les zones de texte.
 
-![Zone de texte et forme](istextbox.png)
+![Text box and shape](istextbox.png)
 
-Ce code Java vous montre comment vérifier si une forme a été créée en tant que zone de texte : 
+Ce code Java montre comment vérifier si une forme a été créée en tant que zone de texte : 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
@@ -96,7 +96,7 @@ try {
 ```
 
 
-Notez que si vous ajoutez simplement une forme auto via la méthode `addAutoShape` de l’interface [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/), la méthode `isTextBox` de l’autoshape renverra `false`. En revanche, après avoir ajouté du texte à l’autoshape avec la méthode `addTextFrame` ou la méthode `setText`, la propriété `isTextBox` renverra `true`.
+Notez que si vous ajoutez simplement une forme automatique avec la méthode `addAutoShape` de l’interface [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/), la méthode `isTextBox` de la forme automatique renverra `false`. En revanche, après avoir ajouté du texte à la forme automatique avec la méthode `addTextFrame` ou la méthode `setText`, la propriété `isTextBox` renverra `true`.
 ```java
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,21 +123,21 @@ shape4.getTextFrame().setText("");
 ```
 
 
-## **Ajouter une colonne dans une zone de texte**
+## **Ajouter des colonnes à une zone de texte**
 
 Aspose.Slides fournit les propriétés [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) et [ColumnSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) et de la classe [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat)) qui permettent d’ajouter des colonnes aux zones de texte. Vous pouvez spécifier le nombre de colonnes dans une zone de texte et définir l’espacement en points entre les colonnes. 
 
-Ce code Java démontre l’opération décrite : 
+Ce code Java illustre l’opération décrite : 
 ```java
 Presentation pres = new Presentation();
 try {
     // Obtient la première diapositive de la présentation
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Ajoute une AutoShape avec le type défini sur Rectangle
+    // Ajoute une AutoShape dont le type est Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Ajoute un TextFrame au Rectangle
+    // Ajoute un TextFrame au rectangle
     aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
             "you can add or delete text and the new or remaining text automatically adjusts " +
             "itself to flow within the container. You cannot have text flow from one container " +
@@ -146,10 +146,10 @@ try {
     // Obtient le format de texte du TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
-    // Spécifie le nombre de colonnes dans le TextFrame
+    // Définit le nombre de colonnes dans le TextFrame
     format.setColumnCount(3);
 
-    // Spécifie l'espacement entre les colonnes
+    // Définit l'espacement entre les colonnes
     format.setColumnSpacing(10);
 
     // Enregistre la présentation
@@ -160,11 +160,11 @@ try {
 ```
 
 
-## **Ajouter une colonne dans une zone de texte**
+## **Ajouter des colonnes à un cadre de texte**
 
-Aspose.Slides for Java fournit la propriété [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat)) qui permet d’ajouter des colonnes dans les cadres de texte. Grâce à cette propriété, vous pouvez spécifier le nombre de colonnes souhaité dans un cadre de texte. 
+Aspose.Slides for Java fournit la propriété [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat)) qui permet d’ajouter des colonnes aux cadres de texte. Grâce à cette propriété, vous pouvez définir le nombre de colonnes souhaité dans un cadre de texte. 
 
-Ce code Java vous montre comment ajouter une colonne à l’intérieur d’un cadre de texte :
+Ce code Java montre comment ajouter une colonne dans un cadre de texte :
 ```java
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
@@ -233,9 +233,9 @@ try {
             if (shape instanceof IAutoShape) //Vérifie si la forme prend en charge le cadre de texte (IAutoShape). 
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Itère à travers les paragraphes du cadre de texte
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Parcourt les paragraphes du cadre de texte
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Itère à travers chaque portion du paragraphe
+                    for (IPortion portion : paragraph.getPortions()) //Parcourt chaque portion du paragraphe
                     {
                         portion.setText(portion.getText().replace("years", "months")); //Modifie le texte
                         portion.getPortionFormat().setFontBold(NullableBool.True); //Modifie le formatage
@@ -253,21 +253,21 @@ try {
 ```
 
 
-## **Ajouter une zone de texte avec hyperlien** 
+## **Ajouter une zone de texte avec un hyperlien** 
 
 Vous pouvez insérer un lien dans une zone de texte. Lorsque la zone de texte est cliquée, les utilisateurs sont dirigés vers le lien. 
 
- Pour ajouter une zone de texte contenant un lien, suivez ces étapes :
+Pour ajouter une zone de texte contenant un lien, suivez ces étapes :
 
-1. Créez une instance de la classe `Presentation`. 
-2. Obtenez une référence à la première diapositive de la présentation nouvellement créée. 
-3. Ajoutez un objet `AutoShape` avec `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et obtenez une référence de l’objet `AutoShape` ajouté. 
-4. Ajoutez un `TextFrame` à l’objet `AutoShape` qui contient *Aspose TextBox* comme texte par défaut. 
-5. Instanciez la classe `IHyperlinkManager`. 
-6. Assignez l’objet `IHyperlinkManager` à la propriété [HyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getHyperlinkClick--) associée à la partie souhaitée du `TextFrame`. 
-7. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
+1. Créez une instance de la classe `Presentation`.  
+2. Obtenez une référence à la première diapositive de la présentation nouvellement créée.  
+3. Ajoutez un objet `AutoShape` avec le `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et récupérez la référence de l’objet AutoShape ajouté.  
+4. Ajoutez un `TextFrame` à l’objet `AutoShape` contenant *Aspose TextBox* comme texte par défaut.  
+5. Instanciez la classe `IHyperlinkManager`.  
+6. Assignez l’objet `IHyperlinkManager` à la propriété [HyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getHyperlinkClick--) associée à la partie souhaitée du `TextFrame`.  
+7. Enfin, écrivez le fichier PPTX via l’objet `Presentation`.  
 
-Ce code Java—une implémentation des étapes ci‑dessus—vous montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
+Ce code Java – une implémentation des étapes ci‑dessus – montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
 ```java
 // Instancie une classe Presentation qui représente un PPTX
 Presentation pres = new Presentation();
@@ -275,7 +275,7 @@ try {
     // Obtient la première diapositive de la présentation
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Ajoute un objet AutoShape avec le type défini sur Rectangle
+    // Ajoute un objet AutoShape dont le type est Rectangle
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
     // Convertit la forme en AutoShape
@@ -304,10 +304,10 @@ try {
 
 ## **FAQ**
 
-**Quelle est la différence entre une zone de texte et un espace réservé de texte lors de la manipulation des diapositives maîtres ?**
+**Quelle est la différence entre une zone de texte et un espace réservé de texte lorsqu’on travaille avec les diapositives maîtres ?**
 
-Un [placeholder](/slides/fr/java/manage-placeholder/) hérite du style/position du [master](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/), tandis qu’une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
+Un [placeholder](/slides/fr/java/manage-placeholder/) hérite du style/position de la [maître](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/), tandis qu’une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
 
-**Comment effectuer un remplacement massif de texte dans la présentation sans toucher au texte des graphiques, tableaux et SmartArt ?**
+**Comment effectuer un remplacement massif de texte dans toute la présentation sans toucher au texte des graphiques, tableaux et SmartArt ?**
 
-Limitez votre itération aux formes auto qui possèdent des cadres de texte et excluez les objets intégrés ([charts](https://reference.aspose.com/slides/java/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/)) en parcourant leurs collections séparément ou en sautant ces types d’objets.
+Limitez votre itération aux formes automatiques qui possèdent des cadres de texte et excluez les objets intégrés ([charts](https://reference.aspose.com/slides/java/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/)) en parcourant leurs collections séparément ou en sautant ces types d’objets.

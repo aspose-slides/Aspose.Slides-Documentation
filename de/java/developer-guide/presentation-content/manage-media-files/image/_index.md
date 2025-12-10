@@ -1,5 +1,5 @@
 ---
-title: Optimieren der Bildverwaltung in Präsentationen mit Java
+title: Optimieren Sie das Bildmanagement in Präsentationen mit Java
 linktitle: Bilder verwalten
 type: docs
 weight: 10
@@ -10,7 +10,7 @@ keywords:
 - Bitmap hinzufügen
 - Bild ersetzen
 - Grafik ersetzen
-- aus dem Web
+- aus dem Internet
 - Hintergrund
 - PNG hinzufügen
 - JPG hinzufügen
@@ -25,36 +25,30 @@ keywords:
 - SVG
 - Java
 - Aspose.Slides
-description: "Vereinfachen Sie die Bildverwaltung in PowerPoint und OpenDocument mit Aspose.Slides für Java, optimieren Sie die Leistung und automatisieren Sie Ihren Arbeitsablauf."
+description: "Optimieren Sie das Bildmanagement in PowerPoint und OpenDocument mit Aspose.Slides für Java, verbessern Sie die Leistung und automatisieren Sie Ihren Arbeitsablauf."
 ---
 
 ## **Bilder in Präsentationsfolien**
 
-Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Quellen auf Folien einfügen. Ebenso ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien in Ihren Präsentationen auf verschiedene Weise. 
+Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Orten in Folien einfügen. Ebenso ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien in Ihren Präsentationen über verschiedene Verfahren.
 
-{{% alert title="Tipp" color="primary" %}} 
-
-Aspose bietet kostenlose Konverter — [JPEG nach PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG nach PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — mit denen man schnell Präsentationen aus Bildern erstellen kann. 
-
+{{% alert  title="Tipp" color="primary" %}} 
+Aspose bietet kostenlose Konverter—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—die es ermöglichen, Präsentationen schnell aus Bildern zu erstellen. 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-
-Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten — insbesondere, wenn Sie Standardformatierungsoptionen verwenden wollen, um Größe zu ändern, Effekte hinzuzufügen usw. — sehen Sie sich [Bildrahmen](https://docs.aspose.com/slides/java/picture-frame/) an. 
-
+Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten – insbesondere, wenn Sie planen, Standard‑Formatierungsoptionen zu verwenden, um die Größe zu ändern, Effekte hinzuzufügen usw. – siehe [Picture Frame](https://docs.aspose.com/slides/java/picture-frame/). 
 {{% /alert %}} 
 
 {{% alert title="Hinweis" color="warning" %}}
-
-Sie können Ein‑ und Ausgabevorgänge mit Bildern und PowerPoint‑Präsentationen manipulieren, um ein Bild von einem Format in ein anderes zu konvertieren. Siehe diese Seiten: konvertieren [Bild nach JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); konvertieren [JPG nach Bild](https://products.aspose.com/slides/java/conversion/jpg-to-image/); konvertieren [JPG nach PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), konvertieren [PNG nach JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); konvertieren [PNG nach SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), konvertieren [SVG nach PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
-
+Sie können Ein‑ und Ausgabevorgänge mit Bildern und PowerPoint‑Präsentationen manipulieren, um ein Bild von einem Format in ein anderes zu konvertieren. Siehe diese Seiten: konvertieren [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); konvertieren [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/); konvertieren [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), konvertieren [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); konvertieren [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), konvertieren [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides unterstützt Vorgänge mit Bildern in diesen verbreiteten Formaten: JPEG, PNG, GIF und anderen. 
+Aspose.Slides unterstützt Vorgänge mit Bildern in diesen gängigen Formaten: JPEG, PNG, GIF und andere. 
 
-## **Lokale Bilder zu Folien hinzufügen**
+## **Bilder, die lokal gespeichert sind, zu Folien hinzufügen**
 
-Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie einer Präsentation hinzufügen. Dieser Beispielcode in Java zeigt, wie Sie ein Bild zu einer Folie hinzufügen:
+Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie in einer Präsentation hinzufügen. Dieser Beispielcode in Java zeigt, wie man ein Bild zu einer Folie hinzufügt:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -79,7 +73,7 @@ try {
 
 Wenn das Bild, das Sie zu einer Folie hinzufügen möchten, nicht auf Ihrem Computer verfügbar ist, können Sie das Bild direkt aus dem Web hinzufügen. 
 
-Dieser Beispielcode zeigt, wie Sie ein Bild aus dem Web zu einer Folie in Java hinzufügen:
+Dieser Beispielcode zeigt, wie man ein Bild aus dem Web zu einer Folie in Java hinzufügt:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -116,9 +110,9 @@ try {
 
 ## **Bilder zu Folienmaster hinzufügen**
 
-Ein Folienmaster ist die oberste Folie, die Informationen (Design, Layout usw.) über alle darunterliegenden Folien speichert und steuert. Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesen Master verwendet. 
+Ein Folienmaster ist die übergeordnete Folie, die Informationen (Design, Layout usw.) für alle darunter liegenden Folien speichert und steuert. Wenn Sie also ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesen Master verwendet. 
 
-Dieser Java‑Beispielcode zeigt, wie Sie ein Bild zu einem Folienmaster hinzufügen:
+Dieser Java‑Beispielcode zeigt, wie man ein Bild zu einem Folienmaster hinzufügt:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -141,29 +135,30 @@ try {
 ```
 
 
-## **Bilder als Folienhintergrund hinzufügen**
+## **Bilder als Folienhintergründe hinzufügen**
 
-Sie können ein Bild als Hintergrund für eine bestimmte Folie oder mehrere Folien verwenden. In diesem Fall sollten Sie *[Bilder als Folienhintergründe festlegen](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)* lesen.
+Sie können entscheiden, ein Bild als Hintergrund für eine bestimmte Folie oder mehrere Folien zu verwenden. In diesem Fall sollten Sie *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)* ansehen.
 
 ## **SVG zu Präsentationen hinzufügen**
-Sie können jedes Bild in eine Präsentation einfügen, indem Sie die [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)‑Methode verwenden, die zur Schnittstelle [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) gehört.
 
-Um ein Bildobjekt auf Basis eines SVG‑Bildes zu erzeugen, gehen Sie wie folgt vor:
+Sie können jedes Bild in eine Präsentation einfügen, indem Sie die Methode [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) verwenden, die zum Interface [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) gehört.
 
-1. Erstellen Sie ein SvgImage‑Objekt, um es in die ImageShapeCollection einzufügen
+Um ein Bildobjekt auf Basis einer SVG‑Datei zu erstellen, gehen Sie wie folgt vor:
+
+1. Erstellen Sie ein SvgImage‑Objekt, um es in ImageShapeCollection einzufügen
 2. Erstellen Sie ein PPImage‑Objekt aus ISvgImage
 3. Erstellen Sie ein PictureFrame‑Objekt mithilfe der IPPImage‑Schnittstelle
 
-Dieser Beispielcode zeigt, wie Sie die oben genannten Schritte umsetzen, um ein SVG‑Bild in eine Präsentation einzufügen:
+Dieser Beispielcode zeigt, wie die oben genannten Schritte umgesetzt werden, um ein SVG‑Bild in eine Präsentation einzufügen:
 ```java
-// Instanziiere die Presentation‑Klasse, die eine PPTX‑Datei darstellt
+// Instanziiere die Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
     String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
     ISvgImage svgImage = new SvgImage(svgContent);
     IPPImage ppImage = pres.getImages().addImage(svgImage);
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
+            ppImage.getWidth(), ppImage.getHeight(), ppImage);
     pres.save("output.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -172,15 +167,16 @@ try {
 ```
 
 
-## **SVG in eine Menge von Formen konvertieren**
-Die SVG‑Zu‑Formen‑Konvertierung von Aspose.Slides ähnelt der PowerPoint‑Funktionalität zum Arbeiten mit SVG‑Bildern:
+## **SVG in eine Gruppe von Formen konvertieren**
+
+Die SVG‑zu‑Formen‑Konvertierung von Aspose.Slides ist ähnlich der PowerPoint‑Funktionalität zur Arbeit mit SVG‑Bildern:
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Die Funktion wird durch eine der Überladungen der [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-)‑Methode der Schnittstelle [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) bereitgestellt, die ein [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage)‑Objekt als erstes Argument akzeptiert.
+Die Funktion wird von einer der Überladungen der Methode [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) des Interfaces [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) bereitgestellt, das ein [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage)‑Objekt als erstes Argument erwartet.
 
-Dieser Beispielcode zeigt, wie Sie die beschriebene Methode verwenden, um eine SVG‑Datei in eine Menge von Formen zu konvertieren:
-```java
+Dieser Beispielcode zeigt, wie die beschriebene Methode verwendet wird, um eine SVG‑Datei in eine Gruppe von Formen zu konvertieren:
+```java 
 // Neue Präsentation erstellen
 IPresentation presentation = new Presentation();
 try {
@@ -193,7 +189,7 @@ try {
     // Foliengröße abrufen
     Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-    // SVG-Bild in eine Gruppe von Formen konvertieren und auf Foliengröße skalieren
+    // SVG-Bild in Gruppe von Formen konvertieren und an Foliengröße anpassen
     presentation.getSlides().get_Item(0).getShapes().
             addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
 
@@ -207,10 +203,11 @@ try {
 
 
 ## **Bilder als EMF zu Folien hinzufügen**
-Aspose.Slides für Java ermöglicht das Erzeugen von EMF‑Bildern aus Excel‑Blättern und das Hinzufügen dieser Bilder als EMF in Folien mit Aspose.Cells. 
 
-Dieser Beispielcode zeigt, wie Sie die beschriebene Aufgabe ausführen:
-```java 
+Aspose.Slides for Java ermöglicht es, EMF‑Bilder aus Excel‑Tabellen zu erzeugen und die Bilder mit Aspose.Cells als EMF in Folien einzufügen.  
+
+Dieser Beispielcode zeigt, wie die beschriebene Aufgabe durchgeführt wird:
+```java
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
 ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -253,70 +250,62 @@ try {
 ```
 
 
-## **Bilder in der Bildsammlung ersetzen**
+## **Bilder in der Bildersammlung ersetzen**
 
-Aspose.Slides ermöglicht das Ersetzen von Bildern, die in der Bildsammlung einer Präsentation gespeichert sind (einschließlich solcher, die von Folienformen verwendet werden). Dieser Abschnitt zeigt mehrere Ansätze zum Aktualisieren von Bildern in der Sammlung. Die API bietet unkomplizierte Methoden, um ein Bild mithilfe von rohen Byte‑Daten, einer [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)-Instanz oder einem bereits in der Sammlung vorhandenen Bild zu ersetzen.
+Aspose.Slides erlaubt das Ersetzen von Bildern, die in der Bildersammlung einer Präsentation gespeichert sind (einschließlich der von Folienformen genutzten). Dieser Abschnitt zeigt mehrere Vorgehensweisen zum Aktualisieren von Bildern in der Sammlung. Die API bietet einfache Methoden zum Ersetzen eines Bildes über rohe Byte‑Daten, eine [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)-Instanz oder ein anderes bereits in der Sammlung vorhandenes Bild.
 
-Befolgen Sie die nachstehenden Schritte:
+Führen Sie die folgenden Schritte aus:
 
-1. Laden Sie die Präsentationsdatei, die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Laden Sie die Präsentationsdatei, die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
 2. Laden Sie ein neues Bild aus einer Datei in ein Byte‑Array.
 3. Ersetzen Sie das Zielbild durch das neue Bild mithilfe des Byte‑Arrays.
-4. Im zweiten Ansatz laden Sie das Bild in ein [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)-Objekt und ersetzen das Zielbild durch dieses Objekt.
-5. Im dritten Ansatz ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildsammlung der Präsentation existiert.
+4. Laden Sie im zweiten Ansatz das Bild in ein [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)-Objekt und ersetzen Sie das Zielbild durch dieses Objekt.
+5. Im dritten Ansatz ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildersammlung der Präsentation existiert.
 6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
-
 ```java
-// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei darstellt.
+// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei repräsentiert.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// Der erste Weg.
-	byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-	IPPImage oldImage = presentation.getImages().get_Item(0);
-	oldImage.replaceImage(imageData);
-	
-	// Der zweite Weg.
-	IImage newImage = Images.fromFile("image1.png");
-	oldImage = presentation.getImages().get_Item(1);
-	oldImage.replaceImage(newImage);
-	newImage.dispose();
-	
-	// Der dritte Weg.
-	oldImage = presentation.getImages().get_Item(2);
-	oldImage.replaceImage(presentation.getImages().get_Item(3));
-	
-	// Präsentation in einer Datei speichern.
-	presentation.save("output.pptx", SaveFormat.Pptx);
+    // Die erste Methode.
+    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
+    IPPImage oldImage = presentation.getImages().get_Item(0);
+    oldImage.replaceImage(imageData);
+    
+    // Die zweite Methode.
+    IImage newImage = Images.fromFile("image1.png");
+    oldImage = presentation.getImages().get_Item(1);
+    oldImage.replaceImage(newImage);
+    newImage.dispose();
+    
+    // Die dritte Methode.
+    oldImage = presentation.getImages().get_Item(2);
+    oldImage.replaceImage(presentation.getImages().get_Item(3));
+    
+    // Speichere die Präsentation in einer Datei.
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-	presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 
 {{% alert title="Info" color="info" %}}
-
-Mit dem kostenlosen Aspose [Text‑zu‑GIF](https://products.aspose.app/slides/text-to-gif)-Konverter können Sie Texte einfach animieren, GIFs aus Texten erstellen usw. 
-
+Mit dem kostenlosen Aspose [Text to GIF](https://products.aspose.app/slides/text-to-gif)‑Konverter können Sie Texte leicht animieren, GIFs aus Texten erstellen usw. 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Bleibt die ursprüngliche Bildauflösung nach dem Einfügen erhalten?**
+**Bleibt die ursprüngliche Bildauflösung nach dem Einfügen erhalten?**  
+Ja. Die Quellpixel werden beibehalten, aber das endgültige Erscheinungsbild hängt davon ab, wie das [picture](/slides/de/java/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
 
-Ja. Die Quellpixel werden beibehalten, aber das endgültige Aussehen hängt davon ab, wie das [picture](/slides/de/java/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
+**Was ist der beste Weg, dasselbe Logo gleichzeitig in Dutzenden Folien zu ersetzen?**  
+Platzieren Sie das Logo auf der Master‑Folien oder einem Layout und ersetzen Sie es in der Bildersammlung der Präsentation – die Änderungen werden automatisch auf alle Elemente übertragen, die diese Ressource verwenden.
 
-**Wie ersetze ich dasselbe Logo in Dutzenden von Folien auf einmal am besten?**
+**Kann ein eingefügtes SVG in bearbeitbare Formen konvertiert werden?**  
+Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren; danach lassen sich die einzelnen Teile mit den üblichen Formeigenschaften bearbeiten.
 
-Platzieren Sie das Logo auf dem Master‑Slide oder einem Layout und ersetzen Sie es in der Bildsammlung der Präsentation — die Änderungen werden auf alle Elemente, die diese Ressource nutzen, übertragen.
+**Wie kann ich ein Bild gleichzeitig als Hintergrund für mehrere Folien festlegen?**  
+[Assign the image as the background](/slides/de/java/presentation-background/) auf der Master‑Folien oder dem entsprechenden Layout – alle Folien, die diesen Master/Layout verwenden, übernehmen den Hintergrund.
 
-**Kann ein eingefügtes SVG in bearbeitbare Formen umgewandelt werden?**
-
-Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren, wobei anschließend einzelne Teile mit den üblichen Form‑Eigenschaften bearbeitbar sind.
-
-**Wie lege ich ein Bild als Hintergrund für mehrere Folien gleichzeitig fest?**
-
-[Weisen Sie das Bild als Hintergrund](/slides/de/java/presentation-background/) dem Master‑Slide oder dem entsprechenden Layout zu — alle Folien, die diesen Master/Layout verwenden, übernehmen den Hintergrund.
-
-**Wie verhindere ich, dass die Präsentation aufgrund vieler Bilder „aufbläht“?**
-
-Verwenden Sie ein einzelnes Bild‑Ressourcenobjekt mehrfach statt Duplikaten, wählen Sie angemessene Auflösungen, wenden Sie Kompression beim Speichern an und halten Sie wiederholte Grafiken nach Möglichkeit im Master.
+**Wie verhindere ich, dass die Präsentation durch viele Bilder stark anwächst?**  
+Verwenden Sie ein einzelnes Bild mehrfach statt Duplikaten, wählen Sie angemessene Auflösungen, wenden Sie Kompression beim Speichern an und behalten Sie wiederholte Grafiken nach Möglichkeit im Master.

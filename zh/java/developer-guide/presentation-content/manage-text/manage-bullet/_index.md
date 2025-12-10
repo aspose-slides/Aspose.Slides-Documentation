@@ -20,56 +20,56 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 和 OpenDocument 演示文稿中管理项目符号和编号列表。一步一步的指南。"
+description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 和 OpenDocument 演示文稿中管理项目符号和编号列表。一步步指南。"
 ---
 
-在 **Microsoft PowerPoint** 中，您可以像在 Word 和其他文本编辑器中一样创建项目符号和编号列表。**Aspose.Slides for Java** 也允许您在演示文稿的幻灯片中使用项目符号和编号。
+在 **Microsoft PowerPoint** 中，您可以像在 Word 和其他文本编辑器中一样创建项目符号和编号列表。**Aspose.Slides for Java** 也允许在演示文稿的幻灯片中使用项目符号和编号。
 
 ## **为什么使用项目符号列表？**
 
-项目符号列表帮助您快速高效地组织和呈现信息。
+项目符号列表可帮助您快速高效地组织和呈现信息。
 
 **项目符号列表示例**
 
 在大多数情况下，项目符号列表具有以下三项主要功能：
 
-- 吸引读者或观众的注意力到重要信息
-- 让读者或观众能够轻松浏览关键点
-- 高效地传达和交付重要细节。
+- 吸引读者或观众注意重要信息
+- 让读者或观众轻松扫描关键要点
+- 高效地传达和呈递重要细节。
 
 ## **为什么使用编号列表？**
 
-编号列表同样有助于组织和呈现信息。当条目的顺序（例如 *步骤 1，步骤 2* 等）重要或需要引用条目（例如 *参见步骤 3*）时，最好使用编号（而非项目符号）。
+编号列表同样有助于组织和呈现信息。当条目的顺序（例如 *步骤 1、步骤 2* 等）重要或需要引用条目（例如 *参见步骤 3*）时，最好使用编号（而非项目符号）。
 
 **编号列表示例**
 
-以下是 **创建项目符号** 过程中的步骤（步骤 1 到步骤 15）摘要：
+以下是 **创建项目符号** 过程中的步骤摘要（步骤 1 至步骤 15）：
 
-1. 创建演示文稿类的实例。 
-2. 执行多个任务（步骤 3 到步骤 14）。 
-3. 保存演示文稿。 
+1. 创建 Presentation 类的实例。  
+2. 执行多个任务（步骤 3 至步骤 14）。  
+3. 保存演示文稿。
 
 ## **创建项目符号**
 
-本主题也是管理文本段落系列主题的一部分。本页将演示如何管理段落项目符号。项目符号在需要分步骤描述时更有用。此外，使用项目符号可以使文本看起来更有条理。带项目符号的段落更易于阅读和理解。我们将看到开发者如何使用 Aspose.Slides for Java 的这一小而强大的功能。请按照以下步骤使用 Aspose.Slides for Java 管理段落项目符号：
+本主题也是管理文本段落系列主题的一部分。本页将演示如何管理段落项目符号。项目符号在需要分步描述时特别有用。此外，使用项目符号可以让文本看起来更有条理。带项目符号的段落更易阅读和理解。我们将看到开发者如何使用 Aspose.Slides for Java 的这一小而强大的功能。请按照以下步骤使用 Aspose.Slides for Java 管理段落项目符号：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。 
-1. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。 
-1. 在选定的幻灯片中添加一个 [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText)。 
-1. 访问所添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame)。 
-1. 删除 TextFrame 中的默认段落。 
-1. 使用 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) 类创建第一个段落实例。 
-1. 设置段落的项目符号类型。 
-1. 将项目符号类型设为 [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) 并设置项目符号字符。 
-1. 设置段落文本。 
-1. 设置段落缩进以设置项目符号。 
-1. 设置项目符号的颜色。 
-1. 设置项目符号的高度。 
-1. 将创建的段落添加到 TextFrame 的段落集合中。 
-1. 添加第二个段落并重复 **7 到 13** 步骤。 
-1. 保存演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。  
+2. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。  
+3. 在选定的幻灯片中添加一个 [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText)。  
+4. 访问已添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame)。  
+5. 删除 TextFrame 中的默认段落。  
+6. 使用 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) 类创建第一个段落实例。  
+7. 设置段落的项目符号类型。  
+8. 将项目符号类型设为 [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) 并设置项目符号字符。  
+9. 设置段落文本。  
+10. 设置段落缩进以放置项目符号。  
+11. 设置项目符号的颜色。  
+12. 设置项目符号的高度。  
+13. 将创建的段落添加到 TextFrame 的段落集合中。  
+14. 添加第二个段落并重复 **7 至 13** 步骤。  
+15. 保存演示文稿。
 
-以下是 Java 示例代码——上述步骤的实现——展示如何在幻灯片中创建项目符号列表：
+下面的 Java 示例代码实现了上述步骤，展示了如何在幻灯片中创建项目符号列表：
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
@@ -80,16 +80,16 @@ try {
     // 添加并访问自动形状
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // 访问已创建自动形状的文本框
+    // 访问创建的自动形状的文本框
     ITextFrame txtFrm = aShp.getTextFrame();
     
-    // 移除默认的现有段落
+    // 删除默认的现有段落
     txtFrm.getParagraphs().removeAt(0);
     
     // 创建段落
     Paragraph para = new Paragraph();
     
-    // 设置段落项目符号样式和符号
+    // 设置段落的项目符号样式和符号
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char) 8226);
     
@@ -122,42 +122,42 @@ try {
 
 ## **创建图片项目符号**
 
-Aspose.Slides for Java 允许您更改项目符号列表的项目符号。您可以用自定义符号或图像替换项目符号。如果您想为列表添加视觉趣味或使列表中的条目更突出，可以使用自己的图像作为项目符号。
+Aspose.Slides for Java 允许您更改项目符号列表的项目符号。您可以用自定义符号或图片替换项目符号。如果想为列表增添视觉趣味或进一步突出列表项，可以使用自己的图片作为项目符号。
 
 {{% alert color="primary" %}} 
 
-理想情况下，如果您打算用图片替换常规项目符号，建议选择具有透明背景的简洁图形图像。这类图像最适合作为自定义项目符号。
+理想情况下，如果您打算用图片替换常规项目符号，请选择具有透明背景的简洁图形图片。这类图片最适合作为自定义项目符号。 
 
-无论如何，所选图像都会被缩小到非常小的尺寸，因而我们强烈建议您选择在列表中作为项目符号替代时仍能保持良好外观的图像。
+无论如何，所选图片会被缩小到非常小的尺寸，因此我们强烈建议您选择在列表中替代项目符号后仍然清晰美观的图片。 
 
 {{% /alert %}} 
 
-创建图片项目符号，请按照以下步骤操作：
+创建图片项目符号的步骤如下：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例 
-1. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片 
-1. 在选定的幻灯片中添加自动形状 
-1. 访问所添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 
-1. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落 
-1. 使用 Paragraph 类创建第一个段落实例 
-1. 在 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage) 中从磁盘加载图像 
-1. 将项目符号类型设为 Picture 并设置图像 
-1. 设置段落文本 
-1. 设置段落缩进以设置项目符号 
-1. 设置项目符号的颜色 
-1. 设置项目符号的高度 
-1. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中 
-1. 添加第二个段落并重复前述步骤 
-1. 保存演示文稿
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。  
+2. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。  
+3. 在选定的幻灯片中添加一个自动形状。  
+4. 访问已添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)。  
+5. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落。  
+6. 使用 Paragraph 类创建第一个段落实例。  
+7. 在 [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage) 中从磁盘加载图像。  
+8. 将项目符号类型设为 Picture 并设置图像。  
+9. 设置段落文本。  
+10. 设置段落缩进以放置项目符号。  
+11. 设置项目符号的颜色。  
+12. 设置项目符号的高度。  
+13. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中。  
+14. 添加第二个段落并重复前述步骤。  
+15. 保存演示文稿。
 
-以下 Java 代码展示如何在幻灯片中创建图片项目符号：
+下面的 Java 代码展示了如何在幻灯片中创建图片项目符号：
 ```java
 Presentation pres = new Presentation();
 try {
     // 访问第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 为项目符号实例化图像
+    // 实例化用于项目符号的图像
     IPPImage picture;
     IImage image = Images.fromFile("asp1.jpg");
     try {
@@ -171,10 +171,10 @@ try {
 
     // 访问已创建自动形状的文本框
     ITextFrame txtFrm = aShp.getTextFrame();
-    // 移除默认的现有段落
+    // 删除默认的现有段落
     txtFrm.getParagraphs().removeAt(0);
 
-    // 创建新的段落
+    // 创建新段落
     Paragraph para = new Paragraph();
     para.setText("Welcome to Aspose.Slides");
 
@@ -199,21 +199,21 @@ try {
 
 ## **创建多级项目符号**
 
-要创建包含不同层级项目的列表（主项目符号列表下的子列表），请按照以下步骤操作：
+要创建包含不同层级项目的列表（主项目符号列表下的子列表），请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。 
-1. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。 
-1. 在选定的幻灯片中添加自动形状。 
-1. 访问所添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)。 
-1. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落。 
-1. 使用 Paragraph 类创建第一个段落实例，并将 depth 设置为 0。 
-1. 使用 Paragraph 类创建第二个段落实例，并将 depth 设置为 1。 
-1. 使用 Paragraph 类创建第三个段落实例，并将 depth 设置为 2。 
-1. 使用 Paragraph 类创建第四个段落实例，并将 depth 设置为 3。 
-1. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中。 
-1. 保存演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。  
+2. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。  
+3. 在选定的幻灯片中添加一个自动形状。  
+4. 访问已添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)。  
+5. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落。  
+6. 使用 Paragraph 类创建深度为 0 的第一个段落实例。  
+7. 使用 Paragraph 类创建深度为 1 的第二个段落实例。  
+8. 使用 Paragraph 类创建深度为 2 的第三个段落实例。  
+9. 使用 Paragraph 类创建深度为 3 的第四个段落实例。  
+10. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中。  
+11. 保存演示文稿。
 
-以下代码实现上述步骤，展示如何在 Java 中创建多级项目符号列表：
+下面的代码实现了上述步骤，展示了如何在 Java 中创建多级项目符号列表：
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
@@ -227,10 +227,10 @@ try {
     // 访问已创建自动形状的文本框
     ITextFrame txtFrm = aShp.addTextFrame("");
     
-    // 移除默认的现有段落
+    // 删除默认的现有段落
     txtFrm.getParagraphs().clear();
     
-    // 创建第一个段落
+    // 创建第一段落
     Paragraph para1 = new Paragraph();
     // 设置段落项目符号样式和符号
     para1.setText("Content");
@@ -238,10 +238,10 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char) 8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //设置项目符号层级
+    // 设置项目符号层级
     para1.getParagraphFormat().setDepth ((short)0);
     
-    // 创建第二个段落
+    // 创建第二段落
     Paragraph para2 = new Paragraph();
     // 设置段落项目符号样式和符号
     para2.setText("Second level");
@@ -249,10 +249,10 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //设置项目符号层级
+    // 设置项目符号层级
     para2.getParagraphFormat().setDepth ((short)1);
     
-    // 创建第三个段落
+    // 创建第三段落
     Paragraph para3 = new Paragraph();
     // 设置段落项目符号样式和符号
     para3.setText("Third level");
@@ -260,10 +260,10 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char) 8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //设置项目符号层级
+    // 设置项目符号层级
     para3.getParagraphFormat().setDepth ((short)2);
     
-    // 创建第四个段落
+    // 创建第四段落
     Paragraph para4 = new Paragraph();
     // 设置段落项目符号样式和符号
     para4.setText("Fourth Level");
@@ -271,7 +271,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //设置项目符号层级
+    // 设置项目符号层级
     para4.getParagraphFormat().setDepth ((short)3);
     
     // 将段落添加到文本框
@@ -290,20 +290,20 @@ try {
 
 ## **创建自定义编号列表**
 
-Aspose.Slides for Java 提供了简便的 API 来管理具有自定义数字格式的段落。要在段落中添加自定义编号列表，请按照以下步骤操作：
+Aspose.Slides for Java 提供了简洁的 API 来管理带有自定义编号格式的段落。要在段落中添加自定义编号列表，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。 
-1. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。 
-1. 在选定的幻灯片中添加自动形状。 
-1. 访问所添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)。 
-1. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落。 
-1. 使用 Paragraph 类创建第一个段落实例，并将 **NumberedBulletStartWith** 设置为 2 
-1. 使用 Paragraph 类创建第二个段落实例，并将 **NumberedBulletStartWith** 设置为 3 
-1. 使用 Paragraph 类创建第三个段落实例，并将 **NumberedBulletStartWith** 设置为 7 
-1. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中。 
-1. 保存演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例。  
+2. 使用 [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) 对象访问幻灯片集合中的目标幻灯片。  
+3. 在选定的幻灯片中添加一个自动形状。  
+4. 访问已添加形状的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)。  
+5. 删除 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 中的默认段落。  
+6. 使用 Paragraph 类创建第一个段落实例，并将 **NumberedBulletStartWith** 设置为 2。  
+7. 使用 Paragraph 类创建第二个段落实例，并将 **NumberedBulletStartWith** 设置为 3。  
+8. 使用 Paragraph 类创建第三个段落实例，并将 **NumberedBulletStartWith** 设置为 7。  
+9. 将创建的段落添加到 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) 的段落集合中。  
+10. 保存演示文稿。
 
-以下 Java 代码展示如何在幻灯片中创建编号列表：
+下面的 Java 代码展示了如何在幻灯片中创建编号列表：
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
 Presentation pres = new Presentation();
@@ -317,7 +317,7 @@ try {
     // 访问已创建自动形状的文本框
     ITextFrame txtFrm = aShp.addTextFrame("");
 
-    // 移除默认的现有段落
+    // 删除默认的现有段落
     txtFrm.getParagraphs().clear();
 
     // 第一个列表
@@ -350,16 +350,16 @@ try {
 ```
 
 
-## **常见问题**
+## **常见问答**
 
-**使用 Aspose.Slides 创建的项目符号和编号列表能导出为 PDF 或图片等其他格式吗？**
+**使用 Aspose.Slides 创建的项目符号和编号列表能导出为 PDF 或图像等其他格式吗？**
 
-是的，Aspose.Slides 在将演示文稿导出为 PDF、图片等格式时，完整保留项目符号和编号列表的格式和结构，确保结果一致。
+可以，Aspose.Slides 在将演示文稿导出为 PDF、图像等格式时，完整保留项目符号和编号列表的格式和结构，确保结果一致。
 
-**是否可以从现有演示文稿中导入项目符号或编号列表？**
+**可以从已有的演示文稿中导入项目符号或编号列表吗？**
 
-是的，Aspose.Slides 允许您导入并编辑现有演示文稿中的项目符号或编号列表，同时保留其原始格式和外观。
+可以，Aspose.Slides 允许导入并编辑已有演示文稿中的项目符号或编号列表，同时保留原始的格式和外观。
 
 **Aspose.Slides 是否支持多语言演示文稿中的项目符号和编号列表？**
 
-是的，Aspose.Slides 完全支持多语言演示文稿，您可以使用任何语言创建项目符号和编号列表，包括特殊字符或非拉丁字符。
+支持，Aspose.Slides 完全兼容多语言演示文稿，您可以使用任何语言（包括特殊或非拉丁字符）创建项目符号和编号列表。

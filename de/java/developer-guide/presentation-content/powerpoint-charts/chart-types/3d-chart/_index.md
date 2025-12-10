@@ -1,27 +1,28 @@
 ---
 title: 3D-Diagramme in Präsentationen mit Java anpassen
-linktitle: 3D-Diagramm
+linktitle: 3D Diagramm
 type: docs
 url: /de/java/3d-chart/
 keywords:
-- 3D-Diagramm
-- Drehung
+- 3D Diagramm
+- Rotation
 - Tiefe
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie 3‑D‑Diagramme in Aspose.Slides für Java erstellen und anpassen, mit Unterstützung für PPT‑ und PPTX‑Dateien – verbessern Sie noch heute Ihre Präsentationen."
+description: "Erfahren Sie, wie Sie 3-D-Diagramme in Aspose.Slides für Java erstellen und anpassen, mit Unterstützung für PPT- und PPTX-Dateien - verbessern Sie noch heute Ihre Präsentationen."
 ---
 
-## **Setzen der Eigenschaften RotationX, RotationY und DepthPercents eines 3D-Diagramms**
-Aspose.Slides for Java bietet eine einfache API zum Festlegen dieser Eigenschaften. Dieser Artikel hilft Ihnen, verschiedene Eigenschaften wie **X‑Y‑Drehung, DepthPercents** usw. festzulegen. Der Beispielcode demonstriert das Einstellen der genannten Eigenschaften.
+## **Festlegen der Eigenschaften RotationX, RotationY und DepthPercents eines 3D-Diagramms**
+Aspose.Slides for Java bietet eine einfache API zum Festlegen dieser Eigenschaften. Der folgende Artikel hilft Ihnen, verschiedene Eigenschaften wie **X,Y Rotation, DepthPercents** usw. zu setzen. Der Beispielcode wendet das Einstellen der oben genannten Eigenschaften an.
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) Klasse.  
 1. Greifen Sie auf die erste Folie zu.  
 1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
 1. Setzen Sie die Rotation3D‑Eigenschaften.  
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.  
+1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +38,7 @@ try {
     // Abrufen des Diagrammdaten-Arbeitsblatts
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Serie hinzufügen
+    // Serien hinzufügen
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
@@ -52,7 +53,7 @@ try {
     chart.getRotation3D().setRotationY(270);
     chart.getRotation3D().setDepthPercents(150);
     
-    // Zweite Diagrammserie holen
+    // Zweite Diagrammserie auswählen
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
     
     // Jetzt werden die Seriendaten befüllt
@@ -78,12 +79,12 @@ try {
 
 **Welche Diagrammtypen unterstützen den 3D‑Modus in Aspose.Slides?**
 
-Aspose.Slides unterstützt 3D‑Varianten von Säulendiagrammen, einschließlich Column 3D, Clustered Column 3D, Stacked Column 3D und 100 % Stacked Column 3D, sowie verwandte 3D‑Typen, die über die Klasse [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) bereitgestellt werden. Für eine genaue, aktuelle Liste prüfen Sie die Mitglieder der [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) Klasse in der API‑Referenz Ihrer installierten Version.
+Aspose.Slides unterstützt 3D‑Varianten von Säulendiagrammen, einschließlich Column 3D, Clustered Column 3D, Stacked Column 3D und 100 % Stacked Column 3D, zusammen mit verwandten 3D‑Typen, die über die Klasse [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) bereitgestellt werden. Für eine genaue, aktuelle Liste prüfen Sie die Mitglieder von [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) in der API‑Referenz Ihrer installierten Version.
 
 **Kann ich ein Rasterbild eines 3D‑Diagramms für einen Bericht oder das Web erhalten?**
 
-Ja. Sie können ein Diagramm über die [chart API](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) in ein Bild exportieren oder die gesamte Folie mit [render the entire slide](/slides/de/java/convert-powerpoint-to-png/) in Formate wie PNG oder JPEG rendern. Dies ist nützlich, wenn Sie eine pixelgenaue Vorschau benötigen oder das Diagramm in Dokumente, Dashboards oder Webseiten einbetten möchten, ohne PowerPoint zu benötigen.
+Ja. Sie können ein Diagramm über die [Chart‑API](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) in ein Bild exportieren oder die [die gesamte Folie rendern](/slides/de/java/convert-powerpoint-to-png/) in Formate wie PNG oder JPEG rendern. Das ist nützlich, wenn Sie eine pixelgenaue Vorschau benötigen oder das Diagramm in Dokumente, Dashboards oder Webseiten einbetten möchten, ohne PowerPoint zu benötigen.
 
 **Wie leistungsfähig ist das Erstellen und Rendern großer 3D‑Diagramme?**
 
-Die Leistung hängt vom Datenvolumen und der visuellen Komplexität ab. Für optimale Ergebnisse halten Sie 3D‑Effekte minimal, vermeiden schwere Texturen an Wänden und Diagrammbereichen, begrenzen die Anzahl der Datenpunkte pro Serie nach Möglichkeit und rendern in eine entsprechend dimensionierte Ausgabe (Auflösung und Abmessungen), die den Anforderungen der Zielanzeige oder des Drucks entspricht.
+Die Leistung hängt vom Datenvolumen und der visuellen Komplexität ab. Für optimale Ergebnisse halten Sie 3D‑Effekte minimal, vermeiden Sie schwere Texturen auf Wänden und Diagrammbereichen, begrenzen Sie nach Möglichkeit die Anzahl der Datenpunkte pro Serie und rendern Sie in eine angemessen große Ausgabe (Auflösung und Abmessungen), die den Zielanzeige‑ oder Druckanforderungen entspricht.

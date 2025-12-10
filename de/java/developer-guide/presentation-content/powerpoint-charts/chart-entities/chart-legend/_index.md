@@ -11,36 +11,36 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Passen Sie Diagrammlegenden mit Aspose.Slides für Java an, um PowerPoint-Präsentationen durch individuell formatierte Legenden zu optimieren."
+description: "Passen Sie Diagrammlegenden mit Aspose.Slides für Java an, um PowerPoint-Präsentationen mit individuell formatierter Legende zu optimieren."
 ---
 
 ## **Legendenpositionierung**
-Um die Eigenschaften der Legende festzulegen, folgen Sie bitte den untenstehenden Schritten:
+Um die Eigenschaften der Legende festzulegen, folgen Sie bitte den unten genannten Schritten:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 - Holen Sie die Referenz der Folie.
 - Fügen Sie ein Diagramm zur Folie hinzu.
 - Legen Sie die Eigenschaften der Legende fest.
-- Schreiben Sie die Präsentation als PPTX-Datei.
+- Speichern Sie die Präsentation als PPTX-Datei.
 
-Im nachstehenden Beispiel haben wir die Position und Größe der Diagrammlegende festgelegt.
+Im nachfolgenden Beispiel haben wir die Position und Größe der Diagrammlegende festgelegt.
 ```java
-// Erstelle eine Instanz der Presentation-Klasse
+// Erstelle eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
     // Hole die Referenz der Folie
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Füge ein gruppiertes Säulendiagramm auf der Folie hinzu
+    // Füge ein gruppiertes Säulendiagramm zur Folie hinzu
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
-    // Setze die Legenden-Eigenschaften
+    // Setze Legenden-Eigenschaften
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
     
-    // Speichere die Präsentation auf dem Datenträger
+    // Schreibe die Präsentation auf die Festplatte
     pres.save("Legend_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -48,17 +48,17 @@ try {
 ```
 
 
-## **Schriftgröße der Legende festlegen**
-Aspose.Slides für Java ermöglicht es Entwicklern, die Schriftgröße der Legende festzulegen. Bitte folgen Sie den untenstehenden Schritten:
+## **Schriftgröße einer Legende festlegen**
+Aspose.Slides für Java ermöglicht Entwicklern das Festlegen der Schriftgröße der Legende. Bitte folgen Sie den unten genannten Schritten:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-- Erstellen des Standarddiagramms.
-- Schriftgröße festlegen.
-- Minimalen Achsenwert festlegen.
-- Maximalen Achsenwert festlegen.
-- Präsentation auf die Festplatte schreiben.
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+- Erstellen Sie das Standarddiagramm.
+- Legen Sie die Schriftgröße fest.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Speichern Sie die Präsentation auf dem Datenträger.
 ```java
-// Erstelle eine Instanz der Presentation-Klasse
+// Erstelle eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -77,18 +77,18 @@ try {
 ```
 
 
-## **Schriftgröße einzelner Legendeneinträge festlegen**
-Aspose.Slides für Java ermöglicht es Entwicklern, die Schriftgröße einzelner Legendeneinträge festzulegen. Bitte folgen Sie den untenstehenden Schritten:
+## **Schriftgröße einer einzelnen Legende festlegen**
+Aspose.Slides für Java ermöglicht Entwicklern das Festlegen der Schriftgröße einzelner Legendeneinträge. Bitte folgen Sie den unten genannten Schritten:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-- Erstellen des Standarddiagramms.
-- Auf Legendeneintrag zugreifen.
-- Schriftgröße festlegen.
-- Minimalen Achsenwert festlegen.
-- Maximalen Achsenwert festlegen.
-- Präsentation auf die Festplatte schreiben.
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+- Erstellen Sie das Standarddiagramm.
+- Greifen Sie auf den Legenden-Eintrag zu.
+- Legen Sie die Schriftgröße fest.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Speichern Sie die Präsentation auf dem Datenträger.
 ```java
-// Erstelle eine Instanz der Presentation-Klasse
+// Erstelle eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -110,14 +110,11 @@ try {
 
 ## **FAQ**
 
-**Kann ich die Legende aktivieren, damit das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**
+**Kann ich die Legende aktivieren, sodass das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**  
+Ja. Verwenden Sie den Nicht-Overlay-Modus ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); in diesem Fall verkleinert sich der Zeichenbereich, um die Legende aufzunehmen.
 
-Ja. Verwenden Sie den Nicht-Overlay-Modus ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); in diesem Fall verkleinert sich der Plotbereich, um die Legende aufzunehmen.
-
-**Kann ich mehrzeilige Legendenbeschriftungen erstellen?**
-
+**Kann ich mehrzeilige Legendenbeschriftungen erstellen?**  
 Ja. Lange Beschriftungen werden automatisch umgebrochen, wenn nicht genügend Platz vorhanden ist; erzwungene Zeilenumbrüche werden über Zeilenumbruchzeichen im Seriennamen unterstützt.
 
-**Wie kann ich die Legende an das Farbschema des Präsentationsthemas anpassen?**
-
-Setzen Sie keine expliziten Farben/Füllungen/Schriften für die Legende oder deren Text. Sie erben dann vom Theme und werden bei Änderungen des Designs korrekt aktualisiert.
+**Wie kann ich die Legende an das Farbdesign der Präsentationsvorlage anpassen?**  
+Vergeben Sie keine expliziten Farben/Füllungen/Schriftarten für die Legende oder deren Text. Sie erben dann vom Thema und werden bei Änderungen des Designs korrekt aktualisiert.

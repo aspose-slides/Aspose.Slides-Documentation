@@ -1,6 +1,6 @@
 ---
-title: Javaでプレゼンテーションズームを管理する
-linktitle: ズームを管理する
+title: Javaでプレゼンテーションズームを管理
+linktitle: ズームを管理
 type: docs
 weight: 60
 url: /ja/java/manage-zoom/
@@ -15,26 +15,26 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用してズームを作成およびカスタマイズし、セクション間をジャンプしたり、PPT、PPTX、ODP プレゼンテーションにサムネイルやトランジションを追加したりできます。"
+description: "Aspose.Slides for Java を使用してズームを作成およびカスタマイズし、セクション間をジャンプし、PPT、PPTX、ODP プレゼンテーション全体にサムネイルやトランジションを追加します。"
 ---
 
 ## **概要**
-Zoom in PowerPoint を使用すると、プレゼンテーション内の特定のスライド、セクション、領域間をジャンプして移動できます。プレゼンテーション中にコンテンツを素早くナビゲートできるこの機能は、とても便利です。
+PowerPoint のズームは、プレゼンテーションの特定のスライド、セクション、範囲間を行き来できるようにします。プレゼンテーション中に、コンテンツを素早くナビゲートできるこの機能は非常に便利です。 
 
-![overview_image](overview.png)
+![概要画像](overview.png)
 
-* プレゼンテーション全体を単一のスライドにまとめるには、[サマリーズーム](#Summary-Zoom)を使用します。  
-* 選択したスライドのみを表示するには、[スライドズーム](#Slide-Zoom)を使用します。  
-* 特定のセクションのみを表示するには、[セクションズーム](#Section-Zoom)を使用します。
+* プレゼンテーション全体を 1 枚のスライドに要約するには、[Summary Zoom](#Summary-Zoom) を使用します。
+* 選択したスライドのみを表示するには、[Slide Zoom](#Slide-Zoom) を使用します。
+* 単一のセクションのみを表示するには、[Section Zoom](#Section-Zoom) を使用します。
 
 ## **スライドズーム**
-スライドズームを使用すると、プレゼンテーションをよりダイナミックにし、好きな順序でスライド間を自由に移動でき、プレゼンテーションの流れを中断せずに済みます。スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも活用できます。
+スライドズームを使用すると、プレゼンテーションの流れを中断せずに、任意の順序でスライド間を自由に移動でき、プレゼンテーションがよりダイナミックになります。スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも使用できます。
 
-スライドズームは、単一のキャンバス上にいるような感覚で、複数の情報にドリルダウンできます。
+スライドズームを使用すると、単一のキャンバス上にいるような感覚で複数の情報にドリルダウンできます。 
 
-![overview_image](slidezoomsel.png)
+![スライドズーム選択画像](slidezoomsel.png)
 
-スライドズームオブジェクトに対しては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) 列挙型、[IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) インターフェイス、および [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
+スライドズームオブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) 列挙型、[IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) インターフェイス、そして [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
 
 ### **ズームフレームの作成**
 
@@ -42,11 +42,11 @@ Zoom in PowerPoint を使用すると、プレゼンテーション内の特定�
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	ズームフレームでリンクする新しいスライドを作成します。  
-3.	作成したスライドに識別用テキストと背景を追加します。  
+3.	作成したスライドに識別テキストと背景を追加します。  
 4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-5.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+5.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、スライドにズームフレームを作成する方法を示しています:
+この Java コードは、スライドにズームフレームを作成する方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -54,21 +54,21 @@ try {
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // 2枚目のスライドの背景を作成
+    // 2番目のスライドの背景を作成
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // 2枚目のスライドのテキストボックスを作成
+    // 2番目のスライドのテキストボックスを作成
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
 
-    // 3枚目のスライドの背景を作成
+    // 3番目のスライドの背景を作成
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // 3枚目のスライドのテキストボックスを作成
+    // 3番目のスライドのテキストボックスを作成
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Trird Slide");
 
@@ -76,7 +76,7 @@ try {
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // プレゼンテーションを保存
+    //プレゼンテーションを保存
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -84,28 +84,27 @@ try {
 ```
 
 ### **カスタム画像付きズームフレームの作成**
-Aspose.Slides for Java を使用すると、別のスライドプレビュー画像を使用したズームフレームを次の手順で作成できます。
-
+Aspose.Slides for Java を使用すると、別のスライドプレビュー画像を使用したズームフレームを次の手順で作成できます。  
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	ズームフレームでリンクする新しいスライドを作成します。  
-3.	スライドに識別用テキストと背景を追加します。  
-4.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成し、フレームの塗りつぶしに使用します。  
+3.	スライドに識別テキストと背景を追加します。  
+4.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
 5.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+6.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、別の画像を使用したズームフレームを作成する方法を示しています:
+この Java コードは、別の画像を使用したズームフレームの作成方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
     //プレゼンテーションに新しいスライドを追加
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // 2枚目のスライドの背景を作成
+    // 2番目のスライドの背景を作成
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // 3枚目のスライドのテキストボックスを作成
+    // 3番目のスライドのテキストボックスを作成
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
 
@@ -129,47 +128,47 @@ try {
 ```
 
 ### **ズームフレームの書式設定**
-前のセクションではシンプルなズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。ズームフレームに適用できる書式設定オプションは多数あります。
+前のセクションではシンプルなズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。ズームフレームには適用できる書式設定オプションがいくつかあります。  
 
-スライド上でズームフレームの書式を制御する手順は次のとおりです。
+スライド上でズームフレームの書式設定を制御する手順は次のとおりです。
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	ズームフレームでリンクする新しいスライドを作成します。  
-3.	作成したスライドに識別用テキストと背景を追加します。  
+2.	リンク先となる新しいスライドを作成します。  
+3.	作成したスライドに識別テキストと背景を追加します。  
 4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-5.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成し、フレームの塗りつぶしに使用します。  
+5.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
 6.	最初のズームフレームオブジェクトにカスタム画像を設定します。  
 7.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
 8.	2 番目のズームフレームオブジェクトの画像から背景を削除します。  
-9.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+5.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、スライド上でズームフレームの書式を変更する方法を示しています:
-``` java
+この Java コードは、スライド上でズームフレームの書式設定を変更する方法を示しています。 
+``` java 
 Presentation pres = new Presentation();
 try {
     //プレゼンテーションに新しいスライドを追加
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // 2枚目のスライドの背景を作成
+    // 2番目のスライドの背景を作成
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // 2枚目のスライドのテキストボックスを作成
+    // 2番目のスライドのテキストボックスを作成
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
 
-    // 3枚目のスライドの背景を作成
+    // 3番目のスライドの背景を作成
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // 3枚目のスライドのテキストボックスを作成
+    // 3番目のスライドのテキストボックスを作成
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Trird Slide");
 
-    //ZoomFrame オブジェクトを追加
+    //Adds ZoomFrame objects
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
@@ -190,7 +189,7 @@ try {
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // zoomFrame2 オブジェクトの背景を表示しない設定
+    // zoomFrame2 オブジェクトの背景非表示設定
     zoomFrame2.setShowBackground(false);
 
     // プレゼンテーションを保存
@@ -204,11 +203,11 @@ try {
 
 ## **セクションズーム**
 
-セクションズームは、プレゼンテーション内のセクションへのリンクです。強調したいセクションに戻るために使用したり、プレゼンテーションの各部分がどのように結びつくかを示したりできます。
+セクションズームは、プレゼンテーション内のセクションへのリンクです。強調したいセクションに戻るためにセクションズームを使用したり、プレゼンテーションの特定の部分同士のつながりを強調したりできます。 
 
-![overview_image](seczoomsel.png)
+![セクションズーム選択画像](seczoomsel.png)
 
-セクションズームオブジェクトに対しては、Aspose.Slides が [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
+セクションズームオブジェクトについては、Aspose.Slides が [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
 
 ### **セクションズームフレームの作成**
 
@@ -219,9 +218,9 @@ try {
 3.	作成したスライドに識別用背景を追加します。  
 4.	ズームフレームでリンクする新しいセクションを作成します。  
 5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+6.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、スライドにセクションズームフレームを作成する方法を示しています:
+この Java コードは、スライドにズームフレームを作成する方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -231,7 +230,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // プレゼンテーションに新しいセクションを追加
     pres.getSections().addSection("Section 1", slide);
 
     // SectionZoomFrame オブジェクトを追加
@@ -246,17 +245,17 @@ try {
 
 ### **カスタム画像付きセクションズームフレームの作成**
 
-Aspose.Slides for Java を使用して、別のスライドプレビュー画像を持つセクションズームフレームを作成する手順は次のとおりです。
+Aspose.Slides for Java を使用すると、別のスライドプレビュー画像を使用したセクションズームフレームを次の手順で作成できます。  
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	新しいスライドを作成します。  
 3.	作成したスライドに識別用背景を追加します。  
 4.	ズームフレームでリンクする新しいセクションを作成します。  
-5.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成し、フレームの塗りつぶしに使用します。  
-6.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
-7.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+5.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
+5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
+6.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、別の画像を使用したセクションズームフレームを作成する方法を示しています:
+この Java コードは、別の画像を使用したズームフレームの作成方法を示しています。
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -291,9 +290,9 @@ try {
 
 ### **セクションズームフレームの書式設定**
 
-より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。セクションズームフレームに適用できる書式設定オプションは多数あります。
+より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。セクションズームフレームには適用できる書式設定オプションがいくつかあります。  
 
-スライド上でセクションズームフレームの書式を制御する手順は次のとおりです。
+スライド上でセクションズームフレームの書式設定を制御する手順は次のとおりです。
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	新しいスライドを作成します。  
@@ -301,15 +300,15 @@ try {
 4.	ズームフレームでリンクする新しいセクションを作成します。  
 5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
 6.	作成したセクションズームオブジェクトのサイズと位置を変更します。  
-7.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成し、フレームの塗りつぶしに使用します。  
+7.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
 8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
 9.	*リンクされたセクションから元のスライドへ戻る* 動作を設定します。  
 10.	セクションズームフレームオブジェクトの画像から背景を削除します。  
 11.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
-12.	トランジションの継続時間を変更します。  
-13.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+12.	トランジションの期間を変更します。  
+13.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、セクションズームフレームの書式を変更する方法を示しています:
+この Java コードは、セクションズームフレームの書式設定を変更する方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -359,14 +358,13 @@ try {
 ```
 
 
-
 ## **サマリーズーム**
 
-サマリーズームは、プレゼンテーションの全体像を一度に表示するランディングページのようなものです。プレゼンテーション中に、任意の順序で別の場所へジャンプでき、創造的にスライドショーを前後したり、再訪したりできます。
+サマリーズームは、プレゼンテーションのすべての要素を一度に表示するランディング ページのようなものです。プレゼンテーション中に、ズームを使用して任意の順序で任意の場所へジャンプしたり、スキップしたり、再訪したりして、プレゼンテーションの流れを中断せずに操作できます。
 
-![overview_image](sumzoomsel.png)
+![サマリーズーム選択画像](sumzoomsel.png)
 
-サマリーズームオブジェクトに対しては、Aspose.Slides が [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection)、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
+サマリーズームオブジェクトについては、Aspose.Slides が [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection)、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) インターフェイス配下のいくつかのメソッドを提供します。
 
 ### **サマリーズームの作成**
 
@@ -375,9 +373,9 @@ try {
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	識別用背景と新しいセクションを持つ新規スライドを作成します。  
 3.	最初のスライドにサマリーズームフレームを追加します。  
-4.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+4.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、スライドにサマリーズームフレームを作成する方法を示しています:
+この Java コードは、サマリーズームフレームをスライドに作成する方法を示しています。
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -387,37 +385,37 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // プレゼンテーションに新しいセクションを追加
     pres.getSections().addSection("Section 1", slide);
 
-    //プレゼンテーションに新しいスライドを追加
+    //Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // Adds a new section to the presentation
     pres.getSections().addSection("Section 2", slide);
 
-    //プレゼンテーションに新しいスライドを追加
+    //Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // Adds a new section to the presentation
     pres.getSections().addSection("Section 3", slide);
 
-    //プレゼンテーションに新しいスライドを追加
+    //Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // Adds a new section to the presentation
     pres.getSections().addSection("Section 4", slide);
 
-    // SummaryZoomFrame オブジェクトを追加
+    // Adds a SummaryZoomFrame object
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
     // プレゼンテーションを保存
@@ -430,7 +428,7 @@ try {
 
 ### **サマリーズームセクションの追加と削除**
 
-サマリーズームフレーム内のすべてのセクションは、[ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) オブジェクトとして表され、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) に格納されます。セクションの追加または削除は、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) インターフェイスを通じて次の手順で行えます。
+サマリーズームフレーム内のすべてのセクションは [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) オブジェクトとして表され、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) オブジェクトに格納されます。セクションの追加または削除は、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) インターフェイスを通じて次の手順で行えます。
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	識別用背景と新しいセクションを持つ新規スライドを作成します。  
@@ -438,9 +436,9 @@ try {
 4.	プレゼンテーションに新しいスライドとセクションを追加します。  
 5.	作成したセクションをサマリーズームフレームに追加します。  
 6.	サマリーズームフレームから最初のセクションを削除します。  
-7.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+7.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、サマリーズームフレームでのセクションの追加と削除を示しています:
+この Java コードは、サマリーズームフレーム内のセクションを追加および削除する方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -490,22 +488,22 @@ try {
 
 ### **サマリーズームセクションの書式設定**
 
-より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームの書式を変更する必要があります。サマリーズームセクションオブジェクトに適用できる書式設定オプションは多数あります。
+より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームの書式設定を変更する必要があります。サマリーズームセクションオブジェクトには適用できる書式設定オプションがいくつかあります。  
 
-サマリーズームフレーム内のサマリーズームセクションオブジェクトの書式を制御する手順は次のとおりです。
+サマリーズームフレーム内のサマリーズームセクションオブジェクトの書式設定を制御する手順は次のとおりです。
 
 1.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2.	識別用背景と新しいセクションを持つ新規スライドを作成します。  
 3.	最初のスライドにサマリーズームフレームを追加します。  
-4.	`ISummaryZoomSectionCollection` から最初のセクションオブジェクトを取得します。  
-5.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成し、フレームの塗りつぶしに使用します。  
-6.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
-7.	*リンクされたセクションから元のスライドへ戻る* 動作を設定します。  
-8.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
-9.	トランジションの継続時間を変更します。  
-10.	変更したプレゼンテーションを PPTX ファイルとして保存します。
+4.	`ISummaryZoomSectionCollection` から最初のオブジェクトのサマリーズームセクションを取得します。  
+7.	[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) オブジェクトに関連付けられた images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) オブジェクトを作成します。  
+8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
+9.	*リンクされたセクションから元のスライドへ戻る* 動作を設定します。  
+11.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
+12.	トランジションの期間を変更します。  
+13.	変更されたプレゼンテーションを書き出して PPTX ファイルとして保存します。  
 
-この Java コードは、サマリーズームセクションオブジェクトの書式を変更する方法を示しています:
+この Java コードは、サマリーズームセクションオブジェクトの書式設定を変更する方法を示しています。
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -515,7 +513,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // プレゼンテーションに新しいセクションを追加
     pres.getSections().addSection("Section 1", slide);
 
     //プレゼンテーションに新しいスライドを追加
@@ -524,7 +522,7 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // 新しいセクションをプレゼンテーションに追加
+    // プレゼンテーションに新しいセクションを追加
     pres.getSections().addSection("Section 2", slide);
 
     // SummaryZoomFrame オブジェクトを追加
@@ -563,14 +561,14 @@ try {
 
 ## **FAQ**
 
-**対象を表示した後、元の「親」スライドに戻る制御はできますか？**
+**対象を表示した後に「親」スライドに戻る動作を制御できますか？**
 
-はい。[Zoom frame](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) には `ReturnToParent` 動作があり、これを有効にするとビューアはターゲット コンテンツの閲覧後に元のスライドに戻ります。
+はい。[Zoom frame](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) には `ReturnToParent` 動作があり、これを有効にすると、閲覧者は対象コンテンツを表示した後に元のスライドに戻ります。
 
-**Zoom の「速度」やトランジションの継続時間を調整できますか？**
+**ズーム トランジションの「速度」や期間を調整できますか？**
 
 はい。Zoom では `TransitionDuration` を設定でき、ジャンプ アニメーションの長さを制御できます。
 
 **プレゼンテーションに含められる Zoom オブジェクトの数に制限はありますか？**
 
-明確な API の上限はドキュメントに記載されていません。実際の制限はプレゼンテーションの複雑さやビューアのパフォーマンスに依存します。多数の Zoom フレームを追加できますが、ファイル サイズやレンダリング時間を考慮してください。
+明確な API の上限はドキュメントに記載されていません。実際の制限はプレゼンテーション全体の複雑さやビューアーの性能に依存します。多数の Zoom フレームを追加できますが、ファイルサイズとレンダリング時間には注意が必要です。

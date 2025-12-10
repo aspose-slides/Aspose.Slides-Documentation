@@ -1,194 +1,258 @@
 ---
-title: خلفية العرض
+title: إدارة خلفيات العرض التقديمي في جافا
+linktitle: خلفية الشريحة
 type: docs
 weight: 20
 url: /ar/java/presentation-background/
-keywords: "خلفية باوربوينت، تعيين خلفية في جافا"
-description: "تعيين الخلفية في عرض باوربوينت في جافا"
+keywords:
+- خلفية العرض التقديمي
+- خلفية الشريحة
+- لون صلب
+- لون متدرج
+- خلفية صورة
+- شفافية الخلفية
+- خصائص الخلفية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- جافا
+- Aspose.Slides
+description: "تعلم كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint و OpenDocument باستخدام Aspose.Slides لجافا، مع نصائح برمجية لتعزيز عروضك التقديمية."
 ---
 
-تُستخدم الألوان الصلبة، والألوان المتدرجة، والصور غالبًا كصور خلفية للشرائح. يمكنك تعيين الخلفية إما لــ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (عدة شرائح دفعة واحدة)
+## **نظرة عامة**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+الألوان الصلبة، التدرجات، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لـ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (تنطبق على عدة شرائح في آن واحد).
 
-## **تعيين لون صلب كخلفية لشريحة عادية**
+![خلفية PowerPoint](powerpoint-background.png)
 
-يتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة معينة في العرض (حتى لو كان هذا العرض يحتوي على شريحة رئيسية). يؤثر تغيير الخلفية فقط على الشريحة المحددة.
+## **تعيين خلفية بلون صلب لشريحة عادية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) لــ الشريحة إلى `OwnBackground`.
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) لــ خلفية الشريحة إلى `Solid`.
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) الظاهرة في [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتحديد لون صلب للخلفية.
-5. احفظ العرض المعدل.
+تسمح لك Aspose.Slides بتعيين لون صلب كخلفية لشريحة محددة في عرض تقديمي — حتى إذا كان العرض يستخدم شريحة رئيسية. يتم تطبيق التغيير على الشريحة المحددة فقط.
 
-يوضح لك هذا الكود جافا كيفية تعيين لون صلب (أزرق) كخلفية لشريحة عادية: 
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. عيّن [BackgroundType] للشريحة إلى `OwnBackground` .
+3. عيّن [FillType] لخلفية الشريحة إلى `Solid` .
+4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) على الفئة [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتحديد لون الخلفية الصلبة.
+5. احفظ العرض التقديمي المعدل.
 
+يوضح مثال Java التالي كيفيّة تعيين لون أزرق صلب كخلفية لشريحة عادية:
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("MasterBG.pptx");
+// إنشاء مثيل من فئة Presentation.
+Presentation presentation = new Presentation();
 try {
-    // Sets the background color for the first ISlide to Blue
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // تعيين لون خلفية الشريحة إلى اللون الأزرق.
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
-    // Writes the presentation to disk
-    pres.save("ContentBG.pptx", SaveFormat.Pptx);
+    // حفظ العرض التقديمي إلى القرص.
+    presentation.save("SolidColorBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تعيين لون صلب كخلفية لشريحة رئيسية**
 
-يتيح لك Aspose.Slides تعيين لون صلب كخلفية للشريحة الرئيسية في العرض. تعمل الشريحة الرئيسية كقالب يحتوي على ويضبط إعدادات التنسيق لجميع الشرائح. لذلك، عندما تختار لونًا صلبًا كخلفية للشريحة الرئيسية، ستستخدم جميع الشرائح تلك الخلفية الجديدة.
+## **تعيين خلفية بلون صلب لشريحة رئيسية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) لــ الشريحة الرئيسية (`Masters`) إلى `OwnBackground`.
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) لــ خلفية الشريحة الرئيسية إلى `Solid`.
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) الظاهرة في [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتحديد لون صلب للخلفية.
-5. احفظ العرض المعدل.
+تسمح لك Aspose.Slides بتعيين لون صلب كخلفية للشريحة الرئيسية في عرض تقديمي. الشريحة الرئيسية تعمل كقالب يتحكم في تنسيق جميع الشرائح، لذا عند اختيار لون صلب لخلفية الشريحة الرئيسية، سيتم تطبيقه على كل الشريحة.
 
-يوضح لك هذا الكود جافا كيفية تعيين لون صلب (أخضر غامق) كخلفية لشريحة رئيسية في عرض:
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. عيّن [BackgroundType] للشريحة الرئيسية (عبر `getMasters`) إلى `OwnBackground` .
+3. عيّن [FillType] لخلفية الشريحة الرئيسية إلى `Solid` .
+4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) لتحديد لون الخلفية الصلب.
+5. احفظ العرض التقديمي المعدل.
 
+يوضح مثال Java التالي كيفيّة تعيين لون صلب (أخضر) كخلفية لشريحة رئيسية:
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// إنشاء مثيل من فئة Presentation.
+Presentation presentation = new Presentation();
 try {
-    // Sets the background color for the Master ISlide to Forest Green
-    pres.getMasters().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    
-    // Writes the presentation to disk
-    pres.save("MasterBG.pptx", SaveFormat.Pptx);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+
+    // تعيين لون خلفية شريحة الماستر إلى اللون الأخضر الغابوي.
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+
+    // حفظ العرض التقديمي إلى القرص.
+    presentation.save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تعيين لون متدرج كخلفية لشريحة**
 
-التدرج هو تأثير رسومي يعتمد على تغير تدريجي في اللون. تجعل الألوان المتدرجة، عند استخدامها كخلفيات للشرائح، العروض تبدو فنية واحترافية. يتيح لك Aspose.Slides تعيين لون متدرج كخلفية للشرائح في العروض.
+## **تعيين خلفية بتدرّج لشريحة**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) لــ الشريحة إلى `OwnBackground`.
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) لــ خلفية الشريحة الرئيسية إلى `Gradient`.
-4. استخدم خاصية [GradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getGradientFormat--) الظاهرة في [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتحديد إعدادات التدرج المفضلة لديك.
-5. احفظ العرض المعدل.
+التدرّج هو تأثير رسومي يُنشئ بواسطة تغير تدريجي في اللون. عند استخدامه كخلفية للشرائح، يمكن للتدرجات أن تجعل العروض التقديمية تبدو أكثر إبداعًا واحترافية. تسمح لك Aspose.Slides بتعيين لون متدرّج كخلفية للشرائح.
 
-يوضح لك هذا الكود جافا كيفية تعيين لون متدرج كخلفية لشريحة:
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. عيّن [BackgroundType] للشريحة إلى `OwnBackground` .
+3. عيّن [FillType] لخلفية الشريحة إلى `Gradient` .
+4. استخدم طريقة [getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getGradientFormat--) على الفئة [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتكوين إعدادات التدرّج المفضلة.
+5. احفظ العرض التقديمي المعدل.
 
+يوضح مثال Java التالي كيفيّة تعيين لون متدرّج كخلفية لشريحة:
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("MasterBG.pptx");
+// إنشاء مثيل من فئة Presentation.
+Presentation presentation = new Presentation();
 try {
-    // Apply Gradient effect to the Background
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Gradient);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+    ISlide slide = presentation.getSlides().get_Item(0);
     
-    // Writes the presentation to disk
-    pres.save("ContentBG_Grad.pptx", SaveFormat.Pptx);
+    // تطبيق تأثير تدرج على الخلفية.
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
+    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    // حفظ العرض التقديمي إلى القرص.
+    presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تعيين صورة كخلفية لشريحة**
 
-بجانب الألوان الصلبة والألوان المتدرجة، يتيح لك Aspose.Slides أيضًا تعيين صور كخلفية للشرائح في العروض.
+## **تعيين صورة كخلفية للشريحة**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) لــ الشريحة إلى `OwnBackground`.
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) لــ خلفية الشريحة الرئيسية إلى `Picture`.
-4. قم بتحميل الصورة التي تريد استخدامها كخلفية للشريحة.
-5. أضف الصورة إلى مجموعة الصور في العرض.
-6. استخدم خاصية [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getPictureFillFormat--) الظاهرة في [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتعيين الصورة كخلفية.
-7. احفظ العرض المعدل.
+بالإضافة إلى التعبئات الصلبة والمتدرجة، تسمح لك Aspose.Slides باستخدام الصور كخلفيات للشرائح.
 
-يوضح لك هذا الكود جافا كيفية تعيين صورة كخلفية لشريحة: 
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. عيّن [BackgroundType] للشريحة إلى `OwnBackground` .
+3. عيّن [FillType] لخلفية الشريحة إلى `Picture` .
+4. حمّل الصورة التي تريد استخدامها كخلفية للشريحة.
+5. أضف الصورة إلى مجموعة صور العرض التقديمي.
+6. استخدم طريقة [getPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getPictureFillFormat--) على الفئة [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) لتعيين الصورة كخلفية.
+7. احفظ العرض التقديمي المعدل.
 
+يوضح مثال Java التالي كيفيّة تعيين صورة كخلفية لشريحة:
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// إنشاء مثيل من فئة Presentation.
+Presentation presentation = new Presentation();
 try {
-    // Sets conditions for background image
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Picture);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat()
-            .setPictureFillMode(PictureFillMode.Stretch);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // تعيين خصائص صورة الخلفية.
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
     
-    // Loads the image
-    IPPImage imgx;
-    IImage image = Images.fromFile("Desert.jpg");
-    try {
-        imgx = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    // Adds image to presentation's images collection
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
+    // تحميل الصورة.
+    IImage image = Images.fromFile("Tulips.jpg");
+    // إضافة الصورة إلى مجموعة صور العرض التقديمي.
+    IPPImage ppImage = presentation.getImages().addImage(image);
+    image.dispose();
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
     
-    // Writes the presentation to disk
-    pres.save("ContentBG_Img.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    // حفظ العرض التقديمي إلى القرص.
+    presentation.save("ImageAsBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+يوضح عينة الكود التالية كيفيّة تعيين نوع تعبئة الخلفية إلى صورة متكررة وتعديل خصائص التكرار:
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+
+    IBackground background = firstSlide.getBackground();
+
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Picture);
+
+    IImage newImage = Images.fromFile("image.png");
+    IPPImage ppImage = presentation.getImages().addImage(newImage);
+    newImage.dispose();
+
+    // تعيين الصورة المستخدمة لملء الخلفية.
+    IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
+    backPictureFillFormat.getPicture().setImage(ppImage);
+
+    // تعيين وضع ملء الصورة إلى تكرار وضبط خصائص التكرار.
+    backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
+    backPictureFillFormat.setTileOffsetX(15f);
+    backPictureFillFormat.setTileOffsetY(15f);
+    backPictureFillFormat.setTileScaleX(46f);
+    backPictureFillFormat.setTileScaleY(87f);
+    backPictureFillFormat.setTileAlignment(RectangleAlignment.Center);
+    backPictureFillFormat.setTileFlip(TileFlip.FlipY);
+
+    presentation.save("TileBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+{{% alert color="primary" %}}
+اقرأ المزيد: [**صورة متكررة كنقشة**](/slides/ar/java/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **تغيير شفافية صورة الخلفية**
 
-قد ترغب في ضبط شفافية صورة خلفية الشريحة لجعل محتويات الشريحة تبرز. يوضح لك هذا الكود جافا كيفية تغيير الشفافية لصورة خلفية الشريحة:
-
+قد ترغب في تعديل شفافية صورة خلفية الشريحة لجعل محتوى الشريحة يبرز أكثر. يوضح الكود Java التالي كيفية تغيير شفافية صورة خلفية الشريحة:
 ```java
-int transparencyValue = 30; // for example
+int transparencyValue = 30; // على سبيل المثال.
 
-// Gets a collection of picture transform operations
+// Get the collection of picture transform operations.
 IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
 
-// Finds a transparency effect with fixed percentage.
-AlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform)
-{
-    if (operation instanceof AlphaModulateFixed)
-    {
-        transparencyOperation = (AlphaModulateFixed)operation;
+// Find an existing fixed-percentage transparency effect.
+IAlphaModulateFixed transparencyOperation = null;
+for (IImageTransformOperation operation : imageTransform) {
+    if (operation instanceof IAlphaModulateFixed) {
+        transparencyOperation = (IAlphaModulateFixed)operation;
         break;
     }
 }
 
-// Sets the new transparency value.
-if (transparencyOperation == null)
-{
+// Set the new transparency value.
+if (transparencyOperation == null) {
     imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
 }
-else
-{
+else {
     transparencyOperation.setAmount(100 - transparencyValue);
 }
 ```
 
+
 ## **الحصول على قيمة خلفية الشريحة**
 
-يوفر Aspose.Slides واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/) للسماح لك بالحصول على القيم الفعالة لخلفيات الشرائح. تحتوي هذه الواجهة على معلومات حول [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) و [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+توفر Aspose.Slides الواجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعّالة لخلفية الشريحة. تكشف هذه الواجهة عن [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) و[EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) الفعّاليين.
 
-باستخدام خاصية [Background](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getBackground--) من فئة [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/)، يمكنك الحصول على القيمة الفعالة لخلفية شريحة.
+باستخدام طريقة `getBackground` من الفئة [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/)، يمكنك الحصول على الخلفية الفعّالة لشريحة.
 
-يوضح لك هذا الكود جافا كيفية الحصول على قيمة الخلفية الفعالة لشريحة:
-
+يوضح مثال Java التالي كيفيّة الحصول على قيمة الخلفية الفعّالة لشريحة:
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("SamplePresentation.pptx");
+// إنشاء مثيل من فئة Presentation.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    IBackgroundEffectiveData effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // استرجاع الخلفية الفعّالة مع مراعاة الشريحة الرئيسية، التخطيط، والسمة.
+    IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
-        System.out.println("لون التعبئة: " + effBackground.getFillFormat().getSolidFillColor());
+        System.out.println("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
     else
-        System.out.println("نوع التعبئة: " + effBackground.getFillFormat().getFillType());
+        System.out.println("Fill type: " + effBackground.getFillFormat().getFillType());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني إعادة ضبط خلفية مخصصة واستعادة خلفية السمة/التخطيط؟**  
+نعم. قم بإزالة التعبئة المخصصة للشريحة، وسيتم وراثة الخلفية مرة أخرى من [التخطيط](/slides/ar/java/slide-layout/)/[الماستر](/slides/ar/java/slide-master/) (أي [خلفية السمة](/slides/ar/java/presentation-theme/)).
+
+**ماذا يحدث للخلفية إذا قمت بتغيير سمة العرض التقديمي لاحقًا؟**  
+إذا كانت الشريحة تحتوي على تعبئة خاصة بها، فستظل دون تغيير. إذا كانت الخلفية موروثة من [التخطيط](/slides/ar/java/slide-layout/)/[الماستر](/slides/ar/java/slide-master/)، فستُحدَّث لتطابق [السمة الجديدة](/slides/ar/java/presentation-theme/).

@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 管理演示文稿图表中的标注
+title: 管理 Java 中演示文稿图表的标注
 linktitle: 标注
 type: docs
 url: /zh/java/callout/
@@ -12,11 +12,11 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 创建并设置标注样式，提供简洁的代码示例，兼容 PPT 和 PPTX，实现演示工作流自动化。"
+description: "使用 Aspose.Slides for Java 创建和样式化标注，提供简洁的代码示例，兼容 PPT 和 PPTX，以自动化演示文稿工作流。"
 ---
 
 ## **使用标注**
-已向 [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat) 接口添加了新方法 [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) 和 [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-)。这些方法决定指定图表的数据标签是显示为数据标注还是显示为数据标签。
+已向 [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat) 接口添加了新方法 [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) 和 [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-)。这些方法决定指定图表的数据标签是显示为数据标注线还是显示为普通标签。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -34,7 +34,7 @@ try {
 
 
 ## **为环形图设置标注**
-Aspose.Slides for Java 提供了为环形图设置系列数据标签标注形状的支持。下面给出示例代码。
+Aspose.Slides for Java 提供了为环形图设置系列数据标签标注形状的支持。以下示例演示了如何操作。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -102,8 +102,8 @@ try {
 
 **在将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注会被保留吗？**
 
-是的。标注是图表渲染的一部分，因此当您导出为 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/java/export-to-html5/)、[SVG](/slides/zh/java/render-a-slide-as-an-svg-image/) 或 [栅格图像](/slides/zh/java/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
+是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/java/export-to-html5/)、[SVG](/slides/zh/java/render-a-slide-as-an-svg-image/) 或 [栅格图像](/slides/zh/java/convert-powerpoint-to-png/) 时，它们会随幻灯片的格式一起被保留。
 
-**自定义字体在标注中可用吗？导出时其外观能否保留？**
+**自定义字体在标注中是否有效，导出时其外观能否保持？**
 
-是的。Aspose.Slides 支持将 [嵌入字体](/slides/zh/java/embedded-font/) 包含在演示文稿中，并在导出为 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/) 等格式时控制字体嵌入，确保标注在不同系统上保持相同的外观。
+是的。Aspose.Slides 支持将[嵌入字体](/slides/zh/java/embedded-font/)嵌入到演示文稿中，并在导出为 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/) 等格式时控制字体嵌入，从而确保标注在不同系统上保持一致的外观。

@@ -6,7 +6,7 @@ weight: 50
 url: /ru/java/chart-calculations/
 keywords:
 - вычисления диаграмм
-- элементы диаграммы
+- элементы диаграмм
 - позиция элемента
 - фактическая позиция
 - дочерний элемент
@@ -17,10 +17,10 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Поймите вычисления диаграмм, обновление данных и контроль точности в Aspose.Slides for Java для PPT и PPTX, используя практические примеры кода на Java."
+description: "Поймите вычисления диаграмм, обновления данных и контроль точности в Aspose.Slides для Java для PPT и PPTX, с практическими примерами кода на Java."
 ---
 
-## **Рассчитать фактические значения элементов диаграммы**
+## **Вычисление фактических значений элементов диаграммы**
 Aspose.Slides for Java предоставляет простой API для получения этих свойств. Свойства интерфейса [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) предоставляют информацию о фактическом положении элемента диаграммы оси ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). Необходимо вызвать метод [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) предварительно, чтобы заполнить свойства фактическими значениями.
 ```java
 Presentation pres = new Presentation();
@@ -39,7 +39,7 @@ try {
 ```
 
 
-## **Рассчитать фактическое положение родительских элементов диаграммы**
+## **Вычисление фактического положения родительских элементов диаграммы**
 Aspose.Slides for Java предоставляет простой API для получения этих свойств. Свойства интерфейса [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) предоставляют информацию о фактическом положении родительского элемента диаграммы ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). Необходимо вызвать метод [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) предварительно, чтобы заполнить свойства фактическими значениями.
 ```java
 Presentation pres = new Presentation();
@@ -57,8 +57,8 @@ try {
 ```
 
 
-## **Скрыть информацию из диаграммы**
-Эта статья поможет вам понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Java можно скрыть **Заголовок, Вертикальную ось, Горизонтальную ось** и **Сетки** на диаграмме. Приведённый ниже пример кода показывает, как использовать эти свойства.
+## **Скрытие элементов диаграммы**
+Эта тема поможет вам понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Java вы можете скрыть **Заголовок, Вертикальную ось, Горизонтальную ось** и **Сетки** на диаграмме. Приведённый ниже пример кода показывает, как использовать эти свойства.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -92,7 +92,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
 
-    //Установка цвета линии серии
+    //Установка цвета линии ряда
     series.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     series.getFormat().getLine().setDashStyle(LineDashStyle.Solid);
@@ -106,14 +106,14 @@ try {
 
 ## **FAQ**
 
-**Работают ли внешние Excel‑книги как источник данных и как это влияет на перерасчёт?**
+**Работают ли внешние книги Excel в качестве источника данных и как это влияет на пересчёт?**
 
-Да. Диаграмма может использовать внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отражает изменения во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) и управлять связанными данными.
+Да. Диаграмма может ссылаться на внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отражает обновления во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) и управлять связанными данными.
 
 **Могу ли я вычислять и отображать линии тренда без реализации регрессии самостоятельно?**
 
-Да. [Линии тренда](/slides/ru/java/trend-line/) (линейные, экспоненциальные и др.) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются из данных серии, поэтому вам не нужно реализовывать собственные вычисления.
+Да. [Линии тренда](/slides/ru/java/trend-line/) (линейные, экспоненциальные и другие) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются из данных рядов, поэтому вам не нужно реализовывать собственные вычисления.
 
-**Если презентация содержит несколько диаграмм с внешними ссылками, могу ли я управлять тем, какую книгу использует каждая диаграмма для вычисленных значений?**
+**Если презентация содержит несколько диаграмм с внешними ссылками, могу ли я управлять тем, какую книгу каждая диаграмма использует для вычисленных значений?**
 
-Да. Каждая диаграмма может указывать свою собственную [внешнюю книгу](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-), либо вы можете создать/заменить внешнюю книгу для каждой диаграммы независимо от остальных.
+Да. Каждая диаграмма может указывать на свою собственную [внешнюю книгу](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-), или вы можете создать/заменить внешнюю книгу для каждой диаграммы независимо от остальных.

@@ -1,22 +1,22 @@
 ---
-title: Administrar callouts en gráficos de presentación con Java
-linktitle: Llamada
+title: Administrar llamadas emergentes en gráficos de presentación usando Java
+linktitle: Llamada emergente
 type: docs
 url: /es/java/callout/
 keywords:
-- callout de gráfico
-- usar callout
+- llamada emergente de gráfico
+- usar llamada emergente
 - etiqueta de datos
 - formato de etiqueta
 - PowerPoint
 - presentación
 - Java
 - Aspose.Slides
-description: "Cree y diseñe callouts en Aspose.Slides para Java con ejemplos de código concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentación."
+description: "Crea y diseña llamadas emergentes en Aspose.Slides para Java con ejemplos de código concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Uso de Callouts**
-Se han añadido los nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos.
+## **Uso de llamadas emergentes**
+Se han añadido los nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como llamada emergente de datos o como etiqueta de datos.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -33,8 +33,8 @@ try {
 ```
 
 
-## **Establecer Callout para gráfico de dona**
-Aspose.Slides for Java ofrece soporte para establecer la forma de la llamada de etiqueta de datos de serie para un gráfico de dona. A continuación se muestra un ejemplo.
+## **Establecer una llamada emergente para un gráfico de rosquilla**
+Aspose.Slides para Java brinda soporte para establecer la forma de la llamada emergente de la etiqueta de datos de la serie en un gráfico de rosquilla. A continuación se muestra un ejemplo de código.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -100,10 +100,10 @@ try {
 
 ## **Preguntas frecuentes**
 
-**¿Se conservan los callouts al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+**¿Se conservan las llamadas emergentes al convertir una presentación a PDF, HTML5, SVG o imágenes?**
 
-Sí. Los callouts forman parte del renderizado del gráfico, por lo que al exportar a [PDF](/slides/es/java/convert-powerpoint-to-pdf/), [HTML5](/slides/es/java/export-to-html5/), [SVG](/slides/es/java/render-a-slide-as-an-svg-image/) o [raster images](/slides/es/java/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+Sí. Las llamadas emergentes forman parte de la representación del gráfico, por lo que cuando exportas a [PDF](/slides/es/java/convert-powerpoint-to-pdf/), [HTML5](/slides/es/java/export-to-html5/), [SVG](/slides/es/java/render-a-slide-as-an-svg-image/) o [imágenes rasterizadas](/slides/es/java/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
 
-**¿Funcionan las fuentes personalizadas en los callouts y se puede conservar su apariencia al exportar?**
+**¿Los tipos de letra personalizados funcionan en las llamadas emergentes y su apariencia se conserva al exportar?**
 
-Sí. Aspose.Slides soporta [embedding fonts](/slides/es/java/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/java/convert-powerpoint-to-pdf/), asegurando que los callouts mantengan el mismo aspecto en diferentes sistemas.
+Sí. Aspose.Slides admite [incrustar fuentes](/slides/es/java/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/java/convert-powerpoint-to-pdf/), asegurando que las llamadas emergentes se vean iguales en diferentes sistemas.

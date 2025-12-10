@@ -10,23 +10,23 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 在图表中添加和自定义误差线——优化 PowerPoint 演示文稿中的数据可视化。"
+description: "了解如何使用 Aspose.Slides for Java 在图表中添加和自定义误差线—优化 PowerPoint 演示文稿中的数据可视化。"
 ---
 
 ## **添加误差线**
-Aspose.Slides for Java 提供了一个简洁的 API 用于管理误差线值。示例代码适用于使用自定义值类型的情况。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
+Aspose.Slides for Java 提供了用于管理误差线值的简单 API。当使用自定义值类型时，示例代码适用。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 在所需的幻灯片上添加气泡图表。
-1. 访问第一个图表系列并设置误差线 X 方向的格式。
-1. 访问第一个图表系列并设置误差线 Y 方向的格式。
-1. 设置误差线的数值和格式。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
+1. 在所需幻灯片上添加气泡图。
+1. 访问第一个图表系列并设置误差线 X 格式。
+1. 访问第一个图表系列并设置误差线 Y 格式。
+1. 设置栏的值和格式。
 1. 将修改后的演示文稿写入 PPTX 文件。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 创建气泡图表
+    // 创建气泡图
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
     // 添加误差线并设置其格式
@@ -52,20 +52,20 @@ try {
 
 
 ## **添加自定义误差线值**
-Aspose.Slides for Java 提供了一个简洁的 API 用于管理自定义误差线值。当 [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) 属性等于 **Custom** 时，示例代码适用。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
+Aspose.Slides for Java 提供了用于管理自定义误差线值的简单 API。当 [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) 属性等于 **Custom** 时，示例代码适用。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 在所需的幻灯片上添加气泡图表。
-1. 访问第一个图表系列并设置误差线 X 方向的格式。
-1. 访问第一个图表系列并设置误差线 Y 方向的格式。
-1. 访问图表系列的各个数据点，为单独的数据点设置误差线值。
-1. 设置误差线的数值和格式。
+1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
+1. 在所需幻灯片上添加气泡图。
+1. 访问第一个图表系列并设置误差线 X 格式。
+1. 访问第一个图表系列并设置误差线 Y 格式。
+1. 访问图表系列的各个数据点并为单个系列数据点设置误差线值。
+1. 设置栏的值和格式。
 1. 将修改后的演示文稿写入 PPTX 文件。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 创建气泡图表
+    // 创建气泡图
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
     // 添加自定义误差线并设置其格式
@@ -77,8 +77,8 @@ try {
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 
-    // 访问图表系列数据点并设置误差线数值用于
-    // 单个点
+    // 访问图表系列数据点并为
+    // 单个点设置误差线值
     IChartDataPointCollection points = series.getDataPoints();
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues((byte) DataSourceType.DoubleLiterals);
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues((byte) DataSourceType.DoubleLiterals);
@@ -105,12 +105,12 @@ try {
 
 **将演示文稿导出为 PDF 或图像时，误差线会怎样？**
 
-误差线会作为图表的一部分进行渲染，并在转换过程中与其他图表格式一起保留，前提是使用兼容的版本或渲染器。
+它们作为图表的一部分进行渲染，并在转换过程中与其余图表格式一起保留下来，前提是使用兼容的版本或渲染器。
 
-**误差线可以与标记和数据标签共同使用吗？**
+**误差线可以与标记和数据标签组合使用吗？**
 
-可以。误差线是独立的元素，能够与标记和数据标签共存；如果元素重叠，可能需要调整格式。
+可以。误差线是独立的元素，且与标记和数据标签兼容；如果元素重叠，可能需要调整格式。
 
-**在哪里可以找到 API 中用于处理误差线的属性和类的列表？**
+**在哪里可以找到用于在 API 中处理误差线的属性和类列表？**
 
-在 API 参考中：[ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) 类以及相关的 [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) 和 [ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/) 类。
+请参阅 API 参考：[ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) 类以及相关的 [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) 和 [ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/) 类。

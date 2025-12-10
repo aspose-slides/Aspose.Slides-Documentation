@@ -1,22 +1,22 @@
 ---
-title: Java を使用したプレゼンテーションのチャート軸のカスタマイズ
+title: Java を使用してプレゼンテーションのチャート軸をカスタマイズする
 linktitle: チャート軸
 type: docs
 url: /ja/java/chart-axis/
 keywords:
 - チャート軸
-- 垂直軸
-- 水平軸
+- 縦軸
+- 横軸
 - 軸のカスタマイズ
 - 軸の操作
 - 軸の管理
-- 軸のプロパティ
+- 軸プロパティ
 - 最大値
 - 最小値
 - 軸線
 - 日付形式
 - 軸タイトル
-- 軸位置
+- 軸の位置
 - PowerPoint
 - プレゼンテーション
 - Java
@@ -24,20 +24,20 @@ keywords:
 description: "レポートや可視化のために、PowerPoint プレゼンテーションのチャート軸をカスタマイズする方法を Aspose.Slides for Java を使用して学びましょう。"
 ---
 
-## **チャートの垂直軸の最大値取得**
-Aspose.Slides for Java では、垂直軸の最小値と最大値を取得できます。以下の手順を実行してください：
+## **チャートの縦軸の最大値を取得**
+Aspose.Slides for Java は、縦軸の最小値と最大値を取得できます。以下の手順を実行してください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. デフォルトデータのチャートを追加します。
-1. 軸の実際の最大値を取得します。
-1. 軸の実際の最小値を取得します。
-1. 軸の実際の主単位を取得します。
-1. 軸の実際の副単位を取得します。
-1. 軸の実際の主単位スケールを取得します。
-1. 軸の実際の副単位スケールを取得します。
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Access the first slide.
+3. Add a chart with default data.
+4. Get the actual maximum value on the axis.
+5. Get the actual minimum value on the axis.
+6. Get the actual major unit of the axis.
+7. Get the actual minor unit of the axis.
+8. Get the actual major unit scale of the axis.
+9. Get the actual minor unit scale of the axis.
 
-以下のサンプルコードは、上記手順の実装例で、Java で必要な値を取得する方法を示しています：
+このサンプルコード（上記手順の実装）は、Java で必要な値を取得する方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,16 +58,18 @@ try {
 ```
 
 
-## **軸間のデータの入れ替え**
-Aspose.Slides を使用すると、軸間のデータをすばやく入れ替えることができます。垂直軸（y 軸）のデータが水平軸（x 軸）に、逆も同様に移動します。
+## **軸間のデータを入れ替える**
+Aspose.Slides を使用すると、軸間のデータを簡単に入れ替えることができます。縦軸（y 軸）のデータが横軸（x 軸）に、逆も同様に移動します。
 
-以下の Java コードは、チャートの軸間でデータを入れ替える方法を示しています：
+この Java コードは、チャートの軸間でデータを入れ替える方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
 	//行と列を入れ替えます
+	chart.getChartData().switchRowColumn();
+
 	// プレゼンテーションを保存します
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -76,9 +78,9 @@ try {
 ```
 
 
-## **折れ線グラフの垂直軸を無効にする**
+## **折れ線グラフの縦軸を無効にする**
 
-以下の Java コードは、折れ線グラフの垂直軸を非表示にする方法を示しています：
+この Java コードは、折れ線グラフの縦軸を非表示にする方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -92,9 +94,9 @@ try {
 ```
 
 
-## **折れ線グラフの水平軸を無効にする**
+## **折れ線グラフの横軸を無効にする**
 
-以下のコードは、折れ線グラフの水平軸を非表示にする方法を示しています：
+このコードは、折れ線グラフの横軸を非表示にする方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -108,9 +110,9 @@ try {
 ```
 
 
-## **カテゴリ軸の変更**
+## **カテゴリ軸を変更する**
 
-**CategoryAxisType** プロパティを使用して、希望のカテゴリ軸タイプ（**date** または **text**）を指定できます。この Java コードはその操作を示しています： 
+**CategoryAxisType** プロパティを使用すると、希望するカテゴリ軸タイプ（**date** または **text**）を指定できます。以下の Java コードはこの操作を示しています： 
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -126,8 +128,8 @@ try {
 ```
 
 
-## **カテゴリ軸値の日付形式設定**
-Aspose.Slides for Java では、カテゴリ軸の値の日付形式を設定できます。この操作は以下の Java コードで示されています：
+## **カテゴリ軸値の日時形式を設定する**
+Aspose.Slides for Java は、カテゴリ軸の値に対して日時形式を設定できます。この操作は以下の Java コードで示されています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -171,8 +173,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 ```
 
 
-## **チャート軸タイトルの回転角度設定**
-Aspose.Slides for Java では、チャート軸タイトルの回転角度を設定できます。この Java コードはその操作を示しています：
+## **チャート軸タイトルの回転角度を設定する**
+Aspose.Slides for Java は、チャート軸タイトルの回転角度を設定できます。この Java コードはその操作を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -185,11 +187,12 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+
 ```
 
 
-## **カテゴリ軸または値軸の位置設定**
-Aspose.Slides for Java では、カテゴリ軸または値軸の位置を設定できます。この Java コードはその手順を示しています：
+## **カテゴリ軸または値軸の位置を設定する**
+Aspose.Slides for Java は、カテゴリ軸または値軸の位置を設定できます。この Java コードはその手順を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,8 +207,8 @@ try {
 ```
 
 
-## **チャート値軸に表示単位ラベルを有効にする**
-Aspose.Slides for Java では、チャートの値軸に単位ラベルを表示するよう構成できます。この Java コードはその操作を示しています：
+## **チャートの値軸にディスプレイ単位ラベルを有効にする**
+Aspose.Slides for Java は、チャートの値軸に単位ラベルを表示するよう設定できます。この Java コードはその操作を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -222,10 +225,10 @@ try {
 
 ## **FAQ**
 
-**軸が他の軸と交差する位置（交差点）の値を設定するにはどうすればよいですか？**
+**軸が他の軸と交差する値（軸の交差点）を設定するにはどうすればよいですか？**
 
-軸には[crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-)があり、0、最大カテゴリ/値、または特定の数値で交差させることができます。これは X 軸を上下にシフトしたり、基準線を強調したりする際に便利です。
+軸には [crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) が用意されており、0、最大カテゴリ/値、または特定の数値で交差させるかを選択できます。これにより、X 軸を上下にシフトしたり、基準線を強調したりするのに便利です。
 
-**軸に対して目盛ラベルの位置（軸側、外側、内側）を設定するにはどうすればよいですか？**
+**軸ラベル（目盛ラベル）を軸に対してどの位置に配置できますか（横、外側、内側）？**
 
-[label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) を "cross"、"outside"、または "inside" に設定します。これにより可読性が向上し、特に小さなチャートでスペースを節約できます。
+[label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) を「cross」「outside」「inside」のいずれかに設定します。これにより可読性が向上し、特に小さなチャートではスペースを節約できます。

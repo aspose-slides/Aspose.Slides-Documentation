@@ -1,5 +1,5 @@
 ---
-title: Administrar etiquetas de datos de gráfico en presentaciones usando Java
+title: Administrar etiquetas de datos de gráficos en presentaciones usando Java
 linktitle: Etiqueta de datos
 type: docs
 url: /es/java/chart-data-label/
@@ -14,12 +14,12 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Aprenda a agregar y dar formato a las etiquetas de datos de gráfico en presentaciones de PowerPoint usando Aspose.Slides para Java para diapositivas más atractivas."
+description: "Aprenda a agregar y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para Java, para diapositivas más atractivas."
 ---
 
-Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.
+Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
 
-## **Establecer precisión de los datos en las etiquetas de datos del gráfico**
+## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
 
 Este código Java le muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
 ```java
@@ -95,7 +95,7 @@ Este código Java le muestra cómo establecer el signo de porcentaje para una et
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Obtiene la referencia de una diapositiva mediante su índice
+    // Obtiene la referencia de una diapositiva a través de su índice
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Crea el gráfico PercentsStackedColumn en una diapositiva
@@ -108,7 +108,7 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Obtiene la hoja de cálculo de datos del gráfico
+    // Obtiene la hoja de datos del gráfico
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
     // Añade una nueva serie
@@ -156,8 +156,8 @@ try {
 ```
 
 
-## **Establecer distancias de etiqueta** desde el eje
-Este código Java le muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trabaja con un gráfico trazado a partir de ejes:
+## **Establecer la distancia de la etiqueta desde un eje**
+Este código Java le muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando trabaja con un gráfico trazado a partir de ejes:
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -171,7 +171,7 @@ try {
     // Establece la distancia de la etiqueta desde un eje
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
-    // Guarda la presentación en disco
+    // Escribe la presentación en disco
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -181,7 +181,7 @@ try {
 
 ## **Ajustar la ubicación de la etiqueta**
 
-Al crear un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En ese caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En ese caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
 
 Este código Java le muestra cómo ajustar la ubicación de la etiqueta en un gráfico circular:
 ```java
@@ -210,12 +210,12 @@ try {
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas guía y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para puntos extremos o clave.
+Combine la colocación automática de etiquetas, las líneas guía y un tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para puntos extremos o clave.
 
 **¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
 
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores faltantes según una regla definida.
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores iguales a 0, valores negativos o valores faltantes según una regla definida.
 
-**¿Cómo puedo garantizar un estilo de etiqueta consistente al exportar a PDF/imagenes?**
+**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
 
 Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.

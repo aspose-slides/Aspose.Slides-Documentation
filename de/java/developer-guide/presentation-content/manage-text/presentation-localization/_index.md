@@ -13,18 +13,17 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Automatisieren Sie die Lokalisierung von PowerPoint- und OpenDocument-Folien in Java mit Aspose.Slides, und nutzen Sie praktische Code-Beispiele sowie Tipps für eine schnellere globale Einführung."
+description: "Automatisieren Sie die Lokalisierung von PowerPoint- und OpenDocument-Folien in Java mit Aspose.Slides, mithilfe praktischer Code-Beispiele und Tipps für eine schnellere globale Einführung."
 ---
 
-## **Sprache für Präsentation und Formtext ändern**
-- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+## **Sprache für eine Präsentation und Shape‑Text ändern**
+- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
 - Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
 - Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) vom Typ [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) hinzu.
 - Fügen Sie dem TextFrame etwas Text hinzu.
-- [Language-ID festlegen](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) für den Text.
-- Speichern Sie die Präsentation als PPTX‑Datei.
+- [Sprache ID festlegen](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) für den Text.
+- Schreiben Sie die Präsentation als PPTX‑Datei.
 
-Die Implementierung der obigen Schritte wird im folgenden Beispiel gezeigt.
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -42,14 +41,14 @@ try {
 
 ## **FAQ**
 
-**Löst die Language ID die automatische Textübersetzung aus?**
+**Löst die Sprach‑ID eine automatische Textübersetzung aus?**
 
-Nein. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) in Aspose.Slides speichert die Sprache für Rechtschreib‑ und Grammatikprüfung, übersetzt jedoch den Text nicht und ändert ihn nicht. Es handelt sich um Metadaten, die PowerPoint für die Korrektur versteht.
+Nein. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) in Aspose.Slides speichert die Sprache für die Rechtschreib‑ und Grammatikprüfung, übersetzt den Text jedoch nicht und ändert ihn nicht. Es handelt sich um Metadaten, die PowerPoint für die Korrektur versteht.
 
-**Beeinflusst die Language ID die Silbentrennung und Zeilenumbrüche beim Rendern?**
+**Beeinflusst die Sprach‑ID die Silbentrennung und Zeilenumbrüche beim Rendern?**
 
-In Aspose.Slides dient die [language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) der Rechtschreibprüfung. Die Qualität der Silbentrennung und der Zeilenumbruch hängen hauptsächlich von der Verfügbarkeit von [richtigen Schriften](/slides/de/java/powerpoint-fonts/) sowie von Layout‑/Zeilenumbruch‑Einstellungen des Schriftsystems ab. Stellen Sie sicher, dass die erforderlichen Schriften verfügbar sind, konfigurieren Sie [Schriftart‑Ersetzungsregeln](/slides/de/java/font-substitution/) und/oder betten Sie [Schriften ein](/slides/de/java/embedded-font/) in die Präsentation ein.
+In Aspose.Slides dient die [language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) der Korrektur. Die Qualität der Silbentrennung und der Zeilenumbruch hängen hauptsächlich von der Verfügbarkeit [proper fonts](/slides/de/java/powerpoint-fonts/) sowie von Layout‑ und Zeilenumbruch‑Einstellungen für das jeweilige Schriftsystem ab. Stellen Sie sicher, dass die erforderlichen Schriftarten verfügbar sind, konfigurieren Sie [font substitution rules](/slides/de/java/font-substitution/), und/oder betten Sie [embed fonts](/slides/de/java/embedded-font/) in die Präsentation ein, um ein korrektes Rendering zu gewährleisten.
 
-**Kann ich verschiedene Sprachen innerhalb eines einzelnen Absatzes festlegen?**
+**Kann ich in einem einzigen Absatz verschiedene Sprachen festlegen?**
 
-Ja. Die [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) wird auf Textebenen‑Portionen angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Korrektureinstellungen mischen kann.
+Ja. [Language ID](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) wird auf Portionsebene angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Korrektureinstellungen mischen kann.

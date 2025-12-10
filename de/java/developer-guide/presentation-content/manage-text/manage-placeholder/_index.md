@@ -1,5 +1,5 @@
 ---
-title: Präsentationsplatzhalter in Java verwalten
+title: Verwalten von Präsentationsplatzhaltern in Java
 linktitle: Platzhalter verwalten
 type: docs
 weight: 10
@@ -9,29 +9,28 @@ keywords:
 - Textplatzhalter
 - Bildplatzhalter
 - Diagrammplatzhalter
-- Aufforderungstext
+- Hinweistext
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Platzhalter in Aspose.Slides für Java mühelos verwalten: Text ersetzen, Aufforderungen anpassen und Bildtransparenz in PowerPoint und OpenDocument festlegen."
+description: "Verwalten Sie Platzhalter in Aspose.Slides für Java mühelos: Text ersetzen, Hinweistexte anpassen und Bildtransparenz in PowerPoint und OpenDocument einstellen."
 ---
 
-## **Text in Platzhalter ändern**
-Mit [Aspose.Slides for Java](/slides/de/java/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+## **Text in einem Platzhalter ändern**
+Mit [Aspose.Slides for Java](/slides/de/java/), können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
 
-**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Eine solche Präsentation können Sie mit der Standard-Microsoft-PowerPoint-Anwendung erstellen.
+**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Eine solche Präsentation können Sie in der standardmäßigen Microsoft PowerPoint‑App erstellen.
 
-So verwenden Sie Aspose.Slides, um den Text im Platzhalter dieser Präsentation zu ersetzen:
+So verwenden Sie Aspose.Slides, um den Text in dem Platzhalter dieser Präsentation zu ersetzen:
 
 1. Instanziieren Sie die [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse und übergeben Sie die Präsentation als Argument.
-2. Holen Sie eine Folienreferenz über deren Index.
-3. Iterieren Sie durch die Formen, um den Platzhalter zu finden.
-4. Casten Sie die Platzhalterform zu einem [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) und ändern Sie den Text mithilfe des [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), das mit dem [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) verknüpft ist.
+2. Holen Sie sich über den Index einen Folien‑Verweis.
+3. Iterieren Sie über die Shapes, um den Platzhalter zu finden.
+4. Typisieren Sie das Platzhalter‑Shape zu einer [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) und ändern Sie den Text über das [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), das mit der [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) verknüpft ist.
 5. Speichern Sie die geänderte Präsentation.
 
-Dieser Java‑Code zeigt, wie Sie den Text in einem Platzhalter ändern:
 ```java
 // Instanziert eine Presentation-Klasse
 Presentation pres = new Presentation("ReplacingText.pptx");
@@ -40,7 +39,7 @@ try {
     // Greift auf die erste Folie zu
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Durchläuft die Formen, um den Platzhalter zu finden
+    // Iteriert durch Shapes, um den Platzhalter zu finden
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
@@ -57,20 +56,20 @@ try {
 ```
 
 
-## **Aufforderungstext in Platzhalter festlegen**
-Standard‑ und vorgefertigte Layouts enthalten Platzhalter‑Aufforderungstexte wie ***Click to add a title*** oder ***Click to add a subtitle***. Mit Aspose.Slides können Sie Ihre bevorzugten Aufforderungstexte in Platzhalter‑Layouts einfügen.
+## **Vorgabetext in einem Platzhalter festlegen**
+Standard‑ und vorgefertigte Layouts enthalten Platzhalter‑Vorgabetexte wie ***Click to add a title*** oder ***Click to add a subtitle***. Mit Aspose.Slides können Sie Ihre bevorzugten Vorgabetexte in Platzhalter‑Layouts einfügen.
 
-Dieser Java‑Code zeigt, wie Sie den Aufforderungstext in einem Platzhalter festlegen:
+Dieser Java‑Code zeigt, wie Sie den Vorgabetext in einem Platzhalter festlegen:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Durchläuft die Folie
+    for (IShape shape : slide.getSlide().getShapes()) // Iteriert durch die Folie
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint zeigt "Klicken, um Titel hinzuzufügen" 
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint zeigt "Click to add title" an
             {
                 text = "Add Title";
             }
@@ -91,10 +90,11 @@ try {
 ```
 
 
-## **Transparenz von Platzhalter‑Bild festlegen**
-Aspose.Slides ermöglicht es Ihnen, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter festzulegen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben von Text und Bild).
+## **Transparenz für Platzhalter‑Bild festlegen**
 
-Dieser Java‑Code zeigt, wie Sie die Transparenz für einen Bild‑Hintergrund (innerhalb einer Form) festlegen:
+Aspose.Slides ermöglicht es, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter einzustellen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben des Textes und des Bildes).
+
+Dieser Java‑Code zeigt, wie Sie die Transparenz für einen Bild‑Hintergrund (innerhalb einer Shape) festlegen:
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -120,14 +120,14 @@ presentation.save("example_out.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einer lokalen Form auf einer Folie?**
+**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einer lokalen Shape auf einer Folie?**
 
-Ein Basis‑Platzhalter ist die ursprüngliche Form in einem Layout oder einer Master‑Folien, von der die Form einer Folie erbt – Typ, Position und einige Formatierungen stammen daraus. Eine lokale Form ist unabhängig; gibt es keinen Basis‑Platzhalter, gilt die Vererbung nicht.
+Ein Basis‑Platzhalter ist das originale Shape auf einem Layout oder Master, von dem das Folien‑Shape erbt – Typ, Position und einige Formatierungen stammen daraus. Eine lokale Shape ist unabhängig; gibt es keinen Basis‑Platzhalter, findet keine Vererbung statt.
 
-**Wie kann ich alle Titel oder Beschriftungen in einer Präsentation aktualisieren, ohne jede Folie zu iterieren?**
+**Wie kann ich alle Titel oder Beschriftungen einer Präsentation aktualisieren, ohne jede Folie zu durchlaufen?**
 
-Bearbeiten Sie den entsprechenden Platzhalter im Layout oder auf dem Master. Folien, die auf diesen Layouts/ diesem Master basieren, übernehmen die Änderung automatisch.
+Bearbeiten Sie den entsprechenden Platzhalter im Layout oder im Master. Folien, die auf diesen Layouts/diesem Master basieren, erben die Änderung automatisch.
 
-**Wie steuere ich die Standard‑Header/Footer‑Platzhalter – Datum & Uhrzeit, Foliennummer und Footer‑Text?**
+**Wie steuere ich die Standard‑Header/Footer‑Platzhalter – Datum & Uhrzeit, Foliennummer und Fußzeilentext?**
 
-Verwenden Sie die HeaderFooter‑Manager im jeweiligen Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handzettel), um diese Platzhalter ein- oder auszuschalten und deren Inhalt festzulegen.
+Verwenden Sie die HeaderFooter‑Manager im entsprechenden Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handouts), um diese Platzhalter ein‑ oder auszuschalten und deren Inhalt zu setzen.

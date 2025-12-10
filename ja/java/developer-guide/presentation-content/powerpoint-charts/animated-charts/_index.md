@@ -7,10 +7,10 @@ url: /ja/java/animated-charts/
 keywords:
 - チャート
 - アニメーション化されたチャート
-- チャートアニメーション
-- チャート系列
+- チャート アニメーション
+- チャートシリーズ
 - チャートカテゴリ
-- 系列要素
+- シリーズ要素
 - カテゴリ要素
 - エフェクトを追加
 - エフェクトタイプ
@@ -18,34 +18,34 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Java で魅力的なアニメーションチャートを作成します。PPT および PPTX ファイルで動的なビジュアルでプレゼンテーションを強化し、今すぐ開始しましょう。"
+description: "Aspose.Slides を使用して Java で驚くほど魅力的なアニメーションチャートを作成しましょう。PPT と PPTX ファイルで動的なビジュアルを加えてプレゼンテーションを強化します——今すぐ始めましょう。"
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java はチャート要素のアニメーションをサポートしています。 **Series**、**Categories**、**Series Elements**、**Categories Elements** は [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) メソッドと、2 つの列挙型 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) と [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType) を使用してアニメーション化できます。
+Aspose.Slides for Java はチャート要素のアニメーションをサポートしています。**Series**、**Categories**、**Series Elements**、**Categories Elements** は [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) メソッドと、2つの列挙体 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) と [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType) を使用してアニメーション化できます。
 
 {{% /alert %}} 
 
-## **チャート系列アニメーション**
-チャート系列をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **チャートシリーズのアニメーション**
+チャートシリーズをアニメーションさせたい場合は、以下の手順に従ってコードを記述します。
 
-1. プレゼンテーションを読み込みます。
-1. チャートオブジェクトの参照を取得します。
-1. 系列をアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き込みます。
+1. プレゼンテーションをロードします。
+1. チャート オブジェクトへの参照を取得します。
+1. シリーズをアニメーションさせます。
+1. プレゼンテーション ファイルをディスクに書き出します。
 
-以下の例では、チャート系列をアニメーション化しています。
+以下の例では、チャートシリーズをアニメーションさせました。
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを生成
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // チャート オブジェクトの参照を取得
+    // チャートオブジェクトへの参照を取得
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // 系列をアニメーション化
+    // シリーズをアニメーション化
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
 
@@ -65,7 +65,7 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // 変更されたプレゼンテーションをディスクに保存
+    // 変更したプレゼンテーションをディスクに保存
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -73,22 +73,22 @@ try {
 ```
 
 
-## **チャートカテゴリアニメーション**
-チャートカテゴリをアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **チャートカテゴリのアニメーション**
+チャートカテゴリをアニメーションさせたい場合は、以下の手順に従ってコードを記述します。
 
-1. プレゼンテーションを読み込みます。
-1. チャートオブジェクトの参照を取得します。
-1. カテゴリをアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き込みます。
+1. プレゼンテーションをロードします。
+1. チャート オブジェクトへの参照を取得します。
+1. カテゴリをアニメーションさせます。
+1. プレゼンテーション ファイルをディスクに書き出します。
 
-以下の例では、チャートカテゴリをアニメーション化しています。
+以下の例では、チャートカテゴリをアニメーションさせました。
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0");
+    IChart chart = (IChart) shapes.get_Item(0);
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -116,20 +116,20 @@ try {
 ```
 
 
-## **系列要素のアニメーション**
-系列要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **シリーズ要素のアニメーション**
+シリーズ要素をアニメーションさせたい場合は、以下の手順に従ってコードを記述します。
 
-1. プレゼンテーションを読み込みます。
-1. チャートオブジェクトの参照を取得します。
-1. 系列要素をアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き込みます。
+1. プレゼンテーションをロードします。
+1. チャート オブジェクトへの参照を取得します。
+1. シリーズ要素をアニメーションさせます。
+1. プレゼンテーション ファイルをディスクに書き出します。
 
-以下の例では、系列の要素をアニメーション化しています。
+以下の例では、シリーズ要素をアニメーションさせました。
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // チャート オブジェクトの参照を取得
+    // チャートオブジェクトへの参照を取得
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -164,7 +164,7 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // プレゼンテーション ファイルをディスクに保存
+    // プレゼンテーションファイルを書き出し 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -173,19 +173,19 @@ try {
 
 
 ## **カテゴリ要素のアニメーション**
-カテゴリ要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+カテゴリ要素をアニメーションさせたい場合は、以下の手順に従ってコードを記述します。
 
-1. プレゼンテーションを読み込みます。
-1. チャートオブジェクトの参照を取得します。
-1. カテゴリ要素をアニメーション化します。
-1. プレゼンテーションファイルをディスクに書き込みます。
+1. プレゼンテーションをロードします。
+1. チャート オブジェクトへの参照を取得します。
+1. カテゴリ要素をアニメーションさせます。
+1. プレゼンテーション ファイルをディスクに書き出します。
 
-以下の例では、カテゴリ要素をアニメーション化しています。
+以下の例では、カテゴリ要素をアニメーションさせました。
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを生成
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // チャート オブジェクトの参照を取得
+    // チャートオブジェクトへの参照を取得
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -219,7 +219,7 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // プレゼンテーション ファイルをディスクに保存
+    // プレゼンテーション ファイルを書き出し
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -229,22 +229,22 @@ try {
 
 ## **FAQ**
 
-**異なる効果タイプ（例：開始、強調、終了）は、通常の図形と同様にチャートでもサポートされていますか？**
+**異なる効果タイプ（例: 入場、強調、退出）は、通常の図形と同様にチャートでもサポートされていますか？**
 
-はい。チャートは図形として扱われるため、開始、強調、終了を含む標準のアニメーション効果タイプをサポートしており、スライドのタイムラインやアニメーションシーケンスを通じてフルコントロールが可能です。
+はい。チャートは図形として扱われるため、入場、強調、退出を含む標準のアニメーション効果タイプがすべてサポートされており、スライドのタイムラインおよびアニメーション シーケンスで完全に制御できます。
 
-**チャートのアニメーションとスライド遷移を組み合わせることはできますか？**
+**チャート アニメーションとスライド遷移を組み合わせることはできますか？**
 
-はい。[Transitions](/slides/ja/java/slide-transition/) はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同一のプレゼンテーションで併用し、個別に制御できます。
+はい。[Transitions](/slides/ja/java/slide-transition/) はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同一プレゼンテーションで併用し、個別に制御できます。
 
-**PPTX に保存したときにチャートアニメーションは保持されますか？**
+**PPTX に保存したときにチャート アニメーションは保持されますか？**
 
-はい。[save to PPTX](/slides/ja/java/save-presentation/) を使用して保存すると、すべてのアニメーション効果とその順序がプレゼンテーションのネイティブなアニメーションモデルの一部として保持されます。
+はい。[save to PPTX](/slides/ja/java/save-presentation/) を実行すると、すべてのアニメーション効果とその順序がプレゼンテーションのネイティブ アニメーション モデルの一部として保持されます。
 
-**既存のプレゼンテーションからチャートアニメーションを読み取り、修正できますか？**
+**既存のプレゼンテーションからチャート アニメーションを読み取って変更できますか？**
 
-はい。API はスライドのタイムライン、シーケンス、エフェクトへのアクセスを提供し、既存のチャートアニメーションを検査し、最初から作り直すことなく調整できます。
+はい。API はスライド タイムライン、シーケンス、エフェクトへのアクセスを提供し、既存のチャート アニメーションを検査して、最初からやり直すことなく調整できます。
 
-**Aspose.Slides を使用してチャートアニメーションを含むビデオを作成できますか？**
+**Aspose.Slides を使用してチャート アニメーションを含むビデオを作成できますか？**
 
-はい。[export a presentation to video](/slides/ja/java/convert-powerpoint-to-video/) でアニメーションを保持したままビデオにエクスポートでき、タイミングやその他のエクスポート設定を構成して、アニメーション再生を反映したクリップを生成できます。
+はい。[export a presentation to video](/slides/ja/java/convert-powerpoint-to-video/) でプレゼンテーションをビデオにエクスポートすると、アニメーションが保持され、タイミングやその他のエクスポート設定を構成して、アニメーション再生を反映したクリップを生成できます。

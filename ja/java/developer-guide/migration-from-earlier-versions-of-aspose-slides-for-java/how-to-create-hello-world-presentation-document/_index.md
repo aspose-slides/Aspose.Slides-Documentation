@@ -1,18 +1,30 @@
 ---
-title: Hello World プレゼンテーション文書の作成方法
+title: JavaでHello Worldプレゼンテーションを作成する方法
+linktitle: Hello World プレゼンテーション
 type: docs
 weight: 10
 url: /ja/java/how-to-create-hello-world-presentation-document/
+keywords:
+- 移行
+- ハローワールド
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+- description: "Aspose.Slides を使用して、レガシー API とモダン API の両方を活用した、Java で Hello World の PowerPoint PPT、PPTX および ODP プレゼンテーションを作成するシンプルなガイドです。"
 ---
 
 {{% alert color="primary" %}} 
-
-新しい[Aspose.Slides for Java API](/slides/ja/java/)がリリースされ、今やこの単一の製品は、ゼロからPowerPoint文書を生成したり、既存の文書を編集する機能をサポートしています。
-
+新しい[Aspose.Slides for Java API](/slides/ja/java/)がリリースされ、この単一製品は最初からPowerPoint文書を生成し、既存の文書を編集する機能をサポートしています。
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-Aspose.Slides for Javaの13.xより前のバージョンで開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要があります。その後、コードは以前のように機能します。古いAspose.Slides for JavaのAspose.SlideおよびAspose.Slides.Pptx名前空間にあったすべてのクラスは、今は単一のAspose.Slides名前空間に統合されています。レガシーAspose.Slides APIでHello World プレゼンテーション文書を作成するための以下の簡単なコードスニペットを確認し、新しい統合APIへの移行手順を参照してください。
-## **レガシーAspose.Slides for Javaアプローチ**
+Aspose.Slides for Java 13.x以前のバージョンで作成されたレガシーコードを使用するには、コードにいくつか小さな変更を加える必要がありますが、これによりコードは従来どおりに動作します。旧Aspose.Slides for Javaの Aspose.Slide および Aspose.Slides.Pptx 名前空間に存在したすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。レガシー Aspose.Slides API で Hello World プレゼンテーション ドキュメントを作成する以下の簡単なコードスニペットをご覧いただき、新しい統合 API への移行手順をご確認ください。
+## **レガシー Aspose.Slides for Java のアプローチ**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-HelloWorldPresentation-HelloWorldPresentation.java" >}}
-## **新しいAspose.Slides for Java 14.x.xアプローチ**
+## **新しい Aspose.Slides for Java 14.x.x のアプローチ**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-CreateAPresentation-CreateAPresentation.java" >}}

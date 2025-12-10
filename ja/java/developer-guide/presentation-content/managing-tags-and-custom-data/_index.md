@@ -1,37 +1,37 @@
 ---
-title: "Java を使用したプレゼンテーションでのタグとカスタムデータの管理"
-linktitle: "タグとカスタムデータ"
+title: Java を使用したプレゼンテーションでのタグとカスタム データの管理
+linktitle: タグとカスタム データ
 type: docs
 weight: 300
 url: /ja/java/managing-tags-and-custom-data/
 keywords:
-- "ドキュメント プロパティ"
-- "タグ"
-- "カスタム データ"
-- "タグの追加"
-- "ペア 値"
-- "PowerPoint"
-- "プレゼンテーション"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Java でタグとカスタムデータの追加、読み取り、更新、削除を学び、PowerPoint と OpenDocument プレゼンテーションの例をご紹介します。"
+- ドキュメント プロパティ
+- タグ
+- カスタム データ
+- タグの追加
+- ペア値
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java におけるタグとカスタム データの追加、読み取り、更新、削除方法を学び、PowerPoint と OpenDocument のプレゼンテーション例を紹介します。"
 ---
 
-## プレゼンテーション ファイルのデータストレージ
+## **プレゼンテーション ファイルのデータ保存**
 
-PPTX ファイル（拡張子が .pptx のアイテム）は、Office Open XML 仕様の一部である PresentationML フォーマットで保存されます。Office Open XML フォーマットは、プレゼンテーションに含まれるデータの構造を定義します。
+PPTX ファイル（拡張子 .pptx のアイテム）は、Office Open XML 仕様の一部である PresentationML 形式で保存されます。Office Open XML 形式は、プレゼンテーションに含まれるデータの構造を定義します。
 
-*slide* はプレゼンテーションの要素の一つであり、*slide part* は単一スライドの内容を含みます。スライドパートは、ISO/IEC 29500 で定義されたユーザー定義タグなど、多くのパートへの明示的なリレーションシップを持つことができます。
+プレゼンテーションの要素のひとつである*スライド*は、*スライド パート*として単一のスライドの内容を保持します。スライド パートは、ISO/IEC 29500 によって定義されたユーザー定義タグなど、複数のパートへの明示的な関係を持つことが許可されています。
 
-カスタムデータ（プレゼンテーション固有）またはユーザーは、タグ（[ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)）や CustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)）として存在できます。
+カスタム データ（プレゼンテーション固有）やユーザーは、タグ（[ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)）および CustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)）として存在できます。
 
 {{% alert color="primary" %}} 
 タグは本質的に文字列キーと値のペアです。 
 {{% /alert %}} 
 
-## タグの値の取得
+## **タグの値を取得する**
 
-スライドでは、タグは [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) と [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) メソッドに対応します。このサンプルコードは、Aspose.Slides for Java の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) でタグの値を取得する方法を示しています。
+スライド内のタグは、[IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) および [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) メソッドに対応します。このサンプルコードは、Aspose.Slides for Java の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) でタグの値を取得する方法を示します:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try{
@@ -42,16 +42,16 @@ try{
 ```
 
 
-## プレゼンテーションへのタグの追加
+## **プレゼンテーションにタグを追加する**
 
-Aspose.Slides を使用すると、プレゼンテーションにタグを追加できます。タグは通常、以下の 2 つの項目で構成されます：
+Aspose.Slides を使用すると、プレゼンテーションにタグを追加できます。タグは通常、次の 2 つの項目で構成されます。
 
-- カスタムプロパティの名前 - `MyTag`
-- カスタムプロパティの値 - `My Tag Value`
+- カスタム プロパティの名前 – `MyTag` 
+- カスタム プロパティの値 – `My Tag Value`
 
-特定のルールやプロパティに基づいてプレゼンテーションを分類する必要がある場合、タグを追加すると便利です。たとえば、北米諸国のプレゼンテーションをまとめて分類したい場合、North American タグを作成し、関連する国（米国、メキシコ、カナダ）を値として割り当てることができます。
+特定のルールやプロパティに基づいてプレゼンテーションを分類する必要がある場合、タグを追加すると便利です。たとえば、北米諸国のプレゼンテーションをまとめて分類したい場合、North American というタグを作成し、該当する国（米国、メキシコ、カナダ）を値として割り当てることができます。
 
-このサンプルコードは、Aspose.Slides for Java を使用して [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) にタグを追加する方法を示しています。
+このサンプルコードは、Aspose.Slides for Java を使用して [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) にタグを追加する方法を示します:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -63,7 +63,7 @@ try {
 ```
 
 
-タグは [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) に対しても設定できます：
+タグは [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) に対しても設定できます:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -75,7 +75,7 @@ try {
 ```
 
 
-または個々の [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) に対しても設定できます：
+または個々の [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) に対しても設定できます:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,12 +93,12 @@ try {
 
 **プレゼンテーション、スライド、またはシェイプからすべてのタグを一括で削除できますか？**
 
-はい。[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) は、すべてのキーと値のペアを一度に削除する [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) 操作をサポートしています。
+はい。[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) は、すべてのキー–バリュー ペアを一度に削除する [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) 操作をサポートしています。
 
-**コレクション全体を反復せずに、名前で単一のタグを削除するにはどうすればよいですか？**
+**コレクション全体を走査せずに、名前で単一のタグを削除するにはどうすればよいですか？**
 
-[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) に対して [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) 操作を使用し、キー（名前）でタグを削除します。
+[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) の [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) 操作を使用して、キーでタグを削除できます。
 
-**分析やフィルタリングのためにタグ名の完全なリストを取得するにはどうすればよいですか？**
+**分析やフィルタリングのために、タグ名の完全なリストを取得するにはどうすればよいですか？**
 
-[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) の上で [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--) を使用します。すべてのタグ名の配列が返されます。
+[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) の [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--) を使用すると、すべてのタグ名を含む配列が返されます。

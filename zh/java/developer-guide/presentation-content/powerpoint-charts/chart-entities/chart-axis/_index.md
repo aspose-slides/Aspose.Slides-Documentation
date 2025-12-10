@@ -25,19 +25,19 @@ description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 演示文
 ---
 
 ## **获取图表垂直轴的最大值**
-Aspose.Slides for Java 允许您获取垂直轴的最小值和最大值。请按照以下步骤操作：
+Aspose.Slides for Java 允许您获取垂直轴的最小值和最大值。按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 添加一个带有默认数据的图表。
-4. 获取轴上的实际最大值。
-5. 获取轴上的实际最小值。
-6. 获取轴的实际主单位。
-7. 获取轴的实际次单位。
-8. 获取轴的实际主单位比例。
-9. 获取轴的实际次单位比例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
+1. 访问第一张幻灯片。
+1. 添加一个带有默认数据的图表。
+1. 获取轴上的实际最大值。
+1. 获取轴上的实际最小值。
+1. 获取轴上的实际主单位。
+1. 获取轴上的实际次单位。
+1. 获取轴上的实际主单位比例。
+1. 获取轴上的实际次单位比例。
 
-以下示例代码——上述步骤的实现——演示了如何在 Java 中获取所需的值：
+下面的示例代码实现了上述步骤，演示了如何在 Java 中获取所需的值：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -59,17 +59,15 @@ try {
 
 
 ## **交换轴之间的数据**
-Aspose.Slides 允许您快速交换轴之间的数据——垂直轴（y 轴）上的数据将移动到水平轴（x 轴），反之亦然。
+Aspose.Slides 允许您快速交换轴之间的数据——垂直轴（y 轴）上的数据会移动到水平轴（x 轴），反之亦然。
 
-以下 Java 代码展示了如何在图表上执行轴之间的数据交换任务：
+下面的 Java 代码演示了如何在图表上执行轴之间的数据交换任务：
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// 切换行和列
-	chart.getChartData().switchRowColumn();
-
+	//切换行和列
 	// 保存演示文稿
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -78,8 +76,9 @@ try {
 ```
 
 
-## **在折线图中禁用垂直轴**
-以下 Java 代码展示了如何在折线图中隐藏垂直轴：
+## **禁用折线图的垂直轴**
+
+下面的 Java 代码演示了如何隐藏折线图的垂直轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,8 +92,9 @@ try {
 ```
 
 
-## **在折线图中禁用水平轴**
-以下代码展示了如何在折线图中隐藏水平轴：
+## **禁用折线图的水平轴**
+
+下面的代码演示了如何隐藏折线图的水平轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -108,8 +108,9 @@ try {
 ```
 
 
-## **更改类别轴**
-使用 **CategoryAxisType** 属性，您可以指定首选的类别轴类型（**date** 或 **text**）。以下 Java 代码演示了该操作：
+## **更改类目轴**
+
+使用 **CategoryAxisType** 属性，您可以指定首选的类目轴类型（**date** 或 **text**）。下面的 Java 代码演示了该操作：
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -125,8 +126,8 @@ try {
 ```
 
 
-## **为类别轴值设置日期格式**
-Aspose.Slides for Java 允许您为类别轴值设置日期格式。以下 Java 代码演示了该操作：
+## **为类目轴值设置日期格式**
+Aspose.Slides for Java 允许您为类目轴值设置日期格式。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -170,8 +171,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 ```
 
 
-## **设置图表轴标题的旋转角度**
-Aspose.Slides for Java 允许您设置图表轴标题的旋转角度。以下 Java 代码演示了该操作：
+## **为图表轴标题设置旋转角度**
+Aspose.Slides for Java 允许您为图表轴标题设置旋转角度。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -187,8 +188,8 @@ try {
 ```
 
 
-## **在类别轴或数值轴中设置位置轴**
-Aspose.Slides for Java 允许您在类别轴或数值轴中设置位置轴。以下 Java 代码展示了如何执行此任务：
+## **在类目轴或数值轴上设置轴位置**
+Aspose.Slides for Java 允许您在类目轴或数值轴上设置轴的位置。下面的 Java 代码展示了如何执行此任务：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,7 +205,7 @@ try {
 
 
 ## **在图表数值轴上启用显示单位标签**
-Aspose.Slides for Java 允许您配置图表，以在其数值轴上显示单位标签。以下 Java 代码演示了该操作：
+Aspose.Slides for Java 允许您配置图表在其数值轴上显示单位标签。下面的 Java 代码演示了此操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -219,11 +220,12 @@ try {
 ```
 
 
-## **常见问题**
-**如何设置一条轴与另一条轴相交的数值（轴交叉）？**
+## **FAQ**
 
-轴提供了一个 [crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-)，您可以选择在零、在最大类别/数值或在特定数值处交叉。这对于上下移动 X 轴或强调基线非常有用。
+**如何设置一个轴交叉另一个轴的数值（轴交叉点）？**
+
+轴提供了一个 [crossing setting](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-)：您可以选择在零点、最大类目/数值或特定数值处交叉。这对于将 X 轴上移或下移，或强调基线非常有用。
 
 **如何相对于轴定位刻度标签（旁边、外部、内部）？**
 
-将 [label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) 设置为 "cross"、 "outside" 或 "inside"。这会影响可读性，并有助于节省空间，尤其是在小型图表中。
+将 [label position](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) 设置为 “cross”、 “outside” 或 “inside”。这会影响可读性，并帮助在小型图表上节省空间。

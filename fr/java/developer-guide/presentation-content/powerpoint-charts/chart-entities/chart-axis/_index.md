@@ -1,6 +1,6 @@
 ---
-title: Personnaliser les axes de graphique dans les présentations avec Java
-linktitle: Axe du graphique
+title: Personnaliser les axes de graphiques dans les présentations avec Java
+linktitle: Axe de graphique
 type: docs
 url: /fr/java/chart-axis/
 keywords:
@@ -21,11 +21,11 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Découvrez comment utiliser Aspose.Slides for Java pour personnaliser les axes des graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
+description: "Découvrez comment utiliser Aspose.Slides for Java pour personnaliser les axes de graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
 ---
 
 ## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
-Aspose.Slides for Java vous permet d'obtenir les valeurs minimale et maximale sur un axe vertical. Suivez les étapes suivantes :
+Aspose.Slides for Java vous permet d'obtenir les valeurs minimale et maximale sur un axe vertical. Parcourez ces étapes:
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 2. Accédez à la première diapositive.
@@ -33,11 +33,10 @@ Aspose.Slides for Java vous permet d'obtenir les valeurs minimale et maximale su
 4. Obtenez la valeur maximale réelle sur l'axe.
 5. Obtenez la valeur minimale réelle sur l'axe.
 6. Obtenez l'unité principale réelle de l'axe.
-7. Obtenez l'unité mineure réelle de l'axe.
-8. Obtenez l'échelle d'unité principale réelle de l'axe.
-9. Obtenez l'échelle d'unité mineure réelle de l'axe.
+7. Obtenez l'unité secondaire réelle de l'axe.
+8. Obtenez l'échelle de l'unité principale réelle de l'axe.
+9. Obtenez l'échelle de l'unité secondaire réelle de l' axe.
 
-Ce code d'exemple - une implémentation des étapes ci‑dessus - montre comment obtenir les valeurs requises en Java :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -59,18 +58,18 @@ try {
 
 
 ## **Échanger les données entre les axes**
-Aspose.Slides vous permet d'échanger rapidement les données entre les axes — les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et inversement.
+Aspose.Slides vous permet d'échanger rapidement les données entre les axes — les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et vice‑versa. 
 
-Ce code Java montre comment effectuer l'échange de données entre les axes d'un graphique :
+Ce code Java vous montre comment effectuer l'échange de données entre les axes d'un graphique:
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// Échange les lignes et les colonnes
+	//Échange les lignes et les colonnes
 	chart.getChartData().switchRowColumn();
 
-	// Enregistre la présentation
+	//Enregistre la présentation
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -79,7 +78,7 @@ try {
 
 
 ## **Désactiver l'axe vertical pour les graphiques en courbes**
-Ce code Java montre comment masquer l'axe vertical d'un graphique en courbes :
+Ce code Java vous montre comment masquer l'axe vertical d'un graphique en courbes:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,7 +93,7 @@ try {
 
 
 ## **Désactiver l'axe horizontal pour les graphiques en courbes**
-Ce code montre comment masquer l'axe horizontal d'un graphique en courbes :
+Ce code vous montre comment masquer l'axe horizontal d'un graphique en courbes:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -108,8 +107,8 @@ try {
 ```
 
 
-## **Modifier l'axe des catégories**
-En utilisant la propriété **CategoryAxisType**, vous pouvez spécifier le type d'axe des catégories souhaité (**date** ou **texte**). Ce code en Java démontre l'opération :
+## **Modifier un axe de catégorie**
+En utilisant la propriété **CategoryAxisType**, vous pouvez spécifier le type d'axe de catégorie souhaité (**date** ou **text**). Ce code en Java montre l'opération: 
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -125,8 +124,8 @@ try {
 ```
 
 
-## **Définir le format de date pour la valeur de l'axe des catégories**
-Aspose.Slides for Java vous permet de définir le format de date pour une valeur d'axe des catégories. L'opération est démontrée dans ce code Java :
+## **Définir le format de date pour les valeurs de l'axe de catégorie**
+Aspose.Slides for Java vous permet de définir le format de date pour une valeur d'axe de catégorie. L'opération est illustrée dans ce code Java:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -170,8 +169,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 ```
 
 
-## **Définir l'angle de rotation du titre de l'axe du graphique**
-Aspose.Slides for Java vous permet de définir l'angle de rotation du titre de l'axe d'un graphique. Ce code Java démontre l'opération :
+## **Définir un angle de rotation pour le titre d'un axe de graphique**
+Aspose.Slides for Java vous permet de définir l'angle de rotation pour le titre d'un axe de graphique. Ce code Java montre l'opération:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -187,8 +186,8 @@ try {
 ```
 
 
-## **Définir la position de l'axe dans un axe de catégorie ou de valeur**
-Aspose.Slides for Java vous permet de définir la position de l'axe dans un axe de catégorie ou de valeur. Ce code Java montre comment réaliser la tâche :
+## **Définir la position de l'axe sur un axe de catégorie ou de valeur**
+Aspose.Slides for Java vous permet de définir la position de l'axe dans un axe de catégorie ou de valeur. Ce code Java montre comment effectuer la tâche:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,7 +203,7 @@ try {
 
 
 ## **Activer l'étiquette d'unité d'affichage sur l'axe de valeur du graphique**
-Aspose.Slides for Java vous permet de configurer un graphique pour afficher une étiquette d'unité sur son axe de valeur. Ce code Java démontre l'opération :
+Aspose.Slides for Java vous permet de configurer un graphique pour afficher une étiquette d'unité sur son axe de valeur. Ce code Java montre l'opération:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -221,10 +220,10 @@ try {
 
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axes) ?**
+**Comment définir la valeur à laquelle un axe coupe l'autre (croisement d'axes) ?**
 
-Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-): vous pouvez choisir de croiser à zéro, au maximum de catégorie/valeur, ou à une valeur numérique spécifique. Cela est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en évidence une ligne de base.
+Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-): vous pouvez choisir de croiser à zéro, au maximum de la catégorie/valeur, ou à une valeur numérique spécifique. Ceci est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en évidence une ligne de base.
 
-**Comment positionner les étiquettes de graduation par rapport à l'axe (à côté, à l'extérieur, à l'intérieur) ?**
+**Comment positionner les libellés des graduations par rapport à l'axe (à côté, à l'extérieur, à l'intérieur) ?**
 
-Définissez la [position de l'étiquette](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) sur "cross", "outside" ou "inside". Cela influence la lisibilité et aide à économiser de l'espace, surtout sur les petits graphiques.
+Définissez la [position du libellé](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) sur "cross", "outside" ou "inside". Cela influence la lisibilité et aide à économiser de l'espace, surtout sur les petits graphiques.

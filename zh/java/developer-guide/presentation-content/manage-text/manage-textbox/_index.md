@@ -6,7 +6,7 @@ weight: 20
 url: /zh/java/manage-textbox/
 keywords:
 - 文本框
-- 文本框架
+- 文本帧
 - 添加文本
 - 更新文本
 - 创建文本框
@@ -20,67 +20,67 @@ keywords:
 description: "Aspose.Slides for Java 可轻松在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框，提升演示文稿自动化水平。"
 ---
 
-幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，必须先添加一个文本框，然后在文本框中放入一些文本。Aspose.Slides for Java 提供了 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 接口，允许您添加包含文本的形状。
+幻灯片上的文本通常存在于文本框或形状中。因此，要在幻灯片上添加文本，您必须先添加一个文本框，然后在文本框中放入一些文本。Aspose.Slides for Java 提供了 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 接口，允许您添加包含文本的形状。
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides 还提供了 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) 接口，允许您向幻灯片添加形状。但并非所有通过 `IShape` 接口添加的形状都能容纳文本。然而，通过 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 接口添加的形状可能包含文本。
+Aspose.Slides 还提供了 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) 接口，允许您向幻灯片添加形状。然而，并非所有通过 `IShape` 接口添加的形状都可以容纳文本。但通过 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 接口添加的形状可以包含文本。 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-因此，在处理需要添加文本的形状时，您可能需要检查并确认它是通过 `IAutoShape` 接口进行强制转换的。只有这样您才能使用 `IAutoShape` 下的 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) 属性。请参阅本页的 [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) 部分。 
+因此，在处理需要添加文本的形状时，您可能需要检查并确认它是通过 `IAutoShape` 接口强制转换的。只有这样，您才能使用属于 `IAutoShape` 的属性 [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame)。请参阅本页的 [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) 部分。 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **在幻灯片上创建文本框**
 
-要在幻灯片上创建文本框，请按以下步骤操作：
+要在幻灯片上创建文本框，请按照以下步骤操作：
 
 1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。 
-2. 获取新建演示文稿中第一张幻灯片的引用。 
-3. 在幻灯片上指定位置添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 对象，`ShapeType` 设置为 `Rectangle`，并获取新添加的 `IAutoShape` 对象的引用。 
-4. 向 `IAutoShape` 对象添加 `TextFrame` 属性以容纳文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox* 
-5. 最后，通过 `Presentation` 对象写出 PPTX 文件。 
+2. 获取新创建的演示文稿中第一张幻灯片的引用。 
+3. 在幻灯片的指定位置添加一个 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) 对象，使用 `ShapeType` 设置为 `Rectangle`，并获取新添加的 `IAutoShape` 对象的引用。 
+4. 向 `IAutoShape` 对象添加一个 `TextFrame` 属性，用于包含文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox* 
+5. 最后，通过 `Presentation` 对象写入 PPTX 文件。 
 
-下面的 Java 代码——上述步骤的实现——演示了如何向幻灯片添加文本：
+以下 Java 代码——上述步骤的实现——展示了如何向幻灯片添加文本：
 ```java
-// 实例化 Presentation
-Presentation pres = new Presentation();
-try {
-    // 获取演示文稿中的第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
+    // 实例化 Presentation
+    Presentation pres = new Presentation();
+    try {
+        // 获取演示文稿中的第一张幻灯片
+        ISlide sld = pres.getSlides().get_Item(0);
 
-    // 添加 AutoShape，类型设置为 Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+        // 添加 AutoShape，类型设置为 Rectangle
+        IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame(" ");
+        // 向 Rectangle 添加 TextFrame
+        ashp.addTextFrame(" ");
 
-    // 访问文本框架
-    ITextFrame txtFrame = ashp.getTextFrame();
+        // 访问文本框
+        ITextFrame txtFrame = ashp.getTextFrame();
 
-    // 为文本框架创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
+        // 为文本框创建 Paragraph 对象
+        IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
+        // 为段落创建 Portion 对象
+        IPortion portion = para.getPortions().get_Item(0);
 
-    // 设置文本
-    portion.setText("Aspose TextBox");
+        // 设置文本
+        portion.setText("Aspose TextBox");
 
-    // 将演示文稿保存到磁盘
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+        // 将演示文稿保存到磁盘
+        pres.save("TextBox_out.pptx", SaveFormat.Pptx);
+    } finally {
+        if (pres != null) pres.dispose();
+    }
 ```
 
 
-## **Check for Text Box Shape**
+## **检查文本框形状**
 
-Aspose.Slides 提供了来自 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) 接口的 [isTextBox](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#isTextBox--) 方法，允许您检查形状并识别文本框。
+Aspose.Slides 提供了来自 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) 接口的 [isTextBox](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#isTextBox--) 方法，允许您检查形状并识别文本框。 
 
-![Text box and shape](istextbox.png)
+![文本框和形状](istextbox.png)
 
-下面的 Java 代码演示了如何检查形状是否被创建为文本框： 
+以下 Java 代码展示了如何检查形状是否被创建为文本框： 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
@@ -123,18 +123,18 @@ shape4.getTextFrame().setText("");
 ```
 
 
-## **Add Column In Text Box**
+## **向文本框添加列**
 
-Aspose.Slides 提供了 [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 和 [ColumnSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) 属性（来自 [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) 接口和 [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) 类），允许您向文本框添加列。您可以指定文本框中的列数并设置列间的点距。 
+Aspose.Slides 提供了 [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 和 [ColumnSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) 属性（来自 [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) 接口和 [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) 类），允许您向文本框添加列。您可以指定文本框的列数并设置列之间的点距。 
 
-下面的 Java 代码演示了上述操作： 
+以下 Java 代码演示了上述操作： 
 ```java
 Presentation pres = new Presentation();
 try {
     // 获取演示文稿中的第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 添加 AutoShape，类型设置为 Rectangle
+    // 添加类型为 Rectangle 的 AutoShape
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // 向矩形添加 TextFrame
@@ -160,10 +160,11 @@ try {
 ```
 
 
-## **Add Column In Text Frame**
-Aspose.Slides for Java 提供了 [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 属性（来自 [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) 接口），允许您在文本框架中添加列。通过此属性，您可以指定文本框架中所需的列数。 
+## **向文本帧添加列**
 
-下面的 Java 代码演示了如何在文本框架中添加列：
+Aspose.Slides for Java 提供了 [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 属性（来自 [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) 接口），允许您在文本帧中添加列。通过此属性，您可以指定文本帧中所需的列数。 
+
+以下 Java 代码展示了如何在文本帧中添加列： 
 ```java
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
@@ -217,11 +218,11 @@ try {
 ```
 
 
-## **Update Text**
+## **更新文本**
 
-Aspose.Slides 允许您更改或更新文本框中的文本，或更新演示文稿中所有文本。 
+Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所有文本。 
 
-下面的 Java 代码演示了更新演示文稿中所有文本的操作：
+以下 Java 代码演示了更新或更改演示文稿中所有文本的操作： 
 ```java
 Presentation pres = new Presentation("text.pptx");
 try {
@@ -234,7 +235,7 @@ try {
                 IAutoShape autoShape = (IAutoShape)shape; 
                 for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //遍历文本框中的段落
                 {
-                    for (IPortion portion : paragraph.getPortions()) //遍历段落中的每个 Portion
+                    for (IPortion portion : paragraph.getPortions()) //遍历段落中的每个文本片段
                     {
                         portion.setText(portion.getText().replace("years", "months")); //更改文本
                         portion.getPortionFormat().setFontBold(NullableBool.True); //更改格式
@@ -252,21 +253,21 @@ try {
 ```
 
 
-## **Add Text Box with Hyperlink** 
+## **向文本框添加超链接** 
 
-您可以在文本框内插入链接。单击文本框时，用户将被引导打开该链接。 
+您可以在文本框中插入链接。单击文本框时，用户将打开该链接。 
 
-要添加包含链接的文本框，请按以下步骤操作：
+要添加包含链接的文本框，请按照以下步骤操作：
 
 1. 创建 `Presentation` 类的实例。 
-2. 获取新建演示文稿中第一张幻灯片的引用。 
-3. 在幻灯片上指定位置添加 `AutoShape` 对象，`ShapeType` 设置为 `Rectangle`，并获取新添加的 AutoShape 对象的引用。 
-4. 向 `AutoShape` 对象添加 `TextFrame`，其默认文本为 *Aspose TextBox*。 
+2. 获取新创建的演示文稿中第一张幻灯片的引用。 
+3. 在幻灯片的指定位置添加一个 `AutoShape` 对象，并将 `ShapeType` 设置为 `Rectangle`，获取新添加的 AutoShape 对象的引用。 
+4. 向 `AutoShape` 对象添加一个 `TextFrame`，其默认文本为 *Aspose TextBox*。 
 5. 实例化 `IHyperlinkManager` 类。 
-6. 将 `IHyperlinkManager` 对象分配给 `TextFrame` 中所选部分的 [HyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getHyperlinkClick--) 属性。 
-7. 最后，通过 `Presentation` 对象写出 PPTX 文件。 
+6. 将 `IHyperlinkManager` 对象分配给与 `TextFrame` 中所需部分关联的 [HyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getHyperlinkClick--) 属性。 
+7. 最后，通过 `Presentation` 对象写入 PPTX 文件。 
 
-下面的 Java 代码——上述步骤的实现——演示了如何向幻灯片添加带超链接的文本框：
+以下 Java 代码——上述步骤的实现——展示了如何向幻灯片添加带超链接的文本框： 
 ```java
 // 实例化一个表示 PPTX 的 Presentation 类
 Presentation pres = new Presentation();
@@ -288,7 +289,7 @@ try {
     // 向框中添加一些文本
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
 
-    // 为 Portion 文本设置超链接
+    // 为文本片段设置超链接
     IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
             getPortionFormat().getHyperlinkManager();
     hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
@@ -301,12 +302,12 @@ try {
 ```
 
 
-## **FAQ**
+## **常见问题**
 
-**在使用母版幻灯片时，文本框和文本占位符有什么区别？**
+**在使用母版幻灯片时，文本框和文本占位符有什么区别？**  
 
-文本[占位符](/slides/zh/java/manage-placeholder/)会继承自 [母版](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/) 的样式/位置，并且可以在 [布局](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) 上被覆盖，而普通文本框是特定幻灯片上的独立对象，切换布局时不会改变。
+占位符([placeholder](/slides/zh/java/manage-placeholder/))继承自 [master](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/) 的样式/位置，并且可以在 [layouts](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) 上被覆盖，而普通文本框是在特定幻灯片上的独立对象，切换布局时不会改变。  
 
-**如何在不影响图表、表格和 SmartArt 中的文本的情况下，对整个演示文稿进行批量文本替换？**
+**如何在整篇演示文稿中批量替换文本而不影响图表、表格和 SmartArt 中的文本？**  
 
-将遍历范围限制在具有文本框的自动形状上，并通过单独遍历或跳过嵌入对象（[图表](https://reference.aspose.com/slides/java/com.aspose.slides/chart/)、[表格](https://reference.aspose.com/slides/java/com.aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/)）的集合来排除这些对象。
+将遍历限制在具有文本框的自动形状 (auto‑shapes)，并通过分别遍历其集合或跳过这些对象类型，排除嵌入对象（[charts](https://reference.aspose.com/slides/java/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/smartart/)）。

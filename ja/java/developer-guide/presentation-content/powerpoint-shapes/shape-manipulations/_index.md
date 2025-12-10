@@ -1,40 +1,61 @@
 ---
-title: 形状の操作
+title: Javaでプレゼンテーションのシェイプを管理する
+linktitle: シェイプ操作
 type: docs
 weight: 40
 url: /ja/java/shape-manipulations/
+keywords:
+- PowerPoint シェイプ
+- プレゼンテーション シェイプ
+- スライド上のシェイプ
+- シェイプを検索
+- シェイプをクローン
+- シェイプを削除
+- シェイプを非表示
+- シェイプの順序を変更
+- Interop シェイプ ID を取得
+- シェイプの代替テキスト
+- シェイプのレイアウト フォーマット
+- SVGとしてのシェイプ
+- シェイプをSVGに変換
+- シェイプを揃える
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java でシェイプを作成、編集、最適化し、高性能な PowerPoint プレゼンテーションを提供する方法を学びます。"
 ---
 
-## **スライド内の形状を見つける**
-このトピックでは、開発者が内部IDを使用せずにスライド上の特定の形状を見つけるための簡単な技術を説明します。PowerPointプレゼンテーションファイルには、内部のユニークIDを除いてスライド上の形状を識別する方法がないことを知っておくことが重要です。開発者が内部のユニークIDを使用して形状を見つけるのは難しいようです。スライドに追加されたすべての形状には一部の代替テキストがあります。特定の形状を見つけるために代替テキストを使用することを開発者に推奨します。将来変更する予定のオブジェクトの代替テキストを定義するには、MS PowerPointを使用できます。
+## **スライド上でシェイプを検索する**
+このトピックでは、開発者が内部 ID を使用せずにスライド上の特定のシェイプを見つけやすくするシンプルな手法について説明します。PowerPoint プレゼンテーション ファイルには、スライド上のシェイプを内部の一意 ID 以外で識別する方法がありません。内部の一意 ID を使用してシェイプを見つけるのは開発者にとって困難です。スライドに追加されたすべてのシェイプには代替テキストが設定されています。特定のシェイプを検索する際は、代替テキストを使用することを推奨します。将来変更する可能性のあるオブジェクトに対して、MS PowerPoint で代替テキストを設定できます。
 
-所望の形状の代替テキストを設定した後、Aspose.Slides for Javaを使用してそのプレゼンテーションを開き、スライドに追加されたすべての形状を反復処理できます。各反復処理中に、形状の代替テキストを確認し、一致する代替テキストを持つ形状が必要な形状になります。この技術をより良く示すために、スライド内の特定の形状を見つけてその形状を単純に返すメソッド、[findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)を作成しました。
-
+任意のシェイプの代替テキストを設定した後、Aspose.Slides for Java でプレゼンテーションを開き、スライドに追加されたすべてのシェイプを走査できます。走査中にシェイプの代替テキストを確認し、代替テキストが一致するシェイプが目的のシェイプになります。この手法をより分かりやすく示すために、スライド内の特定シェイプを検索し、単にそのシェイプを返すメソッド[findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)を作成しました。
 ```java
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation("FindingShapeInSlide.pptx");
 try {
 
     ISlide slide = pres.getSlides().get_Item(0);
-    // 見つけるべき形状の代替テキスト
+    // 検索対象シェイプの代替テキスト
     IShape shape = findShape(slide, "Shape1");
     if (shape != null)
     {
-        System.out.println("形状名: " + shape.getName());
+        System.out.println("Shape Name: " + shape.getName());
     }
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
-// 代替テキストを使用してスライド内の形状を見つけるメソッドの実装
+// 代替テキストを使用してスライド内のシェイプを検索するメソッド実装
 public static IShape findShape(ISlide slide, String alttext)
 {
-    // スライド内のすべての形状を反復処理
+    // スライド内のすべてのシェイプをイテレートする
     for (int i = 0; i < slide.getShapes().size(); i++)
     {
-        // スライドの代替テキストが必要なものと一致する場合
-        // 形状を返す
+        // スライドの代替テキストが要求されたものと一致する場合
+        // シェイプを返す
         if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
             return slide.getShapes().get_Item(i);
     }
@@ -42,20 +63,20 @@ public static IShape findShape(ISlide slide, String alttext)
 }
 ```
 
-## **形状を複製**
-Aspose.Slides for Javaを使用してスライドに形状を複製するには：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. ソーススライドの形状コレクションにアクセスします。
-1. プレゼンテーションに新しいスライドを追加します。
-1. ソーススライドの形状コレクションから新しいスライドへ形状を複製します。
-1. 修正されたプレゼンテーションをPPTXファイルとして保存します。
+## **シェイプをクローンする**
+Aspose.Slides for Java を使用してシェイプをスライドにクローンする手順:
 
-以下の例は、スライドにグループ形状を追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. インデックスを使用してスライドへの参照を取得します。
+1. ソーススライドのシェイプ コレクションにアクセスします。
+1. 新しいスライドをプレゼンテーションに追加します。
+1. ソーススライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
+以下の例は、スライドにグループ シェイプを追加します。
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation("Source Frame.pptx");
 try {
     IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
@@ -66,100 +87,100 @@ try {
     destShapes.addClone(sourceShapes.get_Item(2));
     destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
-    // PPTXファイルをディスクに書き込む
+    // PPTX ファイルをディスクに書き込む
     pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **形状を削除**
-Aspose.Slides for Javaを使用すると、開発者は任意の形状を削除できます。任意のスライドから形状を削除するには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+## **シェイプを削除する**
+Aspose.Slides for Java では、開発者は任意のシェイプを削除できます。スライドからシェイプを削除するには、次の手順に従ってください:
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 特定の代替テキストを持つ形状を見つけます。
-1. その形状を削除します。
+1. 特定の AlternativeText を持つシェイプを検索します。
+1. シェイプを削除します。
 1. ファイルをディスクに保存します。
-
 ```java
-// Presentationオブジェクトを作成
+// Presentation オブジェクトを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 長方形タイプのオートシェイプを追加する
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
-    String altText = "ユーザー定義";
+    String altText = "User Defined";
     int iCount = sld.getShapes().size();
     for (int i = 0; i < iCount; i++)
     {
         AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (altText.equals(ashp.getAlternativeText()))
+        if (alttext.equals(ashp.getAlternativeText()))
         {
             sld.getShapes().remove(ashp);
         }
     }
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存する
     pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **形状を隠す**
-Aspose.Slides for Javaを使用すると、開発者は任意の形状を隠すことができます。任意のスライドから形状を隠すには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+## **シェイプを非表示にする**
+Aspose.Slides for Java では、開発者は任意のシェイプを非表示にできます。スライドからシェイプを非表示にするには、次の手順に従ってください:
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 特定の代替テキストを持つ形状を見つけます。
-1. その形状を隠します。
+1. 特定の AlternativeText を持つシェイプを検索します。
+1. シェイプを非表示にします。
 1. ファイルをディスクに保存します。
-
 ```java
-// PPTXを表すPresentationクラスのインスタンスを作成
+// PPTX を表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 長方形タイプのオートシェイプを追加する
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
-    String altText = "ユーザー定義";
+    String alttext = "User Defined";
     int iCount = sld.getShapes().size();
     for (int i = 0; i < iCount; i++)
     {
         AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (altText.equals(ashp.getAlternativeText()))
+        if (alttext.equals(ashp.getAlternativeText()))
         {
             ashp.setHidden(true);
         }
     }
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存する
     pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **形状の順序を変更**
-Aspose.Slides for Javaを使用すると、開発者は形状の順序を再配置できます。形状の順序を変更すると、どの形状が前面にあり、どの形状が背面にあるかを指定します。任意のスライドから形状の順序を再配置するには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+## **シェイプの順序を変更する**
+Aspose.Slides for Java では、シェイプの順序を変更できます。シェイプの順序を変更すると、どのシェイプが前面に、どのシェイプが背面にあるかが決まります。スライド上のシェイプの順序を変更するには、次の手順に従ってください:
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 形状を追加します。
-1. 形状のテキストフレームにいくつかのテキストを追加します。
-1. 同じ座標で別の形状を追加します。
-1. 形状の順序を再配置します。
+1. シェイプを追加します。
+1. シェイプのテキスト フレームにテキストを追加します。
+1. 同じ座標で別のシェイプを追加します。
+1. シェイプの順序を変更します。
 1. ファイルをディスクに保存します。
-
 ```java
 Presentation pres = new Presentation("ChangeShapeOrder.pptx");
 try {
@@ -170,7 +191,7 @@ try {
 
     IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("透かしのテキスト 透かしのテキスト 透かしのテキスト");
+    portion.setText("Watermark Text Watermark Text Watermark Text");
 
     shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
 
@@ -182,13 +203,13 @@ try {
 }
 ```
 
-## **Interop形状IDを取得**
-Aspose.Slides for Javaでは、[getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--)メソッドと対照的に、スライドスコープ内で一意の形状識別子を取得できます。このメソッドは、プレゼンテーションスコープ内で一意の識別子を取得することを許可します。[getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--)メソッドは、それぞれ[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape)インターフェースと[Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape)クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--)メソッドによって返される値は、Microsoft.Office.Interop.PowerPoint.ShapeオブジェクトのIDの値に対応します。以下にサンプルコードを示します。
 
+## **Interop シェイプ ID を取得する**
+Aspose.Slides for Java では、スライド スコープで一意のシェイプ識別子を取得できます。これは、プレゼンテーション スコープで一意の識別子を取得する[getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--)メソッドとは対照的です。[getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) メソッドが [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) インターフェイスと [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) クラスに追加されました。[getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) メソッドが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // スライドスコープ内のユニーク形状識別子を取得
+    // スライドスコープで一意のシェイプ識別子を取得する
     long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
 
 } finally {
@@ -196,30 +217,25 @@ try {
 }
 ```
 
-## **形状の代替テキストを設定**
-Aspose.Slides for Javaは、任意の形状の代替テキストを設定することを許可します。
-プレゼンテーション内の形状は、[AlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-)または[Shape Name](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-)メソッドによって区別できます。
-[setAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-)および[getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--)メソッドは、Aspose.Slidesを使用するか、Microsoft PowerPointを使用して読み取りまたは設定できます。
-このメソッドを使用すると、形状にタグを付けさまざまな操作を実行できます。形状の削除、
-形状の隠蔽やスライド上の形状の順序の変更などです。
-形状の代替テキストを設定するには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+## **シェイプに代替テキストを設定する**
+Aspose.Slides for Java では、任意のシェイプに AlternateText を設定できます。プレゼンテーション内のシェイプは、[AlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) または [Shape Name](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) メソッドで区別できます。[setAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) と [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) メソッドは、Aspose.Slides と Microsoft PowerPoint の両方で読み書きできます。このメソッドを使用するとシェイプにタグ付けでき、シェイプの削除、非表示、スライド上での順序変更などのさまざまな操作を実行できます。シェイプの AlternateText を設定する手順は次のとおりです:
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. スライドに任意の形状を追加します。
-1. 新しく追加された形状で何らかの作業を行います。
-1. 形状を見つけるために形状を反復します。
-1. 代替テキストを設定します。
+1. 任意のシェイプをスライドに追加します。
+1. 新しく追加したシェイプで作業を行います。
+1. シェイプを走査して目的のシェイプを検索します。
+1. AlternativeText を設定します。
 1. ファイルをディスクに保存します。
-
 ```java
-// PPTXを表すPresentationクラスのインスタンスを作成
+// PPTX を表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 長方形タイプのオートシェイプを追加
+    // 長方形タイプのオートシェイプを追加する
     IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
     shp2.getFillFormat().setFillType(FillType.Solid);
@@ -230,22 +246,22 @@ try {
         AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
         if (shape != null)
         {
-            shape.setAlternativeText("ユーザー定義");
+            shape.setAlternativeText("User Defined");
         }
     }
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存する
     pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **形状のレイアウト形式にアクセス**
-Aspose.Slides for Javaは、形状のレイアウト形式にアクセスするためのシンプルなAPIを提供します。このコラムでは、レイアウト形式にアクセスする方法を示します。
+
+## **シェイプのレイアウト フォーマットにアクセスする**
+Aspose.Slides for Java は、シェイプのレイアウト フォーマットにアクセスするシンプルな API を提供します。本記事では、レイアウト フォーマットへのアクセス方法を示します。
 
 以下にサンプルコードを示します。
-
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -262,9 +278,9 @@ try {
 }
 ```
 
-## **SVGとして形状をレンダリング**
-現在、Aspose.Slides for Javaは形状をSVGとしてレンダリングするサポートを提供します。[writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-)（およびそのオーバーロード）メソッドが[Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape)クラスおよび[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape)インターフェースに追加されました。このメソッドを使用すると、形状の内容をSVGファイルとして保存できます。以下のコードスニペットは、スライドの形状をSVGファイルにエクスポートする方法を示しています。
 
+## **シェイプを SVG としてレンダリングする**
+現在、Aspose.Slides for Java はシェイプを SVG としてレンダリングする機能をサポートしています。[writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-)（およびそのオーバーロード）メソッドが [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) クラスと [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) インターフェイスに追加されました。このメソッドにより、シェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示します。
 ```java
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
 try {
@@ -280,13 +296,13 @@ try {
 }
 ```
 
-## **形状の整列**
-Aspose.Slidesは、形状をスライドの余白に対してまたは互いに対して整列させることができます。この目的のために、オーバーロードされたメソッド[SlidesUtil.alignShape()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType)列挙型は、可能な整列オプションを定義します。
+
+## **シェイプを揃える**
+Aspose.Slides では、シェイプをスライドの余白に対して、または互いに対して揃えることができます。そのために、オーバーロードされたメソッド[SlidesUtil.alignShape()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)が追加されました。[ShapesAlignmentType](https://reference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType) 列挙体は、利用可能な揃えオプションを定義します。
 
 **例 1**
 
-以下のソースコードは、インデックス1、2、4の形状をスライドの上端に沿って整列させます。
-
+以下のソース コードは、インデックス 1、2、4 のシェイプをスライド上部の境界に揃えます。
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -303,12 +319,13 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+}
 ```
+
 
 **例 2**
 
-以下の例は、コレクション内の最下部の形状に対して形状全体を整列させる方法を示しています。
-
+次の例は、コレクション内の最下部シェイプに対して、コレクション全体を揃える方法を示しています。
 ```java
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -317,3 +334,64 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **フリップ プロパティ**
+
+Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) クラスが `flipH` および `flipV` プロパティを通じてシェイプの水平・垂直ミラーリングを制御します。両プロパティは `byte` 型で、`1` がフリップ、`0` がフリップなし、`-1` がデフォルト 動作を示します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) から取得できます。
+
+フリップ設定を変更するには、シェイプの現在の位置とサイズ、目的の `flipH` と `flipV` の値、および回転角度で新しい [ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) に割り当て、プレゼンテーションを保存すると、ミラートランスフォーメーションが適用され、出力ファイルに反映されます。
+
+たとえば、sample.pptx の最初のスライドにデフォルトのフリップ設定のシェイプが 1 つあるとします。以下の画像はその状態です。
+
+![フリップ対象のシェイプ](shape_to_be_flipped.png)
+
+次のコード例はシェイプの現在のフリップ プロパティを取得し、水平・垂直の両方でフリップします。
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    // シェイプの水平フリップ プロパティを取得します。
+    byte horizontalFlip = shape.getFrame().getFlipH();
+    System.out.println("Horizontal flip: " + horizontalFlip);
+
+    // シェイプの垂直フリップ プロパティを取得します。
+    byte verticalFlip = shape.getFrame().getFlipV();
+    System.out.println("Vertical flip: " + verticalFlip);
+
+    float x = shape.getFrame().getX();
+    float y = shape.getFrame().getY();
+    float width = shape.getFrame().getWidth();
+    float height = shape.getFrame().getHeight();
+    byte flipH = NullableBool.True; // 水平に反転。
+    byte flipV = NullableBool.True; // 水平に反転。
+    float rotation = shape.getFrame().getRotation();
+
+    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+結果:
+
+![フリップされたシェイプ](flipped_shape.png)
+
+## **FAQ**
+
+**スライド上でシェイプを結合（union/intersect/subtract）できますか？**
+
+組み込みのブーリアン演算 API はありません。代わりに、目的のアウトラインを自分で構築することで近似できます。たとえば、結果のジオメトリを計算し（[GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を使用）、その輪郭で新しいシェイプを作成し、元のシェイプを削除するといった方法です。
+
+**シェイプのスタック順序（z-order）を制御して常に「最前面」に表示させるには？**
+
+スライドの [shapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のスライド変更がすべて完了した後に z-order を最終決定してください。
+
+**PowerPoint でシェイプを「ロック」してユーザーが編集できないようにできますか？**
+
+できます。[shape-level protection flags](/slides/ja/java/applying-protection-to-presentation/)（選択ロック、移動ロック、サイズ変更ロック、テキスト編集ロックなど）を設定します。必要に応じて、マスタやレイアウトでも同様の制限を適用できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強力な保護が必要な場合は、[読み取り専用推奨やパスワード](/slides/ja/java/password-protected-presentation/) などのファイルレベルの制限と組み合わせて使用してください。

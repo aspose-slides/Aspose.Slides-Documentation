@@ -1,10 +1,10 @@
 ---
 title: Personalizar ejes de gráficos en presentaciones usando Java
-linktitle: Eje del gráfico
+linktitle: Eje de gráfico
 type: docs
 url: /es/java/chart-axis/
 keywords:
-- eje del gráfico
+- eje de gráfico
 - eje vertical
 - eje horizontal
 - personalizar eje
@@ -21,21 +21,21 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Descubra cómo usar Aspose.Slides for Java para personalizar los ejes de los gráficos en presentaciones de PowerPoint para informes y visualizaciones."
+description: "Descubra cómo usar Aspose.Slides para Java para personalizar los ejes de gráficos en presentaciones de PowerPoint para informes y visualizaciones."
 ---
 
-## **Obtener los valores máximos en el eje vertical en los gráficos**
+## **Obtener los valores máximos en el eje vertical en gráficos**
 Aspose.Slides for Java le permite obtener los valores mínimo y máximo en un eje vertical. Siga estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Cree una instancia de la [Presentación](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) clase.
 1. Acceda a la primera diapositiva.
 1. Añada un gráfico con datos predeterminados.
-1. Obtenga el valor máximo real en el eje.
-1. Obtenga el valor mínimo real en el eje.
+1. Obtenga el valor máximo real del eje.
+1. Obtenga el valor mínimo real del eje.
 1. Obtenga la unidad mayor real del eje.
 1. Obtenga la unidad menor real del eje.
-1. Obtenga la escala de la unidad mayor real del eje.
-1. Obtenga la escala de la unidad menor real del eje.
+1. Obtenga la escala de unidad mayor real del eje.
+1. Obtenga la escala de unidad menor real del eje.
 
 Este código de ejemplo—una implementación de los pasos anteriores—le muestra cómo obtener los valores requeridos en Java:
 ```java
@@ -59,15 +59,17 @@ try {
 
 
 ## **Intercambiar los datos entre ejes**
-Aspose.Slides le permite intercambiar rápidamente los datos entre ejes: los datos representados en el eje vertical (eje y) se trasladan al eje horizontal (eje x) y viceversa.
+Aspose.Slides le permite intercambiar rápidamente los datos entre ejes: los datos representados en el eje vertical (eje Y) se trasladan al eje horizontal (eje X) y viceversa.
 
-Este código Java le muestra cómo realizar la tarea de intercambio de datos entre ejes en un gráfico:
+Este código Java le muestra cómo realizar el intercambio de datos entre ejes en un gráfico:
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	//Cambia filas y columnas
+	//Intercambia filas y columnas
+	chart.getChartData().switchRowColumn();
+
 	// Guarda la presentación
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -76,7 +78,7 @@ try {
 ```
 
 
-## **Desactivar el eje vertical para gráficos de líneas**
+## **Desactivar el eje vertical en gráficos de líneas**
 
 Este código Java le muestra cómo ocultar el eje vertical en un gráfico de líneas:
 ```java
@@ -92,7 +94,7 @@ try {
 ```
 
 
-## **Desactivar el eje horizontal para gráficos de líneas**
+## **Desactivar el eje horizontal en gráficos de líneas**
 
 Este código le muestra cómo ocultar el eje horizontal en un gráfico de líneas:
 ```java
@@ -108,9 +110,9 @@ try {
 ```
 
 
-## **Cambiar el eje de categorías**
+## **Cambiar un eje de categoría**
 
-Utilizando la propiedad **CategoryAxisType**, puede especificar el tipo de eje de categorías que prefiera (**date** o **text**). Este código en Java demuestra la operación:
+Usando la propiedad **CategoryAxisType**, puede especificar el tipo de eje de categoría que prefiera (**date** o **text**). Este código en Java demuestra la operación:
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -126,8 +128,8 @@ try {
 ```
 
 
-## **Establecer el formato de fecha para el valor del eje de categorías**
-Aspose.Slides for Java le permite establecer el formato de fecha para un valor del eje de categorías. La operación se demuestra en este código Java:
+## **Establecer el formato de fecha para los valores del eje de categoría**
+Aspose.Slides for Java le permite establecer el formato de fecha para un valor del eje de categoría. La operación se demuestra en este código Java:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -171,8 +173,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 ```
 
 
-## **Establecer el ángulo de rotación para el título del eje del gráfico**
-Aspose.Slides for Java le permite establecer el ángulo de rotación para el título del eje de un gráfico. Este código Java demuestra la operación:
+## **Establecer un ángulo de rotación para el título del eje del gráfico**
+Aspose.Slides for Java le permite establecer el ángulo de rotación para el título del eje del gráfico. Este código Java demuestra la operación:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -185,12 +187,11 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
 
-## **Establecer la posición del eje en un eje de categorías o valores**
-Aspose.Slides for Java le permite establecer la posición del eje en un eje de categorías o valores. Este código Java muestra cómo realizar la tarea:
+## **Establecer la posición del eje en un eje de categoría o de valor**
+Aspose.Slides for Java le permite establecer la posición del eje en un eje de categoría o de valor. Este código Java muestra cómo realizar la tarea:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -223,10 +224,10 @@ try {
 
 ## **FAQ**
 
-**¿Cómo establezco el valor en el que un eje cruza al otro (cruce del eje)?**
+**¿Cómo establezco el valor en el que un eje cruza al otro (cruce de ejes)?**
 
-Los ejes proporcionan una [configuración de cruce](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-): puede elegir cruzar en cero, en la categoría/valor máximo, o en un valor numérico específico. Esto es útil para desplazar el eje X hacia arriba o hacia abajo o para enfatizar una línea base.
+Los ejes proporcionan una [configuración de cruce](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-): puede elegir cruzar en cero, en la categoría/valor máximo, o en un valor numérico específico. Esto es útil para desplazar el eje X hacia arriba o hacia abajo o para resaltar una línea de base.
 
-**¿Cómo puedo posicionar las etiquetas de marcas de graduación en relación al eje (junto, fuera, dentro)?**
+**¿Cómo puedo posicionar las etiquetas de marcas de graduación respecto al eje (junto, fuera, dentro)?**
 
-Establezca la [posición de la etiqueta](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) a "cross", "outside" o "inside". Esto afecta la legibilidad y ayuda a conservar espacio, especialmente en gráficos pequeños.
+Establezca la [posición de la etiqueta](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) en "cross", "outside" o "inside". Esto afecta la legibilidad y ayuda a conservar espacio, especialmente en gráficos pequeños.

@@ -1,27 +1,42 @@
 ---
-title: إدارة شكل SmartArt
+title: إدارة رسومات SmartArt في العروض التقديمية باستخدام Java
+linktitle: رسومات SmartArt
 type: docs
 weight: 20
 url: /ar/java/manage-smartart-shape/
+keywords:
+- كائن SmartArt
+- رسم SmartArt
+- نمط SmartArt
+- لون SmartArt
+- إنشاء SmartArt
+- إضافة SmartArt
+- تحرير SmartArt
+- تغيير SmartArt
+- الوصول إلى SmartArt
+- نوع تخطيط SmartArt
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "أتمتة إنشاء وتحرير وتنسيق SmartArt في PowerPoint باستخدام Java و Aspose.Slides، مع أمثلة شيفرة مختصرة وإرشادات تركّز على الأداء."
 ---
 
-
 ## **إنشاء شكل SmartArt**
-قدمت Aspose.Slides لـ Java واجهة برمجة التطبيقات لإنشاء أشكال SmartArt. لإنشاء شكل SmartArt في شريحة، يرجى seguir los pasos a continuación:
+قدمت Aspose.Slides for Java واجهة برمجة تطبيقات لإنشاء أشكال SmartArt. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. الحصول على مرجع الشريحة باستخدام فهرسها.
-1. [إضافة شكل SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيينه [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
+1. إضافة شكل SmartArt عبر [Add a SmartArt shape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيينه [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) .
 1. حفظ العرض التقديمي المعدل كملف PPTX.
-
 ```java
-// قم بإنشاء مثيل لفئة العرض التقديمي
+// إنشاء مثيل لفئة Presentation
 Presentation pres = new Presentation();
 try {
-    // احصل على الشريحة الأولى
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // إضافة شكل SmartArt
+    // إضافة شكل Smart Art
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
     
     // حفظ العرض التقديمي
@@ -31,26 +46,26 @@ try {
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
-|**الشكل: شكل SmartArt مضاف إلى الشريحة**|
+|**الشكل: تم إضافة شكل SmartArt إلى الشريحة**|
 
-## **الوصول إلى شكل SmartArt في الشريحة**
-سيتم استخدام الكود التالي للوصول إلى أشكال SmartArt المضافة في شريحة العرض التقديمي. في الكود التجريبي سنقوم بالتنقل عبر كل شكل داخل الشريحة والتحقق مما إذا كان هو شكل [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt). إذا كان الشكل من نوع SmartArt، فسوف نقوم بتحويله إلى مثيل [**SmartArt**](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt).
-
+## **الوصول إلى شكل SmartArt على شريحة**
+سيتم استخدام الشيفرة التالية للوصول إلى أشكال SmartArt المضافة في شريحة العرض التقديمي. في الشيفرة النموذجية سنقوم بالتنقل عبر كل شكل داخل الشريحة والتحقق مما إذا كان شكلًا من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) . إذا كان الشكل من نوع SmartArt فسنقوم بتحويله إلى نسخة [**SmartArt**](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) .
 ```java
-// قم بتحميل العرض التقديمي المطلوب
+// تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
     // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes())
     {
-        // تحقق مما إذا كان الشكل من نوع SmartArt
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt)
         {
             // تحويل الشكل إلى SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
-            System.out.println("اسم الشكل:" + smart.getName());
+            System.out.println("Shape Name:" + smart.getName());
         }
     }
 } finally {
@@ -58,22 +73,22 @@ try {
 }
 ```
 
-## **الوصول إلى شكل SmartArt بنوع تخطيط محدد**
-سيساعد الكود التجريبي التالي في الوصول إلى شكل [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) بنوع تخطيط معين. يرجى ملاحظة أنه لا يمكنك تغيير نوع التخطيط لشكل SmartArt لأنه للعرض فقط ويتم تعيينه فقط عند إضافة [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt).
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class وتحميل العرض التقديمي مع شكل SmartArt.
-1. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+## **الوصول إلى شكل SmartArt بنوع تخطيط معين**
+ستساعد الشيفرة النموذجية التالية في الوصول إلى شكل [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) بنوع LayoutType معين. يرجى ملاحظة أنه لا يمكن تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) .
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt .
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
 1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-1. تحقق من شكل SmartArt بنوع تخطيط معين وقم بما هو مطلوب بعد ذلك.
-
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
+1. التحقق من شكل SmartArt بنوع LayoutType معين وإجراء ما يلزم بعد ذلك.
 ```java
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
     // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes())
     {
-        // تحقق مما إذا كان الشكل من نوع SmartArt
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt)
         {
             // تحويل الشكل إلى SmartArtEx
@@ -82,7 +97,7 @@ try {
             // التحقق من تخطيط SmartArt
             if (smart.getLayout() == SmartArtLayoutType.BasicBlockList)
             {
-                System.out.println("قم بفعل شيء هنا....");
+                System.out.println("Do some thing here....");
             }
         }
     }
@@ -91,28 +106,28 @@ try {
 }
 ```
 
+
 ## **تغيير نمط شكل SmartArt**
 في هذا المثال، سنتعلم كيفية تغيير النمط السريع لأي شكل SmartArt.
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class وتحميل العرض التقديمي مع شكل SmartArt.
-1. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt .
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
 1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
 1. العثور على شكل SmartArt بنمط معين.
-1. تعيين النمط الجديد لشكلم SmartArt.
+1. تعيين النمط الجديد لشكل SmartArt.
 1. حفظ العرض التقديمي.
-
 ```java
-// قم بإنشاء مثيل لفئة العرض التقديمي
+// إنشاء مثيل لفئة Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // احصل على الشريحة الأولى
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
     // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
-        // تحقق مما إذا كان الشكل من نوع SmartArt
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt) 
         {
             // تحويل الشكل إلى SmartArtEx
@@ -132,32 +147,32 @@ try {
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
 |**الشكل: شكل SmartArt مع نمط متغير**|
 
-## **تغيير نمط اللون لشكل SmartArt**
-في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الكود التجريبي التالي، سنصل إلى شكل SmartArt بنمط لون معين وسنغير نمطه.
+## **تغيير نمط لون شكل SmartArt**
+في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الشيفرة النموذجية التالية سيتم الوصول إلى شكل SmartArt بنمط لون معين وتغيير نمطه.
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class وتحميل العرض التقديمي مع شكل SmartArt.
-1. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt .
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
 1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
 1. العثور على شكل SmartArt بنمط لون معين.
 1. تعيين نمط اللون الجديد لشكل SmartArt.
 1. حفظ العرض التقديمي.
-
 ```java
-// قم بإنشاء مثيل لفئة العرض التقديمي
+// إنشاء مثيل لفئة Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // احصل على الشريحة الأولى
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
     // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
-        // تحقق مما إذا كان الشكل من نوع SmartArt
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt) 
         {
             // تحويل الشكل إلى SmartArtEx
@@ -177,6 +192,29 @@ try {
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|
 | :- |
-|**الشكل: شكل SmartArt مع نمط لون متغير**|
+|**الشكل: شكل SmartArt بنمط لون متغير**|
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحريك SmartArt ككائن واحد؟**
+
+نعم. SmartArt هو شكل، لذلك يمكنك تطبيق [standard animations](/slides/ar/java/powerpoint-animation/) عبر واجهة برمجة التطبيقات للرسوم المتحركة (الدخول، الخروج، التشديد، مسارات الحركة) كما هو الحال مع الأشكال الأخرى.
+
+**كيف يمكنني العثور على SmartArt محدد في شريحة إذا لم أعرف معرّفه الداخلي؟**
+
+قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل باستخدام هذه القيمة—هذه طريقة موصى بها لتحديد موقع الشكل المستهدف.
+
+**هل يمكنني تجميع SmartArt مع أشكال أخرى؟**
+
+نعم. يمكنك تجميع SmartArt مع أشكال أخرى (صور، جداول، إلخ) ثم [manipulate the group](/slides/ar/java/group/).
+
+**كيف أحصل على صورة لـ SmartArt معين (مثلاً للمعاينة أو التقرير)؟**
+
+قم بتصدير صورة مصغرة/صورة للشكل؛ يمكن للمكتبة [render individual shapes](/slides/ar/java/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
+
+**هل سيتم الحفاظ على مظهر SmartArt عند تحويل العرض التقديمي كاملًا إلى PDF؟**
+
+نعم. يهدف محرك العرض إلى الحفاظ على الدقة العالية لتصدير [PDF export](/slides/ar/java/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.

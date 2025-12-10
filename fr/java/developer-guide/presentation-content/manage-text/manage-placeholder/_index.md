@@ -15,23 +15,23 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Gérez facilement les espaces réservés dans Aspose.Slides pour Java : remplacez le texte, personnalisez les invites et définissez la transparence des images dans PowerPoint et OpenDocument."
+description: "Gérez facilement les espaces réservés dans Aspose.Slides pour Java: remplacez le texte, personnalisez les invites et définissez la transparence des images dans PowerPoint et OpenDocument."
 ---
 
-## **Modifier le texte dans un espace reserve**
-En utilisant [Aspose.Slides for Java](/slides/fr/java/), vous pouvez rechercher et modifier les espaces reserves sur les diapositives d'une presentation. Aspose.Slides vous permet d'apporter des modifications au texte d'un espace reserve.
+## **Modifier le texte dans un espace réservé**
+En utilisant [Aspose.Slides for Java](/slides/fr/java/), vous pouvez rechercher et modifier les espaces réservés sur les diapositives des présentations. Aspose.Slides vous permet de modifier le texte d'un espace réservé.
 
-**Prerequis**: Vous avez besoin d'une presentation contenant un espace reserve. Vous pouvez creer une telle presentation dans l'application Microsoft PowerPoint standard.
+**Prérequis** : vous avez besoin d'une présentation contenant un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
 
-Voici comment utiliser Aspose.Slides pour remplacer le texte dans l'espace reserve de cette presentation :
+Voici comment utiliser Aspose.Slides pour remplacer le texte dans l'espace réservé de cette présentation :
 
-1. Instanciez la classe [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) et transmettez la presentation en argument.
-2. Obtenez une reference a une diapositive via son indice.
-3. Parcourez les formes pour trouver l'espace reserve.
-4. Convertissez la forme d'espace reserve en un [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) et modifiez le texte a l'aide du [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associe au [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-5. Enregistrez la presentation modifiee.
+1. Instanciez la classe [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) et transmettez la présentation en argument.
+2. Obtenez une référence de diapositive via son index.
+3. Parcourez les formes pour trouver l'espace réservé.
+4. Convertissez la forme de l'espace réservé en [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) et modifiez le texte à l'aide du [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associé à la [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+5. Enregistrez la présentation modifiée.
 
-Ce code Java montre comment modifier le texte dans un espace reserve :
+Ce code Java montre comment modifier le texte dans un espace réservé :
 ```java
 // Instancie une classe Presentation
 Presentation pres = new Presentation("ReplacingText.pptx");
@@ -40,11 +40,11 @@ try {
     // Accède à la première diapositive
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Parcourt les formes pour trouver l'espace réservé
+    // Itère à travers les formes pour trouver l'espace réservé
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
-            // Modifie le texte dans chaque espace réservé
+            // Modifie le texte de chaque espace réservé
             ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
@@ -57,15 +57,15 @@ try {
 ```
 
 
-## **Definir le texte d'invite dans un espace reserve**
-Les dispositions standard et pre-concues contiennent des textes d'invite d'espace reserve tels que ***Cliquez pour ajouter un titre*** ou ***Cliquez pour ajouter un sous-titre***. Avec Aspose.Slides, vous pouvez inserer vos propres textes d'invite dans les dispositions d'espace reserve.
+## **Définir le texte d'invite dans un espace réservé**
+Les dispositions standard et préconstruites contiennent des textes d'invite d'espace réservé tels que ***Cliquez pour ajouter un titre*** ou ***Cliquez pour ajouter un sous‑titre***. Avec Aspose.Slides, vous pouvez insérer vos propres textes d'invite dans les dispositions d'espaces réservés.
 
-Ce code Java vous montre comment definir le texte d'invite dans un espace reserve :
+Ce code Java vous montre comment définir le texte d'invite dans un espace réservé :
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Parcourt la diapositive
+    for (IShape shape : slide.getSlide().getShapes()) // Itère à travers la diapositive
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
@@ -91,11 +91,10 @@ try {
 ```
 
 
-## **Definir la transparence de l'image d'un espace reserve**
+## **Définir la transparence de l'image d'un espace réservé**
+Aspose.Slides vous permet de définir la transparence de l'image d'arrière‑plan dans un espace réservé de texte. En ajustant la transparence de l'image dans ce cadre, vous pouvez faire ressortir le texte ou l'image (selon les couleurs du texte et de l'image).
 
-Aspose.Slides vous permet de definir la transparence de l'image d'arriere-plan dans un espace reserve de texte. En ajustant la transparence de l'image dans ce cadre, vous pouvez faire ressortir le texte ou l'image (selon les couleurs du texte et de l'image).
-
-Ce code Java vous montre comment definir la transparence d'un arriere-plan d'image (dans une forme) :
+Ce code Java montre comment définir la transparence d'une image d'arrière‑plan (à l'intérieur d'une forme) :
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -121,14 +120,11 @@ presentation.save("example_out.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Qu'est-ce qu'un espace reserve de base et en quoi differe-t-il d'une forme locale sur une diapositive?**
+**Qu'est‑ce qu'un espace réservé de base, et en quoi diffère‑t‑il d'une forme locale sur une diapositive ?**  
+Un espace réservé de base est la forme originale sur une disposition ou un maître dont la forme de la diapositive hérite — le type, la position et certains formatages en proviennent. Une forme locale est indépendante ; s'il n'existe aucun espace réservé de base, l'héritage ne s'applique pas.
 
-Un espace reserve de base est la forme originale sur une disposition ou un masque dont la forme de la diapositive herite -- le type, la position et certains formats en proviennent. Une forme locale est indépendante; s'il n'existe pas d'espace reserve de base, l'heritage ne s'applique pas.
+**Comment mettre à jour tous les titres ou légendes d'une présentation sans parcourir chaque diapositive ?**  
+Modifiez l'espace réservé correspondant sur la disposition ou le maître. Les diapositives basées sur ces dispositions/ce maître hériteront automatiquement de la modification.
 
-**Comment mettre a jour tous les titres ou legendes d'une presentation sans parcourir chaque diapositive?**
-
-Modifiez l'espace reserve correspondant sur la disposition ou le masque. Les diapositives basees sur ces dispositions/ce masque herediteront automatiquement du changement.
-
-**Comment contrôler les espaces reserves d'en-tete/pied de page standard -- date & heure, numero de diapositive et texte du pied de page?**
-
-Utilisez les gestionnaires HeaderFooter au niveau approprie (diapositives normales, dispositions, masque, notes/feuillets) pour activer ou desactiver ces espaces reserves et definir leur contenu.
+**Comment contrôler les espaces réservés d'en‑tête/pied de page standard — date et heure, numéro de diapositive et texte du pied de page ?**  
+Utilisez les gestionnaires HeaderFooter au niveau approprié (diapositives normales, dispositions, maître, notes/feuillets) pour activer ou désactiver ces espaces réservés et définir leur contenu.

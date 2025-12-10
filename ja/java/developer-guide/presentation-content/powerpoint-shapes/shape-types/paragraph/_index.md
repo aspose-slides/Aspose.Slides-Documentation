@@ -1,14 +1,26 @@
 ---
-title: 段落
+title: Javaでプレゼンテーションから段落の境界を取得
+linktitle: 段落
 type: docs
 weight: 60
 url: /ja/java/paragraph/
+keywords:
+- 段落の境界
+- テキストポーションの境界
+- 段落座標
+- ポーション座標
+- 段落サイズ
+- テキストポーションサイズ
+- テキストフレーム
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Java用 Aspose.Slides で段落とテキストポーションの境界を取得し、PowerPoint プレゼンテーションのテキスト配置を最適化する方法を学びます。"
 ---
 
-
-## テキストフレーム内の段落および部分の座標を取得 ##
-Aspose.Slides for Javaを使用すると、開発者はテキストフレームの段落コレクション内の段落の矩形座標を取得できます。また、段落の部分コレクション内の[部分の座標](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--)を取得することも可能です。このトピックでは、段落の矩形座標と段落内の部分の位置を取得する方法を例を用いて示します。
-
+## **テキストフレーム内の段落とポーションの座標を取得**
+Aspose.Slides for Java を使用すると、開発者は TextFrame の段落コレクション内の Paragraph の矩形座標を取得できます。また、段落のポーションコレクション内の [the coordinates of portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) を取得することも可能です。このトピックでは、サンプルを使って段落の矩形座標と段落内のポーションの位置を取得する方法を示します。
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
@@ -21,8 +33,7 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 
 
 ## **段落の矩形座標を取得**
-[**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--)メソッドを使用すると、開発者は段落の境界矩形を取得できます。
-
+[**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) メソッドを使用すると、開発者は段落のバウンド矩形を取得できます。
 ```java
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
@@ -35,12 +46,12 @@ try {
 }
 ```
 
-## **テーブルセルのテキストフレーム内の段落および部分のサイズを取得 ** ##
 
-テーブルセルのテキストフレーム内の[部分](https://reference.aspose.com/slides/java/com.aspose.slides/Portion)または[段落](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph)のサイズと座標を取得するには、[IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--)および[IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--)メソッドを使用できます。
+## **テーブルセルのテキストフレーム内の段落およびポーションのサイズを取得**
 
-このサンプルコードは、説明された操作を示します：
+テーブルセルのテキストフレーム内で [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) または [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) のサイズと座標を取得するには、[IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) および [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) メソッドを使用できます。
 
+このサンプルコードは、上記の操作を実演しています：
 ```java
 Presentation pres = new Presentation("source.pptx");
 try {
@@ -81,3 +92,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**段落およびテキストポーションの座標はどの単位で返されますか？**
+
+ポイント単位です。1 インチ = 72 ポイントです。これはスライド上のすべての座標とサイズに適用されます。
+
+**ワードラッピングは段落のバウンドに影響しますか？**
+
+はい。[wrapping](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-) が [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) で有効になっている場合、テキストは領域の幅に合わせて折り返され、段落の実際のバウンドが変わります。
+
+**段落の座標はエクスポートされた画像のピクセルに確実にマッピングできますか？**
+
+はい。ポイントをピクセルに変換するには次の式を使用します: pixels = points × (DPI / 72)。結果はレンダリング/エクスポート時に選択した DPI に依存します。
+
+**スタイル継承を考慮した「実効」段落書式設定パラメータを取得するにはどうすればよいですか？**
+
+[effective paragraph formatting data structure](/slides/ja/java/shape-effective-properties/) を使用してください。インデント、間隔、ラッピング、RTL などの最終的な統合値を返します。

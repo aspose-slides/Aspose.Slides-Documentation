@@ -11,35 +11,36 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用してチャート凡例をカスタマイズし、PowerPoint プレゼンテーションを最適化するために、特別な凡例書式設定を行います。"
+description: "Aspose.Slides for Java を使用して、チャート凡例をカスタマイズし、PowerPoint プレゼンテーションの凡例書式設定を最適化します。"
 ---
 
-## **凡例の配置**
+## **凡例の位置設定**
 凡例のプロパティを設定するには、以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+- Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
 - スライドの参照を取得します。
 - スライドにチャートを追加します。
 - 凡例のプロパティを設定します。
-- プレゼンテーションを書き出して PPTX ファイルとして保存します。
+- プレゼンテーションを書き出して PPTX ファイルに保存します。
 
+以下の例では、チャートの凡例の位置とサイズを設定しています。
 ```java
-// Presentation クラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
-    // スライドの参照を取得
+    // スライドの参照を取得します
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // スライドにクラスタ化された縦棒グラフを追加
+    // スライドにクラスタ化列チャートを追加します
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
-    // 凡例のプロパティを設定
+    // 凡例のプロパティを設定します
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
     
-    // プレゼンテーションを書き出してディスクに保存
+    // プレゼンテーションをディスクに保存します
     pres.save("Legend_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -48,17 +49,16 @@ try {
 
 
 ## **凡例のフォントサイズの設定**
-Aspose.Slides for Java を使用すると、開発者は凡例のフォントサイズを設定できます。以下の手順に従ってください。
+Aspose.Slides for Javaでは、開発者が凡例のフォントサイズを設定できます。以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-- 既定のチャートを作成します。
+- Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
+- デフォルトのチャートを作成します。
 - フォントサイズを設定します。
-- 最小軸の値を設定します。
-- 最大軸の値を設定します。
-- プレゼンテーションをディスクに書き込みます。
-
+- 最小軸値を設定します。
+- 最大軸値を設定します。
+- プレゼンテーションをディスクに書き出します。
 ```java
-// Presentation クラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -77,19 +77,18 @@ try {
 ```
 
 
-## **個別凡例のフォントサイズの設定**
-Aspose.Slides for Java を使用すると、開発者は個別の凡例エントリのフォントサイズを設定できます。以下の手順に従ってください。
+## **個別凡例エントリのフォントサイズの設定**
+Aspose.Slides for Javaでは、開発者が個々の凡例エントリのフォントサイズを設定できます。以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-- 既定のチャートを作成します。
+- Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
+- デフォルトのチャートを作成します。
 - 凡例エントリにアクセスします。
 - フォントサイズを設定します。
-- 最小軸の値を設定します。
-- 最大軸の値を設定します。
-- プレゼンテーションをディスクに書き込みます。
-
+- 最小軸値を設定します。
+- 最大軸値を設定します。
+- プレゼンテーションをディスクに書き出します。
 ```java
-// Presentation クラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -111,14 +110,11 @@ try {
 
 ## **FAQ**
 
-**凡例を有効にして、チャートが凡例の上に重ねるのではなく自動的にスペースを確保するようにできますか？**
+**凡例を有効にして、チャートが凡例のために自動的に領域を確保し、重ね合わせないようにできますか？**
+はい。非オーバーレイ モード（[setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)）を使用します。この場合、プロット領域が縮小して凡例を収めます。
 
-はい。非オーバーレイモード（[setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)）を使用します。この場合、プロット領域が縮小して凡例を収容します。
-
-**凡例ラベルを複数行にすることはできますか？**
-
+**複数行の凡例ラベルを作成できますか？**
 はい。スペースが不足すると長いラベルは自動的に折り返されます。改行文字をシリーズ名に含めることで強制的な改行もサポートされます。
 
-**凡例をプレゼンテーションのテーマカラー スキームに従わせるにはどうすればよいですか？**
-
-凡例やそのテキストに対して明示的な色/塗りつぶし/フォントを設定しないでください。そうすればテーマから継承され、デザインが変更されたときに正しく更新されます。
+**凡例をプレゼンテーションのテーマのカラースキームに合わせるにはどうすればよいですか？**
+凡例やそのテキストに明示的な色・塗りつぶし・フォントを設定しないでください。テーマから継承され、デザインが変更されても正しく更新されます。

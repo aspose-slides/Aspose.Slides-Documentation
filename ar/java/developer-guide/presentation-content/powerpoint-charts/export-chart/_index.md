@@ -1,6 +1,6 @@
 ---
 title: تصدير مخططات العروض التقديمية في Java
-linktitle: تصدير المخطط
+linktitle: تصدير مخطط
 type: docs
 weight: 90
 url: /ar/java/export-chart/
@@ -13,11 +13,11 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تصدير مخططات العروض التقديمية باستخدام Aspose.Slides for Java، مع دعم صيغ PPT و PPTX، وتبسيط إعداد التقارير في أي سير عمل."
+description: "تعرف على كيفية تصدير مخططات العروض التقديمية باستخدام Aspose.Slides لـ Java، مع دعم صيغ PPT و PPTX، وتبسيط إعداد التقارير في أي سير عمل."
 ---
 
-## **الحصول على صورة المخطط**
-يقدم Aspose.Slides for Java دعمًا لاستخراج صورة لمخطط معين. المثال التالي يُظهر ذلك.
+## **الحصول على صورة مخطط**
+يقدم Aspose.Slides for Java دعمًا لاستخراج صورة لمخطط معين. فيما يلي مثال توضيحي.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -38,17 +38,17 @@ try {
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تصدير مخطط كمتجه (SVG) بدلاً من صورة نقطية؟**  
-نعم. المخطط هو شكل، ويمكن حفظ محتوياته كملف SVG باستخدام طريقة [shape-to-SVG saving method](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+**هل يمكنني تصدير مخطط كرسوم متجهة (SVG) بدلًا من صورة نقطية؟**
+نعم. المخطط هو شكل، ويمكن حفظ محتوياته إلى SVG باستخدام طريقة [طريقة حفظ الشكل إلى SVG](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
 
-**كيف يمكنني تحديد الحجم الدقيق للمخطط المُصدَّر بالبكسل؟**  
-استخدم الإصدارات الزائدة لـ image-rendering التي تسمح لك بتحديد الحجم أو المقياس — تدعم المكتبة تصيير الكائنات بالأبعاد أو المقياس المحدد.
+**كيف يمكنني تعيين الحجم الدقيق للمخطط المُصدّر بالبكسل؟**
+استخدم المتغيّرات الإضافية لتصوير الصورة التي تسمح بتحديد الحجم أو المقياس—المكتبة تدعم تصيير الكائنات بأبعاد/مقاييس محددة.
 
-**ماذا أفعل إذا ظهرت الخطوط في التسميات والوسيلة الإيضاحية بشكل غير صحيح بعد التصدير؟**  
+**ماذا أفعل إذا ظهرت الخطوط في التسميات والوسيلة الإيضاحية بشكل غير صحيح بعد التصدير؟**
 [حمّل الخطوط المطلوبة](/slides/ar/java/custom-font/) عبر [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) حتى يحافظ تصيير المخطط على المقاييس ومظهر النص.
 
-**هل يحترم التصدير سمة PowerPoint والأنماط والتأثيرات؟**  
-نعم. يتبع المصدّر الخاص بـ Aspose.Slides تنسيق العرض (السمات، الأنماط، التعبئات، التأثيرات)، وبالتالي يُحافظ على مظهر المخطط.
+**هل يحترم التصدير سمة PowerPoint والأنماط والتأثيرات؟**
+نعم. يُطبق عارض Aspose.Slides تنسيق العرض التقديمي (السمات، الأنماط، التعبئات، التأثيرات)، وبالتالي يتم الحفاظ على مظهر المخطط.
 
-**أين يمكنني العثور على قدرات التصيير/التصدير المتاحة غير صور المخططات؟**  
-انظر إلى [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[التوثيق](/slides/ar/java/convert-powerpoint/) للحصول على أهداف الإخراج ([PDF](/slides/ar/java/convert-powerpoint-to-pdf/), [SVG](/slides/ar/java/render-a-slide-as-an-svg-image/), [XPS](/slides/ar/java/convert-powerpoint-to-xps/), [HTML](/slides/ar/java/convert-powerpoint-to-html/), إلخ) وخيارات التصيير المتعلقة.
+**أين يمكنني العثور على إمكانيات التصيير/التصدير المتاحة بخلاف صور المخططات؟**
+راجع [API](https://reference.aspose.com/slides/java/com.aspose.slides/)/[documentation](/slides/ar/java/convert-powerpoint/) للحصول على أهداف الإخراج ([PDF](/slides/ar/java/convert-powerpoint-to-pdf/)، [SVG](/slides/ar/java/render-a-slide-as-an-svg-image/)، [XPS](/slides/ar/java/convert-powerpoint-to-xps/)، [HTML](/slides/ar/java/convert-powerpoint-to-html/)، إلخ) وخيارات التصيير ذات الصلة.

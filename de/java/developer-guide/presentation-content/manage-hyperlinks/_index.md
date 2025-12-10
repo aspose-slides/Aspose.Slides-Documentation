@@ -16,30 +16,31 @@ keywords:
 - Form-Hyperlink
 - Bild-Hyperlink
 - Video-Hyperlink
-- veränderbarer Hyperlink
+- Veränderbarer Hyperlink
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mühelos mit Aspose.Slides für Java – verbessern Sie Interaktivität und Arbeitsablauf in wenigen Minuten."
+description: "Mühelos Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java verwalten – die Interaktivität und den Workflow in Minuten verbessern."
 ---
 
-Ein Hyperlink ist eine Referenz zu einem Objekt, Daten oder einem Ort in etwas. Dies sind gängige Hyperlinks in PowerPoint‑Präsentationen:
+Ein Hyperlink ist eine Referenz auf ein Objekt, Daten oder einen Ort in etwas. Dies sind gängige Hyperlinks in PowerPoint‑Präsentationen:
 
 * Links zu Websites innerhalb von Texten, Formen oder Medien
 * Links zu Folien
 
-Aspose.Slides for Java ermöglicht das Ausführen zahlreicher Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen. 
+Aspose.Slides für Java ermöglicht es Ihnen, zahlreiche Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen auszuführen.
 
 {{% alert color="primary" %}} 
-Vielleicht möchten Sie Aspose Simple, den kostenlosen Online‑PowerPoint‑Editor, anschauen. [kostenlosen Online‑PowerPoint‑Editor.](https://products.aspose.app/slides/editor)
+Vielleicht möchten Sie Aspose Simple ausprobieren, [kostenlosen Online‑PowerPoint‑Editor.](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **Hinzufügen von URL‑Hyperlinks**
+## **URL‑Hyperlinks hinzufügen**
 
-### **Hinzufügen von URL‑Hyperlinks zu Text**
-Dieser Java‑Code zeigt, wie Sie einem Text einen Website‑Hyperlink hinzufügen:
+### **URL‑Hyperlinks zu Text hinzufügen**
+
+Dieser Java‑Code zeigt, wie Sie einen Website‑Hyperlink zu einem Text hinzufügen:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -58,8 +59,9 @@ try {
 ```
 
 
-### **Hinzufügen von URL‑Hyperlinks zu Formen oder Rahmen**
-Dieser Beispielcode in Java zeigt, wie Sie einem Shape einen Website‑Hyperlink hinzufügen:
+### **URL‑Hyperlinks zu Formen oder Rahmen hinzufügen**
+
+Dieses Beispielcode in Java zeigt, wie Sie einen Website‑Hyperlink zu einer Form hinzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -75,10 +77,11 @@ try {
 ```
 
 
-### **Hinzufügen von URL‑Hyperlinks zu Medien**
+### **URL‑Hyperlinks zu Medien hinzufügen**
+
 Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild‑, Audio‑ und Videodateien. 
 
-Dieser Beispielcode zeigt, wie Sie einem **Bild** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einem **Bild** hinzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -90,7 +93,7 @@ try {
     } finally {
           if (image != null) image.dispose();
     }
-	// Erstellt ein Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
+	// Erstellt Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
@@ -104,7 +107,7 @@ try {
 ```
 
 
-Dieser Beispielcode zeigt, wie Sie einer **Audiodatei** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einer **Audiodatei** hinzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -122,7 +125,7 @@ try {
 ```
 
 
-Dieser Beispielcode zeigt, wie Sie einem **Video** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einem **Video** hinzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -144,8 +147,9 @@ try {
 Vielleicht möchten Sie *[OLE verwalten](/slides/de/java/manage-ole/)* sehen.
 {{% /alert %}}
 
-## **Verwendung von Hyperlinks zum Erstellen von Inhaltsverzeichnissen**
-Da Hyperlinks es ermöglichen, Referenzen zu Objekten oder Orten hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden.
+## **Hyperlinks zum Erstellen eines Inhaltsverzeichnisses verwenden**
+
+Da Hyperlinks es Ihnen ermöglichen, Referenzen zu Objekten oder Orten hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden. 
 
 Dieser Beispielcode zeigt, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
 ```java
@@ -178,10 +182,11 @@ try {
 ```
 
 
-## **Formatierung von Hyperlinks**
+## **Hyperlinks formatieren**
 
 ### **Farbe**
-Mit der [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-)‑Eigenschaft im [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink)‑Interface können Sie die Farbe von Hyperlinks festlegen und auch Farbinformationen von Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht für ältere PowerPoint‑Versionen gelten.
+
+Mit der Eigenschaft [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) im Interface [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) können Sie die Farbe für Hyperlinks festlegen und außerdem Farbinformationen aus Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft für ältere PowerPoint‑Versionen nicht gelten.
 
 Dieser Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit unterschiedlichen Farben zur selben Folie hinzugefügt wurden:
 ```java
@@ -206,9 +211,10 @@ try {
 ```
 
 
-## **Entfernen von Hyperlinks in Präsentationen**
+## **Hyperlinks aus Präsentationen entfernen**
 
-### **Entfernen von Hyperlinks aus Text**
+### **Hyperlinks aus Text entfernen**
+
 Dieser Java‑Code zeigt, wie Sie den Hyperlink aus einem Text in einer Präsentationsfolie entfernen:
 ```java
 Presentation pres = new Presentation();
@@ -236,8 +242,9 @@ try {
 ```
 
 
-### **Entfernen von Hyperlinks aus Formen oder Rahmen**
-Dieser Java‑Code zeigt, wie Sie den Hyperlink aus einem Shape in einer Präsentationsfolie entfernen:
+### **Hyperlinks aus Formen oder Rahmen entfernen**
+
+Dieser Java‑Code zeigt, wie Sie den Hyperlink aus einer Form in einer Präsentationsfolie entfernen: 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -254,7 +261,8 @@ try {
 
 
 ## **Veränderbarer Hyperlink**
-Die [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink)‑Klasse ist veränderbar. Mit dieser Klasse können Sie die Werte folgender Eigenschaften ändern:
+
+Die Klasse [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) ist veränderbar. Mit dieser Klasse können Sie die Werte für folgende Eigenschaften ändern:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -262,7 +270,7 @@ Die [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyper
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Der Codeabschnitt zeigt, wie Sie einem Slide einen Hyperlink hinzufügen und später dessen Tooltip bearbeiten:
+Der Codeabschnitt zeigt, wie Sie einen Hyperlink zu einer Folie hinzufügen und dessen Tooltip später bearbeiten:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -282,13 +290,14 @@ try {
 
 
 ## **Unterstützte Eigenschaften in IHyperlinkQueries**
-Sie können [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) von einer Präsentation, Folie oder einem Text aus zugreifen, für den der Hyperlink definiert ist. 
+
+Sie können [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) aus einer Präsentation, Folie oder einem Text abrufen, für den der Hyperlink definiert ist. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Die [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries)‑Klasse unterstützt diese Methoden und Eigenschaften: 
+Die Klasse [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) unterstützt diese Methoden und Eigenschaften: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -297,11 +306,14 @@ Die [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slid
 
 ## **FAQ**
 
-**Wie kann ich eine interne Navigation nicht nur zu einer Folie, sondern zu einem "Abschnitt" oder zur ersten Folie eines Abschnitts erstellen?**  
-Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem "Abschnitt" zu navigieren, verlinken Sie in der Regel zu dessen erster Folie.
+**Wie kann ich die interne Navigation nicht nur zu einer Folie, sondern zu einem „Abschnitt“ oder zur ersten Folie eines Abschnitts erstellen?**
 
-**Kann ich einem Master‑Folienelement einen Hyperlink hinzufügen, damit er auf allen Folien funktioniert?**  
-Ja. Master‑Folien‑ und Layout‑Elemente unterstützen Hyperlinks. Derartige Links erscheinen auf den Unterfolien und sind während der Präsentation anklickbar.
+Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem Abschnitt zu navigieren, verlinken Sie in der Regel auf dessen erste Folie.
 
-**Werden Hyperlinks beim Exportieren in PDF, HTML, Bilder oder Video erhalten bleiben?**  
-In [PDF](/slides/de/java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/java/convert-powerpoint-to-html/) ja – Links werden im Allgemeinen erhalten. Beim Exportieren zu [Bildern](/slides/de/java/convert-powerpoint-to-png/) und [Video](/slides/de/java/convert-powerpoint-to-video/) ist die Klickbarkeit nicht erhalten, da diese Formate (Rasterbilder/Video) Hyperlinks nicht unterstützen.
+**Kann ich einen Hyperlink an Masterfolienelementen anbringen, sodass er auf allen Folien funktioniert?**
+
+Ja. Masterfolien‑ und Layout‑Elemente unterstützen Hyperlinks. Derartige Links erscheinen auf den untergeordneten Folien und sind während der Bildschirmpräsentation anklickbar.
+
+**Werden Hyperlinks beim Exportieren nach PDF, HTML, Bildern oder Video erhalten bleiben?**
+
+In [PDF](/slides/de/java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/java/convert-powerpoint-to-html/) ja – Links werden im Allgemeinen erhalten. Beim Exportieren in [Bilder](/slides/de/java/convert-powerpoint-to-png/) und [Video](/slides/de/java/convert-powerpoint-to-video/) ist die Anklickbarkeit jedoch nicht mehr vorhanden, da diese Formate (Raster‑Frames/Video) keine Hyperlinks unterstützen.

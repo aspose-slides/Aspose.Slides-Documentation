@@ -1,10 +1,10 @@
 ---
-title: Anpassen von Kreisdiagrammen in Präsentationen mit Java
-linktitle: Kreisdiagramm
+title: Kuchendiagramme in Präsentationen mit Java anpassen
+linktitle: Kuchendiagramm
 type: docs
 url: /de/java/pie-chart/
 keywords:
-- Kreisdiagramm
+- Kuchendiagramm
 - Diagramm verwalten
 - Diagramm anpassen
 - Diagrammoptionen
@@ -15,26 +15,26 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Kreisdiagramme in Java mit Aspose.Slides erstellen und anpassen, exportierbar nach PowerPoint, und so Ihre Datenpräsentation in Sekundenschnelle verbessern."
+description: "Erfahren Sie, wie Sie mit Aspose.Slides in Java Kuchendiagramme erstellen und anpassen, exportierbar nach PowerPoint, und Ihre Datenpräsentation in Sekunden verbessern."
 ---
 
-## **Zweite Diagrammoptionen für Kuchen-von-Kuchen und Balken-von-Kuchen Diagramme**
-Aspose.Slides for Java unterstützt jetzt zweite Plot-Optionen für Kuchen-von-Kuchen- oder Balken-von-Kuchen-Diagramme. In diesem Thema zeigen wir, wie Sie diese Optionen mit Aspose.Slides festlegen. So geben Sie die Eigenschaften an:
+## **Optionen für das zweite Diagramm bei Pie of Pie- und Bar of Pie-Diagrammen**
+Aspose.Slides for Java unterstützt jetzt Optionen für das sekundäre Diagramm bei Pie of Pie- oder Bar of Pie-Diagrammen. In diesem Abschnitt zeigen wir, wie Sie diese Optionen mit Aspose.Slides festlegen. So geben Sie die Eigenschaften an:
 
-1. Instanziieren Sie ein Objekt der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Fügen Sie dem Folie ein Diagramm hinzu.
-1. Geben Sie die zweiten Plot-Optionen des Diagramms an.
-1. Schreiben Sie die Präsentation auf die Festplatte.
+1. Instanziieren Sie das [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klassenobjekt.  
+1. Fügen Sie dem Folie ein Diagramm hinzu.  
+1. Geben Sie die Optionen für das sekundäre Diagramm des Diagramms an.  
+1. Speichern Sie die Präsentation auf dem Datenträger.  
 
-Im nachstehenden Beispiel haben wir verschiedene Eigenschaften des Kuchen-von-Kuchen-Diagramms gesetzt.
+Im nachstehenden Beispiel haben wir verschiedene Eigenschaften des Pie of Pie-Diagramms festgelegt.  
 ```java
-// Erstelle eine Instanz der Präsentationsklasse
+// Instanz der Presentation-Klasse erstellen
 Presentation pres = new Presentation();
 try {
     // Diagramm zur Folie hinzufügen
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
     
-    // Unterschiedliche Eigenschaften festlegen
+    // Verschiedene Eigenschaften festlegen
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
@@ -48,23 +48,23 @@ try {
 ```
 
 
-## **Automatische Farben für Kuchen-Diagramm-Scheiben festlegen**
-Aspose.Slides for Java bietet eine einfache API zum Festlegen automatischer Farben für Kuchen-Diagramm-Scheiben. Der Beispielcode wendet die oben genannten Eigenschaften an.
+## **Automatische Farben für Pie‑Chart‑Scheiben festlegen**
+Aspose.Slides for Java bietet eine einfache API zum Festlegen automatischer Farben für Pie‑Chart‑Folien. Der Beispielcode wendet die oben genannten Eigenschaften an.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-4. Setzen Sie den Diagrammtitel.
-5. Stellen Sie die erste Serie so ein, dass Werte angezeigt werden.
-6. Legen Sie den Index des Diagrammdatenblatts fest.
-7. Holen Sie das Arbeitsblatt mit den Diagrammdaten.
-8. Löschen Sie die standardmäßig erzeugten Serien und Kategorien.
-9. Fügen Sie neue Kategorien hinzu.
-10. Fügen Sie neue Serien hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+1. Legen Sie den Diagrammtitel fest.  
+1. Setzen Sie die erste Datenreihe auf 'Werte anzeigen'.  
+1. Legen Sie den Index des Diagrammdatenblatts fest.  
+1. Abrufen des Diagrammdaten‑Arbeitsblatts.  
+1. Löschen Sie die standardmäßig generierten Reihen und Kategorien.  
+1. Fügen Sie neue Kategorien hinzu.  
+1. Fügen Sie neue Reihen hinzu.  
 
-Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.
+Speichern Sie die geänderte Präsentation in einer PPTX-Datei.  
 ```java
-// Erstelle eine Instanz der Presentation-Klasse
+// Instanz der Presentation-Klasse erstellen
 Presentation pres = new Presentation();
 try {
     // Diagramm mit Standarddaten hinzufügen
@@ -76,16 +76,16 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
 
-    // Erste Serie auf Werte anzeigen setzen
+    // Erste Datenreihe auf Werte anzeigen setzen
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
-    // Index des Diagrammdatenblatts festlegen
+    // Index des Diagrammdatensheets festlegen
     int defaultWorksheetIndex = 0;
 
-    // Diagrammdaten-Arbeitsblatt holen
+    // Diagrammdatentabelle abrufen
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Standardmäßig erzeugte Serien und Kategorien löschen
+    // Standardmäßig generierte Reihen und Kategorien löschen
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -94,10 +94,10 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
 
-    // Neue Serie hinzufügen
+    // Neue Reihe hinzufügen
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
 
-    // Jetzt die Seriendaten befüllen
+    // Jetzt Reihen-Daten füllen
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -112,10 +112,10 @@ try {
 
 ## **FAQ**
 
-**Werden die 'Kuchen-von-Kuchen' und 'Balken-von-Kuchen' Varianten unterstützt?**
+**Werden die Varianten 'Pie of Pie' und 'Bar of Pie' unterstützt?**
 
-Ja, die Bibliothek [unterstützt](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ein sekundäres Plot für Kuchen-Diagramme, einschließlich der Typen 'Kuchen-von-Kuchen' und 'Balken-von-Kuchen'.
+Ja, die Bibliothek unterstützt ein sekundäres Diagramm für Kuchendiagramme, einschließlich der Typen 'Pie of Pie' und 'Bar of Pie'.  
 
 **Kann ich nur das Diagramm als Bild (z. B. PNG) exportieren?**
 
-Ja, Sie können das Diagramm selbst [als Bild exportieren](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) (z. B. PNG), ohne die gesamte Präsentation.
+Ja, Sie können das Diagramm selbst als Bild (z. B. PNG) exportieren, ohne die gesamte Präsentation.

@@ -1,11 +1,11 @@
 ---
-title: Java を使用したプレゼンテーションのチャート データ テーブルのカスタマイズ
-linktitle: データ テーブル
+title: Java を使用してプレゼンテーションのチャート データ テーブルをカスタマイズ
+linktitle: データテーブル
 type: docs
 url: /ja/java/chart-data-table/
 keywords:
 - チャート データ
-- データ テーブル
+- データテーブル
 - フォント プロパティ
 - PowerPoint
 - プレゼンテーション
@@ -14,16 +14,16 @@ keywords:
 description: "Aspose.Slides を使用して Java で PPT および PPTX のチャート データ テーブルをカスタマイズし、プレゼンテーションの効率と魅力を向上させます。"
 ---
 
-## **チャート データ テーブルのフォント プロパティの設定**
-Aspose.Slides for Java は、系列の色のカテゴリの色を変更する機能を提供します。
+## **チャート データテーブルのフォントプロパティを設定する**
+Aspose.Slides for Java は、シリーズの色内のカテゴリの色を変更するサポートを提供します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラス オブジェクトをインスタンス化します。
+1. インスタンス化 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスオブジェクト。
 1. スライドにチャートを追加します。
-1. チャート テーブルを設定します。
+1. チャートテーブルを設定します。
 1. フォントの高さを設定します。
 1. 変更されたプレゼンテーションを保存します。
 
-以下にサンプル例が示されています。  
+以下にサンプル例が示されています。
 ```java
 // 空のプレゼンテーションを作成
 Presentation pres = new Presentation();
@@ -42,16 +42,20 @@ try {
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**Can I show small legend keys next to the values in the chart’s data table?**  
-はい。データテーブルは[legend keys](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-) をサポートしており、オンまたはオフに切り替えることができます。
+**チャートのデータテーブルの値の横に小さな凡例キーを表示できますか？**
 
-**Will the data table be preserved when exporting the presentation to PDF, HTML, or images?**  
-はい。Aspose.Slides はチャートをスライドの一部としてレンダリングするため、エクスポートされた[PDF](/slides/ja/java/convert-powerpoint-to-pdf/)/[HTML](/slides/ja/java/convert-powerpoint-to-html/)/[image](/slides/ja/java/convert-powerpoint-to-png/) にはデータテーブル付きのチャートが含まれます。
+はい。データテーブルは[legend keys](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-)をサポートしており、オンまたはオフに切り替えることができます。
 
-**Are data tables supported for charts that come from a template file?**  
-はい。既存のプレゼンテーションまたはテンプレートからロードされたチャートについては、チャートのプロパティを使用してデータテーブルが[is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) を確認し、変更できます。
+**プレゼンテーションを PDF、HTML、または画像にエクスポートする際にデータテーブルは保持されますか？**
 
-**How can I quickly find which charts in a file have the data table enabled?**  
-各チャートのデータテーブルが[is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) を示すプロパティを確認し、スライドを走査して有効になっているチャートを特定します。
+はい。Aspose.Slides はチャートをスライドの一部としてレンダリングするため、エクスポートされた[PDF](/slides/ja/java/convert-powerpoint-to-pdf/)/[HTML](/slides/ja/java/convert-powerpoint-to-html/)/[image](/slides/ja/java/convert-powerpoint-to-png/) にはデータテーブルを含むチャートが含まれます。
+
+**テンプレートファイルから取得したチャートでもデータテーブルはサポートされていますか？**
+
+はい。既存のプレゼンテーションまたはテンプレートから読み込まれたチャートについても、チャートのプロパティを使用してデータテーブルが[表示されているか](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) を確認および変更できます。
+
+**ファイル内のどのチャートでデータテーブルが有効になっているかをすばやく確認するにはどうすればよいですか？**
+
+データテーブルが[表示されているか](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) を示す各チャートのプロパティを確認し、スライドを順に走査して有効になっているチャートを特定します。

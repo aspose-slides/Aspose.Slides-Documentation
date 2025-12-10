@@ -27,28 +27,31 @@ keywords:
 description: "تحويل شرائح PowerPoint (PPT, PPTX) إلى صور JPG عالية الجودة في Java باستخدام Aspose.Slides for Java مع أمثلة شفرة سريعة وموثوقة."
 ---
 
-## هل تبحث عن محول PPT إلى JPG عبر الإنترنت؟
-قبل الانتقال إلى كود Java، إذا كنت بحاجة إلى **أداة سريعة عبر الإنترنت** لتحويل PowerPoint (PPT، PPTX) إلى JPG **دون كتابة كود**، تفقد محولنا عبر الإنترنت:
-[Aspose PPT to JPG Converter](https://products.aspose.app/slides/conversion/ppt-to-jpg)
+## **هل تبحث عن أداة تحويل PPT إلى JPG عبر الإنترنت؟**
 
-إذا كنت **مطورًا يبحث عن حل برمجي**، تابع القراءة لتتعرف على كيفية تحويل شرائح PowerPoint إلى JPG باستخدام **Aspose.Slides for Java**.
+قبل الانتقال إلى كود Java، إذا كنت تحتاج إلى **أداة سريعة عبر الإنترنت** لتحويل PowerPoint (PPT، PPTX) إلى JPG **بدون برمجة**، اطلع على محولنا عبر الإنترنت:
+[محول Aspose PPT إلى JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg)
+
+إذا كنت **مطورًا يبحث عن حل برمجي**، استمر في القراءة لتتعرف على كيفية تحويل شرائح PowerPoint إلى JPG باستخدام **Aspose.Slides for Java**.
 
 ## **حول تحويل PowerPoint إلى JPG**
-باستخدام [**Aspose.Slides API**](https://products.aspose.com/slides/java/) يمكنك تحويل عرض PowerPoint PPT أو PPTX إلى صورة JPG. كما يمكن تحويل PPT/PPTX إلى JPEG أو PNG أو SVG. مع هذه الميزات يصبح من السهل تنفيذ عارض عرض تقديمي خاص بك، إنشاء صورة مصغرة لكل شريحة. قد يكون هذا مفيدًا إذا كنت ترغب في حماية شرائح العرض من النسخ، عرض العرض في وضع القراءة فقط. يتيح Aspose.Slides تحويل كامل العرض أو شريحة محددة إلى تنسيقات الصور.
+
+باستخدام [**Aspose.Slides API**](https://products.aspose.com/slides/java/) يمكنك تحويل عرض PowerPoint PPT أو PPTX إلى صورة JPG. كما يمكنك تحويل PPT/PPTX إلى JPEG أو PNG أو SVG. مع هذه الميزات يصبح من السهل تنفيذ عارض العروض الخاص بك، إنشاء  الصورة المصغرة لكل شريحة. قد يكون هذا مفيدًا إذا رغبت في حماية شرائح العرض من النسخ، وعرض العرض في وضع القراءة فقط. يتيح Aspose.Slides تحويل العرض بالكامل أو شريحة معينة إلى صيغ صور.
 
 {{% alert color="primary" %}} 
-لمشاهدة كيفية تحويل Aspose.Slides لـ PowerPoint إلى صور JPG، قد ترغب في تجربة هذه المحولات المجانية عبر الإنترنت: PowerPoint [PPTX إلى JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) و[PPT إلى JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+لرؤية كيفية تحويل Aspose.Slides لملفات PowerPoint إلى صور JPG، قد ترغب في تجربة هذه المحولات المجانية عبر الإنترنت: PowerPoint [PPTX إلى JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) و[PPT إلى JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 {{% /alert %}} 
 
-[![todo:image_alt_text](ppt-to-jpg.png)
+![todo:image_alt_text](ppt-to-jpg.png)
 
 ## **تحويل PowerPoint PPT/PPTX إلى JPG**
+
 فيما يلي الخطوات لتحويل PPT/PPTX إلى JPG:
 
-1. إنشاء نسخة من النوع [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. احصل على كائن الشريحة من النوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--).
-3. أنشئ الصورة المصغرة لكل شريحة ثم حوّلها إلى JPG. تُستخدم الطريقة [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) للحصول على صورة مصغرة لشريحة، وتُعيد كائن [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images) كنتيجة. يجب استدعاء الطريقة [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) من الشريحة المطلوبة من نوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)، حيث يتم تمرير مقاييس الصورة المصغرة الناتجة إلى الطريقة.
-4. بعد الحصول على الصورة المصغرة للشريحة، استدعِ الطريقة [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) من كائن الصورة المصغرة. مرّر اسم الملف الناتج وتنسيق الصورة إليها. 
+1. إنشاء كائن من النوع [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. الحصول على كائن الشريحة من النوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--).
+3. إنشاء صورة مصغرة لكل شريحة ثم تحويلها إلى JPG. تُستخدم طريقة [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) للحصول على صورة مصغرة لشريحة، وتعيد كائن [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images). يجب استدعاء طريقة [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) من الشريحة المطلوبة من النوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)، حيث يتم تمرير مقاييس الصورة المصغرة الناتجة إلى الطريقة.
+4. بعد الحصول على الصورة المصغرة للشريحة، استدعِ طريقة [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) من كائن الصورة المصغرة. قم بتمرير اسم الملف الناتج وتنسيق الصورة إليها. 
 
 {{% alert color="primary" %}}
 
@@ -76,7 +79,8 @@ try {
 
 
 ## **تحويل PowerPoint PPT/PPTX إلى JPG بأبعاد مخصصة**
-لتغيير أبعاد الصورة المصغرة الناتجة وصورة JPG، يمكنك ضبط قيمتي *ScaleX* و*ScaleY* بتمريرهما إلى طرق [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-):
+
+لتغيير أبعاد الصورة المصغرة الناتجة وصورة JPG، يمكنك تعيين قيم *ScaleX* و*ScaleY* بتمريرها إلى طرق [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-). 
 ```java
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
@@ -105,8 +109,9 @@ try {
 ```
 
 
-## **عرض التعليقات عند حفظ العرض كصورة**
-يوفر Aspose.Slides for Java ميزة تسمح لك بعرض التعليقات في شرائح العرض عند تحويل هذه الشرائح إلى صور. يوضح هذا الكود Java العملية:
+## **عرض التعليقات عند حفظ الشرائح كصور**
+
+يوفر Aspose.Slides for Java خاصية تسمح لك بعرض التعليقات في شرائح العرض عند تحويل تلك الشرائح إلى صور. يوضح هذا الكود Java العملية:
 ```java
 Presentation pres = new Presentation("presentation.pptx");
 try {
@@ -132,26 +137,27 @@ try {
 
 {{% alert title="Tip" color="primary" %}}
 
-توفر Aspose تطبيقًا ويبًا مجانيًا لإنشاء الكولاج [FREE Collage web app](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج صور [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات الصور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك.
+Aspose تقدم [تطبيق Collage مجاني على الويب](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات الصور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
 
-باستخدام نفس المبادئ الموضحة في هذه المقالة، يمكنك تحويل الصور من تنسيق إلى آخر. لمزيد من المعلومات، راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+وباستخدام نفس المبادئ الموضحة في هذه المقالة، يمكنك تحويل الصور من تنسيق إلى آخر. للمزيد من المعلومات، راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), تحويل [PNG إلى JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), تحويل [SVG إلى PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/). 
 
 {{% /alert %}}
 
-## الأسئلة المتكررة (FAQ)
+## **الأسئلة الشائعة**
 
-### كيف يمكنني تحويل PowerPoint (PPT، PPTX) إلى JPG؟
-يمكنك تحويل شرائح PowerPoint إلى JPG باستخدام Aspose.Slides for Java. يضمن ذلك تحويلًا عالي الجودة للصور مع التحكم الكامل في إعدادات الإخراج.
+**هل يدعم هذه الطريقة التحويل على دفعات؟**
 
-### هل يدعم هذا الأسلوب التحويل بالجملة؟
-نعم، يتيح Aspose.Slides التحويل بالجملة لعدة شرائح إلى JPG في عملية واحدة.
+نعم، يسمح Aspose.Slides بالتحويل على دفعات لعدة شرائح إلى JPG في عملية واحدة.
 
-### هل يمكنني ضبط دقة مخصصة لصورة JPG الناتجة؟
-نعم، يمكنك تحديد دقة مخصصة للصورة وإعدادات الجودة باستخدام Aspose.Slides API.
+**هل يدعم التحويل عناصر SmartArt، الرسوم البيانية، وغيرها من الكائنات المعقدة؟**
 
-### هل هناك محول PowerPoint إلى JPG متاح عبر الإنترنت؟
-توفر Aspose حلولًا برمجية ومحولات عبر الإنترنت. يمكنك الاطلاع على [Aspose Online PPT to JPG Converter](https://products.aspose.app/slides/conversion/ppt-to-jpg) للتحويلات السريعة.
+نعم، يقوم Aspose.Slides بتصيّر كل المحتوى، بما في ذلك SmartArt، والرسوم البيانية، والجداول، والأشكال، والمزيد. ومع ذلك، قد تختلف دقة التصيّر قليلاً مقارنةً بـ PowerPoint، خاصةً عند استخدام خطوط مخصصة أو مفقودة.
+
+**هل هناك أي قيود على عدد الشرائح التي يمكن معالجتها؟**
+
+Aspose.Slides نفسها لا تفرض أي قيود صارمة على عدد الشرائح التي يمكنك معالجتها. ومع ذلك، قد تواجه خطأ نفاد الذاكرة عند العمل على عروض تقديمية كبيرة أو صور عالية الدقة.
 
 ## **انظر أيضًا**
-اطلع على خيارات أخرى لتحويل PPT/PPTX إلى صورة مثل:
+
+اطلع على خيارات أخرى لتحويل PPT/PPTX إلى صور مثل:
 - [تحويل PPT/PPTX إلى SVG](/slides/ar/java/render-a-slide-as-an-svg-image/).

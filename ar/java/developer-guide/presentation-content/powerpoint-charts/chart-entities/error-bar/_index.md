@@ -1,5 +1,5 @@
 ---
-title: تخصيص أشرطة الخطأ في مخططات العروض باستخدام Java
+title: تخصيص أشرطة الخطأ في مخططات العروض التقديمية باستخدام Java
 linktitle: شريط الخطأ
 type: docs
 url: /ar/java/error-bar/
@@ -10,26 +10,26 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتخصيص أشرطة الخطأ في المخططات باستخدام Aspose.Slides for Java—حسّن التصورات البصرية للبيانات في عروض PowerPoint."
+description: "تعلم كيفية إضافة وتخصيص أشرطة الخطأ في المخططات باستخدام Aspose.Slides for Java—حسّن التصوير البياني للبيانات في عروض PowerPoint التقديمية."
 ---
 
-## **إضافة شريط الخطأ**
-Aspose.Slides for Java توفر واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ. يُطبق الكود النموذجي عند استخدام نوع قيمة مخصص. لتحديد قيمة، استخدم الخاصية **ErrorBarCustomValues** لنقطة بيانات معينة في مجموعة [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) الخاصة بالسلسلة:
+## **إضافة أشرطة الخطأ**
+توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ. ينطبق رمز العينة عند استخدام نوع قيمة مخصص. لتحديد قيمة، استخدم خاصية **ErrorBarCustomValues** لنقطة البيانات المحددة في مجموعة [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) الخاصة بالسلسلة:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. إضافة مخطط فقاعات إلى الشريحة المطلوبة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. إضافة مخطط فقاعي إلى الشريحة المطلوبة.
 1. الوصول إلى سلسلة المخطط الأولى وتعيين تنسيق شريط الخطأ X.
 1. الوصول إلى سلسلة المخطط الأولى وتعيين تنسيق شريط الخطأ Y.
-1. تعيين قيم الأشرطة والتنسيق.
-1. حفظ العرض التقديمي المعدل في ملف PPTX.
+1. تعيين قيم الأشرطة وتنسيقها.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```java
-// إنشاء مثيل من الفئة Presentation
+// إنشاء مثال من فئة Presentation
 Presentation pres = new Presentation();
 try {
     // إنشاء مخطط فقاعي
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // إضافة أشرطة الخطأ وتعيين تنسيقها
+    // إضافة أشرطة الخطأ وتحديد تنسيقها
     IErrorBarsFormat errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     IErrorBarsFormat errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
 
@@ -51,24 +51,24 @@ try {
 ```
 
 
-## **إضافة قيمة مخصصة لشريط الخطأ**
-Aspose.Slides for Java توفر واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ المخصصة. يُطبق الكود النموذجي عندما تكون خاصية [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) مساوية لـ **Custom**. لتحديد قيمة، استخدم الخاصية **ErrorBarCustomValues** لنقطة بيانات معينة في مجموعة [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) الخاصة بالسلسلة:
+## **إضافة قيم مخصصة لأشرطة الخطأ**
+توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ المخصصة. ينطبق رمز العينة عندما تكون الخاصية [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) مساوية لـ **Custom**. لتحديد قيمة، استخدم خاصية **ErrorBarCustomValues** لنقطة البيانات المحددة في مجموعة [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) الخاصة بالسلسلة:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. إضافة مخطط فقاعات إلى الشريحة المطلوبة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. إضافة مخطط فقاعي إلى الشريحة المطلوبة.
 1. الوصول إلى سلسلة المخطط الأولى وتعيين تنسيق شريط الخطأ X.
 1. الوصول إلى سلسلة المخطط الأولى وتعيين تنسيق شريط الخطأ Y.
 1. الوصول إلى نقاط البيانات الفردية لسلسلة المخطط وتعيين قيم شريط الخطأ لكل نقطة بيانات.
-1. تعيين قيم الأشرطة والتنسيق.
-1. حفظ العرض التقديمي المعدل في ملف PPTX.
+1. تعيين قيم الأشرطة وتنسيقها.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء مثال من فئة Presentation
 Presentation pres = new Presentation();
 try {
     // إنشاء مخطط فقاعي
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // إضافة أشرطة خطأ مخصصة وتعيين تنسيقها
+    // إضافة أشرطة خطأ مخصصة وتحديد تنسيقها
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     IErrorBarsFormat errBarX = series.getErrorBarsXFormat();
     IErrorBarsFormat errBarY = series.getErrorBarsYFormat();
@@ -77,7 +77,7 @@ try {
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 
-    // الوصول إلى نقطة بيانات سلسلة المخطط وتعيين قيم أشرطة الخطأ لـ
+    // الوصول إلى نقطة بيانات سلسلة المخطط وتعيين قيم أشرطة الخطأ لل
     // نقطة فردية
     IChartDataPointCollection points = series.getDataPoints();
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues((byte) DataSourceType.DoubleLiterals);
@@ -101,16 +101,16 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
-**ما الذي يحدث لأشرطة الخطأ عند تصدير عرض تقديمي إلى PDF أو صور؟**
+**ماذا يحدث لأشرطة الخطأ عند تصدير عرض تقديمي إلى PDF أو صور؟**
 
-يتم عرضها كجزء من المخطط وتُحافظ عليها أثناء التحويل مع بقية تنسيقات المخطط، بافتراض وجود نسخة أو محرك عرض متوافق.
+يتم رسمها كجزء من المخطط وتُحافظ عليها أثناء التحويل مع باقي تنسيقات المخطط، بشرط استخدام نسخة أو محول متوافق.
 
-**هل يمكن دمج أشرطة الخطأ مع العلامات والتسميات البيانية؟**
+**هل يمكن دمج أشرطة الخطأ مع العلامات وملصقات البيانات؟**
 
-نعم. أشرطة الخطأ عنصر منفصل ومتوافق مع العلامات والتسميات البيانية؛ إذا تداخلت العناصر قد تحتاج إلى تعديل التنسيق.
+نعم. أشرطة الخطأ عنصر منفصل ومتوافق مع العلامات وملصقات البيانات؛ إذا تداخلت العناصر قد تحتاج إلى تعديل التنسيق.
 
-**أين يمكن العثور على قائمة الخصائص والفئات الخاصة بالعمل مع أشرطة الخطأ في API؟**
+**أين يمكن العثور على قائمة الخصائص والفئات الخاصة بالعمل مع أشرطة الخطأ في واجهة البرمجة؟**
 
-في مرجع API: الفئة [ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) والفئات ذات الصلة [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) و[ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/).
+في مرجع واجهة البرمجة: الفئة [ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) والفئات المتعلقة [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) و[ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/).

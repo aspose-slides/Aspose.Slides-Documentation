@@ -1,46 +1,48 @@
 ---
-title: Управление гиперссылками презентаций в Java
-linktitle: Управление гиперссылкой
+title: "Управление гиперссылками презентаций в Java"
+linktitle: "Управление гиперссылкой"
 type: docs
 weight: 20
 url: /ru/java/manage-hyperlinks/
 keywords:
-- добавить URL
-- добавить гиперссылку
-- создать гиперссылку
-- форматировать гиперсылку
-- удалить гиперссылку
-- обновить гиперссылку
-- гиперссылка в тексте
-- гиперссылка на слайд
-- гиперссылка на форму
-- гиперссылка на изображение
-- гиперссылка на видео
-- изменяемая гиперссылка
-- PowerPoint
-- OpenDocument
-- презентация
-- Java
-- Aspose.Slides
-description: "Без труда управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java — улучшайте интерактивность и рабочий процесс за считанные минуты."
+- "добавить URL"
+- "добавить гиперссылку"
+- "создать гиперссылку"
+- "форматировать гиперссылку"
+- "удалить гиперссылку"
+- "обновить гиперссылку"
+- "текстовая гиперссылка"
+- "гиперссылка на слайд"
+- "гиперссылка на фигуру"
+- "гиперссылка на изображение"
+- "гиперссылка на видео"
+- "изменяемая гиперссылка"
+- "PowerPoint"
+- "OpenDocument"
+- "презентация"
+- "Java"
+- "Aspose.Slides"
+description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java — повышайте интерактивность и ускоряйте рабочий процесс за считанные минуты."
 ---
 
-Гиперссылка — это ссылка на объект, данные или место в каком‑либо документе. Это общие примеры гиперссылок в презентациях PowerPoint:
+Гиперссылка — это ссылка на объект, данные или место в документе. Ниже приведены распространённые гиперссылки в презентациях PowerPoint:
 
 * Ссылки на веб‑сайты внутри текста, фигур или медиа
 * Ссылки на слайды
 
-Aspose.Slides for Java позволяет выполнять множество задач, связанных с гиперссылками в презентациях. 
+Aspose.Slides для Java позволяет выполнять множество задач, связанных с гиперссылками в презентациях. 
 
 {{% alert color="primary" %}} 
-Возможно, вам будет интересно ознакомиться с простым онлайн‑редактором PowerPoint от Aspose, [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/editor)
+
+Вам может быть интересно ознакомиться с Aspose simple, [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/editor)
+
 {{% /alert %}} 
 
 ## **Добавление URL‑гиперссылок**
 
-### **Добавление URL‑гиперссылок в текст**
+### **Добавление URL‑гиперссылок к тексту**
 
-Этот код на Java показывает, как добавить веб‑сайт гиперссылку в текст:
+Этот код на Java демонстрирует, как добавить веб‑сайт гиперссылку к тексту:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -59,9 +61,9 @@ try {
 ```
 
 
-### **Добавление URL‑гиперссылок в фигуры или фреймы**
+### **Добавление URL‑гиперссылок к фигурам или фреймам**
 
-Этот пример кода на Java показывает, как добавить веб‑сайт гиперссылку в фигуру:
+Пример кода на Java показывает, как добавить веб‑сайт гиперссылку к фигуре:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,7 +95,7 @@ try {
     } finally {
           if (image != null) image.dispose();
     }
-	// Создаёт рамку изображения на слайде 1 на основе ранее добавленного изображения
+	// Создаёт кадр изображения на слайде 1 на основе ранее добавленного изображения
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
@@ -144,14 +146,16 @@ try {
 
 
 {{%  alert  title="Tip"  color="primary"  %}} 
-Вам может быть полезно посмотреть *[Управление OLE](/slides/ru/java/manage-ole/)*.
+
+Вам может быть интересно посмотреть *[Управление OLE](/slides/ru/java/manage-ole/)*.
+
 {{% /alert %}}
 
-## **Использование гиперссылок для создания оглавления**
+## **Использование гиперссылок для создания таблицы содержимого**
 
-Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, их можно использовать для создания оглавления. 
+Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, их можно использовать для создания таблицы содержимого. 
 
-Этот пример кода показывает, как создать оглавление с гиперссылками:
+Этот пример кода показывает, как создать таблицу содержимого с гиперссылками:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -186,9 +190,9 @@ try {
 
 ### **Цвет**
 
-С помощью свойства [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) в интерфейсе [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) вы можете задавать цвет гиперссылок и получать информацию о цвете из гиперссылок. Эта функция была впервые внедрена в PowerPoint 2019, поэтому изменения, связанные с этим свойством, не применяются к более старым версиям PowerPoint.
+С помощью свойства [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) в интерфейсе [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) вы можете задать цвет гиперссылок и также получить информацию о цвете из гиперссылок. Эта возможность была впервые представлена в PowerPoint 2019, поэтому изменения, связанные со свойством, не применяются к более старым версиям PowerPoint.
 
-Этот пример кода демонстрирует операцию, при которой гиперссылки с разными цветами были добавлены на один и тот же слайд:
+Этот пример кода демонстрирует операцию, при которой к одному слайду были добавлены гиперссылки разных цветов:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -211,11 +215,11 @@ try {
 ```
 
 
-## **Удаление гиперссылок в презентациях**
+## **Удаление гиперссылок из презентаций**
 
 ### **Удаление гиперссылок из текста**
 
-Этот код на Java показывает, как удалить гиперссылку из текста на слайде презентации:
+Этот код на Java демонстрирует, как удалить гиперссылку из текста на слайде презентации:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -242,9 +246,9 @@ try {
 ```
 
 
-### **Удаление гиперссылок из фигур или фреймов**
+### **Удаление гиперсылок из фигур или фреймов**
 
-Этот код на Java показывает, как удалить гиперссылку из фигуры на слайде презентации: 
+Этот код на Java демонстрирует, как удалить гиперссылку из фигуры на слайде презентации: 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -262,7 +266,7 @@ try {
 
 ## **Изменяемая гиперссылка**
 
-Класс [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) изменяемый. С помощью этого класса вы можете изменять значения следующих свойств:
+Класс [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) изменяемый. С помощью этого класса вы можете менять значения следующих свойств:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -270,7 +274,7 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Этот фрагмент кода показывает, как добавить гиперссылку на слайд и позже изменить её подсказку (tooltip):
+Этот фрагмент кода показывает, как добавить гиперссылку на слайд и позже изменить её всплывающую подсказку:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -291,7 +295,7 @@ try {
 
 ## **Поддерживаемые свойства в IHyperlinkQueries**
 
-Вы можете получить доступ к [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) из презентации, слайда или текста, для которых определена гиперссылка. 
+Вы можете получить доступ к [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) из презентации, слайда или текста, для которого определена гиперссылка. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -306,14 +310,14 @@ try {
 
 ## **FAQ**
 
-**Как создать внутреннюю навигацию не только к слайду, но и к «разделу» или первому слайду раздела?**
+**Как можно создать внутреннюю навигацию не только к слайду, но и к «разделу» или к первому слайду раздела?**
 
-Разделы в PowerPoint представляют собой группы слайдов; навигация технически направлена на конкретный слайд. Чтобы «перейти к разделу», обычно создаётся ссылка на его первый слайд.
+Разделы в PowerPoint — это группы слайдов; навигация технически направлена на конкретный слайд. Чтобы «перейти к разделу», обычно ссылаются на его первый слайд.
 
 **Можно ли привязать гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время презентации.
+Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и активны во время показа.
 
-**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+**Будут ли гиперссылки сохранены при экспорте в PDF, HTML, изображения или видео?**
 
-В [PDF](/slides/ru/java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/java/convert-powerpoint-to-html/) да — ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/java/convert-powerpoint-to-png/) и [видео](/slides/ru/java/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за характера этих форматов (растровые кадры/видео не поддерживают гиперссылки).
+В [PDF](/slides/ru/java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/java/convert-powerpoint-to-html/) — да, ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/java/convert-powerpoint-to-png/) и [видео](/slides/ru/java/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за природы этих форматов (растровые кадры/видео не поддерживают гиперссылки).

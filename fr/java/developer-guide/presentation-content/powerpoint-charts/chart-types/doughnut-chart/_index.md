@@ -12,24 +12,24 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Découvrez comment créer et personnaliser des graphiques en anneau dans Aspose.Slides for Java, prenant en charge les formats PowerPoint pour des présentations dynamiques."
+description: "Découvrez comment créer et personnaliser des graphiques en anneau avec Aspose.Slides pour Java, en prenant en charge les formats PowerPoint pour des présentations dynamiques."
 ---
 
-## **Modifier l’écart central du graphique en anneau**
+## **Spécifier le trou central dans un diagramme en anneau**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java prend désormais en charge la spécification de la taille du trou d’un graphique en anneau. Dans ce sujet, nous verrons avec un exemple comment spécifier la taille du trou d’un graphique en anneau.
+Aspose.Slides pour Java prend désormais en charge la spécification de la taille du trou d'un diagramme en anneau. Dans ce sujet, nous verrons, à l'aide d'un exemple, comment spécifier la taille du trou d'un diagramme en anneau.
 
 {{% /alert %}} 
 
-Pour spécifier la taille du trou d’un graphique en anneau, veuillez suivre les étapes ci‑dessous :
+Pour spécifier la taille du trou d'un diagramme en anneau, veuillez suivre les étapes ci‑dessous :
 
-1. Instancier l’objet [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Ajouter un graphique en anneau sur la diapositive.
-1. Spécifier la taille du trou du graphique en anneau.
+1. Instancier l'objet [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+1. Ajouter un diagramme en anneau sur la diapositive.
+1. Spécifier la taille du trou dans le diagramme en anneau.
 1. Enregistrer la présentation sur le disque.
 
-Dans l’exemple ci‑dessous, nous avons défini la taille du trou du graphique en anneau.
+Dans l'exemple ci‑dessous, nous avons défini la taille du trou dans le diagramme en anneau.
 ```java
 // Créez une instance de la classe Presentation
 Presentation pres = new Presentation();
@@ -48,14 +48,14 @@ try {
 
 ## **FAQ**
 
-**Puis‑je créer un graphique en anneau à niveaux multiples avec plusieurs anneaux ?**
+**Puis‑je créer un diagramme en anneau à plusieurs niveaux avec plusieurs anneaux ?**
 
-Oui. Ajoutez plusieurs séries à un même graphique en anneau—chaque série devient un anneau séparé. L’ordre des anneaux est déterminé par l’ordre des séries dans la collection.
+Oui. Ajoutez plusieurs séries à un même diagramme en anneau — chaque série devient un anneau distinct. L'ordre des anneaux est déterminé par l'ordre des séries dans la collection.
 
-**Un graphique en anneau « explosé » (tranches séparées) est‑il pris en charge ?**
+**Un diagramme en anneau « explosé » (parts séparées) est‑il pris en charge ?**
 
-Oui. Il existe un type de graphique [Exploded Doughnut](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) et une propriété d’explosion sur les points de données ; vous pouvez séparer les tranches individuelles.
+Oui. Il existe un type de graphique « Exploded Doughnut »[chart type](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) et une propriété d'explosion sur les points de données ; vous pouvez séparer des parts individuelles.
 
-**Comment obtenir une image d’un graphique en anneau (PNG/SVG) pour un rapport ?**
+**Comment obtenir une image d'un diagramme en anneau (PNG/SVG) pour un rapport ?**
 
-Un graphique est une forme ; vous pouvez le rendre sous forme d’une [image raster](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) ou exporter le graphique vers une [image SVG](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Un graphique est une forme ; vous pouvez le rendre dans une [image raster](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) ou exporter le graphique vers une [image SVG](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

@@ -1,14 +1,26 @@
 ---
-title: فقرة
+title: الحصول على حدود الفقرة من العروض التقديمية في جافا
+linktitle: فقرة
 type: docs
 weight: 60
 url: /ar/java/paragraph/
+keywords:
+- حدود الفقرة
+- حدود جزء النص
+- إحداثيات الفقرة
+- إحداثيات الجزء
+- حجم الفقرة
+- حجم جزء النص
+- إطار النص
+- PowerPoint
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "تعلم كيفية استرجاع حدود الفقرة وجزء النص في Aspose.Slides for Java لتحسين موضع النص في عروض PowerPoint التقديمية."
 ---
 
-
-## الحصول على إحداثيات الفقرة والجزء في TextFrame ##
-باستخدام Aspose.Slides لـ Java، يمكن للمطورين الآن الحصول على الإحداثيات المستطيلة للفقرة داخل مجموعة الفقرات في TextFrame. كما يتيح لك الحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) داخل مجموعة الأجزاء الخاصة بفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على الإحداثيات المستطيلة للفقرة بالإضافة إلى موقع الجزء داخل الفقرة.
-
+## **الحصول على إحداثيات الفقرة والجزء في TextFrame**
+باستخدام Aspose.Slides for Java، يمكن للمطورين الآن الحصول على إحداثيات المستطيل للفقرة داخل مجموعة الفقرات في TextFrame. كما يتيح لك الحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) داخل مجموعة الأجزاء لفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على إحداثيات المستطيل للفقرة بالإضافة إلى موقع الجزء داخل الفقرة.
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
@@ -20,9 +32,8 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 ```
 
 
-## **الحصول على الإحداثيات المستطيلة للفقرة**
-باستخدام [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
-
+## **الحصول على إحداثيات المستطيل للفقرة**
+باستخدام طريقة [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
 ```java
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
@@ -35,12 +46,11 @@ try {
 }
 ```
 
-## **الحصول على حجم الفقرة والجزء داخل إطار نص خلية الجدول** ##
 
-للحصول على [الجزء](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) أو [الفقرة](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) وحجمها وإحداثياتها في إطار نص خلية الجدول، يمكنك استخدام [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) و [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) الطريقتين.
+## **الحصول على حجم الفقرة والجزء داخل TextFrame لخلية جدول**
+للحصول على حجم و إحداثيات [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) أو [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) داخل TextFrame لخلية جدول، يمكنك استخدام طريقتي [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) و [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--).
 
-هذا مثال على الشيفرة يوضح العملية الموصوفة:
-
+يظهر هذا المثال الشيفرة التي توضح العملية الموصوفة:
 ```java
 Presentation pres = new Presentation("source.pptx");
 try {
@@ -81,3 +91,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما الوحدات التي تُقاس بها الإحداثيات العائدة للفقرة وأقسام النص؟**  
+بالنقاط، حيث إن 1 بوصة = 72 نقطة. ينطبق هذا على جميع الإحداثيات والأبعاد في الشريحة.
+
+**هل يؤثر الالتفاف النصي على حدود الفقرة؟**  
+نعم. إذا تم تمكين [الالتفاف](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-) في [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/)، يتم كسر النص ليتناسب مع عرض المنطقة، مما يغيّر الحدود الفعلية للفقرة.
+
+**هل يمكن تحويل إحداثيات الفقرة بشكل موثوق إلى بكسلات في الصورة المصدرة؟**  
+نعم. يمكن تحويل النقاط إلى بكسلات باستخدام: البكسلات = النقاط × (DPI / 72). تعتمد النتيجة على قيمة DPI المختارة عند العرض/التصدير.
+
+**كيف يمكنني الحصول على معلمات تنسيق الفقرة "الفعّالة"، مع مراعاة وراثة الأنماط؟**  
+استخدم [effective paragraph formatting data structure](/slides/ar/java/shape-effective-properties/); فهو يُعيد القيم النهائية المجمعة للمسافات البادئة، التباعد، الالتفاف، الاتجاه من اليمين إلى اليسار، وأكثر.

@@ -14,24 +14,24 @@ keywords:
 description: "Personaliza las leyendas de gráficos con Aspose.Slides para Java para optimizar presentaciones de PowerPoint con un formato de leyenda a medida."
 ---
 
-## **Posicionamiento de la leyenda**
+## **Posicionamiento de la Leyenda**
 Para establecer las propiedades de la leyenda. Siga los pasos a continuación:
 
 - Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- Obtenga la referencia de la diapositiva.
-- Añada un gráfico en la diapositiva.
+- Obtenga una referencia de la diapositiva.
+- Agregue un gráfico a la diapositiva.
 - Establezca las propiedades de la leyenda.
 - Guarde la presentación como un archivo PPTX.
 
-En el ejemplo que se muestra a continuación, hemos establecido la posición y el tamaño de la leyenda del gráfico.
+En el ejemplo a continuación, hemos establecido la posición y el tamaño de la leyenda del gráfico.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Obtener la referencia de la diapositiva
+    // Obtener referencia de la diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Añadir un gráfico de columnas agrupadas en la diapositiva
+    // Agregar un gráfico de columnas agrupadas en la diapositiva
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
     // Establecer propiedades de la leyenda
@@ -48,8 +48,8 @@ try {
 ```
 
 
-## **Establecer tamaño de fuente de la leyenda**
-Aspose.Slides para Java permite a los desarrolladores establecer el tamaño de fuente de la leyenda. Siga los pasos a continuación:
+## **Establecer el Tamaño de Fuente de una Leyenda**
+Aspose.Slides for Java permite a los desarrolladores establecer el tamaño de fuente de la leyenda. Siga los pasos a continuación:
 
 - Instancie la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 - Cree el gráfico predeterminado.
@@ -77,8 +77,8 @@ try {
 ```
 
 
-## **Establecer tamaño de fuente de la leyenda individual**
-Aspose.Slides para Java permite a los desarrolladores establecer el tamaño de fuente de entradas individuales de la leyenda. Siga los pasos a continuación:
+## **Establecer el Tamaño de Fuente de una Leyenda Individual**
+Aspose.Slides for Java permite a los desarrolladores establecer el tamaño de fuente de entradas de leyenda individuales. Siga los pasos a continuación:
 
 - Instancie la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 - Cree el gráfico predeterminado.
@@ -108,16 +108,16 @@ try {
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo habilitar la leyenda para que el gráfico asigne automáticamente espacio para ella en lugar de superponerse?**
 
 Sí. Use el modo sin superposición ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); en este caso, el área del gráfico se reducirá para acomodar la leyenda.
 
-**¿Puedo crear etiquetas de leyenda multilínea?**
+**¿Puedo crear etiquetas de leyenda de varias líneas?**
 
-Sí. Las etiquetas largas se ajustan automáticamente cuando el espacio es insuficiente; los saltos de línea forzados son compatibles mediante caracteres de nueva línea en el nombre de la serie.
+Sí. Las etiquetas largas se ajustan automáticamente cuando el espacio es insuficiente; los saltos de línea forzados se admiten mediante caracteres de nueva línea en el nombre de la serie.
 
-**¿Cómo hago que la leyenda siga el esquema de colores del tema de la presentación?**
+**¿Cómo hacer que la leyenda siga el esquema de colores del tema de la presentación?**
 
-No establezca colores, rellenos o fuentes explícitos para la leyenda o su texto. Entonces heredarán del tema y se actualizarán correctamente cuando cambie el diseño.
+No establezca colores/rellenos/fuentes explícitos para la leyenda o su texto. Entonces heredarán del tema y se actualizarán correctamente cuando el diseño cambie.

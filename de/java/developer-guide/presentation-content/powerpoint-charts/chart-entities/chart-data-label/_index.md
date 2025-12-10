@@ -17,11 +17,11 @@ keywords:
 description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Diagrammdatenreihen oder einzelnen Datenpunkten an. Sie ermöglichen es Lesern, Datenreihen schnell zu identifizieren, und sie machen Diagramme zudem leichter verständlich.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten an. Sie ermöglichen es dem Leser, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
 
-## **Präzision der Daten in Diagrammdatenbeschriftungen festlegen**
+## **Datenpräzision in Diagrammbeschriftungen festlegen**
 
-Dieser Java‑Code zeigt, wie Sie die Datenpräzision in einer Diagrammbeschriftung festlegen:
+Dieser Java‑Code zeigt, wie die Datenpräzision in einer Diagrammbeschriftung festgelegt wird:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -38,8 +38,7 @@ try {
 
 
 ## **Prozentsatz als Beschriftungen anzeigen**
-
-Aspose.Slides für Java ermöglicht das Festlegen von Prozent‑Beschriftungen in angezeigten Diagrammen. Dieser Java‑Code demonstriert die Vorgehensweise:
+Aspose.Slides for Java ermöglicht das Festlegen von Prozentsatz‑Beschriftungen in angezeigten Diagrammen. Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
@@ -90,14 +89,13 @@ try {
 ```
 
 
-## **Prozentzeichen in Diagrammbeschriftungen festlegen**
-
-Dieser Java‑Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
+## **Prozentzeichen bei Diagrammbeschriftungen festlegen**
+Dieser Java‑Code zeigt, wie das Prozentzeichen für eine Diagrammbeschriftung festgelegt wird:
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
-    // Holt die Referenz einer Folie über ihren Index
+    // Ruft die Referenz einer Folie über ihren Index ab
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
@@ -110,7 +108,7 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Holt das Arbeitsblatt der Diagrammdaten
+    // Ruft das Arbeitsblatt der Diagrammdaten ab
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
     // Fügt eine neue Serie hinzu
@@ -124,7 +122,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Setzt die Eigenschaften des LabelFormats
+    // Setzt die Eigenschaften von LabelFormat
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
@@ -140,7 +138,7 @@ try {
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
     
-    // Setzt den Fülltyp und die Farbe
+    // Setzt Fülltyp und -farbe
     series2.getFormat().getFill().setFillType(FillType.Solid);
     series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
     series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -158,20 +156,19 @@ try {
 ```
 
 
-## **Abstände der Beschriftungen** von der Achse
-
-Dieser Java‑Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategorien‑Achse festlegen, wenn Sie ein Diagramm mit Achsen verwenden:
+## **Beschriftungsabstand zu einer Achse festlegen**
+Dieser Java‑Code zeigt, wie der Beschriftungsabstand zu einer Kategorienachse festgelegt wird, wenn ein diagrammbasiertes Diagramm verwendet wird:
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
-    // Holt die Referenz einer Folie
+    // Ruft die Referenz einer Folie ab
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Erstellt ein Diagramm auf der Folie
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // Setzt den Beschriftungsabstand von einer Achse
+    // Setzt den Beschriftungsabstand zu einer Achse
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
     // Schreibt die Präsentation auf die Festplatte
@@ -184,9 +181,9 @@ try {
 
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das keine Achsen verwendet, wie etwa ein Kreis‑Diagramm, können die Datenbeschriftungen zu nahe am Rand liegen. In einem solchen Fall müssen Sie die Position der Beschriftung anpassen, damit die Verbindungslinien deutlich angezeigt werden.
+Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, beispielsweise ein Kreisdiagramm, können die Datenbeschriftungen zu nahe am Rand liegen. In diesem Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Verbindungslinien klar angezeigt werden.
 
-Dieser Java‑Code zeigt, wie Sie die Position der Beschriftung in einem Kreis‑Diagramm anpassen:
+Dieser Java‑Code zeigt, wie die Beschriftungsposition in einem Kreisdiagramm angepasst wird:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -211,14 +208,14 @@ try {
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass sich Datenbeschriftungen bei dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Verbindungslinien und reduzierte Schriftgröße; falls nötig, blenden Sie einige Felder (z. B. die Kategorie) aus oder zeigen Sie Beschriftungen nur für extreme bzw. wichtige Punkte an.
+Kombinieren Sie automatische Beschriftungsplatzierung, Verbindungslinien und reduzierte Schriftgröße; bei Bedarf Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme/Schlüssel‑Punkte anzeigen.
 
 **Wie kann ich Beschriftungen nur für Null‑, negative‑ oder leere Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie kann ich einen einheitlichen Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+**Wie stelle ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicher?**
 
-Legen Sie Schriftarten (Familie, Größe) explizit fest und prüfen Sie, dass die Schrift auf der Renderseite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.
+Setzen Sie Schriftarten (Familie, Größe) explizit und prüfen Sie, dass die Schriftart auf der Render‑Seite verfügbar ist, um einen Rückgriff zu vermeiden.

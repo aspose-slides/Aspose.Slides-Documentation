@@ -15,15 +15,15 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "轻松管理 Aspose.Slides for Java 中的占位符：替换文本、自定义提示并在 PowerPoint 和 OpenDocument 中设置图像透明度。"
+description: "在 Aspose.Slides for Java 中轻松管理占位符：替换文本、定制提示并在 PowerPoint 和 OpenDocument 中设置图像透明度。"
 ---
 
-## **更改占位符中的文本**
-使用 [Aspose.Slides for Java](/slides/zh/java/)，您可以在演示文稿的幻灯片中查找和修改占位符。Aspose.Slides 允许您更改占位符中的文本。
+## **在占位符中更改文本**
+使用 [Aspose.Slides for Java](/slides/zh/java/)，您可以在演示文稿的幻灯片中查找并修改占位符。Aspose.Slides 允许您更改占位符中的文本。
 
 **先决条件**：您需要一个包含占位符的演示文稿。您可以在标准的 Microsoft PowerPoint 应用程序中创建此类演示文稿。
 
-以下是使用 Aspose.Slides 在该演示文稿中替换占位符文本的方法：
+下面演示了如何使用 Aspose.Slides 在该演示文稿中替换占位符的文本：
 
 1. 实例化 [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类，并将演示文稿作为参数传入。
 2. 通过索引获取幻灯片引用。
@@ -31,9 +31,9 @@ description: "轻松管理 Aspose.Slides for Java 中的占位符：替换文本
 4. 将占位符形状强制转换为 [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)，并使用与该 [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) 关联的 [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) 更改文本。
 5. 保存修改后的演示文稿。
 
-This Java code shows how to change the text in a placeholder:
+以下 Java 代码演示了如何在占位符中更改文本：
 ```java
-// 实例化一个 Presentation 类
+// 实例化 Presentation 类
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
 
@@ -57,10 +57,10 @@ try {
 ```
 
 
-## **在占位符中设置提示文本**
-标准和预构建的布局包含占位符提示文本，例如 ***Click to add a title*** 或 ***Click to add a subtitle***。使用 Aspose.Slides，您可以将自定义的提示文本插入到占位符布局中。
+## **在占位符中设置提示文字**
+标准和预建布局包含占位符提示文字，例如 ***单击以添加标题*** 或 ***单击以添加副标题***。使用 Aspose.Slides，您可以将首选的提示文字插入占位符布局中。
 
-This Java code shows you how to set the prompt text in a placeholder:
+以下 Java 代码展示了如何在占位符中设置提示文字：
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -70,7 +70,7 @@ try {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint 显示 "Click to add title"
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint 显示 "单击以添加标题"
             {
                 text = "Add Title";
             }
@@ -92,9 +92,9 @@ try {
 
 
 ## **设置占位符图像透明度**
-Aspose.Slides 允许您设置文本占位符中背景图像的透明度。通过调整该框架中图片的透明度，您可以使文本或图像更突出（取决于文本和图片的颜色）。
+Aspose.Slides 允许您设置文本占位符中背景图像的透明度。通过调节该框架中图片的透明度，您可以使文字或图像更加突出（取决于文字和图片的颜色）。
 
-This Java code shows you how to set the transparency for a picture background (inside a shape):
+以下 Java 代码展示了如何为形状内部的图片背景设置透明度：
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -120,11 +120,14 @@ presentation.save("example_out.pptx", SaveFormat.Pptx);
 
 ## **常见问题**
 
-**什么是基础占位符，它与幻灯片上的本地形状有何不同？**  
-基础占位符是布局或母版上原始的形状，幻灯片的形状会继承其类型、位置以及部分格式。本地形状是独立的；如果不存在基础占位符，则不会进行继承。
+**什么是基础占位符，它与幻灯片上的本地形状有何区别？**
 
-**如何在不遍历每张幻灯片的情况下更新整个演示文稿中的所有标题或说明文字？**  
-在布局或母版上编辑相应的占位符。基于这些布局或母版的幻灯片会自动继承更改。
+基础占位符是布局或母版上原始的形状，幻灯片的形状会继承自它——类型、位置以及部分格式均来源于该占位符。本地形状是独立的；如果不存在基础占位符，则不会应用继承。
 
-**如何控制标准的页眉/页脚占位符——日期时间、幻灯片编号和页脚文本？**  
-在适当的范围（普通幻灯片、布局、母版、备注/讲义）使用 HeaderFooter 管理器来打开或关闭这些占位符并设置其内容。
+**如何在不遍历每张幻灯片的情况下更新整个演示文稿中的所有标题或说明文字？**
+
+在布局或母版上编辑相应的占位符。基于这些布局/母版的幻灯片会自动继承该更改。
+
+**如何控制标准的页眉/页脚占位符——日期与时间、幻灯片编号和页脚文字？**
+
+在适当的范围（普通幻灯片、布局、母版、备注/讲义）使用 HeaderFooter 管理器来启用或禁用这些占位符，并设置其内容。

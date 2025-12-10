@@ -7,7 +7,7 @@ url: /ar/java/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة بت ماب
+- إضافة صورة نقطية
 - استبدال صورة
 - استبدال صورة
 - من الويب
@@ -25,30 +25,30 @@ keywords:
 - SVG
 - Java
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint و OpenDocument باستخدام Aspose.Slides للـ Java، مع تحسين الأداء وأتمتة سير العمل الخاص بك."
+description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Java، تحسين الأداء وأتمتة سير العمل الخاص بك."
 ---
 
 ## **الصور في شرائح العرض**
 
-تجعل الصور العروض التقديمية أكثر جذبًا وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج الصور من ملف أو من الإنترنت أو من أماكن أخرى إلى الشرائح. بالمثل، يتيح Aspose.Slides إضافة الصور إلى الشرائح في عروضك التقديمية عبر إجراءات مختلفة. 
+الصور تجعل العروض أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى إلى الشرائح. وبالمثل، يتيح Aspose.Slides إضافة الصور إلى الشرائح في عروضك التقديمية من خلال إجراءات مختلفة. 
 
 {{% alert  title="Tip" color="primary" %}} 
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تسمح للمستخدمين بإنشاء عروض تقديمية بسرعة من الصور. 
+Aspose توفر محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—التي تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-إذا أردت إضافة صورة ككائن إطار—خاصة إذا كنت تخطط لاستخدام خيارات التنسيق القياسية لتغيير حجمها، وإضافة تأثيرات، وما إلى ذلك—انظر إلى [إطار الصورة](https://docs.aspose.com/slides/java/picture-frame/). 
+إذا كنت تريد إضافة صورة ككائن إطار—وخاصة إذا كنت تنوي استخدام خيارات تنسيق قياسية لتغيير حجمه وإضافة تأثيرات، وما إلى ذلك—انظر إلى [إطار الصورة](https://docs.aspose.com/slides/java/picture-frame/). 
 {{% /alert %}} 
 
 {{% alert title="Note" color="warning" %}}
-يمكنك معالجة عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/). 
+يمكنك تعديل عمليات الإدخال والإخراج التي تشمل الصور وعروض PowerPoint لتحويل صورة من صيغة إلى أخرى. راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
 {{% /alert %}}
 
-يدعم Aspose.Slides عمليات مع الصور بهذه الصيغ الشائعة: JPEG وPNG وGIF وغيرها. 
+Aspose.Slides يدعم عمليات الصور بهذه الصيغ الشائعة: JPEG، PNG، GIF، وغيرها. 
 
 ## **إضافة الصور المخزنة محليًا إلى الشرائح**
 
-يمكنك إضافة صورة أو عدة صور من حاسوبك إلى شريحة في عرض تقديمي. يوضح لك رمز العينة هذا في Java كيفية إضافة صورة إلى شريحة:
+يمكنك إضافة صورة واحدة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يُظهر هذا الكود النموذجي في Java كيفية إضافة صورة إلى شريحة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -71,8 +71,8 @@ try {
 
 ## **إضافة الصور من الويب إلى الشرائح**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على حاسوبك، يمكنك إضافة الصورة مباشرة من الويب. 
-يوضح لك رمز العينة هذا كيفية إضافة صورة من الويب إلى شريحة في Java:
+إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرةً من الويب. 
+يُظهر هذا الكود النموذجي كيفية إضافة صورة من الويب إلى شريحة في Java:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -109,8 +109,8 @@ try {
 
 ## **إضافة الصور إلى القوالب الرئيسية للشرائح**
 
-قالب الشريحة الرئيسي هو الشريحة العليا التي تخزن وتتحكم في المعلومات (السمة، التخطيط، إلخ) لجميع الشرائح تحته. لذلك، عندما تضيف صورة إلى قالب الشريحة الرئيسي، تظهر تلك الصورة على كل شريحة تحت ذلك القالب. 
-يوضح لك رمز العينة هذا في Java كيفية إضافة صورة إلى قالب الشريحة الرئيسي:
+قالب الشريحة الرئيسي هو الشريحة العلوية التي تخزن وتتحكم في المعلومات (السمة، التصميم، إلخ) لجميع الشرائح تحته. لذلك، عند إضافة صورة إلى القالب الرئيسي، تظهر تلك الصورة على كل شريحة تحته. 
+يُظهر هذا الكود النموذجي في Java كيفية إضافة صورة إلى القالب الرئيسي للشرائح:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -133,19 +133,17 @@ try {
 ```
 
 
-## **إضافة الصور كخلفية للشرائح**
+## **إضافة الصور كخلفيات للشرائح**
 
-قد تقرر استخدام صورة كخلفية لشريحة محددة أو عدة شرائح. في هذه الحالة، يجب عليك الاطلاع على *[تعيين الصور كخلفيات للشرائح](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
+قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك مراجعة *[تعيين الصور كخلفيات للشرائح](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام الطريقة [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي تنتمي إلى الواجهة [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection). 
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
-
+يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي تنتمي إلى واجهة [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection). 
+لإنشاء كائن صورة استنادًا إلى صورة SVG، يمكنك فعل ذلك بهذه الطريقة:
 1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection
 2. إنشاء كائن PPImage من ISvgImage
-3. إنشاء كائن PictureFrame باستخدام الواجهة IPPImage
-
-يوضح لك رمز العينة هذا كيفية تنفيذ الخطوات المذكورة أعلاه لإضافة صورة SVG إلى عرض تقديمي:
+3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage
+يُظهر هذا الكود النموذجي كيفية تنفيذ الخطوات السابقة لإضافة صورة SVG إلى عرض تقديمي:
 ```java
 // إنشاء فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
@@ -154,7 +152,7 @@ try {
     ISvgImage svgImage = new SvgImage(svgContent);
     IPPImage ppImage = pres.getImages().addImage(svgImage);
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-            ppImage.getWidth(), ppImage.getHeight(), ppImage);
+			ppImage.getWidth(), ppImage.getHeight(), ppImage);
     pres.save("output.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -164,12 +162,11 @@ try {
 
 
 ## **تحويل SVG إلى مجموعة من الأشكال**
-يوضح تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال شبيهًا بوظيفة PowerPoint المستخدمة للعمل مع صور SVG:
+تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة في PowerPoint المستخدمة للعمل مع صور SVG:
+![PowerPoint Popup Menu](img_01_01.png)
 
-![قائمة منبثقة PowerPoint](img_01_01.png)
-
-توفر هذه الوظيفة إحدى الإصدارات المتعددة للطريقة [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) في الواجهة [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) التي تأخذ كائنًا من نوع [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage) كأول وسيط. 
-يوضح لك رمز العينة هذا كيفية استخدام الطريقة المذكورة لتحويل ملف SVG إلى مجموعة من الأشكال:
+توفر هذه الوظيفة أحد الإصدارات الزائدة لطريقة [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) في واجهة [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) التي تستقبل كائن [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage) كأول معطى.
+يُظهر هذا الكود النموذجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ```java 
 // إنشاء عرض تقديمي جديد
 IPresentation presentation = new Presentation();
@@ -183,7 +180,7 @@ try {
     // الحصول على حجم الشريحة
     Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-    // تحويل صورة SVG إلى مجموعة من الأشكال وتكييفها إلى حجم الشريحة
+    // تحويل صورة SVG إلى مجموعة من الأشكال وتحديد حجمها وفق حجم الشريحة
     presentation.getSlides().get_Item(0).getShapes().
             addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
 
@@ -198,8 +195,8 @@ try {
 
 ## **إضافة الصور كـ EMF إلى الشرائح**
 يتيح Aspose.Slides for Java إنشاء صور EMF من أوراق Excel وإضافة الصور كـ EMF إلى الشرائح باستخدام Aspose.Cells. 
-يوضح لك رمز العينة هذا كيفية تنفيذ المهمة الموضحة:
-```java
+يُظهر هذا الكود النموذجي كيفية تنفيذ المهمة الموصوفة:
+```java 
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
 ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -207,7 +204,7 @@ options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(ImageType.EMF);
 
-// حفظ المصنف إلى التدفق
+//حفظ المصنف إلى التدفق
 SheetRender sr = new SheetRender(sheet, options);
 Presentation pres = new Presentation();
 try {
@@ -229,9 +226,9 @@ try {
         }
         ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
         IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-                    (float)pres.getSlideSize().getSize().getWidth(), 
-                    (float)pres.getSlideSize().getSize().getHeight(), 
-                    picture);
+					(float)pres.getSlideSize().getSize().getWidth(), 
+					(float)pres.getSlideSize().getSize().getHeight(), 
+					picture);
     }
     
     pres.save("output.pptx", SaveFormat.Pptx);
@@ -243,14 +240,14 @@ try {
 
 
 ## **استبدال الصور في مجموعة الصور**
-يمكّن Aspose.Slides من استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما فيها تلك المستخدمة في أشكال الشرائح). يعرض هذا القسم عدة طرق لتحديث الصور في المجموعة. توفر واجهة برمجة التطبيقات طرقًا بسيطة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة. 
-
-1. حمّل ملف العرض التقديمي الذي يحتوي على الصور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. حمّل صورة جديدة من ملف إلى مصفوفة بايت.
-3. استبدل الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.
-4. في النهج الثاني، حمّل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) واستبدل الصورة المستهدفة بهذا الكائن.
-5. في النهج الثالث، استبدل الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
+Aspose.Slides يتيح لك استبدال الصور المخزنة في مجموعة صور العرض (بما فيها تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر API طرقًا بسيطة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة.
+اتبع الخطوات التالية:
+1. حمّل ملف العرض الذي يحتوي على الصور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. حمّل صورة جديدة من ملف إلى مصفوفة بايت.
+1. استبدل الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.
+1. في النهج الثاني، حمّل الصورة إلى كائن [IImage] واستبدل الصورة المستهدفة بهذا الكائن.
+1. في النهج الثالث، استبدل الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض.
+1. احفظ العرض المعدل كملف PPTX.
 ```java
 // إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation("sample.pptx");
@@ -279,22 +276,27 @@ try {
 
 
 {{% alert title="Info" color="info" %}}
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif)، يمكنك بسهولة تحريك النصوص، وإنشاء ملفات GIF من النصوص، وما إلى ذلك. 
+باستخدام محول Aspose FREE [نص إلى GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص، إنشاء GIFs من النصوص، إلخ. 
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يظل دقة الصورة الأصلية كما هي بعد الإدراج؟**
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [الصورة](/slides/ar/java/picture-frame/) في الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
+**هل يبقى دقة الصورة الأصلية سليمة بعد الإدراج؟**
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح دفعة واحدة؟**
-ضع الشعار على الشريحة الرئيسية أو على تخطيط واستبدله في مجموعة صور العرض التقديمي — ستنتقل التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+نعم. يتم الحفاظ على بيكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية مقياس [الصورة](/slides/ar/java/picture-frame/) على الشريحة وأي ضغط يُطبق عند الحفظ.
 
-**هل يمكن تحويل SVG المدخل إلى أشكال قابلة للتحرير؟**
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، ثم تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الأشكال القياسية.
+**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عدة عشرات من الشرائح دفعة واحدة؟**
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح دفعة واحدة؟**
-[عيّن الصورة كخلفية](/slides/ar/java/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب — ستحصل جميع الشرائح التي تستخدم هذا القالب/التخطيط على الخلفية.
+ضع الشعار على الشريحة الرئيسية أو على تخطيط واستبدله في مجموعة صور العرض—ستنتقل التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
 
-**كيف أمنع ازدياد حجم العرض التقديمي بسبب كثرة الصور؟**
-أعد استخدام مورد صورة واحد بدلاً من النسخ المتكررة، اختر دقات معقولة، طبق ضغطًا عند الحفظ، واحفظ الرسومات المتكررة على القالب الرئيسي حيثما يلزم.
+**هل يمكن تحويل SVG المدخلة إلى أشكال قابلة للتحرير؟**
+
+نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
+
+**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+
+[عيّن الصورة كخلفية](/slides/ar/java/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ستُورث أي شرائح تستخدم ذلك القالب الخلفية.
+
+**كيف يمكنني منع زيادة حجم العرض التقديمي بسبب الكثير من الصور؟**
+
+أعد استخدام مورد صورة واحدة بدلاً من التكرارات، اختر دقات معقولة، طبّق الضغط عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.

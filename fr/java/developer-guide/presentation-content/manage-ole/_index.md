@@ -1,68 +1,68 @@
 ---
-title: Gérer OLE dans les présentations avec Java
-linktitle: Gérer OLE
+title: Gestion des objets OLE dans les présentations avec Java
+linktitle: Gestion OLE
 type: docs
 weight: 40
 url: /fr/java/manage-ole/
 keywords:
-- "objet OLE"
-- "Liaison et intégration d'objets"
-- "ajouter OLE"
-- "intégrer OLE"
-- "ajouter objet"
-- "intégrer objet"
-- "ajouter fichier"
-- "intégrer fichier"
-- "objet lié"
-- "fichier lié"
-- "modifier OLE"
-- "icône OLE"
-- "titre OLE"
-- "extraire OLE"
-- "extraire objet"
-- "extraire fichier"
-- "PowerPoint"
-- "présentation"
-- "Java"
-- "Aspose.Slides"
-description: "Optimisez la gestion des objets OLE dans PowerPoint et les fichiers OpenDocument avec Aspose.Slides pour Java. Intégrez, mettez à jour et exportez le contenu OLE de manière fluide."
+- objet OLE
+- liaison et incorporation d'objets
+- ajouter OLE
+- intégrer OLE
+- ajouter objet
+- intégrer objet
+- ajouter fichier
+- intégrer fichier
+- objet lié
+- fichier lié
+- modifier OLE
+- icône OLE
+- titre OLE
+- extraire OLE
+- extraire objet
+- extraire fichier
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Optimisez la gestion des objets OLE dans PowerPoint et les fichiers OpenDocument avec Aspose.Slides pour Java. Intégrez, mettez à jour et exportez le contenu OLE en toute transparence."
 ---
 
 {{% alert color="primary" %}} 
 
-OLE (Object Linking & Embedding) est une technologie Microsoft qui permet aux données et aux objets créés dans une application d'être placés dans une autre application via le lien ou l'intégration. 
+OLE (Object Linking & Embedding) est une technologie Microsoft qui permet de placer des données et des objets créés dans une application dans une autre application via un lien ou une incorporation. 
 
 {{% /alert %}} 
 
 Considérez un graphique créé dans MS Excel. Le graphique est ensuite placé dans une diapositive PowerPoint. Ce graphique Excel est considéré comme un objet OLE. 
 
-- Un objet OLE peut apparaître sous forme d'icône. Dans ce cas, lorsque vous double-cliquez sur l'icône, le graphique s'ouvre dans son application associée (Excel), ou il vous est demandé de sélectionner une application pour ouvrir ou modifier l'objet. 
-- Un objet OLE peut afficher son contenu réel, comme le contenu d'un graphique. Dans ce cas, le graphique est activé dans PowerPoint, l'interface du graphique se charge, et vous pouvez modifier les données du graphique dans PowerPoint.
+- Un objet OLE peut apparaître sous forme d’icône. Dans ce cas, en double‑cliquant sur l’icône, le graphique s’ouvre dans son application associée (Excel), ou l’on vous demande de choisir une application pour ouvrir ou modifier l’objet. 
+- Un objet OLE peut afficher son contenu réel, comme le contenu d’un graphique. Dans ce cas, le graphique est activé dans PowerPoint, l’interface du graphique se charge, et vous pouvez modifier les données du graphique depuis PowerPoint.
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/java/) vous permet d'insérer des objets OLE dans les diapositives sous forme de cadres d'objet OLE ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) permet d’insérer des objets OLE dans des diapositives sous forme de cadres d’objets OLE ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
 
-## **Ajout de cadres d'objet OLE aux diapositives**
+## **Ajouter des cadres d’objets OLE aux diapositives**
 
-En supposant que vous ayez déjà créé un graphique dans Microsoft Excel et que vous souhaitiez l'intégrer dans une diapositive sous forme de cadre d'objet OLE à l'aide d'Aspose.Slides for Java, vous pouvez procéder de la manière suivante :
+En supposant que vous avez déjà créé un graphique dans Microsoft Excel et que vous souhaitez l’intégrer dans une diapositive sous forme de cadre d’objet OLE avec Aspose.Slides for Java, procédez ainsi :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-1. Obtenez la référence d'une diapositive via son indice.  
-1. Lisez le fichier Excel sous forme de tableau d'octets.  
-1. Ajoutez le [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) à la diapositive en incluant le tableau d'octets et les autres informations concernant l'objet OLE.  
-1. Enregistrez la présentation modifiée sous forme de fichier PPTX.  
+1. Obtenez la référence d’une diapositive par son index.  
+1. Lisez le fichier Excel sous forme de tableau d’octets.  
+1. Ajoutez le [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) à la diapositive en fournissant le tableau d’octets et les autres informations sur l’objet OLE.  
+1. Enregistrez la présentation modifiée en fichier PPTX.  
 
-Dans l'exemple ci-dessous, nous avons ajouté un graphique provenant d'un fichier Excel à une diapositive sous forme de cadre d'objet OLE à l'aide d'Aspose.Slides for Java.  
-**Note** que le constructeur [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/OleEmbeddedDataInfo) prend une extension d'objet intégrable comme second paramètre. Cette extension permet à PowerPoint d'interpréter correctement le type de fichier et de choisir l'application adéquate pour ouvrir cet objet OLE.  
+Dans l’exemple ci‑dessous, nous avons ajouté un graphique depuis un fichier Excel à une diapositive sous forme de cadre d’objet OLE avec Aspose.Slides for Java.  
+**Remarque** que le constructeur [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/OleEmbeddedDataInfo) accepte une extension d’objet incorporable comme second paramètre. Cette extension permet à PowerPoint d’interpréter correctement le type de fichier et de choisir la bonne application pour ouvrir cet objet OLE.  
 ``` java 
 Presentation presentation = new Presentation();
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Prepare data for the OLE object.
+// Préparer les données pour l'objet OLE.
 byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Add the OLE object frame to the slide.
+// Ajouter le cadre d'objet OLE à la diapositive.
 slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
@@ -70,11 +70,11 @@ presentation.dispose();
 ```
 
 
-### **Ajout de cadres d'objet OLE liés**
+### **Ajouter des cadres d’objets OLE liés**
 
-Aspose.Slides for Java vous permet d'ajouter un [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) sans intégrer les données, mais uniquement avec un lien vers le fichier.  
+Aspose.Slides for Java vous permet d’ajouter un [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) sans incorporer les données, mais uniquement avec un lien vers le fichier.
 
-Ce code Java vous montre comment ajouter un [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) avec un fichier Excel lié à une diapositive :  
+Ce code Java montre comment ajouter un [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) avec un fichier Excel lié à une diapositive :  
 ```java
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -87,16 +87,17 @@ presentation.dispose();
 ```
 
 
-## **Accès aux cadres d'objet OLE**
+## **Accéder aux cadres d’objets OLE**
 
-Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement le trouver ou y accéder de cette manière :
+Si un objet OLE est déjà incorporé dans une diapositive, vous pouvez le trouver ou y accéder de cette façon :
 
-1. Chargez une présentation contenant l'objet OLE intégré en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence de la diapositive en utilisant son indice.  
-3. Accédez à la forme [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame). Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui ne possède qu'une seule forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant que [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Il s'agissait du cadre d'objet OLE souhaité à accéder.  
-4. Une fois le cadre d'objet OLE accessible, vous pouvez effectuer toute opération dessus.  
+1. Chargez une présentation contenant l’objet OLE incorporé en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
+2. Obtenez la référence de la diapositive en utilisant son index.  
+3. Accédez à la forme [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame).  
+   Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui ne possède qu’une forme sur la première diapositive. Nous avons ensuite **casté** cet objet en tant que [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). C’était le cadre d’objet OLE souhaité.  
+4. Une fois le cadre d’objet OLE accédé, vous pouvez effectuer toute opération dessus.  
 
-Dans l'exemple ci-dessous, un cadre d'objet OLE (un objet graphique Excel intégré dans une diapositive) et ses données de fichier sont accédés.  
+Dans l’exemple ci‑dessous, un cadre d’objet OLE (un objet graphique Excel incorporé dans une diapositive) et ses données de fichier sont accessibles.  
 ``` java 
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,10 +106,10 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
     
-    // Obtenir les données du fichier intégré.
+    // Obtenir les données du fichier incorporé.
     byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Obtenir l'extension du fichier intégré.
+    // Obtenir l'extension du fichier incorporé.
     String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
@@ -116,11 +117,11 @@ if (shape instanceof IOleObjectFrame) {
 ```
 
 
-### **Accès aux propriétés du cadre d'objet OLE lié**
+### **Accéder aux propriétés du cadre d’objet OLE lié**
 
-Aspose.Slides vous permet d'accéder aux propriétés du cadre d'objet OLE lié.  
+Aspose.Slides vous permet d’accéder aux propriétés du cadre d’objet OLE lié.
 
-Ce code Java vous montre comment vérifier si un objet OLE est lié, puis récupérer le chemin du fichier lié :  
+Ce code Java montre comment vérifier si un objet OLE est lié puis obtenir le chemin du fichier lié :  
 ```java
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -146,27 +147,27 @@ presentation.dispose();
 ```
 
 
-## **Modification des données d'un objet OLE**
+## **Modifier les données d’un objet OLE**
 
 {{% alert color="primary" %}} 
 
-Dans cette section, l'exemple de code ci-dessous utilise [Aspose.Cells for Java](/cells/java/).  
+Dans cette section, l’exemple de code ci‑dessous utilise [Aspose.Cells for Java](/cells/java/).  
 
 {{% /alert %}}
 
-Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement accéder à cet objet et modifier ses données de cette manière :
+Si un objet OLE est déjà incorporé dans une diapositive, vous pouvez facilement accéder à cet objet et modifier ses données de cette façon :
 
-1. Chargez une présentation contenant l'objet OLE intégré en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence de la diapositive via son indice.  
-3. Accédez à la forme du cadre d'objet OLE.  
-   Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui possède une forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant que [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). Il s'agissait du cadre d'objet OLE souhaité à accéder.  
-4. Une fois le cadre d'objet OLE accessible, vous pouvez effectuer toute opération dessus.  
+1. Chargez une présentation contenant l’objet OLE incorporé en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
+2. Obtenez la référence de la diapositive par son index.  
+3. Accédez à la forme du cadre d’objet OLE.  
+   Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui possède une forme sur la première diapositive. Nous avons ensuite **casté** cet objet en tant que [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IOleObjectFrame). C’était le cadre d’objet OLE souhaité.  
+4. Une fois le cadre d’objet OLE accédé, vous pouvez effectuer toute opération dessus.  
 5. Créez un objet `Workbook` et accédez aux données OLE.  
 6. Accédez à la `Worksheet` souhaitée et modifiez les données.  
 7. Enregistrez le `Workbook` mis à jour dans un flux.  
-8. Modifiez les données de l'objet OLE à partir du flux.  
+8. Remplacez les données de l’objet OLE à partir du flux.  
 
-Dans l'exemple ci-dessous, un cadre d'objet OLE (un objet graphique Excel intégré dans une diapositive) est accédé, et ses données de fichier sont modifiées pour mettre à jour les données du graphique.  
+Dans l’exemple ci‑dessus, un cadre d’objet OLE (un objet graphique Excel incorporé dans une diapositive) est accédé, et ses données de fichier sont modifiées pour mettre à jour les données du graphique.  
 ``` java 
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -182,7 +183,7 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Modifier les données du workbook.
+    // Modifier les données du classeur.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -191,7 +192,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // Modifier les données de l'objet OLE frame.
+    // Modifier les données de l'objet du cadre OLE.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -201,11 +202,11 @@ presentation.dispose();
 ```
 
 
-## **Intégration d'autres types de fichiers dans les diapositives**
+## **Incorporer d’autres types de fichiers dans les diapositives**
 
-En plus des graphiques Excel, Aspose.Slides for Java vous permet d'intégrer d'autres types de fichiers dans les diapositives. Par exemple, vous pouvez insérer des fichiers HTML, PDF et ZIP en tant qu'objets. Lorsqu'un utilisateur double-clique sur l'objet inséré, il s'ouvre automatiquement dans le programme correspondant, ou l'utilisateur est invité à choisir un programme approprié pour l'ouvrir.  
+En plus des graphiques Excel, Aspose.Slides for Java vous permet d’incorporer d’autres types de fichiers dans les diapositives. Par exemple, vous pouvez insérer des fichiers HTML, PDF et ZIP comme objets. Lorsqu’un utilisateur double‑clique sur l’objet inséré, il s’ouvre automatiquement dans le programme approprié, ou l’on lui propose de choisir un programme adapté.  
 
-Ce code Java vous montre comment intégrer du HTML et du ZIP dans une diapositive :  
+Ce code Java montre comment incorporer du HTML et du ZIP dans une diapositive :  
 ```java
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -225,11 +226,11 @@ presentation.dispose();
 ```
 
 
-## **Définition des types de fichiers pour les objets intégrés**
+## **Définir les types de fichiers pour les objets incorporés**
 
-Lors du travail avec des présentations, il peut être nécessaire de remplacer d'anciens objets OLE par de nouveaux ou de remplacer un objet OLE non pris en charge par un objet pris en charge. Aspose.Slides for Java vous permet de définir le type de fichier d'un objet intégré, ce qui vous permet de mettre à jour les données du cadre OLE ou son extension.  
+Lors de la manipulation de présentations, il peut être nécessaire de remplacer d’anciens objets OLE par de nouveaux ou de remplacer un objet OLE non pris en charge par un objet pris en charge. Aspose.Slides for Java vous permet de définir le type de fichier d’un objet incorporé, vous permettant de mettre à jour les données du cadre OLE ou son extension.  
 
-Ce code Java vous montre comment définir le type de fichier d'un objet OLE intégré sur `zip` :  
+Ce code Java montre comment définir le type de fichier d’un objet OLE incorporé sur `zip` :  
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -240,7 +241,7 @@ byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 System.out.println("Current embedded file extension is: " + fileExtension);
 
-// Change the file type to ZIP.
+// Modifier le type de fichier en ZIP.
 oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
@@ -248,11 +249,11 @@ presentation.dispose();
 ```
 
 
-## **Définition des images d'icône et des titres pour les objets intégrés**
+## **Définir les images d’icône et les titres pour les objets incorporés**
 
-Après avoir intégré un objet OLE, un aperçu composé d'une image d'icône est ajouté automatiquement. Cet aperçu est ce que les utilisateurs voient avant d'accéder ou d'ouvrir l'objet OLE. Si vous souhaitez utiliser une image et un texte spécifiques comme éléments de l'aperçu, vous pouvez définir l'image d'icône et le titre à l'aide d'Aspose.Slides for Java.  
+Après avoir incorporé un objet OLE, un aperçu sous forme d’image d’icône est ajouté automatiquement. Cet aperçu est ce que les utilisateurs voient avant d’accéder ou d’ouvrir l’objet OLE. Si vous souhaitez utiliser une image et un texte spécifiques comme éléments de l’aperçu, vous pouvez définir l’image d’icône et le titre avec Aspose.Slides for Java.  
 
-Ce code Java vous montre comment définir l'image d'icône et le titre d'un objet intégré :  
+Ce code Java montre comment définir l’image d’icône et le titre pour un objet incorporé :  
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -262,7 +263,7 @@ IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
-// Définir un titre et l'image pour l'aperçu OLE.
+// Set a title and the image for the OLE preview.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -272,23 +273,23 @@ presentation.dispose();
 ```
 
 
-## **Empêcher le redimensionnement et le repositionnement d'un cadre d'objet OLE**
+## **Empêcher le redimensionnement et le repositionnement d’un cadre d’objet OLE**
 
-Après avoir ajouté un objet OLE lié à une diapositive de présentation, lorsque vous ouvrez la présentation dans PowerPoint, vous pouvez voir un message vous demandant de mettre à jour les liens. Cliquer sur le bouton « Update Links » peut modifier la taille et la position du cadre d'objet OLE car PowerPoint met à jour les données de l'objet OLE lié et rafraîchit l'aperçu de l'objet. Pour empêcher PowerPoint de proposer de mettre à jour les données de l'objet, réglez la méthode `setUpdateAutomatic` de l'interface [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/) sur `false` :  
+Après avoir ajouté un objet OLE lié à une diapositive de présentation, lorsque vous ouvrez la présentation dans PowerPoint, il se peut qu’un message vous invite à mettre à jour les liens. Cliquer sur le bouton « Update Links » peut modifier la taille et la position du cadre d’objet OLE parce que PowerPoint actualise les données provenant de l’objet OLE lié et rafraîchit l’aperçu de l’objet. Pour empêcher PowerPoint de vous demander de mettre à jour les données de l’objet, définissez la méthode `setUpdateAutomatic` de l’interface [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/) sur `false` :  
 ```java
 oleFrame.setUpdateAutomatic(false);
 ```
 
 
-## **Extraction des fichiers intégrés**
+## **Extraire les fichiers incorporés**
 
-Aspose.Slides for Java vous permet d'extraire les fichiers intégrés dans les diapositives en tant qu'objets OLE de la manière suivante :
+Aspose.Slides for Java vous permet d’extraire les fichiers incorporés dans les diapositives sous forme d’objets OLE de la manière suivante :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) contenant les objets OLE que vous souhaitez extraire.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) contenant les objets OLE à extraire.  
 2. Parcourez toutes les formes de la présentation et accédez aux formes [OLEObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe).  
-3. Accédez aux données des fichiers intégrés à partir des cadres d'objet OLE et écrivez-les sur le disque.  
+3. Accédez aux données des fichiers incorporés à partir des cadres d’objet OLE et écrivez‑les sur le disque.  
 
-Ce code Java vous montre comment extraire les fichiers intégrés dans une diapositive en tant qu'objets OLE :  
+Ce code Java montre comment extraire les fichiers incorporés dans une diapositive sous forme d’objets OLE :  
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -313,14 +314,18 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Le contenu OLE sera-t-il rendu lors de l'exportation des diapositives en PDF/images ?**  
-Ce qui est visible sur la diapositive est rendu — l'icône/l'image de substitution (aperçu). Le contenu OLE « live » n'est pas exécuté lors du rendu. Si nécessaire, définissez votre propre image d'aperçu pour garantir l'apparence attendue dans le PDF exporté.
+**Le contenu OLE sera‑t‑il rendu lors de l’exportation des diapositives en PDF/images ?**
 
-**Comment verrouiller un objet OLE sur une diapositive afin que les utilisateurs ne puissent pas le déplacer/modifier dans PowerPoint ?**  
-Verrouillez la forme : Aspose.Slides propose [des verrous au niveau de la forme](/slides/fr/java/applying-protection-to-presentation/). Ce n'est pas du chiffrement, mais cela empêche efficacement les modifications et déplacements accidentels.
+Ce qui est visible sur la diapositive est rendu — l’icône/l’image de substitution (aperçu). Le contenu OLE « live » n’est pas exécuté lors du rendu. Si nécessaire, définissez votre propre image d’aperçu pour garantir l’apparence attendue dans le PDF exporté.
 
-**Pourquoi un objet Excel lié « saute » ou change de taille lorsque j'ouvre la présentation ?**  
-PowerPoint peut rafraîchir l'aperçu de l'OLE lié. Pour une apparence stable, suivez les pratiques de la [Solution de redimensionnement de feuille de calcul](/slides/fr/java/working-solution-for-worksheet-resizing/) — ajustez le cadre à la plage, ou redimensionnez la plage à un cadre fixe et définissez une image de substitution appropriée.
+**Comment verrouiller un objet OLE sur une diapositive afin que les utilisateurs ne puissent pas le déplacer/modifier dans PowerPoint ?**
 
-**Les chemins relatifs des objets OLE liés seront-ils préservés dans le format PPTX ?**  
-Dans le PPTX, les informations de « chemin relatif » ne sont pas disponibles—seul le chemin complet l'est. Les chemins relatifs existent dans l'ancien format PPT. Pour la portabilité, privilégiez des chemins absolus fiables/URI accessibles ou l'intégration.
+Verrouillez la forme : Aspose.Slides fournit des [verrous au niveau de la forme](/slides/fr/java/applying-protection-to-presentation/). Ce n’est pas du chiffrement, mais cela empêche efficacement les modifications et déplacements accidentels.
+
+**Pourquoi un objet Excel lié « saute » ou change de taille lorsque j’ouvre la présentation ?**
+
+PowerPoint peut rafraîchir l’aperçu de l’OLE lié. Pour une apparence stable, suivez les pratiques de la [Solution fonctionnelle pour le redimensionnement de feuille de calcul](/slides/fr/java/working-solution-for-worksheet-resizing/) — adaptez le cadre à la plage, ou redimensionnez la plage à un cadre fixe et définissez une image de substitution adaptée.
+
+**Les chemins relatifs des objets OLE liés sont‑ils conservés dans le format PPTX ?**
+
+Dans PPTX, les informations de « chemin relatif » ne sont pas disponibles — seul le chemin complet l’est. Les chemins relatifs se trouvent dans le format plus ancien PPT. Pour la portabilité, privilégiez des chemins absolus fiables/URI accessibles ou l’incorporation.

@@ -1,81 +1,101 @@
 ---
-title: Свойства презентации
+title: Управление свойствами презентации в Java
+linktitle: Свойства презентации
 type: docs
 weight: 70
 url: /ru/java/presentation-properties/
+keywords:
+- свойства PowerPoint
+- свойства презентации
+- свойства документа
+- встроенные свойства
+- пользовательские свойства
+- расширенные свойства
+- управление свойствами
+- изменение свойств
+- метаданные документа
+- редактировать метаданные
+- язык проверки орфографии
+- язык по умолчанию
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Освойте свойства презентаций в Aspose.Slides for Java и упростите поиск, брендинг и рабочий процесс в ваших файлах PowerPoint и OpenDocument."
 ---
 
 {{% alert color="primary" %}} 
 
-Microsoft PowerPoint предоставляет возможность добавления некоторых свойств к файлам презентаций. Эти документные свойства позволяют сохранять полезную информацию вместе с документами (файлами презентаций). Существует два типа документных свойств, а именно:
+Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства документов позволяют хранить полезную информацию вместе с документами (файлами презентаций). Существует два типа свойств документов:
 
-- Определенные системой (встроенные) свойства
-- Определенные пользователем (настраиваемые) свойства
+- Системные (встроенные) свойства
+- Пользовательские (настраиваемые) свойства
 
-**Встроенные** свойства содержат общую информацию о документе, такую как название документа, имя автора, статистику документа и так далее. **Настраиваемые** свойства — это те, которые определяются пользователями в виде пар **Имя/Значение**, где как имя, так и значение задаются пользователем. Используя Aspose.Slides для Java, разработчики могут получать доступ к значениям встроенных свойств, а также настраиваемых свойств и изменять их.
+**Встроенные** свойства содержат общую информацию о документе, такую как заголовок документа, имя автора, статистика документа и т.д. **Настраиваемые** свойства — это свойства, определяемые пользователями как пары **Имя/Значение**, где и имя, и значение задаются пользователем. С помощью Aspose.Slides for Java разработчики могут получать доступ и изменять значения как встроенных, так и настраиваемых свойств.
 
 {{% /alert %}} 
 
-## **Свойства документа в PowerPoint**
-Microsoft PowerPoint 2007 позволяет управлять документными свойствами файлов презентаций. Все, что вам нужно сделать, это щелкнуть значок Office и выбрать пункт меню **Подготовить | Свойства | Дополнительные свойства** в Microsoft PowerPoint 2007, как показано ниже:
+## **Свойства документов в PowerPoint**
+
+Microsoft PowerPoint 2007 позволяет управлять свойствами документов файлов презентаций. Всё, что нужно сделать — нажать значок Office и далее пункт меню **Prepare | Properties | Advanced Properties** программы Microsoft PowerPoint 2007, как показано ниже:
 
 {{% alert color="primary" %}} 
 
-Обратите внимание, что вы не можете устанавливать значения для полей **Приложение** и **Производитель**, так как Aspose Ltd. и Aspose.Slides для Java x.x.x будут отображаться в этих полях.
+Обратите внимание, что вы не можете задать значения для полей **Application** и **Producer**, поскольку в этих полях будут отображаться Aspose Ltd. и Aspose.Slides for Java x.x.x.
 
 {{% /alert %}} 
 
-|**Выбор пункта меню Дополнительные свойства**|** |
+|**Выбор пункта меню Advanced Properties**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-После того как вы выбрали пункт меню **Дополнительные свойства**, появится диалог, позволяющий вам управлять документными свойствами файла PowerPoint, как показано ниже на рисунке:
+|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+После выбора пункта меню **Advanced Properties** появится диалоговое окно, позволяющее управлять свойствами документа PowerPoint, как показано ниже на рисунке:
 
-|**Диалог свойств**|** |
+|**Диалог свойств**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-В вышеуказанном **Диалоге свойств** вы можете увидеть, что есть много вкладок, таких как **Общие**, **Сводка**, **Статистика**, **Содержимое** и **Пользовательские**. Все эти вкладки позволяют настраивать различные виды информации, относящиеся к файлам PowerPoint. Вкладка **Пользовательские** используется для управления пользовательскими свойствами файлов PowerPoint.
+|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
+В приведённом выше **Properties Dialog** вы можете увидеть множество вкладок, таких как **General**, **Summary**, **Statistics**, **Contents** и **Custom**. Все эти вкладки позволяют настраивать различные типы информации, относящейся к файлам PowerPoint. Вкладка **Custom** используется для управления настраиваемыми свойствами файлов PowerPoint.
 
+## **Работа со свойствами документов с использованием Aspose.Slides for Java**
 
+Как мы уже описали, Aspose.Slides for Java поддерживает два типа свойств документов: **Built-in** и **Custom**. Поэтому разработчики могут получать доступ к обоим типам свойств с помощью API Aspose.Slides for Java. Aspose.Slides for Java предоставляет класс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties), который представляет свойства документа, связанные с файлом презентации, через свойство **Presentation.DocumentProperties**.
 
-Работа с документными свойствами с использованием Aspose.Slides для Java
-
-Как мы уже упоминали ранее, Aspose.Slides для Java поддерживает два типа документных свойств, которые являются **Встроенными** и **Настраиваемыми** свойствами. Таким образом, разработчики могут получить доступ к обоим типам свойств, используя API Aspose.Slides для Java. Aspose.Slides для Java предоставляет класс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties), который представляет собой документные свойства, связанные с файлом презентации через свойство **Presentation.DocumentProperties**.
-
-Разработчики могут использовать свойство **IDocumentProperties**, предоставляемое объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation), чтобы получить доступ к документным свойствам файлов презентации, как показано ниже:
+Разработчики могут использовать свойство **IDocumentProperties**, предоставляемое объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation), чтобы получить доступ к свойствам документов файлов презентаций, как описано ниже:
 
 ## **Доступ к встроенным свойствам**
-Эти свойства, предоставленные объектом [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties), включают: **Создатель** (Автор), **Описание**, **Ключевые слова**, **Создан** (Дата создания), **Изменено** (Дата изменения), **Напечатано** (Дата последнего принта), **Последний изменивший**, **Ключевые слова**, **Общий документ** (Поделён ли между разными производителями?), **Формат презентации**, **Тема** и **Название**.
 
+Эти свойства, предоставляемые объектом [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties), включают: **Creator** (Автор), **Description**, **Keywords**, **Created** (Дата создания), **Modified** (Дата изменения), **Printed** (Дата последней печати), **LastModifiedBy**, **Keywords**, **SharedDoc** (Общий документ между различными производителями?), **PresentationFormat**, **Subject** и **Title**.
 ```java
-// Создать экземпляр класса Presentation, представляющего презентацию
+// Экземпляр класса Presentation, представляющего презентацию
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Создать ссылку на объект IDocumentProperties, связанный с Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Отобразить встроенные свойства
-    System.out.println("Категория : " + dp.getCategory());
-    System.out.println("Текущий статус : " + dp.getContentStatus());
-    System.out.println("Дата создания : " + dp.getCreatedTime());
-    System.out.println("Автор : " + dp.getAuthor());
-    System.out.println("Описание : " + dp.getComments());
-    System.out.println("Ключевые слова : " + dp.getKeywords());
-    System.out.println("Последний изменивший : " + dp.getLastSavedBy());
-    System.out.println("Руководитель : " + dp.getManager());
-    System.out.println("Дата изменения : " + dp.getLastSavedTime());
-    System.out.println("Формат презентации : " + dp.getPresentationFormat());
-    System.out.println("Дата последнего принта : " + dp.getLastPrinted());
-    System.out.println("Общий документ : " + dp.getSharedDoc());
-    System.out.println("Тема : " + dp.getSubject());
-    System.out.println("Название : " + dp.getTitle());
+    System.out.println("Category : " + dp.getCategory());
+    System.out.println("Current Status : " + dp.getContentStatus());
+    System.out.println("Creation Date : " + dp.getCreatedTime());
+    System.out.println("Author : " + dp.getAuthor());
+    System.out.println("Description : " + dp.getComments());
+    System.out.println("KeyWords : " + dp.getKeywords());
+    System.out.println("Last Modified By : " + dp.getLastSavedBy());
+    System.out.println("Supervisor : " + dp.getManager());
+    System.out.println("Modified Date : " + dp.getLastSavedTime());
+    System.out.println("Presentation Format : " + dp.getPresentationFormat());
+    System.out.println("Last Print Date : " + dp.getLastPrinted());
+    System.out.println("Is Shared between producers : " + dp.getSharedDoc());
+    System.out.println("Subject : " + dp.getSubject());
+    System.out.println("Title : " + dp.getTitle());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Изменение встроенных свойств**
-Изменение встроенных свойств файлов презентаций так же просто, как и доступ к ним. Вы можете просто присвоить строковое значение любому желаемому свойству, и значение свойства будет изменено. В приведенном ниже примере мы продемонстрировали, как можно изменить встроенные документные свойства файла презентации с помощью Aspose.Slides для Java.
 
+## **Изменение встроенных свойств**
+
+Изменение встроенных свойств файлов презентаций так же просто, как и их получение. Достаточно присвоить строковое значение нужному свойству, и значение свойства будет изменено. В примере ниже мы продемонстрировали, как можно изменить встроенные свойства документа презентации с помощью Aspose.Slides for Java.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -83,28 +103,28 @@ try {
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Установить встроенные свойства
-    dp.setAuthor("Aspose.Slides для Java");
-    dp.setTitle("Изменение свойств презентации");
-    dp.setSubject("Тема Aspose");
-    dp.setComments("Описание Aspose");
-    dp.setManager("Менеджер Aspose");
+    dp.setAuthor("Aspose.Slides for Java");
+    dp.setTitle("Modifying Presentation Properties");
+    dp.setSubject("Aspose Subject");
+    dp.setComments("Aspose Description");
+    dp.setManager("Aspose Manager");
     
-    // Сохранить вашу презентацию в файл
+    // Сохранить презентацию в файл
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Этот пример изменяет встроенные свойства презентации, которые можно увидеть, как показано ниже:
 
-|**Встроенные документные свойства после изменения**|** |
+Этот пример изменяет встроенные свойства презентации, которые можно увидеть ниже:
+|**Встроенные свойства документа после изменения**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Добавление пользовательских свойств документа**
-Aspose.Slides для Java также позволяет разработчикам добавлять значения пользовательских свойств для документных свойств презентации. Приведен пример ниже, который показывает, как установить пользовательские свойства для презентации.
+## **Добавление настраиваемых свойств документа**
 
+Aspose.Slides for Java также позволяет разработчикам добавлять пользовательские значения для свойств документа презентации. Ниже приведён пример, показывающий, как установить пользовательские свойства для презентации.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -116,7 +136,7 @@ try {
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // Получение имени свойства по определенному индексу
+    // Получение имени свойства по заданному индексу
     String getPropertyName = dProps.getCustomPropertyName(2);
     
     // Удаление выбранного свойства
@@ -129,13 +149,14 @@ try {
 }
 ```
 
-|**Добавленные пользовательские свойства документа**|** |
+
+|**Добавленные пользовательские свойства документа**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Доступ и изменение пользовательских свойств**
-Aspose.Slides для Java также позволяет разработчикам получать доступ к значениями пользовательских свойств. Приведен пример ниже, который показывает, как получить доступ и изменить все эти пользовательские свойства для презентации.
 
+Aspose.Slides for Java также позволяет разработчикам получать доступ к значениям пользовательских свойств. Ниже приведён пример, показывающий, как можно получать доступ и изменять все эти пользовательские свойства для презентации.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -144,43 +165,43 @@ try {
     
     // Доступ и изменение пользовательских свойств
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Отображение имен и значений пользовательских свойств
-        System.out.println("Имя пользовательского свойства : " + dp.getCustomPropertyName(i));
-        System.out.println("Значение пользовательского свойства : " + dp.get_Item(dp.getCustomPropertyName(i)));
+        // Отобразить имена и значения пользовательских свойств
+        System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
+        System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // Изменение значений пользовательских свойств
-        dp.set_Item(dp.getCustomPropertyName(i), "Новое значение " + (i + 1));
+        // Изменить значения пользовательских свойств
+        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
-    // Сохранить вашу презентацию в файл
+    // Сохранить презентацию в файл
     pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Этот пример изменяет пользовательские свойства презентации [PPTX](https://docs.fileformat.com/presentation/pptx/). Следующие фигуры показывают пользовательские свойства презентации до и после изменения:
 
-|**Пользовательские свойства до изменения**|** |
+Этот пример изменяет пользовательские свойства [PPTX ](https://docs.fileformat.com/presentation/pptx/)презентации. Ниже показаны пользовательские свойства презентации до и после изменения:
+
+|**Пользовательские свойства до изменения**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-
-|**Пользовательские свойства после изменения**|** |
+|**Пользовательские свойства после изменения**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Расширенные свойства документа**
+
 {{% alert color="primary" %}} 
 
-Новые методы [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) и [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) были добавлены к интерфейсу [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo), логика сеттера свойства [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) была изменена.
+Новые методы [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), и [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) были добавлены в [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo), логика сеттера свойства [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) была изменена.
 
 {{% /alert %}} 
 
-Два новых метода [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) и [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) были добавлены к интерфейсу [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo). Они обеспечивают быстрый доступ к документным свойствам и позволяют изменять и обновлять свойства без загрузки всей презентации.
+Эти два новых метода ... были добавлены в интерфейс [IPresentationInfo]. Они обеспечивают быстрый доступ к свойствам документа и позволяют изменять и обновлять свойства без загрузки всей презентации.
 
-Типичный сценарий загружает свойства, изменяет некоторое значение и обновляет документ можно реализовать следующим образом:
-
+Типичный сценарий загрузки свойств, изменения некоторых значений и обновления документа можно реализовать следующим образом:
 ```java
 // прочитать информацию о презентации
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
@@ -188,29 +209,29 @@ IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("
 // получить текущие свойства
 IDocumentProperties props = info.readDocumentProperties();
 
-// установить новые значения полей Автора и Названия
-props.setAuthor("Новый Автор");
-props.setTitle("Новое Название");
+// установить новые значения полей Author и Title
+props.setAuthor("New Author");
+props.setTitle("New Title");
 
-// обновить презентацию с новыми значениями
+// обновить презентацию новыми значениями
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Существует и другой способ использовать свойства определенной презентации в качестве шаблона для обновления свойств в других презентациях:
 
+Есть другой способ использовать свойства конкретной презентации в качестве шаблона для обновления свойств в других презентациях:
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
-template.setAuthor("Автор Шаблона");
-template.setTitle("Название Шаблона");
-template.setCategory("Категория Шаблона");
-template.setKeywords("Ключевое слово1, Ключевое слово2, Ключевое слово3");
-template.setCompany("Наша Компания");
-template.setComments("Создано из шаблона");
-template.setContentType("Содержимое Шаблона");
-template.setSubject("Тема Шаблона");
+template.setAuthor("Template Author");
+template.setTitle("Template Title");
+template.setCategory("Template Category");
+template.setKeywords("Keyword1, Keyword2, Keyword3");
+template.setCompany("Our Company");
+template.setComments("Created from template");
+template.setContentType("Template Content");
+template.setSubject("Template Subject");
 
 updateByTemplate("doc1.pptx", template);
 updateByTemplate("doc2.odp", template);
@@ -226,19 +247,19 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Новый шаблон может быть создан с нуля и затем использован для обновления нескольких презентаций:
 
+Новый шаблон можно создать с нуля, а затем использовать для обновления нескольких презентаций:
 ```java
 DocumentProperties template = new DocumentProperties();\
 
-template.setAuthor("Автор Шаблона");
-template.setTitle("Название Шаблона");
-template.setCategory("Категория Шаблона");
-template.setKeywords("Ключевое слово1, Ключевое слово2, Ключевое слово3");
-template.setCompany("Наша Компания");
-template.setComments("Создано из шаблона");
-template.setContentType("Содержимое Шаблона");
-template.setSubject("Тема Шаблона");
+template.setAuthor("Template Author");
+template.setTitle("Template Title");
+template.setCategory("Template Category");
+template.setKeywords("Keyword1, Keyword2, Keyword3");
+template.setCompany("Our Company");
+template.setComments("Created from template");
+template.setContentType("Template Content");
+template.setSubject("Template Subject");
 
 updateByTemplate("doc1.pptx", template);
 updateByTemplate("doc2.odp", template);
@@ -254,26 +275,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Проверка, изменена ли или создана презентация**
-Aspose.Slides для Java предоставляет возможность проверить, была ли презентация изменена или создана. Приведен пример ниже, который показывает, как проверить, была ли презентация создана или изменена.
 
-```java
-IPresentationInfo info=PresentationFactory.getInstance().getPresentationInfo("props.pptx");
+## **Установка языка проверки орфографии**
 
-IDocumentProperties props = info.readDocumentProperties();
-String app = props.getNameOfApplication();
-String ver = props.getAppVersion();
+Aspose.Slides предоставляет свойство LanguageId (доступное через класс PortionFormat), позволяющее задать язык проверки орфографии для документа PowerPoint. Язык проверки — это язык, для которого проверяются орфография и грамматика в PowerPoint.
 
-System.out.println("Имя приложения: " + app);
-System.out.println("Версия приложения: " + ver);
-```
-
-## **Установка языка проверки**
-
-Aspose.Slides предоставляет свойство LanguageId (предоставленное классом PortionFormat), чтобы позволить вам установить язык проверки для документа PowerPoint. Язык проверки — это язык, для которого проверяются орфография и грамматика в PowerPoint.
-
-Этот код на Java показывает, как установить язык проверки для PowerPoint: xxx Почему LanguageId отсутствует в классе Java PortionFormat?
-
+Этот код на Java показывает, как установить язык проверки орфографии для PowerPoint: xxx Почему свойство LanguageId отсутствует в классе Java PortionFormat?
 ```java
 Presentation pres = new Presentation(pptxFileName);
 try {
@@ -290,7 +297,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // установить Id языка проверки
+    portionFormat.setLanguageId("zh-CN"); // установить идентификатор языка проверки
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -299,23 +306,44 @@ try {
 }
 ```
 
+
 ## **Установка языка по умолчанию**
 
 Этот код на Java показывает, как установить язык по умолчанию для всей презентации PowerPoint:
-
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // Добавляет новую форму прямоугольника с текстом
+    // Добавляет новую прямоугольную форму с текстом
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("Новый текст");
+    shp.getTextFrame().setText("New Text");
 
-    // Проверяет язык первой порции
+    // Проверяет язык первой части
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Живой пример**
+
+Попробуйте онлайн‑приложение [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata), чтобы увидеть, как работать со свойствами документов через API Aspose.Slides:
+
+[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***Часто задаваемые вопросы**
+
+**Как удалить встроенное свойство из презентации?**
+
+Встроенные свойства являются неотъемлемой частью презентации и не могут быть полностью удалены. Однако вы можете изменить их значения или установить их пустыми, если это допускается конкретным свойством.
+
+**Что происходит, если я добавляю пользовательское свойство, которое уже существует?**
+
+Если вы добавляете пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Вам не требуется удалять или проверять свойство заранее, так как Aspose.Slides автоматически обновляет значение свойства.
+
+**Могу ли я получить доступ к свойствам презентации без полной загрузки презентации?**
+
+Да, вы можете получить доступ к свойствам презентации без полной её загрузки, используя метод `getPresentationInfo` класса [PresentationFactory](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/). Затем используйте метод `readDocumentProperties`, предоставляемый интерфейсом [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/), чтобы эффективно считывать свойства, экономя память и повышая производительность.

@@ -1,5 +1,5 @@
 ---
-title: تخصيص جداول بيانات المخطط في العروض التقديمية باستخدام Java
+title: تخصيص جداول بيانات المخططات في العروض التقديمية باستخدام Java
 linktitle: جدول البيانات
 type: docs
 url: /ar/java/chart-data-table/
@@ -11,19 +11,19 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تخصيص جداول بيانات المخططات في Java لعروض PPT و PPTX باستخدام Aspose.Slides لتعزيز الكفاءة والجاذبية في العروض التقديمية."
+description: "قم بتخصيص جداول بيانات المخططات في Java لملفات PPT و PPTX باستخدام Aspose.Slides لتعزيز الكفاءة والجاذبية في العروض التقديمية."
 ---
 
 ## **تعيين خصائص الخط لجدول بيانات المخطط**
-تقدم Aspose.Slides for Java دعمًا لتغيير لون الفئات في لون السلسلة.  
+توفر Aspose.Slides for Java دعمًا لتغيير لون الفئات في لون السلسلة.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. إنشاء كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) من فئة.
 1. إضافة مخطط إلى الشريحة.
 1. تعيين جدول المخطط.
 1. تعيين ارتفاع الخط.
 1. حفظ العرض التقديمي المعدل.
 
-فيما يلي مثال توضيحي.  
+فيما يلي مثال توضيحي.
 ```java
 // إنشاء عرض تقديمي فارغ
 Presentation pres = new Presentation();
@@ -42,20 +42,20 @@ try {
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني إظهار مفاتيح الأسطورة الصغيرة بجوار القيم في جدول بيانات المخطط؟**
+**هل يمكنني إظهار مفاتيح وسيلة إيضاح صغيرة بجوار القيم في جدول بيانات المخطط؟**
 
-نعم. يدعم جدول البيانات [مفاتيح الأسطورة](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-)، ويمكنك تشغيلها أو إيقافها.
+نعم. يدعم جدول البيانات [legend keys](https://reference.aspose.com/slides/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-)، ويمكنك تشغيلها أو إيقافها.
 
-**هل سيتم الحفاظ على جدول البيانات عند تصدير العرض التقديمي إلى PDF أو HTML أو صور؟**
+**هل سيتم حفظ جدول البيانات عند تصدير العرض التقديمي إلى PDF أو HTML أو صور؟**
 
-نعم. تُظهر Aspose.Slides المخطط كجزء من الشريحة، لذا فإن [PDF](/slides/ar/java/convert-powerpoint-to-pdf/)/[HTML](/slides/ar/java/convert-powerpoint-to-html/)/[image](/slides/ar/java/convert-powerpoint-to-png/) المصدر يتضمن المخطط مع جدول البيانات الخاص به.
+نعم. تقوم Aspose.Slides برسم المخطط كجزء من الشريحة، لذلك يتضمن [PDF](/slides/ar/java/convert-powerpoint-to-pdf/)/[HTML](/slides/ar/java/convert-powerpoint-to-html/)/[image](/slides/ar/java/convert-powerpoint-to-png/) المخطط مع جدول بياناته.
 
-**هل يتم دعم جداول البيانات للمخططات التي تأتي من ملف قالب؟**
+**هل تدعم جداول البيانات المخططات المستخرجة من ملف قالب؟**
 
-نعم. لأي مخطط تم تحميله من عرض تقديمي موجود أو قالب، يمكنك التحقق وتغيير ما إذا كان جدول البيانات [معروضًا](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) باستخدام خصائص المخطط.
+نعم. لأي مخطط تم تحميله من عرض تقديمي موجود أو قالب، يمكنك التحقق من وإجراء تعديل ما إذا كان جدول البيانات [is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) باستخدام خصائص المخطط.
 
-**كيف يمكنني بسرعة العثور على المخططات في ملف ما التي لها جدول البيانات مفعّل؟**
+**كيف يمكنني بسرعة العثور على المخططات التي لديها جدول بيانات مفعّل في ملف؟**
 
-افحص خاصية كل مخطط التي تشير إلى ما إذا كان جدول البيانات [معروضًا](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) وتصفح الشرائح لتحديد المخططات التي يكون فيها مفعَّلًا.
+تحقق من خاصية كل مخطط التي تشير إلى ما إذا كان جدول البيانات [is shown](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#hasDataTable--) وتصفح الشرائح لتحديد المخططات التي يكون فيها مفعلاً.

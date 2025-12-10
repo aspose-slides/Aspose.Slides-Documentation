@@ -1,22 +1,22 @@
 ---
-title: "Callouts in Präsentationsdiagrammen mit Java verwalten"
-linktitle: "Hinweis"
+title: Callouts in Präsentationsdiagrammen mit Java verwalten
+linktitle: Callout
 type: docs
 url: /de/java/callout/
 keywords:
-- "Diagramm-Callout"
-- "Verwendung von Callouts"
-- "Datenbeschriftung"
-- "Beschriftungsformat"
+- Diagramm-Callout
+- Callout verwenden
+- Datenbeschriftung
+- Beschriftungsformat
 - PowerPoint
-- "Präsentation"
+- Präsentation
 - Java
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Java mit prägnanten Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations‑Workflows zu automatisieren."
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Java mit prägnanten Codebeispielen, kompatibel mit PPT und PPTX, um Präsentationsabläufe zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) und zum Interface [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob die Datenbeschriftung eines angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird.
+Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) und zum Interface [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob das Datenbeschriftungsfeld des angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -33,8 +33,8 @@ try {
 ```
 
 
-## **Callout für Doughnut-Diagramm festlegen**
-Aspose.Slides für Java bietet Unterstützung zum Festlegen der Callout‑Form von Datenbeschriftungen einer Serie für ein Doughnut‑Diagramm. Nachstehendes Beispiel wird bereitgestellt.
+## **Callout für ein Doughnut-Diagramm festlegen**
+Aspose.Slides for Java bietet Unterstützung für das Festlegen der Callout‑Form der Serien-Datenbeschriftungen für ein Doughnut‑Diagramm. Nachfolgend ein Beispiel.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -102,8 +102,8 @@ try {
 
 **Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
 
-Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Export in [PDF](/slides/de/java/convert-powerpoint-to-pdf/), [HTML5](/slides/de/java/export-to-html5/), [SVG](/slides/de/java/render-a-slide-as-an-svg-image/) oder [Rasterbilder](/slides/de/java/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Exportieren zu [PDF](/slides/de/java/convert-powerpoint-to-pdf/), [HTML5](/slides/de/java/export-to-html5/), [SVG](/slides/de/java/render-a-slide-as-an-svg-image/) oder [Rasterbilder](/slides/de/java/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
 
-**Funktionieren benutzerdefinierte Schriften in Callouts, und kann ihr Erscheinungsbild beim Export beibehalten werden?**
+**Funktionieren benutzerdefinierte Schriften in Callouts, und kann ihr Aussehen beim Export beibehalten werden?**
 
-Ja. Aspose.Slides unterstützt das [Einbetten von Schriften](/slides/de/java/embedded-font/) in die Präsentation und steuert das Einbetten von Schriften bei Exporten wie [PDF](/slides/de/java/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriftarten](/slides/de/java/embedded-font/) in die Präsentation und steuert das Einbetten von Schriftarten bei Exporten wie [PDF](/slides/de/java/convert-powerpoint-to-pdf/), um sicherzustellen, dass die Callouts auf verschiedenen Systemen gleich aussehen.

@@ -17,23 +17,21 @@ keywords:
 description: "了解如何在 Aspose.Slides for Java 中添加、读取、更新和删除标签及自定义数据，示例涵盖 PowerPoint 和 OpenDocument 演示文稿。"
 ---
 
-## 演示文稿文件中的数据存储
+## **演示文稿文件中的数据存储**
 
 PPTX 文件——扩展名为 .pptx 的项目——采用 PresentationML 格式存储，这是 Office Open XML 规范的一部分。Office Open XML 格式定义了演示文稿中数据的结构。
 
-在演示文稿中，*幻灯片* 是其中的一个元素，*幻灯片部件* 包含单个幻灯片的内容。幻灯片部件可以明确地与许多部件建立关系——例如由 ISO/IEC 29500 定义的用户自定义标签。
+在演示文稿中，*幻灯片* 是元素之一，*幻灯片部件* 包含单个幻灯片的内容。幻灯片部件可以显式关联到许多部件——例如由 ISO/IEC 29500 定义的用户自定义标签。
 
-自定义数据（特定于演示文稿）或用户可以以标签 ([ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)) 和 CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)) 的形式存在。
+自定义数据（特定于某个演示文稿）或用户可以作为标签（[ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)）和 CustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)）存在。
 
 {{% alert color="primary" %}} 
-
 标签本质上是字符串键值对。 
-
 {{% /alert %}} 
 
-## 获取标签的值
+## **获取标签值**
 
-在幻灯片中，标签对应于 [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) 和 [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) 方法。以下示例代码演示了如何使用 Aspose.Slides for Java 为 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 获取标签的值：
+在幻灯片中，标签对应于 [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) 和 [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) 方法。以下示例代码展示了如何使用 Aspose.Slides for Java 获取 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 中标签的值：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try{
@@ -44,16 +42,16 @@ try{
 ```
 
 
-## 向演示文稿添加标签
+## **向演示文稿添加标签**
 
-Aspose.Slides 允许您向演示文稿添加标签。一个标签通常由两部分组成：
+Aspose.Slides 允许向演示文稿添加标签。标签通常由两个项目组成：
 
-- 自定义属性的名称 - `MyTag`
+- 自定义属性的名称 - `MyTag` 
 - 自定义属性的值 - `My Tag Value`
 
-如果您需要根据特定规则或属性对一些演示文稿进行分类，添加标签可能会很有帮助。例如，如果您想将所有北美国家的演示文稿归为一类，您可以创建一个 North American 标签，然后将相关国家（美国、墨西哥和加拿大）设为该标签的值。
+如果需要根据特定规则或属性对一些演示文稿进行分类，则可以通过添加标签受益。例如，如果想将所有北美国家的演示文稿归类在一起，可以创建一个 North American 标签，然后将相关国家（美国、墨西哥和加拿大）设为其值。
 
-以下示例代码演示了如何使用 Aspose.Slides for Java 向 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 添加标签：
+以下示例代码展示了如何使用 Aspose.Slides for Java 向 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 添加标签：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -93,14 +91,14 @@ try {
 
 ## **常见问题**
 
-**我可以一次性删除演示文稿、幻灯片或形状上的所有标签吗？**
+**我可以一次性删除演示文稿、幻灯片或形状中的所有标签吗？**
 
-可以。[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 支持 [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) 操作，可一次性删除所有键值对。
+可以。[tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 支持 [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) 操作，一次性删除所有键值对。
 
-**如何在不遍历整个集合的情况下，仅通过名称删除单个标签？**
+**如何在不遍历整个集合的情况下，根据名称删除单个标签？**
 
-对 [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 使用 [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) 操作即可通过键删除该标签。
+对 [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 使用 [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) 操作即可按键删除标签。
 
-**如何检索标签名称的完整列表以进行分析或过滤？**
+**如何获取完整的标签名称列表以进行分析或过滤？**
 
-在 [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 上使用 [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--)；它会返回所有标签名称的数组。
+在 [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) 上使用 [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--)；它返回所有标签名称的数组。

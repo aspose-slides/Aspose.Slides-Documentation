@@ -1,5 +1,5 @@
 ---
-title: تحسين حسابات المخطط للعروض التقديمية في Java
+title: تحسين حسابات المخطط للعروض التقديمية في جافا
 linktitle: حسابات المخطط
 type: docs
 weight: 50
@@ -9,19 +9,19 @@ keywords:
 - عناصر المخطط
 - موضع العنصر
 - الموضع الفعلي
-- عنصر فرعي
+- العنصر الفرعي
 - العنصر الأصلي
 - قيم المخطط
 - القيمة الفعلية
-- PowerPoint
+- باوربوينت
 - عرض تقديمي
-- Java
+- جافا
 - Aspose.Slides
-description: "فهم حسابات المخطط وتحديثات البيانات والتحكم في الدقة في Aspose.Slides for Java لملفات PPT و PPTX، مع أمثلة عملية على شفرة Java."
+description: "فهم حسابات المخطط، تحديثات البيانات، والتحكم في الدقة في Aspose.Slides for Java لملفات PPT وPPTX، مع أمثلة عملية لشفرة Java."
 ---
 
 ## **حساب القيم الفعلية لعناصر المخطط**
-توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص واجهة [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) معلومات حول الموضع الفعلي لعنصر محور المخطط ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--)، [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--)، [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--)، [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). من الضروري استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. خصائص واجهة [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) توفر معلومات حول الموضع الفعلي لعنصر المخطط ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). من الضروري استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -40,7 +40,7 @@ try {
 
 
 ## **حساب الموضع الفعلي لعناصر المخطط الأصلية**
-توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص واجهة [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) معلومات حول الموضع الفعلي لعنصر المخطط الأصل ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--)، [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--)، [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--)، [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). من الضروري استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+توفر Aspose.Slides for Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. خصائص واجهة [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) توفر معلومات حول الموضع الفعلي للعنصر الأصل للمخطط ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). من الضروري استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -57,8 +57,8 @@ try {
 ```
 
 
-## **إخفاء المعلومات من المخطط**
-هذا الموضوع يساعدك على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for Java يمكنك إخفاء **العنوان، المحور العمودي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح مثال الشفرة أدناه كيفية استخدام هذه الخصائص.
+## **إخفاء عناصر المخطط**
+يساعدك هذا الموضوع على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for Java يمكنك إخفاء **العنوان، المحور العمودي، المحور الأفقي** و**خطوط الشبكة** من المخطط. المثال البرمجي أدناه يوضح كيفية استخدام هذه الخصائص.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -71,7 +71,7 @@ try {
     ///إخفاء محور القيم
     chart.getAxes().getVerticalAxis().setVisible(false);
 
-    //إظهار محور الفئة
+    //إظهار محور الفئات
     chart.getAxes().getHorizontalAxis().setVisible(false);
 
     //إخفاء وسيلة الإيضاح
@@ -92,7 +92,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
 
-    //إعداد لون خط السلسلة
+    //تعيين لون خط السلسلة
     series.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     series.getFormat().getLine().setDashStyle(LineDashStyle.Solid);
@@ -104,16 +104,16 @@ try {
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل تعمل دفاتر Excel الخارجية كمصدر للبيانات، وكيف يؤثر ذلك على إعادة الحساب؟**
 
-نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عندما تقوم بالاتصال أو تحديث المصدر الخارجي، يتم أخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطّط التحديثات خلال عمليات الفتح/التحرير. تسمح لك الواجهة البرمجية [specify the external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) بتحديد مسار دفتر العمل الخارجي وإدارة البيانات المرتبطة.
+نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال أو تحديث المصدر الخارجي، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التعديل. تسمح لك الواجهة بتحديد مسار [دفتر العمل الخارجي](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-).
 
 **هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ الانحدار بنفسي؟**
 
-نعم. يتم إضافة وتحديث [Trendlines](/slides/ar/java/trend-line/) (خطية، أسية، وغيرها) بواسطة Aspose.Slides؛ يتم إعادة حساب معلماتها من بيانات السلسلة تلقائيًا، لذلك لا تحتاج إلى تنفيذ حساباتك الخاصة.
+نعم. يتم إضافة [Trendlines](/slides/ar/java/trend-line/) (خطية، أسية، وغيرها) وتحديثها تلقائيًا بواسطة Aspose.Slides؛ تُعاد حساب معلماتها تلقائيًا من بيانات السلسلة، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
 
-**إذا كان العرض التقديمي يحتوي على مخططات متعددة مع روابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
+**إذا كان العرض يحتوي على مخططات متعددة بروابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
 
-نعم. يمكن لكل مخطط الإشارة إلى [external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) الخاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.
+نعم. يمكن لكل مخطط الإشارة إلى [دفتر عمل خارجي](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) خاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.

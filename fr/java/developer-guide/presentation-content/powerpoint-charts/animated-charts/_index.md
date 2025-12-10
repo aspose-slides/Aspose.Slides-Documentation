@@ -18,29 +18,29 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Créez des graphiques animés impressionnants en Java avec Aspose.Slides. Dynamisez vos présentations avec des visuels dynamiques dans les fichiers PPT et PPTX — commencez dès maintenant."
+description: "Créez des graphiques animés époustouflants en Java avec Aspose.Slides. Boostez vos présentations avec des visuels dynamiques dans les fichiers PPT et PPTX - commencez dès maintenant."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java prend en charge l'animation des éléments du graphique. **Series**, **Categories**, **Series Elements**, **Categories Elements** peuvent être animés avec la méthode [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) et deux énumérations [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) et [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for Java prend en charge l'animation des éléments du graphique. **Series**, **Categories**, **Series Elements**, **Categories Elements** peuvent être animés avec la méthode [**ISequence**.**addEffect**(https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-)] et deux énumérations [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) et [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
 ## **Animation des séries de graphique**
-Si vous souhaitez animer une série de graphique, écrivez le code conformément aux étapes ci-dessous :
+Si vous souhaitez animer une série de graphique, écrivez le code selon les étapes ci‑dessous :
 
 1. Charger une présentation.
-1. Obtenir la référence de l’objet du graphique.
+1. Obtenir la référence de l'objet graphique.
 1. Animer la série.
-1. Écrire le fichier de présentation sur le disque.
+1. Enregistrer le fichier de présentation sur le disque.
 
-Dans l'exemple ci-dessous, nous avons animé des séries de graphique.
+Dans l'exemple ci‑dessous, nous avons animé des séries de graphique.
 ```java
 // Instancier la classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Obtenir la référence de l'objet du graphique
+    // Obtenir la référence de l'objet graphique
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -65,7 +65,7 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Écrire la présentation modifiée sur le disque
+    // Enregistrer la présentation modifiée sur le disque
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -74,21 +74,21 @@ try {
 
 
 ## **Animation des catégories de graphique**
-Si vous souhaitez animer une catégorie de graphique, écrivez le code conformément aux étapes ci-dessous :
+Si vous souhaitez animer une catégorie de graphique, écrivez le code selon les étapes ci‑dessous :
 
 1. Charger une présentation.
-1. Obtenir la référence de l’objet du graphique.
+1. Obtenir la référence de l'objet graphique.
 1. Animer la catégorie.
-1. Écrire le fichier de présentation sur le disque.
+1. Enregistrer le fichier de présentation sur le disque.
 
-Dans l'exemple ci-dessous, nous avons animé une catégorie de graphique.
+Dans l'exemple ci‑dessous, nous avons animé une catégorie de graphique.
 ```java
 // Instancier la classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0");
+    IChart chart = (IChart) shapes.get_Item(0);
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -116,20 +116,20 @@ try {
 ```
 
 
-## **Animation dans les éléments de série**
-Si vous souhaitez animer des éléments de série, écrivez le code conformément aux étapes ci-dessous :
+## **Animation d'un élément de série**
+Si vous souhaitez animer des éléments de série, écrivez le code selon les étapes ci‑dessous :
 
 1. Charger une présentation.
-1. Obtenir la référence de l’objet du graphique.
+1. Obtenir la référence de l'objet graphique.
 1. Animer les éléments de série.
-1. Écrire le fichier de présentation sur le disque.
+1. Enregistrer le fichier de présentation sur le disque.
 
-Dans l'exemple ci-dessous, nous avons animé les éléments de la série.
+Dans l'exemple ci‑dessous, nous avons animé les éléments de séries.
 ```java
 // Instancier la classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Obtenir la référence de l'objet du graphique
+    // Obtenir la référence de l'objet graphique
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -164,7 +164,7 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Écrire le fichier de présentation sur le disque
+    // Enregistrer le fichier de présentation sur le disque 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -172,20 +172,20 @@ try {
 ```
 
 
-## **Animation dans les éléments de catégorie**
-Si vous souhaitez animer des éléments de catégorie, écrivez le code conformément aux étapes ci-dessous :
+## **Animation d'un élément de catégorie**
+Si vous souhaitez animer des éléments de catégorie, écrivez le code selon les étapes ci‑dessous :
 
 1. Charger une présentation.
-1. Obtenir la référence de l’objet du graphique.
+1. Obtenir la référence de l'objet graphique.
 1. Animer les éléments de catégorie.
-1. Écrire le fichier de présentation sur le disque.
+1. Enregistrer le fichier de présentation sur le disque.
 
-Dans l'exemple ci-dessous, nous avons animé les éléments de catégorie.
+Dans l'exemple ci‑dessous, nous avons animé les éléments de catégorie.
 ```java
 // Instancier la classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Obtenir la référence de l'objet du graphique
+    // Obtenir la référence de l'objet graphique
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -219,7 +219,7 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Écrire le fichier de présentation sur le disque
+    // Enregistrer le fichier de présentation sur le disque
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -227,24 +227,25 @@ try {
 ```
 
 
+
 ## **FAQ**
 
-**Les différents types d'effets (par exemple, entrée, mise en valeur, sortie) sont-ils pris en charge pour les graphiques comme pour les formes ordinaires ?**
+**Les différents types d'effets (par ex., entrée, mise en évidence, sortie) sont-ils pris en charge pour les graphiques comme pour les formes classiques ?**
 
-Oui. Un graphique est considéré comme une forme, il prend donc en charge les types d'effets d'animation standard, y compris l'entrée, la mise en valeur et la sortie, avec un contrôle complet via la chronologie de la diapositive et les séquences d'animation.
+Oui. Un graphique est considéré comme une forme, il prend donc en charge les types d'effets d'animation standard, y compris l'entrée, la mise en évidence et la sortie, avec un contrôle complet via la chronologie de la diapositive et les séquences d'animation.
 
-**Puis-je combiner l'animation du graphique avec les transitions de diapositive ?**
+**Puis-je combiner l'animation d'un graphique avec les transitions de diapositive ?**
 
-Oui. [Transitions](/slides/fr/java/slide-transition/) s'appliquent à la diapositive, tandis que les effets d'animation s'appliquent aux objets de la diapositive. Vous pouvez les utiliser tous les deux dans la même présentation et les contrôler indépendamment.
+Oui. Les [Transitions](/slides/fr/java/slide-transition/) s'appliquent à la diapositive, tandis que les effets d'animation s'appliquent aux objets de la diapositive. Vous pouvez les utiliser tous les deux dans la même présentation et les contrôler indépendamment.
 
-**Les animations de graphiques sont-elles conservées lors de l'enregistrement au format PPTX ?**
+**Les animations de graphiques sont‑elles conservées lors de l'enregistrement en PPTX ?**
 
-Oui. Lorsque vous [enregistrez au format PPTX](/slides/fr/java/save-presentation/), tous les effets d'animation et leur ordre sont conservés car ils font partie du modèle d'animation natif de la présentation.
+Oui. Lorsque vous [enregistrez en PPTX](/slides/fr/java/save-presentation/), tous les effets d'animation et leur ordre sont conservés car ils font partie du modèle d'animation natif de la présentation.
 
-**Puis-je lire les animations de graphiques existantes d'une présentation et les modifier ?**
+**Puis‑je lire les animations de graphiques existantes dans une présentation et les modifier ?**
 
-Oui. L'API donne accès à la chronologie de la diapositive, aux séquences et aux effets, ce qui vous permet d'inspecter les animations de graphiques existantes et de les ajuster sans tout recréer depuis le début.
+Oui. L'API donne accès à la chronologie de la diapositive, aux séquences et aux effets, vous permettant d'inspecter les animations de graphiques existantes et de les ajuster sans recréer tout à partir de zéro.
 
-**Puis-je produire une vidéo incluant les animations de graphiques avec Aspose.Slides ?**
+**Puis‑je créer une vidéo incluant les animations de graphiques avec Aspose.Slides ?**
 
-Oui. Vous pouvez [exporter une présentation vers une vidéo](/slides/fr/java/convert-powerpoint-to-video/) tout en conservant les animations, en configurant les timings et les autres paramètres d'exportation afin que le clip résultant reflète la lecture animée.
+Oui. Vous pouvez [exporter une présentation en vidéo](/slides/fr/java/convert-powerpoint-to-video/) tout en conservant les animations, en configurant les durées et d'autres paramètres d'exportation afin que le clip résultant reflète la lecture animée.

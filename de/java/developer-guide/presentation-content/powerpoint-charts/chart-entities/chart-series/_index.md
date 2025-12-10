@@ -4,10 +4,10 @@ linktitle: Datenserien
 type: docs
 url: /de/java/chart-series/
 keywords:
-- Diagrammserien
+- Diagrammserie
 - Serienüberlappung
 - Serienfarbe
-- Kategoriefarbe
+- Kategorienfarbe
 - Serienname
 - Datenpunkt
 - Serienabstand
@@ -15,26 +15,26 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien in Java für PowerPoint (PPT/PPTX) verwalten, mit praktischen Codebeispielen und bewährten Methoden, um Ihre Datenpräsentationen zu verbessern."
+description: "Erfahren Sie, wie Sie Diagrammserien in Java für PowerPoint (PPT/PPTX) verwalten, mit praxisnahen Codebeispielen und bewährten Methoden, um Ihre Datenpräsentationen zu verbessern."
 ---
 
 Eine Serie ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt werden.
 
-![Diagramm-Serie-Powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Diagrammserien-Überlappung festlegen**
+## **Diagrammserien-Überschneidung festlegen**
 
-Mit der [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) Eigenschaft können Sie festlegen, wie stark Balken und Säulen in einem 2D‑Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Serien der übergeordneten Seriengruppe: Sie ist eine Projektion der entsprechenden Gruppeneigenschaft. Daher ist diese Eigenschaft schreibgeschützt. 
+Mit der [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap)-Eigenschaft können Sie angeben, wie stark Balken und Säulen in einem 2D-Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Serien der übergeordneten Seriengruppe: Sie ist eine Projektion der entsprechenden Gruppeneigenschaft. Daher ist diese Eigenschaft schreibgeschützt.
 
-Verwenden Sie die Lese‑/Schreib‑Eigenschaft `ParentSeriesGroup.Overlap`, um Ihren gewünschten Wert für `Overlap` festzulegen. 
+Verwenden Sie die Lese/Schreib‑Eigenschaft `ParentSeriesGroup.Overlap`, um Ihren gewünschten Wert für `Overlap` festzulegen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Fügen Sie einem Folie ein gruppiertes Säulendiagramm hinzu.  
-1. Greifen Sie auf die erste Diagrammserie zu.  
-1. Greifen Sie auf die `ParentSeriesGroup` der Diagrammserie zu und setzen Sie den gewünschten Überlappungswert für die Serie.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Fügen Sie einem Folie ein gruppiertes Säulendiagramm hinzu.  
+3. Greifen Sie auf die erste Diagrammserie zu.  
+4. Greifen Sie auf die `ParentSeriesGroup` der Diagrammserie zu und setzen Sie den gewünschten Überschneidungswert für die Serie.  
+5. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 
-Dieser Java‑Code zeigt, wie Sie die Überlappung für eine Diagrammserie festlegen:
+Dieser Java‑Code zeigt Ihnen, wie Sie die Überschneidung für eine Diagrammserie festlegen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -43,7 +43,7 @@ try {
     IChartSeriesCollection series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0)
     {
-        // Setzt Serienüberlappung
+        // Setzt die Serienüberlappung
         series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
     }
 
@@ -57,15 +57,15 @@ try {
 
 ## **Serienfarbe ändern**
 
-Aspose.Slides for Java ermöglicht das Ändern der Farbe einer Serie wie folgt:
+Aspose.Slides für Java ermöglicht das Ändern der Farbe einer Serie wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Fügen Sie ein Diagramm zur Folie hinzu.  
-1. Greifen Sie auf die Serie zu, deren Farbe Sie ändern möchten.  
-1. Legen Sie den gewünschten Fülltyp und die Füllfarbe fest.  
-1. Speichern Sie die geänderte Präsentation.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Fügen Sie ein Diagramm auf der Folie hinzu.  
+3. Greifen Sie auf die Serie zu, deren Farbe Sie ändern möchten.  
+4. Legen Sie den gewünschten Fülltyp und die Füllfarbe fest.  
+5. Speichern Sie die modifizierte Präsentation.
 
-Dieser Java‑Code zeigt, wie Sie die Farbe einer Serie ändern:
+Dieser Java‑Code zeigt Ihnen, wie Sie die Farbe einer Serie ändern:
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -85,15 +85,15 @@ try {
 
 ## **Farbe der Serienkategorie ändern**
 
-Aspose.Slides for Java ermöglicht das Ändern der Farbe einer Serienkategorie wie folgt:
+Aspose.Slides für Java ermöglicht das Ändern der Farbe einer Serienkategorie wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Fügen Sie ein Diagramm zur Folie hinzu.  
-1. Greifen Sie auf die Serienkategorie zu, deren Farbe Sie ändern möchten.  
-1. Legen Sie den gewünschten Fülltyp und die Füllfarbe fest.  
-1. Speichern Sie die geänderte Präsentation.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Fügen Sie ein Diagramm auf der Folie hinzu.  
+3. Greifen Sie auf die Serienkategorie zu, deren Farbe Sie ändern möchten.  
+4. Legen Sie den gewünschten Fülltyp und die Füllfarbe fest.  
+5. Speichern Sie die modifizierte Präsentation.
 
-Dieser Code in Java zeigt, wie Sie die Farbe einer Serienkategorie ändern:
+Dieser Java‑Code zeigt Ihnen, wie Sie die Farbe einer Serienkategorie ändern:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -110,18 +110,18 @@ try {
 ```
 
 
-## **Serienname ändern** 
+## **Seriennamen ändern** 
 
-Standardmäßig werden die Legendenbezeichnungen für ein Diagramm aus den Zellen über jeder Spalte oder Zeile der Daten übernommen. 
+Standardmäßig sind die Legendenbezeichnungen eines Diagramms die Inhalte der Zellen über jeder Spalte oder Zeile der Daten.
 
 In unserem Beispiel (Beispielbild),
 
-* die Spalten sind *Series 1, Series 2,* und *Series 3*;  
-* die Zeilen sind *Category 1, Category 2, Category 3,* und *Category 4.*  
+* Die Spalten sind *Series 1, Series 2,* und *Series 3*;  
+* Die Zeilen sind *Category 1, Category 2, Category 3,* und *Category 4.*  
 
-Aspose.Slides for Java ermöglicht das Aktualisieren oder Ändern des Seriennamens in den Diagrammdaten und in der Legende. 
+Aspose.Slides für Java ermöglicht das Aktualisieren oder Ändern eines Seriennamens in den Diagrammdaten und der Legende.
 
-Dieser Java‑Code zeigt, wie man den Seriennamen in den Diagrammdaten `ChartDataWorkbook` ändert:
+Dieser Java‑Code zeigt Ihnen, wie Sie den Namen einer Serie in den Diagrammdaten `ChartDataWorkbook` ändern:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -137,7 +137,7 @@ try {
 ```
 
 
-Dieser Java‑Code zeigt, wie man den Seriennamen in der Legende über `Series` ändert:
+Dieser Java‑Code zeigt Ihnen, wie Sie den Namen einer Serie in ihrer Legende über `Series` ändern:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -152,17 +152,17 @@ try {
 ```
 
 
-## **Füllfarbe für Diagrammserie festlegen**
+## **Füllfarbe der Diagrammserie festlegen**
 
-Aspose.Slides for Java ermöglicht das Festlegen der automatischen Füllfarbe für Diagrammserien im Plot‑Bereich wie folgt:
+Aspose.Slides für Java ermöglicht das Festlegen der automatischen Füllfarbe für Diagrammserien im Plot‑Bereich wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Holen Sie sich die Referenz einer Folie über ihren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem gewünschten Typ hinzu (im Beispiel unten haben wir `ChartType.ClusteredColumn` verwendet).  
-1. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf Automatisch.  
-1. Speichern Sie die Präsentation in einer PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Erhalten Sie die Referenz einer Folie über ihren Index.  
+3. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem gewünschten Typ hinzu (im Beispiel unten haben wir `ChartType.ClusteredColumn` verwendet).  
+4. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf Automatic.  
+5. Speichern Sie die Präsentation in einer PPTX‑Datei.
 
-Dieser Java‑Code zeigt, wie Sie die automatische Füllfarbe für eine Diagrammserie festlegen:
+Dieser Java‑Code zeigt Ihnen, wie Sie die automatische Füllfarbe für eine Diagrammserie festlegen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -183,17 +183,17 @@ try {
 ```
 
 
-## **Umgekehrte Füllfarben für Diagrammserie festlegen**
+## **Invertierte Füllfarbe für eine Diagrammserie festlegen**
 
-Aspose.Slides ermöglicht das Festlegen der umgekehrten Füllfarbe für Diagrammserien im Plot‑Bereich wie folgt:
+Aspose.Slides ermöglicht das Festlegen einer invertierten Füllfarbe für Diagrammserien im Plot‑Bereich wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Holen Sie sich die Referenz einer Folie über ihren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem gewünschten Typ hinzu (im Beispiel unten haben wir `ChartType.ClusteredColumn` verwendet).  
-1. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf umkehren.  
-1. Speichern Sie die Präsentation in einer PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Erhalten Sie die Referenz einer Folie über ihren Index.  
+3. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem gewünschten Typ hinzu (im Beispiel unten haben wir `ChartType.ClusteredColumn` verwendet).  
+4. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf invert.  
+5. Speichern Sie die Präsentation in einer PPTX‑Datei.
 
-Dieser Java‑Code demonstriert die Operation:
+Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
@@ -228,11 +228,11 @@ try {
 ```
 
 
-## **Serie invertieren, wenn Wert negativ ist**
+## **Serie invertieren, wenn der Wert negativ ist**
 
-Aspose.Slides ermöglicht das Setzen von Invertierungen über die `IChartDataPoint.InvertIfNegative`‑ und `ChartDataPoint.InvertIfNegative`‑Eigenschaften. Wenn eine Invertierung über diese Eigenschaften gesetzt wird, invertiert der Datenpunkt seine Farben, sobald er einen negativen Wert erhält. 
+Aspose.Slides ermöglicht das Setzen von Invertierungen über die Eigenschaften `IChartDataPoint.InvertIfNegative` und `ChartDataPoint.InvertIfNegative`. Wenn eine Invertierung über diese Eigenschaften gesetzt wird, ändert der Datenpunkt seine Farben, sobald er einen negativen Wert erhält.
 
-Dieser Java‑Code demonstriert die Operation:
+Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -257,18 +257,18 @@ try {
 ```
 
 
-## **Daten bestimmter Datenpunkte löschen**
+## **Spezifische Punktdaten löschen**
 
-Aspose.Slides for Java ermöglicht das Löschen der `DataPoints`‑Daten für eine bestimmte Diagrammserie wie folgt:
+Aspose.Slides für Java ermöglicht das Löschen der `DataPoints`‑Daten einer bestimmten Diagrammserie wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-2. Holen Sie die Referenz einer Folie über ihren Index.  
-3. Holen Sie die Referenz eines Diagramms über seinen Index.  
-4. Durchlaufen Sie alle Diagramm‑`DataPoints` und setzen Sie `XValue` und `YValue` auf null.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Erhalten Sie die Referenz einer Folie über ihren Index.  
+3. Erhalten Sie die Referenz eines Diagramms über seinen Index.  
+4. Iterieren Sie über alle `DataPoints` des Diagramms und setzen Sie `XValue` und `YValue` auf null.  
 5. Löschen Sie alle `DataPoints` für die spezifische Diagrammserie.  
-6. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+6. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 
-Dieser Java‑Code demonstriert die Operation:
+Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
 try {
@@ -291,18 +291,18 @@ try {
 ```
 
 
-## **Serienlückenbreite festlegen**
+## **Serien-Lückenbreite festlegen**
 
-Aspose.Slides for Java ermöglicht das Festlegen der Lückenbreite einer Serie über die **`GapWidth`**‑Eigenschaft wie folgt:
+Aspose.Slides für Java ermöglicht das Festlegen der Lückenbreite einer Serie über die **`GapWidth`**‑Eigenschaft wie folgt:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.  
-1. Greifen Sie auf die erste Folie zu.  
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
-1. Greifen Sie auf eine beliebige Diagrammserie zu.  
-1. Setzen Sie die `GapWidth`‑Eigenschaft.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.  
+2. Greifen Sie auf die erste Folie zu.  
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+4. Greifen Sie auf eine beliebige Diagrammserie zu.  
+5. Setzen Sie die Eigenschaft `GapWidth`.  
+6. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 
-Dieser Code in Java zeigt, wie Sie die Lückenbreite einer Serie festlegen:
+Dieser Java‑Code zeigt Ihnen, wie Sie die Lückenbreite einer Serie festlegen:
 ```java
 // Erstellt leere Präsentation 
 Presentation pres = new Presentation();
@@ -342,7 +342,7 @@ try {
     // Setzt den GapWidth-Wert
     series.getParentSeriesGroup().setGapWidth(50);
     
-    // Speichert die Präsentation auf der Festplatte
+    // Speichert die Präsentation auf die Festplatte
     pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -352,10 +352,10 @@ try {
 
 ## **FAQ**
 
-**Gibt es ein Limit, wie viele Serien ein einzelnes Diagramm enthalten kann?**
+**Gibt es eine Begrenzung, wie viele Serien ein einzelnes Diagramm enthalten kann?**
 
-Aspose.Slides imposiert keine feste Obergrenze für die Anzahl der Serien, die Sie hinzufügen. Die praktische Grenze wird durch die Lesbarkeit des Diagramms und den verfügbaren Speicher Ihrer Anwendung bestimmt.
+Aspose.Slides legt keine feste Obergrenze für die Anzahl der hinzuzufügenden Serien fest. Die praktische Grenze wird durch die Lesbarkeit des Diagramms und den verfügbaren Arbeitsspeicher Ihrer Anwendung bestimmt.
 
-**Was ist, wenn die Spalten innerhalb eines Clusters zu eng beieinander liegen oder zu weit auseinander?**
+**Was ist, wenn die Spalten innerhalb eines Clusters zu eng beieinander liegen oder zu weit auseinander sind?**
 
-Passen Sie die `GapWidth`‑Einstellung für diese Serie (oder ihre übergeordnete Seriengruppe) an. Durch Erhöhen des Wertes vergrößern Sie den Abstand zwischen den Spalten, durch Verringern des Wertes bringen Sie sie näher zusammen.
+Passen Sie die Einstellung `GapWidth` für diese Serie (oder ihre übergeordnete Seriengruppe) an. Ein Erhöhen des Werts vergrößert den Abstand zwischen den Spalten, ein Verringern bringt sie näher zusammen.

@@ -1,5 +1,5 @@
 ---
-title: Java でのプレゼンテーション チャートの書式設定
+title: Javaでプレゼンテーションのチャートをフォーマットする
 linktitle: チャートの書式設定
 type: docs
 weight: 60
@@ -8,52 +8,52 @@ keywords:
 - チャートのフォーマット
 - チャートの書式設定
 - チャートエンティティ
-- チャートプロパティ
+- チャート プロパティ
 - チャート設定
 - チャートオプション
-- フォントプロパティ
-- 角丸境界
+- フォント プロパティ
+- 丸みを帯びた境界線
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java のチャート書式設定を学び、プロフェッショナルで目を引くスタイリングにより PowerPoint プレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for Java におけるチャートの書式設定を学び、プロフェッショナルで目を引くスタイリングで PowerPoint プレゼンテーションを向上させましょう。"
 ---
 
 ## **チャート エンティティの書式設定**
-Aspose.Slides for Java では、開発者はスライドにカスタム チャートを一から追加できます。この記事では、チャートのカテゴリ軸および値軸を含むさまざまなチャート エンティティの書式設定方法を説明します。
+Aspose.Slides for Java を使用すると、開発者はスライドにカスタムチャートを最初から追加できます。この記事では、チャートのカテゴリ軸や値軸を含むさまざまなチャートエンティティの書式設定方法を説明します。
 
-Aspose.Slides for Java は、さまざまなチャート エンティティを管理し、カスタム値で書式設定するためのシンプルな API を提供します。
+Aspose.Slides for Java は、さまざまなチャートエンティティを管理し、カスタム値を使用して書式設定するためのシンプルな API を提供します。
 
 1. [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. 任意のタイプのデフォルト データ付きチャートを追加します（この例では ChartType.LineWithMarkers を使用します）。
-1. チャートの値軸にアクセスし、次のプロパティを設定します。
-   1. 値軸の主グリッド線の **Line format** を設定
-   1. 値軸の副グリッド線の **Line format** を設定
-   1. 値軸の **Number Format** を設定
-   1. 値軸の **Min, Max, Major and Minor units** を設定
-   1. 値軸データの **Text Properties** を設定
-   1. 値軸の **Title** を設定
-   1. 値軸の **Line Format** を設定
-1. チャートのカテゴリ軸にアクセスし、次のプロパティを設定します。
-   1. カテゴリ軸の主グリッド線の **Line format** を設定
-   1. カテゴリ軸の副グリッド線の **Line format** を設定
-   1. カテゴリ軸データの **Text Properties** を設定
-   1. カテゴリ軸の **Title** を設定
-   1. カテゴリ軸の **Label Positioning** を設定
-   1. カテゴリ軸ラベルの **Rotation Angle** を設定
-1. チャートの凡例にアクセスし、**Text Properties** を設定します。
-1. チャートの凡例がチャートと重ならないように表示します。
-1. チャートの **Secondary Value Axis** にアクセスし、次のプロパティを設定します。
-   1. 副 **Value Axis** を有効化
-   1. 副値軸の **Line Format** を設定
-   1. 副値軸の **Number Format** を設定
-   1. 副値軸の **Min, Max, Major and Minor units** を設定
-1. 最初の系列を副値軸にプロットします。
-1. チャートの背面壁の塗りつぶし色を設定します。
-1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルに書き込みます。
+1. デフォルトデータを持つチャートを、任意のタイプで追加します（この例では ChartType.LineWithMarkers を使用します）。
+1. チャートの値軸にアクセスし、以下のプロパティを設定します：
+   1. 値軸の主要グリッド線の **Line format** を設定します
+   1. 値軸の副グリッド線の **Line format** を設定します
+   1. 値軸の **Number Format** を設定します
+   1. 値軸の **Min, Max, Major and Minor units** を設定します
+   1. 値軸データの **Text Properties** を設定します
+   1. 値軸の **Title** を設定します
+   1. 値軸の **Line Format** を設定します
+1. チャートのカテゴリ軸にアクセスし、以下のプロパティを設定します：
+   1. カテゴリ軸の主要グリッド線の **Line format** を設定します
+   1. カテゴリ軸の副グリッド線の **Line format** を設定します
+   1. カテゴリ軸データの **Text Properties** を設定します
+   1. カテゴリ軸の **Title** を設定します
+   1. カテゴリ軸の **Label Positioning** を設定します
+   1. カテゴリ軸ラベルの **Rotation Angle** を設定します
+1. チャートの凡例にアクセスし、**Text Properties** を設定します
+1. チャートと重ならないように凡例を表示します
+1. チャートの **Secondary Value Axis** にアクセスし、以下のプロパティを設定します：
+   1. セカンダリ **Value Axis** を有効にします
+   1. セカンダリ値軸の **Line Format** を設定します
+   1. セカンダリ値軸の **Number Format** を設定します
+   1. セカンダリ値軸の **Min, Max, Major and Minor units** を設定します
+1. セカンダリ値軸上に最初のチャート系列をプロットします
+1. チャートの背面壁の塗りつぶし色を設定します
+1. チャートのプロット領域の塗りつぶし色を設定します
+1. 変更したプレゼンテーションを PPTX ファイルに書き込みます
 ```java
 // Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
@@ -75,7 +75,7 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // 値軸の主グリッド線の書式を設定
+    // 値軸の主要グリッド線の書式を設定
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
@@ -122,13 +122,12 @@ try {
     valtitle.getPortionFormat().setFontBold(NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // カテゴリ軸の主グリッド線の書式を設定
+    // カテゴリ軸の主要グリッド線の書式を設定
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
     // カテゴリ軸の副グリッド線の書式を設定
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillFormat(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
@@ -168,8 +167,7 @@ try {
     txtleg.getFillFormat().setFillType(FillType.Solid);
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
-    // チャートが重ならないように凡例を表示
-
+    // チャートと重ならないように凡例を表示
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
 
@@ -214,15 +212,16 @@ try {
 ```
 
 
-## **チャートのフォント プロパティを設定**
-Aspose.Slides for Java は、チャートのフォント関連プロパティを設定する機能を提供します。以下の手順に従ってチャートのフォント プロパティを設定してください。
+
+## **チャートのフォント プロパティの設定**
+Aspose.Slides for Java は、チャートのフォント関連プロパティの設定をサポートしています。以下の手順に従ってチャートのフォントプロパティを設定してください。
 
 - [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのオブジェクトをインスタンス化します。
 - スライドにチャートを追加します。
 - フォントの高さを設定します。
 - 変更したプレゼンテーションを保存します。
 
-以下にサンプル例を示します。
+以下にサンプル例が示されています。
 ```java
 // Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
@@ -239,29 +238,29 @@ try {
 ```
 
 
-## **数値の書式を設定**
-Aspose.Slides for Java は、チャート データの書式設定を管理するシンプルな API を提供します。
+## **数値フォーマットの設定**
+Aspose.Slides for Java は、チャートデータのフォーマットを管理するためのシンプルな API を提供します。
 
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. 任意のタイプのデフォルト データ付きチャートを追加します（この例では **ChartType.ClusteredColumn** を使用します）。
-1. 可能なプリセット値から事前設定された数値書式を設定します。
-1. 各系列のチャート データセルを走査し、チャート データの数値書式を設定します。
+1. デフォルトデータを持つチャートを任意のタイプで追加します（この例では **ChartType.ClusteredColumn** を使用します）。
+1. 利用可能なプリセット値からプリセット番号フォーマットを設定します。
+1. すべてのチャート系列のチャートデータセルを走査し、チャートデータの番号フォーマットを設定します。
 1. プレゼンテーションを保存します。
-1. カスタム数値書式を設定します。
-1. 各系列のチャート データセルを走査し、異なる数値書式を設定します。
+1. カスタム番号フォーマットを設定します。
+1. すべてのチャート系列のチャートデータセルを走査し、異なる番号フォーマットを設定します。
 1. プレゼンテーションを保存します。
 ```java
 // Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // 最初のプレゼンテーション スライドにアクセス
+    // 最初のプレゼンテーションスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // デフォルトのクラスター化列チャートを追加
+    // デフォルトのクラスター化された縦棒グラフを追加
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-    // チャート系列コレクションにアクセス
+    // チャートの系列コレクションにアクセス
     IChartSeriesCollection series = chart.getChartData().getSeries();
     
     // すべてのチャート系列を走査
@@ -283,9 +282,9 @@ try {
 ```
 
 
-使用できるプリセット数値書式のインデックスと対応する書式は以下の通りです。
+以下に、使用できる可能なプリセット番号フォーマットとそのインデックスを示します。
 
-|**0**|一般|
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -323,16 +322,16 @@ try {
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **チャート エリアの角丸境界を設定**
-Aspose.Slides for Java は、チャート エリアの設定をサポートします。インターフェイス [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) とクラス [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) に、メソッド [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) と [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) が追加されました。
+## **チャートエリアの丸みを帯びた境界線の設定**
+Aspose.Slides for Java は、チャートエリアの設定をサポートしています。メソッド [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) と [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) が、[IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) インターフェイスと [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) クラスに追加されました。
 
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのオブジェクトをインスタンス化します。
 1. スライドにチャートを追加します。
-1. チャートの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 角丸プロパティを True に設定します。
+1. チャートの塗りつぶしタイプと塗りつぶし色を設定します
+1. 丸みのあるコーナー プロパティを True に設定します。
 1. 変更したプレゼンテーションを保存します。
 
-以下にサンプル例を示します。 
+以下にサンプル例が示されています。  
 ```java
 // Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
@@ -351,16 +350,16 @@ try {
 ```
 
 
-## **FAQ**
+## **よくある質問**
 
-**列やエリアに半透明の塗りつぶしを設定し、枠線は不透明のままにできますか？**
+**列/エリアの塗りつぶしを半透明に設定し、枠線は不透明のままにできますか？**
 
-はい。塗りつぶしの透明度とアウトラインは個別に設定できます。これは、密度の高い可視化においてグリッドやデータの可読性を向上させる際に役立ちます。
+はい。塗りつぶしの透明度とアウトラインは個別に設定できます。これは、密集した可視化においてグリッドとデータの可読性を向上させるのに有用です。
 
-**ラベルが重なる場合、どう対処すればよいですか？**
+**データラベルが重なった場合、どう対処すればよいですか？**
 
-フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を無効化する、ラベルのオフセット/位置を設定する、必要に応じて選択ポイントのみにラベルを表示する、または「値 + 凡例」形式に切り替えるなどの方法があります。
+フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択したポイントのみラベルを表示する、またはフォーマットを「値 + 凡例」に切り替えるといった方法があります。
 
-**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+**系列にグラデーションやパターン塗りつぶしを適用できますか？**
 
-はい。単色塗りつぶしと同様に、グラデーションやパターン塗りつぶしも利用可能です。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。通常、単色塗りつぶしとグラデーション/パターン塗りつぶしの両方が利用可能です。実際には、グラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。

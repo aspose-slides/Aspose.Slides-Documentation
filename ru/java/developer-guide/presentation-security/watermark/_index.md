@@ -1,214 +1,234 @@
 ---
-title: Водяной знак
+title: Добавление водяных знаков в презентации на Java
+linktitle: Водяной знак
 type: docs
 weight: 40
 url: /ru/java/watermark/
-keywords: "водяной знак в презентации"
-description: "Используйте водяной знак в PowerPoint с Aspose.Slides. Добавьте водяной знак в ppt-презентацию или удалите водяной знак. Вставьте изображение водяного знака или текстовый водяной знак."
+keywords:
+- водяной знак
+- текстовый водяной знак
+- изображение водяного знака
+- добавить водяной знак
+- изменить водяной знак
+- удалить водяной знак
+- удалить водяной знак
+- добавить водяной знак в PPT
+- добавить водяной знак в PPTX
+- добавить водяной знак в ODP
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Управляйте текстовыми и графическими водяными знаками в презентациях PowerPoint и OpenDocument на Java, чтобы обозначить черновик, конфиденциальную информацию, авторские права и многое другое."
 ---
 
-## **О водяном знаке**
-**Водяной знак** в презентации - это текстовый или графический штамп, используемый на слайде или на всех слайдах презентации. Обычно водяной знак используется для обозначения того, что презентация является черновиком (например, водяной знак "Черновик"); что она содержит конфиденциальную информацию (например, водяной знак "Конфиденциально"); для указания, к какой компании она принадлежит (например, водяной знак с названием компании); для идентификации автора презентации и т. д. Водяной знак помогает предотвратить нарушение авторских прав на презентацию, указывая на то, что презентацию нельзя копировать. Водяные знаки используются как в форматах PowerPoint, так и OpenOffice. В Aspose.Slides вы можете добавить водяной знак в форматы файлов PowerPoint PPT, PPTX и OpenOffice ODP.
+## **О водяных знаках**
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/java/) есть различные способы создания водяного знака в PowerPoint или OpenOffice, обрамления его в различные формы, изменения дизайна и поведения и т. д. Общее в том, что для добавления текстовых водяных знаков вам следует использовать класс [**TextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), а для добавления графического водяного знака - [**PictureFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame/). [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame/) реализует интерфейс [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) и может использовать всю мощь гибких настроек объекта формы. [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) не является формой, а его настройки ограничены. Поэтому рекомендуется обрамить объект [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) в объект [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape).
+**Водяной знак** в презентации — текстовый или графический штамп, используемый на отдельном слайде или на всех слайдах презентации. Обычно водяной знак служит для указания, что презентация является черновиком (например, «Черновик»), содержит конфиденциальную информацию (например, «Конфиденциально»), принадлежит определённой компании (например, «Название компании»), идентифицирует автора презентации и т. д. Водяной знак помогает предотвратить нарушения авторских прав, показывая, что презентацию нельзя копировать. Водяные знаки поддерживаются в форматах PowerPoint и OpenOffice. В Aspose.Slides можно добавить водяной знак в файлы форматов PowerPoint PPT, PPTX и OpenOffice ODP.
 
-Существует два способа применения водяного знака: к одному слайду и ко всем слайдам презентации. Мастер-слайд используется для применения водяного знака ко всем слайдам презентации - водяной знак добавляется в Мастер-слайд, полностью разрабатывается там и применяется ко всем слайдам, не изменяя разрешение на модификацию водяного знака на слайдах.
+В [**Aspose.Slides**](https://products.aspose.com/slides/java/) есть несколько способов создания водяных знаков в документах PowerPoint или OpenOffice и изменения их дизайна и поведения. Общий момент — для добавления текстовых водяных знаков следует использовать интерфейс [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/), а для графических — класс [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) или заполнить форму водяного знака изображением. `PictureFrame` реализует интерфейс [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), позволяя использовать все гибкие настройки объекта формы. Поскольку `ITextFrame` не является формой и имеет ограниченные настройки, он оборачивается в объект [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/).
 
-Обычно водяной знак считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (или скорее родительской формы водяного знака), Aspose.Slides предоставляет функциональность блокировки формы. Определенная форма может быть заблокирована на обычном слайде или на Мастере-слайде. При блокировке формы водяного знака на Мастере-слайде она будет заблокирована на всех слайдах презентации.
+Водяной знак можно применить двумя способами: к отдельному слайду или ко всем слайдам презентации. Для применения к каждому слайду используется шаблон слайда (Slide Master) — водяной знак добавляется в шаблон, полностью оформляется там и применяется ко всем слайдам, не влияя на возможность изменения водяного знака на отдельных слайдах.
 
-Вы можете задать имя водяного знака, чтобы в будущем, если вы захотите удалить водяной знак, вы могли его найти в формах слайдов по имени.
+Обычно водяной знак считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (точнее, его родительской формы), Aspose.Slides предоставляет возможность блокировки формы. Конкретную форму можно заблокировать на обычном слайде или на шаблоне слайда. Когда форма водяного знака заблокирована в шаблоне слайда, она будет заблокирована на всех слайдах презентации.
 
-Вы можете разработать водяной знак любым способом, однако часто наблюдаются общие характеристики в рамках водяных знаков, такие как: центрирование, вращение, передняя позиция и т. д. Мы рассмотрим, как использовать их в примерах ниже.
+Можно задать имя водяного знака, чтобы в дальнейшем, при необходимости удаления, найти его среди форм слайда по имени.
+
+Водяной знак можно оформить любым способом; однако обычно у водяных знаков есть общие черты: выравнивание по центру, поворот, положение спереди и т. д. Рассмотрим, как это делать, в примерах ниже.
+
 ## **Текстовый водяной знак**
-### **Добавить текстовый водяной знак на слайд**
-Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, вы можете сначала добавить форму на слайд, а затем добавить текстовую рамку в эту форму. Текстовая рамка представлена типом [**TextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape), который имеет широкий набор свойств для гибкой настройки водяного знака. Поэтому рекомендуется обрамить объект [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) в объект [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape). Чтобы добавить водяной знак в форму, используйте метод [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) с текстом водяного знака:
 
+### **Добавление текстового водяного знака на слайд**
+
+Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, сначала можно добавить форму на слайд, а затем добавить текстовый кадр к этой форме. Текстовый кадр представлен интерфейсом [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), который предоставляет широкий набор свойств для гибкого позиционирования водяного знака. Поэтому объект [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) оборачивается в объект [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). Чтобы добавить текст водяного знака в форму, используйте метод [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) как показано ниже.
 ```java
-// Открыть презентацию
+String watermarkText = "CONFIDENTIAL";
+
 Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Водяной знак");
-
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+presentation.dispose();
 ```
+
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/java/slide-master/)[TextFrame](/slides/ru/java/adding-and-formatting-text/)
+- [Как использовать класс TextFrame](/slides/ru/java/text-formatting/)
 {{% /alert %}}
 
-### **Добавить текстовый водяной знак в презентацию**
-Если вы хотите добавить водяной знак в презентацию (то есть ко всем слайдам сразу), добавьте его в [**MasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/MasterSlide). Вся остальная логика такая же, как и при добавлении водяного знака на один слайд - создайте объект [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) и затем добавьте в него водяной знак с помощью метода [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-):
+### **Добавление текстового водяного знака во всю презентацию**
 
+Если нужно добавить текстовый водяной знак ко всей презентации (т. е. сразу на все слайды), добавьте его в [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/). Остальная логика такая же, как при добавлении водяного знака на отдельный слайд — создайте объект [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) и затем добавьте к нему водяной знак с помощью метода [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 ```java
-// Открыть презентацию
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
+String watermarkText = "CONFIDENTIAL";
 
-    IAutoShape watermarkShape = master.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
+Presentation presentation = new Presentation();
+IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Водяной знак");
+IAutoShape watermarkShape = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 
-} finally {
-    if (pres != null) pres.dispose();
-}
+presentation.dispose();
 ```
+
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/java/slide-master/)[Мастер-слайд](/slides/ru/java/slide-master/)
+- [Как использовать шаблон слайда](/slides/ru/java/slide-master/)
 {{% /alert %}}
 
-### **Установить шрифт текстового водяного знака**
-Вы можете изменить шрифт текстового водяного знака:
+### **Установка прозрачности формы водяного знака**
 
+По умолчанию прямоугольная форма имеет цвета заливки и линии. Следующий код делает форму прозрачной.
 ```java
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().setFontBold(NullableBool.True);
-
-watermarkPortion.getPortionFormat().setFontHeight(52);
+watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 ```
 
-### **Установить прозрачность текстового водяного знака**
-Чтобы установить прозрачность текстового водяного знака, используйте этот код:
 
+### **Установка шрифта для текстового водяного знака**
+
+Шрифт текстового водяного знака можно изменить, как показано ниже.
+```java
+IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+textFormat.setLatinFont(new FontData("Arial"));
+textFormat.setFontHeight(50);
+```
+
+
+### **Установка цвета текста водяного знака**
+
+Чтобы задать цвет текста водяного знака, используйте следующий код:
 ```java
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-
-watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+fillFormat.setFillType(FillType.Solid);
+fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
 ```
 
-### **Центрировать текстовый водяной знак**
-Можно центрировать водяной знак на слайде, для этого вы можете сделать следующее:
 
+### **Центрирование текстового водяного знака**
+
+Водяной знак можно разместить по центру слайда, для чего выполните следующее:
 ```java
-Point2D.Float center = new Point2D.Float((float)  pres.getSlideSize().getSize().getWidth() / 2, (float) pres.getSlideSize().getSize().getHeight() / 2);
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-float width = 300;
+float watermarkWidth = 400;
+float watermarkHeight = 40;
+float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
 
-float height = 300;
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
-float x = (float) center.getX() - width / 2;
-
-float y = (float) center.getY() - height / 2;
-
-//...
-
-
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x, y, width, height);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 ```
+
+
+Ниже показан окончательный результат.
+
+![Текстовый водяной знак](text_watermark.png)
 
 ## **Графический водяной знак**
-### **Добавить графический водяной знак в презентацию**
-Чтобы добавить графический водяной знак на все слайды презентации, вы можете сделать следующее:
 
+### **Добавление графического водяного знака в презентацию**
+
+Чтобы добавить графический водяной знак на слайд презентации, выполните следующее:
 ```java
-IPPImage picture;
-IImage image = Images.fromFile("watermark.png");
-try {
-    picture = pres.getImages().addImage(image);
-} finally {
-    if (image != null) image.dispose();
-}
-// ...
-
+InputStream imageStream = new FileInputStream("watermark.png");
+IPPImage image = presentation.getImages().addImage(imageStream);
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
-
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
+watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 ```
 
-## **Заблокировать водяной знак от редактирования**
-Если необходимо предотвратить редактирование водяного знака, используйте метод [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape#getShapeLock--) на форме, которая его обрамляет. С помощью этого метода вы можете защитить форму от выбора, изменения размера, изменения положения, группирования с другими элементами, заблокировать текст от редактирования и многого другого:
 
+### **Блокировка водяного знака от редактирования**
+
+Если необходимо запретить редактирование водяного знака, используйте метод [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) у формы. С помощью этого свойства можно защитить форму от выбора, изменения размера, перемещения, группировки с другими элементами, блокировать её текст от редактирования и многое другое:
 ```java
-// Заблокировать формы от изменения
-
-watermarkShape.getShapeLock().setSelectLocked(true);
-
-watermarkShape.getShapeLock().setSizeLocked(true);
-
-watermarkShape.getShapeLock().setTextLocked(true);
-
-watermarkShape.getShapeLock().setPositionLocked(true);
-
-watermarkShape.getShapeLock().setGroupingLocked(true);
+// Заблокировать форму водяного знака от изменения
+watermarkShape.getAutoShapeLock().setSelectLocked(true);
+watermarkShape.getAutoShapeLock().setSizeLocked(true);
+watermarkShape.getAutoShapeLock().setTextLocked(true);
+watermarkShape.getAutoShapeLock().setPositionLocked(true);
+watermarkShape.getAutoShapeLock().setGroupingLocked(true);
 ```
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/ru/java/presentation-locking/)
-{{% /alert %}}
 
-## **Переместить водяной знак на передний план**
-В Aspose.Slides порядок наложения форм можно установить с помощью метода [**SlideCollection.reorder**](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#reorder-int-com.aspose.slides.ISlide...-). Для этого вам нужно вызвать этот метод из списка слайдов презентации и передать ссылку на форму и номер ее порядка в метод. Таким образом, можно переместить форму на передний или задний план слайда. Эта функция особенно полезна, если вам нужно разместить водяной знак на переднем плане презентации:
+### **Перемещение водяного знака на передний план**
 
+В Aspose.Slides порядок Z‑уровня форм задаётся через метод [IShapeCollection.reorder](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). Для этого вызовите метод из списка слайдов презентации, передав ссылку на форму и её порядковый номер. Так можно переместить форму на передний план или отправить её назад. Эта возможность особенно полезна, если требуется разместить водяной знак перед содержимым презентации:
 ```java
-slide.getShapes().reorder(slide.getShapes().size() - 1, watermarkShape);
+int shapeCount = slide.getShapes().size();
+slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Установить вращение водяного знака**
-Вот пример того, как установить вращение водяного знака (и его родительской формы):
 
+### **Установка поворота водяного знака**
+
+Ниже пример кода, показывающего, как изменить угол поворота водяного знака, чтобы он располагался по диагонали слайда:
 ```java
-float h = (float) pres.getSlideSize().getSize().getHeight();
+double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
-float w = (float) pres.getSlideSize().getSize().getWidth();
-
-watermarkShape.setX((w - watermarkShape.getWidth()) / 2);
-
-watermarkShape.setY((h - watermarkShape.getHeight()) / 2);
-
-watermarkShape.setRotation(calculateRotation(h, w));
+watermarkShape.setRotation((float)diagonalAngle);
 ```
 
+
+### **Задание имени водяному знаку**
+
+Aspose.Slides позволяет задать имя форме. Используя имя формы, её можно будет в дальнейшем найти для изменения или удаления. Чтобы задать имя форме водяного знака, передайте его методу [IAutoShape.setName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setName-java.lang.String-):
 ```java
-private int calculateRotation(float height, float width)
-{
-    double pageHeight = height;
-    
-    double pageWidth = width;
-    
-    double rotation = Math.atan((pageHeight / pageWidth)) * 180 / Math.PI;
-    
-    return (int) rotation;
-}
+watermarkShape.setName("watermark");
 ```
 
-## **Установить имя для водяного знака**
-Aspose.Slides позволяет задавать имя формы. По имени формы вы можете получить к ней доступ в будущем для модификации или удаления. Чтобы установить имя родительской формы водяного знака - задайте его в методе [**AutoShape.getName**](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getName--) :
 
+### **Удаление водяного знака**
+
+Чтобы удалить форму водяного знака, используйте метод [IAutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getName--) для поиска её среди форм слайда. Затем передайте найденную форму методу [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
 ```java
-watermarkShape.setName("водяной_знак");
-```
-
-## **Удалить водяной знак**
-Чтобы удалить форму водяного знака и ее дочерние элементы со слайда, используйте метод [AutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getName--) , чтобы найти его в формах слайда. Затем передайте форму водяного знака в метод [**ShapeCollection.remove**](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) :
-
-```java
-for (int i = 0; i < slide.getShapes().size(); i++)
-{
-    AutoShape shape = (AutoShape)slide.getShapes().get_Item(i);
-
-    if ("водяной_знак".equals(shape.getName()))
+IShape[] slideShapes = slide.getShapes().toArray();
+for (IShape shape : slideShapes) {
+    if ("watermark".equals(shape.getName()))
     {
         slide.getShapes().remove(watermarkShape);
     }
 }
 ```
 
-## **Живой пример**
-Вы можете проверить бесплатные онлайн-инструменты **Aspose.Slides** [**Добавить водяной знак** ](https://products.aspose.app/slides/watermark) и [**Удалить водяной знак**](https://products.aspose.app/slides/watermark/remove-watermark). 
 
-![todo:image_alt_text](slides-watermark.png)
+## **FAQ**
+
+**Что такое водяной знак и зачем он нужен?**
+
+Водяной знак — это наложение текста или изображения на слайды, которое помогает защищать интеллектуальную собственность, усиливать узнаваемость бренда и препятствовать несанкционированному использованию презентаций.
+
+**Можно ли добавить водяной знак на все слайды презентации?**
+
+Да, Aspose.Slides позволяет программно добавить водяной знак ко всем слайдам презентации. Можно пройтись по каждому слайду и применить настройки водяного знака отдельно.
+
+**Как отрегулировать прозрачность водяного знака?**
+
+Прозрачность водяного знака регулируется изменением параметров заливки ([getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getFillFormat--)) формы. Это делает водяной знак ненавязчивым и не отвлекает внимание от содержимого слайда.
+
+**Какие форматы изображений поддерживаются для водяных знаков?**
+
+Aspose.Slides поддерживает различные форматы изображений, такие как PNG, JPEG, GIF, BMP, SVG и другие.
+
+**Можно ли настроить шрифт и стиль текстового водяного знака?**
+
+Да, можно выбрать любой шрифт, размер и стиль, чтобы они соответствовали дизайну вашей презентации и поддерживали фирменный стиль.
+
+**Как изменить положение или ориентацию водяного знака?**
+
+Позицию и ориентацию водяного знака можно программно изменить, задав координаты, размер и свойства вращения формы.

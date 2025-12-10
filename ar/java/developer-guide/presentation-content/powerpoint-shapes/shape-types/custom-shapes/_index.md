@@ -1,120 +1,137 @@
 ---
-title: شكل مخصص
+title: تخصيص أشكال العروض التقديمية في جافا
+linktitle: شكل مخصص
 type: docs
 weight: 20
 url: /ar/java/custom-shape/
-keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، Java، Aspose.Slides لـ Java"
-description: "إضافة شكل مخصص في عرض PowerPoint باستخدام Java"
+keywords:
+- شكل مخصص
+- إضافة شكل
+- إنشاء شكل
+- تغيير شكل
+- هندسة الشكل
+- مسار الهندسة
+- نقاط المسار
+- نقاط التحرير
+- إضافة نقطة
+- إزالة نقطة
+- عملية تحرير
+- زاوية منحنية
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
 
-# تغيير شكل باستخدام نقاط التحرير
-افترض أن لديك مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك 
+# تعديل شكل باستخدام نقاط التحرير
+تخيل مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك
 
-* تحريك زاوية المربع للداخل أو للخارج
-* تحديد انحناء الزاوية أو النقطة
+* تحريك زاوية المربع إلى الداخل أو الخارج
+* تحديد الانحناء للزاوية أو النقطة
 * إضافة نقاط جديدة إلى المربع
-* التحكم في النقاط على المربع، إلخ. 
+* معالجة النقاط على المربع، إلخ.
 
-أساسًا، يمكنك تنفيذ المهام الموضحة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود. 
+بشكل أساسي، يمكنك تنفيذ المهام المذكورة على أي شكل. باستخدام نقاط التحرير، يمكنك تعديل شكل أو إنشاء شكل جديد من شكل موجود.
 
-## **نصائح لتحرير الأشكال**
+## **نصائح تحرير الأشكال**
 
 ![overview_image](custom_shape_0.png)
 
-قبل أن تبدأ بتحرير أشكال PowerPoint من خلال نقاط التحرير، قد ترغب في الأخذ في الاعتبار هذه النقاط حول الأشكال:
+قبل أن تبدأ في تحرير أشكال PowerPoint باستخدام نقاط التحرير، قد ترغب في النظر في هذه النقاط المتعلقة بالأشكال:
 
-* الشكل (أو مساره) يمكن أن يكون مغلقًا أو مفتوحًا.
-* عندما يكون الشكل مغلقًا، فإنه يفتقر إلى نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، فإنه يحتوي على بداية ونهاية. 
-* تتكون جميع الأشكال من نقطتين رئيتين على الأقل مرتبطة ببعضها عبر خطوط.
-* الخط يمكن أن يكون مستقيمًا أو منحنيًا. تحدد النقاط الرائية طبيعة الخط. 
-* النقاط الرائية توجد كنقاط زوايا، نقاط مستقيمة، أو نقاط سلسة:
-  * نقطة الزاوية هي نقطة حيث تنضم خطين مستقيمين بزاوية. 
-  * نقطة سلسة هي نقطة حيث توجد أيادي اثنتان في خط مستقيم وتنضم مقاطع الخط في منحنى سلس. في هذه الحالة، يتم فصل جميع الأيادي عن النقطة الرائية بمسافة متساوية. 
-  * نقطة مستقيمة هي نقطة حيث توجد أيادي اثنتان في خط مستقيم وأن مقاطع ذلك الخط تنضم في منحنى سلس. في هذه الحالة، لا يجب أن تكون الأيادي مفصولة عن النقطة الرائية بمسافة متساوية. 
-* من خلال تحريك أو تحرير النقاط الرائية (التي تغيّر زوايا الخطوط)، يمكنك تغيير شكل الشكل.
+* يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
+* عندما يكون الشكل مغلقًا، لا يحتوي على نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، يكون له بداية ونهاية.
+* تتكون جميع الأشكال من نقطتي تثبيت على الأقل مرتبطتين ببعضهما عبر خطوط
+* يمكن أن يكون الخط مستقيمًا أو منحنيًا. تحدد نقاط التثبيت طبيعة الخط.
+* توجد نقاط التثبيت كنقاط زاوية أو نقاط مستقيمة أو نقاط ناعمة:
+  * نقطة الزاوية هي النقطة التي يلتقي فيها خطان مستقيران بزاوية.
+  * نقطة ناعمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتتصل مقاطع الخط بمنحنى ناعم. في هذه الحالة، جميع المقابض تكون منفصلة عن نقطة التثبيت بمسافة متساوية.
+  * نقطة مستقيمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتلتقي مقاطع الخط بمنحنى ناعم. في هذه الحالة، لا يلزم أن تكون المقابض منفصلة عن نقطة التثبيت بمسافة متساوية.
+* عن طريق تحريك أو تعديل نقاط التثبيت (التي تغير زاوية الخطوط)، يمكنك تغيير مظهر الشكل.
 
-لتحرير أشكال PowerPoint من خلال نقاط التحرير، توفر **Aspose.Slides** [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) و[**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) الواجهة. 
+لتحرير أشكال PowerPoint باستخدام نقاط التحرير، توفر **Aspose.Slides** الفئة [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) والواجهة [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath).
 
-* تمثل مثيل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) مسارًا هندسيًا للعنصر [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape). 
-* لاسترداد `GeometryPath` من مثيل `IGeometryShape`، يمكنك استخدام [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) الطريقة. 
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) لـ *الأشكال الصلبة* و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) لـ *الأشكال المركبة*.
-* لإضافة مقاطع، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
-* باستخدام [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) و[IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) الطرق، يمكنك تعيين المظهر لمسار هندسي.
-* باستخدام [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) الطريقة، يمكنك استرداد المسار الهندسي لـ `GeometryShape` كمصفوفة من مقاطع المسار. 
-* للوصول إلى خيارات تخصيص الشكل الهندسي الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* استخدم [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) و[graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) الوسائل (من فئة [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) ذهابًا وإيابًا. 
+* تمثّل مثيل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) مسارًا هندسيًا لكائن [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape).
+* لاسترداد `GeometryPath` من مثيل `IGeometryShape`، يمكنك استخدام طريقة [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) .
+* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) للأشكال *الصلبة* و[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) للأشكال *المركبة*.
+* لإضافة مقاطع، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) .
+* باستخدام طريقتي [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) و[IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-)، يمكنك ضبط مظهر مسار الهندسة.
+* باستخدام طريقة [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--)، يمكنك استرداد مسار الهندسة لكائن `GeometryShape` كمصفوفة من مقاطع المسار.
+* للوصول إلى خيارات تخصيص إضافية لهندسة الشكل، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
+* استخدم طريقتي [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) و[graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (من فئة [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) والعكس.
 
 ## **عمليات التحرير البسيطة**
 
-يوضح لك هذا الكود في Java كيفية
+هذا الكود بلغة Java يوضح لك كيفية
 
-**إضافة خط** إلى نهاية المسار
-
+**إضافة خط** إلى نهاية مسار
 ``` java
 public void lineTo(java.awt.geom.Point2D.Float point);
 public void lineTo(float x, float y);
 ```
-**إضافة خط** إلى موضع محدد على مسار:
 
-``` java    
+**إضافة خط** إلى موقع محدد على مسار
+``` java
 public void lineTo(java.awt.geom.Point2D.Float point, long index);
 public void lineTo(float x, float y, long index);
 ```
-**إضافة منحنى Bezier مكعب** في نهاية مسار:
 
+**إضافة منحنى بيزيه مكعب** إلى نهاية مسار
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**إضافة منحنى Bezier مكعب** إلى موضع محدد على مسار:
 
+**إضافة منحنى بيزيه مكعب** إلى الموقع المحدد على مسار
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
 ```
-**إضافة منحنى Bezier رباعي** في نهاية مسار:
 
+**إضافة منحنى بيزيه تربيعي** إلى نهاية مسار
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**إضافة منحنى Bezier رباعي** إلى موضع محدد على مسار:
 
+**إضافة منحنى بيزيه تربيعي** إلى الموقع المحدد على مسار
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
 ```
-**إضافة قوس معين** إلى مسار:
 
+**إلحاق قوس معين** إلى مسار
 ``` java
 public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**إغلاق الشكل الحالي** لمسار:
 
+**إغلاق الشكل الحالي** لمسار
 ``` java
 public void closeFigure();
 ```
-**تعيين الموضع للنقطة التالية**:
 
+**تعيين الموضع للنقطة التالية**
 ``` java
 public void moveTo(java.awt.geom.Point2D.Float point);
 public void moveTo(float x, float y);
 ```
-**إزالة مقطع المسار** عند index معين:
 
+**إزالة مقطع المسار** عند فهرس محدد
 ``` java
 public void removeAt(int index);
 ```
 
-## **إضافة نقاط مخصصة إلى الشكل**
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) واضبط النوع على [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType).
-2. احصل على مثيل لفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) من الشكل.
-3. أضف نقطة جديدة بين نقطتين علويتين على المسار.
-4. أضف نقطة جديدة بين نقطتين سفليتين على المسار.
-5. طبق المسار على الشكل.
 
-يوضح لك هذا الكود في Java كيفية إضافة نقاط مخصصة إلى شكل:
+## **إضافة نقاط مخصصة إلى شكل**
 
+1. إنشاء مثيل من الفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) وتعيين النوع [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) .
+2. الحصول على مثيل من الفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) من الشكل.
+3. إضافة نقطة جديدة بين النقطتين العلويتين على المسار.
+4. إضافة نقطة جديدة بين النقطتين السفلية على المسار.
+5. تطبيق المسار على الشكل.
+
+هذا الكود بلغة Java يوضح لك كيفية إضافة نقاط مخصصة إلى شكل:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -129,17 +146,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-##  إزالة نقاط من الشكل
+## **إزالة نقاط من شكل**
 
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) واضبط النوع على [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType). 
-2. احصل على مثيل لفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) من الشكل.
-3. أزل المقطع الخاص بالمسار.
-4. طبق المسار على الشكل.
+1. إنشاء مثيل من الفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) وتعيين النوع [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) .
+2. الحصول على مثيل من الفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) من الشكل.
+3. إزالة المقطع من المسار.
+4. تطبيق المسار على الشكل.
 
-يوضح لك هذا الكود في Java كيفية إزالة نقاط من شكل:
-
+هذا الكود بلغة Java يوضح لك كيفية إزالة نقاط من شكل:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -153,18 +170,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example2_image](custom_shape_2.png)
 
 ##  **إنشاء شكل مخصص**
 
-1. احسب النقاط الخاصة بالشكل.
-2. أنشئ مثيلًا لفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath). 
-3. املأ المسار بالنقاط.
-4. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape). 
-5. طبق المسار على الشكل.
+1. احسب النقاط اللازمة للشكل.
+2. إنشاء مثيل من الفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
+3. ملء المسار بالنقاط.
+4. إنشاء مثيل من الفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
+5. تطبيق المسار على الشكل.
 
-يوضح لك هذا الكود في Java كيفية إنشاء شكل مخصص:
-
+هذا الكود بلغة Java يوضح لك كيفية إنشاء شكل مخصص:
 ``` java
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
@@ -203,20 +220,19 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
+
 ![example3_image](custom_shape_3.png)
 
 
 ## **إنشاء شكل مخصص مركب**
 
-  1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape).
-  2. أنشئ المثيل الأول لفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath).
-  3. أنشئ المثيل الثاني لفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath).
-  4. طبق المسارات على الشكل.
+1. إنشاء مثيل من الفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
+2. إنشاء أول مثيل من الفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
+3. إنشاء ثاني مثيل من الفئة [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) .
+4. تطبيق المسارات على الشكل.
 
-يوضح لك هذا الكود في Java كيفية إنشاء شكل مخصص مركب:
-
+هذا الكود بلغة Java يوضح لك كيفية إنشاء شكل مخصص مركب:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -242,12 +258,12 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example4_image](custom_shape_4.png)
 
 ## **إنشاء شكل مخصص بزوايا منحنية**
 
-يوضح لك هذا الكود في Java كيفية إنشاء شكل مخصص بزوايا منحنية (إلى الداخل):
-
+هذا الكود بلغة Java يظهر لك كيفية إنشاء شكل مخصص بزوايا منحنية (الداخلية);
 ```java
 float shapeX = 20f;
 float shapeY = 20f;
@@ -292,30 +308,55 @@ try {
 }
 ```
 
-## **تحويل GeometryPath إلى java.awt.Shape** 
 
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape).
-2. أنشئ مثيلًا لفئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. قم بتحويل مثيل [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
-4. طبق المسارات على الشكل.
+## **اكتشف ما إذا كان شكل الهندسة مغلقًا**
 
-يوضح لك هذا الكود في Java—تنفيذ الخطوات السابقة—عملية تحويل **GeometryPath** إلى **GraphicsPath**:
+يُعرّف الشكل المغلق بأنه الشكل الذي تتصل جميع جوانبه، مكونًا حدًا واحدًا دون فواصل. يمكن أن يكون هذا الشكل شكلًا جيومتريًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح مثال الشيفرة التالي كيفية التحقق مما إذا كان شكل الهندسة مغلقًا:
+```java
+boolean isGeometryClosed(IGeometryShape geometryShape)
+{
+    Boolean isClosed = null;
 
+    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+        int dataLength = geometryPath.getPathData().length;
+        if (dataLength == 0)
+            continue;
+
+        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
+        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+
+        if (isClosed == false)
+            return false;
+    }
+
+    return isClosed == true;
+}
+```
+
+
+## **تحويل GeometryPath إلى java.awt.Shape**
+
+1. إنشاء مثيل من الفئة [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) .
+2. إنشاء مثيل من الفئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
+3. تحويل مثيل [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) .
+4. تطبيق المسارات على الشكل.
+
+هذا الكود بلغة Java—تنفيذ للخطوات أعلاه—يوضح عملية تحويل **GeometryPath** إلى **GraphicsPath**:
 ``` java
 Presentation pres = new Presentation();
 try {
-    // إنشاء الشكل الجديد
+    // إنشاء شكل جديد
     GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
             getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    // الحصول على المسار الهندسي من الشكل
+    // الحصول على مسار الشكل الهندسي
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
     // إنشاء مسار رسومي جديد مع النص
     Shape graphicsPath;
     Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "نص في الشكل";
+    String text = "Text in shape";
     BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
     Graphics2D g2 = img.createGraphics();
 
@@ -332,10 +373,25 @@ try {
     IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // تعيين مجموعة من المسار الهندسي الجديد والمسار الهندسي الأصلي إلى الشكل
+    // تعيين مجموعة من مسار الهندسة الجديد ومسار الهندسة الأصلي إلى الشكل
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **الأسئلة المتكررة**
+
+**ماذا سيحدث للتعبئة والحدود بعد استبدال الهندسة؟**
+
+يبقى النمط مع الشكل؛ فقط الحدود تتغيّر. يتم تطبيق التعبئة والحدود تلقائيًا على الهندسة الجديدة.
+
+**كيف يمكنني تدوير شكل مخصص بشكل صحيح مع هندسته؟**
+
+استخدم طريقة الشكل [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-)؛ حيث تدور الهندسة مع الشكل لأنها مربوطة بنظام إحداثيات الشكل نفسه.
+
+**هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**
+
+نعم. صدّر المنطقة المطلوبة من [الشريحة](/slides/ar/java/convert-powerpoint-to-png/) أو [الشكل](/slides/ar/java/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ هذا يبسط العمل اللاحق مع الهندسات الثقيلة.

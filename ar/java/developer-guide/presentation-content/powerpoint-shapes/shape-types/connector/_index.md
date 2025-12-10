@@ -1,60 +1,70 @@
 ---
-title: الموصل
+title: إدارة الموصلات في العروض التقديمية باستخدام Java
+linktitle: موصل
 type: docs
 weight: 10
 url: /ar/java/connector/
-keywords: "توصيل الأشكال, الموصلات, أشكال PowerPoint, عرض PowerPoint, Java, Aspose.Slides for Java"
-description: "توصيل أشكال PowerPoint في Java"
+keywords:
+- موصل
+- نوع الموصل
+- نقطة الموصل
+- خط الموصل
+- زاوية الموصل
+- ربط الأشكال
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "تمكين تطبيقات Java من رسم وربط وتوجيه الخطوط تلقائيًا في شرائح PowerPoint – الحصول على تحكم كامل في الموصلات المستقيمة والمربعة والمنحنية."
 ---
 
-الموصل في PowerPoint هو خط خاص يربط أو يصل بين شكلين معًا ويظل ملحقًا بالأشكال حتى عند نقلها أو إعادة وضعها على شريحة معينة.
+‏موصل PowerPoint هو خط خاص يربط شكلين معًا ويظل ملحقًا بالأشكال حتى عند نقلها أو إعادة وضعها على الشريحة المحددة.
 
-عادة ما تكون الموصلات متصلة بـ *نقاط الاتصال* (نقاط خضراء)، التي توجد على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
+عادةً ما يتم ربط الموصلات بـ *نقاط الاتصال* (النقاط الخضراء)، التي تتواجد على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
 
-تستخدم *نقاط التعديل* (نقاط برتقالية)، التي توجد فقط على موصلات معينة، لتعديل مواضع وأشكال الموصلات.
+*نقاط الضبط* (النقاط البرتقالية)، التي تتواجد فقط في بعض الموصلات، تُستخدم لتعديل مواضع وشكل الموصلات.
 
 ## **أنواع الموصلات**
 
-في PowerPoint، يمكنك استخدام الموصلات المستقيمة، الزاوية، والمقوسة.
+في PowerPoint، يمكنك استخدام موصلات مستقيمة، ومرفقة (زاوية)، ومنحنية.
 
-يوفر Aspose.Slides هذه الموصلات:
+توفر Aspose.Slides هذه الموصلات:
 
-| الموصل                          | الصورة                                                       | عدد نقاط التعديل          |
-| ------------------------------- | ---------------------------------------------------------- | ------------------------- |
-| `ShapeType.Line`                | ![shapetype-lineconnector](shapetype-lineconnector.png)    | 0                         |
-| `ShapeType.StraightConnector1`  | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                         |
-| `ShapeType.BentConnector2`      | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0                         |
-| `ShapeType.BentConnector3`      | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1                         |
-| `ShapeType.BentConnector4`      | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2                         |
-| `ShapeType.BentConnector5`      | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3                         |
-| `ShapeType.CurvedConnector2`    | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                         |
-| `ShapeType.CurvedConnector3`    | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                         |
-| `ShapeType.CurvedConnector4`    | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                         |
-| `ShapeType.CurvedConnector5`    | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                         |
+| الموصل                     | الصورة                                                       | عدد نقاط الضبط |
+| -------------------------- | ------------------------------------------------------------ | --------------- |
+| `ShapeType.Line`           | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0               |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0               |
+| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0               |
+| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1               |
+| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2               |
+| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3               |
+| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0               |
+| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1               |
+| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2               |
+| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3               |
 
-## **توصيل الأشكال باستخدام الموصلات**
+## **ربط الأشكال باستخدام الموصلات**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` المعرّضة بواسطة كائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `addConnector` المعرّضة بواسطة كائن `Shapes` من خلال تعريف نوع الموصل.
-1. وصّل الأشكال باستخدام الموصل.
-1. استدعِ طريقة `reroute` لتطبيق أقصر مسار اتصال.
+1. أنشئ كائنًا من الفئة [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على مرجع الشريحة من خلال رقم الفهرس الخاص بها.
+1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) إلى الشريحة باستخدام الطريقة `addAutoShape` المتاحة عبر كائن `Shapes`.
+1. أضف موصلًا باستخدام الطريقة `addConnector` المتاحة عبر كائن `Shapes` مع تحديد نوع الموصل.
+1. اربط الأشكال باستخدام الموصل.
+1. استدعِ الطريقة `reroute` لتطبيق أقصر مسار اتصال.
 1. احفظ العرض التقديمي.
 
-يوضح هذا الرمز البرمجي بلغة Java كيفية إضافة موصل (موصل منحنٍ) بين شكلين (بيضاوي ومربع):
-
+يعرض هذا الشيفرة Java كيفية إضافة موصل (موصل مقوَّس) بين شكلين (إهليلج ومستطيل):
 ```Java
 // ينشئ فئة عرض تقديمي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // يصل إلى مجموعة الأشكال لشريحة محددة
+    // الوصول إلى مجموعة الأشكال لشريحة معينة
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
     
-    // يضيف شكل بيضاوي
+    // يضيف شكل أوتوشيب إهليلج
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
     
-    // يضيف شكل مربع
+    // يضيف شكل أوتوشيب مستطيل
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
     
     // يضيف شكل موصل إلى مجموعة أشكال الشريحة
@@ -64,7 +74,7 @@ try {
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
     
-    // يستدعي reroute الذي يحدد المسار تلقائيًا الأقصر بين الأشكال
+    // يستدعي reroute الذي يحدد أقصر مسار تلقائي بين الأشكال
     connector.reroute();
     
     // يحفظ العرض التقديمي
@@ -74,37 +84,37 @@ try {
 }
 ```
 
-{{%  alert title="ملاحظة"  color="warning"   %}} 
 
-تقوم طريقة `Connector.reroute` بإعادة توجيه الموصل وتفرضه ليأخذ أقصر مسار ممكن بين الأشكال. لتحقيق هدفها، قد تقوم الطريقة بتغيير نقاط `setStartShapeConnectionSiteIndex` و `setEndShapeConnectionSiteIndex`.
+{{%  alert title="NOTE"  color="warning"   %}} 
+
+تعيد طريقة `Connector.reroute` توجيه الموصل وتُجبره على اتخاذ أقصر مسار ممكن بين الأشكال. لتحقيق ذلك، قد تُغيّر الطريقة نقاط `setStartShapeConnectionSiteIndex` و `setEndShapeConnectionSiteIndex`. 
 
 {{% /alert %}} 
 
-## **تحديد نقطة الاتصال**
+## **تحديد نقطة اتصال**
 
-إذا كنت ترغب في أن يربط موصل بين شكلين باستخدام نقاط محددة على الأشكال، عليك تحديد نقاط الاتصال المفضلة لديك بهذه الطريقة:
+إذا أردت أن يُربط الموصل شكلين باستخدام نقاط محددة على الأشكال، عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` المعرّضة بواسطة كائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `addConnector` المعرّضة بواسطة كائن `Shapes` من خلال تعريف نوع الموصل.
-1. وصّل الأشكال باستخدام الموصل.
-1. قم بتعيين نقاط الاتصال المفضلة لديك على الأشكال.
+1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على مرجع الشريحة من خلال رقم الفهرس الخاص بها.
+1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) إلى الشريحة باستخدام الطريقة `addAutoShape` المتاحة عبر كائن `Shapes`.
+1. أضف موصلًا باستخدام الطريقة `addConnector` المتاحة عبر كائن `Shapes` مع تحديد نوع الموصل.
+1. اربط الأشكال باستخدام الموصل.
+1. عيّن نقاط الاتصال المفضلة على الأشكال.
 1. احفظ العرض التقديمي.
 
-يوضح هذا الرمز البرمجي بلغة Java عملية حيث يتم تحديد نقطة اتصال مفضلة:
-
+توضح هذه الشيفرة Java عملية تحديد نقطة اتصال مفضلة:
 ```java
 // ينشئ فئة عرض تقديمي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // يصل إلى مجموعة الأشكال لشريحة محددة
+    // يصل إلى مجموعة الأشكال لشريحة معينة
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
 
-    // يضيف شكل بيضاوي
+    // يضيف شكل أوتوشيب إهليلجي
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // يضيف شكل مربع
+    // يضيف شكل أوتوشيب مستطيل
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
     // يضيف شكل موصل إلى مجموعة أشكال الشريحة
@@ -114,13 +124,13 @@ try {
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // يحدد فهرس نقطة الاتصال المفضلة على الشكل البيضاوي
+    // يحدد فهرس نقطة الاتصال المفضلة على شكل الإهليلج
     int wantedIndex = 6;
 
-    // يتحقق مما إذا كان الفهرس المفضل أقل من عدد فهارس المواقع القصوى
+    // يتحقق مما إذا كان الفهرس المفضل أصغر من عدد نقاط الاتصال القصوى
     if (ellipse.getConnectionSiteCount() > wantedIndex) 
     {
-        // يحدد نقطة الاتصال المفضلة على الشكل البيضاوي
+        // يحدد نقطة الاتصال المفضلة على شكل الإهليلج الأوتوشيب
         connector.setStartShapeConnectionSiteIndex(wantedIndex);
     }
 
@@ -131,16 +141,16 @@ try {
 }
 ```
 
-## **تعديل نقطة الموصل**
 
-يمكنك تعديل موصل موجود من خلال نقاط التعديل الخاصة به. يمكن تعديل الموصلات فقط التي لديها نقاط تعديل بهذه الطريقة. انظر الجدول تحت **[أنواع الموصلات.](/slides/ar/java/connector/#types-of-connectors)** 
+## **ضبط نقطة موصل**
 
-#### **حالة بسيطة**
+يمكنك ضبط موصل موجود عبر نقاط الضبط الخاصة به. يمكن تعديل الموصلات التي تحتوي على نقاط ضبط فقط بهذه الطريقة. راجع الجدول تحت **[أنواع الموصلات.](/slides/ar/java/connector/#types-of-connectors)** 
 
-اعتبر حالة حيث يمر موصل بين شكلين (A و B) عبر شكل ثالث (C):
+### **حالة بسيطة**
+
+تخيل حالة يتقاطع فيها موصل بين شكلين (A و B) مع شكل ثالث (C):
 
 ![connector-obstruction](connector-obstruction.png)
-
 ```java
 Presentation pres = new Presentation();
 try {
@@ -164,44 +174,44 @@ try {
 }
 ```
 
-لتجنب أو تجاوز الشكل الثالث، يمكننا تعديل الموصل عن طريق تحريك خطه العمودي إلى اليسار بهذه الطريقة:
+
+لتجنب أو تجاوز الشكل الثالث، يمكننا ضبط الموصل بنقل خطه العمودي إلى اليسار بهذه الطريقة:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```java
 IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
 adj2.setRawValue(adj2.getRawValue() + 10000);
 ```
 
+
 ### **حالات معقدة** 
 
-لإجراء تعديلات أكثر تعقيدًا، يجب أن تأخذ هذه الأمور بعين الاعتبار:
+لإجراء تعديلات أكثر تعقيدًا، عليك مراعاة ما يلي:
 
-* ترتبط نقطة تعديل الموصل بقوة بمعادلة تحدد موقعها. لذلك، قد تؤدي التغييرات في موقع النقطة إلى تغيير شكل الموصل.
-* يتم تعريف نقاط تعديل الموصل بترتيب صارم في مصفوفة. تُرقم نقاط التعديل من نقطة بداية الموصل إلى نقطة نهايته.
-* تعكس قيم نقاط التعديل النسبة المئوية لعرض/ارتفاع شكل الموصل. 
-  * الشكل مقيد بنقاط البداية والنهاية للموصل مضروبة في 1000. 
-  * تحدد النقطة الأولى والثانية والثالثة النسبة المئوية من العرض، النسبة المئوية من الارتفاع، والنسبة المئوية من العرض (مرة أخرى) على التوالي.
-* بالنسبة للحسابات التي تحدد إحداثيات نقاط تعديل الموصل، يجب أن تأخذ بعين الاعتبار دوران الموصل وانعكاسه. **ملاحظة** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/java/connector/#types-of-connectors)** هي 0.
+* نقطة ضبط الموصل ترتبط ارتباطًا وثيقًا بمعادلة تحسب وتحدد موقعها. لذا قد يؤدي تغيير موقع النقطة إلى تغيير شكل الموصل.
+* تُعرَّف نقاط ضبط الموصل بترتيب صارم في مصفوفة. تُرقم نقاط الضبط من نقطة بداية الموصل إلى نقطته النهائية.
+* تُعبر قيم نقاط الضبط عن النسبة المئوية لعرض/ارتفاع شكل الموصل.  
+  * يُحدَّد الشكل بحدود نقطة البداية والنهاية للموصل مضروبًا في 1000.  
+  * النقطة الأولى، الثانية، والثالثة تُحدد النسبة من العرض، النسبة من الارتفاع، والنسبة من العرض مرة أخرى على التوالي.
+* عند حساب إحداثيات نقاط ضبط الموصل، يجب مراعاة دوران الموصل وانعكاسه. **ملاحظة** أن زاوية دوران جميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/java/connector/#types-of-connectors)** هي 0.
 
 #### **الحالة 1**
 
-اعتبر حالة حيث ترتبط كيانان نصيان معًا من خلال موصل:
+تخيل حالة يتم فيها ربط كائنين من إطارات النص عبر موصل:
 
 ![connector-shape-complex](connector-shape-complex.png)
-
 ```java
 // ينشئ فئة عرض تقديمي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يحصل على الشريحة الأولى في العرض التقديمي
     ISlide sld = pres.getSlides().get_Item(0);
-    // يضيف أشكالًا سيتم ربطها معًا من خلال موصل
+    // يضيف أشكالًا سيتم ربطها معًا عبر موصل
     IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("من");
+    shapeFrom.getTextFrame().setText("From");
     IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("إلى");
-    // يضيف موصل
+    shapeTo.getTextFrame().setText("To");
+    // يضيف موصلًا
     IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
     // يحدد اتجاه الموصل
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
@@ -217,7 +227,7 @@ try {
     connector.setEndShapeConnectedTo(shapeTo);
     connector.setEndShapeConnectionSiteIndex(2);
     
-    // يحصل على نقاط التعديل للموصل
+    // يحصل على نقاط الضبط للموصل
     IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
     IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
@@ -226,29 +236,30 @@ try {
 }
 ```
 
-**التعديل**
 
-يمكننا تغيير قيم نقاط تعديل الموصل من خلال زيادة نسبة العرض والارتفاع المقابلة بمقدار 20% و200% على التوالي:
+**الضبط**
 
+يمكننا تغيير قيم نقاط ضبط الموصل بزيادة نسبة العرض والارتفاع المقابلة بنسبة 20% و200% على التوالي:
 ```java
-// يغير قيم نقاط التعديل
+// يغيّر قيم نقاط الضبط
 adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتحديد نموذج يسمح لنا بتحديد الإحداثيات وشكل الأجزاء الفردية من الموصل، دعنا ننشئ شكلًا يتوافق مع المكون الأفقي للموصل في نقطة connector.getAdjustments().get_Item(0):
-
+لتعريف نموذج يتيح لنا تحديد إحداثيات وشكل الأجزاء الفردية للموصل، لننشئ شكلًا يطابق المكوّن الأفقي للموصل عند نقطة `connector.getAdjustments().get_Item(0)`:
 ```java
-// يرسم المكون العمودي للموصل
+// ارسم المكوّن العمودي للموصل
 float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
 float y = connector.getY();
 float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
+
 
 النتيجة:
 
@@ -256,50 +267,49 @@ sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 
 #### **الحالة 2**
 
-في **الحالة 1**، أظهرنا عملية تعديل موصل بسيطة باستخدام مبادئ أساسية. في الحالات الطبيعية، يجب أن تأخذ في الاعتبار دوران الموصل وعرضه (الذي يتم تعيينه بواسطة connector.getRotation() و connector.getFrame().getFlipH() و connector.getFrame().getFlipV()). سنظهر الآن العملية.
+في **الحالة 1**، عرضنا عملية ضبط موصل بسيطة باستخدام مبادئ أساسية. في الحالات العادية، عليك أخذ دوران الموصل وعرضه (المُحدد بـ `connector.getRotation()`, `connector.getFrame().getFlipH()`, و `connector.getFrame().getFlipV()`) في الاعتبار. الآن سنوضح العملية.
 
-أولاً، دعنا نضيف كائن إطار نص جديد (**إلى 1**) إلى الشريحة (لأغراض الربط) وننشئ موصلًا جديدًا (أخضر) يربطه بالأشياء التي أنشأناها بالفعل.
-
+أولاً، أضف كائن إطار نص جديد (**To 1**) إلى الشريحة (لغرض الاتصال) وأنشئ موصلًا (أخضر) يربطه بالأجسام التي أنشأناها مسبقًا.
 ```java
 // ينشئ كائن ربط جديد
 IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("إلى 1");
+shapeTo_1.getTextFrame().setText("To 1");
 // ينشئ موصلًا جديدًا
 connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
 connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 connector.getLineFormat().setWidth(3);
-// يربط الأشياء باستخدام الموصل الجديد الذي تم إنشاؤه
+// يربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا
 connector.setStartShapeConnectedTo(shapeFrom);
 connector.setStartShapeConnectionSiteIndex(2);
 connector.setEndShapeConnectedTo(shapeTo_1);
 connector.setEndShapeConnectionSiteIndex(3);
-// يحصل على نقاط تعديل الموصل
+// يحصل على نقاط ضبط الموصل
 adjValue_0 = connector.getAdjustments().get_Item(0);
 adjValue_1 = connector.getAdjustments().get_Item(1);
-// يغير قيم نقاط التعديل
+// يغيّر قيم نقاط الضبط
 adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، دعنا ننشئ شكلًا يتوافق مع المكون الأفقي للموصل الذي يمر عبر نقطة التعديل الجديدة للموصل connector.getAdjustments().get_Item(0). سنستخدم القيم من بيانات الموصل لـ connector.getRotation() و connector.getFrame().getFlipH() و connector.getFrame().getFlipV() ونطبق معادلة تحويل الإحداثيات الشائعة للدوران حول نقطة معينة x0:
+ثانيًا، أنشئ شكلًا سيطابق المكوّن الأفقي للموصل الذي يمر عبر نقطة ضبط الموصل الجديدة `connector.getAdjustments().get_Item(0)`. سنستخدم القيم من `connector.getRotation()`, `connector.getFrame().getFlipH()`, و `connector.getFrame().getFlipV()` ونطبق الصيغة الشائعة لتحويل الإحداثيات عندما يدور حول نقطة معينة x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-في حالتنا، تكون زاوية دوران الكائن 90 درجة والموصل يظهر عموديًا، لذا هذا هو الرمز المقابل:
-
+في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا يكون الشيفرة المقابلة:
 ```java
 // يحفظ إحداثيات الموصل
 x = connector.getX();
 y = connector.getY();
-// يصحح إحداثيات الموصل في حالة ظهوره
+// يصحح إحداثيات الموصل في حال ظهوره
 if (connector.getFrame().getFlipH() == NullableBool.True)
 {
     x += connector.getWidth();
@@ -308,33 +318,33 @@ if (connector.getFrame().getFlipV() == NullableBool.True)
 {
     y += connector.getHeight();
 }
-// يأخذ في الاعتبار قيمة نقطة التعديل كإحداثية
+// يأخذ قيمة نقطة الضبط كإحداثي
 x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  تحويل الإحداثيات نظرًا لأن Sin(90) = 1 و Cos(90) = 0
+//  يحول الإحداثيات لأن Sin(90) = 1 و Cos(90) = 0
 float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
 float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// يحدد عرض المكون الأفقي باستخدام قيمة نقطة التعديل الثانية
+// يحدد عرض المكوّن الأفقي باستخدام قيمة نقطة الضبط الثانية
 float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
+
 النتيجة:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-لقد عرضنا الحسابات الم involving adjustments بسيطة ومعقدة (نقاط تعديل مع زوايا دوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى تعيين قيم نقطة تعديل موصل استنادًا إلى إحداثيات الشريحة المحددة.
+لقد عرضنا حسابات تشمل تعديلات بسيطة ونقاط ضبط معقدة (نقاط ضبط ذات زوايا دوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة شيفرة) للحصول على كائن `GraphicsPath` أو حتى تعيين قيم نقاط ضبط الموصل بناءً على إحداثيات شريحة محددة.
 
-## **البحث عن زاوية خطوط الموصلات**
+## **إيجاد زاوية خطوط الموصل**
 
-1. أنشئ مثيلًا من الفئة.
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. الوصول إلى شكل خط الموصل.
-1. استخدم عرض الخط وارتفاعه، وارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
+1. أنشئ كائنًا من الفئة.
+1. احصل على مرجع الشريحة من خلال رقم الفهرس الخاص بها.
+1. وصول إلى شكل خط الموصل.
+1. استخدم عرض الخط، ارتفاعه، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
 
-يوضح هذا الرمز البرمجي بلغة Java عملية حيث قمنا بحساب الزاوية لشكل خط الموصل:
-
+تُظهر هذه الشيفرة Java عملية حساب زاوية شكل خط موصل:
 ```java
 Presentation pres = new Presentation("ConnectorLineAngle.pptx");
 try {
@@ -379,3 +389,18 @@ public static double getDirection(float w, float h, boolean flipH, boolean flipV
     return angle * 180.0 / Math.PI;
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني معرفة ما إذا كان يمكن "لصق" موصل إلى شكل معين؟**
+
+تحقق مما إذا كان الشكل يوفّر [نقاط الاتصال](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getConnectionSiteCount--). إذا لم توجد أو كان عددها صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط النهاية الحرّة وضعها يدويًا. من المنطقي التحقق من عدد المواقع قبل الإرفاق.
+
+**ماذا يحدث للموصل إذا حذفت أحد الأشكال المتصلة؟**
+
+ستنقطع نهاياته؛ سيظل الموصل على الشريحة كخط عادي بنقاط بدء/نهاية حرة. يمكنك إما حذف الموصل أو إعادة تعيين الاتصالات، وإذا لزم الأمر، استدعاء [reroute](https://reference.aspose.com/slides/java/com.aspose.slides/connector/#reroute--).
+
+**هل تُحفظ ارتباطات الموصلات عند نسخ شريحة إلى عرض تقديمي آخر؟**
+
+عمومًا نعم، بشرط نسخ الأشكال المستهدفة أيضًا. إذا تم إدراج الشريحة في ملف آخر دون الأشكال المتصلة، تصبح النهايات حرة وستحتاج إلى إرفاقها مرة أخرى.

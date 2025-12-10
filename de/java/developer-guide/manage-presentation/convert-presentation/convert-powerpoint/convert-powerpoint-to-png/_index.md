@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Folien zu PNG konvertieren in Java
+title: PowerPoint-Folien in PNG konvertieren in Java
 linktitle: PowerPoint zu PNG
 type: docs
 weight: 30
@@ -21,27 +21,27 @@ keywords:
 - PPTX nach PNG exportieren
 - Java
 - Aspose.Slides
-description: "PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder konvertieren mit Aspose.Slides für Java, um präzise, automatisierte Ergebnisse zu gewährleisten."
+description: "Konvertieren Sie PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder mit Aspose.Slides für Java und gewährleisten dabei präzise, automatisierte Ergebnisse."
 ---
 
 ## **Über die PowerPoint-zu-PNG-Konvertierung**
 
-Das PNG‑Format (Portable Network Graphics) ist nicht so populär wie JPEG (Joint Photographic Experts Group), ist aber nach wie vor sehr beliebt.
+Das PNG (Portable Network Graphics)-Format ist nicht so populär wie JPEG (Joint Photographic Experts Group), aber es ist immer noch sehr beliebt. 
 
-**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe keine Rolle spielt, ist PNG ein besseres Bildformat als JPEG.
+**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe kein Problem darstellt, ist PNG ein besseres Bildformat als JPEG. 
 
-{{% alert title="Tip" color="primary" %}} Vielleicht möchten Sie die kostenlosen Aspose **PowerPoint‑zu‑PNG‑Konverter** prüfen: [PPTX zu PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT zu PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live‑Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Vielleicht möchten Sie sich die kostenlosen Aspose **PowerPoint-zu-PNG-Konverter** ansehen: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live-Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
 
-## **PowerPoint zu PNG konvertieren**
+## **PowerPoint in PNG konvertieren**
 
-Gehen Sie wie folgt vor:
+Führen Sie die folgenden Schritte aus:
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Rufen Sie das Folienobjekt aus der Sammlung [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) unter dem Interface [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) ab.
+1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse.
+2. Rufen Sie das Folienobjekt aus der [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--)‑Sammlung über das [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)-Interface ab.
 3. Verwenden Sie die Methode [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide), um das Miniaturbild für jede Folie zu erhalten.
-4. Verwenden Sie die [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) Methode, um das Folien‑Miniaturbild im PNG‑Format zu speichern.
+4. Verwenden Sie die [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat))-Methode, um das Folien‑Miniaturbild im PNG-Format zu speichern.
 
-Dieser Java‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in PNG konvertieren:
+Dieser Java-Code zeigt Ihnen, wie Sie eine PowerPoint-Präsentation in PNG konvertieren:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -61,11 +61,11 @@ try {
 ```
 
 
-## **PowerPoint zu PNG mit benutzerdefinierten Abmessungen konvertieren**
+## **PowerPoint in PNG mit benutzerdefinierten Abmessungen konvertieren**
 
-Wenn Sie PNG‑Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen des resultierenden Miniaturbilds bestimmen.
+Wenn Sie PNG-Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen des resultierenden Miniaturbildes bestimmen. 
 
-Dieser Java‑Code demonstriert die beschriebene Vorgehensweise:
+Dieser Java-Code demonstriert die beschriebene Operation:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -87,11 +87,11 @@ try {
 ```
 
 
-## **PowerPoint zu PNG mit benutzerdefinierter Größe konvertieren**
+## **PowerPoint in PNG mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie PNG‑Dateien in einer bestimmten Größe erhalten möchten, können Sie Ihre bevorzugten Argumente `width` und `height` für `ImageSize` übergeben.
+Wenn Sie PNG-Dateien in einer bestimmten Größe erhalten möchten, können Sie Ihre bevorzugten `width`- und `height`-Argumente für `ImageSize` übergeben. 
 
-Dieser Code zeigt, wie Sie ein PowerPoint in PNG konvertieren, wobei Sie die Größe der Bilder angeben:
+Dieser Code zeigt Ihnen, wie Sie ein PowerPoint in PNG konvertieren, während Sie die Größe der Bilder angeben: 
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -110,3 +110,15 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie kann ich nur eine bestimmte Form (z. B. Diagramm oder Bild) statt der gesamten Folie exportieren?**  
+Aspose.Slides unterstützt das [Erzeugen von Miniaturbildern für einzelne Formen](/slides/de/java/create-shape-thumbnails/); Sie können eine Form als PNG-Bild rendern.
+
+**Wird die parallele Konvertierung auf einem Server unterstützt?**  
+Ja, aber [nicht teilen](/slides/de/java/multithreading/) Sie keine einzelne Präsentationsinstanz über Threads hinweg. Verwenden Sie pro Thread oder Prozess eine separate Instanz.
+
+**Welche Einschränkungen gibt es in der Testversion beim Exportieren nach PNG?**  
+Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und erzwingt [weitere Einschränkungen](/slides/de/java/licensing/), bis eine Lizenz angewendet wird.

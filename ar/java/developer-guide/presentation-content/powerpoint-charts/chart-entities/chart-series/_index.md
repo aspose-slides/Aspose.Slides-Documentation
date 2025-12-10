@@ -12,42 +12,42 @@ keywords:
 - نقطة البيانات
 - فجوة السلسلة
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Java
 - Aspose.Slides
-description: تعلم كيفية إدارة سلاسل المخطط في Java لـ PowerPoint (PPT/PPTX) مع أمثلة عملية للكود وأفضل الممارسات لتعزيز عروض البيانات الخاصة بك.
+description: "تعلم كيفية إدارة سلاسل المخطط في Java لبرنامج PowerPoint (PPT/PPTX) من خلال أمثلة عملية على الشفرة وأفضل الممارسات لتعزيز عروض البيانات الخاصة بك."
 ---
 
-السلسلة هي صف أو عمود من الأرقام يتم رسمه في مخطط.
+سلسلة هي صف أو عمود من الأرقام مرسومة في مخطط.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تحديد تداخل سلسلة المخطط**
+## **ضبط تداخل سلسلة المخطط**
 
-باستخدام خاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) يمكنك تحديد مقدار تداخل الأعمدة والأشرطة في مخطط ثنائي الأبعاد (النطاق: -100 إلى 100). تُطبق هذه الخاصية على جميع سلاسل مجموعة السلسلة الأصلية: هذه نسخة من خاصية المجموعة المناسبة. لذلك، هذه الخاصية للقراءة فقط.  
+مع خاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) يمكنك تحديد مقدار التداخل بين الأشرطة والأعمدة في مخطط ثلاثي الأبعاد (النطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع السلاسل في مجموعة السلاسل الأصلية: هذا عرض للخاصية المناسبة للمجموعة. لذلك، هذه الخاصية للقراءة فقط.
 
-استخدم خاصية `ParentSeriesGroup.Overlap` القابلة للقراءة والكتابة لتعيين القيمة المفضلة لـ `Overlap`.
+استخدم الخاصية القابلة للقراءة/الكتابة `ParentSeriesGroup.Overlap` لتعيين القيمة المفضلة لـ `Overlap`.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. أضف مخطط أعمدة مُجمّع إلى شريحة.
-1. الوصول إلى أول سلسلة في المخطط.
-1. الوصول إلى `ParentSeriesGroup` لسلسلة المخطط وتعيين قيمة التداخل المفضلة للسلسلة.
-1. احفظ العرض التقديمي المعدّل إلى ملف PPTX.
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. أضف مخطط عمودي مجموعة على شريحة.
+1. احصل على أول سلسلة في المخطط.
+1. احصل على `ParentSeriesGroup` للسلسلة واضبط قيمة التداخل المفضلة للسلسلة.
+1. احفظ العرض المعدل إلى ملف PPTX.
 
-هذا كود Java يوضح لك كيفية تعيين التداخل لسلسلة مخطط:
+يعرض هذا الشيفرة Java كيفية ضبط التداخل لسلسلة مخطط:
 ```java
 Presentation pres = new Presentation();
 try {
-    // يضيف مخطط
+    // إضافة مخطط
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
     IChartSeriesCollection series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0)
     {
-        // يضبط تداخل السلسلة
+        // ضبط تداخل السلسلة
         series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
     }
 
-    // يكتب ملف العرض التقديمي إلى القرص
+    // حفظ ملف العرض التقديمي على القرص
     pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -57,15 +57,15 @@ try {
 
 ## **تغيير لون السلسلة**
 
-Aspose.Slides for Java يسمح لك بتغيير لون السلسلة بهذه الطريقة:
+يسمح Aspose.Slides for Java بتغيير لون السلسلة بهذه الطريقة:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. أضف مخططًا إلى الشريحة.
-1. الوصول إلى السلسلة التي تريد تغيير لونها.
-1. عيّن نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض التقديمي المعدّل.
+1. احصل على السلسلة التي تريد تغيير لونها.
+1. اضبط نوع التعبئة ولون التعبئة المفضلين.
+1. احفظ العرض المعدل.
 
-هذا كود Java يوضح لك كيفية تغيير لون السلسلة:
+يعرض هذا الشيفرة Java كيفية تغيير لون السلسلة:
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -85,15 +85,15 @@ try {
 
 ## **تغيير لون فئة السلسلة**
 
-Aspose.Slides for Java يسمح لك بتغيير لون فئة السلسلة بهذه الطريقة:
+يسمح Aspose.Slides for Java بتغيير لون فئة السلسلة بهذه الطريقة:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. أضف مخططًا إلى الشريحة.
-1. الوصول إلى فئة السلسلة التي تريد تغيير لونها.
-1. عيّن نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض التقديمي المعدّل.
+1. احصل على فئة السلسلة التي تريد تغيير لونها.
+1. اضبط نوع التعبئة ولون التعبئة المفضلين.
+1. احفظ العرض المعدل.
 
-هذا كود Java يوضح لك كيفية تغيير لون فئة السلسلة:
+يعرض هذا الشيفرة Java كيفية تغيير لون فئة السلسلة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -110,18 +110,18 @@ try {
 ```
 
 
-## **تغيير اسم السلسلة**
+## **تغيير اسم السلسلة** 
 
-افتراضيًا، أسماء وسيلة الإيضاح لمخطط هي محتوى الخلايا التي تقع فوق كل عمود أو صف من البيانات.
+بشكل افتراضي، تكون أسماء وسيلة الإيضاح للمخطط هي محتويات الخلايا فوق كل عمود أو صف من البيانات.
 
-في مثالنا (الصورة النموذجية),
+في مثالنا (صورة عينة)،
 
-* الأعمدة هي *Series 1, Series 2,* و *Series 3*؛
-* الصفوف هي *Category 1, Category 2, Category 3,* و *Category 4*.
+* الأعمدة هي *Series 1* و*Series 2* و*Series 3*؛
+* الصفوف هي *Category 1* و*Category 2* و*Category 3* و*Category 4*.
 
-Aspose.Slides for Java يسمح لك بتحديث أو تغيير اسم السلسلة في بيانات المخطط ووسيلة الإيضاح.
+يسمح Aspose.Slides for Java بتحديث أو تغيير اسم السلسلة في بيانات المخطط ووسيلة الإيضاح.
 
-هذا كود Java يوضح لك كيفية تغيير اسم السلسلة في بيانات المخطط `ChartDataWorkbook`:
+يعرض هذا الشيفرة Java كيفية تغيير اسم السلسلة في بيانات المخطط `ChartDataWorkbook`:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -137,7 +137,7 @@ try {
 ```
 
 
-هذا كود Java يوضح لك كيفية تغيير اسم السلسلة في وسيلة الإيضاح عبر `Series`:
+يعرض هذا الشيفرة Java كيفية تغيير اسم السلسلة في وسيلة الإيضاح عبر `Series`:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -152,21 +152,21 @@ try {
 ```
 
 
-## **تحديد لون تعبئة سلسلة المخطط**
+## **ضبط لون تعبئة سلسلة المخطط**
 
-Aspose.Slides for Java يسمح لك بتحديد لون التعبئة التلقائي لسلسلة المخطط داخل مساحة الرسم بهذه الطريقة:
+يسمح Aspose.Slides for Java بتعيين لون تعبئة تلقائي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع شريحة باستخدام فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه استخدمنا `ChartType.ClusteredColumn`).
-1. الوصول إلى سلسلة المخطط وتعيين لون التعبئة إلى Automatic.
-1. احفظ العرض التقديمي إلى ملف PPTX.
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على مرجع الشريحة عبر فهرستها.
+1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
+1. احصل على سلسلة المخطط واضبط لون التعبئة إلى تلقائي.
+1. احفظ العرض إلى ملف PPTX.
 
-هذا كود Java يوضح لك كيفية تحديد لون التعبئة التلقائي لسلسلة مخطط:
+يعرض هذا الشيفرة Java كيفية تعيين لون تعبئة تلقائي لسلسلة مخطط:
 ```java
 Presentation pres = new Presentation();
 try {
-    // ينشئ مخطط عمودي مجمع
+    // إنشاء مخطط عمود مجمع
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
     // يضبط تنسيق تعبئة السلسلة إلى تلقائي
@@ -175,7 +175,7 @@ try {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
     }
 
-    // يكتب ملف العرض التقديمي إلى القرص
+    // يحفظ ملف العرض التقديمي على القرص
     pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -183,17 +183,16 @@ try {
 ```
 
 
-## **تعيين ألوان تعبئة عكسية لسلسلة المخطط**
+## **ضبط لون تعبئة عكسي لسلسلة مخطط**
+يسمح Aspose.Slides بتعيين لون تعبئة عكسي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
 
-Aspose.Slides يسمح لك بتعيين لون التعبئة العكسي لسلسلة المخطط داخل مساحة الرسم بهذه الطريقة:
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على مرجع الشريحة عبر فهرستها.
+1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
+1. احصل على سلسلة المخطط واضبط لون التعبئة إلى عكسي.
+1. احفظ العرض إلى ملف PPTX.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع شريحة باستخدام فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه استخدمنا `ChartType.ClusteredColumn`).
-1. الوصول إلى سلسلة المخطط وتعيين لون التعبئة إلى invert.
-1. احفظ العرض التقديمي إلى ملف PPTX.
-
-هذا كود Java يوضح العملية:
+يعرض هذا الشيفرة Java العملية:
 ```java
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
@@ -228,11 +227,10 @@ try {
 ```
 
 
-## **تعيين السلسلة لتنعكس عندما تكون القيمة سلبية**
+## **ضبط عكس السلسلة عندما تكون القيمة سلبية**
+يسمح Aspose.Slides بضبط العكس عبر خاصيتي `IChartDataPoint.InvertIfNegative` و`ChartDataPoint.InvertIfNegative`. عندما يتم ضبط العكس باستخدام الخصائص، يعكس نقطة البيانات ألوانها عند حصولها على قيمة سلبية.
 
-Aspose.Slides يسمح لك بتعيين الانعكاس عبر خاصيتي `IChartDataPoint.InvertIfNegative` و `ChartDataPoint.InvertIfNegative`. عندما يتم تعيين الانعكاس باستخدام هذه الخصائص، تعكس نقطة البيانات ألوانها عندما تحصل على قيمة سلبية.
-
-هذا كود Java يوضح العملية:
+يعرض هذا الشيفرة Java العملية:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -257,18 +255,17 @@ try {
 ```
 
 
-## **مسح بيانات نقاط البيانات المحددة**
+## **مسح بيانات نقطة محددة**
+يسمح Aspose.Slides for Java بمسح بيانات `DataPoints` لسلسلة مخطط معينة بهذه الطريقة:
 
-Aspose.Slides for Java يسمح لك بمسح بيانات `DataPoints` لسلسلة مخطط معينة بهذه الطريقة:
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. احصل على مرجع شريحة عبر فهرستها.
+3. احصل على مرجع مخطط عبر فهرسته.
+4. استعرض جميع `DataPoints` للمخطط واضبط `XValue` و`YValue` إلى null.
+5. امسح جميع `DataPoints` للسلسلة المحددة.
+6. احفظ العرض المعدل إلى ملف PPTX.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. احصل على مرجع الشريحة باستخدام فهرسها.
-3. احصل على مرجع المخطط باستخدام فهرسه.
-4. تجول عبر جميع `DataPoints` للمخطط وعين `XValue` و `YValue` إلى null.
-5. امسح جميع`DataPoints` لسلسلة مخطط محددة.
-6. احفظ العرض التقديمي المعدّل إلى ملف PPTX.
-
-هذا كود Java يوضح العملية:
+يعرض هذا الشيفرة Java العملية:
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
 try {
@@ -291,23 +288,22 @@ try {
 ```
 
 
-## **تعيين عرض الفجوة للسلسلة**
+## **ضبط عرض الفجوة للسلسلة**
+يسمح Aspose.Slides for Java بضبط عرض الفجوة لسلسلة عبر خاصية **`GapWidth`** بهذه الطريقة:
 
-Aspose.Slides for Java يسمح لك بتعيين عرض الفجوة لسلسلة عبر خاصية **`GapWidth`** بهذه الطريقة:
-
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. احصل على الشريحة الأولى.
 1. أضف مخططًا ببيانات افتراضية.
-1. الوصول إلى أي سلسلة في المخطط.
-1. عيّن خاصية `GapWidth`.
-1. احفظ العرض التقديمي المعدّل إلى ملف PPTX.
+1. احصل على أي سلسلة مخطط.
+1. اضبط خاصية `GapWidth`.
+1. احفظ العرض المعدل إلى ملف PPTX.
 
-هذا كود Java يوضح لك كيفية تعيين عرض الفجوة لسلسلة:
+يعرض هذا الشيفرة Java كيفية ضبط عرض الفجوة لسلسلة:
 ```java
-// ينشئ عرض تقديمي فارغ 
+// ينشئ عرض تقديمي فارغ
 Presentation pres = new Presentation();
 try {
-    // يحصل على الشريحة الأولى في العرض التقديمي
+    // يصل إلى الشريحة الأولى في العرض التقديمي
     ISlide slide = pres.getSlides().get_Item(0);
     
     // يضيف مخططًا ببيانات افتراضية
@@ -323,7 +319,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
-    // يضيف الفئات
+    // يضيف فئات
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -342,7 +338,7 @@ try {
     // يحدد قيمة GapWidth
     series.getParentSeriesGroup().setGapWidth(50);
     
-    // يحفظ العرض التقديمي إلى القرص
+    // يحفظ العرض التقديمي على القرص
     pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -350,12 +346,12 @@ try {
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها مخطط واحد؟**
+**هل هناك حد لعدد السلاسل التي يمكن لمخطط واحد أن يحتويها؟**
 
-Aspose.Slides لا يفرض حدًا ثابتًا على عدد السلاسل التي يمكنك إضافتها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
+لا يفرض Aspose.Slides حداً ثابتاً لعدد السلاسل التي يمكنك إضافتها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
 
-**ماذا لو كانت الأعمدة داخل مجموعة ما متقربة جدًا أو متباعدة جدًا؟**
+**ماذا لو كانت الأعمدة داخل مجموعة متقاربة جداً أو متباعدة جداً؟**
 
-اضبط إعداد `GapWidth` لتلك السلسلة (أو مجموعة السلسلة الأصلية). زيادة القيمة توسّع المسافة بين الأعمدة، بينما تقليلها يقرِّبها من بعضها.
+قم بضبط إعداد `GapWidth` لتلك السلسلة (أو مجموعة السلاسل الأصلية). زيادة القيمة توسع الفجوة بين الأعمدة، وتقليلها يقربها من بعضها.

@@ -22,10 +22,10 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Gestione hipervínculos sin esfuerzo en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Java—mejore la interactividad y el flujo de trabajo en minutos."
+description: "Gestione hipervínculos sin esfuerzo en presentaciones PowerPoint y OpenDocument con Aspose.Slides para Java — mejore la interactividad y el flujo de trabajo en minutos."
 ---
 
-Un hipervínculo es una referencia a un objeto, datos o un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
+Un hipervínculo es una referencia a un objeto, datos o a un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
 
 * Enlaces a sitios web dentro de textos, formas o medios
 * Enlaces a diapositivas
@@ -34,13 +34,13 @@ Aspose.Slides for Java le permite realizar muchas tareas relacionadas con hiperv
 
 {{% alert color="primary" %}} 
 
-Es posible que desee probar Aspose simple, [editor en línea gratuito de PowerPoint.](https://products.aspose.app/slides/editor)
+Puede que desee probar Aspose simple, [editor de PowerPoint en línea gratuito.](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
-## **Agregar hipervínculos de URL**
+## **Agregar hipervínculos URL**
 
-### **Agregar hipervínculos de URL al texto**
+### **Agregar hipervínculos URL a texto**
 
 Este código Java le muestra cómo agregar un hipervínculo a un sitio web en un texto:
 ```java
@@ -61,9 +61,9 @@ try {
 ```
 
 
-### **Agregar hipervínculos de URL a formas o marcos**
+### **Agregar hipervínculos URL a formas o marcos**
 
-Este código de muestra en Java le muestra cómo agregar un hipervínculo a un sitio web en una forma:
+Este código de ejemplo en Java le muestra cómo agregar un hipervínculo a un sitio web en una forma:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -79,15 +79,15 @@ try {
 ```
 
 
-### **Agregar hipervínculos de URL a medios**
+### **Agregar hipervínculos URL a medios**
 
 Aspose.Slides le permite agregar hipervínculos a imágenes, archivos de audio y video. 
 
-Este código de muestra le muestra cómo agregar un hipervínculo a una **imagen**:
+Este código de ejemplo le muestra cómo agregar un hipervínculo a una **imagen**:
 ```java
 Presentation pres = new Presentation();
 try {
-	// Agrega imagen a la presentación
+	// Agrega una imagen a la presentación
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -109,7 +109,7 @@ try {
 ```
 
 
-Este código de muestra le muestra cómo agregar un hipervínculo a un **archivo de audio**:
+Este código de ejemplo le muestra cómo agregar un hipervínculo a un **archivo de audio**:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -127,7 +127,7 @@ try {
 ```
 
 
-Este código de muestra le muestra cómo agregar un hipervínculo a un **video**:
+Este código de ejemplo le muestra cómo agregar un hipervínculo a un **video**:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -147,15 +147,15 @@ try {
 
 {{%  alert  title="Tip"  color="primary"  %}} 
 
-Es posible que desee ver *[Administrar OLE](/slides/es/java/manage-ole/)*.
+Puede que desee ver *[Administrar OLE](/slides/es/java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Usar hipervínculos para crear tablas de contenido**
+## **Usar hipervínculos para crear una tabla de contenidos**
 
-Dado que los hipervínculos le permiten agregar referencias a objetos o lugares, puede utilizarlos para crear una tabla de contenido.
+Dado que los hipervínculos le permiten agregar referencias a objetos o lugares, puede usarlos para crear una tabla de contenidos. 
 
-Este código de muestra le muestra cómo crear una tabla de contenido con hipervínculos:
+Este código de ejemplo le muestra cómo crear una tabla de contenidos con hipervínculos:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -186,13 +186,13 @@ try {
 ```
 
 
-## **Formatear hipervínculos**
+## **Formato de hipervínculos**
 
 ### **Color**
 
-Con la propiedad [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) en la interfaz [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink), puede establecer el color de los hipervínculos y también obtener la información de color de los hipervínculos. La característica se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
+Con la propiedad [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) en la interfaz [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink), puede establecer el color de los hipervínculos y también obtener la información de color de los hipervínculos. La función se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
 
-Este código de muestra demuestra una operación en la que se agregaron hipervínculos con colores diferentes a la misma diapositiva:
+Este código de ejemplo demuestra una operación donde se agregaron hipervínculos con diferentes colores a la misma diapositiva:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -215,9 +215,9 @@ try {
 ```
 
 
-## **Eliminar hipervínculos en presentaciones**
+## **Eliminar hipervínculos de presentaciones**
 
-### **Eliminar hipervínculos del texto**
+### **Eliminar hipervínculos de texto**
 
 Este código Java le muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
 ```java
@@ -248,7 +248,7 @@ try {
 
 ### **Eliminar hipervínculos de formas o marcos**
 
-Este código Java le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación: 
+Este código Java le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -274,7 +274,7 @@ La clase [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-El fragmento de código muestra cómo agregar un hipervínculo a una diapositiva y editar su tooltip posteriormente:
+El fragmento de código le muestra cómo agregar un hipervínculo a una diapositiva y editar su información emergente (tooltip) más tarde:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -316,8 +316,8 @@ Las secciones en PowerPoint son agrupaciones de diapositivas; la navegación té
 
 **¿Puedo adjuntar un hipervínculo a los elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
 
-Sí. Los elementos de la diapositiva maestra y de los diseños admiten hipervínculos. dichos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
+Sí. Los elementos de la diapositiva maestra y de diseño admiten hipervínculos. dichos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
 
 **¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o video?**
 
-En [PDF](/slides/es/java/convert-powerpoint-to-pdf/) y [HTML](/slides/es/java/convert-powerpoint-to-html/), sí: los enlaces se conservan generalmente. Al exportar a [imágenes](/slides/es/java/convert-powerpoint-to-png/) y [video](/slides/es/java/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantiene debido a la naturaleza de esos formatos (los fotogramas rasterizados/video no admiten hipervínculos).
+En [PDF](/slides/es/java/convert-powerpoint-to-pdf/) y [HTML](/slides/es/java/convert-powerpoint-to-html/), sí: los enlaces generalmente se conservan. Al exportar a [imágenes](/slides/es/java/convert-powerpoint-to-png/) y [video](/slides/es/java/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (los fotogramas ráster/video no admiten hipervínculos).

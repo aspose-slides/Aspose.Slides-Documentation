@@ -1,65 +1,77 @@
 ---
-title: Accéder à la diapositive dans la présentation
+title: Accéder aux diapositives de présentation en Java
+linktitle: Accéder à la diapositive
 type: docs
 weight: 20
 url: /fr/java/access-slide-in-presentation/
-keywords: "Accéder à la présentation PowerPoint, Accéder à la diapositive, Modifier les propriétés de la diapositive, Changer la position de la diapositive, Définir le numéro de la diapositive, index, ID, position Java, Aspose.Slides"
-description: "Accéder à une diapositive PowerPoint par index, ID ou position en Java. Modifier les propriétés de la diapositive"
+keywords:
+- accès diapositive
+- indice diapositive
+- id diapositive
+- position diapositive
+- modifier position
+- propriétés diapositive
+- numéro diapositive
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Apprenez comment accéder et gérer les diapositives dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Java. Augmentez votre productivité grâce à des exemples de code."
 ---
 
 Aspose.Slides vous permet d'accéder aux diapositives de deux manières : par index et par ID.
 
-## **Accéder à la diapositive par index**
+## **Accéder à une diapositive par index**
 
-Toutes les diapositives d'une présentation sont disposées numériquement en fonction de la position de la diapositive, en commençant par 0. La première diapositive est accessible par l'index 0 ; la deuxième diapositive est accessible par l'index 1 ; etc.
+Toutes les diapositives d'une présentation sont organisées numériquement en fonction de la position de la diapositive, en commençant à 0. La première diapositive est accessible via l'index 0 ; la deuxième diapositive est accessible via l'index 1 ; etc.
 
-La classe Presentation, représentant un fichier de présentation, expose toutes les diapositives comme une collection [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) (collection d'objets [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)). Ce code Java vous montre comment accéder à une diapositive par son index : 
-
+La classe Presentation, qui représente un fichier de présentation, expose toutes les diapositives sous forme d'une collection [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) (collection d'objets [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)). Ce code Java vous montre comment accéder à une diapositive par son index :
 ```java
 // Instancie un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Accède à une diapositive en utilisant son index de diapositive
+    // Accède à une diapositive en utilisant son indice de diapositive
     ISlide slide = pres.getSlides().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Accéder à la diapositive par ID**
 
-Chaque diapositive d'une présentation a un ID unique qui lui est associé. Vous pouvez utiliser la méthode [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) (exposée par la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)) pour cibler cet ID. Ce code Java vous montre comment fournir un ID de diapositive valide et accéder à cette diapositive par la méthode [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) :
+## **Accéder à une diapositive par ID**
 
+Chaque diapositive d'une présentation possède un ID unique qui lui est associé. Vous pouvez utiliser la méthode [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) (exposée par la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)) pour cibler cet ID. Ce code Java vous montre comment fournir un ID de diapositive valide et accéder à cette diapositive via la méthode [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) :
 ```java
-// Instancie un objet Presentation qui représente un fichier de présentation
+// Crée une instance d'un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Obtient un ID de diapositive
+    // Obtient l'ID d'une diapositive
     int id = (int) pres.getSlides().get_Item(0).getSlideId();
     
-    // Accède à la diapositive par son ID
+    // Accède à la diapositive via son ID
     IBaseSlide slide = pres.getSlideById(id);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Changer la position de la diapositive**
 
-Aspose.Slides vous permet de changer la position d'une diapositive. Par exemple, vous pouvez spécifier que la première diapositive doit devenir la deuxième diapositive.
+## **Modifier la position d'une diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Obtenez la référence de la diapositive (dont vous souhaitez changer la position) par son index.
-3. Définissez une nouvelle position pour la diapositive par la propriété [setSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#setSlideNumber-int-). 
-4. Enregistrez la présentation modifiée.
+Aspose.Slides vous permet de modifier la position d'une diapositive. Par exemple, vous pouvez spécifier que la première diapositive devienne la deuxième.
 
-Ce code Java illustre une opération où la diapositive en position 1 est déplacée en position 2 : 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Obtenir la référence de la diapositive (dont vous souhaitez modifier la position) via son index
+1. Définir une nouvelle position pour la diapositive via la propriété [setSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#setSlideNumber-int-).
+1. Enregistrer la présentation modifiée.
 
+Ce code Java montre une opération où la diapositive en position 1 est déplacée vers la position 2 :
 ```java
-// Instancie un objet Presentation qui représente un fichier de présentation
+// Crée une instance d'un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Obtient la diapositive dont la position sera changée
+    // Obtient la diapositive dont la position sera modifiée
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Définit la nouvelle position pour la diapositive
@@ -72,20 +84,19 @@ try {
 }
 ```
 
-La première diapositive est devenue la deuxième ; la deuxième diapositive est devenue la première. Lorsque vous changez la position d'une diapositive, les autres diapositives sont automatiquement ajustées.
 
+La première diapositive est devenue la deuxième ; la deuxième diapositive est devenue la première. Lorsque vous modifiez la position d’une diapositive, les autres diapositives sont automatiquement ajustées.
 
-## **Définir le numéro de la diapositive**
+## **Définir le numéro de diapositive**
 
-En utilisant la propriété [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) (exposée par la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)), vous pouvez spécifier un nouveau numéro pour la première diapositive d'une présentation. Cette opération entraîne le recalcul des numéros d'autres diapositives.
+En utilisant la propriété [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) (exposée par la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)), vous pouvez spécifier un nouveau numéro pour la première diapositive d'une présentation. Cette opération entraîne le recalcul des numéros des autres diapositives.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-2. Obtenez le numéro de la diapositive.
-3. Définissez le numéro de la diapositive.
-4. Enregistrez la présentation modifiée.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Obtenir le numéro de la diapositive.
+1. Définir le numéro de la diapositive.
+1. Enregistrer la présentation modifiée.
 
-Ce code Java montre une opération où le numéro de la première diapositive est défini sur 10 : 
-
+Ce code Java montre une opération où le numéro de la première diapositive est fixé à 10 :
 ```java
 // Instancie un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("HelloWorld.pptx");
@@ -103,8 +114,8 @@ try {
 }
 ```
 
-Si vous préférez sauter la première diapositive, vous pouvez commencer la numérotation à partir de la deuxième diapositive (et masquer la numérotation pour la première diapositive) de cette manière :
 
+Si vous préférez sauter la première diapositive, vous pouvez démarrer la numérotation à partir de la deuxième diapositive (et masquer la numérotation de la première diapositive) de cette manière :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -113,13 +124,13 @@ try {
     presentation.getSlides().addEmptySlide(layoutSlide);
     presentation.getSlides().addEmptySlide(layoutSlide);
 
-    // Définit le numéro pour la première diapositive de la présentation
+    // Définit le numéro de la première diapositive de la présentation
     presentation.setFirstSlideNumber(0);
 
     // Affiche les numéros de diapositive pour toutes les diapositives
     presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
 
-    // Masque le numéro de la diapositive pour la première diapositive
+    // Masque le numéro de diapositive de la première diapositive
     presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
 
     // Enregistre la présentation modifiée
@@ -128,3 +139,18 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Le numéro de diapositive vu par l'utilisateur correspond-il à l'index de la collection basé sur zéro ?**
+
+Le numéro affiché sur une diapositive peut commencer à une valeur arbitraire (par exemple, 10) et n’a pas besoin de correspondre à l’index ; la relation est contrôlée par le paramètre [first slide number](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) de la présentation.
+
+**Les diapositives masquées affectent-elles l’indexation ?**
+
+Oui. Une diapositive masquée reste dans la collection et est comptée dans l’indexation ; « masquée » fait référence à l’affichage, pas à sa position dans la collection.
+
+**L’index d’une diapositive change-t-il lorsque d’autres diapositives sont ajoutées ou supprimées ?**
+
+Oui. Les index reflètent toujours l’ordre actuel des diapositives et sont recalculés lors des opérations d’insertion, de suppression et de déplacement.
