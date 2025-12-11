@@ -3,102 +3,142 @@ title: ライセンス
 type: docs
 weight: 120
 url: /ja/cpp/licensing/
+keywords:
+- ライセンス
+- 一時ライセンス
+- ライセンス設定
+- ライセンス使用
+- ライセンス検証
+- ライセンスファイル
+- 評価版
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ のライセンスを適用、管理、トラブルシューティングします。段階的なライセンスガイドに従って、機能への継続的なアクセスを確保しましょう。"
 ---
 
-## **Aspose.Slidesの評価**
+## **Aspose.Slides の評価**
 
 {{% alert color="primary" %}} 
 
-**Aspose.Slides for C++**の評価版は、[NuGetのダウンロードページ](https://www.nuget.org/packages/Aspose.Slides.CPP/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価用パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するためにいくつかの行のコードを追加することで単にライセンス版になります。
+**Aspose.Slides for C++** の評価版は、[NuGet ダウンロードページ](https://www.nuget.org/packages/Aspose.Slides.CPP/)からダウンロードできます。評価版はライセンス版と同じ機能を提供します。実際、評価パッケージは購入版と同一で、ライセンスを適用する数行のコードを追加するとライセンス版になります。
 
-**Aspose.Slides**の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。さまざまなサブスクリプションタイプを確認することをお勧めします。質問がある場合は、Asposeの営業チームにお問い合わせください。
+評価版で **Aspose.Slides** に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。利用可能なサブスクリプションの種類を確認することをお勧めします。ご質問がある場合は、Aspose の営業チームまでお気軽にお問い合わせください。
 
-すべてのAsposeライセンスには、新しいバージョンや修正がリリースされた際の無料アップグレードのための1年間のサブスクリプションが付属します。ライセンスされた製品を持つユーザーや評価版を使用しているユーザーは、無料で無制限の技術サポートを受けられます。
+すべての Aspose ライセンスには、1 年間の無料アップグレード（その期間中にリリースされた新バージョンやバグ修正を含む）サブスクリプションが含まれます。ライセンス版でも評価版でも、無料かつ無制限のテクニカルサポートを受けられます。
 
 {{% /alert %}} 
 
 **評価版の制限**
 
-* Aspose.Slidesの評価版（ライセンスが指定されていない）は完全な製品機能を提供しますが、ドキュメントを開くときや保存するときに評価用の透かしを挿入します。
-* プレゼンテーションスライドからテキストを抽出する際には、1枚のスライドに制限されます。
+* ライセンスが適用されていない Aspose.Slides の評価版は、製品機能はフルに利用できますが、開閉や保存時にドキュメント上部に評価用透かしが挿入されます。
+* テキスト抽出は評価版では 1 スライドに制限されます。
 
 {{% alert color="primary" %}} 
 
-制限なしでAspose.Slidesを試すには、**30日間の一時ライセンス**を請求できます。詳しくは[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)のページをご覧ください。
+制限なしで Aspose.Slides をテストしたい場合は、**30 日間の一時ライセンス**を申請できます。詳細は[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)ページをご覧ください。
 
 {{% /alert %}}
 
-## **Aspose.Slidesのライセンス**
+## **Aspose.Slides のライセンス認証**
 
-* 評価版はライセンスを購入し、いくつかの行のコードを追加することでライセンスが適用されます。
-* ライセンスは、製品名、ライセンスが付与されている開発者の数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。 
-* ライセンスファイルはデジタル署名されているため、ファイルを変更してはいけません。ファイルの内容に余分な改行を誤って追加すると、ライセンスが無効になります。
-* Aspose.Slides for C++は通常、以下の場所でライセンスを探そうとします。
-  * 明示的なパス
-  * コンポーネントのDLLを含むフォルダー（Aspose.Slidesに含まれます）
-  * コンポーネントのDLLを呼び出すアセンブリを含むフォルダー（Aspose.Slidesに含まれます）
-* 評価版に関連する制限を回避するには、Aspose.Slidesを使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとに1回だけライセンスを設定すれば十分です。
+* 評価版は、ライセンスを購入してコードに数行追加することでライセンス版になります。
+* ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象開発者数、サブスクリプション有効期限などの情報が含まれます。
+* ライセンスファイルはデジタル署名されているため、変更してはいけません。改行を加えるだけでもファイルは無効になります。
+* Aspose.Slides for C++ は通常、以下の場所でライセンスファイルを検索します：
+  * コードで明示的に指定したパス
+  * コンポーネントの DLL があるフォルダー（Aspose.Slides に含まれる）
+  * コンポーネントの DLL を呼び出すアセンブリがあるフォルダー
+* 評価版の制限を回避するには、Aspose.Slides を使用する前にライセンスを設定する必要があります。ライセンスはアプリケーションまたはプロセスごとに一度設定すれば十分です。
 
-## **ライセンスの適用**
+## **ライセンスの適用方法**
 
-ライセンスは**ファイル**、**ストリーム**、または**埋め込みリソース**からロードできます。 
+ライセンスは **ファイル**、**ストリーム**、または **埋め込みリソース** からロードできます。
 
 {{% alert color="primary" %}}
 
-Aspose.Slidesはライセンス操作のための[License](https://reference.aspose.com/slides/cpp/class/aspose.slides.license/)クラスを提供します。
+Aspose.Slides はライセンス操作用に[License](https://reference.aspose.com/slides/cpp/class/aspose.slides.license/) クラスを提供します。
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}}
+
+新しいライセンスはバージョン 21.4 以降の Aspose.Slides のみで有効です。古いバージョンは別のライセンス方式を使用しており、これらのライセンスは認識されません。
+
+{{% /alert %}}
+
 ### **ファイル**
 
-ライセンスを設定する最も簡単な方法は、ライセンスファイルをコンポーネントのDLLを含む同じフォルダーに置き、パスを省略したファイル名を指定することです。
+最も簡単なライセンス設定方法は、ライセンスファイルをコンポーネントの DLL と同じフォルダー（Aspose.Slides に含まれる）に置き、パスなしでファイル名だけを指定することです。
 
-以下のC++コードは、ライセンスファイルを設定する方法を示しています:
-
+以下の C++ コードはライセンスファイルの設定方法を示しています：
 ```c++
-SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
+#include <Util/License.h>
 
-lic->SetLicense(L"Aspose.Slides.lic");
+using namespace Aspose::Slides;
+
+int main()
+{
+    auto license = MakeObject<License>();
+    license->SetLicense(u"Aspose.Slides.lic");
+
+    return 0;
+}
 ```
+
 
 {{% alert color="warning" %}} 
 
-ライセンスファイルを異なるディレクトリに置いた場合、[License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67)メソッドを呼び出すときは、指定された明示的なパスの最後にライセンスファイル名がライセンスファイルと一致している必要があります。
+ライセンスファイルを別のディレクトリに置く場合、[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) メソッドを呼び出す際に、指定した明示的パスの最後にあるファイル名がライセンスファイル名と完全に一致している必要があります。
 
-例えば、ライセンスファイル名を*Aspose.Slides.lic.xml*に変更できます。コード内で、[License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67)メソッドに対してファイルのパス（*Aspose.Slides.lic.xml*で終わる）を渡す必要があります。
+例えば、ライセンスファイル名を *Aspose.Slides.lic.xml* に変更した場合、コード内で [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) メソッドに *Aspose.Slides.lic.xml* で終了するフルパスを渡さなければなりません。
 
 {{% /alert %}}
 
 ### **ストリーム**
 
-ストリームからライセンスをロードできます。このC++コードは、ストリームからライセンスを適用する方法を示しています:
-
+ストリームからライセンスをロードすることもできます。以下の C++ コードはストリームからライセンスを適用する方法を示しています：
 ```c++
-SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
+auto license = MakeObject<License>();
 
-System::SharedPtr<System::IO::FileStream> stream= System::IO::File::OpenRead(L"Aspose.Slides.lic");
+auto stream = File::OpenRead(u"Aspose.Slides.lic");
 
-lic->SetLicense(stream); 
+license->SetLicense(stream);
 ```
+
 
 ## **ライセンスの検証**
 
-ライセンスが正しく設定されているかを確認するために、検証できます。このC++コードは、ライセンスを検証する方法を示しています:
-
+ライセンスが正しく設定されたか確認するには、検証できます。以下の C++ コードはライセンスの検証方法を示しています：
 ```c++
-System::SharedPtr<Aspose::Slides::License> license = System::MakeObject<Aspose::Slides::License>();
+auto license = MakeObject<License>();
+
 license->SetLicense(u"Aspose.Slides.lic");
+
 if (license->IsLicensed())
 {
-    System::Console::WriteLine(u"ライセンスは有効です！");
-    System::Console::Read();
+    Console::WriteLine(u"License is good!");
+    Console::ReadKey();
 }
 ```
 
-## **スレッドの安全性**
+
+## **スレッド安全性**
 
 {{% alert title="注意" color="warning" %}} 
 
-[License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67)メソッドはスレッドセーフではありません。このメソッドが多くのスレッドから同時に呼び出される必要がある場合は、問題を避けるために同期原始（ロックなど）を使用してください。 
+[License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) メソッドは **スレッドセーフではありません**。複数スレッドから同時にこのメソッドを呼び出す必要がある場合は、ロックなどの同期プリミティブを使用して問題を防止することを推奨します。
 
 {{% /alert %}}
+
+## **FAQ**
+
+**完全にオフラインの環境（インターネットアクセスなし）でライセンスを適用できますか？**
+
+はい。ライセンスの検証はローカルのライセンスファイルで行われるため、インターネット接続は不要です。
+
+**1 年間のサブスクリプションが切れた後はどうなりますか？ライブラリは動作しなくなりますか？**
+
+いいえ。ライセンスは永久利用が可能です。サブスクリプション終了日時点までにリリースされたバージョンは引き続き使用できますが、更新しない限り新しいリリースは利用できません。

@@ -1,27 +1,49 @@
 ---
-title: Präsentationsnotizen
+title: Präsentationsnotizen verwalten in C++
+linktitle: Präsentationsnotizen
 type: docs
 weight: 110
 url: /de/cpp/presentation-notes/
-keywords: "PowerPoint-Präsentationssprechernotizen"
+keywords:
+- Notizen
+- Notizfolie
+- Notizen hinzufügen
+- Notizen entfernen
+- Notizstil
+- Master-Notizen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Passen Sie Präsentationsnotizen mit Aspose.Slides für C++ an. Arbeiten Sie nahtlos mit PowerPoint- und OpenDocument-Notizen, um Ihre Produktivität zu steigern."
 ---
 
-
-## **Hinzufügen und Entfernen von Foliennotizen**
-Aspose.Slides unterstützt jetzt das Entfernen von Notizenfolien aus Präsentationen. In diesem Thema werden wir diese neue Funktion zum Entfernen von Notizen sowie das Hinzufügen von Notizenstilfolien aus jeder Präsentation vorstellen. Aspose.Slides für C++ bietet die Funktion, Notizen von jeder Folie zu entfernen und bestehende Notizen zu formatieren. Entwickler können Notizen auf folgende Weise entfernen:
+## **Foliennotizen hinzufügen und entfernen**
+Aspose.Slides unterstützt jetzt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese neue Funktion zum Entfernen von Notizen sowie zum Hinzufügen von Notizstil‑Folien zu einer beliebigen Präsentation vor. Aspose.Slides für C++ bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen und Stil zu vorhandenen Notizen hinzuzufügen. Entwickler können Notizen auf folgende Weise entfernen:
 
 - Entfernen von Notizen einer bestimmten Folie einer Präsentation.
 - Entfernen von Notizen aller Folien einer Präsentation.
 
-## **Notizen von einer bestimmten Folie entfernen**
-Die Notizen einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
+## **Notizen einer bestimmten Folie entfernen**
+Notizen einer bestimmten Folie können wie im Beispiel unten gezeigt entfernt werden:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesAtSpecificSlide-RemoveNotesAtSpecificSlide.cpp" >}}
-## **Notizen von allen Folien entfernen**
-Die Notizen aller Folien einer Präsentation können wie im folgenden Beispiel entfernt werden:
+## **Notizen aller Folien entfernen**
+Notizen aller Folien einer Präsentation können wie im folgenden Beispiel entfernt werden:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesFromAllSlides-RemoveNotesFromAllSlides.cpp" >}}
-## **Notizenstil hinzufügen**
-Die Notizenstil-Eigenschaft wurde interface IMasterNotesSlide und Klasse MasterNotesSlide hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztextes an. Die Implementierung wird im folgenden Beispiel demonstriert.
+## **Einen Notizstil hinzufügen**
+Die Eigenschaft **NotesStyle** wurde dem Interface **IMasterNotesSlide** und der Klasse **MasterNotesSlide** hinzugefügt. Diese Eigenschaft legt den Stil eines Notiztexts fest. Die Implementierung wird im nachstehenden Beispiel gezeigt.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddNotesSlideWithNotesStyle-AddNotesSlideWithNotesStyle.cpp" >}}
+
+## **FAQ**
+
+**Welches API‑Entität stellt den Zugriff auf die Notizen einer bestimmten Folie bereit?**
+
+Notizen werden über den Notiz‑Manager der Folie abgerufen: Die Folie besitzt einen [NotesSlideManager](https://reference.aspose.com/slides/cpp/aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/cpp/aspose.slides/notesslidemanager/get_notesslide/), die das Notizobjekt zurückgibt oder `null`, wenn keine Notizen vorhanden sind.
+
+**Gibt es Unterschiede in der Notizunterstützung zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
+
+Die Bibliothek richtet sich an ein breites Spektrum von Microsoft‑PowerPoint‑Formaten (97‑neuere) sowie ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.

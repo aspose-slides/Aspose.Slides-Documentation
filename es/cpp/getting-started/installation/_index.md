@@ -3,59 +3,77 @@ title: Instalación
 type: docs
 weight: 70
 url: /es/cpp/installation/
-keywords: "Descargar Aspose.Slides, Instalar Aspose.Slides, Instalación de Aspose.Slides, Windows, C++"
-description: "Instalar Aspose.Slides para C++ en Windows"
+keywords:
+- instalar Aspose.Slides
+- descargar Aspose.Slides
+- usar Aspose.Slides
+- instalación de Aspose.Slides
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentación
+- C++
+- Aspose.Slides
+description: "Aprenda a instalar rápidamente Aspose.Slides para C++. Guía paso a paso, requisitos del sistema y ejemplos de código — ¡comience a trabajar con presentaciones de PowerPoint hoy!"
 ---
 
 ## **Windows**
-NuGet proporciona la forma más fácil de descargar e instalar APIs de Aspose para C++ en PCs.
+NuGet ofrece la forma más sencilla de descargar e instalar las API de Aspose para C++ en PC.
 
-### **Opción Uno: Instalar o Actualizar Aspose.Slides para C++ desde el Administrador de Paquetes NuGet**
+### **Opción Uno: Instalar o Actualizar Aspose.Slides para C++ desde el Administrador de paquetes NuGet**
 
-1. Abre Microsoft Visual Studio.
-2. Crea una aplicación de consola simple. O puedes abrir tu proyecto preferido.
-3. Ve a **Herramientas** > **Administrador de paquetes NuGet**.
-4. En **Examinar**, escribe *Aspose.Slides.Cpp* en el campo de texto.
+1. Abra Microsoft Visual Studio.  
+2. Cree una aplicación de consola simple. O puede abrir su proyecto preferido.  
+3. Vaya a **Tools** > **NuGet package manager**.  
+4. En **Browse**, escriba *Aspose.Slides.Cpp* en el campo de texto.  
 
 ![todo:image_alt_text](installation_1.png)
 
-3. Haz clic en la versión que necesitas **Aspose.Slides.Cpp** y luego haz clic en **Instalar**.
-   * Si deseas actualizar Aspose.Slides—lo que significa que ya lo tienes instalado—haz clic en **Actualizar** en su lugar.
+3. Haga clic en la versión que necesita **Aspose.Slides.Cpp** y luego haga clic en **Install**.  
+   * Si desea actualizar Aspose.Slides—lo que significa que ya lo tiene instalado—haga clic en **Update** en su lugar.  
 
-La API seleccionada se descarga y se referencia en tu proyecto.
+La API seleccionada se descarga y se referencia en su proyecto.
 
-### **Opción 2: Instalar o Actualizar Aspose.Slides a Través de la Consola del Administrador de Paquetes**
+### **Opción 2: Instalar o Actualizar Aspose.Slides mediante la Consola del Administrador de paquetes**
 
-Para referenciar la [API de Aspose.Slides](https://www.nuget.org/packages/Aspose.Slides.Cpp/) usando la consola del administrador de paquetes, haz lo siguiente:
+Para referenciar la [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.Cpp/) usando la consola del administrador de paquetes, haga lo siguiente:
 
-1. Abre tu solución/proyecto en Visual Studio.
+1. Abra su solución/proyecto en Visual Studio.  
 
-1. Ve a **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de Paquetes**.
+1. Vaya a **Tools** > **NuGet Package Manager** > **Package Manager Console**.  
 
-   Se abre la Consola del Administrador de Paquetes.
+   La consola del Administrador de paquetes se abre.  
 
 ![todo:image_alt_text](installation_2.png)
 
-4. Escribe este comando: `Install-Package Aspose.Slides.Cpp` 
-> Si deseas instalar la versión x86, utiliza el paquete Aspose.Slides.Cpp.x86: `Install-Package Aspose.Slides.Cpp.x86`
+4. Escriba este comando: `Install-Package Aspose.Slides.Cpp`  
+> Si desea instalar la versión x86, use el paquete Aspose.Slides.Cpp.x86: `Install-Package Aspose.Slides.Cpp.x86`
 
-5. Presiona la tecla Enter.
+5. Presione la tecla Enter.  
 
-   La última versión completa se instala en tu aplicación.
+   La última versión completa se instala en su aplicación.  
 
-   * Alternativamente, puedes agregar el sufijo `-prerelease` al comando para especificar que también se debe instalar la última versión (incluendo correcciones urgentes).
+   * Alternativamente, puede agregar el sufijo `-prerelease` al comando para especificar que también se debe instalar la última versión (incluidos los hotfixes).  
 
 ![todo:image_alt_text](installation_3.png)
 
-​	Una vez que la descarga esté completa, deberías ver algunos mensajes de confirmación.
+​	Una vez que la descarga se complete, debería ver algunos mensajes de confirmación.  
 
 ![todo:image_alt_text](installation_4.png)
 
-Si no estás familiarizado con [Aspose EULA](https://about.aspose.com/legal/eula), entonces puede que desees leer la licencia referenciada en la URL.
+Si no está familiarizado con [Aspose EULA](https://about.aspose.com/legal/eula), puede que desee leer la licencia referenciada en la URL.  
 
-En la Consola del Administrador de Paquetes, puedes ejecutar el comando `Update-Package Aspose.Slides.Cpp` para buscar actualizaciones del paquete Aspose.Slides. Las actualizaciones (si se encuentran) se instalan automáticamente. También puedes usar el sufijo `-prerelease` para actualizar a la última versión.
+En la Consola del Administrador de paquetes, puede ejecutar el comando `Update-Package Aspose.Slides.Cpp` para buscar actualizaciones del paquete Aspose.Slides. Las actualizaciones (si se encuentran) se instalan automáticamente. También puede usar el sufijo `-prerelease` para actualizar la última versión.
 
-### Usando Carpetas Include y lib
-1. [Descarga](https://downloads.aspose.com/slides/cpp) la última versión de Aspose.Slides para C++.
-1. Descomprime la carpeta en el entorno de producción.
-1. Para usar Aspose.Slides para C++, referencia las carpetas Include y lib en tu proyecto.
+### **Uso de carpetas Include y lib**
+1. [Download](https://downloads.aspose.com/slides/cpp) la última versión de Aspose.Slides para C++.  
+1. Descomprima la carpeta en el entorno de producción.  
+1. Para usar Aspose.Slides para C++, haga referencia a las carpetas Include y lib en su proyecto  
+
+## **FAQ**
+
+**¿Existe una versión gratuita o limitación de prueba?**
+
+Sí, por defecto, Aspose.Slides se ejecuta en modo de evaluación, lo que agrega marcas de agua y puede tener otras limitaciones. Para eliminar las restricciones, debe aplicar una [license](/slides/es/cpp/licensing/) válida.

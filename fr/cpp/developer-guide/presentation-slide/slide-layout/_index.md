@@ -1,284 +1,276 @@
 ---
-title: Mise en Page des Diapositives
+title: Appliquer ou modifier les mises en page des diapositives en C++
+linktitle: Mise en page des diapositives
 type: docs
 weight: 60
-url: /fr/cpp/mise-en-page-des-diapositives/
-keyword: "Définir la taille des diapositives, définir les options des diapositives, spécifier la taille des diapositives, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, C++, CPP, Aspose.Slides"
-description: "Définir la taille et les options des diapositives PowerPoint en C++"
+url: /fr/cpp/slide-layout/
+keywords:
+- mise en page des diapositives
+- mise en page du contenu
+- espace réservé
+- conception de présentation
+- conception de diapositive
+- mise en page inutilisée
+- visibilité du pied de page
+- diapositive titre
+- titre et contenu
+- en-tête de section
+- deux contenus
+- comparaison
+- titre seulement
+- mise en page vierge
+- contenu avec légende
+- image avec légende
+- titre et texte vertical
+- titre vertical et texte
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Gérez et personnalisez les mises en page des diapositives avec Aspose.Slides pour C++. Explorez les types de mise en page, le contrôle des espaces réservés et la visibilité du pied de page à travers des exemples de code C++."
 ---
 
-Une mise en page de diapositive contient les zones de remplacement et les informations de mise en forme pour tout le contenu qui apparaît sur une diapositive. La mise en page détermine les espaces réservés au contenu disponibles et où ils sont placés. 
+## **Vue d'ensemble**
 
-Les mises en page de diapositives vous permettent de créer et de concevoir des présentations rapidement (qu'elles soient simples ou complexes). Voici quelques-unes des mises en page de diapositives les plus populaires utilisées dans les présentations PowerPoint : 
+Une mise en page de diapositive définit l'agencement des zones réservées et le formatage du contenu d’une diapositive. Elle contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les mises en page de diapositives vous aident à créer des présentations rapidement et de manière cohérente — que vous réalisiez quelque chose de simple ou de plus complexe. Parmi les mises en page de diapositives les plus courantes dans PowerPoint, on trouve :
 
-* **Mise en Page de Diapositive de Titre**. Cette mise en page se compose de deux espaces réservés pour du texte. Un espace réservé est pour le titre et l'autre est pour le sous-titre. 
-* **Mise en Page de Titre et Contenu**. Cette mise en page contient un espace réservé relativement petit en haut pour le titre et un plus grand espace réservé pour le contenu principal (graphique, paragraphes, liste à puces, liste numérotée, images, etc).
-* **Mise en Page Vide**. Cette mise en page n'a pas d'espaces réservés, ce qui vous permet de créer des éléments à partir de zéro. 
+**Disposition Diapositive Titre** – comprend deux zones réservées de texte : une pour le titre et une pour le sous‑titre.
 
-Étant donné qu'une maîtrise de diapositive est la diapositive hiérarchique principale qui stocke des informations sur les mises en page de diapositives, vous pouvez utiliser la diapositive maître pour accéder aux mises en page de diapositives et y apporter des modifications. Une mise en page de diapositive peut être accédée par type ou par nom. De même, chaque diapositive a un identifiant unique, qui peut être utilisé pour y accéder. 
+**Disposition Titre et Contenu** – comporte une petite zone réservée de titre en haut et une plus grande en dessous pour le contenu principal (texte, puces, graphiques, images, etc.).
 
-Alternativement, vous pouvez apporter des modifications directement à une mise en page de diapositive spécifique dans une présentation. 
+**Disposition Vierge** – ne contient aucune zone réservée, vous offrant le contrôle total pour concevoir la diapositive à partir de zéro.
 
-* Pour vous permettre de travailler avec des mises en page de diapositives (y compris celles des diapositives maîtresses), Aspose.Slides fournit des propriétés comme [get_LayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) et [get_Masters()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) sous la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). 
-* Pour effectuer des tâches connexes, Aspose.Slides fournit [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/baseslideheaderfootermanager/), et de nombreux autres types. 
+Les mises en page de diapositives font partie d’un masque de diapositives, qui est la diapositive de niveau supérieur définissant les styles de mise en page pour la présentation. Vous pouvez accéder aux diapositives de mise en page et les modifier via le masque de diapositives—soit par leur type, leur nom, ou leur ID unique. Vous pouvez également modifier directement une mise en page spécifique dans la présentation.
+
+Pour travailler avec les mises en page de diapositives dans Aspose.Slides for Android, vous pouvez utiliser :
+
+- Des méthodes telles que [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) et [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) sous la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)
+- Des types comme [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/), et [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Pour plus d'informations sur le travail avec les diapositives maîtresses en particulier, consultez l'article [Maître de Diapositive](https://docs.aspose.com/slides/cpp/slide-master/).
-
+Pour en savoir plus sur la gestion des diapositives maîtres, consultez l'article [Slide Master](/slides/fr/cpp/slide-master/).
 {{% /alert %}}
 
-## **Ajouter une Mise en Page de Diapositive à la Présentation**
+## **Ajouter des mises en page de diapositives aux présentations**
+
+Pour personnaliser l’apparence et la structure de vos diapositives, il peut être nécessaire d’ajouter de nouvelles diapositives de mise en page à une présentation. Aspose.Slides for Android vous permet de vérifier si une mise en page spécifique existe déjà, d’en ajouter une nouvelle si besoin, puis de l’utiliser pour insérer des diapositives basées sur cette mise en page.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Accédez à la [collection MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Parcourez les diapositives de mise en page existantes pour confirmer que la mise en page requise existe déjà dans la collection de diapositives de mise en page. Sinon, ajoutez la diapositive de mise en page souhaitée. 
-1. Ajoutez une diapositive vide basée sur la nouvelle diapositive de mise en page.
-1. Enregistrez la présentation. 
+1. Accédez à la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
+1. Vérifiez si la diapositive de mise en page souhaitée existe déjà dans la collection. Si ce n’est pas le cas, ajoutez la mise en page dont vous avez besoin.
+1. Ajoutez une diapositive vide basée sur la nouvelle mise en page.
+1. Enregistrez la présentation.
 
-Ce code C++ vous montre comment ajouter une mise en page de diapositive à une présentation PowerPoint :
+Le code C++ suivant montre comment ajouter une mise en page de diapositive à une présentation PowerPoint :
+```cpp
+// Instanciez la classe Presentation qui représente un fichier PowerPoint.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-	// Le chemin vers le répertoire des documents.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/AddLayoutSlides.pptx";
-
-	// Instancie une classe Presentation qui représente le fichier de présentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-
-	// Parcourt les types de diapositives de mise en page
-	SharedPtr<IMasterLayoutSlideCollection> layoutSlides = pres->get_Masters()->idx_get(0)->get_LayoutSlides();
-
-
-	SharedPtr<ILayoutSlide> layoutSlide;
-	if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-	}
-	else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
-	}
-
-	if (layoutSlide == NULL)
-	{
-		// La situation où une présentation ne contient pas certains types de mise en page.
-		// Le fichier de présentation ne contient que des types de mise en page vides et personnalisés.
-		// Mais les diapositives de mise en page avec des types personnalisés ont des noms de diapositive différents,
-		// comme "Titre", "Titre et Contenu", etc. Et il est possible d'utiliser ces
-		// noms pour la sélection de la diapositive de mise en page.
-		// Vous pouvez également utiliser un ensemble de types de formes d'espace réservé. Par exemple,
-		// La diapositive de titre ne doit avoir que le type d'espace réservé pour le titre, etc.
-
-		for (int i = 0; i<layoutSlides->get_Count(); i++)
-		{
-			SharedPtr<ILayoutSlide> titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-			if (titleAndObjectLayoutSlide->get_Name().Equals(u"Titre et Objet"))
-			{
-				layoutSlide = titleAndObjectLayoutSlide;
-				break;
-			}
-		}
-
-		if (layoutSlide == NULL)
-		{
-			for (int i = 0; i < layoutSlides->get_Count(); i++)
-			{
-				SharedPtr<ILayoutSlide> titleLayoutSlide = layoutSlides->idx_get(i);
-
-				if (titleLayoutSlide->get_Name().Equals(u"Titre"))
-				{
-					layoutSlide = titleLayoutSlide;
-					break;
-				}
-			}
-
-			if (layoutSlide == NULL)
-			{
-				layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-				if (layoutSlide == NULL)
-				{
-					layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Titre et Objet");
-				}
-			}
-		}
-	}
-
-	// Ajoute une diapositive vide avec la diapositive de mise en page ajoutée  
-	pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-	// Enregistre la présentation sur le disque
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-```
-
-## **Supprimer une Diapositive de Mise en Page Non Utilisée**
-
-Aspose.Slides fournit la méthode [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) pour vous permettre de supprimer les diapositives de mise en page indésirables et non utilisées. Ce code C++ vous montre comment supprimer une diapositive de mise en page d'une présentation PowerPoint :
-
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-LowCode::Compress::RemoveUnusedLayoutSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-
-```
-
-
-## **Définir la Taille et le Type pour une Mise en Page de Diapositive**
-
-Pour vous permettre de définir la taille et le type pour une diapositive de mise en page spécifique, Aspose.Slides fournit les propriétés [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) et [get_Size()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_size/) (de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)). Ce C++ illustre l'opération :
-
-```c++
-	// Le chemin vers le répertoire des documents.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/CloneToAnotherPresentationWithSetSizeAndType.pptx";
-	// Instancie un objet Presentation qui représente un fichier de présentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	SharedPtr<Presentation> destPres = MakeObject<Presentation>();
-
-	// Accède à la diapositive par ID depuis la collection
-	SharedPtr<ISlideCollection> slideCollection = destPres->get_Slides();
-	
-	// Définit la taille de la diapositive pour la présentation générée à celle de la source
-	destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
-
-	slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
-
-	// Enregistre la présentation sur le disque
-	destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **Définir la Visibilité du Pied de Page à l'Intérieur de la Diapositive**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtenez une référence à une diapositive par son index.
-1. Réglez l'espace réservé pour le pied de page de la diapositive sur visible. 
-1. Réglez l'espace réservé pour la date-heure sur visible. 
-1. Enregistrez la présentation. 
-
-Ce code C++ vous montre comment définir la visibilité pour un pied de page de diapositive (et effectuer des tâches connexes) :
-
-```c++
- // Le chemin vers le répertoire des documents.
-const String outPath = u"../out/HeaderFooterManager_out.pptx";
-
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-
-// Instancie une classe SlideCollection
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-//	SharedPtr<IBaseSlideHeaderFooterManager> headerFooterManager = presentation->get_Slides()->idx_get(0)->get_HeaderFooterManager();
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-if (!headerFooterManager->get_IsFooterVisible()) // La propriété IsFooterVisible est utilisée pour indiquer qu'un espace réservé pour le pied de page de diapositive est manquant
+// Go through the layout slide types to select a layout slide.
+auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
+SharedPtr<ILayoutSlide> layoutSlide;
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
 {
-	headerFooterManager->SetFooterVisibility(true); // La méthode SetFooterVisibility est utilisée pour définir un espace réservé pour le pied de page de diapositive sur visible
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
 }
-if (!headerFooterManager->get_IsSlideNumberVisible()) // La propriété IsSlideNumberVisible est utilisée pour indiquer qu'un espace réservé pour le numéro de diapositive est manquant
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
 {
-	headerFooterManager->SetSlideNumberVisibility(true); // La méthode SetSlideNumberVisibility est utilisée pour définir un espace réservé pour le numéro de diapositive sur visible
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
 }
-if (!headerFooterManager->get_IsDateTimeVisible()) // La propriété IsDateTimeVisible est utilisée pour indiquer qu'un espace réservé pour la date-heure est manquant
+
+if (layoutSlide == nullptr)
 {
-	headerFooterManager->SetDateTimeVisibility(true); // La méthode SetFooterVisibility est utilisée pour définir un espace réservé pour la date-heure sur visible
+    // Situation où la présentation ne contient pas tous les types de mise en page.
+    // Le fichier de présentation ne contient que les types de mise en page Blank et Custom.
+    // Cependant, les diapositives de mise en page avec des types personnalisés peuvent avoir des noms reconnaissables,
+    // comme "Title", "Title and Content", etc., qui peuvent être utilisés pour la sélection de la diapositive de mise en page.
+    // Vous pouvez également vous baser sur un ensemble de types de formes de zones réservées.
+    // Par exemple, une diapositive Titre ne doit contenir que le type de zone réservée Title, etc.
+    for (int i = 0; i < layoutSlides->get_Count(); i++)
+    {
+        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
+
+        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
+        {
+            layoutSlide = titleAndObjectLayoutSlide;
+            break;
+        }
+    }
+
+    if (layoutSlide == nullptr)
+    {
+        for (int i = 0; i < layoutSlides->get_Count(); i++)
+        {
+            auto titleLayoutSlide = layoutSlides->idx_get(i);
+
+            if (titleLayoutSlide->get_Name() == u"Title")
+            {
+                layoutSlide = titleLayoutSlide;
+                break;
+            }
+        }
+
+        if (layoutSlide == nullptr)
+        {
+            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
+            if (layoutSlide == nullptr)
+            {
+                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
+            }
+        }
+    }
 }
-headerFooterManager->SetFooterText(u"Texte du pied de page"); // La méthode SetFooterText est utilisée pour définir un texte pour un espace réservé de pied de page de diapositive
-headerFooterManager->SetDateTimeText(u"Texte de date et heure"); // La méthode SetDateTimeText est utilisée pour définir un texte pour un espace réservé de date-heure de diapositive.
 
+// Ajoutez une diapositive vide en utilisant la diapositive de mise en page ajoutée.
+presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
 
-// Enregistre la présentation sur le disque
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Enregistrez la présentation sur le disque.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir la Visibilité du Pied de Page Enfant à l'Intérieur de la Diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtenez une référence pour la diapositive maître par son index. 
-1. Définissez la diapositive maître et tous les espaces réservés pour les pieds de page enfant sur visible.
-1. Définissez un texte pour la diapositive maître et tous les espaces réservés pour les pieds de page enfant. 
-1. Définissez un texte pour la diapositive maître et tous les espaces réservés pour la date-heure enfant. 
-1. Enregistrez la présentation. 
+## **Supprimer les diapositives de mise en page inutilisées**
 
-Ce code C++ illustre l'opération :
+Aspose.Slides fournit la méthode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) pour vous permettre de supprimer les diapositives de mise en page indésirables et inutilisées.
 
-```c++
-// Le chemin vers le répertoire des documents.
-const String outPath = u"../out/SetChildFooter_out.pptx";
+Le code C++ suivant montre comment supprimer une mise en page de diapositive d’une présentation PowerPoint :
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+Compress::RemoveUnusedLayoutSlides(presentation);
 
-// Instancie une classe SlideCollection
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-headerFooterManager->SetFooterAndChildFootersVisibility(true); // La méthode SetFooterAndChildFootersVisibility est utilisée pour définir la diapositive maître et tous les espaces réservés pour les pieds de page enfant sur visible
-headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true); // La méthode SetSlideNumberAndChildSlideNumbersVisibility est utilisée pour définir la diapositive maître et tous les espaces réservés pour les numéros de page enfant sur visible
-headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true); // La méthode SetDateTimeAndChildDateTimesVisibility est utilisée pour définir une diapositive maître et tous les espaces réservés pour la date-heure enfant sur visible
-
-headerFooterManager->SetFooterAndChildFootersText(u"Texte du pied de page"); // La méthode SetFooterAndChildFootersText est utilisée pour définir des textes pour la diapositive maître et tous les espaces réservés pour les pieds de page enfant
-headerFooterManager->SetDateTimeAndChildDateTimesText(u"Texte de date et heure"); // La méthode SetDateTimeAndChildDateTimesText est utilisée pour définir un texte pour la diapositive maître et tous les espaces réservés pour la date-heure enfant
-
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir la Taille de la Diapositive par Rapport à la Mise à l'Échelle du Contenu**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) et chargez la présentation contenant la diapositive dont vous souhaitez définir la taille. 
-1. Créez une autre instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) pour générer une nouvelle présentation. 
-1. Obtenez la référence à la diapositive (de la première présentation) par son index.
-1. Réglez l'espace réservé pour le pied de page sur visible. 
-1. Réglez l'espace réservé pour la date-heure sur visible. 
-1. Enregistrez la présentation. 
+## **Ajouter des zones réservées aux mises en page de diapositives**
 
-Ce code C++ illustre l'opération : 
+Aspose.Slides fournit la méthode [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) qui permet d’ajouter de nouvelles zones réservées à une diapositive de mise en page.
 
-```c++
-// Le chemin vers le répertoire des documents.
-const String templatePath = u"../templates/AccessSlides.pptx";
-const String outPath = u"../out/SetSlideSizeScale_out.pptx";
+Ce gestionnaire contient des méthodes pour les types de zones réservées suivants :
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
-SharedPtr<Presentation> auxPresentation = MakeObject<Presentation>();
+| Espace réservé PowerPoint | Méthode [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| ![Contenu](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Contenu (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Texte](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Texte (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Image](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Graphique](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Tableau](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Média](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Image en ligne](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-// Instancie une classe SlideCollection
-SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+Le code C++ suivant montre comment ajouter de nouvelles formes de zones réservées à la mise en page Vierge :
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-// Définit la taille de la diapositive pour les présentations générées à celle de la source
-auxPresentation->get_SlideSize()->SetSize(540, 720, SlideSizeScaleType::EnsureFit); // La méthode SetSize est utilisée pour définir la taille de la diapositive avec une mise à l'échelle du contenu pour garantir l'ajustement
-auxPresentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize); // La méthode SetSize est utilisée pour définir la taille de la diapositive avec la taille maximale du contenu
+// Obtenez la diapositive de mise en page vierge.
+auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
-auxPresentation->get_Slides()->RemoveAt(0);
+// Obtenez le gestionnaire de zones réservées de la diapositive de mise en page.
+auto placeholderManager = layout->get_PlaceholderManager();
 
-// Enregistre la présentation
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Ajoutez différentes zones réservées à la diapositive de mise en page vierge.
+placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+
+// Ajoutez une nouvelle diapositive avec la mise en page vierge.
+auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
+
+presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir la Taille de Page lors de la Génération de PDF**
 
-Certaines présentations (comme des affiches) sont souvent converties en documents PDF. Si vous souhaitez convertir votre PowerPoint en PDF pour accéder aux meilleures options d'impression et d'accessibilité, vous souhaitez définir vos diapositives à des tailles adaptées aux documents PDF (A4, par exemple).
+Le résultat :
 
-Aspose.Slides fournit la classe [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/) pour vous permettre de spécifier vos paramètres préférés pour les diapositives. Ce code C++ vous montre comment utiliser la propriété [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) (de la classe `SlideSize`) pour définir une taille de papier spécifique pour les diapositives dans une présentation :
+![Les espaces réservés sur la diapositive de mise en page](add_placeholders.png)
 
-```c++
-// Le chemin vers le répertoire des documents.
-	const String outPath = u"../out/SetPDFPageSize_out.pptx";
+## **Définir la visibilité du pied de page pour une diapositive de mise en page**
 
-	// Instancie un objet Presentation qui représente un fichier de présentation 
-	SharedPtr<Presentation>pres = MakeObject<Presentation>();
+Dans les présentations PowerPoint, les éléments de pied de page comme la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon la mise en page. Aspose.Slides for Android vous permet de contrôler la visibilité de ces zones réservées de pied de page. Cela est utile lorsque vous souhaitez que certaines mises en page affichent les informations de pied de page tandis que d’autres restent épurées.
 
-	// Définit la propriété SlideSize.Type 
-	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Récupérez une référence à la diapositive de mise en page par son index.
+1. Définissez la zone réservée du pied de page de la diapositive comme visible.
+1. Définissez la zone réservée du numéro de diapositive comme visible.
+1. Définissez la zone réservée de la date‑heure comme visible.
+1. Enregistrez la présentation.
 
-	// Définit différentes propriétés des options PDF
-	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();
-	opts.set_SufficientResolution (600);
+Le code C++ suivant montre comment définir la visibilité du pied de page d’une diapositive et effectuer les tâches associées :
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
+auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
-	// Enregistre la présentation
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pdf, &opts);
+if (!headerFooterManager->get_IsFooterVisible())
+{
+    headerFooterManager->SetFooterVisibility(true);
+}
+
+if (!headerFooterManager->get_IsSlideNumberVisible())
+{
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+if (!headerFooterManager->get_IsDateTimeVisible())
+{
+    headerFooterManager->SetDateTimeVisibility(true);
+}
+
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **Définir la visibilité du pied de page enfant pour une diapositive**
+
+Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau de la diapositive maître afin d’assurer la cohérence sur toutes les diapositives de mise en page. Aspose.Slides for Android vous permet de définir la visibilité et le contenu de ces zones réservées de pied de page sur la diapositive maître et de propager ces paramètres à toutes les diapositives de mise en page enfants. Cette approche garantit une information de pied de page uniforme dans toute votre présentation.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Récupérez une référence au masque maître par son index.
+1. Définissez les zones réservées du pied de page du maître et de tous ses enfants comme visibles.
+1. Définissez les zones réservées du numéro de diapositive du maître et de tous ses enfants comme visibles.
+1. Définissez les zones réservées de la date‑heure du maître et de tous ses enfants comme visibles.
+1. Enregistrez la présentation.
+
+Le code C++ suivant illustre cette opération :
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
+
+headerFooterManager->SetFooterAndChildFootersVisibility(true);
+headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **FAQ**
+
+**Quelle est la différence entre une diapositive maître et une diapositive de mise en page ?**
+
+Une diapositive maître définit le thème global et le formatage par défaut, alors que les diapositives de mise en page définissent des agencements spécifiques de zones réservées pour différents types de contenu.
+
+**Puis‑je copier une diapositive de mise en page d’une présentation à une autre ?**
+
+Oui, vous pouvez cloner une diapositive de mise en page à partir de la collection de diapositives de mise en page d’une présentation, accessible via la méthode [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/), puis l’insérer dans une autre présentation à l’aide de la méthode `AddClone`.
+
+**Que se passe‑t‑il si je supprime une diapositive de mise en page encore utilisée par une diapositive ?**
+
+Si vous essayez de supprimer une diapositive de mise en page qui est toujours référencée par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) qui supprime uniquement les mises en page qui ne sont pas utilisées.

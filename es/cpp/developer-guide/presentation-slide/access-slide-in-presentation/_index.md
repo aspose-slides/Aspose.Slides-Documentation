@@ -1,20 +1,32 @@
 ---
-title: Acceder a la Diapositiva en la Presentación
+title: Acceder a diapositivas de presentación en C++
+linktitle: Acceder a diapositiva
 type: docs
 weight: 20
 url: /es/cpp/access-slide-in-presentation/
-keywords: "Acceder a la Presentación de PowerPoint, Acceder diapositiva, Editar propiedades de la diapositiva, Cambiar posición de la diapositiva, Establecer número de diapositiva, índice, ID, posición C++, CPP, Aspose.Slides"
-description: "Acceder a la diapositiva de PowerPoint por índice, ID o posición en C++. Editar propiedades de la diapositiva"
+keywords:
+- acceder a diapositiva
+- índice de diapositiva
+- id de diapositiva
+- posición de diapositiva
+- cambiar posición
+- propiedades de diapositiva
+- número de diapositiva
+- PowerPoint
+- OpenDocument
+- presentación
+- C++
+- Aspose.Slides
+description: "Aprenda cómo acceder y gestionar diapositivas en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para C++. Mejore la productividad con ejemplos de código."
 ---
 
-Aspose.Slides permite acceder a las diapositivas de dos maneras: por índice y por ID.
+Aspose.Slides le permite acceder a las diapositivas de dos maneras: por índice y por ID.
 
-## **Acceder a la Diapositiva por Índice**
+## **Acceder a una diapositiva por índice**
 
-Todas las diapositivas en una presentación están ordenadas numéricamente según la posición de la diapositiva, comenzando desde 0. La primera diapositiva es accesible a través del índice 0; la segunda diapositiva se accede a través del índice 1; etc.
+Todas las diapositivas de una presentación se organizan numéricamente según la posición de la diapositiva, comenzando en 0. La primera diapositiva es accesible mediante el índice 0; la segunda diapositiva se accede mediante el índice 1; etc.
 
-La clase Presentation, que representa un archivo de presentación, expone todas las diapositivas como una colección [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) (colección de objetos [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/)). Este código C++ muestra cómo acceder a una diapositiva a través de su índice:
-
+La clase Presentation, que representa un archivo de presentación, expone todas las diapositivas como una colección [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) (colección de objetos [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/)). Este código C++ le muestra cómo acceder a una diapositiva mediante su índice: 
 ```c++
 	// La ruta al directorio de documentos.
 	const String templatePath = u"../templates/AddSlides.pptx";
@@ -22,14 +34,15 @@ La clase Presentation, que representa un archivo de presentación, expone todas 
 	// Instancia la clase Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Obtiene la referencia de una diapositiva a través de su índice
+	// Obtiene una referencia a una diapositiva mediante su índice
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 ```
 
-## **Acceder a la Diapositiva por ID**
 
-Cada diapositiva en una presentación tiene un ID único asociado a ella. Puedes usar el método [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) (expuesto por la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)) para apuntar a ese ID. Este código C++ muestra cómo proporcionar un ID de diapositiva válido y acceder a esa diapositiva a través del método [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/):
 
+## **Acceder a una diapositiva por ID**
+
+Cada diapositiva de una presentación tiene un ID único asociado. Puede usar el método [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) (expuesto por la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)) para dirigirse a ese ID. Este código C++ le muestra cómo proporcionar un ID de diapositiva válido y acceder a esa diapositiva mediante el método [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/):
 ```c++
 	// La ruta al directorio de documentos.
 	const String templatePath = u"../templates/AddSlides.pptx";
@@ -40,21 +53,21 @@ Cada diapositiva en una presentación tiene un ID único asociado a ella. Puedes
 	// Obtiene el ID de una diapositiva
 	int id = pres->get_Slides()->idx_get(0)->get_SlideId();
 
-	// Accede a la diapositiva a través de su ID
+	// Accede a la diapositiva mediante su ID
 	SharedPtr<IBaseSlide> slide = pres->GetSlideById(id);
 ```
 
-## **Cambiar la Posición de la Diapositiva**
 
-Aspose.Slides permite cambiar la posición de una diapositiva. Por ejemplo, puedes especificar que la primera diapositiva debe convertirse en la segunda diapositiva.
+## **Cambiar la posición de una diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtén la referencia de la diapositiva (cuya posición deseas cambiar) a través de su índice.
-1. Establece una nueva posición para la diapositiva a través de la propiedad [set_SlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_slidenumber/).
-1. Guarda la presentación modificada.
+Aspose.Slides le permite cambiar la posición de una diapositiva. Por ejemplo, puede especificar que la primera diapositiva se convierta en la segunda.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtenga la referencia de la diapositiva (cuya posición desea cambiar) mediante su índice
+1. Establezca una nueva posición para la diapositiva mediante la propiedad [set_SlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_slidenumber/). 
+1. Guarde la presentación modificada.
 
 Este código C++ demuestra una operación en la que la diapositiva en la posición 1 se mueve a la posición 2:
-
 ```c++
 	// La ruta al directorio de documentos.
 	const String templatePath = u"../templates/AddSlides.pptx";
@@ -63,7 +76,7 @@ Este código C++ demuestra una operación en la que la diapositiva en la posici�
 	// Instancia la clase Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Obtiene la diapositiva cuya posición será cambiada
+	// Obtiene la diapositiva cuya posición se cambiará
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Establece la nueva posición para la diapositiva
@@ -73,25 +86,26 @@ Este código C++ demuestra una operación en la que la diapositiva en la posici�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-La primera diapositiva se convirtió en la segunda; la segunda diapositiva se convirtió en la primera. Al cambiar la posición de una diapositiva, otras diapositivas se ajustan automáticamente.
 
-## **Establecer Número de Diapositiva**
 
-Usando la propiedad [set_FirstSlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) (expuesta por la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)), puedes especificar un nuevo número para la primera diapositiva en una presentación. Esta operación hace que otros números de diapositivas se recalculen.
+La primera diapositiva pasó a ser la segunda; la segunda diapositiva pasó a ser la primera. Cuando cambia la posición de una diapositiva, las demás diapositivas se ajustan automáticamente.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtén el número de la diapositiva.
-1. Establece el número de la diapositiva.
-1. Guarda la presentación modificada.
+## **Establecer el número de diapositiva**
 
-Este código C++ muestra una operación donde el número de la primera diapositiva se establece en 10:
+Usando la propiedad [set_FirstSlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) (expuesta por la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)), puede especificar un nuevo número para la primera diapositiva de una presentación. Esta operación provoca que se recalculen los números de las demás diapositivas.
 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtenga el número de diapositiva.
+1. Establezca el número de diapositiva.
+1. Guarde la presentación modificada.
+
+Este código C++ demuestra una operación en la que se establece el número de la primera diapositiva en 10: 
 ```c++
 	// La ruta al directorio de documentos.
 	const String outPath = u"../out/SetSlideNumber_out.pptx";
 	const String templatePath = u"../templates/AccessSlides.pptx";
 
-	// Instancia la clase Presentation
+	//Instancia la clase Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 	// Obtiene el número de la diapositiva
@@ -104,8 +118,8 @@ Este código C++ muestra una operación donde el número de la primera diapositi
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-Si prefieres omitir la primera diapositiva, puedes iniciar la numeración desde la segunda diapositiva (y ocultar la numeración para la primera diapositiva) de esta manera:
 
+Si prefiere omitir la primera diapositiva, puede comenzar la numeración a partir de la segunda diapositiva (y ocultar la numeración de la primera diapositiva) de esta manera:
 ```c++
 auto presentation = System::MakeObject<Presentation>();
 
@@ -116,15 +130,30 @@ slides->AddEmptySlide(layoutSlide);
 slides->AddEmptySlide(layoutSlide);
 slides->AddEmptySlide(layoutSlide);
 
-// Establece el número para la primera diapositiva de la presentación
+// Sets the number for the first presentation slide
 presentation->set_FirstSlideNumber(0);
 
-// Muestra los números de las diapositivas para todas las diapositivas
+// Shows slide numbers for all slides
 presentation->get_HeaderFooterManager()->SetAllSlideNumbersVisibility(true);
 
-// Oculta el número de la diapositiva para la primera diapositiva
+// Hides the slide number for the first slide
 slides->idx_get(0)->get_HeaderFooterManager()->SetSlideNumberVisibility(false);
 
-// Guarda la presentación modificada
+// Saves the modified presentation
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**¿El número de diapositiva que ve el usuario coincide con el índice basado en cero de la colección?**
+
+El número que se muestra en una diapositiva puede comenzar en un valor arbitrario (por ejemplo, 10) y no tiene que coincidir con el índice; la relación está controlada por la configuración del [primer número de diapositiva](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) de la presentación.
+
+**¿Las diapositivas ocultas afectan la indexación?**
+
+Sí. Una diapositiva oculta sigue formando parte de la colección y se cuenta en la indexación; “oculta” se refiere a la visualización, no a su posición en la colección.
+
+**¿Cambia el índice de una diapositiva cuando se añaden o eliminan otras diapositivas?**
+
+Sí. Los índices siempre reflejan el orden actual de las diapositivas y se recalculan al insertar, eliminar o mover diapositivas.

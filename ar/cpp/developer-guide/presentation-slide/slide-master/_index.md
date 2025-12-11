@@ -1,122 +1,134 @@
 ---
-title: سلايد ماستر
+title: "إدارة سلائد الشرائح الرئيسية في العروض التقديمية بلغة C++"
+linktitle: "سلادة الشريحة"
 type: docs
 weight: 80
 url: /ar/cpp/slide-master/
-keywords: "إضافة سلايد ماستر، شريحة ماستر PPT، سلايد ماستر باوربوينت، صورة إلى سلايد ماستر، عنصر نائب، عدة سلايد ماستر، مقارنة سلايد ماستر، C++، CPP، Aspose.Slides لـ C++"
-description: "إضافة أو تحرير سلايد ماستر في عرض باوربوينت باستخدام C++"
+keywords:
+- "سلادة شريحة"
+- "شريحة رئيسية"
+- "شريحة رئيسية PPT"
+- "شرائح رئيسية متعددة"
+- "مقارنة الشرائح الرئيسية"
+- "خلفية"
+- "عنصر نائب"
+- "استنساخ شريحة رئيسية"
+- "نسخ شريحة رئيسية"
+- "تكرار شريحة رئيسية"
+- "شريحة رئيسية غير مستخدمة"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- "C++"
+- "Aspose.Slides"
+description: "إدارة سلائد الشرائح الرئيسية في Aspose.Slides للـ C++: إنشاء، تحرير وتطبيق القوالب، السمات والعناصر النائبة على ملفات PPT و PPTX و ODP باستخدام أمثلة مختصرة بلغة C++."
 ---
 
-## **ما هو سلايد ماستر في باوربوينت**
+## **ما هو Slide Master في PowerPoint**
 
-سلايد ماستر هو نموذج شريحة يحدد تخطيطها وأنماطها وثيمها وخطوطها وخلفيتها وخصائص أخرى للشرائح في العرض. إذا كنت ترغب في إنشاء عرض (أو سلسلة من العروض) بنفس النمط والقالب لشركتك، يمكنك استخدام سلايد ماستر.
+**Slide Master** هو قالب شريحة يحدد التنسيق، الأنماط، السمة، الخطوط، الخلفية، والخصائص الأخرى للشرائح في عرض تقديمي. إذا كنت تريد إنشاء عرض تقديمي (أو سلسلة من العروض) بنفس النمط والقالب لشركتك، يمكنك استخدام Slide Master.
 
-يعتبر سلايد ماستر مفيدًا لأنه يتيح لك ضبط وتغيير مظهر جميع الشرائح في العرض مرة واحدة. يدعم Aspose.Slides آلية سلايد ماستر من باوربوينت.
+يعد Slide Master مفيدًا لأنه يتيح لك تعيين وتغيير مظهر جميع شرائح العرض مرة واحدة. يدعم Aspose.Slides آلية Slide Master من PowerPoint.
 
-تسمح لك VBA أيضًا بالتلاعب بسلايد ماستر وتنفيذ نفس العمليات المدعومة في باوربوينت: تغيير الخلفيات، إضافة الأشكال، تخصيص التخطيط، وما إلى ذلك. يوفر Aspose.Slides آليات مرنة تسمح لك باستخدام سلايد ماستر وأداء المهام الأساسية معها.
+كما يتيح VBA التحكم في Slide Master وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة الأشكال، تخصيص التخطيط، إلخ. يوفر Aspose.Slides آليات مرنة لاستخدام Slide Masters وأداء المهام الأساسية معها.
 
-هذه هي العمليات الأساسية لسلايد ماستر:
+هذه هي عمليات Slide Master الأساسية:
 
-- إنشاء أو تعديل سلايد ماستر.
-- تطبيق سلايد ماستر على شرائح العرض.
-- تغيير خلفية سلايد ماستر.
-- إضافة صورة، عنصر نائب، فن ذكي، إلخ. إلى سلايد ماستر.
+- إنشاء أو Slide Master.
+- تطبيق Slide Master على شرائح العرض.
+- تغيير خلفية Slide Master. 
+- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى Slide Master.
 
-هذه هي العمليات الأكثر تقدمًا المتعلقة بسلايد ماستر:
+هذه عمليات أكثر تقدماً تتعلق بـ Slide Master:
 
-- مقارنة سلايد ماستر.
-- دمج سلايد ماستر.
-- تطبيق عدة سلايد ماستر.
-- نسخ الشريحة مع سلايد ماستر إلى عرض تقديمي آخر.
-- اكتشاف سلايد ماستر المكررة في العروض.
-- تعيين سلايد ماستر كعرض افتراضي للعرض.
+- مقارنة Slide Masters.
+- دمج Slide Masters.
+- تطبيق عدة Slide Masters.
+- نسخ شريحة مع Slide Master إلى عرض تقديمي آخر.
+- العثور على Slide Masters مكررة في العروض.
+- تعيين Slide Master كعرض افتراضي للعرض التقديمي.
 
 {{% alert color="primary" %}} 
-
-قد ترغب في الاطلاع على مشاهد Aspose [**عبر الإنترنت**](https://products.aspose.app/slides/viewer) لأنه تنفيذ حي لبعض العمليات الأساسية الموضحة هنا.
-
+قد ترغب في تجربة Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ حي لبعض العمليات الأساسية الموصوفة هنا.
 {{% /alert %}} 
 
-## **كيف يتم تطبيق سلايد ماستر**
+## **كيف يتم تطبيق Slide Master**
 
-قبل أن تعمل مع سلايد ماستر، قد ترغب في فهم كيفية استخدامها في العروض وتطبيقها على الشرائح.
+قبل العمل مع Slide Master، قد ترغب في فهم كيفية استخدامها في العروض وتطبيقها على الشرائح.
 
-* يحتوي كل عرض افتراضيًا على سلايد ماستر واحد على الأقل.
-* يمكن أن يحتوي العرض على عدة سلايد ماستر. يمكنك إضافة عدة سلايد ماستر واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة.
+* يحتوي كل عرض تقديمي على Slide Master واحد على الأقل بشكل افتراضي. 
+* يمكن للعرض التقديمي أن يحتوي على عدة Slide Masters. يمكنك إضافة عدة Slide Masters واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
 
-في **Aspose.Slides**، يتم تمثيل سلايد ماستر بواسطة [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) نوع.
+في **Aspose.Slides**، يُمثل Slide Master النوع [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide).
 
-تحتوي كائن [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) في Aspose.Slides على قائمة [**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) من نوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) ، والتي تحتوي على قائمة بجميع الشرائح الرئيسية المحددة في العرض.
+يحتوي كائن Aspose.Slides [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) على قائمة [**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) التي تضم جميع الشرائح الرئيسية المعرفة في العرض.
 
-بالإضافة إلى عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) على هذه الطرق المفيدة: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) و [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) . يتم وراثة تلك الطرق من وظيفة استنساخ الشريحة الأساسية. ولكن عند التعامل مع سلايد ماستر، تتيح لك تلك الطرق تنفيذ إعدادات معقدة.
+بالإضافة إلى عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) على الطريقتين المفيدتين: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) و[**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311). هذه الطرق موروثة من وظيفة استنساخ الشريحة الأساسية. لكن عند التعامل مع Slide Masters، تسمح لك بتنفيذ إعدادات معقدة.
 
-عندما تتم إضافة شريحة جديدة إلى العرض، يتم تطبيق سلايد ماستر عليها تلقائيًا. يتم اختيار سلايد ماستر للشريحة السابقة بشكل افتراضي.
+عند إضافة شريحة جديدة إلى عرض تقديمي، يتم تطبيق Slide Master عليها تلقائيًا. يتم اختيار Slide Master الخاص بالشريحة السابقة بشكل افتراضي.
 
-**ملاحظة**: يتم تخزين شرائح العرض في قائمة [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) ، ويتم إضافة كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على سلايد ماستر واحد فقط، فإن ذلك السلايد ماستر يتم اختياره لجميع الشرائح الجديدة. هذه هي السبب في أنك لا تحتاج إلى تعريف سلايد ماستر لكل شريحة جديدة تقوم بإنشائها.
+**ملاحظة**: تُخزن شرائح العرض في قائمة [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) ، وتُضاف كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على Slide Master واحد، يتم اختيار ذلك الـ Slide Master لجميع الشرائح الجديدة. هذا هو السبب في أنك لا تحتاج إلى تحديد Slide Master لكل شريحة جديدة تُنشئها.
 
-المبدأ هو نفسه في باوربوينت وAspose.Slides. على سبيل المثال، في باوربوينت، عندما تضيف عرضًا جديدًا، يمكنك فقط الضغط على الخط السفلي تحت آخر شريحة ثم سيتم إنشاء شريحة جديدة (مع سلايد ماستر للعرض الأخير):
+المبدأ نفسه في PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عندما تضيف شريحة جديدة، يمكنك فقط الضغط على الخط السفلي تحت الشريحة الأخيرة ثم تُنشأ شريحة جديدة (مع Slide Master الخاص بالعرض الأخير):
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-في Aspose.Slides، يمكنك أداء المهمة المكافئة باستخدام [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) الطريقة تحت فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) ضمن فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 
-## **سلايد ماستر في تسلسل الشرائح**
+## **Slide Master في هيكل Slides**
 
-استخدام تخطيطات الشرائح مع سلايد ماستر يسمح بأقصى قدر من المرونة. يسمح لك تخطيط الشريحة بتعيين جميع الأنماط نفسها مثل سلايد ماستر (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عند الجمع بين عدة تخطيطات شرائح على سلايد ماستر، يتم إنشاء نمط جديد. عند تطبيق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها عن النمط المعتمد من قبل سلايد ماستر.
+استخدام Slide Layouts مع Slide Master يتيح أقصى قدر من المرونة. يتيح Slide Layout لك تعيين جميع الأنماط نفسها كما في Slide Master (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عندما يتم دمج عدة Slide Layouts على Slide Master، يُنشأ نمط جديد. عند تطبيق Slide Layout على شريحة واحدة، يمكنك تغيير نمطها عن النمط المُطبق من قبل Slide Master.
 
-يتفوق سلايد ماستر على جميع العناصر المثبتة: سلايد ماستر -> تخطيط شريحة -> شريحة:
+Slide Master يسبق جميع عناصر الإعداد: Slide Master → Slide Layout → Slide:
 
 ![todo:image_alt_text](slide-master_2)
 
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) يحتوي على خاصية [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) مع قائمة من تخطيطات الشرائح. تحتوي نوع [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) على خاصية [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) مع ارتباط إلى تخطيط الشريحة المعتمد على الشريحة. يحدث التفاعل بين الشريحة وسلايد ماستر من خلال تخطيط الشريحة.
+كل كائن [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) يحتوي على الخاصية [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) التي تُرجع قائمة Slide Layouts. نوع [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) يمتلك الخاصية [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) التي تُشير إلى Slide Layout المُطبق على الشريحة. التفاعل بين الشريحة وSlide Master يتم عبر Slide Layout.
 
-{{% alert color="info" title="ملاحظة" %}}
-
-* في Aspose.Slides، يتم تنفيذ جميع إعدادات الشرائح (سلايد ماستر، وتخطيط الشريحة، والشريحة نفسها) ككائنات شرائح تنفذ واجهة [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide).
-* لذلك، قد تنفذ سلايد ماستر وتخطيط الشريحة نفس الخصائص، وتحتاج إلى معرفة كيف سيتم تطبيق قيمها على كائن [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) . يتم تطبيق سلايد ماستر أولاً على الشريحة ثم يتم تطبيق تخطيط الشريحة. على سبيل المثال، إذا كان لدى سلايد ماستر وتخطيط الشريحة كلاهما قيمة خلفية، ستنتهي الشريحة بالخلفية من تخطيط الشريحة.
-
+{{% alert color="info" title="Note" %}}
+* في Aspose.Slides، جميع إعدادات الشريحة (Slide Master، Slide Layout، والشريحة نفسها) هي في الواقع كائنات شريحة تُطبق واجهة [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide).
+* وبالتالي، قد ينفذ كل من Slide Master وSlide Layout نفس الخصائص ويجب أن تعرف كيف سيتم تطبيق قيمهما على كائن [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide). يُطبق Slide Master أولًا على الشريحة ثم يُطبق Slide Layout. على سبيل المثال، إذا كان لكلٍ منهما قيمة خلفية، ستحصل الشريحة في النهاية على الخلفية من Slide Layout.
 {{% /alert %}}
 
-## **ماذا يحتوي سلايد ماستر**
+## **ما يُكوّن Slide Master**
 
-لفهم كيف يمكن تغيير سلايد ماستر، تحتاج إلى معرفة مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) .
+لفهم كيفية تعديل Slide Master، عليك معرفة مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/):
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - الحصول على/تعيين خلفية الشريحة.
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - الحصول على/تعيين أنماط النص لجسم الشريحة.
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - الحصول على/تعيين جميع أشكال سلايد ماستر (عناصر نائب، إطارات صور، إلخ).
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - الحصول على/تعيين عناصر التحكم ActiveX.
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - الحصول على مدير الثيمات.
+- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - الحصول/تعيين خلفية الشريحة.
+- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - الحصول/تعيين أنماط النص لجسم الشريحة.
+- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - الحصول/تعيين جميع الأشكال في Slide Master (عناصر نائب، إطارات صور، إلخ).
+- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - الحصول/تعيين عناصر تحكم ActiveX.
+- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - الحصول على مدير السمة.
 - [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - الحصول على مدير الرأس والتذييل.
 
-طرق سلايد ماستر:
+طرق Slide Master:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - الحصول على جميع الشرائح المعتمدة على سلايد ماستر.
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - يتيح لك إنشاء سلايد ماستر جديدة بناءً على سلايد ماستر الحالية وثيم جديدة. سيتم تطبيق سلايد ماستر الجديدة على جميع الشرائح المعتمدة.
+- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - الحصول على جميع الشرائح التي تعتمد على Slide Master.
+- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - يتيح لك إنشاء Slide Master جديد بناءً على Slide Master الحالي وسمة جديدة. سيتم تطبيق الـ Slide Master الجديد على جميع الشرائح التابعة.
 
-## **الحصول على سلايد ماستر**
+## **الحصول على Slide Master**
 
-في باوربوينت، يمكن الوصول إلى سلايد ماستر من قائمة العرض -> سلايد ماستر:
+في PowerPoint، يمكن الوصول إلى Slide Master عبر القائمة View → Slide Master:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-باستخدام Aspose.Slides، يمكنك الوصول إلى سلايد ماستر بهذه الطريقة:
-
+باستخدام Aspose.Slides، يمكنك الوصول إلى Slide Master بهذه الطريقة:
 ```c++
 System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
 ```
 
-تمثل واجهة [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) سلايد ماستر. تحتوي خاصية [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) (المتعلقة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection)) على قائمة بجميع سلايد ماستر التي تم تعريفها في العرض.
 
-## **إضافة صورة إلى سلايد ماستر**
+تمثل واجهة [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) Slide Master. الخاصية [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) (المرتبطة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection)) تحتوي على قائمة بجميع Slide Masters المعرفة في العرض.
 
-عند إضافة صورة إلى سلايد ماستر، ستظهر تلك الصورة على جميع الشرائح المعتمدة على سلايد ماستر تلك.
+## **إضافة صورة إلى Slide Master**
 
-على سبيل المثال، يمكنك وضع شعار شركتك وبعض الصور على سلايد ماستر ثم العودة إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.
+عند إضافة صورة إلى Slide Master، ستظهر تلك الصورة على جميع الشرائح التي تعتمد على هذا الـ Slide Master.
+
+على سبيل المثال، يمكنك وضع شعار شركتك وبعض الصور على Slide Master ثم الرجوع إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.
 
 ![todo:image_alt_text](slide-master_4.png)
 
-يمكنك إضافة صور إلى سلايد ماستر باستخدام Aspose.Slides:
-
+يمكنك إضافة صور إلى Slide Master باستخدام Aspose.Slides:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -126,39 +138,35 @@ pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
 
-لمزيد من المعلومات حول إضافة الصور إلى الشريحة، انظر المقالة [إطار الصورة](/slides/ar/cpp/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="See also" %}} 
+لمزيد من المعلومات حول إضافة الصور إلى شريحة، راجع مقالة [Picture Frame](/slides/ar/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
-## **إضافة عنصر نائب إلى سلايد ماستر**
+## **إضافة عنصر نائب إلى Slide Master**
 
-هذه الحقول النصية هي عناصر نائب قياسية على سلايد ماستر:
+هذه الحقول النصية هي عناصر نائب قياسية على Slide Master:
 
-* انقر لتحرير نمط عنوان السلايد
-
-* تحرير أنماط نص السلايد
-
+* انقر لتحرير نمط عنوان الـ Master
+* تحرير أنماط نص الـ Master
 * المستوى الثاني
+* المستوى الثالث
 
-* المستوى الثالث 
+تظهر أيضًا على الشرائح المستندة إلى Slide Master. يمكنك تحرير تلك العناصر النائبة على Slide Master وسيتم تطبيق التغييرات تلقائيًا على الشرائح.
 
-تظهر أيضًا على الشرائح بناءً على سلايد ماستر. يمكنك تحرير تلك العناصر النائبة على سلايد ماستر وسيتم تطبيق التغييرات تلقائيًا على الشرائح.
-
-في باوربوينت، يمكنك إضافة عنصر نائب من خلال مسار سلايد ماستر -> إدراج عنصر نائب:
+في PowerPoint، يمكنك إضافة عنصر نائب عبر مسار Slide Master → Insert Placeholder:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-دعنا نفحص مثالًا أكثر تعقيدًا لعناصر نائب باستخدام Aspose.Slides. اعتبر شريحة تحتوي على عناصر نائب مُعدة من سلايد ماستر:
+لنستعرض مثالًا أكثر تعقيدًا للعناصر النائبة مع Aspose.Slides. اعتبار شريحة تحتوي على عناصر نائب مُقَصَّدة من Slide Master:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-نريد تغيير تنسيق العنوان والعنوان الفرعي على سلايد ماستر بهذه الطريقة:
+نريد تغيير تنسيق العنوان والعنوان الفرعي على Slide Master بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-أولاً، نسترجع محتوى عنصر نائب العنوان من كائن سلايد ماستر ثم نستخدم حقل `PlaceHolder.FillFormat`:
-
+أولاً، نسترجع محتوى عنصر العنوان النائب من كائن Slide Master ثم نستخدم الحقل `PlaceHolder.FillFormat`:
 ```c++
 System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
 {
@@ -192,21 +200,19 @@ void Main()
 }
 ```
 
-سيتغير نمط العنوان وتنسيقه لجميع الشرائح بناءً على سلايد ماستر:
+
+سيتغير نمط العنوان والتنسيق لجميع الشرائح المستندة إلى Slide Master:
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
-
-* [تعيين نص التذكير في عنصر نائب](https://docs.aspose.com/slides/cpp/manage-placeholder/)
-* [تنسيق النص](https://docs.aspose.com/slides/cpp/text-formatting/)
-
+{{% alert color="primary" title="See also" %}} 
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/cpp/manage-placeholder/)
+* [Text Formatting](https://docs.aspose.com/slides/cpp/text-formatting/)
 {{% /alert %}}
 
-## **تغيير الخلفية على سلايد ماستر**
+## **تغيير الخلفية على Slide Master**
 
-عند تغيير لون خلفية سلايد ماستر، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يُظهر هذا الرمز C++ العملية:
-
+عند تغيير لون خلفية الشريحة الرئيسية، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. توضح هذه الشيفرة C++ العملية:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -219,18 +225,15 @@ background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::C
 pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
 
-- [خلفية العرض](https://docs.aspose.com/slides/cpp/presentation-background/)
+{{% alert color="primary" title="See also" %}} 
+- [Presentation Background](https://docs.aspose.com/slides/cpp/presentation-background/)
+- [Presentation Theme](https://docs.aspose.com/slides/cpp/presentation-theme/)
+{{% /alert %}}
 
-- [ثيم العرض](https://docs.aspose.com/slides/cpp/presentation-theme/)
+## **استنساخ Slide Master إلى عرض تقديمي آخر**
 
-  {{% /alert %}}
-
-## **استنساخ سلايد ماستر إلى عرض تقدمي آخر**
-
-لاستنساخ سلايد ماستر إلى عرض موديل آخر، اتصل بطريقة [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) من العرض المقصود مع تمرير سلايد ماستر إليها. يُظهر هذا الرمز C++ كيف يمكنك استنساخ سلايد ماستر إلى عرض تقديمي آخر:
-
+لنسخ Slide Master إلى عرض تقديمي آخر، استدعِ طريقة [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) من العرض الوجهة مع تمرير Slide Master إليه. تُظهر هذه الشيفرة C++ كيفية استنساخ Slide Master إلى عرض تقديمي آخر:
 ```c++
 auto presSource = System::MakeObject<Presentation>();
 auto presTarget = System::MakeObject<Presentation>();
@@ -238,40 +241,40 @@ auto presTarget = System::MakeObject<Presentation>();
 auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
 ```
 
-## **إضافة عدة سلايد ماستر إلى العرض**
 
-تسمح Aspose.Slides لك بإضافة عدة سلايد ماستر وتخطيطات شرائح إلى أي عرض محدد. يتيح لك ذلك إعداد الأنماط والتخطيطات وخيارات التنسيق لشرائح العرض بطرق عديدة.
+## **إضافة عدة Slide Masters إلى عرض تقديمي**
 
-في باوربوينت، يمكنك إضافة سلايد ماستر وتخطيط جديدة (من قائمة "سلايد ماستر") بهذه الطريقة:
+يسمح Aspose.Slides لك بإضافة عدة Slide Masters وSlide Layouts إلى أي عرض تقديمي. يتيح لك ذلك إعداد الأنماط والتخطيطات وخيارات التنسيق لشرائح العرض بطرق متعددة.
+
+في PowerPoint، يمكنك إضافة Slide Masters وLayouts جديدة (من قائمة "Slide Master") بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-باستخدام Aspose.Slides، يمكنك إضافة سلايد ماستر جديدة عن طريق استدعاء طريقة [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48):
-
+باستخدام Aspose.Slides، يمكنك إضافة Slide Master جديد باستدعاء طريقة [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48):
 ```c++
 pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
 ```
 
-## **مقارنة سلايد ماستر**
 
-ت implement سلايد ماستر واجهة [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) التي تحتوي على طريقة [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) ، والتي يمكن استخدامها لمقارنة الشرائح. وترجع `true` لسلايد ماستر المتماثلة في الهيكل والمحتوى الثابت.
+## **مقارنة Slide Masters**
 
-تكون سلايد ماستر متساوية إذا كانت أشكالها وأنماطها ونصوصها وتأثيراتها والإعدادات الأخرى وما إلى ذلك متساوية. لا تأخذ المقارنة في الاعتبار قيم المعرف الفريد (على سبيل المثال: SlideId) والمحتوى الديناميكي (على سبيل المثال: القيمة الحالية في عنصر نائب التاريخ).
+تنفّذ شريحة Master واجهة [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) التي تحتوي على طريقة [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) يمكن استخدامها لمقارنة الشرائح. تُرجع `true` عندما تكون Slide Masters متماثلة في الهيكل والمحتوى الثابت.
 
-## **تعيين سلايد ماستر كعرض افتراضي للعرض**
+تُعد الشرائح متساوية إذا كانت الأشكال والأنماط والنصوص والرسوم المتحركة والإعدادات الأخرى متطابقة. لا تأخذ المقارنة بعين الاعتبار القيم الفريدة للمعرف (مثل SlideId) أو المحتوى الديناميكي (مثل قيمة التاريخ الحالية في عنصر نائب التاريخ).
 
-تسمح Aspose.Slides لك بتعيين سلايد ماستر كعرض افتراضي لعرض تقديمي. العرض الافتراضي هو ما تراه أولاً عند فتح العَرض.
+## **تعيين Slide Master كعرض افتراضي للعرض التقديمي**
 
-يظهر هذا الرمز لك كيفية تعيين سلايد ماستر كعرض افتراضي لعَرض تقديمي في C++:
+يسمح Aspose.Slides لك بتعيين Slide Master كعرض افتراضي للعرض التقديمي. العرض الافتراضي هو ما تراه أولاً عند فتح العرض.
 
+تُظهر هذه الشيفرة كيفية تعيين Slide Master كعرض افتراضي للعرض التقديمي في C++:
 ```c++
 pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
 ```
 
-## **إزالة سلايد ماستر غير المستخدمة**
 
-توفر Aspose.Slides طريقة [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) للسماح لك بحذف سلايد ماستر غير مرغوب فيه وغير مستخدم. يُظهر هذا الرمز C++ كيف يمكنك إزالة سلايد ماستر من عرض باوربوينت:
+## **إزالة Slide Masters غير المستخدمة**
 
+يوفر Aspose.Slides طريقة [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) لتسمح لك بحذف Slide Masters غير المرغوب فيها وغير المستخدمة. تُظهر هذه الشيفرة C++ كيفية إزالة Slide Master من عرض PowerPoint:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -279,3 +282,45 @@ LowCode::Compress::RemoveUnusedMasterSlides(pres);
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**ما هو Slide Master في PowerPoint؟**
+
+Slide Master هو قالب شريحة يحدد التخطيط، الأنماط، السمات، الخطوط، الخلفية، والخصائص الأخرى للشرائح في عرض تقديمي. يتيح لك تعيين وتغيير مظهر جميع شرائح العرض مرة واحدة.
+
+**كيف يُطبق Slide Master في عرض تقديمي؟**
+
+كل عرض تقديمي يحتوي على Slide Master واحد على الأقل بشكل افتراضي. عند إضافة شريحة جديدة، يُطبق Slide Master عليها تلقائيًا، عادةً ما يكون Master الشريحة السابقة هو المختار. يمكن للعرض أن يحتوي على عدة Slide Masters لتنسيق أجزاء مختلفة بطريقة فريدة.
+
+**ما العناصر التي يمكن تخصيصها في Slide Master؟**
+
+يتكوّن Slide Master من عدة خصائص أساسية يمكن تخصيصها:
+
+- **Background**: تعيين خلفية الشريحة.
+- **BodyStyle**: تعريف أنماط النص لجسم الشريحة.
+- **Shapes**: إدارة جميع الأشكال على Slide Master، بما في ذلك العناصر النائبة وإطارات الصور.
+- **Controls**: التعامل مع عناصر تحكم ActiveX.
+- **ThemeManager**: الوصول إلى مدير السمة.
+- **HeaderFooterManager**: إدارة الرؤوس والتذييلات.
+
+**كيف يمكنني إضافة صورة إلى Slide Master؟**
+
+إضافة صورة إلى Slide Master يضمن ظهورها على جميع الشرائح التي تعتمد على ذلك الـ Master. على سبيل المثال، وضع شعار الشركة على Slide Master سيظهر على كل شريحة في العرض.
+
+**كيف يرتبط Slide Master بـ Slide Layouts؟**
+
+تعمل Slide Layouts بالتعاون مع Slide Master لتوفير مرونة في تصميم الشرائح. بينما يحدد Slide Master الأنماط والسمات العامة، تسمح Slide Layouts بتغييرات في ترتيب المحتوى. الت hierarchy كالتالي:
+
+- **Slide Master** → يحدد الأنماط العامة.
+- **Slide Layout** → يوفر ترتيبات محتوى مختلفة.
+- **Slide** → يرث التصميم من Slide Layout الخاص به.
+
+**هل يمكن أن يكون لدي عدة Slide Masters في عرض تقديمي واحد؟**
+
+نعم، يمكن للعرض أن يحتوي على عدة Slide Masters. يتيح لك ذلك تنسيق أقسام مختلفة من العرض بطرق متنوعة، مما يوفر مرونة في التصميم.
+
+**كيف يمكنني الوصول إلى Slide Master وتعديله باستخدام Aspose.Slides؟**
+
+في Aspose.Slides، يُمثّل Slide Master الواجهة [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/). يمكنك الوصول إلى Slide Master باستخدام طريقة [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) لكائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).

@@ -1,277 +1,276 @@
 ---
-title: スライドレイアウト
+title: C++ でスライドレイアウトを適用または変更する
+linktitle: スライドレイアウト
 type: docs
 weight: 60
 url: /ja/cpp/slide-layout/
-keyword: "スライドサイズの設定、スライドオプションの設定、スライドサイズの指定、フッターの表示、子フッター、コンテンツのスケーリング、ページサイズ、C++、CPP、Aspose.Slides"
-description: "C++でPowerPointスライドのサイズとオプションを設定する"
+keywords:
+- スライドレイアウト
+- コンテンツレイアウト
+- プレースホルダー
+- プレゼンテーション設計
+- スライドデザイン
+- 未使用レイアウト
+- フッター表示
+- タイトルスライド
+- タイトルとコンテンツ
+- セクションヘッダー
+- 2コンテンツ
+- 比較
+- タイトルのみ
+- 空白レイアウト
+- キャプション付きコンテンツ
+- キャプション付き画像
+- タイトルと縦テキスト
+- 縦タイトルとテキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ でスライドレイアウトを管理・カスタマイズします。レイアウトの種類、プレースホルダーの制御、フッター表示を C++ のコード例を通じて学びます。"
 ---
 
-スライドレイアウトには、スライド上に表示されるすべてのコンテンツのためのプレースホルダーのボックスと書式設定情報が含まれています。レイアウトは、利用可能なコンテンツプレースホルダーとそれらの配置場所を決定します。
+## **概要**
 
-スライドレイアウトを使用すると、プレゼンテーションを迅速に作成およびデザインできます（単純なものでも複雑なものでも）。これらは、PowerPointプレゼンテーションで使用される最も一般的なスライドレイアウトのいくつかです：
+スライド レイアウトは、プレースホルダー ボックスの配置とスライド上のコンテンツの書式設定を定義します。利用可能なプレースホルダーとその表示位置を制御します。スライド レイアウトを使用すると、シンプルなものから複雑なものまで、プレゼンテーションを迅速かつ一貫してデザインできます。PowerPoint で最も一般的なスライド レイアウトには次のようなものがあります。
 
-* **タイトルスライドレイアウト**。このレイアウトは、2つのテキストプレースホルダーで構成されています。1つのプレースホルダーはタイトル用、もう1つはサブタイトル用です。
-* **タイトルとコンテンツレイアウト**。このレイアウトは、上部にタイトル用の比較的小さなプレースホルダーと、コアコンテンツ（チャート、段落、箇条書きリスト、番号付きリスト、画像など）用のより大きなプレースホルダーが含まれています。
-* **空白のレイアウト**。このレイアウトはプレースホルダーがなく、ゼロから要素を作成することができます。
+**タイトル スライド レイアウト** – タイトル用のテキスト プレースホルダー 1 つとサブタイトル用のテキスト プレースホルダー 1 つの計 2 つが含まれます。
 
-スライドマスターは、スライドレイアウトに関する情報を格納する最上位の階層スライドであるため、マスタースライドを使用してスライドレイアウトにアクセスし、変更を加えることができます。レイアウトスライドは、そのタイプまたは名前によってアクセスできます。同様に、すべてのスライドには一意のIDがあり、それを使用してアクセスできます。
+**タイトルとコンテンツ レイアウト** – 上部に小さなタイトル プレースホルダー、下部にテキスト、箇条書き、チャート、画像などのメイン コンテンツ用の大きなプレースホルダーが配置されています。
 
-あるいは、プレゼンテーション内の特定のスライドレイアウトに直接変更を加えることもできます。
+**ブランク レイアウト** – プレースホルダーがなく、スライドをゼロからデザインできる完全な自由度があります。
 
-* スライドレイアウト（マスタースライド内のものを含む）を操作できるように、Aspose.Slidesは、[get_LayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/)や[get_Masters()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/)などのプロパティを[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスの下で提供します。
-* 関連するタスクを実行するために、Aspose.Slidesは[MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/masterlayoutslidecollection/)、[SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/)、[BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/baseslideheaderfootermanager/)など、他の多くのタイプを提供します。
+スライド レイアウトはスライド マスターの一部であり、スライド マスターはプレゼンテーション全体のレイアウト スタイルを定義する最上位のスライドです。レイアウト スライドはスライド マスターを介して、タイプ、名前、または一意の ID でアクセスおよび変更できます。あるいは、プレゼンテーション内で特定のレイアウト スライドを直接編集することも可能です。
 
-{{% alert title="情報" color="info" %}}
+Aspose.Slides for Android でスライド レイアウトを操作するには、次のものを使用できます。
 
-特にマスタースライドでの操作に関する詳細は、[Slide Master](https://docs.aspose.com/slides/cpp/slide-master/)の記事を参照してください。
+- [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスの下にある [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) や [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) などのメソッド
+- [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/)、[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/) などの型
 
+{{% alert title="Info" color="info" %}}
+マスタースライドの操作方法の詳細については、[Slide Master](/slides/ja/cpp/slide-master/) 記事をご覧ください。
 {{% /alert %}}
 
-## **プレゼンテーションにスライドレイアウトを追加**
+## **プレゼンテーションへのスライド レイアウトの追加**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. [MasterSlideコレクション](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/)にアクセスします。
-1. 既存のレイアウトスライドを確認し、必要なレイアウトスライドがレイアウトスライドコレクション内に存在することを確認します。存在しない場合は、追加したいレイアウトスライドを追加します。
-1. 新しいレイアウトスライドに基づいて空のスライドを追加します。
+スライドの外観と構造をカスタマイズするために、プレゼンテーションに新しいレイアウト スライドを追加する必要がある場合があります。Aspose.Slides for Android を使用すると、特定のレイアウトが既に存在するかどうかを確認し、必要に応じて新しいレイアウトを追加し、そのレイアウトに基づいてスライドを挿入できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/) にアクセスします。
+1. 希望するレイアウト スライドがコレクションに既に存在するか確認します。存在しない場合は必要なレイアウト スライドを追加します。
+1. 新しいレイアウト スライドに基づいて空のスライドを追加します。
 1. プレゼンテーションを保存します。
 
-このC++コードは、PowerPointプレゼンテーションにスライドレイアウトを追加する方法を示しています：
+以下の C++ コードは、PowerPoint プレゼンテーションにスライド レイアウトを追加する方法を示しています。
+```cpp
+// PowerPoint ファイルを表す Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-// ドキュメントディレクトリへのパス
-const String templatePath = u"../templates/AddSlides.pptx";
-const String outPath = u"../out/AddLayoutSlides.pptx";
-
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-// レイアウトスライドタイプを通過する
-SharedPtr<IMasterLayoutSlideCollection> layoutSlides = pres->get_Masters()->idx_get(0)->get_LayoutSlides();
-
+// Go through the layout slide types to select a layout slide.
+auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
 SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
 {
-	layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
 }
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
 {
-	layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
-}
-
-if (layoutSlide == NULL)
-{
-	// プレゼンテーションに特定のレイアウトタイプが含まれていない状況
-	// プレゼンテーションファイルには空白とカスタムレイアウトタイプのみが含まれています。
-	// しかし、カスタムタイプのレイアウトスライドには異なるスライド名があります、
-	// 例えば「タイトル」「タイトルとコンテンツ」など。これらの
-	// 名前を使用してレイアウトスライドを選択することができます。
-	// プレースホルダーのシェイプタイプのセットを使用することもできます。例えば、
-	// タイトルスライドには、タイトルプレースホルダータイプのみが必要です。
-
-	for (int i = 0; i < layoutSlides->get_Count(); i++)
-	{
-		SharedPtr<ILayoutSlide> titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-		if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-		{
-			layoutSlide = titleAndObjectLayoutSlide;
-			break;
-		}
-	}
-
-	if (layoutSlide == NULL)
-	{
-		for (int i = 0; i < layoutSlides->get_Count(); i++)
-		{
-			SharedPtr<ILayoutSlide> titleLayoutSlide = layoutSlides->idx_get(i);
-
-			if (titleLayoutSlide->get_Name().Equals(u"Title"))
-			{
-				layoutSlide = titleLayoutSlide;
-				break;
-			}
-		}
-
-		if (layoutSlide == NULL)
-		{
-			layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-			if (layoutSlide == NULL)
-			{
-				layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-			}
-		}
-	}
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
 }
 
-// 追加されたレイアウトスライドを持つ空白のスライドを追加  
-pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
+if (layoutSlide == nullptr)
+{
+    // プレゼンテーションにすべてのレイアウトタイプが含まれていない状況です。
+    // プレゼンテーション ファイルには Blank と Custom のレイアウト タイプのみが含まれています。
+    // ただし、カスタムタイプのレイアウトスライドは認識可能な名前を持つ場合があります、
+    // 例えば "Title"、"Title and Content" などで、レイアウトスライドの選択に使用できます。
+    // プレースホルダー シェイプ タイプのセットに頼ることもできます。
+    // 例えば、Title スライドは Title プレースホルダー タイプだけを持つべきです、など。
+    for (int i = 0; i < layoutSlides->get_Count(); i++)
+    {
+        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
 
-// プレゼンテーションをディスクに保存
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
+        {
+            layoutSlide = titleAndObjectLayoutSlide;
+            break;
+        }
+    }
+
+    if (layoutSlide == nullptr)
+    {
+        for (int i = 0; i < layoutSlides->get_Count(); i++)
+        {
+            auto titleLayoutSlide = layoutSlides->idx_get(i);
+
+            if (titleLayoutSlide->get_Name() == u"Title")
+            {
+                layoutSlide = titleLayoutSlide;
+                break;
+            }
+        }
+
+        if (layoutSlide == nullptr)
+        {
+            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
+            if (layoutSlide == nullptr)
+            {
+                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
+            }
+        }
+    }
+}
+
+// 追加したレイアウトスライドを使用して空のスライドを追加します。
+presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
+
+// Save the presentation to disk.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **未使用レイアウトスライドを削除**
 
-Aspose.Slidesは、[RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/)メソッドを[Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)クラスから提供し、不要で未使用のレイアウトスライドを削除できるようにします。このC++コードは、PowerPointプレゼンテーションからレイアウトスライドを削除する方法を示しています：
+## **未使用のレイアウト スライドの削除**
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+Aspose.Slides は、[Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) クラスの [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) メソッドを提供し、不要な未使用レイアウト スライドを削除できます。
 
-LowCode::Compress::RemoveUnusedLayoutSlides(pres);
+以下の C++ コードは、PowerPoint プレゼンテーションからレイアウト スライドを削除する方法を示しています。
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **スライドレイアウトのサイズとタイプを設定**
 
-特定のレイアウトスライドのサイズとタイプを設定できるように、Aspose.Slidesは[get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/)および[get_Size()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_size/)プロパティ（[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスから）を提供します。このC++は操作を示します：
+## **スライド レイアウトへのプレースホルダーの追加**
 
-```c++
-// ドキュメントディレクトリへのパス
-const String templatePath = u"../templates/AddSlides.pptx";
-const String outPath = u"../out/CloneToAnotherPresentationWithSetSizeAndType.pptx";
-// プレゼンテーションファイルを表すPresentationオブジェクトを作成
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+Aspose.Slides は、[ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) メソッドを提供し、レイアウト スライドに新しいプレースホルダーを追加できます。
 
-SharedPtr<Presentation> destPres = MakeObject<Presentation>();
+このマネージャーには、次のプレースホルダー タイプ用のメソッドが含まれています。
 
-// コレクションからIDでスライドにアクセス
-SharedPtr<ISlideCollection> slideCollection = destPres->get_Slides();
+| PowerPoint プレースホルダー              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![コンテンツ](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![コンテンツ (縦向き)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![テキスト](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![テキスト (縦向き)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![画像](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![チャート](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![表](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![メディア](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![オンライン画像](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-// 生成したプレゼンテーションのスライドサイズをソースのものに設定
-destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
+以下の C++ コードは、ブランク レイアウト スライドに新しいプレースホルダー シェイプを追加する方法を示しています。
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
+// Blank レイアウトスライドを取得します。
+auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// プレゼンテーションをディスクに保存
-destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// レイアウトスライドのプレースホルダーマネージャーを取得します。
+auto placeholderManager = layout->get_PlaceholderManager();
+
+// Blank レイアウトスライドにさまざまなプレースホルダーを追加します。
+placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+
+// Add a new slide with the Blank layout.
+auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
+
+presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **スライド内のフッターの表示を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを介してスライドの参照を取得します。
-1. スライドフッタープレースホルダーを表示に設定します。
-1. 日付時刻プレースホルダーを表示に設定します。
+結果:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **レイアウト スライドのフッター表示設定**
+
+PowerPoint プレゼンテーションでは、日付、スライド番号、カスタム テキストなどのフッター要素は、スライド レイアウトに応じて表示・非表示を切り替えることができます。Aspose.Slides for Android を使用すると、これらのフッター プレースホルダーの表示状態を制御できます。特定のレイアウトでフッター情報を表示し、他のレイアウトではシンプルに保ちたい場合に便利です。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでレイアウト スライドの参照を取得します。
+1. スライド フッター プレースホルダーを表示に設定します。
+1. スライド 番号 プレースホルダーを表示に設定します。
+1. 日付/時刻 プレースホルダーを表示に設定します。
 1. プレゼンテーションを保存します。
 
-このC++コードは、スライドフッターの表示状態を設定する方法（および関連するタスクを実行する）を示しています：
+以下の C++ コードは、スライド フッターの表示状態を設定し、関連タスクを実行する方法を示しています。
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
+auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
-```c++
-// ドキュメントディレクトリへのパス
-const String outPath = u"../out/HeaderFooterManager_out.pptx";
-
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-
-// SlideCollectionクラスのインスタンスを作成
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-//	SharedPtr<IBaseSlideHeaderFooterManager> headerFooterManager = presentation->get_Slides()->idx_get(0)->get_HeaderFooterManager();
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-if (!headerFooterManager->get_IsFooterVisible()) // プロパティIsFooterVisibleは、スライドフッタープレースホルダーが欠けていることを指定します
+if (!headerFooterManager->get_IsFooterVisible())
 {
-	headerFooterManager->SetFooterVisibility(true); // メソッドSetFooterVisibilityは、スライドフッタープレースホルダーを表示に設定します
+    headerFooterManager->SetFooterVisibility(true);
 }
-if (!headerFooterManager->get_IsSlideNumberVisible()) // プロパティIsSlideNumberVisibleは、スライドページ番号プレースホルダーが欠けていることを指定します
-{
-	headerFooterManager->SetSlideNumberVisibility(true); // メソッドSetSlideNumberVisibilityは、スライドページ番号プレースホルダーを表示に設定します
-}
-if (!headerFooterManager->get_IsDateTimeVisible()) // プロパティIsDateTimeVisibleは、スライド日付時刻プレースホルダーが欠けていることを指定します
-{
-	headerFooterManager->SetDateTimeVisibility(true); // メソッドSetDateTimeVisibilityは、スライド日付時刻プレースホルダーを表示に設定します
-}
-headerFooterManager->SetFooterText(u"フッターのテキスト"); // メソッドSetFooterTextは、スライドフッタープレースホルダーのテキストを設定します
-headerFooterManager->SetDateTimeText(u"日付と時刻のテキスト"); // メソッドSetDateTimeTextは、スライド日付時刻プレースホルダーのテキストを設定します。
 
-// プレゼンテーションをディスクに保存
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+if (!headerFooterManager->get_IsSlideNumberVisible())
+{
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+if (!headerFooterManager->get_IsDateTimeVisible())
+{
+    headerFooterManager->SetDateTimeVisibility(true);
+}
+
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **スライド内の子フッターの表示を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを介してマスタースライドの参照を取得します。
-1. マスタースライドおよびすべての子フッタープレースホルダーを表示に設定します。
-1. マスタースライドおよびすべての子フッタープレースホルダーのテキストを設定します。
-1. マスタースライドおよびすべての子日付時刻プレースホルダーのテキストを設定します。
+## **スライドの子フッター表示設定**
+
+PowerPoint プレゼンテーションでは、日付、スライド番号、カスタム テキストなどのフッター要素はマスタースライド レベルで制御でき、すべてのレイアウト スライドに一貫した表示を確保できます。Aspose.Slides for Android は、マスタースライド上でこれらフッター プレースホルダーの表示状態と内容を設定し、その設定をすべての子レイアウト スライドに伝播させることができます。このアプローチにより、プレゼンテーション全体で統一されたフッター情報が保たれます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでマスタースライドの参照を取得します。
+1. マスターとすべての子フッター プレースホルダーを表示に設定します。
+1. マスターとすべての子スライド番号 プレースホルダーを表示に設定します。
+1. マスターとすべての子日付/時刻 プレースホルダーを表示に設定します。
 1. プレゼンテーションを保存します。
 
-このC++コードは、操作を示しています：
+以下の C++ コードは、この操作を実演しています。
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// ドキュメントディレクトリへのパス
-const String outPath = u"../out/SetChildFooter_out.pptx";
+auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+headerFooterManager->SetFooterAndChildFootersVisibility(true);
+headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
 
-// SlideCollectionクラスのインスタンスを作成
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
+headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-headerFooterManager->SetFooterAndChildFootersVisibility(true); // メソッドSetFooterAndChildFootersVisibilityは、マスタースライドおよびすべての子フッタープレースホルダーを表示に設定します
-headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true); // メソッドSetSlideNumberAndChildSlideNumbersVisibilityは、マスタースライドおよびすべての子ページ番号プレースホルダーを表示に設定します
-headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true); // メソッドSetDateTimeAndChildDateTimesVisibilityは、マスタースライドおよびすべての子日付時刻プレースホルダーを表示に設定します
-
-headerFooterManager->SetFooterAndChildFootersText(u"フッターのテキスト"); // メソッドSetFooterAndChildFootersTextは、マスタースライドおよびすべての子フッタープレースホルダーのテキストを設定します
-headerFooterManager->SetDateTimeAndChildDateTimesText(u"日付と時刻のテキスト"); // メソッドSetDateTimeAndChildDateTimesTextは、マスタースライドおよびすべての子日付時刻プレースホルダーのテキストを設定します
-
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **コンテンツスケーリングに応じてスライドサイズを設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成し、サイズを設定したいスライドが含まれたプレゼンテーションを読み込む。
-1. 生成する新しいプレゼンテーションのために、別の[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを介してスライドの参照を取得します（最初のプレゼンテーションから）。
-1. スライドフッタープレースホルダーを表示に設定します。
-1. 日付時刻プレースホルダーを表示に設定します。
-1. プレゼンテーションを保存します。
+## **FAQ**
 
-このC++コードは、操作を示しています：
+**マスタースライドとレイアウト スライドの違いは何ですか？**
 
-```c++
-// ドキュメントディレクトリへのパス
-const String templatePath = u"../templates/AccessSlides.pptx";
-const String outPath = u"../out/SetSlideSizeScale_out.pptx";
+マスタースライドは全体のテーマと既定の書式設定を定義し、レイアウト スライドは異なるコンテンツ タイプ向けにプレースホルダーの具体的な配置を定義します。
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
-SharedPtr<Presentation> auxPresentation = MakeObject<Presentation>();
+**レイアウト スライドを別のプレゼンテーションへコピーできますか？**
 
-// SlideCollectionクラスのインスタンスを作成
-SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+はい、[get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) メソッドで取得できるレイアウト スライド コレクションからレイアウト スライドをクローンし、`AddClone` メソッドを使用して別のプレゼンテーションに挿入できます。
 
-// 生成されたプレゼンテーションのスライドサイズをソースのものに設定
-auxPresentation->get_SlideSize()->SetSize(540, 720, SlideSizeScaleType::EnsureFit); // メソッドSetSizeは、スライドサイズを設定し、コンテンツをフィットさせるためにスケーリングを保証します
-auxPresentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize); // メソッドSetSizeは、スライドサイズを設定し、コンテンツの最大サイズを設定します
+**使用中のスライドが参照しているレイアウト スライドを削除するとどうなりますか？**
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
-auxPresentation->get_Slides()->RemoveAt(0);
-
-// プレゼンテーション保存
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **PDF生成時のページサイズを設定**
-
-特定のプレゼンテーション（ポスターなど）は、しばしばPDFドキュメントに変換されます。PowerPointをPDFに変換して最適な印刷およびアクセシビリティオプションにアクセスすることを考えている場合は、スライドをPDFドキュメントに適したサイズ（例：A4）に設定したいでしょう。
-
-Aspose.Slidesは、スライドの設定を指定するために[SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/)クラスを提供します。このC++コードは、[get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/)プロパティ（`SlideSize`クラスから）を使用して、プレゼンテーション内のスライドに特定の用紙サイズを設定する方法を示しています：
-
-```c++
-// ドキュメントディレクトリへのパス
-	const String outPath = u"../out/SetPDFPageSize_out.pptx";
-
-	// プレゼンテーションファイルを表すPresentationオブジェクトを作成 
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// SlideSize.Typeプロパティを設定
-	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-
-	// PDFオプションの異なるプロパティを設定
-	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();
-	opts.set_SufficientResolution(600);
-
-	// プレゼンテーションを保存
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pdf, &opts);
-```
+プレゼンテーション内で少なくとも 1 つのスライドが参照しているレイアウト スライドを削除しようとすると、Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/) をスローします。この問題を回避するには、使用されていないレイアウト スライドのみを安全に削除できる [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) を使用してください。

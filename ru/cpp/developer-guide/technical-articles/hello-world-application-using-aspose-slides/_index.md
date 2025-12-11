@@ -1,24 +1,32 @@
 ---
-title: Приложение Hello World с использованием Aspose.Slides
+title: Приложение Hello World с использованием Aspose.Slides для C++
 type: docs
 weight: 80
 url: /ru/cpp/hello-world-application-using-aspose-slides/
+keywords:
+- привет мир
+- приложение
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Создайте первое C++ приложение с Aspose.Slides, простой пример Hello World, который подготовит вас к автоматизации презентаций PPT, PPTX и ODP."
 ---
 
-## **Шаги для создания приложения Hello World**
-В этом простом приложении мы создадим презентацию PowerPoint с текстом **Hello World** в указанной позиции слайда. Пожалуйста, следуйте приведенным ниже шагам, чтобы создать приложение **Hello World** с использованием API Aspose.Slides для C++:
+## **Шаги по созданию приложения Hello World**
+В этом простом приложении мы создадим презентацию PowerPoint, содержащую текст **Hello World** в указанной позиции слайда. Пожалуйста, выполните приведённые ниже шаги, чтобы создать приложение **Hello World**, используя Aspose.Slides for C++ API:
 
-- Создайте экземпляр класса Presentation
-- Получите ссылку на первый слайд в презентации, который создается при инициализации Presentation.
-- Добавьте AutoShape с типом ShapeType в форме прямоугольника в указанной позиции слайда.
-- Добавьте TextFrame к AutoShape, содержащий текст Hello World по умолчанию.
-- Измените цвет текста на черный, так как по умолчанию он белый и не виден на слайде с белым фоном.
-- Измените цвет линии фигуры на белый, чтобы скрыть границу фигуры.
-- Удалите формат заливки по умолчанию у фигуры.
-- Наконец, запишите презентацию в желаемый формат файла, используя объект Presentation.
+- Создать экземпляр класса Presentation
+- Получить ссылку на первый слайд в презентации, который создаётся при инициализации Presentation
+- Добавить AutoShape с ShapeType = Rectangle в указанную позицию слайда
+- Добавить TextFrame к AutoShape, содержащий Hello World в качестве текста по умолчанию
+- Изменить цвет текста на чёрный, так как по умолчанию он белый и не виден на слайде с белым фоном
+- Изменить цвет линии формы на белый, чтобы скрыть границу формы
+- Удалить формат заливки формы по умолчанию
+- Наконец, записать презентацию в требуемый формат файла, используя объект Presentation
 
-Реализация вышеуказанных шагов показана ниже в примере.
-
+Реализация описанных выше шагов продемонстрирована ниже в примере.
 ``` cpp
 #include <DOM/Presentation.h>
 #include <DOM/SlideCollection.h>
@@ -57,10 +65,10 @@ int main(int argc, const char argv[])
     // добавить AutoShape типа Rectangle
     auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-    // добавить TextFrame к прямоугольнику
+    // добавить TextFrame к Rectangle
     shape->AddTextFrame(u"Hello World");
 
-    // изменить цвет текста на черный (который по умолчанию белый)
+    // изменить цвет текста на черный (по умолчанию он белый)
     auto portionFillFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_FillFormat();
     portionFillFormat->set_FillType(FillType::Solid);
     portionFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
@@ -68,7 +76,7 @@ int main(int argc, const char argv[])
     // изменить цвет линии прямоугольника на белый
     shape->get_ShapeStyle()->get_LineColor()->set_Color(System::Drawing::Color::get_White());
 
-    // удалить любое форматирование заливки в фигуре
+    // удалить любое форматирование заливки у формы
     shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
     // сохранить презентацию на диск

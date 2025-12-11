@@ -1,42 +1,55 @@
 ---
-title: علامة مائية
+title: إضافة علامات مائية إلى العروض التقديمية في C++
+linktitle: علامة مائية
 type: docs
 weight: 40
 url: /ar/cpp/watermark/
 keywords:
 - علامة مائية
-- إضافة علامة مائية
 - علامة مائية نصية
-- علامة مائية صورية
+- علامة مائية صورة
+- إضافة علامة مائية
+- تعديل علامة مائية
+- إزالة علامة مائية
+- حذف علامة مائية
+- إضافة علامة مائية إلى PPT
+- إضافة علامة مائية إلى PPTX
+- إضافة علامة مائية إلى ODP
+- إزالة علامة مائية من PPT
+- إزالة علامة مائية من PPTX
+- إزالة علامة مائية من ODP
+- حذف علامة مائية من PPT
+- حذف علامة مائية من PPTX
+- حذف علامة مائية من ODP
 - PowerPoint
-- تقديم
+- OpenDocument
+- عرض تقديمي
 - C++
-- Aspose.Slides لـ C++
-description: "إضافة علامات مائية نصية وصورية إلى عروض PowerPoint في C++"
+- Aspose.Slides
+description: "إدارة العلامات المائية النصية والصورية في عروض PowerPoint وOpenDocument باستخدام C++ للإشارة إلى مسودة أو معلومات سرية أو حقوق نشر وغيرها."
 ---
 
-## **حول العلامات المائية**
+## **نظرة عامة**
 
-**العلامة المائية** في عرض تقديمي هي ختم نصي أو صوري يُستخدم على شريحة أو على جميع شرائح العرض التقديمي. عادةً ما تُستخدم العلامة المائية لتشير إلى أن العرض التقديمي مسودة (مثل، علامة مائية "مسودة")، أنه يحتوي على معلومات سرية (مثل، علامة مائية "سري")، لتحديد إلى أي شركة ينتمي (مثل، علامة مائية "اسم الشركة")، لتحديد مؤلف العرض التقديمي، إلخ. تساعد العلامة المائية في منع انتهاكات حقوق الطبع والنشر من خلال الإشارة إلى أنه لا يجب نسخ العرض التقديمي. تُستخدم العلامات المائية في كل من PowerPoint وOpenOffice. في Aspose.Slides، يمكنك إضافة علامة مائية إلى تنسيقات ملفات PowerPoint PPT وPPTX وOpenOffice ODP.
+**علامة مائية** في العرض التقديمي هي ختم نصي أو صور يتم استعماله على شريحة أو على جميع شرائح العرض. عادةً تُستخدم العلامة المائية للإشارة إلى أن العرض مسودة (مثال: علامة مائية "مسودة")، أو أنه يحتوي على معلومات سرية (مثال: علامة مائية "سري")، لتحديد الشركة المالكة (مثال: علامة مائية "اسم الشركة")، لتحديد مؤلف العرض، وغيرها. تساعد العلامة المائية على منع انتهاك حقوق النشر عن طريق الإشارة إلى أنه لا ينبغي نسخ العرض. تُستخدم العلامات المائية في صيغ عروض PowerPoint وOpenOffice. في Aspose.Slides، يمكنك إضافة علامة مائية إلى صيغ ملفات PowerPoint PPT وPPTX وOpenOffice ODP.
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/cpp/)، هناك طرق مختلفة يمكنك من خلالها إنشاء علامات مائية في مستندات PowerPoint أو OpenOffice وتعديل تصميمها وسلوكها. الجانب المشترك هو أنه لإضافة علامات مائية نصية، يجب عليك استخدام واجهة [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)، ولإضافة علامات مائية صورية، استخدم فئة [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) أو املأ شكل علامة مائية بصورة. `PictureFrame` ينفذ واجهة [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)، مما يسمح لك باستخدام كافة الإعدادات المرنة لكائن الشكل. نظرًا لأن `ITextFrame` ليس شكلاً وإعداداته محدودة، فإنه يُلف في كائن [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/).
+في [**Aspose.Slides**](https://products.aspose.com/slides/cpp/)، توجد طرق متعددة لإنشاء علامات مائية في مستندات PowerPoint أو OpenOffice وتعديل تصميمها وسلوكها. الجانب المشترك هو أنه لإضافة علامات مائية نصية، يجب استخدام واجهة [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)، ولإضافة علامات مائية صور، استخدم الفئة [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) أو املاً شكل العلامة المائية بصورة. تُنفّذ `PictureFrame` واجهة [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) مما يتيح لك استعمال جميع إعدادات الشكل المرنة. نظرًا لأن `ITextFrame` ليس شكلاً وإعداداته محدودة، يتم تغليفه في كائن [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/).
 
-هناك طريقتان يمكن تطبيق علامة مائية: على شريحة واحدة أو على جميع الشرائح في العرض التقديمي. يتم استخدام شريحة المُعلم لتطبيق علامة مائية على جميع الشرائح في العرض التقديمي - يتم إضافة العلامة المائية إلى شريحة المُعلم، وتصميمها بالكامل هناك، وتطبيقها على جميع الشرائح دون التأثير على الإذن بتعديل العلامة المائية على الشرائح الفردية.
+هناك طريقتان لتطبيق العلامة المائية: على شريحة واحدة أو على جميع شرائح العرض. يُستخدم Slide Master لتطبيق العلامة المائية على جميع الشرائح — تُضاف العلامة المائية إلى Slide Master، تُصمم بالكامل هناك، وتُطبق على جميع الشرائح دون التأثير على صلاحية تعديل العلامة المائية على الشرائح الفردية.
 
-تعتبر علامة مائية عادةً غير متاحة للتعديل من قبل المستخدمين الآخرين. لمنع العلامة المائية (أو بالأحرى شكل العلامة المائية) من التعديل، توفر Aspose.Slides وظيفة قفل الشكل. يمكن قفل شكل معين على شريحة عادية أو على شريحة مُعلم. عندما يتم قفل شكل العلامة المائية على شريحة المُعلم، سيتم قفله على جميع شرائح العرض التقديمي.
+عادةً ما تُعتبر العلامة المائية غير قابلة للتحرير من قبل المستخدمين الآخرين. لمنع تحرير العلامة المائية (أو شكلها الأب)، يوفر Aspose.Slides وظيفة قفل الشكل. يمكن قفل شكل محدد على شريحة عادية أو على Slide Master. عندما يُقفل شكل العلامة المائية على Slide Master، سيُقفل على جميع شرائح العرض.
 
-يمكنك تعيين اسم للعلامة المائية بحيث، في المستقبل، إذا كنت ترغب في حذفها، يمكنك العثور عليها في أشكال الشريحة بالاسم.
+يمكنك تعيين اسم للعلامة المائية حتى تتمكن في المستقبل، إذا أردت حذفها، من العثور عليها في أشكال الشريحة بالاسم.
 
-يمكنك تصميم العلامة المائية بأي طريقة؛ ومع ذلك، هناك عادة ميزات شائعة في العلامات المائية، مثل المحاذاة في مركز، والتدوير، والموقع الأمامي، إلخ. سننظر في كيفية استخدام هذه الميزات في الأمثلة أدناه.
+يمكنك تصميم العلامة المائية بأي طريقة؛ ومع ذلك، توجد عادةً ميزات شائعة في العلامات المائية مثل المحاذاة الوسطية، الدوران، الموضع الأمامي، إلخ. سنُظهر كيفية استخدام هذه الميزات في الأمثلة أدناه.
 
 ## **علامة مائية نصية**
 
 ### **إضافة علامة مائية نصية إلى شريحة**
 
-لإضافة علامة مائية نصية في PPT أو PPTX أو ODP، يمكنك أولاً إضافة شكل إلى الشريحة، ثم إضافة إطار نصي إلى هذا الشكل. يُمثل إطار النص بواسطة واجهة [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/). هذا النوع لا يُورث من [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)، والتي تحتوي على مجموعة واسعة من الخصائص لوضع العلامة المائية بطريقة مرنة. لذلك، يتم لف كائن [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) في كائن [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). لإضافة نص العلامة المائية إلى الشكل، استخدم طريقة [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) كما هو موضح أدناه.
-
+لإضافة علامة مائية نصية في PPT أو PPTX أو ODP، يمكنك أولاً إضافة شكل إلى الشريحة، ثم إضافة إطار نص إلى هذا الشكل. يُمثَّل إطار النص بواجهة [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/). هذا النوع ليس مُوروثًا من [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)، الذي يمتلك مجموعة واسعة من الخصائص لتحديد موضع العلامة المائية بطريقة مرنة. لذلك يُغلَّف كائن [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) داخل كائن [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). لإضافة نص العلامة المائية إلى الشكل، استخدم طريقة [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) كما هو موضح أدناه.
 ```cpp
-auto watermarkText = u"سري";
+auto watermarkText = u"CONFIDENTIAL";
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
@@ -47,16 +60,16 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
+
 {{% alert color="primary" title="انظر أيضًا" %}} 
 - [كيفية استخدام فئة TextFrame](/slides/ar/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
 
-إذا كنت ترغب في إضافة علامة مائية نصية إلى العرض التقديمي بالكامل (أي، جميع الشرائح دفعة واحدة)، أضفها إلى [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/). تظل بقية المنطق كما هو عند إضافة علامة مائية إلى شريحة واحدة - قم بإنشاء كائن [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ثم أضف العلامة المائية إليه باستخدام طريقة [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/).
-
+إذا أردت إضافة علامة مائية نصية إلى العرض بالكامل (أي جميع الشرائح مرة واحدة)، أضفها إلى [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/). بقية المنطق هي نفسها كما عند إضافة علامة مائية إلى شريحة واحدة — أنشئ كائنًا من [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ثم أضف العلامة المائية باستخدام طريقة [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/).
 ```cpp
-auto watermarkText = u"سري";
+auto watermarkText = u"CONFIDENTIAL";
 
 auto presentation = MakeObject<Presentation>();
 auto masterSlide = presentation->get_Master(0);
@@ -67,33 +80,33 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
+
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام شريحة المُعلم](/slides/ar/cpp/slide-master/)
+- [كيفية استخدام Slide Master](/slides/ar/cpp/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**
 
-بشكل افتراضي، يتم تنسيق الشكل المستطيل بألوان تعبئة وخط. تجعل الأسطر التالية من الكود الشكل شفافًا.
-
+بشكل افتراضي، يُصمم الشكل المستطيل بألوان التعبئة والحد. تجعل السطور التالية من الكود الشكل شفافًا.
 ```cpp
 watermarkShape->get_FillFormat()->set_FillType(FillType::NoFill);
 watermarkShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
 ```
 
-### **تعيين الخط لعلامة مائية نصية**
 
-يمكنك تغيير خط النص للعلامة المائية كما هو موضح أدناه.
+### **تعيين الخط للعلامة المائية النصية**
 
+يمكنك تغيير خط العلامة المائية النصية كما هو مبين أدناه.
 ```cpp
 auto textFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
 textFormat->set_LatinFont(MakeObject<FontData>(u"Arial"));
 textFormat->set_FontHeight(50);
 ```
 
+
 ### **تعيين لون نص العلامة المائية**
 
 لتعيين لون نص العلامة المائية، استخدم هذا الكود:
-
 ```cpp
 auto alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -102,10 +115,10 @@ fillFormat->set_FillType(FillType::Solid);
 fillFormat->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
 ```
 
-### **مركز علامة مائية نصية**
 
-من الممكن تنسيق العلامة المائية في مركز الشريحة، ومن أجل ذلك، يمكنك القيام بما يلي:
+### **محاذاة علامة مائية نصية في الوسط**
 
+يمكن مركزية العلامة المائية على الشريحة، وللقيام بذلك يمكنك تنفيذ التالي:
 ```cpp
 auto slideSize = presentation->get_SlideSize()->get_Size();
 
@@ -120,16 +133,16 @@ auto watermarkShape = slide->get_Shapes()->AddAutoShape(
 auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 ```
 
-تظهر الصورة أدناه النتيجة النهائية.
+
+الصورة أدناه تُظهر النتيجة النهائية.
 
 ![علامة مائية نصية](text_watermark.png)
 
-## **علامة مائية صورية**
+## **علامة مائية صورة**
 
-### **إضافة علامة مائية صورية إلى عرض تقديمي**
+### **إضافة علامة مائية صورة إلى عرض تقديمي**
 
-لإضافة علامة مائية صورية إلى شريحة عرض تقديمي، يمكنك القيام بما يلي:
-
+لإضافة علامة مائية صورة إلى شريحة عرض تقديمي، يمكنك القيام بما يلي:
 ```cpp
 auto imageStream = File::ReadAllBytes(u"watermark.png");
 auto image = presentation->get_Images()->AddImage(imageStream);
@@ -139,10 +152,10 @@ watermarkShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Im
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **قفل علامة مائية من التعديل**
 
-إذا كان من الضروري منع تعديل علامة مائية، استخدم طريقة [IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/) على الشكل. باستخدام هذه الخاصية، يمكنك حماية الشكل من التحديد، وتغيير حجمه، وإعادة وضعه، وتجميعه مع عناصر أخرى، وقفل نصه من التعديل، وأكثر من ذلك بكثير:
+## **قفل علامة مائية من التحرير**
 
+إذا كان من الضروري منع تحرير العلامة المائية، استخدم طريقة [IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/) على الشكل. باستخدام هذه الخاصية، يمكنك حماية الشكل من الاختيار، إعادة الحجم، إعادة التوضيع، التجميع مع عناصر أخرى، قفل نصه من التحرير، وأكثر من ذلك:
 ```cpp
 // قفل شكل العلامة المائية من التعديل
 watermarkShape->get_AutoShapeLock()->set_SelectLocked(true);
@@ -152,50 +165,77 @@ watermarkShape->get_AutoShapeLock()->PositionLocked(true);
 watermarkShape->get_AutoShapeLock()->GroupingLocked(true);
 ```
 
+
 ## **إحضار علامة مائية إلى المقدمة**
 
-في Aspose.Slides، يمكن تعيين ترتيب Z للأشكال عبر طريقة [IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/). للقيام بذلك، تحتاج إلى استدعاء هذه الطريقة من قائمة شرائح العرض التقديمي وتمرير مرجع الشكل ورقم ترتيبه إلى الطريقة. بهذه الطريقة، من الممكن إحضار شكل إلى المقدمة أو إرساله إلى الخلف من الشريحة. هذه الميزة مفيدة بشكل خاص إذا كنت بحاجة إلى وضع علامة مائية في مقدمة العرض التقديمي:
-
+في Aspose.Slides، يمكن ضبط ترتيب Z للأشكال عبر طريقة [IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/). للقيام بذلك، تحتاج إلى استدعاء هذه الطريقة من قائمة شرائح العرض وتمرير مرجع الشكل ورقمه الترتيبي إلى الطريقة. بهذه الطريقة، يمكن إحضار شكل إلى المقدمة أو إرساله إلى الخلف. هذه الميزة مفيدة خصوصًا إذا كنت تريد وضع العلامة المائية أمام محتوى العرض:
 ```cpp
 auto shapeCount = slide->get_Shapes()->get_Count();
 slide->get_Shapes()->Reorder(shapeCount - 1, watermarkShape);
 ```
 
+
 ## **تعيين دوران العلامة المائية**
 
-إليك مثال على الكود حول كيفية ضبط دوران العلامة المائية بحيث يكون موضعها قطريًا عبر الشريحة:
-
+فيما يلي مثال على كود لضبط دوران العلامة المائية بحيث تكون مائلة على طول الشريحة:
 ```cpp
 auto diagonalAngle = Math::Atan((slideSize.get_Height() / slideSize.get_Width())) * 180 / Math::PI;
 
 watermarkShape->set_Rotation((float)diagonalAngle);
 ```
 
-## **تعيين اسم لعلامة مائية**
 
-تسمح لك Aspose.Slides بتعيين اسم لشكل. من خلال استخدام اسم الشكل، يمكنك الوصول إليه في المستقبل من أجل تعديله أو حذفه. لتعيين اسم شكل العلامة المائية، قم بتعيينها إلى طريقة [IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/):
+## **تعيين اسم للعلامة المائية**
 
+يسمح Aspose.Slides لك بتعيين اسم للشكل. باستخدام اسم الشكل، يمكنك الوصول إليه مستقبلاً لتعديله أو حذفه. لتعيين اسم شكل العلامة المائية، اسند القيمة إلى طريقة [IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/):
 ```cpp
-watermarkShape->set_Name(u"علامة مائية");
+watermarkShape->set_Name(u"watermark");
 ```
+
 
 ## **إزالة علامة مائية**
 
-لإزالة شكل العلامة المائية، استخدم طريقة [IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) للعثور عليها في أشكال الشريحة. ثم، تمرير شكل العلامة المائية إلى طريقة [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/):
-
+لإزالة شكل العلامة المائية، استخدم طريقة [IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) للعثور عليه ضمن أشكال الشريحة. ثم مرر شكل العلامة المائية إلى طريقة [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/):
 ```cpp
 auto slideShapes = slide->get_Shapes()->ToArray();
 for(auto shape : slideShapes)
 {
-    if (String::Compare(shape->get_Name(), u"علامة مائية", StringComparison::Ordinal) == 0)
+    if (String::Compare(shape->get_Name(), u"watermark", StringComparison::Ordinal) == 0)
     {
         slide->get_Shapes()->Remove(watermarkShape);
     }
 }
 ```
 
-## **مثال مباشر**
 
-قد ترغب في التحقق من **Aspose.Slides المجاني** [إضافة علامة مائية](https://products.aspose.app/slides/watermark) و[إزالة علامة مائية](https://products.aspose.app/slides/watermark/remove-watermark) أدوات الإنترنت.
+## **مثال حي**
 
-![أدوات عبر الإنترنت لإضافة وإزالة العلامات المائية](online_tools.png)
+قد ترغب في تجربة أدوات **Aspose.Slides المجانية** عبر الإنترنت: [إضافة علامة مائية](https://products.aspose.app/slides/watermark) و[إزالة علامة مائية](https://products.aspose.app/slides/watermark/remove-watermark).
+
+![أدوات الإنترنت لإضافة وإزالة العلامات المائية](online_tools.png)
+
+## **الأسئلة الشائعة**
+
+**ما هي العلامة المائية ولماذا يجب استخدامها؟**
+
+العلامة المائية هي طبقة نصية أو صورة تُطبق على الشرائح لحماية الملكية الفكرية، تعزيز التعرف على العلامة التجارية، أو منع الاستخدام غير المصرح به للعروض.
+
+**هل يمكنني إضافة علامة مائية إلى جميع الشرائح في عرض تقديمي؟**
+
+نعم، يتيح Aspose.Slides إضافة علامة مائية برمجيًا إلى كل شريحة في العرض. يمكنك التكرار عبر جميع الشرائح وتطبيق إعدادات العلامة المائية على كل واحدة على حدة.
+
+**كيف يمكنني تعديل شفافية العلامة المائية؟**
+
+يمكنك تعديل شفافية العلامة المائية عن طريق تغيير إعدادات التعبئة ([FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_fillformat/)) للشكل. يضمن ذلك أن تكون العلامة المائية خفيفة ولا تشتت انتباه المشاهد عن محتوى الشريحة.
+
+**ما صيغ الصور المدعومة للعلامات المائية؟**
+
+يدعم Aspose.Slides صيغ صور متعددة مثل PNG، JPEG، GIF، BMP، SVG، وغيرها.
+
+**هل يمكنني تخصيص خط ونمط العلامة المائية النصية؟**
+
+نعم، يمكنك اختيار أي خط وحجم ونمط لتتناسب مع تصميم عرضك والحفاظ على تناسق العلامة التجارية.
+
+**كيف أُغيّر موضع أو اتجاه العلامة المائية؟**
+
+يمكنك تعديل موضع واتجاه العلامة المائية برمجيًا عبر تعديل إحداثيات الشكل، حجمه، وخصائص الدوران.

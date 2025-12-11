@@ -1,111 +1,123 @@
 ---
-title: Zugriff auf Folien in der Präsentation
+title: Zugriff auf Präsentationsfolien in C++
+linktitle: Zugriff auf Folie
 type: docs
 weight: 20
 url: /de/cpp/access-slide-in-presentation/
-keywords: "Zugriff PowerPoint Präsentation, Zugriff Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer, Index, ID, Position C++, CPP, Aspose.Slides"
-description: "Zugriff auf PowerPoint-Folie nach Index, ID oder Position in C++. Folieneigenschaften bearbeiten"
+keywords:
+- Zugriff auf Folie
+- Folienindex
+- Folien-ID
+- Folienposition
+- Position ändern
+- Folieneigenschaften
+- Foliennummer
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ zugreifen und verwalten können. Steigern Sie die Produktivität mit Codebeispielen."
 ---
 
 Aspose.Slides ermöglicht den Zugriff auf Folien auf zwei Arten: nach Index und nach ID.
 
-## **Zugriff auf Folie nach Index**
+## **Zugriff auf eine Folie nach Index**
 
-Alle Folien in einer Präsentation sind numerisch basierend auf der Folienposition angeordnet, beginnend bei 0. Die erste Folie ist über den Index 0 zugänglich; die zweite Folie wird über den Index 1 aufgerufen; usw.
+Alle Folien in einer Präsentation werden numerisch basierend auf ihrer Position beginnend bei 0 angeordnet. Die erste Folie ist über Index 0 erreichbar; die zweite Folie über Index 1; usw.
 
-Die Presentation-Klasse, die eine Präsentationsdatei repräsentiert, stellt alle Folien als [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) Sammlung (Sammlung von [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) Objekten) bereit. Dieser C++-Code zeigt Ihnen, wie Sie auf eine Folie über ihren Index zugreifen können:
-
+Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt alle Folien als Sammlung von [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) (Sammlung von [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) Objekten) bereit. Dieser C++-Code zeigt, wie Sie über den Index auf eine Folie zugreifen können: 
 ```c++
-	// Der Pfad zum Dokumentenverzeichnis.
+	// Der Pfad zum Dokumentverzeichnis.
 	const String templatePath = u"../templates/AddSlides.pptx";
 
-	// Instanziiert die Presentation-Klasse
+	// Instanziiert die Klasse Presentation.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Erhält eine Referenz auf eine Folie über ihren Index
+	// Holt die Referenz einer Folie über ihren Index.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 ```
 
-## **Zugriff auf Folie nach ID**
 
-Jede Folie in einer Präsentation hat eine eindeutige ID, die ihr zugeordnet ist. Sie können die [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) Methode (bereitgestellt von der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse) verwenden, um diese ID anzusprechen. Dieser C++-Code zeigt Ihnen, wie Sie eine gültige Folien-ID bereitstellen und auf diese Folie über die [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) Methode zugreifen:
+## **Zugriff auf eine Folie nach ID**
 
+Jede Folie in einer Präsentation hat eine eindeutige zugehörige ID. Sie können die Methode [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)) verwenden, um diese ID anzusprechen. Dieser C++-Code zeigt, wie Sie eine gültige Folien‑ID übergeben und über die Methode [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) auf diese Folie zugreifen:
 ```c++
-	// Der Pfad zum Dokumentenverzeichnis.
+	// Der Pfad zum Dokumentverzeichnis.
 	const String templatePath = u"../templates/AddSlides.pptx";
 
-	// Instanziiert die Presentation-Klasse
+	// Instanziert die Klasse Presentation.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Erhält eine Folien-ID
+	// Holt die Folien-ID.
 	int id = pres->get_Slides()->idx_get(0)->get_SlideId();
 
-	// Greift auf die Folie über ihre ID zu
+	// Greift über die Folien-ID auf die Folie zu.
 	SharedPtr<IBaseSlide> slide = pres->GetSlideById(id);
 ```
 
+
 ## **Folienposition ändern**
 
-Aspose.Slides ermöglicht es Ihnen, die Folienposition zu ändern. Zum Beispiel können Sie angeben, dass die erste Folie die zweite Folie werden soll.
+Aspose.Slides ermöglicht das Ändern der Position einer Folie. Zum Beispiel können Sie festlegen, dass die erste Folie zur zweiten Folie wird.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich die Referenz der Folie (deren Position Sie ändern möchten) über ihren Index.
-1. Setzen Sie eine neue Position für die Folie über die [set_SlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_slidenumber/) Eigenschaft.
-1. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Holen Sie die Referenz der Folie (deren Position Sie ändern möchten) über ihren Index
+1. Setzen Sie eine neue Position für die Folie über die Eigenschaft [set_SlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_slidenumber/). 
+1. Speichern Sie die geänderte Präsentation.
 
-Dieser C++-Code demonstriert eine Operation, in der die Folie in Position 1 auf Position 2 verschoben wird:
-
+Dieser C++-Code demonstriert einen Vorgang, bei dem die Folie an Position 1 nach Position 2 verschoben wird:
 ```c++
-	// Der Pfad zum Dokumentenverzeichnis.
+	// Der Pfad zum Dokumentverzeichnis.
 	const String templatePath = u"../templates/AddSlides.pptx";
 	const String outPath = u"../out/ChangeSlidePosition.pptx";
 
-	// Instanziiert die Presentation-Klasse
+	// Instanziert die Klasse Presentation.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Erhält die Folie, deren Position geändert wird
+	// Holt die Folie, deren Position geändert wird.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Setzt die neue Position für die Folie
+	// Setzt die neue Position für die Folie.
 	slide->set_SlideNumber(2);
 
-	// Speichert die modifizierte Präsentation
+	// Speichert die geänderte Präsentation.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden andere Folien automatisch angepasst.
+
+Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden die anderen Folien automatisch angepasst.
 
 ## **Foliennummer festlegen**
 
-Mit der [set_FirstSlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) Eigenschaft (bereitgestellt von der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse) können Sie eine neue Nummer für die erste Folie in einer Präsentation angeben. Diese Operation führt dazu, dass andere Foliennummern neu berechnet werden.
+Durch die Verwendung der Eigenschaft [set_FirstSlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)) können Sie eine neue Nummer für die erste Folie einer Präsentation festlegen. Dieser Vorgang führt dazu, dass die anderen Foliennummern neu berechnet werden.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich die Foliennummer.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Holen Sie die Foliennummer.
 1. Setzen Sie die Foliennummer.
-1. Speichern Sie die modifizierte Präsentation.
+1. Speichern Sie die geänderte Präsentation.
 
-Dieser C++-Code demonstriert eine Operation, bei der die erste Foliennummer auf 10 gesetzt wird:
-
+Dieser C++-Code demonstriert einen Vorgang, bei dem die erste Foliennummer auf 10 gesetzt wird: 
 ```c++
-	// Der Pfad zum Dokumentenverzeichnis.
+	// Der Pfad zum Dokumentverzeichnis.
 	const String outPath = u"../out/SetSlideNumber_out.pptx";
 	const String templatePath = u"../templates/AccessSlides.pptx";
 
-	//Instanziiert die Presentation-Klasse
+	//Instanziert die Klasse Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Erhält die Foliennummer
+	// Holt die Foliennummer
 	int firstSlideNumber = pres->get_FirstSlideNumber();
 
 	// Setzt die Foliennummer
 	pres->set_FirstSlideNumber(2);
 	
-	// Speichert die modifizierte Präsentation
+	// Speichert die geänderte Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung von der zweiten Folie aus starten (und die Nummerierung für die erste Folie ausblenden), so:
 
+Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung ab der zweiten Folie beginnen (und die Nummerierung für die erste Folie ausblenden) auf diese Weise:
 ```c++
 auto presentation = System::MakeObject<Presentation>();
 
@@ -116,7 +128,7 @@ slides->AddEmptySlide(layoutSlide);
 slides->AddEmptySlide(layoutSlide);
 slides->AddEmptySlide(layoutSlide);
 
-// Setzt die Nummer für die erste Präsentationsfolie
+// Setzt die Nummer für die erste Folie der Präsentation
 presentation->set_FirstSlideNumber(0);
 
 // Zeigt die Foliennummern für alle Folien an
@@ -125,6 +137,21 @@ presentation->get_HeaderFooterManager()->SetAllSlideNumbersVisibility(true);
 // Blendet die Foliennummer für die erste Folie aus
 slides->idx_get(0)->get_HeaderFooterManager()->SetSlideNumberVisibility(false);
 
-// Speichert die modifizierte Präsentation
+// Speichert die geänderte Präsentation
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Entspricht die vom Benutzer gesehenen Foliennummer dem nullbasierten Index der Sammlung?**
+
+Die auf einer Folie angezeigte Nummer kann mit einem beliebigen Wert beginnen (z. B. 10) und muss nicht mit dem Index übereinstimmen; die Beziehung wird durch die Einstellung [first slide number](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) der Präsentation gesteuert.
+
+**Beeinflussen ausgeblendete Folien die Indexierung?**
+
+Ja. Eine ausgeblendete Folie bleibt in der Sammlung und wird bei der Indexierung berücksichtigt; „ausgeblendet“ bezieht sich auf die Anzeige, nicht auf ihre Position in der Sammlung.
+
+**Ändert sich der Index einer Folie, wenn andere Folien hinzugefügt oder entfernt werden?**
+
+Ja. Indizes spiegeln stets die aktuelle Reihenfolge der Folien wider und werden bei Einfüge‑, Lösch‑ und Verschiebevorgängen neu berechnet.

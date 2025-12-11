@@ -1,24 +1,35 @@
 ---
-title: Encabezado y pie de página de presentación
+title: Administrar encabezados y pies de página de la presentación en C++
+linktitle: Encabezado y pie de página
 type: docs
 weight: 140
 url: /es/cpp/presentation-header-and-footer/
-keywords: "Encabezado y pie de página en PowerPoint"
-description: "Encabezado y pie de página en PowerPoint con Aspose.Slides."
+keywords:
+- encabezado
+- texto de encabezado
+- pie de página
+- texto de pie de página
+- establecer encabezado
+- establecer pie de página
+- folleto
+- notas
+- PowerPoint
+- OpenDocument
+- presentación
+- C++
+- Aspose.Slides
+description: "Utilice Aspose.Slides para C++ para agregar y personalizar encabezados y pies de página en presentaciones de PowerPoint y OpenDocument, logrando un aspecto profesional."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
+[Aspose.Slides](/slides/es/cpp/) provee soporte para trabajar con los encabezados y pies de página de las diapositivas, cuyo texto se mantiene realmente a nivel de la diapositiva maestra.
+{{% /alert %}}
 
-[Aspose.Slides](/slides/es/cpp/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen a nivel de maestro de diapositivas.
-
-{{% /alert %}} 
-
-[Aspose.Slides para C++](/slides/es/cpp/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en el nivel de maestro de presentación.
-## **Gestionar texto de encabezado y pie de página**
+[Aspose.Slides for C++](/slides/es/cpp/) proporciona la funcionalidad para gestionar encabezados y pies de página dentro de las diapositivas de la presentación. Estos se gestionan, de hecho, a nivel de la diapositiva maestra.
+## **Administrar texto de encabezado y pie de página**
 Las notas de una diapositiva específica pueden actualizarse como se muestra en el ejemplo a continuación:
-
 ``` cpp
-// Función para establecer texto de Encabezado/Pie de Página
+// Función para establecer texto de encabezado/pie de página
 void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 {
     for (const auto& shape : System::IterateOver(master->get_Shapes()))
@@ -27,7 +38,7 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
         {
             if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
             {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"Hola, nuevo encabezado");
+                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
             }
         }
     }
@@ -38,8 +49,8 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 // Cargar presentación
 auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
 
-// Establecer pie de página
-pres->get_HeaderFooterManager()->SetAllFootersText(u"Mi texto de pie de página");
+// Configurar pie de página
+pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
 pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
 
 // Acceder y actualizar encabezado
@@ -53,82 +64,101 @@ if (nullptr != masterNotesSlide)
 pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
 ```
 
-## **Gestionar encabezado y pie de página en diapositivas de entrega y notas**
-Aspose.Slides para C++ soporta encabezado y pie de página en diapositivas de entrega y notas. Siga los pasos a continuación:
 
-- Cargue una [Presentación](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que contenga un video.
-- Cambie la configuración del encabezado y pie de página para el maestro de notas y todas las diapositivas de notas.
-- Establezca el maestro de diapositivas de notas y todos los marcadores de pie de página visibles.
-- Establezca el maestro de diapositivas de notas y todos los marcadores de fecha y hora visibles.
-- Cambie la configuración del encabezado y pie de página solo para la primera diapositiva de notas.
-- Haga visible el marcador de encabezado de la diapositiva de notas.
-- Establezca el texto en el marcador de encabezado de la diapositiva de notas.
-- Establezca el texto en el marcador de fecha y hora de la diapositiva de notas.
-- Escriba el archivo de presentación modificado.
+## **Administrar encabezados y pies de página en diapositivas de folletos y notas**
+Aspose.Slides para C++ admite encabezados y pies de página en diapositivas de folletos y notas. Por favor, siga los pasos a continuación:
 
-Fragmento de código proporcionado en el siguiente ejemplo.
+- Cargue una [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) que contenga un video.
+- Cambie la configuración de Encabezado y Pie de página para la maestro de notas y todas las diapositivas de notas.
+- Establezca visibles los marcadores de posición de pie de página en la diapositiva maestra de notas y en todas sus diapositivas secundarias.
+- Establezca visibles los marcadores de posición de fecha y hora en la diapositiva maestra de notas y en todas sus diapositivas secundarias.
+- Cambie la configuración de Encabezado y Pie de página solo para la primera diapositiva de notas.
+- Establezca visible el marcador de posición de encabezado en la diapositiva de notas.
+- Establezca texto en el marcador de posición de encabezado de la diapositiva de notas.
+- Establezca texto en el marcador de posición de fecha y hora de la diapositiva de notas.
+- Guarde el archivo de presentación modificado.
 
+Fragmento de código provisto en el siguiente ejemplo.
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Cambie la configuración del encabezado y pie de página para el maestro de notas y todas las diapositivas de notas
+// Cambiar la configuración de encabezado y pie de página para la diapositiva maestra de notas y todas las diapositivas de notas
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 if (masterNotesSlide != nullptr)
 {
 	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// haga visible el maestro de diapositivas de notas y todos los marcadores de pie de página
+	// hacer visible la diapositiva maestra de notas y todos los marcadores de posición de pie de página secundarios
 	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// haga visible el maestro de diapositivas de notas y todos los marcadores de encabezado
+	// hacer visible la diapositiva maestra de notas y todos los marcadores de posición de encabezado secundarios
 	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// haga visible el maestro de diapositivas de notas y todos los marcadores de número de diapositiva
+	// hacer visible la diapositiva maestra de notas y todos los marcadores de posición de número de diapositiva secundarios
 	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// haga visible el maestro de diapositivas de notas y todos los marcadores de fecha y hora
+	// hacer visible la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora secundarios
 	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
 
-	// establezca el texto en el maestro de diapositivas de notas y todos los marcadores de encabezado
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Texto del encabezado");
-	// establezca el texto en el maestro de diapositivas de notas y todos los marcadores de pie de página
-	headerFooterManager->SetFooterAndChildFootersText(u"Texto del pie de página");
-	// establezca el texto en el maestro de diapositivas de notas y todos los marcadores de fecha y hora
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Texto de fecha y hora");
+	// establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de encabezado secundarios
+	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
+	// establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de pie de página secundarios
+	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+	// establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora secundarios
+	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 }
 
-// Cambie la configuración del encabezado y pie de página solo para la primera diapositiva de notas
+// Cambiar la configuración de encabezado y pie de página solo para la primera diapositiva de notas
 auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
 if (notesSlide != nullptr)
 {
 	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
 	if (!headerFooterManager->get_IsHeaderVisible())
 	{
-		// haga visible el marcador de encabezado de esta diapositiva de notas
+		// hacer visible este marcador de posición de encabezado en la diapositiva de notas
 		headerFooterManager->SetHeaderVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsFooterVisible())
 	{
-		// haga visible el marcador de pie de página de esta diapositiva de notas
+		// hacer visible este marcador de posición de pie de página en la diapositiva de notas
 		headerFooterManager->SetFooterVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsSlideNumberVisible())
 	{
-		// haga visible el marcador de número de diapositiva de esta diapositiva de notas
+		// hacer visible este marcador de posición de número de diapositiva en la diapositiva de notas
 		headerFooterManager->SetSlideNumberVisibility(true);
 	}
 	
 	if (!headerFooterManager->get_IsDateTimeVisible())
 	{
-		// haga visible el marcador de fecha y hora de esta diapositiva de notas
+		// hacer visible este marcador de posición de fecha y hora en la diapositiva de notas
 		headerFooterManager->SetDateTimeVisibility(true);
 	}
 	
-	// establezca el texto en el marcador de encabezado de la diapositiva de notas
-	headerFooterManager->SetHeaderText(u"Nuevo texto de encabezado");
-	// establezca el texto en el marcador de pie de página de la diapositiva de notas
-	headerFooterManager->SetFooterText(u"Nuevo texto de pie de página");
-	// establezca el texto en el marcador de fecha y hora de la diapositiva de notas
-	headerFooterManager->SetDateTimeText(u"Nuevo texto de fecha y hora");
+	// establecer texto en el marcador de posición de encabezado de la diapositiva de notas
+	headerFooterManager->SetHeaderText(u"New header text");
+	// establecer texto en el marcador de posición de pie de página de la diapositiva de notas
+	headerFooterManager->SetFooterText(u"New footer text");
+	// establecer texto en el marcador de posición de fecha y hora de la diapositiva de notas
+	headerFooterManager->SetDateTimeText(u"New date and time text");
 }
 
 presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**¿Puedo añadir un "encabezado" a diapositivas normales?**
+
+En PowerPoint, el "Encabezado" existe solo para notas y folletos; en diapositivas normales, los elementos admitidos son el pie de página, la fecha/hora y el número de diapositiva. En Aspose.Slides esto coincide con las mismas limitaciones: encabezado solo para Notas/Folletos, y en diapositivas—Pie de página/FechaHora/NúmeroDeDiapositiva.
+
+**¿Qué pasa si el diseño no contiene un área de pie de página—puedo "activarla"?**
+
+Sí. Verifique la visibilidad mediante el administrador de encabezado/pie de página y actívela si es necesario. Estos indicadores y métodos de la API están diseñados para los casos en que el marcador de posición falta o está oculto.
+
+**¿Cómo hago que el número de diapositiva empiece desde un valor diferente a 1?**
+
+Configure el [first slide number](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/); después de eso, toda la numeración se recalcula. Por ejemplo, puede comenzar en 0 o 10, y ocultar el número en la diapositiva de título.
+
+**¿Qué ocurre con los encabezados/pies de página al exportar a PDF/imagenes/HTML?**
+
+Se renderizan como elementos de texto normales de la presentación. Es decir, si los elementos son visibles en diapositivas/páginas de notas, también aparecerán en el formato de salida junto con el resto del contenido.

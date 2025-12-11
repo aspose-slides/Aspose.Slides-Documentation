@@ -1,87 +1,94 @@
 ---
-title: プレゼンテーションプロパティ
+title: C++ でプレゼンテーション プロパティを管理する
+linktitle: プレゼンテーション プロパティ
 type: docs
 weight: 70
 url: /ja/cpp/presentation-properties/
+keywords:
+- PowerPoint プロパティ
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
+- 組み込みプロパティ
+- カスタムプロパティ
+- 高度なプロパティ
+- プロパティの管理
+- プロパティの変更
+- ドキュメント メタデータ
+- メタデータの編集
+- 校正言語
+- デフォルト言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ でプレゼンテーション プロパティを完全に管理し、PowerPoint および OpenDocument ファイルの検索、ブランド化、ワークフローを効率化します。"
 ---
 
+## **プレゼンテーション プロパティへのアクセス**
 
-## **プレゼンテーションプロパティへのアクセス**
-前述のように、Aspose.Slides for C++は、**組み込み**および**カスタム**プロパティの2種類のドキュメントプロパティをサポートしています。したがって、開発者はAspose.Slides for C++ APIを使用して、両方の種類のプロパティにアクセスできます。Aspose.Slides for C++は、[IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties)クラスを提供しており、[Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402)メソッドを介してプレゼンテーションファイルに関連付けられたドキュメントプロパティを表します。開発者は、次に説明するように、**Presentation**オブジェクトによって公開された[get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402)メソッドを使用して、プレゼンテーションファイルのドキュメントプロパティにアクセスできます。
+以前に説明したように、Aspose.Slides for C++ は **Built-in** と **Custom** の 2 種類のドキュメント プロパティをサポートしています。そのため、開発者は Aspose.Slides for C++ API を使用して両方の種類のプロパティにアクセスできます。Aspose.Slides for C++ は、プレゼンテーション ファイルに関連付けられたドキュメント プロパティを表すクラス [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) を提供し、[Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) メソッドで取得できます。開発者は **Presentation** オブジェクトが公開する [get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) メソッドを使用して、以下のようにプレゼンテーション ファイルのドキュメント プロパティにアクセスできます。
 
 {{% alert color="primary" %}} 
-
-**Application**および**Producer**フィールドに対して値を設定できないことに注意してください。これらのフィールドには、Aspose Ltd.とAspose.Slides for C++ x.x.xが表示されます。
-
+**Application** および **Producer** フィールドには値を設定できません。これらのフィールドには Aspose Ltd. と Aspose.Slides for C++ x.x.x が表示されますのでご注意ください。
 {{% /alert %}} 
 
+Microsoft PowerPoint では、プレゼンテーション ファイルにプロパティを追加する機能が提供されています。これらのドキュメント プロパティにより、ドキュメント（プレゼンテーション ファイル）とともに有用な情報を保存できます。ドキュメント プロパティは次の 2 種類があります。
 
-Microsoft PowerPointは、プレゼンテーションファイルにいくつかのプロパティを追加する機能を提供しています。これらのドキュメントプロパティは、ドキュメント（プレゼンテーションファイル）とともに便利な情報を保存することを可能にします。ドキュメントプロパティには以下の2種類があります。
+- システム定義（Built-in）プロパティ
+- ユーザー定義（Custom）プロパティ
 
-- システム定義（組み込み）プロパティ
-- ユーザー定義（カスタム）プロパティ
-
-**組み込み**プロパティには、ドキュメントのタイトル、著者の名前、ドキュメント統計など、ドキュメントに関する一般的な情報が含まれます。**カスタム**プロパティは、ユーザーによって**名前/値**ペアとして定義されるプロパティであり、名前と値はどちらもユーザーによって定義されます。Aspose.Slides for C++を使用すると、開発者は組み込みプロパティとカスタムプロパティの値をアクセスおよび変更できます。Microsoft PowerPoint 2007では、プレゼンテーションファイルのドキュメントプロパティを管理できます。やるべきことは、Officeアイコンをクリックし、さらに**準備 | プロパティ | 詳細プロパティ**メニュー項目に進むことだけです。**詳細プロパティ**メニュー項目を選択すると、PowerPointファイルのドキュメントプロパティを管理するためのダイアログが表示されます。**プロパティダイアログ**では、**一般、要約、統計、内容、およびカスタム**などの多くのタブページがあることがわかります。これらのすべてのタブページは、PowerPointファイルに関連するさまざまな情報を構成することを可能にします。**カスタム**タブは、PowerPointファイルのカスタムプロパティを管理するために使用されます。
-
+**Built-in** プロパティには、ドキュメント タイトル、作成者名、統計情報など、ドキュメントに関する一般的な情報が含まれます。**Custom** プロパティは、ユーザーが **Name/Value** ペアとして定義するもので、名前と値の両方がユーザーによって決定されます。Aspose.Slides for C++ を使用すると、組み込みプロパティとカスタム プロパティの値にアクセスおよび変更できます。Microsoft PowerPoint 2007 では、プレゼンテーション ファイルのドキュメント プロパティを管理できます。Office アイコンをクリックし、**Prepare | Properties | Advanced Properties** のメニュー項目を選択するだけです。**Advanced Properties** を選択すると、PowerPoint ファイルのドキュメント プロパティを管理できるダイアログが表示されます。**Properties Dialog** には、**General、Summary、Statistics、Contents、Custom** など多数のタブページがあり、PowerPoint ファイルに関連するさまざまな情報を構成できます。**Custom** タブは、PowerPoint ファイルのカスタム プロパティを管理するために使用されます。
 
 ## **組み込みプロパティへのアクセス**
-**IDocumentProperties**オブジェクトによって公開されたこれらのプロパティには、**Creator(Author)**、**Description**、**KeyWords**、**Created**（作成日）、**Modified**（変更日）、**Printed**（最終印刷日）、**LastModifiedBy**、**Keywords**、**SharedDoc**（異なるプロデューサー間で共有されていますか？）、**PresentationFormat**、**Subject**、**Title**が含まれます。
+
+**IDocumentProperties** オブジェクトが公開するこれらのプロパティには、**Creator(Author)**、**Description**、**KeyWords**、**Created**（作成日）、**Modified**（変更日）、**Printed**（最終印刷日）、**LastModifiedBy**、**Keywords**、**SharedDoc**（異なるプロデューサー間で共有されているか？）、**PresentationFormat**、**Subject**、**Title** があります。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
+
 ## **組み込みプロパティの変更**
-プレゼンテーションファイルの組み込みプロパティを変更することは、それにアクセスするのと同じくらい簡単です。任意の必要なプロパティに文字列値を割り当てるだけで、プロパティの値が変更されます。以下の例では、プレゼンテーションファイルの組み込みドキュメントプロパティをどのように変更できるかを示しています。
+
+組み込みプロパティの変更は、アクセスと同じくらい簡単です。任意のプロパティに文字列値を割り当てるだけで、プロパティの値が変更されます。以下の例では、プレゼンテーション ファイルの組み込みドキュメント プロパティをどのように変更できるかを示しています。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
-## **カスタムプレゼンテーションプロパティの追加**
-Aspose.Slides for C++は、開発者がプレゼンテーションドキュメントプロパティにカスタム値を追加することも許可しています。以下に、プレゼンテーションのカスタムプロパティを設定する方法を示す例があります。
+## **カスタム プレゼンテーション プロパティの追加**
 
+Aspose.Slides for C++ は、プレゼンテーション ドキュメント プロパティにカスタム値を追加することも可能です。以下の例は、プレゼンテーションにカスタム プロパティを設定する方法を示しています。
 ``` cpp
-// Presentationクラスをインスタンス化
+// Presentation クラスをインスタンス化
 auto presentation = System::MakeObject<Presentation>();
 
-// ドキュメントプロパティの取得
+// ドキュメント プロパティを取得
 auto documentProperties = presentation->get_DocumentProperties();
 
-// カスタムプロパティの追加
+// カスタム プロパティを追加
 documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
 documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
 documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
 
-// 特定のインデックスでプロパティ名を取得
+// 特定のインデックスのプロパティ名を取得
 String getPropertyName = documentProperties->GetCustomPropertyName(2);
 
-// 選択したプロパティの削除
+// 選択したプロパティを削除
 documentProperties->RemoveCustomProperty(getPropertyName);
 
-// プレゼンテーションの保存
+// プレゼンテーションを保存
 presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 ```
 
-## **カスタムプレゼンテーションプロパティへのアクセスと変更**
-Aspose.Slides for C++は、開発者がカスタムプロパティの値にアクセスすることも許可しています。以下に、プレゼンテーションのこれらのカスタムプロパティにアクセスして変更する方法を示す例があります。
+
+## **カスタム プロパティの取得と変更**
+
+Aspose.Slides for C++ は、カスタム プロパティの値にアクセスすることもできます。以下の例は、プレゼンテーションのカスタム プロパティすべてにアクセスし、変更する方法を示しています。
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
-
-## **プレゼンテーションが変更されたか作成されたかの確認**
-Aspose.Slides for C++は、プレゼンテーションが変更されたか作成されたかを確認する機能を提供しています。以下に、プレゼンテーションが作成されたか変更されたかを確認する方法を示す例があります。
-
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"props.pptx");
-
-auto props = info->ReadDocumentProperties();
-
-String app = props->get_NameOfApplication();
-String ver = props->get_AppVersion();
-```
-
 ## **校正言語の設定**
 
-Aspose.Slidesは、[LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/)プロパティ（[PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)クラスによって公開）を提供し、PowerPointドキュメントの校正言語を設定できるようにします。校正言語は、PowerPoint内のスペルと文法がチェックされる言語です。
+Aspose.Slides は、[PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) クラスが公開する [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) プロパティを使用して、PowerPoint ドキュメントの校正言語を設定できます。校正言語は、PowerPoint のスペルと文法がチェックされる対象言語です。
 
-このC++コードは、PowerPointの校正言語を設定する方法を示しています。
-
+この C++ コードは、PowerPoint の校正言語を設定する方法を示しています。
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
@@ -99,27 +106,48 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// 校正言語のIDを設定
+// set the Id of a proofing language
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
 ```
 
+
 ## **デフォルト言語の設定**
 
-このC++コードは、PowerPointプレゼンテーション全体のデフォルト言語を設定する方法を示しています。
-
+この C++ コードは、PowerPoint プレゼンテーション全体のデフォルト言語を設定する方法を示しています。
 ```c++
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// テキストを持つ新しい長方形形状を追加
+// Adds a new rectangle shape with text
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"新しいテキスト");
+textFrame->set_Text(u"New Text");
 
-// 最初のポーションの言語を確認
+// Checks the first portion language
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
+
+
+## **ライブ例**
+
+[**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) のオンライン アプリを試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法をご確認ください。
+
+[![PowerPoint メタデータの表示と編集](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***よくある質問**
+
+**プレゼンテーションから組み込みプロパティを削除するにはどうすればよいですか？**
+
+組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、特定のプロパティが許可する場合は、その値を変更したり空に設定したりできます。
+
+**既に存在するカスタム プロパティを追加するとどうなりますか？**
+
+既に存在するカスタム プロパティを追加すると、既存の値は新しい値で上書きされます。事前に削除したりチェックしたりする必要はなく、Aspose.Slides が自動的にプロパティの値を更新します。
+
+**プレゼンテーションを完全に読み込まずにプロパティにアクセスできますか？**
+
+はい、[PresentationFactory](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/) クラスの `GetPresentationInfo` メソッドを使用してプレゼンテーションを完全に読み込まずにプロパティにアクセスできます。その後、[IPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/) インターフェイスが提供する `ReadDocumentProperties` メソッドを利用してプロパティを効率的に読み取り、メモリ使用量を削減しパフォーマンスを向上させます。

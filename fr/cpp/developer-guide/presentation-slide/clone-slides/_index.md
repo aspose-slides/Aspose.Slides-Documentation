@@ -1,90 +1,115 @@
 ---
-title: Cloner des diapositives
+title: Cloner les diapositives de présentation en C++
+linktitle: Cloner les diapositives
 type: docs
 weight: 40
 url: /fr/cpp/clone-slides/
+keywords:
+- cloner diapositive
+- copier diapositive
+- enregistrer diapositive
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Dupliquez rapidement les diapositives PowerPoint avec Aspose.Slides pour C++. Suivez nos exemples de code clairs pour automatiser la création de PPT en quelques secondes et éliminer le travail manuel."
 ---
 
+## **Cloner des diapositives dans une présentation**
+Le clonage est le processus consistant à créer une copie exacte ou une réplique de quelque chose. Aspose.Slides for C++ permet également de créer une copie ou un clone de n’importe quelle diapositive, puis d’insérer cette diapositive clonée dans la présentation actuelle ou dans toute autre présentation ouverte. Le processus de clonage de diapositive crée une nouvelle diapositive qui peut être modifiée par les développeurs sans modifier la diapositive originale. Il existe plusieurs façons de cloner une diapositive :
 
-## **Cloner une Diapositive dans une Présentation**
-Le clonage est le processus de création d'une copie exacte ou d'une réplique de quelque chose. Aspose.Slides pour C++ permet également de créer une copie ou un clone de n'importe quelle diapositive et de l'insérer ensuite dans la présentation actuelle ou toute autre présentation ouverte. Le processus de clonage de diapositive crée une nouvelle diapositive qui peut être modifiée par les développeurs sans changer la diapositive d'origine. Il existe plusieurs façons possibles de cloner une diapositive :
-
-- Cloner à la fin d'une présentation.
-- Cloner à une autre position dans la présentation.
-- Cloner à la fin d'une autre présentation.
+- Cloner à la fin d’une présentation.
+- Cloner à une autre position dans la même présentation.
+- Cloner à la fin dans une autre présentation.
 - Cloner à une autre position dans une autre présentation.
 - Cloner à une position spécifique dans une autre présentation.
 
-Dans Aspose.Slides pour C++, (une collection d'objets [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)) exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) fournit les méthodes [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) et [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) pour effectuer les types de clonage de diapositives ci-dessus.
+Dans Aspose.Slides for C++ (une collection d’[ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) objects) exposée par l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), les méthodes [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) et [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) permettent d’effectuer les différents types de clonage de diapositives décrits ci‑dessus.
 
-## **Cloner à la Fin dans la Présentation**
-Si vous souhaitez cloner une diapositive et ensuite l'utiliser dans le même fichier de présentation à la fin des diapositives existantes, utilisez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) selon les étapes listées ci-dessous :
+## **Cloner une diapositive à la fin d’une présentation**
+Si vous souhaitez cloner une diapositive puis l’utiliser dans le même fichier de présentation à la fin des diapositives existantes, utilisez la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) selon les étapes suivantes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection de diapositives exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive à cloner en tant que paramètre à la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. Écrivez le fichier de présentation modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) en faisant référence à la collection Slides exposée par l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) et transmettez la diapositive à cloner en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/).
+1. Enregistrez le fichier de présentation modifié.
 
-Dans l'exemple donné ci-dessous, nous avons cloné une diapositive (située à la première position – zéro index – de la présentation) à la fin de la présentation.
+Dans l’exemple ci‑dessous, nous avons cloné une diapositive (située à la première position – index 0 – de la présentation) à la fin de la présentation.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneWithinSamePresentationToEnd-CloneWithinSamePresentationToEnd.cpp" >}}
 
+## **Cloner une diapositive à une autre position dans une présentation**
+Si vous voulez cloner une diapositive puis l’utiliser dans le même fichier de présentation mais à une position différente, utilisez la méthode [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) :
 
-## **Cloner à une Autre Position dans la Présentation**
-Si vous souhaitez cloner une diapositive et l'utiliser ensuite dans le même fichier de présentation mais à une position différente, utilisez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) :
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Instanciez la classe en faisant référence à la collection **Slides** exposée par l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) et transmettez la diapositive à cloner ainsi que l’index de la nouvelle position en tant que paramètres de la méthode [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/).
+1. Enregistrez la présentation modifiée au format PPTX.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Instanciez la classe en référencant la collection **Slides** exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive à cloner ainsi que l'index pour la nouvelle position en tant que paramètre à la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index).
-1. Écrivez la présentation modifiée sous forme de fichier PPTX.
-
-Dans l'exemple donné ci-dessous, nous avons cloné une diapositive (située à l'index zéro – position 1 – de la présentation) à l'index 1 – Position 2 – de la présentation.
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive (située à l’index 0 – position 1 – de la présentation) à l’index 1 – position 2 – de la même présentation.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneWithInSamePresentation-CloneWithInSamePresentation.cpp" >}}
 
-## **Cloner une Diapositive à la Fin d'une Autre Présentation**
-Si vous devez cloner une diapositive d'une présentation et l'utiliser dans un autre fichier de présentation, à la fin des diapositives existantes :
+## **Cloner une diapositive à la fin d’une autre présentation**
+Si vous devez cloner une diapositive d’une présentation et l’utiliser dans une autre présentation, à la fin des diapositives existantes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination à laquelle la diapositive sera ajoutée.
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection **Slides** exposée par l'objet de présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source en tant que paramètre à la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. Écrivez le fichier de présentation de destination modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation source de la diapositive à cloner.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation de destination à laquelle la diapositive sera ajoutée.
+1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) en faisant référence à la collection **Slides** exposée par l’objet Presentation de la présentation de destination.
+1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) et transmettez la diapositive de la présentation source en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/).
+1. Enregistrez le fichier de présentation de destination modifié.
 
-Dans l'exemple donné ci-dessous, nous avons cloné une diapositive (de l'index premier de la présentation source) à la fin de la présentation de destination.
+Dans l’exemple ci‑dessous, nous avons cloné une diapositive (à partir du premier index de la présentation source) à la fin de la présentation de destination.
+
+{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
+
+## **Cloner une diapositive à une autre position dans une autre présentation**
+Si vous devez cloner une diapositive d’une présentation et l’utiliser dans une autre présentation, à une position spécifique :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation source de laquelle la diapositive sera clonée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation de destination à laquelle la diapositive sera ajoutée.
+1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) en faisant référence à la collection Slides exposée par l’objet Presentation de la présentation de destination.
+1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) et transmettez la diapositive de la présentation source ainsi que la position souhaitée en tant que paramètres de la méthode [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/).
+1. Enregistrez le fichier de présentation de destination modifié.
+
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive (à partir de l’index 0 de la présentation source) à l’index 1 (position 2) de la présentation de destination.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
 
-## **Cloner une Diapositive à une Autre Position dans une Autre Présentation**
-Si vous devez cloner une diapositive d'une présentation et l'utiliser dans un autre fichier de présentation, à une position spécifique :
+## **Cloner une diapositive à une position spécifique dans une autre présentation**
+Si vous devez cloner une diapositive avec diapositive maître d’une présentation et l’utiliser dans une autre présentation, vous devez d’abord cloner la diapositive maître souhaitée de la présentation source vers la présentation de destination. Ensuite, utilisez cette diapositive maître pour cloner la diapositive avec maître. La méthode **AddClone(ISlide, IMasterSlide)** attend la diapositive maître de la présentation de destination plutôt que celle de la source. Pour cloner la diapositive avec son maître, suivez les étapes ci‑dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation à laquelle la diapositive sera ajoutée.
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection Slides exposée par l'objet de présentation de destination.
-1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source ainsi que la position désirée comme paramètre à la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index).
-1. Écrivez le fichier de présentation de destination modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation source de laquelle la diapositive sera clonée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) contenant la présentation de destination vers laquelle la diapositive sera clonée.
+1. Accédez à la diapositive à cloner ainsi qu’à sa diapositive maître.
+1. Instanciez la classe [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/) en faisant référence à la collection Masters exposée par l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) de la présentation de destination.
+1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) exposée par l’objet [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/) et transmettez le maître de la source PPTX à cloner en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/).
+1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) en définissant la référence à la collection Slides exposée par l’objet [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) de la présentation de destination.
+1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) et transmettez la diapositive de la présentation source à cloner ainsi que la diapositive maître en tant que paramètres de la méthode [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/).
+1. Enregistrez le fichier de présentation de destination modifié.
 
-Dans l'exemple donné ci-dessous, nous avons cloné une diapositive (de l'index zéro de la présentation source) à l'index 1 (position 2) de la présentation de destination.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
-## **Cloner une Diapositive à une Position Spécifique dans une Autre Présentation**
-Si vous avez besoin de cloner une diapositive avec un maître diapositive d'une présentation et de l'utiliser dans une autre présentation, vous devez d'abord cloner le maître diapositive souhaité de la présentation source vers la présentation de destination. Ensuite, vous devez utiliser ce maître diapositive pour cloner la diapositive avec le maître diapositive. La **AddClone(ISlide, IMasterSlide)** attend le maître diapositive de la présentation de destination plutôt que de la présentation source. Pour cloner la diapositive avec le maître, veuillez suivre les étapes ci-dessous :
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination dans laquelle la diapositive sera clonée.
-1. Accédez à la diapositive à cloner ainsi qu'au maître diapositive.
-1. Instanciez la classe [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterslidecollection) en référencant la collection de maîtres exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) exposée par l'objet [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterslidecollection) et passez le maître de la source PPTX à cloner comme paramètre à la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en établissant la référence à la collection Slides exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source à cloner et le maître diapositive comme paramètre à la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. Écrivez le fichier de présentation de destination modifié.
-
-Dans l'exemple donné ci-dessous, nous avons cloné une diapositive avec maître (située à l'index zéro de la présentation source) à la fin de la présentation de destination en utilisant le maître de la diapositive source.
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive avec maître (située à l’index 0 de la présentation source) à la fin de la présentation de destination en utilisant le maître de la diapositive source.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneToAnotherPresentationWithMaster-CloneToAnotherPresentationWithMaster.cpp" >}}
-## **Cloner une Diapositive à une Section Spécifiée**
-Si vous souhaitez cloner une diapositive et ensuite l'utiliser dans le même fichier de présentation mais à une section différente, utilisez la méthode [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a46981dac8b18355531a04a70c70c444b) exposée par l'interface [**ISlideCollection** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection). Aspose.Slides pour C++ permet de cloner une diapositive de la première section et d'insérer ensuite cette diapositive clonée dans la deuxième section de la même présentation.
 
-Le snippet de code suivant vous montre comment cloner une diapositive et insérer la diapositive clonée dans une section spécifiée.
+## **Cloner une diapositive à la fin d’une section spécifiée**
+Si vous souhaitez cloner une diapositive puis l’utiliser dans le même fichier de présentation mais dans une section différente, utilisez la méthode [**AddClone()**](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) exposée par l’interface [**ISlideCollection**](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/). Aspose.Slides for C++ rend possible le clonage d’une diapositive de la première section puis l’insertion de cette diapositive clonée dans la deuxième section de la même présentation.
+
+Le fragment de code suivant montre comment cloner une diapositive et insérer la diapositive clonée dans une section spécifiée.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-CloneSlideIntoSpecifiedSection-CloneSlideIntoSpecifiedSection.cpp" >}}
+
+## **FAQ**
+
+**Les notes du présentateur et les commentaires des réviseurs sont-ils clonés ?**
+
+Oui. La page de notes et les commentaires de révision sont inclus dans le clone. Si vous ne les voulez pas, [supprimez‑les](/slides/fr/cpp/presentation-notes/) après l’insertion.
+
+**Comment les graphiques et leurs sources de données sont‑ils gérés ?**
+
+L’objet graphique, son formatage et les données intégrées sont copiés. Si le graphique était lié à une source externe (par ex., un classeur OLE intégré), ce lien est conservé comme un [objet OLE](/slides/fr/cpp/manage-ole/). Après le déplacement entre fichiers, vérifiez la disponibilité des données et le comportement de rafraîchissement.
+
+**Puis‑je contrôler la position d’insertion et les sections du clone ?**
+
+Oui. Vous pouvez insérer le clone à un index de diapositive spécifique et le placer dans une [section](/slides/fr/cpp/slide-section/) choisie. Si la section cible n’existe pas, créez‑la d’abord puis déplacez la diapositive dedans.

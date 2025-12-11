@@ -1,38 +1,49 @@
 ---
-title: Solution Fonctionnelle pour le Redimensionnement de Graphiques dans PPTX
+title: Solution fonctionnelle pour le redimensionnement des graphiques dans PPTX
 type: docs
 weight: 60
-url: /fr/cpp/solution-fonctionnelle-pour-le-redimensionnement-de-graphique-dans-pptx/
+url: /fr/cpp/working-solution-for-chart-resizing-in-pptx/
+keywords:
+- redimensionnement de graphique
+- graphique Excel
+- objet OLE
+- intégrer le graphique
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Corrige le redimensionnement inattendu des graphiques dans les fichiers PPTX lors de l'utilisation d'objets OLE Excel integres avec Aspose.Slides pour C++. Découvrez deux methodes avec du code pour maintenir des tailles coherentes."
 ---
 
-{{% alert color="primary" %}} 
-
-Il a été observé que les graphiques Excel intégrés en tant qu'OLÉ dans une présentation PowerPoint via les composants Aspose sont redimensionnés à une échelle non identifiée après la première activation. Ce comportement crée une différence visuelle considérable dans la présentation entre les états avant et après l'activation du graphique. L'équipe Aspose, avec l'aide de l'équipe Microsoft, a examiné ce problème en détail et a trouvé une solution. Cet article couvre les raisons et la solution à ce problème.
-
-{{% /alert %}} 
 ## **Contexte**
-Dans [l'article précédent](https://docs.aspose.com/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , nous avons expliqué comment créer un graphique Excel en utilisant Aspose.Cells pour C++ et ensuite intégrer ce graphique dans une présentation PowerPoint en utilisant Aspose.Slides pour C++. Afin de prendre en compte le problème de changement d'objet, nous avons attribué l'image du graphique au cadre d'objet OLÉ du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le cadre d'objet OLÉ affichant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter des modifications souhaitées dans le classeur Excel réel et ensuite revenir à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du cadre d'objet OLÉ changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de cadre d'objet OLÉ et de classeur Excel intégré.
 
-## **Cause du Redimensionnement**
-Étant donné que le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille originale lors de la première activation. D'autre part, le cadre d'objet OLÉ aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'intégration. En fonction des différences de taille de fenêtres Excel et de taille / position du cadre d'objet OLÉ, le redimensionnement a lieu.
+Il a ete observe que les graphiques Excel integrés en tant qu'objets OLE dans une presentation PowerPoint via les composants Aspose sont redimensionnes a une echelle non specifiee apres leur premiere activation. Ce comportement entraine une difference visuelle notable dans la presentation entre les etats avant et apres l'activation du graphique. L'equipe Aspose a examine le probleme en detail et a trouve une solution. Cet article décrit les causes du problème et la correction correspondante.
 
-## **Solution Fonctionnelle**
-Il existe deux scénarios possibles pour la création de présentations PowerPoint en utilisant Aspose.Slides pour C++. 
+Dans l'[article precedent](/slides/fr/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), nous avons explique comment creer un graphique Excel avec Aspose.Cells for C++ et l'integrer dans une presentation PowerPoint a l'aide d'Aspose.Slides for C++. Pour resoudre le [probleme d'aperçu d'objet](/slides/fr/cpp/object-preview-issue-when-adding-oleobjectframe/), nous avons attribue l'image du graphique au cadre d'objet OLE du graphique. Dans la presentation generee, lorsque vous double-cliquez sur le cadre d'objet OLE affichant l'image du graphique, le graphique Excel est active. Les utilisateurs finaux peuvent apporter toutes les modifications souhaitees au classeur Excel sous-jacent, puis retourner a la diapositive correspondante en cliquant en dehors du classeur active. La taille du cadre d'objet OLE change lorsque l'utilisateur revient a la diapositive, et le facteur de redimensionnement varie en fonction des tailles originales tant du cadre d'objet OLE que du classeur Excel integre.
 
-**Scénario 1:** Créer la présentation basée sur un modèle existant.
+## **Cause du redimensionnement**
 
-**Scénario 2:** Créer la présentation à partir de zéro.
+Parce que le classeur Excel possède sa propre taille de fenêtre, il tente de conserver sa taille originale lors de sa première activation. Le cadre d'objet OLE, en revanche, a sa propre taille. Selon Microsoft, lorsque le classeur Excel est active, Excel et PowerPoint negocient la taille et maintiennent les proportions correctes dans le cadre du processus d'integration. Selon les differences entre la taille de la fenetre Excel et la taille ou la position du cadre d'objet OLE, un redimensionnement se produit.
 
-La solution que nous fournirons ici sera valable pour les deux scénarios. La base de toutes les approches de solution sera la même. C'est-à-dire : **La taille de la fenêtre de l'objet OLÉ intégré doit être la même que celle du cadre d'objet OLÉ** **dans la diapositive PowerPoint**. Maintenant, nous allons discuter des deux approches de la solution.
+## **Solution fonctionnelle**
 
-## **Première Approche**
-Dans cette approche, nous allons apprendre comment définir la taille de la fenêtre du classeur Excel intégré équivalente à la taille du cadre d'objet OLÉ dans la diapositive PowerPoint.
+Il existe deux scenarios possibles pour creer des presentations PowerPoint a l'aide d'Aspose.Slides for C++.
 
-**Scénario 1** 
+**Scénario 1:** Creer une presentation a partir d'un modele existant.
 
-Supposons que nous ayons défini un modèle et que nous souhaitions créer les présentations basées sur ce modèle. Disons qu'il y a une forme à l'index 2 dans le modèle où nous voulons placer un cadre OLÉ contenant un classeur Excel intégré. Dans ce scénario, la taille du cadre d'objet OLÉ sera considérée comme prédéfinie (qui est la taille de la forme à l'index 2 dans le modèle). Tout ce que nous avons à faire : définir la taille de la fenêtre du classeur égale à la taille de la forme. Le code suivant servira cet objectif : 
+**Scénario 2:** Creer une presentation à partir de zéro.
 
-``` cpp
+La solution que nous proposons ici s'applique aux deux scenarios. Le principe de toutes les approches de solution est le même : **la taille de la fenêtre de l'objet OLE intégré doit correspondre au cadre d'objet OLE dans la diapositive PowerPoint**. Nous allons maintenant examiner les deux approches de cette solution.
+
+## **Première approche**
+
+Dans cette approche, nous apprendrons comment définir la taille de la fenêtre du classeur Excel intégré afin qu'elle corresponde à la taille du cadre d'objet OLE dans la diapositive PowerPoint.
+
+**Scénario 1**
+
+Supposons que nous ayons défini un modèle et que nous voulions créer des présentations à partir de celui-ci. Supposons qu'il y ait une forme à l'indice 2 dans le modèle où nous voulons placer un cadre OLE contenant un classeur Excel intégré. Dans ce scénario, la taille du cadre d'objet OLE est prédéfinie — elle correspond à la taille de la forme à l'indice 2 du modèle. Tout ce que nous devons faire est de régler la taille de la fenêtre du classeur à la même taille que cette forme. Le fragment de code suivant remplit ce rôle :
+```cpp
 System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
 {
     auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
@@ -42,143 +53,170 @@ System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<A
 }
 ```
 
-``` cpp
-// définir la taille du graphique avec la fenêtre 
+```cpp
+// Définir la taille du graphique avec une fenêtre.
 chart->SetSizeWithWindow(true);
 
-auto shape = slide->get_Shapes()->idx_get(2);
+auto shape = slide->get_Shape(2);
 
-// définir la largeur de la fenêtre du classeur en pouces (divisé par 72 car PowerPoint utilise 
-// 72 pixels / pouce)
-wb->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+// Définir la largeur de la fenêtre du classeur en pouces (divisée par 72 car PowerPoint utilise 72 pixels par pouce).
+workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
 
-// définir la hauteur de la fenêtre du classeur en pouces
-wb->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+// Définir la hauteur de la fenêtre du classeur en pouces.
+workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
 
-// Instancier MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream3(wb->SaveToStream());
+// Enregistrer le classeur dans un flux mémoire.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Créer un cadre d'objet OLÉ avec Excel intégré
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	shape->get_X(), 
-	shape->get_Y(), 
-	shape->get_Width(), 
-	shape->get_Height(),
-	dataInfo);
+// Créer un cadre d'objet OLE avec les données Excel intégrées.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    shape->get_X(), 
+    shape->get_Y(), 
+    shape->get_Width(), 
+    shape->get_Height(),
+    dataInfo);
 ```
 
-**Scénario 2** 
 
-Disons que nous voulons créer une présentation à partir de zéro et désirer un cadre d'objet OLÉ de n'importe quelle taille avec un classeur Excel intégré. Dans le code suivant, nous avons créé un cadre d'objet OLÉ avec une hauteur de 4 pouces et une largeur de 9,5 pouces dans la diapositive à x=0,5 pouce et y=1 pouce. De plus, nous avons défini la taille de la fenêtre correspondante du classeur Excel, c'est-à-dire : hauteur 4 pouces et largeur 9,5 pouces. 
 
-``` cpp
-// Notre hauteur désirée
+**Scénario 2**
+
+Disons que nous voulons créer une présentation à partir de zéro et inclure un cadre d'objet OLE de taille quelconque avec un classeur Excel intégré. Dans le fragment de code suivant, nous créons un cadre d'objet OLE de 4 pouces de haut et 9,5 pouces de large, positionné à x = 0,5 pouce et y = 1 pouce sur la diapositive. Nous réglons ensuite la fenêtre du classeur Excel à la même taille — 4 pouces de haut et 9,5 pouces de large.
+```cpp
+// Hauteur souhaitée.
 int32_t desiredHeight = 288; // 4 pouces (4 * 72)
 
-// Notre largeur désirée
-int32_t desiredWidth = 684; // 9,5 pouces (9,5 * 72)
+// Largeur souhaitée.
+int32_t desiredWidth = 684; // 9,5 pouces (9.5 * 72)
 
-// définir la taille du graphique avec la fenêtre 
+// Définir la taille du graphique avec une fenêtre. 
 chart->SetSizeWithWindow(true);
 
-// définir la largeur de la fenêtre du classeur en pouces
-wb->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+// Définir la largeur de la fenêtre du classeur en pouces.
+workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
 
-// définir la hauteur de la fenêtre du classeur en pouces
-wb->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
+// Définir la hauteur de la fenêtre du classeur en pouces.
+workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
 
-// Instancier MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Enregistrer le classeur dans un flux mémoire.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Créer un cadre d'objet OLÉ avec Excel intégré
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	36.0f,
-	72.0f, 
-	desiredWidth, 
-	desiredHeight,
-	dataInfo);
+// Créer un cadre d'objet OLE avec les données Excel intégrées.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    36.0f,
+    72.0f, 
+    desiredWidth, 
+    desiredHeight,
+    dataInfo);
 ```
 
 
-## **Deuxième Approche**
-Dans cette approche, nous allons apprendre comment définir la taille du graphique présente dans le classeur Excel intégré équivalente à la taille du cadre d'objet OLÉ dans la diapositive PowerPoint. Cette approche est utile lorsque la taille du graphique à l'avance est connue et ne changera jamais. 
+## **Deuxième approche**
 
-**Scénario 1** 
+Dans cette approche, nous apprendrons comment définir la taille du graphique dans le classeur Excel intégré afin qu'elle corresponde à la taille du cadre d'objet OLE dans la diapositive PowerPoint. Cette approche est utile lorsque la taille du graphique est connue à l'avance et ne changera jamais.
 
-Supposons que nous ayons défini un modèle et que nous souhaitions créer les présentations basées sur ce modèle. Disons qu'il y a une forme à l'index 2 dans le modèle où nous voulons placer un cadre OLÉ contenant un classeur Excel intégré. Dans ce scénario, la taille du cadre OLÉ sera considérée comme prédéfinie (qui est la taille de la forme à l'index 2 dans le modèle). Tout ce que nous avons à faire : définir la taille du graphique dans le classeur égale à la taille de la forme. Le code suivant servira cet objectif : 
+**Scénario 1**
 
-``` cpp
-// définir la taille du graphique sans fenêtre 
+Supposons que nous ayons défini un modèle et que nous voulions créer des présentations à partir de celui-ci. Supposons qu'il y ait une forme à l'indice 2 du modèle où nous prévoyons de placer un cadre OLE contenant un classeur Excel intégré. Dans ce scénario, la taille du cadre OLE est prédéfinie — elle correspond à la taille de la forme à l'indice 2 du modèle. Tout ce que nous devons faire est de régler la taille du graphique dans le classeur à la même taille que cette forme. Le fragment de code suivant remplit ce rôle :
+```cpp
+// Définir la taille du graphique sans fenêtre. 
 chart->SetSizeWithWindow(false);
 
-auto shape = slide->get_Shapes()->idx_get(2);
+auto shape = slide->get_Shape(2);
 
-// définir la largeur du graphique en pixels (Multiplier par 96 car Excel utilise 96 pixels par pouce)    
+// Définir la largeur du graphique en pixels (multiplier par 96 car Excel utilise 96 pixels par pouce).    
 chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
 
-// définir la hauteur du graphique en pixels
+// Définir la hauteur du graphique en pixels.
 chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
 
-// Définir la taille d'impression du graphique
+// Définir la taille d'impression du graphique.
 chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
 
-// Instancier MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Enregistrer le classeur dans un flux mémoire.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Créer un cadre d'objet OLÉ avec Excel intégré
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	shape->get_X(), 
-	shape->get_Y(), 
-	shape->get_Width(),
-	shape->get_Height(),
-	dataInfo);
+// Créer un cadre d'objet OLE avec les données Excel intégrées.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    shape->get_X(), 
+    shape->get_Y(), 
+    shape->get_Width(),
+    shape->get_Height(),
+    dataInfo);
 ```
 
-**Scénario 2** 
 
-Disons que nous voulons créer une présentation à partir de zéro et désirer un cadre d'objet OLÉ de n'importe quelle taille avec un classeur Excel intégré. Dans le code suivant, nous avons créé un cadre d'objet OLÉ avec une hauteur de 4 pouces et une largeur de 9,5 pouces dans la diapositive à x=0,5 pouce et y=1 pouce. De plus, nous avons défini la taille équivalente du graphique, c'est-à-dire : hauteur 4 pouces et largeur 9,5 pouces. 
+**Scénario 2**
 
-``` cpp
-// Notre hauteur désirée
+Supposons que nous voulions créer une présentation à partir de zéro et inclure un cadre d'objet OLE de taille quelconque avec un classeur Excel intégré. Dans le fragment de code suivant, nous créons un cadre d'objet OLE d'une hauteur de 4 pouces et d'une largeur de 9,5 pouces sur la diapositive, positionné à x = 0,5 pouce et y = 1 pouce. Nous réglons également la taille du graphique correspondant aux mêmes dimensions : une hauteur de 4 pouces et une largeur de 9,5 pouces.
+```cpp
+// Hauteur souhaitée.
 int32_t desiredHeight = 288; // 4 pouces (4 * 576)
 
-// Notre largeur désirée
-int32_t desiredWidth = 684; // 9,5 pouces(9,5 * 576)
+// Largeur souhaitée.
+int32_t desiredWidth = 684; // 9,5 pouces (9.5 * 576)
 
-// définir la taille du graphique sans fenêtre 
+// Définir la taille du graphique sans fenêtre. 
 chart->SetSizeWithWindow(false);
 
-// définir la largeur du graphique en pixels    
+// Définir la largeur du graphique en pixels.    
 chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
 
-// définir la hauteur du graphique en pixels    
+// Définir la hauteur du graphique en pixels.
 chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
 
-// Instancier MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Enregistrer le classeur dans un flux mémoire.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Créer un cadre d'objet OLÉ avec Excel intégré
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	36.0f, 
-	72.0f, 
-	desiredWidth, 
-	desiredHeight,
-	dataInfo);
+// Créer un cadre d'objet OLE avec les données Excel intégrées.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    36.0f, 
+    72.0f, 
+    desiredWidth, 
+    desiredHeight,
+    dataInfo);
 ```
 
+
 ## **Conclusion**
-{{% alert color="primary" %}} 
 
-Il existe deux approches pour résoudre le problème de redimensionnement des graphiques. Le choix de l'approche appropriée dépend des besoins et du cas d'utilisation. Les deux approches fonctionnent de la même manière, que les présentations soient créées à partir d'un modèle ou à partir de zéro. De plus, il n'y a pas de limite à la taille du cadre d'objet OLÉ dans la solution. 
+Il existe deux approches pour resoudre le problème de redimensionnement du graphique. Le choix de l'approche dépend des exigences et du cas d'utilisation. Les deux approches fonctionnent de la même manière que les présentations soient créées à partir d'un modèle ou à partir de zéro. De plus, il n'y a aucune limite à la taille du cadre d'objet OLE dans cette solution.
 
-{{% /alert %}} 
-## **Sections Connexes**
-[Créer et intégrer un graphique Excel en tant qu'objet OLÉ dans la présentation](https://docs.aspose.com/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+## **FAQ**
+
+**Pourquoi mon graphique Excel intégré change-t-il de taille après son activation dans PowerPoint ?**
+
+Cela se produit parce qu'Excel tente de restaurer la taille de fenêtre originale lors de la première activation, alors que le cadre d'objet OLE dans PowerPoint possède ses propres dimensions. PowerPoint et Excel negocient la taille afin de maintenir le ratio d'aspect, ce qui peut entraîner le redimensionnement.
+
+**Est-il possible d'éviter totalement ce problème de redimensionnement ?**
+
+Oui. En faisant correspondre la taille de la fenêtre du classeur Excel ou la taille du graphique à la taille du cadre d'objet OLE avant l'intégration, vous pouvez maintenir des tailles de graphiques cohérentes.
+
+**Quelle approche dois-je choisir, definir la taille de la fenêtre du classeur ou definir la taille du graphique ?**
+
+Utilisez **Approche 1 (taille de la fenêtre)** si vous souhaitez conserver le ratio d'aspect du classeur et éventuellement permettre un redimensionnement ultérieur.  
+Utilisez **Approche 2 (taille du graphique)** si les dimensions du graphique sont fixes et ne changeront pas après l'intégration.
+
+**Ces methodes fonctionneront-elles avec les présentations basees sur un modele et les nouvelles présentations ?**
+
+Oui. Les deux approches fonctionnent de la même manière pour les présentations creees à partir de modèles et à partir de zéro.
+
+**Existe-t-il une limite à la taille du cadre d'objet OLE ?**
+
+Non. Vous pouvez definir le cadre OLE à n'importe quelle taille tant qu'il s'adapte correctement à la taille du classeur ou du graphique.
+
+**Puis-je utiliser ces methodes avec des graphiques crees dans d'autres programmes de tableauur ?**
+
+Les exemples sont conçus pour les graphiques Excel créés avec Aspose.Cells, mais les principes s'appliquent à d'autres programmes de tableauur compatibles OLE tant qu'ils offrent des options de dimensionnement similaires.
+
+## **Sections connexes**
+
+- [Creer des graphiques Excel et les integrer en tant qu'objets OLE dans les présentations](/slides/fr/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

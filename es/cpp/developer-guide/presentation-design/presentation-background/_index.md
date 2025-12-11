@@ -1,163 +1,211 @@
 ---
-title: Fondo de Presentación
+title: Administrar fondos de presentación en C++
+linktitle: Fondo de diapositiva
 type: docs
 weight: 20
 url: /es/cpp/presentation-background/
-keywords: "fondo de PowerPoint, establecer fondo"
-description: "Establecer fondo en la presentación de PowerPoint en CPP"
+keywords:
+- fondo de presentación
+- fondo de diapositiva
+- color sólido
+- color degradado
+- fondo de imagen
+- transparencia del fondo
+- propiedades del fondo
+- PowerPoint
+- OpenDocument
+- presentación
+- C++
+- Aspose.Slides
+description: "Aprenda cómo establecer fondos dinámicos en archivos PowerPoint y OpenDocument usando Aspose.Slides para C++, con consejos de código para mejorar sus presentaciones."
 ---
 
-Los colores sólidos, los colores degradados y las imágenes se utilizan a menudo como imágenes de fondo para las diapositivas. Puedes establecer el fondo ya sea para una **diapositiva normal** (diapositiva única) o **diapositiva maestra** (varias diapositivas a la vez).
+## **Visión general**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Los colores sólidos, los degradados y las imágenes se usan habitualmente como fondos de diapositivas. Puede establecer el fondo para una **diapositiva normal** (una sola diapositiva) o una **diapositiva maestra** (se aplica a varias diapositivas a la vez).
 
-## **Establecer Color Sólido como Fondo para Diapositiva Normal**
+![Fondo de PowerPoint](powerpoint-background.png)
 
-Aspose.Slides te permite establecer un color sólido como fondo de una diapositiva específica en una presentación (incluso si esa presentación contiene una diapositiva maestra). El cambio de fondo afecta solo a la diapositiva seleccionada.
+## **Establecer un color sólido como fondo para una diapositiva normal**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) para el fondo de la diapositiva en `Solid`.
-4. Utiliza la propiedad [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) expuesta por [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) para especificar un color sólido para el fondo.
-5. Guarda la presentación modificada.
+Aspose.Slides le permite establecer un color sólido como fondo para una diapositiva específica en una presentación, incluso si la presentación utiliza una diapositiva maestra. El cambio se aplica solo a la diapositiva seleccionada.
 
-Este código C++ te muestra cómo establecer un color sólido (azul) como fondo para una diapositiva normal:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Establezca el [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establezca el [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) del fondo de la diapositiva en `Solid`.
+4. Utilice el método [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) de [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) para especificar el color sólido del fondo.
+5. Guarde la presentación modificada.
 
-```c++
-// La ruta al directorio de documentos.
+El siguiente ejemplo en C++ muestra cómo establecer un color sólido azul como fondo para una diapositiva normal:
+```cpp
+// Crear una instancia de la clase Presentation.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-	// Crea una instancia de la clase Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Establecer el color de fondo de la diapositiva a azul.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	// Establece el color de fondo para la primera ISlide en Azul
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// Escribe la presentación en disco
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Guardar la presentación en disco.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Establecer Color Sólido como Fondo para Diapositiva Maestra**
 
-Aspose.Slides te permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que contiene y controla la configuración de formato para todas las diapositivas. Por lo tanto, cuando seleccionas un color sólido como fondo para la diapositiva maestra, ese nuevo fondo se utilizará para todas las diapositivas.
+## **Establecer un color sólido como fondo para una diapositiva maestra**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) para la diapositiva maestra (`Masters`) en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) para el fondo de la diapositiva maestra en `Solid`.
-4. Utiliza la propiedad [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) expuesta por [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) para especificar un color sólido para el fondo.
-5. Guarda la presentación modificada.
+Aspose.Slides le permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que controla el formato de todas las diapositivas, de modo que cuando elige un color sólido para el fondo de la diapositiva maestra, se aplica a todas las diapositivas.
 
-Este código C++ te muestra cómo establecer un color sólido (verde bosque) como fondo para una diapositiva maestra en una presentación:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Establezca el [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositiva maestra (a través de `get_Masters`) en `OwnBackground`.
+3. Establezca el [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) del fondo de la diapositiva maestra en `Solid`.
+4. Utilice el método [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) para especificar el color sólido del fondo.
+5. Guarde la presentación modificada.
 
-```c++
-// La ruta al directorio de documentos.
+El siguiente ejemplo en C++ muestra cómo establecer un color sólido (verde bosque) como fondo para una diapositiva maestra:
+```cpp
+// Crear una instancia de la clase Presentation.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+auto masterSlide = presentation->get_Master(0);
 
-	// Crea una instancia de la clase Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Establecer el color de fondo de la diapositiva maestra a Verde Bosque.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Establece el color de fondo para la Master ISlide en Verde Bosque
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	// Escribe la presentación en disco
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Guardar la presentación en disco.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Establecer Color Degradado como Fondo para Diapositiva**
 
-Un degradado es un efecto gráfico basado en un cambio gradual de color. Los colores degradados, cuando se utilizan como fondos para diapositivas, hacen que las presentaciones se vean artísticas y profesionales. Aspose.Slides te permite establecer un color degradado como fondo para las diapositivas en las presentaciones.
+## **Establecer un fondo degradado para una diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) para el fondo de la diapositiva en `Gradient`.
-4. Utiliza la propiedad [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) expuesta por [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) para especificar tu configuración de degradado preferida.
-5. Guarda la presentación modificada.
+Un degradado es un efecto gráfico creado por un cambio gradual de color. Cuando se utiliza como fondo de diapositiva, los degradados pueden hacer que las presentaciones se vean más artísticas y profesionales. Aspose.Slides le permite establecer un color degradado como fondo para las diapositivas.
 
-Este código C++ te muestra cómo establecer un color degradado como fondo para una diapositiva:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Establezca el [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establezca el [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) del fondo de la diapositiva en `Gradient`.
+4. Utilice el método [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) de [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) para configurar los ajustes de degradado que prefiera.
+5. Guarde la presentación modificada.
 
-```c++
-// Crea una instancia de la clase Presentation
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+El siguiente ejemplo en C++ muestra cómo establecer un color degradado como fondo para una diapositiva:
+```cpp
+// Crear una instancia de la clase Presentation.
+auto presentation = MakeObject<Presentation>();
 
-// Aplica efecto de degradado al fondo
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+auto slide = presentation->get_Slide(0);
 
-// Escribe la presentación en disco
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// Aplicar un efecto degradado al fondo.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+
+// Guardar la presentación en disco.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Establecer Imagen como Fondo para Diapositiva**
 
-Además de los colores sólidos y los colores degradados, Aspose.Slides también te permite establecer imágenes como fondo para las diapositivas en las presentaciones.
+## **Establecer una imagen como fondo de la diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) para el fondo de la diapositiva maestra en `Picture`.
-4. Carga la imagen que deseas usar como fondo de la diapositiva.
-5. Agrega la imagen a la colección de imágenes de la presentación.
-6. Utiliza la propiedad [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) expuesta por [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) para establecer la imagen como el fondo.
-7. Guarda la presentación modificada.
+Además de los rellenos sólidos y degradados, Aspose.Slides le permite usar imágenes como fondos de diapositivas.
 
-Este código C++ te muestra cómo establecer una imagen como fondo para una diapositiva:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Establezca el [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establezca el [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) del fondo de la diapositiva en `Picture`.
+4. Cargue la imagen que desea usar como fondo de la diapositiva.
+5. Agregue la imagen a la colección de imágenes de la presentación.
+6. Utilice el método [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) de [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) para asignar la imagen como fondo.
+7. Guarde la presentación modificada.
 
-```c++
-// La ruta al directorio de documentos.
+El siguiente ejemplo en C++ muestra cómo establecer una imagen como fondo para una diapositiva:
+```cpp
+// Crear una instancia de la clase Presentation.
+auto presentation = MakeObject<Presentation>();
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-// Crea una instancia de la clase Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Establecer las propiedades de la imagen de fondo.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Establece condiciones para la imagen de fondo
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+// Cargar la imagen.
+auto image = Images::FromFile(u"Tulips.jpg");
+// Agregar la imagen a la colección de imágenes de la presentación.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Carga la imagen
-auto image = Images::FromFile(imagePath);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Agrega la imagen a la colección de imágenes de la presentación
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Escribe la presentación en disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Guardar la presentación en disco.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-### **Cambiar Transparencia de la Imagen de Fondo**
 
-Es posible que desees ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva se destaque. Este código C++ te muestra cómo cambiar la transparencia para una imagen de fondo de diapositiva:
+El siguiente fragmento de código muestra cómo establecer el tipo de relleno del fondo a una imagen en mosaico y modificar las propiedades del mosaico:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-int32_t transparencyValue = 30;
-// por ejemplo
-// Obtiene una colección de operaciones de transformación de imagen
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+Leer más: [**Imagen de mosaico como textura**](/slides/es/cpp/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
+### **Cambiar la transparencia de la imagen de fondo**
+
+Puede que desee ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva destaque. El siguiente código en C++ le muestra cómo cambiar la transparencia de la imagen de fondo de una diapositiva:
+```cpp
+auto transparencyValue = 30; // Por ejemplo.
+
+// Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// Busca un efecto de transparencia con porcentaje fijo.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Find an existing fixed-percentage transparency effect.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// Establece el nuevo valor de transparencia.
+
+// Set the new transparency value.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,26 +216,40 @@ else
 }
 ```
 
-## **Obtener Valor del Fondo de Diapositiva**
 
-Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) para permitirte obtener los valores efectivos de los fondos de las diapositivas. Esta interfaz contiene información sobre el [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) efectivo y el [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8).
+## **Obtener el valor del fondo de la diapositiva**
 
-Utilizando la propiedad [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) de la clase [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/), puedes obtener el valor efectivo para un fondo de diapositiva.
+Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) para obtener los valores efectivos del fondo de una diapositiva. Esta interfaz expone el [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) y el [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) efectivos.
 
-Este código C++ te muestra cómo obtener el valor efectivo del fondo de una diapositiva:
+Usando el método `get_Background` de la clase [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/), puede obtener el fondo efectivo de una diapositiva.
 
-```c++
-// Crea una instancia de la clase Presentation
-const String templatePath = u"../templates/SamplePresentation.pptx";
+El siguiente ejemplo en C++ muestra cómo obtener el valor efectivo del fondo de una diapositiva:
+```cpp
+// Crear una instancia de la clase Presentation.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"Color de relleno: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"Tipo de relleno: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+auto slide = presentation->get_Slide(0);
+
+// Retrieve the effective background, taking into account master, layout, and theme.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo restablecer un fondo personalizado y recuperar el fondo del tema/diseño?**
+
+Sí. Elimine el relleno personalizado de la diapositiva y el fondo volverá a heredarse del [layout](/slides/es/cpp/slide-layout/)/[master](/slides/es/cpp/slide-master/) correspondiente (es decir, del [theme background](/slides/es/cpp/presentation-theme/)).
+
+**¿Qué ocurre con el fondo si cambio el tema de la presentación más tarde?**
+
+Si una diapositiva tiene su propio relleno, permanecerá sin cambios. Si el fondo se hereda del [layout](/slides/es/cpp/slide-layout/)/[master](/slides/es/cpp/slide-master/), se actualizará para coincidir con el [nuevo tema](/slides/es/cpp/presentation-theme/).

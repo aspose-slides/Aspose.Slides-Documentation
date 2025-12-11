@@ -3,314 +3,259 @@ title: حل عملي لتغيير حجم ورقة العمل
 type: docs
 weight: 130
 url: /ar/cpp/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- صورة معاينة
+- تغيير حجم الصورة
+- Excel
+- ورقة عمل
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides for C++
+description: "حل عملي لتغيير حجم ورقة العمل في عروض PowerPoint باستخدام C++"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
+تم ملاحظة أن أوراق عمل Excel المدمجة ككائنات OLE في عرض PowerPoint عبر مكونات Aspose يتم تغيير حجمها إلى مقياس غير معروف بعد التنشيط الأول. يخلق هذا السلوك فرقًا مرئيًا ملحوظًا في العرض بين حالتي ما قبل وما بعد تنشيط كائن OLE. لقد قمنا بالتحقيق في هذه المشكلة بالتفصيل وقدمنا حلاً، وهو مغطى في هذه المقالة.
+{{% /alert %}}
 
-تمت ملاحظة أن أوراق عمل Excel المدمجة كـ OLE في عرض PowerPoint من خلال مكونات Aspose تتغير إلى مقياس غير معروف بعد التفعيل الأول. تتسبب هذه الظاهرة في فرق بصري ملحوظ في العرض بين حالات تنشيط الرسم البياني السابقة واللاحقة. لقد قمنا بالتحقيق في هذه المشكلة بالتفصيل ووجدنا الحل لهذه المشكلة التي تم تناولها في هذه المقالة.
-
-{{% /alert %}} 
 ## **الخلفية**
-في مقال إضافة إطارات Ole، أوضحنا كيفية إضافة إطار Ole في العرض التقديمي في عرض PowerPoint باستخدام Aspose.Slides لـ C++. من أجل استيعاب قضية تغيير الكائن، قمنا بتعيين صورة ورقة العمل للمنطقة المحددة إلى إطار كائن الرسم البياني OLE. في العرض الناتج، عندما نقوم بالنقر المزدوج على إطار كائن OLE الذي يظهر صورة ورقة العمل، يتم تنشيط رسم Excel. يمكن لمستخدمي النهاية إجراء أي تغييرات مرغوبة في كتاب Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج مكتبة Excel المفعلة. سيتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة. سيكون عامل تغيير الحجم مختلفًا لأحجام مختلفة من إطار كائن OLE وكتاب Excel المدمج.
+
+في المقالة [إدارة OLE](/slides/ar/cpp/manage-ole/)، شرحنا كيفية إضافة إطار OLE إلى عرض PowerPoint باستخدام Aspose.Slides for C++. لمعالجة [مشكلة معاينة الكائن](/slides/ar/cpp/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة لمنطقة ورقة العمل المختارة إلى إطار كائن OLE. في العرض الناتج، عند النقر المزدوج على إطار كائن OLE الذي يعرض صورة ورقة العمل، يتم تنشيط مصنف Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة على مصنف Excel الفعلي ثم العودة إلى الشريحة بالنقر خارج مصنف Excel المنشط. سيتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة. سيختلف معامل تغيير الحجم اعتمادًا على حجم إطار كائن OLE ومصنف Excel المدمج.
+
 ## **سبب تغيير الحجم**
-نظرًا لأن مكتبة Excel لها حجم نافذة خاص بها، فإنها تحاول الاحتفاظ بحجمها الأصلي عند التفعيل الأول. من ناحية أخرى، سيكون لإطار كائن OLE حجمه الخاص. وفقًا لـ Microsoft، عند تنشيط مكتبة Excel، تتفاوض Excel و PowerPoint على الحجم وتضمن أنه في النسب الصحيحة كجزء من عملية التضمين. بناءً على الاختلافات في حجم Windows Excel وحجم/موضع إطار كائن OLE، يحدث تغيير الحجم.
+
+نظرًا لأن لمصنف Excel نافذة بالحجم الخاص به، فإنه يحاول الحفاظ على حجمه الأصلي عند التنشيط الأول. من ناحية أخرى، يمتلك إطار كائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عند تنشيط مصنف Excel، يتفاوض Excel وPowerPoint على الحجم لضمان الحفاظ على النسب الصحيحة كجزء من عملية الدمج. يحدث تغيير الحجم بناءً على الفروق بين حجم نافذة Excel وحجم وموقع إطار كائن OLE.
+
 ## **الحل العملي**
-هناك حلان محتملان لتجنب تأثير إعادة تغيير الحجم.
 
-- تغيير حجم إطار Ole في PPT ليتناسب مع الحجم من حيث ارتفاع/عرض عدد الصفوف/الأعمدة المرغوبة في إطار Ole
-- الحفاظ على حجم إطار Ole ثابتًا وتغيير حجم الصفوف/الأعمدة المشاركة لتناسب حجم إطار Ole المحدد
-## **تغيير حجم إطار Ole ليتناسب مع حجم الصفوف/الأعمدة المحددة في ورقة العمل**
-في هذا النهج، سنتعلم كيفية تعيين حجم إطار Ole لكتاب Excel المدمج بما يتناسب مع الحجم التراكمي لعدد الصفوف والأعمدة المشاركة في ورقة العمل Excel.
-## **مثال**
-افترض أننا قمنا بتعريف ورقة Excel نموذجية ونرغب في إضافتها إلى العرض التقديمي كإطار Ole. في هذا السيناريو، سيتم حساب حجم إطار كائن OLE أولاً بناءً على ارتفاع الصفوف التراكمي وعرض الأعمدة للصفوف والأعمدة الخاصة بالمكتبة المعنية. ثم سنقوم بتعيين حجم إطار Ole إلى تلك القيمة المحسوبة. لتجنب رسالة **كائن مدمج** الحمراء لإطار Ole في PowerPoint، سنقوم أيضًا بالحصول على صورة للأجزاء المرغوبة من الصفوف والأعمدة في المكتبة وتعيين ذلك كصورة إطار Ole.
+هناك حلان محتملان لتجنب تأثير تغيير الحجم.
 
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
+- تحجيم حجم إطار OLE في عرض PowerPoint ليتوافق مع الطول والعرض للعدد المطلوب من الصفوف والأعمدة في إطار OLE.
+- الإبقاء على حجم إطار OLE ثابتًا وتحجيم حجم الصفوف والأعمدة المشاركة لتتناسب مع حجم إطار OLE المحدد.
 
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+### **تحجيم حجم إطار OLE**
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+في هذا النهج، سنتعلم كيفية ضبط حجم إطار OLE للمصنف المدمج ليتوافق مع الحجم التراكمي للصفوف والأعمدة المشاركة في ورقة عمل Excel.
 
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
+لنفترض أن لدينا قالب ورقة Excel ونريد إضافتها إلى عرض تقديمي كإطار OLE. في هذا السيناريو، سيُحسب أولاً حجم إطار كائن OLE بناءً على الارتفاعات التراكمية للصفوف والعروض التراكمية للأعمدة المشاركة في المصنف. ثم سنضبط حجم إطار OLE على هذه القيمة المحسوبة. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونعيّنها كصورة لإطار OLE.
+```cpp
+Aspose::Cells::Startup();
+
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
+
+// ضبط الحجم المعروض عندما يُستخدم ملف المصنف ككائن OLE في PowerPoint.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+auto imageStream = CreateOleImage(cellRange, imageResolution);
+
+// احصل على عرض وارتفاع صورة OLE بالنقاط.
+auto image = Image::FromStream(imageStream);
+auto imageWidth = image->get_Width() * 72.0f / imageResolution;
+auto imageHeight = image->get_Height() * 72.0f / imageResolution;
+
+// نحتاج إلى استخدام المصنف المعدل.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// إضافة صورة OLE إلى موارد العرض التقديمي.
+auto oleImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
+
+// إنشاء إطار كائن OLE.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::Drawing::Size SetOleAccordingToSelectedRowsColumns(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, int32_t dataSheetIdx)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
-    }
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
-
-    // ضبط ارتفاع الصف والعمود الجديد
-    return System::Drawing::Size((int32_t)(System::Math::Round(actualWidth, 2) * 576), (int32_t)(System::Math::Round(actualHeight, 2) * 576));
+    return imageStream;
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-    int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-    double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation, 
-    intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner, 
-    bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
-{
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
 
-    // ضبط مؤشر ورقة العمل النشطة للمكتبة
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+### **تحجيم حجم نطاق الخلايا**
 
-    // الحصول على المكتبة وورقة العمل المحددة  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+في هذا النهج، سنتعلم كيفية تحجيم ارتفاعات الصفوف المشاركة وعرض الأعمدة المشاركة لتتناسب مع حجم إطار OLE مخصص.
 
-    // ضبط حجم Ole وفقاً للصفوف والأعمدة المحددة
-    System::Drawing::Size SlideOleSize = SetOleAccordingToSelectedRowsColumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.get_Width();
-    OleHeight = SlideOleSize.get_Height();
+لنفترض أن لدينا قالب ورقة Excel ونريد إضافتها إلى عرض تقديمي كإطار OLE. في هذا السيناريو، سنضبط حجم إطار OLE ونقوّم حجم الصفوف والأعمدة التي تشارك في مساحة إطار OLE. ثم سنحفظ المصنف إلى تدفق لتطبيق التغييرات ونحوّله إلى مصفوفة بايت لإضافته إلى إطار OLE. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونعيّنها كصورة لإطار OLE.
+```cpp
+Aspose::Cells::Startup();
 
-    // تعيين حجم Ole في المكتبة
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
 
-    // ضبط خيارات الصورة لأخذ صورة ورقة العمل
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-    
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
+// ضبط الحجم المعروض عند استخدام ملف المصنف ككائن OLE في PowerPoint.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-    // إضافة الصورة إلى مجموعة الصور في الشريحة
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
+// تحجيم نطاق الخلايا ليتناسب مع حجم الإطار.
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
 
-    // حفظ المكتبة إلى تدفق ونسخها في مصفوفة بت
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
+auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-    // إضافة إطار كائن Ole
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
+// نحتاج إلى استخدام المصنف المعدل.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
 
-    // ضبط صورة إطار Ole والنص البديل    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
-}
-```
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-    return outputStream;
-}
+// إضافة صورة OLE إلى موارد العرض التقديمي.
+auto oleImage = presentation->get_Images()->AddImage(imageStream);
+imageStream->Dispose();
+
+// إنشاء إطار كائن OLE.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
+
+```cpp
+/// <param name="width">العرض المتوقع لنطاق الخلايا بالنقاط.</param>
+/// <param name="height">الارتفاع المتوقع لنطاق الخلايا بالنقاط.</param>
+void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
-    if (outputWidth == 0 && outputHeight == 0)
+    auto rangeWidth = cellRange.GetWidth();
+    auto rangeHeight = cellRange.GetHeight();
+
+    for (int i = 0; i < cellRange.GetColumnCount(); i++)
     {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
+        auto columnIndex = cellRange.GetFirstColumn() + i;
+        auto columnWidth = cellRange.GetWorksheet().GetCells().GetColumnWidth(columnIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    return outputImage;
-}
-```
-
-## **تغيير ارتفاع الصفوف وعرض الأعمدة في ورقة العمل وفقًا لحجم إطار Ole**
-في هذا النهج، سنتعلم كيفية تغيير ارتفاعات الصفوف المشاركة وعرض الأعمدة المشاركة وفقًا لحجم إطار Ole المحدد.
-## **مثال**
-افترض أننا قمنا بتعريف ورقة Excel نموذجية ونرغب في إضافتها إلى العرض التقديمي كإطار Ole. في هذا السيناريو، سنقوم بتعيين حجم إطار Ole وتغيير حجم الصفوف والأعمدة المشاركة في منطقة إطار Ole. سنقوم بعد ذلك بحفظ المكتبة في تدفق لحفظ التغييرات وتحويل ذلك إلى مصفوفة بت لإضافته في إطار Ole. لتجنب رسالة **كائن مدمج** الحمراء لإطار Ole في PowerPoint، سنقوم أيضًا بالحصول على صورة للأجزاء المرغوبة من الصفوف والأعمدة في المكتبة وتعيين ذلك كصورة إطار Ole.
-
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
-
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
-```
-
-``` cpp
-void SetOleAccordingToCustomHeightWidth(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, double slideWidth, double slideHeight, int32_t dataSheetIdx)
-{
-    auto work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
-
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
+        auto newColumnWidth = columnWidth * width / rangeWidth;
+        auto widthInInches = newColumnWidth / 72;
+        cellRange.GetWorksheet().GetCells().SetColumnWidthInch(columnIndex, widthInInches);
     }
 
-    for (int32_t i = startCol; i <= endCol; i++)
+    for (int i = 0; i < cellRange.GetRowCount(); i++)
     {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
+        auto rowIndex = cellRange.GetFirstRow() + i;
+        auto rowHeight = cellRange.GetWorksheet().GetCells().GetRowHeight(rowIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    // ضبط ارتفاع الصف والعمود الجديد
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        tem = work->GetICells()->GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work->GetICells()->SetRowHeightInch(i, newTem);
-    }
-
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        tem = work->GetICells()->GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work->GetICells()->SetColumnWidthInch(i, newTem);
+        auto newRowHeight = rowHeight * height / rangeHeight;
+        auto heightInInches = newRowHeight / 72;
+        cellRange.GetWorksheet().GetCells().SetRowHeightInch(rowIndex, heightInInches);
     }
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-        int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-        double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation,
-        intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner,
-        bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    // ضبط مؤشر ورقة العمل النشطة للمكتبة
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    // الحصول على المكتبة وورقة العمل المحددة  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    // تغيير ارتفاع الصفوف وعرض الأعمدة وفقًا لحجم Ole المخصص
-    double height = OleHeight / 576.0f;
-    double width = OleWidth / 576.0f;
-
-    // ضبط حجم Ole وفقاً للصفوف والأعمدة المحددة
-    SetOleAccordingToCustomHeightWidth(workbook, startRow, endRow, startCol, endCol, width, height, dataSheetIdx);
-
-    // تعيين حجم Ole في المكتبة
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
-
-    // ضبط خيارات الصورة لأخذ صورة ورقة العمل
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
-
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
-
-    // إضافة الصورة إلى مجموعة الصور في الشريحة
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
-
-    // حفظ المكتبة إلى تدفق ونسخها في مصفوفة بت
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
-
-    // إضافة إطار كائن Ole
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
-
-    // ضبط صورة إطار Ole والنص البديل    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
+    return imageStream;
 }
 ```
 
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
 
-    return outputStream;
-}
-```
+## **الخلاصة**
+{{% alert color="primary" %}}
+هناك نهجان لإصلاح مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات وحالة الاستخدام المحددة. كلا النهجين يعملان بنفس الطريقة، سواء تم إنشاء العروض من قالب أو من الصفر. بالإضافة إلى ذلك، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
+{{% /alert %}}
 
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
+## **الأسئلة المتكررة**
 
-    return outputImage;
-}
-```
+**لماذا يتغير حجم ورقة Excel المدمجة عند تنشيطها لأول مرة في PowerPoint؟**  
+يحدث ذلك لأن Excel يحاول الحفاظ على حجم نافذته الأصلي عند التنشيط، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة الأبعاد، مما قد يسبب تغيير الحجم.
 
-## **الخاتمة**
+**هل يمكن منع مشكلة تغيير الحجم هذه تمامًا؟**  
+نعم. من خلال تحجيم إطار OLE ليتناسب مع حجم نطاق خلايا Excel أو تحجيم نطاق الخلايا ليتناسب مع حجم إطار OLE المطلوب، يمكنك منع تغيير الحجم غير المرغوب.
 
-{{% alert color="primary" %}}   {{% /alert %}} 
+**أي طريقة تحجيم يجب أن أستخدم، تحجيم إطار OLE أم تحجيم نطاق الخلايا؟**  
+اختر **تحجيم إطار OLE** إذا أردت الحفاظ على أحجام الصفوف والأعمدة الأصلية في Excel. اختر **تحجيم نطاق الخلايا** إذا رغبت في الحصول على حجم ثابت لإطار OLE في عرضك.
 
-هناك نهجان لإصلاح مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات وحالة الاستخدام. تعمل كلا النهجين بنفس الطريقة سواء تمت إنشاء العروض التقديمية من نموذج أو إنشائها من الصفر. أيضًا، لا توجد حدود لحجم إطار كائن OLE في الحل. 
+**هل ستعمل هذه الحلول إذا كان العرض مبنيًا على قالب؟**  
+نعم. كلا الحلين يعملان للعروض التي تم إنشاؤها من القوالب أو من الصفر.
 
-h4. {_}الأقسام ذات الصلة 
-{_}
+**هل هناك حد لحجم إطار OLE عند استخدام هذه الأساليب؟**  
+لا. يمكنك ضبط إطار كائن OLE لأي حجم طالما قمت بتحديد معامل التحجيم بشكل مناسب.
 
-[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+**هل هناك طريقة لتجنب نص العنصر النائب "EMBEDDED OLE OBJECT" في PowerPoint؟**  
+نعم. من خلال التقاط لقطة لنطاق خلايا Excel المستهدف وتعيينها كصورة عنصر نائب لإطار OLE، يمكنك عرض صورة معاينة مخصصة بدلاً من العنصر النائب الافتراضي.
+
+## **مقالات ذات صلة**
+
+[إنشاء مخطط Excel وتضمينه في عرض تقديمي ككائن OLE](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

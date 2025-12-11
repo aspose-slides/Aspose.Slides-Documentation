@@ -1,118 +1,180 @@
 ---
-title: 演示文稿查看器
+title: 在 C++ 中创建演示文稿查看器
+linktitle: 演示文稿查看器
 type: docs
 weight: 50
 url: /zh/cpp/presentation-viewer/
-keywords: 
-- 查看 PowerPoint 演示文稿
-- 查看 ppt
+keywords:
+- 查看演示文稿
+- 演示文稿查看器
+- 创建演示文稿查看器
+- 查看 PPT
 - 查看 PPTX
+- 查看 ODP
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - C++
-- Aspose.Slides for C++
-description: "在 C++ 中查看 PowerPoint 演示文稿"
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 C++ 中创建自定义演示文稿查看器。轻松显示 PowerPoint 和 OpenDocument 文件，而无需 Microsoft PowerPoint。"
 ---
 
+Aspose.Slides for C++ 用于创建包含幻灯片的演示文稿文件。可以通过在 Microsoft PowerPoint 等程序中打开演示文稿来查看这些幻灯片。不过，有时开发人员可能需要在首选的图像查看器中将幻灯片作为图片查看，或创建自己的演示文稿查看器。在这些情况下，Aspose.Slides 允许您将单个幻灯片导出为图像。本文介绍了具体操作方法。
+
 ## **从幻灯片生成 SVG 图像**
-Aspose.Slides for C++ 用于创建演示文稿文件，包含幻灯片。可以通过使用 Microsoft PowerPoint 打开演示文稿来查看这些幻灯片。但有时，开发人员可能还需要在他们喜欢的图像查看器中以 SVG 图像查看幻灯片。在这种情况下，Aspose.Slides for C++ 允许您将单个幻灯片导出为 SVG 图像。本文描述了如何使用此功能。要使用 Aspose.Slides.Pptx for C++ 从任何所需幻灯片生成 SVG 图像，请按照以下步骤操作：
 
-- 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-- 通过使用其 ID 或索引获取所需幻灯片的引用。
-- 在内存流中获取 SVG 图像。
-- 将内存流保存到文件中。
+使用 Aspose.Slides 从演示文稿幻灯片生成 SVG 图像，请按照以下步骤操作：
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSlidesSVGImage-CreateSlidesSVGImage.cpp" >}}
+1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 通过索引获取幻灯片引用。  
+3. 打开文件流。  
+4. 将幻灯片保存为 SVG 图像到文件流中。  
+```cpp
+auto slideIndex = 0;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+
 ## **使用自定义形状 ID 生成 SVG**
-现在 Aspose.Slides for C++ 可以用来自定义形状 ID 的幻灯片生成 SVG。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文稿来看。但有时，开发人员可能还需要在他们喜欢的图像查看器中以 SVG 图像查看幻灯片。在这种情况下，Aspose.Slides for C++ 允许您将单个幻灯片导出为 SVG 图像。为此，已将 ID 属性添加到 ISvgShape 以支持生成 SVG 中形状的自定义 ID。为了实现此功能，介绍了一个 CustomSvgShapeFormattingController，您可以使用它来设置形状 ID。
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GeneratingSVGWithCustomShapeIDS-GeneratingSVGWithCustomShapeIDS.cpp" >}}
+Aspose.Slides 可用于从具有自定义形状 ID 的幻灯片生成 [SVG](https://docs.fileformat.com/page-description-language/svg/)。为此，请使用来自 [ISvgShape](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/) 的 `set_Id` 方法。可以使用 `CustomSvgShapeFormattingController` 来设置形状 ID。  
+```cpp
+auto slideIndex = 0;
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomSvgShapeFormattingController-CustomSvgShapeFormattingController.cpp" >}}
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<CustomSvgShapeFormattingController>());
+
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+  
+```cpp
+class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
+{
+private:
+    int m_shapeIndex;
+
+public:
+    CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
+
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape)
+    {
+        svgShape->set_Id(String::Format(u"shape-{0}", m_shapeIndex++));
+    }
+};
+```
+
 
 ## **创建幻灯片缩略图图像**
-Aspose.Slides for C++ 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文稿文件进行查看。但有时，开发人员可能需要使用他们喜欢的图像查看器以图像的形式查看幻灯片。在这种情况下，Aspose.Slides for C++ 可以帮助您生成幻灯片的缩略图图像。要使用 Aspose.Slides for C++ 生成任何所需幻灯片的缩略图：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在指定比例下获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+Aspose.Slides 帮助您生成幻灯片的缩略图。要使用 Aspose.Slides 生成幻灯片的缩略图，请按照以下步骤操作：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 通过索引获取幻灯片引用。  
+3. 以定义的比例获取引用幻灯片的缩略图图像。  
+4. 以任意所需的图像格式保存缩略图。  
 ```cpp
-// 实例化 Presentation 类
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlide.pptx");
+auto slideIndex = 0;
+auto scaleX = 1;
+auto scaleY = scaleX;
 
-// 访问第一张幻灯片
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// 创建全尺寸图像
-auto image = slide->GetImage(1, 1);
-image->Save(u"Thumbnail_out.jpg", ImageFormat::Png);
-image->Dispose();
-
-presentation->Dispose();
-```
-
-## **使用用户定义的尺寸创建缩略图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在指定比例下获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
-
-```cpp
-// 实例化 Presentation 类
-auto presentation = MakeObject<Presentation>(u"ThumbnailWithUserDefinedDimensions.pptx");
-
-// 访问第一张幻灯片
-auto slide = presentation->get_Slide(0);
-
-// 用户定义的尺寸
-auto desiredX = 1200;
-auto desiredY = 800;
-
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// 获取 X 和 Y 的缩放值
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
-
-// 创建自定义缩放图像
 auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Thumbnail2_out.jpg", ImageFormat::Png);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
 
-## **在注释幻灯片视图中从幻灯片创建缩略图**
-要使用 Aspose.Slides for C++ 生成任何所需幻灯片在注释幻灯片视图中的缩略图：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 通过使用其 ID 或索引获取所需幻灯片的引用。
-1. 在注释幻灯片视图中，以指定比例获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+## **使用用户自定义尺寸创建幻灯片缩略图**
 
-下面的代码片段生成演示文稿第一张幻灯片在注释幻灯片视图中的缩略图。
+要使用用户自定义尺寸创建幻灯片缩略图，请按照以下步骤操作：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+2. 通过索引获取幻灯片引用。  
+3. 使用定义的尺寸获取引用幻灯片的缩略图图像。  
+4. 以任意所需的图像格式保存缩略图。  
 ```cpp
-// 实例化 Presentation 类
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlideInNotes.pptx");
+auto slideIndex = 0;
+auto slideSize = Size(1200, 800);
 
-// 访问第一张幻灯片
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// 用户定义的尺寸
-auto desiredX = 1200;
-auto desiredY = 800;
-
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// 获取 X 和 Y 的缩放值
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
-
-// 创建全尺寸图像
-auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Notes_tnail_out.jpg", ImageFormat::Png);
+auto image = slide->GetImage(slideSize);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
+
+
+## **创建带演讲者备注的幻灯片缩略图**
+
+要使用 Aspose.Slides 生成带演讲者备注的幻灯片缩略图，请按照以下步骤操作：
+
+1. 创建 [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) 类的实例。  
+2. 使用 `RenderingOptions.set_SlidesLayoutOptions` 方法设置演讲者备注的位置。  
+3. 创建 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+4. 通过索引获取幻灯片引用。  
+5. 使用渲染选项获取引用幻灯片的缩略图图像。  
+6. 以任意所需的图像格式保存缩略图。  
+```cpp
+auto slideIndex = 0;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutingOptions);
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(renderingOptions);
+image->Save(u"output.png", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **实时示例**
+
+您可以试用 [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) 免费应用，了解使用 Aspose.Slides API 可以实现的功能：
+
+![在线 PowerPoint 查看器](online-PowerPoint-viewer.png)
+
+## **常见问题**
+
+**我可以在 Web 应用程序中嵌入演示文稿查看器吗？**
+
+可以。您可以在服务器端使用 Aspose.Slides 将幻灯片渲染为图像或 HTML，并在浏览器中显示。导航和缩放功能可以使用 JavaScript 实现，从而提供交互式体验。
+
+**在自定义查看器中显示幻灯片的最佳方式是什么？**
+
+推荐的做法是使用 Aspose.Slides 将每张幻灯片渲染为图像（例如 PNG 或 SVG）或转换为 HTML，然后将输出显示在图片框（桌面）或 HTML 容器（Web）中。
+
+**如何处理包含大量幻灯片的大型演示文稿？**
+
+对于大型演示文稿，考虑使用懒加载或按需渲染幻灯片。这意味着仅在用户导航到幻灯片时生成其内容，从而降低内存占用和加载时间。

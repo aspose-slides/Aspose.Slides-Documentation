@@ -1,42 +1,55 @@
 ---
-title: ウォーターマーク
+title: C++でプレゼンテーションに透かしを追加する
+linktitle: 透かし
 type: docs
 weight: 40
 url: /ja/cpp/watermark/
 keywords:
-- ウォーターマーク
-- ウォーターマークを追加
-- テキスト ウォーターマーク
-- 画像 ウォーターマーク
+- 透かし
+- テキスト透かし
+- 画像透かし
+- 透かしの追加
+- 透かしの変更
+- 透かしの削除
+- 透かしの削除
+- PPTへの透かし追加
+- PPTXへの透かし追加
+- ODPへの透かし追加
+- PPTからの透かし削除
+- PPTXからの透かし削除
+- ODPからの透かし削除
+- PPTからの透かし削除
+- PPTXからの透かし削除
+- ODPからの透かし削除
 - PowerPoint
+- OpenDocument
 - プレゼンテーション
 - C++
-- Aspose.Slides for C++
-description: "C++でPowerPointプレゼンテーションにテキストおよび画像のウォーターマークを追加"
+- Aspose.Slides
+description: "C++でPowerPointおよびOpenDocumentプレゼンテーションのテキストと画像の透かしを管理し、ドラフト、機密情報、著作権などを示します。"
 ---
 
-## **ウォーターマークについて**
+## **概要**
 
-**ウォーターマーク**は、プレゼンテーションで使用されるテキストまたは画像のスタンプで、スライドやすべてのプレゼンテーションスライドにわたって使用されます。通常、ウォーターマークはプレゼンテーションがドラフトであること（例：「ドラフト」ウォーターマーク）、機密情報が含まれていること（例：「機密」ウォーターマーク）、どの会社に属するかを指定すること（例：「会社名」ウォーターマーク）、プレゼンテーションの著者を識別するためなどに使用されます。ウォーターマークは、プレゼンテーションがコピーされるべきでないことを示すことで著作権侵害を防ぐ助けになります。ウォーターマークはPowerPointおよびOpenOfficeのプレゼンテーション形式の両方で使用されます。Aspose.Slidesでは、PowerPoint PPT、PPTX、OpenOffice ODPファイル形式にウォーターマークを追加できます。
+**透かし**は、スライドまたはプレゼンテーション全体のスライドに使用されるテキストまたは画像のスタンプです。通常、透かしはプレゼンテーションが草稿であること（例: 「Draft」透かし）や機密情報を含むこと（例: 「Confidential」透かし）を示したり、所属企業を指定したり（例: 「Company Name」透かし）、作成者を識別したりするために使用されます。透かしは、プレゼンテーションがコピーされるべきでないことを示すことで著作権侵害を防止するのに役立ちます。透かしは PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用できます。Aspose.Slides では、PowerPoint PPT、PPTX、OpenOffice ODP のファイル形式に透かしを追加できます。
 
-[**Aspose.Slides**](https://products.aspose.com/slides/cpp/)では、PowerPointまたはOpenOfficeドキュメントでウォーターマークを作成し、そのデザインや動作を変更するさまざまな方法があります。共通の側面は、テキストウォーターマークを追加するには[ ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)インターフェイスを使用し、画像ウォーターマークを追加するには[PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/)クラスを使用するか、ウォーターマークシェイプを画像で塗りつぶす必要があるということです。`PictureFrame`は[IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)インターフェイスを実装しており、シェイプオブジェクトのすべての柔軟な設定を使用できます。`ITextFrame`はシェイプではなく、その設定が制限されているため、[IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)オブジェクトにラップされます。
+[**Aspose.Slides**](https://products.aspose.com/slides/cpp/) では、PowerPoint または OpenOffice 文書に透かしを作成し、そのデザインや動作を変更するさまざまな方法が用意されています。共通点として、テキスト透かしを追加する場合は [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) インターフェイスを使用し、画像透かしを追加する場合は [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) クラスを使用するか、透かし形状に画像を塗りつぶします。`PictureFrame` は [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) インターフェイスを実装しているため、形状オブジェクトの柔軟な設定をすべて利用できます。`ITextFrame` は形状ではなく設定が限られているため、[IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) オブジェクトにラップされます。
 
-ウォーターマークを適用する方法は二つあり、単一スライドまたはすべてのプレゼンテーションスライドに適用できます。スライドマスターはすべてのプレゼンテーションスライドにウォーターマークを適用するために使用されます。ウォーターマークはスライドマスターに追加され、完全にデザインされ、個々のスライドのウォーターマークを修正する権限に影響を与えることなくすべてのスライドに適用されます。
+透かしの適用方法は 2 通りあります。単一スライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライドマスタを使用すると、透かしをすべてのスライドに適用できます。透かしはスライドマスタに追加され、そこで完全にデザインされた後、個々のスライドの透かし編集権限に影響を与えずにすべてのスライドに適用されます。
 
-ウォーターマークは通常、他のユーザーによる編集が不可能であると見なされます。ウォーターマーク（またはむしろウォーターマークの親シェイプ）が編集されるのを防ぐために、Aspose.Slidesはシェイプロック機能を提供します。特定のシェイプは、通常のスライドまたはスライドマスターでロックできます。スライドマスターでウォーターマークシェイプがロックされている場合、それはすべてのプレゼンテーションスライドでロックされます。
+透かしは通常、他のユーザーが編集できないように設定されます。透かし（正確には透かしの親形状）が編集されないようにするため、Aspose.Slides は形状ロック機能を提供します。特定の形状は通常のスライドまたはスライドマスタ上でロックできます。スライドマスタ上で透かし形状がロックされると、すべてのプレゼンテーションスライドでロックされます。
 
-将来的にウォーターマークを削除したい場合に備えて、その名前を設定することができます。
+透かしに名前を設定すれば、将来削除したい場合にスライドの形状コレクションから名前で検索できます。
 
-ウォーターマークは任意の方法でデザインできますが、通常、中央揃え、回転、前面位置などの共通の特徴があります。これらを以下の例で使用する方法を考察します。
+透かしのデザインは自由ですが、一般的には中央揃え、回転、前面表示などの共通特徴があります。以下の例でこれらの使い方を説明します。
 
-## **テキストウォーターマーク**
+## **テキスト透かし**
 
-### **スライドにテキストウォーターマークを追加する**
+### **スライドにテキスト透かしを追加する**
 
-PPT、PPTX、またはODPにテキストウォーターマークを追加するには、まずスライドにシェイプを追加し、その後このシェイプにテキストフレームを追加します。テキストフレームは[ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)インターフェイスによって表されます。このタイプは、ウォーターマークの位置決めのための広範なプロパティを持つ[IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)からは継承されません。したがって、[ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)オブジェクトは[IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)オブジェクトにラップされます。ウォーターマークのテキストをシェイプに追加するには、以下に示すように[AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/)メソッドを使用します。
-
+PPT、PPTX、または ODP にテキスト透かしを追加するには、まずスライドに形状を追加し、その形状にテキストフレームを追加します。テキストフレームは [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) インターフェイスで表されます。この型は [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) から継承されておらず、透かしの位置を柔軟に設定するためのプロパティが豊富です。そのため、[ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) オブジェクトは [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) オブジェクトにラップされます。形状に透かしテキストを追加するには、以下のように [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) メソッドを使用します。
 ```cpp
-auto watermarkText = u"機密";
+auto watermarkText = u"CONFIDENTIAL";
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
@@ -47,16 +60,16 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
+
 {{% alert color="primary" title="参照" %}} 
-- [TextFrameクラスの使用方法](/slides/ja/cpp/text-formatting/)
+- [TextFrame クラスの使用方法](/slides/ja/cpp/text-formatting/)
 {{% /alert %}}
 
-### **プレゼンテーションにテキストウォーターマークを追加する**
+### **プレゼンテーション全体にテキスト透かしを追加する**
 
-プレゼンテーション全体（つまり、すべてのスライドに一度に）にテキストウォーターマークを追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/)に追加します。残りのロジックは、単一スライドにウォーターマークを追加する場合と同じです。 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)オブジェクトを作成し、次に[AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/)メソッドを使用してそれにウォーターマークを追加します。
-
+プレゼンテーション全体（すべてのスライド）にテキスト透かしを追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) に追加します。残りのロジックは単一スライドに透かしを追加する場合と同じで、[IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) オブジェクトを作成し、[AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) メソッドで透かしを追加します。
 ```cpp
-auto watermarkText = u"機密";
+auto watermarkText = u"CONFIDENTIAL";
 
 auto presentation = MakeObject<Presentation>();
 auto masterSlide = presentation->get_Master(0);
@@ -67,33 +80,33 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
+
 {{% alert color="primary" title="参照" %}} 
-- [スライドマスターの使用方法](/slides/ja/cpp/slide-master/)
+- [スライドマスタの使用方法](/slides/ja/cpp/slide-master/)
 {{% /alert %}}
 
-### **ウォーターマークシェイプの透明度を設定する**
+### **透かし形状の透明度を設定する**
 
-デフォルトでは、長方形のシェイプは塗りつぶしと線の色でスタイルが設定されています。以下のコード行は、シェイプを透明にします。
-
+デフォルトでは、矩形形状は塗りつぶしと線の色が設定されています。次のコード行で形状を透明にします。
 ```cpp
 watermarkShape->get_FillFormat()->set_FillType(FillType::NoFill);
 watermarkShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
 ```
 
-### **テキストウォーターマークのフォントを設定する**
 
-テキストウォーターマークのフォントを以下のように変更できます。
+### **テキスト透かしのフォントを設定する**
 
+以下のようにテキスト透かしのフォントを変更できます。
 ```cpp
 auto textFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
 textFormat->set_LatinFont(MakeObject<FontData>(u"Arial"));
 textFormat->set_FontHeight(50);
 ```
 
-### **ウォーターマークテキストの色を設定する**
 
-ウォーターマークテキストの色を設定するには、次のコードを使用します。
+### **透かしテキストの色を設定する**
 
+透かしテキストの色を設定するには、次のコードを使用します。
 ```cpp
 auto alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -102,10 +115,10 @@ fillFormat->set_FillType(FillType::Solid);
 fillFormat->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
 ```
 
-### **テキストウォーターマークを中央揃えにする**
 
-ウォーターマークをスライドの中央に配置することができ、そのためには以下のようにします。
+### **テキスト透かしを中央に配置する**
 
+透かしをスライドの中央に配置するには、以下の手順を実行します。
 ```cpp
 auto slideSize = presentation->get_SlideSize()->get_Size();
 
@@ -120,16 +133,16 @@ auto watermarkShape = slide->get_Shapes()->AddAutoShape(
 auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 ```
 
+
 下の画像は最終結果を示しています。
 
-![テキストウォーターマーク](text_watermark.png)
+![テキスト透かし](text_watermark.png)
 
-## **画像ウォーターマーク**
+## **画像透かし**
 
-### **プレゼンテーションに画像ウォーターマークを追加する**
+### **プレゼンテーションに画像透かしを追加する**
 
-プレゼンテーションスライドに画像ウォーターマークを追加するには、次のようにします。
-
+プレゼンテーションスライドに画像透かしを追加するには、次の手順を実行します。
 ```cpp
 auto imageStream = File::ReadAllBytes(u"watermark.png");
 auto image = presentation->get_Images()->AddImage(imageStream);
@@ -139,12 +152,12 @@ watermarkShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Im
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **ウォーターマークを編集からロックする**
 
-ウォーターマークが編集されるのを防ぐ必要がある場合は、シェイプの[IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/)メソッドを使用します。このプロパティを使用して、シェイプを選択できなくしたり、サイズ変更や移動、他の要素とのグループ化を無効にしたり、テキストの編集をロックしたりすることができます。
+## **透かしの編集ロック**
 
+透かしの編集を防止する必要がある場合は、形状に対して [IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/) メソッドを使用します。このプロパティにより、形状の選択、サイズ変更、再配置、他の要素とのグループ化、テキストの編集ロックなどが可能になります。
 ```cpp
-// ウォーターマークシェイプを修正からロックする
+// 透かし形状の変更をロックする
 watermarkShape->get_AutoShapeLock()->set_SelectLocked(true);
 watermarkShape->get_AutoShapeLock()->SizeLocked(true);
 watermarkShape->get_AutoShapeLock()->TextLocked(true);
@@ -152,37 +165,37 @@ watermarkShape->get_AutoShapeLock()->PositionLocked(true);
 watermarkShape->get_AutoShapeLock()->GroupingLocked(true);
 ```
 
-## **ウォーターマークを前面に持ってくる**
 
-Aspose.Slidesでは、シェイプのZ順序を[IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/)メソッドを介して設定できます。これを行うには、このメソッドをプレゼンテーションスライドリストから呼び出し、シェイプの参照とその順序番号をメソッドに渡す必要があります。この方法で、シェイプを前面に持っていったり、スライドの後方に送ったりできます。この機能は、プレゼンテーションの前面にウォーターマークを配置する必要があるときに特に便利です。
+## **透かしを前面に持ってくる**
 
+Aspose.Slides では、形状の Z オーダーを [IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/) メソッドで設定できます。このメソッドはプレゼンテーションのスライドリストから呼び出し、形状参照と順序番号を渡します。これにより、形状を前面または背面に移動できます。透かしをスライドの前面に配置したい場合に便利です。
 ```cpp
 auto shapeCount = slide->get_Shapes()->get_Count();
 slide->get_Shapes()->Reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **ウォーターマークの回転を設定する**
 
-ウォーターマークの回転を調整して、スライドに斜めに配置されるようにするコード例は以下の通りです。
+## **透かしの回転を設定する**
 
+透かしをスライド全体に対して対角線上に配置するための回転調整コード例は次のとおりです。
 ```cpp
 auto diagonalAngle = Math::Atan((slideSize.get_Height() / slideSize.get_Width())) * 180 / Math::PI;
 
 watermarkShape->set_Rotation((float)diagonalAngle);
 ```
 
-## **ウォーターマークの名前を設定する**
 
-Aspose.Slidesでは、シェイプの名前を設定することができます。シェイプ名を使用することで、将来的にそれを修正または削除するためにアクセスできます。ウォーターマークシェイプの名前を設定するには、[IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/)メソッドに割り当てます。
+## **透かしに名前を設定する**
 
+Aspose.Slides では形状に名前を設定できます。形状名を使用すると、将来その形状にアクセスして変更または削除できます。透かし形状の名前を設定するには、[IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/) メソッドに割り当てます。
 ```cpp
 watermarkShape->set_Name(u"watermark");
 ```
 
-## **ウォーターマークを削除する**
 
-ウォーターマークシェイプを削除するには、[IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/)メソッドを使用してスライドシェイプの中からそれを見つけます。その後、ウォーターマークシェイプを[IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/)メソッドに渡します。
+## **透かしを削除する**
 
+透かし形状を削除するには、[IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) メソッドでスライドの形状コレクションから名前を検索し、[IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) メソッドに透かし形状を渡します。
 ```cpp
 auto slideShapes = slide->get_Shapes()->ToArray();
 for(auto shape : slideShapes)
@@ -194,8 +207,35 @@ for(auto shape : slideShapes)
 }
 ```
 
+
 ## **ライブ例**
 
-**Aspose.Slides無料**の[ウォーターマークを追加](https://products.aspose.app/slides/watermark)および[ウォーターマークを削除](https://products.aspose.app/slides/watermark/remove-watermark)オンラインツールをご覧になると良いでしょう。
+**Aspose.Slides 無料** のオンラインツール [Add Watermark](https://products.aspose.app/slides/watermark) と [Remove Watermark](https://products.aspose.app/slides/watermark/remove-watermark) を試してみてください。
 
-![ウォーターマークを追加および削除するためのオンラインツール](online_tools.png)
+![透かしの追加と削除のオンラインツール](online_tools.png)
+
+## **FAQ**
+
+**透かしとは何ですか、なぜ使用すべきですか？**
+
+透かしはスライドに適用されるテキストまたは画像のオーバーレイで、知的財産を保護したり、ブランド認知度を高めたり、プレゼンテーションの不正使用を防止したりします。
+
+**プレゼンテーションのすべてのスライドに透かしを追加できますか？**
+
+はい、Aspose.Slides を使用すると、プログラムでプレゼンテーションの各スライドに透かしを追加できます。すべてのスライドをループして個別に透かし設定を適用できます。
+
+**透かしの透明度はどう調整しますか？**
+
+形状の塗りつぶし設定（[FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_fillformat/)）を変更することで、透かしの透明度を調整できます。これにより、透かしを控えめにし、スライド内容の妨げにならないようにできます。
+
+**透かしでサポートされている画像形式は何ですか？**
+
+Aspose.Slides は PNG、JPEG、GIF、BMP、SVG などさまざまな画像形式をサポートしています。
+
+**テキスト透かしのフォントやスタイルはカスタマイズできますか？**
+
+はい、プレゼンテーションのデザインやブランドの一貫性に合わせて、任意のフォント、サイズ、スタイルを選択できます。
+
+**透かしの位置や向きはどう変更しますか？**
+
+形状の座標、サイズ、回転プロパティをプログラムで変更することで、透かしの位置や向きを調整できます。

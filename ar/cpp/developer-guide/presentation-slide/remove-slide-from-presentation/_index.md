@@ -1,24 +1,31 @@
 ---
-title: إزالة شريحة من العرض التقديمي
+title: إزالة الشرائح من العروض التقديمية باستخدام C++
+linktitle: إزالة شريحة
 type: docs
 weight: 30
 url: /ar/cpp/remove-slide-from-presentation/
-keywords: "إزالة شريحة، حذف شريحة، PowerPoint، عرض تقديمي، C++، Aspose.Slides"
-description: "إزالة شريحة من PowerPoint بواسطة المرجع أو الفهرس في C++"
-
+keywords:
+- إزالة شريحة
+- حذف شريحة
+- إزالة شريحة غير مستخدمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "إزالة الشرائح بسهولة من عروض PowerPoint و OpenDocument باستخدام Aspose.Slides للغة C++. احصل على أمثلة شفرة واضحة وعزّز سير عملك."
 ---
 
-إذا أصبحت شريحة (أو محتوياتها) غير ضرورية، يمكنك حذفها. يوفر Aspose.Slides فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/)، وهي مستودع لجميع الشرائح في العرض التقديمي. باستخدام المؤشرات (المرجع أو الفهرس) لكائن [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) المعروف، يمكنك تحديد الشريحة التي ترغب في إزالتها.
+إذا أصبحت الشريحة (أو محتواها) غير ضرورية، يمكنك حذفها. توفر Aspose.Slides الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تضم [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/)، وهي مستودع لجميع الشرائح في عرض تقديمي. باستخدام مؤشرات (مرجع أو فهرس) لكائن [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) يمكنك تحديد الشريحة التي تريد إزالتها. 
 
-## **إزالة شريحة بواسطة المرجع**
+## **إزالة شريحة باستخدام المرجع**
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة التي تريد إزالتها من خلال معرفها أو فهرسها.
-1. قم بإزالة الشريحة المرجعية من العرض التقديمي.
-1. احفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. الحصول على مرجع للشريحة التي تريد إزالتها عبر معرّفها أو فهرسها.
+1. إزالة الشريحة المشار إليها من العرض التقديمي.
+1. حفظ العرض التقديمي المُعدَّل. 
 
-يوضح هذا الكود في C++ كيفية إزالة شريحة من خلال مرجعها:
-
+يُظهر لك هذا الكود C++ كيفية إزالة شريحة عبر مرجعها: 
 ```c++
 	// المسار إلى دليل المستندات
 	const String templatePath = L"../templates/AddSlides.pptx";
@@ -27,24 +34,24 @@ description: "إزالة شريحة من PowerPoint بواسطة المرجع أ
 	// ينشئ كائن Presentation يمثل ملف عرض تقديمي
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// يصل إلى شريحة من خلال فهرسها في مجموعة الشرائح
+	// الوصول إلى شريحة عبر فهرستها في مجموعة الشرائح
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// يزيل شريحة من خلال مرجعها
+	// يزيل شريحة عبر مرجعها
 	pres->get_Slides()->Remove(slide);
 
-	// يحفظ العرض التقديمي المعدل
+	// يحفظ العرض التقديمي المعدَّل
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **إزالة شريحة بواسطة الفهرس**
 
-1. أنشئ مثيلاً لفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. قم بإزالة الشريحة من العرض التقديمي من خلال موضع فهرسها.
-1. احفظ العرض التقديمي المعدل.
+## **إزالة شريحة باستخدام الفهرس**
 
-يوضح هذا الكود في C++ كيفية إزالة شريحة من خلال فهرسها:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. إزالة الشريحة من العرض التقديمي عبر موضع فهرسها.
+1. حفظ العرض التقديمي المُعدَّل. 
 
+يُظهر لك هذا الكود C++ كيفية إزالة شريحة عبر فهرسها: 
 ```c++
 	// المسار إلى دليل المستندات
 	const String templatePath = L"../templates/AddSlides.pptx";
@@ -53,17 +60,18 @@ description: "إزالة شريحة من PowerPoint بواسطة المرجع أ
 	// ينشئ كائن Presentation يمثل ملف عرض تقديمي
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// يزيل شريحة من خلال فهرسها
+	// يزيل شريحة عبر فهرس الشريحة
 	pres->get_Slides()->RemoveAt(0);
 
 	// يحفظ العرض التقديمي المعدل
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **إزالة شريحة تخطيط غير مستخدمة**
 
-يوفر Aspose.Slides طريقة [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) (من فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) للسماح لك بحذف الشرائح التخطيطية غير المرغوب فيها وغير المستخدمة. يظهر هذا الكود في C++ كيفية إزالة شريحة تخطيط من عرض تقديمي في PowerPoint:
 
+## **إزالة شرائح التخطيط غير المستخدمة**
+
+توفر Aspose.Slides الطريقة [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) (من الفئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) لتتيح لك حذف شرائح التخطيط غير المطلوبة وغير المستخدمة. يُظهر لك هذا الكود C++ كيفية إزالة شريحة تخطيط من عرض PowerPoint:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -72,10 +80,10 @@ LowCode::Compress::RemoveUnusedLayoutSlides(pres);
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-## **إزالة شريحة رئيسية غير مستخدمة**
 
-يوفر Aspose.Slides طريقة [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) للسماح لك بحذف الشرائح الرئيسية غير المرغوب فيها وغير المستخدمة. يظهر هذا الكود في C++ كيفية إزالة شريحة رئيسية من عرض تقديمي في PowerPoint:
+## **إزالة شرائح الماستر غير المستخدمة**
 
+توفر Aspose.Slides الطريقة [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) (من الفئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)) لتتيح لك حذف شرائح الماستر غير المطلوبة وغير المستخدمة. يُظهر لك هذا الكود C++ كيفية إزالة شريحة ماستر من عرض PowerPoint:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -83,3 +91,26 @@ LowCode::Compress::RemoveUnusedMasterSlides(pres);
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ماذا يحدث لأرقام فهارس الشرائح بعد حذف شريحة؟**
+
+بعد الحذف، تقوم [المجموعة](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/) بإعادة الفهرسة: كل شريحة تالية تتحرك إلى اليسار بموقع واحد، لذا تصبح أرقام الفهارس السابقة غير صالحة. إذا احتجت إلى مرجع ثابت، استخدم المعرف الدائم لكل شريحة بدلاً من فهرستها.
+
+**هل معرّف الشريحة يختلف عن فهرستها، وهل يتغير عندما تُحذف الشرائح المجاورة؟**
+
+نعم. الفهرس هو موقع الشريحة في العرض وسيتم تغييره عندما تُضاف أو تُحذف شرائح. معرّف الشريحة هو معرف دائم ولا يتغير عندما تُحذف شرائح أخرى.
+
+**كيف يؤثر حذف شريحة على أقسام الشرائح؟**
+
+إذا كانت الشريحة تنتمي إلى قسم، سيحتوي ذلك القسم على شريحة أقل ببساطة. يبقى هيكل القسم كما هو؛ إذا أصبح القسم فارغًا، يمكنك [إزالة أو إعادة تنظيم الأقسام](/slides/ar/cpp/slide-section/) حسب الحاجة.
+
+**ماذا يحدث للملاحظات والتعليقات المرفقة بالشريحة عند حذفها؟**
+
+[الملاحظات](/slides/ar/cpp/presentation-notes/) و[التعليقات](/slides/ar/cpp/presentation-comments/) مرتبطة بهذه الشريحة المحددة وتُحذف معها. لا يتأثر المحتوى على الشرائح الأخرى.
+
+**كيف يختلف حذف الشرائح عن تنظيف التخطيطات/القوالب غير المستخدمة؟**
+
+الحذف يزيل شرائح عادية محددة من العرض. تنظيف التخطيطات/القوالب غير المستخدمة يزيل شرائح التخطيط أو القالب التي لا يشير إليها أي شيء، مما يقلل حجم الملف دون تغيير محتوى الشرائح المتبقية. هاتان العمليتان تكملان بعضهما: عادةً ما تُحذف الشرائح أولاً، ثم يتم التنظيف.

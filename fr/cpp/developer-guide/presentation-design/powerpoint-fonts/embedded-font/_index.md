@@ -1,92 +1,141 @@
 ---
-title: Police intégrée
+title: Incorporer des polices dans les présentations avec C++
+linktitle: Intégration de police
 type: docs
 weight: 40
 url: /fr/cpp/embedded-font/
-keywords: "Polices, polices intégrées, ajouter des polices, présentation PowerPoint C++, CPP, Aspose.Slides pour C++"
-description: "Utilisez des polices intégrées dans une présentation PowerPoint en C++"
+keywords:
+- ajouter police
+- incorporer police
+- incorporation de police
+- obtenir police incorporée
+- ajouter police incorporée
+- supprimer police incorporée
+- compresser police incorporée
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Incorporez des polices TrueType dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour C++, assurant un rendu précis sur toutes les plateformes."
 ---
 
-**Les polices intégrées dans PowerPoint** sont utiles lorsque vous souhaitez que votre présentation apparaisse correctement lorsqu'elle est ouverte sur n'importe quel système ou appareil. Si vous avez utilisé une police tierce ou non standard parce que vous avez été créatif dans votre travail, alors vous avez encore plus de raisons d'incorporer votre police. Sinon (sans polices intégrées), les textes ou les chiffres sur vos diapositives, la mise en page, le style, etc. peuvent changer ou se transformer en rectangles confus.
+## **Vue d'ensemble**
 
-La classe [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), la classe [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/), la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) et leurs interfaces contiennent la plupart des propriétés et des méthodes dont vous avez besoin pour travailler avec des polices intégrées dans des présentations PowerPoint.
+**Polices incorporées dans PowerPoint** aident à garantir que votre présentation conserve son apparence prévue lorsqu’elle est ouverte sur n’importe quel système ou appareil. C’est particulièrement important lors de l’utilisation de polices personnalisées, tierces ou non standard à des fins de marque ou de création. Sans polices incorporées, le texte peut être substitué, les mises en page peuvent se rompre et les caractères peuvent apparaître sous forme de symboles ou de rectangles illisibles, compromettant ainsi le design global.
 
-## **Obtenir ou supprimer des polices intégrées de la présentation**
+Aspose.Slides for C++ fournit un ensemble d’API puissantes pour gérer les polices incorporées par programme. Vous pouvez utiliser les classes [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) et [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) pour inspecter, ajouter ou retirer des polices incorporées dans vos fichiers de présentation. De plus, la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) vous permet d’optimiser la taille du fichier en compressant les données de police sans affecter la qualité ou l’apparence.
 
-Aspose.Slides fournit la méthode [GetEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) (exposée par la classe [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/)) pour vous permettre d'obtenir (ou de découvrir) les polices intégrées dans une présentation. Pour supprimer des polices, la méthode [RemoveEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/removeembeddedfont/) (exposée par la même classe) est utilisée.
+Ces outils vous offrent un contrôle complet sur l’incorporation des polices, vous aidant à maintenir une typographie cohérente sur toutes les plateformes tout en réduisant la taille du fichier lorsque cela est nécessaire.
 
-Ce code C++ vous montre comment obtenir et supprimer des polices intégrées d'une présentation :
+## **Obtenir les polices incorporées d’une présentation**
 
-```c++
-// Instancie un objet Presentation représentant un fichier de présentation
-auto presentation = System::MakeObject<Presentation>(u"EmbeddedFonts.pptx");
-// Rendu d'une diapositive contenant un cadre de texte qui utilise "FunSized" intégré
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::Png);
+Aspose.Slides for C++ propose la méthode `GetEmbeddedFonts` via la classe [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), qui permet de récupérer la liste des polices incorporées dans une présentation PowerPoint. Cela peut être utile pour auditer l’utilisation des polices, garantir la conformité aux directives de marque ou vérifier que toutes les polices nécessaires sont correctement incluses avant de partager le fichier.
 
-auto fontsManager = presentation->get_FontsManager();
+Le code C++ suivant montre comment obtenir les polices incorporées d’un fichier de présentation :
+```cpp
+// Instanciez la classe Presentation qui représente un fichier de présentation.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// Obtient toutes les polices intégrées
-auto embeddedFonts = fontsManager->GetEmbeddedFonts();
-
-std::function<bool(SharedPtr<IFontData>)> comparer = [](SharedPtr<IFontData> data) -> bool
-{
-    return data->get_FontName() == u"Calibri";
-};
-
-// Trouve la police "Calibri"
-auto funSizedEmbeddedFont = Array<SharedPtr<IFontData>>::Find(embeddedFonts, comparer);
-
-// Supprime la police "Calibri"
-fontsManager->RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-// Rendu de la présentation ; la police "Calibri" est remplacée par une existante
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::Png);
-
-// Enregistre la présentation sans la police "Calibri" intégrée sur disque
-presentation->Save(u"WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-```
-
-## **Ajouter des polices intégrées à la présentation**
-
-En utilisant l'énumération [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) et deux surcharges de la méthode [AddEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/), vous pouvez sélectionner votre règle préférée (d'incorporation) pour intégrer les polices dans une présentation. Ce code C++ vous montre comment incorporer et ajouter des polices à une présentation :
-
-```c++
-// Charge la présentation
-auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
-
-// Charge la police source à remplacer
-auto sourceFont = System::MakeObject<FontData>(u"Arial");
-
-auto allFonts = presentation->get_FontsManager()->GetFonts();
+// Récupérez toutes les polices incorporées.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-for (SharedPtr<IFontData> font : allFonts)
+// Affichez les noms des polices incorporées.
+for (auto&& fontData : embeddedFonts)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&font](SharedPtr<IFontData> data) -> bool
-    {
-        return data == font;
-    };
+    Console::WriteLine(fontData->get_FontName());
+}
 
+presentation->Dispose();
+```
+
+
+## **Ajouter des polices incorporées à une présentation**
+
+Aspose.Slides for C++ vous permet d’incorporer des polices dans une présentation PowerPoint à l’aide de la méthode [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/), qui propose deux surcharges pour une utilisation flexible. Vous pouvez contrôler la quantité de police incorporée en utilisant l’énumération [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) — par exemple, choisir d’incorporer uniquement les caractères utilisés ou l’ensemble complet de la police. Cette fonctionnalité est particulièrement utile lors de la préparation d’une présentation à partager ou à distribuer, afin que les polices personnalisées ou non standard s’affichent correctement sur tous les systèmes, même si ces polices ne sont pas installées.
+
+Le code C++ suivant vérifie toutes les polices utilisées dans une présentation et incorpore celles qui ne le sont pas déjà :
+```cpp
+// Chargez un fichier de présentation.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto usedFonts = presentation->get_FontsManager()->GetFonts();
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : usedFonts)
+{
+    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+        {
+            return data == fontData;
+        };
+
+    // Vérifiez si la police est déjà incorporée.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        presentation->get_FontsManager()->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        // Incorporez la police dans la présentation.
+        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+    }
+
+}
+
+// Enregistrez la présentation sur le disque.
+presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Supprimer les polices incorporées d’une présentation**
+
+Aspose.Slides for C++ fournit la méthode `RemoveEmbeddedFont` via la classe [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), qui permet de retirer des polices spécifiques incorporées dans une présentation PowerPoint. Cela peut aider à réduire la taille globale du fichier, surtout si les polices incorporées ne sont plus utilisées ou nécessaires. La suppression de polices inutilisées peut également améliorer les performances et garantir que votre présentation ne contient que les ressources essentielles.
+
+Le code C++ suivant montre comment supprimer une police incorporée d’une présentation :
+```cpp
+auto fontName = u"Calibri";
+
+// Instanciez la classe Presentation qui représente un fichier de présentation.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+
+// Récupérez toutes les polices incorporées.
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : embeddedFonts)
+{
+    if (fontData->get_FontName().Equals(fontName))
+    {
+        // Supprimez la police incorporée.
+        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+
+        break;
     }
 }
 
-// Enregistre la présentation sur disque
-presentation->Save(u"AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Dispose();
 ```
 
-## **Compresser les polices intégrées**
 
-Pour vous permettre de compresser les polices intégrées dans une présentation et de réduire sa taille de fichier, Aspose.Slides fournit la méthode [CompressEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) (exposée par la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)).
+## **Compresser les polices incorporées**
 
-Ce code C++ vous montre comment compresser les polices PowerPoint intégrées :
+Aspose.Slides for C++ propose la méthode `CompressEmbeddedFonts` via la classe [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/), permettant de réduire la taille globale d’une présentation en optimisant les données des polices incorporées. Cette fonctionnalité est particulièrement utile lorsque votre présentation comprend de grandes polices ou plusieurs polices et que vous souhaitez garder le fichier léger pour le partage, le stockage ou l’utilisation en ligne — sans compromettre la fidélité visuelle du contenu.
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+Le code C++ suivant montre comment compresser les polices incorporées dans une présentation PowerPoint :
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-Aspose::Slides::LowCode::Compress::CompressEmbeddedFonts(pres);
-pres->Save(u"pres-out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+Compress::CompressEmbeddedFonts(presentation);
+
+presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**Comment savoir si une police spécifique de la présentation sera tout de même substituée lors du rendu malgré l’incorporation ?**
+
+Vérifiez les [informations de substitution](/slides/fr/cpp/font-substitution/) dans le gestionnaire de polices et les [règles de repli/substitution](/slides/fr/cpp/fallback-font/) : si la police est indisponible ou restreinte, un repli sera utilisé.
+
+**Est‑il utile d’incorporer les polices « système » comme Arial/Calibri ?**
+
+En général non — elles sont presque toujours disponibles. Mais pour une portabilité totale dans des environnements « minces » (Docker, serveur Linux sans polices préinstallées), l’incorporation des polices système peut éliminer le risque de substitutions inattendues.

@@ -1,87 +1,96 @@
 ---
-title: Präsentationseigenschaften
+title: Verwalten von Präsentationseigenschaften in C++
+linktitle: Präsentationseigenschaften
 type: docs
 weight: 70
 url: /de/cpp/presentation-properties/
+keywords:
+- PowerPoint-Eigenschaften
+- Präsentationseigenschaften
+- Dokumenteneigenschaften
+- Eingebaute Eigenschaften
+- Benutzerdefinierte Eigenschaften
+- Erweiterte Eigenschaften
+- Eigenschaften verwalten
+- Eigenschaften ändern
+- Dokument-Metadaten
+- Metadaten bearbeiten
+- Korrektursprache
+- Standardsprache
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Verwalten Sie Präsentationseigenschaften in Aspose.Slides für C++ und optimieren Sie Suche, Markenbildung und Arbeitsabläufe in Ihren PowerPoint- und OpenDocument-Dateien."
 ---
 
-
 ## **Zugriff auf Präsentationseigenschaften**
-Wie bereits beschrieben, unterstützt Aspose.Slides für C++ zwei Arten von Dokumenteigenschaften, nämlich **Integrierte** und **Benutzerdefinierte** Eigenschaften. Entwickler können beide Arten von Eigenschaften mit der Aspose.Slides für C++ API abrufen. Aspose.Slides für C++ bietet eine Klasse [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties), die die mit einer Präsentationsdatei verknüpften Dokumenteigenschaften über die Methode [Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) darstellt. Entwickler können die Methode [get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) verwenden, die vom **Presentation**-Objekt bereitgestellt wird, um die Dokumenteigenschaften der Präsentationsdateien wie unten beschrieben abzurufen:
+
+Wie bereits beschrieben, unterstützt Aspose.Slides für C++ zwei Arten von Dokumenteneigenschaften: **eingebaute** und **benutzerdefinierte** Eigenschaften. Entwickler können beide Arten von Eigenschaften über die Aspose.Slides‑C++‑API abrufen. Aspose.Slides für C++ stellt die Klasse [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) bereit, die die Dokumenteneigenschaften einer Präsentationsdatei über die Methode [Presentation::get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) repräsentiert. Entwickler können die durch das **Presentation**‑Objekt bereitgestellte Methode [get_DocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) verwenden, um die Dokumenteneigenschaften von Präsentationsdateien wie unten beschrieben zu erhalten:
 
 {{% alert color="primary" %}} 
 
-Bitte beachten Sie, dass Sie die Werte für die Felder **Anwendung** und **Hersteller** nicht festlegen können, da dort Aspose Ltd. und Aspose.Slides für C++ x.x.x angezeigt werden.
+Bitte beachten Sie, dass Sie die Felder **Application** und **Producer** nicht setzen können, da Aspose Ltd. und Aspose.Slides für C++ x.x.x in diesen Feldern angezeigt werden.
 
 {{% /alert %}} 
 
+Microsoft PowerPoint bietet die Möglichkeit, einigen Präsentationsdateien Eigenschaften hinzuzufügen. Diese Dokumenteneigenschaften ermöglichen das Speichern nützlicher Informationen zusammen mit den Dokumenten (Präsentationsdateien). Es gibt die folgenden zwei Arten von Dokumenteneigenschaften:
 
-Microsoft PowerPoint bietet eine Funktion zum Hinzufügen einiger Eigenschaften zu den Präsentationsdateien. Diese Dokumenteigenschaften ermöglichen es, nützliche Informationen zusammen mit den Dokumenten (Präsentationsdateien) zu speichern. Es gibt zwei Arten von Dokumenteigenschaften:
+- Systemdefinierte (eingebaute) Eigenschaften  
+- Benutzerdefinierte (eigene) Eigenschaften  
 
-- Systemdefinierte (Integrierte) Eigenschaften
-- Benutzerdefinierte (Eigene) Eigenschaften
+**Eingebaute** Eigenschaften enthalten allgemeine Informationen über das Dokument, wie Dokumenttitel, Autorname, Dokumentstatistiken usw. **Benutzerdefinierte** Eigenschaften sind vom Benutzer als **Name/Wert**‑Paare definiert, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für C++ können Entwickler sowohl eingebaute als auch benutzerdefinierte Eigenschaften lesen und ändern. Microsoft PowerPoint 2007 ermöglicht die Verwaltung der Dokumenteneigenschaften von Präsentationsdateien. Klicken Sie dazu einfach auf das Office‑Symbol und anschließend auf **Prepare | Properties | Advanced Properties** in Microsoft PowerPoint 2007. Nach der Auswahl von **Advanced Properties** erscheint ein Dialog, in dem Sie die Dokumenteneigenschaften der PowerPoint‑Datei verwalten können. Im **Properties Dialog** sehen Sie mehrere Registerkarten wie **General**, **Summary**, **Statistics**, **Contents** und **Custom**. Alle diese Registerkarten erlauben die Konfiguration verschiedener Informationsarten zu den PowerPoint‑Dateien. Die Registerkarte **Custom** dient zur Verwaltung benutzerdefinierter Eigenschaften der PowerPoint‑Dateien.
 
-**Integrierte** Eigenschaften enthalten allgemeine Informationen über das Dokument, wie Dokumenttitel, Name des Autors, Dokumentstatistiken usw. **Benutzerdefinierte** Eigenschaften sind solche, die von den Benutzern als **Name/Wert**-Paare definiert sind, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für C++ können Entwickler die Werte von integrierten Eigenschaften sowie benutzerdefinierten Eigenschaften abrufen und ändern. Microsoft PowerPoint 2007 ermöglicht die Verwaltung der Dokumenteigenschaften der Präsentationsdateien. Sie müssen lediglich auf das Office-Symbol klicken und dann den Menüpunkt **Vorbereiten | Eigenschaften | Erweiterte Eigenschaften** von Microsoft PowerPoint 2007 auswählen. Nachdem Sie den Menüpunkt **Erweiterte Eigenschaften** ausgewählt haben, erscheint ein Dialogfeld, das Ihnen ermöglicht, die Dokumenteigenschaften der PowerPoint-Datei zu verwalten. Im **Eigenschaften-Dialog** können Sie sehen, dass es viele Registerkarten gibt, wie **Allgemein, Zusammenfassung, Statistiken, Inhalt und Benutzerdefiniert**. Alle diese Registerkarten ermöglichen die Konfiguration verschiedener Arten von Informationen, die mit den PowerPoint-Dateien verbunden sind. Die Registerkarte **Benutzerdefiniert** wird verwendet, um die benutzerdefinierten Eigenschaften der PowerPoint-Dateien zu verwalten.
+## **Zugriff auf eingebaute Eigenschaften**
 
-
-## **Zugriff auf integrierte Eigenschaften**
-Diese Eigenschaften, wie sie vom **IDocumentProperties**-Objekt bereitgestellt werden, umfassen: **Ersteller (Autor)**, **Beschreibung**, **Schlüsselwörter**, **Erstellt** (Erstellungsdatum), **Änderung** (Änderungsdatum), **Druckdatum** (Letzter Druckdatum), **Zuletzt geändert von**, **Schlüsselwörter**, **SharedDoc** (Ist es zwischen verschiedenen Produzenten geteilt?), **Präsentationsformat**, **Betreff** und **Titel**.
+Die von dem **IDocumentProperties**‑Objekt bereitgestellten Eigenschaften umfassen: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Erstellungsdatum), **Modified** (Änderungsdatum), **Printed** (Letztes Druckdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Wird zwischen verschiedenen Produzenten geteilt?), **PresentationFormat**, **Subject** und **Title**.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
-## **Modifizieren integrierter Eigenschaften**
-Die Modifizierung der integrierten Eigenschaften von Präsentationsdateien ist ebenso einfach wie deren Zugriff. Sie können einfach einem gewünschten Eigenschaften einen Stringwert zuweisen, und der Eigenschaftswert wird geändert. Im folgenden Beispiel haben wir demonstriert, wie wir die integrierten Dokumenteigenschaften der Präsentationsdatei ändern können.
+
+## **Eingebaute Eigenschaften ändern**
+
+Das Ändern der eingebauten Eigenschaften von Präsentationsdateien ist genauso einfach wie ihr Zugriff. Sie können einfach einem gewünschten Property einen Zeichenkettenwert zuweisen und der Wert wird geändert. Im nachfolgenden Beispiel zeigen wir, wie man die eingebauten Dokumenteneigenschaften einer Präsentationsdatei ändern kann.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
 ## **Benutzerdefinierte Präsentationseigenschaften hinzufügen**
-Aspose.Slides für C++ ermöglicht es Entwicklern auch, benutzerdefinierte Werte für die Dokumenteigenschaften der Präsentation hinzuzufügen. Ein Beispiel wird unten angegeben, das zeigt, wie man die benutzerdefinierten Eigenschaften für eine Präsentation festlegt.
 
+Aspose.Slides für C++ ermöglicht Entwicklern zudem das Hinzufügen benutzerdefinierter Werte zu den Dokumenteneigenschaften einer Präsentation. Das folgende Beispiel zeigt, wie benutzerdefinierte Eigenschaften für eine Präsentation gesetzt werden können.
 ``` cpp
-// Instanziieren der Präsentationsklasse
+// Instanziieren der Presentation-Klasse
 auto presentation = System::MakeObject<Presentation>();
 
 // Abrufen der Dokumenteigenschaften
 auto documentProperties = presentation->get_DocumentProperties();
 
-// Hinzufügen von benutzerdefinierten Eigenschaften
-documentProperties->idx_set(u"Neue Benutzerdefiniert", ObjectExt::Box<int32_t>(12));
-documentProperties->idx_set(u"Mein Name", ObjectExt::Box<String>(u"Mudassir"));
-documentProperties->idx_set(u"Benutzerdefiniert", ObjectExt::Box<int32_t>(124));
+// Hinzufügen benutzerdefinierter Eigenschaften
+documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
+documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
+documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
 
-// Abrufen des Eigenschaftsnamen an einem bestimmten Index
+// Abrufen des Eigenschaftsnamens an einem bestimmten Index
 String getPropertyName = documentProperties->GetCustomPropertyName(2);
 
 // Entfernen der ausgewählten Eigenschaft
 documentProperties->RemoveCustomProperty(getPropertyName);
 
-// Speichern der Präsentation
-presentation->Save(u"BenutzerdefinierteDokumenteigenschaften_out.pptx", SaveFormat::Pptx);
+// Präsentation speichern
+presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Zugriff auf und Modifizieren von benutzerdefinierten Präsentationseigenschaften**
-Aspose.Slides für C++ ermöglicht es Entwicklern auch, die Werte der benutzerdefinierten Eigenschaften abzurufen. Ein Beispiel wird unten angegeben, das zeigt, wie Sie auf all diese benutzerdefinierten Eigenschaften für eine Präsentation zugreifen und sie ändern können.
+
+## **Benutzerdefinierte Eigenschaften anzeigen und ändern**
+
+Aspose.Slides für C++ erlaubt Entwicklern außerdem das Auslesen und Ändern benutzerdefinierter Eigenschaften. Das nachstehende Beispiel demonstriert, wie Sie alle benutzerdefinierten Eigenschaften einer Präsentation abrufen und ändern können.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
+## **Korrektursprache festlegen**
 
-## **Überprüfen, ob die Präsentation geändert oder erstellt wurde**
-Aspose.Slides für C++ bietet eine Funktion, um zu überprüfen, ob eine Präsentation geändert oder erstellt wurde. Ein Beispiel wird unten angegeben, das zeigt, wie man überprüfen kann, ob die Präsentation erstellt oder geändert wurde.
+Aspose.Slides stellt die Eigenschaft [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides.baseportionformat/set_languageid/) (exponiert durch die Klasse [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/)) bereit, mit der Sie die Korrektursprache für ein PowerPoint‑Dokument festlegen können. Die Korrektursprache ist die Sprache, für die Rechtschreibung und Grammatik im PowerPoint geprüft werden.
 
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"props.pptx");
-
-auto props = info->ReadDocumentProperties();
-
-String app = props->get_NameOfApplication();
-String ver = props->get_AppVersion();
-```
-
-## **Proofing-Sprache festlegen**
-
-Aspose.Slides bietet die [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) Eigenschaft (bereitgestellt durch die [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) Klasse), um Ihnen zu ermöglichen, die Proofing-Sprache für ein PowerPoint-Dokument festzulegen. Die Proofing-Sprache ist die Sprache, für die die Rechtschreibung und Grammatik in PowerPoint überprüft werden.
-
-Dieser C++-Code zeigt, wie Sie die Proofing-Sprache für ein PowerPoint festlegen:
-
+Der folgende C++‑Code zeigt, wie Sie die Korrektursprache für ein PowerPoint‑Dokument setzen:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
@@ -99,27 +108,48 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// setze die ID einer Proofing-Sprache
+// set the Id of a proofing language
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
 ```
 
-## **Standard-Sprache festlegen**
 
-Dieser C++-Code zeigt, wie Sie die Standardsprache für eine gesamte PowerPoint-Präsentation festlegen:
+## **Standardsprache festlegen**
 
+Der folgende C++‑Code zeigt, wie Sie die Standardsprache für eine gesamte PowerPoint‑Präsentation festlegen:
 ```c++
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Fügt eine neue rechteckige Form mit Text hinzu
+// Fügt eine neue Rechteckform mit Text hinzu
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"Neuer Text");
+textFrame->set_Text(u"New Text");
 
-// Überprüft die Sprache des ersten Portions
+// Überprüft die Sprache des ersten Abschnitts
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
+
+
+## **Live‑Beispiel**
+
+Probieren Sie die Online‑App [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) aus, um zu sehen, wie Sie mit Dokumenteneigenschaften über die Aspose.Slides‑API arbeiten können:
+
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***FAQ**
+
+**Wie kann ich eine eingebaute Eigenschaft aus einer Präsentation entfernen?**
+
+Eingebaute Eigenschaften sind integraler Bestandteil einer Präsentation und können nicht vollständig entfernt werden. Sie können jedoch deren Werte ändern oder, sofern die jeweilige Eigenschaft es zulässt, auf einen leeren Wert setzen.
+
+**Was passiert, wenn ich eine benutzerdefinierte Eigenschaft hinzufüge, die bereits existiert?**
+
+Wird eine bereits vorhandene benutzerdefinierte Eigenschaft hinzugefügt, wird ihr vorhandener Wert durch den neuen überschrieben. Ein vorheriges Entfernen oder Prüfen der Eigenschaft ist nicht erforderlich, da Aspose.Slides den Wert automatisch aktualisiert.
+
+**Kann ich Präsentationseigenschaften abrufen, ohne die gesamte Präsentation zu laden?**
+
+Ja. Sie können Präsentationseigenschaften abrufen, ohne die gesamte Präsentation zu laden, indem Sie die Methode `GetPresentationInfo` der Klasse [PresentationFactory](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/) verwenden. Anschließend nutzen Sie die Methode `ReadDocumentProperties` des Interfaces [IPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/), um die Eigenschaften effizient auszulesen, Speicher zu sparen und die Leistung zu verbessern.

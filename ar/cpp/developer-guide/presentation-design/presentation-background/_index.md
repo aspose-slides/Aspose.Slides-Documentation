@@ -1,163 +1,207 @@
 ---
-title: خلفية العرض
+title: إدارة خلفيات العروض التقديمية في C++
+linktitle: خلفية الشريحة
 type: docs
 weight: 20
 url: /ar/cpp/presentation-background/
-keywords: "خلفية PowerPoint، تعيين خلفية"
-description: "تعيين الخلفية في عرض PowerPoint في CPP"
+keywords:
+- خلفية العرض التقديمي
+- خلفية الشريحة
+- لون صلب
+- لون متدرج
+- خلفية الصورة
+- شفافية الخلفية
+- خصائص الخلفية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تعلم كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint و OpenDocument باستخدام Aspose.Slides للغة C++، مع نصائح برمجية لتعزيز عروضك التقديمية."
 ---
 
-تستخدم الألوان الصلبة، والألوان المتدرجة، والصور غالبًا كصور خلفية للشرائح. يمكنك تعيين الخلفية إما لشريحة **عادية** (شريحة واحدة) أو **شريحة رئيسية** (عدة شرائح دفعة واحدة).
+## **نظرة عامة**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+الألوان الصلبة، والتدرجات، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لـ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (تنطبق على عدة شرائح في آن واحد).
 
-## **تعيين لون صلب كخلفية لشريحة عادية**
+![PowerPoint background](powerpoint-background.png)
 
-تتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة معينة في عرض (حتى إذا كان هذا العرض يحتوي على شريحة رئيسية). تؤثر تغيير الخلفية فقط على الشريحة المحددة.
+## **تعيين خلفية بلون صلب لشريحة عادية**
 
-1. أنشئ مثيلًا من صف [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. قم بتعيين قائمة [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) للشريحة إلى `OwnBackground`.
-3. قم بتعيين قائمة [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) لخلفية الشريحة إلى `Solid`.
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) لتحديد لون صلب للخلفية.
-5. احفظ العرض المعدل.
+تتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة معينة في عرض تقديمي—حتى إذا كان العرض يستخدم شريحة رئيسية. يتطبق التغيير فقط على الشريحة المحددة.
 
-يعرض هذا الكود بلغة C++ كيفية تعيين لون صلب (أزرق) كخلفية لشريحة عادية:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) للشريحة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) خلفية الشريحة إلى `Solid`.
+4. استخدام طريقة [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) على [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
+5. حفظ العرض التقديمي المعدل.
 
-```c++
-// المسار إلى دليل المستندات.
+```cpp
+// إنشاء كائن من فئة Presentation.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-	// ينشئ مثيلًا من صف Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// ضبط لون خلفية الشريحة إلى اللون الأزرق.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	//  يعين لون الخلفية للشريحة الأولى ISlide إلى الأزرق
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	//يكتب العرض إلى القرص
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// حفظ العرض التقديمي إلى القرص.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين لون صلب كخلفية لشريحة رئيسية**
 
-تتيح لك Aspose.Slides تعيين لون صلب كخلفية للشريحة الرئيسية في عرض. تعمل الشريحة الرئيسية كقالب يحتوي على إعدادات التنسيق لجميع الشرائح. لذلك، عند تعيين لون صلب كخلفية للشريحة الرئيسية، ستستخدم هذه الخلفية الجديدة في جميع الشرائح.
+## **تعيين خلفية بلون صلب لشريحة رئيسية**
 
-1. أنشئ مثيلًا من صف [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. قم بتعيين قائمة [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) للشريحة الرئيسية (`Masters`) إلى `OwnBackground`.
-3. قم بتعيين قائمة [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) لخلفية الشريحة الرئيسية إلى `Solid`.
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) لتحديد لون صلب للخلفية.
-5. احفظ العرض المعدل.
+تتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة الرئيسة في عرض تقديمي. شريحة الرئيسة تعمل كقالب يتحكم في تنسيق جميع الشرائح، لذلك عندما تختار لونًا صلبًا لخلفية شريحة الرئيسة، يتم تطبيقه على كل شريحة.
 
-يعرض هذا الكود بلغة C++ كيفية تعيين لون صلب (أخضر غابوي) كخلفية لشريحة رئيسية في عرض:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) لشريحة الرئيسة (عبر `get_Masters`) إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) خلفية شريحة الرئيسة إلى `Solid`.
+4. استخدام طريقة [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) لتحديد لون الخلفية الصلب.
+5. حفظ العرض التقديمي المعدل.
 
-```c++
-	// المسار إلى دليل المستندات.
+```cpp
+// إنشاء كائن من فئة Presentation.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+auto masterSlide = presentation->get_Master(0);
 
-	// ينشئ مثيلًا من صف Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// تعيين لون خلفية الشريحة الرئيسية إلى اللون الأخضر الغابي.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// يعين لون الخلفية للشريحة الرئيسية ISlide إلى الأخضر الغابوي
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	//يكتب العرض إلى القرص
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// حفظ العرض التقديمي إلى القرص.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين لون متدرج كخلفية لشريحة**
 
-اللون المتدرج هو تأثير رسومي يعتمد على تغيير تدريجي في اللون. تجعل الألوان المتدرجة، عند استخدامها كخلفيات للشرائح، العروض تبدو فنية واحترافية. تتيح لك Aspose.Slides تعيين لون متدرج كخلفية للشرائح في العروض.
+## **تعيين خلفية متدرجة لشريحة**
 
-1. أنشئ مثيلًا من صف [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. قم بتعيين قائمة [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) للشريحة إلى `OwnBackground`.
-3. قم بتعيين قائمة [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) لخلفية الشريحة الرئيسية إلى `Gradient`.
-4. استخدم خاصية [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) لتحديد إعداد التدرج المفضل لديك.
-5. احفظ العرض المعدل.
+التدرج هو تأثير رسومي يتم إنشاؤه بتغير تدريجي في اللون. عند استخدامه كخلفية للشرائح، يمكن للتدرجات أن تجعل العروض التقديمية تبدو أكثر فنية واحترافية. تتيح لك Aspose.Slides تعيين لون متدرج كخلفية للشرائح.
 
-يعرض هذا الكود بلغة C++ كيفية تعيين لون متدرج كخلفية لشريحة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) خلفية الشريحة إلى `Gradient`.
+4. استخدام طريقة [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) على [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) لتكوين إعدادات التدرج المفضلة لديك.
+5. حفظ العرض التقديمي المعدل.
 
-```c++
-// ينشئ مثيلًا من صف Presentation
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+```cpp
+// إنشاء كائن من فئة Presentation.
+auto presentation = MakeObject<Presentation>();
 
-// تطبيق تأثير التدرج على الخلفية
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+auto slide = presentation->get_Slide(0);
 
-// يكتب العرض إلى القرص
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// تطبيق تأثير تدرج على الخلفية.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+
+// حفظ العرض التقديمي إلى القرص.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
 
 ## **تعيين صورة كخلفية لشريحة**
 
-بالإضافة إلى الألوان الصلبة والألوان المتدرجة، تتيح لك Aspose.Slides أيضًا تعيين الصور كخلفية للشرائح في العروض.
+بالإضافة إلى التعبئات الصلبة والمتدرجة، تتيح لك Aspose.Slides استخدام الصور كخلفيات للشرائح.
 
-1. أنشئ مثيلًا من صف [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. قم بتعيين قائمة [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) للشريحة إلى `OwnBackground`.
-3. قم بتعيين قائمة [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) لخلفية الشريحة الرئيسية إلى `Picture`.
-4. قم بتحميل الصورة التي تريد استخدامها كخلفية للشريحة.
-5. أضف الصورة إلى مجموعة الصور في العرض.
-6. استخدم خاصية [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) لتعيين الصورة كخلفية.
-7. احفظ العرض المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) خلفية الشريحة إلى `Picture`.
+4. تحميل الصورة التي تريد استخدامها كخلفية للشفرة.
+5. إضافة الصورة إلى مجموعة الصور في العرض التقديمي.
+6. استخدام طريقة [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) على [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) لتعيين الصورة كخلفية.
+7. حفظ العرض التقديمي المعدل.
 
-يعرض هذا الكود بلغة C++ كيفية تعيين صورة كخلفية لشريحة:
+```cpp
+// إنشاء كائن من فئة Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// المسار إلى دليل المستندات.
+auto slide = presentation->get_Slide(0);
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+// ضبط خصائص صورة الخلفية.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// ينشئ مثيلًا من صف Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// تحميل الصورة.
+auto image = Images::FromFile(u"Tulips.jpg");
+// إضافة الصورة إلى مجموعة صور العرض التقديمي.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// يعين الشروط لصورة الخلفية
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// يحمل الصورة
-auto image = Images::FromFile(imagePath);
-
-// يضيف الصورة إلى مجموعة الصور في العرض
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// يكتب العرض إلى القرص
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// حفظ العرض التقديمي إلى القرص.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+يعرض مثال الشيفرة التالي كيفية تعيين نوع تعبئة الخلفية إلى صورة مكررة وتعديل خصائص التكرار:
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+اقرأ المزيد: [**صورة مكررة كملمس**](/slides/ar/cpp/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **تغيير شفافية صورة الخلفية**
 
-قد ترغب في ضبط شفافية صورة خلفية الشريحة لتبرز محتويات الشريحة. يُظهر لك هذا الكود بلغة C++ كيفية تغيير الشفافية لصورة خلفية الشريحة:
+قد ترغب في تعديل شفافية صورة خلفية الشريحة لجعل محتوى الشريحة يبرز أكثر. يوضح الكود التالي بلغة C++ كيفية تغيير الشفافية لصورة خلفية الشريحة:
+```cpp
+auto transparencyValue = 30; // على سبيل المثال.
 
-```c++
-int32_t transparencyValue = 30;
-// على سبيل المثال
-// يحصل على مجموعة من عمليات تحويل الصورة
+// الحصول على مجموعة عمليات تحويل الصورة.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// يجد تأثير الشفافية مع نسبة ثابتة.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// العثور على تأثير شفافية ثابت النسبة المئوية موجود.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// يعيين قيمة الشفافية الجديدة.
+
+// تعيين قيمة الشفافية الجديدة.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,27 +212,39 @@ else
 }
 ```
 
+
 ## **الحصول على قيمة خلفية الشريحة**
 
-تقدم Aspose.Slides واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) للسماح لك بالحصول على القيم الفعالة لخلفيات الشرائح. تحتوي هذه الواجهة على معلومات حول [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) الفعالة و[EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8) الفعالة.
+توفر Aspose.Slides واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعلية لخلفية الشريحة. تكشف هذه الواجهة عن [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) و[EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) الفعليين.
 
-باستخدام خاصية [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) من صف [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/)، يمكنك الحصول على القيمة الفعالة لخلفية شريحة.
+باستخدام طريقة `get_Background` في الفئة [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/)، يمكنك الحصول على الخلفية الفعلية لشريحة.
 
-يعرض هذا الكود بلغة C++ كيفية الحصول على قيمة خلفية فعالة لشريحة:
+```cpp
+// إنشاء مثيل من فئة Presentation.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-// ينشئ مثيلًا من صف Presentation
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+auto slide = presentation->get_Slide(0);
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"لون التعبئة: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"نوع التعبئة: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+// استرجاع الخلفية الفعالة مع مراعاة الشريحة الرئيسة، التخطيط، والسمة.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية السمة/التخطيط؟**
+
+نعم. أزل التعبئة المخصصة للشريحة، وسيتم توريث الخلفية مرة أخرى من شريحة [التخطيط](/slides/ar/cpp/slide-layout/)/[الرئيسية](/slides/ar/cpp/slide-master/) المقابلة (أي [خلفية السمة](/slides/ar/cpp/presentation-theme/)).
+
+**ماذا يحدث للخلفية إذا غيرت سمة العرض التقديمي لاحقًا؟**
+
+إذا كان للشفرة تعبئة خاصة به، فستبقى بدون تغيير. إذا كانت الخلفية مُتورَّثة من شريحة [التخطيط](/slides/ar/cpp/slide-layout/)/[الرئيسية](/slides/ar/cpp/slide-master/)، فستُحدَّث لتطابق [السمة الجديدة](/slides/ar/cpp/presentation-theme/).

@@ -1,12 +1,26 @@
 ---
-title: 系统要求
+title: 系统需求
 type: docs
 weight: 80
 url: /zh/cpp/system-requirements/
+keywords:
+- 系统需求
+- 操作系统
+- 安装
+- 依赖项
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "了解 Aspose.Slides for C++ 的系统需求。确保在 Windows、Linux 和 macOS 上实现无缝的 PowerPoint 和 OpenDocument 支持。"
 ---
 
-## **支持的操作系统**
-Aspose.Slides for C++ 是一个原生 C++ 库。Aspose.Slides for C++ 支持以下 64 位和 32 位操作系统和平台：
+## **受支持的操作系统**
+Aspose.Slides for C++ 是一个本机 C++ 库。Aspose.Slides for C++ 支持以下 64 位和 32 位操作系统及平台：
 
 ### **Windows**
 - Microsoft Windows Server 2008 (x64, x86)
@@ -23,13 +37,13 @@ Aspose.Slides for C++ 是一个原生 C++ 库。Aspose.Slides for C++ 支持以�
 - OS Ubuntu 16.04 或更高版本。
 - CentOS 8 或更高版本。
 - Fedora 24 或更高版本。
-- 其他支持 glibc 2.23 或更高版本的 Linux x86_64。
+- 以及其他带有 glibc 2.23 或更高版本的 Linux x86_64。
 
 ### **macOS**
 - macOS Monterey 12.1 或更高版本。
 
 ## **开发环境**
-在为 Windows、Linux 或 macOS 开发应用程序时，可以使用 Aspose.Slides for C++。
+在 Windows、Linux 或 macOS 上开发应用时可以使用 Aspose.Slides for C++。
 
 ### **Windows**
 - Microsoft Visual Studio 2017 或更高版本。
@@ -42,3 +56,13 @@ Aspose.Slides for C++ 是一个原生 C++ 库。Aspose.Slides for C++ 支持以�
 
 ### **macOS**
 - Xcode 13.4 或更高版本。
+
+## **常见问题**
+
+**是否需要安装 Microsoft PowerPoint 进行转换和渲染？**
+
+不需要，PowerPoint 并非必需；Aspose.Slides 是一个独立的引擎，用于[创建](/slides/zh/cpp/create-presentation/)、修改、[转换](/slides/zh/cpp/convert-presentation/)、以及[渲染](/slides/zh/cpp/convert-powerpoint-to-png/)演示文稿。
+
+**渲染时需要哪些字体？**
+
+实际上，演示文稿中使用的字体或相应的[替代字体](/slides/zh/cpp/font-substitution/)必须可用。为确保在 Linux/macOS 上渲染一致，建议安装常用字体包。

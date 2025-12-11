@@ -3,16 +3,31 @@ title: 如何在 Docker 中运行 Aspose.Slides for C++
 type: docs
 weight: 140
 url: /zh/cpp/how-to-run-aspose-slides-cpp-in-docker/
-keywords: "在 Docker 容器中运行 Aspose.Slides for C++, Aspose Docker, 在 Docker 中运行 Aspose.Slides for C++"
-description: "在 Linux 的 Docker 容器中运行 Aspose.Slides for C++。"
+keywords:
+- 下载 Aspose.Slides
+- 安装 Aspose.Slides
+- Aspose.Slides 安装
+- Docker
+- Windows
+- macOS
+- Linux
+- 跨平台兼容性
+- 依赖隔离
+- 简化部署
+- 项目设置
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "在 Docker 容器中运行 Aspose.Slides：配置镜像、依赖、字体和授权，以构建可扩展的服务，处理 PowerPoint 和 OpenDocument。"
 ---
 
-Aspose.Slides for C++ 可以在 Docker 容器中运行。要在 Linux 环境中运行 Aspose.Slides for C++，可以使用一个 Docker 文件。
+Aspose.Slides for C++ 可以在 docker 容器中运行。要在 Linux 环境下运行 Aspose.Slides for C++，可以使用 docker 文件。
 
-## Dockerfile 描述
+## **Dockerfile 说明**
 
-例如，你可以使用这个 Docker 文件来运行带有 Ubuntu 16.04 的 Aspose.Slides for C++：
-
+例如，您可以使用以下 Dockerfile 在 Ubuntu 16.04 上运行 Aspose.Slides for C++：
 ```
 FROM ubuntu:16.04
 
@@ -27,7 +42,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
     gcc-6 \
     g++-6 \
     fontconfig \
-    libglu1-mesa \ 
+    libglu1-mesa \ 
  && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
  && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
  && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
@@ -52,10 +67,10 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
+
 该文件包含三个主要部分（过程）：
 
 1. 安装运行 Aspose.Slides for C++ 所需的工具：
-
 ```
 FROM ubuntu:16.04
 
@@ -70,7 +85,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
     gcc-6 \
     g++-6 \
     fontconfig \
-    libglu1-mesa \ 
+    libglu1-mesa \ 
  && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
  && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
  && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
@@ -81,8 +96,8 @@ RUN apt-get update && apt-get install software-properties-common -y \
  && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-6 30
 ```
 
-2. 安装 msttcorefonts 软件包（默认情况下，不接受 msttcorefonts 软件包的 EULA）：
 
+2. 安装 msttcorefonts 包（默认情况下，msttcorefonts 包的 EULA 未被接受）：
 ```
 ARG accept_msttcorefonts_eula=false
 
@@ -94,8 +109,8 @@ RUN apt-get install -y msttcorefonts \
  && fc-cache -f -v
 ```
 
-3. 声明 /slides-cpp 文件夹为挂载点，以提供对主机上 slides-cpp 源文件夹的访问；构建和运行示例：
 
+3. 将 /slides-cpp 文件夹声明为挂载点，以提供对主机机器上 slides-cpp 源代码文件夹的访问；构建并运行示例：
 ``` cpp
 VOLUME /slides-cpp
 WORKDIR /slides-cpp/sample/
@@ -103,85 +118,87 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-## 构建和运行镜像
 
-1. [在主机系统上安装 Docker](https://docs.docker.com/engine/install/)。
+## **构建与运行镜像**
 
-2. 构建镜像。 
+1. [安装 Docker](https://docs.docker.com/engine/install/) 在主机系统上。
 
-   一个工作目录中应该包含上面的 Dockerfile 文件。
+2. 构建镜像。
 
+   终端工作目录应包含内容如上的 Dockerfile 文件。
 ```
-docker build -t aspose-slides-ubuntu-16.04 .
+docker build -t aspose-slides-ubuntu-16.04 .
 ```
+
 
 3. 下载并解压 [Aspose.Slides for C++ YY.M Linux](https://downloads.aspose.com/slides/cpp)。
-4. 与 Aspose.Slides for C++ 共享文件夹，以便 Docker 使用它：
-   - 在 Windows 中，右键单击任务栏上的 Docker 图标。选择设置。
-   - 进入资源 > 文件共享。
-5. 通过以下任一方法运行镜像作为容器：
 
-* 方法 A：创建并执行命名容器：
+4. 共享包含 Aspose.Slides for C++ 的文件夹，以便 Docker 使用：
+   - 在 Windows 上，右键单击任务栏中的 Docker 图标。选择 Settings。
+   - 依次进入 Resources > File Sharing。
 
+5. 通过以下任一方式运行镜像作为容器：
+
+* 方法 A：创建并执行具名容器：
 ```
 docker run --name slides-cpp-ubuntu -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
 ```
 
-对于第二次及后续启动，您必须使用：
 
+对于第二次及后续启动，需要使用：
 ```
 docker start slides-cpp-ubuntu -i
 ```
 
-* 方法 B：创建并执行一个未命名的临时容器：
 
+* 方法 B：创建并执行无名临时容器：
 ```
 docker run --rm -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
 ```
 
+
 您将看到示例项目的构建和执行：
-
 ```
--- CXX 编译器识别为 Clang 3.9.1
--- 检查工作 CXX 编译器：/usr/bin/clang++
--- 检查工作 CXX 编译器：/usr/bin/clang++ -- 工作正常
--- 检测 CXX 编译器 ABI 信息
--- 检测 CXX 编译器 ABI 信息 - 完成
--- 检测 CXX 编译特性
--- 检测 CXX 编译特性 - 完成
--- 配置完成
--- 生成完成
--- 构建文件已写入：/slides-cpp/sample/build
-扫描目标 Aspose.Slides.Cpp.Examples 的依赖
-[ 14%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/chart.cpp.o
-[ 42%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/main.cpp.o
-[ 42%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/presentation_export.cpp.o
-[ 57%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/smart_art.cpp.o
-[ 71%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/text.cpp.o
-[ 85%] 正在编译 CXX 对象 CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/thumbnail.cpp.o
-[100%] 正在链接 CXX 可执行文件 Aspose.Slides.Cpp.Examples
-[100%] 已构建目标 Aspose.Slides.Cpp.Examples
+-- The CXX compiler identification is Clang 3.9.1
+-- Check for working CXX compiler: /usr/bin/clang++
+-- Check for working CXX compiler: /usr/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /slides-cpp/sample/build
+Scanning dependencies of target Aspose.Slides.Cpp.Examples
+[ 14%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/chart.cpp.o
+[ 42%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/main.cpp.o
+[ 42%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/presentation_export.cpp.o
+[ 57%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/smart_art.cpp.o
+[ 71%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/text.cpp.o
+[ 85%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/thumbnail.cpp.o
+[100%] Linking CXX executable Aspose.Slides.Cpp.Examples
+[100%] Built target Aspose.Slides.Cpp.Examples
 
-正在运行示例...
+Running examples...
 
-正在运行 Chart::SampleChart...
-正在运行 Thumbnail::SampleThumbnail...
-正在运行 Text::SampleAddText...
-正在运行 SmartArt::SampleCreation...
-正在运行 SmartArt::SampleCloning...
-正在运行 SmartArt::SampleNodesTextEditing...
-正在运行 SmartArt::SampleNodeAdd...
-正在运行 SmartArt::SampleColorStyleEditing...
-正在运行 SmartArt::SampleQuickStyleEditing...
-正在运行 SmartArt::SampleNodeRemove...
-正在运行 SmartArt::SampleRemoveSmartArt...
-正在运行 PresentationExport::Export...
-将演示文稿保存为 PDF...OK
-将演示文稿保存为 XPS...OK
-将演示文稿保存为 SWF...OK
-将演示文稿保存为 HTML...OK
-将演示文稿保存为 PDF...OK
-将演示文稿保存为 XPS...OK
-将演示文稿保存为 SWF...OK
-将演示文稿保存为 HTML...OK
+Running Chart::SampleChart...
+Running Thumbnail::SampleThumbnail...
+Running Text::SampleAddText...
+Running SmartArt::SampleCreation...
+Running SmartArt::SampleCloning...
+Running SmartArt::SampleNodesTextEditing...
+Running SmartArt::SampleNodeAdd...
+Running SmartArt::SampleColorStyleEditing...
+Running SmartArt::SampleQuickStyleEditing...
+Running SmartArt::SampleNodeRemove...
+Running SmartArt::SampleRemoveSmartArt...
+Running PresentationExport::Export...
+Saving presentation as PDF...OK
+Saving presentation as XPS...OK
+Saving presentation as SWF...OK
+Saving presentation as HTML...OK
+Saving presentation as PDF...OK
+Saving presentation as XPS...OK
+Saving presentation as SWF...OK
+Saving presentation as HTML...OK
 ```

@@ -1,55 +1,180 @@
 ---
-title: Просмотрщик презентаций
+title: Создание просмотрщика презентаций на C++
+linktitle: Просмотрщик презентаций
 type: docs
 weight: 50
 url: /ru/cpp/presentation-viewer/
-keywords: "Просмотрщик PowerPoint PPT"
-description: "Просмотрщик PowerPoint PPT на C++"
+keywords: 
+- просмотр презентации
+- просмотрщик презентаций
+- создание просмотрщика презентаций
+- просмотр PPT
+- просмотр PPTX
+- просмотр ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Создайте пользовательский просмотрщик презентаций на C++ с помощью Aspose.Slides. Легко отображайте файлы PowerPoint и OpenDocument без Microsoft PowerPoint."
 ---
 
-## **Генерация SVG изображения из слайда**
-Aspose.Slides для C++ используется для создания файлов презентаций, содержащих слайды. Эти слайды можно просмотреть, открыв презентации с помощью Microsoft PowerPoint. Но иногда разработчикам может потребоваться просмотреть слайды в виде изображений SVG в любимом просмотрщике изображений. В таких случаях Aspose.Slides для C++ позволяет экспортировать отдельный слайд в изображение SVG. Эта статья описывает, как использовать эту функцию. Чтобы сгенерировать изображение SVG из любого желаемого слайда с помощью Aspose.Slides.Pptx для C++, выполните следующие шаги:
+Aspose.Slides for C++ используется для создания файлов презентаций со слайдами. Эти слайды можно просматривать, открывая презентации в Microsoft PowerPoint, например. Однако иногда разработчикам может потребоваться просматривать слайды как изображения в предпочитаемом просмотрщике изображений или создавать собственный просмотрщик презентаций. В таких случаях Aspose.Slides позволяет экспортировать отдельный слайд как изображение. Эта статья описывает, как это сделать.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Получите ссылку на желаемый слайд, используя его ID или индекс.
-- Получите изображение SVG в потоке памяти.
-- Сохраните поток памяти в файл.
+## **Создать SVG‑изображение со слайда**
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSlidesSVGImage-CreateSlidesSVGImage.cpp" >}}
-## **Генерация SVG с пользовательскими идентификаторами форм**
-Теперь Aspose.Slides для C++ можно использовать для генерации SVG из слайда с пользовательскими идентификаторами форм. Эти слайды можно просмотреть, открыв презентации с помощью Microsoft PowerPoint. Но иногда разработчикам может потребоваться просмотреть слайды в виде изображений SVG в любимом просмотрщике изображений. В таких случаях Aspose.Slides для C++ позволяет экспортировать отдельный слайд в изображение SVG. Для этой цели свойство ID было добавлено в ISvgShape для поддержки пользовательских идентификаторов форм в сгенерированном SVG. Для реализации этой функции был представлен CustomSvgShapeFormattingController, который вы можете использовать для установки идентификатора формы.
+Чтобы создать SVG‑изображение из слайда презентации с помощью Aspose.Slides, выполните следующие действия:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GeneratingSVGWithCustomShapeIDS-GeneratingSVGWithCustomShapeIDS.cpp" >}}
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Откройте файловый поток.
+1. Сохраните слайд как SVG‑изображение в файловый поток.
+```cpp
+auto slideIndex = 0;
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomSvgShapeFormattingController-CustomSvgShapeFormattingController.cpp" >}}
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
 
 
-## **Создание миниатюры слайда**
-Aspose.Slides для C++ используется для создания файлов презентаций, содержащих слайды. Эти слайды можно просмотреть, открыв файлы презентаций с помощью Microsoft PowerPoint. Но иногда разработчикам может потребоваться просмотреть слайды в виде изображений с помощью любимого просмотрщика изображений. В таких случаях Aspose.Slides для C++ помогает вам сгенерировать миниатюры слайдов. Чтобы сгенерировать миниатюру любого желаемого слайда с помощью Aspose.Slides для C++:
+## **Создать SVG с пользовательским идентификатором фигуры**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на любой желаемый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда на заданном масштабе.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+Aspose.Slides можно использовать для создания [SVG](https://docs.fileformat.com/page-description-language/svg/) со слайда с пользовательским идентификатором фигуры. Для этого используйте метод `set_Id` из [ISvgShape](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/). Класс `CustomSvgShapeFormattingController` может быть использован для задания идентификатора фигуры.
+```cpp
+auto slideIndex = 0;
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RenderSlides-ThumbnailFromSlide.cpp" >}}
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-## **Создание миниатюры с пользовательскими размерностями**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на любой желаемый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда на заданном масштабе.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<CustomSvgShapeFormattingController>());
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ThumbnailWithUserDefinedDimensions-ThumbnailWithUserDefinedDimensions.cpp" >}}
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
 
-## **Создание миниатюры из слайда в режиме заметок**
-Чтобы сгенерировать миниатюру любого желаемого слайда в режиме заметок с помощью Aspose.Slides для C++:
+presentation->Dispose();
+```
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на любой желаемый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда на заданном масштабе в режиме заметок.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+```cpp
+class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
+{
+private:
+    int m_shapeIndex;
 
-Ниже приведен фрагмент кода, который создает миниатюру первого слайда презентации в режиме заметок.
+public:
+    CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ThumbnailFromSlideInNotes-ThumbnailFromSlideInNotes.cpp" >}}
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape)
+    {
+        svgShape->set_Id(String::Format(u"shape-{0}", m_shapeIndex++));
+    }
+};
+```
+
+
+## **Создать изображение эскиза слайда**
+
+Aspose.Slides помогает генерировать эскизы слайдов. Чтобы создать эскиз слайда с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Получите эскиз изображения указанного слайда в заданном масштабе.
+1. Сохраните эскиз в любом требуемом формате изображения.
+```cpp
+auto slideIndex = 0;
+auto scaleX = 1;
+auto scaleY = scaleX;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(scaleX, scaleY);
+image->Save(u"output.jpg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **Создать эскиз слайда с пользовательскими размерами**
+
+Чтобы создать изображение эскиза слайда с пользовательскими размерами, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Получите эскиз изображения указанного слайда с заданными размерами.
+1. Сохраните эскиз в любом требуемом формате изображения.
+```cpp
+auto slideIndex = 0;
+auto slideSize = Size(1200, 800);
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(slideSize);
+image->Save(u"output.jpg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **Создать эскиз слайда с примечаниями к докладчику**
+
+Чтобы создать эскиз слайда с примечаниями к докладчику с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) .
+1. Используйте метод `RenderingOptions.set_SlidesLayoutOptions`, чтобы задать позицию примечаний к докладчику.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Получите эскиз изображения слайда с учётом параметров рендеринга.
+1. Сохраните эскиз в любом требуемом формате изображения.
+```cpp
+auto slideIndex = 0;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutingOptions);
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(renderingOptions);
+image->Save(u"output.png", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **Живой пример**
+
+Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) , чтобы увидеть, что можно реализовать с помощью API Aspose.Slides:
+
+![Онлайн просмотрщик PowerPoint](online-PowerPoint-viewer.png)
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я встроить просмотрщик презентаций в веб‑приложение?**
+
+Да. Вы можете использовать Aspose.Slides на стороне сервера для рендеринга слайдов в виде изображений или HTML и отображать их в браузере. Навигацию и масштабирование можно реализовать с помощью JavaScript для интерактивного опыта.
+
+**Как лучше всего отображать слайды в пользовательском просмотрщике?**
+
+Рекомендуемый подход — рендерить каждый слайд как изображение (например, PNG или SVG) либо конвертировать его в HTML с помощью Aspose.Slides, затем выводить результат в элементе picture (для десктопа) или в HTML‑контейнере (для веба).
+
+**Как обрабатывать крупные презентации с большим количеством слайдов?**
+
+Для больших презентаций стоит использовать отложенную загрузку или рендеринг по запросу. Это означает генерацию содержимого слайда только в момент, когда пользователь переходит к нему, что сокращает расход памяти и время загрузки.

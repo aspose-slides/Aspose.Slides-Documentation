@@ -3,19 +3,48 @@ title: Оценка Aspose.Slides
 type: docs
 weight: 110
 url: /ru/cpp/evaluate-aspose-slides/
+keywords:
+- оценка Aspose.Slides
+- оценка Aspose.Slides
+- версия оценки
+- полный функционал
+- водяной знак оценки
+- покупка Aspose.Slides
+- ограничение
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Оцените Aspose.Slides для C++ и изучите возможности API для презентаций PowerPoint (PPT, PPTX) и OpenDocument (ODP) — начните бесплатную пробную версию."
 ---
 
+## **Aspose.Slides Evaluation**
+
 {{% alert color="primary" %}} 
+You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
 
-Вы можете легко скачать Aspose.Slides для оценки. Загружаемая версия для оценки такая же, как и купленная. Версия для оценки просто становится лицензированной, когда вы добавляете несколько строк кода для применения лицензии.
-
-Оценочная версия Aspose.Slides (без указанной лицензии) предоставляет полную функциональность продукта, но вставляет водяной знак оценки в верхней части документа при открытии и сохранении, и ограничивает до одного слайда при извлечении текста из слайдов презентации.
-
+The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
 
 ![todo:image_alt_text](evaluate-aspose.slides-001.png)
-
 {{% /alert %}} {{% alert color="primary" %}} 
-
-Если вы хотите протестировать Aspose.Slides без ограничений версии для оценки, вы также можете запросить временную лицензию на 30 дней. Пожалуйста, обратитесь к [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
-
+If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30‑day Temporary License. Please refer to [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I test multiple presentations in parallel across different threads in evaluation mode?**
+
+Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/ru/cpp/multithreading/). Evaluation mode does not affect this.
+
+**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
+
+No. Aspose.Slides is a standalone engine and does not require PowerPoint installed for either evaluation or production.
+
+**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
+
+Yes. The [converters](/slides/ru/cpp/convert-presentation/) work; the output will include a watermark.
+
+**Can I use a temporary license for load testing without a watermark?**
+
+Yes. A 30‑day temporary license removes evaluation‑mode limitations and allows testing without a watermark.

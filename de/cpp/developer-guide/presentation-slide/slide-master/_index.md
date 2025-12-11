@@ -1,123 +1,138 @@
 ---
-title: Folienmaster
+title: Verwalten von Präsentations-Folienmastern in C++
+linktitle: Folienmaster
 type: docs
 weight: 80
 url: /de/cpp/slide-master/
-keywords: "Folienmaster hinzufügen, PPT Folienmaster, Folienmaster PowerPoint, Bild zu Folienmaster, Platzhalter, Mehrere Folienmaster, Folienmaster vergleichen, C++, CPP, Aspose.Slides für C++"
-description: "Fügen Sie einen Folienmaster in einer PowerPoint-Präsentation in C++ hinzu oder bearbeiten Sie ihn."
+keywords:
+- Folienmaster
+- Masterfolie
+- PPT-Masterfolie
+- mehrere Masterfolien
+- Masterfolien vergleichen
+- Hintergrund
+- Platzhalter
+- Masterfolie klonen
+- Masterfolie kopieren
+- Masterfolie duplizieren
+- unbenutzte Masterfolie
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Verwalten von Folienmastern in Aspose.Slides für C++: Erstellen, Bearbeiten und Anwenden von Layouts, Designs und Platzhaltern für PPT, PPTX und ODP mit prägnanten C++-Beispielen."
 ---
 
 ## **Was ist ein Folienmaster in PowerPoint**
 
-Ein **Folienmaster** ist eine Folienvorlage, die das Layout, die Stile, das Thema, die Schriftarten, den Hintergrund und andere Eigenschaften für Folien in einer Präsentation definiert. Wenn Sie eine Präsentation (oder eine Reihe von Präsentationen) mit demselben Stil und derselben Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Folienmaster verwenden. 
+Ein **Folienmaster** ist eine Folienvorlage, die das Layout, die Stile, das Design, die Schriftarten, den Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Wenn Sie eine Präsentation (oder eine Reihe von Präsentationen) mit dem gleichen Stil und der gleichen Vorlage für Ihr Unternehmen erstellen möchten, können Sie einen Folienmaster verwenden.
 
-Ein Folienmaster ist nützlich, da er es ermöglicht, das Aussehen aller Präsentationsfolien gleichzeitig zu ändern. Aspose.Slides unterstützt den Folienmaster-Mechanismus von PowerPoint. 
+Ein Folienmaster ist nützlich, weil er es Ihnen ermöglicht, das Aussehen aller Präsentationsfolien auf einmal festzulegen und zu ändern. Aspose.Slides unterstützt den Folienmaster‑Mechanismus von PowerPoint.
 
-VBA ermöglicht es ebenfalls, einen Folienmaster zu manipulieren und die selben in PowerPoint unterstützten Operationen auszuführen: Hintergründe ändern, Formen hinzufügen, das Layout anpassen, usw. Aspose.Slides bietet flexible Mechanismen, um Folienmaster zu verwenden und grundlegende Aufgaben mit ihnen durchzuführen. 
+VBA ermöglicht ebenfalls die Manipulation eines Folienmasters und die Ausführung derselben Operationen, die in PowerPoint unterstützt werden: Hintergründe ändern, Formen hinzufügen, Layout anpassen usw. Aspose.Slides stellt flexible Mechanismen bereit, mit denen Sie Folienmaster verwenden und grundlegende Aufgaben damit durchführen können.
 
-Dies sind grundlegende Folienmaster-Operationen:
+Dies sind grundlegende Folienmaster‑Operationen:
 
-- Erstellen oder Ändern eines Folienmasters.
-- Anwenden von Folienmaster auf Präsentationsfolien.
-- Ändern des Folienmaster-Hintergrunds. 
-- Hinzufügen eines Bildes, Platzhalters, SmartArt usw. zum Folienmaster.
+- Erstellen oder **Slide Master**.
+- Folienmaster auf Präsentationsfolien anwenden.
+- Hintergrund des Folienmasters ändern. 
+- Ein Bild, Platzhalter, SmartArt usw. zum Folienmaster hinzufügen.
 
-Dies sind fortgeschrittenere Operationen mit Folienmaster: 
+Dies sind weiterführende Operationen mit Folienmastern:
 
-- Vergleichen von Folienmastern.
-- Zusammenführen von Folienmastern.
-- Anwenden mehrerer Folienmaster.
-- Kopieren einer Folie mit Folienmaster in eine andere Präsentation.
-- Finden von doppelten Folienmastern in Präsentationen.
-- Setzen des Folienmasters als Standardansicht der Präsentation.
+- Folienmaster vergleichen.
+- Folienmaster zusammenführen.
+- Mehrere Folienmaster anwenden.
+- Folie mit Folienmaster in eine andere Präsentation kopieren.
+- Doppelte Folienmaster in Präsentationen finden.
+- Folienmaster als Standardansicht der Präsentation festlegen.
 
 {{% alert color="primary" %}} 
 
-Es könnte sich lohnen, den Aspose [**Online PowerPoint-Viewer**](https://products.aspose.app/slides/viewer) auszuprobieren, da es eine Live-Implementierung einiger der hier beschriebenen Kernprozesse ist.
+Vielleicht möchten Sie Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) ausprobieren, da er eine Live‑Implementierung einiger hier beschriebener Kernprozesse darstellt.
 
 {{% /alert %}} 
 
-## **Wie wird der Folienmaster angewendet**
+## **Wie wird ein Folienmaster angewendet**
 
 Bevor Sie mit einem Folienmaster arbeiten, sollten Sie verstehen, wie er in Präsentationen verwendet und auf Folien angewendet wird. 
 
 * Jede Präsentation hat standardmäßig mindestens einen Folienmaster. 
-* Eine Präsentation kann mehrere Folienmaster enthalten. Sie können mehrere Folienmaster hinzufügen und verwenden, um verschiedene Teile einer Präsentation auf unterschiedliche Weise zu gestalten. 
+* Eine Präsentation kann mehrere Folienmaster enthalten. Sie können mehrere Folienmaster hinzufügen und sie verwenden, um verschiedene Teile einer Präsentation unterschiedlich zu gestalten. 
 
-In **Aspose.Slides** wird ein Folienmaster durch den [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) Typ dargestellt. 
+In **Aspose.Slides** wird ein Folienmaster durch den Typ [**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) repräsentiert. 
 
-Das [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation
-) Objekt von Aspose.Slides enthält die [**get_Masters()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) Liste des [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) Typs, die eine Liste aller Masterfolien enthält, die in einer Präsentation definiert sind. 
+Das Aspose.Slides‑[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)‑Objekt enthält die [**get_Masters()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29)‑Liste vom Typ [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection), die eine Liste aller in einer Präsentation definierten Folienmaster enthält. 
 
-Neben CRUD-Operationen enthält das [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) Interface diese nützlichen Methoden: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) und [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) Methoden. Diese Methoden sind von der grundlegenden Folienklonfunktion abgeleitet. Wenn man jedoch mit Folienmastern arbeitet, ermöglichen diese Methoden die Implementierung komplizierter Setups. 
+Neben CRUD‑Operationen enthält die Schnittstelle [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) nützliche Methoden: [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) und [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311). Diese Methoden stammen aus der Grundfunktion zum Klonen von Folien. Beim Umgang mit Folienmastern ermöglichen sie jedoch komplexe Setups. 
 
-Wenn eine neue Folie zu einer Präsentation hinzugefügt wird, wird automatisch ein Folienmaster auf sie angewendet. Der Folienmaster der vorherigen Folie wird standardmäßig ausgewählt. 
+Wenn einer neuen Folie einer Präsentation hinzugefügt wird, wird automatisch ein Folienmaster darauf angewendet. Standardmäßig wird der Folienmaster der vorherigen Folie übernommen. 
 
-**Hinweis**: Präsentationsfolien werden in der [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) Liste gespeichert und jede neue Folie wird standardmäßig am Ende der Sammlung hinzugefügt. Wenn eine Präsentation nur einen Folienmaster enthält, wird dieser Folienmaster für alle neuen Folien ausgewählt. Aus diesem Grund müssen Sie den Folienmaster nicht für jede neue Folie definieren, die Sie erstellen.
+**Hinweis**: Präsentationsfolien werden in der [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)‑Liste gespeichert, und jede neue Folie wird standardmäßig am Ende der Sammlung eingefügt. Enthält eine Präsentation einen einzigen Folienmaster, wird dieser für alle neuen Folien verwendet. Deshalb müssen Sie den Folienmaster nicht für jede neu erstellte Folie erneut festlegen.
 
-Das Prinzip ist dasselbe für PowerPoint und Aspose.Slides. In PowerPoint können Sie beispielsweise, wenn Sie eine neue Präsentation hinzufügen, einfach auf die untere Linie unter der letzten Folie klicken, und dann wird eine neue Folie (mit dem Folienmaster der letzten Präsentation) erstellt:
+Das Prinzip ist für PowerPoint und Aspose.Slides identisch. In PowerPoint können Sie zum Beispiel einfach am unteren Rand unter der letzten Folie klicken, um eine neue Folie (mit dem Folienmaster der letzten Folie) zu erzeugen:
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides können Sie die gleiche Aufgabe mit der [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) Methode der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse ausführen.
+In Aspose.Slides können Sie die gleiche Aufgabe mit der Methode [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) ausführen.
 
 ## **Folienmaster in der Folienhierarchie**
 
-Die Verwendung von Folienlayouts mit Folienmastern ermöglicht maximale Flexibilität. Ein Folienlayout erlaubt es Ihnen, alle gleichen Stile wie der Folienmaster (Hintergrund, Schriftarten, Formen usw.) festzulegen. Wenn jedoch mehrere Folienlayouts auf einem Folienmaster kombiniert werden, wird ein neuer Stil erstellt. Wenn Sie ein Folienlayout auf eine einzelne Folie anwenden, können Sie ihren Stil von dem, der vom Folienmaster angewendet wurde, ändern.
+Die Verwendung von Folienlayouts zusammen mit dem Folienmaster bietet maximale Flexibilität. Ein Folienlayout erlaubt es Ihnen, dieselben Stile wie beim Folienmaster (Hintergrund, Schriftarten, Formen usw.) festzulegen. Wenn mehrere Folienlayouts auf einem Folienmaster kombiniert werden, entsteht ein neuer Stil. Wird ein Folienlayout auf eine einzelne Folie angewendet, kann deren Stil vom Folienmaster‑Stil abweichen.
 
-Der Folienmaster hat Vorrang vor allen Setups: Folienmaster -> Folienlayout -> Folie:
+Der Folienmaster steht über allen anderen Setup‑Elementen: Folienmaster → Folienlayout → Folie:
 
 ![todo:image_alt_text](slide-master_2)
 
-Jedes [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) Objekt hat eine [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) Eigenschaft mit einer Liste von Folienlayouts. Ein [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) Typ hat eine [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) Eigenschaft mit einem Verweis auf ein Folienlayout, das auf die Folie angewendet wurde. Die Interaktion zwischen einer Folie und dem Folienmaster erfolgt über ein Folienlayout.
+Jedes [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide)-Objekt besitzt die Eigenschaft [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) mit einer Liste von Folienlayouts. Ein [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide)-Typ hat die Eigenschaft [**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8), die auf das angewendete Folienlayout verweist. Die Interaktion zwischen einer Folie und dem Folienmaster erfolgt über ein Folienlayout.
 
-{{% alert color="info" title="Hinweis" %}}
+{{% alert color="info" title="Note" %}}
 
-* In Aspose.Slides sind alle Folieneinrichtungen (Folienmaster, Folienlayout und die Folie selbst) tatsächlich Foliensobjekte, die das [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) Interface implementieren.
-* Daher können Folienmaster und Folienlayouts dieselben Eigenschaften implementieren, und Sie müssen wissen, wie deren Werte auf ein [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) Objekt angewendet werden. Der Folienmaster wird zuerst auf eine Folie angewendet und dann das Folienlayout. Wenn der Folienmaster und das Folienlayout beide einen Hintergrundwert haben, erhält die Folie den Hintergrund des Folienlayouts.
+* In Aspose.Slides sind alle Folien‑Setups (Folienmaster, Folienlayout und die Folie selbst) tatsächlich Folienobjekte, die das Interface [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) implementieren.
+* Daher können Folienmaster und Folienlayout dieselben Eigenschaften besitzen, und Sie müssen wissen, wie deren Werte auf ein [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide)-Objekt angewendet werden. Der Folienmaster wird zuerst auf die Folie angewendet, anschließend das Folienlayout. Haben sowohl Folienmaster als auch Folienlayout zum Beispiel einen Hintergrundwert, überschreibt der Hintergrund des Folienlayouts den des Folienmasters.
 
 {{% /alert %}}
 
-## **Was ein Folienmaster umfasst**
+## **Woraus ein Folienmaster besteht**
 
-Um zu verstehen, wie ein Folienmaster geändert werden kann, müssen Sie seine Bestandteile kennen. Dies sind die Kern Eigenschaften des [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/). 
+Um zu verstehen, wie ein Folienmaster geändert werden kann, müssen Sie seine Bestandteile kennen. Dies sind die Kerneigenschaften von [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/):
 
-- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - Hintergrund der Folie abrufen/setzen.
-- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - Textstile des Folienkörpers abrufen/setzen.
-- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - Alle Formen des Folienmasters abrufen/setzen (Platzhalter, Bilderrahmen usw.).
-- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - ActiveX-Steuerelemente abrufen/setzen.
-- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - Themen-Manager abrufen.
-- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - Kopf- und Fußzeilen-Manager abrufen.
+- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) – Hintergrund der Folie holen/setzen.
+- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) – Textstile des Folienkörpers holen/setzen.
+- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) – Alle Formen des Folienmasters (Platzhalter, Bildrahmen usw.) holen/setzen.
+- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) – ActiveX‑Steuerelemente holen/setzen.
+- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) – Theme‑Manager holen.
+- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) – Header‑ und Footer‑Manager holen.
 
 Methoden des Folienmasters:
 
-- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - Alle Folien abrufen, die vom Folienmaster abhängen.
-- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - Ermöglicht die Erstellung eines neuen Folienmasters basierend auf dem aktuellen Folienmaster und einem neuen Thema. Der neue Folienmaster wird dann auf alle abhängigen Folien angewendet.
+- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) – Alle Folien holen, die vom Folienmaster abhängen.
+- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) – Ermöglicht das Erstellen eines neuen Folienmasters basierend auf dem aktuellen Folienmaster und einem neuen Theme. Der neue Folienmaster wird anschließend auf alle abhängigen Folien angewendet.
 
-## **Folienmaster abrufen**
+## **Einen Folienmaster erhalten**
 
-In PowerPoint kann der Folienmaster über das Menü Ansicht -> Folienmaster aufgerufen werden:
+In PowerPoint kann der Folienmaster über das Menü **Ansicht → Folienmaster** aufgerufen werden:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Mit Aspose.Slides können Sie auf einen Folienmaster auf folgende Weise zugreifen:
-
+Mit Aspose.Slides greifen Sie so auf einen Folienmaster zu:
 ```c++
 System::SharedPtr<IMasterSlide> master = pres->get_Masters()->idx_get(0);
 ```
 
-Das [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) Interface repräsentiert einen Folienmaster. Die [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) Eigenschaft (die sich auf den [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) Typ bezieht) enthält eine Liste aller Folienmaster, die in der Präsentation definiert sind.
 
-## **Bild zum Folienmaster hinzufügen**
+Die Schnittstelle [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) repräsentiert einen Folienmaster. Die Eigenschaft [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) (bezogen auf den Typ [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection)) enthält eine Liste aller in der Präsentation definierten Folienmaster.
 
-Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf allen Folien, die von diesem Folienmaster abhängen. 
+## **Ein Bild zu einem Folienmaster hinzufügen**
 
-Zum Beispiel können Sie das Logo Ihres Unternehmens und einige Bilder auf dem Folienmaster platzieren und dann zum Folienbearbeitungsmodus zurückkehren. Sie sollten das Bild auf jeder Folie sehen. 
+Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf allen Folien, die von diesem Master abhängen.
+
+Beispielsweise können Sie das Firmenlogo und weitere Bilder auf dem Folienmaster platzieren und anschließend zum Folienbearbeitungsmodus zurückkehren – das Bild wird auf jeder Folie sichtbar sein.
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Sie können Bilder mit Aspose.Slides zu einem Folienmaster hinzufügen:
-
+Bilder können Sie mit Aspose.Slides zu einem Folienmaster hinzufügen:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -127,39 +142,36 @@ pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="primary" title="Siehe auch" %}} 
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie, siehe den Artikel [Bilderrahmen](/slides/de/cpp/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="See also" %}} 
+
+Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Picture Frame](/slides/de/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
-## **Platzhalter zum Folienmaster hinzufügen**
+## **Einen Platzhalter zu einem Folienmaster hinzufügen**
 
-Diese Textfelder sind standardmäßige Platzhalter auf einem Folienmaster: 
+Diese Textfelder sind Standardplatzhalter auf einem Folienmaster:
 
-* Klicken Sie hier, um den Titelstil des Masters zu bearbeiten
-
-* Bearbeiten Sie die Textstile des Masters
-
+* Klick zum Bearbeiten des Master‑Titelstils
+* Master‑Textstile bearbeiten
 * Zweite Ebene
+* Dritte Ebene
 
-* Dritte Ebene 
+Sie erscheinen ebenfalls auf den Folien, die auf dem Folienmaster basieren. Sie können diese Platzhalter auf dem Folienmaster bearbeiten und die Änderungen werden automatisch auf die Folien übertragen.
 
-  Sie erscheinen auch auf den Folien, die auf dem Folienmaster basieren. Sie können diese Platzhalter auf einem Folienmaster bearbeiten, und die Änderungen werden automatisch auf die Folien angewendet. 
-
-In PowerPoint können Sie einen Platzhalter über den Pfad Folienmaster -> Platzhalter einfügen hinzufügen:
+In PowerPoint können Sie einen Platzhalter über den Pfad **Folienmaster → Platzhalter einfügen** hinzufügen:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Lassen Sie uns ein komplizierteres Beispiel für Platzhalter mit Aspose.Slides betrachten. Betrachten Sie eine Folie mit Platzhaltern, die vom Folienmaster abgeleitet sind:
+Betrachten wir ein komplexeres Beispiel für Platzhalter mit Aspose.Slides. Angenommen, wir haben eine Folie mit Platzhaltern, die aus dem Folienmaster stammen:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Wir möchten die Formatierung von Titel und Untertitel auf dem Folienmaster folgendermaßen ändern:
+Wir wollen die Formatierung von Titel und Untertitel auf dem Folienmaster wie folgt ändern:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Zuerst rufen wir den Inhalt des Titelplatzhalters vom Folienmaster-Objekt ab und verwenden dann das `PlaceHolder.FillFormat` Feld: 
-
+Zuerst holen wir den Inhalt des Titel‑Platzhalters aus dem Folienmaster‑Objekt und verwenden dann das Feld `PlaceHolder.FillFormat`:
 ```c++
 System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> master, PlaceholderType type)
 {
@@ -193,21 +205,21 @@ void Main()
 }
 ```
 
+
 Der Titelstil und die Formatierung ändern sich für alle Folien, die auf dem Folienmaster basieren:
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="Siehe auch" %}} 
+{{% alert color="primary" title="See also" %}} 
 
-* [Prompttext im Platzhalter festlegen](https://docs.aspose.com/slides/cpp/manage-placeholder/)
-* [Textformatierung](https://docs.aspose.com/slides/cpp/text-formatting/)
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/cpp/manage-placeholder/)
+* [Text Formatting](https://docs.aspose.com/slides/cpp/text-formatting/)
 
 {{% /alert %}}
 
-## **Hintergrund im Folienmaster ändern**
+## **Den Hintergrund eines Folienmasters ändern**
 
-Wenn Sie die Hintergrundfarbe eines Folienmasters ändern, erhalten alle normalen Folien in der Präsentation die neue Farbe. Dieser C++-Code demonstriert die Operation:
-
+Wenn Sie die Hintergrundfarbe einer Master‑Folien ändern, erhalten alle normalen Folien in der Präsentation die neue Farbe. Dieser C++‑Code demonstriert die Operation:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -220,18 +232,17 @@ background->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::C
 pres->Save(u"pres.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert color="primary" title="Siehe auch" %}} 
 
-- [Hintergrund der Präsentation](https://docs.aspose.com/slides/cpp/presentation-background/)
+{{% alert color="primary" title="See also" %}} 
 
-- [Thema der Präsentation](https://docs.aspose.com/slides/cpp/presentation-theme/)
+- [Presentation Background](https://docs.aspose.com/slides/cpp/presentation-background/)
+- [Presentation Theme](https://docs.aspose.com/slides/cpp/presentation-theme/)
 
 {{% /alert %}}
 
-## **Folienmaster in eine andere Präsentation klonen**
+## **Einen Folienmaster in eine andere Präsentation klonen**
 
-Um einen Folienmaster in eine andere Präsentation zu klonen, rufen Sie die [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) Methode der Zielpräsentation zusammen mit einem in sie übergebenen Folienmaster auf. Dieser C++-Code zeigt, wie man einen Folienmaster in eine andere Präsentation klont:
-
+Um einen Folienmaster in eine andere Präsentation zu klonen, rufen Sie die Methode [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) der Zielpräsentation auf und übergeben den zu klonenden Folienmaster. Dieser C++‑Code zeigt, wie Sie einen Folienmaster in eine andere Präsentation klonen:
 ```c++
 auto presSource = System::MakeObject<Presentation>();
 auto presTarget = System::MakeObject<Presentation>();
@@ -239,40 +250,40 @@ auto presTarget = System::MakeObject<Presentation>();
 auto master = presTarget->get_Masters()->AddClone(presSource->get_Masters()->idx_get(0));
 ```
 
-## **Mehrere Folienmaster zur Präsentation hinzufügen**
 
-Aspose.Slides ermöglicht es Ihnen, mehrere Folienmaster und Folienlayouts zu einer beliebigen Präsentation hinzuzufügen. Dies ermöglicht es Ihnen, Stil, Layouts und Formatierungsoptionen für Präsentationsfolien auf viele Arten einzurichten. 
+## **Mehrere Folienmaster zu einer Präsentation hinzufügen**
 
-In PowerPoint können Sie neue Folienmaster und Layouts (aus dem "Folienmaster-Menü) wie folgt hinzufügen:
+Aspose.Slides ermöglicht das Hinzufügen mehrerer Folienmaster und Folienlayouts zu einer beliebigen Präsentation. Dadurch können Sie Stile, Layouts und Formatierungsoptionen für Präsentationsfolien auf verschiedene Weise festlegen.
+
+In PowerPoint können Sie neue Folienmaster und Layouts (aus dem **Folienmaster‑Menü**) wie folgt hinzufügen:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Mit Aspose.Slides können Sie einen neuen Folienmaster hinzufügen, indem Sie die [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) Methode aufrufen:
-
+Mit Aspose.Slides fügen Sie einen neuen Folienmaster hinzu, indem Sie die Methode [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) aufrufen:
 ```c++
 pres->get_Masters()->AddClone(pres->get_Masters()->idx_get(0));
 ```
 
+
 ## **Folienmaster vergleichen**
 
-Ein Folienmaster implementiert das [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) Interface, das die [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f) Methode enthält, die verwendet werden kann, um Folien zu vergleichen. Sie gibt `true` für Folienmaster zurück, die in Struktur und statischem Inhalt identisch sind. 
+Ein Master‑Slide implementiert das Interface [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) mit der Methode [**Equals()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f), die zum Vergleich von Folien verwendet werden kann. Sie liefert `true` für Master‑Slides, die in Struktur und statischem Inhalt identisch sind.
 
-Zwei Folienmaster sind gleich, wenn ihre Formen, Stile, Texte, Animationen und andere Einstellungen usw. gleich sind. Der Vergleich berücksichtigt keine eindeutigen Identifikatorwerte (z.B. SlideId) und dynamischen Inhalt (z.B. den aktuellen Datumwert im Datumsplatzhalter). 
+Zwei Master‑Slides sind gleich, wenn ihre Formen, Stile, Texte, Animationen und weitere Einstellungen übereinstimmen. Der Vergleich berücksichtigt nicht eindeutige Kennungen (z. B. SlideId) und dynamische Inhalte (z. B. aktuelles Datum in einem Datums‑Platzhalter).
 
-## **Folienmaster als Standardansicht der Präsentation festlegen**
+## **Einen Folienmaster als Standardansicht der Präsentation festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, einen Folienmaster als Standardansicht für eine Präsentation festzulegen. Die Standardansicht ist diejenige, die angezeigt wird, wenn Sie eine Präsentation öffnen. 
+Aspose.Slides ermöglicht es, einen Folienmaster als Standardansicht einer Präsentation festzulegen. Die Standardansicht ist das, was Sie zuerst sehen, wenn Sie eine Präsentation öffnen.
 
-Dieser Code zeigt, wie Sie einen Folienmaster als Standardansicht einer Präsentation in C++ festlegen:
-
+Dieser Code zeigt, wie Sie in C++ einen Folienmaster als Standardansicht einer Präsentation festlegen:
 ```c++
 pres->get_ViewProperties()->set_LastView(Aspose::Slides::ViewType::SlideMasterView);
 ```
 
-## **Nicht verwendeten Folienmaster entfernen**
 
-Aspose.Slides bietet die [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) Methode (aus der [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) Klasse), um Ihnen zu ermöglichen, unerwünschte und ungenutzte Folienmaster zu löschen. Dieser C++-Code zeigt, wie Sie einen Folienmaster aus einer PowerPoint-Präsentation entfernen:
+## **Unbenutzte Master‑Slides entfernen**
 
+Aspose.Slides stellt die Methode [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) der Klasse [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) zur Verfügung, um nicht benötigte und ungenutzte Master‑Slides zu löschen. Dieser C++‑Code zeigt, wie Sie einen Master‑Slide aus einer PowerPoint‑Präsentation entfernen:
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -280,3 +291,45 @@ LowCode::Compress::RemoveUnusedMasterSlides(pres);
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Was ist ein Folienmaster in PowerPoint?**
+
+Ein Folienmaster ist eine Folienvorlage, die Layout, Stile, Designs, Schriftarten, Hintergrund und weitere Eigenschaften für Folien in einer Präsentation definiert. Er ermöglicht das einheitliche Festlegen und Ändern des Aussehens aller Präsentationsfolien.
+
+**Wie wird ein Folienmaster in einer Präsentation angewendet?**
+
+Jede Präsentation enthält standardmäßig mindestens einen Folienmaster. Wenn eine neue Folie hinzugefügt wird, wird automatisch ein Folienmaster darauf angewendet, typischerweise der Master der vorherigen Folie. Eine Präsentation kann mehrere Folienmaster enthalten, um unterschiedliche Teile individuell zu gestalten.
+
+**Welche Elemente können in einem Folienmaster angepasst werden?**
+
+Ein Folienmaster besteht aus mehreren Kerneigenschaften, die angepasst werden können:
+
+- **Background**: Folienhintergrund festlegen.
+- **BodyStyle**: Textstile des Folienkörpers definieren.
+- **Shapes**: Alle Formen auf dem Folienmaster verwalten, einschließlich Platzhalter und Bildrahmen.
+- **Controls**: ActiveX‑Steuerelemente bearbeiten.
+- **ThemeManager**: Zugriff auf den Theme‑Manager.
+- **HeaderFooterManager**: Header‑ und Footer‑Verwaltung.
+
+**Wie füge ich ein Bild zu einem Folienmaster hinzu?**
+
+Durch das Hinzufügen eines Bildes zu einem Folienmaster wird es auf allen Folien angezeigt, die von diesem Master abhängen. Beispielsweise wird ein Firmenlogo, das auf dem Folienmaster platziert wird, auf jeder Folie der Präsentation angezeigt.
+
+**Wie stehen Folienmaster und Folienlayouts zueinander?**
+
+Folienlayouts arbeiten zusammen mit dem Folienmaster, um Flexibilität beim Foliendesign zu bieten. Während der Folienmaster übergeordnete Stile und Designs definiert, ermöglichen Folienlayouts Variationen in der Anordnung von Inhalten. Die Hierarchie lautet:
+
+- **Folienmaster** → definiert globale Stile.
+- **Folienlayout** → bietet unterschiedliche Inhaltsanordnungen.
+- **Folie** → erbt das Design vom zugewiesenen Folienlayout.
+
+**Kann ich mehrere Folienmaster in einer einzigen Präsentation haben?**
+
+Ja, eine Präsentation kann mehrere Folienmaster enthalten. Das ermöglicht das unterschiedliche Gestalten verschiedener Abschnitte einer Präsentation und bietet damit Design‑Flexibilität.
+
+**Wie greife ich mit Aspose.Slides auf einen Folienmaster zu und ändere ihn?**
+
+In Aspose.Slides wird ein Folienmaster durch das Interface [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/) repräsentiert. Sie können auf einen Folienmaster über die Methode [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) des Objekts [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) zugreifen.

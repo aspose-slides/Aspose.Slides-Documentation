@@ -1,18 +1,33 @@
 ---
-title: Aspose.Slides for C++ を Docker で実行する方法
+title: DockerでAspose.Slides for C++を実行する方法
 type: docs
 weight: 140
 url: /ja/cpp/how-to-run-aspose-slides-cpp-in-docker/
-keywords: "Docker コンテナでの Aspose.Slides for C++ の実行, Aspose Docker, Docker での Aspose.Slides for C++"
-description: "Linux の Docker コンテナで Aspose.Slides for C++ を実行します。"
+keywords:
+- Aspose.Slides のダウンロード
+- Aspose.Slides のインストール
+- Aspose.Slides のインストール方法
+- Docker
+- Windows
+- macOS
+- Linux
+- クロスプラットフォーム互換性
+- 依存関係の分離
+- 簡素化されたデプロイ
+- プロジェクトの設定
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "DockerコンテナでAspose.Slidesを実行し、イメージ、依存関係、フォント、ライセンスを構成して、PowerPointやOpenDocumentを処理するスケーラブルなサービスを構築します。"
 ---
 
-Aspose.Slides for C++ は Docker コンテナ内で実行できます。Linux 環境で Aspose.Slides for C++ を実行するには、Docker ファイルを使用できます。
+Aspose.Slides for C++ は Docker コンテナ内で実行できます。Linux 環境で Aspose.Slides for C++ を実行するには、Docker ファイルを使用できます。 
 
-## Dockerfile の説明
+## **Dockerfile の説明**
 
-例えば、Ubuntu 16.04 用の Aspose.Slides for C++ の Docker ファイルは次のようになります：
-
+たとえば、Ubuntu 16.04 用の Aspose.Slides for C++ の Docker ファイルを次のように使用できます： 
 ```
 FROM ubuntu:16.04
 
@@ -27,7 +42,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
     gcc-6 \
     g++-6 \
     fontconfig \
-    libglu1-mesa \ 
+    libglu1-mesa \ 
  && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
  && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
  && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
@@ -52,10 +67,10 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-このファイルは、主に3つの部分（手順）で構成されています：
 
-1. Aspose.Slides for C++ を実行するために必要なツールのインストール：
+このファイルは、3 つの主要なパート（手順）で構成されています：
 
+1. Aspose.Slides for C++ の実行に必要なツールをインストールする： 
 ```
 FROM ubuntu:16.04
 
@@ -70,7 +85,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
     gcc-6 \
     g++-6 \
     fontconfig \
-    libglu1-mesa \ 
+    libglu1-mesa \ 
  && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
  && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
  && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
@@ -81,8 +96,8 @@ RUN apt-get update && apt-get install software-properties-common -y \
  && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-6 30
 ```
 
-2. msttcorefonts パッケージのインストール（デフォルトでは、msttcorefonts パッケージの EULA は受け入れられません）：
 
+2. msttcorefonts パッケージをインストールする（デフォルトでは、msttcorefonts パッケージの EULA は受諾されていません）： 
 ```
 ARG accept_msttcorefonts_eula=false
 
@@ -94,8 +109,8 @@ RUN apt-get install -y msttcorefonts \
  && fc-cache -f -v
 ```
 
-3. /slides-cpp フォルダをマウントポイントとして宣言し、ホストマシンの slides-cpp ソースフォルダにアクセスできるようにします。例をビルドして実行します：
 
+3. /slides-cpp フォルダーをマウントポイントとして宣言し、ホストマシン上の slides-cpp ソースフォルダーへのアクセスを提供する；例のビルドと実行： 
 ``` cpp
 VOLUME /slides-cpp
 WORKDIR /slides-cpp/sample/
@@ -103,85 +118,87 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-## イメージのビルドと実行
 
-1. [Docker](https://docs.docker.com/engine/install/) をホストシステムにインストールします。
+## **イメージのビルドと実行**
 
-2. イメージをビルドします。
+1. ホストシステム上で [Docker をインストール](https://docs.docker.com/engine/install/) します。
 
-   ターミナルの作業ディレクトリには、上記の内容を含む Dockerfile が必要です。
+2. イメージをビルドします。  
 
+   ターミナルの作業ディレクトリには、上記の内容が記載された Dockerfile が含まれている必要があります。 
 ```
-docker build -t aspose-slides-ubuntu-16.04 .
+docker build -t aspose-slides-ubuntu-16.04 .
 ```
+
 
 3. [Aspose.Slides for C++ YY.M Linux](https://downloads.aspose.com/slides/cpp) をダウンロードして解凍します。
-4. Docker が使用できるように、Aspose.Slides for C++ を含むフォルダを共有します：
-   - Windows では、タスクバーの Docker アイコンを右クリックします。[設定] を選択します。
-   - リソース > ファイル共有を進みます。
-5. 次のいずれかの方法で、イメージをコンテナとして実行します：
 
-* 方法 A：名前付きコンテナを作成して実行します：
+4. Docker が使用できるように、Aspose.Slides for C++ のフォルダーを共有します： 
+   - Windows では、タスクバーの Docker アイコンを右クリックし、設定を選択します。
+   - Resources > File Sharing を開きます。 
 
+5. 次のいずれかの方法でイメージをコンテナとして実行します：
+
+* 方法 A: 名前付きコンテナを作成して実行する： 
 ```
 docker run --name slides-cpp-ubuntu -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
 ```
 
-2回目以降の起動には、次を使用します：
 
+2 回目以降の起動では、次を使用する必要があります： 
 ```
 docker start slides-cpp-ubuntu -i
 ```
 
-* 方法 B：無名の一時コンテナを作成して実行します：
 
+* 方法 B: 名前のない一時コンテナを作成して実行する： 
 ```
 docker run --rm -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
 ```
 
-次のように、サンプルプロジェクトのビルドと実行が表示されます：
 
+サンプルプロジェクトのビルドと実行が表示されます： 
 ```
--- CXX コンパイラの識別は Clang 3.9.1 です
--- 動作中の CXX コンパイラを確認しています: /usr/bin/clang++
--- 動作中の CXX コンパイラを確認しています: /usr/bin/clang++ -- 動作します
--- CXX コンパイラ ABI 情報を検出しています
--- CXX コンパイラ ABI 情報を検出しています - 完了
--- CXX コンパイル機能を検出しています
--- CXX コンパイル機能を検出しています - 完了
--- 構成が完了しました
--- 生成が完了しました
--- ビルドファイルが次に書き込まれました: /slides-cpp/sample/build
-依存関係をスキャン中: ターゲット Aspose.Slides.Cpp.Examples
-[ 14%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/chart.cpp.o をビルド中
-[ 42%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/main.cpp.o をビルド中
-[ 42%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/presentation_export.cpp.o をビルド中
-[ 57%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/smart_art.cpp.o をビルド中
-[ 71%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/text.cpp.o をビルド中
-[ 85%] CXX オブジェクト CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/thumbnail.cpp.o をビルド中
-[100%] CXX 実行ファイル Aspose.Slides.Cpp.Examples をリンク中
-[100%] ターゲット Aspose.Slides.Cpp.Examples をビルドしました
+-- CXXコンパイラの識別はClang 3.9.1です
+-- CXXコンパイラの動作確認: /usr/bin/clang++
+-- CXXコンパイラの動作確認: /usr/bin/clang++ -- 正常に動作
+-- CXXコンパイラのABI情報を検出中
+-- CXXコンパイラのABI情報を検出 - 完了
+-- CXXコンパイル機能を検出中
+-- CXXコンパイル機能を検出 - 完了
+-- 設定完了
+-- 生成完了
+-- ビルドファイルが次の場所に書き込まれました: /slides-cpp/sample/build
+Scanning dependencies of target Aspose.Slides.Cpp.Examples
+[ 14%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/chart.cpp.o
+[ 42%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/main.cpp.o
+[ 42%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/presentation_export.cpp.o
+[ 57%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/smart_art.cpp.o
+[ 71%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/text.cpp.o
+[ 85%] Building CXX object CMakeFiles/Aspose.Slides.Cpp.Examples.dir/sources/thumbnail.cpp.o
+[100%] Linking CXX executable Aspose.Slides.Cpp.Examples
+[100%] Built target Aspose.Slides.Cpp.Examples
 
-例を実行中...
+Running examples...
 
-Chart::SampleChart を実行中...
-Thumbnail::SampleThumbnail を実行中...
-Text::SampleAddText を実行中...
-SmartArt::SampleCreation を実行中...
-SmartArt::SampleCloning を実行中...
-SmartArt::SampleNodesTextEditing を実行中...
-SmartArt::SampleNodeAdd を実行中...
-SmartArt::SampleColorStyleEditing を実行中...
-SmartArt::SampleQuickStyleEditing を実行中...
-SmartArt::SampleNodeRemove を実行中...
-SmartArt::SampleRemoveSmartArt を実行中...
-PresentationExport::Export を実行中...
-プレゼンテーションを PDF として保存しています...OK
-プレゼンテーションを XPS として保存しています...OK
-プレゼンテーションを SWF として保存しています...OK
-プレゼンテーションを HTML として保存しています...OK
-プレゼンテーションを PDF として保存しています...OK
-プレゼンテーションを XPS として保存しています...OK
-プレゼンテーションを SWF として保存しています...OK
-プレゼンテーションを HTML として保存しています...OK
+Running Chart::SampleChart...
+Running Thumbnail::SampleThumbnail...
+Running Text::SampleAddText...
+Running SmartArt::SampleCreation...
+Running SmartArt::SampleCloning...
+Running SmartArt::SampleNodesTextEditing...
+Running SmartArt::SampleNodeAdd...
+Running SmartArt::SampleColorStyleEditing...
+Running SmartArt::SampleQuickStyleEditing...
+Running SmartArt::SampleNodeRemove...
+Running SmartArt::SampleRemoveSmartArt...
+Running PresentationExport::Export...
+Saving presentation as PDF...OK
+Saving presentation as XPS...OK
+Saving presentation as SWF...OK
+Saving presentation as HTML...OK
+Saving presentation as PDF...OK
+Saving presentation as XPS...OK
+Saving presentation as SWF...OK
+Saving presentation as HTML...OK
 ```

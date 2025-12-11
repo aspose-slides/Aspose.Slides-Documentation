@@ -1,30 +1,40 @@
----  
-title: 例を実行する方法  
-type: docs  
-weight: 130  
-url: /ja/cpp/how-to-run-examples/  
----  
+---
+title: 例の実行方法
+type: docs
+weight: 130
+url: /ja/cpp/how-to-run-examples/
+keywords:
+- 例
+- ソフトウェア要件
+- GitHub
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ のサンプルを素早く実行するには、リポジトリをクローンし、パッケージを復元してからビルドし、PPT、PPTX、ODP の機能をテストします。"
+---
 
-## **ソフトウェア要件**  
-例をダウンロードして実行する前に、以下の要件を満たしていることを確認してください。  
+## **Software Requirements**
+サンプルをダウンロードして実行する前に、以下の要件を満たしていることをご確認ください。
 
-1. Visual Studio 2015 以降。  
-## **GitHub からのダウンロード**  
-Aspose.Slides for C++ のすべての例は [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C) にホストされています。  
+1. Visual Studio 2015 以降。
+## **Download Aspose.Slides from GitHub**
+Aspose.Slides for C++ のすべてのサンプルは GitHub にホストされています。[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C)。
 
-- お好きな GitHub クライアントを使用してリポジトリをクローンするか、[こちら](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/refs/heads/master.zip) から ZIP ファイルをダウンロードできます。  
-- ZIP ファイルの内容をコンピューターの任意のフォルダーに抽出します。すべての例は **Examples** フォルダー内にあります。  
-- C++ の Visual Studio ソリューションファイルがあります。  
-- プロジェクトは Visual Studio 2015 で作成されましたが、ソリューションファイルは Visual Studio 2015 以降と互換性があります。  
-- Visual Studio でソリューションファイルを開き、プロジェクトをビルドします。  
-- [ダウンロードセクション](https://downloads.aspose.com/slides/cpp) から Aspose.Slides for C++ の最新リリースをダウンロードします。  
-- リリースを抽出し、**Examples** フォルダー内の **Include** および **Bin** ディレクトリをコピーします。  
-- **main.cpp** ファイルを開き、すべての例はここから呼び出されます。  
-- プロジェクト内で実行したい例のコメントを外します。  
-- ソリューションをビルドしてコンパイルします。  
+- お好きな GitHub クライアントでリポジトリをクローンするか、[here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/refs/heads/master.zip)から ZIP ファイルをダウンロードできます。
+- ZIP ファイルの内容をコンピューター上の任意のフォルダーに展開してください。すべてのサンプルは **Examples** フォルダーにあります。
+- C++ 用の Visual Studio ソリューション ファイルがあります。
+- プロジェクトは Visual Studio 2015 で作成されていますが、ソリューション ファイルは Visual Studio 2015 以降と互換性があります。
+- Visual Studio でソリューション ファイルを開き、プロジェクトをビルドしてください。
+- [Download Section](https://downloads.aspose.com/slides/cpp)から Aspose.Slides for C++ の最新リリースをダウンロードしてください。
+- リリースを展開し、**Include** と **Bin** ディレクトリを **Examples** フォルダー内にコピーしてください。
+- **main.cpp** ファイルを開きます。すべてのサンプルはここから呼び出されます。
+- プロジェクト内で実行したいサンプルのコメントを解除してください。
+- ソリューションをビルドおよびコンパイルします。
 
-例を設定したり実行したりする際に問題がある場合は、フォーラムを通じてお気軽にご連絡ください。  
-## **貢献**  
-例を追加または改善したい場合は、プロジェクトに貢献することをお勧めします。このリポジトリのすべての例とショーケースプロジェクトはオープンソースであり、自分のアプリケーションで自由に使用できます。  
+サンプルの設定や実行に問題がある場合は、フォーラムでお気軽にお問い合わせください。
+## **Contribute**
+サンプルを追加または改善したい場合は、プロジェクトへの貢献をおすすめします。このリポジトリのすべてのサンプルとショーケース プロジェクトはオープンソースであり、自由にご自身のアプリケーションで使用できます。
 
-貢献するには、リポジトリをフォークし、ソースコードを編集してプルリクエストを作成します。変更を確認し、有用と判断した場合はリポジトリに含めます。  
+貢献するには、リポジトリをフォークし、ソースコードを編集してプルリクエストを作成してください。変更内容を確認し、役立つと判断した場合はリポジトリに取り込む予定です。

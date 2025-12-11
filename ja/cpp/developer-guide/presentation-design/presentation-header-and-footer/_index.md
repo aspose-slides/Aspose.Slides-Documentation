@@ -1,24 +1,35 @@
 ---
-title: プレゼンテーションのヘッダーとフッター
+title: C++ でプレゼンテーションのヘッダーとフッターを管理する
+linktitle: ヘッダーとフッター
 type: docs
 weight: 140
 url: /ja/cpp/presentation-header-and-footer/
-keywords: "PowerPointのヘッダーとフッター"
-description: "Aspose.Slidesを使用したPowerPointのヘッダーとフッター。"
+keywords:
+- ヘッダー
+- ヘッダーテキスト
+- フッター
+- フッターテキスト
+- ヘッダー設定
+- フッター設定
+- ハンドアウト
+- ノート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "プロフェッショナルな外観を実現するために、C++ 用 Aspose.Slides を使用して PowerPoint および OpenDocument のプレゼンテーションにヘッダーとフッターを追加・カスタマイズできます。"
 ---
 
 {{% alert color="primary" %}} 
-
-[Aspose.Slides](/slides/ja/cpp/) は、スライドマスターレベルで実際に管理されるスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
-
+[Aspose.Slides](/slides/ja/cpp/) は、スライドのヘッダーとフッターのテキストを操作する機能を提供します。これらは実際にはスライド マスター レベルで管理されています。
 {{% /alert %}} 
 
-[Aspose.Slides for C++](/slides/ja/cpp/) は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
-## **ヘッダーとフッターテキストの管理**
-特定のスライドのノートは、以下の例に示すように更新できます：
-
+[Aspose.Slides for C++](/slides/ja/cpp/) は、プレゼンテーション スライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーション マスター レベルで管理されています。
+## **ヘッダーとフッターのテキストを管理する**
+特定のスライドのノートは、以下の例のように更新できます。
 ``` cpp
-// ヘッダー/フッターテキストを設定する関数
+// ヘッダー/フッターのテキストを設定する関数
 void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 {
     for (const auto& shape : System::IterateOver(master->get_Shapes()))
@@ -27,7 +38,7 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
         {
             if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
             {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"こんにちは新しいヘッダー");
+                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
             }
         }
     }
@@ -35,100 +46,118 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 ```
 
 ``` cpp
-// プレゼンテーションを読み込む
+// プレゼンテーションの読み込み
 auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
 
-// フッターを設定する
-pres->get_HeaderFooterManager()->SetAllFootersText(u"私のフッターテキスト");
+// フッターの設定
+pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
 pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
 
-// ヘッダーにアクセスして更新する
+// ヘッダーへのアクセスと更新
 auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 if (nullptr != masterNotesSlide)
 {
 	UpdateHeaderFooterText(masterNotesSlide);
 }
 
-// プレゼンテーションを保存する
+// プレゼンテーションの保存
 pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
 ```
 
-## **ハンドアウトとノートスライドのヘッダーとフッターの管理**
-Aspose.Slides for C++ は、ハンドアウトとノートスライドのヘッダーとフッターをサポートしています。以下の手順に従ってください：
 
+## **ハンドアウトとノートスライドのヘッダーとフッターを管理する**
+Aspose.Slides for C++ は、ハンドアウトとノートスライドでヘッダーとフッターをサポートします。以下の手順に従ってください：
 - ビデオを含む[プレゼンテーション](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)を読み込みます。
-- ノートマスターおよびすべてのノートスライドのヘッダーとフッターの設定を変更します。
-- マスターノートスライドおよびすべての子フッタープレースホルダーを表示します。
-- マスターノートスライドおよびすべての子日付と時刻プレースホルダーを表示します。
-- 最初のノートスライドのみのヘッダーとフッターの設定を変更します。
-- ノートスライドヘッダープレースホルダーを表示します。
-- ノートスライドヘッダープレースホルダーにテキストを設定します。
-- ノートスライド日付時刻プレースホルダーにテキストを設定します。
-- 修正されたプレゼンテーションファイルを書き込みます。
+- ノート マスターとすべてのノート スライドのヘッダーとフッター設定を変更します。
+- マスターノートスライドとすべての子フッタープレースホルダーを表示に設定します。
+- マスターノートスライドとすべての子日付と時刻プレースホルダーを表示に設定します。
+- 最初のノートスライドのみのヘッダーとフッター設定を変更します。
+- ノートスライドのヘッダープレースホルダーを表示に設定します。
+- ノートスライドのヘッダープレースホルダーにテキストを設定します。
+- ノートスライドの日付時刻プレースホルダーにテキストを設定します。
+- 変更されたプレゼンテーションファイルを書き込みます。
 
-下記の例に提供されたコードスニペット。
-
+以下の例にコードスニペットが提供されています。
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// ノートマスターとすべてのノートスライドのヘッダーとフッターの設定を変更する
+// ノートマスターとすべてのノートスライドのヘッダーとフッター設定を変更する
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 if (masterNotesSlide != nullptr)
 {
 	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// マスターノートスライドおよびすべての子フッタープレースホルダーを表示
+	// マスターノートスライドとすべての子フッタープレースホルダーを表示にする
 	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// マスターノートスライドおよびすべての子ヘッダープレースホルダーを表示
+	// マスターノートスライドとすべての子ヘッダープレースホルダーを表示にする
 	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// マスターノートスライドおよびすべての子スライド番号プレースホルダーを表示
+	// マスターノートスライドとすべての子スライド番号プレースホルダーを表示にする
 	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// マスターノートスライドおよびすべての子日付および時刻プレースホルダーを表示
+	// マスターノートスライドとすべての子日付と時刻プレースホルダーを表示にする
 	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
 
-	// マスターノートスライドおよびすべての子ヘッダープレースホルダーにテキストを設定
-	headerFooterManager->SetHeaderAndChildHeadersText(u"ヘッダーテキスト");
-	// マスターノートスライドおよびすべての子フッタープレースホルダーにテキストを設定
-	headerFooterManager->SetFooterAndChildFootersText(u"フッターテキスト");
-	// マスターノートスライドおよびすべての子日付および時刻プレースホルダーにテキストを設定
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"日付および時刻テキスト");
+	// マスターノートスライドとすべての子ヘッダープレースホルダーにテキストを設定する
+	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
+	// マスターノートスライドとすべての子フッタープレースホルダーにテキストを設定する
+	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+	// マスターノートスライドとすべての子日付と時刻プレースホルダーにテキストを設定する
+	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 }
 
-// 最初のノートスライドのみのヘッダーとフッターの設定を変更する
+// 最初のノートスライドのみのヘッダーとフッター設定を変更する
 auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
 if (notesSlide != nullptr)
 {
 	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
 	if (!headerFooterManager->get_IsHeaderVisible())
 	{
-		// このノートスライドヘッダープレースホルダーを表示
+		// このノートスライドのヘッダープレースホルダーを表示にする
 		headerFooterManager->SetHeaderVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsFooterVisible())
 	{
-		// このノートスライドフッタープレースホルダーを表示
+		// このノートスライドのフッタープレースホルダーを表示にする
 		headerFooterManager->SetFooterVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsSlideNumberVisible())
 	{
-		// このノートスライドスライド番号プレースホルダーを表示
+		// このノートスライドのスライド番号プレースホルダーを表示にする
 		headerFooterManager->SetSlideNumberVisibility(true);
 	}
 	
 	if (!headerFooterManager->get_IsDateTimeVisible())
 	{
-		// このノートスライド日付時刻プレースホルダーを表示
+		// このノートスライドの日付時刻プレースホルダーを表示にする
 		headerFooterManager->SetDateTimeVisibility(true);
 	}
 	
-	// ノートスライドヘッダープレースホルダーにテキストを設定
-	headerFooterManager->SetHeaderText(u"新しいヘッダーテキスト");
-	// ノートスライドフッタープレースホルダーにテキストを設定
-	headerFooterManager->SetFooterText(u"新しいフッターテキスト");
-	// ノートスライド日付時刻プレースホルダーにテキストを設定
-	headerFooterManager->SetDateTimeText(u"新しい日付および時刻テキスト");
+	// ノートスライドのヘッダープレースホルダーにテキストを設定する
+	headerFooterManager->SetHeaderText(u"New header text");
+	// ノートスライドのフッタープレースホルダーにテキストを設定する
+	headerFooterManager->SetFooterText(u"New footer text");
+	// ノートスライドの日付時刻プレースホルダーにテキストを設定する
+	headerFooterManager->SetDateTimeText(u"New date and time text");
 }
 
 presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
 ```
+
+
+## **よくある質問**
+
+**通常のスライドに「ヘッダー」を追加できますか？**
+
+PowerPoint では、"Header" はノートとハンドアウトにのみ存在し、通常のスライドではサポートされる要素はフッター、日付/時刻、スライド番号です。Aspose.Slides でも同じ制限が適用され、ヘッダーはノート/ハンドアウトにのみ、スライドではフッター/日付時刻/スライド番号が使用できます。
+
+**レイアウトにフッター領域が含まれていない場合、表示を「オン」にできますか？**
+
+はい。ヘッダー/フッターマネージャーで可視性を確認し、必要に応じて有効にしてください。これらの API 指標とメソッドは、プレースホルダーが存在しない、または非表示の場合に対応するよう設計されています。
+
+**スライド番号を 1 以外の値から開始させるにはどうすればよいですか？**
+
+プレゼンテーションの[最初のスライド番号](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/)を設定します。その後、すべての番号付けが再計算されます。例えば、0 や 10 から開始でき、タイトルスライドの番号を非表示にすることも可能です。
+
+**PDF/画像/HTML にエクスポートするとき、ヘッダー/フッターはどうなりますか？**
+
+ヘッダーとフッターは、プレゼンテーションの通常のテキスト要素としてレンダリングされます。つまり、スライドやノートページで要素が表示されていれば、出力形式でも他のコンテンツと同様に表示されます。

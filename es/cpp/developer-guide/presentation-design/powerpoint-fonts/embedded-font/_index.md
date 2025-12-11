@@ -1,92 +1,141 @@
 ---
-title: Fuente incrustada
+title: Incrustar fuentes en presentaciones usando С++
+linktitle: Incrustar fuente
 type: docs
 weight: 40
 url: /es/cpp/embedded-font/
-keywords: "Fuentes, fuentes incrustadas, añadir fuentes, presentación de PowerPoint C++, CPP, Aspose.Slides para C++"
-description: "Usar fuentes incrustadas en la presentación de PowerPoint en C++"
+keywords:
+- agregar fuente
+- incrustar fuente
+- incrustación de fuentes
+- obtener fuente incrustada
+- agregar fuente incrustada
+- eliminar fuente incrustada
+- comprimir fuente incrustada
+- PowerPoint
+- OpenDocument
+- presentación
+- С++
+- Aspose.Slides
+description: "Incruste fuentes TrueType en presentaciones PowerPoint y OpenDocument con Aspose.Slides para С++, garantizando una renderización precisa en todas las plataformas."
 ---
 
-**Las fuentes incrustadas en PowerPoint** son útiles cuando deseas que tu presentación se vea correctamente al abrirse en cualquier sistema o dispositivo. Si usaste una fuente de terceros o no estándar porque te diste un gusto en tu trabajo, entonces tienes aún más razones para incrustar tu fuente. De lo contrario (sin fuentes incrustadas), los textos o números en tus diapositivas, el diseño, el estilo, etc. pueden cambiar o convertirse en rectángulos confusos.
+## **Visión general**
 
-La clase [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), la clase [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/), la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) y sus interfaces contienen la mayoría de las propiedades y métodos que necesitas para trabajar con fuentes incrustadas en presentaciones de PowerPoint.
+**Fuentes incrustadas en PowerPoint** ayudan a garantizar que su presentación mantenga su apariencia prevista al abrirse en cualquier sistema o dispositivo. Esto es especialmente importante al usar fuentes personalizadas, de terceros o no estándar para la marca o propósitos creativos. Sin fuentes incrustadas, el texto puede ser sustituido, los diseños pueden romperse y los caracteres pueden aparecer como símbolos o rectángulos ilegibles, comprometiendo el diseño general.
 
-## **Obtener o eliminar fuentes incrustadas de la presentación**
+Aspose.Slides for C++ proporciona un conjunto de potentes API para gestionar fuentes incrustadas de forma programática. Puede usar las clases [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) y [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) para inspeccionar, agregar o eliminar fuentes incrustadas en los archivos de su presentación. Además, la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) le permite optimizar el tamaño del archivo comprimiendo los datos de fuentes sin afectar la calidad o la apariencia.
 
-Aspose.Slides proporciona el método [GetEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) (expuesto por la clase [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/)) para permitirte obtener (o averiguar) las fuentes incrustadas en una presentación. Para eliminar fuentes, se utiliza el método [RemoveEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/removeembeddedfont/) (expuesto por la misma clase).
+Estas herramientas le brindan control total sobre la incrustación de fuentes, ayudándole a mantener una tipografía coherente en todas las plataformas mientras reduce el tamaño del archivo cuando sea necesario.
 
-Este código C++ muestra cómo obtener y eliminar fuentes incrustadas de una presentación:
+## **Obtener fuentes incrustadas de una presentación**
 
-```c++
-// Instancia un objeto Presentation que representa un archivo de presentación
-auto presentation = System::MakeObject<Presentation>(u"EmbeddedFonts.pptx");
-// Renderiza una diapositiva que contiene un marco de texto que usa "FunSized" incrustado
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::Png);
+Aspose.Slides for C++ proporciona el método `GetEmbeddedFonts` a través de la clase [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), que le permite recuperar una lista de fuentes incrustadas en una presentación de PowerPoint. Esto puede ser útil para auditar el uso de fuentes, garantizar el cumplimiento de las directrices de marca o verificar que todas las fuentes necesarias estén correctamente incluidas antes de compartir el archivo.
 
-auto fontsManager = presentation->get_FontsManager();
+El siguiente código C++ muestra cómo obtener fuentes incrustadas de un archivo de presentación:
+```cpp
+// Instanciar la clase Presentation que representa un archivo de presentación.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// Obtiene todas las fuentes incrustadas
-auto embeddedFonts = fontsManager->GetEmbeddedFonts();
-
-std::function<bool(SharedPtr<IFontData>)> comparer = [](SharedPtr<IFontData> data) -> bool
-{
-    return data->get_FontName() == u"Calibri";
-};
-
-// Encuentra la fuente "Calibri"
-auto funSizedEmbeddedFont = Array<SharedPtr<IFontData>>::Find(embeddedFonts, comparer);
-
-// Elimina la fuente "Calibri"
-fontsManager->RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-// Renderiza la presentación; la fuente "Calibri" es reemplazada por una existente
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::Png);
-
-// Guarda la presentación sin la fuente "Calibri" incrustada en disco
-presentation->Save(u"WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-```
-
-## **Añadir fuentes incrustadas a la presentación**
-
-Usando el enum [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) y dos sobrecargas del método [AddEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/), puedes seleccionar tu regla preferida (de incrustación) para incrustar las fuentes en una presentación. Este código C++ muestra cómo incrustar y añadir fuentes a una presentación:
-
-```c++
-// Carga la presentación
-auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
-
-// Carga la fuente de origen que se reemplazará
-auto sourceFont = System::MakeObject<FontData>(u"Arial");
-
-auto allFonts = presentation->get_FontsManager()->GetFonts();
+// Obtener todas las fuentes incrustadas.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-for (SharedPtr<IFontData> font : allFonts)
+// Imprimir los nombres de las fuentes incrustadas.
+for (auto&& fontData : embeddedFonts)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&font](SharedPtr<IFontData> data) -> bool
-    {
-        return data == font;
-    };
+    Console::WriteLine(fontData->get_FontName());
+}
 
+presentation->Dispose();
+```
+
+
+## **Agregar fuentes incrustadas a una presentación**
+
+Aspose.Slides for C++ le permite incrustar fuentes en una presentación de PowerPoint utilizando el método [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/), que incluye dos sobrecargas para un uso flexible. Puede controlar la cantidad de fuente que se incrusta usando la enumeración [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) — por ejemplo, eligiendo incrustar solo los caracteres usados o todo el conjunto tipográfico. Esta característica es especialmente útil al preparar una presentación para compartir o distribuir, garantizando que las fuentes personalizadas o no estándar se muestren correctamente en todos los sistemas, incluso si esas fuentes no están instaladas.
+
+El siguiente código C++ verifica todas las fuentes usadas en una presentación y incrusta cualquier fuente que aún no esté incrustada.
+```cpp
+// Cargar un archivo de presentación.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto usedFonts = presentation->get_FontsManager()->GetFonts();
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : usedFonts)
+{
+    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+        {
+            return data == fontData;
+        };
+
+    // Comprobar si la fuente ya está incrustada.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        presentation->get_FontsManager()->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        // Incrustar la fuente en la presentación.
+        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+    }
+
+}
+
+// Guardar la presentación en disco.
+presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Eliminar fuentes incrustadas de una presentación**
+
+Aspose.Slides for C++ proporciona el método `RemoveEmbeddedFont` a través de la clase [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/), que le permite eliminar fuentes específicas incrustadas en una presentación de PowerPoint. Esto puede ayudar a reducir el tamaño total del archivo, especialmente si las fuentes incrustadas ya no se usan o no son necesarias. Eliminar fuentes no usadas también puede mejorar el rendimiento y garantizar que su presentación solo incluya recursos esenciales.
+
+El siguiente código C++ muestra cómo eliminar una fuente incrustada de una presentación:
+```cpp
+auto fontName = u"Calibri";
+
+// Instanciar la clase Presentation que representa un archivo de presentación.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+
+// Obtener todas las fuentes incrustadas.
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : embeddedFonts)
+{
+    if (fontData->get_FontName().Equals(fontName))
+    {
+        // Eliminar la fuente incrustada.
+        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+
+        break;
     }
 }
 
-// Guarda la presentación en disco
-presentation->Save(u"AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Dispose();
 ```
+
 
 ## **Comprimir fuentes incrustadas**
 
-Para permitirte comprimir las fuentes incrustadas en una presentación y reducir su tamaño de archivo, Aspose.Slides proporciona el método [CompressEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) (expuesto por la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)).
+Aspose.Slides for C++ proporciona el método `CompressEmbeddedFonts` a través de la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/), lo que le permite reducir el tamaño total del archivo de una presentación optimizando los datos de fuentes incrustadas. Esto es especialmente útil cuando su presentación incluye fuentes grandes o múltiples, y desea mantener el archivo ligero para compartir, almacenar o usar en línea, sin comprometer la fidelidad visual del contenido.
 
-Este código C++ muestra cómo comprimir fuentes de PowerPoint incrustadas:
+El siguiente código C++ muestra cómo comprimir fuentes incrustadas en una presentación de PowerPoint:
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+Compress::CompressEmbeddedFonts(presentation);
 
-Aspose::Slides::LowCode::Compress::CompressEmbeddedFonts(pres);
-pres->Save(u"pres-out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo saber si una fuente específica en la presentación seguirá siendo sustituida durante la renderización a pesar de estar incrustada?**
+
+Consulte la [información de sustitución](/slides/es/cpp/font-substitution/) en el gestor de fuentes y las [reglas de respaldo/sustitución](/slides/es/cpp/fallback-font/): si la fuente no está disponible o está restringida, se utilizará una fuente alternativa.
+
+**¿Vale la pena incrustar fuentes "del sistema" como Arial/Calibri?**
+
+Normalmente no, ya que casi siempre están disponibles. Pero para una portabilidad total en entornos "delgados" (Docker, un servidor Linux sin fuentes preinstaladas), incrustar fuentes del sistema puede eliminar el riesgo de sustituciones inesperadas.

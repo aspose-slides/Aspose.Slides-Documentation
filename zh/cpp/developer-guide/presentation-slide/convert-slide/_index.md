@@ -1,180 +1,193 @@
 ---
-title: 转换幻灯片
+title: 将演示文稿幻灯片转换为 C++ 图像
+linktitle: 幻灯片转图像
 type: docs
 weight: 41
 url: /zh/cpp/convert-slide/
-keywords: 
-- 将幻灯片转换为图像
-- 将幻灯片导出为图像
-- 将幻灯片保存为图像
+keywords:
+- 转换幻灯片
+- 导出幻灯片
 - 幻灯片转图像
-- 幻灯片转PNG
-- 幻灯片转JPEG
+- 将幻灯片保存为图像
+- 幻灯片转 PNG
+- 幻灯片转 JPEG
 - 幻灯片转位图
+- 幻灯片转 TIFF
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - C++
-- Aspose.Slides for C++
-description: "在 C++ 中将 PowerPoint 幻灯片转换为图像（位图、PNG 或 JPG）"
+- Aspose.Slides
+description: "使用 Aspose.Slides 将 PPT、PPTX 和 ODP 幻灯片转换为 C++ 图像——快速、高质量渲染，配有清晰的代码示例。"
 ---
 
-Aspose.Slides for C++ 允许您将幻灯片（在演示文稿中）转换为图像。支持的图像格式包括：BMP、PNG、JPG（JPEG）、GIF 等。
+## **概述**
 
-要将幻灯片转换为图像，请执行以下操作：
+Aspose.Slides for C++ 使您能够轻松地将 PowerPoint 和 OpenDocument 演示文稿幻灯片转换为多种图像格式，包括 BMP、PNG、JPG（JPEG）、GIF 等。
 
-1. 首先，使用以下方法设置转换参数和要转换的幻灯片对象：
-   * [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) 接口或
-   * [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) 接口。
+要将幻灯片转换为图像，请按以下步骤操作：
 
-2. 其次，通过使用 [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) 方法将幻灯片转换为图像。
+1. 使用以下方式定义所需的转换设置并选择要导出的幻灯片：
+    - 使用 [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) 接口，或
+    - 使用 [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/) 接口。
+2. 通过调用 [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) 方法生成幻灯片图像。
 
-## **关于位图和其他图像格式**
+[Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/) 是一个对象，可让您处理像素数据定义的图像。您可以使用此类的实例将图像保存为多种格式（BMP、JPG、PNG 等）。
 
-[位图](https://reference.aspose.com/slides/cpp/class/system.drawing.bitmap) 是允许您处理由像素数据定义的图像的对象。您可以使用此类的实例以多种格式（BMP、JPG、PNG 等）保存图像。
+## **将幻灯片转换为位图并以 PNG 保存图像**
 
-{{% alert title="信息" color="info" %}}
+您可以将幻灯片转换为位图对象并直接在应用程序中使用。或者，您可以先将幻灯片转换为位图，然后将图像保存为 JPEG 或其他您喜欢的格式。
 
-Aspose 最近开发了一个在线 [文本到 GIF](https://products.aspose.app/slides/text-to-gif) 转换器。
+此 C++ 代码演示如何将演示文稿的第一张幻灯片转换为位图对象并以 PNG 格式保存图像：
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-{{% /alert %}}
+// 将演示文稿的第一张幻灯片转换为位图。
+auto image = presentation->get_Slide(0)->GetImage();
 
-## **将幻灯片转换为位图并以 PNG 格式保存图像**
-
-以下 C++ 代码演示了如何将演示文稿的第一张幻灯片转换为位图对象，然后以 PNG 格式保存图像：
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-// 将演示文稿的第一张幻灯片转换为位图对象
-System::SharedPtr<IImage> image = pres->get_Slide(0)->GetImage();
-                 
-// 以 PNG 格式保存图像
+// 以 PNG 格式保存图像。
 image->Save(u"Slide_0.png", ImageFormat::Png);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-{{% alert title="提示" color="primary" %}} 
 
-您可以将幻灯片转换为位图对象，然后在某处直接使用该对象。或者，您可以将幻灯片转换为位图，然后以 JPEG 或您喜欢的任何其他格式保存图像。
+## **将幻灯片转换为自定义大小的图像**
 
-{{% /alert %}}  
+您可能需要获取特定尺寸的图像。使用 [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) 的重载，您可以将幻灯片转换为具有特定宽度和高度的图像。
 
-## **使用自定义尺寸将幻灯片转换为图像**
+此示例代码演示如何实现：
+```cpp 
+Size imageSize(1820, 1040);
 
-您可能需要获取某种尺寸的图像。使用 [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) 的重载，您可以将幻灯片转换为具有特定尺寸（长度和宽度）的图像。
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-以下示例代码演示了使用 [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) 方法在 C++ 中进行的转换：
+// 将演示文稿的第一张幻灯片转换为具有指定尺寸的位图。
+auto image = presentation->get_Slide(0)->GetImage(imageSize);
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-// 将演示文稿中的第一张幻灯片转换为指定大小的位图
-auto image = pres->get_Slide(0)->GetImage(Size(1820, 1040));
-// 以 JPEG 格式保存图像
+// 以 JPEG 格式保存图像。
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-## **将带备注和评论的幻灯片转换为图像**
 
-某些幻灯片包含备注和评论。
+## **将带备注和批注的幻灯片转换为图像**
 
-Aspose.Slides 提供了两个接口——[ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) 和 [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options)——可以控制演示文稿幻灯片的渲染为图像。两个接口都包含 [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) 接口，允许您在将幻灯片转换为图像时在幻灯片上添加备注和评论。
+某些幻灯片可能包含备注和批注。
 
-{{% alert title="信息" color="info" %}} 
+Aspose.Slides 提供两个接口——[ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) 和 [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/)——用于控制将演示文稿幻灯片渲染为图像的方式。这两个接口都包含 `set_SlidesLayoutOptions` 方法，可在将幻灯片转换为图像时配置备注和批注的渲染。
 
-使用 [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) 接口，您可以指定在生成的图像中备注和评论的首选位置。
+使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) 类，您可以为生成的图像指定备注和批注的首选位置。
 
+此 C++ 代码演示如何转换带有备注和批注的幻灯片：
+```cpp 
+float scaleX = 2;
+float scaleY = scaleX;
+
+// 加载演示文稿文件。
+auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+
+auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // 设置备注的位置。
+notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // 设置批注的位置。
+notesCommentsOptions->set_CommentsAreaWidth(500);                          // 设置批注区域的宽度。
+notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // 设置批注区域的颜色。
+
+// 创建渲染选项。
+auto options = MakeObject<RenderingOptions>();
+options->set_SlidesLayoutOptions(notesCommentsOptions);
+
+// 将演示文稿的第一张幻灯片转换为图像。
+auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
+
+// 以 GIF 格式保存图像。
+image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
+
+image->Dispose();
+presentation->Dispose();
+```
+
+
+{{% alert title="Note" color="warning" %}} 
+在任何幻灯片转图像的转换过程中，[set_NotesPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) 方法无法使用 `BottomFull`（指定备注位置），因为备注文本可能过大，导致无法适应指定的图像尺寸。
 {{% /alert %}} 
 
-以下 C++ 代码演示了具有备注和评论的幻灯片的转换过程：
+## **使用 TIFF 选项将幻灯片转换为图像**
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"PresentationNotesComments.pptx");
-// 创建渲染选项
-auto options = System::MakeObject<RenderingOptions>();
-auto notesCommentsLayouting = options->get_NotesCommentsLayouting();
-// 设置页面上备注的位置
-notesCommentsLayouting->set_NotesPosition(NotesPositions::BottomTruncated);
-// 设置页面上评论的位置 
-notesCommentsLayouting->set_CommentsPosition(CommentsPositions::Right);
-// 设置评论输出区域的宽度
-notesCommentsLayouting->set_CommentsAreaWidth(500);
-// 设置评论区域的颜色
-notesCommentsLayouting->set_CommentsAreaColor(Color::get_AntiqueWhite());
+[ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) 接口通过允许您指定大小、分辨率、调色板等参数，为生成的 TIFF 图像提供更大的控制。
 
-// 将演示文稿的第一张幻灯片转换为位图对象
-auto image = pres->get_Slide(0)->GetImage(options, 2.f, 2.f);
+此 C++ 代码演示了使用 TIFF 选项输出分辨率为 300 DPI、尺寸为 2160 × 2800 的黑白图像的转换过程：
+```cpp 
+// 加载演示文稿文件。
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// 以 GIF 格式保存图像
-image->Save(u"Slide_Notes_Comments_0.gif", ImageFormat::Gif);
+// 获取演示文稿的第一张幻灯片。
+auto slide = presentation->get_Slide(0);
+
+// 配置输出 TIFF 图像的设置。
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));                       // 设置图像尺寸。
+tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // 设置像素格式（黑白）。
+tiffOptions->set_DpiX(300);                                         // 设置水平分辨率。
+tiffOptions->set_DpiY(300);                                         // 设置垂直分辨率。
+
+// 将幻灯片转换为带有指定选项的图像。
+auto image = slide->GetImage(tiffOptions);
+
+// 以 TIFF 格式保存图像。
+image->Save(u"output.bmp", ImageFormat::Tiff);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-{{% alert title="注意" color="warning" %}} 
-
-在任何幻灯片到图像的转换过程中，您无法将 BottomFull 值（用于指定备注位置）传递给 [set_NotesPositions()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) 方法，因为备注的文本可能很大，这意味着它可能无法适合指定的图像大小。
-
-{{% /alert %}} 
-
-## **使用 ITiffOptions 将幻灯片转换为图像**
-
-[ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) 接口为结果图像提供了更多的控制（在参数方面）。使用此接口，您可以指定输出图像的大小、分辨率、调色板和其他参数。
-
-以下 C++ 代码演示了一种使用 ITiffOptions 的转换过程，以输出一幅 300dpi 分辨率和 2160 × 2800 大小的黑白图像：
-
-``` cpp 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"PresentationNotesComments.pptx");
-
-// 按索引获取幻灯片
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// 创建 TiffOptions 对象
-System::SharedPtr<TiffOptions> options = System::MakeObject<TiffOptions>();
-options->set_ImageSize(Size(2160, 2880));
-
-// 如果找不到源字体，则设置使用的字体
-options->set_DefaultRegularFont(u"Arial Black");
-
-// 设置页面上备注的位置 
-options->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomTruncated);
-
-// 设置像素格式（黑白）
-options->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);
-
-// 设置分辨率
-options->set_DpiX(300);
-options->set_DpiY(300);
-
-// 将幻灯片转换为位图对象
-System::SharedPtr<Bitmap> image = slide->GetImage(options);
-
-// 以 BMP 格式保存图像
-image->Save(u"PresentationNotesComments.bmp", ImageFormat::Tiff);
-```
 
 ## **将所有幻灯片转换为图像**
 
-Aspose.Slides 允许您将单个演示文稿中的所有幻灯片转换为图像。基本上，您可以将整个演示文稿转换为图像。
+Aspose.Slides 允许您将演示文稿中的所有幻灯片转换为图像，从而将整个演示文稿转换为一系列图像。
 
-以下示例代码演示了如何在 C++ 中将演示文稿中的所有幻灯片转换为图像：
+此示例代码演示如何在 C++ 中将演示文稿的所有幻灯片转换为图像：
+```cpp 
+float scaleX = 2;
+float scaleY = scaleX;
 
-``` cpp 
-// 输出目录的路径
-System::String outputDir = u"D:\\PresentationImages";
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-// 按幻灯片逐个渲染演示文稿到图像数组
-for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
+// 逐张幻灯片将演示文稿渲染为图像。
+for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 {
-    // 控制隐藏幻灯片（不渲染隐藏幻灯片）
-    if (pres->get_Slide(i)->get_Hidden())
+    // 控制隐藏幻灯片（不渲染隐藏的幻灯片）。
+    if (presentation->get_Slide(i)->get_Hidden())
     {
         continue;
     }
 
-    // 将幻灯片转换为位图对象
-    auto image = pres->get_Slide(i)->GetImage(2.f, 2.f);
+    // 将幻灯片转换为图像。
+    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
 
-    // 为图像创建文件名
-    auto outputFilePath = Path::Combine(outputDir, String(u"Slide_") + i + u".jpg");
+    // 以 JPEG 格式保存图像。
+    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
 
-    // 以 PNG 格式保存图像
-    image->Save(outputFilePath, ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
+
+
+## **常见问题**
+
+**Aspose.Slides 是否支持渲染带动画的幻灯片？**
+
+不，`GetImage` 方法仅保存幻灯片的静态图像，不包含动画。
+
+**是否可以导出隐藏的幻灯片为图像？**
+
+可以，隐藏的幻灯片可以像普通幻灯片一样进行处理。只需确保它们包含在处理循环中。
+
+**图像是否可以保存带阴影和效果的版本？**
+
+可以，Aspose.Slides 在将幻灯片保存为图像时支持渲染阴影、透明度和其他图形效果。
