@@ -1,40 +1,35 @@
 ---
-title: عرض ثلاثي الأبعاد
+title: إنشاء عروض تقديمية ثلاثية الأبعاد على Android
+linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/androidjava/3d-presentation/
 keywords:
-- ثلاثي الأبعاد
 - PowerPoint ثلاثي الأبعاد
 - عرض ثلاثي الأبعاد
 - دوران ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
-- بروز ثلاثي الأبعاد
+- استخراج ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
-- عرض PowerPoint
-- أندرويد
-- Aspose.Slides من أجل أندرويد عبر Java
-description: "عرض PowerPoint ثلاثي الأبعاد على أندرويد"
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في Java باستخدام Aspose.Slides للـ Android بسهولة. تصدير سريع إلى صيغ PowerPoint و OpenDocument للاستخدام المتنوع."
 ---
 
-## نظرة عامة
-منذ Aspose.Slides Java 20.9، أصبح من الممكن إنشاء عروض ثلاثية الأبعاد. PowerPoint ثلاثي الأبعاد هو طريقة لإضفاء الحياة على العروض. اعرض الأجسام الواقعية 
-من خلال عرض ثلاثي الأبعاد، قدم نموذج ثلاثي الأبعاد لمشروع عملك المستقبلي، نموذج ثلاثي الأبعاد للمبنى أو داخله، نموذج ثلاثي الأبعاد لشخصية لعبة، 
-أو مجرد تمثيل ثلاثي الأبعاد لبياناتك.
+## **Overview**
+منذ Aspose.Slides Java 20.9 أصبح من الممكن إنشاء رسومات ثلاثية الأبعاد في العروض التقديمية. PowerPoint 3D هو طريقة لإضفاء الحيوية على العروض. اعرض الأجسام الواقعية باستخدام عرض ثلاثي الأبعاد، أو قدم نموذجًا ثلاثيًا لمشروع عملك المستقبلي، أو نموذجًا ثلاثيًا للمبنى أو داخله، أو نموذجًا ثلاثيًا لشخصية لعبة، أو مجرد تمثيل ثلاثي الأبعاد لبياناتك.
 
-يمكن إنشاء نماذج PowerPoint ثلاثية الأبعاد من أشكال ثنائية الأبعاد، عن طريق تطبيق مثل هذه التأثيرات عليها: دوران ثلاثي الأبعاد، عمق ثلاثي الأبعاد وبروز، تدرج ثلاثي الأبعاد، نص ثلاثي الأبعاد، إلخ. 
-يمكن العثور على قائمة الميزات ثلاثية الأبعاد المطبقة على الأشكال في **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**.
-يمكن الحصول على نسخة من الفئة بواسطة:
- 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** الطريقة لإنشاء نموذج PowerPoint ثلاثي الأبعاد.
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** الطريقة لإنشاء نص ثلاثي الأبعاد
-(WordArt).
+يمكن إنشاء نماذج PowerPoint 3D من أشكال ثنائية الأبعاد عن طريق تطبيق تأثيرات مثل: دوران ثلاثي الأبعاد، عمق واستخراج ثلاثي الأبعاد، تدرج لون ثلاثي الأبعاد، نص ثلاثي الأبعاد، إلخ. يمكن العثور على قائمة ميزات 3D المطبقة على الأشكال في الفئة **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. يمكن الحصول على كائن الفئة عبر:
 
-يمكن استخدام جميع التأثيرات المطبقة في **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** لكل من الأشكال والنصوص.
-دعونا نلقي نظرة سريعة على الأساليب الرئيسية لفئة **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. في المثال التالي
-نقوم بإنشاء شكل مستطيل ثنائي الأبعاد مع نص عليه. من خلال الحصول على عرض الكاميرا على الشكل، نقوم بتغيير دورانه ونجعل الشكل يبدو كنموذج ثلاثي الأبعاد. إعداد ضوء مسطح 
-واتجاهه إلى أعلى النموذج الثلاثي الأبعاد، يضيف المزيد من الحجم للنموذج. المواد المتغيرة، ارتفاع البروز ولونها تجعل النموذج الثلاثي الأبعاد يبدو أكثر حيوية.  
+- طريقة **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** لإنشاء نموذج PowerPoint 3D.
+- طريقة **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** لإنشاء نص ثلاثي الأبعاد (WordArt).
+
+جميع التأثيرات المطبقة في **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** يمكن استخدامها لكل من الأشكال والنص. لنلقِ نظرة سريعة على الأساليب الرئيسية لفئة **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. في المثال التالي ننشئ شكلاً مستطيلاً ثنائي الأبعاد مع نص عليه. من خلال الحصول على عرض الكاميرا على الشكل، نغيّر دواره لجعله يبدو كنموذج ثلاثي الأبعاد. ضبط إضاءة مسطحة واتجاهها إلى أعلى النموذج ثلاثي الأبعاد يضيف المزيد من الحجم للنموذج. تغير المواد، ارتفاع الاستخراج واللون يجعل النموذج الثلاثي الأبعاد يبدو أكثر حيوية.  
 ``` java 
 final float imageScale = 2;
 
@@ -61,52 +56,49 @@ presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-إليكم النموذج الثلاثي الأبعاد الناتج:
+
+إليك النموذج الثلاثي الأبعاد الناتج:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## دوران ثلاثي الأبعاد
-يمكن القيام بدوران النموذج الثلاثي الأبعاد في PowerPoint عبر القائمة:
+## **3D Rotation**
+يمكن إجراء دوران النموذج الثلاثي الأبعاد في PowerPoint عبر القائمة:
 
 ![todo:image_alt_text](img_02_01.png)
 
-لتدوير النموذج الثلاثي الأبعاد باستخدام واجهة برمجة التطبيقات Aspose.Slides، استخدم **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**
-الطريقة، واضبط دوران الكاميرا بالنسبة للشكل الثلاثي الأبعاد:
-
+لتحريك النموذج الثلاثي الأبعاد باستخدام Aspose.Slides API، استخدم طريقة **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**، ثم عيّن دوران الكاميرا نسبةً إلى الشكل الثلاثي الأبعاد:
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-// ... ضبط معلمات المشهد الثلاثي الأبعاد الأخرى
+// ... تعيين معلمات المشهد ثلاثي الأبعاد الأخرى
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-## عمق ثلاثي الأبعاد وبروز
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-و **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** الطريقتان
-تستخدمان لإنشاء البروز على الشكل:
 
+## **3D Depth and Extrusion**
+تُستخدم الطريقتان **[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** و**[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** لإنشاء الاستخراج على الشكل:
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
-// ... ضبط معلمات المشهد الثلاثي الأبعاد الأخرى
+// ... تعيين معلمات المشهد ثلاثي الأبعاد الأخرى
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-في PowerPoint، يتم ضبط عمق الشكل عبر:
+
+في PowerPoint، يتم تعيين عمق الشكل عبر:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## تدرج ثلاثي الأبعاد
-يمكن أن يجلب التدرج الثلاثي الأبعاد المزيد من الحجم لشكل PowerPoint ثلاثي الأبعاد:
-
+## **3D Gradient**
+يمكن لتدرج اللون الثلاثي الأبعاد إضافة المزيد من الحجم إلى الشكل الثلاثي الأبعاد في PowerPoint:
 ``` java
 final float imageScale = 2;
 
@@ -135,11 +127,12 @@ thumbnail.dispose();
 presentation.dispose();
 ```
 
-إليكم كيف يبدو:
+
+هكذا يبدو الشكل:
 
 ![todo:image_alt_text](img_02_03.png)
-
-يمكنكم أيضًا إنشاء تدرج صورة:
+  
+يمكنك أيضًا إنشاء تدرج صورة:
 ``` java
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage image = presentation.getImages().addImage(imageData);
@@ -147,18 +140,19 @@ IPPImage image = presentation.getImages().addImage(imageData);
 shape.getFillFormat().setFillType(FillType.Picture);
 shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-// ... إعداد 3D: shape.ThreeDFormat.Camera، shape.ThreeDFormat.LightRig، shape.ThreeDFormat.Extrusion* الخصائص
+// ... إعداد 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* الخصائص
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-إليكم النتيجة:
+
+النتيجة:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## نص ثلاثي الأبعاد (WordArt)
+## **3D Text (WordArt)**
 لإنشاء نص ثلاثي الأبعاد (WordArt)، اتبع الخطوات التالية:
 ``` java
 final float imageScale = 2;
@@ -169,7 +163,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getFillFormat().setFillType(FillType.NoFill);
 shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-shape.getTextFrame().setText("نص ثلاثي الأبعاد");
+shape.getTextFrame().setText("3D Text");
 
 Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
@@ -180,7 +174,7 @@ portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(Pa
 shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
 
 ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-// تعيين تأثير تحويل WordArt "قوس لأعلى"
+// set the "Arch Up" WordArt transform effect
 textFrameFormat.setTransform(TextShapeType.ArchUp);
 
 textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
@@ -200,13 +194,21 @@ presentation.save("text3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-إليكم النتيجة:
+
+النتيجة:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## غير مدعوم - قادم قريبًا
-الميزات الثلاثية الأبعاد التالية في PowerPoint غير مدعومة بعد: 
-- تزويد
-- مادة
-- محيط
-- إضاءة
+## **FAQ**
+
+**هل يتم الحفاظ على تأثيرات 3D عند تصدير العرض إلى صور/PDF/HTML؟**
+
+نعم. محرك Slides 3D يُعيد رسم تأثيرات 3D عند التصدير إلى الصيغ المدعومة ([الصور](/slides/ar/androidjava/convert-powerpoint-to-png/)، [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/androidjava/convert-powerpoint-to-html/)، إلخ).
+
+**هل يمكنني استرجاع القيم "النهائية" (effective) لمعلمات 3D التي تأخذ في الاعتبار السمات والوراثة وغيرها؟**
+
+نعم. توفر Slides واجهات برمجة تطبيقات لقراءة القيم الفعّالة ([read effective values](/slides/ar/androidjava/shape-effective-properties/)) (بما في ذلك إضاءة 3D، الحواف، إلخ) بحيث يمكنك رؤية الإعدادات النهائية المطبقة.
+
+**هل تعمل تأثيرات 3D عند تحويل العرض إلى فيديو؟**
+
+نعم. عند [إنشاء إطارات للفيديو](/slides/ar/androidjava/convert-powerpoint-to-video/)، يتم رسم تأثيرات 3D كما هو الحال عند [تصدير الصور](/slides/ar/androidjava/convert-powerpoint-to-png/).

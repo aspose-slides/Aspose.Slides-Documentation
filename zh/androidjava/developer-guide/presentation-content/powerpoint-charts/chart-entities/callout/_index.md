@@ -1,12 +1,23 @@
 ---
-title: 提示框
+title: 在 Android 上管理演示文稿图表中的标注
+linktitle: 标注
 type: docs
 url: /zh/androidjava/callout/
+keywords:
+- 图表标注
+- 使用标注
+- 数据标签
+- 标签格式
+- PowerPoint
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "使用简洁的 Java 示例代码在 Aspose.Slides for Android 中创建和设置标注，兼容 PPT 和 PPTX，以实现演示文稿工作流的自动化。"
 ---
 
-## **使用提示框**
-新方法 [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) 和 [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) 已被添加至 [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) 接口。这些方法决定指定图表的数据标签是显示为数据提示框还是数据标签。
-
+## **使用标注**
+已向 [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) 接口添加了新方法 [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) 和 [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-)。这些方法决定指定图表的数据标签是以数据标注的形式显示还是以数据标签的形式显示。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **为甜甜圈图设置提示框**
-Aspose.Slides for Android via Java 提供了为甜甜圈图设置系列数据标签提示框形状的支持。以下示例给出。
 
+## **为环形图设置标注**
+Aspose.Slides for Android via Java 提供对环形图系列数据标签标注形状的设置支持。以下示例代码给出。 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +48,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "系列 " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +57,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "类别 " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
+
+是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/androidjava/export-to-html5/)、[SVG](/slides/zh/androidjava/render-a-slide-as-an-svg-image/) 或 [栅格图像](/slides/zh/androidjava/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
+
+**Do custom fonts work in callouts, and can their appearance be preserved on export?**
+
+是的。Aspose.Slides 支持将[嵌入字体](/slides/zh/androidjava/embedded-font/)嵌入到演示文稿中，并在导出为如 [PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/) 等格式时控制字体嵌入，确保标注在不同系统上保持相同的外观。

@@ -1,147 +1,160 @@
 ---
-title: バレットの管理
+title: Android のプレゼンテーションで箇条書きと番号付きリストを管理する
+linktitle: リストを管理
 type: docs
 weight: 60
 url: /ja/androidjava/manage-bullet/
-keywords: "バレット, バレットリスト, 数字, 番号付きリスト, 画像バレット, 階層バレット, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
-description: "JavaでPowerPointプレゼンテーションにバレットおよび番号付きリストを作成する"
+keywords:
+- 箇条書き
+- 箇条書きリスト
+- 番号付きリスト
+- 記号箇条書き
+- 画像箇条書き
+- カスタム箇条書き
+- 多層リスト
+- 箇条書き作成
+- 箇条書き追加
+- リスト追加
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用して、PowerPoint と OpenDocument のプレゼンテーションで箇条書きと番号付きリストを管理する方法を学びます。ステップバイステップのガイド。"
 ---
 
-**Microsoft PowerPoint** では、Wordや他のテキストエディターと同様に、バレットと番号付きリストを作成できます。 **Aspose.Slides for Android via Java** では、プレゼンテーションのスライドでバレットと番号を使用することもできます。
+**Microsoft PowerPoint** では、Word やその他のテキストエディタと同様に箇条書きや番号付きリストを作成できます。**Aspose.Slides for Android via Java** も、プレゼンテーションのスライドで箇条書きや番号を使用できるようにします。
 
-## なぜバレットリストを使用するのか？
+## **箇条書きを使用する理由は？**
 
-バレットリストは、情報を迅速かつ効率的に整理し、提示するのに役立ちます。 
+箇条書きは情報を迅速かつ効率的に整理・提示するのに役立ちます。
 
-**バレットリストの例**
+**箇条書きの例**
 
-ほとんどの場合、バレットリストは次の3つの主な機能を果たします：
+ほとんどの場合、箇条書きは次の 3 つの主な機能を果たします。
 
-- 読者や視聴者の注意を重要な情報に引き付ける
-- 読者や視聴者が主要なポイントを簡単にスキャンできるようにする
-- 重要な詳細を効率的に伝達する。
+- 読者や視聴者の注意を重要な情報へ引き付ける  
+- 読者や視聴者が要点を簡単にスキャンできるようにする  
+- 重要な詳細を効率的に伝達・提供する  
 
-## なぜ番号付きリストを使用するのか？
+## **番号付きリストを使用する理由は？**
 
-番号付きリストも情報の整理と提示に役立ちます。 理想的には、エントリーの順序（たとえば、*ステップ1、ステップ2* など）が重要な場合や、エントリーを参照する必要がある場合（たとえば、*ステップ3を参照*）には、バレットの代わりに数字を使用するべきです。
+番号付きリストも情報の整理・提示に役立ちます。項目の順序（例：*ステップ 1、ステップ 2* など）が重要な場合や、項目を参照する必要がある場合（例：*ステップ 3 を参照*）は、箇条書きの代わりに番号を使用すべきです。
 
 **番号付きリストの例**
 
-これは、下記の**バレットの作成**手順（ステップ1からステップ15まで）の要約です：
+以下の **Creating Bullets** 手順のステップ（ステップ 1〜15）の概要です。
 
-1. プレゼンテーションクラスのインスタンスを作成します。
-2. いくつかのタスクを実行します（ステップ3からステップ14まで）。
-3. プレゼンテーションを保存します。 
+1. Presentation クラスのインスタンスを作成します。  
+2. 複数のタスクを実行します（ステップ 3〜ステップ 14）。  
+3. プレゼンテーションを保存します。  
 
-## バレットの作成
-このトピックは、テキスト段落の管理に関するトピックシリーズの一部です。このページでは、段落のバレットを管理する方法を示します。バレットは、何かをステップで説明する必要がある場合に特に有用です。また、テキストはバレットを使用することで見た目が整理されます。バレット付き段落は常に読みやすく、理解しやすくなります。Aspose.Slides for Android via Javaのこの小さくても強力な機能を開発者がどのように使用できるかを見ていきましょう。以下の手順に従って、Aspose.Slides for Android via Javaで段落のバレットを管理してください：
+## **箇条書きを作成する**
+このトピックは、テキスト段落の管理に関するトピックシリーズの一部です。このページでは段落の箇条書き管理方法を示します。手順を踏んで箇条書きを使用すると、テキストが整理され、読みやすくなります。開発者が Aspose.Slides for Android via Java のこの小さくても強力な機能を利用できるように、以下の手順に従って段落の箇条書きを管理してください。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトを使用してスライドコレクションから目的のスライドにアクセスします。
-1. 選択したスライドに [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) を追加します。
-1. 追加された形状の [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) にアクセスします。
-1. TextFrame内のデフォルトの段落を削除します。
-1. [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph) クラスを使用して最初の段落インスタンスを作成します。
-1. 段落のバレットタイプを設定します。
-1. バレットタイプを [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) に設定し、バレットキャラクターを設定します。
-1. 段落テキストを設定します。
-1. バレットを設定するために段落インデントを設定します。
-1. バレットの色を設定します。
-1. バレットの高さを設定します。
-1. 作成した段落をTextFrameの段落コレクションに追加します。
-1. 2つ目の段落を追加し、**7から13**の手順を繰り返します。
-1. プレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成する。  
+2. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトを使用してスライド コレクションから目的のスライドにアクセスする。  
+3. 選択したスライドに [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationText) を追加する。  
+4. 追加したシェイプの [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) にアクセスする。  
+5. TextFrame 内の既定の段落を削除する。  
+6. [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph) クラスを使用して最初の段落インスタンスを作成する。  
+7. 段落の箇条書きタイプを設定する。  
+8. 箇条書きタイプを [Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletType#Symbol) に設定し、箇条書き文字を指定する。  
+9. 段落テキストを設定する。  
+10. 箇条書きを設定するために段落インデントを設定する。  
+11. 箇条書きの色を設定する。  
+12. 箇条書きの高さを設定する。  
+13. 作成した段落を TextFrame の段落コレクションに追加する。  
+14. 2 番目の段落を追加し、手順 **7 から 13** を繰り返す。  
+15. プレゼンテーションを保存する。
 
-このJavaのサンプルコードは、上記の手順を実装したもので、スライドにバレットリストを作成する方法を示しています：
-
+以下の Java サンプルコードは、上記手順を実装してスライドに箇条書きリストを作成する方法を示しています：
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化する
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセスする
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Autoshapeを追加し、アクセスする
+    // オートシェイプを追加し、取得する
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // 作成したautoshapeのテキストフレームにアクセスする
+    // 作成したオートシェイプのテキストフレームにアクセスする
     ITextFrame txtFrm = aShp.getTextFrame();
     
-    // デフォルトの既存の段落を削除する
+    // 既定の既存段落を削除する
     txtFrm.getParagraphs().removeAt(0);
     
     // 段落を作成する
     Paragraph para = new Paragraph();
     
-    // 段落のバレットスタイルとシンボルを設定する
+    // 段落の箇条書きスタイルと記号を設定する
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char) 8226);
     
     // 段落テキストを設定する
-    para.setText("Aspose.Slidesへようこそ");
+    para.setText("Welcome to Aspose.Slides");
     
-    // バレットのインデントを設定する
+    // 箇条書きのインデントを設定する
     para.getParagraphFormat().setIndent(25);
     
-    // バレットの色を設定する
+    // 箇条書きの色を設定する
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
     
-    // 任意のバレットカラーを使用するためにIsBulletHardColorをtrueに設定する
+    // 独自の箇条書き色を使用するために IsBulletHardColor を true に設定する
     para.getParagraphFormat().getBullet().isBulletHardColor();
     
-    // バレットの高さを設定する
+    // 箙の高さを設定する
     para.getParagraphFormat().getBullet().setHeight(100);
     
-    // テキストフレームに段落を追加する
+    // 段落をテキストフレームに追加する
     txtFrm.getParagraphs().add(para);
     
-    // プレゼンテーションをPPTXファイルとして保存する
+    // プレゼンテーションを PPTX ファイルとして保存する
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## 画像バレットの作成
 
-Aspose.Slides for Android via Javaを使用すると、バレットリストのバレットを変更できます。 カスタムシンボルや画像にバレットを置き換えることができます。 リストに視覚的な興味を追加したり、リスト上のエントリーにさらなる注目を集めたりしたい場合は、独自の画像をバレットとして使用できます。
+## **画像箇条書きを作成する**
+
+Aspose.Slides for Android via Java は、箇条書きリストの箇条書き記号を変更できます。カスタムシンボルや画像に置き換えることが可能です。リストに視覚的な興味を加えたり、項目への注意をさらに引き付けたい場合は、独自の画像を箇条書きとして使用できます。
 
 {{% alert color="primary" %}} 
-
-理想的には、通常のバレットシンボルを画像で置き換える場合、透明な背景のシンプルなグラフィック画像を選択することをお勧めします。そのような画像はカスタムバレットシンボルとして最適に機能します。
-
-いずれにせよ、選択する画像は非常に小さなサイズに縮小されるため、リスト内でバレットシンボルの代わりとして見栄えが良い画像を選択することを強くお勧めします。
-
+規定の箇条書き記号を画像に置き換える場合は、透明な背景を持つシンプルなグラフィック画像を選択すると効果的です。こうした画像はカスタム箇条書き記号として最適に機能します。  
+いずれにせよ、画像は非常に小さなサイズに縮小されるため、リスト内の箇条書き記号として見栄えが良い画像を選択することを強く推奨します。 
 {{% /alert %}} 
 
-画像バレットを作成するには、これらの手順を実行してください：
+画像箇条書きを作成する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します
-1. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトを使用してスライドコレクションから目的のスライドにアクセスします
-1. 選択したスライドにautoshapeを追加します
-1. 追加された形状の[TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)にアクセスします
-1. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe)内のデフォルトの段落を削除します
-1. Paragraphクラスを使って最初の段落インスタンスを作成します
-1. [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPPImage) からディスクの画像をロードします
-1. バレットタイプをPictureに設定し、画像を設定します
-1. 段落テキストを設定します
-1. バレットを設定するために段落インデントを設定します
-1. バレットの色を設定します
-1. バレットの高さを設定します
-1. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加します
-1. 2つ目の段落を追加し、前の手順で説明されたプロセスを繰り返します
-1. プレゼンテーションを保存します
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成する。  
+2. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトで目的のスライドにアクセスする。  
+3. 選択したスライドにオートシェイプを追加する。  
+4. 追加したシェイプの [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) にアクセスする。  
+5. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) 内の既定の段落を削除する。  
+6. Paragraph クラスで最初の段落インスタンスを作成する。  
+7. [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPPImage) でディスクから画像を読み込む。  
+8. 箇条書きタイプを Picture に設定し、画像を指定する。  
+9. 段落テキストを設定する。  
+10. 箇条書きを設定するために段落インデントを設定する。  
+11. 箇条書きの色を設定する。  
+12. 箇条書きの高さを設定する。  
+13. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加する。  
+14. 2 番目の段落を追加し、前述の手順を繰り返す。  
+15. プレゼンテーションを保存する。
 
-このJavaコードは、スライドに画像バレットを作成する方法を示しています：
-
+以下の Java コードは、スライドに画像箇条書きを作成する方法を示しています：
 ```java
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセスする
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // バレット用の画像をインスタンス化する
+    // 箇条書き用画像をインスタンス化する
     IPPImage picture;
     IImage image = Images.fromFile("asp1.jpg");
     try {
@@ -150,29 +163,29 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Autoshapeを追加し、アクセスする
+    // オートシェイプを追加し取得する
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 作成したautoshapeのテキストフレームにアクセスする
+    // 作成したオートシェイプのテキストフレームにアクセスする
     ITextFrame txtFrm = aShp.getTextFrame();
-    // デフォルトの既存の段落を削除する
+    // 既定の既存段落を削除する
     txtFrm.getParagraphs().removeAt(0);
 
     // 新しい段落を作成する
     Paragraph para = new Paragraph();
-    para.setText("Aspose.Slidesへようこそ");
+    para.setText("Welcome to Aspose.Slides");
 
-    // 段落のバレットスタイルと画像を設定する
+    // 段落の箇条書きスタイルと画像を設定する
     para.getParagraphFormat().getBullet().setType(BulletType.Picture);
     para.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // バレットの高さを設定する
+    // 箇条書きの高さを設定する
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // テキストフレームに段落を追加する
+    // 段落をテキストフレームに追加する
     txtFrm.getParagraphs().add(para);
 
-    // プレゼンテーションをPPTXファイルとして書き込む
+    // プレゼンテーションを PPTX ファイルとして書き出す
     pres.save("Bullet.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -180,83 +193,83 @@ try {
 }
 ```
 
-## 階層バレットの作成
 
-異なるレベルのアイテムを含むバレットリストを作成するには（メインのバレットリストの下に追加のリスト）以下の手順を実行してください：
+## **階層化された箇条書きを作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトを使用してスライドコレクションから目的のスライドにアクセスします。
-1. 選択したスライドにautoshapeを追加します。
-1. 追加された形状の [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) にアクセスします。
-1. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) 内のデフォルトの段落を削除します。
-1. 段落クラスを使って最初の段落インスタンスを作成し、深さを0に設定します。
-1. 段落クラスを使って2番目の段落インスタンスを作成し、深さを1に設定します。
-1. 段落クラスを使って3番目の段落インスタンスを作成し、深さを2に設定します。
-1. 段落クラスを使って4番目の段落インスタンスを作成し、深さを3に設定します。
-1. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加します。
-1. プレゼンテーションを保存します。
+メインの箇条書きリストの下にサブリストを持つ、階層構造の箇条書きリストを作成する手順は次のとおりです。
 
-このコードは、上記の手順の実装で、Javaで階層バレットリストを作成する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成する。  
+2. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトで目的のスライドにアクセスする。  
+3. 選択したスライドにオートシェイプを追加する。  
+4. 追加したシェイプの [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) にアクセスする。  
+5. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) 内の既定の段落を削除する。  
+6. 段落クラスで深さ 0 の最初の段落インスタンスを作成する。  
+7. 段落クラスで深さ 1 の2番目の段落インスタンスを作成する。  
+8. 段落クラスで深さ 2 の3番目の段落インスタンスを作成する。  
+9. 段落クラスで深さ 3 の4番目の段落インスタンスを作成する。  
+10. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加する。  
+11. プレゼンテーションを保存する。
 
+以下のコードは、上記手順を実装して Java で階層化された箇条書きリストを作成する方法を示しています：
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化する
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセスする
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Autoshapeを追加し、アクセスする
+    // オートシェイプを追加し取得する
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     
-    // 作成したautoshapeのテキストフレームにアクセスする
+    // 作成したオートシェイプのテキストフレームにアクセスする
     ITextFrame txtFrm = aShp.addTextFrame("");
     
-    // デフォルトの既存の段落を削除する
+    // 既定の既存段落を削除する
     txtFrm.getParagraphs().clear();
     
     // 最初の段落を作成する
     Paragraph para1 = new Paragraph();
-    // 段落のバレットスタイルとシンボルを設定する
-    para1.setText("コンテンツ");
+    // 段落の箇条書きスタイルと記号を設定する
+    para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char) 8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType((byte)FillType.Solid);
+    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // バレットレベルを設定する
-    para1.getParagraphFormat().setDepth((short)0);
+    //箇条書きレベルを設定する
+    para1.getParagraphFormat().setDepth ((short)0);
     
-    // 2番目の段落を作成する
+    // 2 番目の段落を作成する
     Paragraph para2 = new Paragraph();
-    // 段落のバレットスタイルとシンボルを設定する
-    para2.setText("第二レベル");
+    // 段落の箇条書きスタイルと記号を設定する
+    para2.setText("Second level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType((byte)FillType.Solid);
+    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // バレットレベルを設定する
-    para2.getParagraphFormat().setDepth((short)1);
+    //箇条書きレベルを設定する
+    para2.getParagraphFormat().setDepth ((short)1);
     
-    // 3番目の段落を作成する
+    // 3 番目の段落を作成する
     Paragraph para3 = new Paragraph();
-    // 段落のバレットスタイルとシンボルを設定する
-    para3.setText("第三レベル");
+    // 段落の箇条書きスタイルと記号を設定する
+    para3.setText("Third level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char) 8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType((byte)FillType.Solid);
+    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // バレットレベルを設定する
-    para3.getParagraphFormat().setDepth((short)2);
+    //箇条書きレベルを設定する
+    para3.getParagraphFormat().setDepth ((short)2);
     
-    // 4番目の段落を作成する
+    // 4 番目の段落を作成する
     Paragraph para4 = new Paragraph();
-    // 段落のバレットスタイルとシンボルを設定する
-    para4.setText("第四レベル");
+    // 段落の箇条書きスタイルと記号を設定する
+    para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType((byte)FillType.Solid);
+    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // バレットレベルを設定する
-    para4.getParagraphFormat().setDepth((short)3);
+    //箇条書きレベルを設定する
+    para4.getParagraphFormat().setDepth ((short)3);
     
     // テキストフレームに段落を追加する
     txtFrm.getParagraphs().add(para1);
@@ -264,63 +277,63 @@ try {
     txtFrm.getParagraphs().add(para3);
     txtFrm.getParagraphs().add(para4);
     
-    // プレゼンテーションをPPTXファイルとして保存する
+    // プレゼンテーションを PPTX ファイルとして保存する
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## カスタム番号付きリストの作成
-Aspose.Slides for Android via Javaは、カスタム番号形式で段落を管理するためのシンプルなAPIを提供します。段落にカスタム番号リストを追加するには、以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトを使用してスライドコレクションから目的のスライドにアクセスします。
-1. 選択したスライドにautoshapeを追加します。
-1. 追加された形状の [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) にアクセスします。
-1. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) 内のデフォルトの段落を削除します。
-1. 段落クラスを使って最初の段落インスタンスを作成し、**NumberedBulletStartWith** を2に設定します。
-1. 段落クラスを使って2番目の段落インスタンスを作成し、**NumberedBulletStartWith** を3に設定します。
-1. 段落クラスを使って3番目の段落インスタンスを作成し、**NumberedBulletStartWith** を7に設定します。
-1. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加します。
-1. プレゼンテーションを保存します。
+## **カスタム番号付きリストを作成する**
+Aspose.Slides for Android via Java は、カスタム番号書式で段落を管理するシンプルな API を提供します。段落にカスタム番号リストを追加するには、次の手順に従ってください。
 
-このJavaコードは、スライドに番号付きリストを作成する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成する。  
+2. [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide) オブジェクトで目的のスライドにアクセスする。  
+3. 選択したスライドにオートシェイプを追加する。  
+4. 追加したシェイプの [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) にアクセスする。  
+5. [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) 内の既定の段落を削除する。  
+6. Paragraph クラスで最初の段落インスタンスを作成し、**NumberedBulletStartWith** を 2 に設定する。  
+7. Paragraph クラスで2番目の段落インスタンスを作成し、**NumberedBulletStartWith** を 3 に設定する。  
+8. Paragraph クラスで3番目の段落インスタンスを作成し、**NumberedBulletStartWith** を 7 に設定する。  
+9. 作成した段落を [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe) の段落コレクションに追加する。  
+10. プレゼンテーションを保存する。
 
+以下の Java コードは、スライドに番号付きリストを作成する方法を示しています：
 ```java
-// PPTXファイルを表すPresentationクラスをインスタンス化する
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
     // 最初のスライドにアクセスする
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Autoshapeを追加し、アクセスする
+    // オートシェイプを追加し取得する
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 作成したautoshapeのテキストフレームにアクセスする
+    // 作成したオートシェイプのテキストフレームにアクセスする
     ITextFrame txtFrm = aShp.addTextFrame("");
 
-    // デフォルトの既存の段落を削除する
+    // 既定の既存段落を削除する
     txtFrm.getParagraphs().clear();
 
     // 最初のリスト
     Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("バレット 2");
+    paragraph1.setText("bullet 2");
     paragraph1.getParagraphFormat().setDepth((short)4);
     paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     txtFrm.getParagraphs().add(paragraph1);
 
     Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("バレット 3");
+    paragraph2.setText("bullet 3");
     paragraph2.getParagraphFormat().setDepth((short)4);
     paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
     paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     txtFrm.getParagraphs().add(paragraph2);
 
-    // 2番目のリスト
+    // 2 番目のリスト
     Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("バレット 5");
+    paragraph5.setText("bullet 5");
     paragraph5.getParagraphFormat().setDepth((short)4);
     paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)5);
     paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
@@ -331,3 +344,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides で作成した箇条書きや番号付きリストは、PDF や画像などの他の形式にエクスポートできますか？**
+
+はい。Aspose.Slides は、PDF、画像などの形式にエクスポートする際、箇条書きや番号付きリストの書式と構造を完全に保持し、一貫した結果を提供します。
+
+**既存のプレゼンテーションから箇条書きや番号付きリストをインポートできますか？**
+
+はい。Aspose.Slides は、既存のプレゼンテーションから箇条書きや番号付きリストをインポートして編集でき、元の書式や外観を保持します。
+
+**多言語で作成されたプレゼンテーションでも、箇条書きや番号付きリストはサポートされていますか？**
+
+はい。Aspose.Slides は多言語プレゼンテーションを完全にサポートし、任意の言語や特殊文字、非ラテン文字を使用した箇条書き・番号付きリストの作成が可能です。

@@ -1,165 +1,208 @@
 ---
-title: Сохранить презентацию
+title: Сохранение презентаций на Android
+linktitle: Сохранить презентацию
 type: docs
 weight: 80
 url: /ru/androidjava/save-presentation/
+keywords:
+- сохранить PowerPoint
+- сохранить OpenDocument
+- сохранить презентацию
+- сохранить слайд
+- сохранить PPT
+- сохранить PPTX
+- сохранить ODP
+- презентация в файл
+- презентация в поток
+- предопределенный тип представления
+- строгий формат Office Open XML
+- режим Zip64
+- обновление миниатюры
+- прогресс сохранения
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как сохранять презентации на Java с помощью Aspose.Slides for Android — экспортировать в PowerPoint или OpenDocument, сохраняя макеты, шрифты и эффекты."
 ---
 
 ## **Обзор**
-{{% alert color="primary" %}} 
 
-[Открытие презентации](/slides/ru/androidjava/open-presentation/) описывает, как использовать класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
+[Открыть презентации на Android](/slides/ru/androidjava/open-presentation/) описывает, как использовать класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) для открытия презентации. В этой статье объясняется, как создавать и сохранять презентации. Класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) содержит содержимое презентации. Независимо от того, создаёте ли вы презентацию с нуля или изменяете существующую, вам понадобится сохранить её после завершения работы. С Aspose.Slides для Android вы можете сохранять в **файл** или **поток**. В этой статье рассматриваются различные способы сохранения презентации.
 
-{{% /alert %}} 
+## **Сохранение презентаций в файлы**
 
-Класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) содержит содержимое презентации. Создавая презентацию с нуля или модифицируя существующую, вы захотите сохранить презентацию. С Aspose.Slides для Android через Java ее можно сохранить как **файл** или **поток**. Эта статья объясняет, как сохранить презентацию различными способами:
-
-## **Сохранение презентации в файл**
-Сохраните презентацию в файл, вызвав метод [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Просто передайте имя файла и [**SaveFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat) в метод [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-).
-
-Примеры, приведенные ниже, показывают, как сохранить презентацию с помощью Aspose.Slides для Android через Java.
-
+Сохраните презентацию в файл, вызвав метод `save` класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Передайте в метод имя файла и формат сохранения. Ниже приведён пример, показывающий, как сохранить презентацию с помощью Aspose.Slides.
 ```java
-// Создание объекта Presentation, представляющего файл PPT
-Presentation pres = new Presentation();
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // ...выполнение некоторых действий...
-    
-    // Сохраните вашу презентацию в файл
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
+    // Выполните здесь некоторую работу...
+
+    // Сохраните презентацию в файл.
+    presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Сохранение презентации в поток**
-Можно сохранить презентацию в поток, передав выходной поток в метод [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Существуют различные типы потоков, в которые можно сохранить презентацию. В следующем примере мы создаем новый файл презентации, добавляем текст в фигуру и сохраняем презентацию в поток.
 
+## **Сохранение презентаций в потоки**
+
+Вы можете сохранить презентацию в поток, передав выходной поток в метод `save` класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Презентацию можно записать в различные типы потоков. В примере ниже мы создаём новую презентацию и сохраняем её в файловый поток.
 ```java
-// Создание объекта Presentation, представляющего файл PPT
-Presentation pres = new Presentation();
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // Добавление текста в фигуру
-    shape.getTextFrame().setText("Этот демонстрационный пример показывает, как создать файл PowerPoint и сохранить его в поток.");
-
-    OutputStream os = new FileOutputStream("Save_As_Stream_out.pptx");
-
-    pres.save(os, com.aspose.slides.SaveFormat.Pptx);
-
-    os.close();
-} catch (IOException e) {
+    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    try {
+        // Сохраните презентацию в поток.
+        presentation.save(fileStream, SaveFormat.Pptx);
+    } finally {
+        fileStream.close();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Сохранение презентации с заданным типом представления**
-Aspose.Slides для Android через Java предоставляет возможность установить тип представления для сгенерированной презентации, когда она открывается в PowerPoint, через класс [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties). Свойство [**setLastView**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#setLastView-int-) используется для установки типа представления с помощью перечисления [**ViewType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewType).
 
+## **Сохранение презентаций с предопределённым типом представления**
+
+Aspose.Slides позволяет задать начальное представление, которое PowerPoint использует при открытии сгенерированной презентации, через класс [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/). Используйте метод [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) со значением из перечисления [ViewType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/).
 ```java
-// Открытие файла презентации
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Установка типа представления
-    pres.getViewProperties().setLastView((byte) ViewType.SlideMasterView);
-    
-    // Сохранение презентации
-    pres.save("newDemo.pptx", SaveFormat.Pptx);
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("SlideMasterView.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 
 ## **Сохранение презентаций в строгом формате Office Open XML**
-Aspose.Slides позволяет сохранять презентацию в строгом формате Office Open XML. Для этого предоставляется класс [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions), в котором вы можете установить свойство Conformance при сохранении файла презентации. Если вы установите его значение как [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict), тогда выходной файл презентации будет сохранен в строгом формате Open XML.
 
-Следующий образец кода создает презентацию и сохраняет ее в строгом формате Office Open XML. При вызове метода [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) для презентации объект [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions) передается с установленным свойством Conformance как [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict).
+Aspose.Slides позволяет сохранять презентацию в строгом формате Office Open XML. Используйте класс [PptxOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions/) и задайте его свойство `conformance` при сохранении. Если установить [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict), выходной файл будет сохранён в строгом формате Office Open XML.
 
+Ниже пример, создающий презентацию и сохраняющий её в строгом формате Office Open XML.
 ```java
-// Создание объекта Presentation, представляющего файл PPT
-Presentation pres = new Presentation();
+PptxOptions options = new PptxOptions();
+options.setConformance(Conformance.Iso29500_2008_Strict);
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получить первый слайд
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Добавить фигуру типа линия
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    
-    // Установить параметры сохранения в строгом формате Office Open XML
-    PptxOptions options = new PptxOptions();
-    options.setConformance(Conformance.Iso29500_2008_Strict);
-    
-    // Сохраните вашу презентацию в файл
-    pres.save("demoPass.pptx", SaveFormat.Pptx, options);
+    // Сохраните презентацию в строгом формате Office Open XML.
+    presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 
 ## **Сохранение презентаций в формате Office Open XML в режиме Zip64**
 
-Файл Office Open XML представляет собой ZIP-архив, который имеет ограничение в 4 ГБ (2^32 байта) на несжатый размер файла, сжатый размер файла и общий размер архива, а также ограничение в 65,535 (2^16-1) файлов в архиве. Расширения формата ZIP64 увеличивают эти ограничения до 2^64.
+Файл Office Open XML представляет собой ZIP‑архив, который накладывает ограничения в 4 ГБ (2^32 байт) на несжатый размер любого файла, сжатый размер любого файла и общий размер архива, а также ограничивает количество файлов в архиве 65 535 (2^16‑1). Расширения формата ZIP64 повышают эти ограничения до 2^64.
 
-Новое свойство [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/) позволяет вам выбрать, когда использовать расширения формата ZIP64 для сохраненного файла Office Open XML.
+Метод [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) позволяет выбрать, когда использовать расширения ZIP64 при сохранении файла Office Open XML.
 
-Это свойство предоставляет следующие режимы:
+Этот метод может использоваться со следующими режимами:
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#IfNecessary) означает, что расширения формата ZIP64 будут использоваться только в том случае, если презентация выходит за указанные выше ограничения. Это режим по умолчанию.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) означает, что расширения формата ZIP64 не будут использоваться.
-- [Zip64Mode.Always](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Always) означает, что расширения формата ZIP64 всегда будут использоваться.
+- [IfNecessary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#IfNecessary) использует расширения ZIP64 только если презентация превышает вышеуказанные ограничения. Это режим по умолчанию.
+- [Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) никогда не использует расширения ZIP64.
+- [Always](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Always) всегда использует расширения ZIP64.
 
-Следующее код демонстрирует, как сохранить презентацию в формате PPTX с расширениями формата ZIP64:
-
+Ниже показан код, демонстрирующий, как сохранить презентацию как PPTX с включёнными расширениями ZIP64:
 ```java
-Presentation pres = new Presentation("Sample.pptx");
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setZip64Mode(Zip64Mode.Always);
+
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    PptxOptions pptxOptions = new PptxOptions();
-    pptxOptions.setZip64Mode(Zip64Mode.Always);
-    
-    pres.save("Sample-zip64.pptx", SaveFormat.Pptx, pptxOptions);
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 
 {{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
-
-Сохранение в режиме Zip64Mode.Never вызовет [PptxException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxexception/), если презентацию невозможно сохранить в формате ZIP32.
-
+При сохранении с использованием [Zip64Mode.Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) будет выброшено исключение [PptxException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxexception/), если презентацию нельзя сохранить в формате ZIP32.
 {{% /alert %}}
 
-## **Сохранение обновлений прогресса в процентах**
-Интерфейс новый [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) был добавлен к интерфейсу [**ISaveOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) и абстрактному классу [**SaveOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveOptions). Интерфейс [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) представляет собой объект обратного вызова для сохранения обновлений прогресса в процентах.
+## **Сохранение презентаций без обновления миниатюры**
 
-Следующие фрагменты кода показывают, как использовать интерфейс [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback):
+Метод [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) управляет генерацией миниатюры при сохранении презентации в формате PPTX:
 
+- Если установить `true`, миниатюра будет обновлена во время сохранения. Это значение по умолчанию.
+- Если установить `false`, текущая миниатюра будет сохранена. Если у презентации нет миниатюры, она не будет создаваться.
+
+В коде ниже презентация сохраняется в PPTX без обновления её миниатюры.
 ```java
-// Открытие файла презентации
-Presentation pres = new Presentation("ConvertToPDF.pptx");
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setRefreshThumbnail(false);
+
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.setProgressCallback((IProgressCallback) new ExportProgressHandler());
-    pres.save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    pres.dispose();
+    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
+}
+finally {
+    presentation.dispose();
 }
 ```
+
+
+{{% alert title="Информация" color="info" %}}
+Эта опция помогает сократить время, необходимое для сохранения презентации в формате PPTX.
+{{% /alert %}}
+
+## **Обновления прогресса сохранения в процентах**
+
+Интерфейс [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprogresscallback/) используется через метод `setProgressCallback`, объявленный в интерфейсе [ISaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isaveoptions/) и абстрактном классе [SaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/). Передайте реализацию [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprogresscallback/) в `setProgressCallback`, чтобы получать обновления о прогрессе сохранения в процентах.
+
+Ниже приведены фрагменты кода, показывающие, как использовать `IProgressCallback`.
 ```java
-class ExportProgressHandler implements IProgressCallback 
-{
-    public void reporting(double progressValue) 
-	{
-        // Используйте процентное значение прогресса здесь
-        int progress = Double.valueOf(progressValue).intValue();
-        System.out.println(progress + "% файл преобразован");
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+```java
+class ExportProgressHandler implements IProgressCallback {
+    public void reporting(double progressValue) {
+        // Используйте здесь значение процента прогресса.
+        int progress = (int) progressValue;
+
+        System.out.println(progress + "% of the file has been converted.");
     }
 }
 ```
 
+
 {{% alert title="Информация" color="info" %}}
-
-Используя свой API, Aspose разработала [бесплатное приложение PowerPoint Splitter](https://products.aspose.app/slides/splitter), которое позволяет пользователям разделять свои презентации на несколько файлов. По сути, приложение сохраняет выбранные слайды из данной презентации как новые файлы PowerPoint (PPTX или PPT).
-
+Aspose разработал [бесплатное приложение PowerPoint Splitter](https://products.aspose.app/slides/splitter) на основе собственного API. Приложение позволяет разделять презентацию на несколько файлов, сохраняя выбранные слайды как новые PPTX или PPT файлы.
 {{% /alert %}}
+
+## **FAQ**
+
+**Поддерживается ли «быстрое сохранение» (инкрементальное сохранение), когда записываются только изменения?**
+
+Нет. При сохранении каждый раз создаётся полный целевой файл; инкрементальное «быстрое сохранение» не поддерживается.
+
+**Можно ли безопасно сохранять один и тот же объект Presentation из нескольких потоков?**
+
+Нет. Экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) **не является потокобезопасным** (/slides/ru/androidjava/multithreading/); сохраняйте его из одного потока.
+
+**Что происходит с гиперссылками и внешними связанными файлами при сохранении?**
+
+[Гиперссылки](/slides/ru/androidjava/manage-hyperlinks/) сохраняются. Внешние связанные файлы (например, видео по относительным путям) не копируются автоматически — убедитесь, что указанные пути остаются доступными.
+
+**Можно ли задавать/сохранять метаданные документа (Автор, Заголовок, Компания, Дата)?**
+
+Да. Поддерживаются стандартные [свойства документа](/slides/ru/androidjava/presentation-properties/), которые будут записаны в файл при сохранении.

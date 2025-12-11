@@ -1,331 +1,349 @@
 ---
-title: إدارة OLE
+title: إدارة OLE في العروض التقديمية على Android
+linktitle: إدارة OLE
 type: docs
 weight: 40
 url: /ar/androidjava/manage-ole/
 keywords:
+- كائن OLE
+- ربط الكائنات وإدماجها
 - إضافة OLE
 - تضمين OLE
 - إضافة كائن
 - تضمين كائن
+- إضافة ملف
 - تضمين ملف
 - كائن مرتبط
-- ربط الكائنات وتضمينها
-- كائن OLE
-- PowerPoint 
+- ملف مرتبط
+- تغيير OLE
+- أيقونة OLE
+- عنوان OLE
+- استخراج OLE
+- استخراج كائن
+- استخراج ملف
+- PowerPoint
 - عرض تقديمي
-- أندرويد
-- جافا
-- Aspose.Slides لـ Android عبر Java
-description: إضافة كائنات OLE إلى عروض PowerPoint التقديمية في جافا
+- Android
+- Java
+- Aspose.Slides
+description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides للأندرويد عبر Java. تضمين، تحديث، وتصدير محتوى OLE بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-OLE (ربط الكائنات وتضمينها) هي تقنية من مايكروسوفت تتيح وضع البيانات والكائنات الم created in one application to be placed in another application through linking or embedding. 
+OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بإنشاء البيانات والكائنات في تطبيق واحد ووضعها في تطبيق آخر عبر الربط أو الإدماج. 
 
 {{% /alert %}} 
 
-افترض وجود مخطط تم إنشاؤه في MS Excel. ثم يتم وضع المخطط داخل شريحة PowerPoint. يُعتبر هذا المخطط من Excel كائن OLE.
+تخيل وجود مخطط تم إنشاؤه في MS Excel. يتم وضع هذا المخطط داخل شريحة PowerPoint. يُعتبر هذا المخطط من Excel ككائن OLE. 
 
-- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، سيتم فتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن.
-- قد يعرض كائن OLE محتويات فعلية - على سبيل المثال، محتويات مخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint وتحميل واجهة المخطط، ويمكنك تعديل بيانات المخطط داخل تطبيق PowerPoint.
+- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، يُفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن. 
+- قد يعرض كائن OLE محتوياته الفعلية، مثل محتويات المخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint، يتم تحميل واجهة المخطط، وتستطيع تعديل بيانات المخطط داخل PowerPoint. 
 
-[Aspose.Slides لـ Android عبر Java](https://products.aspose.com/slides/androidjava/) يسمح لك بإدراج كائنات OLE في الشرائح كأطر كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) يسمح لك بإدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)). 
 
-## **إضافة أطر كائن OLE إلى الشرائح**
-افترض أنك قد أنشأت مخططًا بالفعل في Microsoft Excel وتريد تضمين هذا المخطط في شريحة كإطار كائن OLE باستخدام Aspose.Slides لـ Android عبر Java، يمكنك القيام بذلك بهذه الطريقة:
+## **إضافة إطارات كائن OLE إلى الشرائح**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. افتح ملف Excel الذي يحتوي على كائن المخطط واحفظه في `MemoryStream`.
-1. أضف [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) إلى الشريحة مع مصفوفة البايتات ومعلومات أخرى حول كائن OLE.
-1. اكتب العرض المعدل كملف PPTX.
+افترض أنك قد أنشأت مخططًا في Microsoft Excel وتريد إدراجه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for Android via Java، يمكنك القيام بذلك بهذه الطريقة:
 
-في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides لـ Android عبر Java.
-**ملاحظة** أن المُنشئ [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) يأخذ امتداد كائن قابل للتضمين كمعامل ثانٍ. يتيح هذا الامتداد لـ PowerPoint فهم نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح هذا الكائن OLE.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). 
+1. الحصول على مرجع الشريحة عبر فهرستها. 
+1. قراءة ملف Excel كمصفوفة بايت. 
+1. إضافة [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) إلى الشريحة مع مصفوفة البايت ومعلومات أخرى حول كائن OLE. 
+1. كتابة العرض التقديمي المعدل كملف PPTX. 
 
-``` java 
-// إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // الوصول إلى الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
+في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides for Android via Java. **ملاحظة** أن منشئ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleEmbeddedDataInfo) يأخذ امتداد كائن قابل للإدماج كمعامل ثانٍ. يتيح هذا الامتداد لـ PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا. 
+```java 
+Presentation presentation = new Presentation();
+SizeF slideSize = presentation.getSlideSize().getSize();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تحميل ملف Excel إلى التدفق
-    FileInputStream fs = new FileInputStream("book1.xlsx");
-    ByteArrayOutputStream mstream = new ByteArrayOutputStream();
-    byte[] buf = new byte[4096];
-    while (true)
-    {
-        int bytesRead = fs.read(buf, 0, buf.length);
-        if (bytesRead <= 0)
-            break;
-        mstream.write(buf, 0, bytesRead);
-    }
-    fs.close();
+// Prepare data for the OLE object.
+File file = new File("book.xlsx");
+byte fileData[] = new byte[(int) file.length()];
+BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+DataInputStream dis = new DataInputStream(bis);
+dis.readFully(fileData);
 
-    // إنشاء كائن بيانات للتضمين
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
-    mstream.close();
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-    // إضافة شكل إطار كائن Ole
-    IOleObjectFrame oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0,
-            (float) pres.getSlideSize().getSize().getWidth(),
-            (float) pres.getSlideSize().getSize().getHeight(),
-            dataInfo);
+// Add the OLE object frame to the slide.
+slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
 
-    // كتابة ملف PPTX إلى القرص
-    pres.save("OleEmbed_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+### **إضافة إطارات OLE المرتبطة**
+
+Aspose.Slides for Android via Java يسمح لك بإضافة [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) دون إدماج البيانات بل فقط باستخدام رابط إلى الملف. 
+
+يوضح لك هذا الكود Java كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) بملف Excel مرتبط إلى شريحة: 
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+// إضافة إطار كائن OLE بملف Excel مرتبط.
+slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **الوصول إلى إطارات OLE**
+
+إذا كان كائن OLE مدمجًا بالفعل في شريحة، يمكنك بسهولة العثور عليه أو الوصول إليه بهذه الطريقة:
+
+1. تحميل عرض تقديمي يحتوي على كائن OLE مدمج بإنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). 
+2. الحصول على مرجع الشريحة باستخدام فهرستها. 
+3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). 
+في مثالنا، استخدمنا ملف PPTX المنشأ مسبقًا الذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/). كان هذا هو إطار كائن OLE المطلوب للوصول إليه. 
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه. 
+
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مدمج في شريحة) وبيانات ملفه. 
+```java 
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
+
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+    
+    // احصل على بيانات الملف المدمج.
+    byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+
+    // احصل على امتداد الملف المدمج.
+    String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+
+    // ...
 }
 ```
 
-## **الوصول إلى أطر كائن OLE**
-إذا كان كائن OLE موجودًا بالفعل في شريحة، يمكنك العثور على هذا الكائن أو الوصول إليه بسهولة بهذه الطريقة:
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. الوصول إلى شكل إطار كائن OLE.
+### **الوصول إلى خصائص إطار OLE المرتبط**
 
-   في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه سابقًا، والذي يحتوي على شكل واحد فقط على الشريحة الأولى. ثم قمنا *بالإشارة* إلى ذلك الكائن كـ [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.
-1. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
+Aspose.Slides يتيح لك الوصول إلى خصائص إطار كائن OLE المرتبط. 
 
-في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel المضمن في شريحة) - ثم يتم كتابة بيانات ملفه إلى ملف Excel.
+يوضح لك هذا الكود Java كيفية التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط: 
+```java
+Presentation presentation = new Presentation("sample.ppt");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-``` java 
-// تحميل ال PPTX إلى كائن Presentation
-Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx");
-try {
-    // الوصول إلى الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
-    // تحويل الشكل إلى OleObjectFrame
-    OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
+    // تحقق مما إذا كان كائن OLE مرتبطًا.
+    if (oleFrame.isObjectLink()) {
+        // اطبع المسار الكامل للملف المرتبط.
+        System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
-    // قراءة كائن OLE وكتابته إلى القرص
-    if (oleObjectFrame != null) {
-        // الحصول على بيانات الملف المضمنة
-        byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
-
-        // الحصول على امتداد الملف المضمن
-        String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-        // إنشاء مسار لحفظ الملف المستخرج
-        String extractedPath = "excelFromOLE_out" + fileExtention;
-
-        // حفظ البيانات المستخرجة
-        FileOutputStream fstr = new FileOutputStream(extractedPath);
-        try {
-            fstr.write(data, 0, data.length);
-        } finally {
-            fstr.close();
+        // اطبع المسار النسبي للملف المرتبط إذا كان موجودًا.
+        // يمكن فقط لعروض PPT أن تحتوي على المسار النسبي.
+        if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
+            System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
         }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
 }
+
+presentation.dispose();
 ```
+
 
 ## **تغيير بيانات كائن OLE**
 
-إذا كان كائن OLE موجودًا بالفعل في شريحة، يمكنك الوصول إلى هذا الكائن وتعديل بياناته بسهولة بهذه الطريقة:
+{{% alert color="primary" %}} 
 
-1. افتح العرض التقديمي المطلوب الذي يحتوي على كائن OLE المضمن عن طريق إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة من خلال فهرسها. 
-1. الوصول إلى شكل إطار كائن OLE.
+في هذا القسم، يستخدم مثال الكود أدناه [Aspose.Cells for Android via Java](/cells/androidjava/). 
 
-   في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه سابقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم قمنا *بالإشارة* إلى ذلك الكائن كـ [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.
-1. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
-1. إنشاء كائن Workbook والوصول إلى بيانات OLE.
-1. الوصول إلى ورقة العمل المطلوبة وتعديل البيانات.
-1. حفظ Workbook المحدث في التدفقات.
-1. تغيير بيانات كائن OLE من بيانات التدفق.
+{{% /alert %}}
 
-في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel المضمن في شريحة) - ثم يتم تعديل بيانات ملفه لتغيير بيانات المخطط:
+إذا كان كائن OLE مدمجًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
 
-``` java 
-Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-	
-    OleObjectFrame ole = null;
+1. تحميل عرض تقديمي يحتوي على كائن OLE مدمج بإنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). 
+2. الحصول على مرجع الشريحة عبر فهرستها. 
+3. الوصول إلى شكل إطار كائن OLE. 
+في مثالنا، استخدمنا ملف PPTX المنشأ مسبقًا الذي يحتوي على شكل واحد في الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/). كان هذا هو إطار كائن OLE المطلوب للوصول إليه. 
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه. 
+5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE. 
+6. الوصول إلى `Worksheet` المطلوبة وتعديل البيانات. 
+7. حفظ الـ `Workbook` المحدث في تدفق. 
+8. تغيير بيانات كائن OLE من التدفق. 
 
-    // البحث بين جميع الأشكال عن إطار Ole
-    for (IShape shape : slide.getShapes()) 
-    {
-        if (shape instanceof OleObjectFrame) 
-        {
-            ole = (OleObjectFrame) shape;
-        }
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مدمج في شريحة) وتعديل بيانات ملفه لتحديث بيانات المخطط. 
+```java 
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
+
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+
+    ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
+
+    // قراءة بيانات كائن OLE ككائن Workbook.
+    Workbook workbook = new Workbook(oleStream);
+
+    ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
+
+    // تعديل بيانات الـ Workbook.
+    workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
+    workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
+    workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
+    workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
+
+    OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
+    workbook.save(newOleStream, fileOptions);
+
+    // تغيير بيانات كائن إطار OLE.
+    IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    oleFrame.setEmbeddedData(newData);
+}
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **إدراج أنواع ملفات أخرى في الشرائح**
+
+إلى جانب مخططات Excel، يتيح لك Aspose.Slides for Android via Java إدراج أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عندما يقوم المستخدم بالنقر المزدوج على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج مناسب لفتحه. 
+
+يوضح لك هذا الكود Java كيفية إدراج HTML وZIP في شريحة: 
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+File fileHtml = new File("sample.html");
+byte htmlData[] = new byte[(int) fileHtml.length()];
+BufferedInputStream bisHtml = new BufferedInputStream(new FileInputStream(fileHtml));
+DataInputStream disHtml = new DataInputStream(bisHtml);
+disHtml.readFully(htmlData);
+IOleEmbeddedDataInfo htmlDataInfo = new OleEmbeddedDataInfo(htmlData, "html");
+IOleObjectFrame htmlOleFrame = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
+htmlOleFrame.setObjectIcon(true);
+
+File fileZip = new File("sample.zip");
+byte zipData[] = new byte[(int) fileZip.length()];
+BufferedInputStream bisZip = new BufferedInputStream(new FileInputStream(fileZip));
+DataInputStream disZip = new DataInputStream(bisZip);
+disZip.readFully(zipData);
+IOleEmbeddedDataInfo zipDataInfo = new OleEmbeddedDataInfo(zipData, "zip");
+IOleObjectFrame zipOleFrame = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, zipDataInfo);
+zipOleFrame.setObjectIcon(true);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **تحديد أنواع الملفات للكائنات المدمجة**
+
+عند العمل على العروض التقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. يتيح لك Aspose.Slides for Android via Java تحديد نوع الملف لكائن مدمج، مما يمكنك من تحديث بيانات إطار OLE أو امتداده. 
+
+يوضح لك هذا الكود Java كيفية تعيين نوع الملف لكائن OLE مدمج إلى `zip`: 
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+
+System.out.println("Current embedded file extension is: " + fileExtension);
+
+// Change the file type to ZIP.
+oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **تعيين صور الأيقونات والعناوين للكائنات المدمجة**
+
+بعد دمج كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for Android via Java. 
+
+يوضح لك هذا الكود Java كيفية تعيين صورة الأيقونة والعنوان لكائن مدمج: 
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+// إضافة صورة إلى موارد العرض التقديمي.
+File file = new File("image.png");
+byte imageData[] = new byte[(int) file.length()];
+BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+DataInputStream dis = new DataInputStream(bis);
+dis.readFully(imageData);
+IPPImage oleImage = presentation.getImages().addImage(imageData);
+
+// تعيين عنوان والصورة لمعاينة OLE.
+oleFrame.setSubstitutePictureTitle("My title");
+oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+oleFrame.setObjectIcon(true);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
+
+
+## **منع إطار كائن OLE من إعادة التحجيم وإعادة الموضع**
+
+بعد إضافتك لكائن OLE مرتبط إلى شريحة عرض تقديمي، عند فتح العرض في PowerPoint قد تظهر لك رسالة تطلب تحديث الروابط. النقر على زر "Update Links" قد يغير حجم وموقع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويعيد تحديث معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، عيّن طريقة `setUpdateAutomatic` في واجهة [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) إلى `false`: 
+```java
+oleFrame.setUpdateAutomatic(false);
+```
+
+
+## **استخراج الملفات المدمجة**
+
+يتيح لك Aspose.Slides for Android via Java استخراج الملفات المدمجة في الشرائح ككائنات OLE بهذه الطريقة:
+
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تحتوي على كائنات OLE التي تريد استخراجها. 
+2. تكرار جميع الأشكال في العرض والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe). 
+3. الوصول إلى بيانات الملفات المدمجة من إطارات OLE وكتابةها إلى القرص. 
+
+يوضح لك هذا الكود Java كيفية استخراج الملفات المدمجة في شريحة ككائنات OLE: 
+```java
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+
+for (int index = 0; index < slide.getShapes().size(); index++) {
+    IShape shape = slide.getShapes().get_Item(index);
+
+    if (shape instanceof IOleObjectFrame) {
+        IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+
+        byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+        String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+
+        FileOutputStream fos = new FileOutputStream(new File("OLE_object_" + index + fileExtension));
+        fos.write(fileData);
+        fos.close();
     }
-
-    if (ole != null) {
-        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getEmbeddedData().getEmbeddedFileData());
-        try {
-            // قراءة بيانات الكائن في Workbook
-            Workbook Wb = new Workbook(msln);
-
-            ByteArrayOutputStream msout = new ByteArrayOutputStream();
-            try {
-                // تعديل بيانات Workbook
-                Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
-                Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
-                Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
-                Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
-
-                OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-                Wb.save(msout, so1);
-
-                // تغيير بيانات كائن إطار Ole
-                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
-                ole.setEmbeddedData(newData);
-            } finally {
-                if (msout != null) msout.close();
-            }
-        } finally {
-            if (msln != null) msln.close();
-        }
-    }
-
-    pres.save("OleEdit_out.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
 }
+
+presentation.dispose();
 ```
 
-## تضمين أنواع ملفات أخرى في الشرائح
 
-بخلاف مخططات Excel، يتيح لك Aspose.Slides لـ Android عبر Java تضمين أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML و PDF و ZIP ككائنات في الشريحة. عندما ينقر المستخدم مرتين على الكائن المضاف، يتم إطلاق الكائن تلقائيًا في البرنامج المناسب، أو يُوجه المستخدم لاختيار البرنامج المناسب لفتح الكائن.
+## **الأسئلة الشائعة**
 
-يظهر لك هذا الكود البرمجي في جافا كيفية تضمين HTML و ZIP في شريحة:
+**هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟**
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
+ما هو مرئي على الشريحة هو ما يتم تصييره—الأيقونة/صورة البديلة (المعاينة). لا يتم تنفيذ محتوى OLE "الحي" أثناء التصيير. إذا لزم الأمر، حدّد صورة معاينة خاصة لضمان المظهر المتوقع في ملف PDF المصدر.
 
-    byte[] htmlBytes = Files.readAllBytes(Paths.get("embedOle.html"));
-    IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
-    IOleObjectFrame oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-    oleFrameHtml.setObjectIcon(true);
+**كيف يمكنني قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟**
 
-    byte[] zipBytes = Files.readAllBytes(Paths.get("embedOle.zip"));
-    IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
-    IOleObjectFrame oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-    oleFrameZip.setObjectIcon(true);
+قفل الشكل: Aspose.Slides يقدم [قفل على مستوى الشكل](/slides/ar/androidjava/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع فعليًا التعديلات والحركات غير المقصودة.
 
-    pres.save("embeddedOle.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**لماذا يقفز كائن Excel المرتبط أو يتغير حجمه عند فتح العرض التقديمي؟**
 
-## تعيين أنواع الملفات للكائنات المضمنة
+قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. للحصول على مظهر ثابت، اتبع ممارسات [الحل العملي لتغيير حجم ورقة العمل](/slides/ar/androidjava/working-solution-for-worksheet-resizing/) — إما ضبط الإطار على النطاق، أو تعديل النطاق ليناسب إطار ثابت وتعيين صورة بديلة مناسبة.
 
-عند العمل على العروض التقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة. أو قد تحتاج إلى استبدال كائن OLE غير المدعوم بآخر مدعوم.
+**هل سيتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في تنسيق PPTX؟**
 
-يتيح لك Aspose.Slides لـ Android عبر Java تعيين نوع الملف للكائن المضمن. بهذه الطريقة، يمكنك تغيير بيانات إطار OLE أو امتداده.
-
-يظهر لك هذا الجزء من جافا كيفية تعيين نوع الملف لكائن OLE المضمن:
-
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
-    System.out.println("الامتداد الحالي للبيانات المضمنة هو: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
-
-    oleObjectFrame.setEmbeddedData(new OleEmbeddedDataInfo(Files.readAllBytes(Paths.get("embedOle.zip")), "zip"));
-
-    pres.save("embeddedChanged.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## تعيين صور أيقونات وعناوين للكائنات المضمنة
-
-بعد تضمين كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة وعنوان تلقائيًا. المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. 
-
-إذا كنت ترغب في استخدام صورة معينة ونص كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides لـ Android عبر Java.
-
-يظهر لك هذا الكود البرمجي في جافا كيفية تعيين صورة الأيقونة والعنوان لكائن مضمن: 
-
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
-
-        IPPImage oleImage;
-        IImage image = Images.fromFile("image.png");
-        try {
-             oleImage = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-    oleObjectFrame.setSubstitutePictureTitle("عنواني");
-    oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-    oleObjectFrame.setObjectIcon(false);
-
-    pres.save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **منع تغيير حجم إطار كائن OLE وإعادة وضعه**
-
-بعد إضافة كائن OLE مرتبط إلى شريحة العرض التقديمي، عند فتح العرض التقديمي في PowerPoint، قد ترى رسالة تطلب منك تحديث الروابط. قد يؤدي النقر على زر "تحديث الروابط" إلى تغيير حجم وإعادة وضع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويجدد صورة المعاينة للكائن. لمنع PowerPoint من المطالبة بتحديث بيانات الكائن، قم بتعيين طريقة `setUpdateAutomatic` من واجهة [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) إلى `false`:
-
-```java
-oleObjectFrame.setUpdateAutomatic(false);
-```
-
-## استخراج الملفات المضمنة
-
-يتيح لك Aspose.Slides لـ Android عبر Java استخراج الملفات المضمنة في الشرائح ككائنات OLE بهذه الطريقة:
-
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تحتوي على كائن OLE الذي تنوي استخراجه.
-2. كرر عبر جميع الأشكال في العرض التقديمي والوصول إلى شكل [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe).
-3. الوصول إلى بيانات الملف المضمن من إطار كائن OLE واكتبها على القرص. 
-
-يوضح لك هذا الكود البرمجي في جافا كيفية استخراج ملف مضمن في شريحة ككائن OLE:
-
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    for (int index = 0; index < slide.getShapes().size(); index++)
-    {
-        IShape shape = slide.getShapes().get_Item(index);
-        IOleObjectFrame oleFrame = (IOleObjectFrame)shape;
-
-        if (oleFrame != null) 
-		{
-            byte[] data = oleFrame.getEmbeddedData().getEmbeddedFileData();
-            String extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-            // حفظ البيانات المستخرجة
-            FileOutputStream fstr = new FileOutputStream("oleFrame" + index + extension);
-            try {
-                fstr.write(data, 0, data.length);
-            } finally {
-                fstr.close();
-            }
-        }
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+في PPTX، لا تتوفر معلومات "المسار النسبي"—فقط المسار الكامل. تُوجد المسارات النسبية في تنسيق PPT القديم. للقدرة على النقل، يفضَّل استخدام مسارات مطلقة موثوقة/عناوين URI قابلة للوصول أو الإدماج.

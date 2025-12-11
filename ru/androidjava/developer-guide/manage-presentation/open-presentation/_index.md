@@ -1,102 +1,127 @@
 ---
-title: Открытие презентации в Java
-linktitle: Открытие презентации
+title: Открытие презентаций на Android
+linktitle: Открыть презентацию
 type: docs
 weight: 20
 url: /ru/androidjava/open-presentation/
-keywords: "Открыть PowerPoint, PPTX, PPT, Открыть презентацию, Загрузить презентацию, Java"
-description: "Открыть или загрузить презентацию PPT, PPTX, ODP в Java"
+keywords:
+- открыть PowerPoint
+- открыть OpenDocument
+- открыть презентацию
+- открыть PPTX
+- открыть PPT
+- открыть ODP
+- загрузить презентацию
+- загрузить PPTX
+- загрузить PPT
+- загрузить ODP
+- защищённая презентация
+- большая презентация
+- внешний ресурс
+- бинарный объект
+- Android
+- Java
+- Aspose.Slides
+description: "Легко открывайте презентации PowerPoint (.pptx, .ppt) и OpenDocument (.odp) с помощью Aspose.Slides для Android через Java — быстро, надёжно, полностью функционально."
 ---
 
-Помимо создания презентаций PowerPoint с нуля, Aspose.Slides позволяет открывать существующие презентации. После загрузки презентации вы можете получить информацию о ней, редактировать содержание на слайдах, добавлять новые слайды или удалять существующие и т.д.
+## **Обзор**
 
-## Открытие презентации
+Помимо создания презентаций PowerPoint с нуля, Aspose.Slides также позволяет открывать существующие презентации. После загрузки презентации вы можете получать информацию о ней, редактировать содержимое слайдов, добавлять новые слайды, удалять существующие и многое другое.
 
-Чтобы открыть существующую презентацию, вам просто нужно создать экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и передать путь к файлу (презентации, которую вы хотите открыть) в его конструктор.
+## **Открытие презентаций**
 
-ЭтотJava код показывает, как открыть презентацию и узнать количество слайдов в ней:
+Чтобы открыть существующую презентацию, создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и передайте путь к файлу в его конструктор.
 
+Следующий пример на Java показывает, как открыть презентацию и получить количество слайдов:
 ```java
-// Создает экземпляр класса Presentation и передает путь к файлу в его конструктор
-Presentation pres = new Presentation("Presentation.pptx");
+// Создайте объект класса Presentation и передайте путь к файлу в его конструктор.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // Выводит общее количество слайдов в презентации
-    System.out.println(pres.getSlides().size());
+    // Выведите общее количество слайдов в презентации.
+    System.out.println(presentation.getSlides().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Открытие защищенной паролем презентации**
 
-Когда вам нужно открыть защищенную паролем презентацию, вы можете передать пароль через свойство [Password](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getPassword--) (из класса [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/)), чтобы расшифровать и загрузить презентацию. Этот Java код демонстрирует операцию:
+## **Открытие презентаций, защищённых паролем**
 
-```java
- LoadOptions loadOptions = new LoadOptions();
- loadOptions.setPassword("ВАШ_ПАРОЛЬ");
- Presentation pres = new Presentation("pres.pptx", loadOptions);
- try {
- // Выполняет некоторые действия с расшифрованной презентацией
- } finally {
-     if (pres != null) pres.dispose();
- }
-```
-
-## Открытие большой презентации
-
-Aspose.Slides предоставляет параметры (в частности, свойство [BlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-)) в классе [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions), чтобы вы могли загружать большие презентации.
-
-Этот Java код демонстрирует операцию, в которой загружается большая презентация (например, 2 ГБ):
-
+Когда необходимо открыть презентацию, защищённую паролем, передайте пароль через метод [setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) класса [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) для расшифровки и загрузки. Ниже приведён Java‑код, демонстрирующий эту операцию:
 ```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
-loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
+loadOptions.setPassword("YOUR_PASSWORD");
 
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 try {
-    // Большая презентация загружена и может быть использована, но потребление памяти остается низким.
-    // вносит изменения в презентацию.
-    pres.getSlides().get_Item(0).setName("Очень большая презентация");
-
-    // Презентация будет сохранена в другой файл. Потребление памяти остается низким во время операции
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // Выполните операции над расшифрованной презентацией.
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="info" title="Информация" %}}
 
-Чтобы обойти определенные ограничения при взаимодействии с потоком, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации через ее поток приведет к копированию содержимого презентации и замедлит загрузку. Поэтому, когда вы намерены загрузить большую презентацию, мы настоятельно рекомендуем использовать путь к файлу презентации, а не его поток.
+## **Открытие больших презентаций**
 
-Когда вы хотите создать презентацию, содержащую большие объекты (видео, аудио, большие изображения и т.д.), вы можете использовать [Blob facility](https://docs.aspose.com/slides/androidjava/manage-blob/), чтобы уменьшить потребление памяти.
+Aspose.Slides предоставляет параметры — в частности метод [getBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) класса [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) — которые помогают загружать большие презентации.
 
-{{%/alert %}} 
-
-## Загрузка презентации
-
-Aspose.Slides предоставляет [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/) с единственным методом, который позволяет вам управлять внешними ресурсами. ЭтотJava код показывает, как использовать интерфейс `IResourceLoadingCallback`:
-
+Следующий Java‑код демонстрирует загрузку большой презентации (например, 2 ГБ):
 ```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
+final String filePath = "LargePresentation.pptx";
 
-Presentation pres = new Presentation("presentation.pptx", opts);
+LoadOptions loadOptions = new LoadOptions();
+// Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of
+// the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
+loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+
+Presentation presentation = new Presentation(filePath, loadOptions);
+try {
+    // The large presentation has been loaded and can be used, while memory consumption remains low.
+
+    // Make changes to the presentation.
+    presentation.getSlides().get_Item(0).setName("Large presentation");
+
+    // Save the presentation to another file. Memory consumption remains low during this operation.
+    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
+
+    // Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
+    //Files.delete(Paths.get(filePath));
+} finally {
+    presentation.dispose();
+}
+
+// It is OK to do it here. The source file is no longer locked by the presentation object.
+Files.delete(Paths.get(filePath));
+```
+
+
+{{% alert color="info" title="Info" %}}
+Чтобы обойти некоторые ограничения при работе с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации из потока приводит к копированию презентации и может замедлить загрузку. Поэтому, когда необходимо загрузить большую презентацию, настоятельно рекомендуется использовать путь к файлу презентации, а не поток.
+
+При создании презентации, содержащей крупные объекты (видео, аудио, изображения высокого разрешения и т.д.), вы можете использовать [BLOB management](/slides/ru/androidjava/manage-blob/) для снижения потребления памяти.
+{{%/alert %}}
+
+## **Управление внешними ресурсами**
+
+Aspose.Slides предоставляет интерфейс [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/), который позволяет управлять внешними ресурсами. Следующий Java‑код показывает, как использовать интерфейс `IResourceLoadingCallback`:
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // загружает заменяющее изображение
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        if (args.getOriginalUri().endsWith(".jpg")) {
+            try {
+                // Загрузить заменяющее изображение.
+                byte[] imageData = getImageBytes("aspose-logo.jpg"); // Используйте любой метод для получения байтов
+                args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {
                 return ResourceLoadingAction.Skip;
@@ -104,58 +129,51 @@ class ImageLoadingHandler implements IResourceLoadingCallback
                 ex.printStackTrace();
             }
         } else if (args.getOriginalUri().endsWith(".png")) {
-            // устанавливает заменяющий URL
+            // Установить заменяющий URL.
             args.setUri("http://www.google.com/images/logos/ps_logo2.png");
             return ResourceLoadingAction.Default;
         }
-        // пропускает все другие изображения
+        // Пропустить все остальные изображения.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## Загрузка презентации без встроенных бинарных объектов
+
+## **Загрузка презентаций без встроенных бинарных объектов**
 
 Презентация PowerPoint может содержать следующие типы встроенных бинарных объектов:
 
-- VBA проект ([IPresentation.VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/));
-- Встраиваемые данные OLE-объекта ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- Данные бинарного ActiveX-контроля ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+- проект VBA (доступен через [IPresentation.getVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getVbaProject--));
+- встроенные данные OLE‑объекта (доступны через [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- бинарные данные ActiveX‑контроля (доступны через [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
 
-Используя свойство [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-), вы можете загрузить презентацию без каких-либо встроенных бинарных объектов.
+С помощью метода [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) вы можете загрузить презентацию без каких‑либо встроенных бинарных объектов.
 
-Это свойство может быть полезно для удаления потенциально вредоносного бинарного содержимого.
-
-Код демонстрирует, как загрузить и сохранить презентацию без вредоносного содержимого:
-
+Этот метод полезен для удаления потенциально вредоносного бинарного контента. Следующий Java‑код демонстрирует, как загрузить презентацию без встроенного бинарного контента:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation pres = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("malware.ppt", loadOptions);
 try {
-    pres.save("clean.ppt", SaveFormat.Ppt);
+    // Выполните операции над презентацией.
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## Открытие и сохранение презентации
 
-Шаги для открытия и сохранения презентации:
+## **FAQ**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) и передайте файл, который хотите открыть.
-2. Сохраните презентацию.  
+**Как определить, что файл повреждён и его нельзя открыть?**
 
-```java
-// Создает объект Presentation, представляющий файл PPT
-Presentation pres = new Presentation();
-try {
-    // ...выполните некоторые действия здесь...
-    
-    // Сохраняет вашу презентацию в файл
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
-```
+Вы получите исключение при разборе/валидации формата во время загрузки. Такие ошибки часто указывают на недействительную структуру ZIP‑архива или повреждённые записи PowerPoint.
+
+**Что произойдёт, если при открытии недостаёт требуемых шрифтов?**
+
+Файл откроется, но позже [rendering/export](/slides/ru/androidjava/convert-presentation/) может заменить шрифты. [Configure font substitutions](/slides/ru/androidjava/font-substitution/) или [add the required fonts](/slides/ru/androidjava/custom-font/) добавьте необходимые шрифты в среду выполнения.
+
+**Что насчёт встроенных медиа (видео/аудио) при открытии?**
+
+Они становятся доступными как ресурсы презентации. Если медиа указаны через внешние пути, убедитесь, что эти пути доступны в вашей среде; иначе [rendering/export](/slides/ru/androidjava/convert-presentation/) может опустить медиа.

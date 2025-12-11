@@ -1,38 +1,52 @@
 ---
-title: Управление настройками автоматической подгонки
+title: "Улучшите свои презентации с AutoFit на Android"
+linktitle: "Настройки Autofit"
 type: docs
 weight: 30
 url: /ru/androidjava/manage-autofit-settings/
-keywords: "Текстовое поле, Автоподгонка, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Установите настройки автоматической подгонки для текстового поля в PowerPoint в Java"
+keywords:
+- текстовое поле
+- автоподгонка
+- отключить автоподгонку
+- подогнать текст
+- сжать текст
+- перенос текста
+- изменить размер фигуры
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Управляйте настройками AutoFit в Aspose.Slides для Android через Java, чтобы оптимизировать отображение текста в ваших презентациях PowerPoint и OpenDocument и улучшить читаемость контента."
 ---
 
-По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует настройку **Изменить размер фигуры для соответствия тексту** для текстового поля — оно автоматически изменяет размер текстового поля, чтобы текст всегда помещался в него.
+
+По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует настройку **Resize shape to fix text** для текстового поля — он автоматически изменяет размер текстового поля, чтобы его текст всегда помещался в нём. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — увеличивает его высоту — чтобы вместить больше текста.
-* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — уменьшает его высоту — для удаления избыточного пространства.
+* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — увеличивает его высоту — чтобы разместить больше текста. 
+* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — уменьшает его высоту — чтобы убрать лишнее пространство. 
 
-В PowerPoint есть 4 важных параметра или опции, которые контролируют поведение автоподгонки для текстового поля:
+В PowerPoint существуют 4 важных параметра или опции, которые управляют поведением автоподгонки для текстового поля: 
 
-* **Не автоподгонять**
-* **Уменьшить текст при переполнении**
-* **Изменить размер фигуры для соответствия тексту**
-* **Перенос текста в фигуре.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides для Android через Java предоставляет аналогичные опции — некоторые свойства в классе [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat), которые позволяют вам контролировать поведение автоподгонки для текстовых полей в презентациях.
+Aspose.Slides for Android via Java предоставляет аналогичные параметры — некоторые свойства в классе [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) — которые позволяют управлять поведением автоподгонки для текстовых полей в презентациях.
 
-## **Изменить размер фигуры для соответствия тексту**
+## **Resize a Shape to Fit Text**
 
-Если вы хотите, чтобы текст в рамке всегда помещался в эту рамку после внесения изменений в текст, вам необходимо использовать опцию **Изменить размер фигуры для соответствия тексту**. Чтобы установить эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `Shape`.
+Если вы хотите, чтобы текст в рамке всегда помещался в неё после изменения текста, необходимо использовать параметр **Resize shape to fix text**. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Этот код на Java показывает, как указать, что текст всегда должен помещаться в свою рамку в презентации PowerPoint:
-
+Этот Java‑код показывает, как указать, что текст всегда должен помещаться в своё поле в презентации PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,16 +67,16 @@ try {
 }
 ```
 
-Если текст становится длиннее или больше, текстовое поле будет автоматически изменено (увеличение высоты), чтобы гарантировать, что весь текст помещается в него. Если текст становится короче, происходит обратное.
 
-## **Не автоподгонять**
+Если текст становится длиннее или больше, текстовое поле будет автоматически изменено (увеличена высота), чтобы весь текст поместился. Если текст становится короче, произойдёт обратное действие. 
 
-Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры, независимо от изменений, вносимых в содержащий их текст, вам необходимо использовать опцию **Не автоподгонять**. Чтобы установить эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `None`.
+## **Do Not Autofit**
+
+Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры независимо от изменений текста, необходимо использовать параметр **Do not Autofit**. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `None`.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-Этот код на Java показывает, как указать, что текстовое поле должно всегда сохранять свои размеры в презентации PowerPoint:
-
+Этот Java‑код показывает, как указать, что текстовое поле всегда должно сохранять свои размеры в презентации PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,16 +97,16 @@ try {
 }
 ```
 
-Когда текст становится слишком длинным для своей рамки, он выходит за её пределы.
 
-## **Уменьшить текст при переполнении**
+Когда текст становится слишком длинным для поля, он выходит за его границы. 
 
-Если текст становится слишком длинным для своей рамки, с помощью опции **Уменьшить текст при переполнении** вы можете указать, что размер и расстояние текста должны быть уменьшены, чтобы текст поместился в рамку. Чтобы установить эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `Normal`.
+## **Shrink Text on Overflow**
+
+Если текст становится слишком длинным для поля, с помощью параметра **Shrink text on overflow** можно указать, что размер текста и межстрочный интервал должны уменьшаться, чтобы он поместился в поле. Чтобы задать эту настройку, установите свойство [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Этот код на Java показывает, как указать, что текст должен быть уменьшен при переполнении в презентации PowerPoint:
-
+Этот Java‑код показывает, как указать, что текст должен сжиматься при переполнении в презентации PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -113,18 +127,16 @@ try {
 }
 ```
 
-{{% alert title="Информация" color="info" %}}
 
-Когда используется опция **Уменьшить текст при переполнении**, настройка применяется только в том случае, если текст становится слишком длинным для своей рамки.
-
+{{% alert title="Info" color="info" %}}
+При использовании опции **Shrink text on overflow** настройка применяется только тогда, когда текст становится слишком длинным для поля. 
 {{% /alert %}}
 
-## **Перенос текста**
+## **Wrap Text**
 
-Если вы хотите, чтобы текст в фигуре оборачивался внутри этой фигуры, когда текст выходит за пределы границ фигуры (только по ширине), вам необходимо использовать параметр **Перенос текста в фигуре**. Чтобы установить эту настройку, вам необходимо установить свойство [WrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getWrapText--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `true`.
+Если вы хотите, чтобы текст в фигуре переносился внутри этой фигуры, когда текст выходит за её ширину, используйте параметр **Wrap text in shape**. Чтобы задать эту настройку, необходимо установить свойство [WrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getWrapText--) (из класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) в значение `true`.
 
-Этот код на Java показывает, как использовать настройку переноса текста в презентации PowerPoint:
-
+Этот Java‑код показывает, как использовать настройку Wrap Text в презентации PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -145,8 +157,21 @@ try {
 }
 ```
 
-{{% alert title="Примечание" color="warning" %}} 
 
-Если вы установите свойство `WrapText` в значение `False` для фигуры, когда текст внутри фигуры становится длиннее ширины фигуры, текст выходит за пределы границ фигуры в одну линию.
-
+{{% alert title="Note" color="warning" %}} 
+Если установить свойство `WrapText` в `False` для фигуры, когда текст внутри фигуры становится длиннее её ширины, текст будет продолжаться за пределами фигуры в одну линию. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Внутренние отступы текстового кадра влияют на AutoFit?**
+
+Да. Отступы (внутренние поля) уменьшают доступную площадь для текста, поэтому AutoFit срабатывает раньше — уменьшая шрифт или изменяя размер фигуры быстрее. Проверьте и при необходимости отрегулируйте отступы перед настройкой AutoFit.
+
+**Как AutoFit взаимодействует с ручными и мягкими разрывами строк?**
+
+Принудительные разрывы остаются на месте, а AutoFit подстраивает размер шрифта и межстрочный интервал вокруг них. Удаление лишних разрывов часто снижает степень сжатия текста AutoFit.
+
+**Влияет ли изменение шрифта темы или подстановка шрифта на результаты AutoFit?**
+
+Да. Замена шрифта на другой с другими метриками глифов меняет ширину/высоту текста, что может изменить итоговый размер шрифта и перенос строк. После любой замены шрифта рекомендуется повторно проверить слайды.

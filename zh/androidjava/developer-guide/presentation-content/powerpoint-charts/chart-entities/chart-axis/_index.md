@@ -1,27 +1,44 @@
 ---
-title: 图表轴
+title: 在 Android 上的演示文稿中自定义图表坐标轴
+linktitle: 图表坐标轴
 type: docs
 url: /zh/androidjava/chart-axis/
-keywords: "PowerPoint 图表轴, 演示文稿图表, Java, 操作图表轴, 图表数据"
-description: "如何在 Java 中编辑 PowerPoint 图表轴"
+keywords:
+- 图表坐标轴
+- 垂直坐标轴
+- 水平坐标轴
+- 自定义坐标轴
+- 操作坐标轴
+- 管理坐标轴
+- 坐标轴属性
+- 最大值
+- 最小值
+- 坐标轴线
+- 日期格式
+- 坐标轴标题
+- 坐标轴位置
+- PowerPoint
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Android via Java 在 PowerPoint 演示文稿中自定义图表坐标轴，满足报告和可视化需求。"
 ---
 
-
 ## **获取图表垂直轴的最大值**
-Aspose.Slides for Android via Java 允许您获取垂直轴上的最小和最大值。请按照以下步骤操作：
+Aspose.Slides for Android via Java 允许您获取垂直轴的最小值和最大值。请按照以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
-1. 添加具有默认数据的图表。
+1. 添加一个使用默认数据的图表。
 1. 获取轴上的实际最大值。
 1. 获取轴上的实际最小值。
-1. 获取轴的实际主要单位。
-1. 获取轴的实际次要单位。
-1. 获取轴的实际主要单位比例。
-1. 获取轴的实际次要单位比例。
+1. 获取轴的实际主单位。
+1. 获取轴的实际次单位。
+1. 获取轴的实际主单位刻度。
+1. 获取轴的实际次单位刻度。
 
-这段示例代码——上述步骤的实现——展示了如何在 Java 中获取所需的值：
-
+以下示例代码（上述步骤的实现）展示了如何在 Java 中获取所需的值：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -41,19 +58,17 @@ try {
 }
 ```
 
-## **交换轴之间的数据**
-Aspose.Slides 让您可以快速交换轴之间的数据——垂直轴 (y轴) 上表示的数据移动到水平轴 (x轴) 上，反之亦然。
 
-这段 Java 代码展示了如何在图表上执行轴之间的数据交换任务：
+## **在轴之间交换数据**
+Aspose.Slides 允许您快速在轴之间交换数据——垂直轴（y 轴）的数据会移动到水平轴（x 轴），反之亦然。 
 
+以下 Java 代码展示了如何在图表的轴之间执行数据交换任务：
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// 切换行和列
-	chart.getChartData().switchRowColumn();
-
+	//切换行和列
 	// 保存演示文稿
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -61,10 +76,9 @@ try {
 }
 ```
 
-## **禁用折线图的垂直轴**
 
-这段 Java 代码展示了如何隐藏折线图的垂直轴：
-
+## **在折线图中禁用垂直轴**
+以下 Java 代码展示了如何隐藏折线图的垂直轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +91,9 @@ try {
 }
 ```
 
-## **禁用折线图的水平轴**
 
-这段代码展示了如何隐藏折线图的水平轴：
-
+## **在折线图中禁用水平轴**
+以下代码展示了如何隐藏折线图的水平轴：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,10 +106,9 @@ try {
 }
 ```
 
+
 ## **更改类别轴**
-
-使用 **CategoryAxisType** 属性，您可以指定所需的类别轴类型（**date** 或 **text**）。这段 Java 代码演示了该操作：
-
+使用 **CategoryAxisType** 属性，您可以指定首选的类别轴类型（**date** 或 **text**）。以下 Java 代码演示了此操作： 
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -111,9 +123,9 @@ try {
 }
 ```
 
-## **设置类别轴值的日期格式**
-Aspose.Slides for Android via Java 允许您设置类别轴值的日期格式。该操作在这段 Java 代码中演示：
 
+## **为类别轴值设置日期格式**
+Aspose.Slides for Android via Java 允许您为类别轴值设置日期格式。以下 Java 代码演示了该操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -143,6 +155,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
@@ -155,9 +168,9 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **设置图表轴标题的旋转角度**
-Aspose.Slides for Android via Java 允许您设置图表轴标题的旋转角度。这段 Java 代码演示了该操作：
 
+## **为图表轴标题设置旋转角度**
+Aspose.Slides for Android via Java 允许您为图表轴标题设置旋转角度。以下 Java 代码演示了该操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -170,12 +183,11 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-## **在类别或数值轴中设置位置轴**
-Aspose.Slides for Android via Java 允许您在类别或数值轴中设置位置轴。这段 Java 代码展示了如何执行该任务：
 
+## **在类别轴或数值轴上设置轴位置**
+Aspose.Slides for Android via Java 允许您在类别轴或数值轴上设置轴位置。以下 Java 代码展示了如何执行此任务：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -189,9 +201,9 @@ try {
 }
 ```
 
-## **启用图表值轴上的显示单位标签**
-Aspose.Slides for Android via Java 允许您配置图表以在其图表值轴上显示单位标签。这段 Java 代码演示了该操作：
 
+## **在图表数值轴上启用显示单位标签**
+Aspose.Slides for Android via Java 允许您配置图表以在其数值轴上显示单位标签。以下 Java 代码演示了该操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,3 +216,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**如何设置一条轴与另一条轴相交的值（轴交叉）？**
+
+坐标轴提供了一个 [crossing setting](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-)：您可以选择在零、在最大类别/值或在特定数值处交叉。这对于上下移动 X 轴或突出基线非常有用。
+
+**如何相对于轴定位刻度标签（旁边、外部、内部）？**
+
+将 [label position](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) 设置为 "cross"、"outside" 或 "inside"。这会影响可读性，并有助于节省空间，尤其是在小型图表上。

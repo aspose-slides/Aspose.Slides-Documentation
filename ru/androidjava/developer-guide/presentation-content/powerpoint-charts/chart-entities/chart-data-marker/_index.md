@@ -1,21 +1,34 @@
 ---
-title: Маркер данных диаграммы
+title: Управление маркерами данных диаграмм в презентациях на Android
+linktitle: Маркер данных
 type: docs
 url: /ru/androidjava/chart-data-marker/
+keywords:
+- диаграмма
+- точка данных
+- маркер
+- параметры маркера
+- размер маркера
+- тип заливки
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Настройте маркеры данных диаграмм в Aspose.Slides для Android, повышая эффективность презентаций в форматах PPT и PPTX с помощью понятных примеров кода на Java."
 ---
 
-## **Настройка параметров маркера диаграммы**
-Маркер можно установить на точки данных диаграммы внутри определенных серий. Чтобы установить параметры маркера диаграммы, выполните следующие шаги:
+## **Настройка параметров маркеров диаграммы**
+Маркеры можно установить для точек данных диаграммы внутри определённых рядов. Чтобы задать параметры маркеров диаграммы, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Создайте стандартную диаграмму.
+- Создайте диаграмму по умолчанию.
 - Установите изображение.
-- Возьмите первую серию диаграммы.
+- Возьмите первый ряд диаграммы.
 - Добавьте новую точку данных.
 - Сохраните презентацию на диск.
 
-В приведенном ниже примере мы установили параметры маркера диаграммы на уровне точек данных.
-
+В приведённом ниже примере мы задали параметры маркеров диаграммы на уровне точек данных.
 ```java
 // Создание пустой презентации
 Presentation pres = new Presentation();
@@ -23,20 +36,20 @@ try {
     // Доступ к первому слайду
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Создание стандартной диаграммы
+    // Создание диаграммы по умолчанию
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 0, 0, 400, 400);
     
-    // Получение индекса рабочего листа с данными диаграммы
+    // Получение индекса листа данных диаграммы по умолчанию
     int defaultWorksheetIndex = 0;
     
-    // Получение рабочего листа с данными диаграммы
+    // Получение листа данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Удаление демонстрационной серии
+    // Удаление демонстрационных рядов
     chart.getChartData().getSeries().clear();
     
-    // Добавление новой серии
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Серия 1"), chart.getType());
+    // Добавление нового ряда
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
 
     // Загрузка изображения 1
     IPPImage imgx1 = pres.getImages().addImage(new FileInputStream(new File("Desert.jpg")));
@@ -44,10 +57,10 @@ try {
     // Загрузка изображения 2
     IPPImage imgx2 = pres.getImages().addImage(new FileInputStream(new File("Tulips.jpg")));
     
-    // Получение первой серии диаграммы
+    // Получение первого ряда диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Добавление новой точки (1:3) там.
+    // Добавление новой точки (1:3) туда.
     IChartDataPoint point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 1, 1, (double) 4.5));
     point.getMarker().getFormat().getFill().setFillType(FillType.Picture);
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
@@ -64,7 +77,7 @@ try {
     point.getMarker().getFormat().getFill().setFillType(FillType.Picture);
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
     
-    // Изменение размера маркера серии диаграммы
+    // Изменение маркера ряда диаграммы
     series.getMarker().setSize(15);
     
     // Сохранение презентации с диаграммой
@@ -74,3 +87,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Какие формы маркеров доступны сразу?**
+
+Доступны стандартные формы (круг, квадрат, ромб, треугольник и т.д.); список определяется классом [MarkerStyleType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markerstyletype/). Если нужна нестандартная форма, используйте маркер с заливкой изображением для имитации пользовательского отображения.
+
+**Сохраняются ли маркеры при экспорте диаграммы в изображение или SVG?**
+
+Да. При рендеринге диаграмм в [raster formats](/slides/ru/androidjava/convert-powerpoint-to-png/) или сохранении [shapes as SVG](/slides/ru/androidjava/render-a-slide-as-an-svg-image/) маркеры сохраняют свой внешний вид и настройки, включая размер, заливку и контур.

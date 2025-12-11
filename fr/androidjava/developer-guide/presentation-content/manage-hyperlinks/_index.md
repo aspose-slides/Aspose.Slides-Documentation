@@ -1,31 +1,47 @@
 ---
-title: Gérer les Hyperliens
+title: Gérer les hyperliens de présentation sur Android
+linktitle: Gérer les hyperliens
 type: docs
 weight: 20
 url: /fr/androidjava/manage-hyperlinks/
-keywords: "Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, Java"
-description: "Comment ajouter un hyperlien à une présentation PowerPoint en Java"
+keywords:
+- ajouter URL
+- ajouter hyperlien
+- créer hyperlien
+- formater hyperlien
+- supprimer hyperlien
+- mettre à jour hyperlien
+- hyperlien texte
+- hyperlien diapositive
+- hyperlien forme
+- hyperlien image
+- hyperlien vidéo
+- hyperlien mutable
+- PowerPoint
+- OpenDocument
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Gérez facilement les hyperliens dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Android via Java — améliorez l'interactivité et le flux de travail en quelques minutes."
 ---
 
-Un hyperlien est une référence à un objet ou des données ou un lieu dans quelque chose. Voici des hyperliens courants dans les présentations PowerPoint :
+Un hyperlien est une référence à un objet, à des données ou à un emplacement dans quelque chose. Voici des hyperliens courants dans les présentations PowerPoint :
 
-* Liens vers des sites web à l'intérieur de textes, formes ou médias
+* Liens vers des sites Web dans les textes, les formes ou les médias
 * Liens vers des diapositives
 
-Aspose.Slides pour Android via Java vous permet d'effectuer de nombreuses tâches impliquant des hyperliens dans des présentations.
+Aspose.Slides pour Android via Java vous permet d'effectuer de nombreuses tâches liées aux hyperliens dans les présentations.
 
 {{% alert color="primary" %}} 
-
-Vous voudrez peut-être consulter le simple éditeur PowerPoint en ligne [gratuit d'Aspose.](https://products.aspose.app/slides/editor)
-
+Vous voudrez peut-être découvrir Aspose simple, [éditeur PowerPoint en ligne gratuit.](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **Ajout d'Hypelriens URL**
+## **Ajouter des hyperliens URL**
 
-### **Ajout d'Hypelriens URL à des Textes**
+### **Ajouter des hyperliens URL au texte**
 
-Ce code Java vous montre comment ajouter un hyperlien de site web à un texte :
-
+Ce code Java montre comment ajouter un hyperlien vers un site Web à un texte :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -34,7 +50,7 @@ try {
 	
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
 	presentation.save("presentation-out.pptx", SaveFormat.Pptx);
@@ -43,17 +59,17 @@ try {
 }
 ```
 
-### **Ajout d'Hypelriens URL à des Formes ou Cadres**
 
-Ce code d'exemple en Java vous montre comment ajouter un hyperlien de site web à une forme :
+### **Ajouter des hyperliens URL aux formes ou aux cadres**
 
+Cet exemple de code en Java montre comment ajouter un hyperlien vers un site Web à une forme :
 ```java
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
 
 	shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	shape.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
@@ -61,12 +77,12 @@ try {
 }
 ```
 
-### **Ajout d'Hypelriens URL à des Médias**
 
-Aspose.Slides vous permet d'ajouter des hyperliens à des images, des fichiers audio et vidéo. 
+### **Ajouter des hyperliens URL aux médias**
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à une **image** :
+Aspose.Slides vous permet d'ajouter des hyperliens aux fichiers image, audio et vidéo. 
 
+Ce code d'exemple montre comment ajouter un hyperlien à une **image** :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -78,11 +94,11 @@ try {
     } finally {
           if (image != null) image.dispose();
     }
-	// Crée un cadre image sur la diapo 1 basé sur l'image ajoutée précédemment
+	// Crée un cadre d'image sur la diapositive 1 à partir de l'image précédemment ajoutée
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	pictureFrame.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -91,8 +107,8 @@ try {
 }
 ```
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à un **fichier audio** :
 
+Ce code d'exemple montre comment ajouter un hyperlien à un **fichier audio** :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -100,7 +116,7 @@ try {
 	IAudioFrame audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
 
 	audioFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	audioFrame.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -109,8 +125,8 @@ try {
 }
 ```
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à une **vidéo** :
 
+Ce code d'exemple montre comment ajouter un hyperlien à une **vidéo** :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -118,7 +134,7 @@ try {
 	IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
 
 	videoFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	videoFrame.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
@@ -127,18 +143,16 @@ try {
 }
 ```
 
+
 {{%  alert  title="Astuce"  color="primary"  %}} 
-
 Vous voudrez peut-être voir *[Gérer OLE](/slides/fr/androidjava/manage-ole/)*.
-
 {{% /alert %}}
 
-## **Utilisation des Hyperliens pour Créer une Table des Matières**
+## **Utiliser les hyperliens pour créer une table des matières**
 
-Puisque les hyperliens vous permettent d'ajouter des références à des objets ou des lieux, vous pouvez les utiliser pour créer une table des matières. 
+Comme les hyperliens vous permettent d'ajouter des références à des objets ou à des emplacements, vous pouvez les utiliser pour créer une table des matières.
 
-Ce code d'exemple vous montre comment créer une table des matières avec des hyperliens :
-
+Ce code d'exemple montre comment créer une table des matières avec des hyperliens :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -153,7 +167,7 @@ try {
 	Paragraph paragraph = new Paragraph();
 	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-	paragraph.setText("Titre de la diapositive 2 .......... ");
+	paragraph.setText("Title of slide 2 .......... ");
 
 	Portion linkPortion = new Portion();
 	linkPortion.setText("Page 2");
@@ -168,19 +182,19 @@ try {
 }
 ```
 
-## **Formatage des Hyperliens**
+
+## **Formater les hyperliens**
 
 ### **Couleur**
 
-Avec la propriété [ColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) dans l'interface [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink), vous pouvez définir la couleur des hyperliens et également obtenir les informations de couleur des hyperliens. La fonctionnalité a été introduite pour la première fois dans PowerPoint 2019, donc les changements impliquant la propriété ne s'appliquent pas aux versions PowerPoint plus anciennes.
+Grâce à la propriété [ColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) dans l'interface [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink), vous pouvez définir la couleur des hyperliens et également obtenir les informations de couleur provenant des hyperliens. Cette fonctionnalité a été introduite pour la première fois dans PowerPoint 2019, de sorte que les modifications concernant cette propriété ne s'appliquent pas aux versions antérieures de PowerPoint.
 
-Ce code d'exemple démontre une opération où des hyperliens avec différentes couleurs ont été ajoutés à la même diapositive :
-
+Ce code d'exemple montre une opération où des hyperliens de couleurs différentes ont été ajoutés à la même diapositive :
 ```java
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-	shape1.addTextFrame("Ceci est un exemple d'hyperlien coloré.");
+	shape1.addTextFrame("This is a sample of colored hyperlink.");
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
@@ -188,7 +202,7 @@ try {
 	portionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
 
 	IAutoShape shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-	shape2.addTextFrame("Ceci est un exemple d'hyperlien habituel.");
+	shape2.addTextFrame("This is a sample of usual hyperlink.");
 	shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 
 	pres.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
@@ -197,12 +211,12 @@ try {
 }
 ```
 
-## **Suppression des Hyperliens dans les Présentations**
 
-### **Suppression des Hyperliens des Textes**
+## **Supprimer les hyperliens des présentations**
 
-Ce code Java vous montre comment supprimer l'hyperlien d'un texte dans une diapositive de présentation :
+### **Supprimer les hyperliens du texte**
 
+Ce code Java montre comment supprimer l'hyperlien d'un texte dans une diapositive de présentation :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -228,10 +242,10 @@ try {
 }
 ```
 
-### **Suppression des Hyperliens des Formes ou Cadres**
 
-Ce code Java vous montre comment supprimer l'hyperlien d'une forme dans une diapositive de présentation : 
+### **Supprimer les hyperliens des formes ou des cadres**
 
+Ce code Java montre comment supprimer l'hyperlien d'une forme dans une diapositive de présentation : 
 ```java
 Presentation pres = new Presentation();
 try {
@@ -246,9 +260,10 @@ try {
 }
 ```
 
-## **Hyperlien Modifiable**
 
-La classe [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink) est mutable. Avec cette classe, vous pouvez changer les valeurs de ces propriétés :
+## **Hyperlien mutable**
+
+La classe [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink) est mutable. Avec cette classe, vous pouvez modifier les valeurs de ces propriétés :
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -256,8 +271,7 @@ La classe [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Le snippet de code vous montre comment ajouter un hyperlien à une diapositive et modifier son tooltip ultérieurement :
-
+L'extrait de code montre comment ajouter un hyperlien à une diapositive et modifier son infobulle ultérieurement :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -266,7 +280,7 @@ try {
 
 	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("Plus de 70% des entreprises Fortune 100 font confiance aux API Aspose");
+	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
@@ -275,17 +289,32 @@ try {
 }
 ```
 
-## **Propriétés Supportées dans IHyperlinkQueries**
 
-Vous pouvez accéder à [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) depuis une présentation, une diapositive ou du texte pour lequel l'hyperlien est défini.
+## **Propriétés prises en charge dans IHyperlinkQueries**
+
+Vous pouvez accéder à [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) depuis une présentation, une diapositive ou un texte pour lequel l'hyperlien est défini.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-La classe [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) supporte ces méthodes et propriétés :
+La classe [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) prend en charge ces méthodes et propriétés :
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+
+## **FAQ**
+
+**Comment puis‑je créer une navigation interne non seulement vers une diapositive, mais vers une « section » ou la première diapositive d’une section ?**
+
+Les sections dans PowerPoint sont des regroupements de diapositives ; la navigation cible techniquement une diapositive spécifique. Pour « naviguer vers une section », vous liez généralement à sa première diapositive.
+
+**Puis‑je attacher un hyperlien aux éléments de la diapositive maîtresse afin qu’il fonctionne sur toutes les diapositives ?**
+
+Oui. Les éléments de la diapositive maîtresse et des dispositions prennent en charge les hyperliens. Ces liens apparaissent sur les diapositives enfants et sont cliquables pendant le diaporama.
+
+**Les hyperliens seront‑ils conservés lors de l’exportation vers PDF, HTML, images ou vidéo ?**
+
+Dans [PDF](/slides/fr/androidjava/convert-powerpoint-to-pdf/) et [HTML](/slides/fr/androidjava/convert-powerpoint-to-html/), oui — les liens sont généralement conservés. Lors de l’exportation vers [images](/slides/fr/androidjava/convert-powerpoint-to-png/) et [vidéo](/slides/fr/androidjava/convert-powerpoint-to-video/), la possibilité de cliquer ne sera pas conservée en raison de la nature de ces formats (les images raster/vidéos ne prennent pas en charge les hyperliens).

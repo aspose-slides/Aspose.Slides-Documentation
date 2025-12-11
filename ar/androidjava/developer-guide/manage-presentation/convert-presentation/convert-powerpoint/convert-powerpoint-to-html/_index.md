@@ -1,54 +1,75 @@
 ---
-title: تحويل PowerPoint إلى HTML في Java
-linktitle: تحويل PowerPoint إلى HTML
+title: تحويل عروض PowerPoint إلى HTML على Android
+linktitle: PowerPoint إلى HTML
 type: docs
 weight: 30
 url: /ar/androidjava/convert-powerpoint-to-html/
-keywords: "Java PowerPoint إلى HTML, تحويل عرض PowerPoint, PPTX, PPT, PPT إلى HTML, PPTX إلى HTML, PowerPoint إلى HTML, حفظ PowerPoint كـ HTML, حفظ PPT كـ HTML, حفظ PPTX كـ HTML, Java, Aspose.Slides, تصدير HTML"
-description: "تحويل PowerPoint HTML في Java: حفظ PPTX أو PPT كـ HTML في Java. حفظ الشرائح كـ HTML في Java"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى HTML
+- العرض إلى HTML
+- الشريحة إلى HTML
+- PPT إلى HTML
+- PPTX إلى HTML
+- حفظ PowerPoint كـ HTML
+- حفظ العرض التقديمي كـ HTML
+- حفظ الشريحة كـ HTML
+- حفظ PPT كـ HTML
+- حفظ PPTX كـ HTML
+- تصدير PPT إلى HTML
+- تصدير PPTX إلى HTML
+- Android
+- Java
+- Aspose.Slides
+description: "تحويل عروض PowerPoint إلى HTML استجابي باستخدام Java. الحفاظ على التخطيط والروابط والصور باستخدام Aspose.Slides لنظام Android دليل التحويل للحصول على نتائج سريعة وخالية من الأخطاء."
 ---
 
 ## **نظرة عامة**
 
-تتناول هذه المقالة كيفية تحويل عرض PowerPoint إلى تنسيق HTML باستخدام Java. تغطي المواضيع التالية.
+هذه المقالة تشرح كيفية تحويل عرض PowerPoint إلى صيغة HTML باستخدام Java. تغطي المواضيع التالية.
 
-- تحويل PowerPoint إلى HTML في Java
-- تحويل PPT إلى HTML في Java
-- تحويل PPTX إلى HTML في Java
-- تحويل ODP إلى HTML في Java
-- تحويل شريحة PowerPoint إلى HTML في Java
+- تحويل PowerPoint إلى HTML باستخدام Java
+- تحويل PPT إلى HTML باستخدام Java
+- تحويل PPTX إلى HTML باستخدام Java
+- تحويل ODP إلى HTML باستخدام Java
+- تحويل شريحة PowerPoint إلى HTML باستخدام Java
 
-## **Java PowerPoint إلى HTML**
+## **PowerPoint إلى HTML على Android**
 
-للحصول على مثال لشفرة Java لتحويل PowerPoint إلى HTML، يرجى مراجعة القسم أدناه أي [تحويل PowerPoint إلى HTML](#convert-powerpoint-to-html). يمكن للشفرة تحميل عدد من التنسيقات مثل PPT و PPTX و ODP في كائن العرض وحفظه في تنسيق HTML.
+للحصول على مثال شفرة Java لتحويل PowerPoint إلى HTML، يرجى الاطلاع على القسم أدناه أي [تحويل PowerPoint إلى HTML](#convert-powerpoint-to-html). يمكن للشفرة تحميل عدد من الصيغ مثل PPT وPPTX وODP في كائن Presentation وحفظه بصيغة HTML.
 
 ## **حول تحويل PowerPoint إلى HTML**
-باستخدام [**Aspose.Slides لـ Android عبر Java**](https://products.aspose.com/slides/androidjava/)، يمكن للتطبيقات والمطورين تحويل عرض PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
 
-**Aspose.Slides** يوفر العديد من الخيارات (معظمها من فئة [**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)) التي تحدد عملية تحويل PowerPoint إلى HTML:
+باستخدام [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)، يمكن للتطبيقات والمطورين تحويل عرض PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
+
+**Aspose.Slides** توفر العديد من الخيارات (في الغالب من فئة [**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)) التي تحدد عملية تحويل PowerPoint إلى HTML:
 
 * تحويل عرض PowerPoint كامل إلى HTML.
-* تحويل شريحة معينة في عرض PowerPoint إلى HTML.
-* تحويل وسائط العرض (صور، فيديوهات، إلخ) إلى HTML.
-* تحويل عرض PowerPoint إلى HTML متجاوب. 
-* تحويل عرض PowerPoint إلى HTML مع ملاحظات المتحدث مشمولة أو مستبعدة. 
-* تحويل عرض PowerPoint إلى HTML مع التعليقات مشمولة أو مستبعدة. 
-* تحويل عرض PowerPoint إلى HTML مع خطوط أصلية أو مضمنة. 
-* تحويل عرض PowerPoint إلى HTML أثناء استخدام نمط CSS الجديد. 
+* تحويل شريحة محددة في عرض PowerPoint إلى HTML.
+* تحويل وسائط العرض (الصور، الفيديوهات، إلخ) إلى HTML.
+* تحويل عرض PowerPoint إلى HTML استجابي.
+* تحويل عرض PowerPoint إلى HTML مع تضمين أو استبعاد ملاحظات المتحدث.
+* تحويل عرض PowerPoint إلى HTML مع تضمين أو استبعاد التعليقات.
+* تحويل عرض PowerPoint إلى HTML مع الخطوط الأصلية أو المضمنة.
+* تحويل عرض PowerPoint إلى HTML مع استخدام نمط CSS الجديد.
 
 {{% alert color="primary" %}} 
 
-باستخدام واجهته البرمجية الخاصة، طورت Aspose محولات مجانية [للعرض إلى HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT إلى HTML](https://products.aspose.app/slides/conversion/ppt-to-html)، [PPTX إلى HTML](https://products.aspose.app/slides/conversion/pptx-to-html)، [ODP إلى HTML](https://products.aspose.app/slides/conversion/odp-to-html)، إلخ. 
+باستخدام API الخاص به، قامت Aspose بتطوير محولات مجانية لتحويل [العرض إلى HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT إلى HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX إلى HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP إلى HTML](https://products.aspose.app/slides/conversion/odp-to-html), إلخ. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-قد ترغب في التحقق من المحولات الأخرى [المجانية من Aspose](https://products.aspose.app/slides/conversion).
+قد ترغب في الاطلاع على [محولات مجانية أخرى من Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
 
-{{% alert title="ملاحظة" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-بجانب عمليات التحويل الموصوفة هنا، تدعم Aspose.Slides أيضًا هذه العمليات التحويلية المتعلقة بتنسيق HTML: 
+إلى جانب عمليات التحويل الموصوفة هنا، يدعم Aspose.Slides أيضًا عمليات التحويل التالية المتعلقة بصيغة HTML:
 
 * [HTML إلى صورة](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)
 * [HTML إلى JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)
@@ -57,17 +78,14 @@ description: "تحويل PowerPoint HTML في Java: حفظ PPTX أو PPT كـ HT
 
 {{% /alert %}}
 
-
 ## **تحويل PowerPoint إلى HTML**
 باستخدام Aspose.Slides، يمكنك تحويل عرض PowerPoint كامل إلى HTML بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
-1. استخدم أسلوب [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) لحفظ الكائن كملف HTML.
-
-تعرض هذه الشفرة كيفية تحويل PowerPoint إلى HTML في Java:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. استخدم الطريقة [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) لحفظ الكائن كملف HTML.
 
 ```java
-// إنشاء كائن Presentation يمثل ملف عرض
+// إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("Convert_HTML.pptx");
 try {
     HtmlOptions htmlOpt = new HtmlOptions();
@@ -76,7 +94,7 @@ try {
 	
     htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
 
-    // حفظ العرض إلى HTML
+    // حفظ العرض التقديمي إلى HTML
     pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
 } finally {
     if (pres != null) pres.dispose();
@@ -84,27 +102,26 @@ try {
 ```
 
 
-## **تحويل PowerPoint إلى HTML متجاوب**
-توفر Aspose.Slides فئة [ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ResponsiveHtmlController) التي تتيح لك إنشاء ملفات HTML متجاوبة. تعرض هذه الشفرة كيفية تحويل عرض PowerPoint إلى HTML متجاوب في Java:
-
+## **تحويل PowerPoint إلى HTML استجابي**
+توفر Aspose.Slides الفئة [ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ResponsiveHtmlController) التي تسمح بإنشاء ملفات HTML استجابية. يوضح هذا المثال كيفية تحويل عرض PowerPoint إلى HTML استجابي باستخدام Java:
 ```java
-// إنشاء كائن Presentation يمثل ملف عرض
+// إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("Convert_HTML.pptx");
 try {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
     HtmlOptions htmlOptions = new HtmlOptions();
     htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
 
-    // حفظ العرض إلى HTML
+    // حفظ العرض التقديمي إلى HTML
     pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تحويل PowerPoint إلى HTML مع الملاحظات**
-تعرض هذه الشفرة كيفية تحويل PowerPoint إلى HTML مع الملاحظات في Java:
 
+## **تحويل PowerPoint إلى HTML مع الملاحظات**
+يوضح هذا المثال كيفية تحويل PowerPoint إلى HTML مع الملاحظات باستخدام Java:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -120,18 +137,18 @@ try {
 }
 ```
 
+
 ## **تحويل PowerPoint إلى HTML مع الخطوط الأصلية**
 
-توفر Aspose.Slides فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) التي تتيح لك تضمين جميع الخطوط في العرض أثناء تحويل العرض إلى HTML.
+توفر Aspose.Slides الفئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) التي تسمح بدمج جميع الخطوط في العرض أثناء تحويله إلى HTML.
 
-لتجنب تضمين بعض الخطوط، يمكنك تمرير مصفوفة من أسماء الخطوط إلى منشئ معلمات من فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController). الخطوط الشائعة، مثل Calibri أو Arial، عند استخدامها في عرض، لا تحتاج إلى تضمينها لأن معظم الأنظمة تحتوي بالفعل على هذه الخطوط. عندما يتم تضمين هذه الخطوط، يصبح مستند HTML الناتج كبيرًا بشكل غير ضروري.
+لمنع دمج خطوط معينة، يمكنك تمرير مصفوفة من أسماء الخطوط إلى مُنشئ مُعَدل من فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController). الخطوط الشائعة مثل Calibri أو Arial لا تحتاج إلى دمجها إذا كانت موجودة بالفعل في النظام. عندما يتم دمج هذه الخطوط يصبح مستند HTML كبيرًا بشكل غير ضروري.
 
-تدعم فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) الوراثة وتوفر أسلوب [WriteFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) الذي يهدف إلى أن يتم تجاوزه.
-
+تدعم فئة [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController) الوراثة وتوفر الطريقة [WriteFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) التي يُقصد تجاوزها.
 ```java
 Presentation pres = new Presentation("input.pptx");
 try {
-    // استبعاد الخطوط الافتراضية للعرض
+    // استبعاد خطوط العرض التقديمي الافتراضية
     String[] fontNameExcludeList = { "Calibri", "Arial" };
 
     EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
@@ -145,12 +162,12 @@ try {
 }
 ```
 
+
 ## **تحويل PowerPoint إلى HTML مع صور عالية الجودة**
 
-بشكل افتراضي، عند تحويل PowerPoint إلى HTML، تقوم Aspose.Slides بإخراج HTML صغير مع صور بدقة 72 DPI والمناطق المقصوصة المحذوفة. للحصول على ملفات HTML مع صور عالية الجودة، يجب عليك تعيين خاصية `PicturesCompression` (من فئة `HtmlOptions`) إلى 96 (أي `PicturesCompression.Dpi96`) أو قيم أعلى [قيم](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PicturesCompression).
+افتراضيًا، عند تحويل PowerPoint إلى HTML، يُنتج Aspose.Slides ملفات HTML صغيرة مع صور بدقة 72 DPI ومساحات مقطوعة محذوفة. للحصول على ملفات HTML بصور ذات جودة أعلى، عليك ضبط الخاصية `PicturesCompression` (من فئة `HtmlOptions`) إلى 96 (`PicturesCompression.Dpi96`) أو قيم أعلى كما هو موضح في [القيم المتاحة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PicturesCompression).
 
-تعرض هذه الشفرة في Java كيفية تحويل عرض PowerPoint إلى HTML مع الحصول على صور عالية الجودة بدقة 150 DPI (أي `PicturesCompression.Dpi150`):
-
+يعرض هذا المثال في Java كيفية تحويل عرض PowerPoint إلى HTML مع الحصول على صور عالية الجودة بدقة 150 DPI (`PicturesCompression.Dpi150`):
 ```java
 Presentation pres = new Presentation("InputDoc.pptx");
 try {
@@ -163,8 +180,8 @@ try {
 }
 ```
 
-توضح هذه الشفرة في Java كيفية إخراج HTML مع صور كاملة الجودة:
 
+يعرض هذا الشيفرة في Java كيفية إخراج HTML بصور بجودة كاملة:
 ```java
 Presentation pres = new Presentation("InputDoc.pptx");
 try {
@@ -177,10 +194,9 @@ try {
 }
 ```
 
-## **تحويل شريحة إلى HTML**
-لتحويل شريحة معينة في PowerPoint إلى HTML، يجب عليك إنشاء مثيل من نفس فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) (التي تستخدم لتحويل العروض الكاملة إلى HTML) ثم استخدام أسلوب [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) لحفظ الملف كـ HTML. يمكن استخدام فئة [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) لتحديد خيارات التحويل الإضافية:
 
-توضح هذه الشفرة في Java كيفية تحويل شريحة في عرض PowerPoint إلى HTML:
+## **تحويل شريحة إلى HTML**
+لتحويل شريحة محددة في PowerPoint إلى HTML، يجب إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) (المستخدمة لتحويل العروض الكاملة إلى HTML) ثم استخدام الطريقة [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) لحفظ الملف كـ HTML. يمكن استخدام فئة [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) لتحديد خيارات تحويل إضافية:
 
 ```java
 Presentation pres = new Presentation("Individual-Slide.pptx");
@@ -197,6 +213,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public class CustomFormattingController implements IHtmlFormattingController
 {
@@ -230,11 +247,10 @@ public class CustomFormattingController implements IHtmlFormattingController
 ```
 
 
-## **حفظ CSS والصور عند تصدير إلى HTML**
-باستخدام ملفات أنماط CSS الجديدة، يمكنك بسهولة تغيير نمط ملف HTML الناتج عن عملية تحويل PowerPoint إلى HTML. 
+## **حفظ CSS والصور عند التصدير إلى HTML**
+باستخدام ملفات نمط CSS الجديدة، يمكنك بسهولة تغيير نمط ملف HTML الناتج عن عملية تحويل PowerPoint إلى HTML.
 
-توضح هذه الشفرة في Java مثالًا عن كيفية استخدام الأساليب القابلة للتجاوز لإنشاء مستند HTML مخصص مع رابط إلى ملف CSS:
-
+يوضح الشيفرة Java في هذا المثال كيفية استخدام طرق قابلة للتجاوز لإنشاء مستند HTML مخصص مع ارتباط إلى ملف CSS:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -277,23 +293,23 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 
     public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
     {
-        generator.addHtml("<!-- الخطوط المدمجة -->");
+        generator.addHtml("<!-- Embedded fonts -->");
         super.writeAllFonts(generator, presentation);
     }
 }
 ```
 
-## **ربط جميع الخطوط عند تحويل العرض إلى HTML**
 
-إذا كنت لا ترغب في تضمين الخطوط (لتجنب زيادة حجم HTML الناتج)، يمكنك ربط جميع الخطوط من خلال تنفيذ نسختك الخاصة من `LinkAllFontsHtmlController`.
+## **ربط جميع الخطوط عند تحويل عرض إلى HTML**
 
-توضح هذه الشفرة في Java كيفية تحويل PowerPoint إلى HTML مع ربط جميع الخطوط واستبعاد "Calibri" و "Arial" (لأنها موجودة بالفعل في النظام): 
+إذا كنت لا تريد دمج الخطوط (لتجنب زيادة حجم HTML الناتج)، يمكنك ربط جميع الخطوط عن طريق تنفيذ نسخة خاصة من `LinkAllFontsHtmlController`.
 
+يوضح هذا المثال في Java كيفية تحويل PowerPoint إلى HTML مع ربط جميع الخطوط واستبعاد "Calibri" و"Arial" (لأنهما موجودان بالفعل في النظام):
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try
 {
-    // استبعاد الخطوط الافتراضية للعرض
+    // استبعاد خطوط العرض التقديمي الافتراضية
     String[] fontNameExcludeList = { "Calibri", "Arial" };
 
     LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
@@ -308,8 +324,8 @@ finally {
 }
 ```
 
-توضح هذه الشفرة في Java كيفية تنفيذ `LinkAllFontsHtmlController`:
 
+يوضح هذا المثال في Java كيفية تنفيذ `LinkAllFontsHtmlController`:
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
@@ -332,7 +348,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     {
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // قد تحتاج إلى تطهير المسار
+            String path = fontName + ".woff"; // some path sanitaze may be needed
             Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
 
             generator.addHtml("<style>");
@@ -349,9 +365,9 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 }
 ```
 
-## **تحويل PowerPoint إلى HTML متجاوب**
-توضح هذه الشفرة في Java كيفية تحويل عرض PowerPoint إلى HTML متجاوب:
 
+## **تحويل PowerPoint إلى HTML استجابي**
+يوضح هذا المثال في Java كيفية تحويل عرض PowerPoint إلى HTML استجابي:
 ```java
 Presentation pres = new Presentation("SomePresentation.pptx");
 try {
@@ -365,17 +381,15 @@ try {
 
 
 ## **تصدير ملفات الوسائط إلى HTML**
-باستخدام Aspose.Slides لـ Android عبر Java، يمكنك تصدير ملفات الوسائط بهذه الطريقة:
+باستخدام Aspose.Slides for Android via Java، يمكنك تصدير ملفات الوسائط بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
-1. احصل على مرجع إلى الشريحة.
-1. أضف فيديو إلى الشريحة.
-1. اكتب العرض كملف HTML.
-
-توضح هذه الشفرة في Java كيفية إضافة فيديو إلى العرض ثم حفظه كـ HTML: 
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. الحصول على مرجع إلى الشريحة.
+1. إضافة فيديو إلى الشريحة.
+1. كتابة العرض كملف HTML.
 
 ```java
-// تحميل عرض
+// تحميل عرض تقديمي
 Presentation pres = new Presentation();
 try {
     String path = "./out/";
@@ -388,7 +402,7 @@ try {
 
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
-    // تعيين خيارات HTML
+    // إعداد خيارات HTML
     HtmlOptions htmlOptions = new HtmlOptions(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
 
@@ -402,3 +416,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما هو أداء Aspose.Slides عند تحويل عدة عروض إلى HTML؟**
+
+يعتمد الأداء على حجم وتعقيد العروض. Aspose.Slides فعال للغاية وقابل للتوسيع للعمليات على دفعات. لتحقيق أفضل أداء عند تحويل العديد من العروض، يُنصَح باستخدام تعدد المسارات أو المعالجة المتوازية كلما كان ذلك ممكنًا.
+
+**هل يدعم Aspose.Slides تصدير الروابط التشعبية إلى HTML؟**
+
+نعم، يدعم Aspose.Slides تصدير الروابط التشعبية المدمجة إلى HTML بالكامل. عند تحويل العروض إلى صيغة HTML، تُحافظ الروابط التشعبية تلقائيًا وتظل قابلة للنقر.
+
+**هل هناك حد لعدد الشرائح عند تحويل العروض إلى HTML؟**
+
+لا يوجد حد لعدد الشرائح عند استخدام Aspose.Slides. يمكنك تحويل عروض بأي حجم. ومع ذلك، بالنسبة للعروض التي تحتوي على عدد كبير جدًا من الشرائح، قد يعتمد الأداء على الموارد المتاحة في الخادم أو النظام الخاص بك.

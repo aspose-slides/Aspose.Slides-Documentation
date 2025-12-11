@@ -1,36 +1,62 @@
 ---
-title: Конвертировать PPTX в PPT на Java
-linktitle: Конвертировать PPTX в PPT
+title: Конвертировать PPTX в PPT на Android
+linktitle: PPTX в PPT
 type: docs
 weight: 21
 url: /ru/androidjava/convert-pptx-to-ppt/
-keywords: "Java Конвертировать PPTX в PPT, Конвертировать презентацию PowerPoint, PPTX в PPT, Java, Aspose.Slides"
-description: "Конвертировать PowerPoint PPTX в PPT на Java"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPTX
+- PPTX в PPT
+- сохранить PPTX как PPT
+- экспортировать PPTX в PPT
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Легко конвертировать PPTX в PPT с помощью Aspose.Slides для Android через Java — обеспечьте бесшовную совместимость с форматами PowerPoint, сохраняя макет и качество вашей презентации."
 ---
 
 ## **Обзор**
 
-В этой статье объясняется, как конвертировать презентацию PowerPoint в формате PPTX в формат PPT с использованием Java. Рассматривается следующая тема.
+В этой статье объясняется, как с помощью Java преобразовать презентацию PowerPoint в формате PPTX в формат PPT. Рассматривается следующая тема.
 
-- Конвертация PPTX в PPT на Java
+- Преобразование PPTX в PPT на Java
 
-## **Java Конвертировать PPTX в PPT**
+## **Преобразование PPTX в PPT на Android**
 
-Чтобы увидеть пример кода на Java для конвертации PPTX в PPT, пожалуйста, смотрите раздел ниже т.е. [Конвертировать PPTX в PPT](#convert-pptx-to-ppt). Он просто загружает файл PPTX и сохраняет его в формате PPT. Указывая различные форматы сохранения, вы также можете сохранить файл PPTX в многие другие форматы, такие как PDF, XPS, ODP, HTML и т.д., как обсуждено в этих статьях.
+Для получения примера кода Java для преобразования PPTX в PPT см. раздел ниже — [Convert PPTX to PPT](#convert-pptx-to-ppt). Он просто загружает файл PPTX и сохраняет его в формате PPT. Указывая разные форматы сохранения, вы также можете сохранять файл PPTX в многие другие форматы, такие как PDF, XPS, ODP, HTML и т.д., как обсуждается в этих статьях.
 
-- [Java Конвертировать PPTX в PDF](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-pdf/)
-- [Java Конвертировать PPTX в XPS](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-xps/)
-- [Java Конвертировать PPTX в HTML](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-html/)
-- [Java Конвертировать PPTX в ODP](https://docs.aspose.com/slides/androidjava/save-presentation/)
-- [Java Конвертировать PPTX в Изображение](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-png/)
+- [Java Convert PPTX to PDF](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-pdf/)
+- [Java Convert PPTX to XPS](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-xps/)
+- [Java Convert PPTX to HTML](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-html/)
+- [Java Convert PPTX to ODP](https://docs.aspose.com/slides/androidjava/save-presentation/)
+- [Java Convert PPTX to Image](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-png/)
 
-## **Конвертировать PPTX в PPT**
-Чтобы конвертировать PPTX в PPT, просто передайте имя файла и формат сохранения в метод **Save** класса [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Пример кода на Java ниже конвертирует презентацию из PPTX в PPT с использованием параметров по умолчанию.
-
+## **Преобразование PPTX в PPT**
+Чтобы преобразовать PPTX в PPT, просто передайте имя файла и формат сохранения в метод **Save** класса [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). Пример кода Java ниже преобразует презентацию из PPTX в PPT, используя параметры по умолчанию.
 ```java
-// создайте объект Presentation, представляющий файл PPTX
+// создать объект Presentation, представляющий файл PPTX
 Presentation presentation = new Presentation("template.pptx");
 
-// сохраните презентацию как PPT
+// сохранить презентацию в формате PPT
 presentation.save("output.ppt", SaveFormat.Ppt);  
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли все эффекты и функции PPTX при сохранении в устаревший формат PPT (97–2003)?**
+
+Не всегда. Формат PPT не поддерживает некоторые более новые возможности (например, определённые эффекты, объекты и поведения), поэтому функции могут быть упрощены или растрированы при конвертации.
+
+**Можно ли преобразовать только выбранные слайды в PPT, а не всю презентацию?**
+
+Прямое сохранение охватывает всю презентацию. Чтобы преобразовать конкретные слайды, создайте новую презентацию, содержащую только эти слайды, и сохраните её как PPT; альтернативно используйте сервис/API, поддерживающий параметры конвертации по слайдам.
+
+**Поддерживаются ли защищённые паролем презентации?**
+
+Да. Вы можете определить, защищён ли файл, открыть его с помощью пароля и также [configure protection/encryption settings](/slides/ru/androidjava/password-protected-presentation/) для сохраняемого PPT.

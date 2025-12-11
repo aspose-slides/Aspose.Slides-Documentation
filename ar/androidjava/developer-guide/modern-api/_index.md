@@ -1,53 +1,67 @@
 ---
-title: واجهة برمجة التطبيقات الحديثة
+title: تحسين معالجة الصور باستخدام الواجهة البرمجية الحديثة
+linktitle: الواجهة البرمجية الحديثة
 type: docs
 weight: 237
 url: /ar/androidjava/modern-api/
-keywords: "واجهة برمجة التطبيقات الحديثة متعددة المنصات"
-description: "واجهة برمجة التطبيقات الحديثة"
+keywords:
+- System.Drawing
+- واجهة برمجة التطبيقات الحديثة
+- رسم
+- صورة مصغرة للشرائح
+- تحويل الشريحة إلى صورة
+- صورة مصغرة للشكل
+- تحويل الشكل إلى صورة
+- صورة مصغرة للعرض التقديمي
+- تحويل العرض التقديمي إلى صور
+- إضافة صورة
+- إضافة صورة
+- Android
+- Java
+- Aspose.Slides
+description: "قم بتحديث معالجة صور الشرائح عن طريق استبدال واجهات برمجة التطبيقات التصويرية المهجورة بواجهة برمجة التطبيقات الحديثة لـ Java لتسهيل الأتمتة لـ PowerPoint و OpenDocument."
 ---
 
-## مقدمة
+## **المقدمة**
 
-تاريخيًا، تعتمد Aspose Slides على java.awt وتحتوي على الفئات التالية من هناك في واجهة البرمجة العامة:
+تاريخياً، كان Aspose Slides يعتمد على java.awt ويحتوي في واجهة برمجة التطبيقات العامة على الفئات التالية من هناك:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
-اعتبارًا من الإصدار 24.4، تم الإعلان عن هذه الواجهة البرمجية العامة على أنها قديمة.
+اعتبارًا من الإصدار 24.4، تم إعلان أن هذه الواجهة العامة مهجورة.
 
-للتخلص من الاعتماد على هذه الفئات، أضفنا ما يسمى "واجهة برمجة التطبيقات الحديثة" - أي الواجهة التي ينبغي استخدامها بدلاً من القديمة، والتي تحتوي توقيعاتها على اعتماد على Bitmap. تم الإعلان عن Canvas على أنها قديمة وتمت إزالة دعمها من واجهة برمجة تطبيقات Slides العامة.
+من أجل التخلص من الاعتماد على هذه الفئات، أضفنا ما يُسمى بـ “واجهة برمجة التطبيقات الحديثة” – أي الواجهة التي يجب استخدامها بدلًا من الواجهة المهجورة، التي تحتوي توقيعاتها على الاعتمادات على Bitmap. تم إعلان Canvas مهجور وتم إزالة دعمه من واجهة Slides العامة.
 
-سيتم إزالة واجهة البرمجة العامة القديمة التي تعتمد على System.Drawing في الإصدار 24.8.
+إزالة واجهة البرمجة العامة المهجورة التي تعتمد على System.Drawing ستكون في الإصدار 24.8.
 
-## واجهة برمجة التطبيقات الحديثة
+## **واجهة برمجة التطبيقات الحديثة**
 
-أضيفت الفئات والأنماط التالية إلى الواجهة البرمجية العامة:
+تمت إضافة الفئات والعدادات التالية إلى الواجهة العامة:
 
-- IImage - تمثل الصورة النقطية أو الصورة المتجهة.
-- ImageFormat - تمثل تنسيق ملف الصورة.
-- Images - طرق لإنشاء وإدارة واجهة IImage.
+- IImage – تمثّل الصورة النقطية أو المتجهة.
+- ImageFormat – تمثّل تنسيق ملف الصورة.
+- Images – طرق لإنشاء والعمل مع واجهة IImage.
 
-يرجى ملاحظة أن IImage يمكن التخلص منها (تImplement الواجهة IDisposable ويجب تغليف استخدامها داخل استخدام أو التخلص منه بطريقة مريحة أخرى).
+يرجى ملاحظة أن IImage قابل للتصريف (ينفّذ واجهة IDisposable ويجب تغليفه في using أو تصريفه بطريقة ملائمة).
 
-قد يبدو سيناريو استخدام الواجهة الجديدة على النحو التالي:
-
+سيناريو نموذجي لاستخدام الواجهة الجديدة قد يبدو كما يلي:
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // إنشاء مثيل قابل للتخلص من IImage من ملف على القرص.
+    // إنشاء نسخة قابلة للتصريف من IImage من الملف على القرص.
     IImage image = Images.fromFile("image.png");
     try {
-        // إنشاء صورة PowerPoint عن طريق إضافة مثيل IImage إلى صور العرض التقديمي.
+        // إنشاء صورة PowerPoint بإضافة نسخة من IImage إلى صور العرض التقديمي.
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // إضافة شكل صورة على الشريحة #1
+    // إضافة شكل صورة إلى الشريحة رقم 1
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // الحصول على مثيل IImage يمثل الشريحة #1.
+    // الحصول على نسخة من IImage تمثل الشريحة رقم 1.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Size(1920, 1080));
     try {
         // حفظ الصورة على القرص.
@@ -60,11 +74,12 @@ try {
 }
 ```
 
-## استبدال الكود القديم بواجهة برمجة التطبيقات الحديثة
 
-بشكل عام، ستحتاج إلى استبدال الاتصال بالطريقة القديمة باستخدام ImageIO بالطريقة الجديدة.
+## **استبدال الكود القديم بواجهة برمجة التطبيقات الحديثة**
 
-قديم:
+بشكل عام، ستحتاج إلى استبدال استدعاء الطريقة القديمة التي تستخدم ImageIO بالاستدعاء الجديد.
+
+القديم:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -88,7 +103,8 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-جديد:
+
+الجديد:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -103,10 +119,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة لشريحة
 
-كود يستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للشرائح**
 
+كود يستخدم واجهة مهجورة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -131,8 +147,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+واجهة حديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -147,10 +163,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة لشكل
 
-كود يستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للشكل**
 
+كود يستخدم واجهة مهجورة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -175,8 +191,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+واجهة حديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -191,10 +207,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة للعرض التقديمي
 
-كود يستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للعرض التقديمي**
 
+كود يستخدم واجهة مهجورة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -223,8 +239,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+واجهة حديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -249,10 +265,10 @@ try {
 }
 ```
 
-### إضافة صورة إلى العرض التقديمي
 
-كود يستخدم واجهة برمجة التطبيقات القديمة:
+### **إضافة صورة إلى العرض التقديمي**
 
+كود يستخدم واجهة مهجورة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -267,8 +283,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+واجهة حديثة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -286,10 +302,11 @@ try {
 }
 ```
 
-## الطرق التي سيتم إزالتها واستبدالها بواجهة برمجة التطبيقات الحديثة
 
-### العرض التقديمي
-| توقيع الطريقة                               | توقيع الطريقة البديلة                             |
+## **الطرق التي ستُحذف واستبدالاتها في الواجهة الحديثة**
+
+### **العرض التقديمي**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------|---------------------------------------------------------|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, Size imageSize) |
@@ -298,14 +315,14 @@ try {
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 
-### الشكل
-| توقيع الطريقة                                                      | توقيع الطريقة البديلة                                       |
+### **الشكل**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### الشريحة
-| توقيع الطريقة                                                      | توقيع الطريقة البديلة                                           |
+### **الشريحة**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(Size imageSize) | public final IImage getImage(Size imageSize) |
@@ -314,44 +331,58 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | سيتم حذفه بالكامل  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | سيتم حذفه بالكامل  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | سيتم حذفه بالكامل  |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely |
 
-### الإخراج
-| توقيع الطريقة                                                | توقيع الطريقة البديلة                                |
+### **المخرجات**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
-### مجموعة الصور
-| توقيع الطريقة                          | توقيع الطريقة البديلة               |
+### **ImageCollection**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
-| توقيع الطريقة                     | توقيع الطريقة البديلة   |
+### **PPImage**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |--------------------------------------|-----------------------------------------|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
-### تنسيق الأنماط
-| توقيع الطريقة                                          | توقيع الطريقة البديلة                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final Bitmap getTileImage(Integer styleColor)   | public final IImage getTile(Integer styleColor) |
+### **PatternFormat**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
+|-----------------------------------------------------------|------------------------------------------------------|
+| public final Bitmap getTileImage(Integer styleColor) | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
-### بيانات تنسيق الأنماط الفعالة
-| توقيع الطريقة                                          | توقيع الطريقة البديلة                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
+### **PatternFormatEffectiveData**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
+|-----------------------------------------------------------|------------------------------------------------------|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
-## سيتم إيقاف دعم واجهة البرمجة لإطار الرسم Canvas
+## **إيقاف دعم Canvas في الواجهة البرمجية**
 
-تم الإعلان عن الطرق باستخدام [Canvas](https://developer.android.com/reference/android/graphics/Canvas) على أنها قديمة وسيتم إزالة دعمها من واجهة البرمجة العامة.
+الطرق التي تستخدم [Canvas](https://developer.android.com/reference/android/graphics/Canvas) معلنة كمهجورة وسيتم إزالة دعمها من الواجهة العامة.
 
-سيتم إزالة الجزء من واجهة البرمجة الذي يستخدمها:
+الجزء من الواجهة الذي يستخدمها سيتم إزالته:
 
 [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
+
+## **الأسئلة الشائعة**
+
+**لماذا تم حذف android.graphics.Canvas؟**
+
+يتم إزالة دعم `Canvas` من الواجهة العامة لتوحيد العمل مع التصيير والصور، وإلغاء الاعتماد على الاعتمادات الخاصة بالمنصة، والتحول إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). ستُحذف جميع طرق التصيير إلى `Canvas`.
+
+**ما الفائدة العملية من IImage مقارنةً بـ BufferedImage؟**
+
+[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) يوحّد التعامل مع الصور النقطية والمتجهة ويبسّط حفظها بصيغ مختلفة عبر [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
+
+**هل ستؤثر الواجهة الحديثة على أداء إنشاء الصور المصغرة؟**
+
+التحول من `getThumbnail` إلى `getImage` لا يضعف السيناريوهات: الطرق الجديدة توفر نفس القدرات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات التصيير. الفائدة أو الخسارة المحددة تعتمد على السيناريو، لكن بدائيًا الاستبدالات متكافئة من حيث الوظيفة.

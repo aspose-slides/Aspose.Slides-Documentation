@@ -1,73 +1,94 @@
 ---
-title: 在Java中将PowerPoint转换为HTML
-linktitle: 将PowerPoint转换为HTML
+title: 在 Android 上将 PowerPoint 演示文稿转换为 HTML
+linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/androidjava/convert-powerpoint-to-html/
-keywords: "Java PowerPoint到HTML, 转换PowerPoint演示文稿, PPTX, PPT, PPT到HTML, PPTX到HTML, PowerPoint到HTML, 将PowerPoint保存为HTML, 将PPT保存为HTML, 将PPTX保存为HTML, Java, Aspose.Slides, HTML导出"
-description: "在Java中转换PowerPoint为HTML：将PPTX或PPT保存为HTML。在Java中将幻灯片保存为HTML"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- 将 PowerPoint 保存为 HTML
+- 将演示文稿保存为 HTML
+- 将幻灯片保存为 HTML
+- 将 PPT 保存为 HTML
+- 将 PPTX 保存为 HTML
+- 导出 PPT 为 HTML
+- 导出 PPTX 为 HTML
+- Android
+- Java
+- Aspose.Slides
+description: "在 Java 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides for Android 的转换指南，保持布局、链接和图像，快速获得完美效果。"
 ---
 
 ## **概述**
 
-本文解释了如何使用Java将PowerPoint演示文稿转换为HTML格式。它涵盖以下主题。
+本文档说明了如何使用 Java 将 PowerPoint 演示文稿转换为 HTML 格式。内容包括以下主题。
 
-- 在Java中将PowerPoint转换为HTML
-- 在Java中将PPT转换为HTML
-- 在Java中将PPTX转换为HTML
-- 在Java中将ODP转换为HTML
-- 在Java中将PowerPoint幻灯片转换为HTML
+- 使用 Java 将 PowerPoint 转换为 HTML  
+- 使用 Java 将 PPT 转换为 HTML  
+- 使用 Java 将 PPTX 转换为 HTML  
+- 使用 Java 将 ODP 转换为 HTML  
+- 使用 Java 将 PowerPoint 幻灯片转换为 HTML  
 
-## **Java PowerPoint到HTML**
+## **在 Android 上将 PowerPoint 转换为 HTML**
 
-有关将PowerPoint转换为HTML的Java示例代码，请参见下面的部分，即[将PowerPoint转换为HTML](#convert-powerpoint-to-html)。该代码可以将PPT、PPTX和ODP等多种格式加载到Presentation对象中，并将其保存为HTML格式。
+有关将 PowerPoint 转换为 HTML 的 Java 示例代码，请参见下方章节，即[将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载 PPT、PPTX 和 ODP 等多种格式，并将其保存为 HTML 格式。
 
-## **关于PowerPoint到HTML的转换**
-使用[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)，应用程序和开发人员可以将PowerPoint演示文稿转换为HTML：**PPTX到HTML**或**PPT到HTML**。
+## **关于 PowerPoint 转换为 HTML**
 
-**Aspose.Slides**提供多个选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)类），定义PowerPoint到HTML的转换过程：
+使用[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)，应用程序和开发者可以将 PowerPoint 演示文稿转换为 HTML：**PPTX to HTML** 或 **PPT to HTML**。
 
-* 将整个PowerPoint演示文稿转换为HTML。
-* 将PowerPoint演示文稿中的特定幻灯片转换为HTML。
-* 将演示文稿媒体（图像、视频等）转换为HTML。
-* 将PowerPoint演示文稿转换为响应式HTML。 
-* 将PowerPoint演示文稿转换为包含或不包含演讲者备注的HTML。 
-* 将PowerPoint演示文稿转换为包含或不包含评论的HTML。 
-* 将PowerPoint演示文稿转换为HTML时使用原始或嵌入字体。 
-* 在转换为HTML时使用新CSS样式。 
+**Aspose.Slides** 提供了许多选项（主要来自[**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) 类），用于定义 PowerPoint 到 HTML 的转换过程：
+
+* 将整个 PowerPoint 演示文稿转换为 HTML。  
+* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。  
+* 将演示文稿媒体（图像、视频等）转换为 HTML。  
+* 将 PowerPoint 演示文稿转换为响应式 HTML。  
+* 将 PowerPoint 演示文稿转换为包含或不包含讲者备注的 HTML。  
+* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。  
+* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。  
+* 在使用新 CSS 样式的情况下，将 PowerPoint 演示文稿转换为 HTML。  
 
 {{% alert color="primary" %}} 
 
-使用其自己的API，Aspose开发了免费的[演示文稿到HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器：[PPT到HTML](https://products.aspose.app/slides/conversion/ppt-to-html)，[PPTX到HTML](https://products.aspose.app/slides/conversion/pptx-to-html)，[ODP到HTML](https://products.aspose.app/slides/conversion/odp-to-html)等。 
+使用其自有 API，Aspose 开发了免费[演示文稿到 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器：[PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html)等。
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-您可能还想查看Aspose的其他[免费转换器](https://products.aspose.app/slides/conversion)。
+您可能想了解其他[来自 Aspose 的免费转换器](https://products.aspose.app/slides/conversion)。 
 
 {{% /alert %}} 
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-除了这里描述的转换过程外，Aspose.Slides还支持涉及HTML格式的这些转换操作： 
+除了本文中描述的转换过程外，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
 
-* [HTML到图像](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)
-* [HTML到JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)
-* [HTML到XML](https://products.aspose.com/slides/androidjava/conversion/html-to-xml/)
-* [HTML到TIFF](https://products.aspose.com/slides/androidjava/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/androidjava/conversion/html-to-image/)  
+* [HTML to JPG](https://products.aspose.com/slides/androidjava/conversion/html-to-jpg/)  
+* [HTML to XML](https://products.aspose.com/slides/androidjava/conversion/html-to-xml/)  
+* [HTML to TIFF](https://products.aspose.com/slides/androidjava/conversion/html-to-tiff/)  
 
 {{% /alert %}}
 
 
-## **将PowerPoint转换为HTML**
-使用Aspose.Slides，您可以通过以下方式将整个PowerPoint演示文稿转换为HTML：
+## **将 PowerPoint 转换为 HTML**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-1. 使用[Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将对象保存为HTML文件。
+使用 Aspose.Slides，您可以按以下方式将整个 PowerPoint 演示文稿转换为 HTML：
 
-以下代码演示了如何在Java中将PowerPoint转换为HTML：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 使用[Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将对象保存为 HTML 文件。  
 
+以下代码演示了如何在 Java 中将 PowerPoint 转换为 HTML：  
 ```java
-// 实例化一个表示演示文稿文件的Presentation对象
+// 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("Convert_HTML.pptx");
 try {
     HtmlOptions htmlOpt = new HtmlOptions();
@@ -76,7 +97,7 @@ try {
 	
     htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
 
-    // 保存演示文稿为HTML
+    // 将演示文稿保存为 HTML
     pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
 } finally {
     if (pres != null) pres.dispose();
@@ -84,27 +105,29 @@ try {
 ```
 
 
-## **将PowerPoint转换为响应式HTML**
-Aspose.Slides提供的[ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ResponsiveHtmlController)类允许您生成响应式HTML文件。以下代码展示了如何在Java中将PowerPoint演示文稿转换为响应式HTML：
 
+## **将 PowerPoint 转换为响应式 HTML**
+
+Aspose.Slides 提供了[ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ResponsiveHtmlController)类，可生成响应式 HTML 文件。以下代码演示了如何在 Java 中将 PowerPoint 演示文稿转换为响应式 HTML：  
 ```java
-// 实例化一个表示演示文稿文件的Presentation对象
+// 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("Convert_HTML.pptx");
 try {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
     HtmlOptions htmlOptions = new HtmlOptions();
     htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
 
-    // 保存演示文稿为HTML
+    // 将演示文稿保存为 HTML
     pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **将PowerPoint转换为带有备注的HTML**
-以下代码演示了如何在Java中将PowerPoint转换为带有备注的HTML：
 
+## **将 PowerPoint 转换为包含备注的 HTML**
+
+以下代码演示了如何在 Java 中将 PowerPoint 转换为包含备注的 HTML：  
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -120,18 +143,18 @@ try {
 }
 ```
 
-## **将PowerPoint转换为带有原始字体的HTML**
 
-Aspose.Slides提供的[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)类使您可以在将演示文稿转换为HTML时嵌入所有字体。
+## **将 PowerPoint 转换为原始字体的 HTML**
 
-为了防止某些字体被嵌入，您可以将一个字体名称数组传递给[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)类的参数化构造函数。常用的字体，如Calibri或Arial，在演示文稿中使用时不必嵌入，因为大多数系统已包含此类字体。当这些字体被嵌入时，生成的HTML文档会变得不必要地庞大。
+Aspose.Slides 提供了[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)类，可在将演示文稿转换为 HTML 时嵌入所有字体。
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)类支持继承，并提供[WriteFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-)方法，旨在被重写。
+为了防止嵌入某些字体，您可以向[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)的参数化构造函数传递字体名称数组。诸如 Calibri 或 Arial 等常用字体在演示文稿中使用时无需嵌入，因为大多数系统已经包含这些字体。若嵌入这些字体，会导致生成的 HTML 文档体积不必要地增大。
 
+[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController)类支持继承，并提供了[WriteFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-)方法，供覆盖实现。  
 ```java
 Presentation pres = new Presentation("input.pptx");
 try {
-    // 排除默认的演示文稿字体
+    // 排除默认演示文稿字体
     String[] fontNameExcludeList = { "Calibri", "Arial" };
 
     EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
@@ -145,12 +168,12 @@ try {
 }
 ```
 
-## **将PowerPoint转换为带有高质量图像的HTML**
 
-默认情况下，当您将PowerPoint转换为HTML时，Aspose.Slides输出的小HTML图像分辨率为72 DPI，并删除裁剪区域。要获得更高质量图像的HTML文件，您必须将`PicturesCompression`属性（来自`HtmlOptions`类）设置为96（即`PicturesCompression.Dpi96`）或更高[值](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PicturesCompression)。
+## **将 PowerPoint 转换为高质量图像的 HTML**
 
-以下Java代码演示了如何将PowerPoint演示文稿转换为HTML，同时获得150 DPI（即`PicturesCompression.Dpi150`）的高质量图像：
+默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 较小，图像分辨率为 72 DPI，并删除裁剪区域。若要获得图像质量更高的 HTML 文件，需要将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression.Dpi96`）或更高的[数值](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PicturesCompression)。
 
+以下 Java 代码演示了如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI 的高质量图像（即 `PicturesCompression.Dpi150`）：  
 ```java
 Presentation pres = new Presentation("InputDoc.pptx");
 try {
@@ -163,8 +186,8 @@ try {
 }
 ```
 
-以下Java代码演示了如何输出带有全质量图像的HTML：
 
+以下代码演示了如何在 Java 中输出包含完全质量图像的 HTML：  
 ```java
 Presentation pres = new Presentation("InputDoc.pptx");
 try {
@@ -177,11 +200,12 @@ try {
 }
 ```
 
-## **将幻灯片转换为HTML**
-要将PowerPoint中的特定幻灯片转换为HTML，您必须实例化相同的[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类（用于将整个演示文稿转换为HTML），然后使用[Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将文件保存为HTML。可以使用[HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)类来指定其他转换选项：
 
-以下Java代码展示了如何将PowerPoint演示文稿中的幻灯片转换为HTML：
+## **将幻灯片转换为 HTML**
 
+要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化与整个演示文稿转换相同的[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类，然后使用[Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法将文件保存为 HTML。可以使用[HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions)类指定其他转换选项：
+
+以下 Java 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：  
 ```java
 Presentation pres = new Presentation("Individual-Slide.pptx");
 try {
@@ -197,6 +221,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public class CustomFormattingController implements IHtmlFormattingController
 {
@@ -230,11 +255,11 @@ public class CustomFormattingController implements IHtmlFormattingController
 ```
 
 
-## **在导出到HTML时保存CSS和图像**
-使用新的CSS样式文件，您可以轻松更改PowerPoint到HTML转换过程中产生的HTML文件的样式。
+## **导出为 HTML 时保存 CSS 和图像**
 
-以下Java代码展示了如何使用可覆盖的方法创建一个带有CSS文件链接的自定义HTML文档：
+使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转换为 HTML 过程生成的 HTML 文件的样式。
 
+本示例中的 Java 代码演示了如何使用可覆盖的方法创建带有 CSS 文件链接的自定义 HTML 文档：  
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -253,7 +278,7 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
     private final int m_basePath = 0;
 
-    // 自定义头模板
+    // 自定义页眉模板
     final static String Header = "<!DOCTYPE html>\n" +
             "<html>\n" +
             "<head>\n" +
@@ -277,23 +302,23 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 
     public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
     {
-        generator.addHtml("<!-- 嵌入的字体 -->");
+        generator.addHtml("<!-- Embedded fonts -->");
         super.writeAllFonts(generator, presentation);
     }
 }
 ```
 
-## **将所有字体链接到转换为HTML的演示文稿**
 
-如果您不想嵌入字体（以避免增加生成的HTML的大小），您可以通过实现自己的`LinkAllFontsHtmlController`版本来链接所有字体。
+## **在将演示文稿转换为 HTML 时链接所有字体**
 
-以下Java代码展示了如何在将PowerPoint转换为HTML时链接所有字体，并排除“Calibri”和“Arial”（因为它们已经存在于系统中）：
+如果不想嵌入字体（以免增大生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
 
+以下 Java 代码演示了在链接所有字体且排除“Calibri”和“Arial”（因为系统已包含）时，将 PowerPoint 转换为 HTML 的方法：  
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try
 {
-    // 排除默认演示文稿字体
+    //排除默认演示文稿字体
     String[] fontNameExcludeList = { "Calibri", "Arial" };
 
     LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
@@ -308,8 +333,8 @@ finally {
 }
 ```
 
-以下Java代码展示了如何实现`LinkAllFontsHtmlController`：
 
+以下 Java 代码演示了 `LinkAllFontsHtmlController` 的实现方式：  
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
@@ -332,7 +357,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     {
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // 可能需要一些路径清理
+            String path = fontName + ".woff"; // 可能需要对路径进行清理
             Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
 
             generator.addHtml("<style>");
@@ -349,9 +374,10 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 }
 ```
 
-## **将PowerPoint转换为响应式HTML**
-以下Java代码展示了如何将PowerPoint演示文稿转换为响应式HTML：
 
+## **将 PowerPoint 转换为响应式 HTML**
+
+以下 Java 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：  
 ```java
 Presentation pres = new Presentation("SomePresentation.pptx");
 try {
@@ -364,16 +390,16 @@ try {
 ```
 
 
-## **将媒体文件导出为HTML**
-使用Aspose.Slides for Android via Java，您可以通过以下方式导出媒体文件：
+## **将媒体文件导出为 HTML**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-1. 获取幻灯片的引用。
-1. 将视频添加到幻灯片。
-1. 将演示文稿写入HTML文件。
+使用 Aspose.Slides for Android via Java，您可以按以下方式导出媒体文件：
 
-以下Java代码展示了如何将视频添加到演示文稿中，然后将其保存为HTML： 
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 获取对幻灯片的引用。  
+3. 向幻灯片添加视频。  
+4. 将演示文稿写入为 HTML 文件。  
 
+以下 Java 代码演示了如何向演示文稿添加视频并将其保存为 HTML：  
 ```java
 // 加载演示文稿
 Presentation pres = new Presentation();
@@ -388,7 +414,7 @@ try {
 
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
-    // 设置HTML选项
+    // 设置 HTML 选项
     HtmlOptions htmlOptions = new HtmlOptions(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
 
@@ -402,3 +428,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**Aspose.Slides 在将多个演示文稿批量转换为 HTML 时的性能如何？**
+
+性能取决于演示文稿的大小和复杂度。Aspose.Slides 对批量操作具有高效且可扩展的特性。若需在大量转换时获得最佳性能，建议尽可能使用多线程或并行处理。
+
+**Aspose.Slides 是否支持将超链接导出为 HTML？**
+
+是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
+
+**在将演示文稿转换为 HTML 时，幻灯片数量是否有限制？**
+
+使用 Aspose.Slides 时，对幻灯片数量没有限制。您可以转换任意规模的演示文稿。但对于幻灯片数量非常庞大的文稿，性能可能受服务器或系统可用资源的影响。

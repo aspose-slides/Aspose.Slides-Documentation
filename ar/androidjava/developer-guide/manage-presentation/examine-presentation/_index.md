@@ -1,39 +1,43 @@
 ---
-title: فحص العرض التقديمي
+title: استرداد وتحديث معلومات العرض التقديمي على Android
+linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
 url: /ar/androidjava/examine-presentation/
 keywords:
-- PowerPoint
-- عرض تقديمي
-- صيغة العرض التقديمي
+- تنسيق العرض التقديمي
 - خصائص العرض التقديمي
-- خصائص الوثيقة
+- خصائص المستند
 - الحصول على الخصائص
 - قراءة الخصائص
 - تغيير الخصائص
 - تعديل الخصائص
-- PPTX
-- PPT
-- أندرويد
-- جافا
-description: "قراءة وتعديل خصائص عرض PowerPoint في أندرويد عبر جافا"
+- تحديث الخصائص
+- فحص PPTX
+- فحص PPT
+- فحص ODP
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument التقديمية باستخدام Java للحصول على رؤى أسرع وتدقيق محتوى أكثر ذكاءً."
 ---
 
-Aspose.Slides لـ أندرويد عبر جافا يتيح لك فحص عرض تقديمي لمعرفة خصائصه وفهم سلوكه.
+Aspose.Slides for Android via Java يسمح لك بفحص عرض تقديمي لمعرفة خصائصه وفهم سلوكه.
 
-{{% alert title="معلومات" color="info" %}} 
+{{% alert title="Info" color="info" %}} 
 
-تحتوي فئة [PresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) وفئة [DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/) على الخصائص والأساليب المستخدمة في العمليات هنا.
+تحتوي فئتا PresentationInfo و DocumentProperties على الخصائص والطرق المستخدمة في العمليات هنا.
 
 {{% /alert %}} 
 
-## **تحقق من صيغة العرض التقديمي**
+## **التحقق من تنسيق العرض التقديمي**
 
-قبل العمل على عرض تقديمي، قد ترغب في معرفة الصيغة (PPT، PPTX، ODP، وغيرها) التي يوجد بها العرض التقديمي في الوقت الحالي.
+قبل العمل على عرض تقديمي، قد ترغب في معرفة التنسيق (PPT أو PPTX أو ODP أو غيرها) الذي يكون فيه العرض التقديمي في الوقت الحالي.
 
-يمكنك التحقق من صيغة العرض التقديمي دون تحميل العرض التقديمي. راجع هذا الكود في جافا:
-
+يمكنك التحقق من تنسيق العرض التقديمي دون تحميله. شاهد هذا الكود Java:
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
@@ -45,53 +49,76 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
+
 ## **الحصول على خصائص العرض التقديمي**
 
-هذا الكود في جافا يوضح لك كيفية الحصول على خصائص العرض التقديمي (معلومات حول العرض التقديمي):
-
+يعرض لك هذا الكود Java كيفية الحصول على خصائص العرض التقديمي (معلومات حول العرض التقديمي):
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// .. 
+// ..
 ```
 
-قد ترغب في رؤية [الخصائص تحت فئة DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
+
+قد ترغب في رؤية الخصائص ضمن فئة DocumentProperties.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يوفر Aspose.Slides الطريقة [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) التي تتيح لك إجراء تغييرات على خصائص العرض التقديمي.
+توفر Aspose.Slides طريقة PresentationInfo.updateDocumentProperties التي تسمح لك بإجراء تغييرات على خصائص العرض التقديمي.
 
-لنقل أن لدينا عرض PowerPoint يحتوي على خصائص الوثيقة الموضحة أدناه.
+لنفترض أن لدينا عرض PowerPoint مع خصائص المستند المعروضة أدناه.
 
-![الخصائص الأصلية للوثيقة الخاصة بالعرض التقديمي PowerPoint](input_properties.png)
+![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
-هذا المثال من الكود يوضح لك كيفية تعديل بعض خصائص العرض التقديمي:
-
+يعرض لك مثال الشفرة هذا كيفية تعديل بعض خصائص العرض التقديمي:
 ```java
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
 
 IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("عنواني");
+properties.setTitle("My title");
 properties.setLastSavedTime(new Date());
 
 info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-تظهر نتائج تغيير خصائص الوثيقة أدناه.
 
-![الخصائص المعدلة للوثيقة الخاصة بالعرض التقديمي PowerPoint](output_properties.png)
+تظهر النتائج التي تم الحصول عليها من تغيير خصائص المستند أدناه.
+
+![خصائص المستند المعدلة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للحصول على مزيد من المعلومات حول عرض تقديمي وخصائصه الأمنية، قد تجد هذه الروابط مفيدة:
+للحصول على مزيد من المعلومات حول عرض تقديمي وسماته الأمنية، قد تجد هذه الروابط مفيدة:
 
-- [التحقق مما إذا كان العرض التقديمي مشفراً](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [التحقق مما إذا كان العرض التقديمي محميًا ضد الكتابة (للقراءة فقط)](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [التحقق مما إذا كان العرض التقديمي محميًا بكلمة مرور قبل تحميله](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [التحقق مما إذا كان العرض مشفرًا](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [التحقق مما إذا كان العرض محميًا من الكتابة (للقراءة فقط)](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [التحقق مما إذا كان العرض محمياً بكلمة مرور قبل تحميله](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
 - [تأكيد كلمة المرور المستخدمة لحماية العرض التقديمي](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وأية خطوط هي؟**
+
+ابحث عن [معلومات الخطوط المضمّنة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) على مستوى العرض التقديمي، ثم قارن تلك الإدخالات مع [الخطوط المستخدمة فعليًا عبر المحتوى](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getFonts--) لتحديد الخطوط الحيوية للعرض.
+
+**كيف يمكنني معرفة بسرعة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
+
+تصفح [مجموعة الشرائح](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) وتفقد [علامة الرؤية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#getHidden--) لكل شريحة.
+
+**هل يمكنني اكتشاف ما إذا تم استخدام حجم واتجاه شريحة مخصص، وما إذا كان يختلفان عن الإعدادات الافتراضية؟**
+
+نعم. قارن [حجم الشريحة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideSize--) الحالي و[الاتجاه](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideSize--) مع الإعدادات القياسية؛ يساعد ذلك في توقع السلوك عند الطباعة والتصدير.
+
+**هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
+
+نعم. استعرض جميع [المخططات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/)، تحقق من [مصدر البيانات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) الخاص بها، وحدد ما إذا كانت البيانات داخلية أو معتمدة على روابط، بما في ذلك أي روابط مكسورة.
+
+**كيف يمكنني تقييم الشرائح "الثقيلة" التي قد تبطئ عملية العرض أو تصدير PDF؟**
+
+لكل شريحة، احسب عدد الكائنات وابحث عن الصور الكبيرة، الشفافية، الظلال، الرسوم المتحركة والوسائط المتعددة؛ ثم أعطِ درجة تعقيد تقريبية لتحديد النقاط الساخنة المحتملة للأداء.

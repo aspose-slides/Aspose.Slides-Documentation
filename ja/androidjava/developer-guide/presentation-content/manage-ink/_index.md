@@ -1,40 +1,51 @@
 ---
-title: インクの管理
+title: Android でプレゼンテーション インク オブジェクトを管理する
+linktitle: インクの管理
 type: docs
 weight: 95
 url: /ja/androidjava/manage-ink/
-keywords: "PowerPointのインク, インクツール, Javaインク, PowerPointでの描画, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
-description: "インクツールを使用してPowerPoint Javaでオブジェクトを描画する"
+keywords:
+- インク
+- インク オブジェクト
+- インク トレース
+- インク の管理
+- インク を描画
+- 描画
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "PowerPoint のインク オブジェクトを管理し、Aspose.Slides for Android を使用してデジタル インクを作成、編集、スタイル設定します。トレース、ブラシの色とサイズに関する Java コードサンプルを取得できます。"
 ---
 
-PowerPointは、他のオブジェクトを強調表示したり、接続やプロセスを示したり、スライド上の特定の項目に注意を引くために使用できる非標準の図形を描画するためのインク機能を提供します。
+PowerPoint はインク機能を提供し、標準外の図形を描画できるようにします。これにより、他のオブジェクトを強調したり、接続やプロセスを示したり、スライド上の特定の項目に注意を引くことができます。
 
-Aspose.Slidesは、インクオブジェクトを作成および管理するために必要なすべてのインクタイプ（例：[Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/)クラス）を提供します。
+Aspose.Slides は、インク オブジェクトの作成と管理に必要なすべての Ink タイプ（例: [Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/) クラス）を提供します。
 
-## **通常のオブジェクトとインクオブジェクトの違い**
+## **通常オブジェクトとインク オブジェクトの違い**
 
-PowerPointスライド上のオブジェクトは通常、シェイプオブジェクトとして表現されます。シェイプオブジェクトは、最も単純な形で、オブジェクト自体の範囲（そのフレーム）とそのプロパティを定義するコンテナです。後者には、コンテナの面積サイズ、コンテナの形状、コンテナの背景などが含まれます。詳細については、[Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape)を参照してください。
+PowerPoint スライド上のオブジェクトは通常、シェイプ オブジェクトで表されます。シェイプ オブジェクトは、最も単純な形では、オブジェクト自体（フレーム）の領域とそのプロパティを定義するコンテナです。これには、コンテナ領域のサイズ、コンテナの形状、コンテナの背景などが含まれます。詳細は [Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape) を参照してください。
 
-ただし、PowerPointがインクオブジェクトを扱う場合、そのサイズを除いてオブジェクトフレーム（コンテナ）のすべてのプロパティを無視します。コンテナの面積のサイズは、標準の`width`および`height`値によって決まります：
+しかし、PowerPoint がインク オブジェクトを扱う場合、サイズ以外のオブジェクト フレーム（コンテナ）のすべてのプロパティは無視されます。コンテナ領域のサイズは標準の `width` と `height` 値で決まります。
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **インクシェイプトレース**
+## **Inkshape トレース**
 
-トレースは、ユーザーがデジタルインクを書き込むときにペンの軌道を記録するために使用される基本要素または標準です。トレースは、接続されたポイントのシーケンスを記述する記録です。
+トレースは、ユーザーがデジタル インクで書く際のペンの軌跡を記録するための基本要素または標準です。トレースは、接続された点のシーケンスを記述した記録です。
 
-エンコーディングの最も単純な形式は、各サンプルポイントのXおよびY座標を指定します。すべての接続されたポイントがレンダリングされると、次のような画像が生成されます：
+最も単純なエンコード形式は、各サンプル点の X および Y 座標を指定します。すべての接続点が描画されると、次のような画像が生成されます。
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## 描画のためのブラシプロパティ
+## **描画用ブラシ プロパティ**
 
-ブラシを使用して、トレース要素のポイントを結ぶ線を描くことができます。ブラシには`Brush.Color`および`Brush.Size`プロパティに対応する独自の色とサイズがあります。
+トレース要素の点を結ぶ線を描くためにブラシを使用できます。ブラシには `Brush.Color` と `Brush.Size` プロパティに対応する独自の色とサイズがあります。
 
-### **インクブラシの色を設定する**
+### **インク ブラシの色を設定する**
 
-このJavaコードは、ブラシの色を設定する方法を示しています：
-
+この Java コードは、ブラシの色を設定する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -48,10 +59,10 @@ try {
 }
 ```
 
-### **インクブラシのサイズを設定する**
 
-このJavaコードは、ブラシのサイズを設定する方法を示しています：
+### **インク ブラシのサイズを設定する**
 
+この Java コードは、ブラシのサイズを設定する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -65,25 +76,26 @@ try {
 }
 ```
 
-一般に、ブラシの幅と高さは一致しないため、PowerPointはブラシサイズを表示しません（データセクションはグレーアウトされます）。ただし、ブラシの幅と高さが一致する場合、PowerPointは次のようにサイズを表示します：
+
+通常、ブラシの幅と高さは一致せず、PowerPoint はブラシ サイズを表示しません（データ セクションがグレー表示されます）。しかし、ブラシの幅と高さが一致すると、PowerPoint は次のようにサイズを表示します。
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-明確にするために、インクオブジェクトの高さを増やし、重要な寸法をレビューしましょう：
+分かりやすくするために、インク オブジェクトの高さを増やし、重要な寸法を確認しましょう。
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-コンテナ（フレーム）はブラシのサイズを考慮しないため、線の太さがゼロであると仮定します（最後の画像を参照）。 
+コンテナ（フレーム）はブラシのサイズを考慮せず、常に線の太さがゼロであるとみなします（最後の画像を参照）。
 
-したがって、全体のインクオブジェクトの可視領域を判断するには、トレースオブジェクトのブラシサイズを考慮する必要があります。ここでは、ターゲットオブジェクト（手書きのテキストトレースオブジェクト）がコンテナ（フレーム）サイズにスケーリングされています。コンテナ（フレーム）のサイズが変更されると、ブラシサイズは一定のままであり、その逆も然りです。
+したがって、インク オブジェクト全体の表示領域を決定するには、トレース オブジェクトのブラシ サイズを考慮する必要があります。ここでは、対象オブジェクト（手書きテキストのトレース オブジェクト）がコンテナ（フレーム）サイズに合わせてスケーリングされています。コンテナ（フレーム）のサイズが変わると、ブラシ サイズは一定のまま変わらず、逆も同様です。
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPointは、テキストを扱う際にも同様の動作を示します：
+テキストを扱う場合も、PowerPoint は同じ動作を示します。
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**さらなる読み込み**
+**さらに読む**
 
-* シェイプに関する一般的な情報については、[PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/)のセクションを参照してください。
-* 有効な値に関する詳細は、[Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value)を参照してください。
+* シェイプ全般については、[PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/) セクションをご覧ください。
+* 有効な値の詳細については、[Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value) を参照してください。

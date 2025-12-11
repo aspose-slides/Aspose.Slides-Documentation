@@ -1,57 +1,71 @@
 ---
-title: テキストボックスの管理
+title: Androidでのプレゼンテーションにおけるテキストボックスの管理
+linktitle: テキストボックスの管理
 type: docs
 weight: 20
 url: /ja/androidjava/manage-textbox/
-description: Javaを使用してPowerPointスライドにテキストボックスを作成します。Javaを使用してPowerPointスライドのテキストボックスまたはテキストフレームに列を追加します。Javaを使用してPowerPointスライドにハイパーリンク付きのテキストボックスを追加します。
+keywords:
+- テキストボックス
+- テキストフレーム
+- テキスト追加
+- テキスト更新
+- テキストボックス作成
+- テキストボックス確認
+- テキスト列追加
+- ハイパーリンク追加
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用すると、PowerPoint および OpenDocument ファイル内でテキストボックスを簡単に作成、編集、複製でき、プレゼンテーションの自動化が向上します。"
 ---
 
-スライド上のテキストは通常、テキストボックスまたは図形に存在します。したがって、スライドにテキストを追加するには、テキストボックスを追加し、その中にテキストを入れる必要があります。Aspose.Slides for Android via Javaは、テキストを含む図形を追加できる[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)インターフェイスを提供します。
+スライド上のテキストは通常、テキスト ボックスまたはシェイプに存在します。そのため、スライドにテキストを追加するには、テキスト ボックスを追加し、そのテキスト ボックスにテキストを入れる必要があります。Aspose.Slides for Android via Java は、テキストを含むシェイプを追加できる [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) インターフェイスを提供します。
 
 {{% alert title="情報" color="info" %}}
 
-Aspose.Slidesは、スライドに図形を追加できる[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape)インターフェイスも提供します。ただし、`IShape`インターフェイスを介して追加されたすべての図形がテキストを保持できるわけではありません。しかし、[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)インターフェイスを介して追加された図形にはテキストを含むことができます。
+Aspose.Slides は、スライドにシェイプを追加できる [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) インターフェイスも提供します。ただし、`IShape` インターフェイスを通じて追加されたすべてのシェイプがテキストを保持できるわけではありません。`IAutoShape` インターフェイスを通じて追加されたシェイプは、テキストを含む場合があります。
 
 {{% /alert %}}
 
 {{% alert title="注意" color="warning" %}} 
 
-したがって、テキストを追加したい図形を扱うときは、それが`IAutoShape`インターフェイスを介してキャストされたことを確認してください。そうでなければ、`IAutoShape`のプロパティである[TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame)を操作することはできません。このページの[テキストの更新](https://docs.aspose.com/slides/androidjava/manage-textbox/#update-text)セクションを参照してください。
+したがって、テキストを追加したいシェイプを扱う場合は、`IAutoShape` インターフェイスにキャストされているか確認することをお勧めします。その後でのみ、`IAutoShape` のプロパティである [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) を操作できます。このページの [Update Text](https://docs.aspose.com/slides/androidjava/manage-textbox/#update-text) セクションをご参照ください。
 
 {{% /alert %}}
 
-## **スライドにテキストボックスを作成**
+## **スライドにテキスト ボックスを作成する**
 
-スライドにテキストボックスを作成するには、以下の手順を実行します。
+テキスト ボックスをスライドに作成するには、次の手順を実行します。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-2. 新しく作成されたプレゼンテーションの最初のスライドへの参照を取得します。 
-3. 指定された位置に`Rectangle`として`ShapeType`が設定された[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape)オブジェクトを追加し、新しく追加された`IAutoShape`オブジェクトの参照を取得します。
-4. テキストを含む`TextFrame`プロパティを`IAutoShape`オブジェクトに追加します。以下の例では、次のテキストを追加しました: *Aspose TextBox*
-5. 最後に、`Presentation`オブジェクトを介してPPTXファイルを作成します。 
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。 
+3. スライド上の指定位置に `Rectangle` として設定された [ShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) を持つ [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) オブジェクトを追加し、新しく追加された `IAutoShape` オブジェクトへの参照を取得します。
+4. テキストを含む `TextFrame` プロパティを `IAutoShape` オブジェクトに追加します。以下の例では、*Aspose TextBox* というテキストを追加しました。
+5. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き出します。 
 
-このJavaコードは、上記の手順の実装であり、スライドにテキストを追加する方法を示しています：
-
+この Java コード（上記手順の実装）は、スライドにテキストを追加する方法を示しています:
 ```java
-// Presentationクラスをインスタンス化
+// Presentation をインスタンス化
 Presentation pres = new Presentation();
 try {
     // プレゼンテーションの最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Rectangleとしてタイプ設定されたAutoShapeを追加
+    // タイプを Rectangle に設定した AutoShape を追加
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // RectangleにTextFrameを追加
+    // Rectangle に TextFrame を追加
     ashp.addTextFrame(" ");
 
     // テキストフレームにアクセス
     ITextFrame txtFrame = ashp.getTextFrame();
 
-    // テキストフレームのための段落オブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // 段落のためのポーションオブジェクトを作成
+    // Paragraph 用の Portion オブジェクトを作成
     IPortion portion = para.getPortions().get_Item(0);
 
     // テキストを設定
@@ -64,54 +78,80 @@ try {
 }
 ```
 
-## **テキストボックス形状をチェック**
 
-Aspose.Slidesは、テキストボックスを見つけるために図形を調べることを可能にする[isTextBox()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#isTextBox--)プロパティ（[AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/)クラスから）を提供します。
+## **テキスト ボックス シェイプの確認**
 
-![テキストボックスと図形](istextbox.png)
+Aspose.Slides は、[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) インターフェイスの [isTextBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#isTextBox--) メソッドを提供しており、シェイプを調べてテキスト ボックスかどうかを判別できます。
 
-このJavaコードは、図形がテキストボックスとして作成されたかどうかを確認する方法を示します：
+![テキスト ボックスとシェイプ](istextbox.png)
 
+この Java コードは、シェイプがテキスト ボックスとして作成されたかどうかを確認する方法を示しています: 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ForEach.shape(pres, (shape, slide, index) ->
-    {
-        if (shape instanceof AutoShape)
-        {
-            AutoShape autoShape = (AutoShape)shape;
-            System.out.println(autoShape.isTextBox() ? "形状はテキストボックスです" : "形状はテキストボックスではありません");
+    ForEach.shape(presentation, (shape, slide, index) -> {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
         }
     });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **テキストボックスに列を追加**
 
-Aspose.Slidesは、テキストボックスに列を追加するための[ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-)および[ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-)プロパティ（[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)インターフェイスおよび[TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)クラスによる）を提供します。これにより、テキストボックス内の列の数を指定して、列間の間隔をポイントで設定できます。
+`addAutoShape` メソッドを使用して [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) インターフェイスから単にオートシェイプを追加した場合、オートシェイプの `isTextBox` メソッドは `false` を返します。ただし、`addTextFrame` メソッドまたは `setText` メソッドでオートシェイプにテキストを追加すると、`isTextBox` プロパティは `true` を返すようになります。
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-このJavaコードは、前述の操作を実演します：
+IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+// shape1.isTextBox() は false を返す
+shape1.addTextFrame("shape 1");
+// shape1.isTextBox() は true を返す
 
+IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
+// shape2.isTextBox() は false を返す
+shape2.getTextFrame().setText("shape 2");
+// shape2.isTextBox() は true を返す
+
+IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
+// shape3.isTextBox() は false を返す
+shape3.addTextFrame("");
+// shape3.isTextBox() は false を返す
+
+IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
+// shape4.isTextBox() は false を返す
+shape4.getTextFrame().setText("");
+// shape4.isTextBox() は false を返す
+```
+
+
+## **テキスト ボックスに列を追加する**
+
+Aspose.Slides は、[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) インターフェイスおよび [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) クラスから、テキスト ボックスに列を追加できる [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) と [ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) プロパティを提供します。テキスト ボックスの列数と、列間のポイント単位の間隔を指定できます。
+
+このコードは、上記操作を Java で実演しています: 
 ```java
 Presentation pres = new Presentation();
 try {
     // プレゼンテーションの最初のスライドを取得
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Rectangleとしてタイプ指定されたAutoShapeを追加
+    // タイプを Rectangle に設定した AutoShape を追加
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // RectangleにTextFrameを追加
-    aShape.addTextFrame("これらのすべての列は単一のテキストコンテナ内に制限されています -- " +
-            "テキストを追加または削除でき、残っているテキストは自動的に" +
-            "コンテナ内に流れるように調整されます。しかし、テキストは1つのコンテナから他のものへと流れることはできません -- PowerPointのテキストの列設定オプションは限られています！");
+    // Rectangle に TextFrame を追加
+    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
+            "you can add or delete text and the new or remaining text automatically adjusts " +
+            "itself to flow within the container. You cannot have text flow from one container " +
+            "to other though -- we told you PowerPoint's column options for text are limited!");
 
-    // TextFrameのテキストフォーマットを取得
+    // TextFrame のテキスト書式を取得
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
-    // TextFrame内の列の数を指定
+    // TextFrame の列数を指定
     format.setColumnCount(3);
 
     // 列間の間隔を指定
@@ -124,12 +164,11 @@ try {
 }
 ```
 
-## **テキストフレームに列を追加**
 
-Aspose.Slides for Android via Javaは、テキストフレームに列を追加するための[ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-)プロパティ（[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)インターフェイスから）を提供します。このプロパティを介して、テキストフレーム内の希望の列数を指定できます。
+## **テキスト フレームに列を追加する**
+Aspose.Slides for Android via Java は、[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) インターフェイスから取得できる [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) プロパティを提供し、テキスト フレーム内に列を追加できます。このプロパティを使用して、テキスト フレーム内の希望する列数を指定できます。
 
-このJavaコードは、テキストフレーム内に列を追加する方法を示します：
-
+この Java コードは、テキスト フレーム内に列を追加する方法を示しています:
 ```java
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
@@ -138,9 +177,10 @@ try {
     TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
 
     format.setColumnCount(2);
-    shape1.getTextFrame().setText("これらのすべての列は単一のテキストコンテナ内に強制されているため -- " +
-            "テキストを追加または削除できます - 新しいテキストや残りのテキストは通常、" +
-            "コンテナ内に留まるように自動的に調整されます。テキストが1つのコンテナから他に流れることはありませんが、PowerPointのテキストの列オプションは限られているためです！");
+    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
+            "you can add or delete text - and the new or remaining text automatically adjusts " +
+            "itself to stay within the container. You cannot have text spill over from one container " +
+            "to other, though -- because PowerPoint's column options for text are limited!");
     pres.save(outPptxFileName, SaveFormat.Pptx);
 
     Presentation test = new Presentation(outPptxFileName);
@@ -181,12 +221,12 @@ try {
 }
 ```
 
+
 ## **テキストの更新**
 
-Aspose.Slidesを使用すると、テキストボックスに含まれるテキストやプレゼンテーション内のすべてのテキストを変更または更新できます。 
+Aspose.Slides を使用すると、テキスト ボックス内のテキストやプレゼンテーション全体に含まれるすべてのテキストを変更または更新できます。
 
-このJavaコードは、プレゼンテーション内のすべてのテキストが更新または変更される操作を示しています：
-
+この Java コードは、プレゼンテーション内のすべてのテキストを更新（変更）する操作を示しています:
 ```java
 Presentation pres = new Presentation("text.pptx");
 try {
@@ -194,58 +234,58 @@ try {
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) // 図形がテキストフレーム（IAutoShape）をサポートしているか確認
+            if (shape instanceof IAutoShape) // 形状がテキストフレーム（IAutoShape）をサポートしているか確認します。
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // テキストフレーム内の段落を繰り返す
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // テキストフレーム内の段落を繰り返し処理します。
                 {
-                    for (IPortion portion : paragraph.getPortions()) // 段落内の各ポーションを繰り返す
+                    for (IPortion portion : paragraph.getPortions()) // 段落内の各ポーションを繰り返し処理します。
                     {
-                        portion.setText(portion.getText().replace("years", "months")); // テキストを変更
-                        portion.getPortionFormat().setFontBold(NullableBool.True); // 書式を変更
+                        portion.setText(portion.getText().replace("years", "months")); // テキストを変更します。
+                        portion.getPortionFormat().setFontBold(NullableBool.True); // 書式を変更します。
                     }
                 }
             }
         }
     }
 
-    // 修正されたプレゼンテーションを保存
+    // 変更されたプレゼンテーションを保存します。
     pres.save("text-changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **ハイパーリンク付きテキストボックスの追加** 
 
-テキストボックス内にリンクを挿入できます。テキストボックスがクリックされると、ユーザーはリンクを開くように指示されます。
+## **ハイパーリンク付きテキスト ボックスの追加** 
 
-ハイパーリンクを含むテキストボックスを追加するには、以下の手順を実行します。
+テキスト ボックス内にリンクを挿入できます。テキスト ボックスがクリックされると、ユーザーはそのリンク先を開きます。
 
-1. `Presentation`クラスのインスタンスを作成します。 
-2. 新しく作成されたプレゼンテーションの最初のスライドへの参照を取得します。 
-3. 指定された位置に`Rectangle`として`ShapeType`が設定された`AutoShape`オブジェクトを追加し、新しく追加されたAutoShapeオブジェクトの参照を取得します。
-4. デフォルトのテキストとして*Aspose TextBox*を含む`TextFrame`を`AutoShape`オブジェクトに追加します。 
-5. `IHyperlinkManager`クラスをインスタンス化します。 
-6. `IHyperlinkManager`オブジェクトを`TextFrame`の希望の部分に関連付けられた[HyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getHyperlinkClick--)プロパティに割り当てます。
-7. 最後に、`Presentation`オブジェクトを介してPPTXファイルを作成します。 
+ハイパーリンクを含むテキスト ボックスを追加するには、次の手順を実行します。
 
-このJavaコードは、ハイパーリンク付きのテキストボックスをスライドに追加する方法を示しています：
+1. `Presentation` クラスのインスタンスを作成します。 
+2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。 
+3. スライド上の指定位置に `Rectangle` として設定された `ShapeType` を持つ `AutoShape` オブジェクトを追加し、新しく追加された AutoShape オブジェクトへの参照を取得します。
+4. デフォルトテキストとして *Aspose TextBox* を含む `TextFrame` を `AutoShape` オブジェクトに追加します。 
+5. `IHyperlinkManager` クラスのインスタンスを作成します。 
+6. `IHyperlinkManager` オブジェクトを、`TextFrame` の任意の部分に関連付けられた [HyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) プロパティに割り当てます。 
+7. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き出します。 
 
+この Java コード（上記手順の実装）は、ハイパーリンク付きテキスト ボックスをスライドに追加する方法を示しています:
 ```java
-// PPTXを表すPresentationクラスをインスタンス化
+// PPTX を表す Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // プレゼンテーションの最初のスライドを取得
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // タイプがRectangleに設定されたAutoShapeオブジェクトを追加
+    // タイプを Rectangle に設定した AutoShape オブジェクトを追加
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
-    // AutoShapeにキャスト
+    // シェイプを AutoShape にキャスト
     IAutoShape pptxAutoShape = (IAutoShape)shape;
 
-    // AutoShapeに関連するITextFrameプロパティにアクセス
+    // AutoShape に関連付けられた ITextFrame プロパティにアクセス
     pptxAutoShape.addTextFrame("");
 
     ITextFrame textFrame = pptxAutoShape.getTextFrame();
@@ -253,14 +293,25 @@ try {
     // フレームにテキストを追加
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
 
-    // ポーションのテキストにハイパーリンクを設定
+    // ポーションテキストにハイパーリンクを設定
     IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
             getPortionFormat().getHyperlinkManager();
     hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
 
-    // PPTXプレゼンテーションを保存
+    // PPTX プレゼンテーションを保存
     pres.save("hLink_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**マスタースライドで作業するときのテキスト ボックスとテキスト プレースホルダーの違いは何ですか？**
+
+[placeholder](/slides/ja/androidjava/manage-placeholder/) は [master](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) からスタイル/位置を継承し、[layouts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) で上書きできます。一方、通常のテキスト ボックスは特定のスライド上の独立したオブジェクトであり、レイアウトを切り替えても変化しません。
+
+**チャート、テーブル、SmartArt 内のテキストに影響を与えずに、プレゼンテーション全体で大量のテキスト置換を実行するにはどうすればよいですか？**
+
+テキスト フレームを持つオートシェイプだけを反復対象とし、埋め込みオブジェクト（[charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/)、[tables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/)）は別々にコレクションを走査するか、これらのオブジェクトタイプをスキップして除外してください。

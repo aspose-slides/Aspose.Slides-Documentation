@@ -1,42 +1,53 @@
 ---
-title: Administrar Zoom
+title: Gestionar Zoom de Presentación en Android
+linktitle: Gestionar Zoom
 type: docs
 weight: 60
 url: /es/androidjava/manage-zoom/
-keywords: "Zoom, marco de zoom, agregar zoom, formato de marco de zoom, resumen de zoom, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
-description: "Agrega zoom o marcos de zoom a presentaciones de PowerPoint en Java"
+keywords:
+- zoom
+- marco de zoom
+- zoom de diapositiva
+- zoom de sección
+- zoom de resumen
+- agregar zoom
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Crear y personalizar Zoom con Aspose.Slides para Android mediante Java — saltar entre secciones, agregar miniaturas y transiciones en presentaciones PPT, PPTX y ODP."
 ---
 
-## **Resumen**
-Los zooms en PowerPoint te permiten saltar hacia y desde diapositivas, secciones y porciones específicas de una presentación. Cuando estás presentando, esta habilidad para navegar rápidamente a través del contenido puede ser muy útil.
+## **Descripción general**
+Los Zoom en PowerPoint le permiten saltar a y desde diapositivas, secciones y porciones específicas de una presentación. Cuando está presentando, esta capacidad de navegar rápidamente por el contenido puede resultar muy útil. 
 
 ![overview_image](overview.png)
 
-* Para resumir toda una presentación en una sola diapositiva, usa un [Resumen de Zoom](#Resumen-de-Zoom).
-* Para mostrar solo diapositivas seleccionadas, usa un [Zoom de Diapositiva](#Zoom-de-Diapositiva).
-* Para mostrar solo una sección, usa un [Zoom de Sección](#Zoom-de-Sección).
+* Para resumir una presentación completa en una sola diapositiva, use un [Zoom de Resumen](#Summary-Zoom).
+* Para mostrar solo diapositivas seleccionadas, use un [Zoom de Diapositiva](#Slide-Zoom).
+* Para mostrar solo una sección, use un [Zoom de Sección](#Section-Zoom).
 
 ## **Zoom de Diapositiva**
-Un zoom de diapositiva puede hacer que tu presentación sea más dinámica, permitiéndote navegar libremente entre las diapositivas en cualquier orden que elijas sin interrumpir el flujo de tu presentación. Los zooms de diapositiva son excelentes para presentaciones breves sin muchas secciones, pero aún puedes usarlos en diferentes escenarios de presentación.
+Un zoom de diapositiva puede hacer que su presentación sea más dinámica, permitiéndole navegar libremente entre diapositivas en cualquier orden que elija sin interrumpir el flujo de su presentación. Los zooms de diapositiva son ideales para presentaciones cortas sin muchas secciones, pero también puede utilizarlos en diferentes escenarios de presentación.
 
-Los zooms de diapositiva te ayudan a profundizar en múltiples piezas de información mientras sientes que estás en un solo lienzo.
+Los zooms de diapositiva le ayudan a profundizar en múltiples piezas de información mientras siente que está en un solo lienzo. 
 
 ![overview_image](slidezoomsel.png)
 
-Para objetos de zoom de diapositiva, Aspose.Slides proporciona la enumeración [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType), la interfaz [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) y algunos métodos en la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+Para los objetos de zoom de diapositiva, Aspose.Slides proporciona la enumeración [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType), la interfaz [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
 
-### **Creando Marcos de Zoom**
+### **Crear marcos de Zoom**
 
-Puedes agregar un marco de zoom en una diapositiva de esta manera:
+Puede añadir un marco de zoom en una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea nuevas diapositivas a las que planeas vincular los marcos de zoom.
-3. Agrega un texto de identificación y fondo a las diapositivas creadas.
-4. Agrega marcos de zoom (que contengan las referencias a las diapositivas creadas) a la primera diapositiva.
-5. Escribe la presentación modificada como un archivo PPTX.
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree nuevas diapositivas a las que pretenda enlazar los marcos de zoom. 
+3.	Agregue un texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregue marcos de zoom (conteniendo referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Escriba la presentación modificada como un archivo PPTX.
 
-Este código Java te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código Java le muestra cómo crear un marco de zoom en una diapositiva:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -51,7 +62,7 @@ try {
 
     // Crea un cuadro de texto para la segunda diapositiva
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Segunda Diapositiva");
+    autoshape.getTextFrame().setText("Second Slide");
 
     // Crea un fondo para la tercera diapositiva
     slide3.getBackground().setType(BackgroundType.OwnBackground);
@@ -60,7 +71,7 @@ try {
 
     // Crea un cuadro de texto para la tercera diapositiva
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Tercera Diapositiva");
+    autoshape.getTextFrame().setText("Trird Slide");
 
     //Agrega objetos ZoomFrame
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
@@ -72,17 +83,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Creando Marcos de Zoom con Imágenes Personalizadas**
-Con Aspose.Slides para Android a través de Java, puedes crear un marco de zoom con una imagen de vista previa de diapositiva diferente de esta manera:
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea una nueva diapositiva a la que planeas vincular el marco de zoom.
-3. Agrega un texto de identificación y fondo a la diapositiva.
-4. Crea un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se utilizará para llenar el marco.
-5. Agrega marcos de zoom (conteniendo la referencia a la diapositiva creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
 
-Este código Java te muestra cómo crear un marco de zoom con una imagen diferente:
+### **Crear marcos de Zoom con imágenes personalizadas**
+Con Aspose.Slides para Android vía Java, puede crear un marco de zoom con una imagen de vista previa diferente de la diapositiva de esta manera:
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree una nueva diapositiva a la que pretenda enlazar el marco de zoom. 
+3.	Agregue un texto de identificación y un fondo a la diapositiva.
+4.	Cree un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada al objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se usará para rellenar el marco.
+5.	Agregue marcos de zoom (conteniendo la referencia a la diapositiva creada) a la primera diapositiva.
+6.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo crear un marco de zoom con una imagen diferente:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -96,16 +107,16 @@ try {
 
     // Crea un cuadro de texto para la tercera diapositiva
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Segunda Diapositiva");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Crea una nueva imagen para el objeto zoom
+    // Crea una nueva imagen para el objeto Zoom
     IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
+        IImage image = Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
     //Agrega el objeto ZoomFrame
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
@@ -116,23 +127,23 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Formateando Marcos de Zoom**
-En las secciones anteriores, te mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom.
 
-Puedes controlar el formato de un marco de zoom en una diapositiva de esta manera:
+### **Formato de los marcos de Zoom**
+En las secciones anteriores, le mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complejos, debe alterar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un marco de zoom. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea nuevas diapositivas a las que planeas vincular el marco de zoom.
-3. Agrega algo de texto de identificación y fondo a las diapositivas creadas.
-4. Agrega marcos de zoom (conteniendo las referencias a las diapositivas creadas) a la primera diapositiva.
-5. Crea un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se utilizará para llenar el marco.
-6. Establece una imagen personalizada para el primer objeto de marco de zoom.
-7. Cambia el formato de línea para el segundo objeto de marco de zoom.
-8. Elimina el fondo de una imagen del segundo objeto de marco de zoom.
-5. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom en una diapositiva de esta manera:
 
-Este código Java te muestra cómo cambiar el formato de un marco de zoom en una diapositiva: 
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree nuevas diapositivas a las que pretenda enlazar el marco de zoom. 
+3.	Agregue algún texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregue marcos de zoom (conteniendo referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Cree un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada al objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se usará para rellenar el marco.
+6.	Establezca una imagen personalizada para el primer objeto de marco de zoom.
+7.	Cambie el formato de línea para el segundo objeto de marco de zoom.
+8.	Elimine el fondo de la imagen del segundo objeto de marco de zoom.
+5.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo cambiar el formato de un marco de zoom en una diapositiva: 
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -147,7 +158,7 @@ try {
 
     // Crea un cuadro de texto para la segunda diapositiva
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Segunda Diapositiva");
+    autoshape.getTextFrame().setText("Second Slide");
 
     // Crea un fondo para la tercera diapositiva
     slide3.getBackground().setType(BackgroundType.OwnBackground);
@@ -156,7 +167,7 @@ try {
 
     // Crea un cuadro de texto para la tercera diapositiva
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Tercera Diapositiva");
+    autoshape.getTextFrame().setText("Trird Slide");
 
     //Agrega objetos ZoomFrame
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
@@ -164,12 +175,12 @@ try {
 
     // Crea una nueva imagen para el objeto zoom
     IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
+        IImage image = Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
     // Establece una imagen personalizada para el objeto zoomFrame1
     zoomFrame1.setImage(picture);
 
@@ -179,7 +190,7 @@ try {
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // Configuración para no mostrar fondo para el objeto zoomFrame2
+    // Configuración para no mostrar el fondo del objeto zoomFrame2
     zoomFrame2.setShowBackground(false);
 
     // Guarda la presentación
@@ -190,27 +201,27 @@ try {
 }
 ```
 
+
 ## **Zoom de Sección**
 
-Un zoom de sección es un enlace a una sección en tu presentación. Puedes usar zooms de sección para volver a secciones que realmente deseas enfatizar. O puedes usarlos para resaltar cómo ciertas piezas de tu presentación se conectan.
+Un zoom de sección es un enlace a una sección de su presentación. Puede usar los zooms de sección para volver a secciones que desea enfatizar. O bien puede usarlos para resaltar cómo ciertas partes de su presentación se conectan. 
 
 ![overview_image](seczoomsel.png)
 
-Para objetos de zoom de sección, Aspose.Slides proporciona la interfaz [ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame) y algunos métodos en la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+Para los objetos de zoom de sección, Aspose.Slides proporciona la interfaz [ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
 
-### **Creando Marcos de Zoom de Sección**
+### **Crear marcos de Zoom de Sección**
 
-Puedes agregar un marco de zoom de sección a una diapositiva de esta manera:
+Puede añadir un marco de zoom de sección a una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea una nueva diapositiva.
-3. Agrega un fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que planeas vincular el marco de zoom.
-5. Agrega un marco de zoom de sección (que contenga referencias a la sección creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree una nueva diapositiva. 
+3.	Agregue un fondo de identificación a la diapositiva creada.
+4.	Cree una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Agregue un marco de zoom de sección (conteniendo referencias a la sección creada) a la primera diapositiva.
+6.	Escriba la presentación modificada como un archivo PPTX.
 
-Este código Java te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código Java le muestra cómo crear un marco de zoom en una diapositiva:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -221,7 +232,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    pres.getSections().addSection("Section 1", slide);
 
     // Agrega un objeto SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
@@ -232,33 +243,33 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Creando Marcos de Zoom de Sección con Imágenes Personalizadas**
 
-Usando Aspose.Slides para Android a través de Java, puedes crear un marco de zoom de sección con una imagen de vista previa de diapositiva diferente de esta manera:
+### **Crear marcos de Zoom de Sección con imágenes personalizadas**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea una nueva diapositiva.
-3. Agrega un fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que planeas vincular el marco de zoom.
-5. Crea un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se utilizará para llenar el marco.
-5. Agrega un marco de zoom de sección (que contenga una referencia a la sección creada) a la primera diapositiva.
-6. Escribe la presentación modificada como un archivo PPTX.
+Usando Aspose.Slides para Android vía Java, puede crear un marco de zoom de sección con una imagen de vista previa diferente de la diapositiva de esta manera:
 
-Este código Java te muestra cómo crear un marco de zoom con una imagen diferente:
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree una nueva diapositiva.
+3.	Agregue un fondo de identificación a la diapositiva creada.
+4.	Cree una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Cree un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada al objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se usará para rellenar el marco.
+5.	Agregue un marco de zoom de sección (conteniendo una referencia a la sección creada) a la primera diapositiva.
+6.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo crear un marco de zoom con una imagen diferente:
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Agrega nueva diapositiva a la presentación
+    //Agrega una nueva diapositiva a la presentación
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    //Agrega una nueva sección a la presentación
+    pres.getSections().addSection("Section 1", slide);
 
-    // Crea una nueva imagen para el objeto zoom
+    //Crea una nueva imagen para el objeto zoom
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -267,38 +278,38 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Agrega un objeto SectionZoomFrame
+    //Agrega un objeto SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
 
-    // Guarda la presentación
+    //Guarda la presentación
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **Formateando Marcos de Zoom de Sección**
 
-Para crear marcos de zoom de sección más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom de sección.
+### **Formato de los marcos de Zoom de Sección**
 
-Puedes controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
+Para crear marcos de zoom de sección más complejos, debe alterar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un marco de zoom de sección. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea una nueva diapositiva.
-3. Agrega fondo de identificación a la diapositiva creada.
-4. Crea una nueva sección a la que planeas vincular el marco de zoom.
-5. Agrega un marco de zoom de sección (contiene referencias a la sección creada) a la primera diapositiva.
-6. Cambia el tamaño y la posición del objeto de zoom de sección creado.
-7. Crea un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) al agregar una imagen a la colección de Imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se utilizará para llenar el marco.
-8. Establece una imagen personalizada para el objeto de marco de zoom de sección creado.
-9. Establece la capacidad de *volver a la diapositiva original desde la sección vinculada*.
-10. Elimina el fondo de una imagen del objeto de marco de zoom de sección.
-11. Cambia el formato de línea para el segundo objeto de marco de zoom.
-12. Cambia la duración de la transición.
-13. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
 
-Este código Java te muestra cómo cambiar el formato de un marco de zoom de sección:
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree una nueva diapositiva.
+3.	Agregue un fondo de identificación a la diapositiva creada.
+4.	Cree una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Agregue un marco de zoom de sección (conteniendo referencias a la sección creada) a la primera diapositiva.
+6.	Cambie el tamaño y la posición del objeto de zoom de sección creado.
+7.	Cree un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada al objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se usará para rellenar el marco.
+8.	Establezca una imagen personalizada para el objeto de marco de zoom de sección creado.
+9.	Establezca la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+10.	Elimine el fondo de la imagen del objeto de marco de zoom de sección.
+11.	Cambie el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambie la duración de la transición.
+13.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo cambiar el formato de un marco de zoom de sección:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -309,12 +320,12 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    pres.getSections().addSection("Section 1", slide);
 
-    // Agrega un objeto SectionZoomFrame
+    // Agrega objeto SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // Formato para el objeto SectionZoomFrame
+    // Formato para SectionZoomFrame
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
@@ -324,9 +335,9 @@ try {
     IImage image = Images.fromFile("image.png");
     try {
          picture = pres.getImages().addImage(image);
-    } finally {
+     } finally {
         if (image != null) image.dispose();
-    }
+     }
     sectionZoomFrame.setImage(picture);
 
     sectionZoomFrame.setReturnToParent(true);
@@ -347,25 +358,26 @@ try {
 }
 ```
 
-## **Resumen de Zoom**
 
-Un resumen de zoom es como una página de aterrizaje donde todas las partes de tu presentación se muestran de una vez. Cuando estás presentando, puedes usar el zoom para ir de un lugar en tu presentación a otro en cualquier orden que desees. Puedes ser creativo, adelantar o revisar partes de tu presentación sin interrumpir el flujo de tu presentación.
+
+## **Zoom de Resumen**
+
+Un zoom de resumen es como una página de destino donde se muestran todas las piezas de su presentación a la vez. Cuando está presentando, puede usar el zoom para pasar de un lugar de su presentación a otro en cualquier orden que desee. Puede ser creativo, adelantarse o volver a visitar partes de su presentación sin interrumpir el flujo de la misma.
 
 ![overview_image](sumzoomsel.png)
 
-Para objetos de resumen de zoom, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) y algunos métodos en la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+Para los objetos de zoom de resumen, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
 
-### **Creando Resumen de Zoom**
+### **Crear un Zoom de Resumen**
 
-Puedes agregar un marco de resumen de zoom a una diapositiva de esta manera:
+Puede añadir un marco de zoom de resumen a una diapositiva de esta manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega el marco de resumen de zoom a la primera diapositiva.
-4. Escribe la presentación modificada como un archivo PPTX.
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregue el marco de zoom de resumen a la primera diapositiva.
+4.	Escriba la presentación modificada como un archivo PPTX.
 
-Este código Java te muestra cómo crear un marco de resumen de zoom en una diapositiva:
-
+Este código Java le muestra cómo crear un marco de zoom de resumen en una diapositiva:
 ``` java 
 Presentation pres = new Presentation();
 try {
@@ -376,7 +388,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    pres.getSections().addSection("Section 1", slide);
 
     //Agrega una nueva diapositiva a la presentación
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -385,7 +397,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 2", slide);
+    pres.getSections().addSection("Section 2", slide);
 
     //Agrega una nueva diapositiva a la presentación
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -394,7 +406,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 3", slide);
+    pres.getSections().addSection("Section 3", slide);
 
     //Agrega una nueva diapositiva a la presentación
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -403,7 +415,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 4", slide);
+    pres.getSections().addSection("Section 4", slide);
 
     // Agrega un objeto SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
@@ -415,20 +427,20 @@ try {
 }
 ```
 
-### **Agregando y Eliminando Secciones de Resumen de Zoom**
 
-Todas las secciones en un marco de resumen de zoom están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection). Puedes agregar o eliminar un objeto de sección de resumen de zoom a través de la interfaz [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) de esta manera:
+### **Agregar y eliminar una sección de Zoom de Resumen**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega un marco de resumen de zoom a la primera diapositiva.
-4. Agrega una nueva diapositiva y sección a la presentación.
-5. Agrega la sección creada al marco de resumen de zoom.
-6. Elimina la primera sección del marco de resumen de zoom.
-7. Escribe la presentación modificada como un archivo PPTX.
+Todas las secciones en un marco de zoom de resumen están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection). Puede agregar o eliminar un objeto de sección de zoom de resumen a través de la interfaz [ISummaryZoomSectionCollection]{{https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection}} de esta manera:
 
-Este código Java te muestra cómo agregar y eliminar secciones en un marco de resumen de zoom:
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregue un marco de zoom de resumen a la primera diapositiva.
+4.	Agregue una nueva diapositiva y sección a la presentación.
+5.	Agregue la sección creada al marco de zoom de resumen.
+6.	Elimine la primera sección del marco de zoom de resumen.
+7.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo agregar y eliminar secciones en un marco de zoom de resumen:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -439,7 +451,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    pres.getSections().addSection("Section 1", slide);
 
     //Agrega una nueva diapositiva a la presentación
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -448,7 +460,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 2", slide);
+    pres.getSections().addSection("Section 2", slide);
 
     // Agrega un objeto SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
@@ -460,12 +472,12 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    ISection section3 = pres.getSections().addSection("Sección 3", slide);
+    ISection section3 = pres.getSections().addSection("Section 3", slide);
 
-    // Agrega una sección al Resumen de Zoom
+    // Agrega una sección al Summary Zoom
     summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
 
-    // Elimina una sección del Resumen de Zoom
+    // Elimina la sección del Summary Zoom
     summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
 
     // Guarda la presentación
@@ -475,25 +487,25 @@ try {
 }
 ```
 
-### **Formateando Secciones de Resumen de Zoom**
 
-Para crear objetos de sección de resumen de zoom más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un objeto de sección de resumen de zoom.
+### **Formato de las secciones de Zoom de Resumen**
 
-Puedes controlar el formato para un objeto de sección de resumen de zoom en un marco de resumen de zoom de esta manera:
+Para crear objetos de sección de zoom de resumen más complejos, debe alterar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un objeto de sección de zoom de resumen. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Crea nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
-3. Agrega un marco de resumen de zoom a la primera diapositiva.
-4. Obtén un objeto de sección de resumen de zoom del primer objeto de la `ISummaryZoomSectionCollection`.
-7. Crea un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) al agregar una imagen a la colección de imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se utilizará para llenar el marco.
-8. Establece una imagen personalizada para el objeto de marco de sección de resumen creado.
-9. Establece la capacidad de *volver a la diapositiva original desde la sección vinculada*.
-11. Cambia el formato de línea para el segundo objeto de marco de zoom.
-12. Cambia la duración de la transición.
-13. Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un objeto de sección de zoom de resumen en un marco de zoom de resumen de esta manera:
 
-Este código Java te muestra cómo cambiar el formato de un objeto de sección de resumen de zoom:
+1.	Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2.	Cree nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregue un marco de zoom de resumen a la primera diapositiva.
+4.	Obtenga un objeto de sección de zoom de resumen para el primer objeto de la `ISummaryZoomSectionCollection`.
+7.	Cree un objeto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la colección images asociada al objeto [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) que se usará para rellenar el marco.
+8.	Establezca una imagen personalizada para el objeto de marco de sección de zoom creado.
+9.	Establezca la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+11.	Cambie el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambie la duración de la transición.
+13.	Escriba la presentación modificada como un archivo PPTX.
 
+Este código Java le muestra cómo cambiar el formato de un objeto de sección de zoom de resumen:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -504,7 +516,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 1", slide);
+    pres.getSections().addSection("Section 1", slide);
 
     //Agrega una nueva diapositiva a la presentación
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -513,7 +525,7 @@ try {
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
     // Agrega una nueva sección a la presentación
-    pres.getSections().addSection("Sección 2", slide);
+    pres.getSections().addSection("Section 2", slide);
 
     // Agrega un objeto SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
@@ -527,7 +539,7 @@ try {
     try {
         picture = pres.getImages().addImage(picture);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
     summarySection.setImage(picture);
 
@@ -547,3 +559,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo controlar el regreso a la diapositiva “principal” después de mostrar el objetivo?**
+
+Sí. El [Zoom frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zoomframe/) o la [section](https://reference.aspose.com/slides/androidjava/com.aspose.slides/sectionzoomframe/) tiene un comportamiento de retorno al padre que, cuando está habilitado, devuelve a los espectadores a la diapositiva de origen después de visitar el contenido objetivo.
+
+**¿Puedo ajustar la “velocidad” o duración de la transición de Zoom?**
+
+Sí. Zoom permite establecer una duración de transición para que pueda controlar cuánto tiempo tarda la animación de salto.
+
+**¿Existen límites en la cantidad de objetos Zoom que una presentación puede contener?**
+
+No hay un límite estricto de API documentado. Los límites prácticos dependen de la complejidad general de la presentación y del rendimiento del visor. Puede agregar muchos marcos de Zoom, pero considere el tamaño del archivo y el tiempo de renderizado.

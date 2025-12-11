@@ -1,38 +1,51 @@
 ---
-title: Gérer les paramètres d'ajustement automatique
+title: Améliorez vos présentations avec AutoFit sur Android
+linktitle: Paramètres Autofit
 type: docs
 weight: 30
 url: /fr/androidjava/manage-autofit-settings/
-keywords: "Textbox, Autofit, Présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
-description: "Définir les paramètres d'ajustement automatique pour la zone de texte dans PowerPoint en Java"
+keywords:
+- zone de texte
+- ajustement automatique
+- ne pas ajuster automatiquement
+- adapter le texte
+- réduire le texte
+- renvoyer le texte
+- redimensionner forme
+- PowerPoint
+- OpenDocument
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Gérez les paramètres AutoFit dans Aspose.Slides pour Android via Java afin d'optimiser l'affichage du texte dans vos présentations PowerPoint et OpenDocument et d'améliorer la lisibilité du contenu."
 ---
 
-Par défaut, lorsque vous ajoutez une zone de texte, Microsoft PowerPoint utilise le paramètre **Ajuster la forme au texte** pour la zone de texte—il redimensionne automatiquement la zone de texte pour s'assurer que son texte y tient toujours.
+Par défaut, lorsque vous ajoutez une zone de texte, Microsoft PowerPoint utilise le paramètre **Resize shape to fix text** pour la zone de texte — il redimensionne automatiquement la zone de texte pour s’assurer que son texte y rentre toujours. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Lorsque le texte dans la zone de texte devient plus long ou plus grand, PowerPoint agrandit automatiquement la zone de texte—augmente sa hauteur—pour lui permettre de contenir plus de texte.
-* Lorsque le texte dans la zone de texte devient plus court ou plus petit, PowerPoint réduit automatiquement la zone de texte—diminue sa hauteur—pour supprimer l'espace redondant.
+* Lorsque le texte de la zone de texte devient plus long ou plus grand, PowerPoint agrandit automatiquement la zone de texte—augmente sa hauteur—pour lui permettre de contenir plus de texte. 
+* Lorsque le texte de la zone de texte devient plus court ou plus petit, PowerPoint réduit automatiquement la zone de texte—diminue sa hauteur—pour éliminer l’espace redondant. 
 
-Dans PowerPoint, voici les 4 paramètres ou options importants qui contrôlent le comportement d'ajustement automatique pour une zone de texte :
+Dans PowerPoint, voici les 4 paramètres ou options importants qui contrôlent le comportement d'auto‑ajustement pour une zone de texte :
 
-* **Ne pas ajuster automatiquement**
-* **Réduire le texte en cas de débordement**
-* **Ajuster la forme au texte**
-* **Enrouler le texte dans la forme.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides pour Android via Java fournit des options similaires—certaines propriétés sous la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)—qui vous permettent de contrôler le comportement d'ajustement automatique pour les zones de texte dans les présentations.
+Aspose.Slides for Android via Java propose des options similaires—certaines propriétés de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) —qui vous permettent de contrôler le comportement d'auto‑ajustement des zones de texte dans les présentations.
 
-## **Ajuster la forme au texte**
+## **Redimensionner une forme pour ajuster le texte**
 
-Si vous souhaitez que le texte dans une boîte s'adapte toujours à cette boîte après modification du texte, vous devez utiliser l'option **Ajuster la forme au texte**. Pour spécifier ce paramètre, définissez la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `Shape`.
+Si vous souhaitez que le texte d’une zone s’ajuste toujours à celle‑ci après des modifications, vous devez utiliser l’option **Resize shape to fix text**. Pour spécifier ce réglage, définissez la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Ce code Java vous montre comment spécifier qu'un texte doit toujours s'adapter à sa boîte dans une présentation PowerPoint :
-
+Ce code Java vous montre comment spécifier qu’un texte doit toujours tenir dans sa zone dans une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,16 +66,16 @@ try {
 }
 ```
 
-Si le texte devient plus long ou plus grand, la zone de texte sera automatiquement redimensionnée (augmentation de la hauteur) pour s'assurer que tout le texte y tient. Si le texte devient plus court, l'inverse se produit.
 
-## **Ne Pas Ajuster Automatiquement**
+Si le texte devient plus long ou plus grand, la zone de texte sera automatiquement redimensionnée (augmentation de la hauteur) pour que tout le texte y tienne. Si le texte devient plus court, l’inverse se produit. 
 
-Si vous souhaitez qu'une zone de texte ou une forme conserve ses dimensions, peu importe les modifications apportées au texte qu'elle contient, vous devez utiliser l'option **Ne pas ajuster automatiquement**. Pour spécifier ce paramètre, définissez la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `None`.
+## **Ne pas ajuster automatiquement**
+
+Si vous souhaitez qu’une zone de texte ou une forme conserve ses dimensions quel que soit le texte qu’elle contient, vous devez utiliser l’option **Do not Autofit**. Pour spécifier ce réglage, définissez la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `None`.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-Ce code Java vous montre comment spécifier qu'une zone de texte doit toujours conserver ses dimensions dans une présentation PowerPoint :
-
+Ce code Java vous montre comment spécifier qu’une zone de texte doit toujours conserver ses dimensions dans une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -83,16 +96,16 @@ try {
 }
 ```
 
-Lorsque le texte devient trop long pour sa boîte, il déborde.
 
-## **Réduire le Texte en Cas de Débordement**
+Lorsque le texte devient trop long pour sa zone, il déborde. 
 
-Si un texte devient trop long pour sa boîte, grâce à l'option **Réduire le texte en cas de débordement**, vous pouvez spécifier que la taille et l'espacement du texte doivent être réduits pour le faire tenir dans sa boîte. Pour spécifier ce paramètre, définissez la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `Normal`.
+## **Réduire le texte en cas de dépassement**
+
+Si un texte devient trop long pour sa zone, l’option **Shrink text on overflow** vous permet de spécifier que la taille et l’espacement du texte doivent être réduits pour qu’il tienne dans la zone. Pour définir ce réglage, attribuez à la propriété [AutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getAutofitType--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) la valeur `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Ce code Java vous montre comment spécifier qu'un texte doit être réduit en cas de débordement dans une présentation PowerPoint :
-
+Ce code Java vous montre comment spécifier qu’un texte doit être réduit en cas de dépassement dans une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -113,18 +126,16 @@ try {
 }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Lorsque l'option **Réduire le texte en cas de débordement** est utilisée, le paramètre est appliqué uniquement lorsque le texte devient trop long pour sa boîte.
-
+Lorsque l’option **Shrink text on overflow** est utilisée, le réglage n’est appliqué que lorsque le texte devient trop long pour sa zone. 
 {{% /alert %}}
 
-## **Enrouler le Texte**
+## **Renvoyer le texte**
 
-Si vous souhaitez que le texte dans une forme soit enroulé à l'intérieur de cette forme lorsque le texte dépasse la bordure de la forme (largeur uniquement), vous devez utiliser le paramètre **Enrouler le texte dans la forme**. Pour spécifier ce paramètre, vous devez définir la propriété [WrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getWrapText--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `true`.
+Si vous souhaitez que le texte d’une forme se renvoie à l’intérieur de celle‑ci lorsque le texte dépasse la bordure de la forme (largeur uniquement), vous devez utiliser le paramètre **Wrap text in shape**. Pour définir ce réglage, vous devez fixer la propriété [WrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getWrapText--) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) sur `true`.
 
-Ce code Java vous montre comment utiliser le paramètre Enrouler le Texte dans une présentation PowerPoint :
-
+Ce code Java vous montre comment utiliser le paramètre Wrap Text dans une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -145,8 +156,18 @@ try {
 }
 ```
 
+
 {{% alert title="Note" color="warning" %}} 
-
-Si vous définissez la propriété `WrapText` sur `False` pour une forme, lorsque le texte à l'intérieur de la forme devient plus long que la largeur de la forme, le texte s'étend au-delà des bordures de la forme sur une seule ligne. 
-
+Si vous définissez la propriété `WrapText` sur `False` pour une forme, lorsque le texte à l’intérieur de la forme devient plus long que la largeur de la forme, le texte s’étend au‑delà des bordures de la forme sur une seule ligne. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Les marges internes du cadre de texte affectent-elles l’AutoFit ?**  
+Oui. Le remplissage (marges internes) réduit la zone utilisable pour le texte, de sorte que l’AutoFit se déclenche plus tôt—en réduisant la police ou en redimensionnant la forme plus rapidement. Vérifiez et ajustez les marges avant de régler l’AutoFit.  
+
+**Comment l’AutoFit interagit‑il avec les sauts de ligne manuels et souples ?**  
+Les sauts forcés restent en place, et l’AutoFit adapte la taille de la police et l’espacement autour d’eux. Supprimer les sauts inutiles réduit souvent l’agressivité avec laquelle l’AutoFit doit réduire le texte.  
+
+**Le changement de police du thème ou le déclenchement d’une substitution de police affecte‑t‑il les résultats de l’AutoFit ?**  
+Oui. Remplacer une police par une autre avec des métriques de glyphe différentes modifie la largeur/hauteur du texte, ce qui peut changer la taille finale de la police et le retour à la ligne. Après tout changement ou substitution de police, revérifiez les diapositives.

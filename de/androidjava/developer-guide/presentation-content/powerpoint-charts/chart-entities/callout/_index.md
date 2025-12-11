@@ -1,12 +1,23 @@
 ---
-title: Callout
+title: Callouts in Präsentationsdiagrammen auf Android verwalten
+linktitle: Callout
 type: docs
 url: /de/androidjava/callout/
+keywords:
+- Diagramm-Callout
+- Callout verwenden
+- Datenbeschriftung
+- Beschriftungsformat
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Android mit prägnanten Java-Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations-Workflows zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) und zum Interface [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob das angegebene Diagramm-Datenetikett als Daten-Callout oder als Datenetikett angezeigt wird.
-
+Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) und zum Interface [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob die Datenbeschriftung des angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **Callout für Donut-Diagramm festlegen**
-Aspose.Slides für Android über Java bietet Unterstützung für die Festlegung der Form des Datenetikett-Callouts für ein Donut-Diagramm. Unten ist ein Beispiel gegeben.
 
+## **Ein Callout für ein Doughnut‑Diagramm festlegen**
+Aspose.Slides für Android über Java unterstützt das Festlegen der Callout‑Form für Datenbeschriftungen von Reihen in einem Doughnut‑Diagramm. Nachfolgend ein Beispiel.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +48,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIE " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +57,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "KATEGORIE " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
+
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Exportieren nach [PDF](/slides/de/androidjava/convert-powerpoint-to-pdf/), [HTML5](/slides/de/androidjava/export-to-html5/), [SVG](/slides/de/androidjava/render-a-slide-as-an-svg-image/) oder [Rasterbilder](/slides/de/androidjava/convert-powerpoint-to-png/) zusammen mit der Folienformatierung erhalten bleiben.
+
+**Funktionieren benutzerdefinierte Schriften in Callouts, und kann ihr Aussehen beim Export beibehalten werden?**
+
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriften](/slides/de/androidjava/embedded-font/) in die Präsentation und steuert das Einbetten von Schriften während Exporte wie [PDF](/slides/de/androidjava/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.

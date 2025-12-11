@@ -1,36 +1,50 @@
 ---
-title: モダンAPI
+title: Modern APIで画像処理を強化
+linktitle: モダン API
 type: docs
 weight: 237
 url: /ja/androidjava/modern-api/
-keywords: "クロスプラットフォーム モダンAPI"
-description: "モダンAPI"
+keywords:
+- System.Drawing
+- モダン API
+- 描画
+- スライドサムネイル
+- スライドから画像へ
+- 図形サムネイル
+- 図形から画像へ
+- プレゼンテーションサムネイル
+- プレゼンテーションから画像へ
+- 画像を追加
+- 画像を挿入
+- Android
+- Java
+- Aspose.Slides
+description: "PowerPoint と OpenDocument の自動化をシームレスに行えるよう、非推奨の画像処理 API を Java の Modern API に置き換えてスライド画像処理を最新化します。"
 ---
 
-## はじめに
+## **概要**
 
-歴史的に、Aspose Slides は java.awt に依存しており、公開 API にはそこから以下のクラスが含まれています：
+歴史的に、Aspose Slides は java.awt に依存しており、公開 API では以下のクラスが提供されていました。
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
-バージョン 24.4 から、この公開 API は廃止予定として宣言されました。
+バージョン 24.4 以降、これらの公開 API は非推奨と宣言されています。
 
-これらのクラスへの依存関係を排除するため、いわゆる「モダン API」を追加しました。つまり、廃止予定の API の代わりに使用するべき API で、Bitmap に依存する署名を持っています。Canvas は廃止予定として宣言され、そのサポートは公開 Slides API から削除されます。
+これらのクラスへの依存をなくすために、いわゆる「Modern API」を追加しました。つまり、非推奨となった API の代わりに使用すべき API で、シグネチャに Bitmap への依存が含まれます。Canvas は非推奨とされ、公開 Slides API からのサポートが削除されました。
 
-System.Drawing に依存する廃止予定の公開 API の削除は、リリース 24.8 で行われる予定です。
+System.Drawing への依存を含む非推奨の公開 API の削除は、リリース 24.8 で行われます。
 
-## モダン API
+## **モダン API**
 
-公開 API に以下のクラスと列挙型が追加されました：
+公開 API に以下のクラスと列挙型を追加しました。
 
-- IImage - ラスターまたはベクター画像を表します。
-- ImageFormat - 画像のファイル形式を表します。
-- Images - IImage インターフェースを生成し、操作するためのメソッド。
+- IImage – ラスターまたはベクター画像を表します。
+- ImageFormat – 画像のファイル形式を表します。
+- Images – IImage インターフェイスをインスタンス化し操作するメソッド群。
 
-IImage は破棄可能であり（IDisposable インターフェースを実装しており、使用は using でラップするか、別の便利な方法で dispose する必要があります）。
+IImage は IDisposable を実装しているため、using ブロックで囲むか、適切な方法で dispose してください。
 
-新しい API を使用する典型的なシナリオは次のようになります：
-
+新しい API の典型的な使用シナリオは次のようになります：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -38,13 +52,13 @@ try {
     // ディスク上のファイルから IImage の破棄可能なインスタンスを生成します。
     IImage image = Images.fromFile("image.png");
     try {
-        // IImage のインスタンスをプレゼンテーションの画像に追加することによって PowerPoint 画像を作成します。
+        // IImage のインスタンスをプレゼンテーションの images に追加して PowerPoint 画像を作成します。
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // スライド #1 に画像シェイプを追加します。
+    // スライド #1 に画像シェイプを追加します
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     // スライド #1 を表す IImage のインスタンスを取得します。
@@ -60,9 +74,10 @@ try {
 }
 ```
 
-## 古いコードをモダン API に置き換える
 
-一般的に、ImageIO を使用して古いメソッドの呼び出しを新しいものに置き換える必要があります。
+## **古いコードをモダン API に置き換える**
+
+一般に、古い ImageIO を使用したメソッド呼び出しを新しいものに置き換える必要があります。
 
 古い：
 ``` java
@@ -88,6 +103,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 新しい：
 ``` java
 Presentation pres = new Presentation();
@@ -103,10 +119,10 @@ try {
 }
 ```
 
-### スライドのサムネイルを取得する
 
-廃止予定の API を使用したコード：
+### **スライドのサムネイル取得**
 
+非推奨 API を使用したコード：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -131,8 +147,8 @@ try {
 }
 ```
 
-モダン API：
 
+モダン API：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -147,10 +163,10 @@ try {
 }
 ```
 
-### シェイプのサムネイルを取得する
 
-廃止予定の API を使用したコード：
+### **図形のサムネイル取得**
 
+非推奨 API を使用したコード：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -175,8 +191,8 @@ try {
 }
 ```
 
-モダン API：
 
+モダン API：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -191,10 +207,10 @@ try {
 }
 ```
 
-### プレゼンテーションのサムネイルを取得する
 
-廃止予定の API を使用したコード：
+### **プレゼンテーションのサムネイル取得**
 
+非推奨 API を使用したコード：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -223,8 +239,8 @@ try {
 }
 ```
 
-モダン API：
 
+モダン API：
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -249,10 +265,10 @@ try {
 }
 ```
 
-### プレゼンテーションに画像を追加する
 
-廃止予定の API を使用したコード：
+### **プレゼンテーションへの画像追加**
 
+非推奨 API を使用したコード：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -267,8 +283,8 @@ try {
 }
 ```
 
-モダン API：
 
+モダン API：
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -286,10 +302,11 @@ try {
 }
 ```
 
-## 廃止予定のメソッドとモダン API での置き換え
 
-### プレゼンテーション
-| メソッドシグネチャ                               | 置き換えメソッドシグネチャ                             |
+## **削除対象メソッドとモダン API での置換**
+
+### **Presentation**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------|---------------------------------------------------------|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, Size imageSize) |
@@ -298,14 +315,14 @@ try {
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 
-### シェイプ
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                       |
+### **Shape**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### スライド
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                           |
+### **Slide**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(Size imageSize) | public final IImage getImage(Size imageSize) |
@@ -314,44 +331,58 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | 完全に削除されます |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | 完全に削除されます |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | 完全に削除されます |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely |
 
-### 出力
-| メソッドシグネチャ                                                | 置き換えメソッドシグネチャ                                |
+### **Output**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
-### ImageCollection
-| メソッドシグネチャ                          | 置き換えメソッドシグネチャ               |
+### **ImageCollection**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
-| メソッドシグネチャ                     | 置き換えメソッドシグネチャ   |
+### **PPImage**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |--------------------------------------|-----------------------------------------|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
-### PatternFormat
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
+### **PatternFormat**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| public final Bitmap getTileImage(Integer styleColor)   | public final IImage getTile(Integer styleColor) |
+| public final Bitmap getTileImage(Integer styleColor) | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
-### PatternFormatEffectiveData
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
+### **PatternFormatEffectiveData**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
-## Canvas の API サポートは中止されます
+## **Canvas の API サポートは終了します**
 
-[Canvas](https://developer.android.com/reference/android/graphics/Canvas) を使用したメソッドは廃止予定として宣言され、そのサポートは公開 API から削除されます。
+[Canvas](https://developer.android.com/reference/android/graphics/Canvas) を使用するメソッドは非推奨とされ、公開 API からのサポートが削除されます。
 
-これを使用する API の部分は削除されます：
+この API の該当部分は削除されます：
 
 [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
+
+## **FAQ**
+
+**なぜ android.graphics.Canvas が廃止されたのですか？**
+
+`Canvas` のサポートは、レンダリングと画像の作業を統一し、プラットフォーム固有の依存関係を排除し、[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) を使用したクロスプラットフォームアプローチに切り替えるために、公開 API から削除されます。`Canvas` へのすべてのレンダリングメソッドが削除されます。
+
+**IImage は BufferedImage と比べて実用的にどんなメリットがありますか？**
+
+[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) はラスタ画像とベクター画像の両方を統一的に扱えるようにし、[ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/) を介してさまざまな形式への保存を簡素化します。
+
+**モダン API はサムネイル生成のパフォーマンスに影響しますか？**
+
+`getThumbnail` から `getImage` への切り替えはシナリオを悪化させません。新しいメソッドはオプションやサイズ指定で画像を生成する同等の機能を提供し、レンダリングオプションのサポートも保持します。具体的な性能向上または低下はシナリオ次第ですが、機能的には置換は等価です。

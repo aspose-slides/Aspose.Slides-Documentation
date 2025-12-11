@@ -1,33 +1,46 @@
 ---
-title: Marco de Video
+title: Administrar marcos de video en presentaciones en Android
+linktitle: Marco de video
 type: docs
 weight: 10
 url: /es/androidjava/video-frame/
-keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
-description: "Agregar marco de video a presentación de PowerPoint en Java"
+keywords:
+- agregar video
+- crear video
+- incrustar video
+- extraer video
+- recuperar video
+- marco de video
+- fuente web
+- PowerPoint
+- OpenDocument
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda a agregar y extraer programáticamente marcos de video en diapositivas de PowerPoint y OpenDocument utilizando Aspose.Slides para Android mediante Java. Guía rápida paso a paso."
 ---
 
-Un video bien colocado en una presentación puede hacer que tu mensaje sea más convincente y aumentar los niveles de compromiso con tu audiencia.
+Un video bien colocado en una presentación puede hacer que su mensaje sea más atractivo y aumentar los niveles de interacción con su audiencia. 
 
-PowerPoint te permite agregar videos a una diapositiva en una presentación de dos maneras:
+PowerPoint le permite agregar videos a una diapositiva en una presentación de dos maneras:
 
-* Agregar o incrustar un video local (almacenado en tu máquina)
-* Agregar un video en línea (de una fuente web como YouTube).
+* Agregar o incrustar un video local (almacenado en su máquina)
+* Agregar un video en línea (desde una fuente web como YouTube).
 
-Para permitirte agregar videos (objetos de video) a una presentación, Aspose.Slides proporciona la interfaz [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/), la interfaz [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) y otros tipos relevantes.
+Para permitirle agregar videos (objetos de video) a una presentación, Aspose.Slides proporciona la interfaz [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) , la interfaz [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) y otros tipos relevantes.
 
-## **Crear Marco de Video Incrustado**
+## **Crear un marco de video incrustado**
 
-Si el archivo de video que deseas agregar a tu diapositiva está almacenado localmente, puedes crear un marco de video para incrustar el video en tu presentación.
+Si el archivo de video que desea agregar a su diapositiva está almacenado localmente, puede crear un marco de video para incrustar el video en su presentación. 
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtén una referencia a la diapositiva a través de su índice.
-1. Agrega un objeto [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) y pasa la ruta del archivo de video para incrustar el video con la presentación.
-1. Agrega un objeto [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) para crear un marco para el video.
-1. Guarda la presentación modificada.
+1. Cree una instancia de la clase [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+1. Obtenga la referencia de una diapositiva mediante su índice. 
+1. Agregue un objeto [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) y pase la ruta del archivo de video para incrustar el video en la presentación.
+1. Agregue un objeto [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) para crear un marco para el video.
+1. Guarde la presentación modificada. 
 
-Este código Java te muestra cómo agregar un video almacenado localmente a una presentación:
-
+Este código Java le muestra cómo agregar un video almacenado localmente a una presentación:
 ```java
 // Instancia la clase Presentation
 Presentation pres = new Presentation("pres.pptx");
@@ -37,7 +50,7 @@ try {
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
-    // Obtiene la primera diapositiva y agrega un marco de video
+    // Obtiene la primera diapositiva y agrega un videoframe
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
 
     // Guarda la presentación en disco
@@ -48,8 +61,8 @@ try {
 }
 ```
 
-Alternativamente, puedes agregar un video pasando su ruta de archivo directamente al método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-):
 
+Alternativamente, puede agregar un video pasando su ruta de archivo directamente al método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -61,20 +74,20 @@ try {
 ```
 
 
-## **Crear Marco de Video con Video de Fuente Web**
 
-Microsoft [PowerPoint 2013 y versiones más recientes](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) admiten videos de YouTube en las presentaciones. Si el video que deseas usar está disponible en línea (por ejemplo, en YouTube), puedes agregarlo a tu presentación a través de su enlace web.
+## **Crear un marco de video con video de una fuente web**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtén una referencia a la diapositiva a través de su índice.
-1. Agrega un objeto [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) y pasa el enlace al video.
-1. Establece una miniatura para el marco de video.
-1. Guarda la presentación.
+Microsoft [PowerPoint 2013 y versiones posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) admiten videos de YouTube en presentaciones. Si el video que desea usar está disponible en línea (por ejemplo, en YouTube), puede agregarlo a su presentación mediante su enlace web. 
 
-Este código Java te muestra cómo agregar un video de la web a una diapositiva en una presentación de PowerPoint:
+1. Cree una instancia de la clase [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+1. Obtenga la referencia de una diapositiva mediante su índice. 
+1. Agregue un objeto [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) y pase el enlace al video.
+1. Establezca una miniatura para el marco de video. 
+1. Guarde la presentación. 
 
+Este código Java le muestra cómo agregar un video desde la web a una diapositiva en una presentación de PowerPoint:
 ```java
-// Instancia un objeto Presentation que representa un archivo de presentación 
+// Instancia un objeto Presentation que representa un archivo de presentación
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -87,7 +100,7 @@ try {
 ```java
 private static void addVideoFromYouTube(Presentation pres, String videoID)
 {
-    // Agrega un marco de video
+    // Añade un videoFrame
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
@@ -107,17 +120,17 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **Extraer Video de la Diapositiva**
 
-Además de agregar videos a las diapositivas, Aspose.Slides te permite extraer videos incrustados en las presentaciones.
+## **Extraer video de una diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) para cargar la presentación que contiene el video.
-2. Itera a través de todos los objetos [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/).
-3. Itera a través de todos los objetos [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
-4. Guarda el video en disco.
+Además de agregar videos a las diapositivas, Aspose.Slides le permite extraer videos incrustados en presentaciones.
 
-Este código Java te muestra cómo extraer el video de una diapositiva de presentación:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) para cargar la presentación que contiene el video.
+2. Itere a través de todos los objetos [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) .
+3. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
+4. Guarde el video en el disco.
 
+Este código Java le muestra cómo extraer el video de una diapositiva de una presentación:
 ```java
 // Instancia un objeto Presentation que representa un archivo de presentación 
 Presentation pres = new Presentation("VideoSample.pptx");
@@ -133,7 +146,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                //Obtiene la extensión de archivo
+                //Obtiene la extensión del archivo
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -149,3 +162,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Qué parámetros de reproducción de video se pueden cambiar para un VideoFrame?**
+
+Puede controlar el modo de reproducción (automático o al hacer clic) y el bucle. Estas opciones están disponibles a través de las propiedades del objeto [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
+
+**¿Agregar un video afecta al tamaño del archivo PPTX?**
+
+Sí. Cuando incrusta un video local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando agrega un video en línea, se incrustan un enlace y una miniatura, por lo que el aumento de tamaño es menor.
+
+**¿Puedo reemplazar el video en un VideoFrame existente sin cambiar su posición y tamaño?**
+
+Sí. Puede intercambiar el contenido del video dentro del marco mientras preserva la geometría de la forma; este es un escenario común para actualizar medios en un diseño existente.
+
+**¿Se puede determinar el tipo de contenido (MIME) de un video incrustado?**
+
+Sí. Un video incrustado tiene un tipo de contenido que puede leer y utilizar, por ejemplo al guardarlo en el disco.

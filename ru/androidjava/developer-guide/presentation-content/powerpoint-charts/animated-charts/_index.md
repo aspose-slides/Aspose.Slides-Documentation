@@ -1,18 +1,34 @@
 ---
-title: Анимированные диаграммы
+title: Анимировать диаграммы PowerPoint на Android
+linktitle: Анимированные диаграммы
 type: docs
 weight: 80
 url: /ru/androidjava/animated-charts/
+keywords:
+- диаграмма
+- анимированная диаграмма
+- анимация диаграммы
+- серия диаграммы
+- категория диаграммы
+- элемент серии
+- элемент категории
+- добавить эффект
+- тип эффекта
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Создавайте потрясающие анимированные диаграммы в Java с Aspose.Slides для Android. Улучшайте презентации динамичной визуализацией в файлах PPT и PPTX—начните сейчас."
 ---
-
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides для Android через Java поддерживает анимацию элементов диаграмм. **Серии**, **Категории**, **Элементы серий**, **Элементы категорий** могут быть анимированы с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for Android через Java поддерживает анимацию элементов диаграммы. **Серии**, **Категории**, **Элементы серии**, **Элементы категорий** могут быть анимированы с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
-## **Анимация серий диаграммы**
+## **Анимация серии диаграммы**
 Если вы хотите анимировать серию диаграммы, напишите код в соответствии с шагами, перечисленными ниже:
 
 1. Загрузите презентацию.
@@ -20,18 +36,17 @@ Aspose.Slides для Android через Java поддерживает анима
 1. Анимируйте серию.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали серии диаграммы.
-
+В приведённом ниже примере мы анимировали серию диаграммы.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект диаграммы
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте серию
+    // Анимировать серию
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
 
@@ -51,30 +66,30 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите измененную презентацию на диск
+    // Записать изменённую презентацию на диск
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Анимация категорий диаграммы**
-Если вы хотите анимировать категорию диаграммы, напишите код в соответствии с шагами, перечисленными ниже:
+Если вы хотите анимировать серию диаграммы, напишите код в соответствии с шагами, перечисленными ниже:
 
 1. Загрузите презентацию.
 1. Получите ссылку на объект диаграммы.
 1. Анимируйте категорию.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали категорию диаграммы.
-
+В приведённом ниже примере мы анимировали категорию диаграммы.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0);
+    IChart chart = (IChart) shapes.get_Item(0");
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -101,7 +116,8 @@ try {
 }
 ```
 
-## **Анимация элементов серии**
+
+## **Анимация элемента серии**
 Если вы хотите анимировать элементы серии, напишите код в соответствии с шагами, перечисленными ниже:
 
 1. Загрузите презентацию.
@@ -109,18 +125,17 @@ try {
 1. Анимируйте элементы серии.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали элементы серии.
-
+В приведённом ниже примере мы анимировали элементы серии.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создать экземпляр класса Presentation, представляющий файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект диаграммы
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте элементы серии
+    // Анимировать элементы серии
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
@@ -150,14 +165,15 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите файл презентации на диск 
+    // Записать файл презентации на диск 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Анимация в элементах категорий**
+
+## **Анимация элемента категории**
 Если вы хотите анимировать элементы категорий, напишите код в соответствии с шагами, перечисленными ниже:
 
 1. Загрузите презентацию.
@@ -165,18 +181,17 @@ try {
 1. Анимируйте элементы категорий.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали элементы категорий.
-
+В приведённом ниже примере мы анимировали элементы категорий.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создать экземпляр класса Presentation, представляющий файл презентации
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Получите ссылку на объект диаграммы
+    // Получить ссылку на объект диаграммы
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Анимируйте элементы категорий
+    // Анимировать элементы категорий
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
@@ -205,9 +220,32 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Запишите файл презентации на диск
+    // Записать файл презентации на диск
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Поддерживаются ли разные типы эффектов (например, вход, акцент, выход) для диаграмм так же, как и для обычных фигур?**
+
+Да. Диаграмма рассматривается как фигура, поэтому она поддерживает стандартные типы анимационных эффектов, включая вход, акцент и выход, с полным управлением через шкалу времени слайда и последовательности анимаций.
+
+**Могу ли я комбинировать анимацию диаграммы с переходами слайдов?**
+
+Да. [Переходы](/slides/ru/androidjava/slide-transition/) применяются к слайду, тогда как анимационные эффекты применяются к объектам на слайде. Вы можете использовать оба одновременно в одной презентации и управлять ими независимо.
+
+**Сохраняются ли анимации диаграмм при сохранении в PPTX?**
+
+Да. При [сохранении в PPTX](/slides/ru/androidjava/save-presentation/) все анимационные эффекты и их порядок сохраняются, поскольку они являются частью собственного анимационного модели презентации.
+
+**Могу ли я читать существующие анимации диаграмм из презентации и изменять их?**
+
+Да. API предоставляет доступ к шкале времени слайда, последовательностям и эффектам, позволяя исследовать существующие анимации диаграмм и корректировать их без необходимости воссоздавать всё с нуля.
+
+**Могу ли я создать видео, включающее анимацию диаграмм, используя Aspose.Slides?**
+
+Да. Вы можете [экспортировать презентацию в видео](/slides/ru/androidjava/convert-powerpoint-to-video/) при сохранении анимаций, настроив тайминги и другие параметры экспорта, чтобы полученный ролик точно отражал анимированное воспроизведение.

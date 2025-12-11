@@ -1,12 +1,23 @@
 ---
-title: Llamadas
+title: Administrar llamadas en gráficos de presentación en Android
+linktitle: Llamada
 type: docs
 url: /es/androidjava/callout/
+keywords:
+- llamada de gráfico
+- usar llamada
+- etiqueta de datos
+- formato de etiqueta
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Cree y diseñe llamadas en Aspose.Slides para Android con ejemplos de código Java concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Uso de Llamadas**
-Se han añadido nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos.
-
+## **Uso de llamadas**
+Se han añadido los nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como una llamada de datos o como una etiqueta de datos.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **Configurar Llamada para el Gráfico de Donut**
-Aspose.Slides para Android a través de Java proporciona soporte para configurar la forma de la llamada de etiqueta de datos de serie para un gráfico de donut. A continuación se presenta un ejemplo de muestra.
 
+## **Establecer una llamada para un gráfico de anillo**
+Aspose.Slides para Android mediante Java ofrece soporte para establecer la forma de llamada de la etiqueta de datos de la serie en un gráfico de anillo. A continuación se muestra un ejemplo.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +48,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIE " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +57,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORÍA " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Se conservan las llamadas al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+
+Sí. Las llamadas forman parte del renderizado del gráfico, por lo que al exportar a [PDF](/slides/es/androidjava/convert-powerpoint-to-pdf/), [HTML5](/slides/es/androidjava/export-to-html5/), [SVG](/slides/es/androidjava/render-a-slide-as-an-svg-image/) o [imágenes rasterizadas](/slides/es/androidjava/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+
+**¿Funcionan las fuentes personalizadas en las llamadas y se puede conservar su apariencia al exportar?**
+
+Sí. Aspose.Slides admite [incorporar fuentes](/slides/es/androidjava/embedded-font/) en la presentación y controla la incorporación de fuentes durante exportaciones como [PDF](/slides/es/androidjava/convert-powerpoint-to-pdf/), garantizando que las llamadas se vean iguales en diferentes sistemas.

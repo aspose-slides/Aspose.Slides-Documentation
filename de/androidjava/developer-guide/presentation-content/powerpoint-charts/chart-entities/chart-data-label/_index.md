@@ -1,17 +1,27 @@
 ---
-title: Diagrammdatenbeschriftung
+title: Diagrammdbeschriftungen in Präsentationen auf Android verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/androidjava/chart-data-label/
-keywords: "Diagrammdatenbeschriftung, Beschriftungsabstand, Java, Aspose.Slides für Android über Java"
-description: "Diagrammdatenbeschriftung und Abstandsangaben in Java setzen"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozent
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammdbeschriftungen in PowerPoint‑Präsentationen mit Aspose.Slides für Android via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Datenreihen oder einzelnen Datenpunkten im Diagramm an. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten. Sie ermöglichen es Lesern, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
 
-## **Präzision der Daten in Diagrammdatenbeschriftungen festlegen**
-
-Dieser Java-Code zeigt Ihnen, wie Sie die Datenpräzision in einer Diagrammdatenbeschriftung festlegen:
-
+## **Datenpräzision in Diagrammbeschriftungen festlegen**
+Dieser Java-Code zeigt, wie Sie die Datenpräzision in einer Diagrammbeschriftung festlegen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,11 +36,11 @@ try {
 }
 ```
 
-## **Prozentsätze als Beschriftungen anzeigen**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, Prozentsatzbeschriftungen auf angezeigten Diagrammen festzulegen. Dieser Java-Code veranschaulicht die Funktion:
 
+## **Prozentsätze als Beschriftungen anzeigen**
+Aspose.Slides für Android via Java ermöglicht das Setzen von Prozentwerten als Beschriftungen in angezeigten Diagrammen. Dieser Java-Code demonstriert die Vorgehensweise:
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
+// Erstellt eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
     // Holt die erste Folie
@@ -78,17 +88,17 @@ try {
 }
 ```
 
-## **Prozentzeichen mit Diagrammdatenbeschriftungen festlegen**
-Dieser Java-Code zeigt Ihnen, wie Sie das Prozentzeichen für eine Diagrammdatenbeschriftung festlegen:
 
+## **Prozentzeichen in Diagrammbeschriftungen festlegen**
+Dieser Java-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
+// Erstellt eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
-    // Holt eine Referenz auf eine Folie über ihren Index
+    // Holt die Referenz einer Folie über ihren Index
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Erstellt das Diagramm PercentsStackedColumn auf einer Folie
+    // Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
     
     // Setzt NumberFormatLinkedToSource auf false
@@ -98,10 +108,10 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Holt das Diagrammdatenarbeitsblatt
+    // Holt das Arbeitsblatt der Diagrammdaten
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // Fügt neue Serien hinzu
+    // Fügt neue Serie hinzu
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
@@ -112,7 +122,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Setzt die LabelFormat-Eigenschaften
+    // Setzt die Eigenschaften des LabelFormat
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
@@ -121,7 +131,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Fügt neue Serien hinzu
+    // Fügt neue Serie hinzu
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
@@ -145,14 +155,14 @@ try {
 }
 ```
 
-## **Beschriftungsabstände von der Achse festlegen**
-Dieser Java-Code zeigt Ihnen, wie Sie den Beschriftungsabstand von einer Kategorieneachse festlegen, wenn Sie mit einem aus Achsen geplotteten Diagramm arbeiten:
 
+## **Beschriftungsabstand von einer Achse festlegen**
+Dieser Java-Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategorienachse festlegen, wenn Sie ein Diagramm haben, das über Achsen erstellt wurde:
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
+// Erstellt eine Instanz der Klasse Presentation
 Presentation pres = new Presentation();
 try {
-    // Holt eine Referenz auf eine Folie
+    // Holt die Referenz einer Folie
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Erstellt ein Diagramm auf der Folie
@@ -161,19 +171,19 @@ try {
     // Setzt den Beschriftungsabstand von einer Achse
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
-    // Schreibt die Präsentation auf die Festplatte
+    // WriteS die Präsentation auf die Festplatte
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das sich nicht auf eine Achse stützt, wie z. B. ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand sein. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Verbindungslinien klar angezeigt werden.
+Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, z. B. ein Kreisdiagramm, können die Datenbeschriftungen zu nah am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Führungslinien deutlich sichtbar werden.
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
-
+Dieser Java-Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,4 +203,16 @@ try {
 }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**  
+Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme/Schlüsselwerte anzeigen.
+
+**Wie kann ich Beschriftungen nur für Null-, Negative- oder Leere-Werte deaktivieren?**  
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und deaktivieren Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel.
+
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**  
+Legen Sie explizit Schriftarten (Familie, Größe) fest und prüfen Sie, dass die Schriftart auf der Rendering‑Seite verfügbar ist, um ein Ausweichen zu vermeiden.

@@ -1,12 +1,23 @@
 ---
-title: Appel
+title: Gérer les annotations dans les graphiques de présentation sur Android
+linktitle: Annotation
 type: docs
 url: /fr/androidjava/callout/
+keywords:
+- annotation de graphique
+- utiliser annotation
+- étiquette de données
+- format d'étiquette
+- PowerPoint
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Créez et stylisez des annotations dans Aspose.Slides pour Android avec des exemples de code Java concis, compatibles avec PPT et PPTX pour automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des Appels**
-De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) et [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Ces méthodes déterminent si l'étiquette de données du graphique spécifié sera affichée en tant qu'appel de données ou en tant qu'étiquette de données.
-
+## **Utilisation des annotations**
+Nouvelles méthodes **getShowLabelAsDataCallout()**([https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--)) et **setShowLabelAsDataCallout()**([https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-)) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Ces méthodes déterminent si le libellé de données du graphique spécifié sera affiché comme annotation de données ou comme libellé de données.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **Définir l'Appel pour le Graphique en Anneau**
-Aspose.Slides pour Android via Java prend en charge la définition de la forme de l'étiquette de données de la série pour un graphique en anneau. Un exemple d'échantillon est donné ci-dessous.
 
+## **Définir une annotation pour un graphique en anneau**
+Aspose.Slides pour Android via Java prend en charge la définition de la forme d'annotation du libellé de données de série pour un graphique en anneau. L'exemple d'échantillon ci‑dessous est fourni.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +48,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SÉRIE " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +57,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATÉGORIE " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Les annotations sont‑elles conservées lors de la conversion d’une présentation vers PDF, HTML5, SVG ou images ?**
+
+Oui. Les annotations font partie du rendu du graphique, donc lors de l'exportation vers [PDF](/slides/fr/androidjava/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/androidjava/export-to-html5/), [SVG](/slides/fr/androidjava/render-a-slide-as-an-svg-image/) ou [raster images](/slides/fr/androidjava/convert-powerpoint-to-png/), elles sont conservées avec le formatage de la diapositive.
+
+**Les polices personnalisées fonctionnent‑elles dans les annotations, et leur apparence peut‑elle être conservée à l’exportation ?**
+
+Oui. Aspose.Slides prend en charge l'[embedding fonts](/slides/fr/androidjava/embedded-font/) dans la présentation et contrôle l'intégration des polices lors d'exportations telles que [PDF](/slides/fr/androidjava/convert-powerpoint-to-pdf/), garantissant que les annotations conservent le même aspect sur différents systèmes.

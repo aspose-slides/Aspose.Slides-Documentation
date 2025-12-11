@@ -1,105 +1,116 @@
 ---
-title: 管理缩放
+title: 在 Android 上管理演示文稿缩放
+linktitle: 管理缩放
 type: docs
 weight: 60
 url: /zh/androidjava/manage-zoom/
-keywords: "缩放, 缩放框, 添加缩放, 格式化缩放框, 总结缩放, PowerPoint演示文稿, Java, Aspose.Slides for Android via Java"
-description: "在Java中为PowerPoint演示文稿添加缩放或缩放框"
+keywords:
+- 缩放
+- 缩放框架
+- 幻灯片缩放
+- 章节缩放
+- 概要缩放
+- 添加缩放
+- PowerPoint
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Android via Java 创建并自定义缩放 — 在 PPT、PPTX 和 ODP 演示文稿中跨章节跳转，添加缩略图和切换效果."
 ---
 
 ## **概述**
-PowerPoint中的缩放允许您在特定幻灯片、部分和演示文稿的片段之间跳转。当您在演示时，这种快速导航内容的能力可能会非常有用。
+PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分之间跳转。在演示时，这种快速浏览内容的能力可能非常有用。 
 
 ![overview_image](overview.png)
 
-* 要在单个幻灯片上总结整个演示文稿，请使用[总结缩放](#Summary-Zoom)。
-* 要仅显示选定的幻灯片，请使用[幻灯片缩放](#Slide-Zoom)。
-* 要仅显示单个部分，请使用[部分缩放](#Section-Zoom)。
+* 要在单个幻灯片上概括整个演示文稿，请使用[Summary Zoom](#Summary-Zoom)。
+* 若只显示选定的幻灯片，请使用[Slide Zoom](#Slide-Zoom)。
+* 若只显示单个章节，请使用[Section Zoom](#Section-Zoom)。
 
 ## **幻灯片缩放**
-幻灯片缩放可以使您的演示文稿更加动态，允许您自由地按任何顺序在幻灯片之间导航，而不会中断演示流程。幻灯片缩放非常适合没有太多部分的短演示，但您仍然可以在不同的演示场景中使用它们。
-
-幻灯片缩放帮助您在感觉上是在单一画布上的同时深入多个信息。
+幻灯片缩放可以使您的演示更加生动，允许您按任意顺序在幻灯片之间自由导航，而不会中断演示的流程。幻灯片缩放非常适合章节不多的短篇演示，但在其他演示场景中也可使用。  
+幻灯片缩放帮助您深入多个信息块，同时仍感觉置于同一画布上。 
 
 ![overview_image](slidezoomsel.png)
 
-对于幻灯片缩放对象，Aspose.Slides提供了[ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType)枚举、[IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame)接口以及一些位于[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的方法。
+对于幻灯片缩放对象，Aspose.Slides 提供了[ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType)枚举、[IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame)接口以及[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的若干方法。
 
-### **创建缩放框**
+### **创建缩放框架**
 
-您可以通过以下方式在幻灯片上添加缩放框：
+您可以通过以下方式在幻灯片上添加缩放框架：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建您打算链接缩放框的新幻灯片。
-3. 为创建的幻灯片添加识别文本和背景。
-4. 向第一张幻灯片添加缩放框（包含对创建的幻灯片的引用）。
-5. 将修改后的演示文稿写入PPTX文件。
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建您打算链接缩放框架的新幻灯片。  
+3. 为创建的幻灯片添加识别文本和背景。  
+4. 将缩放框架（包含对已创建幻灯片的引用）添加到第一张幻灯片。  
+5. 将修改后的演示文稿写入为 PPTX 文件。  
 
-以下Java代码向您展示了如何在幻灯片上创建一个缩放框：
-
+此 Java 代码演示如何在幻灯片上创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds new slides to the presentation
+    //添加新幻灯片到演示文稿
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // 为第二张幻灯片创建背景
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the second slide
+    // 为第二张幻灯片创建文本框
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("第二张幻灯片");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a background for the third slide
+    // 为第三张幻灯片创建背景
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Create a text box for the third slide
+    // 为第三张幻灯片创建文本框
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("第三张幻灯片");
+    autoshape.getTextFrame().setText("Trird Slide");
 
-    //Adds ZoomFrame objects
+    //添加 ZoomFrame 对象
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **使用自定义图像创建缩放框**
-通过Aspose.Slides for Android via Java，您可以通过以下方式创建带有不同幻灯片预览图像的缩放框：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建您打算链接缩放框的新幻灯片。
-3. 为幻灯片添加识别文本和背景。
-4. 通过将图像添加到与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象相关联的Images集合中来创建[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，该图像将用于填充框架。
-5. 向第一张幻灯片添加缩放框（包含对创建幻灯片的引用）。
-6. 将修改后的演示文稿写入PPTX文件。
+### **使用自定义图片创建缩放框架**
 
-以下Java代码向您展示了如何创建一个带有不同图像的缩放框：
+使用 Aspose.Slides for Android via Java，您可以通过以下方式创建带有不同幻灯片预览图像的缩放框架：
 
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建一个您打算链接缩放框架的新幻灯片。  
+3. 为幻灯片添加识别文本和背景。  
+4. 通过向与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象关联的 Images 集合中添加图像，创建一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以填充框架。  
+5. 将缩放框架（包含对已创建幻灯片的引用）添加到第一张幻灯片。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
+
+此 Java 代码演示如何使用不同图像创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // 为第二张幻灯片创建背景
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the third slide
+    // 为第三张幻灯片创建文本框
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("第二张幻灯片");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a new image for the zoom object
+    // 为缩放对象创建新图像
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -107,63 +118,64 @@ try {
         } finally {
             if (image != null) image.dispose();
         }
-    //Adds the ZoomFrame object
+    //添加 ZoomFrame 对象
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **格式化缩放框**
-在前面的章节中，我们向您展示了如何创建简单的缩放框。要创建更复杂的缩放框，您必须更改简单框的格式。有几种格式选项可应用于缩放框。
 
-您可以通过以下方式控制幻灯片上缩放框的格式：
+### **格式化缩放框架**
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建新幻灯片以链接到您打算链接的缩放框。
-3. 向创建的幻灯片添加一些识别文本和背景。
-4. 向第一张幻灯片添加缩放框（包含对创建的幻灯片的引用）。
-5. 通过将图像添加到与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象相关联的Images集合中，创建[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以用于填充框架。
-6. 为第一个缩放框对象设置自定义图像。
-7. 更改第二个缩放框对象的线条格式。
-8. 移除第二个缩放框对象图像的背景。
-5. 将修改后的演示文稿写入PPTX文件。
+在前面的章节中，我们演示了如何创建简单的缩放框架。要创建更复杂的缩放框架，您需要修改简单框架的格式。您可以对缩放框架应用多种格式化选项。
 
-以下Java代码向您展示了如何更改幻灯片上缩放框的格式：
+您可以通过以下方式在幻灯片上控制缩放框架的格式：
 
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建您打算链接缩放框架的新幻灯片。  
+3. 为创建的幻灯片添加一些识别文本和背景。  
+4. 将缩放框架（包含对已创建幻灯片的引用）添加到第一张幻灯片。  
+5. 通过向与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象关联的 Images 集合中添加图像，创建一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以填充框架。  
+6. 为第一个缩放框架对象设置自定义图像。  
+7. 更改第二个缩放框架对象的线条格式。  
+8. 删除第二个缩放框架对象图像的背景。  
+5. 将修改后的演示文稿写入为 PPTX 文件。  
+
+此 Java 代码演示如何在幻灯片上更改缩放框架的格式：
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds new slides to the presentation
+    //添加新幻灯片到演示文稿
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // 为第二张幻灯片创建背景
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the second slide
+    // 为第二张幻灯片创建文本框
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("第二张幻灯片");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a background for the third slide
+    // 为第三张幻灯片创建背景
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Creates a text box for the third slide
+    // 为第三张幻灯片创建文本框
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("第三张幻灯片");
+    autoshape.getTextFrame().setText("Trird Slide");
 
-    //Adds ZoomFrame objects
+    //添加 ZoomFrame 对象
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Creates a new image for the zoom object
+    // 为缩放对象创建新图像
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -171,19 +183,19 @@ try {
         } finally {
             if (image != null) image.dispose();
         }
-    // Sets custom image for zoomFrame1 object
+    // 为 zoomFrame1 对象设置自定义图像
     zoomFrame1.setImage(picture);
 
-    // Sets a zoom frame format for the zoomFrame2 object
+    // 为 zoomFrame2 对象设置缩放框架格式
     zoomFrame2.getLineFormat().setWidth(5);
     zoomFrame2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // Setting for Do not show background for zoomFrame2 object
+    // 设置 zoomFrame2 对象不显示背景
     zoomFrame2.setShowBackground(false);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -191,75 +203,75 @@ try {
 }
 ```
 
-## **部分缩放**
 
-部分缩放是您演示文稿中某个部分的链接。您可以使用部分缩放返回到您希望真正强调的部分。或者，您可以使用它们来突出显示您演示文稿中某些部分之间的连接。
+## **章节缩放**
+
+章节缩放是指向演示文稿中某一章节的链接。您可以使用章节缩放返回需要特别强调的章节，或用来突出演示中各部分之间的关联。 
 
 ![overview_image](seczoomsel.png)
 
-对于部分缩放对象，Aspose.Slides提供了[ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame)接口和一些位于[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的方法。
+对于章节缩放对象，Aspose.Slides 提供了[ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame)接口以及[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的若干方法。
 
-### **创建部分缩放框**
+### **创建章节缩放框架**
 
-您可以通过以下方式向幻灯片添加部分缩放框：
+您可以通过以下方式向幻灯片添加章节缩放框架：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建新幻灯片。
-3. 为创建的幻灯片添加识别背景。
-4. 创建您打算链接缩放框的新部分。
-5. 向第一张幻灯片添加部分缩放框（包含对创建部分的引用）。
-6. 将修改后的演示文稿写入PPTX文件。
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建一个新幻灯片。  
+3. 为创建的幻灯片添加识别背景。  
+4. 创建您打算链接缩放框架的新章节。  
+5. 将章节缩放框架（包含对已创建章节的引用）添加到第一张幻灯片。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
 
-以下Java代码向您展示了如何在幻灯片上创建缩放框：
-
+此 Java 代码演示如何在幻灯片上创建缩放框架：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 向演示文稿添加新章节
+    pres.getSections().addSection("Section 1", slide);
 
-    // Adds a SectionZoomFrame object
+    // 添加 SectionZoomFrame 对象
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **使用自定义图像创建部分缩放框**
 
-使用Aspose.Slides for Android via Java，您可以通过以下方式创建带有不同幻灯片预览图像的部分缩放框：
+### **使用自定义图片创建章节缩放框架**
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建新幻灯片。
-3. 为创建的幻灯片添加识别背景。
-4. 创建您打算链接缩放框的新部分。
-5. 通过将图像添加到与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象相关联的Images集合中，创建[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，该图像将用于填充框架。
-5. 向第一张幻灯片添加部分缩放框（包含对创建部分的引用）。
-6. 将修改后的演示文稿写入PPTX文件。
+使用 Aspose.Slides for Android via Java，您可以通过以下方式创建带有不同幻灯片预览图像的章节缩放框架：
 
-以下Java代码向您展示了如何创建一个带有不同图像的部分缩放框：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建一个新幻灯片。  
+3. 为创建的幻灯片添加识别背景。  
+4. 创建您打算链接缩放框架的新章节。  
+5. 通过向与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象关联的 Images 集合中添加图像，创建一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以填充框架。  
+5. 将章节缩放框架（包含对已创建章节的引用）添加到第一张幻灯片。  
+6. 将修改后的演示文稿写入为 PPTX 文件。  
 
+此 Java 代码演示如何使用不同图像创建缩放框架：
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds new slide to the presentation
+    //添加新幻灯片到演示文稿
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 1", slide);
 
-    // Creates a new image for the zoom object
+    // 为缩放对象创建新图像
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -268,54 +280,54 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Adds SectionZoomFrame object
+    // 添加 SectionZoomFrame 对象
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **格式化部分缩放框**
 
-要创建更复杂的部分缩放框，您必须更改简单框的格式。有几种格式选项可应用于部分缩放框。
+### **格式化章节缩放框架**
 
-您可以通过以下方式控制幻灯片上部分缩放框的格式：
+要创建更复杂的章节缩放框架，您需要修改简单框架的格式。您可以对章节缩放框架应用多种格式化选项。
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建新幻灯片。
-3. 为创建的幻灯片添加识别背景。
-4. 创建您打算链接缩放框的新部分。
-5. 向第一张幻灯片添加部分缩放框（包含对创建部分的引用）。
-6. 更改创建的部分缩放对象的大小和位置。
-7. 通过将图像添加到与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象相关联的Images集合中，创建[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，该图像将用于填充框架。
-8. 为创建的部分缩放框对象设置自定义图像。
-9. 设置*从链接部分返回到原始幻灯片*的能力。
-10. 移除部分缩放框对象图像的背景。
-11. 更改第二个缩放框对象的线条格式。
-12. 更改过渡持续时间。
-13. 将修改后的演示文稿写入PPTX文件。
+您可以通过以下方式在幻灯片上控制章节缩放框架的格式：
 
-以下Java代码向您展示了如何更改部分缩放框的格式：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建一个新幻灯片。  
+3. 为创建的幻灯片添加识别背景。  
+4. 创建您打算链接缩放框架的新章节。  
+5. 将章节缩放框架（包含对已创建章节的引用）添加到第一张幻灯片。  
+6. 更改已创建章节缩放对象的大小和位置。  
+7. 通过向与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象关联的 Images 集合中添加图像，创建一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以填充框架。  
+8. 为已创建的章节缩放框架对象设置自定义图像。  
+9. 设置*从链接章节返回原始幻灯片*的能力。  
+10. 删除章节缩放框架对象图像的背景。  
+11. 更改第二个缩放框架对象的线条格式。  
+12. 更改切换持续时间。  
+13. 将修改后的演示文稿写入为 PPTX 文件。  
 
+此 Java 代码演示如何更改章节缩放框架的格式：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    // 向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 向演示文稿添加新章节
+    pres.getSections().addSection("Section 1", slide);
 
-    // Add SectionZoomFrame object
+    // 添加 SectionZoomFrame 对象
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // Formatting for SectionZoomFrame
+    // SectionZoomFrame 的格式设置
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
@@ -340,7 +352,7 @@ try {
 
     sectionZoomFrame.setTransitionDuration(1.5f);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -348,187 +360,187 @@ try {
 }
 ```
 
-## **总结缩放**
 
-总结缩放就像一个登录页面，您可以在其中一次性显示您演示文稿中的所有部分。当您进行演示时，您可以使用缩放从演示文稿中的一个地方转到另一个地方，顺序随您喜欢。您可以发挥创意，跳过先前的内容，或重新访问您的幻灯片集中的部分，而不会中断演示的流。
+## **概要缩放**
+
+概要缩放类似于一个着陆页，所有演示内容一次性展示。当您进行演示时，可以使用缩放在演示的任意位置之间跳转，顺序自由。您可以随意创意切换、快进或回顾幻灯片，而不会中断演示的流程。
 
 ![overview_image](sumzoomsel.png)
 
-对于总结缩放对象，Aspose.Slides提供了[ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)和[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)接口以及一些位于[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的方法。
+对于概要缩放对象，Aspose.Slides 提供了[ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame)、[ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)和[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)接口以及[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection)接口下的若干方法。
 
-### **创建总结缩放**
+### **创建概要缩放**
 
-您可以通过以下方式向幻灯片添加总结缩放框：
+您可以通过以下方式向幻灯片添加概要缩放框架：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建带有识别背景和为创建的幻灯片的新部分的新幻灯片。
-3. 向第一张幻灯片添加总结缩放框。
-4. 将修改后的演示文稿写入PPTX文件。
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建带有识别背景和新章节的幻灯片。  
+3. 将概要缩放框架添加到第一张幻灯片。  
+4. 将修改后的演示文稿写入为 PPTX 文件。  
 
-以下Java代码向您展示了如何在幻灯片上创建一个总结缩放框：
-
+此 Java 代码演示如何在幻灯片上创建概要缩放框架：
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 2", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 2", slide);
 
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 3", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 3", slide);
 
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 4", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 4", slide);
 
-    // Adds a SummaryZoomFrame object
+    // 添加 SummaryZoomFrame 对象
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **添加和移除总结缩放部分**
 
-总结缩放框中的所有部分由[ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)对象表示，这些对象存储在[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)对象中。您可以通过[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)接口添加或移除总结缩放部分对象，方法如下：
+### **添加和删除概要缩放章节**
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建带有识别背景和为创建的幻灯片的新部分的新幻灯片。
-3. 向第一张幻灯片添加总结缩放框。
-4. 添加新幻灯片和部分到演示文稿中。
-5. 将创建的部分添加到总结缩放框。
-6. 从总结缩放框中移除第一部分。
-7. 将修改后的演示文稿写入PPTX文件。
+所有在概要缩放框架中的章节均由[ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)对象表示，这些对象存储在[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)对象中。您可以通过[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection)接口以如下方式添加或删除概要缩放章节对象：
 
-以下Java代码向您展示了如何在总结缩放框中添加和移除部分：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建带有识别背景和新章节的幻灯片。  
+3. 将概要缩放框架添加到第一张幻灯片。  
+4. 向演示文稿添加新幻灯片和章节。  
+5. 将创建的章节添加到概要缩放框架。  
+6. 从概要缩放框架中移除第一章节。  
+7. 将修改后的演示文稿写入为 PPTX 文件。  
 
+此 Java 代码演示如何在概要缩放框架中添加和删除章节：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 向演示文稿添加新章节
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 2", slide);
+    // 向演示文稿添加新章节
+    pres.getSections().addSection("Section 2", slide);
 
-    // Adds SummaryZoomFrame object
+    // 添加 SummaryZoomFrame 对象
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    //Adds a new slide to the presentation
+    //向演示文稿添加新幻灯片
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    ISection section3 = pres.getSections().addSection("部分 3", slide);
+    // 向演示文稿添加新章节
+    ISection section3 = pres.getSections().addSection("Section 3", slide);
 
-    // Adds a section to the Summary Zoom
+    // 向 Summary Zoom 添加章节
     summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
 
-    // Removes section from the Summary Zoom
+    // 从 Summary Zoom 移除章节
     summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **格式化总结缩放部分**
 
-要创建更复杂的总结缩放部分对象，您必须更改简单框的格式。有几种格式选项可应用于总结缩放部分对象。
+### **格式化概要缩放章节**
 
-您可以通过以下方式控制总结缩放部分对象在总结缩放框中的格式：
+要创建更复杂的概要缩放章节对象，您需要修改简单框架的格式。您可以对概要缩放章节对象应用多种格式化选项。
 
-1. 创建[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。
-2. 创建带有识别背景和为创建的幻灯片的新部分的新幻灯片。
-3. 向第一张幻灯片添加总结缩放框。
-4. 从`ISummaryZoomSectionCollection`中获取第一个总结缩放部分对象。
-5. 通过将图像添加到与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象相关联的图像集合中，创建[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，该图像将用于填充框架。
-6. 为创建的部分缩放框对象设置自定义图像。
-7. 设置*从链接部分返回到原始幻灯片*的能力。
-8. 更改第二个缩放框对象的线条格式。
-9. 更改过渡持续时间。
-10. 将修改后的演示文稿写入PPTX文件。
+您可以通过以下方式在概要缩放框架中控制概要缩放章节对象的格式：
 
-以下Java代码向您展示了如何更改总结缩放部分对象的格式：
+1. 创建一个[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)类的实例。  
+2. 创建带有识别背景和新章节的幻灯片。  
+3. 将概要缩放框架添加到第一张幻灯片。  
+4. 从`ISummaryZoomSectionCollection`获取第一对象的概要缩放章节对象。  
+7. 通过向与[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)对象关联的 images 集合中添加图像，创建一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage)对象，以填充框架。  
+8. 为已创建的章节缩放框架对象设置自定义图像。  
+9. 设置*从链接章节返回原始幻灯片*的能力。  
+11. 更改第二个缩放框架对象的线条格式。  
+12. 更改切换持续时间。  
+13. 将修改后的演示文稿写入为 PPTX 文件。  
 
+此 Java 代码演示如何更改概要缩放章节对象的格式：
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    // 添加新幻灯片到演示文稿
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 1", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    // 添加新幻灯片到演示文稿
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("部分 2", slide);
+    // 添加新章节到演示文稿
+    pres.getSections().addSection("Section 2", slide);
 
-    // Adds a SummaryZoomFrame object
+    // 添加 SummaryZoomFrame 对象
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Gets the first SummaryZoomSection object
+    // 获取第一个 SummaryZoomSection 对象
     ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
 
-    // Formatting for SummaryZoomSection object
+    // 为 SummaryZoomSection 对象设置格式
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(picture);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
     summarySection.setImage(picture);
 
@@ -541,10 +553,25 @@ try {
 
     summarySection.setTransitionDuration(1.5f);
 
-    // Saves the presentation
+    // 保存演示文稿
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**我可以在显示目标后控制返回“父”幻灯片吗？**
+
+是的。[Zoom frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zoomframe/)或[section](https://reference.aspose.com/slides/androidjava/com.aspose.slides/sectionzoomframe/)具有返回父级行为，启用后会在观众访问目标内容后将其送回原始幻灯片。
+
+**我可以调整缩放切换的“速度”或持续时间吗？**
+
+可以。缩放支持设置切换持续时间，您可以控制跳转动画的时长。
+
+**演示文稿中可包含的缩放对象数量是否有限制？**
+
+文档中未列出硬性的 API 限制。实际限制取决于演示整体复杂度和观看者的性能。您可以添加大量缩放框架，但需考虑文件大小和渲染时间。

@@ -1,10 +1,10 @@
 ---
-title: Presentación 3D
+title: Crear presentaciones 3D en Android
+linktitle: Presentación 3D
 type: docs
 weight: 232
 url: /es/androidjava/3d-presentation/
 keywords:
-- 3D
 - PowerPoint 3D
 - presentación 3D
 - rotación 3D
@@ -12,29 +12,26 @@ keywords:
 - extrusión 3D
 - degradado 3D
 - texto 3D
-- presentación de PowerPoint
+- PowerPoint
+- OpenDocument
+- presentación
 - Android
-- Aspose.Slides para Android a través de Java
-description: "Presentación de PowerPoint 3D en Android"
+- Java
+- Aspose.Slides
+description: "Genere presentaciones 3D interactivas en Java con Aspose.Slides para Android sin esfuerzo. Exporte rápidamente a formatos PowerPoint y OpenDocument para uso versátil."
 ---
 
-## Visión general
-Desde Aspose.Slides Java 20.9 es posible crear 3D en presentaciones. PowerPoint 3D es una manera de dar vida a las presentaciones. Muestra los objetos del mundo real 
-con una presentación 3D, demuestra el modelo 3D de tu futuro proyecto empresarial, modelo 3D del edificio o su interior, modelo 3D del personaje del juego, 
-o simplemente una representación 3D de tus datos.
+## **Resumen**
+Desde Aspose.Slides Java 20.9 es posible crear 3D en presentaciones. PowerPoint 3D es una forma de dar vida a las presentaciones. Muestra objetos del mundo real con una presentación 3D, demuestra el modelo 3D de tu futuro proyecto empresarial, el modelo 3D del edificio o su interior, el modelo 3D del personaje del juego, o simplemente una representación 3D de tus datos. 
 
-Los modelos 3D de PowerPoint se pueden crear a partir de formas 2D, aplicando tales efectos sobre ellas: rotación 3D, profundidad 3D y extrusión, degradado 3D, texto 3D, etc. 
-La lista de características 3D aplicadas a las formas se puede encontrar en la clase **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**.
-La instancia de la clase se puede obtener mediante:
+Los modelos 3D de PowerPoint pueden crearse a partir de formas 2D, aplicando efectos como: rotación 3D, profundidad y extrusión 3D, degradado 3D, texto 3D, etc. La lista de características 3D aplicadas a las formas se puede encontrar en la clase **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**.  
+Se puede obtener la instancia de la clase mediante:
 
-- El método **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** para crear un modelo 3D de PowerPoint.
-- El método **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** para crear un Texto 3D
-(WordArt).
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** método para crear un modelo 3D de PowerPoint.  
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** método para crear un texto 3D (WordArt).  
 
-Todos los efectos implementados en **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** se pueden usar tanto para formas como para texto.
-Veamos rápidamente los principales métodos de la clase **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. En el siguiente ejemplo
-creamos una forma rectangular 2D con un texto sobre ella. Al obtener la vista de la cámara en la forma, cambiamos su rotación y la hacemos parecer un modelo 3D. Configurando una luz plana 
-y su dirección hacia la parte superior del modelo 3D, se aporta más volumen al modelo. Los materiales, la altura de la extrusión y el color cambiados hacen que el modelo 3D parezca más vivo.  
+Todos los efectos implementados en **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** pueden usarse tanto para formas como para texto.  
+Echemos un vistazo rápido a los principales métodos de la clase **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. En el siguiente ejemplo creamos una forma rectangular 2D con texto. Al obtener la vista de cámara sobre la forma, cambiamos su rotación y logramos que se vea como un modelo 3D. Configurar una luz plana y su dirección hacia la parte superior del modelo 3D aporta más volumen al modelo. Los materiales modificados, la altura de extrusión y el color hacen que el modelo 3D parezca más vivo.  
 ``` java 
 final float imageScale = 2;
 
@@ -61,18 +58,17 @@ presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+
 Aquí está el modelo 3D resultante:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## Rotación 3D
-La rotación del modelo 3D en PowerPoint se puede hacer a través del menú:
+## **Rotación 3D**
+La rotación del modelo 3D en PowerPoint se puede realizar mediante el menú:
 
 ![todo:image_alt_text](img_02_01.png)
 
-Para rotar el modelo 3D con la API de Aspose.Slides, usa el método **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**
-y establece la rotación de la cámara en relación con la forma 3D:
-
+Para rotar un modelo 3D con la API de Aspose.Slides, use el método **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**, establezca la rotación de la cámara en relación con la forma 3D:  
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -83,10 +79,9 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-## Profundidad y Extrusión 3D
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-y **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** son métodos utilizados para crear extrusión en la forma:
 
+## **Profundidad 3D y Extrusión**
+Los métodos **[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** y **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** se utilizan para crear extrusión en una forma:  
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -99,13 +94,13 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-En PowerPoint, la profundidad de la forma se establece a través de:
+
+En PowerPoint, la profundidad de la forma se establece mediante:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## Degradado 3D
-El degradado 3D puede aportar más volumen a la forma 3D en PowerPoint:
-
+## **Degradado 3D**
+El degradado 3D puede aportar más volumen a la forma 3D de PowerPoint:  
 ``` java
 final float imageScale = 2;
 
@@ -134,11 +129,12 @@ thumbnail.dispose();
 presentation.dispose();
 ```
 
+
 Así es como se ve:
 
 ![todo:image_alt_text](img_02_03.png)
   
-También puedes crear un degradado de imagen:
+También puede crear un degradado de imagen:  
 ``` java
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage image = presentation.getImages().addImage(imageData);
@@ -153,12 +149,13 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
+
 Aquí está el resultado:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## Texto 3D (WordArt)
-Para crear un texto 3D (WordArt), haz lo siguiente:
+## **Texto 3D (WordArt)**
+Para crear un texto 3D (WordArt), haga lo siguiente:  
 ``` java
 final float imageScale = 2;
 
@@ -168,7 +165,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getFillFormat().setFillType(FillType.NoFill);
 shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-shape.getTextFrame().setText("Texto 3D");
+shape.getTextFrame().setText("3D Text");
 
 Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
@@ -179,7 +176,8 @@ portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(Pa
 shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
 
 ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-// establece el efecto de transformación "Arco hacia arriba" de WordArt
+// establecer el efecto de transformación WordArt "Arch Up"
+
 textFrameFormat.setTransform(TextShapeType.ArchUp);
 
 textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
@@ -199,13 +197,21 @@ presentation.save("text3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+
 Aquí está el resultado:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## No soportado - Próximamente
-Las siguientes características 3D de PowerPoint aún no son compatibles: 
-- Biseles
-- Material
-- Contorno
-- Iluminación
+## **Preguntas frecuentes**
+
+**¿Se conservarán los efectos 3D al exportar una presentación a imágenes/PDF/HTML?**
+
+Sí. El motor 3D de Slides renderiza los efectos 3D al exportar a formatos compatibles ([images](/slides/es/androidjava/convert-powerpoint-to-png/), [PDF](/slides/es/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/es/androidjava/convert-powerpoint-to-html/), etc.).
+
+**¿Puedo obtener los valores "efectivos" (finales) de los parámetros 3D que tengan en cuenta temas, herencia, etc.?**
+
+Sí. Slides proporciona API para [leer valores efectivos](/slides/es/androidjava/shape-effective-properties/) (incluidos los de 3D—iluminación, biseles, etc.) para que pueda ver la configuración final aplicada.
+
+**¿Los efectos 3D funcionan al convertir una presentación a video?**
+
+Sí. Cuando se [generan fotogramas para el video](/slides/es/androidjava/convert-powerpoint-to-video/), los efectos 3D se renderizan de la misma manera que para las [imágenes exportadas](/slides/es/androidjava/convert-powerpoint-to-png/).

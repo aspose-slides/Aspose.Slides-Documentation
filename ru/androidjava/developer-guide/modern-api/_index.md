@@ -1,56 +1,70 @@
 ---
-title: Современное API
+title: Улучшение обработки изображений с помощью Modern API
+linktitle: Modern API
 type: docs
 weight: 237
 url: /ru/androidjava/modern-api/
-keywords: "Кросс-платформенное Современное API"
-description: "Современное API"
+keywords:
+- System.Drawing
+- Modern API
+- рисование
+- миниатюра слайда
+- слайд в изображение
+- миниатюра фигуры
+- фигура в изображение
+- миниатюра презентации
+- презентация в изображения
+- добавить изображение
+- добавить картинку
+- Android
+- Java
+- Aspose.Slides
+description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на Java Modern API для бесшовной автоматизации PowerPoint и OpenDocument."
 ---
 
-## Введение
+## **Введение**
 
-Исторически сложилось так, что Aspose Slides зависит от java.awt, и в общественное API входят следующие классы оттуда:
+Исторически Aspose Slides зависел от java.awt и в публичном API имел следующие классы из этой библиотеки:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
 - [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
 
-Начиная с версии 24.4, это общественное API объявлено устаревшим.
+Начиная с версии 24.4, этот публичный API объявлен устаревшим.
 
-Чтобы избавиться от зависимости от этих классов, мы добавили так называемое "Современное API" — то есть API, которое должно использоваться вместо устаревшего, которое содержит зависимости от Bitmap. Canvas объявлен устаревшим, и его поддержка удалена из общественного API Slides.
+Чтобы избавиться от зависимостей от этих классов, мы добавили так называемый «Modern API» — т.е. API, который следует использовать вместо устаревшего, сигнатуры которого содержат зависимости от Bitmap. Canvas объявлен устаревшим, и его поддержка удалена из публичного API Slides.
 
-Удаление устаревшего общественного API с зависимостями от System.Drawing будет в релизе 24.8.
+Удаление устаревшего публичного API с зависимостями от System.Drawing будет выполнено в выпуске 24.8.
 
-## Современное API
+## **Modern API**
 
-В общественное API добавлены следующие классы и перечисления:
+В публичный API добавлены следующие классы и перечисления:
 
 - IImage — представляет растровое или векторное изображение.
 - ImageFormat — представляет файловый формат изображения.
 - Images — методы для создания экземпляров и работы с интерфейсом IImage.
 
-Обратите внимание, что IImage является доступным для освобождения (он реализует интерфейс IDisposable, и его использование должно быть обернуто в конструкцию using или освобождено другим удобным способом).
+Обратите внимание, что IImage реализует IDisposable и поэтому его следует использовать внутри `using` или явно вызывать `Dispose`.
 
-Типичный сценарий использования нового API может выглядеть следующим образом:
-
+Типичный сценарий использования нового API может выглядеть так:
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // создаем доступный для освобождения экземпляр IImage из файла на диске.
+    // создать освобождаемый экземпляр IImage из файла на диске.
     IImage image = Images.fromFile("image.png");
     try {
-        // создаем изображение PowerPoint, добавляя экземпляр IImage в изображения презентации.
+        // создать изображение PowerPoint, добавив экземпляр IImage в изображения презентации.
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // добавляем изображение на слайд #1
+    // добавить форму картинки на слайд #1
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // получаем экземпляр IImage, представляющий слайд #1.
+    // получить экземпляр IImage, представляющий слайд #1.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Size(1920, 1080));
     try {
-        // сохраняем изображение на диске.
+        // сохранить изображение на диске.
         slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
     } finally {
         if (slideImage != null) slideImage.dispose();
@@ -60,11 +74,12 @@ try {
 }
 ```
 
-## Замена старого кода на современное API
 
-В общем, вам нужно будет заменить вызов старого метода, используя ImageIO, на новый.
+## **Замена старого кода Modern API**
 
-Старый:
+Как правило, необходимо заменить вызов старого метода, использующего ImageIO, новым.
+
+Old:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -88,7 +103,8 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-Новый:
+
+New:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -103,10 +119,10 @@ try {
 }
 ```
 
-### Получение миниатюры слайда
 
-Код, использующий устаревшее API:
+### **Получение эскиза слайда**
 
+Код, использующий устаревший API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -131,8 +147,8 @@ try {
 }
 ```
 
-Современное API:
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -147,10 +163,10 @@ try {
 }
 ```
 
-### Получение миниатюры фигуры
 
-Код, использующий устаревшее API:
+### **Получение эскиза фигуры**
 
+Код, использующий устаревший API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -175,8 +191,8 @@ try {
 }
 ```
 
-Современное API:
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -191,10 +207,10 @@ try {
 }
 ```
 
-### Получение миниатюры презентации
 
-Код, использующий устаревшее API:
+### **Получение эскиза презентации**
 
+Код, использующий устаревший API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -223,8 +239,8 @@ try {
 }
 ```
 
-Современное API:
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -249,10 +265,10 @@ try {
 }
 ```
 
-### Добавление изображения в презентацию
 
-Код, использующий устаревшее API:
+### **Добавление изображения в презентацию**
 
+Код, использующий устаревший API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -267,8 +283,8 @@ try {
 }
 ```
 
-Современное API:
 
+Modern API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -286,11 +302,12 @@ try {
 }
 ```
 
-## Методы, которые будут удалены и их замена в современном API
 
-### Презентация
-| Подпись метода                               | Замена подписи метода                             |
-|-----------------------------------------------|---------------------------------------------------------|
+## **Методы, подлежащие удалению, и их замена в Modern API**
+
+### **Presentation**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
@@ -298,15 +315,15 @@ try {
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 
-### Фигура
-| Подпись метода                                                      | Замена подписи метода                                       |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+### **Shape**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### Слайд
-| Подпись метода                                                      | Замена подписи метода                                           |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+### **Slide**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(Size imageSize) | public final IImage getImage(Size imageSize) |
 | public final Bitmap getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
@@ -314,44 +331,59 @@ try {
 | public final Bitmap getThumbnail(IRenderingOptions options, Size imageSize) | public final IImage getImage(IRenderingOptions options, Size imageSize) |
 | public final Bitmap getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final Bitmap getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Будет полностью удалено  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Будет полностью удалено  |
-| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Будет полностью удалено  |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely |
 
-### Вывод
-| Подпись метода                                                | Замена подписи метода                                |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
+### **Output**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
-### КоллекцияИзображений
-| Подпись метода                          | Замена подписи метода               |
-|-------------------------------------------|--------------------------------------------|
+### **ImageCollection**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
-| Подпись метода                     | Замена подписи метода   |
-|--------------------------------------|-----------------------------------------|
+### **PPImage**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
-### ФорматШаблона
-| Подпись метода                                          | Замена подписи метода                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final Bitmap getTileImage(Integer styleColor)   | public final IImage getTile(Integer styleColor) |
+### **PatternFormat**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
+| public final Bitmap getTileImage(Integer styleColor) | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
-### ЭффективныеДанныеФорматаШаблона
-| Подпись метода                                          | Замена подписи метода                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
+### **PatternFormatEffectiveData**
+| Сигнатура метода | Сигнатура заменяющего метода |
+|---|---|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
-## Поддержка API для Canvas будет прекращена
 
-Методы с [Canvas](https://developer.android.com/reference/android/graphics/Canvas) объявлены устаревшими, и их поддержка будет удалена из общественного API.
+## **Поддержка Canvas будет прекращена**
 
-Часть API, которая использует его, будет удалена:
+Методы с [Canvas](https://developer.android.com/reference/android/graphics/Canvas) объявлены устаревшими, и их поддержка будет удалена из публичного API.
 
-[Слайд](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
+Часть API, использующая Canvas, будет удалена:
+
+[Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
+
+## **FAQ**
+
+**Почему был удалён android.graphics.Canvas?**
+
+Поддержка `Canvas` удаляется из публичного API для унификации работы с рендерингом и изображениями, устранения привязки к платформенно‑зависимым библиотекам и перехода к кроссплатформенному подходу с использованием [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). Все методы рендеринга в `Canvas` будут удалены.
+
+**В чём практическая выгода IImage по сравнению с BufferedImage?**
+
+[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) объединяет работу как с растровыми, так и с векторными изображениями и упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
+
+**Повлияет ли Modern API на производительность генерации эскизов?**
+
+Переход от `getThumbnail` к `getImage` не ухудшает сценарии: новые методы предоставляют те же возможности создания изображений с параметрами и размерами, сохраняя поддержку параметров рендеринга. Конкретный прирост или падение производительности зависит от сценария, но функционально замены эквивалентны.

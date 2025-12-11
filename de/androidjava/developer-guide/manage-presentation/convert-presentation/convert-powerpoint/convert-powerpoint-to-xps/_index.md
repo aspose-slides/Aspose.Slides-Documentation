@@ -1,55 +1,71 @@
 ---
-title: PowerPoint in XPS konvertieren
+title: PowerPoint-Präsentationen zu XPS auf Android konvertieren
+linktitle: PowerPoint zu XPS
 type: docs
 weight: 70
 url: /de/androidjava/convert-powerpoint-to-xps/
-keywords: "PPT, PPTX in XPS"
-description: "Konvertieren Sie PowerPoint PPT(X) in XPS in Java"
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu XPS
+- Präsentation zu XPS
+- Folie zu XPS
+- PPT zu XPS
+- PPTX zu XPS
+- PPT als XPS speichern
+- PPTX als XPS speichern
+- PPT nach XPS exportieren
+- PPTX nach XPS exportieren
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Konvertieren Sie PowerPoint PPT/PPTX zu hochwertigem, plattformunabhängigem XPS in Java mit Aspose.Slides für Android. Erhalten Sie eine Schritt-für-Schritt-Anleitung und Beispielcode."
 ---
 
 ## **Über XPS**
-Microsoft entwickelte [XPS](https://docs.fileformat.com/page-description-language/xps/) als Alternative zu [PDF](https://docs.fileformat.com/pdf/). Es ermöglicht Ihnen, Inhalte auszudrucken, indem eine Datei ausgegeben wird, die der PDF sehr ähnlich ist. Das XPS-Format ist auf XML basierend. Das Layout oder die Struktur einer XPS-Datei bleibt auf allen Betriebssystemen und Druckern gleich.
+Microsoft hat [XPS](https://docs.fileformat.com/page-description-language/xps/) als Alternative zu [PDF](https://docs.fileformat.com/pdf/) entwickelt. Es ermöglicht das Drucken von Inhalten, indem eine Datei erzeugt wird, die einer PDF sehr ähnlich ist. Das XPS-Format basiert auf XML. Das Layout oder die Struktur einer XPS-Datei bleibt auf allen Betriebssystemen und Druckern gleich.
 
-## Wann das Microsoft XPS-Format verwenden
+## **Wann das Microsoft XPS-Format verwendet werden sollte**
 
 {{% alert color="primary" %}} 
-
-Um zu sehen, wie Aspose.Slides PPT- oder PPTX-Präsentationen in das XPS-Format konvertiert, können Sie [diese kostenlose Online-Konverter-App](https://products.aspose.app/slides/conversion) ausprobieren. 
-
+Um zu sehen, wie Aspose.Slides PPT- oder PPTX‑Präsentationen in das XPS‑Format konvertiert, können Sie sich die [kostenlose Online-Konverter‑App](https://products.aspose.app/slides/conversion) ansehen.
 {{% /alert %}} 
 
-Wenn Sie die Speicherkosten senken möchten, können Sie Ihre Microsoft PowerPoint-Präsentation in das XPS-Format konvertieren. Auf diese Weise wird es einfacher, Ihre Dokumente zu speichern, zu teilen und zu drucken.
+Wenn Sie die Speicherkosten senken möchten, können Sie Ihre Microsoft PowerPoint‑Präsentation in das XPS‑Format konvertieren. Auf diese Weise wird es einfacher, Ihre Dokumente zu speichern, zu teilen und zu drucken.
 
-Microsoft setzt weiterhin stark auf die Unterstützung von XPS in Windows (sogar in Windows 10), daher sollten Sie in Betracht ziehen, Dateien in diesem Format zu speichern. Wenn Sie mit Windows 8.1, Windows 8, Windows 7 und Windows Vista arbeiten, könnte XPS tatsächlich Ihre beste Option für bestimmte Vorgänge sein.
+Microsoft setzt die umfangreiche Unterstützung von XPS in Windows (auch in Windows 10) fort, sodass Sie in Betracht ziehen sollten, Dateien in diesem Format zu speichern. Wenn Sie mit Windows 8.1, Windows 8, Windows 7 und Windows Vista arbeiten, könnte XPS für bestimmte Vorgänge tatsächlich Ihre beste Option sein.
 
-- **Windows 8** verwendet das OXPS (Open XPS) Format für XPS-Dateien. OXPS ist eine standardisierte Version des ursprünglichen XPS-Formats. Windows 8 bietet eine bessere Unterstützung für XPS-Dateien als für PDF-Dateien. 
-  - **XPS:** Eingebaute XPS-Viewer/Reader und Druckfunktion für XPS verfügbar. 
-  - **PDF**: PDF-Reader verfügbar, jedoch keine Druckfunktion für PDF. 
+- **Windows 8** verwendet das OXPS (Open XPS)-Format für XPS‑Dateien. OXPS ist eine standardisierte Version des ursprünglichen XPS‑Formats. Windows 8 bietet eine bessere Unterstützung für XPS‑Dateien als für PDF‑Dateien.
+  - **XPS:** Eingebauter XPS‑Betrachter/Reader und Druck‑zu‑XPS‑Funktion verfügbar.
+  - **PDF:** PDF‑Reader verfügbar, jedoch keine Druck‑zu‑PDF‑Funktion.
 
-- **Windows 7 und Windows Vista** verwenden das ursprüngliche XPS-Format. Diese Betriebssysteme bieten ebenfalls eine bessere Unterstützung für XPS-Dateien als für PDFs. 
-  - **XPS**: Eingebauter XPS-Viewer und Druckfunktion für XPS verfügbar. 
-  - **PDF**: Kein PDF-Reader. Keine Druckfunktion für PDF. 
+- **Windows 7 und Windows Vista** verwenden das originale XPS‑Format. Diese Betriebssysteme bieten ebenfalls eine bessere Unterstützung für XPS‑Dateien als für PDFs.
+  - **XPS:** Eingebauter XPS‑Betrachter und Druck‑zu‑XPS‑Funktion verfügbar.
+  - **PDF:** Kein PDF‑Reader. Keine Druck‑zu‑PDF‑Funktion.
 
 |<p>**Eingabe PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Ausgabe XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoft hat schließlich Unterstützung für Druckvorgänge im PDF über die Druckfunktion zu PDF in Windows 10 implementiert. Zuvor wurde von den Benutzern erwartet, dass sie Dokumente über das XPS-Format drucken.
+Microsoft hat schließlich die Unterstützung für Druckvorgänge in PDF über die Funktion Drucken‑zu‑PDF in Windows 10 implementiert. Zuvor wurde von den Benutzern erwartet, Dokumente über das XPS‑Format zu drucken.
 
-## XPS-Konvertierung mit Aspose.Slides
+## **XPS-Konvertierung mit Aspose.Slides**
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) für Java können Sie die [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) Methode, die von der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse bereitgestellt wird, verwenden, um die gesamte Präsentation in ein XPS-Dokument zu konvertieren.
+In [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) für Java können Sie die [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)‑Methode, die von der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) bereitgestellt wird, verwenden, um die gesamte Präsentation in ein XPS‑Dokument zu konvertieren.
 
-Bei der Konvertierung einer Präsentation in XPS müssen Sie die Präsentation mit einer dieser Einstellungen speichern:
+Beim Konvertieren einer Präsentation zu XPS müssen Sie die Präsentation mit einer der folgenden Einstellungen speichern:
 
-- Standardoptionen (ohne [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
-- Benutzerdefinierte Optionen (mit [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
+- Standardeinstellungen (ohne [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
+- Benutzerdefinierte Einstellungen (mit [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
 
-### **Präsentationen in XPS mit Standardoptionen konvertieren**
-
-Dieser Beispielcode in Java zeigt Ihnen, wie Sie eine Präsentation mit den Standardoptionen in ein XPS-Dokument konvertieren:
-
+### **Präsentationen mit Standardeinstellungen in XPS konvertieren**
+Dieser Beispielcode in Java zeigt, wie Sie eine Präsentation mit Standard‑Einstellungen in ein XPS‑Dokument konvertieren:
 ```java
-// Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("Convert_XPS.pptx");
 try {
     // Speichern der Präsentation als XPS-Dokument
@@ -59,22 +75,31 @@ try {
 }
 ```
 
-### **Präsentationen in XPS mit benutzerdefinierten Optionen konvertieren**
-Dieser Beispielcode zeigt Ihnen, wie Sie eine Präsentation mit benutzerdefinierten Optionen in ein XPS-Dokument konvertieren:
 
+### **Präsentationen mit benutzerdefinierten Einstellungen in XPS konvertieren**
+Dieser Beispielcode zeigt, wie Sie eine Präsentation mit benutzerdefinierten Einstellungen in Java in ein XPS‑Dokument konvertieren:
 ```java
-// Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("Convert_XPS_Options.pptx");
 try {
-    // Instanziieren Sie die Klasse TiffOptions
+    // Instanziieren Sie die TiffOptions-Klasse
     XpsOptions options = new XpsOptions();
 
     // Metadateien als PNG speichern
     options.setSaveMetafilesAsPng(true);
 
-    // Speichern der Präsentation als XPS-Dokument
+    // Präsentation als XPS-Dokument speichern
     pres.save("XPS_Output_With_Options.xps", SaveFormat.Xps, options);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich XPS in einen Stream anstatt in eine Datei speichern?**
+Ja—Aspose.Slides ermöglicht den direkten Export in einen Stream, was ideal für Web‑APIs, serverseitige Pipelines oder jedes Szenario ist, in dem Sie das XPS senden möchten, ohne das Dateisystem zu berühren.
+
+**Werden versteckte Folien in XPS übernommen und kann ich sie ausschließen?**
+Standardmäßig werden nur reguläre (sichtbare) Folien gerendert. Sie können versteckte Folien über die [Export‑Einstellungen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/) [ein‑ oder ausschließen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-), bevor Sie in XPS speichern, sodass die Ausgabe genau die Seiten enthält, die Sie beabsichtigen.

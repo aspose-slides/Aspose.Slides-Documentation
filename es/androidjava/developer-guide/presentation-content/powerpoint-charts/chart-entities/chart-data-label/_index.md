@@ -1,17 +1,26 @@
 ---
-title: Etiqueta de Datos del Gráfico
+title: Administrar etiquetas de datos de gráfico en presentaciones en Android
+linktitle: Etiqueta de datos
 type: docs
 url: /es/androidjava/chart-data-label/
-keywords: "Etiqueta de datos del gráfico, distancia de la etiqueta, Java, Aspose.Slides para Android a través de Java"
-description: "Establecer la etiqueta de datos del gráfico de PowerPoint y la distancia en Java"
+keywords:
+- gráfico
+- etiqueta de datos
+- precisión de datos
+- porcentaje
+- distancia de etiqueta
+- ubicación de etiqueta
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para Android vía Java para diapositivas más atractivas."
 ---
 
-Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
+Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o sobre puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
 
-## **Establecer Precisión de los Datos en las Etiquetas de Datos del Gráfico**
-
-Este código Java muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
-
+## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,9 +35,9 @@ try {
 }
 ```
 
-## **Mostrar Porcentaje como Etiquetas**
-Aspose.Slides para Android a través de Java te permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código Java demuestra la operación:
 
+## **Mostrar porcentajes como etiquetas**
+Aspose.Slides for Android via Java le permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código Java demuestra la operación:
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -78,30 +87,30 @@ try {
 }
 ```
 
-## **Establecer Signo de Porcentaje con Etiquetas de Datos del Gráfico**
-Este código Java muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 
+## **Establecer el signo de porcentaje en las etiquetas de datos del gráfico**
+Este código Java le muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Obtiene la referencia de una diapositiva a través de su índice
+    // Obtiene la referencia de una diapositiva mediante su índice
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Crea el gráfico PorcentajesApilados en una diapositiva
+    // Crea el gráfico PercentsStackedColumn en una diapositiva
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
     
-    // Establece el NumberFormatLinkedToSource a falso
+    // Establece NumberFormatLinkedToSource a false
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
     
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Obtiene la hoja de trabajo de datos del gráfico
+    // Obtiene la hoja de datos del gráfico
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // Agrega nuevas series
+    // Añade una nueva serie
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
@@ -121,7 +130,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Agrega nuevas series
+    // Añade una nueva serie
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
@@ -145,9 +154,9 @@ try {
 }
 ```
 
-## **Establecer Distancias de Etiqueta** Desde el Eje
-Este código Java muestra cómo establecer la distancia de la etiqueta desde un eje de categoría cuando estás tratando con un gráfico trazado desde ejes:
 
+## **Establecer la distancia de la etiqueta desde un eje**
+Este código Java le muestra cómo establecer la distancia de la etiqueta desde un eje de categoría cuando se trabaja con un gráfico trazado a partir de ejes:
 ```java
 // Crea una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -168,12 +177,12 @@ try {
 }
 ```
 
-## **Ajustar Ubicación de la Etiqueta**
 
-Cuando creas un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden terminar demasiado cerca de su borde. En tal caso, debes ajustar la ubicación de la etiqueta de datos para que las líneas de líder se muestren claramente.
+## **Ajustar la ubicación de la etiqueta**
 
-Este código Java muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel:
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden quedar demasiado cerca del borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas guía se muestren claramente.
 
+Este código Java le muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,4 +202,16 @@ try {
 }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
+Combine la colocación automática de etiquetas, líneas guía y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos o clave.
+
+**¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
+
+**¿Cómo puedo asegurar un estilo de etiqueta consistente al exportar a PDF/imágenes?**
+Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.

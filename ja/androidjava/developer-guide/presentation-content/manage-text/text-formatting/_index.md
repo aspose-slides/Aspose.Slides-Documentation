@@ -1,43 +1,50 @@
 ---
-title: テキストフォーマット
+title: Android で PowerPoint テキストをフォーマット
+linktitle: テキスト書式設定
 type: docs
 weight: 50
 url: /ja/androidjava/text-formatting/
 keywords:
-- ハイライトテキスト
+- テキストのハイライト
 - 正規表現
-- テキスト段落の整列
+- 段落の配置
+- テキストスタイル
+- テキスト背景
 - テキストの透明度
-- 段落のフォントプロパティ
+- 文字間隔
+- フォントプロパティ
 - フォントファミリ
-- テキストの回転
-- カスタム角度の回転
+- テキスト回転
+- 回転角度
 - テキストフレーム
 - 行間
-- 自動フィットプロパティ
-- テキストフレームのアンカー
-- テキストのタブ設定
-- デフォルトのテキストスタイル
+- Autofit プロパティ
+- テキストフレームアンカー
+- テキストタブ
+- デフォルト言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
 - Java
-- Java経由のAspose.Slides for Android
-description: "Javaでテキストおよびテキストフレームのプロパティを管理および操作する"
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
 
-## **ハイライトテキスト**
+## **テキストのハイライト**
 メソッド [highlightText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) が [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) インターフェイスと [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) クラスに追加されました。
 
-これは、テキストサンプルを使用して背景色でテキスト部分をハイライトします。これは、PowerPoint 2019のテキストハイライトカラーツールに似ています。
+テキストのサンプルを使用して、背景色でテキストの一部をハイライトできるようになり、PowerPoint 2019 の「テキストハイライトカラー」ツールと同様です。
 
-以下のコードスニペットは、この機能の使用方法を示しています：
-
+以下のコードスニペットはこの機能の使用方法を示しています。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     TextHighlightingOptions textHighlightingOptions = new TextHighlightingOptions();
     textHighlightingOptions.setWholeWordsOnly(true);
     
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // 'important'のすべての単語をハイライト
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// 'the'のすべての異なる出現をハイライト
+    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // 「important」のすべての単語をハイライト
+    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// 「the」のすべての個別出現をハイライト
     
     pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
 } finally {
@@ -45,26 +52,23 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
-
-Asposeは、シンプルな [無料のオンラインPowerPoint編集サービス](https://products.aspose.app/slides/editor)を提供しています。
-
+Aspose はシンプルな、[無料のオンライン PowerPoint 編集サービス](https://products.aspose.app/slides/editor) を提供しています
 {{% /alert %}} 
 
-## **正規表現を使用したハイライトテキスト**
-
+## **正規表現を使用したテキストのハイライト**
 メソッド [highlightRegex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) が [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) インターフェイスと [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) クラスに追加されました。
 
-これは、正規表現を使用して背景色でテキスト部分をハイライトします。これは、PowerPoint 2019のテキストハイライトカラーツールに似ています。
+正規表現を使用して、背景色でテキストの一部をハイライトでき、PowerPoint 2019 の「テキストハイライトカラー」ツールと同様です。
 
-以下のコードスニペットは、この機能の使用方法を示しています：
-
+以下のコードスニペットはこの機能の使用方法を示しています。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     TextHighlightingOptions options = new TextHighlightingOptions();
     
-    ((AutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.awt.Color.YELLOW, options); // 10シンボル以上のすべての単語をハイライト
+    ((AutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.awt.Color.YELLOW, options); // 10文字以上のすべての単語をハイライト
     
     pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
 } finally {
@@ -72,12 +76,11 @@ try {
 }
 ```
 
-## **テキスト背景色の設定**
 
-Aspose.Slidesでは、テキストの背景に好みの色を指定できます。
+## **テキストの背景色の設定**
+Aspose.Slides では、テキストの背景色を任意の色に指定できます。
 
-このJavaコードは、全テキストの背景色を設定する方法を示しています：
-
+この Java コードは、テキスト全体の背景色を設定する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -118,8 +121,8 @@ try {
 }
 ```
 
-このJavaコードは、テキストの一部の背景色を設定する方法を示しています：
 
+この Java コードは、テキストの一部だけの背景色を設定する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -163,60 +166,58 @@ try {
 }
 ```
 
-## **テキスト段落の整列**
 
-テキストフォーマットは、さまざまな文書やプレゼンテーションを作成する際の重要な要素の一つです。Aspose.Slides for Android via Javaでは、スライドにテキストを追加することをサポートしていますが、このトピックでは、スライド内のテキスト段落の整列をどのように制御できるかを見ていきます。以下の手順に従って、Aspose.Slides for Android via Javaを使用してテキスト段落を整列してください：
+## **テキスト段落の配置**
+テキストの書式設定は、文書やプレゼンテーション作成時の重要な要素です。Aspose.Slides for Android via Java はスライドへのテキスト追加をサポートしていますが、本項ではスライド内のテキスト段落の配置方法を紹介します。以下の手順でテキスト段落を配置してください。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドの参照を取得します。
-3. スライド内のプレースホルダーシェイプにアクセスし、それを [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) として型キャストします。
-4. [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) が公開している [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getTextFrame--) から整列する必要のある段落を取得します。
-5. 段落を整列します。段落は右揃え、左揃え、中央揃え、および均等揃えが可能です。
-6. 修正されたプレゼンテーションをPPTXファイルとして書き出します。
+3. スライドに存在するプレースホルダーシェイプにアクセスし、[AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) に型変換します。
+4. [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) が公開している [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape#getTextFrame--) から、配置したい [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph) を取得します。
+5. 段落を配置します。段落は右揃え、左揃え、中央揃え、両端揃えに設定できます。
+6. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-上記の手順の実装を以下に示します。
-
+上記手順の実装例は以下のとおりです。
 ```java
-// PPTXファイルを表すPresentationオブジェクトのインスタンスを作成
+// PPTX ファイルを表す Presentation オブジェクトをインスタンス化
 Presentation pres = new Presentation("ParagraphsAlignment.pptx");
 try {
     // 最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // スライド内の最初および二番目のプレースホルダーにアクセスし、AutoShapeとして型キャスト
+    // スライド内の最初と二番目のプレースホルダーにアクセスし、AutoShape に型変換
     ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
     ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
 
     // 両方のプレースホルダーのテキストを変更
-    tf1.setText("Asposeによる中央揃え");
-    tf2.setText("Asposeによる中央揃え");
+    tf1.setText("Center Align by Aspose");
+    tf2.setText("Center Align by Aspose");
 
     // プレースホルダーの最初の段落を取得
     IParagraph para1 = tf1.getParagraphs().get_Item(0);
     IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-    // テキスト段落を中央に整列
+    // テキスト段落を中央揃えに設定
     para1.getParagraphFormat().setAlignment(TextAlignment.Center);
     para2.getParagraphFormat().setAlignment(TextAlignment.Center);
 
-    // PPTXファイルとしてプレゼンテーションを書き出す
+    //PPTX ファイルとしてプレゼンテーションを書き出し
     pres.save("Centeralign_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **テキストの透明度を設定**
 
-この記事では、Aspose.Slides for Android via Javaを使用して任意のテキストシェープに対して透明度プロパティを設定する方法を示しています。テキストに透明度を設定するには、以下の手順に従ってください：
+## **テキストの透明度の設定**
+本記事では、Aspose.Slides for Android via Java を使用して任意のテキストシェイプの透明度プロパティを設定する方法を示します。テキストの透明度を設定する手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. スライドの参照を取得します。
-3. シャドウカラーを設定します。
-4. プレゼンテーションをPPTXファイルとして書き出します。
+3. 影の色を設定します。
+4. プレゼンテーションを PPTX ファイルとして保存します。
 
-上記の手順の実装を以下に示します。
-
+上記手順の実装例は以下のとおりです。
 ```java
 Presentation pres = new Presentation("transparency.pptx");
 try {
@@ -226,9 +227,9 @@ try {
     IOuterShadow outerShadowEffect = effects.getOuterShadowEffect();
 
     Color shadowColor = outerShadowEffect.getShadowColor().getColor();
-    System.out.println(shadowColor.toString() + " - 透明度は: "+ (shadowColor.getAlpha() / 255f) * 100);
+    System.out.println(shadowColor.toString() + " - transparency is: "+ (shadowColor.getAlpha() / 255f) * 100);
 
-    // 透明度をゼロパーセントに設定
+    // 透明度を0％に設定
     outerShadowEffect.getShadowColor().setColor(new Color(shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
 
     pres.save("transparency-2.pptx", SaveFormat.Pptx);
@@ -237,50 +238,48 @@ try {
 }
 ```
 
-## **テキストの文字間隔を設定**
 
-Aspose.Slidesでは、テキストボックス内の文字間のスペースを設定できます。これにより、文字間の間隔を拡大または縮小することで、行やテキストブロックの視覚的密度を調整できます。
+## **テキストの文字間隔の設定**
+Aspose.Slides では、テキストボックス内の文字間隔を設定できます。これにより、文字間のスペースを拡張または縮小して、行やテキストブロックの視覚的密度を調整できます。
 
-このJavaコードは、1行のテキストの間隔を拡大し、別の行の間隔を縮小する方法を示しています：
-
+この Java コードは、1 行の文字間隔を拡張し、別の行の文字間隔を縮小する方法を示しています。
 ```java
 Presentation presentation = new Presentation("in.pptx");
 
 IAutoShape textBox1 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 IAutoShape textBox2 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(1);
 
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // 拡大
+textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // 拡張
 textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2); // 縮小
 
 presentation.save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **段落のフォントプロパティを管理**
 
-プレゼンテーションには通常、テキストと画像の両方が含まれます。テキストは、特定のセクションや単語を強調したり、企業スタイルに合うようにさまざまな方法でフォーマットできます。テキストフォーマットは、ユーザーがプレゼンテーションコンテンツの見た目を変えるのに役立ちます。この記事では、Aspose.Slides for Android via Javaを使用して、スライド上のテキスト段落のフォントプロパティを構成する方法を示します。Aspose.Slides for Android via Javaを使用して段落のフォントプロパティを管理するには：
+## **段落のフォントプロパティの管理**
+プレゼンテーションには通常、テキストと画像の両方が含まれます。テキストはハイライトや企業スタイルへの適合など、さまざまな方法で書式設定できます。テキスト書式設定は、プレゼンテーションコンテンツの外観を変える手段です。本記事では、Aspose.Slides for Android via Java を使用してスライド上のテキスト段落のフォントプロパティを構成する方法を紹介します。段落のフォントプロパティを管理する手順は以下のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. スライド内のプレースホルダーシェイプにアクセスし、それを [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に型キャストします。
-1. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に公開されている [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) からパラグラフを取得します。
-1. 段落を均等揃えします。
-1. 段落のテキストポーションにアクセスします。
-1. FontDataを使用してフォントを定義し、テキストポーションのフォントを設定します。
+1. スライド内のプレースホルダーシェイプにアクセスし、[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に型変換します。
+1. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) が公開している [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) から [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) を取得します。
+1. 段落を両端揃えにします。
+1. 段落のテキスト Portion にアクセスします。
+1. FontData を使用してフォントを定義し、テキスト Portion のフォントを設定します。
    1. フォントを太字に設定します。
-   1. フォントをイタリックに設定します。
-1. [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--) を使用してフォントの色を設定します。
-1. 修正されたプレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルに書き出します。
+   1. フォントを斜体に設定します。
+1. [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion) オブジェクトが公開している [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--) を使用してフォント色を設定します。
+1. 変更したプレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。
 
-上記の手順の実装を以下に示します。それは、装飾されていないプレゼンテーションを受け取り、スライドの1つのフォントをフォーマットします。
-
+上記手順の実装例は以下のとおりです。未装飾のプレゼンテーションを取得し、スライドの一つのフォントをフォーマットします。
 ```java
-// PPTXファイルを表すPresentationオブジェクトのインスタンスを作成
+// PPTX ファイルを表す Presentation オブジェクトをインスタンス化
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-    // スライドの位置を使用してスライドにアクセス
+    // スライド位置でスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // スライド内の最初および二番目のプレースホルダーにアクセスし、AutoShapeとして型キャスト
+    // スライド内の最初と2番目のプレースホルダーにアクセスし、AutoShape に型変換
     ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
     ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
 
@@ -296,7 +295,7 @@ try {
     FontData fd1 = new FontData("Elephant");
     FontData fd2 = new FontData("Castellar");
 
-    // ポーションに新しいフォントを割り当てる
+    // 新しいフォントをポーションに割り当て
     port1.getPortionFormat().setLatinFont(fd1);
     port2.getPortionFormat().setLatinFont(fd2);
 
@@ -304,7 +303,7 @@ try {
     port1.getPortionFormat().setFontBold(NullableBool.True);
     port2.getPortionFormat().setFontBold(NullableBool.True);
 
-    // フォントをイタリックに設定
+    // フォントを斜体に設定
     port1.getPortionFormat().setFontItalic(NullableBool.True);
     port2.getPortionFormat().setFontItalic(NullableBool.True);
 
@@ -314,58 +313,57 @@ try {
     port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
 
-    // PPTXをディスクに書き出す
+    // PPTX をディスクに書き出す
     pres.save("WelcomeFont_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **テキストのフォントファミリを管理**
 
-ポーションは、段落内の同じフォーマットスタイルを持つテキストを保持するために使用されます。この記事では、Aspose.Slides for Android via Javaを使用して、テキストボックスを作成し、特定のフォントおよびフォントファミリカテゴリのさまざまなプロパティを定義する方法を示します。テキストボックスを作成し、そのテキストのフォントプロパティを設定するには：
+## **テキストのフォントファミリの管理**
+Portion は、段落内で同じ書式スタイルのテキストを保持するために使用されます。本記事では、Aspose.Slides for Android via Java を使用してテキストボックスを作成し、特定のフォントおよびフォントファミリカテゴリのさまざまなプロパティを定義する方法を示します。テキストボックスを作成し、テキストのフォントプロパティを設定する手順は以下のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドの参照を取得します。
-3. [Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType#Rectangle) タイプの [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) をスライドに追加します。
-4. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に関連する塗りつぶしスタイルを削除します。
-5. AutoShapeのTextFrameにアクセスします。
-6. TextFrameにいくつかのテキストを追加します。
-7. [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に関連付けられたポーションオブジェクトにアクセスします。
+3. スライドに [Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType#Rectangle) 種類の [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) を追加します。
+4. [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に関連付けられた塗りつぶしスタイルを削除します。
+5. AutoShape の TextFrame にアクセスします。
+6. TextFrame にテキストを追加します。
+7. [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) に関連付けられた Portion オブジェクトにアクセスします。
 8. [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion) に使用するフォントを定義します。
-9. 太字、イタリック、下線、色、高さなどのフォントプロパティを、ポーションオブジェクトによって公開される関連するプロパティを使用して設定します。
-10. 修正されたプレゼンテーションをPPTXファイルとして書き出します。
+9. 太字、斜体、下線、色、高さなど、Portion オブジェクトが公開している関連プロパティを使用してその他のフォントプロパティを設定します。
+10. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-上記の手順の実装を以下に示します。
-
+上記手順の実装例は以下のとおりです。
 ```java
-// プレゼンテーションをインスタンス化
+// Presentation のインスタンスを作成
 Presentation pres = new Presentation();
 try {
 
     // 最初のスライドを取得
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 
-    // AutoShapeに関連付けられた塗りつぶしスタイルを削除
+    // AutoShape に関連付けられた塗りつぶしスタイルを削除
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // AutoShapeに関連付けられたTextFrameにアクセス
+    // AutoShape に関連付けられた TextFrame にアクセス
     ITextFrame tf = ashp.getTextFrame();
     tf.setText("Aspose TextBox");
 
-    // TextFrameに関連付けられたポーションにアクセス
+    // TextFrame に関連付けられた Portion にアクセス
     IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 
-    // ポーションのフォントを設定
+    // Portion のフォントを設定
     port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 
     // フォントの太字プロパティを設定
     port.getPortionFormat().setFontBold(NullableBool.True);
 
-    // フォントのイタリックプロパティを設定
+    // フォントの斜体プロパティを設定
     port.getPortionFormat().setFontItalic(NullableBool.True);
 
     // フォントの下線プロパティを設定
@@ -378,36 +376,34 @@ try {
     port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // PPTXをディスクに書き出す 
+    // PPTX をディスクに書き出す 
     pres.save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-## **テキストのフォントサイズを設定**
 
-Aspose.Slidesでは、段落内の既存のテキストに対して好みのフォントサイズを選択し、後で段落に追加される他のテキストにも適用できます。
+## **テキストのフォントサイズの設定**
+Aspose.Slides は、段落内の既存テキストや後から追加されるテキストのフォントサイズを任意に選択できるようにします。
 
-このJavaコードは、段落内のテキストに対してフォントサイズを設定する方法を示しています：
-
+この Java コードは、段落に含まれるテキストのフォントサイズを設定する方法を示しています。
 ```java
 Presentation presentation = new Presentation("example.pptx");
 try {
-    // 最初のシェイプを取得
+    // 例として最初のシェイプを取得します。
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     if (shape instanceof IAutoShape )
     {
         IAutoShape autoShape = (AutoShape) shape;
-        // 最初の段落を取得
+        // 例として最初の段落を取得します。
         IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-        // 段落内のすべてのテキストポーションに対してデフォルトのフォントサイズを20ポイントに設定
+        // 段落内のすべてのテキストポーションの既定フォントサイズを 20 pt に設定します。 
         paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
 
-        // 現在の段落内のテキストポーションに対してフォントサイズを20ポイントに設定
+        // 段落内の現在のテキストポーションのフォントサイズを 20 pt に設定します。 
         for(IPortion portion : paragraph.getPortions())
         {
             portion.getPortionFormat().setFontHeight(20);
@@ -418,28 +414,27 @@ try {
 }
 ```
 
-## **テキストの回転を設定**
 
-Aspose.Slides for Android via Javaは、開発者がテキストを回転させることを可能にします。テキストは [Horizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Horizontal)、[Vertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical)、[Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical270)、[WordArtVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVertical)、[EastAsianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#EastAsianVertical)、[MongolianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#MongolianVertical)または[WordArtVerticalRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft)として表示されます。テキストフレームのテキストを回転させるには、以下の手順に従ってください：
+## **テキストの回転の設定**
+Aspose.Slides for Android via Java は、開発者がテキストを回転させることを可能にします。テキストは以下のいずれかに設定できます: [Horizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Horizontal)、[Vertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical)、[Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#Vertical270)、[WordArtVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVertical)、[EastAsianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#EastAsianVertical)、[MongolianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#MongolianVertical) または [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft)。任意の TextFrame のテキストを回転させる手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. 最初のスライドにアクセスします。
-3. スライドに任意のシェイプを追加します。
+3. 任意のシェイプをスライドに追加します。
 4. [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) にアクセスします。
-5. [テキストを回転させます](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-)。
+5. テキストを回転させます(例: [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-))。
 6. ファイルをディスクに保存します。
-
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得 
+    // 最初のスライドを取得
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
     
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
     
@@ -447,12 +442,12 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
     
-    // テキストフレーム用のパラグラフオブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
     
-    // パラグラフ用のポーションオブジェクトを作成
+    // 段落用の Portion オブジェクトを作成
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("素早い茶色の狐が怠け者の犬を飛び越える。素早い茶色の狐が怠け者の犬を飛び越える。");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
@@ -463,28 +458,27 @@ try {
 }
 ```
 
-## **テキストフレームのカスタム回転角度を設定**
 
-Aspose.Slides for Android via Javaは、テキストフレームのカスタム回転角度を設定することをサポートします。このトピックでは、Aspose.Slides内でRotationAngleプロパティを設定する方法を例示します。新しいメソッド [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) と [getRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getRotationAngle--) が [IChartTextBlockFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartTextBlockFormat) および [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) インターフェイスに追加され、テキストフレームのカスタム回転角度を設定できます。RotationAngleを設定するには、以下の手順に従ってください：
+## **TextFrame のカスタム回転角度の設定**
+Aspose.Slides for Android via Java は、TextFrame のカスタム回転角度の設定をサポートします。本項では、例を交えて RotationAngle プロパティの設定方法を示します。新しいメソッド [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) と [getRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getRotationAngle--) が [IChartTextBlockFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartTextBlockFormat) と [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) インターフェイスに追加され、TextFrame のカスタム回転角度を設定できるようになりました。RotationAngle を設定する手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. スライドにチャートを追加します。
-3. [RotationAngleプロパティを設定します](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-)。
-4. プレゼンテーションをPPTXファイルとして書き出します。
+3. [RotationAngle プロパティを設定](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-)します。
+4. プレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例では、RotationAngleプロパティを設定します。
-
+以下の例では、RotationAngle プロパティを設定しています。
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
 
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
@@ -492,12 +486,12 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setRotationAngle(25);
 
-    // テキストフレーム用のパラグラフオブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // パラグラフ用のポーションオブジェクトを作成
+    // 段落用の Portion オブジェクトを作成
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("テキスト回転の例。");
+    portion.setText("Text rotation example.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
@@ -508,40 +502,39 @@ try {
 }
 ```
 
-## **段落の行間**
 
-Aspose.Slidesは、段落の行間を管理するために `ParagraphFormat` 下のプロパティ—`SpaceAfter`、`SpaceBefore`および`SpaceWithin`を提供します。これらの3つのプロパティは次のように使用されます：
+## **段落の行間設定**
+Aspose.Slides は、[`ParagraphFormat`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraphFormat) の `SpaceAfter`、`SpaceBefore`、`SpaceWithin` プロパティを提供し、段落の行間を管理できます。これらのプロパティは次のように使用します。
 
-* 行間をパーセントで指定するには、正の値を使用します。
-* 行間をポイントで指定するには、負の値を使用します。
+* パーセンテージで行間を指定する場合は正の値を使用します。  
+* ポイントで行間を指定する場合は負の値を使用します。
 
-たとえば、段落に16ポイントの行間を適用するには、`SpaceBefore`プロパティを-16に設定します。
+たとえば、`SpaceBefore` プロパティを -16 に設定すると、段落に 16pt の行間が適用されます。
 
-特定の段落の行間を指定する方法は次のとおりです：
+特定の段落の行間を指定する手順は次のとおりです。
 
-1. いくつかのテキストが含まれるAutoShapeを持つプレゼンテーションをロードします。
-2. インデックスを介してスライドの参照を取得します。
-3. TextFrameにアクセスします。
-4. 段落にアクセスします。
-5. 段落のプロパティを設定します。
+1. テキストを含む AutoShape があるプレゼンテーションを読み込みます。
+2. インデックスを使用してスライドの参照を取得します。
+3. TextFrame にアクセスします。
+4. Paragraph にアクセスします。
+5. Paragraph のプロパティを設定します。
 6. プレゼンテーションを保存します。
 
-このJavaコードは、段落の行間を指定する方法を示しています：
-
+この Java コードは、段落の行間を指定する方法を示しています。
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation("Fonts.pptx");
 try {
-    // インデックスを使用してスライドの参照を取得
+    // インデックスでスライドの参照を取得
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // TextFrameにアクセス
+    // TextFrame にアクセス
     ITextFrame tf1 = ((IAutoShape)sld.getShapes().get_Item(0)).getTextFrame();
     
-    // 段落にアクセス
+    // Paragraph にアクセス
     IParagraph para = tf1.getParagraphs().get_Item(0);
     
-    // 段落のプロパティを設定
+    // Paragraph のプロパティを設定
     para.getParagraphFormat().setSpaceWithin(80);
     para.getParagraphFormat().setSpaceBefore(40);
     para.getParagraphFormat().setSpaceAfter(40);
@@ -553,28 +546,27 @@ try {
 }
 ```
 
-## **TextFrameのAutofitTypeプロパティを設定**
 
-このトピックでは、テキストフレームのさまざまなフォーマットプロパティを探ります。この記事では、テキストフレームのAutofitTypeプロパティを設定し、テキストのアンカーを設定し、プレゼンテーションでテキストを回転させる方法を説明します。Aspose.Slides for Android via Javaでは、任意のテキストフレームのAutofitTypeプロパティを設定できます。AutofitTypeは [Normal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Normal) または [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Shape) に設定できます。 [Normal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Normal) に設定すると、シェイプはそのままにしておき、テキストはシェイプそのものに影響を与えることなく調整されますが、AutofitTypeが [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Shape) に設定されると、必要なテキストのみが含まれるようにシェイプは変更されます。テキストフレームのAutofitTypeプロパティを設定するには、以下の手順に従ってください：
+## **TextFrame の AutofitType プロパティの設定**
+本項では、テキストフレームのさまざまな書式プロパティを検討します。この記事では、テキストフレームの AutofitType プロパティ、テキストのアンカー、およびテキストの回転設定方法を説明します。Aspose.Slides for Android via Java は、任意のテキストフレームの AutofitType プロパティを設定できます。AutofitType は [Normal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Normal) または [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAutofitType#Shape) に設定できます。Normal に設定するとシェイプはそのままでテキストが調整され、Shape に設定するとシェイプが変更されテキストが収まります。テキストフレームの AutofitType プロパティを設定する手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. 最初のスライドにアクセスします。
-3. スライドに任意のシェイプを追加します。
+3. 任意のシェイプをスライドに追加します。
 4. [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) にアクセスします。
-5. テキストフレームのAutofitTypeを[設定します](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-)。
+5. TextFrame の AutofitType を設定します(例: [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-))。
 6. ファイルをディスクに保存します。
-
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 150);
 
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
@@ -582,12 +574,12 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
-    // テキストフレーム用のパラグラフオブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // パラグラフ用のポーションオブジェクトを作成
+    // 段落用の Portion オブジェクトを作成
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("素早い茶色の狐が怠け者の犬を飛び越える。素早い茶色の狐が怠け者の犬を飛び越える。");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
@@ -598,28 +590,27 @@ try {
 }
 ```
 
-## **TextFrameのアンカーを設定**
 
-Aspose.Slides for Android via Javaでは、開発者が任意のTextFrameのアンカーを設定できます。TextAnchorTypeは、そのテキストがシェイプ内のどこに置かれているかを指定します。AnchorTypeは、[Top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Top)、[Center](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Center)、[Bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Bottom)、[Justified](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Justified) または [Distributed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Distributed) にセットできます。任意のTextFrameのアンカーを設定するには、以下の手順に従ってください：
+## **TextFrame のアンカーの設定**
+Aspose.Slides for Android via Java は、任意の TextFrame のアンカー設定をサポートします。TextAnchorType はテキストがシェイプ内のどこに配置されるかを指定します。アンカーは [Top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Top)、[Center](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Center)、[Bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Bottom)、[Justified](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Justified) または [Distributed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextAnchorType#Distributed) に設定できます。TextFrame のアンカーを設定する手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 2. 最初のスライドにアクセスします。
-3. スライドに任意のシェイプを追加します。
+3. 任意のシェイプをスライドに追加します。
 4. [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) にアクセスします。
-5. [TextAnchorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-)を設定します。
+5. TextFrame の TextAnchorType を設定します(例: [setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-))。
 6. ファイルをディスクに保存します。
-
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     // 最初のスライドを取得 
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
     
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
     
@@ -627,12 +618,12 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
     
-    // テキストフレーム用のパラグラフオブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
     
-    // パラグラフ用のポーションオブジェクトを作成
+    // 段落用の Portion オブジェクトを作成
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("素早い茶色の狐が怠け者の犬を飛び越える。素早い茶色の狐が怠け者の犬を飛び越える。");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
@@ -643,28 +634,27 @@ try {
 }
 ```
 
-## **プレゼンテーション内のタブとEffectiveTabs**
 
-すべてのテキストタブ設定はピクセルで指定されます。
+## **プレゼンテーションのタブと EffectiveTabs**
+すべてのテキストタブはピクセル単位で指定されます。
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
-|**図：2つの明示的タブと2つのデフォルトタブ**|
-- EffectiveTabs.ExplicitTabCount (我々のケースでは2)プロパティはTabs.Countに等しい。
-- EffectiveTabsコレクションには、すべてのタブ（Tabsコレクションおよびデフォルトタブ）が含まれます。
-- EffectiveTabs.ExplicitTabCount (我々のケースでは2)プロパティはTabs.Countに等しい。
-- EffectiveTabs.DefaultTabSize (294)プロパティは、デフォルトタブ間の距離を示します（例では3と4）。
-- EffectiveTabs.GetTabByIndex(index) を用いてindex = 0では最初の明示的タブ (位置 = 731) が返され、index = 1 では2番目のタブ (位置 = 1241) が返されます。index = 2の次のタブを取得しようとすると、最初のデフォルトタブ (位置 = 1470) が返され、続けていきます。
-- EffectiveTabs.GetTabAfterPosition(pos) は、一部のテキストの後の次のタブ設定を取得するために使用されます。たとえば、"Hello World!"というテキストがあります。このテキストを描画するには、"world!"を描き始める場所を知っている必要があります。最初に、"Hello" の長さをピクセルで計算し、その値でGetTabAfterPositionを呼び出す必要があります。次のタブ位置が返され、"world!"を描画することができます。
+|**図: 2 つの明示的タブ と 2 つのデフォルトタブ**|
 
-## **デフォルトのテキストスタイルを設定**
+- EffectiveTabs.ExplicitTabCount (本例では 2) プロパティは Tabs.Count と等しいです。
+- EffectiveTabs コレクションには、Tabs コレクションとデフォルトタブの両方が含まれます。
+- EffectiveTabs.ExplicitTabCount (本例では 2) プロパティは Tabs.Count と等しいです。
+- EffectiveTabs.DefaultTabSize (294) プロパティはデフォルトタブ間の距離を示します (例の 3 と 4)。
+- EffectiveTabs.GetTabByIndex(index) で index = 0 は最初の明示的タブ (Position = 731)、index = 1 は2番目のタブ (Position = 1241) を返します。index = 2 で呼び出すと最初のデフォルトタブ (Position = 1470) が返ります。
+- EffectiveTabs.GetTabAfterPosition(pos) は、テキストの後続タブ位置を取得します。例: テキスト「Hello World!」がある場合、"Hello" のピクセル長を計算し、その値で GetTabAfterPosition を呼び出すと、"world!" を描画すべき次のタブ位置が得られます。
 
-プレゼンテーション内のすべてのテキスト要素に一度に同じデフォルトのテキストフォーマットを適用する必要がある場合は、[IPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/) インターフェイスの `getDefaultTextStyle` メソッドを使用して、好みのフォーマッティングを設定できます。以下のコード例は、新しいプレゼンテーションのすべてのスライドのテキストにデフォルトの太字フォント（14 pt）を設定する方法を示します。
-
+## **デフォルトテキストスタイルの設定**
+プレゼンテーション全体のテキスト要素に同一のデフォルト書式を一括適用したい場合は、[IPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/) インターフェイスの `getDefaultTextStyle` メソッドを使用して好みの書式を設定できます。以下のコード例は、新規プレゼンテーションのすべてのスライド上のテキストにデフォルトで太字フォント (14pt) を設定する方法を示しています。
 ```java
 Presentation presentation = new Presentation();
 try {
-    // トップレベルの段落フォーマットを取得
+    // トップレベルの段落書式を取得します。
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -677,3 +667,50 @@ try {
     presentation.dispose();
 }
 ```
+
+
+## **All-Caps 効果でテキストを抽出する**
+PowerPoint では、**All Caps** フォント効果を適用すると、スライド上のテキストが大文字で表示されますが、元のテキストは小文字のままです。Aspose.Slides でその Portion を取得すると、入力通りの文字列が返されます。これを処理するには、[TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) が `All` を示すか確認し、返された文字列を大文字に変換してスライド上の表示と一致させます。
+
+サンプル2.pptx の最初のスライドに次のテキストボックスがあるとします。
+
+![The All Caps effect](all_caps_effect.png)
+
+以下のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示しています。
+```java
+Presentation presentation = new Presentation("sample2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    IPortion textPortion = paragraph.getPortions().get_Item(0);
+
+    System.out.println("Original text: " + textPortion.getText());
+
+    IPortionFormatEffectiveData textFormat = textPortion.getPortionFormat().getEffective();
+    if (textFormat.getTextCapType() == TextCapType.All) {
+        String text = textPortion.getText().toUpperCase();
+        System.out.println("All-Caps effect: " + text);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+
+出力:
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **FAQ**
+
+**スライド上のテーブルのテキストを変更する方法は？**
+
+テーブルのテキストを変更するには、[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) インターフェイスを使用します。テーブル内のすべてのセルを反復処理し、各セルの `TextFrame` と `ParagraphFormat` プロパティにアクセスしてテキストを変更できます。
+
+**PowerPoint スライドのテキストにグラデーションカラーを適用する方法は？**
+
+グラデーションカラーをテキストに適用するには、[BasePortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/) の `getFillFormat` メソッドを使用します。`FillFormat` を `Gradient` に設定し、開始色・終了色、方向、透明度などのプロパティを定義してテキストにグラデーション効果を作成します。

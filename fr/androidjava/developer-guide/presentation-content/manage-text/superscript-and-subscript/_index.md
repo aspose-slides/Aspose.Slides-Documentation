@@ -1,32 +1,44 @@
 ---
-title: Texte en exposant et en indice
+title: Gérer les exposants et indices dans les présentations sur Android
+linktitle: Exposants et indices
 type: docs
 weight: 80
 url: /fr/androidjava/superscript-and-subscript/
+keywords:
+  - exposant
+  - indice
+  - ajouter exposant
+  - ajouter indice
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - Android
+  - Java
+  - Aspose.Slides
+description: "Maîtrisez les exposants et indices dans Aspose.Slides pour Android via Java et améliorez vos présentations avec une mise en forme de texte professionnelle pour un impact maximal."
 ---
 
-## **Gérer le texte en exposant et en indice**
-Vous pouvez ajouter du texte en exposant et en indice à l'intérieur de n'importe quelle portion de paragraphe. Pour ajouter du texte en exposant ou en indice dans un cadre de texte Aspose.Slides, il faut utiliser la méthode [**setEscapement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#setEscapement-float-) de la classe [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PortionFormat).
+## **Gérer le texte en exposant et indice**
+Vous pouvez ajouter du texte en exposant et en indice dans n'importe quelle partie de paragraphe. Pour ajouter du texte en exposant ou en indice dans le cadre de texte d'Aspose.Slides, vous devez utiliser la méthode [**setEscapement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#setEscapement-float-) de la classe [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PortionFormat).
 
-Cette propriété retourne ou définit le texte en exposant ou en indice (valeur allant de -100% (indice) à 100% (exposant). Par exemple :
+Cette propriété renvoie ou définit le texte en exposant ou en indice (valeur de -100 % (indice) à 100 % (exposant)). Par exemple :
 
 - Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Obtenir la référence d'une diapositive en utilisant son index.
+- Obtenir la référence d'une diapositive en utilisant son Index.
 - Ajouter une [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) de type [Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType#Rectangle) à la diapositive.
-- Accéder au [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) associé à l'[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape).
-- Effacer les paragraphes existants.
-- Créer un nouvel objet de paragraphe pour contenir le texte en exposant et l'ajouter à la collection [IParagraphs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getParagraphs--) de [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame).
-- Créer un nouvel objet portion.
-- Définir la propriété Escapement pour la portion entre 0 et 100 pour ajouter un exposant. (0 signifie pas d'exposant)
-- Définit du texte pour la [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) puis l'ajouter dans la collection de portions du paragraphe.
-- Créer un nouvel objet de paragraphe pour contenir le texte en indice et l'ajouter à la collection IParagraphs de ITextFrame.
-- Créer un nouvel objet portion.
-- Définir la propriété Escapement pour la portion entre 0 et -100 pour ajouter un indice. (0 signifie pas d'indice)
-- Définir du texte pour la [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) puis l'ajouter dans la collection de portions du paragraphe.
-- Enregistrer la présentation sous forme de fichier PPTX.
+- Accéder au [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame) associé à la [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape).
+- Effacer les Paragraphs existants
+- Créer un nouvel objet paragraphe pour contenir le texte en exposant et l'ajouter à la [IParagraphs collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getParagraphs--) du [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame).
+- Créer un nouvel objet portion
+- Définir la propriété Escapement pour la portion entre 0 et 100 pour ajouter un exposant. (0 signifie aucun exposant)
+- Définir du texte pour la [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) puis l'ajouter à la collection de portions du paragraphe.
+- Créer un nouvel objet paragraphe pour contenir le texte en indice et l'ajouter à la IParagraphs collection du ITextFrame.
+- Créer un nouvel objet portion
+- Définir la propriété Escapement pour la portion entre 0 et -100 pour ajouter un indice. (0 signifie aucun indice)
+- Définir du texte pour la [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) puis l'ajouter à la collection de portions du paragraphe.
+- Enregistrer la présentation au format PPTX.
 
-L'implémentation des étapes ci-dessus est donnée ci-dessous.
-
+L'implémentation des étapes ci‑above est présentée ci‑dessous.
 ```java
 // Instancier une classe Presentation qui représente un PPTX
 Presentation pres = new Presentation();
@@ -42,7 +54,7 @@ try {
     // Créer un paragraphe pour le texte en exposant
     IParagraph superPar = new Paragraph();
 
-    // Créer une portion avec du texte habituel
+    // Créer une portion avec du texte normal
     IPortion portion1 = new Portion();
     portion1.setText("SlideTitle");
     superPar.getPortions().add(portion1);
@@ -56,7 +68,7 @@ try {
     // Créer un paragraphe pour le texte en indice
     IParagraph paragraph2 = new Paragraph();
 
-    // Créer une portion avec du texte habituel
+    // Créer une portion avec du texte normal
     IPortion portion2 = new Portion();
     portion2.setText("a");
     paragraph2.getPortions().add(portion2);
@@ -76,3 +88,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**L'exposant et l'indice seront-ils conservés lors de l'exportation vers PDF ou d'autres formats ?**
+
+Oui, Aspose.Slides conserve correctement le format d'exposant et d'indice lors de l'exportation des présentations vers PDF, PPT/PPTX, images et autres formats pris en charge. Le formatage spécialisé reste intact dans tous les fichiers de sortie.
+
+**L'exposant et l'indice peuvent-ils être combinés avec d'autres styles de formatage tels que gras ou italique ?**
+
+Oui, Aspose.Slides vous permet de mélanger différents styles de texte au sein d'une même portion. Vous pouvez activer le gras, l'italique, le soulignement, et appliquer simultanément un exposant ou un indice en configurant les propriétés correspondantes dans [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/).
+
+**Le formatage d'exposant et d'indice fonctionne-t-il pour le texte à l'intérieur des tableaux, graphiques ou SmartArt ?**
+
+Oui, Aspose.Slides prend en charge le formatage dans la plupart des objets, y compris les tableaux et les éléments de graphiques. Lors de la manipulation de SmartArt, vous devez accéder aux éléments appropriés (comme [SmartArtNode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartnode/)) et leurs conteneurs de texte, puis configurer les propriétés de [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) de manière similaire.

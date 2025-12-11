@@ -1,200 +1,199 @@
 ---
-title: تحويل PowerPoint إلى PDF في Java
-linktitle: تحويل PowerPoint إلى PDF
+title: تحويل PPT و PPTX إلى PDF على Android [تضمين ميزات متقدمة]
+linktitle: PowerPoint إلى PDF
 type: docs
 weight: 40
 url: /ar/androidjava/convert-powerpoint-to-pdf/
 keywords:
 - تحويل PowerPoint
-- عرض تقديمي
+- تحويل العرض التقديمي
 - PowerPoint إلى PDF
+- العرض التقديمي إلى PDF
 - PPT إلى PDF
+- تحويل PPT إلى PDF
 - PPTX إلى PDF
+- تحويل PPTX إلى PDF
 - حفظ PowerPoint كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
+- Android
 - Java
-- Aspose.Slides لـ Android عبر Java
-description: "تحويل العروض التقديمية PowerPoint إلى PDF في Java. حفظ PowerPoint كـ PDF مع الامتثال أو معايير الوصول."
+- Aspose.Slides
+description: "تحويل PowerPoint PPT/PPTX إلى ملفات PDF عالية الجودة وقابلة للبحث في Java باستخدام Aspose.Slides for Android، مع أمثلة شفرة سريعة وخيارات تحويل متقدمة."
 ---
 
 ## **نظرة عامة**
 
-تحويل مستندات PowerPoint إلى صيغة PDF يقدم العديد من المزايا، بما في ذلك ضمان التوافق عبر مختلف الأجهزة والحفاظ على التخطيط والتنسيق لعرضك التقديمي. توضح هذه المقالة كيفية تحويل العروض التقديمية إلى مستندات PDF، واستخدام خيارات متنوعة للتحكم في جودة الصور، وإدراج الشرائح المخفية، وحماية مستندات PDF بكلمة مرور، وكشف استبدالات الخطوط، واختيار الشرائح للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
+تحويل عروض PowerPoint (PPT، PPTX، ODP، إلخ) إلى تنسيق PDF على نظام Android يقدم عدة مزايا، بما في ذلك التوافق عبر الأجهزة المختلفة والحفاظ على تخطيط وعرض العرض التقديمي. يوضح هذا الدليل كيفية تحويل العروض إلى مستندات PDF، واستخدام خيارات مختلفة للتحكم في جودة الصورة، تضمين الشرائح المخفية، حماية ملفات PDF بكلمة سر، اكتشاف استبدال الخطوط، اختيار شرائح محددة للتحويل، وتطبيق معايير الامتثال على المستندات الناتجة.
 
 ## **تحويلات PowerPoint إلى PDF**
 
-باستخدام Aspose.Slides، يمكنك تحويل العروض التقديمية في هذه الصيغ إلى PDF:
+باستخدام Aspose.Slides، يمكنك تحويل العروض بالصيغة التالية إلى PDF:
 
-* PPT
-* PPTX
-* ODP
+* **PPT**
+* **PPTX**
+* **ODP**
 
-لتحويل عرض تقديمي إلى PDF، عليك ببساطة تمرير اسم الملف كمعامل في [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class ثم حفظ العرض التقديمي كـ PDF باستخدام طريقة [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-). يكشف [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class عن طريقة [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) التي تُستخدم عادةً لتحويل عرض تقديمي إلى PDF.
+لتحويل عرض إلى PDF، مرر اسم الملف كمعامل إلى فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ثم احفظ العرض كملف PDF باستخدام طريقة `save`. فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) توفر طريقة `save` التي تُستخدم عادةً لتحويل العرض إلى PDF.
 
-{{%  alert title="ملاحظة"  color="warning"   %}} 
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides لـ Android عبر Java يكتب مباشرةً معلومات API ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض تقديمي إلى PDF، يقوم Aspose.Slides لـ Android عبر Java بتعبئة حقل التطبيق بقيمة '*Aspose.Slides*' وحقل منتج PDF بقيمة في شكل '*Aspose.Slides v XX.XX*'. **ملاحظة** أنك لا تستطيع توجيه Aspose.Slides لـ Android عبر Java لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
+يقوم Aspose.Slides for Android via Java بإدراج معلومات واجهة برمجة التطبيقات ورقم الإصدار في المستندات الناتجة. على سبيل المثال، عند تحويل عرض إلى PDF، يملأ Aspose.Slides حقل Application بالقيمة "*Aspose.Slides*" وحقل PDF Producer بقيمة بصيغة "*Aspose.Slides v XX.XX*". **ملاحظة** أنك لا تستطيع إرشاد Aspose.Slides لتغيير أو إزالة هذه المعلومات من المستندات الناتجة.
 
 {{% /alert %}}
 
-Aspose.Slides يسمح لك بتحويل:
+يسمح Aspose.Slides لك بتحويل:
 
-* عرض تقديمي كامل إلى PDF
-* شرائح معينة في عرض تقديمي إلى PDF
-* عرض تقديمي 
+* العروض بالكامل إلى PDF
+* شرائح محددة من العرض إلى PDF
 
-Aspose.Slides يصدر العروض التقديمية إلى PDF بطريقة تجعل محتويات ملفات PDF الناتجة متشابهة جداً مع تلك الموجودة في العروض التقديمية الأصلية. هذه العناصر والسمات المعروفة غالبًا ما تُعرض بشكل صحيح في تحويلات العرض التقديمي إلى PDF:
+يصدر Aspose.Slides العروض إلى PDF، مما يضمن أن ملفات PDF الناتجة تتطابق إلى حد كبير مع العروض الأصلية. يتم تمثيل العناصر والسمات بدقة أثناء التحويل، بما في ذلك:
 
 * الصور
-* صناديق النصوص وأشكال أخرى
-* النصوص وتنسيقاتها
-* الفقرات وتنسيقاتها
+* مربعات النص والأشكال
+* تنسيق النص
+* تنسيق الفقرات
 * الروابط التشعبية
-* الترويسات والتذييل
-* النقاط
+* الترويسات والتذييلات
+* القوائم النقطية
 * الجداول
 
 ## **تحويل PowerPoint إلى PDF**
 
-تتم عملية تحويل PowerPoint إلى PDF القياسية باستخدام الخيارات الافتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض التقديمي المقدم إلى PDF باستخدام الإعدادات المثلى عند مستويات الجودة القصوى.
+عملية تحويل PowerPoint إلى PDF القياسية تستخدم الخيارات الافتراضية. في هذه الحالة، يحاول Aspose.Slides تحويل العرض المقدم إلى PDF باستخدام إعدادات مثالية بأعلى مستويات الجودة.
 
-يظهر لك هذا الكود في Java كيفية تحويل PowerPoint إلى PDF:
-
+يظهر هذا الكود كيفية تحويل عرض (PPT، PPTX، ODP، إلخ) إلى PDF:
 ```java
-// يقوم بإنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint
-Presentation pres = new Presentation("PowerPoint.ppt");
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("PowerPoint.ppt");
 try {
-    // يحفظ العرض التقديمي كـ PDF
-    pres.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
+    // حفظ العرض التقديمي كملف PDF.
+    presentation.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+
 {{%  alert  color="primary"  %}} 
 
-توفر Aspose محول [**PowerPoint إلى PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) مجاني عبر الإنترنت يوضح عملية تحويل العرض التقديمي إلى PDF. لتنفيذ مباشر للإجراء الموصوف هنا، يمكنك إجراء اختبار باستخدام المحول.
+يوفر Aspose أداة مجانية على الإنترنت **PowerPoint to PDF converter**(https://products.aspose.app/slides/conversion/ppt-to-pdf) توضح عملية تحويل العرض إلى PDF. يمكنك تشغيل اختبار باستخدام هذه الأداة لتجربة تنفيذ الإجراء الموصوف هنا.
 
 {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PDF مع خيارات**
 
-يوفر Aspose.Slides خيارات مخصصة—خصائص في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfOptions)—تتيح لك تخصيص PDF (الناجم عن عملية التحويل)، قفل PDF بكلمة مرور، أو حتى تحديد كيفية سير عملية التحويل.
+يوفر Aspose.Slides خيارات مخصصة—خصائص ضمن فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/)—تتيح لك تخصيص PDF الناتج، قفل PDF بكلمة سر، أو تحديد كيفية سير عملية التحويل.
 
 ### **تحويل PowerPoint إلى PDF مع خيارات مخصصة**
 
-باستخدام خيارات التحويل المخصصة، يمكنك تعيين إعداد الجودة المفضل لديك للصور النقطية، وتحديد كيفية التعامل مع ملفات التعريف، وتعيين مستوى ضغط للنصوص، وتعيين DPI للصورة، وما إلى ذلك.
+باستخدام خيارات تحويل مخصصة، يمكنك تحديد إعداد جودة الصورة النقطية المفضل لديك، تحديد طريقة معالجة ملفات الميتا، ضبط مستوى ضغط النص، تكوين DPI للصور، وأكثر.
 
-يظهر مثال الكود أدناه عملية تحويل حيث يتم تحويل عرض تقديمي PowerPoint إلى PDF مع العديد من الخيارات المخصصة:
-
+يعرض مثال الكود أدناه كيفية تحويل عرض PowerPoint إلى PDF مع عدة خيارات مخصصة.
 ```java
-// يقوم بإنشاء كائن من فئة PdfOptions
+// إنشاء كائن من فئة PdfOptions.
 PdfOptions pdfOptions = new PdfOptions();
 
-// تعيين الجودة لصورة JPG
+// تعيين جودة صور JPG.
 pdfOptions.setJpegQuality((byte)90);
 
-// تعيين DPI للصور
+// تعيين DPI للصور.
 pdfOptions.setSufficientResolution(300);
 
-// تعيين سلوك لملفات التعريف
+/// تعيين سلوك ملفات ميتا.
 pdfOptions.setSaveMetafilesAsPng(true);
 
-// تعيين مستوى ضغط النص للمحتوى النصي
+// تعيين مستوى ضغط النص للمحتوى النصي.
 pdfOptions.setTextCompression(PdfTextCompression.Flate);
 
-// تحديد وضع الامتثال لملف PDF
+// تحديد وضع الامتثال لـ PDF.
 pdfOptions.setCompliance(PdfCompliance.Pdf15);
 
-// يقوم بإنشاء كائن من فئة Presentation التي تمثل مستند PowerPoint
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // يحفظ العرض التقديمي كمستند PDF
+    // حفظ العرض التقديمي كملف PDF.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **تحويل PowerPoint إلى PDF مع شرائح مخفية**
 
-إذا كان عرض تقديمي يحتوي على شرائح مخفية، يمكنك استخدام خيار مخصص—خاصية [ShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPdfOptions#getShowHiddenSlides--) من فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfOptions)—لإرشاد Aspose.Slides لتضمين الشرائح المخفية كصفحات في ملف PDF الناتج.
+### **تحويل PowerPoint إلى PDF مع الشرائح المخفية**
 
-يظهر لك هذا الكود في Java كيفية تحويل عرض تقديمي PowerPoint إلى PDF مع تضمين الشرائح المخفية:
+إذا كان العرض يحتوي على شرائح مخفية، يمكنك استخدام طريقة [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) من فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتضمين الشرائح المخفية كصفحات في PDF الناتج.
 
+يظهر هذا الكود كيفية تحويل عرض PowerPoint إلى PDF مع تضمين الشرائح المخفية:
 ```java
-// يقوم بإنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint
-Presentation pres = new Presentation("PowerPoint.pptx");
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // يقوم بإنشاء كائن من فئة PdfOptions
+    // إنشاء كائن من فئة PdfOptions.
     PdfOptions pdfOptions = new PdfOptions();
-    
-    // إضافة الشرائح المخفية
+
+    // إضافة الشرائح المخفية.
     pdfOptions.setShowHiddenSlides(true);
-    
-    // يحفظ العرض التقديمي كـ PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+
+    // حفظ العرض التقديمي كملف PDF.
+    presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **تحويل PowerPoint إلى PDF محمي بكلمة مرور**
 
-يظهر لك هذا الكود في Java كيفية تحويل PowerPoint إلى PDF محمي بكلمة مرور (باستخدام معلمات الحماية من فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfOptions)):
+### **تحويل PowerPoint إلى PDF محمي بكلمة سر**
 
+يعرض هذا الكود كيفية تحويل عرض PowerPoint إلى PDF محمي بكلمة سر باستخدام معلمات الحماية من فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/):
 ```java
-// يقوم بإنشاء كائن Presentation الذي يمثل ملف PowerPoint
-Presentation pres = new Presentation("PowerPoint.pptx");
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    /// يقوم بإنشاء كائن من فئة PdfOptions
+    // إنشاء كائن من فئة PdfOptions.
     PdfOptions pdfOptions = new PdfOptions();
-    
-    // تعيين كلمة مرور PDF وأذونات الوصول
+
+    // تعيين كلمة مرور PDF وصلاحيات الوصول.
     pdfOptions.setPassword("password");
     pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
-    
-    // يحفظ العرض التقديمي كـ PDF
-    pres.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+
+    // حفظ العرض التقديمي كملف PDF.
+    presentation.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **كشف استبدالات الخطوط**
 
-يوفر Aspose.Slides أسلوب [getWarningCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#getWarningCallback--) تحت فئة [SaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/) للسماح لك بكشف استبدالات الخطوط في عملية تحويل العرض التقديمي إلى PDF.
+### **اكتشاف استبدال الخطوط**
 
-يظهر لك هذا الكود في Java كيفية كشف استبدالات الخطوط:
+يوفر Aspose.Slides طريقة [setWarningCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) ضمن فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتتيح لك اكتشاف استبدال الخطوط أثناء عملية التحويل من العرض إلى PDF.
 
+يعرض هذا الكود كيفية اكتشاف استبدال الخطوط:
 ```java
-public void main(String[] args)
-{
-    LoadOptions loadOptions = new LoadOptions();
-    FontSubstSendsWarningCallback warningCallback = new FontSubstSendsWarningCallback();
-    loadOptions.setWarningCallback(warningCallback);
+public static void main(String[] args) {
+    // إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+    Presentation presentation = new Presentation("sample.pptx");
 
-    Presentation pres = new Presentation("pres.pptx", loadOptions);
-    try {
-        
-    } finally {
-        if (pres != null) pres.dispose();
-    }
+    // تعيين رد النداء التحذيري في خيارات PDF.
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.setWarningCallback(new FontSubstitutionHandler());
+
+    // حفظ العرض التقديمي كملف PDF.
+    presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
-private class FontSubstSendsWarningCallback implements IWarningCallback
-{
-    public int warning(IWarningInfo warning)
-    {
-        if (warning.getWarningType() == WarningType.CompatibilityIssue)
-            return ReturnAction.Continue;
-
+// تنفيذ رد النداء التحذيري.
+private static class FontSubstitutionHandler implements IWarningCallback {
+    public int warning(IWarningInfo warning) {
         if (warning.getWarningType() == WarningType.DataLoss &&
-                warning.getDescription().startsWith("سيتم استبدال الخط"))
-        {
-            System.out.println("تحذير استبدال الخط: " + warning.getDescription());
+                warning.getDescription().startsWith("Font will be substituted")) {
+            System.out.println("Font substitution warning: " + warning.getDescription());
         }
 
         return ReturnAction.Continue;
@@ -202,106 +201,138 @@ private class FontSubstSendsWarningCallback implements IWarningCallback
 }
 ```
 
+
 {{%  alert color="primary"  %}} 
 
-للحصول على مزيد من المعلومات حول الحصول على ردود الفعل بشأن استبدالات الخطوط في عملية العرض، انظر [الحصول على ردود التحذير لاستبدال الخطوط](https://docs.aspose.com/slides/androidjava/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+لمزيد من المعلومات حول استقبال استدعاءات رد الفعل لاستبدال الخطوط أثناء عملية التصدير، راجع [Getting Warning Callbacks for Fonts Substitution](/slides/ar/androidjava/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-للحصول على مزيد من المعلومات حول استبدال الخط، انظر مقال [استبدال الخط](https://docs.aspose.com/slides/androidjava/font-substitution/).
+لمزيد من التفاصيل حول استبدال الخطوط، راجع مقالة [Font Substitution](/slides/ar/androidjava/font-substitution/).
 
 {{% /alert %}} 
 
-## **تحويل شرائح محددة في PowerPoint إلى PDF**
+## **تحويل شرائح محددة من PowerPoint إلى PDF**
 
-يظهر لك هذا الكود في Java كيفية تحويل شرائح محددة في عرض تقديمي PowerPoint إلى PDF:
-
+يعرض هذا الكود كيفية تحويل شرائح محددة فقط من عرض PowerPoint إلى PDF:
 ```java
-// يقوم بإنشاء كائن Presentation الذي يمثل ملف PowerPoint
-Presentation pres = new Presentation("PowerPoint.pptx");
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // تعيين مصفوفة لمواقع الشرائح
+    // تعيين مصفوفة أرقام الشرائح.
     int[] slides = { 1, 3 };
-    
-    // يحفظ العرض التقديمي كـ PDF
-    pres.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
+
+    // حفظ العرض التقديمي كملف PDF.
+    presentation.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تحويل PowerPoint إلى PDF مع حجم شريحة مخصص**
 
-يظهر لك هذا الكود في Java كيفية تحويل PowerPoint عندما يتم تحديد حجم شريحته إلى PDF:
+## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
 
+يعرض هذا الكود كيفية تحويل عرض PowerPoint إلى PDF بحجم شريحة محدد:
 ```java
-// يقوم بإنشاء كائن Presentation الذي يمثل ملف PowerPoint 
-Presentation pres = new Presentation("SelectedSlides.pptx");
+float slideWidth = 612;
+float slideHeight = 792;
+
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("SelectedSlides.pptx");
+
+// إنشاء عرض تقديمي جديد بحجم شريحة معدل.
+Presentation resizedPresentation = new Presentation();
+
 try {
-    Presentation outPres = new Presentation();
-    try {
-        ISlide slide = pres.getSlides().get_Item(0);
+    // تعيين حجم الشريحة المخصص.
+    resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
 
-        outPres.getSlides().insertClone(0, slide);
-        
-        // تعيين نوع وحجم الشريحة 
-        outPres.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-        
-        PdfOptions pdfOptions = new PdfOptions();
-        INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-        options.setNotesPosition(NotesPositions.BottomFull);
+    // استنساخ الشريحة الأولى من العرض التقديمي الأصلي.
+    ISlide slide = presentation.getSlides().get_Item(0);
+    resizedPresentation.getSlides().insertClone(0, slide);
 
-        outPres.save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
+    // حفظ العرض التقديمي المعاد تحجيمه كملف PDF مع الملاحظات.
+    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    resizedPresentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تحويل PowerPoint إلى PDF في عرض ملاحظات الشرائح**
 
-يظهر لك هذا الكود في Java كيفية تحويل PowerPoint إلى PDF مع الملاحظات:
+## **تحويل PowerPoint إلى PDF في عرض ملاحظات الشريحة**
 
+يعرض هذا الكود كيفية تحويل عرض PowerPoint إلى PDF يتضمن الملاحظات:
 ```java
-// يقوم بإنشاء كائن Presentation الذي يمثل ملف PowerPoint
-Presentation pres = new Presentation("SelectedSlides.pptx");
+// إنشاء كائن من فئة Presentation التي تمثل ملف PowerPoint أو OpenDocument.
+Presentation presentation = new Presentation("SelectedSlides.pptx");
+try {
+    // تكوين خيارات PDF مع تخطيط الملاحظات.
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(NotesPositions.BottomFull);
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+    // حفظ العرض التقديمي كملف PDF مع الملاحظات.
+    presentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **معايير الوصول والامتثال لملفات PDF**
+
+يسمح Aspose.Slides لك باستخدام إجراء تحويل يتوافق مع [إرشادات محتوى الويب للقدرة على الوصول (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال التالية: **PDF/A1a**، **PDF/A1b**، و **PDF/UA**.
+
+يعرض هذا الكود عملية تحويل PowerPoint إلى PDF تنتج ملفات PDF متعددة بناءً على معايير امتثال مختلفة:
+```java
+Presentation presentation = new Presentation("pres.pptx");
 try {
     PdfOptions pdfOptions = new PdfOptions();
-    INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
 
-    pres.save("Pdf_With_Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **معايير الوصول والامتثال لملف PDF**
-
-يتيح لك Aspose.Slides استخدام إجراء تحويل يتوافق مع [إرشادات الوصول لمحتوى الويب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). يمكنك تصدير مستند PowerPoint إلى PDF باستخدام أي من معايير الامتثال هذه: **PDF/A1a**، **PDF/A1b**، و**PDF/UA**.
-
-يوضح هذا الكود في Java عملية تحويل PowerPoint إلى PDF حيث يتم الحصول على عدة ملفات PDF اعتمادًا على معايير الامتثال المختلفة:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    
     pdfOptions.setCompliance(PdfCompliance.PdfA1a);
-    pres.save("pres-a1a-compliance.pdf", SaveFormat.Pdf, pdfOptions);
+    presentation.save("pres-a1a-compliance.pdf", SaveFormat.Pdf, pdfOptions);
 
     pdfOptions.setCompliance(PdfCompliance.PdfA1b);
-    pres.save("pres-a1b-compliance.pdf", SaveFormat.Pdf, pdfOptions);
+    presentation.save("pres-a1b-compliance.pdf", SaveFormat.Pdf, pdfOptions);
 
     pdfOptions.setCompliance(PdfCompliance.PdfUa);
-    pres.save("pres-ua-compliance.pdf", SaveFormat.Pdf, pdfOptions);
+    presentation.save("pres-ua-compliance.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-تدعم Aspose.Slides عمليات تحويل PDF إلى الملفات الأكثر شيوعًا. يمكنك إجراء تحويل [PDF إلى HTML](https://products.aspose.com/slides/androidjava/conversion/pdf-to-html/)، [PDF إلى صورة](https://products.aspose.com/slides/androidjava/conversion/pdf-to-image/)، [PDF إلى JPG](https://products.aspose.com/slides/androidjava/conversion/pdf-to-jpg/)، و[PDF إلى PNG](https://products.aspose.com/slides/androidjava/conversion/pdf-to-png/). تدعم أيضًا عمليات تحويل PDF إلى تنسيقات متخصصة—[PDF إلى SVG](https://products.aspose.com/slides/androidjava/conversion/pdf-to-svg/)، [PDF إلى TIFF](https://products.aspose.com/slides/androidjava/conversion/pdf-to-tiff/)، و[PDF إلى XML](https://products.aspose.com/slides/androidjava/conversion/pdf-to-xml/).
+{{% alert title="Note" color="warning" %}} 
+
+يدعم Aspose.Slides عمليات تحويل PDF، مما يتيح لك تحويل ملفات PDF إلى صيغ شائعة. يمكنك تنفيذ التحويلات إلى [PDF to HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)، [PDF to image](https://products.aspose.com/slides/java/conversion/pdf-to-image/)، [PDF to JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)، و[PDF to PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/). كما تدعم عمليات تحويل PDF إلى صيغ متخصصة—[PDF to SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)، [PDF to TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)، و[PDF to XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—أيضًا.
 
 {{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحويل عدة ملفات PowerPoint إلى PDF دفعيًا؟**
+
+نعم، يدعم Aspose.Slides التحويل الدفعي لملفات PPT أو PPTX متعددة إلى PDF. يمكنك التجول بين ملفاتك وتطبيق عملية التحويل برمجيًا.
+
+**هل يمكن حماية PDF المحول بكلمة سر؟**
+
+بالتأكيد. استخدم فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتعيين كلمة سر وتحديد أذونات الوصول أثناء عملية التحويل.
+
+**كيف يمكنني تضمين الشرائح المخفية في PDF؟**
+
+استخدم طريقة `setShowHiddenSlides` في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لتضمين الشرائح المخفية في PDF الناتج.
+
+**هل يمكن لـ Aspose.Slides الحفاظ على جودة الصورة العالية في PDF؟**
+
+نعم، يمكنك التحكم في جودة الصورة باستخدام طرق مثل `setJpegQuality` و`setSufficientResolution` في فئة [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/) لضمان صور عالية الجودة في PDF الخاص بك.
+
+**هل يدعم Aspose.Slides معايير الامتثال PDF/A؟**
+
+نعم، يسمح Aspose.Slides لك بتصدير ملفات PDF تتوافق مع معايير مختلفة، بما في ذلك PDF/A1a، PDF/A1b، وPDF/UA، مما يضمن أن مستنداتك تلبي متطلبات الوصول والأرشفة.
+
+## **موارد إضافية**
+
+- [توثيق Aspose.Slides for Android via Java](/slides/ar/androidjava/)
+- [مرجع API لـ Aspose.Slides for Android via Java](https://reference.aspose.com/slides/androidjava/)
+- [محولات Aspose المجانية على الإنترنت](https://products.aspose.app/slides/conversion)

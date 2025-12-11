@@ -1,20 +1,31 @@
 ---
-title: Animierter Text
+title: PowerPoint-Text auf Android animieren
+linktitle: Animierter Text
 type: docs
 weight: 60
 url: /de/androidjava/animated-text/
-keywords: "Animierter Text in PowerPoint"
-description: "Animierter Text in PowerPoint mit Java"
+keywords:
+- animierter Text
+- Textanimation
+- animierter Absatz
+- Absatzanimation
+- Animationseffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erstellen Sie dynamischen animierten Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android, anhand leicht nachvollziehbarer, optimierter Java-Codebeispiele."
 ---
 
-## Hinzufügen von Animationseffekten zu Absätzen
+## **Animations‑Effekte zu Absätzen hinzufügen**
 
-Wir haben die [**addEffect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) Methode zu den [**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) und [**ISequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence) Klassen hinzugefügt. Mit dieser Methode können Sie Animationseffekte zu einem einzelnen Absatz hinzufügen. Dieser Beispielcode zeigt Ihnen, wie Sie einen Animationseffekt zu einem einzelnen Absatz hinzufügen:
-
+Wir haben die Methode [**addEffect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) zu den Klassen [**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) und [**ISequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence) hinzugefügt. Diese Methode ermöglicht es Ihnen, Animations‑Effekte zu einem einzelnen Absatz hinzuzufügen. Dieser Beispielcode zeigt, wie Sie einen Animations‑Effekt zu einem einzelnen Absatz hinzufügen:
 ```java
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Absatz auswählen, um den Effekt hinzuzufügen
+    // Absatz auswählen, um Effekt hinzuzufügen
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
@@ -28,12 +39,12 @@ try {
 }
 ```
 
-## Abrufen der Animationseffekte in Absätzen
 
-Sie können beschließen, die Animationseffekte, die einem Absatz hinzugefügt wurden, herauszufinden—zum Beispiel in einem Szenario, in dem Sie die Animationseffekte in einem Absatz abrufen möchten, weil Sie planen, diese Effekte auf einen anderen Absatz oder eine Form anzuwenden.
+## **Animations‑Effekte von Absätzen abrufen**
 
-Aspose.Slides für Android über Java ermöglicht es Ihnen, alle Animationseffekte abzurufen, die auf Absätze in einem Textfeld (Form) angewendet wurden. Dieser Beispielcode zeigt Ihnen, wie Sie die Animationseffekte in einem Absatz abrufen:
+Möglicherweise möchten Sie die zu einem Absatz hinzugefügten Animations‑Effekte ermitteln – zum Beispiel, wenn Sie die Effekte eines Absatzes erhalten wollen, um sie auf einen anderen Absatz oder ein Shape anzuwenden.
 
+Aspose.Slides für Android via Java ermöglicht es Ihnen, alle auf Absätze in einem Textfeld (Shape) angewendeten Animations‑Effekte abzurufen. Dieser Beispielcode zeigt, wie Sie die Animations‑Effekte in einem Absatz erhalten:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -45,9 +56,24 @@ try {
         IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
 
         if (effects.length > 0)
-            System.out.println("Absatz \"" + paragraph.getText() + "\" hat " + effects[0].getType() + " Effekt.");
+            System.out.println("Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
     }
 } finally {
     pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie unterscheiden sich Textanimationen von Folienübergängen, und können sie kombiniert werden?**
+
+Textanimationen steuern das Verhalten eines Objekts über die Zeit auf einer Folie, während [transitions](/slides/de/androidjava/slide-transition/) festlegen, wie Folien wechseln. Sie sind unabhängig und können zusammen verwendet werden; die Wiedergabereihenfolge wird vom Animations‑Zeitstrahl und den Transition‑Einstellungen bestimmt.
+
+**Werden Textanimationen beim Exportieren in PDF oder Bilder beibehalten?**
+
+Nein. PDF und Rasterbilder sind statisch, sodass Sie nur einen einzelnen Zustand der Folie ohne Bewegung sehen. Um die Bewegung beizubehalten, verwenden Sie den Export als [video](/slides/de/androidjava/convert-powerpoint-to-video/) oder [HTML](/slides/de/androidjava/export-to-html5/).
+
+**Funktionieren Textanimationen in Layouts und im Folienmaster?**
+
+Auf Layout‑/Master‑Objekte angewendete Effekte werden von Folien geerbt, wobei deren Timing und Interaktion mit Folien‑Animationen von der endgültigen Sequenz auf der Folie abhängen.
