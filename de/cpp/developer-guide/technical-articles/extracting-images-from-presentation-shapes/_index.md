@@ -1,23 +1,33 @@
 ---
-title: Extrahieren von Bildern aus Präsentationsformen
+title: Bilder aus Formen der Präsentation extrahieren
+linktitle: Bild aus Form
 type: docs
 weight: 90
 url: /de/cpp/extracting-images-from-presentation-shapes/
-keywords: "Bild extrahieren, PowerPoint, PPT, PPTX, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
-description: "Bilder aus PowerPoint-Präsentationen in C++ extrahieren"
-
+keywords:
+- Bild extrahieren
+- Bild abrufen
+- Folienhintergrund
+- Formhintergrund
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Bilder aus Formen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ extrahieren — schnelle, codefreundliche Lösung."
 ---
+
+## **Bilder aus Formen extrahieren**
 
 {{% alert color="primary" %}} 
 
-Bilder werden oft zu Formen hinzugefügt und häufig auch als Hintergrund von Folien verwendet. Die Bildobjekte werden über [IImageCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) hinzugefügt, das eine Sammlung von [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) Objekten ist. 
+Bilder werden häufig zu Formen hinzugefügt und auch oft als Folienhintergründe verwendet. Die Bildobjekte werden über [IImageCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) hinzugefügt, das eine Sammlung von [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)‑Objekten ist. 
 
-Dieser Artikel erklärt, wie Sie die Bilder extrahieren können, die in Präsentationen hinzugefügt wurden. 
+Dieser Artikel erklärt, wie Sie die zu Präsentationen hinzugefügten Bilder extrahieren können. 
 
 {{% /alert %}} 
 
-Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zunächst finden, indem Sie jede Folie durchgehen und dann jede Form durchgehen. Sobald das Bild gefunden oder identifiziert wurde, können Sie es extrahieren und als neue Datei speichern. 
-
+Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst finden, indem Sie jede Folie und anschließend jede Form durchgehen. Sobald das Bild gefunden bzw. identifiziert ist, können Sie es extrahieren und als neue Datei speichern. 
 ``` cpp
 void Run()
 {
@@ -33,13 +43,13 @@ void Run()
     for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
     {
         slideIndex++;
-        //Greift auf die erste Folie zu
+        //Zugriff auf die erste Folie
         System::SharedPtr<ISlide> sl = pres->get_Slides()->idx_get(i);
         System::SharedPtr<System::Drawing::Imaging::ImageFormat> Format = System::Drawing::Imaging::ImageFormat::get_Jpeg();
 
         if (sl->get_Background()->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
         {
-            //Erhält das Hintergrundbild  
+            //Holt das Hintergrundbild  
             Backimg = sl->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_Image();
 
             //Setzt das gewünschte Bildformat
@@ -54,7 +64,7 @@ void Run()
         {
             if (sl->get_LayoutSlide()->get_Background()->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
             {
-                //Erhält das Hintergrundbild  
+                //Holt das Hintergrundbild  
                 Backimg = sl->get_LayoutSlide()->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_Image();
 
                 //Setzt das gewünschte Bildformat 
@@ -150,5 +160,23 @@ System::SharedPtr<System::Drawing::Imaging::ImageFormat> GetImageFormat(System::
 
     return Format;
 }
-
 ```
+
+
+## **FAQ**
+
+**Kann ich das Originalbild ohne Zuschnitt, Effekte oder Formtransformationen extrahieren?**
+
+Ja. Wenn Sie auf das Bild einer Form zugreifen, erhalten Sie das Bildobjekt aus der [image collection](https://reference.aspose.com/slides/cpp/aspose.slides/imagecollection/) der Präsentation, also die ursprünglichen Pixel ohne Zuschnitt oder Stil‑Effekte. Der Ablauf durchläuft die Bildsammlung der Präsentation und die [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/)‑Objekte, die die Rohdaten speichern.
+
+**Besteht das Risiko, beim gleichzeitigen Speichern vieler Bilder identische Dateien zu duplizieren?**
+
+Ja, wenn Sie alles unkritisch speichern. Eine [image collection](https://reference.aspose.com/slides/cpp/aspose.slides/imagecollection/) einer Präsentation kann identische Binärdaten enthalten, die von verschiedenen Formen oder Folien referenziert werden. Um Duplikate zu vermeiden, vergleichen Sie Hashes, Größen oder Inhalte der extrahierten Daten, bevor Sie schreiben.
+
+**Wie kann ich bestimmen, welche Formen mit einem bestimmten Bild aus der Sammlung der Präsentation verknüpft sind?**
+
+Aspose.Slides speichert keine Rückverweise von [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/) zu Formen. Erstellen Sie während der Traversierung manuell eine Zuordnung: Wann immer Sie eine Referenz zu einem [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/) finden, notieren Sie, welche Formen ihn verwenden.
+
+**Kann ich Bilder extrahieren, die in OLE‑Objekten eingebettet sind, z. B. angehängte Dokumente?**
+
+Nicht direkt, weil ein OLE‑Objekt ein Container ist. Sie müssen das OLE‑Paket selbst extrahieren und dann dessen Inhalt mit separaten Tools analysieren. Bildformen in Präsentationen arbeiten über [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/); OLE ist ein anderer Objekttyp.

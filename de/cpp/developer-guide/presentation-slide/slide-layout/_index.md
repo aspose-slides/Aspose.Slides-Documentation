@@ -1,284 +1,275 @@
 ---
-title: Folienlayout
+title: Folienlayouts in C++ anwenden oder ändern
+linktitle: Folienlayout
 type: docs
 weight: 60
 url: /de/cpp/slide-layout/
-keyword: "Foliengröße festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilenanzeige, Kindfußzeile, Inhaltsmaßstab, Seitengröße, C++, CPP, Aspose.Slides"
-description: "Legen Sie die Größe und Optionen von PowerPoint-Folien in C++ fest"
+keywords:
+- Folienlayout
+- Inhaltslayout
+- Platzhalter
+- Präsentationsdesign
+- Foliengestaltung
+- ungenutztes Layout
+- Fußzeilensichtbarkeit
+- Titelfolie
+- Titel und Inhalt
+- Abschnittsüberschrift
+- Zwei Inhalte
+- Vergleich
+- Nur Titel
+- Leeres Layout
+- Inhalt mit Beschriftung
+- Bild mit Beschriftung
+- Titel und vertikaler Text
+- Vertikaler Titel und Text
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Verwalten und Anpassen von Folienlayouts in Aspose.Slides für C++. Erkunden Sie Layouttypen, Platzhaltersteuerung und Fußzeilensichtbarkeit anhand von C++-Codebeispielen."
 ---
 
-Ein Folienlayout enthält die Platzhalter und Formatierungsinformationen für alle Inhalte, die auf einer Folie erscheinen. Das Layout bestimmt die verfügbaren Inhaltsplatzhalter und deren Position.
+## **Übersicht**
 
-Folienlayouts ermöglichen es Ihnen, Präsentationen schnell zu erstellen und zu gestalten (ob einfach oder komplex). Dies sind einige der beliebtesten Folienlayouts, die in PowerPoint-Präsentationen verwendet werden:
+Ein Folienlayout definiert die Anordnung von Platzhalter‑Boxen und die Formatierung des Inhalts einer Folie. Es steuert, welche Platzhalter verfügbar sind und wo sie angezeigt werden. Folienlayouts helfen Ihnen, Präsentationen schnell und konsistent zu entwerfen – egal, ob Sie etwas Einfaches oder Komplexeres erstellen. Zu den am häufigsten verwendeten Folienlayouts in PowerPoint gehören:
 
-* **Titel-Folienlayout**. Dieses Layout besteht aus zwei Textplatzhaltern. Ein Platzhalter ist für den Titel und der andere ist für den Untertitel.
-* **Titel und Inhalt Layout**. Dieses Layout enthält einen relativ kleinen Platzhalter an der Oberseite für den Titel und einen größeren Platzhalter für den Kerninhalt (Diagramm, Absätze, Aufzählungsliste, nummerierte Liste, Bilder usw.).
-* **Leeres Layout**. Dieses Layout weist keine Platzhalter auf, sodass Sie Elementen von Grund auf neu erstellen können.
+**Titel‑Folienlayout** – Enthält zwei Textplatzhalter: einen für den Titel und einen für den Untertitel.
 
-Da eine Masterfolie die höchste hierarchische Folie ist, die Informationen über Folienlayouts speichert, können Sie die Masterfolie verwenden, um auf Folienlayouts zuzugreifen und Änderungen vorzunehmen. Ein Layout-Folie kann nach Typ oder Name abgerufen werden. Ebenso hat jede Folie eine eindeutige ID, die verwendet werden kann, um auf sie zuzugreifen.
+**Titel‑und‑Inhalts‑Layout** – Zeigt oben einen kleineren Titelplatzhalter und darunter einen größeren für Hauptinhalt (wie Text, Aufzählungspunkte, Diagramme, Bilder und mehr).
 
-Alternativ können Sie Änderungen direkt an einem bestimmten Folienlayout in einer Präsentation vornehmen.
+**Leeres Layout** – Enthält keine Platzhalter und gibt Ihnen die volle Kontrolle, die Folie von Grund auf zu gestalten.
 
-* Um Ihnen die Arbeit mit Folienlayouts (einschließlich der in Masterfolien) zu ermöglichen, bietet Aspose.Slides Eigenschaften wie [get_LayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) und [get_Masters()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) in der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse an.
-* Um verwandte Aufgaben auszuführen, bietet Aspose.Slides [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/baseslideheaderfootermanager/) und viele andere Typen.
+Folienlayouts sind Teil eines Folienmasters, der die Folie auf höchster Ebene darstellt und Layout‑Stile für die Präsentation definiert. Sie können Layout‑Folien über den Folienmaster zugreifen und ändern – entweder nach Typ, Name oder eindeutiger ID. Alternativ können Sie eine bestimmte Layout‑Folie direkt in der Präsentation bearbeiten.
+
+Um mit Folienlayouts in Aspose.Slides für Android zu arbeiten, können Sie verwenden:
+- Methoden wie [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) und [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) in der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 
+- Typen wie [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/), und [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Für weitere Informationen zur Arbeit mit Master-Folien im Besonderen siehe den Artikel [Slide Master](https://docs.aspose.com/slides/cpp/slide-master/).
-
+Um mehr über die Arbeit mit Master‑Folien zu erfahren, lesen Sie den Artikel [Folienmaster](/slides/de/cpp/slide-master/) .
 {{% /alert %}}
 
-## **Folienlayout zur Präsentation hinzufügen**
+## **Folienlayouts zu Präsentationen hinzufügen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Greifen Sie auf die [MasterSlide-Sammlung](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/) zu.
-1. Durchlaufen Sie die vorhandenen Layout-Folien, um zu bestätigen, dass die benötigte Layout-Folie bereits in der Layout-Folien-Sammlung vorhanden ist. Andernfalls fügen Sie die gewünschte Layout-Folie hinzu.
-1. Fügen Sie eine leere Folie basierend auf der neuen Layout-Folie hinzu.
+Um das Aussehen und die Struktur Ihrer Folien anzupassen, müssen Sie möglicherweise neue Layout‑Folien zu einer Präsentation hinzufügen. Aspose.Slides für Android ermöglicht es Ihnen, zu prüfen, ob ein bestimmtes Layout bereits existiert, bei Bedarf ein neues hinzuzufügen und es zu verwenden, um Folien basierend auf diesem Layout einzufügen.
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Greifen Sie auf die [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/) zu.
+1. Prüfen Sie, ob die gewünschte Layout‑Folie bereits in der Sammlung vorhanden ist. Falls nicht, fügen Sie die benötigte Layout‑Folie hinzu.
+1. Fügen Sie eine leere Folie auf Basis der neuen Layout‑Folie hinzu.
 1. Speichern Sie die Präsentation.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Folienlayout zu einer PowerPoint-Präsentation hinzufügen:
+Der folgende C++‑Code zeigt, wie man ein Folienlayout zu einer PowerPoint‑Präsentation hinzufügt:
+```cpp
+// Instanziieren Sie die Presentation-Klasse, die eine PowerPoint-Datei darstellt.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-	// Der Pfad zum Dokumentenverzeichnis.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/AddLayoutSlides.pptx";
-
-	// Instanziiert eine Präsentationsklasse, die die Präsentationsdatei darstellt
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-
-	// Durchläuft die Layout-Folientypen
-	SharedPtr<IMasterLayoutSlideCollection> layoutSlides = pres->get_Masters()->idx_get(0)->get_LayoutSlides();
-
-
-	SharedPtr<ILayoutSlide> layoutSlide;
-	if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-	}
-	else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
-	}
-
-	if (layoutSlide == NULL)
-	{
-		// Die Situation, in der eine Präsentation einige Layout-Typen nicht enthält.
-		// Die Präsentationsdatei enthält nur leere und benutzerdefinierte Layout-Typen.
-		// Aber Layout-Folien mit benutzerdefinierten Typen haben unterschiedliche Foliennamen,
-		// wie "Titel", "Titel und Inhalt" usw. Und es ist möglich, diese
-		// Namen für die Auswahl des Layouts zu verwenden.
-		// Sie können auch eine Reihe von Platzhalter-Formtypen verwenden. Zum Beispiel,
-		// das Titel-Folienlayout sollte nur den Platzhaltertyp Titel haben usw.
-
-		for (int i = 0; i<layoutSlides->get_Count(); i++)
-		{
-			SharedPtr<ILayoutSlide> titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-			if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-			{
-				layoutSlide = titleAndObjectLayoutSlide;
-				break;
-			}
-		}
-
-		if (layoutSlide == NULL)
-		{
-			for (int i = 0; i < layoutSlides->get_Count(); i++)
-			{
-				SharedPtr<ILayoutSlide> titleLayoutSlide = layoutSlides->idx_get(i);
-
-				if (titleLayoutSlide->get_Name().Equals(u"Title"))
-				{
-					layoutSlide = titleLayoutSlide;
-					break;
-				}
-			}
-
-			if (layoutSlide == NULL)
-			{
-				layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-				if (layoutSlide == NULL)
-				{
-					layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-				}
-			}
-		}
-	}
-
-	// Fügt eine leere Folie mit dem hinzugefügten Layout-Folie hinzu  
-	pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-	// Speichert die Präsentation auf der Festplatte
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-```
-
-## **Nicht verwendetes Layout-Folie entfernen**
-
-Aspose.Slides bietet die [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) Methode aus der [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) Klasse, um Ihnen das Löschen unerwünschter und ungenutzter Layout-Folien zu ermöglichen. Dieser C++-Code zeigt Ihnen, wie Sie eine Layout-Folie aus einer PowerPoint-Präsentation entfernen:
-
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-LowCode::Compress::RemoveUnusedLayoutSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-
-```
-
-
-## **Größe und Typ für Folienlayout festlegen**
-
-Um Ihnen zu ermöglichen, Größe und Typ für eine bestimmte Layout-Folie festzulegen, bietet Aspose.Slides die Eigenschaften [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) und [get_Size()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_size/) (aus der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse). Dieser C++-Code zeigt die Operation:
-
-```c++
-	// Der Pfad zum Dokumentenverzeichnis.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/CloneToAnotherPresentationWithSetSizeAndType.pptx";
-	// Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	SharedPtr<Presentation> destPres = MakeObject<Presentation>();
-
-	// Greift auf Folie durch ID aus der Sammlung zu
-	SharedPtr<ISlideCollection> slideCollection = destPres->get_Slides();
-	
-	// Legt die Foliengröße für die generierte Präsentation auf die der Quelle fest
-	destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
-
-	slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
-
-	// Speichert die Präsentation auf der Festplatte
-	destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **Fußzeilenanzeige innerhalb der Folie festlegen**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich den Verweis auf eine Folie über ihren Index.
-1. Stellen Sie den Fußzeilenplatzhalter der Folie auf sichtbar.
-1. Stellen Sie den Datum-Zeit-Platzhalter auf sichtbar.
-1. Speichern Sie die Präsentation.
-
-Dieser C++-Code zeigt Ihnen, wie Sie die Sichtbarkeit für eine Folienfußzeile festlegen (und damit verbundene Aufgaben ausführen):
-
-```c++
- // Der Pfad zum Dokumentenverzeichnis.
-const String outPath = u"../out/HeaderFooterManager_out.pptx";
-
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-
-// Instanziiert eine Klasse für die Folienkollektion
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-//	SharedPtr<IBaseSlideHeaderFooterManager> headerFooterManager = presentation->get_Slides()->idx_get(0)->get_HeaderFooterManager();
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-if (!headerFooterManager->get_IsFooterVisible()) // Die Eigenschaft IsFooterVisible wird verwendet, um anzugeben, dass ein Platzhalter für die Folienfußzeile fehlt
+// Go through the layout slide types to select a layout slide.
+auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
+SharedPtr<ILayoutSlide> layoutSlide;
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
 {
-	headerFooterManager->SetFooterVisibility(true); // Die Methode SetFooterVisibility wird verwendet, um einen Platzhalter für die Folienfußzeile sichtbar zu machen
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
 }
-if (!headerFooterManager->get_IsSlideNumberVisible()) // Die Eigenschaft IsSlideNumberVisible wird verwendet, um anzugeben, dass ein Platzhalter für die Foliennummer fehlt
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
 {
-	headerFooterManager->SetSlideNumberVisibility(true); // Die Methode SetSlideNumberVisibility wird verwendet, um einen Platzhalter für die Foliennummer sichtbar zu machen
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
 }
-if (!headerFooterManager->get_IsDateTimeVisible()) // Die Eigenschaft IsDateTimeVisible wird verwendet, um anzugeben, dass ein Platzhalter für Datum und Uhrzeit fehlt
+
+if (layoutSlide == nullptr)
 {
-	headerFooterManager->SetDateTimeVisibility(true); // Die Methode SetFooterVisibility wird verwendet, um einen Platzhalter für Datum und Uhrzeit sichtbar zu machen
+    //     Eine Situation, in der die Präsentation nicht alle Layout-Typen enthält.
+    //     Die Präsentationsdatei enthält nur leere und benutzerdefinierte Layout-Typen.
+    //     Allerdings können Layout-Folien mit benutzerdefinierten Typen erkennbare Namen haben,
+    //     z. B. "Title", "Title and Content" usw., die für die Auswahl von Layout-Folien verwendet werden können.
+    //     Sie können sich auch auf eine Menge von Platzhalter-Formtypen verlassen.
+    //     Zum Beispiel sollte eine Titelfolie nur den Titel-Platzhaltertyp haben und so weiter.
+    for (int i = 0; i < layoutSlides->get_Count(); i++)
+    {
+        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
+
+        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
+        {
+            layoutSlide = titleAndObjectLayoutSlide;
+            break;
+        }
+    }
+
+    if (layoutSlide == nullptr)
+    {
+        for (int i = 0; i < layoutSlides->get_Count(); i++)
+        {
+            auto titleLayoutSlide = layoutSlides->idx_get(i);
+
+            if (titleLayoutSlide->get_Name() == u"Title")
+            {
+                layoutSlide = titleLayoutSlide;
+                break;
+            }
+        }
+
+        if (layoutSlide == nullptr)
+        {
+            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
+            if (layoutSlide == nullptr)
+            {
+                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
+            }
+        }
+    }
 }
-headerFooterManager->SetFooterText(u"Fußzeilentext"); // Die Methode SetFooterText wird verwendet, um einen Text für einen Platzhalter der Folienfußzeile festzulegen
-headerFooterManager->SetDateTimeText(u"Datum und Uhrzeit Text"); // Die Methode SetDateTimeText wird verwendet, um einen Text für einen Platzhalter von Datum und Uhrzeit festzulegen.
 
+// Add an empty slide using the added layout slide.
+presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
 
-// Speichert die Präsentation auf der Festplatte
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the presentation to disk.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Fußzeilenanzeige für Kinder innerhalb der Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich einen Verweis auf die Masterfolie über ihren Index.
-1. Stellen Sie die Masterfolie und alle Platzhalter für Fußzeilen auf sichtbar.
-1. Setzen Sie einen Text für die Masterfolie und alle Platzhalter für Fußzeilen.
-1. Setzen Sie einen Text für die Masterfolie und alle Platzhalter für Datum und Uhrzeit.
-1. Speichern Sie die Präsentation.
+## **Unbenutzte Layout‑Folien entfernen**
 
-Dieser C++-Code demonstriert die Operation:
+Aspose.Slides stellt die Methode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) der Klasse [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) bereit, mit der Sie unerwünschte und unbenutzte Layout‑Folien löschen können.
 
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
-const String outPath = u"../out/SetChildFooter_out.pptx";
+Der folgende C++‑Code zeigt, wie man eine Layout‑Folie aus einer PowerPoint‑Präsentation entfernt:
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+Compress::RemoveUnusedLayoutSlides(presentation);
 
-// Instanziiert eine Klasse für die Folienkollektion
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-headerFooterManager->SetFooterAndChildFootersVisibility(true); // Die Methode SetFooterAndChildFootersVisibility wird verwendet, um die Masterfolie und alle Platzhalter für Fußzeilen sichtbar zu machen
-headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true); // Die Methode SetSlideNumberAndChildSlideNumbersVisibility wird verwendet, um die Masterfolie und alle Platzhalter für Foliennummern sichtbar zu machen
-headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true); // Die Methode SetDateTimeAndChildDateTimesVisibility wird verwendet, um eine Masterfolie und alle Platzhalter für Datum und Uhrzeit sichtbar zu machen
-
-headerFooterManager->SetFooterAndChildFootersText(u"Fußzeilentext"); // Die Methode SetFooterAndChildFootersText wird verwendet, um Texte für die Masterfolie und alle Platzhalter für Fußzeilen festzulegen
-headerFooterManager->SetDateTimeAndChildDateTimesText(u"Datum und Uhrzeit Text"); // Die Methode SetDateTimeAndChildDateTimesText wird verwendet, um Texte für die Masterfolie und alle Platzhalter für Datum und Uhrzeit festzulegen
-
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Foliengröße im Hinblick auf Inhaltsmaßstab festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse und laden Sie die Präsentation, die die Folie enthält, deren Größe Sie festlegen möchten.
-1. Erstellen Sie eine weitere Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse, um eine neue Präsentation zu erstellen.
-1. Holen Sie sich den Verweis auf die Folie (aus der ersten Präsentation) über ihren Index.
-1. Stellen Sie den Platzhalter für die Fußzeile der Folie auf sichtbar.
-1. Stellen Sie den Platzhalter für Datum und Uhrzeit auf sichtbar.
-1. Speichern Sie die Präsentation.
+## **Platzhalter zu Folienlayouts hinzufügen**
 
-Dieser C++-Code zeigt die Operation:
+Aspose.Slides stellt die Methode [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) bereit, mit der Sie neue Platzhalter zu einer Layout‑Folie hinzufügen können.
 
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
-const String templatePath = u"../templates/AccessSlides.pptx";
-const String outPath = u"../out/SetSlideSizeScale_out.pptx";
+Dieser Manager enthält Methoden für die folgenden Platzhaltertypen:
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
-SharedPtr<Presentation> auxPresentation = MakeObject<Presentation>();
+| PowerPoint‑Platzhalter | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) Methode |
+| ---------------------- | ------------------------------------------------------------ |
+| ![Inhalt](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Inhalt (Vertikal)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertikal)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Bild](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Diagramm](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Tabelle](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Medien](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online‑Bild](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-// Instanziiert eine Klasse für die Folienkollektion
-SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+Der folgende C++‑Code zeigt, wie man neue Platzhalter‑Formen zum leeren Layout‑Slide hinzufügt:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-// Legt die Foliengröße für die generierten Präsentationen auf die der Quelle fest
-auxPresentation->get_SlideSize()->SetSize(540, 720, SlideSizeScaleType::EnsureFit); // Methode SetSize wird verwendet, um die Foliengröße mit Maßstab-Inhalt zu setzen, um sicherzustellen, dass es passt
-auxPresentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize); // Methode SetSize wird verwendet, um die Foliengröße mit Maximalgröße des Inhalts zu setzen
+// Hole die leere Layoutfolie.
+auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
-auxPresentation->get_Slides()->RemoveAt(0);
+// Hole den Platzhalter-Manager der Layoutfolie.
+auto placeholderManager = layout->get_PlaceholderManager();
 
-// Speichert die Präsentation
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Füge verschiedene Platzhalter zur leeren Layoutfolie hinzu.
+placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+
+// Add a new slide with the Blank layout.
+auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
+
+presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Seitengröße beim Generieren von PDF festlegen**
 
-Bestimmte Präsentationen (wie Poster) werden häufig in PDF-Dokumente umgewandelt. Wenn Sie Ihre PowerPoint-Präsentation in PDF umwandeln möchten, um die besten Druck- und Zugänglichkeitsoptionen zu nutzen, möchten Sie Ihre Folien auf Größen festlegen, die für PDF-Dokumente geeignet sind (z. B. A4).
+Das Ergebnis:
 
-Aspose.Slides bietet die [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/) Klasse, um Ihnen zu ermöglichen, Ihre bevorzugten Einstellungen für Folien anzugeben. Dieser C++-Code zeigt Ihnen, wie Sie die Eigenschaft [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) (aus der `SlideSize` Klasse) verwenden, um eine bestimmte Papiergröße für die Folien in einer Präsentation festzulegen:
+![Die Platzhalter auf der Layout‑Folie](add_placeholders.png)
 
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
-	const String outPath = u"../out/SetPDFPageSize_out.pptx";
+## **Footer‑Sichtbarkeit für eine Layout‑Folie festlegen**
 
-	// Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt 
-	SharedPtr<Presentation>pres = MakeObject<Presentation>();
+In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text je nach Layout angezeigt oder ausgeblendet werden. Aspose.Slides für Android ermöglicht es Ihnen, die Sichtbarkeit dieser Fußzeilen‑Platzhalter zu steuern. Dies ist nützlich, wenn Sie möchten, dass bestimmte Layouts Fußzeileninformationen anzeigen, während andere sauber und minimal bleiben.
 
-	// Legt die Eigenschaft SlideSize.Type fest
-	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Holen Sie sich eine Referenz auf eine Layout‑Folie anhand ihres Index.
+3. Setzen Sie den Fußzeilen‑Platzhalter der Folie auf sichtbar.
+4. Setzen Sie den Foliennummer‑Platzhalter auf sichtbar.
+5. Setzen Sie den Datum‑Uhrzeit‑Platzhalter auf sichtbar.
+6. Speichern Sie die Präsentation.
 
-	// Legt verschiedene Eigenschaften der PDF-Optionen fest
-	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();
-	opts.set_SufficientResolution (600);
+Der folgende C++‑Code zeigt, wie man die Sichtbarkeit einer Folien‑Fußzeile einstellt und verwandte Aufgaben ausführt:
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
+auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
-	// Speichert die Präsentation
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pdf, &opts);
+if (!headerFooterManager->get_IsFooterVisible())
+{
+    headerFooterManager->SetFooterVisibility(true);
+}
+
+if (!headerFooterManager->get_IsSlideNumberVisible())
+{
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+if (!headerFooterManager->get_IsDateTimeVisible())
+{
+    headerFooterManager->SetDateTimeVisibility(true);
+}
+
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **Footer‑Sichtbarkeit für untergeordnete Folien festlegen**
+
+In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text auf Ebene der Master‑Folie gesteuert werden, um Konsistenz über alle Layout‑Folien hinweg sicherzustellen. Aspose.Slides für Android ermöglicht es Ihnen, die Sichtbarkeit und den Inhalt dieser Fußzeilen‑Platzhalter auf der Master‑Folie festzulegen und diese Einstellungen an alle untergeordneten Layout‑Folien zu propagieren. Dieser Ansatz gewährleistet einheitliche Fußzeileninformationen in der gesamten Präsentation.
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Holen Sie sich eine Referenz auf die Master‑Folie anhand ihres Index.
+3. Setzen Sie die Fußzeilen‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
+4. Setzen Sie die Foliennummer‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
+5. Setzen Sie die Datum‑Uhrzeit‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
+6. Speichern Sie die Präsentation.
+
+Der folgende C++‑Code demonstriert diese Operation:
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
+
+headerFooterManager->SetFooterAndChildFootersVisibility(true);
+headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **FAQ**
+
+**Was ist der Unterschied zwischen einer Master‑Folie und einer Layout‑Folie?**
+
+Eine Master‑Folie definiert das Gesamtthema und die Standardformatierung, während Layout‑Folien spezifische Anordnungen von Platzhaltern für verschiedene Inhaltstypen festlegen.
+
+**Kann ich eine Layout‑Folie von einer Präsentation in eine andere kopieren?**
+
+Ja, Sie können eine Layout‑Folie aus der Layout‑Folien‑Sammlung einer Präsentation, die über die Methode [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) zugänglich ist, klonen und sie mit der Methode `AddClone` in eine andere Präsentation einfügen.
+
+**Was passiert, wenn ich eine Layout‑Folie lösche, die noch von einer Folie verwendet wird?**
+
+Wenn Sie versuchen, eine Layout‑Folie zu löschen, die noch von mindestens einer Folie in der Präsentation referenziert wird, wirft Aspose.Slides eine [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). Um dies zu vermeiden, verwenden Sie [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), das nur die nicht genutzten Layout‑Folien sicher entfernt.

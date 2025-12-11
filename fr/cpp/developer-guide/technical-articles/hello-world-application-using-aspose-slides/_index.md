@@ -1,24 +1,32 @@
 ---
-title: Application Hello World utilisant Aspose.Slides
+title: Application Hello World utilisant Aspose.Slides pour C++
 type: docs
 weight: 80
 url: /fr/cpp/hello-world-application-using-aspose-slides/
+keywords:
+- bonjour monde
+- application
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Créez votre première application C++ avec Aspose.Slides, un exemple Hello World simple qui vous prépare à automatiser les présentations PPT, PPTX et ODP."
 ---
 
 ## **Étapes pour créer une application Hello World**
-Dans cette simple application, nous allons créer une présentation PowerPoint comportant le texte **Hello World** à une position spécifiée d'une diapositive. Veuillez suivre les étapes ci-dessous pour créer l'application **Hello World** en utilisant l'API Aspose.Slides pour C++ :
+Dans cette application simple, nous allons créer une présentation PowerPoint contenant le texte **Hello World** à une position spécifiée d'une diapositive. Veuillez suivre les étapes ci-dessous pour créer une application **Hello World** en utilisant l'API Aspose.Slides pour C++ :
 
 - Créer une instance de la classe Presentation
-- Obtenir la référence de la première diapositive dans la présentation qui est créée lors de l'instanciation de la présentation.
-- Ajouter une AutoShape avec ShapeType comme Rectangle à une position spécifiée de la diapositive.
-- Ajouter un TextFrame à l'AutoShape contenant Hello World comme texte par défaut
-- Changer la couleur du texte en noir car elle est blanche par défaut et n'est pas visible sur la diapositive avec un fond blanc
-- Changer la couleur de la ligne de la forme en blanc afin de cacher la bordure de la forme
-- Supprimer le format de remplissage par défaut de la forme
-- Enfin, écrire la présentation au format de fichier désiré en utilisant l'objet de Présentation
+- Obtenir la référence de la première diapositive de la présentation, qui est créée lors de l'instanciation de Presentation.
+- Ajouter une AutoShape avec ShapeType egal a Rectangle a une position specifiee de la diapositive.
+- Ajouter un TextFrame a l'AutoShape contenant Hello World comme texte par defaut
+- Modifier la couleur du texte en noir car il est blanc par defaut et n'est pas visible sur la diapositive avec un fond blanc
+- Modifier la couleur du contour de la forme en blanc afin de masquer la bordure de la forme
+- Supprimer le format de remplissage par defaut de la forme
+- Enfin, enregistrer la presentation dans le format de fichier souhaite a l'aide de l'objet Presentation
 
-L'implémentation des étapes ci-dessus est démontrée ci-dessous dans un exemple.
-
+L'implementation des etapes ci-dessus est illustree ci-dessous dans un exemple.
 ``` cpp
 #include <DOM/Presentation.h>
 #include <DOM/SlideCollection.h>
@@ -68,10 +76,10 @@ int main(int argc, const char argv[])
     // changer la couleur de la ligne du rectangle en blanc
     shape->get_ShapeStyle()->get_LineColor()->set_Color(System::Drawing::Color::get_White());
 
-    // retirer tout formatage de remplissage dans la forme
+    // supprimer tout format de remplissage dans la forme
     shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // sauvegarder la présentation sur le disque
+    // enregistrer la présentation sur le disque
     pres->Save(u"output.pptx", SaveFormat::Pptx);
 
     return 0;

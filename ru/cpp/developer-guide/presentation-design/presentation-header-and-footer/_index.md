@@ -1,22 +1,35 @@
 ---
-title: Заголовок и нижний колонтитул презентации
+title: Управление заголовками и нижними колонтитулами презентаций в C++
+linktitle: Заголовок и колонтитул
 type: docs
 weight: 140
 url: /ru/cpp/presentation-header-and-footer/
-keywords: "Заголовок и нижний колонтитул в PowerPoint"
-description: "Заголовок и нижний колонтитул в PowerPoint с помощью Aspose.Slides."
+keywords:
+- заголовок
+- текст заголовка
+- нижний колонтитул
+- текст нижнего колонтитула
+- установить заголовок
+- установить нижний колонтитул
+- раздаточный материал
+- примечания
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Используйте Aspose.Slides для C++, чтобы добавлять и настраивать заголовки и нижние колонтитулы в презентациях PowerPoint и OpenDocument для профессионального вида."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/ru/cpp/) предоставляет поддержку для работы с текстом заголовков и нижних колонтитулов слайдов, который на самом деле поддерживается на уровне мастер-слайдов.
+[Aspose.Slides](/slides/ru/cpp/) предоставляет поддержку для работы с текстом заголовков и нижних колонтитулов слайдов, которые фактически поддерживаются на уровне мастер‑слайда.
 
 {{% /alert %}} 
 
-[Aspose.Slides для C++](/slides/ru/cpp/) предоставляет функцию управления заголовками и нижними колонтитулами в слайдах презентации. Они фактически управляются на уровне мастер-презентации.
+[Aspose.Slides for C++](/slides/ru/cpp/) предоставляет возможность управления заголовками и нижними колонтитулами внутри слайдов презентации. Они фактически управляются на уровне мастера презентации.
 ## **Управление текстом заголовка и нижнего колонтитула**
-Заметки для какого-то конкретного слайда могут быть обновлены, как показано в примере ниже:
-
+Примечания к некоторому конкретному слайду могут быть обновлены, как показано в примере ниже:
 ``` cpp
 // Функция для установки текста заголовка/нижнего колонтитула
 void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
@@ -27,7 +40,7 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
         {
             if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
             {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"Привет, новый заголовок");
+                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
             }
         }
     }
@@ -35,11 +48,11 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 ```
 
 ``` cpp
-// Загрузить презентацию
+// Загрузка презентации
 auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
 
 // Установка нижнего колонтитула
-pres->get_HeaderFooterManager()->SetAllFootersText(u"Текст моего нижнего колонтитула");
+pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
 pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
 
 // Доступ и обновление заголовка
@@ -49,86 +62,105 @@ if (nullptr != masterNotesSlide)
 	UpdateHeaderFooterText(masterNotesSlide);
 }
 
-// Сохранить презентацию
+// Сохранение презентации
 pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
 ```
 
-## **Управление заголовком и нижним колонтитулом в раздаточных материалах и заметках**
-Aspose.Slides для C++ поддерживает заголовок и нижний колонтитул в раздаточных материалах и заметках. Пожалуйста, следуйте приведённым ниже шагам:
 
-- Загрузите [Презентацию](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), содержащую видео.
-- Измените настройки заголовка и нижнего колонтитула для мастер-заметок и всех заметок.
-- Установите видимость мастер-заметок и всех дочерних мест для нижнего колонтитула.
-- Установите видимость мастер-заметок и всех дочерних мест для даты и времени.
-- Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок.
-- Установите видимость места заголовка на слайде заметок.
-- Установите текст в место заголовка на слайде заметок.
-- Установите текст в место даты и времени на слайде заметок.
+## **Управление заголовками и нижними колонтитулами на раздаточных и слайдах примечаний**
+Aspose.Slides for C++ поддерживает заголовки и нижние колонтитулы в раздаточных листах и слайдах примечаний. Пожалуйста, выполните следующие шаги:
+
+- Загрузите [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)содержащий видео.
+- Измените настройки Header и Footer для master‑примечаний и всех слайдов примечаний.
+- Сделайте видимыми master‑слайд примечаний и все дочерние заполнители Footer.
+- Сделайте видимыми master‑слайд примечаний и все дочерние заполнители Date and time.
+- Измените настройки Header и Footer только для первого слайда примечаний.
+- Сделайте видимым заполнитель Header на слайде примечаний.
+- Установите текст в заполнитель Header слайда примечаний.
+- Установите текст в заполнитель Date-time слайда примечаний.
 - Запишите изменённый файл презентации.
 
-Фрагмент кода представлен в приведённом ниже примере.
-
+Фрагмент кода предоставлен в примере ниже.
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Измените настройки заголовка и нижнего колонтитула для мастер-заметок и всех заметок
+// Изменить настройки заголовка и нижнего колонтитула для мастер‑заметок и всех слайдов заметок
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 if (masterNotesSlide != nullptr)
 {
 	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// сделайте мастер-заметку и все дочерние места для нижнего колонтитула видимыми
+	// сделать мастер‑слайд заметок и все дочерние заполняющие элементы Footer видимыми
 	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// сделайте мастер-заметку и все дочерние места для заголовков видимыми
+	// сделать мастер‑слайд заметок и все дочерние заполняющие элементы Header видимыми
 	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// сделайте мастер-заметку и все дочерние места для номеров слайдов видимыми
+	// сделать мастер‑слайд заметок и все дочерние заполняющие элементы SlideNumber видимыми
 	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// сделайте мастер-заметку и все дочерние места для даты и времени видимыми
+	// сделать мастер‑слайд заметок и все дочерние заполняющие элементы Date and time видимыми
 	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
 
-	// установите текст для мастер-заметки и всех дочерних мест заголовков
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Текст заголовка");
-	// установите текст для мастер-заметки и всех дочерних мест нижнего колонтитула
-	headerFooterManager->SetFooterAndChildFootersText(u"Текст нижнего колонтитула");
-	// установите текст для мастер-заметки и всех дочерних мест даты и времени
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Текст даты и времени");
+	// установить текст для мастер‑слайда заметок и всех дочерних заполняющих элементов Header
+	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
+	// установить текст для мастер‑слайда заметок и всех дочерних заполняющих элементов Footer
+	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+	// установить текст для мастер‑слайда заметок и всех дочерних заполняющих элементов Date and time
+	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 }
 
-// Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок
+// Изменить настройки заголовка и нижнего колонтитула только для первого слайда заметок
 auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
 if (notesSlide != nullptr)
 {
 	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
 	if (!headerFooterManager->get_IsHeaderVisible())
 	{
-		// сделайте это место для заголовка заметки видимым
+		// сделать видимым заполнитель Header этого слайда заметок
 		headerFooterManager->SetHeaderVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsFooterVisible())
 	{
-		// сделайте это место для нижнего колонтитула заметки видимым
+		// сделать видимым заполнитель Footer этого слайда заметок
 		headerFooterManager->SetFooterVisibility(true);
 	}
 
 	if (!headerFooterManager->get_IsSlideNumberVisible())
 	{
-		// сделайте это место для номера слайда заметки видимым
+		// сделать видимым заполнитель SlideNumber этого слайда заметок
 		headerFooterManager->SetSlideNumberVisibility(true);
 	}
 	
 	if (!headerFooterManager->get_IsDateTimeVisible())
 	{
-		// сделайте это место для даты и времени заметки видимым
+		// сделать видимым заполнитель Date-time этого слайда заметок
 		headerFooterManager->SetDateTimeVisibility(true);
 	}
 	
-	// установите текст для места заголовка на слайде заметок
-	headerFooterManager->SetHeaderText(u"Новый текст заголовка");
-	// установите текст для места нижнего колонтитула на слайде заметок
-	headerFooterManager->SetFooterText(u"Новый текст нижнего колонтитула");
-	// установите текст для места даты и времени на слайде заметок
-	headerFooterManager->SetDateTimeText(u"Новый текст даты и времени");
+	// установить текст в заполнитель Header слайда заметок
+	headerFooterManager->SetHeaderText(u"New header text");
+	// установить текст в заполнитель Footer слайда заметок
+	headerFooterManager->SetFooterText(u"New footer text");
+	// установить текст в заполнитель Date-time слайда заметок
+	headerFooterManager->SetDateTimeText(u"New date and time text");
 }
 
 presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**Могу ли я добавить "header" к обычным слайдам?**
+
+В PowerPoint "Header" существует только для примечаний и раздаточных материалов; на обычных слайдах поддерживаемыми элементами являются нижний колонтитул, дата/время и номер слайда. В Aspose.Slides это соответствует тем же ограничениям: header только для Notes/Handout, а на слайдах — Footer/DateTime/SlideNumber.
+
+**Что если в макете нет области footer — могу ли я "включить" её видимость?**
+
+Да. Проверьте видимость через менеджер header/footer и включите её при необходимости. Эти индикаторы и методы API предназначены для случаев, когда заполнитель отсутствует или скрыт.
+
+**Как сделать, чтобы номер слайда начинался с значения, отличного от 1?**
+
+Установите [first slide number](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/); после этого вся нумерация пересчитывается. Например, можно начать с 0 или 10 и скрыть номер на титульном слайде.
+
+**Что происходит с заголовками/нижними колонтитулами при экспорте в PDF/изображения/HTML?**
+
+Они рендерятся как обычные текстовые элементы презентации. То есть, если элементы видимы на слайдах/страницах примечаний, они также появятся в выходном формате вместе с остальным содержимым.

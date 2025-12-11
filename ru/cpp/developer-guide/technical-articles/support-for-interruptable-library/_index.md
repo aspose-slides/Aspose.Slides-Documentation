@@ -1,24 +1,39 @@
 ---
-title: Поддержка прерываемой библиотеки
+title: Поддержка библиотеки Interruptable
 type: docs
 weight: 150
 url: /ru/cpp/support-for-interruptable-library/
+keywords:
+- библиотека interruptable
+- токен прерывания
+- токен отмены
+- длительная задача
+- прерывание задачи
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Сделайте длительные задачи отменяемыми с помощью Aspose.Slides для C++. Безопасно прерывайте рендеринг и конвертации для PowerPoint и OpenDocument, с примерами."
 ---
 
-## **Прерываемая библиотека**
-Класс [InterruptionToken](https://reference.aspose.com/slides/cpp/class/aspose.slides.interruption_token) и класс [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/class/aspose.slides.interruption_token_source) были добавлены в Aspose.Slides для C++. Эти типы поддерживают прерывание долго выполняющихся задач, таких как десериализация, сериализация или рендеринг. [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/class/aspose.slides.interruption_token_source) представляет источник токена или нескольких токенов, передаваемых в метод [LoadOptions.set_InterruptionToken()](https://reference.aspose.com/slides/cpp/class/aspose.slides.load_options#a9caea79d46cd939505687fdf634530a5). Когда токен прерывания установлен, а экземпляр [LoadOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.load_options) передан в конструктор [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), любая долго выполняющаяся задача, связанная с этой презентацией, будет прервана, когда будет вызван метод [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/cpp/class/aspose.slides.interruption_token_source#a98ba5fd8badce28a63b5d30a2cfa1e83).
+## **Библиотека Interruptable**
 
-Ниже приведен фрагмент кода, демонстрирующий прерывание выполняющейся задачи.
+В [Aspose.Slides 18.4](https://releases.aspose.com/slides/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/) мы представили классы [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/). Они позволяют прерывать длительные задачи, такие как десериализация, сериализация и рендеринг.
 
-``` cpp
+- [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) является источником токенов, передаваемых в [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/).
+- Когда [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) установлен и экземпляр [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) передаётся конструктору [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), вызов [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) прерывает любую длительную задачу, связанную с этим [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+
+Следующий фрагмент кода демонстрирует прерывание запущенной задачи:
+```cpp
 void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
 {
-    auto thread_function = std::function<void()>([&action, &token]() -> void
+    auto threadFunction = std::function<void()>([&action, &token]() -> void
     {
         action(token);
     });
 
-    auto thread = System::MakeObject<Threading::Thread>(thread_function);
+    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
     thread->Start();
 }
 
@@ -28,20 +43,46 @@ void Run()
 
     auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
     {
-        SharedPtr<LoadOptions> options = System::MakeObject<LoadOptions>();
+        auto options = System::MakeObject<LoadOptions>();
         options->set_InterruptionToken(token);
 
-        SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(dataDir + u"pres.pptx", options);
-        presentation->Save(dataDir + u"pres.ppt", Export::SaveFormat::Ppt);
+        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
+        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
     });
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
 
+    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
     auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    // выполнить действие в отдельном потоке
-    Run(action, tokenSource->get_Token());
-    // тайм-аут
-    Threading::Thread::Sleep(5000);
-    // остановить конвертацию
-    tokenSource->Interrupt();
+    
+    Run(action, tokenSource->get_Token()); // выполнить действие в отдельном потоке
+    Threading::Thread::Sleep(10000);       // тайм-аут
+    tokenSource->Interrupt();              // остановить конвертацию
 }
 ```
+
+
+## **Вопросы и ответы**
+
+**Какова цель библиотеки прерывания Aspose.Slides?**
+
+Она предоставляет механизм для прерывания длительных операций — таких как загрузка, сохранение или рендеринг презентаций — до их завершения. Это полезно, когда время обработки должно быть ограничено или задача более не требуется.
+
+**В чем разница между [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
+
+- `InterruptionToken` передаётся в API Aspose.Slides и проверяется во время длительных операций.
+- `InterruptionTokenSource` используется в вашем коде для создания токенов и инициирует прерывания вызовом `Interrupt()`.
+
+**Какие задачи можно прерывать?**
+
+Любая задача Aspose.Slides, принимающая [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) — например загрузка презентации с помощью `Presentation(path, loadOptions)` или сохранение с помощью `Presentation::Save(...)` — может быть прервана.
+
+**Прерывание происходит мгновенно?**
+
+Нет. Прерывание является кооперативным: операция периодически проверяет токен и останавливается, как только обнаруживает, что вызвано [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/).
+
+**Что происходит, если я вызываю [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) после того, как задача уже завершена?**
+
+Ничего — вызов не имеет эффекта, если соответствующая задача уже завершена.
+
+**Могу ли я повторно использовать один и тот же [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) для нескольких задач?**
+
+Да — но после вызова [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) на этом источнике все задачи, использующие его токены, будут прерваны. Используйте отдельные источники токенов для независимого управления задачами.

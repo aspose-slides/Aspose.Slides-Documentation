@@ -1,90 +1,115 @@
 ---
-title: نسخ الشرائح
+title: استنساخ شرائح العرض التقديمي في C++
+linktitle: استنساخ الشرائح
 type: docs
 weight: 40
 url: /ar/cpp/clone-slides/
+keywords:
+- استنساخ شريحة
+- نسخ الشريحة
+- حفظ الشريحة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "انسخ شرائح PowerPoint بسرعة باستخدام Aspose.Slides للغة C++. اتبع أمثلة الشيفرة الواضحة لتوليد عروض PPT في ثوانٍ وإزالة العمل اليدوي."
 ---
 
+## **استنساخ الشرائح في عرض تقديمي**
+الاستنساخ هو عملية إنشاء نسخة مطابقة أو نسخة مُماثلة لشيء ما. يتيح Aspose.Slides للغة C++ إمكانية إنشاء نسخة أو استنساخ لأي شريحة ثم إدراج تلك الشريحة المستنسخة إلى العرض التقديمي الحالي أو أي عرض آخر مفتوح. عملية استنساخ الشريحة تُنشئ شريحة جديدة يمكن للمطورين تعديلها دون تغيير الشريحة الأصلية. هناك عدة طرق محتملة لاستنساخ شريحة:
 
-## **نسخ الشريحة في العرض التقديمي**
-النسخ هو عملية صنع نسخة أو نموذج مطابق لشيء ما. كما أن Aspose.Slides لـ C++ يجعل من الممكن عمل نسخة أو نسخ من أي شريحة ثم إدخال تلك الشريحة المنسوخة إلى العرض التقديمي الحالي أو أي عرض مفتوح آخر. عملية نسخ الشرائح تنشئ شريحة جديدة يمكن تعديلها بواسطة المطورين دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لنسخ شريحة:
+- استنساخ في النهاية داخل عرض تقديمي.
+- استنساخ في موضع آخر داخل عرض تقديمي.
+- استنساخ في النهاية في عرض تقديمي آخر.
+- استنساخ في موضع آخر في عرض تقديمي آخر.
+- استنساخ في موضع محدد في عرض تقديمي آخر.
 
-- النسخ في النهاية داخل عرض تقديمي.
-- النسخ في موضع آخر داخل العرض التقديمي.
-- النسخ في النهاية في عرض تقديمي آخر.
-- النسخ في موضع آخر في عرض تقديمي آخر.
-- النسخ في موضع محدد في عرض تقديمي آخر.
+في Aspose.Slides للغة C++، (مجموعة من [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) الكائنات) التي يُعرِّفها كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) توفر طريقتي [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) و[InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) لأداء الأنواع المذكورة أعلاه من استنساخ الشرائح.
 
-في Aspose.Slides لـ C++، (مجموعة من [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) الأشياء) المكشوفة بواسطة الكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) توفر طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) و [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) لأداء أنواع النسخ المذكورة أعلاه.
+## **استنساخ شريحة في نهاية عرض تقديمي**
+إذا كنت ترغب في استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي في نهاية الشرائح الحالية، استخدم طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) وفقًا للخطوات المذكورة أدناه:
 
-## **النسخ في النهاية داخل العرض التقديمي**
-إذا كنت تريد نسخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي في نهاية الشرائح الموجودة، استخدم طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) حسب الخطوات المذكورة أدناه:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. إنشاء كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) بالإشارة إلى مجموعة الشرائح التي يُعرِّفها كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) المعرّفة على كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) وتمرير الشريحة التي سيتم استنساخها كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) .
+1. كتابة ملف العرض التقديمي المُعدَّل.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعِ فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة الشرائح المعروضة بواسطة الكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعِ طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) المكشوفة بواسطة كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرر الشريحة المراد نسخها كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. اكتب ملف العرض التقديمي المعدل.
-
-في المثال المذكور أدناه، قمنا بنسخ شريحة (تقع في الموضع الأول – فهرس صفر – من العرض التقديمي) إلى نهاية العرض التقديمي.
+في المثال أدناه، قمنا باستنساخ شريحة (تقع في الموضع الأول – الفهرس صفر – من العرض التقديمي) إلى نهاية العرض التقديمي.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneWithinSamePresentationToEnd-CloneWithinSamePresentationToEnd.cpp" >}}
 
+## **استنساخ شريحة في موضع آخر داخل عرض تقديمي**
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي ولكن في موضع مختلف، استخدم طريقة [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) :
 
-## **النسخ في موضع آخر داخل العرض التقديمي**
-إذا كنت تريد نسخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي ولكن في موضع مختلف، استخدم طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index):
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. إنشاء كائن بالإشارة إلى مجموعة **Slides** المعرّفة على كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) المعرّفة على كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) وتمرير الشريحة المستنسخة مع الفهرس للموضع الجديد كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) .
+1. كتابة العرض التقديمي المُعدَّل كملف PPTX.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعِ الفئة بالإشارة إلى مجموعة **Slides** المكشوفة بواسطة الكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعِ طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) المكشوفة بواسطة كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمِرِّر الشريحة المراد نسخها جنبًا إلى جنب مع الفهرس للموضع الجديد كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index).
-1. اكتب العرض التقديمي المعدل كملف PPTX.
-
-في المثال المذكور أدناه، قمنا بنسخ شريحة (تقع في فهرس صفر – موضع 1 – من العرض التقديمي) إلى الفهرس 1 – الموضع 2 – من العرض التقديمي.
+في المثال أدناه، قمنا باستنساخ شريحة (تقع في الفهرس صفر – الموضع 1 – من العرض التقديمي) إلى الفهرس 1 – الموضع 2 – من العرض التقديمي.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneWithInSamePresentation-CloneWithInSamePresentation.cpp" >}}
 
-## **نسخ الشريحة إلى النهاية في عرض تقديمي آخر**
-إذا كنت بحاجة إلى نسخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في نهاية الشرائح الموجودة:
+## **استنساخ شريحة في نهاية عرض تقديمي آخر**
+إذا كنت تحتاج إلى استنساخ شريحة من عرض تقديمي واستخدامها في عرض تقديمي آخر، في نهاية الشرائح الحالية:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي الذي سيتم نسخ الشريحة منه.
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي الوجهة الذي ستضاف إليه الشريحة.
-1. استدعِ فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة **Slides** المكشوفة بواسطة كائن presentation من العرض التقديمي الوجهة.
-1. استدعِ طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) المكشوفة بواسطة كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمِرِّر الشريحة من العرض التقديمي المصدر كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. اكتب ملف العرض التقديمي المعدل الوجهة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الذي ستُستنسخ منه الشريحة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الوجهة التي ستُضاف إليها الشريحة.
+1. إنشاء كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) بالإشارة إلى مجموعة **Slides** المعرّفة على كائن Presentation في العرض التقديمي الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) المعرّفة على كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) وتمرير الشريحة من العرض التقديمي المصدر كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) .
+1. كتابة ملف العرض التقديمي الوجهة المُعدَّل.
 
-في المثال المذكور أدناه، قمنا بنسخ شريحة (من الفهرس الأول من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة.
+في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس الأول من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة.
+
+{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
+
+## **استنساخ شريحة في موضع آخر في عرض تقديمي آخر**
+إذا كنت تحتاج إلى استنساخ شريحة من عرض تقديمي واستخدامها في عرض تقديمي آخر، في موضع محدد:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي المصدر.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الوجهة.
+1. إنشاء كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) بالإشارة إلى مجموعة Slides المعرّفة على كائن Presentation في العرض التقديمي الوجهة.
+1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) المعرّفة على كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) وتمرير الشريحة من العرض التقديمي المصدر مع الموضع المطلوب كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/insertclone/) .
+1. كتابة ملف العرض التقديمي الوجهة المُعدَّل.
+
+في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس صفر في العرض التقديمي المصدر) إلى الفهرس 1 (الموضع 2) في العرض التقديمي الوجهة.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
 
-## **نسخ شريحة إلى موضع آخر في عرض تقديمي آخر**
-إذا كنت بحاجة إلى نسخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في موضع محدد:
+## **استنساخ شريحة في موضع محدد في عرض تقديمي آخر**
+إذا كنت تحتاج إلى استنساخ شريحة مع شريحة أساسية من عرض تقديمي واستخدامها في عرض تقديمي آخر، يجب أولاً استنساخ الشريحة الأساسية المطلوبة من العرض التقديمي المصدر إلى العرض التقديمي الوجهة. ثم تحتاج إلى استخدام تلك الشريحة الأساسية لاستنساخ الشريحة مع الشريحة الأساسية. طريقة **AddClone(ISlide, IMasterSlide)** تتوقع شريحة أساسية من العرض التقديمي الوجهة وليس من العرض المصدر. لاستنساخ الشريحة مع الشريحة الأساسية، يرجى اتباع الخطوات أدناه:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي المصدر الذي سيتم نسخ الشريحة منه.
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي الذي ستضاف إليه الشريحة.
-1. استدعِ فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة الشرائح المكشوفة بواسطة كائن presentation من العرض التقديمي الوجهة.
-1. استدعِ طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index) المكشوفة بواسطة كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمِرِّر الشريحة من العرض التقديمي المصدر جنبًا إلى جنب مع الموضع المرغوب كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/insertclone/index).
-1. اكتب ملف العرض التقديمي المعدل الوجهة.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي المصدر.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الوجهة.
+1. الوصول إلى الشريحة التي سيتم استنساخها مع الشريحة الأساسية.
+1. إنشاء كائن [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/) بالإشارة إلى مجموعة Masters المعرّفة على كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) في العرض التقديمي الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) المعرّفة على كائن [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/) وتمرير الشريحة الأساسية من ملف PPTX المصدر لتُستنسخ كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) .
+1. إنشاء كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) بإعداد الإشارة إلى مجموعة Slides المعرّفة على كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) في العرض التقديمي الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) المعرّفة على كائن [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) وتمرير الشريحة من العرض المصدر لتُستنسخ مع الشريحة الأساسية كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) .
+1. كتابة ملف العرض التقديمي الوجهة المُعدَّل.
 
-في المثال المذكور أدناه، قمنا بنسخ شريحة (من الفهرس صفر من العرض التقديمي المصدر) إلى الفهرس 1 (الموضع 2) من العرض التقديمي الوجهة.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneAtEndOfAnotherPresentation-CloneAtEndOfAnotherPresentation.cpp" >}}
-## **نسخ الشريحة في موضع محدد في عرض تقديمي آخر**
-إذا كنت بحاجة إلى نسخ شريحة مع الشريحة الرئيسية من عرض تقديمي واستخدامها في عرض تقديمي آخر، تحتاج إلى نسخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى العرض التقديمي الوجهة أولاً. ثم تحتاج إلى استخدام تلك الشريحة الرئيسية لنسخ الشريحة مع الشريحة الرئيسية. يتوقع **AddClone(ISlide, IMasterSlide)** أن تكون الشريحة الرئيسية من العرض التقديمي الوجهة بدلاً من العرض التقديمي المصدر. لنسخ الشريحة مع الرئيسية، يرجى اتباع الخطوات أدناه:
-
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي المصدر الذي سيتم نسخ الشريحة منه.
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض التقديمي الوجهة التي سيتم نسخ الشريحة إليها.
-1. الوصول إلى الشريحة المراد نسخها جنبًا إلى جنب مع الشريحة الرئيسية.
-1. استدعِ فئة [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterslidecollection) عن طريق الإشارة إلى مجموعة الماستر المكشوفة بواسطة كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) من العرض التقديمي الوجهة.
-1. استدعِ طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) المكشوفة بواسطة كائن [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterslidecollection) وتمِرِّر الرئيسية من الـ PPTX المصدر المراد نسخها كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. استدعِ فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق تعيين المرجع إلى مجموعة الشرائح المعروضة بواسطة كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) من العرض التقديمي الوجهة.
-1. استدعِ طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index) المكشوفة بواسطة كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمِرِّر الشريحة من العرض التقديمي المصدر المراد نسخها والشريحة الرئيسية كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/index).
-1. اكتب ملف العرض التقديمي المعدل الوجهة.
-
-في المثال المذكور أدناه، قمنا بنسخ شريحة مع الرئيسية (تقع في الفهرس صفر من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة باستخدام الرئيسية من الشريحة المصدر.
+في المثال أدناه، قمنا باستنساخ شريحة مع شريحة أساسية (تقع في الفهرس صفر من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة باستخدام الشريحة الأساسية من الشريحة المصدر.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneToAnotherPresentationWithMaster-CloneToAnotherPresentationWithMaster.cpp" >}}
-## **نسخ الشريحة إلى قسم محدد**
-إذا كنت تريد نسخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي ولكن في قسم مختلف، فاستخدم طريقة [**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a46981dac8b18355531a04a70c70c444b) المكشوفة بواسطة واجهة [**ISlideCollection** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection). يجعل Aspose.Slides لـ C++ من الممكن نسخ شريحة من القسم الأول ثم إدخال تلك الشريحة المنسوخة إلى القسم الثاني من نفس العرض التقديمي.
 
-يوضح مقتطف الشيفرة التالي كيف يمكنك نسخ شريحة وإدخال الشريحة المنسوخة في قسم محدد.
+## **استنساخ شريحة في نهاية قسم محدد**
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي ولكن في قسم مختلف، استخدم طريقة [**AddClone()**](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) المعرّفة على واجهة [**ISlideCollection**](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) . يتيح Aspose.Slides للغة C++ إمكانية استنساخ شريحة من القسم الأول ثم إدراج تلك الشريحة المستنسخة إلى القسم الثاني من نفس العرض التقديمي.
+
+يظهر المقتطف البرمجي التالي كيفية استنساخ شريحة وإدراج الشريحة المستنسخة في قسم محدد.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-CloneSlideIntoSpecifiedSection-CloneSlideIntoSpecifiedSection.cpp" >}}
+
+## **الأسئلة الشائعة**
+
+**هل يتم استنساخ ملاحظات المتحدث وتعليقات المراجعين؟**
+
+نعم. يتم تضمين صفحة الملاحظات وتعليقات المراجعة في الاستنساخ. إذا لم ترغب بها، يمكنك [إزالتها](/slides/ar/cpp/presentation-notes/) بعد الإدراج.
+
+**كيف يتم التعامل مع المخططات ومصادر البيانات الخاصة بها؟**
+
+يتم نسخ كائن المخطط، وتنسيقه، والبيانات المضمنة. إذا كان المخطط مرتبطًا بمصدر خارجي (مثل مصنف OLE مضمّن)، فإن الربط يُحافظ عليه كـ[كائن OLE](/slides/ar/cpp/manage-ole/). بعد النقل بين الملفات، تحقق من توافر البيانات وسلوك التحديث.
+
+**هل يمكنني التحكم في موضع الإدراج والأقسام للاستنساخ؟**
+
+نعم. يمكنك إدراج الاستنساخ في فهرس شريحة محدد ووضعه في [قسم](/slides/ar/cpp/slide-section/) مختار. إذا لم يكن القسم الهدف موجودًا، أنشئه أولاً ثم انقل الشريحة إليه.

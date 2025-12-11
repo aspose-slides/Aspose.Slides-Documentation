@@ -1,163 +1,211 @@
 ---
-title: プレゼンテーションの背景
+title: C++でプレゼンテーションの背景を管理する
+linktitle: スライド背景
 type: docs
 weight: 20
 url: /ja/cpp/presentation-background/
-keywords: "PowerPoint 背景, 背景設定"
-description: "CPP で PowerPoint プレゼンテーションの背景を設定する"
+keywords:
+- プレゼンテーションの背景
+- スライドの背景
+- 単色
+- グラデーションカラー
+- 画像背景
+- 背景の透明度
+- 背景プロパティ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument ファイルで動的な背景を設定する方法を学び、プレゼンテーションを強化するコードのヒントを提供します。"
 ---
 
-スライドの背景画像には、単色、グラデーションカラー、画像がよく使用されます。背景は**通常のスライド**（単一スライド）または**マスタースライド**（複数スライドを同時に）に設定できます。
+## **概要**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+単色、グラデーション、画像はスライドの背景として一般的に使用されます。**標準スライド**（単一のスライド）または**マスタースライド**（複数のスライドに同時に適用）に対して背景を設定できます。
 
-## **通常スライドの背景に単色を設定する**
+![PowerPoint 背景](powerpoint-background.png)
 
-Aspose.Slides を使用すると、プレゼンテーションの特定のスライドの背景として単色を設定できます（たとえそのプレゼンテーションにマスタースライドが含まれていても）。背景変更は選択したスライドのみに影響します。
+## **標準スライドの単色背景の設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) 列挙型を `OwnBackground` に設定します。
-3. スライド背景の [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) によって公開されている [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) プロパティを使用して、背景としての単色を指定します。
+Aspose.Slides を使用すると、プレゼンテーション内の特定のスライドの背景を単色に設定できます（プレゼンテーションがマスタースライドを使用していても）。この変更は選択されたスライドのみに適用されます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライドの背景の [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) を `Solid` に設定します。
+4. [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) の [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) メソッドを使用して、単色の背景色を指定します。
 5. 変更したプレゼンテーションを保存します。
 
-この C++ コードは、通常スライドの背景に単色（青）を設定する方法を示しています：
+以下の C++ の例は、標準スライドの背景に青色の単色を設定する方法を示しています。
+```cpp
+// Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// ドキュメント ディレクトリへのパス。
+auto slide = presentation->get_Slide(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+// スライドの背景色を青に設定します。
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	// Presentation クラスのインスタンスを作成
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// 最初の ISlide の背景色を青に設定
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// プレゼンテーションをディスクに書き込む
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// プレゼンテーションをディスクに保存します。
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **マスタースライドの背景に単色を設定する**
 
-Aspose.Slides を使用すると、プレゼンテーションのマスタースライドの背景として単色を設定できます。マスタースライドは、すべてのスライドのフォーマット設定を含み、制御するテンプレートとして機能します。したがって、マスタースライドの背景として単色を選択すると、その新しい背景がすべてのスライドに使用されます。
+## **マスタースライドの単色背景の設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. マスタースライド（`Masters`）の [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) 列挙型を `OwnBackground` に設定します。
-3. マスタースライド背景の [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) によって公開されている [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) プロパティを使用して、背景としての単色を指定します。
+Aspose.Slides を使用すると、プレゼンテーションのマスタースライドの背景を単色に設定できます。マスタースライドはすべてのスライドの書式を制御するテンプレートとして機能するため、マスタースライドの背景に単色を選択すると、すべてのスライドに適用されます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. `get_Masters` を介して取得したマスタースライドの [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. マスタースライドの背景の [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) を `Solid` に設定します。
+4. [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) の [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) メソッドを使用して、単色の背景色を指定します。
 5. 変更したプレゼンテーションを保存します。
 
-この C++ コードは、プレゼンテーションのマスタースライドの背景に単色（フォレストグリーン）を設定する方法を示しています：
+以下の C++ の例は、マスタースライドの背景にフォレストグリーンの単色を設定する方法を示しています。
+```cpp
+// Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>();
 
-```c++
-	// ドキュメント ディレクトリへのパス。
+auto masterSlide = presentation->get_Master(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+// マスタースライドの背景色をフォレストグリーンに設定します。
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Presentation クラスのインスタンスを作成
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// マスタ ISlide の背景色をフォレストグリーンに設定
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	// プレゼンテーションをディスクに書き込む
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// プレゼンテーションをディスクに保存します。
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **スライドの背景にグラデーションカラーを設定する**
 
-グラデーションは、色の段階的な変化に基づくグラフィカルエフェクトです。スライドの背景としてグラデーションカラーを使用すると、プレゼンテーションが芸術的でプロフェッショナルに見えます。Aspose.Slidesを使用すると、プレゼンテーションのスライドの背景としてグラデーションカラーを設定できます。
+## **スライドのグラデーション背景の設定**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) 列挙型を `OwnBackground` に設定します。
-3. マスタースライド背景の [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) 列挙型を `Gradient` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) によって公開されている [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) プロパティを使用して、お好みのグラデーション設定を指定します。
+グラデーションは、色が徐々に変化することで作られるグラフィック効果です。スライドの背景として使用すると、プレゼンテーションがより芸術的でプロフェッショナルに見えます。Aspose.Slides を使用すると、スライドの背景にグラデーションカラーを設定できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライドの背景の [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) を `Gradient` に設定します。
+4. [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) の [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) メソッドを使用して、希望するグラデーション設定を構成します。
 5. 変更したプレゼンテーションを保存します。
 
-この C++ コードは、スライドの背景にグラデーションカラーを設定する方法を示しています：
+以下の C++ の例は、スライドの背景にグラデーションカラーを設定する方法を示しています。
+```cpp
+// Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Presentation クラスのインスタンスを作成
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+auto slide = presentation->get_Slide(0);
 
-// 背景にグラデーション効果を適用
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+// 背景にグラデーション効果を適用します。
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
 
-// プレゼンテーションをディスクに書き込む
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// プレゼンテーションをディスクに保存します。
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **スライドの背景に画像を設定する**
 
-単色やグラデーションカラーの他に、Aspose.Slidesは、プレゼンテーションのスライドの背景として画像を設定することもできます。
+## **スライド背景に画像を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) 列挙型を `OwnBackground` に設定します。
-3. マスタースライド背景の [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) 列挙型を `Picture` に設定します。
-4. スライドの背景として使用したい画像を読み込みます。
+単色およびグラデーションの塗りつぶしに加えて、Aspose.Slides を使用すると画像をスライドの背景として使用できます。
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライドの背景の [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) を `Picture` に設定します。
+4. スライド背景として使用したい画像を読み込みます。
 5. 画像をプレゼンテーションの画像コレクションに追加します。
-6. [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) によって公開されている [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) プロパティを使用して、画像を背景として設定します。
+6. [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) の [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) メソッドを使用して、画像を背景として割り当てます。
 7. 変更したプレゼンテーションを保存します。
 
-この C++ コードは、スライドの背景に画像を設定する方法を示しています：
+以下の C++ の例は、スライドの背景に画像を設定する方法を示しています。
+```cpp
+// Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// ドキュメント ディレクトリへのパス。
+auto slide = presentation->get_Slide(0);
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+// 背景画像のプロパティを設定します。
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Presentation クラスのインスタンスを作成
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// 画像を読み込みます。
+auto image = Images::FromFile(u"Tulips.jpg");
+// 画像をプレゼンテーションの画像コレクションに追加します。
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// 背景画像の条件を設定
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// 画像を読み込む
-auto image = Images::FromFile(imagePath);
-
-// 画像をプレゼンテーションの画像コレクションに追加
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// プレゼンテーションをディスクに書き込む
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// プレゼンテーションをディスクに保存します。
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-### **背景画像の透明度を変更する**
 
-スライドの背景画像の透明度を調整して、スライドの内容を目立たせたい場合があります。この C++ コードは、スライド背景画像の透明度を変更する方法を示しています：
+以下のコードサンプルは、背景塗りつぶしタイプをタイル画像に設定し、タイルのプロパティを変更する方法を示しています。
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-int32_t transparencyValue = 30;
-// たとえば
-// 画像変換操作のコレクションを取得
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+詳しく読む: [**テクスチャとしてタイル画像**](/slides/ja/cpp/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
+### **背景画像の透明度の変更**
+
+スライドの背景画像の透明度を調整して、スライドのコンテンツを際立たせたい場合があります。以下の C++ コードは、スライド背景画像の透明度を変更する方法を示しています。
+```cpp
+auto transparencyValue = 30; // 例として。
+
+// Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// 固定パーセンテージの透明度効果を見つける。
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Find an existing fixed-percentage transparency effect.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// 新しい透明度値を設定します。
+
+// Set the new transparency value.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,27 +216,40 @@ else
 }
 ```
 
-## **スライド背景の値を取得する**
 
-Aspose.Slides は、スライド背景の効果的な値を取得するために [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) インターフェースを提供します。このインターフェースには、効果的な [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) と効果的な [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8) に関する情報が含まれています。
+## **スライド背景値の取得**
 
-[BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/) クラスの [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) プロパティを使用して、スライド背景の効果的な値を取得できます。
+Aspose.Slides は、スライドの有効な背景値を取得するための [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) インターフェイスを提供します。このインターフェイスは、有効な [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) と [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) を公開します。
 
-この C++ コードは、スライドの効果的な背景値を取得する方法を示しています：
+[BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/) クラスの `get_Background` メソッドを使用すると、スライドの有効な背景を取得できます。
 
-```c++
-// Presentation クラスのインスタンスを作成
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+以下の C++ の例は、スライドの有効な背景値を取得する方法を示しています。
+```cpp
+// Presentation クラスのインスタンスを作成します。
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"塗りつぶし色: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"塗りつぶしタイプ: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+auto slide = presentation->get_Slide(0);
+
+// マスタ、レイアウト、テーマを考慮した有効な背景を取得します。
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **FAQ**
+
+**カスタム背景をリセットしてテーマ/レイアウトの背景を復元できますか？**
+
+はい。スライドのカスタム塗りつぶしを削除すると、背景は対応する [layout](/slides/ja/cpp/slide-layout/)/[master](/slides/ja/cpp/slide-master/) スライド（すなわち [theme background](/slides/ja/cpp/presentation-theme/)）から再び継承されます。
+
+**後でプレゼンテーションのテーマを変更した場合、背景はどうなりますか？**
+
+スライドが独自の塗りつぶしを持っている場合、その背景は変更されません。背景が [layout](/slides/ja/cpp/slide-layout/)/[master](/slides/ja/cpp/slide-master/) から継承されている場合は、[new theme](/slides/ja/cpp/presentation-theme/) に合わせて更新されます。

@@ -1,318 +1,273 @@
 ---
-title: Arbeitslösung für die Größenänderung von Arbeitsblättern
+title: Arbeitslösung für die Skalierung von Arbeitsblättern
 type: docs
 weight: 130
 url: /de/cpp/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- Vorschaubild
+- Bildskalierung
+- Excel
+- Arbeitsblatt
+- PowerPoint
+- Präsentation
+- C++
+- Aspose.Slides für C++
+description: "Arbeitslösung für die Skalierung von Arbeitsblättern in PowerPoint‑Präsentationen mit C++"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-Es wurde beobachtet, dass Excel-Arbeitsblätter, die als OLE in einer PowerPoint-Präsentation über Aspose-Komponenten eingebettet sind, nach der ersten Aktivierung auf einen nicht identifizierten Maßstab skaliert werden. Dieses Verhalten führt zu einem erheblichen visuellen Unterschied in der Präsentation zwischen dem Zustand vor und nach der Aktivierung des Diagramms. Wir haben dieses Problem im Detail untersucht und die Lösung für dieses Problem gefunden, die in diesem Artikel behandelt wird. 
+Es wurde beobachtet, dass Excel-Arbeitsblätter, die als OLE-Objekte in einer PowerPoint-Präsentation über Aspose-Komponenten eingebettet sind, nach der ersten Aktivierung auf einen nicht identifizierten Maßstab skaliert werden. Dieses Verhalten erzeugt einen deutlichen visuellen Unterschied in der Präsentation zwischen dem Zustand des OLE-Objekts vor und nach der Aktivierung. Wir haben das Problem eingehend untersucht und eine Lösung bereitgestellt, die in diesem Artikel behandelt wird.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Hintergrund**
-Im Artikel Hinzufügen von OLE-Frames haben wir erklärt, wie man einen OLE-Frame in einer PowerPoint-Präsentation mit Aspose.Slides für C++ hinzufügt. Um das Problem der geänderten Objekte zu beheben, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem OLE-Objekt-Frame des Diagramms zugewiesen. In der Ausgabpräsentation wird das Excel-Diagramm aktiviert, wenn wir auf den OLE-Objekt-Frame doppelklicken, der das Arbeitsblattbild zeigt. Die Endbenutzer können beliebige gewünschte Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur entsprechenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Größenänderungsfaktor ist für unterschiedliche Größen des OLE-Objekt-Frames und der eingebetteten Excel-Arbeitsmappe unterschiedlich. 
-## **Ursache der Größenänderung**
-Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe bei der ersten Aktivierung beizubehalten. Auf der anderen Seite hat der OLE-Objekt-Frame seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel-Arbeitsmappe über die Größe und stellen sicher, dass sie im richtigen Verhältnis im Rahmen des Einbettungsvorgangs ist. Basierend auf den Differenzen in der Größe und Position der Excel-Fenster und des OLE-Objekt-Frames erfolgt die Größenänderung. 
-## **Arbeitslösung**
-Es gibt zwei mögliche Lösungen, um den Größenänderungseffekt zu vermeiden.
 
-- Skalierung der OLE-Frame-Größe in PPT, um die Größe in Bezug auf Höhe/Breite der gewünschten Anzahl von Zeilen/Spalten im OLE-Frame anzupassen.
-- Beibehaltung der konstanten OLE-Frame-Größe und Skalierung der Größe der beteiligten Zeilen/Spalten, damit sie in die ausgewählte OLE-Frame-Größe passen.
-## **OLE-Frame-Größe an die Größe der ausgewählten Zeilen/Spalten anpassen**
-In diesem Ansatz werden wir lernen, wie man die OLE-Frame-Größe der eingebetteten Excel-Arbeitsmappe entsprechend der kumulierten Größe der beteiligten Zeilen und Spalten im Excel-Arbeitsblatt festlegt. 
-## **Beispiel**
-Angenommen, wir haben ein Vorlagen-Excel-Blatt definiert und möchten dies als OLE-Frame zur Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE-Objekt-Frames zuerst basierend auf der kumulierten Höhe der Zeilen und Breite der Spalten der beteiligten Arbeitsmappenzeilen und -spalten berechnet. Danach setzen wir die Größe des OLE-Frames auf diesen berechneten Wert. Um die rote **Eingebettetes Objekt**-Nachricht für den OLE-Frame in PowerPoint zu vermeiden, werden wir auch das Bild der gewünschten Teile von Zeilen und Spalten in der Arbeitsmappe abrufen und dies als OLE-Frame-Bild festlegen. 
+Im Artikel [Manage OLE](/slides/de/cpp/manage-ole/) erklärten wir, wie man mit Aspose.Slides für C++ einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [object preview issue](/slides/de/cpp/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objektrahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. In der Ergebnis‑Präsentation wird beim Doppelklick auf den OLE‑Objektrahmen, der das Arbeitsblatt‑Bild anzeigt, die Excel‑Arbeitsmappe aktiviert. Endbenutzer können beliebige Änderungen an der tatsächlichen Excel‑Arbeitsmappe vornehmen und dann zur Folie zurückkehren, indem sie außerhalb der aktivierten Excel‑Arbeitsmappe klicken. Die Größe des OLE‑Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor variiert je nach Größe des OLE‑Objektrahmens und der eingebetteten Excel‑Arbeitsmappe. 
 
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
+## **Ursache der Skalierung**
 
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+Da die Excel‑Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, bei der ersten Aktivierung ihre ursprüngliche Größe beizubehalten. Andererseits hat der OLE‑Objektrahmen seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel‑Arbeitsmappe die Größe, um sicherzustellen, dass die richtigen Proportionen im Einbettungsprozess erhalten bleiben. Die Skalierung erfolgt basierend auf den Unterschieden zwischen der Excel‑Fenstergröße und der Größe und Position des OLE‑Objektrahmens.
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+## **Funktionierende Lösung**
 
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
+Es gibt zwei mögliche Lösungen, um den Skalierungseffekt zu vermeiden.
+
+- Skaliere die Größe des OLE‑Rahmens in der PowerPoint‑Präsentation, sodass sie der Höhe und Breite der gewünschten Anzahl von Zeilen und Spalten im OLE‑Rahmen entspricht.
+- Behalte die Größe des OLE‑Rahmens konstant und skaliere die Größe der beteiligten Zeilen und Spalten, sodass sie in die ausgewählte OLE‑Rahmengröße passen.
+
+### **OLE‑Rahmengröße skalieren**
+
+Bei diesem Ansatz lernen wir, wie man die OLE‑Rahmengröße der eingebetteten Excel‑Arbeitsmappe so einstellt, dass sie der kumulierten Größe der beteiligten Zeilen und Spalten im Excel‑Arbeitsblatt entspricht.
+
+Angenommen, wir haben ein Vorlagen‑Excel‑Blatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE‑Objektrahmens zunächst anhand der kumulierten Zeilenhöhen und Spaltenbreiten der beteiligten Zeilen und Spalten in der Arbeitsmappe berechnet. Dann setzen wir die Größe des OLE‑Rahmens auf diesen berechneten Wert. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche in der Arbeitsmappe und setzen es als OLE‑Rahmen‑Bild.
+
+```cpp
+Aspose::Cells::Startup();
+
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
+
+// Setze die angezeigte Größe, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+auto imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Get the width and height of the OLE image in points.
+auto image = Image::FromStream(imageStream);
+auto imageWidth = image->get_Width() * 72.0f / imageResolution;
+auto imageHeight = image->get_Height() * 72.0f / imageResolution;
+
+// We need to use the modified workbook.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Add the OLE image to the presentation resources.
+auto oleImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
+
+// Create the OLE object frame.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::Drawing::Size SetOleAccordingToSelectedRowsColumns(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, int32_t dataSheetIdx)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
-    }
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
-
-    // Neue Zeilen- und Spaltenhöhe festlegen
-    return System::Drawing::Size((int32_t)(System::Math::Round(actualWidth, 2) * 576), (int32_t)(System::Math::Round(actualHeight, 2) * 576));
+    return imageStream;
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-    int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-    double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation, 
-    intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner, 
-    bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
-{
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
 
-    // Aktiven Blätterindex der Arbeitsmappe festlegen
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+### **Zellbereichsgröße skalieren**
 
-    // Arbeitsmappe und ausgewähltes Arbeitsblatt abrufen  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+Bei diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten so skaliert, dass sie einer benutzerdefinierten OLE‑Rahmengröße entsprechen.
 
-    // OLE-Größe gemäß den ausgewählten Zeilen und Spalten festlegen
-    System::Drawing::Size SlideOleSize = SetOleAccordingToSelectedRowsColumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.get_Width();
-    OleHeight = SlideOleSize.get_Height();
+Angenommen, wir haben ein Vorlagen‑Excel‑Blatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario setzen wir die Größe des OLE‑Rahmens und skalieren die Größe der Zeilen und Spalten, die im OLE‑Rahmenbereich teilnehmen. Anschließend speichern wir die Arbeitsmappe in einen Stream, um die Änderungen anzuwenden, und konvertieren sie in ein Byte‑Array, um sie dem OLE‑Rahmen hinzuzufügen. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche in der Arbeitsmappe und setzen es als OLE‑Rahmen‑Bild.
 
-    // OLE-Größe in der Arbeitsmappe festlegen
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
+```cpp
+Aspose::Cells::Startup();
 
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-    // Bildoptionen festlegen, um das Arbeitsblattbild abzurufen
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
 
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-    
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-    // Bild zur Folienbildersammlung hinzufügen
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
+// Setze die angezeigte Größe, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-    // Arbeitsmappe in Stream speichern und in Byte-Array kopieren
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
+// Skaliere den Zellbereich, damit er in die Rahmengröße passt.
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
 
-    // OLE-Objekt-Frame hinzufügen
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
+auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-    // OLE-Frame-Bild und Alternativtext festlegen    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
-}
-```
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+// Wir müssen die modifizierte Arbeitsmappe verwenden.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
 
-    return outputStream;
-}
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Füge das OLE-Bild zu den Präsentationsressourcen hinzu.
+auto oleImage = presentation->get_Images()->AddImage(imageStream);
+imageStream->Dispose();
+
+// Create the OLE object frame.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
+```cpp
+/// <param name="width">Die erwartete Breite des Zellbereichs in Punkten.</param>
+/// <param name="height">Die erwartete Höhe des Zellbereichs in Punkten.</param>
+void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
-    if (outputWidth == 0 && outputHeight == 0)
+    auto rangeWidth = cellRange.GetWidth();
+    auto rangeHeight = cellRange.GetHeight();
+
+    for (int i = 0; i < cellRange.GetColumnCount(); i++)
     {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
+        auto columnIndex = cellRange.GetFirstColumn() + i;
+        auto columnWidth = cellRange.GetWorksheet().GetCells().GetColumnWidth(columnIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    return outputImage;
-}
-```
-
-## **Die Höhe der Zeilen und die Breite der Spalten des Arbeitsblatts nach OLE-Frame-Größe skalieren**
-In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten in Übereinstimmung mit der benutzerdefiniert festgelegten OLE-Frame-Größe skalieren kann.
-## **Beispiel**
-Angenommen, wir haben ein Vorlagen-Excel-Blatt definiert und möchten dies als OLE-Frame zur Präsentation hinzufügen. In diesem Szenario werden wir die Größe des OLE-Frames festlegen und die Größe der Zeilen und Spalten, die im OLE-Frame-Bereich teilnehmen, skalieren. Dann speichern wir die Arbeitsmappe im Stream, um die Änderungen zu speichern und sie in ein Byte-Array zu konvertieren, um sie im OLE-Frame hinzuzufügen. Um die rote **Eingebettetes Objekt**-Nachricht für den OLE-Frame in PowerPoint zu vermeiden, werden wir auch das Bild der gewünschten Teile von Zeilen und Spalten in der Arbeitsmappe abrufen und dies als OLE-Frame-Bild festlegen. 
-
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
-
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
-```
-
-``` cpp
-void SetOleAccordingToCustomHeightWidth(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, double slideWidth, double slideHeight, int32_t dataSheetIdx)
-{
-    auto work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
-
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
+        auto newColumnWidth = columnWidth * width / rangeWidth;
+        auto widthInInches = newColumnWidth / 72;
+        cellRange.GetWorksheet().GetCells().SetColumnWidthInch(columnIndex, widthInInches);
     }
 
-    for (int32_t i = startCol; i <= endCol; i++)
+    for (int i = 0; i < cellRange.GetRowCount(); i++)
     {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
+        auto rowIndex = cellRange.GetFirstRow() + i;
+        auto rowHeight = cellRange.GetWorksheet().GetCells().GetRowHeight(rowIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    // Neue Zeilen- und Spaltenhöhe festlegen
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        tem = work->GetICells()->GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work->GetICells()->SetRowHeightInch(i, newTem);
-    }
-
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        tem = work->GetICells()->GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work->GetICells()->SetColumnWidthInch(i, newTem);
+        auto newRowHeight = rowHeight * height / rangeHeight;
+        auto heightInInches = newRowHeight / 72;
+        cellRange.GetWorksheet().GetCells().SetRowHeightInch(rowIndex, heightInInches);
     }
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-        int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-        double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation,
-        intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner,
-        bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspise::Cells::Range cellRange, int imageResolution)
 {
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    // Aktiven Blätterindex der Arbeitsmappe festlegen
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    // Arbeitsmappe und ausgewähltes Arbeitsblatt abrufen  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    // Zeilenhöhe und Spaltenbreite gemäß benutzerdefinierter OLE-Größe skalieren
-    double height = OleHeight / 576.0f;
-    double width = OleWidth / 576.0f;
-
-    // OLE-Größe gemäß ausgewählten Zeilen und Spalten festlegen
-    SetOleAccordingToCustomHeightWidth(workbook, startRow, endRow, startCol, endCol, width, height, dataSheetIdx);
-
-    // OLE-Größe in der Arbeitsmappe festlegen
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
-
-    // Bildoptionen festlegen, um das Arbeitsblattbild abzurufen
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
-
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
-
-    // Bild zur Folienbildersammlung hinzufügen
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
-
-    // Arbeitsmappe in Stream speichern und in Byte-Array kopieren
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
-
-    // OLE-Objekt-Frame hinzufügen
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
-
-    // OLE-Frame-Bild und Alternativtext festlegen    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
+    return imageStream;
 }
 ```
 
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
-
-    return outputImage;
-}
-```
 
 ## **Fazit**
 
+{{% alert color="primary" %}}
 
-{{% alert color="primary" %}}   {{% /alert %}} 
+Es gibt zwei Ansätze, um das Problem der Arbeitsblatt‑Skalierung zu beheben. Die Wahl des geeigneten Ansatzes hängt von den spezifischen Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren identisch, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Zudem gibt es in dieser Lösung keine Beschränkung der Größe des OLE‑Objektrahmens.
 
-Es gibt zwei Ansätze zur Behebung des Problems der Größenänderung von Arbeitsblättern. Die Wahl des geeigneten Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren auf die gleiche Weise, unabhängig davon, ob die Präsentationen aus einer Vorlage erstellt werden oder von Grund auf neu erstellt werden. Außerdem gibt es keine Begrenzung der OLE-Objekt-Frame-Größe in der Lösung. 
+{{% /alert %}}
 
+## **FAQ**
 
-h4. {_}Verwandte Abschnitte
-{_}
+**Warum ändert ein eingebettetes Excel‑Arbeitsblatt seine Größe, wenn es in PowerPoint zum ersten Mal aktiviert wird?**
 
-[Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in einer Präsentation](/slides/de/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+Das passiert, weil Excel bei der Aktivierung versucht, die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objektrahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was zu einer Skalierung führen kann.
+
+**Ist es möglich, dieses Skalierungsproblem vollständig zu verhindern?**
+
+Ja. Durch das Skalieren des OLE‑Rahmens, um die Excel‑Zellbereichsgröße zu passen, oder durch das Skalieren des Zellbereichs, um die gewünschte OLE‑Rahmengröße zu erreichen, kann eine unerwünschte Skalierung vermieden werden.
+
+**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmen‑Skalierung oder Zellbereich‑Skalierung?**
+
+Verwenden Sie **OLE‑Rahmen‑Skalierung**, wenn Sie die ursprünglichen Excel‑Zeilen‑ und Spaltengrößen beibehalten möchten. Verwenden Sie **Zellbereich‑Skalierung**, wenn Sie in Ihrer Präsentation eine feste Größe für den OLE‑Rahmen haben wollen.
+
+**Funktionieren diese Lösungen, wenn meine Präsentation auf einer Vorlage basiert?**
+
+Ja. Beide Lösungen funktionieren sowohl für aus Vorlagen erstellte als auch für von Grund auf neu erstellte Präsentationen.
+
+**Gibt es eine Begrenzung der OLE‑Rahmengröße bei Verwendung dieser Methoden?**
+
+Nein. Sie können den OLE‑Objektrahmen beliebig groß machen, solange Sie die Skalierung entsprechend einstellen.
+
+**Gibt es eine Möglichkeit, den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**
+
+Ja. Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs aufnehmen und ihn als Platzhalterbild des OLE‑Rahmens festlegen, können Sie ein benutzerdefiniertes Vorschaubild anstelle des Standardplatzhalters anzeigen.
+
+## **Verwandte Artikel**
+
+[Erstellen eines Excel‑Diagramms und Einbetten in eine Präsentation als OLE‑Objekt](/slides/de/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

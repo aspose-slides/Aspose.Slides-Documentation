@@ -1,17 +1,46 @@
 ---
-title: إضافة شريحة إلى العرض التقديمي
+title: إضافة شرائح إلى العروض التقديمية بلغة C++
+linktitle: إضافة شريحة
 type: docs
 weight: 10
 url: /ar/cpp/add-slide-to-presentation/
+keywords:
+- إضافة شريحة
+- إنشاء شريحة
+- شريحة فارغة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "يمكنك بسهولة إضافة شرائح إلى عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ C++ — إدراج شرائح سلس وفعّال في ثوانٍ."
 ---
 
-## **إضافة شريحة إلى العرض التقديمي**
-قبل الحديث عن إضافة شرائح إلى ملفات العرض التقديمي، دعونا نتحدث عن بعض الحقائق حول الشرائح. تحتوي كل ملف عرض تقديمي من PowerPoint على شريحة رئيسية / تخطيط وشرائح عادية أخرى. وهذا يعني أن ملف العرض التقديمي يحتوي على شريحة واحدة أو أكثر على الأقل. من المهم أن نعرف أن ملفات العرض التقديمي التي لا تحتوي على شرائح غير مدعومة من Aspose.Slides لـ C++. كل شريحة لها معرف فريد وجميع الشرائح العادية مرتبة وفقًا لترتيب محدد بواسطة الفهرس المعتمد على الصفر. تسمح Aspose.Slides لـ C++ للمطورين بإضافة شرائح فارغة إلى عرضهم التقديمي. لإضافة شريحة فارغة إلى العرض التقديمي، يرجى اتباع الخطوات أدناه:
+## **إضافة شريحة إلى عرض تقديمي**
+قبل التحدث عن إضافة الشرائح إلى ملفات العرض التقديمي، دعونا نناقش بعض الحقائق حول الشرائح. يحتوي كل ملف عرض تقديمي PowerPoint على شريحة Master / Layout وشريحة Normal أخرى. هذا يعني أن ملف العرض التقديمي يحتوي على شريحة واحدة على الأقل أو أكثر. من المهم معرفة أن ملفات العروض التقديمية بدون شرائح غير مدعومة من قبل Aspose.Slides for C++. كل شريحة لها معرف فريد وتُرتب جميع الشرائح Normal وفقًا لترتيب يحدده الفهرس الصفري القائم. يسمح Aspose.Slides for C++ للمطورين بإضافة شرائح فارغة إلى عرضهم التقديمي. لإضافة شريحة فارغة في العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) درجة.
-- انشاء مثيل من [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق تعيين مرجع إلى خاصية الشرائح (مجموعة من كائنات شريحة المحتوى) المعروضة من قبل كائن العرض التقديمي.
-- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة شرائح المحتوى عن طريق استدعاء طرق AddEmptySlide المعروضة من قبل كائن ISlideCollection.
-- القيام ببعض الأعمال مع الشريحة الفارغة المضافة حديثًا.
-- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
+- إنشاء مثيل من فئة[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+- إنشاء مثيل من فئة[ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) عن طريق تعيين مرجع إلى خاصية Slides (مجموعة كائنات Slide المحتوى) المعروضة بواسطة كائن Presentation.
+- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة الشرائح المحتوى عن طريق استدعاء طريقة AddEmptySlide المعروضة بواسطة كائن ISlideCollection.
+- القيام ببعض العمل مع الشريحة الفارغة التي تمت إضافتها حديثًا.
+- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddSlides-AddSlides.cpp" >}}
+
+## **FAQ**
+
+**هل يمكنني إدراج شريحة جديدة في موضع محدد، وليس فقط في النهاية؟**
+
+نعم. تدعم المكتبة مجموعات الشرائح وعمليات[insert](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/insertclone/) ، وبالتالي يمكنك إضافة شريحة في الفهرس المطلوب بدلاً من النهاية فقط.
+
+**هل يتم الحفاظ على السمات/الأنماط عند إضافة شريحة بناءً على تخطيط؟**
+
+نعم. يرث التخطيط التنسيق من الـ master الخاص به، وتورّث الشريحة الجديدة من التخطيط المختار والـ master المرتبط به.
+
+**أي شريحة تكون موجودة في عرض تقديمي "فارغ" جديد قبل إضافة الشرائح؟**
+
+العرض التقديمي الذي تم إنشاؤه حديثًا يحتوي بالفعل على شريحة فارغة واحدة ذات فهرس صفر. هذا أمر مهم عند حساب فهارس الإدراج.
+
+**كيف أختار "التخطيط" المناسب لشريحة جديدة إذا كان الـ master يحتوي على خيارات متعددة؟**
+
+عمومًا اختر[LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) الذي يتطابق مع الهيكل المطلوب ([Title and Content, Two Content, etc.](https://reference.aspose.com/slides/cpp/aspose.slides/slidelayouttype/)). إذا كان هذا التخطيط غير موجود، يمكنك[add it to the master](/slides/ar/cpp/slide-layout/) ثم استخدامه.

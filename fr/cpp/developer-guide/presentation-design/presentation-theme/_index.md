@@ -1,24 +1,40 @@
 ---
-title: Thème de présentation
+title: Gérer les thèmes de présentation en C++
+linktitle: Thème de présentation
 type: docs
 weight: 10
 url: /fr/cpp/presentation-theme/
-keywords: "Thème, thème PowerPoint, présentation PowerPoint, CPP, C++, Aspose.Slides pour C++"
-description: "Thème de présentation PowerPoint en C++"
+keywords:
+- Thème PowerPoint
+- Thème de présentation
+- Thème de diapositive
+- Définir le thème
+- Modifier le thème
+- Gérer le thème
+- Couleur du thème
+- Palette supplémentaire
+- Police du thème
+- Style du thème
+- Effet du thème
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Maîtrisez les thèmes de présentation dans Aspose.Slides pour C++ afin de créer, personnaliser et convertir des fichiers PowerPoint avec une identité visuelle cohérente."
 ---
 
-Un thème de présentation définit les propriétés des éléments de design. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et leurs propriétés.
+Un thème de présentation définit les propriétés des éléments de conception. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et leurs propriétés.
 
-Dans PowerPoint, un thème est composé de couleurs, de [polices](/slides/fr/cpp/powerpoint-fonts/), de [styles d'arrière-plan](/slides/fr/cpp/presentation-background/) et d'effets.
+Dans PowerPoint, un thème comprend des couleurs, [polices](/slides/fr/cpp/powerpoint-fonts/), [styles d'arrière-plan](/slides/fr/cpp/presentation-background/), et des effets.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Changer la couleur du thème**
+## **Modifier la couleur du thème**
 
-Un thème PowerPoint utilise un ensemble spécifique de couleurs pour différents éléments sur une diapositive. Si vous n'aimez pas les couleurs, vous pouvez les changer en appliquant de nouvelles couleurs au thème. Pour vous permettre de sélectionner une nouvelle couleur de thème, Aspose.Slides fournit des valeurs sous l'énumération [SchemeColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
+Un thème PowerPoint utilise un ensemble spécifique de couleurs pour les différents éléments d'une diapositive. Si vous n'aimez pas les couleurs, vous les modifiez en appliquant de nouvelles couleurs au thème. Pour vous permettre de sélectionner une nouvelle couleur de thème, Aspose.Slides fournit des valeurs dans l'énumération [SchemeColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
 
-Ce code C++ vous montre comment changer la couleur d'accent d'un thème :
-
+Ce code C++ vous montre comment changer la couleur d'accentuation d'un thème :
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -28,8 +44,8 @@ shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 ```
 
-Vous pouvez déterminer la valeur effective de la couleur résultante de cette manière :
 
+Vous pouvez déterminer la valeur effective de la couleur résultante de cette manière :
 ```c++
 auto fillEffective = shape->get_FillFormat()->GetEffective();
     
@@ -37,8 +53,8 @@ Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(),
 // ff8064a2 (Couleur [A=255, R=128, G=100, B=162])
 ```
 
-Pour démontrer davantage l'opération de changement de couleur, nous créons un autre élément et y assignons la couleur d'accent (de l'opération initiale). Ensuite, nous changeons la couleur dans le thème :
 
+Pour démontrer davantage l'opération de changement de couleur, nous créons un autre élément et lui attribuons la couleur d'accent (provenant de l'opération initiale). Puis nous modifions la couleur dans le thème :
 ```c++
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
     
@@ -48,20 +64,19 @@ otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor:
 pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
 ```
 
-La nouvelle couleur est appliquée automatiquement aux deux éléments.
+
+La nouvelle couleur est appliquée automatiquement sur les deux éléments.
 
 ### **Définir la couleur du thème à partir d'une palette supplémentaire**
 
-Lorsque vous appliquez des transformations de luminance à la couleur de thème principale(1), des couleurs de la palette supplémentaire(2) sont formées. Vous pouvez ensuite définir et obtenir ces couleurs de thème. 
+Lorsque vous appliquez des transformations de luminance à la couleur principale du thème (1), des couleurs provenant de la palette supplémentaire (2) sont générées. Vous pouvez alors définir et obtenir ces couleurs de thème.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1**- Couleurs de thème principales
+**1**‑ Couleurs principales du thème  
+**2**‑ Couleurs de la palette supplémentaire.
 
-**2** - Couleurs de la palette supplémentaire.
-
-Ce code C++ démontre une opération où les couleurs de la palette supplémentaire sont obtenues à partir de la couleur de thème principale et ensuite utilisées dans des formes :
-
+Ce code C++ démontre une opération où les couleurs de la palette supplémentaire sont obtenues à partir de la couleur principale du thème, puis utilisées dans des formes :
 ```c++
 auto presentation = System::MakeObject<Presentation>();
 
@@ -126,22 +141,22 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Changer la police du thème**
+
+## **Modifier la police du thème**
 
 Pour vous permettre de sélectionner des polices pour les thèmes et d'autres usages, Aspose.Slides utilise ces identifiants spéciaux (similaires à ceux utilisés dans PowerPoint) :
 
-* **+mn-lt** - Police de corps Latin (police minoritaire Latin)
-* **+mj-lt** - Police de titre Latin (police majoritaire Latin)
-* **+mn-ea** - Police de corps Asiatique de l'Est (police minoritaire Asiatique de l'Est)
-* **+mj-ea** - Police de titre Asiatique de l'Est (police majoritaire Asiatique de l'Est)
+* **+mn-lt** ‑ Police du corps Latin (Police Latin Mineure)
+* **+mj-lt** ‑ Police du titre Latin (Police Latin Majeure)
+* **+mn-ea** ‑ Police du corps Asie de l'Est (Police Asie de l'Est Mineure)
+* **+mj-ea** ‑ Police du corps Asie de l'Est (Police Asie de l'Est Majeure)
 
-Ce code C++ vous montre comment assigner la police Latin à un élément de thème :
-
+Ce code C++ vous montre comment attribuer la police Latin à un élément du thème :
 ```c++
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
 auto paragraph = System::MakeObject<Paragraph>();
-auto portion = System::MakeObject<Portion>(u"Format de texte du thème");
+auto portion = System::MakeObject<Portion>(u"Theme text format");
 
 paragraph->get_Portions()->Add(portion);
 shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
@@ -149,66 +164,60 @@ shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
 ```
 
-Ce code C++ vous montre comment changer la police du thème de présentation :
 
+Ce code C++ vous montre comment modifier la police du thème de la présentation :
 ```c++
 pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
 ```
 
-La police de tous les zones de texte sera mise à jour.
 
-{{% alert color="primary" title="ASTUCE" %}} 
+La police dans toutes les zones de texte sera mise à jour.
 
-Vous pouvez consulter les [polices PowerPoint](/slides/fr/cpp/powerpoint-fonts/).
-
+{{% alert color="primary" title="TIP" %}} 
+Vous voudrez peut-etre consulter [Polices PowerPoint](/slides/fr/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Changer le style d'arrière-plan du thème**
+## **Modifier le style d'arrière-plan du thème**
 
-Par défaut, l'application PowerPoint fournit 12 arrière-plans prédéfinis mais seulement 3 de ces 12 arrière-plans sont enregistrés dans une présentation typique. 
+Par défaut, l'application PowerPoint propose 12 arrière-plans prédéfinis, mais seuls 3 de ces 12 arrière-plans sont enregistrés dans une présentation typique.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Par exemple, après avoir enregistré une présentation dans l'application PowerPoint, vous pouvez exécuter ce code C++ pour découvrir le nombre d'arrière-plans prédéfinis dans la présentation :
-
+Par exemple, après avoir enregistré une présentation dans l'application PowerPoint, vous pouvez exécuter ce code C++ pour connaître le nombre d'arrière-plans prédéfinis dans la présentation :
 ```c++
 auto pres = MakeObject<Presentation>(u"pres.pptx");
         
 int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
 
-Console::WriteLine(u"Le nombre de styles de remplissage d'arrière-plan pour le thème est {0}", numberOfBackgroundFills);
+Console::WriteLine(u"Number of background fill styles for theme is {0}", numberOfBackgroundFills);
 ```
 
+
 {{% alert color="warning" %}} 
-
 En utilisant la propriété [BackgroundFillStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) de la classe [FormatScheme](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme/), vous pouvez ajouter ou accéder au style d'arrière-plan dans un thème PowerPoint. 
-
 {{% /alert %}}
 
 Ce code C++ vous montre comment définir l'arrière-plan d'une présentation :
-
 ```c++
 pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ```
 
-**Guide des index** : 0 est utilisé pour aucun remplissage. L'index commence à partir de 1.
 
-{{% alert color="primary" title="ASTUCE" %}} 
+**Guide d'index** : 0 correspond à aucun remplissage. L'index commence à 1.
 
-Vous pouvez consulter [l'Arrière-plan PowerPoint](/slides/fr/cpp/presentation-background/).
-
+{{% alert color="primary" title="TIP" %}} 
+Vous voudrez peut-etre consulter [Arrière-plan PowerPoint](/slides/fr/cpp/presentation-background/).
 {{% /alert %}}
 
-## **Changer l'effet du thème**
+## **Modifier l'effet du thème**
 
-Un thème PowerPoint contient généralement 3 valeurs pour chaque tableau de style. Ces tableaux sont combinés en 3 effets : subtil, modéré et intense. Par exemple, voici le résultat lorsque les effets sont appliqués à une forme spécifique :
+Un thème PowerPoint contient généralement 3 valeurs pour chaque tableau de style. Ces tableaux sont combinés en ces 3 effets : subtil, modere et intense. Par exemple, voici le resultat lorsque les effets sont appliques à une forme spécifique :
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-En utilisant 3 propriétés ([FillStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) de la classe [FormatScheme](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme/) vous pouvez changer les éléments dans un thème (même plus flexiblement que les options dans PowerPoint).
+En utilisant 3 propriétés ([FillStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) de la classe [FormatScheme], vous pouvez modifier les elements d'un thème (encore plus souplement que les options de PowerPoint).
 
-Ce code C++ vous montre comment changer un effet de thème en modifiant des parties des éléments :
-
+Ce code C++ vous montre comment modifier un effet de thème en altérant des parties d'elements :
 ```c++
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
         
@@ -223,6 +232,17 @@ pres->get_MasterTheme()->get_FormatScheme()->get_EffectStyles()->idx_get(2)->get
 pres->Save(u"Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
 ```
 
-Les changements résultants dans la couleur de remplissage, le type de remplissage, l'effet d'ombre, etc :
 
+Les changements resultants dans la couleur de remplissage, le type de remplissage, l'effet d'ombre, etc. :
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **FAQ**
+
+**Puis-je appliquer un thème à une seule diapositive sans modifier le maître ?**
+Oui. Aspose.Slides prend en charge les surcharges de thème au niveau de la diapositive, vous pouvez donc appliquer un thème local uniquement à cette diapositive tout en conservant intact le thème maître (via le [SlideThemeManager](https://reference.aspose.com/slides/cpp/aspose.slides.theme/slidethememanager/)).
+
+**Quelle est la façon la plus sûre de transférer un thème d'une présentation à une autre ?**
+[Clone slides](/slides/fr/cpp/clone-slides/) avec leur maître dans la présentation cible. Cela préserve le maître original, les mises en page et le thème associé afin que l'aspect reste cohérent.
+
+**Comment puis-je voir les valeurs "effectives" après toute heritage et surcharge ?**
+Utilisez les vues ["effective"](/slides/fr/cpp/shape-effective-properties/) de l'API pour le thème/couleur/police/effect. Elles renvoient les propriétés résolues et finales après l'application du maître ainsi que des surcharges locales.

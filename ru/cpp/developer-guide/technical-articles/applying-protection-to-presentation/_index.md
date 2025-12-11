@@ -1,55 +1,185 @@
 ---
-title: Применение защиты к презентации
+title: Запретить редактирование презентаций с помощью блокировки фигур
+linktitle: Запретить редактирование презентации
 type: docs
 weight: 10
 url: /ru/cpp/applying-protection-to-presentation/
+keywords:
+- предотвратить изменения
+- защитить от редактирования
+- заблокировать фигуру
+- заблокировать позицию
+- заблокировать выбор
+- заблокировать размер
+- заблокировать группировку
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Узнайте, как Aspose.Slides for C++ блокирует и разблокирует фигуры в файлах PPT, PPTX и ODP, обеспечивая безопасность презентаций при возможности контролируемого редактирования и более быстрой поставки."
 ---
 
-{{% alert color="primary" %}} 
+## **Фон**
 
-Распространенное применение Aspose.Slides - создание, обновление и сохранение презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к результирующим презентациям. Защита их от редактирования является распространенной заботой. Важно, чтобы автоматически сгенерированные презентации сохраняли свое оригинальное форматирование и содержимое.
+Распространенный сценарий использования Aspose.Slides — создание, обновление и сохранение презентаций Microsoft PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложений, использующих Aspose.Slides таким образом, получают доступ к сгенерированным презентациям, поэтому защита их от редактирования является актуальной задачей. Важно, чтобы автоматически созданные презентации сохраняли исходное форматирование и содержимое.
 
-В этой статье объясняется, как [создаются презентации и слайды](/slides/ru/cpp/applying-protection-to-presentation/) и как Aspose.Slides для C++ может [применить защиту к](/slides/ru/cpp/applying-protection-to-presentation/), а затем [удалить ее из](/slides/ru/cpp/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контроля того, как используются презентации, создаваемые их приложениями.
+Эта статья объясняет, как построены презентации и слайды, и как Aspose.Slides for C++ может применить защиту к презентации и затем снять её. Она предоставляет разработчикам способ контролировать использование презентаций, генерируемых их приложениями.
 
-{{% /alert %}} 
 ## **Состав слайда**
-Слайд PPTX состоит из множества компонентов, таких как автоформы, таблицы, объекты OLE, сгруппированные фигуры, рамки для изображений, видеорамки, соединители и различные другие элементы, доступные для построения презентации.
 
-В Aspose.Slides для C++ каждый элемент на слайде превращается в объект Shape. Другими словами, каждый элемент на слайде является либо объектом Shape, либо объектом, производным от объекта Shape.
+Слайд презентации состоит из компонентов, таких как автофигуры, таблицы, OLE‑объекты, сгруппированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for C++ каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) или наследующимся от класса, реализующего его.
 
-Структура PPTX сложна, поэтому в отличие от PPT, где можно использовать общий замок для всех типов фигур, существуют разные типы замков для разных типов фигур. Класс BaseShapeLock является общим классом для блокировки PPTX. В Aspose.Slides для C++ поддерживаются следующие типы замков для PPTX.
+Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать один универсальный замок для всех типов фигур, разные типы фигур требуют разных замков. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) является универсальным классом блокировки для PPTX. В Aspose.Slides for C++ для PPTX поддерживаются следующие типы замков:
 
-- AutoShapeLock блокирует автоформы.
-- ConnectorLock блокирует соединительные фигуры.
-- GraphicalObjectLock блокирует графические объекты.
-- GroupShapeLock блокирует групповые фигуры.
-- PictureFrameLock блокирует рамки для изображений.
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) блокирует автофигуры.  
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) блокирует фигурные соединители.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) блокирует графические объекты.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) блокирует группы фигур.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) блокирует рамки изображений.   
 
-Любое действие, выполненное над всеми объектами Shape в объекте Presentation, применяется ко всей презентации.
-## **Применение и удаление защиты**
-Применение защиты гарантирует, что презентация не может быть отредактирована. Это полезная техника для защиты содержимого презентации.
-### **Применение защиты к фигурам PPTX**
-Aspose.Slides для C++ предоставляет класс Shape для работы с фигурами на слайде.
+Любое действие, выполненное над всеми объектами фигур в объекте [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), применяется ко всей презентации.
 
-Как упоминалось ранее, каждый класс фигуры имеет соответствующий класс замка фигуры для защиты. Эта статья сосредоточена на замках NoSelect, NoMove и NoResize. Эти замки гарантируют, что фигуры не могут быть выбраны (с помощью щелчков мыши или других методов выбора), и их нельзя перемещать или изменять размер.
+## **Применение и снятие защиты**
 
-Приведенные ниже примеры кода применяют защиту ко всем типам фигур в презентации.
+Применение защиты гарантирует, что презентацию нельзя будет редактировать. Это полезная техника для защиты содержимого презентации.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ApplyProtection-ApplyProtection.cpp" >}}
+### **Применить защиту к фигурам PPTX**
+
+Aspose.Slides for C++ предоставляет интерфейс [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) для работы с фигурами на слайде.
+
+Как упоминалось ранее, каждый класс фигуры имеет ассоциированный класс блокировки фигуры для защиты. В этой статье рассматриваются блокировки NoSelect, NoMove и NoResize. Эти блокировки гарантируют, что фигуры нельзя будет выбрать (через щелчки мышью или другими методами выбора) и что их нельзя будет переместить или изменить размер.
+
+Пример кода, приведённый ниже, применяет защиту ко всем типам фигур в презентации.
+```cpp
+// Создать объект класса Presentation, представляющий файл PPTX.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+// Перебор всех слайдов в презентации.
+for (auto&& slide : presentation->get_Slides())	{
+
+	// Перебор всех фигур на слайде.
+	for (auto&& shape : slide->get_Shapes()) {
+
+		if (ObjectExt::Is<IAutoShape>(shape)) {
+			// Приведение типа фигуры к автофигуре и получение её блокировки.
+			auto autoShape = ExplicitCast<IAutoShape>(shape);
+			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+
+			autoShapeLock->set_PositionLocked(true);
+			autoShapeLock->set_SelectLocked(true);
+			autoShapeLock->set_SizeLocked(true);
+		}
+		else if (ObjectExt::Is<IGroupShape>(shape)) {
+			// Приведение типа фигуры к групповой фигуре и получение её блокировки.
+			auto groupShape = ExplicitCast<IGroupShape>(shape);
+			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+
+			groupShapeLock->set_GroupingLocked(true);
+			groupShapeLock->set_PositionLocked(true);
+			groupShapeLock->set_SelectLocked(true);
+			groupShapeLock->set_SizeLocked(true);
+		}
+		else if (ObjectExt::Is<IConnector>(shape)) {
+			// Приведение типа фигуры к соединительной фигуре и получение её блокировки.
+			auto connectorShape = ExplicitCast<IConnector>(shape);
+			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
+			
+			connectorShapeLock->set_PositionMove(true);
+			connectorShapeLock->set_SelectLocked(true);
+			connectorShapeLock->set_SizeLocked(true);
+		}
+		else if (ObjectExt::Is<IPictureFrame>(shape)) {
+			// Приведение типа фигуры к рамке изображения и получение её блокировки.
+			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
+		
+			pictureFrameLock->set_PositionLocked(true);
+			pictureFrameLock->set_SelectLocked(true);
+			pictureFrameLock->set_SizeLocked(true);
+		}
+	}
+}
+
+// Сохранение файла презентации.
+presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
 
-### **Удаление защиты**
-Защита, примененная с помощью Aspose.Slides для C++, может быть удалена только с помощью Aspose.Slides для C++. Чтобы разблокировать фигуру, установите значение примененного замка на false. Пример кода, приведенный ниже, показывает, как разблокировать фигуры в заблокированной презентации.
+### **Снять защиту**
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-RemoveProtection-RemoveProtection.cpp" >}}
-## **Итоги**
-{{% alert color="primary" %}} 
+Чтобы разблокировать фигуру, установите значение соответствующего замка в `false`. Следующий пример кода показывает, как разблокировать фигуры в заблокированной презентации.
+```cpp
+// Создать объект класса Presentation, представляющий файл PPTX.
+auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-Aspose.Slides предоставляет ряд вариантов для применения защиты к фигурам в презентации. Можно заблокировать конкретную фигуру или пройти через все фигуры в презентации и заблокировать их все, чтобы эффективно блокировать презентацию.
+// Перебор всех слайдов в презентации.
+for (auto&& slide : presentation->get_Slides())	{
 
-Только Aspose.Slides для C++ может снять защиту с ранее защищенной презентации. Удалите защиту, установив значение замка на false.
+	// Перебор всех фигур на слайде.
+	for (auto&& shape : slide->get_Shapes()) {
 
-{{% /alert %}} 
-### **Связанные статьи**
-- Класс [ShapeEx](http://docs.aspose.com/display/slidesnet/ShapeEx+Class).
-- Класс [BaseShapeLockEx](http://docs.aspose.com/display/slidesnet/BaseShapeLockEx+Class).
+		if (ObjectExt::Is<IAutoShape>(shape)) {
+			// Приведение типа фигуры к автофигуре и получение её блокировки.
+			auto autoShape = ExplicitCast<IAutoShape>(shape);
+			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+
+			autoShapeLock->set_PositionLocked(false);
+			autoShapeLock->set_SelectLocked(false);
+			autoShapeLock->set_SizeLocked(false);
+		}
+		else if (ObjectExt::Is<IGroupShape>(shape)) {
+			// Приведение типа фигуры к групповой фигуре и получение её блокировки.
+			auto groupShape = ExplicitCast<IGroupShape>(shape);
+			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+
+			groupShapeLock->set_GroupingLocked(false);
+			groupShapeLock->set_PositionLocked(false);
+			groupShapeLock->set_SelectLocked(false);
+			groupShapeLock->set_SizeLocked(false);
+		}
+		else if (ObjectExt::Is<IConnector>(shape)) {
+			// Приведение типа фигуры к соединительной фигуре и получение её блокировки.
+			auto connectorShape = ExplicitCast<IConnector>(shape);
+			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
+			
+			connectorShapeLock->set_PositionMove(false);
+			connectorShapeLock->set_SelectLocked(false);
+			connectorShapeLock->set_SizeLocked(false);
+		}
+		else if (ObjectExt::Is<IPictureFrame>(shape)) {
+			// Приведение типа фигуры к рамке изображения и получение её блокировки.
+			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
+		
+			pictureFrameLock->set_PositionLocked(false);
+			pictureFrameLock->set_SelectLocked(false);
+			pictureFrameLock->set_SizeLocked(false);
+		}
+	}
+}
+
+// Сохранение файла презентации.
+presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **Заключение**
+
+Aspose.Slides предлагает несколько вариантов защиты фигур в презентации. Вы можете заблокировать отдельную фигуру или пройтись по всем фигурам в презентации и заблокировать каждую, чтобы эффективно обеспечить безопасность всего файла. Защиту можно снять, установив значение замка в `false`.
+
+## **FAQ**
+
+**Могу ли я комбинировать блокировки фигур и парольную защиту в одной презентации?**
+
+Да. Блокировки ограничивают редактирование объектов внутри файла, тогда как [password protection](/slides/ru/cpp/password-protected-presentation/) контролирует доступ к открытию и/или сохранению изменений. Эти механизмы дополняют друг друга и работают совместно.
+
+**Могу ли я ограничить редактирование на конкретных слайдах, не затрагивая остальные?**
+
+Да. Примените блокировки к фигурам на выбранных слайдах; остальные слайды останутся редактируемыми.
+
+**Применяются ли блокировки фигур к сгруппированным объектам и соединителям?**
+
+Да. Поддерживаются отдельные типы блокировок для групп, соединителей, графических объектов и других видов фигур.

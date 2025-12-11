@@ -1,163 +1,213 @@
 ---
-title: Arrière-plan de Présentation
+title: Gérer les arrière-plans de présentation en C++
+linktitle: Arrière-plan de diapositive
 type: docs
 weight: 20
 url: /fr/cpp/presentation-background/
-keywords: "arrière-plan PowerPoint, définir arrière-plan"
-description: "Définir l'arrière-plan dans une présentation PowerPoint en CPP"
+keywords:
+- arrière-plan de présentation
+- arrière-plan de diapositive
+- couleur unie
+- couleur dégradée
+- image d'arrière-plan
+- transparence d'arrière-plan
+- propriétés d'arrière-plan
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Apprenez à définir des arrière-plans dynamiques dans les fichiers PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour C++, avec des astuces de code pour améliorer vos présentations."
 ---
 
-Les couleurs unies, les dégradés et les images sont souvent utilisés comme images d'arrière-plan pour les diapositives. Vous pouvez définir l'arrière-plan soit pour une **diapositive normale** (diapositive unique) soit pour une **diapositive maître** (plusieurs diapositives à la fois).
+## **Vue d'ensemble**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Les couleurs unies, les dégradés et les images sont couramment utilisés pour les arrière-plans de diapositives. Vous pouvez définir l'arrière-plan d'une **diapositive normale** (une seule diapositive) ou d'une **diapositive maître** (s'applique à plusieurs diapositives à la fois).
 
-## **Définir une Couleur Unie comme Arrière-plan pour une Diapositive Normale**
+![PowerPoint background](powerpoint-background.png)
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour une diapositive spécifique d'une présentation (même si cette présentation contient une diapositive maître). Le changement de fond n'affecte que la diapositive sélectionnée.
+## **Définir un arrière-plan de couleur unie pour une diapositive normale**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) pour la diapositive à `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) pour l'arrière-plan de la diapositive à `Solid`.
-4. Utilisez la propriété [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) exposée par [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) pour spécifier une couleur unie pour l'arrière-plan.
+Aspose.Slides vous permet de définir une couleur unie comme arrière-plan d'une diapositive spécifique dans une présentation, même si la présentation utilise une diapositive maître. La modification ne s'applique qu'à la diapositive sélectionnée.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Définissez le [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Solid`.
+4. Utilisez la méthode [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) sur [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) pour spécifier la couleur d'arrière-plan unie.
 5. Enregistrez la présentation modifiée.
 
-Ce code C++ vous montre comment définir une couleur unie (bleu) comme arrière-plan pour une diapositive normale :
+L'exemple C++ suivant montre comment définir une couleur bleue unie comme arrière-plan d'une diapositive normale :
+```cpp
+// Créer une instance de la classe Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Le chemin vers le répertoire des documents.
+auto slide = presentation->get_Slide(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+// Définir la couleur d'arrière-plan de la diapositive à bleu.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	// Crée une instance de la classe Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Définit la couleur d'arrière-plan pour la première ISlide à Bleu
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// Écrit la présentation sur le disque
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Enregistrer la présentation sur le disque.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir une Couleur Unie comme Arrière-plan pour une Diapositive Maître**
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour la diapositive maître d'une présentation. La diapositive maître agit comme un modèle qui contient et contrôle les paramètres de formatage pour toutes les diapositives. Par conséquent, lorsque vous sélectionnez une couleur unie comme arrière-plan pour la diapositive maître, ce nouvel arrière-plan sera utilisé pour toutes les diapositives.
+## **Définir un arrière-plan de couleur unie pour une diapositive maître**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) pour la diapositive maître (`Masters`) à `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) pour l'arrière-plan de la diapositive maître à `Solid`.
-4. Utilisez la propriété [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) exposée par [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) pour spécifier une couleur unie pour l'arrière-plan.
+Aspose.Slides vous permet de définir une couleur unie comme arrière-plan de la diapositive maître d'une présentation. La diapositive maître sert de modèle qui contrôle le formatage de toutes les diapositives, de sorte que lorsque vous choisissez une couleur unie pour l'arrière-plan de la diapositive maître, celle-ci s'applique à chaque diapositive.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Définissez le [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositive maître (via `get_Masters`) sur `OwnBackground`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) de l'arrière-plan de la diapositive maître sur `Solid`.
+4. Utilisez la méthode [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) pour spécifier la couleur d'arrière-plan unie.
 5. Enregistrez la présentation modifiée.
 
-Ce code C++ vous montre comment définir une couleur unie (vert forêt) comme arrière-plan pour une diapositive maître dans une présentation :
+L'exemple C++ suivant montre comment définir une couleur verte forêt comme arrière-plan d'une diapositive maître :
+```cpp
+// Créer une instance de la classe Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-	// Le chemin vers le répertoire des documents.
+auto masterSlide = presentation->get_Master(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+// Définir la couleur d'arrière-plan pour la diapositive Master à Vert forêt.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Crée une instance de la classe Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Définit la couleur d'arrière-plan pour la Master ISlide à Vert Forêt
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	// Écrit la présentation sur le disque
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Enregistrer la présentation sur le disque.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir une Couleur Dégradée comme Arrière-plan pour une Diapositive**
 
-Un dégradé est un effet graphique basé sur un changement progressif de couleur. Les couleurs dégradées, lorsqu'elles sont utilisées comme arrière-plans pour les diapositives, rendent les présentations artistiques et professionnelles. Aspose.Slides vous permet de définir une couleur dégradée comme arrière-plan pour les diapositives dans les présentations.
+## **Définir un arrière-plan en dégradé pour une diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) pour la diapositive à `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) pour l'arrière-plan de la diapositive à `Gradient`.
-4. Utilisez la propriété [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) exposée par [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) pour spécifier votre paramètre de dégradé préféré.
+Un dégradé est un effet graphique créé par une variation progressive de couleur. Lorsqu'il est utilisé comme arrière-plan de diapositive, le dégradé peut rendre les présentations plus artistiques et professionnelles. Aspose.Slides vous permet de définir une couleur en dégradé comme arrière-plan des diapositives.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Définissez le [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Gradient`.
+4. Utilisez la méthode [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) sur [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) pour configurer les paramètres de dégradé souhaités.
 5. Enregistrez la présentation modifiée.
 
-Ce code C++ vous montre comment définir une couleur dégradée comme arrière-plan pour une diapositive :
+L'exemple C++ suivant montre comment définir une couleur en dégradé comme arrière-plan d'une diapositive :
+```cpp
+// Créer une instance de la classe Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Crée une instance de la classe Presentation
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Applique l'effet dégradé à l'arrière-plan
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+// Appliquer un effet de dégradé à l'arrière-plan.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
 
-// Écrit la présentation sur le disque
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// Enregistrer la présentation sur le disque.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Définir une Image comme Arrière-plan pour une Diapositive**
 
-En plus des couleurs unies et dégradées, Aspose.Slides vous permet également de définir des images comme arrière-plan pour les diapositives dans les présentations.
+## **Définir une image comme arrière-plan de diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) pour la diapositive à `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) pour l'arrière-plan de la diapositive maître à `Picture`.
+En plus des remplissages unis et en dégradé, Aspose.Slides vous permet d'utiliser des images comme arrière-plans de diapositives.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Définissez le [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) de la diapositive sur `OwnBackground`.
+3. Définissez le [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) de l'arrière-plan de la diapositive sur `Picture`.
 4. Chargez l'image que vous souhaitez utiliser comme arrière-plan de la diapositive.
 5. Ajoutez l'image à la collection d'images de la présentation.
-6. Utilisez la propriété [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) exposée par [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) pour définir l'image comme arrière-plan.
+6. Utilisez la méthode [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) sur [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) pour affecter l'image comme arrière-plan.
 7. Enregistrez la présentation modifiée.
 
-Ce code C++ vous montre comment définir une image comme arrière-plan pour une diapositive :
+L'exemple C++ suivant montre comment définir une image comme arrière-plan d'une diapositive :
+```cpp
+// Créer une instance de la classe Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Le chemin vers le répertoire des documents.
+auto slide = presentation->get_Slide(0);
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+// Définir les propriétés de l'image d'arrière-plan.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Crée une instance de la classe Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Charger l'image.
+auto image = Images::FromFile(u"Tulips.jpg");
+// Ajouter l'image à la collection d'images de la présentation.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Définit les conditions pour l'image d'arrière-plan
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Charge l'image
-auto image = Images::FromFile(imagePath);
-
-// Ajoute l'image à la collection d'images de la présentation
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Écrit la présentation sur le disque
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Enregistrer la présentation sur le disque.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-### **Changer la Transparence de l'Image d'Arrière-plan**
 
-Vous pouvez ajuster la transparence de l'image d'arrière-plan d'une diapositive pour faire ressortir le contenu de la diapositive. Ce code C++ vous montre comment changer la transparence d'une image d'arrière-plan de diapositive :
+L'exemple de code suivant montre comment définir le type de remplissage d'arrière-plan sur une image en mosaïque et modifier les propriétés de mise en mosaïque :
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-int32_t transparencyValue = 30;
-// par exemple
-// Obtient une collection d'opérations de transformation d'image
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+
+En savoir plus : [**Image mosaïquée comme texture**](/slides/fr/cpp/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
+
+### **Modifier la transparence de l'image d'arrière-plan**
+
+Vous pouvez souhaiter ajuster la transparence de l'image d'arrière-plan d'une diapositive afin que le contenu de la diapositive ressorte davantage. Le code C++ suivant vous montre comment modifier la transparence d'une image d'arrière-plan de diapositive :
+```cpp
+auto transparencyValue = 30; // Par exemple.
+
+// Obtenir la collection des opérations de transformation d'image.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// Trouve un effet de transparence avec un pourcentage fixe.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Trouver un effet de transparence à pourcentage fixe existant.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// Définit la nouvelle valeur de transparence.
+
+// Définir la nouvelle valeur de transparence.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,27 +218,40 @@ else
 }
 ```
 
-## **Obtenir la Valeur de l'Arrière-plan de la Diapositive**
 
-Aspose.Slides fournit l'interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) pour vous permettre d'obtenir les valeurs effectives des arrière-plans de diapositives. Cette interface contient des informations sur le [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) effectif et sur le [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8) effectif.
+## **Obtenir la valeur d'arrière-plan de la diapositive**
 
-En utilisant la propriété [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) de la classe [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/), vous pouvez obtenir la valeur effective pour un arrière-plan de diapositive.
+Aspose.Slides fournit l'interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) pour récupérer les valeurs d'arrière-plan effectives d'une diapositive. Cette interface expose le [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) et le [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) effectifs.
 
-Ce code C++ vous montre comment obtenir la valeur effective de l'arrière-plan d'une diapositive :
+En utilisant la méthode `get_Background` de la classe [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/), vous pouvez obtenir l'arrière-plan effectif d'une diapositive.
 
-```c++
-// Crée une instance de la classe Presentation
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+L'exemple C++ suivant montre comment obtenir la valeur d'arrière-plan effective d'une diapositive :
+```cpp
+// Créer une instance de la classe Presentation.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"Couleur de remplissage : ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"Type de remplissage : ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+auto slide = presentation->get_Slide(0);
+
+// Retrieve the effective background, taking into account master, layout, and theme.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **FAQ**
+
+**Puis-je réinitialiser un arrière-plan personnalisé et restaurer l'arrière-plan du thème/de la disposition ?**
+
+Oui. Supprimez le remplissage personnalisé de la diapositive, et l'arrière-plan sera à nouveau hérité de la diapositive [layout](/slides/fr/cpp/slide-layout/)/[master](/slides/fr/cpp/slide-master/) correspondante (c’est-à-dire le [theme background](/slides/fr/cpp/presentation-theme/)).
+
+**Que se passe-t-il pour l'arrière-plan si je change le thème de la présentation plus tard ?**
+
+Si une diapositive possède son propre remplissage, il restera inchangé. Si l'arrière-plan est hérité de la [layout](/slides/fr/cpp/slide-layout/)/[master](/slides/fr/cpp/slide-master/), il sera mis à jour pour correspondre au [new theme](/slides/fr/cpp/presentation-theme/).

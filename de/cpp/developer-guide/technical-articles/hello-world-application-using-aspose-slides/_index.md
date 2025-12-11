@@ -1,24 +1,32 @@
 ---
-title: Hello World-Anwendung mit Aspose.Slides
+title: Hello World Anwendung mit Aspose.Slides für C++
 type: docs
 weight: 80
-url: /de/cpp/hello-world-anwendung-mit-aspose-slides/
+url: /de/cpp/hello-world-application-using-aspose-slides/
+keywords:
+- Hallo Welt
+- Anwendung
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erstellen Sie Ihre erste C++-Anwendung mit Aspose.Slides, ein einfaches Hello-World-Beispiel, das Sie bereit macht, PPT-, PPTX- und ODP-Präsentationen zu automatisieren."
 ---
 
-## **Schritte zur Erstellung einer Hello World-Anwendung**
-In dieser einfachen Anwendung erstellen wir eine PowerPoint-Präsentation mit dem Text **Hello World** an einer bestimmten Position auf einer Folie. Bitte folgen Sie den nachstehenden Schritten, um die **Hello World** Anwendung mit der Aspose.Slides C++ API zu erstellen:
+## **Schritte zum Erstellen einer Hello World Anwendung**
+In dieser einfachen Anwendung erstellen wir eine PowerPoint‑Präsentation, die den Text **Hello World** an einer angegebenen Position einer Folie enthält. Bitte folgen Sie den untenstehenden Schritten, um eine **Hello World**‑Anwendung mit der Aspose.Slides für C++ API zu erstellen:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz zur ersten Folie der Präsentation, die bei der Instanziierung der Präsentation erstellt wird.
-- Fügen Sie eine AutoShape mit dem ShapeType als Rechteck an einer bestimmten Position auf der Folie hinzu.
-- Fügen Sie der AutoShape ein TextFrame hinzu, das "Hello World" als Standardtext enthält.
-- Ändern Sie die Textfarbe in Schwarz, da sie standardmäßig weiß ist und auf der Folie mit weißem Hintergrund nicht sichtbar ist.
-- Ändern Sie die Linienfarbe der Form in Weiß, um den Formrand zu verbergen.
-- Entfernen Sie das Standard-Fill-Format der Form.
-- Schreiben Sie schließlich die Präsentation im gewünschten Dateiformat mit dem Präsentationsobjekt.
+- Eine Instanz der Klasse Presentation erstellen
+- Die Referenz der ersten Folie in der Präsentation erhalten, die bei der Instanziierung von Presentation erstellt wird
+- Ein AutoShape mit ShapeType Rectangle an einer angegebenen Position der Folie hinzufügen
+- Einen TextFrame zum AutoShape hinzufügen, der Hello World als Standardtext enthält
+- Die Textfarbe zu Schwarz ändern, da sie standardmäßig weiß ist und auf einer Folie mit weißem Hintergrund nicht sichtbar ist
+- Die Linienfarbe der Form zu Weiß ändern, um den Formrand zu verbergen
+- Das Standard‑Füllformat der Form entfernen
+- Abschließend die Präsentation mit dem Presentation‑Objekt in das gewünschte Dateiformat schreiben
 
-Die Umsetzung der oben genannten Schritte wird im Folgenden anhand eines Beispiels demonstriert.
-
+Die Implementierung der obigen Schritte wird im nachfolgenden Beispiel gezeigt.
 ``` cpp
 #include <DOM/Presentation.h>
 #include <DOM/SlideCollection.h>
@@ -51,27 +59,27 @@ int main(int argc, const char argv[])
 {
     auto pres = System::MakeObject<Presentation>();
 
-    // Erhalten Sie die erste Folie
+    // die erste Folie abrufen
     auto slide = pres->get_Slides()->idx_get(0);
 
-    // Fügen Sie eine AutoShape des Rechtecktyps hinzu
+    // ein AutoShape vom Typ Rechteck hinzufügen
     auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-    // Fügen Sie dem Rechteck ein TextFrame hinzu
+    // TextFrame zum Rechteck hinzufügen
     shape->AddTextFrame(u"Hello World");
 
-    // Ändern Sie die Textfarbe in Schwarz (die standardmäßig Weiß ist)
+    // die Textfarbe zu Schwarz ändern (standardmäßig ist sie Weiß)
     auto portionFillFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_FillFormat();
     portionFillFormat->set_FillType(FillType::Solid);
     portionFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
 
-    // Ändern Sie die Linienfarbe des Rechtecks in Weiß
+    // die Linienfarbe des Rechtecks zu Weiß ändern
     shape->get_ShapeStyle()->get_LineColor()->set_Color(System::Drawing::Color::get_White());
 
-    // Entfernen Sie alle Füllformatierungen in der Form
+    // jegliche Füllformatierung der Form entfernen
     shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // Speichern Sie die Präsentation auf der Festplatte
+    // die Präsentation auf die Festplatte speichern
     pres->Save(u"output.pptx", SaveFormat::Pptx);
 
     return 0;

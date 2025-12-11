@@ -1,92 +1,139 @@
 ---
-title: خط مضمن
+title: دمج الخطوط في العروض التقديمية باستخدام C++
+linktitle: دمج الخط
 type: docs
 weight: 40
 url: /ar/cpp/embedded-font/
-keywords: "خطوط, خطوط مضمنة, إضافة خطوط, عرض تقديمي PowerPoint C++, CPP, Aspose.Slides for C++"
-description: "استخدام الخطوط المضمنة في عرض PowerPoint التقديمي في C++"
+keywords:
+- إضافة خط
+- دمج خط
+- دمج خطوط
+- الحصول على خط مدمج
+- إضافة خط مدمج
+- إزالة خط مدمج
+- ضغط خط مدمج
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "دمج خطوط TrueType في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ C++، لضمان عرض دقيق عبر جميع المنصات."
 ---
 
-**الخطوط المضمنة في PowerPoint** مفيدة عندما تريد أن يظهر عرضك التقديمي بشكل صحيح عند فتحه على أي نظام أو جهاز. إذا كنت قد استخدمت خطًا من طرف ثالث أو غير قياسي لأنك كنت مبتكرًا في عملك، فستكون لديك أسباب أكثر لتضمين خطك. خلاف ذلك (بدون خطوط مضمنة)، قد تتغير النصوص أو الأرقام على الشرائح الخاصة بك، أو تتغير التنسيقات، أو تصبح مربعات مربكة.
+## **نظرة عامة**
 
-تحتوي فئة [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) وفئة [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) وفئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) وواجهاتها على معظم الخصائص والأساليب التي تحتاجها للعمل مع الخطوط المضمنة في عروض PowerPoint التقديمية.
+**Embedded fonts in PowerPoint** تساعد في ضمان أن العرض التقديمي الخاص بك يحتفظ بالمظهر المقصود عند فتحه على أي نظام أو جهاز. هذا مهم بشكل خاص عند استخدام خطوط مخصصة أو خطوط من طرف ثالث أو خطوط غير قياسية لأغراض العلامة التجارية أو الإبداعية. بدون الخطوط المدمجة، قد يتم استبدال النص، ويمكن أن تتعطل التخطيطات، وقد تظهر الأحرف كرموز غير قابلة للقراءة أو مستطيلات، مما يضعف التصميم العام.
 
-## **إضافة أو إزالة الخطوط المضمنة من العرض التقديمي**
+Aspose.Slides for C++ يوفر مجموعة قوية من واجهات برمجة التطبيقات لإدارة الخطوط المدمجة برمجيًا. يمكنك استخدام [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) و[FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) لاستعراض، إضافة أو إزالة الخطوط المدمجة في ملفات العرض التقديمي. بالإضافة إلى ذلك، تسمح لك فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) بتحسين حجم الملف عن طريق ضغط بيانات الخط دون التأثير على الجودة أو المظهر.
 
-يوفر Aspose.Slides طريقة [GetEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) (المكشوفة بواسطة فئة [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/)) لتمكينك من الحصول على (أو معرفة) الخطوط المضمنة في عرض تقديمي. لإزالة الخطوط، يتم استخدام طريقة [RemoveEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/removeembeddedfont/) (المكشوفة بواسطة نفس الفئة).
+هذه الأدوات تمنحك تحكمًا كاملاً في دمج الخطوط، مما يساعدك على الحفاظ على طباعة متسقة عبر المنصات مع تقليل حجم الملف عند الحاجة.
 
-يوضح هذا الكود C++ كيفية الحصول على الخطوط المضمنة وإزالتها من عرض تقديمي:
+## **الحصول على الخطوط المدمجة من عرض تقديمي**
 
-```c++
-// يقوم بإنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
-auto presentation = System::MakeObject<Presentation>(u"EmbeddedFonts.pptx");
-// يقوم بعرض شريحة تحتوي على إطار نص يستخدم الخط المضمن "FunSized"
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::Png);
+Aspose.Slides for C++ يوفر طريقة `GetEmbeddedFonts` عبر فئة [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) التي تتيح لك استرجاع قائمة بالخطوط المدمجة في عرض PowerPoint. يمكن أن يكون ذلك مفيدًا لتدقيق استخدام الخطوط، وضمان الالتزام بإرشادات العلامة التجارية، أو التحقق من أن جميع الخطوط الضرورية مضمنة بشكل صحيح قبل مشاركة الملف.
 
-auto fontsManager = presentation->get_FontsManager();
+الكود التالي بلغة C++ يوضح كيفية الحصول على الخطوط المدمجة من ملف عرض تقديمي:
+```cpp
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-// يحصل على جميع الخطوط المضمنة
-auto embeddedFonts = fontsManager->GetEmbeddedFonts();
-
-std::function<bool(SharedPtr<IFontData>)> comparer = [](SharedPtr<IFontData> data) -> bool
-{
-    return data->get_FontName() == u"Calibri";
-};
-
-// يجد خط "Calibri"
-auto funSizedEmbeddedFont = Array<SharedPtr<IFontData>>::Find(embeddedFonts, comparer);
-
-// يزيل خط "Calibri"
-fontsManager->RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-// يقوم بعرض العرض التقديمي؛ يتم استبدال خط "Calibri" بخط موجود
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::Png);
-
-// يحفظ العرض التقديمي بدون خط "Calibri" المضمن على القرص
-presentation->Save(u"WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-```
-
-## **إضافة خطوط مضمنة إلى العرض التقديمي**
-
-باستخدام تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) واثنين من التحميلات الإضافية لطريقة [AddEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/)، يمكنك اختيار القاعدة المفضلة لديك (للتضمين) لتضمين الخطوط في عرض تقديمي. يوضح هذا الكود C++ كيفية تضمين وإضافة الخطوط إلى عرض تقديمي:
-
-```c++
-// يقوم بتحميل العرض التقديمي
-auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
-
-// يقوم بتحميل الخط المصدر المراد استبداله
-auto sourceFont = System::MakeObject<FontData>(u"Arial");
-
-auto allFonts = presentation->get_FontsManager()->GetFonts();
+// الحصول على جميع الخطوط المدمجة.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-for (SharedPtr<IFontData> font : allFonts)
+// طباعة أسماء الخطوط المدمجة.
+for (auto&& fontData : embeddedFonts)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&font](SharedPtr<IFontData> data) -> bool
-    {
-        return data == font;
-    };
+    Console::WriteLine(fontData->get_FontName());
+}
 
+presentation->Dispose();
+```
+
+
+## **إضافة خطوط مدمجة إلى عرض تقديمي**
+
+Aspose.Slides for C++ يسمح لك بدمج الخطوط في عرض PowerPoint باستخدام طريقة [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/) التي تأتي باثنين من التحميلات للاستخدام المرن. يمكنك التحكم في مقدار الخط المدمج باستخدام تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) — على سبيل المثال، اختيار دمج الأحرف المستخدمة فقط أو مجموعة الخط الكاملة. هذه الميزة مفيدة بشكل خاص عند إعداد عرض لتشاركه أو توزيعه، لضمان ظهور الخطوط المخصصة أو غير القياسية بشكل صحيح على جميع الأنظمة حتى إذا لم تُثبت تلك الخطوط.
+
+الكود التالي بلغة C++ يتحقق من جميع الخطوط المستخدمة في عرض تقديمي، ويدمج أي خطوط غير مدمجة بالفعل:
+```cpp
+// تحميل ملف عرض تقديمي.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto usedFonts = presentation->get_FontsManager()->GetFonts();
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : usedFonts)
+{
+    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+        {
+            return data == fontData;
+        };
+
+    // التحقق مما إذا كان الخط مدمجًا بالفعل.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        presentation->get_FontsManager()->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        // دمج الخط في العرض التقديمي.
+        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+    }
+
+}
+
+// حفظ العرض التقديمي إلى القرص.
+presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+## **إزالة الخطوط المدمجة من عرض تقديمي**
+
+Aspose.Slides for C++ يوفر طريقة `RemoveEmbeddedFont` عبر فئة [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) التي تتيح لك إزالة خطوط محددة مدمجة في عرض PowerPoint. يمكن أن يساعد ذلك في تقليل حجم الملف الكلي، خاصة إذا لم تعد الخطوط المدمجة مستخدمة أو ضرورية. إزالة الخطوط غير المستخدمة قد تحسن الأداء وتضمن أن العرض يحتوي فقط على الموارد الأساسية.
+
+الكود التالي بلغة C++ يوضح كيفية إزالة خط مدمج من عرض تقديمي:
+```cpp
+auto fontName = u"Calibri";
+
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+
+// الحصول على جميع الخطوط المدمجة.
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : embeddedFonts)
+{
+    if (fontData->get_FontName().Equals(fontName))
+    {
+        // إزالة الخط المدمج.
+        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+
+        break;
     }
 }
 
-// يحفظ العرض التقديمي على القرص
-presentation->Save(u"AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Dispose();
 ```
 
-## **ضغط الخطوط المضمنة**
 
-لتتمكن من ضغط الخطوط المضمنة في عرض تقديمي وتقليل حجم ملفه، يوفر Aspose.Slides الطريقة [CompressEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) (المكشوفة بواسطة فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/)).
+## **ضغط الخطوط المدمجة**
 
-يوضح هذا الكود C++ كيفية ضغط الخطوط المضمنة في PowerPoint:
+Aspose.Slides for C++ يوفر طريقة `CompressEmbeddedFonts` عبر فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) التي تسمح لك بتقليل حجم الملف الكلي للعرض عن طريق تحسين بيانات الخط المدمج. هذا مفيد بشكل خاص عندما يحتوي عرضك على خطوط كبيرة أو متعددة، وتريد الحفاظ على حجم الملف خفيفًا للمشاركة أو التخزين أو الاستخدام عبر الإنترنت — دون المساس بدقة المظهر البصري للمحتوى.
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+الكود التالي بلغة C++ يوضح كيفية ضغط الخطوط المدمجة في عرض PowerPoint:
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-Aspose::Slides::LowCode::Compress::CompressEmbeddedFonts(pres);
-pres->Save(u"pres-out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+Compress::CompressEmbeddedFonts(presentation);
+
+presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني معرفة أن خطًا معينًا في العرض التقديمي سيظل يُستبدل أثناء العرض بالرغم من دمجه؟**  
+تحقق من [substitution information](/slides/ar/cpp/font-substitution/) في مدير الخطوط و[fall back/substitution rules](/slides/ar/cpp/fallback-font/): إذا كان الخط غير متاح أو مقيد، سيتم استخدام الخط الاحتياطي.
+
+**هل يستحق دمج الخطوط "النظامية" مثل Arial/Calibri؟**  
+عادة لا—فهذه الخطوط متوفرة تقريبًا دائمًا. ولكن من أجل قابلية نقل كاملة في بيئات "خفيفة" (Docker، خادم Linux بدون خطوط مثبتة مسبقًا)، قد يزيل دمج خطوط النظام خطر الاستبدالات غير المتوقعة.

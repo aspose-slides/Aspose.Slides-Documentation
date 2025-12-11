@@ -1,162 +1,213 @@
 ---
-title: Фон презентации
+title: Управление фонами презентаций в C++
+linktitle: Фон слайда
 type: docs
 weight: 20
 url: /ru/cpp/presentation-background/
-keywords: "фон PowerPoint, задать фон"
-description: "Установите фон в презентации PowerPoint в CPP"
+keywords:
+- фон презентации
+- фон слайда
+- сплошной цвет
+- градиентный цвет
+- фоновое изображение
+- прозрачность фона
+- свойства фона
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Узнайте, как задавать динамические фоны в файлах PowerPoint и OpenDocument с помощью Aspose.Slides для C++, а также получите советы по коду для улучшения ваших презентаций."
 ---
 
-Сплошные цвета, градиентные цвета и изображения часто используются в качестве фоновых изображений для слайдов. Вы можете установить фон как для **нормального слайда** (один слайд), так и для **мастер-слайда** (несколько слайдов сразу).
+## **Обзор**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Сплошные цвета, градиенты и изображения часто используют в качестве фона слайда. Вы можете задать фон для **обычного слайда** (одного слайда) или **макетного слайда** (применяется к нескольким слайдам одновременно).
 
-## **Установить сплошной цвет в качестве фона для нормального слайда**
+![Фоновый рисунок PowerPoint](powerpoint-background.png)
 
-Aspose.Slides позволяет устанавливать сплошной цвет в качестве фона для конкретного слайда в презентации (даже если эта презентация содержит мастер-слайд). Изменение фона затрагивает только выбранный слайд.
+## **Задать сплошной цвет фона для обычного слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) для слайда в `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) для фона слайда в `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810), предоставляемое [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format), чтобы указать сплошной цвет для фона.
+Aspose.Slides позволяет задать сплошной цвет в качестве фона для конкретного слайда в презентации — даже если презентация использует макетный слайд. Изменение применяется только к выбранному слайду.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Задайте свойству слайда [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) значение `OwnBackground`.
+3. Задайте свойству фона слайда [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) значение `Solid`.
+4. Вызовите метод [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) у [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) и укажите сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на C++ показывает, как установить сплошной цвет (синий) в качестве фона для нормального слайда:
+Следующий пример на C++ показывает, как задать синий сплошной цвет в качестве фона обычного слайда:
+```cpp
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Путь к директории документов.
+auto slide = presentation->get_Slide(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+// Установите цвет фона слайда в синий.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	// Создает экземпляр класса Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Устанавливает цвет фона для первого ISlide в синий
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// Записывает презентацию на диск
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Сохраните презентацию на диск.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Установить сплошной цвет в качестве фона для мастер-слайда**
 
-Aspose.Slides позволяет установить сплошной цвет в качестве фона для мастер-слайда в презентации. Мастер-слайд действует как шаблон, который содержит и контролирует параметры форматирования для всех слайдов. Поэтому, когда вы выбираете сплошной цвет в качестве фона для мастер-слайда, этот новый фон будет использоваться для всех слайдов.
+## **Задать сплошной цвет фона для макетного слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) для мастер-слайда (`Masters`) в `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) для фона мастер-слайда в `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810), предоставляемое [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format), чтобы указать сплошной цвет для фона.
+Aspose.Slides позволяет задать сплошной цвет в качестве фона для макетного слайда в презентации. Макетный слайд выступает шаблоном, который управляет форматированием всех слайдов, поэтому при выборе сплошного цвета для фона макетного слайда он применяется к каждому слайду.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Задайте свойству макетного слайда [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) (через `get_Masters`) значение `OwnBackground`.
+3. Задайте свойству фона макетного слайда [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) значение `Solid`.
+4. Вызовите метод [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) и укажите сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на C++ показывает, как установить сплошной цвет (лесной зелёный) в качестве фона для мастер-слайда в презентации:
+Следующий пример на C++ показывает, как задать сплошной цвет (лесной зелёный) в качестве фона макетного слайда:
+```cpp
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Путь к директории документов.
+auto masterSlide = presentation->get_Master(0);
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+// Установите цвет фона для мастер‑слайда в лесной зелёный.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Создает экземпляр класса Presentation
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Устанавливает цвет фона для мастер ISlide в лесной зелёный
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	// Записывает презентацию на диск
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Сохраните презентацию на диск.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Установить градиентный цвет в качестве фона для слайда**
 
-Градиент — это графический эффект, основанный на постепенном изменении цвета. Градиентные цвета, используемые в качестве фонов для слайдов, придают презентациям художественный и профессиональный вид. Aspose.Slides позволяет установить градиентный цвет в качестве фона для слайдов в презентациях.
+## **Задать градиентный фон для слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) для слайда в `OwnBackground`.
-3. Установите.enumeration [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) для фона мастер-слайда в `Gradient`.
-4. Используйте свойство [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823), предоставляемое [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format), чтобы указать ваши предпочтительные настройки градиента.
+Градиент — это графический эффект, создаваемый постепённым изменением цвета. При использовании в качестве фона слайда градиенты могут сделать презентацию более художественной и профессиональной. Aspose.Slides позволяет задать градиентный цвет в качестве фона для слайдов.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Задайте свойству слайда [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) значение `OwnBackground`.
+3. Задайте свойству фона слайда [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) значение `Gradient`.
+4. Вызовите метод [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) у [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) и настройте желаемые параметры градиента.
 5. Сохраните изменённую презентацию.
 
-Этот код на C++ показывает, как установить градиентный цвет в качестве фона для слайда:
+Следующий пример на C++ показывает, как задать градиентный цвет в качестве фона слайда:
+```cpp
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Создает экземпляр класса Presentation
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Применить эффект градиента к фону
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+// Примените градиентный эффект к фону.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
 
-// Записывает презентацию на диск
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// Сохраните презентацию на диск.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Установить изображение в качестве фона для слайда**
 
-Помимо сплошных и градиентных цветов, Aspose.Slides также позволяет устанавливать изображения в качестве фона для слайдов в презентациях.
+## **Задать изображение в качестве фона слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) для слайда в `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) для фона мастер-слайда в `Picture`.
-4. Загрузите изображение, которое вы хотите использовать в качестве фона слайда.
+Помимо сплошных и градиентных заливок, Aspose.Slides позволяет использовать изображения в качестве фона слайдов.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Задайте свойству слайда [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) значение `OwnBackground`.
+3. Задайте свойству фона слайда [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) значение `Picture`.
+4. Загрузите изображение, которое хотите использовать в качестве фона слайда.
 5. Добавьте изображение в коллекцию изображений презентации.
-6. Используйте свойство [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae), предоставляемое [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format), чтобы установить изображение в качестве фона.
+6. Вызовите метод [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) у [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) и присвойте изображение в качестве фона.
 7. Сохраните изменённую презентацию.
 
-Этот код на C++ показывает, как установить изображение в качестве фона для слайда:
+Следующий пример на C++ показывает, как задать изображение в качестве фона слайда:
+```cpp
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Путь к директории документов.
+auto slide = presentation->get_Slide(0);
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+// Установите свойства фонового изображения.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Создает экземпляр класса Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Загрузите изображение.
+auto image = Images::FromFile(u"Tulips.jpg");
+// Добавьте изображение в коллекцию изображений презентации.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Устанавливает условия для фонового изображения
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Загружает изображение
-auto image = Images::FromFile(imagePath);
-
-// Добавляет изображение в коллекцию изображений презентации
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Записывает презентацию на диск
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the presentation to disk.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-### **Изменение прозрачности фонового изображения**
 
-Вы можете захотеть изменить прозрачность фонового изображения слайда, чтобы содержимое слайда выделялось. Этот код на C++ показывает, как изменить прозрачность фонового изображения слайда:
+Следующий образец кода показывает, как задать тип заливки фона в виде мозаичного изображения и изменить свойства мозаики:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-int32_t transparencyValue = 30;
-// например
-// Получает коллекцию операций преобразования изображения
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+
+Узнайте больше: [**Текстурировать мозаичным изображением**](/slides/ru/cpp/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
+
+### **Изменить прозрачность фонового изображения**
+
+Возможно, вам понадобится отрегулировать прозрачность фонового изображения слайда, чтобы выделить содержимое слайда. Следующий код на C++ показывает, как изменить прозрачность фонового изображения слайда:
+```cpp
+auto transparencyValue = 30; // Например.
+
+// Получить коллекцию операций трансформации изображения.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// Находит эффект прозрачности с фиксированным процентом.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Найти существующий эффект прозрачности с фиксированным процентом.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// Устанавливает новое значение прозрачности.
+
+// Установить новое значение прозрачности.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -167,27 +218,40 @@ else
 }
 ```
 
+
 ## **Получить значение фона слайда**
 
-Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/), который позволяет получить эффективные значения фонов слайдов. Этот интерфейс содержит информацию об эффективном [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) и эффективном [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8).
+Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) для получения эффективных значений фона слайда. Этот интерфейс раскрывает эффективный [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) и [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/).
 
-Используя свойство [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) из класса [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/), вы можете получить эффективное значение фона слайда.
+С помощью метода `get_Background` класса [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/) вы можете получить эффективный фон для слайда.
 
-Этот код на C++ показывает, как получить эффективное значение фона слайда:
+Следующий пример на C++ показывает, как получить эффективное значение фона слайда:
+```cpp
+// Создайте экземпляр класса Presentation.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-// Создает экземпляр класса Presentation
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+auto slide = presentation->get_Slide(0);
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"Цвет заливки: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"Тип заливки: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+// Retrieve the effective background, taking into account master, layout, and theme.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **FAQ**
+
+**Можно ли сбросить пользовательский фон и восстановить фон из темы/макета?**
+
+Да. Удалите пользовательскую заливку слайда, и фон будет вновь получен от соответствующего [layout](/slides/ru/cpp/slide-layout/)/[master](/slides/ru/cpp/slide-master/) слайда (то есть от [theme background](/slides/ru/cpp/presentation-theme/)).
+
+**Что произойдёт с фоном, если я позже изменю тему презентации?**
+
+Если у слайда есть собственная заливка, она останется неизменной. Если фон наследуется от [layout](/slides/ru/cpp/slide-layout/)/[master](/slides/ru/cpp/slide-master/), он обновится в соответствии с [new theme](/slides/ru/cpp/presentation-theme/).

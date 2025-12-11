@@ -1,163 +1,211 @@
 ---
-title: Präsentationshintergrund
+title: Verwalten von Präsentationshintergründen in C++
+linktitle: Folienhintergrund
 type: docs
 weight: 20
 url: /de/cpp/presentation-background/
-keywords: "PowerPoint Hintergrund, Hintergrund einstellen"
-description: "Hintergrund in PowerPoint-Präsentation in CPP einstellen"
+keywords:
+- Präsentationshintergrund
+- Folienhintergrund
+- Einfarbige Farbe
+- Verlaufsfarbe
+- Bildhintergrund
+- Hintergrundtransparenz
+- Hintergrundeigenschaften
+- PowerPoint
+- OpenDocument
+- Präsentation
+- C++
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für C++ festlegen, inklusive Code-Tipps, um Ihre Präsentationen zu optimieren."
 ---
 
-Einfarbige Farben, Farbverläufe und Bilder werden häufig als Hintergrundbilder für Folien verwendet. Sie können den Hintergrund entweder für eine **normale Folie** (einzelne Folie) oder **Masterfolie** (mehrere Folien gleichzeitig) festlegen.
+## **Übersicht**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Einfarbige Farben, Verläufe und Bilder werden häufig für Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (einzelne Folie) oder eine **Masterfolie** (gilt für mehrere Folien gleichzeitig) festlegen.
 
-## **Einfarbigen Hintergrund für normale Folie festlegen**
+![PowerPoint-Hintergrund](powerpoint-background.png)
 
-Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für eine bestimmte Folie in einer Präsentation festzulegen (auch wenn diese Präsentation eine Masterfolie enthält). Die Hintergrundänderung betrifft nur die ausgewählte Folie.
+## **Einfarbigen Hintergrund für eine normale Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-2. Setzen Sie das [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie das [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) Enum für den Folienhintergrund auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) bereitgestellt wird, um eine einfarbige Farbe für den Hintergrund anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht das Festlegen einer einfarbigen Hintergrundfarbe für eine bestimmte Folie in einer Präsentation – selbst wenn die Präsentation eine Masterfolie verwendet. Die Änderung gilt nur für die ausgewählte Folie.
 
-Dieser C++-Code zeigt Ihnen, wie Sie eine einfarbige Farbe (blau) als Hintergrund für eine normale Folie festlegen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) auf `Solid`.
+4. Verwenden Sie die Methode [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) auf [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/), um die einfarbige Hintergrundfarbe festzulegen.
+5. Speichern Sie die geänderte Präsentation.
 
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
+Das folgende C++-Beispiel zeigt, wie man eine blaue einfarbige Hintergrundfarbe für eine normale Folie festlegt:
+```cpp
+// Erstelle eine Instanz der Presentation-Klasse.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-	// Erstellt eine Instanz der Presentation-Klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Setze die Hintergrundfarbe der Folie auf Blau.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	//  Setzt die Hintergrundfarbe für die erste ISlide auf Blau
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	//Schreibt die Präsentation auf die Festplatte
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Speichere die Präsentation auf die Festplatte.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Einfarbigen Hintergrund für Masterfolie festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für die Masterfolie in einer Präsentation festzulegen. Die Masterfolie fungiert als Vorlage, die Formatierungseinstellungen für alle Folien enthält und steuert. Daher wird, wenn Sie eine einfarbige Farbe als Hintergrund für die Masterfolie auswählen, dieser neue Hintergrund für alle Folien verwendet.
+## **Einfarbigen Hintergrund für eine Masterfolie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-2. Setzen Sie das [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) Enum für die Masterfolie (`Masters`) auf `OwnBackground`.
-3. Setzen Sie das [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) Enum für den Hintergrund der Masterfolie auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) bereitgestellt wird, um eine einfarbige Farbe für den Hintergrund anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht das Festlegen einer einfarbigen Hintergrundfarbe für die Masterfolie in einer Präsentation. Die Masterfolie dient als Vorlage, die die Formatierung aller Folien steuert, sodass, wenn Sie eine einfarbige Hintergrundfarbe für die Masterfolie auswählen, diese für jede Folie gilt.
 
-Dieser C++-Code zeigt Ihnen, wie Sie eine einfarbige Farbe (forstgrün) als Hintergrund für eine Masterfolie in einer Präsentation festlegen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) der Masterfolie (über `get_Masters`) auf `OwnBackground`.
+3. Setzen Sie den Hintergrund der Masterfolie [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) auf `Solid`.
+4. Verwenden Sie die Methode [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/), um die einfarbige Hintergrundfarbe festzulegen.
+5. Speichern Sie die geänderte Präsentation.
 
-```c++
-	// Der Pfad zum Dokumentenverzeichnis.
+Das folgende C++-Beispiel zeigt, wie man eine einfarbige Hintergrundfarbe (Waldgrün) für eine Masterfolie festlegt:
+```cpp
+// Erstelle eine Instanz der Presentation-Klasse.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+auto masterSlide = presentation->get_Master(0);
 
-	// Erstellt eine Instanz der Presentation-Klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Setze die Hintergrundfarbe für die Masterfolie auf Waldgrün.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Setzt die Hintergrundfarbe für die Master ISlide auf Forstgrün
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	//Schreibt die Präsentation auf die Festplatte
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Speichere die Präsentation auf die Festplatte.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Farbverlauf als Hintergrund für Folie festlegen**
 
-Ein Farbverlauf ist ein grafischer Effekt, der auf einer allmählichen Farbänderung basiert. Farbverläufe, die als Hintergründe für Folien verwendet werden, lassen Präsentationen künstlerisch und professionell erscheinen. Aspose.Slides ermöglicht es Ihnen, eine Farbverlauf als Hintergrund für Folien in Präsentationen festzulegen.
+## **Verlaufshintergrund für eine Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-2. Setzen Sie das [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie das [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) Enum für den Hintergrund der Masterfolie auf `Gradient`.
-4. Verwenden Sie die [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) bereitgestellt wird, um Ihre bevorzugte Gradieneinstellung anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
+Ein Verlauf ist ein grafischer Effekt, der durch eine allmähliche Farbänderung entsteht. Als Folienhintergrund kann ein Verlauf Präsentationen künstlerischer und professioneller erscheinen lassen. Aspose.Slides ermöglicht das Festlegen einer Verlauffarbe als Hintergrund für Folien.
 
-Dieser C++-Code zeigt Ihnen, wie Sie einen Farbverlauf als Hintergrund für eine Folie festlegen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) auf `Gradient`.
+4. Verwenden Sie die Methode [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) auf [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/), um Ihre gewünschten Verlaufseinstellungen zu konfigurieren.
+5. Speichern Sie die geänderte Präsentation.
 
-```c++
-// Erstellt eine Instanz der Präsentationsklasse
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+Das folgende C++-Beispiel zeigt, wie man eine Verlauffarbe als Hintergrund für eine Folie festlegt:
+```cpp
+// Erstelle eine Instanz der Presentation-Klasse.
+auto presentation = MakeObject<Presentation>();
 
-// Wendet den Farbverlaufseffekt auf den Hintergrund an
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+auto slide = presentation->get_Slide(0);
 
-// Schreibt die Präsentation auf die Festplatte
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// Wende einen Verlaufseffekt auf den Hintergrund an.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+
+// Speichere die Präsentation auf die Festplatte.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Bild als Hintergrund für Folie festlegen**
 
-Neben einfarbigen Farben und Farbverläufen ermöglicht es Aspose.Slides auch, Bilder als Hintergrund für Folien in Präsentationen festzulegen.
+## **Ein Bild als Folienhintergrund festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-2. Setzen Sie das [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie das [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) Enum für den Hintergrund der Masterfolie auf `Picture`.
+Zusätzlich zu einfarbigen und Verlauffüllungen ermöglicht Aspose.Slides die Verwendung von Bildern als Folienhintergrund.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) auf `Picture`.
 4. Laden Sie das Bild, das Sie als Folienhintergrund verwenden möchten.
-5. Fügen Sie das Bild in die Bildsammlung der Präsentation ein.
-6. Verwenden Sie die [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) bereitgestellt wird, um das Bild als Hintergrund festzulegen.
-7. Speichern Sie die modifizierte Präsentation.
+5. Fügen Sie das Bild der Bildsammlung der Präsentation hinzu.
+6. Verwenden Sie die Methode [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) auf [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/), um das Bild als Hintergrund zuzuweisen.
+7. Speichern Sie die geänderte Präsentation.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Bild als Hintergrund für eine Folie festlegen:
+Das folgende C++-Beispiel zeigt, wie man ein Bild als Hintergrund für eine Folie festlegt:
+```cpp
+// Erstelle eine Instanz der Presentation-Klasse.
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
+auto slide = presentation->get_Slide(0);
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+// Lege die Eigenschaften des Hintergrundbildes fest.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Erstellt eine Instanz der Präsentationsklasse
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Lade das Bild.
+auto image = Images::FromFile(u"Tulips.jpg");
+// Füge das Bild zur Bildsammlung der Präsentation hinzu.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Setzt Bedingungen für das Hintergrundbild
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Lädt das Bild
-auto image = Images::FromFile(imagePath);
-
-// Fügt das Bild zur Bildersammlung der Präsentation hinzu
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Schreibt die Präsentation auf die Festplatte
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Speichere die Präsentation auf die Festplatte.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+
+Das folgende Codebeispiel zeigt, wie man den Hintergrundfülltyp auf ein gekacheltes Bild festlegt und die Kacheligkeitseigenschaften ändert:
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+
+{{% alert color="primary" %}}
+Lesen Sie mehr: [**Kachelbild als Textur**](/slides/de/cpp/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **Transparenz des Hintergrundbildes ändern**
 
-Sie möchten möglicherweise die Transparenz eines Folienhintergrundbilds anpassen, um die Inhalte der Folie hervorzuheben. Dieser C++-Code zeigt Ihnen, wie Sie die Transparenz für ein Folienhintergrundbild ändern:
+Möglicherweise möchten Sie die Transparenz des Hintergrundbildes einer Folie anpassen, damit der Inhalt der Folie besser hervorsticht. Der folgende C++-Code zeigt, wie Sie die Transparenz für ein Folienhintergrundbild ändern:
+```cpp
+auto transparencyValue = 30; // Zum Beispiel.
 
-```c++
-int32_t transparencyValue = 30;
-// zum Beispiel
-// Holt eine Sammlung von Bildtransformationsoperationen
+// Rufe die Sammlung von Bildtransformationsoperationen ab.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// Findet einen Transparenzeffekt mit festem Prozentsatz.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Finde einen vorhandenen Transparenzeffekt mit festem Prozentsatz.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// Setzt den neuen Transparenzwert.
+
+// Setze den neuen Transparenzwert.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,27 +216,40 @@ else
 }
 ```
 
+
 ## **Wert des Folienhintergrunds abrufen**
 
-Aspose.Slides bietet das [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) Interface, um Ihnen zu ermöglichen, die effektiven Werte von Folienhintergründen abzurufen. Dieses Interface enthält Informationen über die effektive [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) und die effektive [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8).
+Aspose.Slides stellt das Interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) zum Abrufen der effektiven Hintergrundwerte einer Folie bereit. Dieses Interface gibt das effektive [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) und [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) zurück.
 
-Verwenden Sie die [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) Eigenschaft der [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/) Klasse, um den effektiven Wert für einen Folienhintergrund abzurufen.
+Durch die Verwendung der Methode `get_Background` der Klasse [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/) können Sie den effektiven Hintergrund für eine Folie erhalten.
 
-Dieser C++-Code zeigt Ihnen, wie Sie den effektiven Hintergrundwert einer Folie abrufen:
+Das folgende C++-Beispiel zeigt, wie man den effektiven Hintergrundwert einer Folie abruft:
+```cpp
+// Erstelle eine Instanz der Presentation-Klasse.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-// Erstellt eine Instanz der Präsentationsklasse
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+auto slide = presentation->get_Slide(0);
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"Füllfarbe: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"Fülltyp: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+// Rufe den effektiven Hintergrund ab, wobei Master, Layout und Theme berücksichtigt werden.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
+
+
+## **FAQ**
+
+**Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Theme-/Layout-Hintergrund wiederherstellen?**
+
+Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird wieder vom entsprechenden [layout](/slides/de/cpp/slide-layout/)/[master](/slides/de/cpp/slide-master/) Folie (d. h. vom [theme background](/slides/de/cpp/presentation-theme/)) geerbt.
+
+**Was passiert mit dem Hintergrund, wenn ich später das Theme der Präsentation ändere?**
+
+Wenn eine Folie ihre eigene Füllung hat, bleibt sie unverändert. Wenn der Hintergrund vom [layout](/slides/de/cpp/slide-layout/)/[master](/slides/de/cpp/slide-master/) geerbt wird, wird er aktualisiert, um dem [new theme](/slides/de/cpp/presentation-theme/) zu entsprechen.

@@ -1,170 +1,195 @@
 ---
-title: Конвертация слайда
+title: Конвертировать слайды презентации в изображения на C++
+linktitle: Слайд в изображение
 type: docs
 weight: 41
 url: /ru/cpp/convert-slide/
-keywords: "Конвертация слайда в изображение, экспорт слайда как изображение, сохранение слайда как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, C++, Aspose.Slides"
-description: "Конвертация слайда PowerPoint в изображение (Bitmap, PNG или JPG) на C++"
+keywords:
+- конвертировать слайд
+- экспортировать слайд
+- слайд в изображение
+- сохранить слайд как изображение
+- слайд в PNG
+- слайд в JPEG
+- слайд в bitmap
+- слайд в TIFF
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Конвертировать слайды из PPT, PPTX и ODP в изображения на C++ с помощью Aspose.Slides — быстрое, высококачественное рендеринг с понятными примерами кода."
 ---
 
-Aspose.Slides для C++ позволяет вам конвертировать слайды (в презентациях) в изображения. Поддерживаемые форматы изображений: BMP, PNG, JPG (JPEG), GIF и другие.
+## **Обзор**
 
-Чтобы конвертировать слайд в изображение, выполните следующие действия:
+Aspose.Slides for C++ позволяет легко преобразовывать слайды презентаций PowerPoint и OpenDocument в различные форматы изображений, включая BMP, PNG, JPG (JPEG), GIF и другие.
 
-1. Сначала конвертируйте слайд в Bitmap, используя метод [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/)
-2. Затем установите дополнительные параметры для конвертации и конвертируемых объектов слайда через
-   * интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) или
-   * интерфейс [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options).
+Чтобы преобразовать слайд в изображение, выполните следующие действия:
 
-## **О Bitmap и других форматах изображений**
+1. Определите желаемые параметры преобразования и выберите слайды, которые хотите экспортировать, используя:
+    - интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/), или
+    - интерфейс [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/).
+2. Сгенерируйте изображение слайда, вызвав метод [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/).
 
-[Bitmap](https://reference.aspose.com/slides/cpp/class/system.drawing.bitmap) — это объект, который позволяет работать с изображениями, определяемыми данными пикселей. Вы можете использовать экземпляр этого класса для сохранения изображений в широком диапазоне форматов (BMP, JPG, PNG и др.).
+[Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/) — объект, позволяющий работать с изображениями, определяемыми данными пикселей. Вы можете использовать экземпляр этого класса для сохранения изображений в широком диапазоне форматов (BMP, JPG, PNG и т.д.).
 
-{{% alert title="Информация" color="info" %}}
+## **Преобразование слайдов в Bitmap и сохранение изображений в PNG**
 
-Aspose недавно разработал онлайн-конвертер [Text to GIF](https://products.aspose.app/slides/text-to-gif).
+Вы можете преобразовать слайд в объект bitmap и использовать его напрямую в приложении. Кроме того, можно преобразовать слайд в bitmap, а затем сохранить изображение в JPEG или любом другом предпочтительном формате.
 
-{{% /alert %}}
+Следующий код C++ демонстрирует, как преобразовать первый слайд презентации в объект bitmap и затем сохранить изображение в формате PNG:
+```cpp 
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-## **Конвертация слайдов в Bitmap и сохранение изображений в PNG**
+// Convert the first slide in the presentation to a bitmap.
+auto image = presentation->get_Slide(0)->GetImage();
 
-Этот код на C++ показывает, как конвертировать первый слайд презентации в объект bitmap, а затем сохранить изображение в формате PNG:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-// Конвертируем первый слайд презентации в объект Bitmap
-System::SharedPtr<IImage> image = pres->get_Slide(0)->GetImage();
-                 
-// Сохраняем изображение в формате PNG
+// Save the image in the PNG format.
 image->Save(u"Slide_0.png", ImageFormat::Png);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-{{% alert title="Совет" color="primary" %}} 
 
-Вы можете конвертировать слайд в объект bitmap и затем использовать его непосредственно где-либо. Либо вы можете конвертировать слайд в bitmap и затем сохранить изображение в JPEG или любом другом предпочитаемом вами формате.
+## **Преобразование слайдов в изображения с пользовательскими размерами**
 
-{{% /alert %}}  
+Возможно, вам понадобится получить изображение определённого размера. Используя перегрузку метода [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/), вы можете преобразовать слайд в изображение с конкретными шириной и высотой.
 
-## **Конвертация слайдов в изображения с пользовательскими размерами**
+Этот пример кода демонстрирует, как это сделать:
+```cpp 
+Size imageSize(1820, 1040);
 
-Вам может понадобиться получить изображение определенного размера. Используя перегрузку метода [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/), вы можете конвертировать слайд в изображение с заданными размерами (длиной и шириной).
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-Этот пример кода демонстрирует предложенную конвертацию, используя метод [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) на C++:
+// Преобразовать первый слайд презентации в bitmap с указанным размером.
+auto image = presentation->get_Slide(0)->GetImage(imageSize);
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-// Конвертируем первый слайд в презентации в Bitmap с указанным размером
-auto image = pres->get_Slide(0)->GetImage(Size(1820, 1040));
-// Сохраняем изображение в формате JPEG
+// Сохранить изображение в формате JPEG.
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-## **Конвертация слайдов с заметками и комментариями в изображения**
 
-Некоторые слайды содержат заметки и комментарии.
+## **Преобразование слайдов с заметками и комментариями в изображения**
 
-Aspose.Slides предоставляет два интерфейса — [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) и [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) — которые позволяют вам управлять рендерингом слайдов презентации в изображения. Оба интерфейса содержат интерфейс [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options), который позволяет вам добавлять заметки и комментарии на слайд при конвертации этого слайда в изображение.
+Некоторые слайды могут содержать заметки и комментарии.
 
-{{% alert title="Информация" color="info" %}} 
+Aspose.Slides предоставляет два интерфейса — [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) и [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/) — которые позволяют контролировать рендеринг слайдов презентации в изображения. Оба интерфейса включают метод `set_SlidesLayoutOptions`, который позволяет настроить рендеринг заметок и комментариев на слайде при его преобразовании в изображение.
 
-С помощью интерфейса [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) вы можете указать предпочитаемое положение для заметок и комментариев в результирующем изображении.
+С помощью класса [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) вы можете указать предпочтительное расположение заметок и комментариев в получаемом изображении.
+
+Этот код C++ демонстрирует, как преобразовать слайд с заметками и комментариями:
+```cpp 
+float scaleX = 2;
+float scaleY = scaleX;
+
+// Загрузить файл презентации.
+auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+
+auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Установить положение заметок.
+notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Установить положение комментариев.
+notesCommentsOptions->set_CommentsAreaWidth(500);                          // Установить ширину области комментариев.
+notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Установить цвет области комментариев.
+
+// Создать параметры рендеринга.
+auto options = MakeObject<RenderingOptions>();
+options->set_SlidesLayoutOptions(notesCommentsOptions);
+
+// Преобразовать первый слайд презентации в изображение.
+auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
+
+// Сохранить изображение в формате GIF.
+image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
+
+image->Dispose();
+presentation->Dispose();
+```
+
+
+{{% alert title="Note" color="warning" %}} 
+
+В любом процессе преобразования слайдов в изображения метод [set_NotesPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) не может применить `BottomFull` (чтобы указать позицию для заметок), поскольку текст заметки может быть слишком большим, и он не помещается в указанный размер изображения.
 
 {{% /alert %}} 
 
-Этот код на C++ демонстрирует процесс конвертации слайда с заметками и комментариями:
+## **Преобразование слайдов в изображения с использованием TIFF‑опций**
 
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"PresentationNotesComments.pptx");
-// Создаем параметры рендеринга
-auto options = System::MakeObject<RenderingOptions>();
-auto notesCommentsLayouting = options->get_NotesCommentsLayouting();
-// Устанавливаем положение заметок на странице
-notesCommentsLayouting->set_NotesPosition(NotesPositions::BottomTruncated);
-// Устанавливаем положение комментариев на странице 
-notesCommentsLayouting->set_CommentsPosition(CommentsPositions::Right);
-// Устанавливаем ширину области вывода комментариев
-notesCommentsLayouting->set_CommentsAreaWidth(500);
-// Устанавливаем цвет области комментариев
-notesCommentsLayouting->set_CommentsAreaColor(Color::get_AntiqueWhite());
+Интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) предоставляет более тонкий контроль над результирующим TIFF‑изображением, позволяя задавать такие параметры, как размер, разрешение, цветовая палитра и другие.
 
-// Конвертируем первый слайд презентации в объект Bitmap
-auto image = pres->get_Slide(0)->GetImage(options, 2.f, 2.f);
+Этот код C++ демонстрирует процесс преобразования, где TIFF‑опции используются для вывода черно‑белого изображения с разрешением 300 DPI и размером 2160 × 2800:
+```cpp 
+// Загрузить файл презентации.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Сохраняем изображение в формате GIF
-image->Save(u"Slide_Notes_Comments_0.gif", ImageFormat::Gif);
+// Получить первый слайд из презентации.
+auto slide = presentation->get_Slide(0);
+
+// Настроить параметры выходного TIFF-изображения.
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));                       // Установить размер изображения.
+tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Установить формат пикселей (чёрно-белый).
+tiffOptions->set_DpiX(300);                                         // Установить горизонтальное разрешение.
+tiffOptions->set_DpiY(300);                                         // Установить вертикальное разрешение.
+
+// Преобразовать слайд в изображение с указанными параметрами.
+auto image = slide->GetImage(tiffOptions);
+
+// Сохранить изображение в формате TIFF.
+image->Save(u"output.bmp", ImageFormat::Tiff);
+
+image->Dispose();
+presentation->Dispose();
 ```
 
-{{% alert title="Примечание" color="warning" %}} 
 
-В процессе конвертации любого слайда в изображение вы не можете передать значение BottomFull (чтобы указать положение для заметок) методу [set_NotesPositions()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options), поскольку текст заметки может быть большим, и он может не поместиться в заданный размер изображения.
+## **Преобразование всех слайдов в изображения**
 
-{{% /alert %}} 
+Aspose.Slides позволяет преобразовать все слайды презентации в изображения, фактически превращая всю презентацию в серию изображений.
 
-## **Конвертация слайдов в изображения с использованием ITiffOptions**
+Этот пример кода демонстрирует, как преобразовать все слайды презентации в изображения в C++:
+```cpp 
+float scaleX = 2;
+float scaleY = scaleX;
 
-Интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) дает вам больше контроля (в терминах параметров) над результирующим изображением. С помощью этого интерфейса вы можете указать размер, разрешение, цветовую палитру и другие параметры для результирующего изображения.
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-Этот код на C++ демонстрирует процесс конвертации, где используется ITiffOptions для вывода черно-белого изображения с разрешением 300 dpi и размером 2160 × 2800:
-
-``` cpp 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"PresentationNotesComments.pptx");
-
-// Получаем слайд по его индексу
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Создаем объект TiffOptions
-System::SharedPtr<TiffOptions> options = System::MakeObject<TiffOptions>();
-options->set_ImageSize(Size(2160, 2880));
-
-// Устанавливаем шрифт, используемый в случае отсутствия исходного шрифта
-options->set_DefaultRegularFont(u"Arial Black");
-
-// Устанавливаем положение заметок на странице 
-options->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomTruncated);
-
-// Устанавливаем формат пикселей (черно-белый)
-options->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);
-
-// Устанавливаем разрешение
-options->set_DpiX(300);
-options->set_DpiY(300);
-
-// Конвертируем слайд в объект Bitmap
-System::SharedPtr<Bitmap> image = slide->GetImage(options);
-
-// Сохраняем изображение в формате BMP
-image->Save(u"PresentationNotesComments.bmp", ImageFormat::Tiff);
-```
-
-## **Конвертация всех слайдов в изображения**
-
-Aspose.Slides позволяет вам конвертировать все слайды в одной презентации в изображения. По сути, вы получаете возможность конвертировать презентацию (целиком) в изображения.
-
-Этот пример кода показывает, как конвертировать все слайды в презентации в изображения на C++:
-
-``` cpp 
-// Путь к выходному каталогу
-System::String outputDir = u"D:\\PresentationImages";
-
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-// Рендеринг презентации в массив изображений слайда за слайдом
-for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
+// Рендерить презентацию в изображения слайд за слайдом.
+for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 {
-    // Контроль скрытых слайдов (не рендерить скрытые слайды)
-    if (pres->get_Slide(i)->get_Hidden())
+    // Управление скрытыми слайдами (не рендерить скрытые слайды).
+    if (presentation->get_Slide(i)->get_Hidden())
     {
         continue;
     }
 
-    // Конвертируем слайд в объект Bitmap
-    auto image = pres->get_Slide(i)->GetImage(2.f, 2.f);
+    // Преобразовать слайд в изображение.
+    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
 
-    // Создаем имя файла для изображения
-    auto outputFilePath = Path::Combine(outputDir, String(u"Slide_") + i + u".jpg");
+    // Сохранить изображение в формате JPEG.
+    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
 
-    // Сохраняем изображение в формате PNG
-    image->Save(outputFilePath, ImageFormat::Png);
+    image->Dispose();
 }
+
+presentation->Dispose();
 ```
+
+
+## **FAQ**
+
+**Поддерживает ли Aspose.Slides рендеринг слайдов с анимацией?**
+
+Нет, метод `GetImage` сохраняет только статическое изображение слайда без анимаций.
+
+**Можно ли экспортировать скрытые слайды в виде изображений?**
+
+Да, скрытые слайды могут обрабатываться так же, как обычные. Просто убедитесь, что они включены в цикл обработки.
+
+**Можно ли сохранять изображения с тенями и эффектами?**
+
+Да, Aspose.Slides поддерживает рендеринг теней, прозрачности и других графических эффектов при сохранении слайдов в виде изображений.

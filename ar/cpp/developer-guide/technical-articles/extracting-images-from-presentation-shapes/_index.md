@@ -1,23 +1,33 @@
 ---
 title: استخراج الصور من أشكال العرض التقديمي
+linktitle: صورة من الشكل
 type: docs
 weight: 90
 url: /ar/cpp/extracting-images-from-presentation-shapes/
-keywords: "استخراج صورة, PowerPoint, PPT, PPTX, عرض PowerPoint, C++, CPP, Aspose.Slides لـ C++"
-description: "استخراج الصور من عرض PowerPoint في C++"
-
+keywords:
+- استخراج صورة
+- استرجاع صورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++ — حل سريع وسهل الاستخدام في الكود."
 ---
+
+## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
 
-تُضاف الصور غالبًا إلى الأشكال وغالبًا ما تُستخدم كخلفيات للشرائح. تُضاف كائنات الصور من خلال [IImageCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/). 
+عادةً ما يتم إضافة الصور إلى الأشكال وتُستخدم كثيرًا كخلفيات للشرائح. يتم إضافة كائنات الصورة عبر [IImageCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/). 
 
-تتناول هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
+تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، عليك أولاً تحديد موقع الصورة من خلال المرور بكل شريحة ثم المرور بكل شكل. بمجرد العثور على الصورة أو التعرف عليها، يمكنك استخراجها وحفظها كملف جديد. 
-
+لاستخراج صورة من عرض تقديمي، عليك أولاً تحديد موقع الصورة بالمرور عبر كل شريحة ثم عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
 ``` cpp
 void Run()
 {
@@ -39,10 +49,10 @@ void Run()
 
         if (sl->get_Background()->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
         {
-            //الحصول على الصورة الخلفية  
+            //الحصول على صورة الخلفية  
             Backimg = sl->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_Image();
 
-            //تعيين تنسيق الصورة المطلوب
+            //ضبط تنسيق الصورة المطلوب
             ImageType = Backimg->get_ContentType();
             ImageType = ImageType.Remove(0, ImageType.IndexOf(u"/") + 1);
             Format = GetImageFormat(ImageType);
@@ -54,10 +64,10 @@ void Run()
         {
             if (sl->get_LayoutSlide()->get_Background()->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
             {
-                //الحصول على الصورة الخلفية  
+                //الحصول على صورة الخلفية  
                 Backimg = sl->get_LayoutSlide()->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_Image();
 
-                //تعيين تنسيق الصورة المطلوب 
+                //ضبط تنسيق الصورة المطلوب 
                 ImageType = Backimg->get_ContentType();
                 ImageType = ImageType.Remove(0, ImageType.IndexOf(u"/") + 1);
                 Format = GetImageFormat(ImageType);
@@ -96,7 +106,7 @@ void Run()
                 }
             }
 
-            //تعيين تنسيق الصورة المفضل
+            //ضبط تنسيق الصورة المفضل
             if (ifImageFound)
             {
                 Format = GetImageFormat(ImageType);
@@ -150,5 +160,23 @@ System::SharedPtr<System::Drawing::Imaging::ImageFormat> GetImageFormat(System::
 
     return Format;
 }
-
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحويلات الشكل؟**
+
+نعم. عندما تصل إلى صورة الشكل، ستحصل على كائن الصورة من [مجموعة الصور](https://reference.aspose.com/slides/cpp/aspose.slides/imagecollection/)، أي البيكسلات الأصلية دون قص أو تأثيرات تنسيقية. يتنقل سير العمل عبر مجموعة صور العرض وكائنات [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/) التي تخزن البيانات الخام.
+
+**هل هناك خطر تكرار الملفات المتطابقة عند حفظ العديد من الصور دفعة واحدة؟**
+
+نعم، إذا قمت بحفظ كل شيء دون تمييز. قد تحتوي [مجموعة الصور](https://reference.aspose.com/slides/cpp/aspose.slides/imagecollection/) في العرض على بيانات ثنائية متطابقة يُشار إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
+
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة معينة من مجموعة العرض؟**
+
+لا تقوم Aspose.Slides بتخزين روابط عكسية من [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/) إلى الأشكال. يمكنك إنشاء خريطة يدوياً أثناء التجول: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/)، سجّل أي الأشكال تستخدمها.
+
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
+
+ليس مباشرة، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العروض عبر [PPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.

@@ -1,119 +1,180 @@
 ---
-title: Visor de Presentaciones
+title: Crear un visor de presentaciones en C++
+linktitle: Visor de presentaciones
 type: docs
 weight: 50
 url: /es/cpp/presentation-viewer/
-keywords: 
-- ver presentación de PowerPoint
-- ver ppt
+keywords:
+- ver presentación
+- visor de presentaciones
+- crear visor de presentaciones
+- ver PPT
 - ver PPTX
+- ver ODP
+- PowerPoint
+- OpenDocument
+- presentación
 - C++
-- Aspose.Slides para C++
-description: "Ver presentación de PowerPoint en C++"
+- Aspose.Slides
+description: "Crear un visor de presentaciones personalizado en C++ usando Aspose.Slides. Visualice fácilmente archivos PowerPoint y OpenDocument sin Microsoft PowerPoint."
 ---
 
-## **Generar Imagen SVG desde Diapositiva**
-Aspose.Slides para C++ se utiliza para crear archivos de presentación, completos con diapositivas. Estas diapositivas pueden ser visualizadas abriendo las presentaciones con Microsoft PowerPoint. Pero a veces, los desarrolladores también pueden necesitar ver diapositivas como imágenes SVG en su visor de imágenes favorito. En tales casos, Aspose.Slides para C++ permite exportar una diapositiva individual a una imagen SVG. Este artículo describe cómo usar esta función. Para generar una imagen SVG desde cualquier diapositiva deseada con Aspose.Slides.Pptx para C++, siga los siguientes pasos:
+Aspose.Slides for C++ se utiliza para crear archivos de presentación con diapositivas. Estas diapositivas pueden verse abriendo las presentaciones en Microsoft PowerPoint, por ejemplo. Sin embargo, a veces los desarrolladores pueden necesitar ver las diapositivas como imágenes en su visor de imágenes preferido o crear su propio visor de presentaciones. En esos casos, Aspose.Slides le permite exportar una diapositiva individual como imagen. Este artículo describe cómo hacerlo.
 
-- Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) clase.
-- Obtenga la referencia de la diapositiva deseada utilizando su ID o índice.
-- Obtenga la imagen SVG en un flujo de memoria.
-- Guarde el flujo de memoria en un archivo.
+## **Generar una imagen SVG a partir de una diapositiva**
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSlidesSVGImage-CreateSlidesSVGImage.cpp" >}}
-## **Generar SVG con IDs de Forma Personalizados**
-Ahora Aspose.Slides para C++ se puede utilizar para generar SVG desde una diapositiva con ID de forma personalizados. Estas diapositivas pueden ser visualizadas abriendo presentaciones con Microsoft PowerPoint. Pero a veces, los desarrolladores también pueden necesitar ver diapositivas como imágenes SVG en su visor de imágenes favorito. En tales casos, Aspose.Slides para C++ permite exportar una diapositiva individual a una imagen SVG. Para ese propósito, se ha añadido la propiedad ID a ISvgShape para soportar IDs personalizados de formas en el SVG generado. Para implementar esta característica, se ha introducido un CustomSvgShapeFormattingController que puede usar para establecer el ID de la forma.
+Para generar una imagen SVG a partir de una diapositiva de presentación con Aspose.Slides, siga los pasos a continuación:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GeneratingSVGWithCustomShapeIDS-GeneratingSVGWithCustomShapeIDS.cpp" >}}
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomSvgShapeFormattingController-CustomSvgShapeFormattingController.cpp" >}}
-
-
-## **Crear Imagen en Miniatura de Diapositiva**
-Aspose.Slides para C++ se utiliza para crear archivos de presentación que contienen diapositivas. Estas diapositivas pueden ser visualizadas abriendo archivos de presentación con Microsoft PowerPoint. Pero a veces, los desarrolladores pueden necesitar ver diapositivas como imágenes utilizando su visor de imágenes favorito. En tales casos, Aspose.Slides para C++ le ayuda a generar imágenes en miniatura de las diapositivas. Para generar la miniatura de cualquier diapositiva deseada usando Aspose.Slides para C++:
-
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada a una escala especificada.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
-
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtener la referencia de la diapositiva por su índice.
+1. Abrir un flujo de archivo.
+1. Guardar la diapositiva como una imagen SVG en el flujo de archivo.
 ```cpp
-// Instanciar la clase Presentation
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlide.pptx");
+auto slideIndex = 0;
 
-// Acceder a la primera diapositiva
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// Crear una imagen a escala completa
-auto image = slide->GetImage(1, 1);
-image->Save(u"Thumbnail_out.jpg", ImageFormat::Png);
-image->Dispose();
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream);
+svgStream->Dispose();
 
 presentation->Dispose();
 ```
 
-## **Crear Miniatura con Dimensiones Definidas por el Usuario**
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada a una escala especificada.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+
+## **Generar un SVG con un ID de forma personalizado**
+
+Aspose.Slides puede usarse para generar un [SVG](https://docs.fileformat.com/page-description-language/svg/) a partir de una diapositiva con un ID de forma personalizado. Para ello, use el método `set_Id` de [ISvgShape](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/). `CustomSvgShapeFormattingController` puede usarse para establecer el ID de la forma.
+```cpp
+auto slideIndex = 0;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<CustomSvgShapeFormattingController>());
+
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
 
 ```cpp
-// Instanciar la clase Presentation
-auto presentation = MakeObject<Presentation>(u"ThumbnailWithUserDefinedDimensions.pptx");
+class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
+{
+private:
+    int m_shapeIndex;
 
-// Acceder a la primera diapositiva
-auto slide = presentation->get_Slide(0);
+public:
+    CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
 
-// Dimensión definida por el usuario
-auto desiredX = 1200;
-auto desiredY = 800;
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape)
+    {
+        svgShape->set_Id(String::Format(u"shape-{0}", m_shapeIndex++));
+    }
+};
+```
 
-auto slideSize = presentation->get_SlideSize()->get_Size();
 
-// Obtener el valor escalado de X e Y
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
+## **Crear una imagen miniatura de una diapositiva**
 
-// Crear una imagen a escala personalizada
+Aspose.Slides le ayuda a generar imágenes miniatura de diapositivas. Para generar una miniatura de una diapositiva usando Aspose.Slides, siga los pasos a continuación:
+
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtener la referencia de la diapositiva por su índice.
+1. Obtener la imagen miniatura de la diapositiva referenciada con una escala definida.
+1. Guardar la imagen miniatura en cualquier formato de imagen deseado.
+```cpp
+auto slideIndex = 0;
+auto scaleX = 1;
+auto scaleY = scaleX;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
 auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Thumbnail2_out.jpg", ImageFormat::Png);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
 
-## **Crear Miniatura desde Diapositiva en Vista de Diapositivas de Notas**
-Para generar la miniatura de cualquier diapositiva deseada en Vista de Diapositivas de Notas usando Aspose.Slides para C++:
 
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada a una escala especificada en vista de Diapositivas de Notas.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+## **Crear una miniatura de diapositiva con dimensiones definidas por el usuario**
 
-El fragmento de código a continuación produce una miniatura de la primera diapositiva de una presentación en Vista de Diapositivas de Notas.
+Para crear una imagen miniatura de diapositiva con dimensiones definidas por el usuario, siga los pasos a continuación:
 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtener la referencia de la diapositiva por su índice.
+1. Obtener la imagen miniatura de la diapositiva referenciada con las dimensiones definidas.
+1. Guardar la imagen miniatura en cualquier formato de imagen deseado.
 ```cpp
-// Instanciar la clase Presentation
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlideInNotes.pptx");
+auto slideIndex = 0;
+auto slideSize = Size(1200, 800);
 
-// Acceder a la primera diapositiva
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// Dimensión definida por el usuario
-auto desiredX = 1200;
-auto desiredY = 800;
-
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// Obtener el valor escalado de X e Y
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
-
-// Crear una imagen a escala completa
-auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Notes_tnail_out.jpg", ImageFormat::Png);
+auto image = slide->GetImage(slideSize);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
+
+
+## **Crear una miniatura de diapositiva con notas del orador**
+
+Para generar la miniatura de una diapositiva con notas del orador usando Aspose.Slides, siga los pasos a continuación:
+
+1. Crear una instancia de la clase [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/).
+1. Utilice el método `RenderingOptions.set_SlidesLayoutOptions` para establecer la posición de las notas del orador.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. Obtener la referencia de la diapositiva por su índice.
+1. Obtener la imagen miniatura de la diapositiva referenciada con las opciones de renderizado.
+1. Guardar la imagen miniatura en cualquier formato de imagen deseado.
+```cpp
+auto slideIndex = 0;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutingOptions);
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(renderingOptions);
+image->Save(u"output.png", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **Ejemplo en vivo**
+
+Puede probar la aplicación gratuita [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) para ver lo que puede implementar con la API de Aspose.Slides:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **Preguntas frecuentes**
+
+**¿Puedo incrustar un visor de presentaciones en una aplicación web?**
+
+Sí. Puede usar Aspose.Slides del lado del servidor para renderizar diapositivas como imágenes o HTML y mostrarlas en el navegador. Las funciones de navegación y zoom pueden implementarse con JavaScript para una experiencia interactiva.
+
+**¿Cuál es la mejor forma de mostrar diapositivas dentro de un visor personalizado?**
+
+El enfoque recomendado es renderizar cada diapositiva como una imagen (p. ej., PNG o SVG) o convertirla a HTML usando Aspose.Slides, y luego mostrar la salida dentro de un cuadro de imagen (para escritorio) o un contenedor HTML (para web).
+
+**¿Cómo manejo presentaciones grandes con muchas diapositivas?**
+
+Para presentaciones extensas, considere la carga diferida o el renderizado bajo demanda de las diapositivas. Esto implica generar el contenido de una diapositiva solo cuando el usuario navega a ella, reduciendo la memoria y el tiempo de carga.

@@ -1,24 +1,32 @@
 ---
-title: تطبيق Hello World باستخدام Aspose.Slides
+title: تطبيق Hello World باستخدام Aspose.Slides للغة C++
 type: docs
 weight: 80
 url: /ar/cpp/hello-world-application-using-aspose-slides/
+keywords:
+- مرحبا بالعالم
+- تطبيق
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "أنشئ أول تطبيق C++ لك باستخدام Aspose.Slides، مثال Hello World بسيط يُجهّزك لأتمتة عروض PPT و PPTX و ODP."
 ---
 
 ## **خطوات إنشاء تطبيق Hello World**
-في هذا التطبيق البسيط، سنقوم بإنشاء عرض تقديمي باستخدام برنامج PowerPoint يحتوي على نص **Hello World** في موضع محدد في الشريحة. يرجى اتباع الخطوات أدناه لإنشاء تطبيق **Hello World** باستخدام واجهة برمجة تطبيقات Aspose.Slides لـ C++:
+في هذا التطبيق البسيط، سنقوم بإنشاء عرض تقديمي PowerPoint يحتوي على نص **Hello World** في موضع محدد من الشريحة. يرجى اتباع الخطوات أدناه لإنشاء تطبيق **Hello World** باستخدام Aspose.Slides for C++ API:
 
-- إنشاء مثيل من فئة Presentation
-- الحصول على مرجع الشريحة الأولى في العرض التقديمي الذي تم إنشاؤه عند إنشاء Presentation.
-- إضافة شكل تلقائي مع نوع الشكل Rectangle في موضع محدد من الشريحة.
-- إضافة إطار نصي إلى الشكل التلقائي يحتوي على Hello World كنص افتراضي
-- تغيير لون النص إلى الأسود لأنه أبيض بشكل افتراضي وغير مرئي على الشريحة ذات الخلفية البيضاء
-- تغيير لون خط الشكل إلى الأبيض لإخفاء حدود الشكل
+- إنشاء نسخة من فئة Presentation
+- الحصول على مرجع الشريحة الأولى في العرض التقديمي التي يتم إنشاؤها عند إنشاء كائن Presentation.
+- إضافة AutoShape بنوع ShapeType كـ Rectangle في موضع محدد من الشريحة.
+- إضافة TextFrame إلى الـ AutoShape يحتوي على Hello World كنص افتراضي
+- تغيير لون النص إلى الأسود لأنه أبيض افتراضيًا ولا يُرى على الشريحة ذات الخلفية البيضاء
+- تغيير لون خط الشكل إلى الأبيض لإخفاء حد الشكل
 - إزالة تنسيق التعبئة الافتراضي للشكل
-- أخيرًا، كتابة العرض التقديمي إلى تنسيق الملف المطلوب باستخدام كائن Presentation
+- أخيرًا، حفظ العرض التقديمي بالتنسيق المطلوب باستخدام كائن Presentation
 
-يتم عرض تنفيذ الخطوات أعلاه أدناه في مثال.
-
+يتم توضيح تنفيذ الخطوات السابقة أدناه في مثال.
 ``` cpp
 #include <DOM/Presentation.h>
 #include <DOM/SlideCollection.h>
@@ -54,24 +62,24 @@ int main(int argc, const char argv[])
     // احصل على الشريحة الأولى
     auto slide = pres->get_Slides()->idx_get(0);
 
-    // أضف شكلًا تلقائيًا من نوع Rectangle
+    // أضف AutoShape من النوع Rectangle
     auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-    // أضف إطار نصي إلى المستطيل
+    // أضف TextFrame إلى الـ Rectangle
     shape->AddTextFrame(u"Hello World");
 
-    // غير لون النص إلى الأسود (والذي هو أبيض بشكل افتراضي)
+    // غيّر لون النص إلى الأسود (الذي هو أبيض افتراضيًا)
     auto portionFillFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_FillFormat();
     portionFillFormat->set_FillType(FillType::Solid);
     portionFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
 
-    // غير لون خط المستطيل إلى الأبيض
+    // غيّر لون خط الـ rectangle إلى الأبيض
     shape->get_ShapeStyle()->get_LineColor()->set_Color(System::Drawing::Color::get_White());
 
     // أزل أي تنسيق تعبئة في الشكل
     shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // احفظ العرض التقديمي على القرص
+    // احفظ العرض التقديمي إلى القرص
     pres->Save(u"output.pptx", SaveFormat::Pptx);
 
     return 0;

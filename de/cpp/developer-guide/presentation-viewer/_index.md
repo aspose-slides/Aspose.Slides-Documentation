@@ -1,119 +1,180 @@
 ---
-title: Präsentationsbetrachter
+title: Erstellen eines Präsentationsbetrachters in C++
+linktitle: Präsentationsbetrachter
 type: docs
 weight: 50
 url: /de/cpp/presentation-viewer/
-keywords: 
-- PowerPoint-Präsentation anzeigen
-- ppt anzeigen
+keywords:
+- Präsentation anzeigen
+- Präsentationsbetrachter
+- Präsentationsbetrachter erstellen
+- PPT anzeigen
 - PPTX anzeigen
+- ODP anzeigen
+- PowerPoint
+- OpenDocument
+- Präsentation
 - C++
-- Aspose.Slides für C++
-description: "PowerPoint-Präsentation in C++ anzeigen"
+- Aspose.Slides
+description: "Erstellen Sie einen benutzerdefinierten Präsentationsbetrachter in C++ mit Aspose.Slides. Zeigen Sie PowerPoint- und OpenDocument-Dateien einfach ohne Microsoft PowerPoint an."
 ---
 
-## **SVG-Bild aus Folie generieren**
-Aspose.Slides für C++ wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können durch das Öffnen von Präsentationen mit Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch auch Folien als SVG-Bilder in ihrem bevorzugten Bildbetrachter anzeigen. In solchen Fällen erlaubt es Aspose.Slides für C++, eine einzelne Folie in ein SVG-Bild zu exportieren. Dieser Artikel beschreibt, wie Sie diese Funktion nutzen können. Um ein SVG-Bild aus einer gewünschten Folie mit Aspose.Slides.Pptx für C++ zu generieren, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für C++ wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können beispielsweise durch Öffnen der Präsentationen in Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch die Folien als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder ihren eigenen Präsentationsbetrachter erstellen. In solchen Fällen ermöglicht Aspose.Slides den Export einer einzelnen Folie als Bild. Dieser Artikel beschreibt, wie das geht.
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-- Erhalten Sie die Referenz der gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-- Holen Sie sich das SVG-Bild in einem Speicherstream.
-- Speichern Sie den Speicherstream in einer Datei.
+## **Ein SVG-Bild aus einer Folie erzeugen**
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSlidesSVGImage-CreateSlidesSVGImage.cpp" >}}
-## **SVG mit benutzerdefinierten Form-IDs generieren**
-Jetzt kann Aspose.Slides für C++ verwendet werden, um SVG aus Folien mit benutzerdefinierter Form-ID zu generieren. Diese Folien können durch das Öffnen von Präsentationen mit Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch auch Folien als SVG-Bilder in ihrem bevorzugten Bildbetrachter anzeigen. In solchen Fällen erlaubt es Aspose.Slides für C++, eine einzelne Folie in ein SVG-Bild zu exportieren. Zu diesem Zweck wurde die ID-Eigenschaft zu ISvgShape hinzugefügt, um benutzerdefinierte IDs von Formen im generierten SVG zu unterstützen. Um diese Funktion zu implementieren, wurde ein CustomSvgShapeFormattingController eingeführt, den Sie verwenden können, um die Form-ID festzulegen.
+Um ein SVG-Bild aus einer Präsentationsfolie mit Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-GeneratingSVGWithCustomShapeIDS-GeneratingSVGWithCustomShapeIDS.cpp" >}}
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomSvgShapeFormattingController-CustomSvgShapeFormattingController.cpp" >}}
-
-
-## **Thumbnail-Bild von Folie erstellen**
-Aspose.Slides für C++ wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können durch das Öffnen von Präsentationsdateien mit Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch Folien als Bilder mit ihrem bevorzugten Bildbetrachter anzeigen. In solchen Fällen hilft Aspose.Slides für C++, Thumbnail-Bilder der Folien zu generieren. Um das Thumbnail einer gewünschten Folie mit Aspose.Slides für C++ zu generieren:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem beliebigen gewünschten Bildformat.
-
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+1. Holen Sie die Folienreferenz über ihren Index.
+1. Öffnen Sie einen Dateistream.
+1. Speichern Sie die Folie als SVG-Bild im Dateistream.
 ```cpp
-// Instanziieren Sie die Presentation-Klasse
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlide.pptx");
+auto slideIndex = 0;
 
-// Greifen Sie auf die erste Folie zu
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// Erstellen Sie ein Bild im Vollmaßstab
-auto image = slide->GetImage(1, 1);
-image->Save(u"Thumbnail_out.jpg", ImageFormat::Png);
-image->Dispose();
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream);
+svgStream->Dispose();
 
 presentation->Dispose();
 ```
 
-## **Thumbnail mit benutzerdefinierten Abmessungen erstellen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem beliebigen gewünschten Bildformat.
+
+## **Ein SVG mit benutzerdefinierter Shape-ID erzeugen**
+
+Aspose.Slides kann verwendet werden, um ein [SVG](https://docs.fileformat.com/page-description-language/svg/) aus einer Folie mit einer benutzerdefinierten Shape-ID zu erzeugen. Verwenden Sie hierfür die `set_Id`‑Methode von [ISvgShape](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/). `CustomSvgShapeFormattingController` kann verwendet werden, um die Shape-ID festzulegen.
+```cpp
+auto slideIndex = 0;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<CustomSvgShapeFormattingController>());
+
+auto svgStream = File::Create(u"output.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
 
 ```cpp
-// Instanziieren Sie die Presentation-Klasse
-auto presentation = MakeObject<Presentation>(u"ThumbnailWithUserDefinedDimensions.pptx");
+class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
+{
+private:
+    int m_shapeIndex;
 
-// Greifen Sie auf die erste Folie zu
-auto slide = presentation->get_Slide(0);
+public:
+    CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
 
-// Benutzerdefinierte Abmessungen
-auto desiredX = 1200;
-auto desiredY = 800;
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape)
+    {
+        svgShape->set_Id(String::Format(u"shape-{0}", m_shapeIndex++));
+    }
+};
+```
 
-auto slideSize = presentation->get_SlideSize()->get_Size();
 
-// Skalierter Wert von X und Y erhalten
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
+## **Ein Folien-Thumbnail-Bild erzeugen**
 
-// Erstellen Sie ein Bild mit benutzerdefinierten Maßstab
+Aspose.Slides unterstützt Sie beim Erzeugen von Miniaturbildern von Folien. Um ein Thumbnail einer Folie mit Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+1. Holen Sie die Folienreferenz über ihren Index.
+1. Erhalten Sie das Miniaturbild der referenzierten Folie in einem definierten Maßstab.
+1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
+```cpp
+auto slideIndex = 0;
+auto scaleX = 1;
+auto scaleY = scaleX;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
 auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Thumbnail2_out.jpg", ImageFormat::Png);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
 
-## **Thumbnail von Folie im Notizen-Folienansicht erstellen**
-Um das Thumbnail einer gewünschten Folie in der Notizen-Folienansicht mit Aspose.Slides für C++ zu generieren:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab in der Notizen-Folienansicht.
-1. Speichern Sie das Thumbnail-Bild in einem beliebigen gewünschten Bildformat.
+## **Ein Folien-Thumbnail mit benutzerdefinierten Abmessungen erzeugen**
 
-Der folgende Codeschnipsel erzeugt ein Thumbnail der ersten Folie einer Präsentation in der Notizen-Folienansicht.
+Um ein Folien-Thumbnail mit benutzerdefinierten Abmessungen zu erstellen, folgen Sie bitte den untenstehenden Schritten:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+1. Holen Sie die Folienreferenz über ihren Index.
+1. Erhalten Sie das Miniaturbild der referenzierten Folie mit den definierten Abmessungen.
+1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 ```cpp
-// Instanziieren Sie die Presentation-Klasse
-auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlideInNotes.pptx");
+auto slideIndex = 0;
+auto slideSize = Size(1200, 800);
 
-// Greifen Sie auf die erste Folie zu
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
 
-// Benutzerdefinierte Abmessungen
-auto desiredX = 1200;
-auto desiredY = 800;
-
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// Skalierter Wert von X und Y erhalten
-auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
-auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
-
-// Erstellen Sie ein Bild im Vollmaßstab
-auto image = slide->GetImage(scaleX, scaleY);
-image->Save(u"Notes_tnail_out.jpg", ImageFormat::Png);
+auto image = slide->GetImage(slideSize);
+image->Save(u"output.jpg", ImageFormat::Png);
 image->Dispose();
 
 presentation->Dispose();
 ```
+
+
+## **Ein Folien-Thumbnail mit Sprecher-Notizen erzeugen**
+
+Um das Thumbnail einer Folie mit Sprecher-Notizen mittels Aspose.Slides zu erzeugen, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/) Klasse.
+1. Verwenden Sie die `RenderingOptions.set_SlidesLayoutOptions`‑Methode, um die Position der Sprecher-Notizen festzulegen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse.
+1. Holen Sie die Folienreferenz über ihren Index.
+1. Erhalten Sie das Miniaturbild der referenzierten Folie mit den Rendering-Optionen.
+1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
+```cpp
+auto slideIndex = 0;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutingOptions);
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(slideIndex);
+
+auto image = slide->GetImage(renderingOptions);
+image->Save(u"output.png", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
+
+
+## **Live-Beispiel**
+
+Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) ausprobieren, um zu sehen, was Sie mit der Aspose.Slides‑API umsetzen können:
+
+![Online‑PowerPoint‑Betrachter](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Kann ich einen Präsentationsbetrachter in eine Webanwendung einbetten?**
+
+Ja. Sie können Aspose.Slides serverseitig nutzen, um Folien als Bilder oder HTML zu rendern und im Browser anzuzeigen. Navigations‑ und Zoom‑Funktionen können mit JavaScript für ein interaktives Erlebnis implementiert werden.
+
+**Was ist der beste Weg, Folien in einem benutzerdefinierten Betrachter anzuzeigen?**
+
+Der empfohlene Ansatz ist, jede Folie als Bild (z. B. PNG oder SVG) zu rendern oder sie mit Aspose.Slides in HTML zu konvertieren und die Ausgabe dann in einer Bild‑Box (für Desktop) oder einem HTML‑Container (für Web) anzuzeigen.
+
+**Wie gehe ich mit großen Präsentationen mit vielen Folien um?**
+
+Bei großen Decks sollten Sie Lazy‑Loading oder das Rendern von Folien auf Abruf in Betracht ziehen. Das bedeutet, den Inhalt einer Folie nur zu erzeugen, wenn der Benutzer zu ihr navigiert, wodurch Speicher‑ und Ladezeit reduziert werden.

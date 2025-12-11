@@ -1,41 +1,54 @@
 ---
-title: Презентация через VBA
+title: Управление проектами VBA в презентациях с помощью C++
+linktitle: Презентация через VBA
 type: docs
 weight: 250
 url: /ru/cpp/presentation-via-vba/
-keywords: "Макрос, макросы, VBA, VBA макрос, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
-description: "Добавляйте, удаляйте и извлекайте макросы VBA в презентациях PowerPoint на C++"
+keywords:
+- макрос
+- VBA
+- VBA-макрос
+- добавить макрос
+- удалить макрос
+- извлечь макрос
+- добавить VBA
+- удалить VBA
+- извлечь VBA
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Узнайте, как создавать и управлять презентациями PowerPoint и OpenDocument с помощью VBA и Aspose.Slides для C++, чтобы оптимизировать ваш рабочий процесс."
 ---
 
 Пространство имен [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) содержит классы и интерфейсы для работы с макросами и кодом VBA.
 
-{{% alert title="Примечание" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Когда вы конвертируете презентацию, содержащую макросы, в другой формат файла (PDF, HTML и т.д.), Aspose.Slides игнорирует все макросы (макросы не переносятся в итоговый файл).
+При преобразовании презентации, содержащей макросы, в другой формат файла (PDF, HTML и т.д.) Aspose.Slides игнорирует все макросы (макросы не переносятся в полученный файл).
 
-Когда вы добавляете макросы в презентацию или повторно сохраняете презентацию с макросами, Aspose.Slides просто записывает байты макросов.
+Когда вы добавляете макросы в презентацию или повторно сохраняете презентацию, содержащую макросы, Aspose.Slides просто записывает байты макросов.
 
-Aspose.Slides **никогда** не запускает макросы в презентации.
+Aspose.Slides **никогда** не выполняет макросы в презентации.
 
 {{% /alert %}}
 
-## **Добавление макросов VBA**
+## **Добавить VBA‑макросы**
 
-Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project), который позволяет вам создавать проекты VBA (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) для управления VBA, встроенной в презентацию.
+Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project), позволяющий создавать VBA‑проекты (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) для управления VBA, встроенным в презентацию.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) для добавления нового проекта VBA.
+1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) для добавления нового VBA‑проекта.
 1. Добавьте модуль в VbaProject.
 1. Установите исходный код модуля.
 1. Добавьте ссылки на <stdole>.
 1. Добавьте ссылки на **Microsoft Office**.
-1. Свяжите ссылки с проектом VBA.
+1. Свяжите ссылки с VBA‑проектом.
 1. Сохраните презентацию.
 
-Этот код на C++ показывает, как добавить макрос VBA с нуля в презентацию: 
-
+Этот код C++ показывает, как добавить VBA‑макрос с нуля в презентацию: 
 ```c++
-
 // Путь к каталогу документов.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
@@ -64,27 +77,25 @@ presentation->get_VbaProject()->get_References()->Add(officeReference);
 
 // Сохраняет презентацию
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
-
 ```
+
 
 {{% alert color="primary" %}} 
 
-Вы также можете ознакомиться с **Aspose** [Удаление макросов](https://products.aspose.app/slides/remove-macros), это бесплатное веб-приложение, используемое для удаления макросов из документов PowerPoint, Excel и Word. 
+Возможно, вам будет интересно ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) — бесплатным веб‑приложением для удаления макросов из документов PowerPoint, Excel и Word. 
 
 {{% /alert %}} 
 
-## **Удаление макросов VBA**
+## **Удалить VBA‑макросы**
 
-Используя свойство [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), вы можете удалить макрос VBA.
+С помощью свойства [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) можно удалить VBA‑макрос.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, содержащую макрос.
-1. Получите доступ к модулю макроса и удалите его.
+1. Получите доступ к модулю Macro и удалите его.
 1. Сохраните измененную презентацию.
 
-Этот код на C++ показывает, как удалить макрос VBA: 
-
+Этот код C++ показывает, как удалить VBA‑макрос: 
 ```c++
-
 // Путь к каталогу документов.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
 const String templatePath = u"../templates/vba.pptm";
@@ -92,22 +103,21 @@ const String templatePath = u"../templates/vba.pptm";
 // Загружает презентацию, содержащую макрос
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Получает доступ к модулю Vba и удаляет его 
+// Получает модуль Vba и удаляет его 
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
 // Сохраняет презентацию
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
-
+presentation->Save(outPath, Aspense::Slides::Export::SaveFormat::Pptm);
 ```
 
-## **Извлечение макросов VBA**
+
+## **Извлечь VBA‑макросы**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, содержащую макрос.
 2. Проверьте, содержит ли презентация проект VBA.
 3. Пройдитесь по всем модулям, содержащимся в проекте VBA, чтобы просмотреть макросы.
 
-Этот код на C++ показывает, как извлечь макросы VBA из презентации, содержащей макросы: 
-
+Этот код C++ показывает, как извлечь VBA‑макросы из презентации, содержащей макросы: 
 ```c++
 
 	// Путь к каталогу документов.
@@ -130,3 +140,40 @@ presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 		}
 	}
 ```
+
+
+## **Проверить, защищён ли проект VBA паролем**
+
+С помощью свойства [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) можно определить, защищены ли свойства проекта паролем.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
+2. Проверьте, содержит ли презентация [VBA‑проект](https://reference.aspose.com/slides/cpp/aspose.slides.vba/vbaproject/).
+3. Убедитесь, защищён ли проект VBA паролем, чтобы просмотреть его свойства.
+```cpp
+auto presentation = MakeObject<Presentation>(u"VBA.pptm");
+    
+if (presentation->get_VbaProject() != nullptr) // Проверить, содержит ли презентация проект VBA.
+{
+    if (presentation->get_VbaProject()->get_IsPasswordProtected())
+    {
+        Console::WriteLine(u"The VBA Project '{0}' is protected by password to view project properties.", presentation->get_VbaProject()->get_Name());
+    }
+}
+    
+presentation->Dispose();
+```
+
+
+## **FAQ**
+
+**Что происходит с макросами, если я сохраняю презентацию в формате PPTX?**
+
+Макросы будут удалены, потому что PPTX не поддерживает VBA. Чтобы сохранить макросы, выберите PPTM, PPSM или POTM.
+
+**Может ли Aspose.Slides выполнять макросы внутри презентации, например, обновлять данные?**
+
+Нет. Библиотека никогда не исполняет код VBA; выполнение возможно только в PowerPoint при соответствующих настройках безопасности.
+
+**Поддерживается ли работа с элементами ActiveX, связанными с кодом VBA?**
+
+Да, вы можете получать доступ к существующим [элементам ActiveX](/slides/ru/cpp/activex/), изменять их свойства и удалять их. Это полезно, когда макросы взаимодействуют с ActiveX.

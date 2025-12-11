@@ -1,280 +1,276 @@
 ---
-title: تخطيط الشريحة
+title: "تطبيق أو تعديل تخطيطات الشرائح في C++"
+linktitle: "تخطيط الشريحة"
 type: docs
 weight: 60
 url: /ar/cpp/slide-layout/
-keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل فرعي، تغيير حجم المحتوى، حجم الصفحة، C++، CPP، Aspose.Slides"
-description: "تعيين حجم الشريحة وخياراتها في C++"
+keywords:
+- "تخطيط الشريحة"
+- "تخطيط المحتوى"
+- "عنصر نائب"
+- "تصميم العرض"
+- "تصميم الشريحة"
+- "تخطيط غير مستخدم"
+- "إظهار التذييل"
+- "شريحة العنوان"
+- "العنوان والمحتوى"
+- "رأس القسم"
+- "محتويان"
+- "مقارنة"
+- "العنوان فقط"
+- "تخطيط فارغ"
+- "محتوى مع توضيح"
+- "صورة مع توضيح"
+- "العنوان والنص العمودي"
+- "عنوان عمودي ونص"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- "C++"
+- "Aspose.Slides"
+description: "إدارة وتخصيص تخطيطات الشرائح في Aspose.Slides للغة C++. استكشف أنواع التخطيطات، التحكم في العناصر النائبة، وإظهار التذييل من خلال أمثلة كود C++."
 ---
 
-يحتوي تخطيط الشريحة على صناديق النماذج ومعلومات التنسيق لكافة المحتوى الذي يظهر على الشريحة. يحدد التخطيط أماكن نماذج المحتوى المتاحة ومكان وضعها.
+## **نظرة عامة**
 
-تسمح تخطيطات الشرائح لك بإنشاء وتصميم العروض التقديمية بسرعة (سواء كانت بسيطة أو معقدة). وهذه بعض من أكثر تخطيطات الشرائح شيوعًا المستخدمة في العروض التقديمية في PowerPoint:
+تحدد تخطيط الشريحة ترتيب صناديق العنصر النائب وتنسيق المحتوى على الشريحة. يتحكم في أي العناصر النائبة متاحة وأين تظهر. تساعد تخطيطات الشرائح على تصميم العروض بسرعة وتناسق—سواء كنت تنشئ شيئًا بسيطًا أو أكثر تعقيدًا. بعض أكثر تخطيطات الشرائح شيوعًا في PowerPoint تشمل:
 
-* **تخطيط شريحة العنوان**. يتكون هذا التخطيط من نموذجين نصيين. نموذج واحد هو للعناوين والنموذج الآخر للعنوان الفرعي.
-* **تخطيط العنوان والمحتوى**. يحتوي هذا التخطيط على نموذج صغير نسبيًا في الأعلى للعنوان ونموذج أكبر للمحتوى الأساسي (رسم بياني، فقرات، قائمة نقطية، قائمة مرقمة، صور، إلخ).
-* **تخطيط فارغ**. يفتقر هذا التخطيط إلى النماذج، مما يسمح لك بإنشاء عناصر من الصفر.
+**Title Slide layout** – يتضمن عنصرين نصيين: أحدهما للعنوان والآخر للعنوان الفرعي.
 
-نظرًا لأن الشريحة الرئيسية هي الشريحة الهرمية العليا التي تخزن المعلومات حول تخطيطات الشرائح، يمكنك استخدام الشريحة الرئيسية للوصول إلى تخطيطات الشرائح وإجراء تغييرات عليها. يمكن الوصول إلى شريحة التخطيط حسب النوع أو الاسم. وبالمثل، تحتوي كل شريحة على معرف فريد يمكن استخدامه للوصول إليها.
+**Title and Content layout** – يحتوي على عنصر عنوان أصغر في الأعلى وعنصر أكبر أسفلًا للمحتوى الرئيسي (مثل النص، النقاط، المخططات، الصور، وأكثر).
 
-بدلاً من ذلك، يمكنك إجراء تغييرات مباشرة على تخطيط شريحة معين في عرض تقديمي.
+**Blank layout** – لا يحتوي على أي عناصر نائبة، مما يمنحك التحكم الكامل لتصميم الشريحة من الصفر.
 
-* لتمكينك من العمل مع تخطيطات الشرائح (بما في ذلك تلك الموجودة في الشرائح الرئيسية)، توفر Aspose.Slides خصائص مثل [get_LayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) و[get_Masters()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) تحت فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-* لأداء المهام ذات الصلة، توفر Aspose.Slides [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/masterlayoutslidecollection/)، [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/)، [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/baseslideheaderfootermanager/)، والعديد من الأنواع الأخرى.
+تعد تخطيطات الشرائح جزءًا من سابقة الشرائح (slide master)، وهي الشريحة العليا التي تحدد أنماط التخطيط للعرض. يمكنك الوصول إلى تخطيطات الشرائح وتعديلها عبر سابقة الشرائح—إما بواسطة النوع أو الاسم أو المعرف الفريد. بدلاً من ذلك، يمكنك تعديل تخطيط شريحة محدد مباشرة داخل العرض.
 
-{{% alert title="معلومات" color="info" %}}
+للعمل مع تخطيطات الشرائح في Aspose.Slides for Android، يمكنك استخدام:
 
-لمزيد من المعلومات حول العمل مع الشرائح الرئيسية بشكل خاص، انظر إلى مقال [Slide Master](https://docs.aspose.com/slides/cpp/slide-master/).
+- طرق مثل [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) و[get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) ضمن فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)
+- أنواع مثل [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/)، و[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
 
+{{% alert title="Info" color="info" %}}
+لتعلم المزيد حول العمل مع سابقة الشرائح، اطلع على مقالة [Slide Master](/slides/ar/cpp/slide-master/).
 {{% /alert %}}
 
-## **إضافة تخطيط شريحة إلى العرض التقديمي**
+## **إضافة تخطيطات شرائح إلى العروض التقديمية**
 
-1. أنشئ مثيل لفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. الوصول إلى مجموعة [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. قم بمراجعة تخطيطات الشرائح الموجودة لتأكيد أن تخطيط الشريحة المطلوب موجود بالفعل في مجموعة تخطيطات الشرائح. خلاف ذلك، أضف تخطيط الشريحة الذي تريده.
+لتخصيص مظهر وبنية شرائحك، قد تحتاج إلى إضافة تخطيطات شرائح جديدة إلى عرض تقديمي. يتيح لك Aspose.Slides for Android التحقق مما إذا كان تخطيط معين موجودًا بالفعل، إضافة واحد جديد إذا لزم الأمر، واستخدامه لإدراج شرائح بناءً على ذلك التخطيط.
+
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. احصل على [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
+1. تحقق مما إذا كان تخطيط الشريحة المطلوب موجودًا بالفعل في المجموعة. إذا لم يكن كذلك، أضف تخطيط الشريحة الذي تحتاجه.
 1. أضف شريحة فارغة بناءً على تخطيط الشريحة الجديد.
 1. احفظ العرض التقديمي.
 
-يوضح لك هذا الكود C++ كيفية إضافة تخطيط شريحة إلى عرض تقديمي في PowerPoint:
+الكود C++ التالي يوضح كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
+```cpp
+// إنشاء كائن الفئة Presentation الذي يمثل ملف PowerPoint.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-```c++
-	// المسار إلى مجلد المستندات.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/AddLayoutSlides.pptx";
+// Go through the layout slide types to select a layout slide.
+auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
+SharedPtr<ILayoutSlide> layoutSlide;
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+{
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+}
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
+{
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+}
 
-	// ينشئ مثيل من فئة Presentation التي تمثل ملف العرض التقديمي
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+if (layoutSlide == nullptr)
+{
+    // حالة لا يحتوي فيها العرض على جميع أنواع التخطيطات.
+    // ملف العرض يحتوي فقط على نوعي التخطيط فارغ ومخصص.
+    // ومع ذلك، قد تحتوي شرائح التخطيط ذات الأنواع المخصصة على أسماء يمكن التعرف عليها،
+    // مثل "Title" و "Title and Content" وغيرها، والتي يمكن استخدامها لاختيار شريحة التخطيط.
+    // يمكنك أيضًا الاعتماد على مجموعة من أنواع أشكال العناصر النائبة.
+    // على سبيل المثال، يجب أن تحتوي شريحة العنوان فقط على نوع العنصر النائب Title، وهكذا.
+    for (int i = 0; i < layoutSlides->get_Count(); i++)
+    {
+        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
 
-	// يستعرض أنواع تخطيطات الشرائح
-	SharedPtr<IMasterLayoutSlideCollection> layoutSlides = pres->get_Masters()->idx_get(0)->get_LayoutSlides();
+        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
+        {
+            layoutSlide = titleAndObjectLayoutSlide;
+            break;
+        }
+    }
 
-	SharedPtr<ILayoutSlide> layoutSlide;
-	if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-	}
-	else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
-	}
+    if (layoutSlide == nullptr)
+    {
+        for (int i = 0; i < layoutSlides->get_Count(); i++)
+        {
+            auto titleLayoutSlide = layoutSlides->idx_get(i);
 
-	if (layoutSlide == NULL)
-	{
-		// الحالة التي لا تحتوي فيها العرض التقديمي على بعض أنواع التخطيطات.
-		// يحتوي ملف العرض التقديمي فقط على أنواع تخطيطات فارغة ومخصصة.
-		// لكن الشرائح التخطيطية لأنواع مخصصة لها أسماء شرائح مختلفة،
-		// مثل "Title"، "Title and Content"، إلخ. ومن الممكن استخدام هذه
-		// الأسماء لاختيار تخطيط الشريحة.
-		// يمكنك أيضًا استخدام مجموعة من أنواع أشكال النماذج. على سبيل المثال،
-		// ينبغي أن تحتوي شريحة العنوان على نوع نموذج العنوان فقط، إلخ.
+            if (titleLayoutSlide->get_Name() == u"Title")
+            {
+                layoutSlide = titleLayoutSlide;
+                break;
+            }
+        }
 
-		for (int i = 0; i<layoutSlides->get_Count(); i++)
-		{
-			SharedPtr<ILayoutSlide> titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
+        if (layoutSlide == nullptr)
+        {
+            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
+            if (layoutSlide == nullptr)
+            {
+                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
+            }
+        }
+    }
+}
 
-			if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-			{
-				layoutSlide = titleAndObjectLayoutSlide;
-				break;
-			}
-		}
+// إضافة شريحة فارغة باستخدام شريحة التخطيط المضافة.
+presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
 
-		if (layoutSlide == NULL)
-		{
-			for (int i = 0; i < layoutSlides->get_Count(); i++)
-			{
-				SharedPtr<ILayoutSlide> titleLayoutSlide = layoutSlides->idx_get(i);
-
-				if (titleLayoutSlide->get_Name().Equals(u"Title"))
-				{
-					layoutSlide = titleLayoutSlide;
-					break;
-				}
-			}
-
-			if (layoutSlide == NULL)
-			{
-				layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-				if (layoutSlide == NULL)
-				{
-					layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-				}
-			}
-		}
-	}
-
-	// يضيف شريحة فارغة مع تخطيط الشريحة المضاف  
-	pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-	// يحفظ العرض التقديمي على القرص
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// حفظ العرض على القرص.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **إزالة تخطيط الشريحة غير المستخدم**
 
-توفر Aspose.Slides طريقة [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) من فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) للسماح لك بحذف تخطيطات الشرائح غير المرغوب فيها وغير المستخدمة. يوضح لك هذا الكود C++ كيفية إزالة تخطيط شريحة من عرض تقديمي في PowerPoint:
+## **إزالة تخطيطات الشرائح غير المستخدمة**
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+توفر Aspose.Slides طريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) ضمن فئة [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) لتتيح لك حذف تخطيطات الشرائح غير المرغوبة وغير المستخدمة.
 
-LowCode::Compress::RemoveUnusedLayoutSlides(pres);
+الكود C++ التالي يوضح كيفية إزالة تخطيط شريحة من عرض PowerPoint:
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين الحجم والنوع لتخطيط الشريحة**
 
-لتمكينك من تعيين الحجم والنوع لتخطيط شريحة محدد، توفر Aspose.Slides خصائص [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) و[get_Size()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_size/) (من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)). توضح لك هذه C++ كيفية تنفيذ العملية:
+## **إضافة عناصر نائبة إلى تخطيطات الشرائح**
 
-```c++
-	// المسار إلى مجلد المستندات.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/CloneToAnotherPresentationWithSetSizeAndType.pptx";
-	// ينشئ مثيل من فئة Presentation التي تمثل ملف عرض تقديمي
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+توفر Aspose.Slides الطريقة [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) التي تسمح لك بإضافة عناصر نائبة جديدة إلى تخطيط الشريحة.
 
-	SharedPtr<Presentation> destPres = MakeObject<Presentation>();
+يحتوي هذا المدير على طرق للأنواع التالية من العناصر النائبة:
 
-	// الوصول إلى الشريحة حسب المعرف من المجموعة
-	SharedPtr<ISlideCollection> slideCollection = destPres->get_Slides();
-	
-	// تعيين حجم الشريحة للعرض التقديمي المولد إلى ذلك الخاص بالمصدر
-	destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
+| عنصر نائب في PowerPoint | طريقة [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) |
+| ---------------------- | ------------------------------------------------------------ |
+| ![Content](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-	slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
+الكود C++ التالي يوضح كيفية إضافة أشكال عنصر نائب جديدة إلى تخطيط الشريحة الفارغة:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-	// يحفظ العرض التقديمي على القرص
-	destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// احصل على شريحة التخطيط الفارغة.
+auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+// احصل على مدير العناصر النائبة لشريحة التخطيط.
+auto placeholderManager = layout->get_PlaceholderManager();
+
+// أضف عناصر نائبة مختلفة إلى شريحة التخطيط الفارغة.
+placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+
+// أضف شريحة جديدة باستخدام التخطيط الفارغ.
+auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
+
+presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين رؤية التذييل داخل الشريحة**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال مؤشرها.
-1. اجعل نموذج تذييل الشريحة مرئيًا.
-1. اجعل نموذج التاريخ والوقت مرئيًا.
+النتيجة:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **تعيين إظهار التذييل لتخطيط شريحة**
+
+في عروض PowerPoint، يمكن إظهار أو إخفاء عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص اعتمادًا على تخطيط الشريحة. يتيح لك Aspose.Slides for Android التحكم في إظهار هذه العناصر النائبة في التذييل. هذا مفيد عندما تريد بعض التخطيطات لعرض معلومات التذييل بينما تبقى أخرى نظيفة وبسيطة.
+
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. احصل على مرجع لتخطيط الشريحة بحسب فهرسه.
+1. عيّن عنصر نائب التذييل للشريحة إلى مرئي.
+1. عيّن عنصر نائب رقم الشريحة إلى مرئي.
+1. عيّن عنصر نائب التاريخ/الوقت إلى مرئي.
 1. احفظ العرض التقديمي.
 
-يوضح لك هذا الكود C++ كيفية تعيين رؤية لتذييل الشريحة (وأداء المهام ذات الصلة):
+الكود C++ التالي يوضح كيفية تعيين إظهار تذييل شريحة وإجراء المهام ذات الصلة:
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
+auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
-```c++
- // المسار إلى مجلد المستندات.
-const String outPath = u"../out/HeaderFooterManager_out.pptx";
-
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-
-// ينشئ مثيل من فئة SlideCollection
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-//	SharedPtr<IBaseSlideHeaderFooterManager> headerFooterManager = presentation->get_Slides()->idx_get(0)->get_HeaderFooterManager();
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-if (!headerFooterManager->get_IsFooterVisible()) // خاصية IsFooterVisible تستخدم لتحديد أن نموذج تذييل الشريحة مفقود
+if (!headerFooterManager->get_IsFooterVisible())
 {
-	headerFooterManager->SetFooterVisibility(true); // يتم استخدام طريقة SetFooterVisibility لتعيين نموذج تذييل الشريحة ليكون مرئيًا
+    headerFooterManager->SetFooterVisibility(true);
 }
-if (!headerFooterManager->get_IsSlideNumberVisible()) // خاصية IsSlideNumberVisible تستخدم لتحديد أن نموذج رقم الصفحة للشريحة مفقود
-{
-	headerFooterManager->SetSlideNumberVisibility(true); // يتم استخدام طريقة SetSlideNumberVisibility لتعيين نموذج رقم الصفحة للشريحة ليكون مرئيًا
-}
-if (!headerFooterManager->get_IsDateTimeVisible()) // خاصية IsDateTimeVisible تستخدم لتحديد أن نموذج التاريخ والوقت للشريحة مفقود
-{
-	headerFooterManager->SetDateTimeVisibility(true); // يتم استخدام طريقة SetFooterVisibility لتعيين نموذج التاريخ والوقت للشريحة ليكون مرئيًا
-}
-headerFooterManager->SetFooterText(u"نص التذييل"); // يتم استخدام طريقة SetFooterText لتعيين نص لنموذج تذييل الشريحة
-headerFooterManager->SetDateTimeText(u"نص التاريخ والوقت"); // يتم استخدام طريقة SetDateTimeText لتعيين نص لنموذج التاريخ والوقت للشريحة.
 
+if (!headerFooterManager->get_IsSlideNumberVisible())
+{
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
 
-// يحفظ العرض التقديمي على القرص
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+if (!headerFooterManager->get_IsDateTimeVisible())
+{
+    headerFooterManager->SetDateTimeVisibility(true);
+}
+
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين رؤية التذييل الفرعي داخل الشريحة**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. احصل على مرجع للوحة الرئيسية من خلال مؤشرها.
-1. اجعل الشريحة الرئيسية وجميع نماذج التذييل الفرعي مرئية.
-1. عيّن نصًا للوحة الرئيسية وجميع نماذج التذييل الفرعي.
-1. عيّن نصًا للوحة الرئيسية وجميع نماذج التاريخ والوقت الفرعي.
+## **تعيين إظهار تذييل الطفل لشريحة**
+
+​في عروض PowerPoint، يمكن التحكم في عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص على مستوى سابقة الشريحة لضمان التناسق عبر جميع تخطيطات الشرائح. يتيح لك Aspose.Slides for Android تعيين إظهار ومحتوى هذه العناصر النائبة في سابقة الشريحة ونشر هذه الإعدادات إلى جميع تخطيطات الشرائح الفرعية. يضمن هذا النهج توحيد معلومات التذييل في جميع أنحاء العرض التقديمي.​
+
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+1. احصل على مرجع لسابقة الشريحة بحسب فهرسه.
+1. عيّن جميع عناصر نائب التذييل في السابعة وجميع التخطيطات الفرعية إلى مرئي.
+1. عيّن جميع عناصر نائب رقم الشريحة في السابعة وجميع التخطيطات الفرعية إلى مرئي.
+1. عيّن جميع عناصر نائب التاريخ/الوقت في السابعة وجميع التخطيطات الفرعية إلى مرئي.
 1. احفظ العرض التقديمي.
 
-يوضح لك هذا الكود C++ إجراء العملية:
+الكود C++ التالي يوضح هذا العملية:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-// المسار إلى مجلد المستندات.
-const String outPath = u"../out/SetChildFooter_out.pptx";
+auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+headerFooterManager->SetFooterAndChildFootersVisibility(true);
+headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
 
-// ينشئ مثيل من فئة SlideCollection
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
+headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-headerFooterManager->SetFooterAndChildFootersVisibility(true); // تُستخدم طريقة SetFooterAndChildFootersVisibility لتعيين الشريحة الرئيسية وجميع نماذج التذييل الفرعي لتكون مرئية
-headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true); // تُستخدم طريقة SetSlideNumberAndChildSlideNumbersVisibility لتعيين الشريحة الرئيسية وجميع نماذج رقم الصفحة الفرعي لتكون مرئية
-headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true); // تُستخدم طريقة SetDateTimeAndChildDateTimesVisibility لتعيين الشريحة الرئيسية وجميع نماذج التاريخ والوقت الفرعي لتكون مرئية
-
-headerFooterManager->SetFooterAndChildFootersText(u"نص التذييل"); // تُستخدم طريقة SetFooterAndChildFootersText لتعيين النصوص للشريحة الرئيسية وجميع نماذج التذييل
-headerFooterManager->SetDateTimeAndChildDateTimesText(u"نص التاريخ والوقت"); // تُستخدم طريقة SetDateTimeAndChildDateTimesText لتعيين النص لنماذج التاريخ والوقت الفرعي لجميع الشرائح
-
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **تعيين حجم الشريحة بالنسبة لتغيير حجم المحتوى**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) وقم بتحميل العرض التقديمي الذي يحتوي على الشريحة التي ترغب في تعيين حجمها.
-1. أنشئ مثيلًا آخر من عائلة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) لإنشاء عرض تقديمي جديد.
-1. احصل على مرجع الشريحة (من العرض التقديمي الأول) من خلال مؤشرها.
-1. اجعل نموذج تذييل الشريحة مرئيًا.
-1. اجعل نموذج التاريخ والوقت مرئيًا.
-1. احفظ العرض التقديمي.
+## **الأسئلة المتكررة**
 
-يوضح لك هذا الكود C++ كيفية تنفيذ العملية:
+**ما الفرق بين سابقة الشريحة وتخطيط الشريحة؟**
 
-```c++
-// المسار إلى مجلد المستندات.
-const String templatePath = u"../templates/AccessSlides.pptx";
-const String outPath = u"../out/SetSlideSizeScale_out.pptx";
+تحدد سابقة الشريحة الموضوع العام والتنسيق الافتراضي، بينما تحدد تخطيطات الشرائح ترتيبًا محددًا للعناصر النائبة لأنواع مختلفة من المحتوى.
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
-SharedPtr<Presentation> auxPresentation = MakeObject<Presentation>();
+**هل يمكنني نسخ تخطيط شريحة من عرض تقديمي إلى آخر؟**
 
-// ينشئ مثيل من فئة SlideCollection
-SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+نعم، يمكنك استنساخ تخطيط شريحة من مجموعة تخطيطات عرض تقديمي عبر طريقة [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/)، ثم إدراجه في عرض تقديمي آخر باستخدام طريقة `AddClone`.
 
-// تعيين حجم الشريحة للعروض التقديمية الناتجة إلى حجم المصدر
-auxPresentation->get_SlideSize()->SetSize(540, 720, SlideSizeScaleType::EnsureFit); // تُستخدم طريقة SetSize لتعيين حجم الشريحة مع تغيير المحتوى لضمان التناسب
-auxPresentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize); // تُستخدم طريقة SetSize لتعيين حجم الشريحة إلى الحجم الأقصى للمحتوى
+**ماذا يحدث إذا حذفت تخطيط شريحة لا يزال مستخدمًا من قبل شريحة؟**
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
-auxPresentation->get_Slides()->RemoveAt(0);
-
-// يحفظ العرض التقديمي
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **تعيين حجم الصفحة عند إنشاء PDF**
-
-بعض العروض التقديمية (مثل الملصقات) غالبًا ما يتم تحويلها إلى مستندات PDF. إذا كنت تبحث عن تحويل PowerPoint إلى PDF للوصول إلى أفضل خيارات الطباعة والوصول، فأنت بحاجة إلى تعيين شرائحك إلى احجام تناسب مستندات PDF (A4، على سبيل المثال).
-
-توفر Aspose.Slides فئة [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/) للسماح لك بتحديد الإعدادات المفضلة لديك للشرائح. يوضح لك هذا الكود C++ كيفية استخدام خاصية [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) (من فئة `SlideSize`) لتعيين حجم ورق محدد للشرائح في عرض تقديمي:
-
-```c++
-// المسار إلى مجلد المستندات.
-	const String outPath = u"../out/SetPDFPageSize_out.pptx";
-
-	// ينشئ مثيلًا من كائن Presentation الذي يمثل ملف العرض التقديمي 
-	SharedPtr<Presentation>pres = MakeObject<Presentation>();
-
-	// تعيين خاصية SlideSize.Type
-	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-
-	// تعيين خصائص مختلفة لخيارات PDF
-	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();
-	opts.set_SufficientResolution (600);
-
-	// حفظ العرض التقديمي
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pdf, &opts);
-```
+إذا حاولت حذف تخطيط شريحة لا يزال مُشارًا إليه من قبل شريحة واحدة على الأقل في العرض، ستطلق Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). لتجنب ذلك، استخدم طريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) التي تزيل بأمان فقط تخطيطات الشرائح غير المستخدمة.

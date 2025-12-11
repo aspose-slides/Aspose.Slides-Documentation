@@ -3,59 +3,75 @@ title: 安装
 type: docs
 weight: 70
 url: /zh/cpp/installation/
-keywords: "下载 Aspose.Slides, 安装 Aspose.Slides, Aspose.Slides 安装, Windows, C++"
-description: "在 Windows 中为 C++ 安装 Aspose.Slides"
+keywords:
+- 安装 Aspose.Slides
+- 下载 Aspose.Slides
+- 使用 Aspose.Slides
+- Aspose.Slides 安装
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "快速了解如何安装 Aspose.Slides for C++。一步一步的指南、系统要求和代码示例——立即开始使用 PowerPoint 演示文稿！"
 ---
 
 ## **Windows**
-NuGet 为在 PC 上下载和安装 C++ 的 Aspose API 提供了最简单的路径。
+NuGet 提供了在 PC 上下载和安装 Aspose C++ API 的最简便途径。 
 
-### **选项一：通过 NuGet 包管理器安装或更新 Aspose.Slides for C++**
-
-1. 打开 Microsoft Visual Studio。
-2. 创建一个简单的控制台应用程序，或者你可以打开你喜欢的项目。
-3. 依次点击 **工具** > **NuGet 包管理器**。
-4. 在 **浏览** 中，在文本框中输入 *Aspose.Slides.Cpp*。
+### **Option One: Install or Update Aspose.Slides for C++ from the NuGet Package Manager**
+1. 打开 Microsoft Visual Studio。 
+2. 创建一个简单的控制台应用程序，或者打开您喜欢的项目。 
+3. 依次点击 **Tools** > **NuGet package manager**。 
+4. **Browse** 中，输入 *Aspose.Slides.Cpp* 到文本框。 
 
 ![todo:image_alt_text](installation_1.png)
 
-3. 点击你需要的版本 **Aspose.Slides.Cpp**，然后点击 **安装**。
-   * 如果你想更新 Aspose.Slides——意味着你已经安装了它——请点击 **更新**。
+点击所需的 **Aspose.Slides.Cpp** 版本，然后点击 **Install**。 
+* 如果您想更新 Aspose.Slides（即已经安装），请选择 **Update**。 
 
-所选 API 被下载并在你的项目中被引用。
+所选的 API 将被下载并在项目中引用。
 
-### **选项二：通过包管理控制台安装或更新 Aspose.Slides**
+### **Option 2: Install or Update Aspose.Slides Through the Package Manager Console**
+要在包管理控制台中引用 [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.Cpp/) ，请执行以下操作：
 
-要通过包管理控制台引用 [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.Cpp/)，请按以下步骤操作：
+1. 在 Visual Studio 中打开您的 solution/project。 
 
-1. 在 Visual Studio 中打开你的解决方案/项目。
+1. 依次点击 **Tools** > **NuGet Package Manager** > **Package Manager Console**。 
 
-1. 依次点击 **工具** > **NuGet 包管理器** > **包管理控制台**。
-
-   包管理控制台打开。
+Package Manager Console 将打开。 
 
 ![todo:image_alt_text](installation_2.png)
 
-4. 输入该命令：`Install-Package Aspose.Slides.Cpp` 
-> 如果你想安装 x86 版本，请使用 Aspose.Slides.Cpp.x86 包：`Install-Package Aspose.Slides.Cpp.x86`
+输入以下命令：`Install-Package Aspose.Slides.Cpp` 
+> 如果您想安装 x86 版本，请使用 Aspose.Slides.Cpp.x86 包：`Install-Package Aspose.Slides.Cpp.x86`
 
-5. 按下回车键。
+按 Enter 键。 
 
-   最新的完整版本将被安装到你的应用程序中。
+最新的完整版本将安装到您的应用程序中。 
 
-   * 另外，你可以在命令后添加 `-prerelease` 后缀以指定也必须安装最新版本（包括热修复）。
+* 或者，您可以在命令后添加 `-prerelease` 后缀，以便安装包括热修复在内的最新版本。
 
 ![todo:image_alt_text](installation_3.png)
 
-一旦下载完成，你应该会看到一些确认消息。
+下载完成后，您应该会看到一些确认信息。  
 
 ![todo:image_alt_text](installation_4.png)
 
-如果你不熟悉 [Aspose EULA](https://about.aspose.com/legal/eula)，你可能想阅读 URL 中引用的许可证。
+如果您不熟悉 [Aspose EULA](https://about.aspose.com/legal/eula)，可以查看该链接中的许可协议。  
 
-在包管理控制台中，你可以运行 `Update-Package Aspose.Slides.Cpp` 命令以检查 Aspose.Slides 包的更新。系统会自动安装发现的更新。你也可以使用 `-prerelease` 后缀来更新最新版本。
+在 Package Manager Console 中，您可以运行 `Update-Package Aspose.Slides.Cpp` 命令来检查 Aspose.Slides 包的更新。若有更新，将自动安装。您也可以使用 `-prerelease` 后缀来更新到最新版本。
 
-### 使用 Include 和 lib 文件夹
-1. [下载](https://downloads.aspose.com/slides/cpp) 最新的 Aspose.Slides for C++ 版本。
-1. 将文件夹解压到生产环境。
-1. 要使用 Aspose.Slides for C++，在你的项目中引用 Include 和 lib 文件夹。
+### **Using Include and lib Folders**
+1. 下载最新的 Aspose.Slides for C++ 版本。 
+1. 将文件夹解压到生产环境中。 
+1. 在项目中引用 Include 和 lib 文件夹以使用 Aspose.Slides for C++。
+
+## **FAQ**
+
+**Is there a free version or trial limitation?**
+
+是的，默认情况下，Aspose.Slides 以评估模式运行，会添加水印并可能存在其他限制。要解除这些限制，需要使用有效的 [license](/slides/zh/cpp/licensing/)。

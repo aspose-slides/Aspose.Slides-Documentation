@@ -1,24 +1,32 @@
 ---
-title: Aspose.Slidesを使用したHello Worldアプリケーション
+title: Aspose.Slides for C++ を使用した Hello World アプリケーション
 type: docs
 weight: 80
 url: /ja/cpp/hello-world-application-using-aspose-slides/
+keywords:
+- ハローワールド
+- アプリケーション
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides を使用して最初の C++ アプリを作成します。PPT、PPTX、ODP プレゼンテーションを自動化する準備ができるシンプルな Hello World の例です。"
 ---
 
-## **Hello Worldアプリケーションを作成する手順**
-このシンプルなアプリケーションでは、スライドの指定された位置に**Hello World**のテキストを持つPowerPointプレゼンテーションを作成します。以下の手順に従って、C++ API用のAspose.Slidesを使用して**Hello World**アプリケーションを作成してください：
+## **Hello World アプリケーションの作成手順**
+このシンプルなアプリケーションでは、スライドの指定位置に **Hello World** テキストを持つ PowerPoint プレゼンテーションを作成します。以下の手順に従って、Aspose.Slides for C++ API を使用して **Hello World** アプリケーションを作成してください。
 
-- Presentationクラスのインスタンスを作成する
-- Presentationのインスタンス化時に作成されるプレゼンテーションの最初のスライドの参照を取得する
-- 指定された位置にShapeTypeを矩形とするAutoShapeを追加する
-- デフォルトのテキストとしてHello Worldを含むTextFrameをAutoShapeに追加する
-- テキストの色を黒に変更する（デフォルトでは白で、白い背景のスライドでは見えないため）
-- 形状の線の色を白に変更し、形状の境界線を隠す
+- Presentation クラスのインスタンスを作成する
+- Presentation のインスタンス化時に作成されるプレゼンテーションの最初のスライドの参照を取得する
+- スライドの指定位置に ShapeType が Rectangle の AutoShape を追加する
+- デフォルトテキストとして Hello World を含む TextFrame を AutoShape に追加する
+- テキスト色を黒に変更する（デフォルトは白で、白背景のスライドでは見えないため）
+- 形状の線の色を白に変更して枠線を非表示にする
 - 形状のデフォルトの塗りつぶし形式を削除する
-- 最後に、Presentationオブジェクトを使用して、希望のファイル形式でプレゼンテーションを保存する
+- 最後に、Presentation オブジェクトを使用してプレゼンテーションを希望のファイル形式で書き出す
 
-上記の手順の実装は、以下の例で示されています。
-
+上記手順の実装は、以下のサンプルで示しています。
 ``` cpp
 #include <DOM/Presentation.h>
 #include <DOM/SlideCollection.h>
@@ -54,13 +62,13 @@ int main(int argc, const char argv[])
     // 最初のスライドを取得
     auto slide = pres->get_Slides()->idx_get(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加
     auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加
     shape->AddTextFrame(u"Hello World");
 
-    // テキストの色を黒に変更する（デフォルトは白である）
+    // テキストの色を黒に変更（デフォルトは白）
     auto portionFillFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_FillFormat();
     portionFillFormat->set_FillType(FillType::Solid);
     portionFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
@@ -68,7 +76,7 @@ int main(int argc, const char argv[])
     // 矩形の線の色を白に変更
     shape->get_ShapeStyle()->get_LineColor()->set_Color(System::Drawing::Color::get_White());
 
-    // 形状の塗りつぶし形式を削除
+    // 形状の塗りつぶし設定をすべて削除
     shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
     // プレゼンテーションをディスクに保存

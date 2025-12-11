@@ -1,12 +1,26 @@
 ---
-title: Exigences Système
+title: Exigences système
 type: docs
 weight: 80
 url: /fr/cpp/system-requirements/
+keywords:
+- exigences système
+- système d'exploitation
+- installation
+- dépendances
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Découvrez les exigences système d'Aspose.Slides pour C++. Assurez une prise en charge transparente de PowerPoint et OpenDocument sous Windows, Linux et macOS."
 ---
 
 ## **Systèmes d'exploitation pris en charge**
-Aspose.Slides pour C++ est une bibliothèque C++ native. Aspose.Slides pour C++ prend en charge les systèmes d'exploitation et les plates-formes 64 bits et 32 bits suivants :
+Aspose.Slides pour C++ est une bibliothèque native C++. Aspose.Slides pour C++ prend en charge les systèmes d'exploitation et plateformes 64 bits et 32 bits suivants :
 
 ### **Windows**
 - Microsoft Windows Server 2008 (x64, x86)
@@ -23,7 +37,7 @@ Aspose.Slides pour C++ est une bibliothèque C++ native. Aspose.Slides pour C++ 
 - OS Ubuntu 16.04 ou version ultérieure.
 - CentOS 8 ou version ultérieure.
 - Fedora 24 ou version ultérieure.
-- Et autres Linux x86_64 avec glibc 2.23 ou version ultérieure.
+- Et d'autres Linux x86_64 avec glibc 2.23 ou version ultérieure.
 
 ### **macOS**
 - macOS Monterey 12.1 ou version ultérieure.
@@ -42,3 +56,13 @@ Vous pouvez utiliser Aspose.Slides pour C++ lors du développement d'application
 
 ### **macOS**
 - Xcode 13.4 ou version ultérieure.
+
+## **FAQ**
+
+**Dois‑je installer Microsoft PowerPoint pour les conversions et le rendu ?**
+
+Non, PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour [création](/slides/fr/cpp/create-presentation/), la modification, [conversion](/slides/fr/cpp/convert-presentation/) et le [rendu](/slides/fr/cpp/convert-powerpoint-to-png/) des présentations.
+
+**Quelles polices sont nécessaires pour un rendu correct ?**
+
+En pratique, les polices utilisées dans la présentation ou les [substituts](/slides/fr/cpp/font-substitution/) appropriés doivent être disponibles. Pour assurer un rendu cohérent sous Linux/macOS, il est recommandé d'installer les paquets de polices courants.
