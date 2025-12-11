@@ -41,7 +41,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-## **Create Picture Frame**
+## **Create a Picture Frame**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
@@ -80,7 +80,7 @@ Picture frames allow you to quickly create presentation slides based on images. 
 
 {{% /alert %}}
 
-## **Create Picture Frame with Relative Scale**
+## **Create a Picture Frame with Relative Scale**
 
 By altering an image's relative scaling, you can create a more complicated picture frame. 
 
@@ -173,7 +173,7 @@ try {
 }
 ```
 
-## **Get Transparency of Image**
+## **Get Transparency of an Image**
 
 Aspose.Slides allows you to get the transparency effect applied to an image. This Java code demonstrates the operation:
 
@@ -244,7 +244,7 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
-## **Add Image as Link**
+## **Add an Image as a Link**
 
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
 
@@ -300,7 +300,7 @@ try {
 }
 ```
 
-## **Crop Image**
+## **Crop Images**
 
 This Java code shows you how to crop an existing image on a slide:
 
@@ -334,7 +334,7 @@ try {
 }
 ```
 
-## Delete Cropped Areas of Picture
+## **Delete Cropped Areas of a Picture**
 
 If you want to delete the cropped areas of an image contained in a frame, you can use the [deletePictureCroppedAreas()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
@@ -401,7 +401,7 @@ This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape an
 
 {{% /alert %}}
 
-## **Use StretchOff Property**
+## **Use the StretchOff Property**
 
 Using the [StretchOffsetLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) and [StretchOffsetBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat) interface and [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPictureFillFormat) class, you can specify a fill rectangle.
 
@@ -461,3 +461,20 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I find out which image formats are supported for PictureFrame?**
+
+Aspose.Slides supports both raster images (PNG, JPEG, BMP, GIF, etc.) and vector images (for example, SVG) via the image object that is assigned to a [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/). The list of supported formats generally overlaps with the capabilities of the slide and image conversion engine.
+
+**How will adding dozens of large images affect PPTX size and performance?**
+
+Embedding large images increases file size and memory usage; linking images helps keep the presentation size down but requires the external files to remain accessible. Aspose.Slides provides the ability to add images by link to reduce file size.
+
+**How can I lock an image object from accidental moving/resizing?**
+
+Use [shape locks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) for a [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/androidjava/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/).
+
+**Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
+
+Aspose.Slides allows extracting an SVG from a [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) as the original vector. When [exporting to PDF](/slides/androidjava/convert-powerpoint-to-pdf/) or [raster formats](/slides/androidjava/convert-powerpoint-to-png/), the result may be rasterized depending on the export settings; the fact that the original SVG is stored as a vector is confirmed by the extraction behavior.

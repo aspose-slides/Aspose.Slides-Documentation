@@ -22,7 +22,7 @@ keywords:
 description: "Modernize slide image processing by replacing deprecated imaging APIs with the Java Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
-## Introduction
+## **Introduction**
 
 Historically, Aspose Slides has a dependency on java.awt and has in the public API the following classes from there:
 - [Canvas](https://developer.android.com/reference/android/graphics/Canvas)
@@ -34,7 +34,7 @@ In order to get rid of dependencies on these classes, we added the so-called "Mo
 
 Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
 
-## Modern API
+## **Modern API**
 
 Added the following classes and enums to the public API:
 
@@ -75,7 +75,7 @@ try {
 }
 ```
 
-## Replacing old code with Modern API
+## **Replacing Old Code with Modern API**
 
 In general, you will need to replace the call to the old method using ImageIO with the new one.
 
@@ -118,7 +118,7 @@ try {
 }
 ```
 
-### Getting a slide thumbnail
+### **Getting a Slide Thumbnail**
 
 Code using a deprecated API:
 
@@ -162,7 +162,7 @@ try {
 }
 ```
 
-### Getting a shape thumbnail
+### **Getting a Shape Thumbnail**
 
 Code using a deprecated API:
 
@@ -206,7 +206,7 @@ try {
 }
 ```
 
-### Getting a presentation thumbnail
+### **Getting a Presentation Thumbnail**
 
 Code using a deprecated API:
 
@@ -264,7 +264,7 @@ try {
 }
 ```
 
-### Adding a picture to a presentation
+### **Adding a Picture to a Presentation**
 
 Code using a deprecated API:
 
@@ -301,9 +301,9 @@ try {
 }
 ```
 
-## Methods to be removed and their replacement in Modern API
+## **Methods to Be Removed and Their Replacement in Modern API**
 
-### Presentation
+### **Presentation**
 | Method Signature                               | Replacement Method Signature                             |
 |-----------------------------------------------|---------------------------------------------------------|
 | public final Bitmap[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
@@ -313,13 +313,13 @@ try {
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Size imageSize) |
 | public final Bitmap[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 
-### Shape
+### **Shape**
 | Method Signature                                                      | Replacement Method Signature                                       |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
 | public final Bitmap getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### Slide
+### **Slide**
 | Method Signature                                                      | Replacement Method Signature                                           |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final Bitmap getThumbnail() | public final IImage getImage() |
@@ -333,34 +333,34 @@ try {
 | public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize) | Will be deleted completely  |
 | public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY) | Will be deleted completely  |
 
-### Output
+### **Output**
 | Method Signature                                                | Replacement Method Signature                                |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, Bitmap image) | public final IOutputFile add(String path, IImage image) |
 
-### ImageCollection
+### **ImageCollection**
 | Method Signature                          | Replacement Method Signature               |
 |-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(Bitmap image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
+### **PPImage**
 | Method Signature                     | Replacement Method Signature   |
 |--------------------------------------|-----------------------------------------|
 | public final Bitmap getSystemImage() | public final IImage getImage() |
 
-### PatternFormat
+### **PatternFormat**
 | Method Signature                                          | Replacement Method Signature                        |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final Bitmap getTileImage(Integer styleColor)   | public final IImage getTile(Integer styleColor) |
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTile(Integer background, Integer foreground) |
 
-### PatternFormatEffectiveData
+### **PatternFormatEffectiveData**
 | Method Signature                                          | Replacement Method Signature                        |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final Bitmap getTileImage(Integer background, Integer foreground) | public final IImage getTileIImage(Integer background, Integer foreground) |
 
 
-## API support for Canvas will be discontinued
+## **API Support for Canvas Will Be Discontinued**
 
 Methods with [Canvas](https://developer.android.com/reference/android/graphics/Canvas) are declared deprecated and their support will be removed from the public API.
 
@@ -372,3 +372,16 @@ The part of the API that uses it will be removed:
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Canvas graphics, Size renderingSize)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-android.graphics.Canvas-com.aspose.slides.android.Size-)
 
+## **FAQ**
+
+**Why was android.graphics.Canvas dropped?**
+
+Support for `Canvas` is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/). All rendering methods to `Canvas` will be removed.
+
+**What is the practical benefit of IImage compared to BufferedImage?**
+
+[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/).
+
+**Will the Modern API affect the performance of generating thumbnails?**
+
+Switching from `getThumbnail` to `getImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

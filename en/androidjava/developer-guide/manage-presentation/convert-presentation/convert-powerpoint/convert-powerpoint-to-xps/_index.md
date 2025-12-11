@@ -30,7 +30,7 @@ description: "Convert PowerPoint PPT/PPTX to high-quality, platform-independent 
 ## **About XPS**
 Microsoft developed [XPS](https://docs.fileformat.com/page-description-language/xps/) as an alternative to [PDF](https://docs.fileformat.com/pdf/).  It allows you to print content by outputting a file very similar to a PDF. The XPS format is based on XML. The layout or structure of an XPS file remains the same on all operating systems and printers. 
 
-## When to Use Microsoft XPS Format
+## **When to Use Microsoft XPS Format**
 
 {{% alert color="primary" %}} 
 
@@ -57,7 +57,7 @@ Microsoft continues to implement strong support for XPS in Windows (even in Wind
 
 Microsoft eventually implemented support for printing operations in PDF through the Print to PDF feature in Windows 10. Previously, users were expected to print documents through the XPS format. 
 
-## XPS Conversion with Aspose.Slides
+## **XPS Conversion with Aspose.Slides**
 
 In [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
 
@@ -66,7 +66,7 @@ When converting a presentation to XPS, you have to save the presentation using e
 - Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
 - Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
 
-### **Converting Presentations to XPS Using Default Settings**
+### **Convert Presentations to XPS Using Default Settings**
 
 This sample code in Java shows you how to convert a presentation to an XPS document using standard settings:
 
@@ -82,7 +82,7 @@ try {
 ```
 
 
-### **Converting Presentations to XPS Using Custom Settings**
+### **Convert Presentations to XPS Using Custom Settings**
 This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
 
 ```java
@@ -101,3 +101,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I save to XPS into a stream instead of a file?**
+
+Yes—Aspose.Slides lets you export directly to a stream, which is ideal for web APIs, server-side pipelines, or any scenario where you want to send the XPS without touching the file system.
+
+**Are hidden slides carried over to XPS, and can I exclude them?**
+
+By default, only regular (visible) slides are rendered. You can [include or exclude hidden slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-) through [export settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/) before saving to XPS, ensuring the output contains exactly the pages you intend.

@@ -18,7 +18,7 @@ keywords:
 description: "Master superscript and subscript in Aspose.Slides for Android via Java and elevate your presentations with professional text formatting for maximum impact."
 ---
 
-## **Manage Super Script and Sub Script Text**
+## **Manage Superscript and Subscript Text**
 You can add superscript and subscript text inside any paragraph portion. For adding Superscript or Subscript text in Aspose.Slides text frame one must use the [**setEscapement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#setEscapement-float-) method of [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PortionFormat) class.
 
 This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript). For example:
@@ -90,3 +90,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Will superscript and subscript be preserved when exporting to PDF or other formats?**
+
+Yes, Aspose.Slides properly retains superscript and subscript formatting when exporting presentations to PDF, PPT/PPTX, images, and other supported formats. The specialized formatting remains intact in all output files.
+
+**Can superscript and subscript be combined with other formatting styles such as bold or italics?**
+
+Yes, Aspose.Slides allows you to mix various text styles within a single portion of text. You can enable bold, italics, underline, and simultaneously apply superscript or subscript by configuring the corresponding properties in [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/).
+
+**Do superscript and subscript formatting work for text inside tables, charts, or SmartArt?**
+
+Yes, Aspose.Slides supports formatting within most objects, including tables and chart elements. When working with SmartArt, you need to access the appropriate elements (such as [SmartArtNode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartartnode/)) and their text containers, and then configure the [PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/) properties in a similar manner.

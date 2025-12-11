@@ -26,7 +26,7 @@ description: "Discover how to use Aspose.Slides for Android via Java to customiz
 ---
 
 
-## **Getting the Max Values on the Vertical Axis on Charts**
+## **Get the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for Android via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -60,7 +60,7 @@ try {
 }
 ```
 
-## **Swapping the Data between Axes**
+## **Swap the Data between Axes**
 Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
 This Java code shows you how to perform the data swap task between axes on a chart:
@@ -80,7 +80,7 @@ try {
 }
 ```
 
-## **Disabling the Vertical Axis for Line Charts**
+## **Disable the Vertical Axis for Line Charts**
 
 This Java code shows you how to hide the vertical axis for a line chart:
 
@@ -96,7 +96,7 @@ try {
 }
 ```
 
-## **Disabling the Horizontal Axis for Line Charts**
+## **Disable the Horizontal Axis for Line Charts**
 
 This code shows you how to hide the horizontal axis for a line chart:
 
@@ -112,7 +112,7 @@ try {
 }
 ```
 
-## **Changing Category Axis**
+## **Change a Category Axis**
 
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Java demonstrates the operation: 
 
@@ -130,7 +130,7 @@ try {
 }
 ```
 
-## **Setting the Date Format for Category Axis Value**
+## **Set the Date Format for Category Axis Values**
 Aspose.Slides for Android via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
 
 ```java
@@ -174,7 +174,7 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **Setting the Rotation Angle for Chart Axis Title**
+## **Set a Rotation Angle for a Chart Axis Title**
 Aspose.Slides for Android via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
 
 ```java
@@ -192,7 +192,7 @@ try {
 
 ```
 
-## **Setting the Position Axis in a Category or Value Axis**
+## **Set the Axis Position on a Category or Value Axis**
 Aspose.Slides for Android via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
 
 ```java
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-## **Enabling the Display Unit label on Chart Value Axis**
+## **Enable the Display Unit Label on Chart Value Axis**
 Aspose.Slides for Android via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
 
 ```java
@@ -223,3 +223,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**How do I set the value at which one axis crosses the other (axis crossing)?**
+
+Axes provide a [crossing setting](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
+
+**How can I position tick labels relative to the axis (alongside, outside, inside)?**
+
+Set the [label position](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.

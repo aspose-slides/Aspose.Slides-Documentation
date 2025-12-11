@@ -78,3 +78,17 @@ The result:
 Check out Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I control the position of the notes area in the resulting TIFF?**
+
+Yes. Use the [notes layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) to choose among options like `None`, `BottomTruncated`, or `BottomFull`, which respectively hide notes, fit them into a single page, or allow them to flow onto additional pages.
+
+**How can I reduce the size of a TIFF file with notes without visible loss of quality?**
+
+Pick an [efficient compression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (e.g., `LZW` or `RLE`), set a reasonable DPI, and, if acceptable, use a lower [pixel format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (such as 8 bpp or 1 bpp for monochrome). Slightly reducing the [image dimensions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) can also help without noticeably hurting readability.
+
+**Does the font in the notes affect the result if the original fonts are missing from the system?**
+
+Yes. Missing fonts trigger [substitution](/slides/androidjava/font-selection-sequence/), which can change text metrics and appearance. To avoid this, [supply the required fonts](/slides/androidjava/custom-font/) or set a default [fallback font](/slides/androidjava/fallback-font/) so the intended typefaces are used.

@@ -21,7 +21,7 @@ keywords:
 description: "Generate interactive 3D presentations in Java with Aspose.Slides for Android effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
 ---
 
-## Overview
+## **Overview**
 Since Aspose.Slides Java 20.9 its possible to create 3D in presentations. PowerPoint 3D is a way to give life to presentations. Show the real world objects 
 with 3D presentation, demonstrate 3D model of your future business project, 3D model of the building or its interior, 3D model of the game character, 
 or just a 3D representation of your data. 
@@ -68,7 +68,7 @@ Here is the resulting 3D model:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D Rotation
+## **3D Rotation**
 The rotation of 3D model in PowerPoint can be done via menu:
 
 ![todo:image_alt_text](img_02_01.png)
@@ -86,7 +86,7 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-## 3D Depth and Extrusion
+## **3D Depth and Extrusion**
 **[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**
 and **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** methods
 are used to create extrusion on shape:
@@ -107,7 +107,7 @@ In PowerPoint, Depth of the shape is set via:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3D Gradient
+## **3D Gradient**
 3D gradient can bring more volume to PowerPoint 3D shape:
 
 ``` java
@@ -161,7 +161,7 @@ Here is the result:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D Text (WordArt)
+## **3D Text (WordArt)**
 To create a 3D text (WordArt), do the following:
 ``` java
 final float imageScale = 2;
@@ -207,15 +207,16 @@ Here is the result:
 
 ![todo:image_alt_text](img_02_05.png)
 
- 
- 
-## Not Supported - Coming Soon
-The following PowerPoint 3D features are not supported yet: 
-- Bevel
-- Material
-- Contour
-- Lighting
+## **FAQ**
 
+**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
 
- 
+Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/androidjava/convert-powerpoint-to-png/), [PDF](/slides/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/androidjava/convert-powerpoint-to-html/), etc.).
 
+**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
+
+Yes. Slides provides APIs to [read effective values](/slides/androidjava/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+
+**Do 3D effects work when converting a presentation to video?**
+
+Yes. When [generating frames for the video](/slides/androidjava/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/androidjava/convert-powerpoint-to-png/).

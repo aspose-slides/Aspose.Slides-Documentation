@@ -48,3 +48,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I include hidden slides in the SWF?**
+
+Yes. Enable the hidden slides using the [setShowHiddenSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/#setShowHiddenSlides-boolean-) method in [SwfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/). By default, hidden slides are not exported.
+
+**How can I control compression and the final SWF size?**
+
+Use the [setCompressed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/#setCompressed-boolean-) method and [adjust JPEG quality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/#setJpegQuality-int-) to balance file size and image fidelity.
+
+**What is 'setViewerIncluded' for, and when should I disable it?**
+
+[setViewerIncluded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/#setViewerIncluded-boolean-) adds an embedded player UI (navigation controls, panels, search). Disable it if you plan to use your own player or need a bare SWF frame without UI.
+
+**What happens if a source font is missing on the export machine?**
+
+Aspose.Slides will substitute the font you specify via [setDefaultRegularFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/#setDefaultRegularFont-java.lang.String-) in [SwfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/swfoptions/) to avoid an unintended fallback.
