@@ -1,23 +1,58 @@
 ---
-title: ODP in PPTX umwandeln
+title: ODP nach PPTX auf Android konvertieren
+linktitle: ODP nach PPTX
 type: docs
 weight: 10
 url: /de/androidjava/convert-odp-to-pptx/
+keywords:
+- OpenDocument konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- ODP konvertieren
+- OpenDocument nach PPTX
+- ODP nach PPTX
+- ODP als PPTX speichern
+- ODP nach PPTX exportieren
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "ODP mit Aspose.Slides für Android nach PPTX konvertieren. Saubere Java-Beispiele, Stapel-Tipps und hochwertige Ergebnisse – kein PowerPoint erforderlich."
 ---
 
-## **ODP in PPTX/PPT-Präsentation umwandeln**
-Aspose.Slides für Android über Java bietet die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse, die eine Präsentationsdatei darstellt. Die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse kann jetzt auch auf ODP über den [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#Presentation-java.lang.String-) Konstruktor zugreifen, wenn das Objekt instanziiert wird. Das folgende Beispiel zeigt, wie man eine ODP-Präsentation in eine PPTX-Präsentation umwandelt.
-
+## **ODP in PPTX/PPT-Präsentation konvertieren**
+Aspose.Slides für Android via Java bietet die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), die eine Präsentationsdatei repräsentiert. Die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) kann jetzt auch ODP über den [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#Presentation-java.lang.String-) Konstruktor zugreifen, wenn das Objekt instanziiert wird. Das folgende Beispiel zeigt, wie man eine ODP‑Präsentation in eine PPTX‑Präsentation konvertiert.
 ```java
 // ODP-Datei öffnen
 Presentation pres = new Presentation("AccessOpenDoc.odp");
 try {}
-// Speichern der ODP-Präsentation im PPTX-Format
+// ODP-Präsentation im PPTX-Format speichern
     pres.save("AccessOpenDoc_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Live-Beispiel**
-Sie können die [**Aspose.Slides Konvertierung**](https://products.aspose.app/slides/conversion/) Webanwendung besuchen, die mit der **Aspose.Slides API** entwickelt wurde. Die App zeigt, wie die ODP-zu-PPTX-Konvertierung mit der Aspose.Slides API umgesetzt werden kann.
+Sie können die Web‑App [**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/) besuchen, die mit der **Aspose.Slides API** erstellt wurde. Die App demonstriert, wie die ODP‑zu‑PPTX‑Konvertierung mit der Aspose.Slides API implementiert werden kann.
+
+## **FAQ**
+
+**Muss ich Microsoft PowerPoint oder LibreOffice installieren, um ODP in PPTX zu konvertieren?**
+
+Nein. Aspose.Slides funktioniert eigenständig und benötigt keine Drittanbieter‑Anwendungen zum Lesen oder Schreiben von ODP/PPTX.
+
+**Werden Master‑Folien, Layouts und Designs während der Konvertierung beibehalten?**
+
+Ja. Die Bibliothek verwendet ein vollständiges Präsentations‑Objektmodell und behält die Struktur, einschließlich Master‑Folien und Layouts, bei, sodass das Design nach der Konvertierung korrekt bleibt.
+
+**Kann ich passwortgeschützte ODP‑Dateien konvertieren?**
+
+Ja. Aspose.Slides unterstützt das Erkennen von Schutz, das Öffnen und Arbeiten mit [geschützten Präsentationen](/slides/de/androidjava/password-protected-presentation/) (einschließlich ODP), wenn Sie das Passwort angeben, sowie das Konfigurieren von Verschlüsselung und Zugriff auf Dokumenteigenschaften.
+
+**Ist Aspose.Slides für Cloud‑ oder REST‑basierte Konvertierungsdienste geeignet?**
+
+Ja. Sie können die lokale Bibliothek in Ihrem eigenen Backend verwenden oder [Aspose.Slides Cloud](https://products.aspose.cloud/slides/family/) (REST‑API); beide Optionen unterstützen die ODP → PPTX‑Konvertierung.

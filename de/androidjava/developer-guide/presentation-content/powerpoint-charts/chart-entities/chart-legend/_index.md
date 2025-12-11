@@ -1,28 +1,38 @@
 ---
-title: Diagrammlegende
+title: Diagrammlegenden in Präsentationen auf Android anpassen
+linktitle: Diagrammlegende
 type: docs
 url: /de/androidjava/chart-legend/
+keywords:
+- Diagrammlegende
+- Legendenposition
+- Schriftgröße
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Passen Sie Diagrammlegenden mit Aspose.Slides für Android via Java an, um PowerPoint-Präsentationen mit individuell gestalteter Legendenformatierung zu optimieren."
 ---
 
 ## **Legendenpositionierung**
-Um die Eigenschaften der Legende festzulegen. Bitte befolgen Sie die folgenden Schritte:
+Um die Legenden‑Eigenschaften festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-- Holen Sie sich eine Referenz der Folie.
-- Fügen Sie ein Diagramm auf der Folie hinzu.
-- Festlegen der Eigenschaften der Legende.
-- Schreiben Sie die Präsentation als PPTX-Datei.
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Holen Sie die Referenz der Folie.
+- Fügen Sie der Folie ein Diagramm hinzu.
+- Setzen Sie die Eigenschaften der Legende.
+- Schreiben Sie die Präsentation als PPTX‑Datei.
 
-Im folgenden Beispiel haben wir die Position und Größe für die Diagrammlegende festgelegt.
-
+Im nachstehenden Beispiel haben wir die Position und Größe der Diagramm‑Legende festgelegt.
 ```java
-// Erstellen Sie eine Instanz der Presentation Klasse
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
-    // Holen Sie sich eine Referenz der Folie
+    // Hole die Referenz der Folie
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Fügen Sie ein gruppiertes Säulendiagramm auf der Folie hinzu
+    // Füge ein gruppiertes Säulendiagramm zur Folie hinzu
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
     // Legenden-Eigenschaften festlegen
@@ -31,25 +41,25 @@ try {
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
     
-    // Präsentation auf die Festplatte schreiben
+    // Schreibe die Präsentation auf die Festplatte
     pres.save("Legend_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Schriftgröße der Legende festlegen**
-Aspose.Slides für Android über Java ermöglicht Entwicklern, die Schriftgröße der Legende festzulegen. Bitte befolgen Sie die folgenden Schritte:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-- Erstellen Sie das Standarddiagramm.
-- Stellen Sie die Schriftgröße ein.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
+## **Schriftgröße einer Legende festlegen**
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Festlegen der Schriftgröße der Legende. Bitte folgen Sie den untenstehenden Schritten:
+
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Erstellen Sie das Standard‑Diagramm.
+- Legen Sie die Schriftgröße fest.
+- Setzen Sie den Minimalwert der Achse.
+- Setzen Sie den Maximalwert der Achse.
 - Schreiben Sie die Präsentation auf die Festplatte.
-
 ```java
-// Erstellen Sie eine Instanz der Presentation Klasse
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -67,19 +77,19 @@ try {
 }
 ```
 
-## **Schriftgröße der einzelnen Legende festlegen**
-Aspose.Slides für Android über Java ermöglicht Entwicklern, die Schriftgröße einzelner Legendeinträge festzulegen. Bitte befolgen Sie die folgenden Schritte:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-- Erstellen Sie das Standarddiagramm.
-- Greifen Sie auf den Legendeintrag zu.
-- Stellen Sie die Schriftgröße ein.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
+## **Schriftgröße einer einzelnen Legende festlegen**
+Aspose.Slides für Android via Java ermöglicht Entwicklern das Festlegen der Schriftgröße einzelner Legendeinträge. Bitte folgen Sie den untenstehenden Schritten:
+
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Erstellen Sie das Standard‑Diagramm.
+- Zugriff auf den Legendeintrag.
+- Legen Sie die Schriftgröße fest.
+- Setzen Sie den Minimalwert der Achse.
+- Setzen Sie den Maximalwert der Achse.
 - Schreiben Sie die Präsentation auf die Festplatte.
-
 ```java
-// Erstellen Sie eine Instanz der Presentation Klasse
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -97,3 +107,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich die Legende aktivieren, damit das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**
+
+Ja. Verwenden Sie den Nicht‑Overlay‑Modus ([setOverlay(false)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); in diesem Fall verkleinert sich der Zeichenbereich, um die Legende aufzunehmen.
+
+**Kann ich mehrzeilige Legendenbezeichnungen erstellen?**
+
+Ja. Lange Bezeichnungen werden automatisch umgebrochen, wenn nicht genug Platz vorhanden ist; erzwungene Zeilenumbrüche werden über Zeilenumbruch‑Zeichen im Seriennamen unterstützt.
+
+**Wie kann ich die Legende an das Farbschema des Präsentationsthemas anpassen?**
+
+Setzen Sie keine expliziten Farben/Füllungen/Schriften für die Legende oder deren Text. Sie erben dann vom Theme und werden bei einer Design‑Änderung korrekt aktualisiert.

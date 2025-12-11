@@ -1,27 +1,44 @@
 ---
-title: Diagrammachse
+title: Diagrammachsen in Präsentationen auf Android anpassen
+linktitle: Diagrammachse
 type: docs
 url: /de/androidjava/chart-axis/
-keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammachse manipulieren, Diagrammdaten"
-description: "So bearbeiten Sie die Diagrammachse in PowerPoint mit Java"
+keywords:
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- Maximalwert
+- Minimalwert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Entdecken Sie, wie Sie Aspose.Slides für Android via Java verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 
+## **Ermitteln Sie die Maximalwerte auf der vertikalen Achse in Diagrammen**
+Aspose.Slides für Android via Java ermöglicht das Ermitteln der minimalen und maximalen Werte auf einer vertikalen Achse. Führen Sie die folgenden Schritte aus:
 
-## **Maximale Werte auf der vertikalen Achse von Diagrammen ermitteln**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, die minimalen und maximalen Werte auf einer vertikalen Achse zu erhalten. Folgen Sie diesen Schritten:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
+2. Greifen Sie auf die erste Folie zu.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
+4. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
+5. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
+6. Ermitteln Sie die tatsächliche Haupteinheit der Achse.
+7. Ermitteln Sie die tatsächliche Untereinheit der Achse.
+8. Ermitteln Sie die tatsächliche Skala der Haupteinheit der Achse.
+9. Ermitteln Sie die tatsächliche Skala der Untereinheit der Achse.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Holen Sie sich den aktuellen maximalen Wert auf der Achse.
-1. Holen Sie sich den aktuellen minimalen Wert auf der Achse.
-1. Holen Sie sich die tatsächliche Hauptgröße der Achse.
-1. Holen Sie sich die tatsächliche Nebenhöhe der Achse.
-1. Holen Sie sich den aktuellen Hauptmaßstab der Achse.
-1. Holen Sie sich den aktuellen Nebenmaßstab der Achse.
-
-Dieser Beispielcode—eine Implementierung der oben genannten Schritte—zeigt Ihnen, wie Sie die erforderlichen Werte in Java abrufen:
-
+Dieser Beispielcode - eine Umsetzung der oben genannten Schritte - zeigt, wie Sie die erforderlichen Werte in Java erhalten:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -34,37 +51,34 @@ try {
 	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
 	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
 
-	// Präsentation speichern
+	// Speichert die Präsentation
 	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **Daten zwischen Achsen tauschen**
-Aspose.Slides ermöglicht es Ihnen, die Daten zwischen Achsen schnell zu tauschen—die auf der vertikalen Achse (y-Achse) dargestellten Daten werden auf die horizontale Achse (x-Achse) verschoben und umgekehrt.
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Datentauschaufgabe zwischen Achsen in einem Diagramm ausführen:
+## **Daten zwischen Achsen austauschen**
+Aspose.Slides ermöglicht es Ihnen, Daten zwischen Achsen schnell zu vertauschen – die auf der vertikalen Achse (y-Achse) dargestellten Daten werden auf die horizontale Achse (x-Achse) verschoben und umgekehrt. 
 
+Dieser Java‑Code zeigt, wie Sie den Datenaustausch zwischen Achsen in einem Diagramm durchführen:
 ```java
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// Zeilen und Spalten tauschen
-	chart.getChartData().switchRowColumn();
-
-	// Präsentation speichern
+	// Wechselt Zeilen und Spalten
+	// Speichert die Präsentation
 	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
-
-Dieser Java-Code zeigt Ihnen, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
-
+Dieser Java‑Code zeigt, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +91,9 @@ try {
 }
 ```
 
+
 ## **Horizontale Achse für Liniendiagramme deaktivieren**
-
-Dieser Code zeigt Ihnen, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
-
+Dieser Code zeigt, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -93,10 +106,9 @@ try {
 }
 ```
 
-## **Kategoriedachse ändern**
 
-Mit der **CategoryAxisType**-Eigenschaft können Sie Ihren bevorzugten Typ der Kategoriewerteachse angeben (**Datum** oder **Text**). Dieser Code in Java demonstriert die Operation:
-
+## **Kategorie‑Achse ändern**
+Mit der Eigenschaft **CategoryAxisType** können Sie den gewünschten Typ der Kategorie‑Achse (**date** oder **text**) festlegen. Dieser Java‑Code demonstriert die Vorgehensweise: 
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
@@ -111,9 +123,9 @@ try {
 }
 ```
 
-## **Datumformat für den Wert der Kategoriewerteachse festlegen**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, das Datumformat für den Wert der Kategoriewerteachse festzulegen. Die Operation wird in diesem Java-Code demonstriert:
 
+## **Datumsformat für Kategorie‑Achsenwerte festlegen**
+Aspose.Slides für Android via Java ermöglicht das Festlegen des Datumsformats für einen Kategorie‑Achsenwert. Der Vorgang wird in diesem Java‑Code demonstriert:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -143,6 +155,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
@@ -155,9 +168,9 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **Rotationswinkel für den Titel der Diagrammachse festlegen**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, den Rotationswinkel für den Titel der Diagrammachse festzulegen. Dieser Java-Code demonstriert die Operation:
 
+## **Rotationswinkel für den Diagrammachsentitel festlegen**
+Aspose.Slides für Android via Java ermöglicht das Festlegen des Rotationswinkels für einen Diagrammachsentitel. Dieser Java‑Code demonstriert den Vorgang:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -172,9 +185,9 @@ try {
 }
 ```
 
-## **Achsenposition in einer Kategorie- oder Werteachse festlegen**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, die Achsenposition in einer Kategorie- oder Werteachse festzulegen. Dieser Java-Code zeigt, wie Sie die Aufgabe ausführen:
 
+## **Achsenposition auf einer Kategorie‑ oder Werte‑Achse festlegen**
+Aspose.Slides für Android via Java ermöglicht das Festlegen der Achsenposition in einer Kategorie‑ oder Werte‑Achse. Dieser Java‑Code zeigt, wie Sie die Aufgabe ausführen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -188,9 +201,9 @@ try {
 }
 ```
 
-## **Aktivieren der Anzeigeeinheit für die Werteachse im Diagramm**
-Aspose.Slides für Android über Java ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass es ein Einheitenschild auf seiner Werteachse anzeigt. Dieser Java-Code demonstriert die Operation:
 
+## **Anzeigeeinheitsbeschriftung auf der Werte‑Achse des Diagramms aktivieren**
+Aspose.Slides für Android via Java ermöglicht die Konfiguration eines Diagramms, sodass eine Einheit‑Beschriftung auf der Werte‑Achse angezeigt wird. Dieser Java‑Code demonstriert den Vorgang:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -203,3 +216,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
+
+Achsen bieten eine [Kreuzungseinstellung](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-): Sie können wählen, ob die Achse bei Null, beim maximalen Kategorie‑/Wert‑Punkt oder bei einem bestimmten numerischen Wert kreuzt. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder um eine Grundlinie hervorzuheben.
+
+**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (nebeneinander, außen, innen)?**
+
+Setzen Sie die [Beschriftungsposition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) auf "cross", "outside" oder "inside". Dies wirkt sich auf die Lesbarkeit aus und hilft, Platz zu sparen, insbesondere bei kleinen Diagrammen.

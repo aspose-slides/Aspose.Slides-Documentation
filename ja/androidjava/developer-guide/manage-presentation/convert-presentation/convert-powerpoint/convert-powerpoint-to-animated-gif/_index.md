@@ -1,16 +1,38 @@
 ---
-title: PowerPointをアニメーションGIFに変換
+title: AndroidでPowerPointプレゼンテーションをアニメーションGIFに変換
+linktitle: PowerPointからGIFへ
 type: docs
 weight: 65
 url: /ja/androidjava/convert-powerpoint-to-animated-gif/
-keywords: "PowerPointをアニメーションGIFに変換, PPTをGIFに, PPTXをGIFに"
-description: "PowerPointをアニメーションGIFに変換: PPTをGIFに, PPTXをGIFに、Aspose.Slides APIを使用します。"
+keywords:
+- アニメーションGIF
+- PowerPoint変換
+- プレゼンテーション変換
+- スライド変換
+- PPT変換
+- PPTX変換
+- PowerPointからGIFへ
+- プレゼンテーションからGIFへ
+- スライドからGIFへ
+- PPTからGIFへ
+- PPTXからGIFへ
+- PPTをGIFとして保存
+- PPTXをGIFとして保存
+- PPTをGIFにエクスポート
+- PPTXをGIFにエクスポート
+- デフォルト設定
+- カスタム設定
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Javaを使用してAndroid向けAspose.SlidesでPowerPointプレゼンテーション（PPT、PPTX）をアニメーションGIFに簡単に変換します。高速で高品質な結果を実現します。"
 ---
 
-## デフォルト設定を使用したプレゼンテーションのアニメーションGIFへの変換 ##
+## **デフォルト設定でプレゼンテーションをアニメーションGIFに変換**
 
-このJavaのサンプルコードは、標準設定を使用してプレゼンテーションをアニメーションGIFに変換する方法を示しています：
-
+この Java のサンプルコードは、標準設定でプレゼンテーションをアニメーション GIF に変換する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -20,24 +42,23 @@ try {
 }
 ```
 
-アニメーションGIFはデフォルトのパラメータで作成されます。 
 
-{{%  alert  title="ヒント"  color="primary"  %}} 
+アニメーション GIF はデフォルト パラメータで作成されます。
 
-GIFのパラメータをカスタマイズしたい場合は、[GifOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GifOptions)クラスを使用できます。以下のサンプルコードを参照してください。
-
+{{%  alert  title="TIP"  color="primary"  %}} 
+GIF のパラメータをカスタマイズしたい場合は、[GifOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GifOptions) クラスを使用できます。以下のサンプルコードを参照してください。
 {{% /alert %}} 
 
-## カスタム設定を使用したプレゼンテーションのアニメーションGIFへの変換 ##
-このサンプルコードは、カスタム設定を使用してプレゼンテーションをアニメーションGIFに変換する方法をJavaで示しています：
+## **カスタム設定でプレゼンテーションをアニメーションGIFに変換**
 
+このサンプルコードは、Java でカスタム設定を使用してプレゼンテーションをアニメーション GIF に変換する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
-	gifOptions.setFrameSize(new Dimension(960, 720)); // 結果のGIFのサイズ  
-	gifOptions.setDefaultDelay(2000); // 各スライドが変更されるまでの表示時間
-	gifOptions.setTransitionFps(35); // より良いトランジションアニメーション品質のためにFPSを増加
+	gifOptions.setFrameSize(new Dimension(960, 720)); // 生成された GIF のサイズ  
+	gifOptions.setDefaultDelay(2000); // 各スライドが次に切り替わるまで表示される時間
+	gifOptions.setTransitionFps(35); // トランジションアニメーションの品質を向上させるために FPS を増加
 	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
@@ -45,8 +66,17 @@ try {
 }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-Asposeが開発した無料の[テキストからGIF](https://products.aspose.app/slides/text-to-gif)コンバータをチェックしてみてください。 
-
+{{% alert title="Info" color="info" %}}
+Aspose が開発した無料の [Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバータをぜひお試しください。
 {{% /alert %}}
+
+## **よくある質問**
+
+**プレゼンテーションで使用されているフォントがシステムにインストールされていない場合はどうすればよいですか？**
+
+不足しているフォントをインストールするか、[フォールバックフォントを構成](/slides/ja/androidjava/powerpoint-fonts/)してください。Aspose.Slides は代替フォントで置き換えますが、外観が変わることがあります。ブランディングのためには、必要な書体が確実に利用可能であることを常に確認してください。
+
+**GIF フレームに透かしを重ねることはできますか？**
+
+はい。エクスポート前にマスタースライドまたは個々のスライドに[半透明のオブジェクト/ロゴを追加](/slides/ja/androidjava/watermark/)すると、透かしがすべてのフレームに表示されます。

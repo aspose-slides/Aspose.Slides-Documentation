@@ -1,216 +1,214 @@
 ---
-title: 3D Презентация
+title: Создание 3D презентаций на Android
+linktitle: 3D Презентация
 type: docs
 weight: 232
 url: /ru/androidjava/3d-presentation/
+keywords:
+- 3D PowerPoint
+- 3D презентация
+- 3D вращение
+- 3D глубина
+- 3D выдавливание
+- 3D градиент
+- 3D текст
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Легко создавайте интерактивные 3D презентации на Java с помощью Aspose.Slides для Android. Быстро экспортируйте в форматы PowerPoint и OpenDocument для гибкого использования."
 ---
 
-## Обзор
-С версии Aspose.Slides Java 20.9 стало возможным создавать 3D в презентациях. PowerPoint 3D — это способ оживить презентации. Показывайте реальные объекты
-с помощью 3D-презентации, демонстрируйте 3D-модель вашего будущего бизнес-проекта, 3D-модель здания или его интерьера, 3D-модель игрового персонажа
-или просто 3D-представление ваших данных.
+## **Обзор**
+Начиная с Aspose.Slides Java 20.9, возможно создавать 3D в презентациях. PowerPoint 3D — это способ оживить презентации. Покажите реальные объекты в 3D‑презентации, продемонстрируйте 3D‑модель вашего будущего бизнес‑проекта, 3D‑модель здания или его интерьера, 3D‑модель игрового персонажа или просто 3D‑представление ваших данных. 
 
-3D-модели PowerPoint могут быть созданы из 2D-форм, применяя к ним такие эффекты: 3D-вращение, 3D-глубина и экструзия, 3D-градиент, 3D-текст и т.д.
-Список 3D-функций, применяемых к формам, можно найти в классе **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**.
-Экземпляр класса можно получить с помощью:
+3D‑модели PowerPoint можно создавать из 2D‑форм, применяя к ним такие эффекты: 3D‑вращение, 3D‑глубина и выдавливание, 3D‑градиент, 3D‑текст и т.д. Список 3D‑функций, применяемых к формам, можно найти в классе **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. Экземпляр класса можно получить с помощью: 
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** метода для создания 3D-модели PowerPoint.
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** метода для создания 3D-текста
-(WordArt).
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** метод для создания 3D‑модели PowerPoint.  
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** метод для создания 3D‑текста (WordArt).  
 
-Все эффекты, реализованные в **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**, могут использоваться как для форм, так и для текста.
-Давайте быстро рассмотрим основные методы класса **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. В следующем примере
-мы создаем прямоугольную 2D-форму с текстом на ней. Получив камеру вид на форму, мы изменяем ее вращение и делаем ее похожей на 3D-модель. Установка плоского света
-и его направление вверх к 3D-модели придает модели больше объема. Измененные материалы, высота экструзии и цвет делают 3D-модель более живой.
-``` java
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.getTextFrame().setText("3D");
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+Все эффекты, реализованные в **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**, могут быть использованы как для форм, так и для текста. Давайте быстро рассмотрим основные методы класса **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**. В следующем примере мы создаём прямоугольную 2D‑форму с текстом. Получив вид камеры на форму, мы меняем её вращение и делаем её выглядящей как 3D‑модель. Установка плоского освещения и его направления к верхней части 3D‑модели придаёт модели больший объём. Изменённые материалы, высота выдавливания и цвет делают 3D‑модель более живой.  
+``` java 
+final float imageScale = 2;
 
-    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
-    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
-    shape.getThreeDFormat().setExtrusionHeight(100);
-    shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.getTextFrame().setText("3D");
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
-    pres.save("sandbox_3d.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+shape.getThreeDFormat().setExtrusionHeight(100);
+shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
-Вот полученная 3D-модель:
+
+Вот полученная 3D‑модель:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D Вращение
-Вращение 3D-модели в PowerPoint можно выполнить через меню:
+## **3D вращение**
+Вращение 3D‑модели в PowerPoint можно выполнить через меню:
 
 ![todo:image_alt_text](img_02_01.png)
 
-Чтобы повернуть 3D-модель с помощью API Aspose.Slides, используйте **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**
-метод, установите вращение камеры относительно 3D-формы:
-
+Чтобы вращать 3D‑модель с помощью API Aspose.Slides, используйте метод **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**, установите вращение камеры относительно 3D‑формы:
 ``` java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-// ... установить другие параметры 3D-сцены
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+// ... установить другие параметры 3D‑сцены
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
 ```
 
-## 3D Глубина и Экструзия
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-и **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** методы
-используются для создания экструзии на форме:
 
+## **3D глубина и выдавливание**
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** и **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** методы используются для создания выдавливания формы:
 ``` java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
-// ... установить другие параметры 3D-сцены
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+// ... установить другие параметры 3D‑сцены
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
 ```
 
-В PowerPoint глубина формы устанавливается через:
+
+В PowerPoint глубина формы задаётся через:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3D Градиент
-3D градиент может придать больше объема 3D-форме PowerPoint:
-
+## **3D градиент**
+3D‑градиент может добавить объём 3D‑форме PowerPoint:
 ``` java
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.getTextFrame().setText("3D");
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+final float imageScale = 2;
 
-    shape.getFillFormat().setFillType(FillType.Gradient);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
-    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.getTextFrame().setText("3D");
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
-    try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
-} finally {
-    if (pres != null) pres.dispose();
-}
+shape.getFillFormat().setFillType(FillType.Gradient);
+shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
+shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
+
+shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+shape.getThreeDFormat().setExtrusionHeight(150);
+shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.dispose();
 ```
+
 
 Вот как это выглядит:
 
 ![todo:image_alt_text](img_02_03.png)
-
+  
 Вы также можете создать градиент изображения:
 ``` java
+byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+IPPImage image = presentation.getImages().addImage(imageData);
+
 shape.getFillFormat().setFillType(FillType.Picture);
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-// .. настройка 3D: свойства shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion*
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+// ... настройка 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
 ```
+
 
 Вот результат:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D Текст (WordArt)
-Чтобы создать 3D-текст (WordArt), выполните следующее:
+## **3D текст (WordArt)**
+Чтобы создать 3D‑текст (WordArt), выполните следующее:
 ``` java
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+final float imageScale = 2;
 
-    shape.getFillFormat().setFillType(FillType.NoFill);
-    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-    shape.getTextFrame().setText("3D Текст");
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(new Color(255, 140, 0));
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.getFillFormat().setFillType(FillType.NoFill);
+shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+shape.getTextFrame().setText("3D Text");
 
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
+Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(new Color(255, 140, 0));
+portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
 
-    ITextFrame textFrame = shape.getTextFrame();
-    // настройка эффекта трансформации "Арка вверх" WordArt
-    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUp);
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
 
-    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(3.5f);
-    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+// set the "Arch Up" WordArt transform effect
+textFrameFormat.setTransform(TextShapeType.ArchUp);
 
-    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
+textFrameFormat.getThreeDFormat().setDepth(3);
+textFrameFormat.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+textFrameFormat.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+textFrameFormat.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+textFrameFormat.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
 
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("text3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+textFrameFormat.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
 
-    pres.save("text3d.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("text3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.save("text3d.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
+
 
 Вот результат:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## Не поддерживается - Скоро
-Следующие функции 3D PowerPoint еще не поддерживаются:
-- Скос
-- Материал
-- Контур
-- Освещение
+## **FAQ**
+
+**Сохраняются ли 3D‑эффекты при экспорте презентации в изображения/PDF/HTML?**
+
+Да. 3D‑движок Slides рендерит 3D‑эффекты при экспорте в поддерживаемые форматы ([images](/slides/ru/androidjava/convert-powerpoint-to-png/), [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/ru/androidjava/convert-powerpoint-to-html/), и т.д.).
+
+**Могу ли я получить «эффективные» (окончательные) значения 3D‑параметров, учитывающие темы, наследование и т.д.?**
+
+Да. Slides предоставляет API для [read effective values](/slides/ru/androidjava/shape-effective-properties/) (включая 3D‑параметры: освещение, фаски и т.д.), чтобы вы могли увидеть окончательные применённые настройки.
+
+**Работают ли 3D‑эффекты при конвертации презентации в видео?**
+
+Да. При [generating frames for the video](/slides/ru/androidjava/convert-powerpoint-to-video/) 3D‑эффекты рендерятся так же, как и для [exported images](/slides/ru/androidjava/convert-powerpoint-to-png/).

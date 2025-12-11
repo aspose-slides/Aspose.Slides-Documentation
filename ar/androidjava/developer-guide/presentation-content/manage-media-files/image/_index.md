@@ -1,39 +1,53 @@
 ---
-title: صورة
+title: تحسين إدارة الصور في العروض التقديمية على Android
+linktitle: إدارة الصور
 type: docs
 weight: 10
 url: /ar/androidjava/image/
-description: العمل مع الصور في الشرائح في العروض التقديمية PowerPoint باستخدام Java. إضافة صور من القرص أو من الويب في شرائح PowerPoint باستخدام Java. إضافة صور إلى الشرائح الرئيسية أو كخلفية للشرائح باستخدام Java. إضافة SVG إلى العرض التقديمي PowerPoint باستخدام Java. تحويل SVG إلى أشكال في PowerPoint باستخدام Java. إضافة صور كـ EMF في الشرائح باستخدام Java.
+keywords:
+- إضافة صورة
+- إضافة صورة
+- إضافة bitmap
+- استبدال صورة
+- استبدال صورة
+- من الويب
+- خلفية
+- إضافة PNG
+- إضافة JPG
+- إضافة SVG
+- إضافة EMF
+- إضافة WMF
+- إضافة TIFF
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "تسريع إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java، مع تحسين الأداء وأتمتة سير العمل الخاص بك."
 ---
 
-## **الصور في الشرائح في العروض التقديمية**
+## **الصور في شرائح العرض**
 
-تجعل الصور العروض التقديمية أكثر جذبًا واهتمامًا. في Microsoft PowerPoint، يمكنك إدراج صور من ملف، الإنترنت، أو مواقع أخرى إلى الشرائح. بالمثل، يتيح لك Aspose.Slides إضافة الصور إلى الشرائح في العروض التقديمية عبر إجراءات مختلفة.
+تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى إلى الشرائح. وبالمثل، يتيح لك Aspose.Slides إضافة الصور إلى شرائح عروضك من خلال إجراءات مختلفة. 
 
-{{% alert  title="نصيحة" color="primary" %}}
+{{% alert  title="Tip" color="primary" %}} 
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
+{{% /alert %}} 
 
-يوفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تسمح للأشخاص بإنشاء عروض تقديمية بسرعة من الصور.
+{{% alert title="Info" color="info" %}}
+إذا كنت ترغب في إضافة صورة ككائن إطار—خاصة إذا كنت تخطط لاستخدام خيارات التنسيق القياسية لتغيير حجمها، وإضافة تأثيرات، وما إلى ذلك—راجع [Picture Frame](https://docs.aspose.com/slides/androidjava/picture-frame/). 
+{{% /alert %}} 
 
+{{% alert title="Note" color="warning" %}}
+يمكنك التحكم في عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/androidjava/conversion/image-to-jpg/); تحويل [JPG إلى الصورة](https://products.aspose.com/slides/androidjava/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/androidjava/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/androidjava/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/androidjava/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/androidjava/conversion/svg-to-png/). 
 {{% /alert %}}
 
-{{% alert title="معلومات" color="info" %}}
-
-إذا كنت ترغب في إضافة صورة ككائن إطار—خصوصًا إذا كنت تخطط لاستخدام خيارات تنسيق قياسية عليها لتغيير حجمها، إضافة تأثيرات، وما إلى ذلك—انظر إلى [إطار الصور](https://docs.aspose.com/slides/androidjava/picture-frame/).
-
-{{% /alert %}}
-
-{{% alert title="ملاحظة" color="warning" %}}
-
-يمكنك معالجة عمليات الإدخال/الإخراج التي تتضمن الصور والعروض التقديمية PowerPoint لتحويل صورة من تنسيق إلى آخر. انظر لهذه الصفحات: تحويل [صورة إلى JPG](https://products.aspose.com/slides/androidjava/conversion/image-to-jpg/)؛ تحويل [JPG إلى صورة](https://products.aspose.com/slides/androidjava/conversion/jpg-to-image/)؛ تحويل [JPG إلى PNG](https://products.aspose.com/slides/androidjava/conversion/jpg-to-png/)؛ تحويل [PNG إلى JPG](https://products.aspose.com/slides/androidjava/conversion/png-to-jpg/)؛ تحويل [PNG إلى SVG](https://products.aspose.com/slides/androidjava/conversion/png-to-svg/)؛ تحويل [SVG إلى PNG](https://products.aspose.com/slides/androidjava/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-يدعم Aspose.Slides العمليات مع الصور في هذه الصيغ الشائعة: JPEG، PNG، GIF، وغيرها.
+يدعم Aspose.Slides عمليات التعامل مع الصور بهذه الصيغ الشائعة: JPEG, PNG, GIF، وغيرها. 
 
 ## **إضافة صور مخزنة محليًا إلى الشرائح**
 
-يمكنك إضافة صورة واحدة أو عدة صور على جهاز الكمبيوتر الخاص بك إلى شريحة في عرض تقديمي. يعرض الكود العيّني في Java كيفية إضافة صورة إلى شريحة:
-
+يمكنك إضافة صورة أو عدة صور من جهاز الكمبيوتر الخاص بك إلى شريحة في عرض تقديمي. يوضح لك هذا المثال البرمجي بلغة Java كيفية إضافة صورة إلى شريحة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -53,18 +67,17 @@ try {
 }
 ```
 
+
 ## **إضافة صور من الويب إلى الشرائح**
 
-إذا كانت الصورة التي ترغب في إضافتها إلى شريحة غير متاحة على جهاز الكمبيوتر لديك، يمكنك إضافة الصورة مباشرة من الويب.
-
-يعرض الكود العيّني كيفية إضافة صورة من الويب إلى شريحة في Java:
-
+إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرة من الويب. 
+يظهر لك هذا المثال البرمجي كيفية إضافة صورة من الويب إلى شريحة في Java:
 ```java
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	URL imageUrl = new URL("[استبدل بالرابط]");
+	URL imageUrl = new URL("[REPLACE WITH URL]");
 	URLConnection connection = imageUrl.openConnection();
 	InputStream inputStream = connection.getInputStream();
 
@@ -92,12 +105,11 @@ try {
 }
 ```
 
-## **إضافة صور إلى الشرائح الرئيسية**
 
-تعد الشريحة الرئيسية هي الشريحة العلوية التي تخزن وتتحكم في المعلومات (السمة، التخطيط، إلخ) لجميع الشرائح تحتها. لذا، عندما تضيف صورة إلى شريحة رئيسية، ستظهر تلك الصورة في كل شريحة تحت تلك الشريحة الرئيسية.
+## **إضافة صور إلى ماستر الشرائح**
 
-يعرض الكود العيّني في Java كيفية إضافة صورة إلى شريحة رئيسية:
-
+ماستر الشريحة هو الشريحة العليا التي تخزن وتتحكم في معلومات (السمة، التخطيط، إلخ) الخاصة بجميع الشرائح تحته. لذا، عندما تضيف صورة إلى ماستر الشريحة، تظهر تلك الصورة على كل شريحة تحت ذلك الماستر. 
+يُظهر لك هذا المثال البرمجي بلغة Java كيفية إضافة صورة إلى ماستر الشريحة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -119,22 +131,22 @@ try {
 }
 ```
 
-## **إضافة صور كخلفية للشرائح**
 
-يمكنك أن تقرر استخدام صورة كخلفية لشريحة معينة أو عدة شرائح. في هذه الحالة، عليك رؤية *[تعيين الصور كخلفيات للشرائح](https://docs.aspose.com/slides/androidjava/presentation-background/#setting-images-as-background-for-slides)*.
+## **إضافة صور كخلفيات للشرائح**
+
+قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/androidjava/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي تنتمي إلى واجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام الطريقة [addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي تنتمي إلى الواجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection). 
+لإنشاء كائن صورة استنادًا إلى صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
 
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك على هذا النحو:
+1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection  
+2. إنشاء كائن PPImage من ISvgImage  
+3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage  
 
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection
-2. إنشاء كائن PPImage من ISvgImage
-3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage
-
-يعرض الكود العيّني كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
-```java 
-// إنشاء كائن تقديم يمثل ملف PPTX
+يُظهر لك هذا المثال البرمجي كيفية تنفيذ الخطوات السابقة لإضافة صورة SVG إلى عرض تقديمي:
+```java
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
@@ -149,15 +161,13 @@ try {
 }
 ```
 
+
 ## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه لوظائف PowerPoint المستخدمة للعمل مع صور SVG:
+تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه لوظيفة PowerPoint المستخدمة للتعامل مع صور SVG: 
+![قائمة PowerPoint المنبثقة](img_01_01.png)
 
-![نافذة منبثقة PowerPoint](img_01_01.png)
-
-يتم توفير هذه الوظيفة من خلال أحد التحميلات الزائدة لطريقة [addGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) الخاصة بواجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) التي تأخذ كائن [ISvgImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgImage) كأول وسيط.
-
-يعرض الكود العيّني كيفية استخدام الطريقة المشار إليها لتحويل ملف SVG إلى مجموعة من الأشكال:
-
+توفر هذه الوظيفة أحد إصدارات الطريقة [addGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) في الواجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) التي تستقبل كائنًا من نوع [ISvgImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgImage) كالحجة الأولى. 
+يُظهر لك هذا المثال البرمجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ```java 
 // إنشاء عرض تقديمي جديد
 IPresentation presentation = new Presentation();
@@ -171,7 +181,7 @@ try {
     // الحصول على حجم الشريحة
     Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-    // تحويل صورة SVG إلى مجموعة من الأشكال مع تغيير حجمها لتناسب حجم الشريحة
+    // تحويل صورة SVG إلى مجموعة من الأشكال وتوسيعها لتناسب حجم الشريحة
     presentation.getSlides().get_Item(0).getShapes().
             addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
 
@@ -183,12 +193,11 @@ try {
 }
 ```
 
-## **إضافة صور كـ EMF في الشرائح**
-يتيح لك Aspose.Slides لأندرويد عبر Java إنشاء صور EMF من أوراق Excel وإضافة الصور كـ EMF في الشرائح مع Aspose.Cells.
 
-يعرض الكود العيّني كيفية تنفيذ المهمة الموصوفة:
-
-```java 
+## **إضافة صور كـ EMF إلى الشرائح**
+يتيح Aspose.Slides لنظام Android عبر Java إمكانية إنشاء صور EMF من جداول Excel وإضافة هذه الصور كـ EMF إلى الشرائح باستخدام Aspose.Cells. 
+يُظهر لك هذا المثال البرمجي كيفية تنفيذ المهمة الموصوفة:
+```java
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
 ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -196,7 +205,7 @@ options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(ImageType.EMF);
 
-// حفظ العمل إلى الدفق
+//حفظ المصنف إلى التيار
 SheetRender sr = new SheetRender(sheet, options);
 Presentation pres = new Presentation();
 try {
@@ -230,8 +239,60 @@ try {
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-باستخدام محول Aspose المجاني [نص إلى GIF](https://products.aspose.app/slides/text-to-gif)، يمكنك بسهولة تحريك النصوص، وإنشاء GIFs من النصوص، إلخ.
+## **استبدال الصور في مجموعة الصور**
+يتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة الصور الخاصة بالعرض التقديمي (بما في ذلك تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر API طرقًا بسيطة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة. 
+اتبع الخطوات التالية:
+1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).  
+2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.  
+3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
+4. في النهج الثاني، حمّل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) واستبدل الصورة المستهدفة بهذا الكائن.  
+5. في النهج الثالث، استبدل الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.  
+6. احفظ العرض التقديمي المعدل كملف PPTX.  
+```java
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // الطريقة الأولى.
+    IImage imageData = Images.fromStream(new FileInputStream("image0.jpeg"));
+    IPPImage oldImage = presentation.getImages().get_Item(0);
+    oldImage.replaceImage(imageData);
+    
+    // الطريقة الثانية.
+    IImage newImage = Images.fromFile("image1.png");
+    oldImage = presentation.getImages().get_Item(1);
+    oldImage.replaceImage(newImage);
+    newImage.dispose();
+    
+    // الطريقة الثالثة.
+    oldImage = presentation.getImages().get_Item(2);
+    oldImage.replaceImage(presentation.getImages().get_Item(3));
+    
+    // حفظ العرض التقديمي إلى ملف.
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
+
+{{% alert title="Info" color="info" %}}
+باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif)، يمكنك بسهولة تحريك النصوص، وإنشاء ملفات GIF من النصوص، وما إلى ذلك. 
 {{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**هل تبقى دقة الصورة الأصلية كما هي بعد الإدراج؟**  
+نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [picture](/slides/ar/androidjava/picture-frame/) على الشريحة وأية ضغط يتم تطبيقه عند الحفظ.  
+
+**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح مرة واحدة؟**  
+ضع الشعار على الشريحة الرئيسية (الماستر) أو على تخطيط، واستبدله في مجموعة صور العرض التقديمي—ستنتقل التحديثات إلى جميع العناصر التي تستخدم ذلك المورد.  
+
+**هل يمكن تحويل SVG المُدرج إلى أشكال قابلة للتحرير؟**  
+نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.  
+
+**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**  
+[Assign the image as the background](/slides/ar/androidjava/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ستورث أي شرائح تستخدم ذلك الماستر/التخطيط الخلفية.  
+
+**كيف يمكنني منع النمو المتزايد لحجم العرض التقديمي بسبب كثرة الصور؟**  
+أعد استخدام مورد صورة واحد بدلاً من النسخ المتعددة، واختر دقات معقولة، وطبق ضغطًا عند الحفظ، واحتفظ بالرسومات المتكررة على الماستر حيثما كان ذلك مناسبًا.

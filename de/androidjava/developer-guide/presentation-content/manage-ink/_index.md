@@ -1,40 +1,51 @@
 ---
-title: Tinte verwalten
+title: Verwalten von Präsentations-Tintenobjekten unter Android
+linktitle: Tinte verwalten
 type: docs
 weight: 95
 url: /de/androidjava/manage-ink/
-keywords: "Tinte in PowerPoint, Tintenwerkzeuge, Java Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
-description: "Verwenden Sie Tintenwerkzeuge, um Objekte in PowerPoint Java zu zeichnen"
+keywords:
+- Tinte
+- Tintenobjekt
+- Tintenspur
+- Tinte verwalten
+- Tinte zeichnen
+- Zeichnen
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Verwalten Sie PowerPoint-Tintenobjekte - Erstellen, Bearbeiten und Gestalten digitaler Tinte mit Aspose.Slides für Android. Holen Sie sich Java-Codebeispiele für Spuren, Pinsel-farbe und -größe."
 ---
 
-PowerPoint bietet die Tintenfunktion, um Ihnen das Zeichnen von nicht-standardmäßigen Figuren zu ermöglichen, die verwendet werden können, um andere Objekte hervorzuheben, Verbindungen und Prozesse darzustellen und Aufmerksamkeit auf bestimmte Elemente auf einer Folie zu lenken.
+PowerPoint stellt die Tintenfunktion bereit, mit der Sie nicht‑standardmäßige Figuren zeichnen können, die verwendet werden, um andere Objekte hervorzuheben, Verbindungen und Prozesse zu zeigen und die Aufmerksamkeit auf bestimmte Elemente einer Folie zu lenken. 
 
-Aspose.Slides bietet alle Tintentypen (z. B. [Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/), die Sie benötigen, um Tintenobjekte zu erstellen und zu verwalten.
+Aspose.Slides bietet alle Ink‑Typen (z. B. die Klasse [Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/) ), die Sie zum Erstellen und Verwalten von Tintenobjekten benötigen.
 
 ## **Unterschiede zwischen regulären Objekten und Tintenobjekten**
 
-Objekte auf einer PowerPoint-Folie werden typischerweise durch Formobjekte dargestellt. Ein Formobjekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) neben seinen Eigenschaften definiert. Letztere umfasst die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Für weitere Informationen siehe [Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape).
+Objekte auf einer PowerPoint‑Folie werden typischerweise durch Shape‑Objekte dargestellt. Ein Shape‑Objekt ist in seiner einfachsten Form ein Container, der den Bereich des eigentlichen Objekts (sein Rahmen) zusammen mit seinen Eigenschaften definiert. Letztere umfassen die Größe des Container‑Bereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie unter [Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape).
 
-Wenn PowerPoint jedoch mit einem Tintenobjekt zu tun hat, ignoriert es alle Eigenschaften des Objektrahmens (Containers), mit Ausnahme seiner Größe. Die Größe des Containerbereichs wird durch die Standardwerte `width` und `height` bestimmt:
+Allerdings ignoriert PowerPoint, wenn es mit einem Tintenobjekt arbeitet, alle Eigenschaften des Objekt‑rahmens (Containers) mit Ausnahme seiner Größe. Die Größe des Container‑Bereichs wird durch die Standardwerte `width` und `height` bestimmt:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Tintenform-Trace**
+## **Inkshape‑Spuren**
 
-Trace ist ein grundlegendes Element oder ein Standard, der verwendet wird, um die Bahn eines Stifts aufzuzeichnen, während ein Benutzer digitale Tinte schreibt. Traces sind Aufzeichnungen, die Sequenzen verbundener Punkte beschreiben.
+Eine Trace ist ein Basiselement bzw. ein Standard, der die Bahn eines Stifts aufzeichnet, während ein Benutzer digitale Tinte schreibt. Traces sind Aufzeichnungen, die Sequenzen miteinander verbundener Punkte beschreiben. 
 
-Die einfachste Form der Kodierung gibt die X- und Y-Koordinaten jedes Probe- und Punkts an. Wenn alle verbundenen Punkte gerendert werden, erzeugen sie ein Bild wie dieses:
+Die einfachste Form der Kodierung gibt die X‑ und Y‑Koordinaten jedes Abtastpunkts an. Wenn alle verbundenen Punkte gerendert werden, entsteht ein Bild wie dieses:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Pinsel-Eigenschaften zum Zeichnen
+## **Pinsel‑Eigenschaften zum Zeichnen**
 
-Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte der Trace-Elemente verbinden. Der Pinsel hat seine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen.
+Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte von Trace‑Elementen verbinden. Der Pinsel hat eine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen. 
 
-### **Farbe des Tintenpinsels festlegen**
+### **Ink‑Pinselfarbe festlegen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
-
+Dieser Java‑Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -48,10 +59,10 @@ try {
 }
 ```
 
-### **Größe des Tintenpinsels festlegen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
+### **Ink‑Pinselgröße festlegen** 
 
+Dieser Java‑Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -65,25 +76,26 @@ try {
 }
 ```
 
-Im Allgemeinen stimmen die Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Aber wenn die Pinselbreite und -höhe übereinstimmen, zeigt PowerPoint die Größe folgendermaßen an:
+
+Im Allgemeinen stimmen Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Stimmen Breite und Höhe jedoch überein, zeigt PowerPoint die Größe wie folgt an:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-Zur Klarheit wollen wir die Höhe des Tintenobjekts erhöhen und die wichtigen Dimensionen überprüfen:
+Zur Veranschaulichung erhöhen wir die Höhe des Tintenobjekts und prüfen die wichtigen Abmessungen: 
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-Der Container (Rahmen) berücksichtigt nicht die Größe der Pinsel - er geht immer davon aus, dass die Linienstärke null ist (siehe das letzte Bild).
+Der Container (Rahmen) berücksichtigt die Größe der Pinsel nicht – er geht immer davon aus, dass die Linienstärke null ist (siehe das letzte Bild). 
 
-Um daher die sichtbare Fläche des gesamten Tintenobjekts zu bestimmen, müssen wir die Pinselgröße der Trace-Objekte berücksichtigen. Hier wurde das Zielobjekt (das handgeschriebene Text-Trace-Objekt) an die Größe des Containers (Rahmens) skaliert. Wenn sich die Größe des Containers (Rahmens) ändert, bleibt die Pinselgröße konstant und umgekehrt.
+Um also den sichtbaren Bereich des gesamten Tintenobjekts zu bestimmen, müssen wir die Pinselgröße der Trace‑Objekte berücksichtigen. Hier wurde das Zielobjekt (das Trace‑Objekt für handschriftlichen Text) auf die Größe des Containers (Rahmens) skaliert. Ändert sich die Größe des Containers (Rahmens), bleibt die Pinselgröße konstant und umgekehrt. 
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint zeigt dasselbe Verhalten beim Umgang mit Texten:
+PowerPoint zeigt dasselbe Verhalten bei Texten:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**Weiterführende Informationen**
+**Weiterführende Lektüre**
 
-* Um allgemein über Formen zu lesen, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/).
-* Für weitere Informationen zu effektiven Werten siehe [Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value).
+* Um mehr über Shapes im Allgemeinen zu erfahren, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/).
+* Weitere Informationen zu Wirksamkeitswerten finden Sie unter [Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value).

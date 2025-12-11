@@ -1,32 +1,35 @@
 ---
-title: 3Dプレゼンテーション
+title: Androidで3Dプレゼンテーションを作成する
+linktitle: 3D プレゼンテーション
 type: docs
 weight: 232
 url: /ja/androidjava/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3Dプレゼンテーション
-- 3D回転
-- 3D深さ
-- 3D押し出し
-- 3Dグラデーション
-- 3Dテキスト
-- PowerPointプレゼンテーション
+- 3D プレゼンテーション
+- 3D 回転
+- 3D 奥行き
+- 3D 押し出し
+- 3D グラデーション
+- 3D テキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Android
-- Aspose.Slides for Android via Java
-description: "Androidの3D PowerPointプレゼンテーション"
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を使用して、Java でインタラクティブな 3D プレゼンテーションを簡単に作成できます。PowerPoint および OpenDocument フォーマットへ迅速にエクスポートでき、さまざまな用途に活用できます。"
 ---
 
-## 概要
-Aspose.Slides Java 20.9以降、プレゼンテーションで3Dを作成することが可能です。PowerPoint 3Dは、プレゼンテーションに命を吹き込む方法です。3Dプレゼンテーションで実際の世界のオブジェクトを表示し、未来のビジネスプロジェクトの3Dモデルや建物またはその内装の3Dモデル、ゲームキャラクターの3Dモデル、またはデータの3D表現を示します。
+## **概要**
+Aspose.Slides Java 20.9 以降、プレゼンテーションで 3D を作成できるようになりました。PowerPoint 3D はプレゼンテーションに命を吹き込む方法です。3D プレゼンテーションで実世界のオブジェクトを表示したり、将来のビジネスプロジェクトの 3D モデル、建物やその内部の 3D モデル、ゲームキャラクターの 3D モデル、あるいはデータの 3D 表現を行ったりできます。
 
-PowerPointの3Dモデルは、2D形状から次のような効果を適用することによって作成できます：3D回転、3D深さおよび押し出し、3Dグラデーション、3Dテキストなど。形状に適用される3D機能のリストは**[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**クラスで見つけることができます。このクラスのインスタンスは次のように取得できます：
+PowerPoint の 3D モデルは 2D シェイプから作成でき、次のようなエフェクトを適用します：3D 回転、3D 奥行きと押し出し、3D グラデーション、3D テキストなど。シェイプに適用できる 3D 機能の一覧は **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** クラスにあります。このクラスのインスタンスは次の方法で取得できます：
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)**メソッドを使用してPowerPoint 3Dモデルを作成します。
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)**メソッドを使用して3Dテキスト（WordArt）を作成します。
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getThreeDFormat--)** PowerPoint 3D モデルを作成するメソッド。
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** 3D テキスト (WordArt) を作成するメソッド。
 
-**[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**に実装されたすべての効果は、形状とテキストの両方に使用できます。ここで**[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)**クラスの主なメソッドを簡単に見てみましょう。次の例では、テキストを持つ長方形の2D形状を作成します。形状にカメラビューを取得し、その回転を変更して3Dモデルのように見えるようにします。3Dモデルの上部にフラットライトとその方向を設定することで、モデルにより多くのボリュームが加わります。変更された材料、押し出しの高さと色は、3Dモデルをより生き生きと見せます。  
+**[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** に実装されているすべてのエフェクトはシェイプとテキストの両方で使用できます。次に **[ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat)** クラスの主要メソッドを簡単に見てみましょう。以下の例では、テキスト付きの矩形 2D シェイプを作成します。シェイプにカメラビューを取得し、回転を変更して 3D モデルのように見せます。フラットライトとその方向を 3D モデルの上部に設定し、ボリューム感を高めます。素材、押し出し高さ、色を変更することで、3D モデルがよりリアルに見えます。
 ``` java 
 final float imageScale = 2;
 
@@ -53,49 +56,46 @@ presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-ここに結果として得られた3Dモデルがあります：
 
+以下は生成された 3D モデルです:
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D回転
-PowerPointの3Dモデルの回転はメニューを介して行うことができます：
-
+## **3D 回転**
+PowerPoint での 3D モデルの回転はメニューから行えます:
 ![todo:image_alt_text](img_02_01.png)
 
-Aspose.Slides APIを使用して3Dモデルを回転させるには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)**メソッドを使用し、3D形状に対するカメラの回転を設定します：
-
+Aspose.Slides API で 3D モデルを回転させるには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--)** メソッドを使用し、カメラの回転を 3D シェイプに対して設定します:
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-// ... その他の3Dシーンパラメータを設定
+// ... 他の 3D シーン パラメータを設定
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-## 3D深さと押し出し
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**および**[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)**メソッドは、形状に押し出しを作成するために使用されます：
 
+## **3D 奥行きと押し出し**
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** と **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** メソッドはシェイプに押し出しを作成するために使用されます:
 ``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
-// ... その他の3Dシーンパラメータを設定
+// ... 他の 3D シーン パラメータを設定
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-PowerPointでは、形状の深さは次のように設定されます：
 
+PowerPoint では、シェイプの奥行きは次の操作で設定します:
 ![todo:image_alt_text](img_02_02.png)
 
-## 3Dグラデーション
-3Dグラデーションは、PowerPointの3D形状により多くのボリュームを与えることができます：
-
+## **3D グラデーション**
+3D グラデーションは PowerPoint の 3D シェイプにボリューム感を付加できます:
 ``` java
 final float imageScale = 2;
 
@@ -124,11 +124,11 @@ thumbnail.dispose();
 presentation.dispose();
 ```
 
-それがどのように見えるか：
 
+以下のようになります:
 ![todo:image_alt_text](img_02_03.png)
   
-画像グラデーションを作成することもできます：
+画像グラデーションを作成することもできます:
 ``` java
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage image = presentation.getImages().addImage(imageData);
@@ -136,19 +136,19 @@ IPPImage image = presentation.getImages().addImage(imageData);
 shape.getFillFormat().setFillType(FillType.Picture);
 shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-// ... 3Dの設定: shape.ThreeDFormat.Camera、shape.ThreeDFormat.LightRig、shape.ThreeDFormat.Extrusion*プロパティを設定
+// ... 3D を設定: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* プロパティ
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-ここが結果です：
 
+結果は以下の通りです:
 ![todo:image_alt_text](img_02_04.png)
 
-## 3Dテキスト（WordArt）
-3Dテキスト（WordArt）を作成するには、以下の手順を実行します：
+## **3D テキスト (WordArt)**
+3D テキスト (WordArt) を作成するには、以下の手順を実行します:
 ``` java
 final float imageScale = 2;
 
@@ -158,7 +158,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getFillFormat().setFillType(FillType.NoFill);
 shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-shape.getTextFrame().setText("3Dテキスト");
+shape.getTextFrame().setText("3D Text");
 
 Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
@@ -169,7 +169,7 @@ portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(Pa
 shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
 
 ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-// "アーチ上" WordArt変換効果を設定します
+// "Arch Up" WordArt 変換効果を設定
 textFrameFormat.setTransform(TextShapeType.ArchUp);
 
 textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
@@ -189,13 +189,20 @@ presentation.save("text3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-ここがその結果です：
 
+結果は以下の通りです:
 ![todo:image_alt_text](img_02_05.png)
 
-## サポートされていない - 近日公開
-以下のPowerPoint 3D機能はまだサポートされていません：
-- ベベル
-- マテリアル
-- 輪郭
-- ライティング
+## **よくある質問**
+
+**プレゼンテーションを画像/PDF/HTML にエクスポートする際に 3D エフェクトは保持されますか？**
+
+はい。Slides の 3D エンジンは、対応フォーマットへエクスポートする際に 3D エフェクトをレンダリングします（[images](/slides/ja/androidjava/convert-powerpoint-to-png/)、[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/)、[HTML](/slides/ja/androidjava/convert-powerpoint-to-html/) など）。
+
+**テーマや継承などを考慮した「有効な」(最終的な) 3D パラメータ値を取得できますか？**
+
+はい。Slides は [read effective values](/slides/ja/androidjava/shape-effective-properties/) の API を提供しており（3D の照明やベベルなどを含む）、最終的に適用された設定を確認できます。
+
+**プレゼンテーションをビデオに変換する際に 3D エフェクトは機能しますか？**
+
+はい。ビデオ用のフレームを [generating frames for the video](/slides/ja/androidjava/convert-powerpoint-to-video/) で生成する際、3D エフェクトは [exported images](/slides/ja/androidjava/convert-powerpoint-to-png/) と同様にレンダリングされます。

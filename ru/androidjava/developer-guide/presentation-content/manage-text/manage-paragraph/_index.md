@@ -1,50 +1,73 @@
 ---
-title: Управление абзацем PowerPoint в Java
+title: Управление абзацами текста PowerPoint на Android
+linktitle: Управление абзацем
 type: docs
 weight: 40
 url: /ru/androidjava/manage-paragraph/
-keywords: "Добавить абзац PowerPoint, Управление абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Создание и управление абзацем, текстом, отступом и свойствами в презентациях PowerPoint на Java"
+keywords:
+- добавить текст
+- добавить абзац
+- управление текстом
+- управление абзацем
+- управление маркером
+- отступ абзаца
+- висячий отступ
+- маркер абзаца
+- нумерованный список
+- маркированный список
+- свойства абзаца
+- импорт HTML
+- текст в HTML
+- абзац в HTML
+- абзац в изображение
+- текст в изображение
+- экспорт абзаца
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Мастер форматирования абзацев с Aspose.Slides для Android — оптимизируйте выравнивание, интервалы и стиль в презентациях PPT, PPTX и ODP на Java."
 ---
 
-Aspose.Slides предоставляет все интерфейсы и классы, необходимые для работы с текстами, абзацами и частями PowerPoint в Java.
+Aspose.Slides предоставляет все необходимые интерфейсы и классы для работы с текстами, абзацами и фрагментами PowerPoint на Java.
 
-* Aspose.Slides предоставляет интерфейс [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/), который позволяет добавлять объекты, представляющие абзац. Объект `ITextFame` может содержать один или несколько абзацев (каждый абзац создается с помощью переноса строки).
-* Aspose.Slides предоставляет интерфейс [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/), который позволяет добавлять объекты, представляющие части текста. Объект `IParagraph` может содержать одну или несколько частей (коллекция объектов iPortions).
-* Aspose.Slides предоставляет интерфейс [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/), который позволяет добавлять объекты, представляющие текст и его форматирующие свойства.
+* Aspose.Slides предоставляет интерфейс [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) , позволяющий добавлять объекты, представляющие абзац. Объект `ITextFame` может содержать один или несколько абзацев (каждый абзац создаётся с помощью переноса строки).
+* Aspose.Slides предоставляет интерфейс [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) , позволяющий добавлять объекты, представляющие фрагменты. Объект `IParagraph` может иметь один или несколько фрагментов (коллекцию объектов iPortions).
+* Aspose.Slides предоставляет интерфейс [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) , позволяющий добавлять объекты, представляющие тексты и их свойства форматирования.
 
-Объект `IParagraph` может работать с текстами с различными форматирующими свойствами через свои базовые объекты `IPortion`.
+Объект `IParagraph` способен обрабатывать тексты с различными свойствами форматирования через связанные объекты `IPortion`.
 
-## **Добавить несколько абзацев, содержащих несколько частей**
+## **Добавить несколько абзацев, содержащих несколько текстовых фрагментов**
 
-Эти шаги покажут вам, как добавить текстовое поле, содержащее 3 абзаца, каждый из которых содержит 3 части:
+Эти шаги показывают, как добавить текстовый фрейм, содержащий 3 абзаца, каждый из которых содержит 3 фрагмента:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Получите ссылку на соответствующий слайд через его индекс.
-3. Добавьте прямоугольник [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
-4. Получите ITextFrame, связанное с [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
-5. Создайте два объекта [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) и добавьте их в коллекцию `IParagraphs` объекта [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-6. Создайте три объекта [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportion/) для каждого нового `IParagraph` (два объекта Portion для абзаца по умолчанию) и добавьте каждый объект `IPortion` в коллекцию IPortion каждого `IParagraph`.
-7. Установите текст для каждой части.
-8. Примените свои предпочтительные функции форматирования к каждой части, используя свойства форматирования, предоставленные объектом `IPortion`.
-9. Сохраните измененную презентацию.
+2. Получите ссылку на нужный слайд по его индексу.
+3. Добавьте прямоугольный [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Получите ITextFrame, связанный с [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+5. Создайте два объекта [IParagraph] и добавьте их в коллекцию `IParagraphs` [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
+6. Для каждого нового `IParagraph` создайте три объекта [IPortion] (по два объекта Portion для абзаца по умолчанию) и добавьте каждый объект `IPortion` в коллекцию IPortion соответствующего `IParagraph`.
+7. Установите некоторый текст для каждого фрагмента.
+8. Примените желаемые параметры форматирования к каждому фрагменту, используя свойства форматирования, предоставленные объектом `IPortion`.
+9. Сохраните изменённую презентацию.
 
-Этот код Java является реализацией шагов по добавлению абзацев, содержащих части:
-
+Этот Java‑код реализует перечисленные шаги по добавлению абзацев, содержащих фрагменты:
 ```java
-// Создание экземпляра класса Presentation, представляющего файл PPTX
+// Создать объект класса Presentation, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Доступ к первому слайду
+    // Получение первого слайда
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление автофигуры типа Прямоугольник
+    // Добавление AutoShape типа Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
     // Доступ к TextFrame автофигуры
     ITextFrame tf = ashp.getTextFrame();
 
-    // Создание абзацев и частей с разными текстовыми форматами
+    // Создание абзацев и фрагментов с разными форматами текста
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -89,7 +112,7 @@ try {
         }
     }
 
-    //Запись PPTX на диск
+    // Сохранить PPTX на диск
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -97,91 +120,90 @@ try {
 ```
 
 
-## **Управление маркерами абзаца**
+## **Управление маркерами абзацев**
 
-Списки с маркерами помогают упорядочить и быстро представить информацию. Абзацы с маркерами всегда легче читать и понимать.
+Списки с маркерами помогают быстро и эффективно организовать и представить информацию. Абзацы с маркерами всегда легче читать и понимать.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Получите ссылку на соответствующий слайд через его индекс.
+2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на выбранный слайд.
 4. Получите [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) автофигуры.
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте экземпляр первого абзаца с использованием класса [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-7. Установите тип маркера для абзаца на `Symbol` и задайте символ маркера.
+6. Создайте первый экземпляр абзаца с помощью класса [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
+7. Установите для абзаца тип маркера `Type` в `Symbol` и задайте символ маркера.
 8. Установите текст абзаца.
-9. Установите отступ абзаца для маркера.
-10. Установите цвет для маркера.
-11. Установите высоту маркера.
+9. Установите отступ `Indent` абзаца для маркера.
+10. Задайте цвет маркера.
+11. Задайте высоту маркера.
 12. Добавьте новый абзац в коллекцию абзацев `TextFrame`.
-13. Добавьте второй абзац и повторите процесс, указанный в пунктах 7-13.
+13. Добавьте второй абзац и повторите процесс, описанный в шагах 7‑12.
 14. Сохраните презентацию.
 
-Этот код Java показывает, как добавить маркер абзаца:
-
+Этот Java‑код показывает, как добавить маркер к абзацу:
 ```java
-// Создание экземпляра класса Presentation, представляющего файл PPTX
+// Создает объект класса Presentation, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Доступ к первому слайду
+    // Получает первый слайд
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавление и доступ к автофигуре
+    // Добавляет и получает автофигуру
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Доступ к текстовому кадру автофигуры
+    // Получает текстовый фрейм автофигуры
     ITextFrame txtFrm = aShp.getTextFrame();
 
-    // Удаление абзаца по умолчанию
+    // Удаляет абзац по умолчанию
     txtFrm.getParagraphs().removeAt(0);
 
-    // Создание абзаца
+    // Создает абзац
     Paragraph para = new Paragraph();
 
-    // Установка стиля маркера абзаца и символа
+    // Устанавливает стиль маркера абзаца и символ
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
-    // Установка текста абзаца
-    para.setText("Добро пожаловать в Aspose.Slides");
+    // Устанавливает текст абзаца
+    para.setText("Welcome to Aspose.Slides");
 
-    // Установка отступа маркера
+    // Устанавливает отступ маркера
     para.getParagraphFormat().setIndent(25);
 
-    // Установка цвета маркера
+    // Устанавливает цвет маркера
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // установка IsBulletHardColor в true для использования собственного цвета маркера
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
 
-    // Установка высоты маркера
+    // Устанавливает высоту маркера
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // Добавление абзаца в текстовый кадр
+    // Добавляет абзац в текстовый фрейм
     txtFrm.getParagraphs().add(para);
 
-    // Создание второго абзаца
+    // Создает второй абзац
     Paragraph para2 = new Paragraph();
 
-    // Установка типа и стиля маркера абзаца
+    // Устанавливает тип и стиль маркера абзаца
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
-    // Добавление текста абзаца
-    para2.setText("Это нумерованный маркер");
+    // Добавляет текст абзаца
+    para2.setText("This is numbered bullet");
 
-    // Установка отступа маркера
+    // Устанавливает отступ маркера
     para2.getParagraphFormat().setIndent(25);
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // установка IsBulletHardColor в true для использования собственного цвета маркера
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // установить IsBulletHardColor в true, чтобы использовать собственный цвет маркера
 
-    // Установка высоты маркера
+    // Устанавливает высоту маркера
     para2.getParagraphFormat().getBullet().setHeight(100);
 
-    // Добавление абзаца в текстовый кадр
+    // Добавляет абзац в текстовый фрейм
     txtFrm.getParagraphs().add(para2);
     
-    // Сохранение измененной презентации
+    // Сохраняет изменённую презентацию
     pres.save("Bullet_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -189,36 +211,35 @@ try {
 ```
 
 
-## **Управление изображениями маркеров**
+## **Управление маркерами‑изображениями**
 
-Списки с маркерами помогают упорядочить и быстро представить информацию. Абзацы с изображениями легко читать и понимать.
+Списки с маркерами помогают быстро и эффективно организовать и представить информацию. Абзацы с изображениями легко читать и понимать.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Получите ссылку на соответствующий слайд через его индекс.
+2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
 4. Получите [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) автофигуры.
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте экземпляр первого абзаца с использованием класса [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
+6. Создайте первый экземпляр абзаца с помощью класса [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
 7. Загрузите изображение в [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
-8. Установите тип маркера на [Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) и задайте изображение.
+8. Установите тип маркера в [Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) и задайте изображение.
 9. Установите текст абзаца.
-10. Установите отступ абзаца для маркера.
-11. Установите цвет для маркера.
-12. Установите высоту для маркера.
+10. Установите отступ `Indent` абзаца для маркера.
+11. Задайте цвет маркера.
+12. Задайте высоту маркера.
 13. Добавьте новый абзац в коллекцию абзацев `TextFrame`.
-14. Добавьте второй абзац и повторите процесс в соответствии с предыдущими шагами.
-15. Сохраните измененную презентацию.
+14. Добавьте второй абзац и повторите процесс, основанный на предыдущих шагах.
+15. Сохраните изменённую презентацию.
 
-Этот код Java показывает, как добавлять и управлять маркерами изображений:
-
+Этот Java‑код показывает, как добавить и управлять маркерами‑изображениями:
 ```java
-// Создание экземпляра класса Presentation, представляющего файл PPTX
+// Создаёт объект класса Presentation, представляющий файл PPTX
 Presentation presentation = new Presentation();
 try {
-    // Доступ к первому слайду
+    // Получает первый слайд
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Создание изображения для маркеров
+    // Создаёт изображение для маркеров
     IPPImage picture;
     IImage image = Images.fromFile("bullets.png");
     try {
@@ -226,33 +247,33 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // Добавление и доступ к автофигуре
+    // Добавляет и получает автофигуру
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Доступ к текстовому кадру автофигуры
+    // Получает текстовый фрейм автофигуры
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    // Удалить абзац по умолчанию
+    // Удаляет абзац по умолчанию
     textFrame.getParagraphs().removeAt(0);
 
-    // Создание нового абзаца
+    // Создаёт новый абзац
     Paragraph paragraph = new Paragraph();
-    paragraph.setText("Добро пожаловать в Aspose.Slides");
+    paragraph.setText("Welcome to Aspose.Slides");
 
-    // Установка стиля маркера абзаца и изображения
+    // Устанавливает стиль маркера абзаца и изображение
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Установка высоты маркера
+    // Устанавливает высоту маркера
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
-    // Добавление абзаца в текстовый кадр
+    // Добавляет абзац в текстовый фрейм
     textFrame.getParagraphs().add(paragraph);
 
-    // Запись презентации в формате PPTX
+    // Сохраняет презентацию в файл PPTX
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // Запись презентации в формате PPT
+    // Сохраняет презентацию в файл PPT
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -263,85 +284,84 @@ try {
 
 ## **Управление многоуровневыми маркерами**
 
-Списки с маркерами помогают упорядочить и быстро представить информацию. Многоуровневые маркеры легко читать и понимать.
+Списки с маркерами помогают быстро и эффективно организовать и представить информацию. Многоуровневые маркеры легко читать и понимать.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Получите ссылку на соответствующий слайд через его индекс.
+2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на новый слайд.
 4. Получите [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) автофигуры.
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте экземпляр первого абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) и установите уровень на 0.
-7. Создайте экземпляр второго абзаца через класс `Paragraph` и установите уровень на 1.
-8. Создайте экземпляр третьего абзаца через класс `Paragraph` и установите уровень на 2.
-9. Создайте экземпляр четвертого абзаца через класс `Paragraph` и установите уровень на 3.
+6. Создайте первый экземпляр абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) и задайте глубину 0.
+7. Создайте второй экземпляр абзаца через класс `Paragraph` и задайте глубину 1.
+8. Создайте третий экземпляр абзаца через класс `Paragraph` и задайте глубину 2.
+9. Создайте четвёртый экземпляр абзаца через класс `Paragraph` и задайте глубину 3.
 10. Добавьте новые абзацы в коллекцию абзацев `TextFrame`.
-11. Сохраните измененную презентацию.
+11. Сохраните изменённую презентацию.
 
-Этот код Java показывает, как добавлять и управлять многоуровневыми маркерами:
-
+Этот Java‑код показывает, как добавить и управлять многоуровневыми маркерами:
 ```java
-// Создание экземпляра класса Presentation, представляющего файл PPTX
+// Создаёт объект класса Presentation, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Доступ к первому слайду
+    // Получает первый слайд
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление и доступ к автофигуре
+    // Добавляет и получает автофигуру
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Доступ к текстовому кадру созданной автофигуры
+    // Получает текстовый фрейм созданной автофигуры
     ITextFrame text = aShp.addTextFrame("");
 
-    // Очистка абзаца по умолчанию
+    // Очищает абзац по умолчанию
     text.getParagraphs().clear();
 
-    // Добавление первого абзаца
+    // Добавляет первый абзац
     IParagraph para1 = new Paragraph();
-    para1.setText("Содержимое");
+    para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Установка уровня маркера
+    // Устанавливает уровень маркера
     para1.getParagraphFormat().setDepth((short)0);
 
-    // Добавление второго абзаца
+    // Добавляет второй абзац
     IParagraph para2 = new Paragraph();
-    para2.setText("Второй уровень");
+    para2.setText("Second Level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Установка уровня маркера
+    // Устанавливает уровень маркера
     para2.getParagraphFormat().setDepth((short)1);
 
-    // Добавление третьего абзаца
+    // Добавляет третий абзац
     IParagraph para3 = new Paragraph();
-    para3.setText("Третий уровень");
+    para3.setText("Third Level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Установка уровня маркера
+    // Устанавливает уровень маркера
     para3.getParagraphFormat().setDepth((short)2);
 
-    // Добавление четвертого абзаца
+    // Добавляет четвертый абзац
     IParagraph para4 = new Paragraph();
-    para4.setText("Четвертый уровень");
+    para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Установка уровня маркера
+    // Устанавливает уровень маркера
     para4.getParagraphFormat().setDepth((short)3);
 
-    // Добавление абзацев в коллекцию
+    // Добавляет абзацы в коллекцию
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // Запись презентации в файл PPTX
+    // Сохраняет презентацию в файл PPTX
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -351,42 +371,41 @@ try {
 
 ## **Управление абзацем с пользовательским нумерованным списком**
 
-Интерфейс [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) предоставляет свойство [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) и другие, которые позволяют управлять абзацами с пользовательской нумерацией или форматированием.
+Интерфейс [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/) предоставляет свойство [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) и другие, позволяющие управлять абзацами с пользовательской нумерацией или форматированием.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Получите ссылку на слайд, содержащий абзац.
+2. Получите слайд, содержащий абзац.
 3. Добавьте [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
-4. Доступ к [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) автофигуры.
+4. Получите [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) автофигуры.
 5. Удалите абзац по умолчанию в `TextFrame`.
-6. Создайте экземпляр первого абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) и установите [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) на 2.
-7. Создайте экземпляр второго абзаца через класс `Paragraph` и установите `NumberedBulletStartWith` на 3.
-8. Создайте экземпляр третьего абзаца через класс `Paragraph` и установите `NumberedBulletStartWith` на 7.
+6. Создайте первый экземпляр абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) и установите [NumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) в 2.
+7. Создайте второй экземпляр абзаца через класс `Paragraph` и установите `NumberedBulletStartWith` в 3.
+8. Создайте третий экземпляр абзаца через класс `Paragraph` и установите `NumberedBulletStartWith` в 7.
 9. Добавьте новые абзацы в коллекцию абзацев `TextFrame`.
-10. Сохраните измененную презентацию.
+10. Сохраните изменённую презентацию.
 
-Этот код Java показывает, как добавлять и управлять абзацами с пользовательской нумерацией или форматированием:
-
+Этот Java‑код показывает, как добавить и управлять абзацами с пользовательской нумерацией или форматированием:
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Доступ к текстовому кадру созданной автофигуры
+    // Получает текстовый фрейм созданной автофигуры
     ITextFrame textFrame = shape.getTextFrame();
 
-    // Удаление абзаца по умолчанию
+    // Удаляет существующий абзац по умолчанию
     textFrame.getParagraphs().removeAt(0);
 
     // Первый список
     Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("маркер 2");
+    paragraph1.setText("bullet 2");
     paragraph1.getParagraphFormat().setDepth((short)4);
     paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     textFrame.getParagraphs().add(paragraph1);
 
     Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("маркер 3");
+    paragraph2.setText("bullet 3");
     paragraph2.getParagraphFormat().setDepth((short)4);
     paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
     paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
@@ -394,7 +413,7 @@ try {
 
 
     Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("маркер 7");
+    paragraph5.setText("bullet 7");
     paragraph5.getParagraphFormat().setDepth((short)4);
     paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
     paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
@@ -409,38 +428,37 @@ try {
 
 ## **Установить отступ абзаца**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Получите ссылку на соответствующий слайд через его индекс.
-1. Добавьте прямоугольник [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
-1. Добавьте [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) с тремя абзацами в прямоугольник автофигуры.
-1. Скрыть линии прямоугольника.
-1. Установите отступ для каждого [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) через свойство BulletOffset.
-1. Запишите измененную презентацию в формате PPT.
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+1. Получите ссылку на нужный слайд по его индексу.
+1. Добавьте прямоугольный [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+1. Добавьте [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) с тремя абзацами к прямоугольной автофигуре.
+1. Сскройте линии прямоугольника.
+1. Установите отступ для каждого [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) через их свойство BulletOffset.
+1. Запишите изменённую презентацию в файл PPT.
 
-Этот код Java показывает, как установить отступ абзаца:
-
+Этот Java‑код показывает, как установить отступ абзаца:
 ```java
-// Создание экземпляра класса Presentation
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
-    // Получение первого слайда
+    // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Добавление формы прямоугольника
+    // Добавляет прямоугольную форму
     IAutoShape rect = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
     
-    // Добавление TextFrame к прямоугольнику
-    ITextFrame tf = rect.addTextFrame("Это первая строка \rЭто вторая строка \rЭто третья строка");
+    // Добавляет TextFrame к прямоугольнику
+    ITextFrame tf = rect.addTextFrame("This is first line \rThis is second line \rThis is third line");
     
-    // Установите текст так, чтобы он подходил к форме
+    // Настраивает текст для подгонки под форму
     tf.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
     
-    // Скрыть линии прямоугольника
+    // Скрывает линии прямоугольника
     rect.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     
-    // Получите первый абзац в TextFrame и установите его отступ
+    // Получает первый абзац в TextFrame и задаёт ему отступ
     IParagraph para1 = tf.getParagraphs().get_Item(0);
-    // Установка стиля маркера абзаца и символа
+    // Устанавливает стиль маркера абзаца и символ
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().setAlignment(TextAlignment.Left);
@@ -448,7 +466,7 @@ try {
     para1.getParagraphFormat().setDepth((short)2);
     para1.getParagraphFormat().setIndent(30);
     
-    // Получите второй абзац в TextFrame и установите его отступ
+    // Получает второй абзац в TextFrame и задаёт ему отступ
     IParagraph para2 = tf.getParagraphs().get_Item(1);
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar((char)8226);
@@ -456,7 +474,7 @@ try {
     para2.getParagraphFormat().setDepth((short)2);
     para2.getParagraphFormat().setIndent(40);
     
-    // Получите третий абзац в TextFrame и установите его отступ
+    // Получает третий абзац в TextFrame и задаёт ему отступ
     IParagraph para3 = tf.getParagraphs().get_Item(2);
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char)8226);
@@ -464,30 +482,30 @@ try {
     para3.getParagraphFormat().setDepth((short)2);
     para3.getParagraphFormat().setIndent(50);
     
-    //Запись презентации на диск
+    // Сохраняет презентацию на диск
     pres.save("InOutDent_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Установить висячий отступ для абзаца**
 
-Этот код Java показывает, как установить висячий отступ для абзаца:
-
+Этот Java‑код показывает, как установить висячий отступ для абзаца:
 ```java
 Presentation pres = new Presentation();
 try {
     IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
 
     Paragraph para1 = new Paragraph();
-    para1.setText("Пример");
+    para1.setText("Example");
 
     Paragraph para2 = new Paragraph();
-    para2.setText("Установить висячий отступ для абзаца");
+    para2.setText("Set Hanging Indent for Paragraph");
 
     Paragraph para3 = new Paragraph();
-    para3.setText("Этот код C# показывает, как установить висячий отступ для абзаца: ");
+    para3.setText("This code shows you how to set the hanging indent for a paragraph: ");
 
     para2.getParagraphFormat().setMarginLeft(10f);
     para3.getParagraphFormat().setMarginLeft(20f);
@@ -502,28 +520,28 @@ try {
 }
 ```
 
-## **Управление свойствами конечного абзаца для абзаца**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на слайд, содержащий абзац, через его положение.
-3. Добавьте прямоугольник [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
-4. Добавьте [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) с двумя абзацами в прямоугольник.
-5. Установите `FontHeight` и шрифт для абзацев.
-6. Установите конечные свойства для абзацев.
-7. Запишите измененную презентацию в файл PPTX.
+## **Управление свойствами конца абзаца**
 
-Этот код Java показывает, как установить конечные свойства для абзацев в PowerPoint: 
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+1. Получите ссылку на слайд, содержащий абзац, по его позиции.
+1. Добавьте прямоугольный [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+1. Добавьте [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) с двумя абзацами в прямоугольник.
+1. Установите `FontHeight` и тип шрифта для абзацев.
+1. Установите свойства End для абзацев.
+1. Запишите изменённую презентацию в файл PPTX.
 
+Этот Java‑код показывает, как установить свойства End для абзацев в PowerPoint:
 ```java
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 
     Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Пример текста"));
+    para1.getPortions().add(new Portion("Sample text"));
 
     Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Пример текста 2"));
+    para2.getPortions().add(new Portion("Sample text 2"));
 
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(48);
@@ -540,45 +558,44 @@ try {
 ```
 
 
-## **Импортировать HTML текст в абзацы**
+## **Импорт HTML‑текста в абзацы**
 
-Aspose.Slides предоставляет улучшенную поддержку импорта HTML текста в абзацы.
+Aspose.Slides предоставляет расширенную поддержку импорта HTML‑текста в абзацы.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на соответствующий слайд через его индекс.
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Получите ссылку на нужный слайд по его индексу.
 3. Добавьте [автофигуру](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
-4. Добавьте и получите доступ к `автофигуре` [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
+4. Добавьте и получите `autoshape` [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) .
 5. Удалите абзац по умолчанию в `ITextFrame`.
-6. Прочитайте исходный HTML файл в TextReader.
-7. Создайте экземпляр первого абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-8. Добавьте содержимое HTML файла в считываемый TextReader в коллекцию [ParagraphCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/).
-9. Сохраните измененную презентацию.
+6. Прочитайте исходный HTML‑файл с помощью TextReader.
+7. Создайте первый экземпляр абзаца через класс [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) .
+8. Добавьте содержимое HTML‑файла из прочитанного TextReader в [ParagraphCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/) TextFrame.
+9. Сохраните изменённую презентацию.
 
-Этот код Java является реализацией шагов по импорту HTML текстов в абзацы:
-
+Этот Java‑код реализует шаги по импорту HTML‑текстов в абзацы:
 ```java
-// Создание пустого экземпляра презентации
+// Создайте пустой экземпляр презентации
 Presentation pres = new Presentation();
 try {
-    // Доступ к первому слайду презентации
+    // Доступ к первому слайду презентации по умолчанию
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление автофигуры для размещения HTML содержимого
+    // Добавление AutoShape для размещения HTML-содержимого
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
     ashape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Добавление текстового кадра к форме
+    // Добавление TextFrame к фигуре
     ashape.addTextFrame("");
 
-    // Очистка всех абзацев в добавленном текстовом кадре
+    // Очистка всех абзацев в добавленном TextFrame
     ashape.getTextFrame().getParagraphs().clear();
 
-    // Загрузка HTML файла с помощью счетчика потоков
+    // Загрузка HTML-файла с помощью StreamReader
     TextReader tr = new StreamReader("file.html");
 
-    // Добавление текста из HTML счетчика в текстовый кадр
+    // Добавление текста из HTML-потока в TextFrame
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
     // Сохранение презентации
@@ -589,24 +606,23 @@ try {
 ```
 
 
-## **Экспорт текста абзацев в HTML**
+## **Экспорт текста абзаца в HTML**
 
-Aspose.Slides предоставляет улучшенную поддержку экспорта текстов (содержащихся в абзацах) в HTML.
+Aspose.Slides предоставляет расширенную поддержку экспорта текстов (содержащихся в абзацах) в HTML.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и загрузите нужную презентацию.
-2. Получите ссылку на соответствующий слайд через его индекс.
-3. Получите доступ к фигуре, содержащей текст, который будет экспортирован в HTML.
-4. Получите текстовый [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-5. Создайте экземпляр `StreamWriter` и добавьте новый HTML файл.
-6. Установите начальный индекс для StreamWriter и экспортируйте свои предпочтительные абзацы.
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и загрузите требуемую презентацию.
+2. Получите ссылку на нужный слайд по его индексу.
+3. Получите форму, содержащую текст, который будет экспортирован в HTML.
+4. Получите форму [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) .
+5. Создайте экземпляр `StreamWriter` и добавьте новый HTML‑файл.
+6. Укажите начальный индекс для StreamWriter и экспортируйте выбранные абзацы.
 
-Этот код Java показывает, как экспортировать текст абзацев PowerPoint в HTML:
-
+Этот Java‑код показывает, как экспортировать тексты абзацев PowerPoint в HTML:
 ```java
-// Загрузка файла презентации
+// Загрузить файл презентации
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    // Доступ к первому слайду презентации
+    // Получить доступ к первому слайду презентации по умолчанию
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Желаемый индекс
@@ -615,12 +631,12 @@ try {
     // Доступ к добавленной фигуре
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
-    // Создание выходного HTML файла
+    // Создание выходного HTML-файла
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    // Извлечение первого абзаца в качестве HTML
-    // Запись данных абзацев в HTML, указав начальный индекс абзаца, общее количество абзацев для копирования
+    //Извлечение первого абзаца как HTML
+    // Запись данных абзацев в HTML, предоставляя начальный индекс абзаца и общее количество копируемых абзацев
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -628,3 +644,121 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Сохранить абзац как изображение**
+
+В этом разделе рассматриваются два примера, демонстрирующие, как сохранить текстовый абзац, представленный интерфейсом [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) , в виде изображения. Оба примера включают получение изображения формы, содержащей абзац, с помощью методов `getImage` интерфейса [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) , вычисление границ абзаца внутри формы и экспорт его как растрового изображения. Эти подходы позволяют извлекать отдельные части текста из презентаций PowerPoint и сохранять их как отдельные изображения, что может быть полезно в различных сценариях.
+
+Предположим, что у нас есть файл презентации sample.pptx с одним слайдом, где первая форма — это текстовое поле, содержащее три абзаца.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+**Пример 1**
+
+В этом примере мы получаем второй абзац в виде изображения. Для этого извлекаем изображение формы с первого слайда презентации, затем вычисляем границы второго абзаца в текстовом фрейме формы. После этого абзац перерисовывается на новом растровом изображении, которое сохраняется в формате PNG. Этот метод особенно полезен, когда необходимо сохранить конкретный абзац как отдельное изображение, сохранив точные размеры и форматирование текста.
+```java
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // Сохранить форму в памяти как bitmap.
+    IImage shapeImage = firstShape.getImage();
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
+
+    // Создать bitmap формы из памяти.
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+    // Вычислить границы второго абзаца.
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    RectF paragraphRectangle = secondParagraph.getRect();
+
+    // Вычислить координаты и размер выходного изображения (минимальный размер - 1x1 пиксель).
+    int imageX = (int) Math.floor(paragraphRectangle.left);
+    int imageY = (int) Math.floor(paragraphRectangle.top);
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
+
+    // Обрезать bitmap формы, чтобы получить только bitmap абзаца.
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+
+Результат:
+
+![The paragraph image](paragraph_to_image_output.png)
+
+**Пример 2**
+
+В этом примере мы расширяем предыдущий подход, добавляя коэффициенты масштабирования к изображению абзаца. Форма извлекается из презентации и сохраняется как изображение с коэффициентом масштабирования `2`. Это позволяет получить изображение более высокого разрешения при экспорте абзаца. Затем границы абзаца вычисляются с учётом масштаба. Масштабирование может быть особенно полезным, когда требуется более детальное изображение, например, для использования в печатных материалах высокого качества.
+```java
+float imageScaleX = 2f;
+float imageScaleY = imageScaleX;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // Сохранить форму в памяти как bitmap с масштабированием.
+    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
+
+    // Создать bitmap формы из памяти.
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+    // Вычислить границы второго абзаца.
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    RectF paragraphRectangle = secondParagraph.getRect();
+    paragraphRectangle.set(
+            paragraphRectangle.left * imageScaleX,
+            paragraphRectangle.top * imageScaleY,
+            paragraphRectangle.right * imageScaleX,
+            paragraphRectangle.bottom * imageScaleY
+    );
+
+    // Вычислить координаты и размер выходного изображения (минимальный размер - 1x1 пиксель).
+    int imageX = (int) Math.floor(paragraphRectangle.left);
+    int imageY = (int) Math.floor(paragraphRectangle.top);
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
+
+    // Обрезать bitmap формы, чтобы получить только bitmap абзаца.
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+
+## **FAQ**
+
+**Можно ли полностью отключить перенос строк внутри текстового фрейма?**
+
+Да. Используйте настройку переноса текста фрейма ([setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) чтобы отключить перенос, и строки не будут разрываются у краёв фрейма.
+
+**Как получить точные границы конкретного абзаца на слайде?**
+
+Можно получить ограничивающий прямоугольник абзаца (и даже отдельного фрагмента), чтобы знать его точное положение и размер на слайде.
+
+**Где управляется выравнивание абзаца (по левому/правому/центру/по ширине)?**
+
+[Alignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) — это настройка уровня абзаца в [ParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/) ; она применяется к всему абзацу независимо от форматирования отдельных фрагментов.
+
+**Можно ли задать язык проверки орфографии только для части абзаца (например, для одного слова)?**
+
+Да. Язык задаётся на уровне фрагмента ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), поэтому в одном абзаце могут сосуществовать несколько языков.

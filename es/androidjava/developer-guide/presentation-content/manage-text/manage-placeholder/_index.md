@@ -1,26 +1,38 @@
 ---
-title: Administrar Marcador
+title: Administrar marcadores de posición de presentaciones en Android
+linktitle: Gestionar marcadores
 type: docs
 weight: 10
 url: /es/androidjava/manage-placeholder/
-description: Cambiar texto en un marcador en diapositivas de PowerPoint usando Java. Establecer texto de indicación en un marcador en diapositivas de PowerPoint usando Java.
+keywords:
+- marcador de posición
+- marcador de posición de texto
+- marcador de posición de imagen
+- marcador de posición de gráfico
+- texto de indicación
+- PowerPoint
+- OpenDocument
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Gestione sin esfuerzo los marcadores de posición en Aspose.Slides para Android mediante Java: reemplace texto, personalice indicaciones y establezca la transparencia de imágenes en PowerPoint y OpenDocument."
 ---
 
-## **Cambiar texto en marcador**
-Usando [Aspose.Slides para Android a través de Java](/slides/es/androidjava/), puedes encontrar y modificar marcadores en diapositivas de presentaciones. Aspose.Slides te permite hacer cambios en el texto de un marcador.
+## **Cambiar texto en un marcador de posición**
+Usando [Aspose.Slides para Android a través de Java](/slides/es/androidjava/), puedes encontrar y modificar marcadores de posición en las diapositivas de presentaciones. Aspose.Slides permite realizar cambios en el texto de un marcador de posición.
 
-**Requisito previo**: Necesitas una presentación que contenga un marcador. Puedes crear una presentación así en la aplicación estándar de Microsoft PowerPoint.
+**Requisito previo**: Necesitas una presentación que contenga un marcador de posición. Puedes crear dicha presentación en la aplicación estándar de Microsoft PowerPoint.
 
-Así es como utilizas Aspose.Slides para reemplazar el texto en el marcador de esa presentación:
+Así es como utilizas Aspose.Slides para reemplazar el texto del marcador de posición en esa presentación:
 
-1. Instancia la clase [`Presentation`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) y pasa la presentación como un argumento.
-2. Obtén una referencia de diapositiva a través de su índice.
-3. Itera a través de las formas para encontrar el marcador.
-4. Convierte el marcador en una forma de tipo [`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) y cambia el texto usando el [`TextFrame`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) asociado con el [`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape).
+1. Instancia la clase [`Presentation`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) y pasa la presentación como argumento.
+2. Obtén una referencia a una diapositiva mediante su índice.
+3. Itera a través de las formas para encontrar el marcador de posición.
+4. Convierte (castea) la forma del marcador de posición a un [`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) y cambia el texto usando el [`TextFrame`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) asociado con el [`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape).
 5. Guarda la presentación modificada.
 
-Este código Java muestra cómo cambiar el texto en un marcador:
-
+Este código Java muestra cómo cambiar el texto en un marcador de posición:
 ```java
 // Instancia una clase Presentation
 Presentation pres = new Presentation("ReplacingText.pptx");
@@ -29,47 +41,47 @@ try {
     // Accede a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Itera a través de las formas para encontrar el marcador
+    // Recorre las formas para encontrar el marcador de posición
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
-            // Cambia el texto en cada marcador
-            ((IAutoShape) shp).getTextFrame().setText("Este es el Marcador");
+            // Cambia el texto en cada marcador de posición
+            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
 
-    // Guarda la presentación en el disco
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    // Guarda la presentación en disco
+    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer texto de indicación en el marcador**
-Los diseños estándar y predefinidos contienen textos de indicación de marcador como ***Haz clic para añadir un título*** o ***Haz clic para añadir un subtítulo***. Usando Aspose.Slides, puedes insertar tus textos de indicación preferidos en los diseños de marcadores.
 
-Este código Java te muestra cómo establecer el texto de indicación en un marcador:
+## **Establecer texto de aviso en un marcador de posición**
+Los diseños estándar y predefinidos contienen textos de aviso de marcadores de posición como ***Haga clic para agregar un título*** o ***Haga clic para agregar un subtítulo***. Con Aspose.Slides, puedes insertar tus textos de aviso preferidos en los diseños de marcadores de posición.
 
+Este código Java muestra cómo establecer el texto de aviso en un marcador de posición:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Itera a través de la diapositiva
+    for (IShape shape : slide.getSlide().getShapes()) // Recorre la diapositiva
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint muestra "Haz clic para añadir título" 
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint muestra "Click to add title"
             {
-                text = "Añadir Título";
+                text = "Add Title";
             }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Añade subtítulo
+            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Agrega subtítulo
             {
-                text = "Añadir Subtítulo";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Marcador con texto: " + text);
+            System.out.println("Placeholder with text: " + text);
         }
     }
 
@@ -79,12 +91,12 @@ try {
 }
 ```
 
-## **Establecer transparencia de imagen en el marcador**
 
-Aspose.Slides te permite establecer la transparencia de la imagen de fondo en un marcador de texto. Al ajustar la transparencia de la imagen en dicho marco, puedes hacer que el texto o la imagen resalten (dependiendo de los colores del texto y de la imagen).
+## **Establecer la transparencia de la imagen del marcador de posición**
 
-Este código Java te muestra cómo establecer la transparencia para un fondo de imagen (dentro de una forma):
+Aspose.Slides permite establecer la transparencia de la imagen de fondo en un marcador de posición de texto. Al ajustar la transparencia de la imagen en dicho marco, puedes hacer que el texto o la imagen destaquen (según los colores del texto y de la imagen).
 
+Este código Java muestra cómo establecer la transparencia para un fondo de imagen (dentro de una forma):
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -97,7 +109,7 @@ for (int i = 0; i < operationCollection.size(); i++)
     {
         AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Valor actual de transparencia: " + currentValue);
+        System.out.println("Current transparency value: " + currentValue);
 
         int alphaValue = 40;
         alphaModulate.setAmount(100 - alphaValue);
@@ -106,3 +118,18 @@ for (int i = 0; i < operationCollection.size(); i++)
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Qué es un marcador de posición base y en qué se diferencia de una forma local en una diapositiva?**
+
+Un marcador de posición base es la forma original en un diseño o maestro del que hereda la forma de la diapositiva: tipo, posición y parte del formato provienen de él. Una forma local es independiente; si no hay un marcador de posición base, la herencia no se aplica.
+
+**¿Cómo puedo actualizar todos los títulos o subtítulos en una presentación sin iterar sobre cada diapositiva?**
+
+Edita el marcador de posición correspondiente en el diseño o el maestro. Las diapositivas basadas en esos diseños/maestro heredarán automáticamente el cambio.
+
+**¿Cómo controlo los marcadores de posición estándar de encabezado/pie de página —fecha y hora, número de diapositiva y texto del pie?**
+
+Utiliza los administradores HeaderFooter en el alcance apropiado (diapositivas normales, diseños, maestro, notas/handouts) para activar o desactivar esos marcadores de posición y establecer su contenido.

@@ -1,38 +1,51 @@
 ---
-title: ビデオフレーム
+title: Android でプレゼンテーションのビデオフレームを管理する
+linktitle: ビデオフレーム
 type: docs
 weight: 10
 url: /ja/androidjava/video-frame/
-keywords: "ビデオの追加、ビデオフレームの作成、ビデオの抽出、PowerPointプレゼンテーション、Java、Aspose.Slides for Android via Java"
-description: "JavaでPowerPointプレゼンテーションにビデオフレームを追加する"
+keywords:
+- ビデオを追加
+- ビデオを作成
+- ビデオを埋め込む
+- ビデオを抽出
+- ビデオを取得
+- ビデオフレーム
+- Web ソース
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Java を使用して Aspose.Slides for Android で PowerPoint および OpenDocument のスライドにビデオフレームをプログラムで追加および抽出する方法を学びます。高速ハウツーガイド。"
 ---
 
-プレゼンテーションに適切に配置されたビデオは、メッセージをより魅力的にし、オーディエンスとのエンゲージメントを高めることができます。
+プレゼンテーションに適切に配置されたビデオは、メッセージをより魅力的にし、オーディエンスとのエンゲージメントレベルを高めることができます。
 
-PowerPointでは、プレゼンテーションのスライドにビデオを追加する方法が2つあります：
+PowerPoint では、プレゼンテーションのスライドにビデオを追加する方法が2つあります：
 
-* ローカルビデオ（あなたのマシンに保存されているもの）を追加または埋め込む
-* オンラインビデオ（YouTubeなどのウェブソースから）を追加する。
+* ローカルビデオ（マシンに保存されている）を追加または埋め込む
+* オンラインビデオ（YouTube などのウェブソースから）を追加する
 
-プレゼンテーションにビデオ（ビデオオブジェクト）を追加するには、Aspose.Slidesが[IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)インターフェース、[IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)インターフェース、およびその他の関連タイプを提供しています。
+プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slides は[IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)インターフェイス、およびその他の関連タイプを提供します。
 
 ## **埋め込みビデオフレームの作成**
 
-追加したいビデオファイルがローカルに保存されている場合、プレゼンテーションにビデオを埋め込むためのビデオフレームを作成することができます。
+スライドに追加したいビデオファイルがローカルに保存されている場合、プレゼンテーションにビデオを埋め込むビデオフレームを作成できます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。 
-1. [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)オブジェクトを追加し、プレゼンテーションにビデオを埋め込むためにビデオファイルのパスを渡します。
-1. ビデオのためのフレームを作成するために[IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)オブジェクトを追加します。
-1. 修正されたプレゼンテーションを保存します。
+1. [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)オブジェクトを追加し、ビデオファイルのパスを渡してプレゼンテーションにビデオを埋め込みます。
+4. [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)オブジェクトを追加して、ビデオ用のフレームを作成します。
+5. 変更されたプレゼンテーションを保存します。
 
-このJavaコードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています：
-
+この Java コードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています:
 ```java
-// Presentationクラスをインスタンス化
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation("pres.pptx");
 try {
-    // ビデオをロード
+    // ビデオを読み込む
     FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
@@ -48,9 +61,9 @@ try {
 }
 ```
 
-また、[addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-)メソッドにビデオファイルのパスを直接渡すことで、ビデオを追加することもできます：
 
-```java
+または、ファイルパスを直接[addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-)メソッドに渡すことでビデオを追加できます:
+``` java
 Presentation pres = new Presentation();
 try {
 	ISlide sld = pres.getSlides().get_Item(0);
@@ -60,20 +73,20 @@ try {
 }
 ```
 
-## **ウェブソースからのビデオフレームの作成**
 
-Microsoft [PowerPoint 2013以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)はプレゼンテーションでYouTubeビデオをサポートしています。使用したいビデオがオンライン（例えばYouTubeで）で利用できる場合、そのウェブリンクを通じてプレゼンテーションに追加できます。
+## **Web ソースからのビデオでビデオフレームを作成**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。 
-1. [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)オブジェクトを追加し、ビデオのリンクを渡します。
-1. ビデオフレームのサムネイルを設定します。 
-1. プレゼンテーションを保存します。
+Microsoft[PowerPoint 2013 以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)は、プレゼンテーションで YouTube ビデオをサポートしています。使用したいビデオがオンライン（例: YouTube）で利用できる場合、そのウェブリンクを使用してプレゼンテーションに追加できます。
 
-このJavaコードは、PowerPointプレゼンテーションのスライドにウェブからビデオを追加する方法を示しています：
+1. [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/)オブジェクトを追加し、ビデオへのリンクを渡します。
+4. ビデオフレームのサムネイルを設定します。
+5. プレゼンテーションを保存します。
 
+この Java コードは、ウェブからビデオを取得して PowerPoint のスライドに追加する方法を示しています:
 ```java
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化 
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -91,7 +104,7 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
 
-    // サムネイルをロード
+    // サムネイルを読み込む
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
     URL url;
 
@@ -106,19 +119,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **スライドからのビデオの抽出**
 
-スライドにビデオを追加する以外に、Aspose.Slidesはプレゼンテーションに埋め込まれたビデオを抽出することもできます。
+## **スライドからビデオを抽出**
 
-1. ビデオを含むプレゼンテーションをロードするために[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-2. すべての[ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/)オブジェクトを反復処理します。
-3. すべての[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)オブジェクトを反復処理して[VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/)を見つけます。
+スライドにビデオを追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
+
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成して、ビデオを含むプレゼンテーションをロードします。
+2. すべての[ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/)オブジェクトを列挙します。
+3. すべての[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)オブジェクトを列挙して、[VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/)を見つけます。
 4. ビデオをディスクに保存します。
 
-このJavaコードは、プレゼンテーションスライド上のビデオを抽出する方法を示しています：
-
+この Java コードは、プレゼンテーションのスライドからビデオを抽出する方法を示しています:
 ```java
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化 
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -148,3 +161,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**VideoFrame のビデオ再生パラメータで変更できる項目は何ですか？**
+
+再生モード（自動またはクリック時）は[playback mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)で、ループ設定は[looping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)で制御できます。これらのオプションは、[VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/)オブジェクトのプロパティで利用可能です。
+
+**ビデオを追加すると PPTX ファイルサイズに影響がありますか？**
+
+はい。ローカルビデオを埋め込むと、バイナリデータがドキュメントに含まれるため、プレゼンテーションのサイズはビデオファイルのサイズに比例して増加します。オンラインビデオを追加すると、リンクとサムネイルが埋め込まれるだけなので、サイズ増加は小さくなります。
+
+**既存の VideoFrame のビデオを、位置やサイズを変更せずに置き換えることはできますか？**
+
+はい。フレーム内の[video content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)を置き換えることで、シェイプのジオメトリを保持したままビデオを交換できます。これは既存のレイアウトでメディアを更新する一般的なシナリオです。
+
+**埋め込みビデオのコンテンツタイプ（MIME）を判別できますか？**
+
+はい。埋め込みビデオには[content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--)があり、これを取得して使用できます。たとえばディスクに保存する際に利用できます。

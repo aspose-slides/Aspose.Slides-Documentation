@@ -1,24 +1,35 @@
 ---
-title: Анимированный текст
+title: Анимировать текст PowerPoint на Android
+linktitle: Анимированный текст
 type: docs
 weight: 60
 url: /ru/androidjava/animated-text/
-keywords: "Анимированный текст в PowerPoint"
-description: "Анимированный текст в PowerPoint с помощью Java"
+keywords:
+- анимированный текст
+- анимация текста
+- анимированный абзац
+- анимация абзаца
+- эффект анимации
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Создайте динамический анимированный текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Android, используя простые, оптимизированные примеры кода на Java."
 ---
 
-## Добавление эффектов анимации к параграфам
+## **Добавить анимационные эффекты к абзацам**
 
-Мы добавили метод [**addEffect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) в классы [**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) и [**ISequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence). Этот метод позволяет добавлять эффекты анимации к одному параграфу. Этот пример кода показывает, как добавить эффект анимации к одному параграфу:
-
+Мы добавили метод [**addEffect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) в классы [**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) и [**ISequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence). Этот метод позволяет добавить анимационные эффекты к отдельному абзацу. Ниже приведён пример кода, показывающий, как добавить анимационный эффект к отдельному абзацу:
 ```java
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // выберите параграф для добавления эффекта
+    // выбрать абзац для добавления эффекта
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // добавьте эффект анимации "Летящий" к выбранному параграфу
+    // добавить эффект анимации Fly к выбранному абзацу
     IEffect effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().
             addEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
@@ -28,12 +39,12 @@ try {
 }
 ```
 
-## Получение эффектов анимации в параграфах
 
-Вы можете решить узнать эффекты анимации, добавленные к параграфу — например, в одном сценарии вы хотите получить эффекты анимации в параграфе, потому что планируете применить эти эффекты к другому параграфу или фигуре.
+## **Получить анимационные эффекты абзацев**
 
-Aspose.Slides для Android через Java позволяет вам получить все эффекты анимации, примененные к параграфам, содержащимся в текстовом фрейме (фигуре). Этот пример кода показывает, как получить эффекты анимации в параграфе:
+Вы можете захотеть узнать, какие анимационные эффекты добавлены к абзацу — например, в одном сценарии вам нужно получить эффекты из абзаца, чтобы применить их к другому абзацу или фигуре.
 
+Aspose.Slides for Android via Java позволяет получить все анимационные эффекты, применённые к абзацам в текстовом фрейме (фигуре). Ниже показан пример кода, демонстрирующий, как получить анимационные эффекты в абзаце:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -45,9 +56,24 @@ try {
         IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
 
         if (effects.length > 0)
-            System.out.println("Параграф \"" + paragraph.getText() + "\" имеет эффект " + effects[0].getType() + ".");
+            System.out.println("Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
     }
 } finally {
     pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Чем анимация текста отличается от переходов между слайдами и можно ли их комбинировать?**
+
+Анимация текста управляет поведением объекта во времени на слайде, тогда как [transitions](/slides/ru/androidjava/slide-transition/) управляют тем, как меняются слайды. Они независимы и могут использоваться вместе; порядок воспроизведения определяется временной шкалой анимации и настройками перехода.
+
+**Сохраняется ли анимация текста при экспорте в PDF или изображения?**
+
+Нет. PDF и растровые изображения статичны, поэтому вы увидите единственное состояние слайда без движения. Чтобы сохранить анимацию, используйте экспорт в [video](/slides/ru/androidjava/convert-powerpoint-to-video/) или [HTML](/slides/ru/androidjava/export-to-html5/).
+
+**Работает ли анимация текста в макетах и мастер-слайде?**
+
+Эффекты, применённые к объектам макета/мастера, наследуются слайдами, но их тайминг и взаимодействие с анимациями уровня слайда зависят от конечной последовательности на слайде.

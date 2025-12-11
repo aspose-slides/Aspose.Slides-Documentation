@@ -1,119 +1,133 @@
 ---
-title: Ось графика
+title: Настройка осей диаграмм в презентациях на Android
+linktitle: Ось диаграммы
 type: docs
 url: /ru/androidjava/chart-axis/
-keywords: "Ось графика PowerPoint, Графики для презентаций, Java, Манипуляция осью графика, Данные графика"
-description: "Как редактировать ось графика PowerPoint на Java"
+keywords:
+- ось диаграммы
+- вертикальная ось
+- горизонтальная ось
+- настройка оси
+- манипулирование осью
+- управление осью
+- свойства оси
+- максимальное значение
+- минимальное значение
+- линия оси
+- формат даты
+- заголовок оси
+- позиция оси
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как использовать Aspose.Slides для Android через Java для настройки осей диаграмм в презентациях PowerPoint для отчетов и визуализаций."
 ---
 
+## **Получить максимальные значения на вертикальной оси диаграмм**
+Aspose.Slides для Android через Java позволяет получать минимальные и максимальные значения по вертикальной оси. Выполните следующие шаги:
 
-## **Получение максимальных значений по вертикальной оси на графиках**
-Aspose.Slides для Android на Java позволяет получить минимальные и максимальные значения на вертикальной оси. Следуйте этим шагам:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Получите доступ к первому слайду.
+1. Добавьте диаграмму с данными по умолчанию.
+1. Получите фактическое максимальное значение на оси.
+1. Получите фактическое минимальное значение на оси.
+1. Получите фактическую основную единицу оси.
+1. Получите фактическую вспомогательную единицу оси.
+1. Получите фактический масштаб основной единицы оси.
+1. Получите фактический масштаб вспомогательной единицы оси.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите первый слайд.
-1. Добавьте график с данными по умолчанию.
-1. Получите фактическое максимальное значение по оси.
-1. Получите фактическое минимальное значение по оси.
-1. Получите фактическую основную единицу по оси.
-1. Получите фактическую вспомогательную единицу по оси.
-1. Получите фактический масштаб основной единицы по оси.
-1. Получите фактический масштаб вспомогательной единицы по оси.
-
-Этот пример кода — реализация вышеуказанных шагов — показывает, как получить необходимые значения на Java:
-
+Этот пример кода — реализация перечисленных шагов — показывает, как получить необходимые значения на Java:
 ```java
 Presentation pres = new Presentation();
 try {
-    Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
-    chart.validateChartLayout();
+	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
+	chart.validateChartLayout();
 
-    double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
-    double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
+	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
+	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-    double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-    double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
+	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
 
-    // Сохраняет презентацию
-    pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
+	// Сохраняет презентацию
+	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+	if (pres != null) pres.dispose();
 }
 ```
 
-## **Обмен данными между осями**
-Aspose.Slides позволяет быстро обменивать данные между осями — данные, представленные на вертикальной оси (оси y), перемещаются на горизонтальную ось (оси x) и наоборот. 
 
-Этот код на Java показывает, как выполнить задачу обмена данными между осями на графике:
+## **Переставить данные между осями**
+Aspose.Slides позволяет быстро поменять данные между осями — данные, отображаемые по вертикальной оси (y‑axis), перемещаются на горизонтальную ось (x‑axis) и наоборот. 
 
+Этот код на Java показывает, как выполнить обмен данными между осями диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-    // Меняет местами строки и столбцы
-    chart.getChartData().switchRowColumn();
+	//Переключает строки и столбцы
+	chart.getChartData().switchRowColumn();
 
-    // Сохраняет презентацию
-    pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+	// Сохраняет презентацию
+	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+	if (pres != null) pres.dispose();
 }
 ```
 
-## **Отключение вертикальной оси для линейных графиков**
 
-Этот код на Java показывает, как скрыть вертикальную ось для линейного графика:
-
+## **Отключить вертикальную ось для линейных диаграмм**
+Этот код на Java показывает, как скрыть вертикальную ось в линейной диаграмме:
 ```java
 Presentation pres = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-    chart.getAxes().getVerticalAxis().setVisible(false);
+	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+	chart.getAxes().getVerticalAxis().setVisible(false);
 
-    pres.save("chart.pptx", SaveFormat.Pptx);
+	pres.save("chart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+	if (pres != null) pres.dispose();
 }
 ```
 
-## **Отключение горизонтальной оси для линейных графиков**
 
-Этот код показывает, как скрыть горизонтальную ось для линейного графика:
-
+## **Отключить горизонтальную ось для линейных диаграмм**
+Этот код показывает, как скрыть горизонтальную ось в линейной диаграмме:
 ```java
 Presentation pres = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-    chart.getAxes().getHorizontalAxis().setVisible(false);
+	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+	chart.getAxes().getHorizontalAxis().setVisible(false);
 
-    pres.save("chart.pptx", SaveFormat.Pptx);
+	pres.save("chart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+	if (pres != null) pres.dispose();
 }
 ```
 
-## **Изменение оси категорий**
 
-С помощью свойства **CategoryAxisType** вы можете указать предпочитаемый тип оси категорий (**date** или **text**). Этот код на Java демонстрирует операцию: 
-
+## **Изменить ось категорий**
+С помощью свойства **CategoryAxisType** вы можете указать желаемый тип оси категорий (**date** или **text**). Этот код на Java демонстрирует операцию: 
 ```java
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-    chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-    chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-    chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-    presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+	chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+	chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+	chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+	chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+	presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+	if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Установка формата даты для значения оси категорий**
-Aspose.Slides для Android на Java позволяет вам установить формат даты для значения оси категорий. Операция демонстрируется в этом коде на Java:
 
+## **Задать формат даты для значений оси категорий**
+Aspose.Slides для Android через Java позволяет задать формат даты для значения оси категорий. Операция продемонстрирована в этом коде на Java:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -137,12 +151,13 @@ try {
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-    
+	
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
@@ -155,9 +170,9 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 }
 ```
 
-## **Установка угла поворота для заголовка оси графика**
-Aspose.Slides для Android на Java позволяет установить угол поворота для заголовка оси графика. Этот код на Java демонстрирует операцию:
 
+## **Задать угол поворота заголовка оси диаграммы**
+Aspose.Slides для Android через Java позволяет задать угол поворота заголовка оси диаграммы. Этот код на Java демонстрирует операцию:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -170,12 +185,11 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-## **Установка оси позиции в категории или значении оси**
-Aspose.Slides для Android на Java позволяет установить ось позиции в категории или оси значений. Этот код на Java показывает, как выполнить задачу:
 
+## **Задать позицию оси на оси категорий или значений**
+Aspose.Slides для Android через Java позволяет задать позицию оси в оси категорий или значений. Этот код на Java показывает, как выполнить задачу:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -189,9 +203,9 @@ try {
 }
 ```
 
-## **Включение метки единицы отображения на оси значений графика**
-Aspose.Slides для Android на Java позволяет настроить график для отображения метки единицы на его оси значений графика. Этот код на Java демонстрирует операцию:
 
+## **Включить отображение единицы измерения на оси значений диаграммы**
+Aspose.Slides для Android через Java позволяет настроить диаграмму для отображения метки единицы измерения на её оси значений. Этот код на Java демонстрирует операцию:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -204,3 +218,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Как задать значение, при котором одна ось пересекает другую (пересечение осей)?**
+
+Оси предоставляют [настройку пересечения](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-): вы можете выбрать пересечение на нуле, на максимальной категории/значении или на конкретном числовом значении. Это полезно для смещения оси X вверх или вниз или для выделения базовой линии.
+
+**Как можно расположить подписи делений относительно оси (рядом, снаружи, внутри)?**
+
+Установите [позицию подписи](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) в значение "cross", "outside" или "inside". Это влияет на читаемость и помогает экономить пространство, особенно в небольших диаграммах.

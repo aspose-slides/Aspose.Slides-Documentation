@@ -1,29 +1,38 @@
 ---
-title: Управление метками и пользовательскими данными
+title: Управление тегами и пользовательскими данными в презентациях на Android
+linktitle: Теги и пользовательские данные
 type: docs
 weight: 300
 url: /ru/androidjava/managing-tags-and-custom-data
-
+keywords:
+- свойства документа
+- тег
+- пользовательские данные
+- добавить тег
+- парные значения
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Добавляйте, читайте, обновляйте и удаляйте теги и пользовательские данные в Aspose.Slides для Android, с примерами на Java для презентаций PowerPoint и OpenDocument."
 ---
 
-## Хранение данных в файловых презентациях
+## **Хранение данных в файлах презентаций**
 
-Файлы PPTX — это элементы с расширением .pptx, которые хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях. 
+Файлы PPTX — элементы с расширением .pptx — хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях. 
 
-Слайд является одним из элементов в презентациях, а часть слайда содержит содержание одного слайда. Части слайда могут иметь явные связи с несколькими частями — такими как пользовательские метки — определенными ISO/IEC 29500. 
+Поскольку *слайд* является одним из элементов презентаций, *часть слайда* (slide part) содержит содержимое отдельного слайда. Части слайда могут иметь явные связи со многими другими частями — например, с пользовательскими тегами (User Defined Tags) — определёнными в ISO/IEC 29500. 
 
-Пользовательские данные (специфичные для презентации) или пользователя могут существовать в виде меток ([ITagCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITagCollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICustomXmlPartCollection)).
+Пользовательские данные (специфичные для презентации) или пользователь могут существовать в виде тегов ([ITagCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITagCollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
-
-Метки по сути представляют собой пары значений с ключами строк. 
-
+Теги по сути являются парами «строка‑ключ».
 {{% /alert %}} 
 
-## Получение значений меток
+## **Получение значений тегов**
 
-В слайдах метка соответствует методам [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) и [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). Этот пример кода показывает, как получить значение метки с помощью Aspose.Slides для Android через Java для [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation):
-
+В слайдах тег соответствует методам [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) и [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . Этот пример кода показывает, как получить значение тега с помощью Aspose.Slides для Android через Java для [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation):
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try{
@@ -33,17 +42,17 @@ try{
 }
 ```
 
-## Добавление меток в презентации
 
-Aspose.Slides позволяет добавлять метки в презентации. Метка обычно состоит из двух предметов: 
+## **Добавление тегов к презентациям**
 
-- имя пользовательского свойства - `MyTag` 
-- значение пользовательского свойства - `My Tag Value`
+Aspose.Slides позволяет добавлять теги к презентациям. Тег обычно состоит из двух элементов:
 
-Если вам нужно классифицировать некоторые презентации на основе конкретного правила или свойства, то вы можете получить выгоду от добавления меток к таким презентациям. Например, если вы хотите категоризировать или объединить все презентации из североамериканских стран, вы можете создать метку "Северная Америка" и затем назначить соответствующие страны (США, Мексика и Канада) в качестве значений. 
+- имя пользовательского свойства — `MyTag` 
+- значение пользовательского свойства — `My Tag Value`
 
-Этот пример кода показывает, как добавить метку к [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с использованием Aspose.Slides для Android через Java:
+Если вам необходимо классифицировать некоторые презентации по определённому правилу или свойству, добавление тегов к этим презентациям может быть полезным. Например, если вы хотите сгруппировать все презентации из стран Северной Америки, вы можете создать тег «North American» и назначить соответствующие страны (США, Мексика и Канада) в качестве значений. 
 
+Этот пример кода показывает, как добавить тег к [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с помощью Aspose.Slides для Android через Java:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -54,8 +63,8 @@ try {
 }
 ```
 
-Метки также могут быть установлены для [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide):
 
+Теги также можно установить для [Slide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide):
 ```java
 Presentation pres = new Presentation();
 try {
@@ -66,8 +75,8 @@ try {
 }
 ```
 
-Или для любого отдельного [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape):
 
+Или для любого отдельного [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape):
 ```java
 Presentation pres = new Presentation();
 try {
@@ -79,3 +88,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Могу ли я удалить все теги из презентации, слайда или фигуры за одну операцию?**
+
+Да. [Коллекция тегов](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/) поддерживает операцию [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#clear--) , которая удаляет все пары ключ‑значение сразу.
+
+**Как удалить один тег по его имени без перебора всей коллекции?**
+
+Выполните операцию [remove(name)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#remove-java.lang.String-) на [коллекции тегов](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/) , чтобы удалить тег по его ключу.
+
+**Как получить полный список имён тегов для аналитики или фильтрации?**
+
+Вызовите [getNamesOfTags](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/#getNamesOfTags--) у [коллекции тегов](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tagcollection/) ; она возвращает массив всех имён тегов.

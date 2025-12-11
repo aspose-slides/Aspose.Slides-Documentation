@@ -1,12 +1,23 @@
 ---
-title: コールアウト
+title: Androidでプレゼンテーションチャートのコールアウトを管理
+linktitle: コールアウト
 type: docs
 url: /ja/androidjava/callout/
+keywords:
+- チャート コールアウト
+- コールアウト の使用
+- データ ラベル
+- ラベル フォーマット
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android でコールアウトを作成およびスタイル設定し、簡潔な Java コード例で PPT および PPTX に対応し、プレゼンテーションのワークフローを自動化します。"
 ---
 
 ## **コールアウトの使用**
-新しいメソッド [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) と [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) が [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) クラスと [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) インターフェースに追加されました。これらのメソッドは、指定されたチャートのデータラベルがデータコールアウトとして表示されるか、データラベルとして表示されるかを決定します。
-
+新しいメソッド [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) と [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) が [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) クラスと [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat) インターフェイスに追加されました。これらのメソッドは、指定されたチャートのデータ ラベルをデータ コールアウトとして表示するか、データ ラベルとして表示するかを決定します。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **ドーナツチャートのコールアウト設定**
-Aspose.Slides for Android via Java は、ドーナツチャートのシリーズデータラベルコールアウト形状を設定するためのサポートを提供します。以下にサンプル例を示します。
 
+## **ドーナツ チャートのコールアウトを設定**
+Aspose.Slides for Android via Java は、ドーナツ チャートの系列データ ラベル コールアウト形状の設定をサポートします。以下にサンプル例を示します。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **よくある質問**
+
+**プレゼンテーションを PDF、HTML5、SVG、または画像に変換するときにコールアウトは保持されますか？**
+
+はい。コールアウトはチャートの描画の一部であるため、[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/) 、[HTML5](/slides/ja/androidjava/export-to-html5/) 、[SVG](/slides/ja/androidjava/render-a-slide-as-an-svg-image/) 、または [raster images](/slides/ja/androidjava/convert-powerpoint-to-png/) にエクスポートするときにも、スライドの書式設定と共に保持されます。
+
+**カスタム フォントはコールアウトで使用でき、エクスポート時に外観が保持されますか？**
+
+はい。Aspose.Slides はプレゼンテーションへの[埋め込みフォント](/slides/ja/androidjava/embedded-font/)をサポートし、[PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御します。これにより、異なるシステム間でもコールアウトの見た目が同じまま保持されます。
