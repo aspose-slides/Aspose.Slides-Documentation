@@ -32,7 +32,7 @@ jobs:
           echo "Target Folder: $TARGET_FOLDER"
           echo "========================================"
 
-          curl -X POST "https://api.aspose.ai/slides/internal-services/translate-documentation" \
+          curl -X POST "https://api.aspose.ai/slides-internal/translate-documentation" \
             -H "Content-Type: application/json" \
             -d "{
               \"baseSha\": \"$BASE_SHA\",
