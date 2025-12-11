@@ -38,7 +38,7 @@ This article explains how to convert PowerPoint Presentation in HTML format usin
 - Convert ODP to HTML in Java
 - Convert PowerPoint Slide to HTML in Java
 
-## **Java PowerPoint to HTML**
+## **PowerPoint to HTML on Android**
 
 For Java sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
 
@@ -197,7 +197,7 @@ try {
 }
 ```
 
-## **Convert Slide to HTML**
+## **Convert a Slide to HTML**
 To convert a specific slide in a PowerPoint to HTML, you have to instantiate the same [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class (used to convert entire presentations to HTML) and then use the [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method to save the file as HTML. The [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) class can be used to specify additional conversion options:
 
 This Java code shows you how to convert a slide in a PowerPoint presentation to HTML:
@@ -303,7 +303,7 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 }
 ```
 
-## **Link All Fonts When Converting Presentation to HTML**
+## **Link All Fonts When Converting a Presentation to HTML**
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 
@@ -422,3 +422,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**What is the performance of Aspose.Slides when converting multiple presentations to HTML?**
+
+Performance depends on the size and complexity of presentations. Aspose.Slides is highly efficient and scalable for batch operations. To achieve optimal performance when converting many presentations, it’s recommended to use multithreading or parallel processing whenever possible.
+
+**Does Aspose.Slides support exporting hyperlinks to HTML?**
+
+Yes, Aspose.Slides fully supports exporting embedded hyperlinks to HTML. When you convert presentations to HTML format, hyperlinks are preserved automatically and remain clickable.
+
+**Is there any limit on the number of slides when converting presentations to HTML?**
+
+There is no limit on the number of slides when using Aspose.Slides. You can convert presentations of any size. However, for presentations containing a very large number of slides, performance may depend on the available resources of your server or system.

@@ -49,7 +49,7 @@ try {
 }
 ```
 
-## **Set Font Size of Legend**
+## **Set the Font Size of a Legend**
 The Aspose.Slides for Android via Java lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -78,7 +78,7 @@ try {
 }
 ```
 
-## **Set Font Size of Individual Legend**
+## **Set the Font Size of an Individual Legend**
 The Aspose.Slides for Android via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -109,3 +109,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+
+Yes. Use the non-overlay mode ([setOverlay(false)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); in this case, the plot area will shrink to accommodate the legend.
+
+**Can I make multi-line legend labels?**
+
+Yes. Long labels wrap automatically when space is insufficient; forced line breaks are supported via newline characters in the series name.
+
+**How do I make the legend follow the presentation theme’s color scheme?**
+
+Do not set explicit colors/fills/fonts for the legend or its text. They will then inherit from the theme and update correctly when the design changes.

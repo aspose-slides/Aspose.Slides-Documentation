@@ -26,7 +26,7 @@ This article explains how to convert PowerPoint Presentation in PPTX format into
 
 - Convert PPTX to PPT in Java
 
-## **Java Convert PPTX to PPT**
+## **Convert PPTX to PPT on Android**
 
 For Java sample code to convert PPTX to PPT, please see the section below i.e. [Convert PPTX to PPT](#convert-pptx-to-ppt). It just loads the PPTX file and saves in PPT format. By specifiying different save formats, you can also save PPTX file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles. 
 
@@ -46,3 +46,17 @@ Presentation presentation = new Presentation("template.pptx");
 // save the presentation as PPT
 presentation.save("output.ppt", SaveFormat.Ppt);  
 ```
+
+## **FAQ**
+
+**Do all PPTX effects and features survive when saving to the legacy PPT (97–2003) format?**
+
+Not always. The PPT format lacks some newer capabilities (e.g., certain effects, objects, and behaviors), so features may be simplified or rasterized during conversion.
+
+**Can I convert only selected slides to PPT instead of the entire presentation?**
+
+Direct saving targets the whole presentation. To convert specific slides, create a new presentation with just those slides and save it as PPT; alternatively, use a service/API that supports per-slide conversion parameters.
+
+**Are password-protected presentations supported?**
+
+Yes. You can detect whether a file is protected, open it with a password, and also [configure protection/encryption settings](/slides/androidjava/password-protected-presentation/) for the saved PPT.

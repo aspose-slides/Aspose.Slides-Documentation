@@ -19,7 +19,7 @@ keywords:
 description: "Effortlessly manage placeholders in Aspose.Slides for Android via Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
-## **Change Text in Placeholder**
+## **Change Text in a Placeholder**
 Using [Aspose.Slides for Android via Java](/slides/androidjava/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
 **Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
@@ -58,7 +58,7 @@ try {
 }
 ```
 
-## **Set Prompt Text in Placeholder**
+## **Set Prompt Text in a Placeholder**
 Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
 This Java code shows you how to set the prompt text in a placeholder:
@@ -120,3 +120,16 @@ for (int i = 0; i < operationCollection.size(); i++)
 presentation.save("example_out.pptx", SaveFormat.Pptx);
 ```
 
+## **FAQ**
+
+**What is a base placeholder, and how is it different from a local shape on a slide?**
+
+A base placeholder is the original shape on a layout or master that the slide’s shape inherits from—type, position, and some formatting come from it. A local shape is independent; if there’s no base placeholder, inheritance doesn’t apply.
+
+**How can I update all titles or captions across a presentation without iterating over every slide?**
+
+Edit the corresponding placeholder on the layout or the master. Slides based on those layouts/that master will automatically inherit the change.
+
+**How do I control the standard header/footer placeholders—date & time, slide number, and footer text?**
+
+Use the HeaderFooter managers at the appropriate scope (normal slides, layouts, master, notes/handouts) to turn those placeholders on or off and to set their content.

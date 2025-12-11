@@ -100,3 +100,25 @@ To get more information about a presentation and its security attributes, you ma
 - [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
 - [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
 - [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **FAQ**
+
+**How can I check whether fonts are embedded and which ones they are?**
+
+Look for [embedded-font information](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) at the presentation level, then compare those entries with the set of [fonts actually used across content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getFonts--) to identify which fonts are critical for rendering.
+
+**How can I quickly tell if the file has hidden slides and how many?**
+
+Iterate through the [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) and inspect each slide's [visibility flag](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#getHidden--).
+
+**Can I detect whether custom slide size and orientation are used, and whether they differ from the defaults?**
+
+Yes. Compare the current [slide size](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideSize--) and orientation with the standard presets; this helps anticipate behavior for printing and export.
+
+**Is there a quick way to see if charts reference external data sources?**
+
+Yes. Traverse all [charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), check their [data source](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--), and note whether the data is internal or link-based, including any broken links.
+
+**How can I assess 'heavy' slides that may slow rendering or PDF export?**
+
+For each slide, tally object counts and look for large images, transparency, shadows, animations, and multimedia; assign a rough complexity score to flag potential performance hotspots.
