@@ -1,31 +1,54 @@
 ---
-title: PowerPointをJavaでMarkdownに変換する
+title: AndroidでPowerPointプレゼンテーションをMarkdownに変換
+linktitle: PowerPointからMarkdownへ
 type: docs
 weight: 140
 url: /ja/androidjava/convert-powerpoint-to-markdown/
-keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, Java, Aspose.Slides for Android via Java"
-description: "JavaでPowerPointをMarkdownに変換する"
+keywords:
+- PowerPointを変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPTを変換
+- PPTXを変換
+- PowerPointからMDへ
+- プレゼンテーションからMDへ
+- スライドからMDへ
+- PPTからMDへ
+- PPTXからMDへ
+- PowerPointをMarkdownとして保存
+- プレゼンテーションをMarkdownとして保存
+- スライドをMarkdownとして保存
+- PPTをMDとして保存
+- PPTXをMDとして保存
+- PPTをMDにエクスポート
+- PPTXをMDにエクスポート
+- PowerPoint
+- プレゼンテーション
+- Markdown
+- Android
+- Java
+- Aspose.Slides
+description: "Javaを使用してAndroid向けAspose.SlidesでPowerPointスライド（PPT、PPTX）をクリーンなMarkdownに変換し、ドキュメントを自動化し、書式を保持します。"
 ---
 
-{{% alert color="info" %}} 
+{{% alert color="info" %}}
 
-PowerPointからMarkdownへの変換サポートは、[Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/)で実装されました。
+PowerPointからmarkdownへの変換サポートは[Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/)で実装されました。
 
-{{% /alert %}} 
+{{% /alert %}}
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" %}}
 
-PowerPointからMarkdownへのエクスポートは、デフォルトで**画像なし**です。画像を含むPowerPoint文書をエクスポートしたい場合は、`markdownSaveOptions.setExportType(MarkdownExportType.Visual)`を設定し、Markdown文書に参照される画像が保存される`BasePath`を設定する必要があります。
+PowerPointからmarkdownへのエクスポートはデフォルトで**画像なし**です。画像を含むPowerPointドキュメントをエクスポートしたい場合は、`markdownSaveOptions.setExportType(MarkdownExportType.Visual)` を設定し、markdownドキュメントで参照される画像の保存先となる`BasePath`も設定する必要があります。
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **PowerPointをMarkdownに変換する**
+## **PowerPoint を Markdown に変換**
 
-1. プレゼンテーションオブジェクトを表すために[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. オブジェクトをMarkdownファイルとして保存するために[Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)メソッドを使用します。
+1. プレゼンテーションオブジェクトを表すために、[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. オブジェクトを markdown ファイルとして保存するために、[Save ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)メソッドを使用します。
 
-このJavaコードは、PowerPointをMarkdownに変換する方法を示しています：
-
+この Java コードは PowerPoint を markdown に変換する方法を示しています：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -35,12 +58,12 @@ try {
 }
 ```
 
-## PowerPointをMarkdownフレーバーに変換する
 
-Aspose.Slidesは、PowerPointをMarkdown（基本構文を含む）、CommonMark、GitHubフレーバーのMarkdown、Trello、XWiki、GitLab、その他17のMarkdownフレーバーに変換することができます。
+## **PowerPoint を Markdown フレーバーに変換**
 
-このJavaコードは、PowerPointをCommonMarkに変換する方法を示しています：
+Aspose.Slides を使用すると、PowerPoint を markdown（基本構文を含む）、CommonMark、GitHub フレーバーの markdown、Trello、XWiki、GitLab、その他 17 種類の markdown フレーバーに変換できます。
 
+この Java コードは PowerPoint を CommonMark に変換する方法を示しています：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -52,16 +75,16 @@ try {
 }
 ```
 
-サポートされている23のMarkdownフレーバーは、[MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/)クラスの[Flavor列挙型](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/)で一覧表示されています。
 
-## **画像を含むプレゼンテーションをMarkdownに変換する**
+サポートされている 23 の markdown フレーバーは、[listed under the Flavor enumeration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/) と、[MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) クラスから確認できます。
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/)クラスは、生成されるMarkdownファイルに対して特定のオプションや設定を使用することを可能にするプロパティと列挙型を提供します。[MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/)列挙型は、画像がどのようにレンダリングまたは処理されるかを決定する値を設定できます：`Sequential`、`TextOnly`、`Visual`。
+## **画像を含むプレゼンテーションを Markdown に変換**
 
-### **画像を順次変換する**
+[MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) クラスは、生成された markdown ファイルに対して特定のオプションや設定を使用できるプロパティと列挙体を提供します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/) 列挙体は、画像のレンダリングや扱い方を決定する `Sequential`、`TextOnly`、`Visual` のいずれかの値に設定できます。
 
-画像が結果のMarkdownに個別に順に表示されるようにする場合は、順次オプションを選択する必要があります。このJavaコードは、画像を含むプレゼンテーションをMarkdownに変換する方法を示しています：
+### **画像を順次変換**
 
+結果の markdown で画像が個別に順番に表示されるようにしたい場合は、sequential オプションを選択する必要があります。この Java コードは、画像を含むプレゼンテーションを markdown に変換する方法を示しています：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -77,12 +100,12 @@ try {
 }
 ```
 
-### **画像をビジュアルに変換する**
 
-画像を結果のMarkdownにまとめて表示させたい場合は、ビジュアルオプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（Markdown文書内で画像の相対パスが構築されます）、または好みのパスとフォルダー名を指定することができます。
+### **画像を視覚的に変換**
 
-このJavaコードは操作を示しています：
+結果の markdownで画像がまとめて表示されるようにしたい場合は、visual オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（markdown ドキュメント内で相対パスが作成されます）、あるいは任意のパスとフォルダー名を指定することもできます。
 
+この Java コードは操作を示しています：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -96,3 +119,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **よくある質問**
+
+**ハイパーリンクは Markdown へのエクスポート後も残りますか？**
+
+はい。テキストの[hyperlinks](/slides/ja/androidjava/manage-hyperlinks/)は標準的な Markdown リンクとして保持されます。スライドの[transitions](/slides/ja/androidjava/slide-transition/)と[animations](/slides/ja/androidjava/powerpoint-animation/)は変換されません。
+
+**複数スレッドで実行して変換を高速化できますか？**
+
+ファイルごとに並列化は可能ですが、同じ[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)インスタンスをスレッド間で[don’t share](/slides/ja/androidjava/multithreading/)ようにしてください。ファイルごとに別々のインスタンスまたはプロセスを使用して競合を回避します。
+
+**画像はどうなりますか—保存場所はどこで、パスは相対ですか？**
+
+[Images](/slides/ja/androidjava/image/)は専用のフォルダーにエクスポートされます。ベース出力パスとアセットフォルダー名を構成することで、予測可能なリポジトリ構造を維持できます。

@@ -1,31 +1,50 @@
 ---
-title: Конвертация PowerPoint в Markdown на Java
+title: Конвертировать презентации PowerPoint в Markdown на Android
+linktitle: PowerPoint в Markdown
 type: docs
 weight: 140
 url: /ru/androidjava/convert-powerpoint-to-markdown/
-keywords: "Конвертация PowerPoint в Markdown, Конвертация ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, Java, Aspose.Slides для Android через Java"
-description: "Конвертация PowerPoint в Markdown на Java"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в MD
+- презентация в MD
+- слайд в MD
+- PPT в MD
+- PPTX в MD
+- сохранить PowerPoint как Markdown
+- сохранить презентацию как Markdown
+- сохранить слайд как Markdown
+- сохранить PPT как MD
+- сохранить PPTX как MD
+- экспортировать PPT в MD
+- экспортировать PPTX в MD
+- PowerPoint
+- презентация
+- Markdown
+- Android
+- Java
+- Aspose.Slides
+description: "Конвертировать слайды PowerPoint - PPT, PPTX - в чистый Markdown с помощью Aspose.Slides для Android на Java, автоматизировать документацию и сохранять форматирование."
 ---
 
 {{% alert color="info" %}} 
-
 Поддержка конвертации PowerPoint в markdown была реализована в [Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/).
-
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
-
-Экспорт PowerPoint в markdown **без изображений** по умолчанию. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам необходимо установить `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также установить `BasePath`, куда будут сохранены изображения, на которые ссылается markdown-документ.
-
+Экспорт PowerPoint в markdown по умолчанию **без изображений**. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, необходимо установить `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также задать `BasePath`, куда будут сохраняться изображения, на которые ссылается markdown‑документ.
 {{% /alert %}} 
 
-## **Конвертация PowerPoint в Markdown**
+## **Конвертировать PowerPoint в Markdown**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) для представления объекта презентации.
-2. Используйте метод [Save ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-), чтобы сохранить объект в качестве markdown-файла.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) для представления объекта презентации.  
+2. Используйте метод [Save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-) для сохранения объекта в файл markdown.  
 
-Этот код на Java показывает, как конвертировать PowerPoint в markdown:
-
+Этот Java‑код показывает, как конвертировать PowerPoint в markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -35,12 +54,12 @@ try {
 }
 ```
 
-## Конвертация PowerPoint в Markdown Flavor
 
-Aspose.Slides позволяет конвертировать PowerPoint в markdown (содержащий базовый синтаксис), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab и 17 других вариантов markdown.
+## **Конвертировать PowerPoint в формат Markdown**
 
-Этот код на Java показывает, как конвертировать PowerPoint в CommonMark:
+Aspose.Slides позволяет конвертировать PowerPoint в markdown (с базовым синтаксисом), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab и 17 других вариантов markdown.  
 
+Этот Java‑код показывает, как конвертировать PowerPoint в CommonMark:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -52,16 +71,16 @@ try {
 }
 ```
 
-23 поддерживаемых варианта markdown [перечислены в перечислении Flavor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/).
 
-## **Конвертация презентации, содержащей изображения, в Markdown**
+23 поддерживаемых формата markdown перечислены в [списке перечисления Flavor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/).  
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, которые позволяют использовать определенные параметры или настройки для полученного markdown-файла. Например, перечисление [MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/) можно установить на значения, определяющие, как изображения отображаются или обрабатываются: `Sequential`, `TextOnly`, `Visual`.
+## **Конвертировать презентацию с изображениями в Markdown**
 
-### **Последовательная конвертация изображений**
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие использовать определённые параметры или настройки для получаемого markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/) может, например, принимать значения, определяющие, как изображения будут отображаться или обрабатываться: `Sequential`, `TextOnly`, `Visual`.  
 
-Если вы хотите, чтобы изображения отображались по одному в полученном markdown, вам необходимо выбрать последовательный вариант. Этот код на Java показывает, как конвертировать презентацию, содержащую изображения, в markdown:
+### **Конвертировать изображения последовательно**
 
+Если вы хотите, чтобы изображения отображались последовательно одно за другим в получаемом markdown, необходимо выбрать опцию sequential. Этот Java‑код показывает, как конвертировать презентацию с изображениями в markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -77,12 +96,12 @@ try {
 }
 ```
 
-### **Визуальная конвертация изображений**
 
-Если вы хотите, чтобы изображения отображались вместе в полученном markdown, вам необходимо выбрать визуальный вариант. В этом случае изображения будут сохранены в текущем каталоге приложения (и для них будет построен относительный путь в markdown-документе), или вы можете указать свой предпочтительный путь и имя папки.
+### **Конвертировать изображения визуально**
 
-Этот код на Java демонстрирует операцию:
+Если вы хотите, чтобы изображения отображались вместе в получаемом markdown, необходимо выбрать опцию visual. В этом случае изображения будут сохранены в текущий каталог приложения (и в markdown‑документе будет построен относительный путь к ним), либо вы можете указать предпочтительный путь и имя папки.  
 
+Этот Java‑код демонстрирует операцию:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -96,3 +115,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли гиперссылки при экспорте в Markdown?**  
+
+Да. Текстовые [hyperlinks](/slides/ru/androidjava/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. Переходы слайдов [transitions](/slides/ru/androidjava/slide-transition/) и [animations](/slides/ru/androidjava/powerpoint-animation/) не конвертируются.  
+
+**Могу ли я ускорить конвертацию, запустив её в нескольких потоках?**  
+
+Вы можете параллелить обработку файлов, но [don’t share](/slides/ru/androidjava/multithreading/) один и тот же [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) экземпляр между потоками. Используйте отдельные экземпляры/процессы для каждого файла, чтобы избежать конфликтов.  
+
+**Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**  
+
+[Images](/slides/ru/androidjava/image/) экспортируются в отдельную папку, а файл Markdown ссылается на них относительными путями по умолчанию. Вы можете настроить базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.

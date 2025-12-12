@@ -1,31 +1,48 @@
 ---
-title: PowerPoint in PNG konvertieren
+title: PowerPoint-Folien in PNG auf Android konvertieren
+linktitle: PowerPoint zu PNG
 type: docs
 weight: 30
 url: /de/androidjava/convert-powerpoint-to-png/
-keywords: PowerPoint in PNG, PPT in PNG, PPTX in PNG, java, Aspose.Slides für Android über Java
-description: PowerPoint-Präsentation in PNG konvertieren
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu PNG
+- Präsentation zu PNG
+- Folie zu PNG
+- PPT zu PNG
+- PPTX zu PNG
+- PPT als PNG speichern
+- PPTX als PNG speichern
+- PPT nach PNG exportieren
+- PPTX nach PNG exportieren
+- Android
+- Java
+- Aspose.Slides
+description: "PowerPoint-Präsentationen schnell in hochwertige PNG-Bilder konvertieren mit Aspose.Slides für Android via Java, wobei präzise, automatisierte Ergebnisse gewährleistet werden."
 ---
 
-## **Über die Konvertierung von PowerPoint in PNG**
+## **Über die PowerPoint-zu-PNG-Konvertierung**
 
-Das PNG (Portable Network Graphics) Format ist nicht so beliebt wie JPEG (Joint Photographic Experts Group), aber immer noch sehr beliebt.
+Das PNG (Portable Network Graphics)-Format ist nicht so populär wie JPEG (Joint Photographic Experts Group), aber es ist immer noch sehr verbreitet. 
 
-**Anwendungsfall:** Wenn Sie ein komplexes Bild haben und die Größe keine Rolle spielt, ist PNG ein besseres Bildformat als JPEG. 
+**Use case:** Wenn Sie ein komplexes Bild haben und die Größe kein Problem darstellt, ist PNG ein besseres Bildformat als JPEG. 
 
-{{% alert title="Tipp" color="primary" %}} Sie sollten einen Blick auf die kostenlosen **PowerPoint zu PNG Konverter** von Aspose werfen: [PPTX in PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT in PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Diese sind eine Live-Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Möglicherweise möchten Sie sich die kostenlosen Aspose **PowerPoint‑zu‑PNG‑Konverter** ansehen: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) und [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Sie sind eine Live‑Implementierung des auf dieser Seite beschriebenen Prozesses. {{% /alert %}}
 
 ## **PowerPoint in PNG konvertieren**
 
-Gehen Sie diese Schritte durch:
+Gehen Sie die folgenden Schritte durch:
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-2. Holen Sie das Folienobjekt aus der [Presentation.getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Sammlung unter dem [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) Interface.
-3. Verwenden Sie die [ISlide.getImage()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) Methode, um das Thumbnail für jede Folie zu erhalten.
-4. Verwenden Sie die [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)) Methode, um das Folien-Thumbnail im PNG-Format zu speichern.
+1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. Rufen Sie das Folienobjekt aus der Sammlung [Presentation.getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) unter der Schnittstelle [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) ab.
+3. Verwenden Sie die Methode [ISlide.getImage()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide), um das Vorschaubild für jede Folie zu erhalten.
+4. Verwenden Sie die Methode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)), um das Folien‑Vorschaubild im PNG-Format zu speichern.
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine PowerPoint-Präsentation in PNG konvertieren:
-
+Dieser Java‑Code zeigt, wie Sie eine PowerPoint‑Präsentation in PNG konvertieren:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -44,12 +61,12 @@ try {
 }
 ```
 
+
 ## **PowerPoint in PNG mit benutzerdefinierten Abmessungen konvertieren**
 
-Wenn Sie PNG-Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen des resultierenden Thumbnails bestimmen.
+Wenn Sie PNG‑Dateien in einem bestimmten Maßstab erhalten möchten, können Sie die Werte für `desiredX` und `desiredY` festlegen, die die Abmessungen des resultierenden Vorschaubilds bestimmen. 
 
-Dieser Code in Java demonstriert den beschriebenen Vorgang:
-
+Dieser Java‑Code demonstriert die beschriebene Vorgehensweise:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -70,12 +87,12 @@ try {
 }
 ```
 
+
 ## **PowerPoint in PNG mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie PNG-Dateien mit einer bestimmten Größe erhalten möchten, können Sie Ihre bevorzugten `width` und `height` Argumente für `ImageSize` übergeben.
+Wenn Sie PNG‑Dateien in einer gewünschten Größe erhalten möchten, können Sie die gewünschten Argumente `width` und `height` für `ImageSize` übergeben. 
 
-Dieser Code zeigt Ihnen, wie Sie eine PowerPoint in PNG konvertieren, während Sie die Größe für die Bilder angeben:
-
+Dieser Code zeigt, wie Sie ein PowerPoint‑Dokument in PNG konvertieren und dabei die Bildgröße festlegen: 
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -94,3 +111,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie kann ich nur eine bestimmte Form (z. B. Diagramm oder Bild) anstelle der gesamten Folie exportieren?**
+
+Aspose.Slides unterstützt das [Erzeugen von Vorschaubildern für einzelne Formen](/slides/de/androidjava/create-shape-thumbnails/); Sie können eine Form als PNG‑Bild rendern.
+
+**Wird die parallele Konvertierung auf einem Server unterstützt?**
+
+Ja, jedoch sollten Sie eine einzelne Präsentationsinstanz nicht über Threads hinweg [teilen](/slides/de/androidjava/multithreading/). Verwenden Sie pro Thread oder Prozess eine separate Instanz.
+
+**Welche Einschränkungen gelten in der Testversion beim Export nach PNG?**
+
+Der Evaluierungsmodus fügt den Ausgabebildern ein Wasserzeichen hinzu und erzwingt [weitere Einschränkungen](/slides/de/androidjava/licensing/), bis eine Lizenz angewendet wird.

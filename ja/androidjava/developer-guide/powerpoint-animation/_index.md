@@ -1,27 +1,51 @@
 ---
-title: PowerPoint アニメーション
+title: Android でアニメーションを使用して PowerPoint プレゼンテーションを強化
+linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/androidjava/powerpoint-animation/
-keywords: "PowerPoint アニメーション"
-description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライドアニメーション。"
+keywords:
+- アニメーションを追加
+- アニメーションを更新
+- アニメーションを変更
+- アニメーションを削除
+- アニメーションを管理
+- アニメーションを制御
+- アニメーション効果
+- PowerPoint アニメーション
+- アニメーションタイムライン
+- インタラクティブ アニメーション
+- カスタム アニメーション
+- 図形アニメーション
+- アニメーションチャート
+- アニメーション テキスト
+- アニメーション 図形
+- アニメーション OLE オブジェクト
+- アニメーション画像
+- アニメーションテーブル
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java が PowerPoint アニメーションを扱う機能を探ります。この一般的な概要では主な機能をハイライトしています。"
 ---
 
-プレゼンテーションは何かを提示するために作成されるため、その視覚的な外観とインタラクティブな動作は常に考慮されます。
+プレゼンテーションは何かを提示することを目的としているため、作成時には常にその視覚的外観とインタラクティブな動作が考慮されます。
 
-**PowerPoint アニメーション** は、プレゼンテーションを視聴者にとって魅力的で目を引くものにするために重要な役割を果たします。Aspose.Slides for Android via Java は、PowerPoint プレゼンテーションにアニメーションを追加するためのさまざまなオプションを提供します：
+**PowerPoint アニメーション** は、プレゼンテーションを目を引く魅力的なものにするために重要な役割を果たします。Aspose.Slides for Android via Java は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します。
 
-- 図形、チャート、表、OLE オブジェクトおよびその他のプレゼンテーション要素に様々なタイプの PowerPoint アニメーション効果を適用します。
-- 1つの図形に複数の PowerPoint アニメーション効果を使用します。
-- アニメーションの効果を制御するためにアニメーションタイムラインを使用します。
-- カスタムアニメーションを作成します。
+- さまざまな種類の PowerPoint アニメーション効果を図形、チャート、テーブル、OLE オブジェクトおよびその他のプレゼンテーション要素に適用します。
+- 1 つの図形に複数の PowerPoint アニメーション効果を使用します。
+- アニメーションタイムラインを使用してアニメーション効果を制御します。
+- カスタム アニメーションを作成します。
 
-Aspose.Slides for Android via Java では、図形にさまざまなアニメーション効果を適用できます。スライド上のすべての要素（テキスト、画像、OLE オブジェクト、表など）が図形と見なされるため、スライドのすべての要素にアニメーション効果を適用できます。
+Aspose.Slides for Android via Java では、図形にさまざまなアニメーション効果を適用できます。スライド上のテキスト、画像、OLE オブジェクト、テーブルなど、すべての要素は図形として扱われるため、スライド内のあらゆる要素にアニメーション効果を適用できることを意味します。
 
 ## **アニメーション効果**
-Aspose.Slides は、**150以上のアニメーション効果**をサポートしており、バウンス、パスフットボール、ズーム効果のような基本的なアニメーション効果や、OLEObjectShow、OLEObjectOpenのような特定のアニメーション効果を含みます。アニメーション効果の完全なリストは、[**EffectType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype) 列挙型で確認できます。
+Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce、PathFootball、Zoom 効果などの基本的なアニメーション効果や、OLEObjectShow、OLEObjectOpen といった特定のアニメーション効果が含まれます。完全なアニメーション効果の一覧は [**EffectType** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype/)enumeration にあります。
 
-さらに、これらのアニメーション効果は以下のものと組み合わせて使用できます：
+さらに、これらのアニメーション効果は次のものと組み合わせて使用できます。
 
 - [ColorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommandEffect)
@@ -32,38 +56,52 @@ Aspose.Slides は、**150以上のアニメーション効果**をサポート�
 - [ScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SetEffect)
 
-## **カスタムアニメーション**
-Aspose.Slides では、独自の **カスタムアニメーション** を作成することが可能です。これを実現するには、いくつかの動作を組み合わせて新しいカスタムアニメーションを作成します。
+## **カスタム アニメーション**
+Aspose.Slides では独自の **カスタム アニメーション** を作成できます。これは、複数のビヘイビアを組み合わせて新しいカスタム アニメーションを作成することで実現できます。
 
-[**Behavior**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Behavior) は、任意の PowerPoint アニメーション効果の構成要素です。すべてのアニメーション効果は、実際には1つの戦略に組み込まれた行動の集合です。行動をカスタムアニメーションに一度組み合わせて、他のプレゼンテーションで再使用することができます。標準の PowerPoint アニメーション効果に新しい行動を追加すれば、それは別のカスタムアニメーションになります。たとえば、アニメーションに繰り返し動作を追加して数回繰り返すようにすることができます。
+[**Behavior**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Behavior) は任意の PowerPoint アニメーション効果の構成要素です。すべてのアニメーション効果は実質的にビヘイビアの集合で構成されており、1 回組み合わせたカスタム アニメーションは他のプレゼンテーションでも再利用できます。標準の PowerPoint アニメーション効果に新しいビヘイビアを追加すると、別のカスタム アニメーションとなります。たとえば、アニメーションにリピート ビヘイビアを追加して数回繰り返すように設定できます。
 
-[**Animation Point**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Point) は、行動が適用されるポイントです。
+[**Animation Point**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Point) はビヘイビアを適用すべきポイントを示します。
 
-## **アニメーションタイムライン**
+## **アニメーション タイムライン**
 [**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) は、特定の図形に適用されるアニメーション効果のコレクションです。
 
-[**Timeline**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AnimationTimeLine) は、特定のスライドで使用されるシーケンスのセットです。これは、PowerPoint 2002 以降に表現されたアニメーションエンジンです。以前の PowerPoint バージョンでは、アニメーション効果をプレゼンテーションに追加することが難しく、異なる回避策を用いる必要がありました。タイムラインは古い AnimationSettings クラスの代替として登場し、PowerPoint アニメーション用のより明確なオブジェクトモデルを提供します。1つのスライドには、1つのアニメーションタイムラインのみを持つことができます。
+[**Timeline**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AnimationTimeLine) は、具体的なスライドで使用される Sequence の集合です。PowerPoint 2002 以降で導入されたアニメーション エンジンで、従来の AnimationSettings クラスに代わり、PowerPoint アニメーションのオブジェクト モデルをより明確に提供します。1 つのスライドには **1 つの** アニメーション タイムラインしか設定できません。
 
-## **インタラクティブアニメーション**
-[**Trigger**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectTriggerType) は、特定のアニメーションを開始するユーザーアクション（例：ボタンクリック）を定義することを可能にします。トリガーは最新の PowerPoint バージョンにのみ追加されています。
+## **インタラクティブ アニメーション**
+[**Trigger**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectTriggerType) を使用すると、ユーザー操作（例: ボタンのクリック）を定義でき、特定のアニメーションを開始させることができます。トリガーは最新の PowerPoint バージョンでのみ追加されました。
 
 ## **図形アニメーション**
-Aspose.Slides は、実際にはテキスト、長方形、線、フレーム、OLE オブジェクトなどの図形にアニメーションを適用することを可能にします。
+Aspose.Slides は、テキスト、長方形、線、フレーム、OLE オブジェクトなど、実質的にすべての図形にアニメーションを適用できるようにします。
 
 {{% alert color="primary" %}} 
-詳細情報は [**図形アニメーションについて**](/slides/ja/androidjava/shape-animation/) をお読みください。
+詳しくは [**About Shape Animation**](/slides/ja/androidjava/shape-animation/) をご覧ください。
 {{% /alert %}}
 
-## **アニメーション付きチャート**
-アニメーション付きチャートを作成するには、図形と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリまたはチャート系列にのみ使用できます。カテゴリ要素または系列要素にアニメーション効果を適用することもできます。
+## **アニメーション チャート**
+アニメーション チャートを作成するには、図形と同じクラスを使用します。ただし、チャートのカテゴリまたはシリーズに対してのみ PowerPoint アニメーションを使用できます。カテゴリ要素やシリーズ要素にもアニメーション効果を適用できます。
 
 {{% alert color="primary" %}} 
-詳細情報は [**アニメーション付きチャートについて**](/slides/ja/androidjava/animated-charts/) をお読みください。
+詳しくは [**About Animated Charts**](/slides/ja/androidjava/animated-charts/) をご覧ください。
 {{% /alert %}}
 
-## **アニメーション付きテキスト**
-アニメーションテキストの他に、段落にもアニメーションを適用することが可能です。
+## **アニメーション テキスト**
+アニメーション テキストに加えて、段落に対してもアニメーションを適用できます。
 
 {{% alert color="primary" %}} 
-詳細情報は [**アニメーション付きテキストについて**](/slides/ja/androidjava/animated-text/) をお読みください。
+詳しくは [**About Animated Text**](/slides/ja/androidjava/animated-text/) をご覧ください。
 {{% /alert %}}
+
+## **FAQ**
+
+**アニメーションは PDF にエクスポートしても保持されますか？**
+
+いいえ。PDF は静的フォーマットのため、アニメーションや [スライド トランジション](/slides/ja/androidjava/slide-transition/) は再生されません。動きを必要とする場合は、[HTML5](/slides/ja/androidjava/export-to-html5/)、[アニメーション GIF](/slides/ja/androidjava/convert-powerpoint-to-animated-gif/)、または [ビデオ](/slides/ja/androidjava/convert-powerpoint-to-video/) にエクスポートしてください。
+
+**アニメーション プレゼンテーションをビデオに変換し、フレーム レートとフレーム サイズを制御できますか？**
+
+はい。プレゼンテーションをフレームとして [レンダリング](/slides/ja/androidjava/convert-powerpoint-to-video/) し、ffmpeg などでビデオにエンコードする際に FPS と解像度を選択できます。レンダリング中にアニメーションとスライド トランジションが再生されます。
+
+**ODP（PPTX だけでなく）でもアニメーションは維持されますか？**
+
+PPT、PPTX、ODP は [読み取り](/slides/ja/androidjava/open-presentation/) と [書き込み](/slides/ja/androidjava/save-presentation/) がサポートされていますが、形式の違いにより一部の効果が若干異なる表示や動作になることがあります。重要なケースは実際のサンプルで検証してください。

@@ -1,102 +1,127 @@
 ---
-title: فتح عرض تقديمي في جافا
+title: فتح العروض التقديمية على Android
 linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
 url: /ar/androidjava/open-presentation/
-keywords: "فتح PowerPoint، PPTX، PPT، فتح عرض تقديمي، تحميل عرض تقديمي، جافا"
-description: "فتح أو تحميل عرض تقديمي PPT، PPTX، ODP في جافا"
+keywords:
+- فتح PowerPoint
+- فتح OpenDocument
+- فتح عرض تقديمي
+- فتح PPTX
+- فتح PPT
+- فتح ODP
+- تحميل عرض تقديمي
+- تحميل PPTX
+- تحميل PPT
+- تحميل ODP
+- عرض تقديمي محمي
+- عرض تقديمي كبير
+- مورد خارجي
+- كائن ثنائي
+- Android
+- Java
+- Aspose.Slides
+description: "فتح عروض PowerPoint (.pptx, .ppt) وOpenDocument (.odp) بسهولة باستخدام Aspose.Slides لنظام Android عبر Java—سريع، موثوق، كامل الميزات."
 ---
 
-بالإضافة إلى إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك الحصول على معلومات حول العرض التقديمي، تحرير العرض التقديمي (المحتوى على الشرائح الخاصة به)، إضافة شرائح جديدة أو إزالة الشرائح الموجودة، إلخ.
+## **نظرة عامة**
 
-## فتح عرض تقديمي
+بعيدًا عن إنشاء عروض PowerPoint من الصفر، يتيح Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك استرداد معلومات عنه، تعديل محتوى الشريحة، إضافة شرائح جديدة، إزالة الشرائح القائمة، وأكثر من ذلك.
 
-لفتح عرض تقديمي موجود، يجب عليك ببساطة إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) وتمرير مسار الملف (للعرض الذي تريد فتحه) إلى مُنشئه.
+## **فتح العروض التقديمية**
 
-يوضح هذا الكود الجافا كيفية فتح عرض تقديمي وأيضًا معرفة عدد الشرائح التي يحتوي عليها:
+لفتح عرض تقديمي موجود، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ومرّر مسار الملف إلى المُنشئ.
 
+يوضح المثال التالي بلغة Java كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
 ```java
-// ينشئ كائن من فئة Presentation ويمرر مسار الملف إلى مُنشئه
-Presentation pres = new Presentation("Presentation.pptx");
+// إنشاء كائن من الفئة Presentation وتمرير مسار ملف إلى المُنشئ.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // يطبع العدد الإجمالي للشرائح الموجودة في العرض التقديمي
-    System.out.println(pres.getSlides().size());
+    // طباعة العدد الإجمالي للشرائح في العرض التقديمي.
+    System.out.println(presentation.getSlides().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **فتح عرض تقديمي محمي بكلمة مرور**
 
-عندما تحتاج إلى فتح عرض تقديمي محمي بكلمة مرور، يمكنك تمرير كلمة المرور عبر خاصية [Password](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getPassword--) (من فئة [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/)) لفك تشفير العرض التقديمي وتحميله. يُظهر هذا الكود الجافا العملية:
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
+عند الحاجة إلى فتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر طريقة [setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) في الفئة [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة Java هذه العملية:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("YOUR_PASSWORD");
-Presentation pres = new Presentation("pres.pptx", loadOptions);
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 try {
-    // العمل مع العرض التقديمي المفكوك تشفيره
+    // تنفيذ عمليات على العرض التقديمي المفك.
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## فتح عرض تقديمي كبير
 
-يوفر Aspose.Slides خيارات (خاصية [BlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) بشكل خاص) ضمن فئة [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions) للسماح لك بتحميل العروض التقديمية الكبيرة.
+## **فتح العروض التقديمية الكبيرة**
 
-يوضح هذا المثال الجافا عملية تحميل عرض تقديمي كبير (كما نقول 2 جيجابايت في الحجم):
+يوفر Aspose.Slides خيارات—وبشكل خاص طريقة [getBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) في الفئة [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/)—لمساعدتك في تحميل العروض التقديمية الكبيرة.
 
+يوضح الكود التالي بلغة Java كيفية تحميل عرض تقديمي كبير (مثلاً 2 جيجابايت):
 ```java
+final String filePath = "LargePresentation.pptx";
+
 LoadOptions loadOptions = new LoadOptions();
+// اختر سلوك KeepLocked—ملف العرض سيبقى مقفلًا طوال مدة
+// كائن Presentation، لكن لا يلزم تحميله إلى الذاكرة أو نسخه إلى ملف مؤقت.
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 ميغابايت
 
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
+Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، لكن استهلاك الذاكرة لا يزال منخفضًا.
+    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
+
     // إجراء تغييرات على العرض التقديمي.
-    pres.getSlides().get_Item(0).setName("عرض تقديمي كبير جداً");
+    presentation.getSlides().get_Item(0).setName("Large presentation");
 
-    // سيتم حفظ العرض التقديمي في ملف آخر. يبقى استهلاك الذاكرة منخفضًا خلال العملية
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // حفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا خلال هذه العملية.
+    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
+
+    // لا تفعل ذلك! سيُرمى استثناء I/O لأن الملف مقفل حتى يتم التخلص من كائن العرض.
+    //Files.delete(Paths.get(filePath));
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
+
+// يمكن فعل ذلك هنا. الملف المصدر لم يعد مقفلًا بواسطة كائن العرض.
+Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="معلومات" %}}
 
-لتجاوز بعض القيود عند التفاعل مع دفق، قد يقوم Aspose.Slides بنسخ محتوى الدفق. سيؤدي تحميل عرض تقديمي كبير من خلال دفقه إلى نسخ محتويات العرض التقديمي والتسبب في بطء التحميل. لذلك، عندما تنوي تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض التقديمي وليس دفقه.
+{{% alert color="info" title="Info" %}}
+لتجاوز بعض القيود عند العمل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
 
-عندما تريد إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور كبيرة، إلخ)، يمكنك استخدام [تسهيلات Blob](https://docs.aspose.com/slides/androidjava/manage-blob/) لتقليل استهلاك الذاكرة.
+عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/androidjava/manage-blob/) لتقليل استهلاك الذاكرة.
+{{%/alert %}}
 
-{{%/alert %}} 
+## **التحكم في الموارد الخارجية**
 
-## تحميل عرض تقديمي
-
-يوفر Aspose.Slides [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/) مع طريقة واحدة للسماح لك بإدارة الموارد الخارجية. يوضح هذا الكود الجافا كيفية استخدام واجهة `IResourceLoadingCallback`:
-
+يوفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/) التي تسمح لك بإدارة الموارد الخارجية. يوضح الكود التالي بلغة Java كيفية استخدام واجهة `IResourceLoadingCallback`:
 ```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation pres = new Presentation("presentation.pptx", opts);
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // يحمل صورة بديلة
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        if (args.getOriginalUri().endsWith(".jpg")) {
+            try {
+                // تحميل صورة بديلة.
+                byte[] imageData = getImageBytes("aspose-logo.jpg"); // استخدم أي طريقة للحصول على البايتات
+                args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {
                 return ResourceLoadingAction.Skip;
@@ -104,58 +129,51 @@ class ImageLoadingHandler implements IResourceLoadingCallback
                 ex.printStackTrace();
             }
         } else if (args.getOriginalUri().endsWith(".png")) {
-            // يحدد عنوان URL بديلاً
+            // تعيين عنوان URL بديل.
             args.setUri("http://www.google.com/images/logos/ps_logo2.png");
             return ResourceLoadingAction.Default;
         }
-        // يتخطى جميع الصور الأخرى
+        // تخطي جميع الصور الأخرى.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## تحميل عرض تقديمي بدون كائنات ثنائية مدمجة
 
-قد يحتوي عرض PowerPoint التقديمي على الأنواع التالية من الكائنات الثنائية المدمجة:
+## **تحميل العروض التقديمية دون كائنات ثنائية مضمّنة**
 
-- مشروع VBA ([IPresentation.VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/));
-- بيانات كائن OLE مدمجة ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- بيانات ثنائية لـ ActiveX Control ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المضمّنة:
 
-باستخدام خاصية [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-)، يمكنك تحميل العرض التقديمي بدون أي كائنات ثنائية مدمجة.
+- مشروع VBA (يمكن الوصول إليه عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getVbaProject--));
+- بيانات كائن OLE المضمّنة (يمكن الوصول إليها عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- بيانات ثنائية لعنصر تحكم ActiveX (يمكن الوصول إليها عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
 
-يمكن أن تكون هذه الخاصية مفيدة لإزالة المحتوى الثنائي الضار المحتمل.
+باستخدام طريقة [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مضمّنة.
 
-يظهر الكود كيفية تحميل وحفظ عرض تقديمي بدون أي محتوى ضار:
-
+هذه الطريقة مفيدة لإزالة المحتوى الثنائي المحتمل أن يكون ضارًا. يوضح الكود التالي بلغة Java كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مضمّن:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation pres = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("malware.ppt", loadOptions);
 try {
-    pres.save("clean.ppt", SaveFormat.Ppt);
+    // تنفيذ عمليات على العرض التقديمي.
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## فتح وحفظ عرض تقديمي
 
-خطوات فتح وحفظ عرض تقديمي:
+## **الأسئلة المتكررة**
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتمرير الملف الذي تريد فتحه.
-2. حفظ العرض التقديمي.  
+**كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-```java
-// ينشئ كائن Presentation يمثل ملف PPT
-Presentation pres = new Presentation();
-try {
-    // ...قم ببعض العمل هنا...
-    
-    // يحفظ عرضك التقدمي في ملف
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
-```
+ستتلقى استثناءً أثناء التحميل يشير إلى فشل تحليل/تحقق من الصيغة. غالبًا ما تُشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
+
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
+
+سيفتح الملف، ولكن قد يستبدل [العرض/التصدير](/slides/ar/androidjava/convert-presentation/) الخطوط لاحقًا. يمكنك [تهيئة استبدال الخطوط](/slides/ar/androidjava/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/androidjava/custom-font/) إلى بيئة التشغيل.
+
+**ماذا عن الوسائط المضمّنة (فيديو/صوت) عند الفتح؟**
+
+ستصبح متاحة كموارد للعرض التقديمي. إذا تم الإشارة إلى الوسائط عبر مسارات خارجية، تأكد من أن تلك المسارات قابلة للوصول في بيئتك؛ وإلا قد يُغفل [العرض/التصدير](/slides/ar/androidjava/convert-presentation/) عن الوسائط.

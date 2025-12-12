@@ -1,166 +1,208 @@
 ---
-title: 保存演示文稿
+title: 在 Android 上保存演示文稿
+linktitle: 保存演示文稿
 type: docs
 weight: 80
 url: /zh/androidjava/save-presentation/
+keywords:
+- 保存 PowerPoint
+- 保存 OpenDocument
+- 保存演示文稿
+- 保存幻灯片
+- 保存 PPT
+- 保存 PPTX
+- 保存 ODP
+- 演示文稿到文件
+- 演示文稿到流
+- 预定义视图类型
+- 严格的 Office Open XML 格式
+- Zip64 模式
+- 刷新缩略图
+- 保存进度
+- Android
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Android 在 Java 中保存演示文稿——导出为 PowerPoint 或 OpenDocument，同时保留布局、字体和效果。"
 ---
 
 ## **概述**
-{{% alert color="primary" %}} 
 
-[打开演示文稿](/slides/zh/androidjava/open-presentation/) 描述了如何使用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类来打开演示文稿。本文将解释如何创建和保存演示文稿。
+[Open Presentations on Android](/slides/zh/androidjava/open-presentation/) 说明了如何使用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类打开演示文稿。本文解释了如何创建和保存演示文稿。[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类包含演示文稿的内容。无论是从头创建演示文稿还是修改现有演示文稿，完成后都需要保存。使用 Aspose.Slides for Android，您可以保存到 **文件** 或 **流**。本文说明了保存演示文稿的不同方式。
 
-{{% /alert %}} 
+## **将演示文稿保存到文件**
 
-[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类包含演示文稿的内容。无论是从头开始创建演示文稿还是修改现有演示文稿，完成后都希望保存演示文稿。通过 Aspose.Slides for Android via Java，它可以作为 **文件** 或 **流** 保存。本文将解释如何以不同的方式保存演示文稿：
-
-## **保存演示文稿到文件**
-通过调用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的 [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法将演示文稿保存到文件。只需将文件名和 [**SaveFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat) 传递给 [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法即可。
-
-以下示例展示了如何使用 Aspose.Slides for Android via Java 保存演示文稿。
-
+通过调用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的 `save` 方法将演示文稿保存到文件。将文件名和保存格式传递给该方法。以下示例展示了如何使用 Aspose.Slides 保存演示文稿。
 ```java
-// 实例化一个表示 PPT 文件的 Presentation 对象
-Presentation pres = new Presentation();
+// 实例化表示演示文稿文件的 Presentation 类。
+Presentation presentation = new Presentation();
 try {
-    // ...在这里执行一些工作...
-    
-    // 将演示文稿保存到文件
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
+    // 在此处执行一些操作...
+
+    // 将演示文稿保存到文件。
+    presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
-    if(pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **保存演示文稿到流**
-通过将输出流传递给 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的 [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) 方法，可以将演示文稿保存到流。演示文稿可以保存到多种类型的流。在下面的示例中，我们创建了一个新的演示文稿文件，在形状中添加了文本并将演示文稿保存到流中。
 
+## **将演示文稿保存到流**
+
+您可以通过向 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的 `save` 方法传递输出流来将演示文稿保存到流。演示文稿可以写入多种流类型。在下面的示例中，我们创建一个新演示文稿并将其保存到文件流。
 ```java
-// 实例化一个表示 PPT 文件的 Presentation 对象
-Presentation pres = new Presentation();
+// 实例化表示演示文稿文件的 Presentation 类。
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // 向形状添加文本
-    shape.getTextFrame().setText("此演示展示了如何创建 PowerPoint 文件并将其保存到流。");
-
-    OutputStream os = new FileOutputStream("Save_As_Stream_out.pptx");
-
-    pres.save(os, com.aspose.slides.SaveFormat.Pptx);
-
-    os.close();
-} catch (IOException e) {
+    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    try {
+        // 将演示文稿保存到流中。
+        presentation.save(fileStream, SaveFormat.Pptx);
+    } finally {
+        fileStream.close();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 
 ## **使用预定义视图类型保存演示文稿**
-Aspose.Slides for Android via Java 提供了一种在通过 [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) 类打开的 PowerPoint 中设置生成演示文稿的视图类型的功能。 [**setLastView**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#setLastView-int-) 属性用于通过使用 [**ViewType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewType) 枚举器设置视图类型。
 
+Aspose.Slides 允许您通过 [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/) 类设置 PowerPoint 打开生成的演示文稿时的初始视图。使用带有 [ViewType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/) 枚举值的 `setLastView` 方法。
 ```java
-// 打开演示文稿文件
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 设置视图类型
-    pres.getViewProperties().setLastView((byte) ViewType.SlideMasterView);
-    
-    // 保存演示文稿
-    pres.save("newDemo.pptx", SaveFormat.Pptx);
+    presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
+    presentation.save("SlideMasterView.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **将演示文稿保存为严格的 Office Open XML 格式**
-Aspose.Slides 允许您以严格的 Office Open XML 格式保存演示文稿。为此，它提供了 [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions) 类，在保存演示文稿文件时可以设置 Conformance 属性。如果将其值设置为 [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict)，则输出演示文稿文件将以严格的 Open XML 格式保存。
 
-以下示例代码创建了一个演示文稿并将其保存为严格的 Office Open XML 格式。在调用演示文稿的 [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) 方法时，将 [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions) 对象传递给它，并将 Conformance 属性设置为 [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict)。
+## **以严格的 Office Open XML 格式保存演示文稿**
 
+Aspose.Slides 允许您以严格的 Office Open XML 格式保存演示文稿。保存时使用 [PptxOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions/) 类并设置其 `conformance` 属性。如果将其设为 [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict)，输出文件将以严格的 Office Open XML 格式保存。
+
+下面的示例创建一个演示文稿并以严格的 Office Open XML 格式保存。
 ```java
-// 实例化一个表示 PPT 文件的 Presentation 对象
-Presentation pres = new Presentation();
+PptxOptions options = new PptxOptions();
+options.setConformance(Conformance.Iso29500_2008_Strict);
+
+// 实例化表示演示文稿文件的 Presentation 类。
+Presentation presentation = new Presentation();
 try {
-    // 获取第一个幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 添加类型为线的自动形状
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    
-    // 设置严格的 Office Open XML 格式保存选项
-    PptxOptions options = new PptxOptions();
-    options.setConformance(Conformance.Iso29500_2008_Strict);
-    
-    // 将演示文稿保存到文件
-    pres.save("demoPass.pptx", SaveFormat.Pptx, options);
+    // 以严格的 Office Open XML 格式保存演示文稿。
+    presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
-    if (pres != null) pres.dispose();
-}
-
-```
-
-## **以 Zip64 模式保存演示文稿到 Office Open XML 格式**
-
-Office Open XML 文件是一个 ZIP 压缩文件，对未压缩文件的大小、压缩文件的大小和整个归档的总大小均有 4 GB (2^32 字节) 的限制，并且归档中限制有 65,535 (2^16-1) 个文件。ZIP64 格式扩展增加了这些限制至 2^64。
-
-新的 [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/) 属性允许您选择何时使用 ZIP64 格式扩展来保存 Office Open XML 文件。
-
-该属性提供以下模式：
-
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#IfNecessary) 表示只有当演示文稿超出上述限制时才会使用 ZIP64 格式扩展。这是默认模式。
-- [Zip64Mode.Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) 表示不会使用 ZIP64 格式扩展。
-- [Zip64Mode.Always](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Always) 表示将始终使用 ZIP64 格式扩展。
-
-以下代码演示了如何使用 ZIP64 格式扩展将演示文稿保存为 PPTX 格式：
-
-```java
-Presentation pres = new Presentation("Sample.pptx");
-try {
-    PptxOptions pptxOptions = new PptxOptions();
-    pptxOptions.setZip64Mode(Zip64Mode.Always);
-    
-    pres.save("Sample-zip64.pptx", SaveFormat.Pptx, pptxOptions);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="注意" color="warning" %}}
 
-在 Zip64Mode.Never 模式下，如果演示文稿无法以 ZIP32 格式保存，将抛出 [PptxException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxexception/) 。
+## **在 Zip64 模式下以 Office Open XML 格式保存演示文稿**
 
+Office Open XML 文件是 ZIP 存档，对任何文件的未压缩大小、压缩后大小以及整个存档的总大小都有 4 GB（2^32 字节）的限制，并且限制存档中的文件数为 65 535（2^16‑1）个。ZIP64 格式扩展将这些限制提升至 2^64。
+
+[IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) 方法允许您在保存 Office Open XML 文件时选择何时使用 ZIP64 格式扩展。
+
+此方法可与以下模式一起使用：
+
+- [如果必要](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#IfNecessary) 仅在演示文稿超过上述限制时使用 ZIP64 格式扩展。这是默认模式。
+- [永不](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) 从不使用 ZIP64 格式扩展。
+- [始终](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Always) 始终使用 ZIP64 格式扩展。
+
+下面的代码演示了如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX：
+```java
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setZip64Mode(Zip64Mode.Always);
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+{{% alert title="NOTE" color="warning" %}}
+当使用 [Zip64Mode.Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) 保存时，如果演示文稿无法以 ZIP32 格式保存，将抛出 [PptxException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **以百分比保存进度更新**
-新的 [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) 接口已添加到 [**ISaveOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) 接口和 [**SaveOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveOptions) 抽象类中。 [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) 接口表示用于以百分比方式保存进度更新的回调对象。
+## **保存演示文稿时不刷新缩略图**
 
-以下代码片段展示了如何使用 [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) 接口：
+[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) 方法控制保存 PPTX 时是否生成缩略图：
 
+- 设置为 `true` 时，保存过程中会刷新缩略图。这是默认值。
+- 设置为 `false` 时，保留当前缩略图。如果演示文稿没有缩略图，则不会生成。
+
+下面的代码将演示文稿保存为 PPTX，且不刷新其缩略图。
 ```java
-// 打开演示文稿文件
-Presentation pres = new Presentation("ConvertToPDF.pptx");
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setRefreshThumbnail(false);
+
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.setProgressCallback((IProgressCallback) new ExportProgressHandler());
-    pres.save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    pres.dispose();
+    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
+}
+finally {
+    presentation.dispose();
 }
 ```
+
+
+{{% alert title="Info" color="info" %}}
+此选项有助于减少以 PPTX 格式保存演示文稿所需的时间。
+{{% /alert %}}
+
+## **以百分比方式获取保存进度更新**
+
+[IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprogresscallback/) 接口通过 [ISaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isaveoptions/) 接口公开的 `setProgressCallback` 方法以及抽象的 [SaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveoptions/) 类使用。使用 `setProgressCallback` 传入实现了 [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprogresscallback/) 的对象，即可在保存过程中以百分比形式接收进度更新。
+
+下面的代码片段展示了如何使用 `IProgressCallback`。
 ```java
-class ExportProgressHandler implements IProgressCallback 
-{
-    public void reporting(double progressValue) 
-	{
-        // 在这里使用进度百分比值
-        int progress = Double.valueOf(progressValue).intValue();
-        System.out.println(progress + "% 文件已转换");
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+```java
+class ExportProgressHandler implements IProgressCallback {
+    public void reporting(double progressValue) {
+        // 在此使用进度百分比值。
+        int progress = (int) progressValue;
+
+        System.out.println(progress + "% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="信息" color="info" %}}
 
-使用其自己的 API，Aspose 开发了一个 [免费的 PowerPoint 分割器应用](https://products.aspose.app/slides/splitter)，允许用户将他们的演示文稿分割为多个文件。该应用程序本质上将从给定演示文稿中选定的幻灯片保存为新的 PowerPoint (PPTX 或 PPT) 文件。 
-
+{{% alert title="Info" color="info" %}}
+Aspose 开发了一个使用其 API 的 [免费 PowerPoint Splitter 应用](https://products.aspose.app/slides/splitter)。该应用可通过将选定幻灯片另存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
 {{% /alert %}}
+
+## **FAQ**
+
+**是否支持“快速保存”（增量保存）仅写入更改？**
+
+不支持。每次保存都会创建完整的目标文件，未实现增量“快速保存”。
+
+**从多个线程保存同一 Presentation 实例是否线程安全？**
+
+不安全。[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 实例 **不是线程安全的**，请在单个线程中进行保存。
+
+**保存时超链接和外部链接文件会怎样？**
+
+[超链接](/slides/zh/androidjava/manage-hyperlinks/) 会被保留。外部链接的文件（例如通过相对路径引用的视频）不会自动复制——请确保引用的路径仍然可访问。
+
+**我可以设置/保存文档元数据（作者、标题、公司、日期）吗？**
+
+可以。标准的 [文档属性](/slides/zh/androidjava/presentation-properties/) 已受支持，保存时会写入文件。

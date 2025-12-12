@@ -1,36 +1,52 @@
 ---
-title: Animierte Diagramme
+title: PowerPoint-Diagramme auf Android animieren
+linktitle: Animierte Diagramme
 type: docs
 weight: 80
 url: /de/androidjava/animated-charts/
+keywords:
+- Diagramm
+- animiertes Diagramm
+- Diagramm-Animation
+- Diagrammserie
+- Diagrammkategorie
+- Serienelement
+- Kategorienelement
+- Effekt hinzufügen
+- Effekttyp
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erstellen Sie atemberaubende animierte Diagramme in Java mit Aspose.Slides für Android. Verbessern Sie Präsentationen mit dynamischen Visualisierungen in PPT- und PPTX-Dateien – starten Sie jetzt."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides für Android über Java unterstützt die Animation der Diagrammelemente. **Serien**, **Kategorien**, **Serienelemente**, **Kategorienelemente** können mit der [**ISequence**.**addEffect**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) Methode und zwei Enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMajorGroupingType) und [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMinorGroupingType) animiert werden.
+Aspose.Slides for Android via Java unterstützt die Animation von Diagrammelementen. **Series**, **Categories**, **Series Elements**, **Categories Elements** können mit der Methode [**ISequence**.**addEffect**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) und den beiden Enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMajorGroupingType) und [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectChartMinorGroupingType) animiert werden.
 
 {{% /alert %}} 
 
-## **Animation der Diagrammserien**
-Wenn Sie eine Diagrammserie animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+## **Diagrammserien-Animation**
+If you want to animate a chart series, write the code according to the steps listed below:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie sich die Referenz auf das Diagrammobjekt.
+1. Holen Sie die Referenz des Diagrammobjekts.
 1. Animieren Sie die Serie.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im folgenden Beispiel haben wir die Diagrammserien animiert.
-
+In the example given below, we animated chart series.
 ```java
-// Erstellen Sie eine Instanz der Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei repräsentiert
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Holen Sie sich die Referenz auf das Diagrammobjekt
+    // Hole die Referenz des Diagramm-Objekts
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Animieren Sie die Serie
+    // Animieren der Serie
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
 
@@ -50,30 +66,30 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Schreiben Sie die modifizierte Präsentation auf die Festplatte
+    // Schreibe die modifizierte Präsentation auf die Festplatte
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Animation der Diagrammkategorien**
-Wenn Sie eine Diagrammkategorie animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+
+## **Diagrammkategorie-Animation**
+If you want to animate a chart series, write the code according to the steps listed below:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie sich die Referenz auf das Diagrammobjekt.
+1. Holen Sie die Referenz des Diagrammobjekts.
 1. Animieren Sie die Kategorie.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im folgenden Beispiel haben wir die Diagrammkategorie animiert.
-
+In the example given below, we animated chart category.
 ```java
-// Erstellen Sie eine Instanz der Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation‑Klasse, die eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0);
+    IChart chart = (IChart) shapes.get_Item(0");
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -100,26 +116,26 @@ try {
 }
 ```
 
-## **Animation in den Serienelementen**
-Wenn Sie die Serienelemente animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+
+## **Animation in einem Serien-Element**
+If you want to animate series elements, write the code according to the steps listed below:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie sich die Referenz auf das Diagrammobjekt.
-1. Animieren Sie die Serienelemente.
+1. Holen Sie die Referenz des Diagrammobjekts.
+1. Animieren Sie Serien-Elemente.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im folgenden Beispiel haben wir die Elemente der Serien animiert.
-
+In the example given below, we have animated series' elements.
 ```java
-// Erstellen Sie eine Instanz der Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei repräsentiert
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Holen Sie sich die Referenz auf das Diagrammobjekt
+    // Hole die Referenz des Diagramm-Objekts
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Animieren Sie die Serienelemente
+    // Animieren von Serienelementen
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
@@ -149,33 +165,33 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Schreiben Sie die Präsentationsdatei auf die Festplatte 
+    // Schreibe die Präsentationsdatei auf die Festplatte 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Animation in den Kategorienelementen**
-Wenn Sie die Elemente der Kategorien animieren möchten, schreiben Sie den Code gemäß den unten aufgeführten Schritten:
+
+## **Animation in einem Kategorie-Element**
+If you want to animate categories elements, write the code according to the steps listed below:
 
 1. Laden Sie eine Präsentation.
-1. Holen Sie sich die Referenz auf das Diagrammobjekt.
-1. Animieren Sie die Kategorienelemente.
+1. Holen Sie die Referenz des Diagrammobjekts.
+1. Animieren Sie Kategorie-Elemente.
 1. Schreiben Sie die Präsentationsdatei auf die Festplatte.
 
-Im folgenden Beispiel haben wir die Elemente der Kategorien animiert.
-
+In the example given below, we have animated categories elements.
 ```java
-// Erstellen Sie eine Instanz der Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation‑Klasse, die eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Holen Sie sich die Referenz auf das Diagrammobjekt
+    // Hole die Referenz des Diagrammobjekts
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
 
-    // Animieren Sie die Elemente der Kategorien
+    // Animieren der Kategorie‑Elemente
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
@@ -204,9 +220,32 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Schreiben Sie die Präsentationsdatei auf die Festplatte
+    // Schreibe die Präsentationsdatei auf die Festplatte
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Werden verschiedene Effektarten (z. B. Einstieg, Hervorhebung, Ausgang) für Diagramme wie für reguläre Formen unterstützt?**
+
+Ja. Ein Diagramm wird als Form behandelt, daher unterstützt es die üblichen Animationseffektarten, einschließlich Einstieg, Hervorhebung und Ausgang, mit voller Kontrolle über die Folientimeline und Animationssequenzen.
+
+**Kann ich Diagrammanimationen mit Folienübergängen kombinieren?**
+
+Ja. [Übergänge](/slides/de/androidjava/slide-transition/) gelten für die Folie, während Animationseffekte für Objekte auf der Folie gelten. Sie können beides zusammen in derselben Präsentation verwenden und sie unabhängig steuern.
+
+**Werden Diagrammanimationen beim Speichern als PPTX beibehalten?**
+
+Ja. Wenn Sie [Speichern als PPTX](/slides/de/androidjava/save-presentation/) durchführen, werden alle Animationseffekte und deren Reihenfolge beibehalten, da sie Teil des nativen Animationsmodells der Präsentation sind.
+
+**Kann ich vorhandene Diagrammanimationen aus einer Präsentation auslesen und bearbeiten?**
+
+Ja. Die API bietet Zugriff auf die Folientimeline, Sequenzen und Effekte, sodass Sie bestehende Diagrammanimationen inspizieren und anpassen können, ohne alles neu erstellen zu müssen.
+
+**Kann ich ein Video erzeugen, das Diagrammanimationen enthält, mit Aspose.Slides?**
+
+Ja. Sie können [Präsentation in Video exportieren](/slides/de/androidjava/convert-powerpoint-to-video/) und dabei die Animationen beibehalten, Timings und weitere Exporteinstellungen konfigurieren, sodass das resultierende Video die animierte Wiedergabe widerspiegelt.

@@ -1,12 +1,23 @@
 ---
-title: التنبيه
+title: إدارة الملاحظات التوضيحية في مخططات العرض التقديمي على Android
+linktitle: ملاحظة توضيحية
 type: docs
 url: /ar/androidjava/callout/
+keywords:
+- ملاحظة توضيحية للمخطط
+- استخدام الملاحظة التوضيحية
+- تسمية البيانات
+- تنسيق التسمية
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إنشاء وتنسيق الملاحظات التوضيحية في Aspose.Slides لنظام Android باستخدام أمثلة كود Java مختصرة، متوافقة مع PPT و PPTX لتنفيذ أتمتة سير عمل العروض التقديمية."
 ---
 
-## **استخدام التنبيهات**
-تمت إضافة طرق جديدة [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) إلى فئة [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) وواجهة [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). تحدد هذه الطرق ما إذا كان سيتم عرض علامة بيانات الرسم البياني المحددة كتنبيه بيانات أو كعلامة بيانات.
-
+## **استخدام الملاحظات التوضيحية**
+تم إضافة الطرق الجديدة [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) إلى الفئة [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) والواجهة [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). تحدد هذه الطرق ما إذا كان سيتم عرض تسمية البيانات المحددة للمخطط كملاحظة توضيحية أم كتسمية بيانات.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **إعداد التنبيه لرسم بياني دائري**
-توفر Aspose.Slides لـ Android عبر Java دعمًا لتعيين شكل تنبيه علامة بيانات السلسلة لرسم بياني دائري. نموذج المثال أدناه مرفق.
 
+## **تعيين ملاحظة توضيحية لمخطط الدونات**
+توفر Aspose.Slides لنظام Android عبر Java دعمًا لتعيين شكل ملاحظة توضيحية لتسمية بيانات السلسلة لمخطط الدونات. المثال التالي موضح أدناه.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -86,3 +97,11 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+**هل يتم الحفاظ على الملاحظات التوضيحية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+نعم. الملاحظات التوضيحية هي جزء من عرض المخطط، لذا عند التصدير إلى [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/androidjava/export-to-html5/)، [SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/)، أو [الصور النقطية](/slides/ar/androidjava/convert-powerpoint-to-png/)، يتم الحفاظ عليها مع تنسيق الشريحة.
+
+**هل تعمل الخطوط المخصصة في الملاحظات التوضيحية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
+نعم. تدعم Aspose.Slides [تضمين الخطوط](/slides/ar/androidjava/embedded-font/) في العرض التقديمي وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، مما يضمن بقاء الملاحظات التوضيحية بنفس الشكل عبر الأنظمة المختلفة.

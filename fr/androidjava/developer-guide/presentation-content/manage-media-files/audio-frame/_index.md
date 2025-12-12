@@ -1,32 +1,42 @@
 ---
-title: Cadre Audio
+title: "Gérer l'audio dans les présentations sur Android"
+linktitle: "Cadre audio"
 type: docs
 weight: 10
 url: /fr/androidjava/audio-frame/
-keywords: "Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire l'audio, Java, Aspose.Slides pour Android via Java"
-description: "Ajouter de l'audio à une présentation PowerPoint en Java"
+keywords:
+- "audio"
+- "cadre audio"
+- "miniature"
+- "ajouter de l'audio"
+- "propriétés audio"
+- "options audio"
+- "extraire l'audio"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "Créer et contrôler des cadres audio dans Aspose.Slides pour Android—exemples Java pour incorporer, couper, boucler et configurer la lecture dans les présentations PPT, PPTX et ODP."
 ---
 
-## **Créer un Cadre Audio**
-Aspose.Slides pour Android via Java vous permet d'ajouter des fichiers audio aux diapositives. Les fichiers audio sont intégrés dans les diapositives sous forme de cadres audio.
+## **Créer des cadres audio**
+Aspose.Slides for Android via Java vous permettre d'ajouter des fichiers audio aux diapositives. Les fichiers audio sont incorporés dans les diapositives sous forme de cadres audio.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtenez la référence d'une diapositive via son index.
-3. Chargez le flux du fichier audio que vous souhaitez intégrer dans la diapositive.
-4. Ajoutez le cadre audio intégré (contenant le fichier audio) à la diapositive.
-5. Définissez [PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) et `Volume` exposés par l'objet [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame).
+2. Obtenez la référence d'une diapositive via son indice.
+3. Chargez le flux du fichier audio que vous souhaitez incorporer dans la diapositive.
+4. Ajoutez le cadre audio incorporé (contenant le fichier audio) à la diapositive.
+5. Définissez le [PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) et `Volume` exposés par l'objet [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame).
 6. Enregistrez la présentation modifiée.
 
-Ce code Java vous montre comment ajouter un cadre audio intégré à une diapositive :
-
-```Java
+Ce code Java vous montre comment ajouter un cadre audio incorporé à une diapositive :
+```java
 // Instancie une classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation();
 try {
     // Obtient la première diapositive
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Charge le fichier audio wav dans le flux
+    // Charge le fichier son wav dans un flux
     FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
     // Ajoute le cadre audio
@@ -45,12 +55,11 @@ try {
 }
 ```
 
-## **Changer la Miniature du Cadre Audio**
 
-Lorsque vous ajoutez un fichier audio à une présentation, l'audio apparaît comme un cadre avec une image par défaut standard (voir l'image dans la section ci-dessous). Vous pouvez changer l'image de prévisualisation du cadre audio (définissez votre image préférée).
+## **Modifier la miniature du cadre audio**
+Lorsque vous ajoutez un fichier audio à une présentation, l'audio apparaît sous forme d'un cadre avec une image par défaut standard (voir l'image dans la section ci-dessous). Vous pouvez modifier l'image d'aperçu du cadre audio (définissez votre image préférée).
 
-Ce code Java vous montre comment changer la miniature ou l'image de prévisualisation d'un cadre audio :
-
+Ce code Java vous montre comment changer la miniature ou l'image d'aperçu d'un cadre audio :
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -70,10 +79,10 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Définit l'image pour le cadre audio.
+    // Définit l'image du cadre audio.
     audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
 
-    // Enregistre la présentation modifiée sur le disque
+    //Enregistre la présentation modifiée sur le disque
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -81,34 +90,39 @@ try {
 }
 ```
 
-## **Changer les Options de Lecture Audio**
 
-Aspose.Slides pour Android via Java vous permet de modifier les options qui contrôlent la lecture d'un audio ou ses propriétés. Par exemple, vous pouvez ajuster le volume d'un audio, définir l'audio pour qu'il soit lu en boucle, ou même cacher l'icône audio.
+## **Modifier les options de lecture audio**
+Aspose.Slides for Android via Java vous permettre de modifier les options qui contrôlent la lecture ou les propriétés d'un audio. Par exemple, vous pouvez ajuster le volume d'un audio, définir la lecture en boucle, ou même masquer l'icône audio.
 
-Le panneau **Options Audio** dans Microsoft PowerPoint :
-
+Le volet **Options audio** dans Microsoft PowerPoint :
 ![example1_image](audio_frame_0.png)
 
-Options audio de PowerPoint qui correspondent aux propriétés [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) d'Aspose.Slides :
-- La liste déroulante Options Audio **Démarrer** correspond à la propriété [AudioFrame.PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) 
-- Les Options Audio **Volume** correspondent à la propriété [AudioFrame.Volume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getVolume--)
-- Les Options Audio **Jouer à Travers les Diapositives** correspondent à la propriété [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--)
-- Les Options Audio **Boucle jusqu'à Arrêt** correspondent à la propriété [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--)
-- Les Options Audio **Cacher Pendant la Présentation** correspondent à la propriété [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--)
-- Les Options Audio **Rewind After Playing** correspondent à la propriété [AudioFrame.RewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--)
+Les **Options audio** de PowerPoint qui correspondent aux propriétés d'[AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) d'Aspose.Slides :
+- **Start** la liste déroulante correspond à la propriété [AudioFrame.PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) .
+- **Volume** correspond à la propriété [AudioFrame.Volume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getVolume--) .
+- **Play Across Slides** correspond à la propriété [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) .
+- **Loop until Stopped** correspond à la propriété [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) .
+- **Hide During Show** correspond à la propriété [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) .
+- **Rewind after Playing** correspond à la propriété [AudioFrame.RewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) .
 
-Voici comment changer les options de lecture audio :
+Les options **Édition** de PowerPoint qui correspondent aux propriétés d'[AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/) d'Aspose.Slides :
+- **Fade In** correspond à la propriété [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) .
+- **Fade Out** correspond à la propriété [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) .
+- **Trim Audio Start Time** correspond à la propriété [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) .
+- **Trim Audio End Time** la valeur est égale à la durée de l'audio moins la valeur de la propriété [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) .
 
-1. [Créer](#create-audio-frame) ou obtenir le Cadre Audio.
-2. Définissez de nouvelles valeurs pour les propriétés du Cadre Audio que vous souhaitez ajuster.
+Le **contrôle du volume** de PowerPoint sur le panneau de contrôle audio correspond à la propriété [AudioFrame.VolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) . Il vous permettre de modifier le volume audio en pourcentage.
+
+Voici comment modifier les options de lecture audio :
+1. [Créer](#create-audio-frame) ou obtenir le cadre audio.
+2. Définissez de nouvelles valeurs pour les propriétés du cadre audio que vous souhaitez ajuster.
 3. Enregistrez le fichier PowerPoint modifié.
 
 Ce code Java démontre une opération dans laquelle les options d'un audio sont ajustées :
-
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    // Obtient la forme AudioFrame
+    // Récupère la forme AudioFrame
     AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
     // Définit le mode de lecture sur lecture au clic
@@ -117,16 +131,16 @@ try {
     // Définit le volume sur Bas
     audioFrame.setVolume(AudioVolumeMode.Low);
 
-    // Définit l'audio pour jouer à travers les diapositives
+    // Définit la lecture audio sur toutes les diapositives
     audioFrame.setPlayAcrossSlides(true);
 
     // Désactive la boucle pour l'audio
     audioFrame.setPlayLoopMode(false);
 
-    // Cache le cadre audio pendant la présentation
+    // Masque le AudioFrame pendant le diaporama
     audioFrame.setHideAtShowing(true);
 
-    // Rembobine l'audio pour recommencer après la lecture
+    // Rembobine l'audio au début après lecture
     audioFrame.setRewindAudio(true);
 
     // Enregistre le fichier PowerPoint sur le disque
@@ -136,17 +150,58 @@ try {
 }
 ```
 
-## **Extraire l'Audio**
 
-Aspose.Slides pour Android via Java vous permet d'extraire le son utilisé dans les transitions de diaporama. Par exemple, vous pouvez extraire le son utilisé dans une diapositive spécifique.
+Cet exemple Java montre comment ajouter un nouveau cadre audio avec audio incorporé, le couper, et définir les durées d'estompage :
+```java
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
+    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) et chargez la présentation avec des transitions de diapositive.
-2. Accédez à la diapositive souhaitée.
-3. Accédez aux [transitions de diaporama](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) pour la diapositive.
-4. Extrayez le son dans des données binaires.
+    // Définit le décalage de début du découpage à 1,5 seconde
+    // Définit le décalage de fin du découpage à 2 secondes
+    // Définit la durée de fondu entrant à 200 ms
+    // Définit la durée de fondu sortant à 500 ms
 
-Ce code en Java vous montre comment extraire l'audio utilisé dans une diapositive :
+    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
+```
 
+
+L'exemple de code suivant montre comment récupérer un cadre audio avec audio incorporé et définir son volume à 85 % :
+```java
+Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+
+    // Obtient une forme de cadre audio
+    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+
+    // Définit le volume audio à 85%
+    audioFrame.setVolumeValue(85f);
+
+    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+}
+finally {
+    pres.dispose();
+}
+```
+
+
+## **Extraire l'audio**
+Aspose.Slides for Android via Java vous permettre d'extraire le son utilisé dans les transitions de diaporama. Par exemple, vous pouvez extraire le son utilisé dans une diapositive spécifique.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) et chargez la présentation contenant l'audio.
+2. Obtenez la référence de la diapositive concernée via son indice.
+3. Accédez aux [transitions du diaporama](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) de la diapositive.
+4. Extrayez le son sous forme de données octet.
+
+Ce code Java vous montre comment extraire l'audio utilisé dans une diapositive :
 ```java
 // Instancie une classe Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("AudioSlide.pptx");
@@ -154,13 +209,28 @@ try {
     // Accède à la diapositive souhaitée
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Obtient les effets de transition de diaporama pour la diapositive
+    // Obtient les effets de transition du diaporama pour la diapositive
     ISlideShowTransition transition = slide.getSlideShowTransition();
     
-    // Extrait le son dans un tableau de bytes
+    //Extrait le son dans un tableau d'octets
     byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Longueur : " + audio.length);
+    System.out.println("Length: " + audio.length);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Puis-je réutiliser le même fichier audio sur plusieurs diapositives sans gonfler la taille du fichier ?**
+
+Oui. Ajoutez l'audio une seule fois à la [collection audio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) partagée de la présentation et créez des cadres audio supplémentaires qui font référence à cet actif existant. Cela évite de dupliquer les données multimédia et maintient la taille de la présentation sous contrôle.
+
+**Puis-je remplacer le son d'un cadre audio existant sans recréer la forme ?**
+
+Oui. Pour un son lié, mettez à jour le [chemin du lien](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) pour pointer vers le nouveau fichier. Pour un son incorporé, remplacez l'objet [audio incorporé](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) par un autre provenant de la [collection audio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) de la présentation. Le format du cadre et la plupart des paramètres de lecture restent intacts.
+
+**Le découpage modifie-t-il les données audio sous‑jacent stockées dans la présentation ?**
+
+Non. Le découpage n'ajuste que les limites de lecture. Les octets audio originaux restent intacts et accessibles via l'audio incorporé ou la collection audio de la présentation.

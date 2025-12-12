@@ -1,31 +1,48 @@
 ---
-title: تحويل PowerPoint إلى PNG
+title: تحويل شرائح PowerPoint إلى PNG على Android
+linktitle: PowerPoint إلى PNG
 type: docs
 weight: 30
 url: /ar/androidjava/convert-powerpoint-to-png/
-keywords: PowerPoint إلى PNG, PPT إلى PNG, PPTX إلى PNG, java, Aspose.Slides لـ Android عبر Java
-description: تحويل عرض PowerPoint إلى PNG
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PNG
+- العرض التقديمي إلى PNG
+- الشريحة إلى PNG
+- PPT إلى PNG
+- PPTX إلى PNG
+- حفظ PPT كـ PNG
+- حفظ PPTX كـ PNG
+- تصدير PPT إلى PNG
+- تصدير PPTX إلى PNG
+- Android
+- Java
+- Aspose.Slides
+description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides لنظام Android عبر Java، مما يضمن نتائج دقيقة وآلية."
 ---
 
 ## **حول تحويل PowerPoint إلى PNG**
 
-تنسيق PNG (الرسومات الشبكية القابلة للنقل) ليس شائعًا مثل JPEG (مجموعة الخبراء المشتركة في التصوير)، لكنه لا يزال شائعًا جدًا.
+تنسيق PNG (Portable Network Graphics) ليس شائعًا كما JPEG (Joint Photographic Experts Group)، لكنه لا يزال شائعًا جدًا.
 
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة والحجم ليس مشكلة، فإن PNG هو تنسيق صورة أفضل من JPEG.
+**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا تكون الحجم مشكلة، فإن PNG هو تنسيق صورة أفضل من JPEG.
 
-{{% alert title="نصيحة" color="primary" %}} قد ترغب في تجربة **محولات PowerPoint إلى PNG** المجانية من Aspose: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تنفيذ مباشر للعملية الموضحة في هذه الصفحة. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} قد ترغب في تجربة محولات Aspose المجانية **PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تطبيق مباشر للعملية الموضحة في هذه الصفحة. {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PNG**
 
-قم بمتابعة هذه الخطوات:
+اتبع الخطوات التالية:
 
-1. قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء مثيل للفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 2. احصل على كائن الشريحة من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) تحت واجهة [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide).
-3. استخدم طريقة [ISlide.getImage()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم طريقة  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)) لحفظ الصورة المصغرة للشريحة بصيغة PNG.
+3. استخدم طريقة [ISlide.getImage()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) للحصول على صورة مصغرة لكل شريحة.
+4. استخدم طريقة [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImage#save(String formatName, int imageFormat)) لحفظ الصورة المصغرة للشفرة بتنسيق PNG.
 
-هذا الكود بلغة Java يوضح لك كيفية تحويل عرض PowerPoint إلى PNG:
-
+يعرض لك هذا الكود بلغة Java كيفية تحويل عرض PowerPoint إلى PNG:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -44,12 +61,12 @@ try {
 }
 ```
 
+
 ## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت تريد الحصول على ملفات PNG حول مقياس معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، التي تحدد أبعاد الصورة المصغرة الناتجة.
+إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك ضبط القيم `desiredX` و `desiredY`، التي تحدد أبعاد الصورة المصغرة الناتجة.
 
-هذا الكود بلغة Java يوضح العملية الموضحة:
-
+يعرض لك هذا الكود بلغة Java العملية الموصوفة:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -70,12 +87,12 @@ try {
 }
 ```
 
+
 ## **تحويل PowerPoint إلى PNG بحجم مخصص**
 
-إذا كنت تريد الحصول على ملفات PNG بحجم معين، يمكنك تمرير قيمتك المفضلة لـ `width` و `height` كوسائط لـ `ImageSize`.
+إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تمرير القيم المفضلة `width` و `height` لـ `ImageSize`.
 
-هذا الكود يوضح كيفية تحويل PowerPoint إلى PNG مع تحديد الحجم للصور:
-
+يعرض لك هذا الكود كيفية تحويل PowerPoint إلى PNG مع تحديد حجم الصور:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -94,3 +111,15 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني تصدير شكل محدد فقط (مثل مخطط أو صورة) بدلاً من الشريحة بالكامل؟**  
+يدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/androidjava/create-shape-thumbnails/); يمكنك تحويل الشكل إلى صورة PNG.
+
+**هل يدعم التحويل المتوازي على الخادم؟**  
+نعم، لكن [لا تشارك](/slides/ar/androidjava/multithreading/) مثيل عرض واحد بين الخيوط. استخدم مثيلًا منفصلًا لكل خيط أو عملية.
+
+**ما هي قيود النسخة التجريبية عند التصدير إلى PNG؟**  
+يضيف وضع التقييم علامة مائية إلى صور الإخراج ويفرض [قيودًا أخرى](/slides/ar/androidjava/licensing/) حتى يتم تطبيق ترخيص.

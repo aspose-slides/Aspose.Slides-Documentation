@@ -1,12 +1,23 @@
 ---
-title: Вызов
+title: Управление подсказками в диаграммах презентаций на Android
+linktitle: Подсказка
 type: docs
 url: /ru/androidjava/callout/
+keywords:
+- подсказка диаграммы
+- использовать подсказку
+- метка данных
+- формат метки
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Создавайте и оформляйте подсказки в Aspose.Slides для Android с помощью лаконичных примеров кода на Java, совместимых с PPT и PPTX, для автоматизации процессов создания презентаций."
 ---
 
-## **Использование вызовов**
-Новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) были добавлены в класс [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) и интерфейс [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Эти методы определяют, будет ли указанный ярлык данных графика отображаться как вызов данных или как ярлык данных.
-
+## **Использование подсказок**
+Новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) были добавлены в класс [DataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabelformat) и интерфейс [IDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat). Эти методы определяют, будет ли метка данных указанной диаграммы отображаться как подсказка данных или как метка данных.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +33,9 @@ try {
 }
 ```
 
-## **Установка вызова для «кольцевого» графика**
-Aspose.Slides для Android через Java предоставляет поддержку для установки формы вызова ярлыка данных серии для кольцевого графика. Ниже приведен пример.
 
+## **Установить подсказку для кольцевой диаграммы**
+Aspose.Slides for Android via Java предоставляет возможность задавать форму подсказки метки данных серии для кольцевой диаграммы. Ниже приведён пример.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,7 +48,7 @@ try {
     int seriesIndex = 0;
     while (seriesIndex < 15)
     {
-        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "СЕРИЯ " + seriesIndex), chart.getType());
+        IChartSeries series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
         series.getParentSeriesGroup().setDoughnutHoleSize((byte)20);
         series.getParentSeriesGroup().setFirstSliceAngle(351);
@@ -46,7 +57,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "КАТЕГОРИЯ " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +97,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли подсказки при конвертации презентации в PDF, HTML5, SVG или изображения?**
+
+Да. Подсказки являются частью рендеринга диаграммы, поэтому при экспорте в [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/androidjava/export-to-html5/), [SVG](/slides/ru/androidjava/render-a-slide-as-an-svg-image/) или [растровые изображения](/slides/ru/androidjava/convert-powerpoint-to-png/) они сохраняются вместе с форматированием слайда.
+
+**Работают ли пользовательские шрифты в подсказках, и можно ли сохранить их внешний вид при экспорте?**
+
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/androidjava/embedded-font/) в презентацию и управляет встраиванием шрифтов при экспорте, например в [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид подсказок на разных системах.

@@ -1,104 +1,114 @@
 ---
-title: إدارة الزوم
+title: إدارة تكبير العرض التقديمي على Android
+linktitle: إدارة التكبير
 type: docs
 weight: 60
 url: /ar/androidjava/manage-zoom/
-keywords: "الزوم, إطار الزوم, إضافة زوم, تنسيق إطار الزوم, ملخص زوم, عرض بوربوينت, جافا, Aspose.Slides لاندرويد عبر جافا"
-description: "أضف الزوم أو إطارات الزوم إلى عروض بوربوينت في جافا"
+keywords:
+- تكبير
+- إطار التكبير
+- تكبير الشريحة
+- تكبير القسم
+- تكبير الموجز
+- إضافة تكبير
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إنشاء وتخصيص التكبير باستخدام Aspose.Slides لنظام Android عبر Java — الانتقال بين الأقسام، إضافة الصور المصغرة والانتقالات عبر عروض PPT و PPTX و ODP."
 ---
 
 ## **نظرة عامة**
-يمكن أن يسمح لك الزوم في PowerPoint بالانتقال بسرعة إلى ومن شرائح معينة أو أقسام أو أجزاء من العرض التقديمي. عندما تقدم عرضًا، قد تكون هذه القدرة على التنقل بسرعة عبر المحتوى مفيدة جدًا.
+تسمح لك أدوات التكبير في PowerPoint بالقفز إلى ومن الشرائح المحددة، الأقسام، وأجزاء العرض التقديمي. عند تقديم العرض، قد تكون هذه القدرة على التنقل السريع عبر المحتوى مفيدة للغاية.
 
 ![overview_image](overview.png)
 
-* لتلخيص عرض كامل على شريحة واحدة، استخدم [ملخص زوم](#Summary-Zoom).
-* لإظهار الشرائح المختارة فقط، استخدم [زوم الشريحة](#Slide-Zoom).
-* لإظهار قسم واحد فقط، استخدم [زوم القسم](#Section-Zoom).
+* لتلخيص عرض كامل على شريحة واحدة، استخدم [التكبير الموجز](#Summary-Zoom).
+* لعرض الشرائح المحددة فقط، استخدم [تكبير الشريحة](#Slide-Zoom).
+* لعرض قسم واحد فقط، استخدم [تكبير القسم](#Section-Zoom).
 
-## **زوم الشريحة**
-يمكن أن يجعل زوم الشريحة عرضك أكثر ديناميكية، مما يتيح لك التنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة تدفق عرضك. زوم الشرائح رائع للعروض القصيرة دون العديد من الأقسام، لكن يمكنك استخدامه في سيناريوهات عرض مختلفة.
+## **تكبير الشريحة**
+يمكن أن يجعل تكبير الشريحة عرضك التقديمي أكثر ديناميكية، حيث يتيح لك التنقل بحرية بين الشرائح بأي ترتيب تختاره دون إيقاف تدفق العرض. تكبير الشرائح رائع للعروض القصيرة التي لا تحتوي على أقسام كثيرة، لكن لا يزال بإمكانك استخدامه في سيناريوهات عرض مختلفة.
 
-يساعد زوم الشرائح في الوصول إلى قطع متعددة من المعلومات بينما تشعر أنك على لوحة واحدة.
+يساعدك تكبير الشرائح على استكشاف معلومات متعددة بينما تشعر أنك على لوحة واحدة.
 
 ![overview_image](slidezoomsel.png)
 
-لتحديد كائنات زوم الشريحة، تقدم Aspose.Slides التعداد [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType)، الواجهة [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame)، وبعض الطرق ضمن واجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+لكائنات تكبير الشريحة، توفر Aspose.Slides تعداد ZoomImageType، واجهة IZoomFrame، وبعض الأساليب تحت واجهة IShapeCollection.
 
-### **إنشاء إطارات الزوم**
+### **إنشاء إطارات التكبير**
+يمكنك إضافة إطار تكبير إلى شريحة بهذه الطريقة:
 
-يمكنك إضافة إطار زوم على شريحة بهذه الطريقة:
-
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شرائح جديدة تريد ربط إطارات الزوم بها.
-3. أضف نص تعريف وخلفية للشرائح التي تم إنشاؤها.
-4. أضف إطارات الزوم (التي تحتوي على مراجع للشرائح التي تم إنشاؤها) للشريحة الأولى.
-5. اكتب العرض التقديمي المعدل كملف PPTX.
-
-يوضح لك كود جافا هذا كيفية إنشاء إطار زوم على شريحة:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شرائح جديدة لربط إطارات التكبير بها.
+3. إضافة نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
+4. إضافة إطارات تكبير (التي تحتوي على مراجع للشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds new slides to the presentation
+    //يضيف شرائح جديدة إلى العرض التقديمي
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // ينشئ خلفية للشريحة الثانية
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the second slide
+    // ينشئ مربع نص للشريحة الثانية
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("شريحة ثانية");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a background for the third slide
+    // ينشئ خلفية للشريحة الثالثة
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Create a text box for the third slide
+    // ينشئ مربع نص للشريحة الثالثة
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("شريحة ثالثة");
+    autoshape.getTextFrame().setText("Trird Slide");
 
-    //Adds ZoomFrame objects
+    //يضيف كائنات ZoomFrame objects
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **إنشاء إطارات الزوم باستخدام صور مخصصة**
-مع Aspose.Slides لاندرويد عبر جافا، يمكنك إنشاء إطار زوم بصورة معاينة شريحة مختلفة بهذه الطريقة:
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شريحة جديدة تريد ربط إطار الزوم بها.
-3. أضف نص تعريف وخلفية للشريحة.
-4. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي ستستخدم لملء الإطار.
-5. أضف إطارات الزوم (التي تحتوي على مرجع للشريحة التي تم إنشاؤها) للشريحة الأولى.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
 
-يوضح لك كود جافا هذا كيفية إنشاء إطار زوم بصورة مختلفة:
+
+### **إنشاء إطارات التكبير بصور مخصصة**
+باستخدام Aspose.Slides لنظام Android عبر Java، يمكنك إنشاء إطار تكبير بصورة معاينة شريحة مختلفة بهذه الطريقة:
+
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شريحة جديدة لربط إطار التكبير بها.
+3. إضافة نص تعريف وخلفية إلى الشريحة.
+4. إنشاء كائن IPPImage عبر إضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+5. إضافة إطارات تكبير (التي تحتوي على مرجع إلى الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
+6. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // ينشئ خلفية للشريحة الثانية
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the third slide
+    // ينشئ مربع نص للشريحة الثالثة
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("شريحة ثانية");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a new image for the zoom object
+    // ينشئ صورة جديدة لكائن التكبير
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -106,63 +116,63 @@ try {
         } finally {
             if (image != null) image.dispose();
         }
-    //Adds the ZoomFrame object
+    //يضيف كائن ZoomFrame object
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **تنسيق إطارات الزوم**
-في الأقسام السابقة، أظهرنا لك كيفية إنشاء إطارات زوم بسيطة. لإنشاء إطارات زوم أكثر تعقيدًا، يجب عليك تغيير تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على إطار الزوم. 
 
-يمكنك التحكم في تنسيق إطار الزوم على شريحة بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شرائح جديدة لربطها بإطار الزوم الذي تنوي ربطه.
-3. أضف بعض نص التعريف وخلفية للشرائح التي تم إنشاؤها.
-4. أضف إطارات الزوم (التي تحتوي على مراجع إلى الشرائح التي تم إنشاؤها) للشريحة الأولى.
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي ستستخدم لملء الإطار.
-6. قم بتعيين صورة مخصصة لكائن إطار الزوم الأول.
-7. غيّر تنسيق الخط للكائن الثاني من إطار الزوم.
-8. أزل الخلفية من صورة العنصر الثاني من إطار الزوم.
-9. اكتب العرض التقديمي المعدل كملف PPTX.
+### **تنسيق إطارات التكبير**
+في الأقسام السابقة، أظهرنا لك كيفية إنشاء إطارات تكبير بسيطة. لإنشاء إطارات تكبير أكثر تعقيدًا، تحتاج إلى تعديل تنسيق الإطار البسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار التكبير.
 
-يوضح لك كود جافا هذا كيفية تغيير تنسيق إطار الزوم على شريحة:
+يمكنك التحكم في تنسيق إطار التكبير على شريحة بهذه الطريقة:
+
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شرائح جديدة للربط التي تنوي ربط إطار التكبير بها.
+3. إضافة نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
+4. إضافة إطارات تكبير (التي تحتوي على مراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. إنشاء كائن IPPImage عبر إضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+6. تعيين صورة مخصصة لكائن إطار التكبير الأول.
+7. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+8. إزالة الخلفية من صورة كائن إطار التكبير الثاني.
+5. كتابة العرض المعدل كملف PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds new slides to the presentation
+    //يضيف شرائح جديدة إلى العرض التقديمي
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Creates a background for the second slide
+    // ينشئ خلفية للشريحة الثانية
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the second slide
+    // ينشئ مربع نص للشريحة الثانية
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("شريحة ثانية");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Creates a background for the third slide
+    // ينشئ خلفية للشريحة الثالثة
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Creates a text box for the third slide
+    // ينشئ مربع نص للشريحة الثالثة
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("شريحة ثالثة");
+    autoshape.getTextFrame().setText("Trird Slide");
 
-    //Adds ZoomFrame objects
+    //يضيف كائنات ZoomFrame
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Creates a new image for the zoom object
+    // ينشئ صورة جديدة لكائن التكبير
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -170,19 +180,19 @@ try {
         } finally {
             if (image != null) image.dispose();
         }
-    // Sets custom image for zoomFrame1 object
+    // يضبط صورة مخصصة لكائن zoomFrame1
     zoomFrame1.setImage(picture);
 
-    // Sets a zoom frame format for the zoomFrame2 object
+    // يضبط تنسيق إطار التكبير لكائن zoomFrame2
     zoomFrame2.getLineFormat().setWidth(5);
     zoomFrame2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // Setting for Do not show background for zoomFrame2 object
+    // إعداد عدم إظهار الخلفية لكائن zoomFrame2
     zoomFrame2.setShowBackground(false);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -190,75 +200,71 @@ try {
 }
 ```
 
-## **زوم القسم**
 
-زوم القسم هو رابط إلى قسم في عرضك التقديمي. يمكنك استخدام زوم الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط بعض أجزاء عرضك. 
+## **تكبير القسم**
+تكبير القسم هو ارتباط إلى قسم في عرضك التقديمي. يمكنك استخدام تكبير الأقسام للعودة إلى الأقسام التي ترغب في التأكيد عليها. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط أجزاء معينة من عرضك.
 
 ![overview_image](seczoomsel.png)
 
-بالنسبة لأجزاء زوم القسم، توفر Aspose.Slides الواجهة [ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame) وبعض الطرق ضمن الواجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+لكائنات تكبير القسم، توفر Aspose.Slides واجهة ISectionZoomFrame وبعض الأساليب تحت واجهة IShapeCollection.
 
-### **إنشاء إطارات زوم القسم**
+### **إنشاء إطارات تكبير القسم**
+يمكنك إضافة إطار تكبير القسم إلى شريحة بهذه الطريقة:
 
-يمكنك إضافة إطار زوم القسم إلى شريحة بهذه الطريقة:
-
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شريحة جديدة. 
-3. أضف خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تريد ربط إطار الزوم به. 
-5. أضف إطار زوم قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
-
-يوضح لك كود جافا هذا كيفية إنشاء إطار زوم على شريحة:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد لربط إطار التكبير به.
+5. إضافة إطار تكبير قسم (الذي يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    // Adds a SectionZoomFrame object
+    // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **إنشاء إطارات زوم القسم باستخدام صور مخصصة**
 
-باستخدام Aspose.Slides لاندرويد عبر جافا، يمكنك إنشاء إطار زوم قسم بصورة معاينة شريحة مختلفة بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شريحة جديدة.
-3. أضف خلفية تعريفية للشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تريد ربط إطار الزوم به. 
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي ستستخدم لملء الإطار.
-5. أضف إطار زوم قسم (يحتوي على مرجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
+### **إنشاء إطارات تكبير القسم بصور مخصصة**
+باستخدام Aspose.Slides لنظام Android عبر Java، يمكنك إنشاء إطار تكبير قسم بصورة معاينة شريحة مختلفة بهذه الطريقة:
 
-يوضح لك كود جافا هذا كيفية إنشاء إطار زوم بصورة مختلفة:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد لربط إطار التكبير به.
+5. إنشاء كائن IPPImage عبر إضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+5. إضافة إطار تكبير قسم (الذي يحتوي على مرجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. كتابة العرض المعدل كملف PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    // Creates a new image for the zoom object
+    //ينشئ صورة جديدة لكائن التكبير
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -267,54 +273,53 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Adds SectionZoomFrame object
+    // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **تنسيق إطارات زوم القسم**
 
-لإنشاء إطارات زوم القسم الأكثر تعقيدًا، يجب عليك تغيير تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على إطار زوم القسم. 
 
-يمكنك التحكم في تنسيق إطار زوم القسم بهذه الطريقة:
+### **تنسيق إطارات تكبير القسم**
+لإنشاء إطارات تكبير قسم أكثر تعقيدًا، يجب تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار تكبير القسم.
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شريحة جديدة.
-3. أضف خلفية تعريفية للشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تريد ربط إطار الزوم به. 
-5. أضف إطار زوم قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. غيّر الحجم والموضع لكائن الزوم القسم الذي تم إنشاؤه.
-7. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي ستستخدم لملء الإطار.
-8. قم بتعيين صورة مخصصة لإطار زوم القسم الذي تم إنشاؤه.
-9. قم بتعيين القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*. 
-10. أزل الخلفية من صورة إطار زوم القسم.
-11. غيّر تنسيق الخط لكائن الزوم الثاني.
-12. غيّر مدة الانتقال.
-13. اكتب العرض التقديمي المعدل كملف PPTX.
+يمكنك التحكم في تنسيق إطار تكبير القسم على شريحة بهذه الطريقة:
 
-يوضح لك كود جافا هذا كيفية تغيير تنسيق إطار زوم القسم:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد لربط إطار التكبير به.
+5. إضافة إطار تكبير قسم (الذي يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. تغيير الحجم والموقع لكائن تكبير القسم الذي تم إنشاؤه.
+7. إنشاء كائن IPPImage عبر إضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+8. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
+9. تفعيل قدرة *العودة إلى الشريحة الأصلية من القسم المرتبط*.
+10. إزالة الخلفية من صورة كائن إطار تكبير القسم.
+11. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+12. تغيير مدة الانتقال.
+13. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    // Add SectionZoomFrame object
+    // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
 
-    // Formatting for SectionZoomFrame
+    // تنسيق SectionZoomFrame
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
@@ -339,7 +344,7 @@ try {
 
     sectionZoomFrame.setTransitionDuration(1.5f);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -347,181 +352,174 @@ try {
 }
 ```
 
-## **ملخص الزوم**
 
-ملخص الزوم يشبه صفحة الهبوط حيث تظهر جميع أجزاء عرضك التقديمي دفعة واحدة. عند تقديمك، يمكنك استخدام الزوم للانتقال من مكان في عرضك إلى آخر بأي ترتيب تريده. يمكنك أن تكون مبدعًا، تخطي، أو إعادة زيارة أجزاء من عرض الشرائح الخاص بك دون مقاطعة تدفق عرضك.
+## **تكبير الموجز**
+تكبير الموجز يشبه صفحة هبوط يتم فيها عرض جميع أجزاء عرضك التقديمي مرة واحدة. عند تقديم العرض، يمكنك استخدام التكبير للانتقال من مكان إلى آخر في عرضك بأي ترتيب تختاره. يمكنك الإبداع، التخطي إلى الأمام، أو إعادة زيارة أجزاء عرض الشرائح دون إيقاف تدفق العرض.
 
 ![overview_image](sumzoomsel.png)
 
-لأجزاء ملخص الزوم، توفر Aspose.Slides الواجهات [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame)، [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)، و [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) وبعض الطرق ضمن الواجهة [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+لكائنات تكبير الموجز، توفر Aspose.Slides واجهات ISummaryZoomFrame و ISummaryZoomSection و ISummaryZoomSectionCollection وبعض الأساليب تحت واجهة IShapeCollection.
 
-### **إنشاء ملخص الزوم**
+### **إنشاء تكبير الموجز**
+يمكنك إضافة إطار تكبير الموجز إلى شريحة بهذه الطريقة:
 
-يمكنك إضافة إطار ملخص الزوم إلى شريحة بهذه الطريقة:
-
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار ملخص الزوم إلى الشريحة الأولى.
-4. اكتب العرض التقديمي المعدل كملف PPTX.
-
-يوضح لك كود جافا هذا كيفية إنشاء إطار ملخص الزوم على شريحة:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الموجز إلى الشريحة الأولى.
+4. كتابة العرض المعدل كملف PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 2", slide);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 3", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 3", slide);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 4", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 4", slide);
 
-    // Adds a SummaryZoomFrame object
+    // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **إضافة وإزالة قسم ملخص الزوم**
 
-تمثل جميع الأقسام في إطار ملخص الزوم كائنات [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection)، والتي يتم تخزينها في كائن [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection). يمكنك إضافة أو إزالة كائن قسم ملخص الزوم من خلال واجهة [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) بهذه الطريقة:
+### **إضافة وإزالة قسم تكبير الموجز**
+جميع الأقسام في إطار تكبير الموجز تمثلها كائنات ISummaryZoomSection، والتي تُخزن في كائن ISummaryZoomSectionCollection. يمكنك إضافة أو إزالة كائن قسم تكبير الموجز عبر واجهة ISummaryZoomSectionCollection بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار ملخص الزوم إلى الشريحة الأولى.
-4. أضف شريحة جديدة وقسمًا إلى العرض التقديمي.
-5. أضف القسم الذي تم إنشاؤه إلى إطار الزوم الملخص.
-6. أزل القسم الأول من إطار الزوم الملخص.
-7. اكتب العرض التقديمي المعدل كملف PPTX.
-
-يوضح لك كود جافا هذا كيفية إضافة وإزالة الأقسام في إطار ملخص الزوم:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الموجز إلى الشريحة الأولى.
+4. إضافة شريحة جديدة وقسم إلى العرض.
+5. إضافة القسم الذي تم إنشاؤه إلى إطار تكبير الموجز.
+6. إزالة القسم الأول من إطار تكبير الموجز.
+7. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 2", slide);
 
-    // Adds SummaryZoomFrame object
+    // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    ISection section3 = pres.getSections().addSection("القسم 3", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    ISection section3 = pres.getSections().addSection("Section 3", slide);
 
-    // Adds a section to the Summary Zoom
+    // يضيف قسمًا إلى تكبير الموجز
     summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
 
-    // Removes section from the Summary Zoom
+    // يزيل القسم من تكبير الموجز
     summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **تنسيق أقسام ملخص الزوم**
 
-لإنشاء كائنات أقسام ملخص الزوم الأكثر تعقيدًا، يجب عليك تغيير تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على كائن قسم ملخص الزوم. 
+### **تنسيق أقسام تكبير الموجز**
+لإنشاء كائنات أقسام تكبير الموجز أكثر تعقيدًا، يجب تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على كائن قسم تكبير الموجز.
 
-يمكنك التحكم في التنسيق لكائن قسم ملخص الزوم في إطار ملخص الزوم بهذه الطريقة:
+يمكنك التحكم في تنسيق كائن قسم تكبير الموجز داخل إطار تكبير الموجز بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار ملخص الزوم إلى الشريحة الأولى.
-4. احصل على كائن قسم ملخص الزوم الأول من `ISummaryZoomSectionCollection`.
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي ستستخدم لملء الإطار.
-6. قم بتعيين صورة مخصصة لكائن إطار القسم الزوم الذي تم إنشاؤه.
-7. قم بتعيين الخاصية *العودة إلى الشريحة الأصلية من القسم المرتبط*. 
-8. غيّر تنسيق الخط لكائن الزوم الثاني.
-9. غيّر مدة الانتقال.
-10. اكتب العرض التقديمي المعدل كملف PPTX.
-
-يوضح لك كود جافا هذا كيفية تغيير التنسيق لكائن قسم ملخص الزوم:
+1. إنشاء كائن من فئة Presentation.
+2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الموجز إلى الشريحة الأولى.
+4. الحصول على كائن قسم تكبير الموجز الأول من `ISummaryZoomSectionCollection`.
+7. إنشاء كائن IPPImage عبر إضافة صورة إلى مجموعة images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+8. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
+9. تفعيل قدرة *العودة إلى الشريحة الأصلية من القسم المرتبط*.
+11. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+12. تغيير مدة الانتقال.
+13. كتابة العرض المعدل كملف PPTX.
 
 ``` java
 Presentation pres = new Presentation();
 try {
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.getSections().addSection("Section 2", slide);
 
-    // Adds a SummaryZoomFrame object
+    // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Gets the first SummaryZoomSection object
+    // يحصل على كائن SummaryZoomSection الأول
     ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
 
-    // Formatting for SummaryZoomSection object
+    // تنسيق كائن SummaryZoomSection
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -540,10 +538,21 @@ try {
 
     summarySection.setTransitionDuration(1.5f);
 
-    // Saves the presentation
+    // يحفظ العرض التقديمي
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+**هل يمكنني التحكم في العودة إلى الشريحة "الأصلية" بعد عرض الهدف؟**  
+نعم. يمتلك إطار التكبير أو القسم سلوك العودة إلى الأصل، والذي عند تفعيله يُعيد المشاهدين إلى الشريحة الأصلية بعد زيارة المحتوى المستهدف.
+
+**هل يمكنني تعديل "السرعة" أو مدة انتقال التكبير؟**  
+نعم. يدعم التكبير تعيين مدة الانتقال لتتمكن من التحكم في مدى طول مدة حركة القفزة.
+
+**هل هناك حدود لعدد كائنات التكبير التي يمكن للعرض التقديمي احتواؤها؟**  
+لا توجد حدود صريحة في وثائق API. تعتمد الحدود العملية على تعقيد العرض التقديمي العام وأداء المشاهد. يمكنك إضافة العديد من إطارات التكبير، لكن يجدر مراعاة حجم الملف وزمن التجسيد.

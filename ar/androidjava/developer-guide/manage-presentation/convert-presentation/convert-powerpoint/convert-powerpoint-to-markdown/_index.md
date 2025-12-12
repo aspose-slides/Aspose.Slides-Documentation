@@ -1,31 +1,54 @@
 ---
-title: تحويل PowerPoint إلى Markdown في جافا
+title: "تحويل عروض PowerPoint إلى Markdown على Android"
+linktitle: "PowerPoint إلى Markdown"
 type: docs
 weight: 140
 url: /ar/androidjava/convert-powerpoint-to-markdown/
-keywords: "تحويل PowerPoint إلى Markdown, تحويل ppt إلى md, PowerPoint, PPT, PPTX, عرض تقديمي, Markdown, جافا, Aspose.Slides لـ Android عبر جافا"
-description: "تحويل PowerPoint إلى Markdown في جافا"
+keywords:
+- "تحويل PowerPoint"
+- "تحويل العرض التقديمي"
+- "تحويل الشريحة"
+- "تحويل PPT"
+- "تحويل PPTX"
+- "PowerPoint إلى MD"
+- "العرض التقديمي إلى MD"
+- "الشريحة إلى MD"
+- "PPT إلى MD"
+- "PPTX إلى MD"
+- "حفظ PowerPoint بصيغة Markdown"
+- "حفظ العرض التقديمي بصيغة Markdown"
+- "حفظ الشريحة بصيغة Markdown"
+- "حفظ PPT بصيغة MD"
+- "حفظ PPTX بصيغة MD"
+- "تصدير PPT إلى MD"
+- "تصدير PPTX إلى MD"
+- "PowerPoint"
+- "العرض التقديمي"
+- "Markdown"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "تحويل شرائح PowerPoint-PPT، PPTX-إلى Markdown نظيف باستخدام Aspose.Slides لنظام Android عبر Java، أتمتة الوثائق والحفاظ على التنسيق."
 ---
 
 {{% alert color="info" %}} 
 
-تم تنفيذ دعم تحويل PowerPoint إلى Markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/).
+تم تنفيذ دعم تحويل PowerPoint إلى markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/androidjava/aspose-slides-for-java-23-7-release-notes/).
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
 
-تصدير PowerPoint إلى Markdown هو **بدون صور** بشكل افتراضي. إذا كنت تريد تصدير مستند PowerPoint يحتوي على صور، تحتاج إلى ضبط  `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` وأيضًا ضبط `BasePath` حيث سيتم حفظ الصور المرجعية في مستند markdown.
+تصدير PowerPoint إلى markdown يكون **بدون صور** بشكل افتراضي. إذا كنت تريد تصدير مستند PowerPoint يحتوي على صور، تحتاج إلى ضبط `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` وأيضًا تعيين `BasePath` حيث سيتم حفظ الصور المشار إليها في مستند markdown.
 
 {{% /alert %}} 
 
 ## **تحويل PowerPoint إلى Markdown**
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) لتمثيل كائن عرض تقديمي.
-2. استخدم الطريقة [Save ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)لحفظ الكائن كملف markdown.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) لتمثيل كائن عرض تقديمي.
+2. استخدم طريقة [حفظ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)-لحفظ الكائن كملف markdown.
 
-هذا رمز جافا يظهر لك كيفية تحويل PowerPoint إلى markdown:
-
+هذا الكود Java يوضح لك كيفية تحويل PowerPoint إلى markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -35,12 +58,12 @@ try {
 }
 ```
 
-## تحويل PowerPoint إلى نكهة Markdown
 
-يتيح لك Aspose.Slides تحويل PowerPoint إلى markdown (بما في ذلك النحو الأساسي)، CommonMark، Markdown بنكهة GitHub، Trello، XWiki، GitLab، و 17 نكهة أخرى من markdown.
+## **تحويل PowerPoint إلى صيغة Markdown**
 
-هذا رمز جافا يظهر لك كيفية تحويل PowerPoint إلى CommonMark:
+يتيح لك Aspose.Slides تحويل PowerPoint إلى markdown (بما يحتوي على الصياغة الأساسية)، CommonMark، GitHub flavored markdown، Trello، XWiki، GitLab، و 17 صيغة markdown أخرى.
 
+هذا الكود Java يوضح لك كيفية تحويل PowerPoint إلى CommonMark:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -52,16 +75,16 @@ try {
 }
 ```
 
-تدعم 23 نكهة من markdown [مذكورة تحت تعداد Flavor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/) من فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) .
+
+الصيغ الـ23 المدعومة لـ markdown مدرجة في [قائمة Flavor enumeration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/flavor/) من فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/).
 
 ## **تحويل عرض تقديمي يحتوي على صور إلى Markdown**
 
-توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) خصائص وتعدادات تتيح لك استخدام خيارات أو إعدادات معينة لملف markdown الناتج. يمكن، على سبيل المثال، ضبط تعداد [MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/) إلى قيم تحدد كيفية عرض أو التعامل مع الصور: `الترتيب`, `نص فقط`, `مرئي`.
+توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) خصائص وتعدادات تتيح لك استخدام خيارات أو إعدادات معينة لملف markdown الناتج. يمكن تعيين تعداد [MarkdownExportType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownexporttype/)، على سبيل المثال، إلى قيم تحدد كيفية معالجة أو عرض الصور: `Sequential`، `TextOnly`، `Visual`.
 
-### **تحويل الصور بالتسلسل**
+### **تحويل الصور بشكل تسلسلي**
 
-إذا كنت تريد أن تظهر الصور بشكل فردي واحدة تلو الأخرى في markdown الناتج، يجب عليك اختيار الخيار التسلسلي. هذا رمز جافا يظهر لك كيفية تحويل عرض تقديمي يحتوي على صور إلى markdown:
-
+إذا كنت تريد ظهور الصور واحدة تلو الأخرى بشكل فردي في markdown الناتج، عليك اختيار الخيار التسلسلي. يوضح لك هذا الكود Java كيفية تحويل عرض تقديمي يحتوي على صور إلى markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -77,12 +100,12 @@ try {
 }
 ```
 
+
 ### **تحويل الصور بصريًا**
 
-إذا كنت تريد أن تظهر الصور معًا في markdown الناتج، يجب عليك اختيار الخيار المرئي. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم بناء مسار نسبي لها في مستند markdown)، أو يمكنك تحديد مسارك المفضل واسم المجلد.
+إذا كنت تريد ظهور الصور معًا في markdown الناتج، عليك اختيار الخيار البصري. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم إنشاء مسار نسبي لها في مستند markdown)، أو يمكنك تحديد المسار المفضل واسم المجلد.
 
-هذا رمز جافا يوضح العملية:
-
+هذا الكود Java يوضح العملية:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -96,3 +119,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل تبقى الروابط التشعبية بعد التصدير إلى Markdown؟**
+
+نعم. يتم حفظ نص [الروابط التشعبية](/slides/ar/androidjava/manage-hyperlinks/) كروابط Markdown قياسية. لا يتم تحويل [الانتقالات](/slides/ar/androidjava/slide-transition/) و[الرسوم المتحركة](/slides/ar/androidjava/powerpoint-animation/) للشرائح.
+
+**هل يمكنني تسريع التحويل عن طريق تشغيله في عدة خيوط؟**
+
+يمكنك إجراء التوازي عبر الملفات، لكن لا [تشترك](/slides/ar/androidjava/multithreading/) في نفس كائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) عبر الخيوط. استخدم كائنات/عمليات منفصلة لكل ملف لتجنب التضارب.
+
+**ماذا يحدث للصور—أين يتم حفظها، وهل المسارات نسبية؟**
+
+[الصور](/slides/ar/androidjava/image/) يتم تصديرها إلى مجلد مخصص، ويشير ملف Markdown إليها باستخدام مسارات نسبية بشكل افتراضي. يمكنك ضبط مسار الإخراج الأساسي واسم مجلد الأصول للحفاظ على بنية مستودع متوقعة.

@@ -1,23 +1,36 @@
 ---
-title: Marcador de Datos del Gráfico
+title: Administrar marcadores de datos de gráficos en presentaciones en Android
+linktitle: Marcador de datos
 type: docs
 url: /es/androidjava/chart-data-marker/
+keywords:
+- gráfico
+- punto de datos
+- marcador
+- opciones de marcador
+- tamaño del marcador
+- tipo de relleno
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Personaliza los marcadores de datos de gráficos en Aspose.Slides para Android, mejorando el impacto de la presentación en formatos PPT y PPTX con ejemplos claros de código Java."
 ---
 
-## **Establecer Opciones de Marcador del Gráfico**
-Los marcadores pueden establecerse en puntos de datos del gráfico dentro de series particulares. Para establecer las opciones de marcador del gráfico, siga los pasos a continuación:
+## **Establecer opciones de marcador de gráfico**
+Los marcadores se pueden establecer en los puntos de datos del gráfico dentro de series específicas. Para configurar las opciones de marcador del gráfico, siga los pasos a continuación:
 
 - Instanciar la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 - Crear el gráfico predeterminado.
 - Establecer la imagen.
-- Tomar la primera serie del gráfico.
-- Agregar un nuevo punto de datos.
-- Escribir la presentación en el disco.
+- Obtener la primera serie del gráfico.
+- Añadir un nuevo punto de datos.
+- Guardar la presentación en disco.
 
-En el ejemplo a continuación, hemos establecido las opciones de marcador del gráfico a nivel de puntos de datos.
-
+En el ejemplo mostrado a continuación, hemos configurado las opciones de marcador del gráfico a nivel de puntos de datos.
 ```java
-// Creando presentación vacía
+// Crear presentación vacía
 Presentation pres = new Presentation();
 try {
     // Acceder a la primera diapositiva
@@ -26,17 +39,17 @@ try {
     // Crear el gráfico predeterminado
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 0, 0, 400, 400);
     
-    // Obtener el índice de la hoja de datos del gráfico predeterminado
+    // Obtener el índice de la hoja de cálculo de datos del gráfico predeterminado
     int defaultWorksheetIndex = 0;
     
-    // Obtener la hoja de datos del gráfico
+    // Obtener la hoja de cálculo de datos del gráfico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Eliminar serie de demostración
+    // Eliminar la serie de demostración
     chart.getChartData().getSeries().clear();
     
     // Agregar nueva serie
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Serie 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
 
     // Cargar la imagen 1
     IPPImage imgx1 = pres.getImages().addImage(new FileInputStream(new File("Desert.jpg")));
@@ -64,13 +77,22 @@ try {
     point.getMarker().getFormat().getFill().setFillType(FillType.Picture);
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
     
-    // Cambiando el marcador de la serie del gráfico
+    // Cambiar el marcador de la serie del gráfico
     series.getMarker().setSize(15);
     
-    // Guardar presentación con gráfico
+    // Guardar la presentación con el gráfico
     pres.save("ScatterChart.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Qué formas de marcador están disponibles de forma predeterminada?**
+Están disponibles formas estándar (círculo, cuadrado, diamante, triángulo, etc.); la lista está definida por la clase [MarkerStyleType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markerstyletype/). Si necesita una forma no estándar, utilice un marcador con relleno de imagen para emular visuales personalizadas.
+
+**¿Se conservan los marcadores al exportar un gráfico a una imagen o SVG?**
+Sí. Al renderizar gráficos a [formatos raster](/slides/es/androidjava/convert-powerpoint-to-png/) o guardar [formas como SVG](/slides/es/androidjava/render-a-slide-as-an-svg-image/), los marcadores mantienen su apariencia y configuración, incluyendo tamaño, relleno y contorno.

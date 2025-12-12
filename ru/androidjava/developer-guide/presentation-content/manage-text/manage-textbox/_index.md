@@ -1,58 +1,71 @@
 ---
-title: Управление текстовым полем
+title: Управление текстовыми полями в презентациях на Android
+linktitle: Управление текстовым полем
 type: docs
 weight: 20
 url: /ru/androidjava/manage-textbox/
-description: Создание текстового поля на слайдах PowerPoint с использованием Java. Добавление столбца в текстовом поле или текстовом фрейме на слайдах PowerPoint с использованием Java. Добавление текстового поля с гиперссылкой на слайды PowerPoint с использованием Java.
+keywords:
+- текстовое поле
+- текстовый фрейм
+- добавить текст
+- обновить текст
+- создать текстовое поле
+- проверить текстовое поле
+- добавить колонку текста
+- добавить гиперссылку
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java упрощает создание, редактирование и клонирование текстовых полей в файлах PowerPoint и OpenDocument, улучшая автоматизацию ваших презентаций."
 ---
 
+Тексты на слайдах обычно находятся в текстовых полях или фигурах. Поэтому, чтобы добавить текст на слайд, вам нужно добавить текстовое поле и затем поместить туда некоторый текст. Aspose.Slides for Android via Java предоставляет интерфейс [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape), который позволяет добавлять фигуру, содержащую текст.
 
-Тексты на слайдах обычно размещаются в текстовых полях или фигурах. Поэтому, чтобы добавить текст на слайд, нужно добавить текстовое поле и затем поместить текст внутрь текстового поля. Aspose.Slides для Android через Java предоставляет интерфейс [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape), который позволяет добавлять фигуры с содержанием текста.
-
-{{% alert title="Информация" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
 Aspose.Slides также предоставляет интерфейс [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape), который позволяет добавлять фигуры на слайды. Однако не все фигуры, добавленные через интерфейс `IShape`, могут содержать текст. Но фигуры, добавленные через интерфейс [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape), могут содержать текст.
 
 {{% /alert %}}
 
-{{% alert title="Замечание" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Поэтому, работая с фигурой, в которую вы хотите добавить текст, вы можете проверить и подтвердить, что она была приведена через интерфейс `IAutoShape`. Только тогда вы сможете работать с [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame), который является свойством интерфейса `IAutoShape`. Смотрите раздел [Обновление текста](https://docs.aspose.com/slides/androidjava/manage-textbox/#update-text) на этой странице.
+Поэтому, работая с фигурой, в которую вы хотите добавить текст, имеет смысл проверить и подтвердить, что она была приведена к интерфейсу `IAutoShape`. Только тогда вы сможете работать с [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame), который является свойством `IAutoShape`. См. раздел [Update Text](https://docs.aspose.com/slides/androidjava/manage-textbox/#update-text) на этой странице.
 
 {{% /alert %}}
 
 ## **Создание текстового поля на слайде**
 
-Чтобы создать текстовое поле на слайде, выполните следующие шаги:
+Для создания текстового поля на слайде выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на первый слайд в только что созданной презентации. 
-3. Добавьте объект [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) с типом [ShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) установленным как `Rectangle` в заданной позиции на слайде и получите ссылку на только что добавленный объект `IAutoShape`.
-4. Добавьте свойство `TextFrame` к объекту `IAutoShape`, которое будет содержать текст. В примере ниже мы добавили следующий текст: *Aspose TextBox*.
+3. Добавьте объект [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) с [ShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) , установленным в `Rectangle`, в указанной позиции на слайде и получите ссылку на только что добавленный объект `IAutoShape`.
+4. Добавьте свойство `TextFrame` к объекту `IAutoShape`, которое будет содержать текст. В примере ниже мы добавили такой текст: *Aspose TextBox*.
 5. Наконец, запишите файл PPTX через объект `Presentation`. 
 
-Этот код на Java — реализация вышеописанных шагов — показывает, как добавить текст на слайд:
-
+Этот Java‑код — реализация описанных шагов — показывает, как добавить текст на слайд:
 ```java
-// Создает экземпляр Presentation
+// Создает объект Presentation
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд в презентации
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Добавляет AutoShape с типом, установленным как Rectangle
+    // Добавляет AutoShape с типом Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Добавляет TextFrame к прямоугольнику
+    // Добавляет TextFrame к Rectangle
     ashp.addTextFrame(" ");
 
-    // Получает доступ к текстовому фрейму
+    // Доступ к текстовому фрейму
     ITextFrame txtFrame = ashp.getTextFrame();
 
     // Создает объект Paragraph для текстового фрейма
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Создает объект Portion для абзаца
+    // Создает объект Portion для параграфа
     IPortion portion = para.getPortions().get_Item(0);
 
     // Устанавливает текст
@@ -65,58 +78,83 @@ try {
 }
 ```
 
-## **Проверка фигуры текстового поля**
 
-Aspose.Slides предоставляет свойство [isTextBox()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#isTextBox--) (из класса [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/)), чтобы вы могли проверить фигуры и найти текстовые поля.
+## **Проверка наличия фигуры‑текстового поля**
 
-![Текстовое поле и фигура](istextbox.png)
+Aspose.Slides предоставляет метод [isTextBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#isTextBox--) из интерфейса [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), позволяющий проверять фигуры и определять текстовые поля.
 
-Этот код на Java показывает, как проверить, была ли фигура создана как текстовое поле: 
+![Text box and shape](istextbox.png)
 
+Этот Java‑код показывает, как проверить, была ли фигура создана как текстовое поле: 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ForEach.shape(pres, (shape, slide, index) ->
-    {
-        if (shape instanceof AutoShape)
-        {
-            AutoShape autoShape = (AutoShape)shape;
-            System.out.println(autoShape.isTextBox() ? "фигура является текстовым полем" : "фигура не является текстовым полем");
+    ForEach.shape(presentation, (shape, slide, index) -> {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
         }
     });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Добавление столбца в текстовое поле**
 
-Aspose.Slides предоставляет свойства [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) и [ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) и класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)), которые позволяют добавлять столбцы в текстовые поля. Вы можете указать количество столбцов в текстовом поле и установить расстояние в пунктах между столбцами.
+Обратите внимание, что если вы просто добавляете автофигуру с помощью метода `addAutoShape` из интерфейса [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), метод `isTextBox` для этой автофигуры вернёт `false`. Однако после того как вы добавите текст в автофигуру с помощью метода `addTextFrame` или метода `setText`, свойство `isTextBox` вернёт `true`.
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+// shape1.isTextBox() возвращает false
+shape1.addTextFrame("shape 1");
+// shape1.isTextBox() возвращает true
+
+IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
+// shape2.isTextBox() возвращает false
+shape2.getTextFrame().setText("shape 2");
+// shape2.isTextBox() возвращает true
+
+IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
+// shape3.isTextBox() возвращает false
+shape3.addTextFrame("");
+// shape3.isTextBox() возвращает false
+
+IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
+// shape4.isTextBox() возвращает false
+shape4.getTextFrame().setText("");
+// shape4.isTextBox() возвращает false
+```
+
+
+## **Добавление колонок в текстовое поле**
+
+Aspose.Slides предоставляет свойства [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) и [ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) и класса [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)), которые позволяют добавлять колонки в текстовые поля. Вы можете указать количество колонок в текстовом поле и задать расстояние между колонками в пунктах.
 
 Этот код на Java демонстрирует описанную операцию: 
-
 ```java
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд в презентации
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавляет AutoShape с типом, установленным как Rectangle
+    // Добавляет AutoShape с типом Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Добавляет TextFrame к прямоугольнику
-    aShape.addTextFrame("Все эти столбцы ограничены в рамках одного текстового контейнера -- " +
-            "вы можете добавлять или удалять текст, и новый или оставшийся текст автоматически подстраивается " +
-            "для размещения внутри контейнера. Вы не можете передавать текст из одного контейнера " +
-            "в другой -- мы говорили вам, что варианты колонок PowerPoint для текста ограничены!");
+    // Добавляет TextFrame к Rectangle
+    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
+            "you can add or delete text and the new or remaining text automatically adjusts " +
+            "itself to flow within the container. You cannot have text flow from one container " +
+            "to other though -- we told you PowerPoint's column options for text are limited!");
 
     // Получает формат текста TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
-    // Указывает количество столбцов в TextFrame
+    // Устанавливает количество колонок в TextFrame
     format.setColumnCount(3);
 
-    // Указывает расстояние между столбцами
+    // Устанавливает расстояние между колонками
     format.setColumnSpacing(10);
 
     // Сохраняет презентацию
@@ -127,11 +165,11 @@ try {
 ```
 
 
-## **Добавление столбца в текстовый фрейм**
-Aspose.Slides для Android через Java предоставляет свойство [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)), которое позволяет вам добавлять столбцы в текстовые фреймы. С помощью этого свойства вы можете указать предпочтительное количество столбцов в текстовом фрейме.
+## **Добавление колонок в текстовый фрейм**
 
-Этот код на Java показывает, как добавить столбец внутри текстового фрейма:
+Aspose.Slides for Android via Java предоставляет свойство [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)), которое позволяет добавлять колонки в текстовые фреймы. С помощью этого свойства вы можете указать желаемое количество колонок в текстовом фрейме.
 
+Этот Java‑код показывает, как добавить колонку внутри текстового фрейма:
 ```java
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
@@ -140,10 +178,10 @@ try {
     TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
 
     format.setColumnCount(2);
-    shape1.getTextFrame().setText("Все эти столбцы заставляют оставаться в рамках одного текстового контейнера -- " +
-            "вы можете добавлять или удалять текст - и новый или оставшийся текст автоматически подстраивается " +
-            "для размещения внутри контейнера. Вы не можете, чтобы текст переходил из одного контейнера " +
-            "в другой, однако -- потому что варианты колонок PowerPoint для текста ограничены!");
+    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
+            "you can add or delete text - and the new or remaining text automatically adjusts " +
+            "itself to stay within the container. You cannot have text spill over from one container " +
+            "to other, though -- because PowerPoint's column options for text are limited!");
     pres.save(outPptxFileName, SaveFormat.Pptx);
 
     Presentation test = new Presentation(outPptxFileName);
@@ -184,12 +222,12 @@ try {
 }
 ```
 
+
 ## **Обновление текста**
 
-Aspose.Slides позволяет изменять или обновлять текст, содержащийся в текстовом поле, или все тексты, содержащиеся в презентации. 
+Aspose.Slides позволяет изменять или обновлять текст, содержащийся в текстовом поле, либо все тексты в презентации. 
 
-Этот код на Java демонстрирует операцию, в ходе которой все тексты в презентации обновляются или изменяются:
-
+Этот Java‑код демонстрирует операцию, при которой обновляются или изменяются все тексты в презентации:
 ```java
 Presentation pres = new Presentation("text.pptx");
 try {
@@ -197,63 +235,63 @@ try {
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) //Проверяет, поддерживает ли фигура текстовый фрейм (IAutoShape). 
+            if (shape instanceof IAutoShape) // Проверяет, поддерживает ли фигура текстовый фрейм (IAutoShape).
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Итерирует по абзацам в текстовом фрейме
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // Перебирает параграфы в текстовом фрейме
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Итерирует по каждой части в абзаце
+                    for (IPortion portion : paragraph.getPortions()) // Перебирает каждую часть в параграфе
                     {
-                        portion.setText(portion.getText().replace("years", "months")); //Изменяет текст
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Изменяет форматирование
+                        portion.setText(portion.getText().replace("years", "months")); // Изменяет текст
+                        portion.getPortionFormat().setFontBold(NullableBool.True); // Изменяет форматирование
                     }
                 }
             }
         }
     }
 
-    //Сохраняет измененную презентацию
+    // Сохраняет измененную презентацию
     pres.save("text-changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Добавление текстового поля с гиперссылкой** 
 
-Вы можете вставить ссылку в текстовое поле. Когда текстовое поле будет нажато, пользователи будут перенаправлены на открытие ссылки. 
+Вы можете вставить ссылку внутри текстового поля. При щелчке по полю пользователи будут перенаправлены к открытию ссылки. 
 
- Чтобы добавить текстовое поле с гиперссылкой, выполните следующие шаги:
+Чтобы добавить текстовое поле, содержащее ссылку, выполните следующие шаги:
 
 1. Создайте экземпляр класса `Presentation`. 
 2. Получите ссылку на первый слайд в только что созданной презентации. 
-3. Добавьте объект `AutoShape` с `ShapeType`, установленным как `Rectangle`, в заданной позиции на слайде и получите ссылку на только что добавленный объект AutoShape.
-4. Добавьте `TextFrame` к объекту `AutoShape`, который содержит *Aspose TextBox* в качестве текста по умолчанию. 
+3. Добавьте объект `AutoShape` с `ShapeType`, установленным в `Rectangle`, в указанной позиции на слайде и получите ссылку на только что добавленный объект AutoShape.
+4. Добавьте `TextFrame` к объекту `AutoShape`, который содержит *Aspose TextBox* как текст по умолчанию. 
 5. Создайте экземпляр класса `IHyperlinkManager`. 
-6. Присвойте объект `IHyperlinkManager` свойству [HyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) , связанному с вашей предпочтительной частью `TextFrame`.
+6. Присвойте объект `IHyperlinkManager` свойству [HyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) у выбранной части `TextFrame`.
 7. Наконец, запишите файл PPTX через объект `Presentation`. 
 
-Этот код на Java — реализация вышеописанных шагов — показывает, как добавить текстовое поле с гиперссылкой на слайд:
-
+Этот Java‑код — реализация описанных шагов — показывает, как добавить текстовое поле с гиперссылкой на слайд:
 ```java
-// Создает экземпляр класса Presentation, представляющий PPTX
+// Создает экземпляр класса Presentation, представляющего PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд в презентации
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавляет объект AutoShape с типом, установленным как Rectangle
+    // Добавляет объект AutoShape с типом Rectangle
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
-    // Приводит фигуру к AutoShape
+    // Приводит форму к типу AutoShape
     IAutoShape pptxAutoShape = (IAutoShape)shape;
 
-    // Получает доступ к свойству ITextFrame, связанному с AutoShape
+    // Получает свойство ITextFrame, связанное с AutoShape
     pptxAutoShape.addTextFrame("");
 
     ITextFrame textFrame = pptxAutoShape.getTextFrame();
 
-    // Добавляет некоторый текст в фрейм
+    // Добавляет текст во фрейм
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
 
     // Устанавливает гиперссылку для текста части
@@ -261,9 +299,20 @@ try {
             getPortionFormat().getHyperlinkManager();
     hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
 
-    // Сохраняет PPTX-презентацию
+    // Сохраняет презентацию PPTX
     pres.save("hLink_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**В чем разница между текстовым полем и текстовым заполняющим элементом при работе с шаблонными слайдами?**
+
+[Заполняющий элемент](/slides/ru/androidjava/manage-placeholder/) наследует стиль/позицию от [шаблона](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) и может быть переопределён на [макетах](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/), тогда как обычное текстовое поле — независимый объект на конкретном слайде и не меняется при переключении макетов.
+
+**Как выполнить массовую замену текста во всей презентации, не затрагивая текст внутри диаграмм, таблиц и SmartArt?**
+
+Ограничьте итерацию автофигурами, имеющими текстовые фреймы, и исключите встроенные объекты ([диаграммы](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), [таблицы](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/)), проходя их коллекции отдельно или пропуская эти типы объектов.
