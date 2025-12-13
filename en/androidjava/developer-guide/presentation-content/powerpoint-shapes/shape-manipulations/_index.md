@@ -27,7 +27,7 @@ keywords:
 description: "Learn to create, edit and optimize shapes in Aspose.Slides for Android via Java and deliver high-performance PowerPoint presentations."
 ---
 
-## **Find Shape in Slide**
+## **Find a Shape on a Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Android via Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
@@ -64,7 +64,7 @@ public static IShape findShape(ISlide slide, String alttext)
 }
 ```
 
-## **Clone Shape**
+## **Clone a Shape**
 To clone a shape to a slide using Aspose.Slides for Android via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -95,7 +95,7 @@ try {
 }
 ```
 
-## **Remove Shape**
+## **Remove a Shape**
 Aspose.Slides for Android via Java allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -133,7 +133,7 @@ try {
 }
 ```
 
-## **Hide Shape**
+## **Hide a Shape**
 Aspose.Slides for Android via Java allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -171,7 +171,7 @@ try {
 }
 ```
 
-## **Change Shapes Order**
+## **Change Shape Order**
 Aspose.Slides for Android via Java allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -204,7 +204,7 @@ try {
 }
 ```
 
-## **Get Interop Shape ID**
+## **Get the Interop Shape ID**
 Aspose.Slides for Android via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```java
@@ -218,7 +218,7 @@ try {
 }
 ```
 
-## **Set Alternative Text for Shape**
+## **Set Alternative Text for a Shape**
 Aspose.Slides for Android via Java allows developers to set AlternateText of any shape.
 Shapes in a presentation could be distinguished by the [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) method.
 [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
@@ -263,7 +263,7 @@ try {
 }
 ```
 
-## **Access Layout Formats for Shape**
+## **Access Layout Formats for a Shape**
 Aspose.Slides for Android via Java provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
 
 Below sample code is given.
@@ -284,7 +284,7 @@ try {
 }
 ```
 
-## **Render Shape as SVG**
+## **Render a Shape as SVG**
 Now Aspose.Slides for Android via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```java
@@ -302,7 +302,7 @@ try {
 }
 ```
 
-## **Shapes Alignment**
+## **Align a Shape**
 Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) has been added. The [ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) enumeration defines possible alignment options.
 
 **Example 1**
@@ -386,3 +386,17 @@ try {
 The result:
 
 ![The flipped shape](flipped_shape.png)
+
+## **FAQ**
+
+**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**
+
+There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
+
+**How can I control the stacking order (z-order) so a shape always stays "on top"?**
+
+Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) collection. For predictable results, finalize the z-order after all other slide modifications.
+
+**Can I "lock" a shape to prevent users from editing it in PowerPoint?**
+
+Yes. Set [shape-level protection flags](/slides/androidjava/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/androidjava/password-protected-presentation/).

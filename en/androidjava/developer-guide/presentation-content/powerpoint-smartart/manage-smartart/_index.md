@@ -19,7 +19,7 @@ keywords:
 description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Android using clear Java code samples that speed up slide design and automation."
 ---
 
-## **Get Text from SmartArt**
+## **Get Text from a SmartArt Object**
 Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```java
@@ -42,7 +42,7 @@ try {
 }
 ```
 
-## **Change Layout Type of SmartArt**
+## **Change the Layout Type of a SmartArt Object**
 In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -68,7 +68,7 @@ try {
 }
 ```
 
-## **Check Hidden Property of SmartArt**
+## **Check the Hidden Property of a SmartArt Object**
 Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -102,7 +102,7 @@ try {
 }
 ```
 
-## **Get or Set Organization Chart Type**
+## **Get or Set the Organization Chart Type**
 Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -127,7 +127,7 @@ try {
 }
 ```
 
-## **Create Picture Organization Chart**
+## **Create a Picture Organization Chart**
 Aspose.Slides for Android via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
@@ -175,4 +175,20 @@ try {
 }
 ```
 
+## **FAQ**
 
+**Does SmartArt support mirroring/reversing for RTL languages?**
+
+Yes. The [setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/#setReversed-boolean-) method switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+
+**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+
+You can [clone the SmartArt shape](/slides/androidjava/shape-manipulations/) via the shapes collection ([ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) or [clone the entire slide](/slides/androidjava/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+
+**How do I render SmartArt to a raster image for preview or web export?**
+
+[Render the slide](/slides/androidjava/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+
+**How can I programmatically select a specific SmartArt on a slide if there are several?**
+
+A common practice is to use [alternative text](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) or a [name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getName--) and search for the shape by that attribute within [slide shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/). The documentation describes typical techniques for finding and working with shapes.
