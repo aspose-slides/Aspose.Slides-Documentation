@@ -19,7 +19,7 @@ keywords:
 description: "Learn how to create and customize pie charts in Java with Aspose.Slides for Android, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
-## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
+## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 Aspose.Slides for Android via Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
@@ -110,3 +110,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) (such as PNG) without the entire presentation.
