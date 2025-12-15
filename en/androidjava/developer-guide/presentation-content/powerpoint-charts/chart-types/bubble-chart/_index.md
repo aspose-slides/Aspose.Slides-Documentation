@@ -47,3 +47,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Is a "bubble chart with 3-D effect" supported, and how does it differ from a regular one?**
+
+Yes. There is a separate chart type, "Bubble with 3-D." It applies 3-D styling to the bubbles but does not add an additional axis; the data remain X-Y-S (size). The type is available in the [chart type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) class.
+
+**Is there a limit on the number of series and points in a bubble chart?**
+
+There is no hard limit at the API level; constraints are determined by performance and the target PowerPoint version. It is recommended to keep the number of points reasonable for readability and rendering speed.
+
+**How will export affect the appearance of a bubble chart (PDF, images)?**
+
+Export to supported formats preserves the chart’s appearance; rendering is performed by the Aspose.Slides engine. For raster/vector formats, general chart-graphics rendering rules apply (resolution, anti-aliasing), so choose sufficient DPI for printing.
