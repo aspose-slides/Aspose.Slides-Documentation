@@ -1,48 +1,62 @@
 ---
-title: Sustitución de Fuentes - API de Java para PowerPoint
-linktitle: Sustitución de Fuentes
+title: Configurar sustitución de fuentes en presentaciones en Android
+linktitle: Sustitución de fuentes
 type: docs
 weight: 70
 url: /es/androidjava/font-substitution/
-keywords: "Fuente, fuente sustituta, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
-description: "Sustituir fuente en PowerPoint en Java"
+keywords:
+- fuente
+- sustituir fuente
+- sustitución de fuentes
+- reemplazar fuente
+- reemplazo de fuentes
+- regla de sustitución
+- regla de reemplazo
+- PowerPoint
+- OpenDocument
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Permite una sustitución óptima de fuentes en Aspose.Slides para Android mediante Java al convertir presentaciones de PowerPoint y OpenDocument a otros formatos de archivo."
 ---
 
-Aspose.Slides te permite establecer reglas para fuentes que determinan lo que debe hacerse en ciertas condiciones (por ejemplo, cuando no se puede acceder a una fuente) de la siguiente manera:
+## **Establecer reglas de sustitución de fuentes**
 
-1. Carga la presentación relevante.
-2. Carga la fuente que será reemplazada.
-3. Carga la nueva fuente.
-4. Agrega una regla para el reemplazo.
-5. Agrega la regla a la colección de reglas de reemplazo de fuentes de la presentación.
-6. Genera la imagen de la diapositiva para observar el efecto.
+Aspose.Slides le permite establecer reglas para fuentes que determinan qué debe hacerse en determinadas condiciones (por ejemplo, cuando una fuente no está disponible) de la siguiente manera:
 
-Este código de Java demuestra el proceso de sustitución de fuentes:
+1. Cargar la presentación correspondiente.
+2. Cargar la fuente que será reemplazada.
+3. Cargar la nueva fuente.
+4. Agregar una regla para el reemplazo.
+5. Agregar la regla a la colección de reglas de reemplazo de fuentes de la presentación.
+6. Generar la imagen de la diapositiva para observar el efecto.
 
+Este código Java demuestra el proceso de sustitución de fuentes:
 ```java
 // Carga una presentación
 Presentation pres = new Presentation("Fonts.pptx");
 try {
-    // Carga la fuente de origen que será reemplazada
+    // Carga la fuente origen que será reemplazada
     IFontData sourceFont = new FontData("SomeRareFont");
     
     // Carga la nueva fuente
     IFontData destFont = new FontData("Arial");
     
-    // Agrega una regla de fuente para el reemplazo de fuentes
+    // Añade una regla de fuente para el reemplazo de fuentes
     IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
     
-    // Agrega la regla a la colección de reglas de sustitución de fuentes
+    // Añade la regla a la colección de reglas de sustitución de fuentes
     IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
     fontSubstRuleCollection.add(fontSubstRule);
     
-    // Agrega una colección de reglas de fuente a la lista de reglas
+    // Añade una colección de reglas de fuentes a la lista de reglas
     pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
     
-    // Se utilizará la fuente Arial en lugar de SomeRareFont cuando esta última sea inaccesible
+    // La fuente Arial se usará en lugar de SomeRareFont cuando esta última sea inaccesible
     IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
     
-    // Guarda la imagen en el disco en formato JPEG
+    // Guarda la imagen en disco en formato JPEG
     try {
           slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
     } finally {
@@ -53,8 +67,37 @@ try {
 }
 ```
 
-{{%  alert title="NOTA"  color="warning"   %}} 
 
-Es posible que desees ver [**Reemplazo de Fuentes**](/slides/es/androidjava/font-replacement/).
-
+{{%  alert title="NOTE"  color="warning"   %}} 
+Es posible que desee ver [**Font Replacement**](/slides/es/androidjava/font-replacement/).
 {{% /alert %}}
+
+## **Preguntas frecuentes**
+
+**¿Cuál es la diferencia entre reemplazo de fuentes y sustitución de fuentes?**
+
+[Reemplazo](/slides/es/androidjava/font-replacement/) es una sustitución forzada de una fuente por otra en toda la presentación. La sustitución es una regla que se activa bajo una condición específica, por ejemplo cuando la fuente original no está disponible, y entonces se utiliza una fuente de respaldo designada.
+
+**¿Cuándo se aplican exactamente las reglas de sustitución?**
+
+Las reglas participan en la secuencia estándar de [selección de fuentes](/slides/es/androidjava/font-selection-sequence/) que se evalúa durante la carga, renderizado y conversión; si la fuente elegida no está disponible, se aplica el reemplazo o la sustitución.
+
+**¿Cuál es el comportamiento predeterminado si no se configura ni reemplazo ni sustitución y la fuente falta en el sistema?**
+
+La biblioteca intentará seleccionar la fuente del sistema más cercana disponible, similar a como lo haría PowerPoint.
+
+**¿Puedo adjuntar fuentes externas personalizadas en tiempo de ejecución para evitar la sustitución?**
+
+Sí. Puede [agregar fuentes externas](/slides/es/androidjava/custom-font/) en tiempo de ejecución para que la biblioteca las tenga en cuenta para la selección y renderizado, incluidas las conversiones posteriores.
+
+**¿Aspose distribuye fuentes con la biblioteca?**
+
+No. Aspose no distribuye fuentes pagas o gratuitas; usted agrega y usa fuentes bajo su propia discreción y responsabilidad.
+
+**¿Existen diferencias en el comportamiento de sustitución en Windows, Linux y macOS?**
+
+Sí. La detección de fuentes comienza en los directorios de fuentes del sistema operativo. El conjunto de fuentes predeterminadas disponibles y las rutas de búsqueda difieren entre plataformas, lo que afecta la disponibilidad y la necesidad de sustitución.
+
+**¿Cómo debo preparar el entorno para minimizar la sustitución inesperada durante conversiones por lotes?**
+
+Sincronice el conjunto de fuentes entre máquinas o contenedores, [agregue las fuentes externas](/slides/es/androidjava/custom-font/) requeridas para los documentos de salida, y [incorpore fuentes](/slides/es/androidjava/embedded-font/) en las presentaciones cuando sea posible, de modo que las fuentes elegidas estén disponibles durante el renderizado.

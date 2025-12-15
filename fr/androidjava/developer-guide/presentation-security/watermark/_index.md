@@ -1,43 +1,56 @@
 ---
-title: Filigrane
+title: Ajouter des filigranes aux présentations sur Android
+linktitle: Filigrane
 type: docs
 weight: 40
 url: /fr/androidjava/watermark/
 keywords:
 - filigrane
-- ajouter filigrane
 - filigrane texte
 - filigrane image
+- ajouter filigrane
+- modifier filigrane
+- supprimer filigrane
+- supprimer filigrane
+- ajouter filigrane à PPT
+- ajouter filigrane à PPTX
+- ajouter filigrane à ODP
+- supprimer filigrane de PPT
+- supprimer filigrane de PPTX
+- supprimer filigrane de ODP
+- supprimer filigrane de PPT
+- supprimer filigrane de PPTX
+- supprimer filigrane de ODP
 - PowerPoint
+- OpenDocument
 - présentation
 - Android
 - Java
-- Aspose.Slides pour Android via Java
-description: "Ajoutez des filigranes texte et image aux présentations PowerPoint en Java"
+- Aspose.Slides
+description: "Gérez les filigranes texte et image dans les présentations PowerPoint et OpenDocument sur Android en Java pour indiquer un brouillon, des informations confidentielles, et plus encore."
 ---
 
 ## **À propos des filigranes**
 
-**Un filigrane** dans une présentation est un tampon de texte ou d'image utilisé sur une diapositive ou sur toutes les diapositives de la présentation. En général, un filigrane est utilisé pour indiquer que la présentation est un brouillon (par exemple, un filigrane "Brouillon"), qu'elle contient des informations confidentielles (par exemple, un filigrane "Confidentiel"), pour spécifier à quelle entreprise elle appartient (par exemple, un filigrane "Nom de l'entreprise"), pour identifier l'auteur de la présentation, etc. Un filigrane aide à prévenir les violations de droits d'auteur en indiquant que la présentation ne doit pas être copiée. Les filigranes sont utilisés dans les formats de présentation PowerPoint et OpenOffice. Dans Aspose.Slides, vous pouvez ajouter un filigrane aux formats de fichiers PowerPoint PPT, PPTX et OpenOffice ODP.
+**Un filigrane** dans une présentation est un tampon texte ou image utilisé sur une diapositive ou sur l'ensemble des diapositives de la présentation. En général, un filigrane sert à indiquer que la présentation est un brouillon (p. ex., un filigrane « Draft »), qu'elle contient des informations confidentielles (p. ex., un filigrane « Confidential »), à préciser à quelle entreprise elle appartient (p. ex., un filigrane « Company Name »), à identifier l'auteur de la présentation, etc. Un filigrane aide à prévenir les violations de droits d'auteur en indiquant que la présentation ne doit pas être copiée. Les filigranes sont utilisés dans les formats de présentation PowerPoint et OpenOffice. Avec Aspose.Slides, vous pouvez ajouter un filigrane aux formats de fichiers PowerPoint PPT, PPTX et OpenOffice ODP.
 
-Dans [**Aspose.Slides**](https://products.aspose.com/slides/android-java/), il existe plusieurs façons de créer des filigranes dans des documents PowerPoint ou OpenOffice et de modifier leur conception et leur comportement. L'aspect commun est que pour ajouter des filigranes texte, vous devez utiliser l'interface [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/), et pour ajouter des filigranes image, utilisez la classe [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) ou remplissez une forme de filigrane avec une image. `PictureFrame` implémente l'interface [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), vous permettant d'utiliser tous les paramètres flexibles de l'objet de forme. Puisque `ITextFrame` n'est pas une forme et que ses paramètres sont limités, il est encapsulé dans un objet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/).
+Dans [**Aspose.Slides**](https://products.aspose.com/slides/android-java/), il existe différentes manières de créer des filigranes dans les documents PowerPoint ou OpenOffice et de modifier leur conception et leur comportement. L'aspect commun est que, pour ajouter des filigranes texte, vous devez utiliser l'interface [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/), et pour ajouter des filigranes image, utilisez la classe [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) ou remplissez une forme de filigrane avec une image. `PictureFrame` implémente l'interface [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), ce qui vous permet d'utiliser tous les paramètres flexibles de l'objet forme. Étant donné que `ITextFrame` n'est pas une forme et que ses paramètres sont limités, il est encapsulé dans un objet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/).
 
-Il y a deux façons dont un filigrane peut être appliqué : à une seule diapositive ou à toutes les diapositives de la présentation. Le maître de diapositive est utilisé pour appliquer un filigrane à toutes les diapositives de la présentation — le filigrane est ajouté au maître de diapositive, entièrement conçu là-bas, et appliqué à toutes les diapositives sans affecter la permission de modifier le filigrane sur des diapositives individuelles.
+Il existe deux façons d'appliquer un filigrane : sur une seule diapositive ou sur toutes les diapositives de la présentation. Le Masteur des diapositives est utilisé pour appliquer un filigrane à toutes les diapositives — le filigrane est ajouté au Masteur des diapositives, entièrement conçu là‑bas, et appliqué à toutes les diapositives sans affecter la possibilité de modifier le filigrane sur les diapositives individuelles.
 
-Un filigrane est généralement considéré comme non modifiable par d'autres utilisateurs. Pour empêcher le filigrane (ou plutôt la forme parent du filigrane) d'être modifié, Aspose.Slides fournit une fonctionnalité de verrouillage des formes. Une forme spécifique peut être verrouillée sur une diapositive normale ou sur un maître de diapositive. Lorsque la forme de filigrane est verrouillée sur le maître de diapositive, elle sera verrouillée sur toutes les diapositives de la présentation.
+Un filigrane est généralement considéré comme non modifiable par les autres utilisateurs. Pour empêcher le filigrane (ou plutôt la forme parent du filigrane) d'être édité, Aspose.Slides fournit une fonctionnalité de verrouillage des formes. Une forme spécifique peut être verrouillée sur une diapositive normale ou sur un Masteur des diapositives. Lorsque la forme du filigrane est verrouillée sur le Masteur des diapositives, elle le sera sur toutes les diapositives de la présentation.
 
-Vous pouvez définir un nom pour le filigrane afin que, dans le futur, si vous souhaitez le supprimer, vous puissiez le trouver dans les formes de la diapositive par son nom.
+Vous pouvez attribuer un nom au filigrane afin, à l'avenir, de pouvoir le supprimer en le retrouvant dans les formes de la diapositive par son nom.
 
-Vous pouvez concevoir le filigrane de n'importe quelle manière ; cependant, il existe généralement des caractéristiques communes dans les filigranes, telles que l'alignement central, la rotation, la position avant, etc. Nous allons voir comment utiliser ces caractéristiques dans les exemples ci-dessous.
+Vous pouvez concevoir le filigrane comme vous le souhaitez ; cependant, il existe généralement des caractéristiques communes aux filigranes, telles que l'alignement centré, la rotation, la position de premier plan, etc. Nous verrons comment les utiliser dans les exemples ci‑dessous.
 
 ## **Filigrane texte**
 
 ### **Ajouter un filigrane texte à une diapositive**
 
-Pour ajouter un filigrane texte dans PPT, PPTX ou ODP, vous pouvez d'abord ajouter une forme à la diapositive, puis ajouter un cadre de texte à cette forme. Le cadre de texte est représenté par l'interface [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/). Ce type n'est pas hérité de [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), qui a un large éventail de propriétés pour positionner le filigrane de manière flexible. Par conséquent, l'objet [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) est encapsulé dans un objet [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Pour ajouter du texte de filigrane à la forme, utilisez la méthode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) comme montré ci-dessous.
-
+Pour ajouter un filigrane texte dans PPT, PPTX ou ODP, vous pouvez d'abord ajouter une forme à la diapositive, puis ajouter un cadre texte à cette forme. Le cadre texte est représenté par l'interface [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/). Ce type n'hérite pas de [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), qui possède un large ensemble de propriétés pour positionner le filigrane de manière flexible. Ainsi, l'objet [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) est encapsulé dans un objet [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Pour ajouter du texte de filigrane à la forme, utilisez la méthode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) comme indiqué ci‑dessous.
 ```java
-String watermarkText = "CONFIDENTIEL";
+String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,16 +61,16 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
+
 {{% alert color="primary" title="Voir aussi" %}} 
 - [Comment utiliser la classe TextFrame](/slides/fr/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un filigrane texte à une présentation**
 
-Si vous souhaitez ajouter un filigrane texte à l'ensemble de la présentation (c'est-à-dire à toutes les diapositives à la fois), ajoutez-le au [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/). Le reste de la logique est le même que lorsque vous ajoutez un filigrane à une seule diapositive : créez un objet [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) puis ajoutez le filigrane en utilisant la méthode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
-
+Si vous souhaitez ajouter un filigrane texte à l'ensemble de la présentation (c’est‑à‑dire à toutes les diapositives à la fois), ajoutez‑le au [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/). Le reste de la logique est identique à l'ajout d'un filigrane à une seule diapositive — créez un objet [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) puis ajoutez le filigrane en utilisant la méthode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 ```java
-String watermarkText = "CONFIDENTIEL";
+String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -68,33 +81,33 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
+
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Maître de Diapositive](/slides/fr/androidjava/slide-master/)
+- [Comment utiliser le Masteur des diapositives](/slides/fr/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Définir la transparence de la forme du filigrane**
 
-Par défaut, la forme rectangulaire est stylisée avec des couleurs de remplissage et de ligne. Les lignes de code suivantes rendent la forme transparente.
-
+Par défaut, la forme rectangle est stylisée avec des couleurs de remplissage et de bordure. Les lignes de code suivantes rendent la forme transparente.
 ```java
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 ```
 
-### **Définir la police pour un filigrane texte**
 
-Vous pouvez changer la police du filigrane texte comme montré ci-dessous.
+### **Définir la police du filigrane texte**
 
+Vous pouvez modifier la police du filigrane texte comme indiqué ci‑dessous.
 ```java
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
 ```
 
+
 ### **Définir la couleur du texte du filigrane**
 
 Pour définir la couleur du texte du filigrane, utilisez ce code :
-
 ```java
 int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -103,10 +116,10 @@ fillFormat.setFillType(FillType.Solid);
 fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
 ```
 
+
 ### **Centrer un filigrane texte**
 
-Il est possible de centrer le filigrane sur une diapositive, et pour cela, vous pouvez faire ce qui suit :
-
+Il est possible de centrer le filigrane sur une diapositive, et pour cela, vous pouvez procéder comme suit :
 ```java
 SizeF slideSize = presentation.getSlideSize().getSize();
 
@@ -121,7 +134,8 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(
 ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 ```
 
-L'image ci-dessous montre le résultat final.
+
+L'image ci‑dessous montre le résultat final.
 
 ![Le filigrane texte](text_watermark.png)
 
@@ -129,8 +143,7 @@ L'image ci-dessous montre le résultat final.
 
 ### **Ajouter un filigrane image à une présentation**
 
-Pour ajouter un filigrane image à une diapositive de présentation, vous pouvez faire ce qui suit :
-
+Pour ajouter un filigrane image à une diapositive de présentation, vous pouvez procéder comme suit :
 ```java
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
@@ -140,12 +153,12 @@ watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(imag
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 ```
 
-## **Verrouiller un filigrane contre l'édition**
 
-S'il est nécessaire d'empêcher un filigrane d'être modifié, utilisez la méthode [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) sur la forme. Avec cette propriété, vous pouvez protéger la forme contre la sélection, le redimensionnement, le repositionnement, le groupement avec d'autres éléments, verrouiller son texte contre l'édition, et bien plus encore :
+### **Verrouiller un filigrane contre la modification**
 
+S’il est nécessaire d’empêcher la modification d’un filigrane, utilisez la méthode [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) sur la forme. Avec cette propriété, vous pouvez protéger la forme contre la sélection, le redimensionnement, le repositionnement, le groupement avec d’autres éléments, verrouiller son texte contre la modification, et bien plus encore :
 ```java
-// Verrouiller la forme de filigrane contre la modification
+// Verrouiller la forme du filigrane contre la modification
 watermarkShape.getAutoShapeLock().setSelectLocked(true);
 watermarkShape.getAutoShapeLock().setSizeLocked(true);
 watermarkShape.getAutoShapeLock().setTextLocked(true);
@@ -153,49 +166,70 @@ watermarkShape.getAutoShapeLock().setPositionLocked(true);
 watermarkShape.getAutoShapeLock().setGroupingLocked(true);
 ```
 
-## **Amener un filigrane au premier plan**
 
-Dans Aspose.Slides, l'ordre Z des formes peut être défini via la méthode [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). Pour ce faire, vous devez appeler cette méthode à partir de la liste des diapositives de présentation et passer la référence de la forme et son numéro d'ordre à la méthode. De cette manière, il est possible d'amener une forme au premier plan ou de l'envoyer à l'arrière de la diapositive. Cette fonctionnalité est particulièrement utile si vous devez placer un filigrane devant la présentation :
+### **Amener un filigrane au premier plan**
 
+Dans Aspose.Slides, l'ordre Z des formes peut être défini via la méthode [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) . Pour cela, vous devez appeler cette méthode depuis la liste des diapositives de la présentation et transmettre la référence de la forme ainsi que son numéro d'ordre à la méthode. Ainsi, il est possible de placer une forme au premier plan ou de l'envoyer à l'arrière de la diapositive. Cette fonctionnalité est particulièrement utile si vous devez placer un filigrane devant la présentation :
 ```java
 int shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Définir la rotation du filigrane**
 
-Voici un exemple de code sur la façon d'ajuster la rotation du filigrane afin qu'il soit positionné diagonale à travers la diapositive :
+### **Définir la rotation du filigrane**
 
+Voici un exemple de code montrant comment ajuster la rotation du filigrane afin qu’il soit placé en diagonale sur la diapositive :
 ```java
 double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
 watermarkShape.setRotation((float)diagonalAngle);
 ```
 
-## **Définir un nom pour un filigrane**
 
-Aspose.Slides vous permet de définir le nom d'une forme. En utilisant le nom de la forme, vous pouvez y accéder à l'avenir pour le modifier ou le supprimer. Pour définir le nom de la forme de filigrane, affectez-le à la méthode [IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) :
+### **Attribuer un nom à un filigrane**
 
+Aspose.Slides vous permet de définir le nom d’une forme. En utilisant le nom de la forme, vous pouvez y accéder ultérieurement pour la modifier ou la supprimer. Pour définir le nom de la forme du filigrane, affectez‑le à la méthode [IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) :
 ```java
-watermarkShape.setName("filigrane");
+watermarkShape.setName("watermark");
 ```
 
-## **Supprimer un filigrane**
 
-Pour supprimer la forme de filigrane, utilisez la méthode [IAutoShape.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getName--) pour la trouver dans les formes de la diapositive. Ensuite, passez la forme de filigrane à la méthode [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) :
+### **Supprimer un filigrane**
 
+Pour supprimer la forme du filigrane, utilisez la méthode [IAutoShape.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getName--) pour la trouver parmi les formes de la diapositive. Ensuite, transmettez la forme du filigrane à la méthode [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) :
 ```java
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
-    if ("filigrane".equals(shape.getName()))
+    if ("watermark".equals(shape.getName()))
     {
         slide.getShapes().remove(watermarkShape);
     }
 }
 ```
 
-## **Un exemple en direct**
 
-Vous pouvez consulter les outils en ligne **Aspose.Slides gratuits** [Ajouter un filigrane](https://products.aspose.app/slides/watermark) et [Supprimer un filigrane](https://products.aspose.app/slides/watermark/remove-watermark).
+## **FAQ**
 
-![Outils en ligne pour ajouter et supprimer des filigranes](online_tools.png)
+**Qu’est‑ce qu’un filigrane et pourquoi l’utiliser ?**
+
+Un filigrane est une superposition texte ou image appliquée aux diapositives qui aide à protéger la propriété intellectuelle, à renforcer la reconnaissance de la marque ou à empêcher l’utilisation non autorisée des présentations.
+
+**Puis‑je ajouter un filigrane à toutes les diapositives d’une présentation ?**
+
+Oui, Aspose.Slides vous permet d’ajouter programmétiquement un filigrane à chaque diapositive d’une présentation. Vous pouvez itérer sur toutes les diapositives et appliquer les paramètres du filigrane individuellement.
+
+**Comment ajuster la transparence du filigrane ?**
+
+Vous pouvez ajuster la transparence du filigrane en modifiant les paramètres de remplissage ([getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getFillFormat--)) de la forme. Cela garantit que le filigrane est subtil et ne distrait pas le contenu de la diapositive.
+
+**Quels formats d’image sont pris en charge pour les filigranes ?**
+
+Aspose.Slides prend en charge divers formats d’image tels que PNG, JPEG, GIF, BMP, SVG, etc.
+
+**Puis‑je personnaliser la police et le style d’un filigrane texte ?**
+
+Oui, vous pouvez choisir n’importe quelle police, taille et style pour correspondre à la conception de votre présentation et maintenir la cohérence de la marque.
+
+**Comment changer la position ou l’orientation d’un filigrane ?**
+
+Vous pouvez ajuster la position et l’orientation du filigrane programmétiquement en modifiant les coordonnées, la taille et les propriétés de rotation de la forme.

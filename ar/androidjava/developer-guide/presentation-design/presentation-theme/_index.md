@@ -1,24 +1,41 @@
 ---
-title: تصميم العرض
+title: إدارة سمات العروض التقديمية على Android
+linktitle: سمة العرض التقديمي
 type: docs
 weight: 10
 url: /ar/androidjava/presentation-theme/
-keywords: "تصميم, تصميم PowerPoint, عرض PowerPoint, جافا, Aspose.Slides لجافا عبر Android"
-description: "تصميم عرض PowerPoint في جافا"
+keywords:
+- سمة PowerPoint
+- سمة العرض التقديمي
+- سمة الشريحة
+- تعيين سمة
+- تغيير سمة
+- إدارة سمة
+- لون السمة
+- لوحة ألوان إضافية
+- خط السمة
+- نمط السمة
+- تأثير السمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إدارة سمات العروض التقديمية في Aspose.Slides لنظام Android باستخدام Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على هوية العلامة التجارية المتسقة."
 ---
 
-يحدد تصميم العرض خصائص عناصر التصميم. عند اختيار تصميم عرض، فإنك تختار في الأساس مجموعة معينة من العناصر البصرية وخصائصها.
+تعرف سمة العرض خصائص عناصر التصميم. عندما تختار سمة عرض، فإنك في الأساس تختار مجموعة محددة من العناصر البصرية وخصائصها.
 
-في PowerPoint، يتكون التصميم من الألوان، [الخطوط](/slides/ar/androidjava/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/androidjava/presentation-background/)، والتأثيرات.
+في PowerPoint، تتكون السمة من ألوان، [الخطوط](/slides/ar/androidjava/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/androidjava/presentation-background/)، وتأثيرات.
 
-![مكونات التصميم](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
-## **تغيير لون التصميم**
+## **تغيير لون السمة**
 
-يستخدم تصميم PowerPoint مجموعة معينة من الألوان لعناصر مختلفة على الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها من خلال تطبيق ألوان جديدة للتصميم. لتمكينك من اختيار لون تصميم جديد، يوفر Aspose.Slides قيمًا تحت التعداد [SchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SchemeColor).
+تستخدم سمة PowerPoint مجموعة محددة من الألوان لعناصر مختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغيّرها عن طريق تطبيق ألوان جديدة على السمة. للسماح لك باختيار لون سمة جديد، توفر Aspose.Slides قيمًا ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SchemeColor).
 
-يوضح هذا الكود بلغة Java كيفية تغيير لون التمييز لتصميم:
-
+هذا الكود بلغة Java يوضح لك كيفية تغيير لون التمييز لسمة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -32,8 +49,8 @@ try {
 }
 ```
 
-يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
 
+يمكنك تحديد القيمة الفعّالة للون الناتج بهذه الطريقة:
 ```java
 IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
 
@@ -43,8 +60,8 @@ System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
         effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
-لإظهار عملية تغيير اللون بشكل أكبر، نقوم بإنشاء عنصر آخر ونعين له لون التمييز (من العملية الأولية). ثم نغير اللون في التصميم:
 
+لتوضيح عملية تغيير اللون أكثر، نقوم بإنشاء عنصر آخر ونعيّن له لون التمييز (من العملية الأولية). ثم نغير اللون في السمة:
 ```java
 IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -55,32 +72,32 @@ otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
 ```
 
-يتم تطبيق اللون الجديد تلقائيًا على كلا العنصرين.
 
-### **تعيين لون التصميم من لوحة إضافية**
+يتم تطبيق اللون الجديد تلقائيًا على العنصرين.
 
-عند تطبيق تحويلات السطوع على لون التصميم الرئيسي(1)، يتم تشكيل ألوان من اللوحة الإضافية(2). يمكنك بعد ذلك تعيين تلك الألوان للتصميم والحصول عليها.
+### **تعيين لون السمة من لوحة إضافية**
 
-![ألوان لوحة إضافية](additional-palette-colors.png)
+عند تطبيق تحويلات الإضاءة على اللون الرئيسي للسمة(1)، تتكون ألوان من اللوحة الإضافية(2). يمكنك بعد ذلك تعيين هذه الألوان السمة والحصول عليها.
 
-**1** - ألوان التصميم الرئيسية
+![additional-palette-colors](additional-palette-colors.png)
+
+**1** - ألوان السمة الرئيسية
 
 **2** - ألوان من اللوحة الإضافية.
 
-يوضح هذا الكود بلغة Java عملية يتم فيها الحصول على ألوان من اللوحة الإضافية من لون التصميم الرئيسي ثم استخدامها في الأشكال:
-
+هذا الكود بلغة Java يوضح عملية يتم فيها الحصول على ألوان اللوحة الإضافية من اللون الرئيسي للسمة ثم تُستخدم في الأشكال:
 ```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تمييز 4
+    // التمييز 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
 
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // تمييز 4، أفتح 80%
+    // التمييز 4، أخف 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -88,7 +105,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // تمييز 4، أفتح 60%
+    // التمييز 4، أخف 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -96,7 +113,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // تمييز 4، أفتح 40%
+    // التمييز 4، أخف 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -104,14 +121,14 @@ try {
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // تمييز 4، أغمق 25%
+    // التمييز 4، أغمق 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // تمييز 4، أغمق 50%
+    // التمييز 4، أغمق 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.getFillFormat().setFillType(FillType.Solid);
@@ -124,23 +141,23 @@ try {
 }
 ```
 
-## **تغيير خط التصميم**
 
-تمكينك من اختيار الخطوط للتصميمات وأغراض أخرى، يستخدم Aspose.Slides هذه المعرفات الخاصة (المشابهة لتلك المستخدمة في PowerPoint):
+## **تغيير خط السمة**
 
-* **+mn-lt** - خط الجسم اللاتيني (خط اللاتيني الثانوي)
-* **+mj-lt** - خط العناوين اللاتيني (خط اللاتيني الرئيسي)
-* **+mn-ea** - خط الجسم شرق الآسيوي (خط شرق الآسيوي الثانوي)
-* **+mj-ea** - خط الجسم شرق الآسيوي (خط شرق الآسيوي الرئيسي)
+للسماح لك باختيار الخطوط للسمة ولأغراض أخرى، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
 
-يوضح هذا الكود بلغة Java كيفية تعيين الخط اللاتيني لعنصر تصميم:
+* **+mn-lt** - الخط الأساسي اللاتيني (خط لاتيني ثانوي)
+* **+mj-lt** - خط العنوان اللاتيني (خط لاتيني رئيسي)
+* **+mn-ea** - الخط الأساسي الآسيوي الشرقي (خط آسيوي شرقي ثانوي)
+* **+mj-ea** - خط العنوان الآسيوي الشرقي (خط آسيوي شرقي رئيسي)
 
+هذا الكود بلغة Java يوضح لك كيفية تعيين الخط اللاتيني لعنصر سمة:
 ```java
 IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
 Paragraph paragraph = new Paragraph();
 
-Portion portion = new Portion("تنسيق نص التصميم");
+Portion portion = new Portion("Theme text format");
 
 paragraph.getPortions().add(portion);
 
@@ -149,69 +166,63 @@ shape.getTextFrame().getParagraphs().add(paragraph);
 portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
 ```
 
-يوضح هذا الكود بلغة Java كيفية تغيير خط تصميم العرض:
 
+هذا الكود بلغة Java يوضح لك كيفية تغيير خط سمة العرض:
 ```java
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
 ```
 
-سيتم تحديث الخط في جميع صناديق النص.
 
-{{% alert color="primary" title="نصيحة" %}} 
+سيتم تحديث الخط في جميع مربعات النص.
 
-قد ترغب في رؤية [خطوط PowerPoint](/slides/ar/androidjava/powerpoint-fonts/).
-
+{{% alert color="primary" title="TIP" %}} 
+قد ترغب في مشاهدة [خطوط PowerPoint](/slides/ar/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **تغيير نمط خلفية التصميم**
+## **تغيير نمط خلفية السمة**
 
-بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفيات محددة مسبقًا ولكن فقط 3 من تلك الخلفيات محفوظة في عرض تقديمي نموذجي.
+افتراضيًا، يوفر تطبيق PowerPoint 12 خلفية معرفة مسبقًا ولكن يتم حفظ 3 فقط من تلك الخلفيات الـ12 في عرض تقديمي نموذجي.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الكود بلغة Java لمعرفة عدد الخلفيات المحددة مسبقًا في العرض:
-
+على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الكود بلغة Java لمعرفة عدد الخلفيات المعرفة مسبقًا في العرض:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
 
-    System.out.println("عدد أنماط ملء الخلفية للتصميم هو " + numberOfBackgroundFills);
+    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 {{% alert color="warning" %}} 
-
-باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) من فئة [FormatScheme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في تصميم PowerPoint.
-
+باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) من الفئة [FormatScheme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في سمة PowerPoint.
 {{% /alert %}} 
 
-يوضح هذا الكود بلغة Java كيفية تعيين الخلفية لعرض تقديمي:
-
+هذا الكود بلغة Java يوضح لك كيفية تعيين الخلفية لعرض تقديمي:
 ```java
 pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 ```
 
-**دليل الفهرس**: 0 يُستخدم لعannes. يبدأ الفهرس من 1.
 
-{{% alert color="primary" title="نصيحة" %}} 
+**دليل الفهرس**: يُستخدم 0 لعدم التعبئة. يبدأ الفهرس من 1.
 
-قد ترغب في رؤية [خلفية PowerPoint](/slides/ar/androidjava/presentation-background/).
-
+{{% alert color="primary" title="TIP" %}} 
+قد ترغب في مشاهدة [خلفية PowerPoint](/slides/ar/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **تغيير تأثير التصميم**
+## **تغيير تأثير السمة**
 
-عادةً ما يحتوي تصميم PowerPoint على 3 قيم لكل مجموعة أنماط. يتم دمج تلك المجموعات في هذه 3 تأثيرات: خفيف، معتدل، وشديد. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل معين:
+عادةً ما تحتوي سمة PowerPoint على 3 قيم لكل مصفوفة نمط. يتم دمج تلك المصفوفات في هذه التأثيرات الثلاثة: خفيف، متوسط، وشديد. على سبيل المثال، هذه هي النتيجة عندما يتم تطبيق التأثيرات على شكل محدد:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) من فئة [FormatScheme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme) يمكنك تغيير العناصر في تصميم (بمرونة أكثر من الخيارات في PowerPoint).
+باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) من الفئة [FormatScheme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FormatScheme) يمكنك تغيير العناصر في سمة (بمرونة أكبر من الخيارات في PowerPoint).
 
-يوضح هذا الكود بلغة Java كيفية تغيير تأثير التصميم عن طريق تغيير أجزاء من العناصر:
-
+هذا الكود بلغة Java يوضح لك كيفية تغيير تأثير سمة عن طريق تعديل أجزاء من العناصر:
 ```java
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
@@ -229,6 +240,20 @@ try {
 }
 ```
 
-التغييرات الناتجة في لون التعبئة، ونوع التعبئة، وتأثير الظل، إلخ:
 
+التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الرئيسي؟**
+
+نعم. تدعم Aspose.Slides تجاوزات السمة على مستوى الشريحة، لذا يمكنك تطبيق سمة محلية على تلك الشريحة فقط مع الحفاظ على سمة الرئيسي intact (من خلال [SlideThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidethememanager/)).
+
+**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض تقديمي إلى آخر؟**
+
+[استنساخ الشرائح](/slides/ar/androidjava/clone-slides/) مع الماستر الخاص بها إلى العرض المستهدف. هذا يحافظ على الماستر الأصلي، التخطيطات، والسمة المرتبطة بحيث يبقى المظهر متسقًا.
+
+**كيف يمكنني رؤية القيم "الفعّالة" بعد كل الوراثة والتجاوزات؟**
+
+استخدم "عرض القيم الفعّالة" في الـ API عبر ["effective" views](/slides/ar/androidjava/shape-effective-properties/) للسمة/اللون/الخط/التأثير. تُرجع هذه القيم الخصائص النهائية بعد تطبيق الماستر وأي تجاوزات محلية.

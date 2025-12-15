@@ -1,59 +1,79 @@
 ---
-title: プレゼンテーションのプロパティ
+title: Android でプレゼンテーション プロパティを管理する
+linktitle: プレゼンテーション プロパティ
 type: docs
 weight: 70
 url: /ja/androidjava/presentation-properties/
+keywords:
+- PowerPoint プロパティ
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
+- 組み込みプロパティ
+- カスタム プロパティ
+- 高度なプロパティ
+- プロパティの管理
+- プロパティの変更
+- ドキュメント メタデータ
+- メタデータの編集
+- 校正言語
+- デフォルト言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java でプレゼンテーション プロパティをマスターし、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを効率化します。"
 ---
 
 {{% alert color="primary" %}} 
 
-Microsoft PowerPointは、プレゼンテーションファイルにいくつかのプロパティを追加する機能を提供します。これらの文書プロパティは、文書（プレゼンテーションファイル）と共に有用な情報を保存することを可能にします。文書プロパティには以下の2種類があります。
+Microsoft PowerPoint はプレゼンテーション ファイルにプロパティを追加する機能を提供します。これらのドキュメント プロパティにより、ドキュメント (プレゼンテーション ファイル) と一緒に有用な情報を保存できます。プロパティは次の 2 種類があります。
 
-- システム定義（ビルトイン）プロパティ
-- ユーザー定義（カスタム）プロパティ
+- System Defined (Built-in) Properties
+- User-Defined (Custom) Properties
 
-**ビルトイン**プロパティには、文書のタイトル、著者名、文書統計など、文書に関する一般的な情報が含まれています。**カスタム**プロパティは、ユーザーが**名前/値**ペアとして定義するプロパティであり、名前と値の両方がユーザーによって定義されます。Java経由でAspose.Slides for Androidを使用することで、開発者はビルトインプロパティとカスタムプロパティの両方にアクセスして、値を変更することができます。
+**Built-in** プロパティは、ドキュメント タイトル、作者名、ドキュメント統計情報など、ドキュメントに関する一般的な情報を格納します。**Custom** プロパティは、ユーザーが **Name/Value** のペアとして定義するもので、名前も値もユーザーが決めます。Aspose.Slides for Android via Java を使用すると、開発者は組み込みプロパティとカスタム プロパティの両方の値にアクセスしたり、変更したりできます。
 
 {{% /alert %}} 
 
-## **PowerPointの文書プロパティ**
-Microsoft PowerPoint 2007では、プレゼンテーションファイルの文書プロパティを管理できます。すべてやるべきことは、以下に示すように、Officeアイコンをクリックし、その後**準備 | プロパティ | 詳細プロパティ**メニュー項目を選択することです。
+## **PowerPoint のドキュメント プロパティ**
+
+Microsoft PowerPoint 2007 では、プレゼンテーション ファイルのドキュメント プロパティを管理できます。必要なのは Office アイコンをクリックし、さらに **Prepare | Properties | Advanced Properties** メニュー項目を選択するだけです（以下の図参照）。
 
 {{% alert color="primary" %}} 
 
-**アプリケーション**および**プロデューサ**フィールドに対して値を設定できないことに注意してください。これらのフィールドには、Aspose Ltd.およびAspose.Slides for Android via Java x.x.xが表示されます。
+Application および Producer フィールドには値を設定できません。これらのフィールドには Aspose Ltd. および Aspose.Slides for Android via Java x.x.x が表示されます。
 
 {{% /alert %}} 
 
-|**詳細プロパティメニュー項目の選択**|** |
+|**Advanced Properties メニュー項目の選択**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-**詳細プロパティ**メニュー項目を選択すると、以下の図に示すように、PowerPointファイルの文書プロパティを管理するためのダイアログが表示されます。
+|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+Advanced Properties メニュー項目を選択すると、以下の図のように PowerPoint ファイルのドキュメント プロパティを管理できるダイアログが表示されます。
 
-|**プロパティダイアログ**|** |
+|**プロパティ ダイアログ**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-上記の**プロパティダイアログ**には、**一般**、**要約**、**統計**、**内容**、**カスタム**といった多くのタブページがあることがわかります。これらすべてのタブページは、PowerPointファイルに関連するさまざまな種類の情報を構成するために使用されます。**カスタム**タブは、PowerPointファイルのカスタムプロパティを管理するために使用されます。
+|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
+上記 **プロパティ ダイアログ** では、**General**、**Summary**、**Statistics**、**Contents**、**Custom** といった多数のタブページが確認できます。これらのタブは PowerPoint ファイルに関するさまざまな情報の設定を可能にします。**Custom** タブは PowerPoint ファイルのカスタム プロパティを管理するために使用します。
 
+Aspose.Slides for Android via Java を使用したドキュメント プロパティの操作
 
+前述のとおり、Aspose.Slides for Android via Java は **Built-in** と **Custom** の 2 種類のドキュメント プロパティをサポートしています。したがって、開発者は Aspose.Slides for Android via Java API を使用して両方のプロパティにアクセスできます。Aspose.Slides for Android via Java は、**Presentation.DocumentProperties** プロパティを通じてプレゼンテーション ファイルに関連付けられたドキュメント プロパティを表すクラス [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) を提供します。
 
-Aspose.Slides for Android via Javaを使用した文書プロパティの操作
+開発者は [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) オブジェクトが公開する **IDocumentProperties** プロパティを使用して、以下に示すようにプレゼンテーション ファイルのドキュメント プロパティにアクセスできます。
 
-以前に説明したように、Aspose.Slides for Android via Javaは**ビルトイン**および**カスタム**プロパティという2種類の文書プロパティをサポートしています。したがって、開発者はAspose.Slides for Android via Java APIを使用して両方の種類のプロパティにアクセスできます。Aspose.Slides for Android via Javaは、**Presentation.DocumentProperties**プロパティを介してプレゼンテーションファイルに関連付けられた文書プロパティを表すクラス[IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties)を提供します。
+## **組み込みプロパティへのアクセス**
 
-開発者は、以下に説明するように、[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)オブジェクトによって公開された**IDocumentProperties**プロパティを使用して、プレゼンテーションファイルの文書プロパティにアクセスできます。
-
-## **ビルトインプロパティへのアクセス**
-[IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties)オブジェクトによって公開されるこれらのプロパティには、**Creator**（著者）、**Description**、**Keywords**、**Created**（作成日）、**Modified**（最終更新日）、**Printed**（最終印刷日）、**LastModifiedBy**、**Keywords**、**SharedDoc**（異なるプロデューサ間で共有されていますか？）、**PresentationFormat**、**Subject**、**Title**が含まれます。
-
+これらのプロパティは IDocumentProperties オブジェクトで提供され、Creator (Author)、Description、Keywords、Created (作成日)、Modified (最終更新日)、Printed (最終印刷日)、LastModifiedBy、SharedDoc (異なるプロデューサー間で共有されていますか?)、PresentationFormat、Subject、Title が含まれます。
 ```java
-// プレゼンテーションクラスのインスタンスを作成します
+// プレゼンテーションを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // プレゼンテーションに関連するIDocumentPropertiesオブジェクトへの参照を作成します
+    // Presentation に関連付けられた IDocumentProperties オブジェクトへの参照を作成する
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // ビルトインプロパティを表示します
+    // 組み込みプロパティを表示する
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -73,53 +93,55 @@ try {
 }
 ```
 
-## **ビルトインプロパティの変更**
-プレゼンテーションファイルのビルトインプロパティを変更するのは、それらにアクセスするのと同じくらい簡単です。任意のプロパティに文字列値を割り当てるだけで、そのプロパティの値が変更されます。以下の例では、Aspose.Slides for Android via Javaを使用して、プレゼンテーションファイルのビルトイン文書プロパティを変更する方法を示しています。
 
+## **組み込みプロパティの変更**
+
+プレゼンテーション ファイルの組み込みプロパティを変更するのは、アクセスするのと同様に簡単です。任意のプロパティに文字列値を割り当てるだけで、プロパティの値が変更されます。以下の例では、Aspose.Slides for Android via Java を使用してプレゼンテーション ファイルの組み込みドキュメント プロパティを変更する方法を示しています。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // プレゼンテーションに関連するIDocumentPropertiesオブジェクトへの参照を作成します
+    // Presentation に関連付けられた IDocumentProperties オブジェクトへの参照を作成する
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // ビルトインプロパティを設定します
+    // 組み込みプロパティを設定する
     dp.setAuthor("Aspose.Slides for Android via Java");
-    dp.setTitle("プレゼンテーションプロパティの変更");
-    dp.setSubject("Asposeのテーマ");
-    dp.setComments("Asposeの説明");
-    dp.setManager("Asposeマネージャ");
+    dp.setTitle("Modifying Presentation Properties");
+    dp.setSubject("Aspose Subject");
+    dp.setComments("Aspose Description");
+    dp.setManager("Aspose Manager");
     
-    // プレゼンテーションをファイルに保存します
+    // プレゼンテーションをファイルに保存する
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-この例は、以下に示すように、変更後に表示されるプレゼンテーションのビルトインプロパティを変更します。
 
-|**変更後のビルトイン文書プロパティ**|** |
+この例は、変更後の組み込みドキュメント プロパティを以下のように表示します。
+
+|**組み込みドキュメント プロパティ (変更後)**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **カスタム文書プロパティの追加**
-Aspose.Slides for Android via Javaは、開発者がプレゼンテーションの文書プロパティに対してカスタム値を追加することも許可します。以下に示す例は、プレゼンテーションのカスタムプロパティを設定する方法を示しています。
+## **カスタム ドキュメント プロパティの追加**
 
+Aspose.Slides for Android via Java は、プレゼンテーションのドキュメント プロパティにカスタム値を追加することも可能です。以下の例は、プレゼンテーションにカスタム プロパティを設定する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
-    // 文書プロパティを取得する
+    // ドキュメント プロパティを取得
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // カスタムプロパティを追加
+    // カスタム プロパティを追加
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // 特定のインデックスにあるプロパティ名を取得
+    // 特定のインデックスのプロパティ名を取得
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // 選択されたプロパティを削除
+    // 選択したプロパティを削除
     dProps.removeCustomProperty(getPropertyName);
     
     // プレゼンテーションを保存
@@ -129,76 +151,77 @@ try {
 }
 ```
 
-|**追加されたカスタム文書プロパティ**|** |
+
+|**追加されたカスタム ドキュメント プロパティ**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **カスタムプロパティにアクセスして変更する**
-Aspose.Slides for Android via Javaは、開発者がカスタムプロパティの値にアクセスすることも許可します。以下に示す例は、プレゼンテーションのこれらすべてのカスタムプロパティにアクセスして変更する方法を示しています。
+## **カスタム プロパティのアクセスと変更**
 
+Aspose.Slides for Android via Java は、カスタム プロパティの値へのアクセスも可能にします。以下の例は、プレゼンテーションのすべてのカスタム プロパティにアクセスし、変更する方法を示しています。
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // プレゼンテーションに関連するDocumentPropertiesオブジェクトへの参照を作成します
+    // Presentation に関連付けられた DocumentProperties オブジェクトへの参照を作成する
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // カスタムプロパティにアクセスして変更する
+    // カスタム プロパティにアクセスして変更する
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // カスタムプロパティの名前と値を表示
+        // カスタム プロパティの名前と値を表示する
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // カスタムプロパティの値を変更
+        // カスタム プロパティの値を変更する
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
-    // プレゼンテーションをファイルに保存します
+    // プレゼンテーションをファイルに保存する
     pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-この例は、[PPTX ](https://docs.fileformat.com/presentation/pptx/)プレゼンテーションのカスタムプロパティを変更します。以下の図は、変更前と変更後のプレゼンテーションのカスタムプロパティを示しています。
 
-|**変更前のカスタムプロパティ**|** |
+この例は [PPTX](https://docs.fileformat.com/presentation/pptx/) プレゼンテーションのカスタム プロパティを変更します。以下の図は変更前後のカスタム プロパティを示しています。
+
+|**変更前のカスタム プロパティ**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-
-|**変更後のカスタムプロパティ**|** |
+|**変更後のカスタム プロパティ**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **高度な文書プロパティ**
+## **高度なドキュメント プロパティ**
+
 {{% alert color="primary" %}} 
 
-新しいメソッド[ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、および[WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-)が[IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)に追加され、[IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-)プロパティセッターのロジックが変更されました。
+新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、および [WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) が [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) に追加され、[IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) プロパティ セッターのロジックが変更されました。
 
 {{% /alert %}} 
 
-新しいメソッド[ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--)および[UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)が[IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)インターフェースに追加されました。これらは文書プロパティへの迅速なアクセスを提供し、プレゼンテーション全体を読み込まずにプロパティを変更および更新することを可能にします。
+2 つの新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) と [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) が [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) インターフェイスに追加されました。これらはドキュメント プロパティへの迅速なアクセスを提供し、プレゼンテーション全体をロードせずにプロパティの変更と更新を可能にします。
 
-典型的なシナリオでは、プロパティを読み込み、一部の値を変更し、文書を更新します。次のように実装できます。
-
+典型的なシナリオは、プロパティを読み込み、値を変更し、ドキュメントを更新することで、以下のように実装できます:
 ```java
 // プレゼンテーションの情報を読み取る
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// 現在のプロパティを取得
+// obtain the current properties
 IDocumentProperties props = info.readDocumentProperties();
 
-// 著者とタイトルフィールドの新しい値を設定
+// Author と Title フィールドの新しい値を設定する
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
-// 新しい値でプレゼンテーションを更新
+// 新しい値でプレゼンテーションを更新する
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-特定のプレゼンテーションのプロパティをテンプレートとして使用して他のプレゼンテーションのプロパティを更新するもう1つの方法があります。
 
+特定のプレゼンテーションのプロパティをテンプレートとして使用し、他のプレゼンテーションのプロパティを更新する別の方法もあります:
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
@@ -226,8 +249,8 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-新しいテンプレートをゼロから作成し、その後、複数のプレゼンテーションを更新するために使用することも可能です。
 
+新しいテンプレートを最初から作成し、複数のプレゼンテーションを更新するために使用することもできます:
 ```java
 DocumentProperties template = new DocumentProperties();\
 
@@ -254,25 +277,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **プレゼンテーションが変更されたかどうかの確認**
-Aspose.Slides for Android via Javaは、プレゼンテーションが変更されたか作成されたかを確認する機能を提供します。以下に示す例は、プレゼンテーションが作成されたか変更されたかを確認する方法を示しています。
-
-```java
-IPresentationInfo info=PresentationFactory.getInstance().getPresentationInfo("props.pptx");
-
-IDocumentProperties props = info.readDocumentProperties();
-String app = props.getNameOfApplication();
-String ver = props.getAppVersion();
-
-System.out.println("Application Name: " + app);
-System.out.println("Application Version: " + ver);
-```
 
 ## **校正言語の設定**
-Aspose.Slidesは、PowerPoint文書の校正言語を設定できるLanguageIdプロパティ（PortionFormatクラスによって公開）を提供します。校正言語は、PowerPointで綴りや文法がチェックされる言語です。
 
-このJavaコードは、PowerPointの校正言語を設定する方法を示しています：xxx なぜLanguageIdがJavaのPortionFormatクラスに欠けているのか？
+Aspose.Slides は PortionFormat クラスが公開する LanguageId プロパティを提供し、PowerPoint ドキュメントの校正言語を設定できます。校正言語とは、PowerPoint のスペルと文法がチェックされる対象言語です。
 
+この Java コードは、PowerPoint の校正言語を設定する方法を示しています: xxx なぜ Java の PortionFormat クラスに LanguageId がないのでしょうか？
 ```java
 Presentation pres = new Presentation(pptxFileName);
 try {
@@ -289,8 +299,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // 校正言語のIdを設定します
-
+    portionFormat.setLanguageId("zh-CN"); // 校正言語の ID を設定
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
 } finally {
@@ -298,22 +307,44 @@ try {
 }
 ```
 
-## **デフォルト言語の設定**
-このJavaコードは、PowerPointプレゼンテーション全体のデフォルト言語を設定する方法を示しています。
 
+## **デフォルト言語の設定**
+
+この Java コードは、PowerPoint プレゼンテーション全体のデフォルト言語を設定する方法を示しています:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // テキストを持つ新しい長方形形状を追加します
+    // 新しい矩形シェイプをテキスト付きで追加
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("新しいテキスト");
+    shp.getTextFrame().setText("New Text");
 
-    // 最初の部分の言語を確認します
+    // 最初のポーションの言語を確認
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **ライブ例**
+
+[Aspose.Slides Metadata](https://products.aspose.app/slides/metadata) のオンライン アプリを試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法をご確認ください:
+
+[![PowerPoint メタデータの表示と編集](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***よくある質問**
+
+**プレゼンテーションから組み込みプロパティを削除するにはどうすればよいですか？**
+
+組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、プロパティの値を変更したり、特定のプロパティで許可されている場合は空文字列に設定したりすることは可能です。
+
+**既に存在するカスタム プロパティを追加した場合はどうなりますか？**
+
+既に存在するカスタム プロパティを追加すると、既存の値は新しい値で上書きされます。事前に削除や確認を行う必要はなく、Aspose.Slides が自動的にプロパティの値を更新します。
+
+**プレゼンテーションを完全にロードせずにプロパティにアクセスできますか？**
+
+はい、[PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/) クラスの `getPresentationInfo` メソッドを使用してプレゼンテーションを完全にロードせずにプロパティにアクセスできます。その後、[IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/) インターフェイスが提供する `readDocumentProperties` メソッドを利用してプロパティを効率的に読み取り、メモリ使用量を削減しパフォーマンスを向上させます。

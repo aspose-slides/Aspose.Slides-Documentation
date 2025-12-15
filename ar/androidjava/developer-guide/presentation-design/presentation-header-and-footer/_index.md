@@ -1,32 +1,46 @@
 ---
-title: ترويسة وتذييل العرض التقديمي
+title: إدارة رؤوس وتذييلات العروض التقديمية على Android
+linktitle: رأس & تذييل
 type: docs
 weight: 140
 url: /ar/androidjava/presentation-header-and-footer/
-keywords: "ترويسة وتذييل PowerPoint في جافا"
-description: "ترويسة وتذييل PowerPoint في جافا"
+keywords:
+- رأس
+- نص الرأس
+- تذييل
+- نص التذييل
+- تعيين رأس
+- تعيين تذييل
+- نشرة
+- ملاحظات
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "استخدم Aspose.Slides لأندرويد عبر Java لإضافة وتخصيص الرؤوس والتذييلات في عروض PowerPoint وOpenDocument للحصول على مظهر احترافي."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/ar/androidjava/) يوفر دعمًا للعمل مع نصوص ترويسة وتذييل الشرائح التي تُدار في الواقع على مستوى شريحة العرض الرئيسية.
+يوفر [Aspose.Slides](/slides/ar/androidjava/) الدعم للعمل مع نص رؤوس وتذييلات الشرائح التي يتم الحفاظ عليها فعليًا على مستوى ماستر الشريحة.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Android via Java](/slides/ar/androidjava/) يوفر ميزة إدارة الترويسات والتذييلات داخل شرائح العرض التقديمي. هذه في الواقع تُدار على مستوى العرض التقديمي الرئيسي.
+يوفر [Aspose.Slides for Android via Java](/slides/ar/androidjava/) ميزة إدارة الرؤوس والتذييلات داخل شرائح العرض. يتم إدارة هذه في الواقع على مستوى ماستر العرض.
 
-## **إدارة الترويسة والتذييل في العرض التقديمي**
+## **إدارة الرؤوس والتذييلات في العرض التقديمي**
 يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
-
 ```java
 // تحميل العرض التقديمي
 Presentation pres = new Presentation("headerTest.pptx");
 try {
-    // إعداد التذييل
-    pres.getHeaderFooterManager().setAllFootersText("نص تذييل خاصتي");
+    // تعيين التذييل
+    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
     pres.getHeaderFooterManager().setAllFootersVisibility(true);
 
-    // الوصول وتحديث الترويسة
+    // الوصول إلى الرأس وتحديثه
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (null != masterNotesSlide)
     {
@@ -39,8 +53,9 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
-// طريقة لتعيين نص الترويسة/التذييل
+// طريقة لتعيين نص الرأس/التذييل
 public static void updateHeaderFooterText(IBaseSlide master)
 {
     for (IShape shape : master.getShapes())
@@ -49,70 +64,89 @@ public static void updateHeaderFooterText(IBaseSlide master)
         {
             if (shape.getPlaceholder().getType() == PlaceholderType.Header)
             {
-                ((IAutoShape)shape).getTextFrame().setText("مرحبًا بك هنا، ترويسة جديدة");
+                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
             }
         }
     }
 }
 ```
 
-## **إدارة الترويسة والتذييل في شرائح الملاحظات والمساعدة**
-يدعم Aspose.Slides for Android via Java الترويسة والتذييل في شرائح المساعدة والملاحظات. يرجى اتباع الخطوات أدناه:
 
-- تحميل [عرض تقديمي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) يحتوي على فيديو.
-- تغيير إعدادات الترويسة والتذييل لرئيسية الملاحظات وجميع شرائح الملاحظات.
-- جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للتذييل مرئية.
-- جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية لتاريخ ووقت مرئية.
-- تغيير إعدادات الترويسة والتذييل لشريحة الملاحظات الأولى فقط.
-- جعل عنصر ترويسة شريحة الملاحظات مرئيًا.
-- تعيين النص لعنصر ترويسة شريحة الملاحظات.
-- تعيين النص لعنصر تاريخ ووقت شريحة الملاحظات.
+## **إدارة الرؤوس والتذييلات في شرائح النشرات والملاحظات**
+يدعم Aspose.Slides for Android عبر Java الرؤوس والتذييلات في شرائح النشرات والملاحظات. يرجى اتباع الخطوات التالية:
+
+- تحميل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) يحتوي على فيديو.
+- تغيير إعدادات الرؤوس والتذييلات للماستر الخاص بالملاحظات وجميع شرائح الملاحظات.
+- ضبط ظهور شريحة الملاحظات الرئيسية وجميع العنصر النائب للتذييل الفرعي.
+- ضبط ظهور شريحة الملاحظات الرئيسية وجميع العنصر النائب للتاريخ والوقت الفرعي.
+- تغيير إعدادات الرؤوس والتذييلات لشريحة الملاحظات الأولى فقط.
+- ضبط ظهور عنصر النائب للرأس في شريحة الملاحظات.
+- إدخال النص في عنصر النائب للرأس في شريحة الملاحظات.
+- إدخال النص في عنصر النائب للتاريخ/الوقت في شريحة الملاحظات.
 - كتابة ملف العرض التقديمي المعدل.
 
-تم توفير مقتطف الكود في المثال أدناه.
-
+القطعة البرمجية مقدمة في المثال أدناه.
 ```java
 Presentation pres = new Presentation("presentation.pptx");
 try {
-    // تغيير إعدادات الترويسة والتذييل لرئيسية الملاحظات وجميع شرائح الملاحظات
+    // تغيير إعدادات الرأس والتذييل لماستر الملاحظات وجميع شرائح الملاحظات
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (masterNotesSlide != null)
     {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للتذييل مرئية
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للترويسة مرئية
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية لرقم الشريحة مرئية
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // جعل ترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للتاريخ والوقت مرئية
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للتذييل التابعة مرئية
+        headerFooterManager.setFooterAndChildFootersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للرأس التابعة مرئية
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب لرقم الشريحة التابعة مرئية
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للتاريخ والوقت التابعة مرئية
 
-        headerFooterManager.setHeaderAndChildHeadersText("نص الترويسة"); // تعيين النص لترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للترويسة
-        headerFooterManager.setFooterAndChildFootersText("نص التذييل"); // تعيين النص لترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للتذييل
-        headerFooterManager.setDateTimeAndChildDateTimesText("نص التاريخ والوقت"); // تعيين النص لترويسة شريحة الملاحظات الرئيسية وجميع العناصر الفرعية للتاريخ والوقت
+        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للرأس التابعة
+        headerFooterManager.setFooterAndChildFootersText("Footer text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للتذييل التابعة
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للتاريخ والوقت التابعة
     }
 
-    // تغيير إعدادات الترويسة والتذييل لشريحة الملاحظات الأولى فقط
+    // تغيير إعدادات الرأس والتذييل لشريحة الملاحظات الأولى فقط
     INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
     if (notesSlide != null)
     {
         INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
         if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // جعل عنصر ترويسة هذه الشريحة مرئيًا
+            headerFooterManager.setHeaderVisibility(true); // اجعل عنصر نائب الرأس لهذه الشريحة مرئياً
 
         if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // جعل عنصر تذييل هذه الشريحة مرئيًا
+            headerFooterManager.setFooterVisibility(true); // اجعل عنصر نائب التذييل لهذه الشريحة مرئياً
 
         if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // جعل عنصر رقم الشريحة لهذه الشريحة مرئيًا
+            headerFooterManager.setSlideNumberVisibility(true); // اجعل عنصر نائب رقم الشريحة لهذه الشريحة مرئياً
 
         if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // جعل عنصر تاريخ ووقت هذه الشريحة مرئيًا
+            headerFooterManager.setDateTimeVisibility(true); // اجعل عنصر نائب التاريخ والوقت لهذه الشريحة مرئياً
 
-        headerFooterManager.setHeaderText("نص ترويسة جديدة"); // تعيين النص لعنصر ترويسة شريحة الملاحظات
-        headerFooterManager.setFooterText("نص تذييل جديد"); // تعيين النص لعنصر تذييل شريحة الملاحظات
-        headerFooterManager.setDateTimeText("نص جديد للتاريخ والوقت"); // تعيين النص لعنصر تاريخ ووقت شريحة الملاحظات
+        headerFooterManager.setHeaderText("New header text"); // ضع النص في عنصر نائب الرأس لشريحة الملاحظات
+        headerFooterManager.setFooterText("New footer text"); // ضع النص في عنصر نائب التذييل لشريحة الملاحظات
+        headerFooterManager.setDateTimeText("New date and time text"); // ضع النص في عنصر نائب التاريخ والوقت لشريحة الملاحظات
     }
     pres.save("testresult.pptx",SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**هل يمكنني إضافة "رأس" إلى الشرائح العادية؟**
+
+في PowerPoint، لا يوجد "رأس" إلا للملاحظات والنشرات؛ في الشرائح العادية، العناصر المدعومة هي التذييل، التاريخ/الوقت، ورقم الشريحة. في Aspose.Slides يتطابق ذلك مع نفس القيود: الرأس متاح فقط للملاحظات/النشرات، وعلى الشرائح—التذييل/التاريخ والوقت/رقم الشريحة.
+
+**ماذا لو لم يحتوي التخطيط على منطقة تذييل—هل يمكنني "تفعيل" رؤيتها؟**
+
+نعم. تحقق من الرؤية عبر مدير الرأس/التذييل وقم بتمكينه إذا لزم الأمر. تم تصميم مؤشرات و طرق API هذه للحالات التي يكون فيها العنصر النائب مفقودًا أو مخفيًا.
+
+**كيف أجعل رقم الشريحة يبدأ من قيمة غير 1؟**
+
+حدد [رقم الشريحة الأول](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) للعرض التقديمي؛ بعد ذلك يتم إعادة حساب جميع أرقام الشرائح. على سبيل المثال، يمكنك البدء من 0 أو 10، وإخفاء الرقم على شريحة العنوان.
+
+**ماذا يحدث للرؤوس/التذييلات عند التصدير إلى PDF/صُور/HTML؟**
+
+يتم عرضها كعناصر نصية عادية في العرض التقديمي. أي إذا كانت العناصر مرئية على الشرائح/صفحات الملاحظات، فستظهر أيضًا في صيغة الإخراج إلى جانب باقي المحتوى.

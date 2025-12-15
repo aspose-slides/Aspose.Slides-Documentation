@@ -1,24 +1,35 @@
 ---
-title: Встроенные шрифты - PowerPoint Java API
-linktitle: Встроенные шрифты
+title: Встраивание шрифтов в презентации на Android
+linktitle: Встраивание шрифта
 type: docs
 weight: 40
 url: /ru/androidjava/embedded-font/
-keywords: "Шрифты, встроенные шрифты, добавление шрифтов, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Использование встроенных шрифтов в презентации PowerPoint на Java"
-
+keywords:
+- добавить шрифт
+- встроить шрифт
+- встраивание шрифтов
+- получить встроенный шрифт
+- добавить встроенный шрифт
+- удалить встроенный шрифт
+- сжать встроенный шрифт
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Встраивание шрифтов TrueType в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для Android на Java, обеспечивая точную отрисовку на всех платформах."
 ---
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась корректно при открытии на любой системе или устройстве. Если вы использовали шрифт третьей стороны или нестандартный шрифт потому, что проявили креативность в своей работе, то у вас еще больше причин встроить свой шрифт. В противном случае (без встроенных шрифтов) тексты или числа на ваших слайдах, макет, стили и т. д. могут измениться или превратиться в запутанные прямоугольники.
+**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась правильно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, у вас есть ещё более веские причины встроить шрифт. В противном случае (без встроенных шрифтов) текст или цифры на слайдах, макет, стиль и т.д. могут измениться или превратиться в непонятные прямоугольники. 
 
-Класс [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager), класс [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) и класс [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы с встроенными шрифтами в презентациях PowerPoint.
+Класс [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager), класс [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) и класс [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) вместе с их интерфейсами содержат большинство свойств и методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint.
 
-## **Получение или удаление встроенных шрифтов из презентации**
+## **Получить и удалить встроенные шрифты**
 
-Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (предоставляемый классом [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)), который позволяет получить (или выяснить) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (предоставляемый тем же классом).
+Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (доступный через класс [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)), позволяющий получить (или узнать) шрифты, встроенные в презентацию. Чтобы удалить шрифты, используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (доступный тем же классом).
 
-Этот код на Java показывает, как получить и удалить встроенные шрифты из презентации:
-
+Этот Java‑код показывает, как получить и удалить встроенные шрифты из презентации:
 ```java
 // Создает объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
@@ -26,7 +37,7 @@ try {
     // Рендерит слайд, содержащий текстовый фрейм, использующий встроенный "FunSized"
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-    // Сохранить изображение на диск в формате JPEG
+    //Сохраняет изображение на диск в формате JPEG
     try {
         slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
     } finally {
@@ -41,7 +52,7 @@ try {
     // Находит шрифт "Calibri"
     IFontData calibriEmbeddedFont = null;
     for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println("" + embeddedFonts[i].getFontName());
+        System.out.println(""+ embeddedFonts[i].getFontName());
         if ("Calibri".equals(embeddedFonts[i].getFontName())) {
             calibriEmbeddedFont = embeddedFonts[i];
             break;
@@ -52,14 +63,14 @@ try {
     fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
 
     // Рендерит презентацию; шрифт "Calibri" заменяется существующим
-    slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
+     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-    // Сохранить изображение на диск в формате JPEG
-    try {
-        slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
+     //Сохраняет изображение на диск в формате JPEG
+     try {
+         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
+     } finally {
+         if (slideImage != null) slideImage.dispose();
+     }
 
     // Сохраняет презентацию без встроенного шрифта "Calibri" на диск
     pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
@@ -68,10 +79,11 @@ try {
 }
 ```
 
-## **Добавление встроенных шрифтов в презентацию**
 
-С помощью перечисления [EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) вы можете выбрать предпочитаемое правило (встраивание) для встраивания шрифтов в презентацию. Этот код на Java показывает, как встроить и добавить шрифты в презентацию:
 
+## **Добавить встроенные шрифты**
+
+С помощью enum [EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) вы можете выбрать предпочтительное правило (встраивания) для внедрения шрифтов в презентацию. Этот Java‑код демонстрирует, как встроить и добавить шрифты в презентацию:
 ```java
 // Загружает презентацию
 Presentation pres = new Presentation("Fonts.pptx");
@@ -105,12 +117,12 @@ try {
 }
 ```
 
-## **Сжатие встроенных шрифтов**
 
-Чтобы вы могли сжать шрифты, встроенные в презентацию, и уменьшить ее размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (предоставляемый классом [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)).
+## **Сжать встроенные шрифты**
 
-Этот код на Java показывает, как сжать встроенные шрифты PowerPoint:
+Для возможности сжатия шрифтов, встроенных в презентацию, и уменьшения её размера файл Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (доступный через класс [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)).
 
+Этот Java‑код показывает, как сжать встроенные шрифты PowerPoint:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -120,3 +132,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Как я могу определить, что конкретный шрифт в презентации всё равно будет заменён при рендеринге, несмотря на встраивание?**
+
+Проверьте [информацию о замене](/slides/ru/androidjava/font-substitution/) в менеджере шрифтов и [правила резервных/заменяющих шрифтов](/slides/ru/androidjava/fallback-font/): если шрифт недоступен или ограничен, будет использован резервный.
+
+**Стоит ли встраивать «системные» шрифты, такие как Arial/Calibri?**
+
+Обычно нет — они почти всегда доступны. Но для полной переносимости в «тонких» средах (Docker, сервер Linux без предустановленных шрифтов) встраивание системных шрифтов может устранить риск неожиданных замен.

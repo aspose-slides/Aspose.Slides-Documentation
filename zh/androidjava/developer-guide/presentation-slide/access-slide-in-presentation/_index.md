@@ -1,20 +1,33 @@
 ---
-title: 在演示文稿中访问幻灯片
+title: 在 Android 上访问演示文稿幻灯片
+linktitle: 访问幻灯片
 type: docs
 weight: 20
 url: /zh/androidjava/access-slide-in-presentation/
-keywords: "访问 PowerPoint 演示文稿，访问幻灯片，编辑幻灯片属性，改变幻灯片位置，设置幻灯片编号，索引，ID，位置 Java，Aspose.Slides"
-description: "通过索引、ID 或位置在 Java 中访问 PowerPoint 幻灯片。编辑幻灯片属性"
+keywords:
+- 访问幻灯片
+- 幻灯片索引
+- 幻灯片 ID
+- 幻灯片位置
+- 更改位置
+- 幻灯片属性
+- 幻灯片编号
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "了解如何使用适用于 Android 的 Aspose.Slides 访问和管理 PowerPoint 和 OpenDocument 演示文稿中的幻灯片。通过 Java 代码示例提升生产力。"
 ---
 
-Aspose.Slides 允许您通过两种方式访问幻灯片：通过索引和通过 ID。
+Aspose.Slides 允许您以两种方式访问幻灯片：按索引和按 ID。
 
 ## **通过索引访问幻灯片**
 
-演示文稿中的所有幻灯片是根据幻灯片位置从 0 开始按数字排列的。第一个幻灯片可以通过索引 0 访问；第二个幻灯片通过索引 1 访问；依此类推。
+演示文稿中的所有幻灯片均根据幻灯片位置按数字顺序排列，起始索引为 0。第一张幻灯片可通过索引 0 访问；第二张幻灯片可通过索引 1 访问；依此类推。
 
-表示演示文稿文件的 Presentation 类将所有幻灯片暴露为 [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) 集合（[ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) 对象的集合）。下面的 Java 代码展示了如何通过索引访问幻灯片：
-
+表示演示文稿文件的 Presentation 类将所有幻灯片公开为 [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) 集合（[ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) 对象的集合）。以下 Java 代码演示如何通过索引访问幻灯片：
 ```java
 // 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("demo.pptx");
@@ -26,10 +39,10 @@ try {
 }
 ```
 
+
 ## **通过 ID 访问幻灯片**
 
-演示文稿中的每个幻灯片都有一个唯一的 ID 与之相关联。您可以使用 [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) 方法（由 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类暴露）来定位该 ID。下面的 Java 代码展示了如何提供有效的幻灯片 ID 并通过 [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) 方法访问该幻灯片：
-
+演示文稿中的每张幻灯片都有唯一的 ID。您可以使用由 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类公开的 [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) 方法来定位该 ID。以下 Java 代码演示如何提供有效的幻灯片 ID 并通过 [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) 方法访问该幻灯片：
 ```java
 // 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("demo.pptx");
@@ -37,32 +50,32 @@ try {
     // 获取幻灯片 ID
     int id = (int) pres.getSlides().get_Item(0).getSlideId();
     
-    // 通过其 ID 访问幻灯片
+    // 通过 ID 访问幻灯片
     IBaseSlide slide = pres.getSlideById(id);
 } finally {
     pres.dispose();
 }
 ```
 
-## **改变幻灯片位置**
 
-Aspose.Slides 允许您改变幻灯片的位置。例如，您可以指定第一张幻灯片应该变成第二张幻灯片。
+## **更改幻灯片位置**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
-2. 通过其索引获取要改变位置的幻灯片的引用
-3. 通过 [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-) 属性为幻灯片设置一个新位置。
-4. 保存修改后的演示文稿。
+Aspose.Slides 允许您更改幻灯片的位置。例如，您可以指定将第一张幻灯片变为第二张幻灯片。
 
-下面的 Java 代码演示了将位置为 1 的幻灯片移动到位置 2 的操作：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。  
+1. 通过索引获取要更改位置的幻灯片引用  
+1. 通过 [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-) 属性为幻灯片设置新位置。  
+1. 保存修改后的演示文稿。
 
+下面的 Java 代码演示将位置为 1 的幻灯片移动到位置 2 的操作： 
 ```java
 // 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // 获取将要改变位置的幻灯片
+    // 获取要更改位置的幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 为幻灯片设置新位置
+    // 为幻灯片设置新的位置
     sld.setSlideNumber(2);
     
     // 保存修改后的演示文稿
@@ -72,19 +85,19 @@ try {
 }
 ```
 
-第一张幻灯片变成了第二张；第二张幻灯片变成了第一张。当您改变幻灯片的位置时，其他幻灯片会自动调整。
+
+第一张幻灯片变为第二张；第二张幻灯片变为第一张。当您更改幻灯片的位置时，其他幻灯片会自动调整。
 
 ## **设置幻灯片编号**
 
-使用 [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) 属性（由 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类暴露），您可以为演示文稿中的第一张幻灯片指定一个新编号。此操作会导致其他幻灯片编号被重新计算。
+通过 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类公开的 [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) 属性，您可以为演示文稿的第一张幻灯片指定新的编号。此操作会重新计算其他幻灯片的编号。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
-2. 获取幻灯片编号。
-3. 设置幻灯片编号。
-4. 保存修改后的演示文稿。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。  
+1. 获取幻灯片编号。  
+1. 设置幻灯片编号。  
+1. 保存修改后的演示文稿。
 
-下面的 Java 代码演示了将第一张幻灯片编号设置为 10 的操作：
-
+下面的 Java 代码演示将第一张幻灯片编号设置为 10 的操作： 
 ```java
 // 实例化一个表示演示文稿文件的 Presentation 对象
 Presentation pres = new Presentation("HelloWorld.pptx");
@@ -102,8 +115,8 @@ try {
 }
 ```
 
-如果您希望跳过第一张幻灯片，可以这样从第二张幻灯片开始编号（并隐藏第一张幻灯片的编号）：
 
+如果您希望跳过第一张幻灯片，可以从第二张幻灯片开始编号（并隐藏第一张幻灯片的编号），如下所示：
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -115,10 +128,10 @@ try {
     // 设置演示文稿第一张幻灯片的编号
     presentation.setFirstSlideNumber(0);
 
-    // 显示所有幻灯片的幻灯片编号
+    // 为所有幻灯片显示页码
     presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
 
-    // 隐藏第一张幻灯片的幻灯片编号
+    // 隐藏第一张幻灯片的页码
     presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
 
     // 保存修改后的演示文稿
@@ -127,3 +140,18 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**用户看到的幻灯片编号是否与集合的零基索引匹配？**
+
+幻灯片上显示的编号可以从任意值开始（例如 10），不必与索引匹配；两者的关系由演示文稿的 [first slide number](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) 设置控制。
+
+**隐藏的幻灯片会影响索引吗？**
+
+是的。隐藏的幻灯片仍保留在集合中并计入索引；“隐藏”指的是显示状态，而不是它在集合中的位置。
+
+**当添加或删除其他幻灯片时，幻灯片的索引会变化吗？**
+
+是的。索引始终反映幻灯片的当前顺序，并在插入、删除和移动操作时重新计算。

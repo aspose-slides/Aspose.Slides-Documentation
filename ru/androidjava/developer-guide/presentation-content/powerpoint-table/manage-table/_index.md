@@ -1,43 +1,55 @@
 ---
-title: Управление таблицей
+title: Управление таблицами презентаций на Android
+linktitle: Управление таблицей
 type: docs
 weight: 10
 url: /ru/androidjava/manage-table/
-keywords: "Таблица, создать таблицу, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Создайте и управляйте таблицами в презентациях PowerPoint на Java"
+keywords:
+- добавить таблицу
+- создать таблицу
+- доступ к таблице
+- соотношение сторон
+- выравнивание текста
+- форматирование текста
+- стиль таблицы
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью Aspose.Slides для Android. Откройте простые примеры кода Java, упрощающие работу с таблицами."
 ---
 
-Таблица в PowerPoint — это эффективный способ представления и отображения информации. Информация в сетке ячеек (расположенных по строкам и столбцам) проста и легка для понимания.
+Таблица в PowerPoint — это эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) представлена ясно и легко понимается.
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table), интерфейс [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable), класс [Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) и интерфейс [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) для создания, обновления и управления таблицами во всех видах презентаций.
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table), интерфейс [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable), класс [Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/), интерфейс [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами в любых презентациях.
 
-## **Создать таблицу с нуля**
+## **Create a Table from Scratch**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) на слайд через метод [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Примените форматирование к верхним, нижним, правым и левым границам каждой [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/).
-7. Объедините первые две ячейки первой строки таблицы. 
-8. Получите [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) для [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/).
-9. Добавьте текст в [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-10. Сохраните измененную презентацию.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
+2. Получите ссылку на слайд по его индексу.  
+3. Определите массив `columnWidth`.  
+4. Определите массив `rowHeight`.  
+5. Добавьте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).  
+6. Пройдитесь по каждой [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) и примените форматирование к верхней, нижней, правой и левой границам.  
+7. Объедините первые две ячейки первой строки таблицы.  
+8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) ячейки [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/).  
+9. Добавьте текст в [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).  
+10. Сохраните изменённую презентацию.
 
-Этот код Java показывает, как создать таблицу в презентации:
-
+Этот Java‑код показывает, как создать таблицу в презентации:
 ```java
-// Создает экземпляр класса Presentation, который представляет файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Определяет столбцы с шириной и строки с высотой
+    // Определяет столбцы с ширинами и строки с высотами
     double[] dblCols = {50, 50, 50};
     double[] dblRows = {50, 30, 30, 30, 30};
 
-    // Добавляет фигуру таблицы на слайд
+    // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
     // Устанавливает формат границы для каждой ячейки
@@ -64,11 +76,11 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Объединяет ячейки 1 и 2 строки 1
+    // Объединяет ячейки 1 и 2 первой строки
     tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
 
-    // Добавляет текст в объединенную ячейку
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Объединенные ячейки");
+    // Добавляет текст в объединённую ячейку
+    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
 
     // Сохраняет презентацию на диск
     pres.save("table.pptx", SaveFormat.Pptx);
@@ -77,11 +89,12 @@ try {
 }
 ```
 
-## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице индексируется как 0,0 (столбец 0, строка 0). 
+## **Numbering in a Standard Table**
 
-Например, ячейки в таблице с 4 столбцами и 4 строками пронумерованы следующим образом:
+В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка таблицы имеет индексы 0,0 (столбец 0, строка 0).
+
+Например, ячейки таблицы с 4 столбцами и 4 строками нумеруются так:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -89,20 +102,19 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Этот код Java показывает, как задать нумерацию для ячеек в таблице:
-
+Этот Java‑код показывает, как задать нумерацию ячеек в таблице:
 ```java
-// Создает экземпляр класса Presentation, который представляет файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Определяет столбцы с шириной и строки с высотой
+    // Определяет столбцы с ширинами и строки с высотами
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // Добавляет фигуру таблицы на слайд
+    // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
     // Устанавливает формат границы для каждой ячейки
@@ -135,47 +147,47 @@ try {
 }
 ```
 
-## **Доступ к существующей таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+## **Access an Existing Table**
 
-2. Получите ссылку на слайд, содержащий таблицу, через его индекс. 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
 
-3. Создайте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) и установите его в null.
+2. Получите ссылку на слайд, содержащий таблицу, по его индексу.  
 
-4. Переберите все объекты [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) до тех пор, пока таблица не будет найдена.
+3. Создайте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) и присвойте ему значение null.  
 
-   Если вы подозреваете, что слайд, с которым вы работаете, содержит единственную таблицу, вы можете просто проверить все фигуры, которые он содержит. Когда фигура идентифицирована как таблица, вы можете привести ее к объекту [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table). Но если слайд, с которым вы работаете, содержит несколько таблиц, то лучше искать нужную таблицу через [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+4. Пройдите по всем объектам [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), пока не найдёте таблицу.  
 
-5. Используйте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) для работы с таблицей. В приведенном ниже примере мы добавили новую строку в таблицу.
+   Если вы подозреваете, что на слайде только одна таблица, можно просто проверить все содержащиеся в нём формы. Когда форма идентифицирована как таблица, её можно привести к типу [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table). Если же на слайде несколько таблиц, лучше искать нужную таблицу по её методу [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).  
 
-6. Сохраните измененную презентацию.
+5. Используйте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) для работы с таблицей. В примере ниже мы добавляем новую строку в таблицу.  
 
-Этот код Java показывает, как получить доступ и работать с существующей таблицей:
+6. Сохраните изменённую презентацию.
 
+Этот Java‑код показывает, как получить доступ к существующей таблице и работать с ней:
 ```java
-// Создает экземпляр класса Presentation, который представляет файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
 
     // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Инициализирует null TableEx
+    // Инициализирует TableEx как null
     ITable tbl = null;
 
-    // Перебирает фигуры и устанавливает ссылку на найденную таблицу
+    // Итерация по фигурам и установка ссылки на найденную таблицу
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // Устанавливает текст для первого столбца второй строки
-            tbl.get_Item(0, 1).getTextFrame().setText("Новый");
+            // Устанавливает текст для первой колонки второй строки
+            tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
     
-    // Сохраняет измененную презентацию на диск
+    // Сохраняет изменённую презентацию на диск
     pres.save("table1_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -183,30 +195,29 @@ try {
 ```
 
 
-## **Выравнивание текста в таблице**
+## **Align Text in a Table**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) на слайд.
-4. Получите объект [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) из таблицы.
-5. Получите [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/).
-6. Выравнивайте текст вертикально.
-7. Сохраните измененную презентацию.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
+2. Получите ссылку на слайд по его индексу.  
+3. Добавьте объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) на слайд.  
+4. Получите объект [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) из таблицы.  
+5. Получите [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) из [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).  
+6. Выравнивайте текст по вертикали.  
+7. Сохраните изменённую презентацию.
 
-Этот код Java показывает, как выровнять текст в таблице:
-
+Этот Java‑код показывает, как выровнять текст в таблице:
 ```java
-// Создает экземпляр класса Presentation
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд 
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Определяет столбцы с шириной и строки с высотой
+    // Определяет столбцы с ширинами и строки с высотами
     double[] dblCols = { 120, 120, 120, 120 };
     double[] dblRows = { 100, 100, 100, 100 };
     
-    // Добавляет фигуру таблицы на слайд
+    // Добавляет форму таблицы на слайд
     ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
     tbl.get_Item(1, 0).getTextFrame().setText("10");
     tbl.get_Item(2, 0).getTextFrame().setText("20");
@@ -215,16 +226,16 @@ try {
     // Получает текстовый фрейм
     ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
     
-    // Создает объект Paragraph для текстового фрейма
+    // Создаёт объект Paragraph для текстового фрейма
     IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
     
-    // Создает объект Portion для абзаца
+    // Создаёт объект Portion для абзаца
     IPortion portion = paragraph.getPortions().get_Item(0);
-    portion.setText("Текст здесь");
+    portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // Выравнивает текст вертикально
+    // Выравнивает текст по вертикали
     ICell cell = tbl.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
@@ -236,23 +247,23 @@ try {
 }
 ```
 
-## **Установить форматирование текста на уровне таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Получите объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) из слайда.
-4. Установите [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) для текста.
-5. Установите [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Установите [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Сохраните измененную презентацию. 
+## **Set Text Formatting on the Table Level**
 
-Этот код Java показывает, как применить желаемые параметры форматирования к тексту в таблице:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
+2. Получите ссылку на слайд по его индексу.  
+3. Получите объект [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) со слайда.  
+4. Установите [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) для текста.  
+5. Установите [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
+6. Установите [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
+7. Сохраните изменённую презентацию.
 
+Этот Java‑код показывает, как применить желаемые параметры форматирования к тексту в таблице:
 ```java
-// Создает экземпляр класса Presentation
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // Предположим, что первая фигура на первом слайде - это таблица
+    // Предположим, что первая фигура на первом слайде — это таблица
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
     // Устанавливает высоту шрифта ячеек таблицы
@@ -260,7 +271,7 @@ try {
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Устанавливает выравнивание текста ячеек таблицы и правый отступ за один вызов
+    // Устанавливает выравнивание текста ячеек таблицы и правый отступ одним вызовом
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
@@ -277,39 +288,54 @@ try {
 }
 ```
 
-## **Получить свойства стиля таблицы**
 
-Aspose.Slides позволяет извлекать свойства стиля для таблицы, чтобы вы могли использовать эти детали для другой таблицы или где-либо еще. Этот код Java показывает, как получить свойства стиля из предустановленного стиля таблицы:
+## **Get Table Style Properties**
 
+Aspose.Slides позволяет получить свойства стиля таблицы, чтобы использовать их для другой таблицы или в другом месте. Этот Java‑код показывает, как получить свойства стиля из предустановленного стиля таблицы:
 ```java
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // изменяет заданный стиль предустановленной темы 
+    table.setStylePreset(TableStylePreset.DarkStyle1); // изменить тему предустановленного стиля по умолчанию
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Заблокировать соотношение сторон таблицы**
 
-Соотношение сторон геометрической формы — это отношение ее размеров в различных измерениях. Aspose.Slides предоставляет свойство [**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) для блокировки настройки соотношения сторон для таблиц и других фигур.
+## **Lock Aspect Ratio of a Table**
 
-Этот код Java показывает, как заблокировать соотношение сторон таблицы:
+Соотношение сторон геометрической фигуры — это отношение её размеров по разным измерениям. Aspose.Slides предоставляет свойство [**setAspectRatioLocked**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-), позволяющее зафиксировать соотношение сторон для таблиц и других фигур.
 
+Этот Java‑код показывает, как закрепить соотношение сторон для таблицы:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    System.out.println("Блокировка соотношения сторон установлена: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+    System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
     table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // инвертировать
 
-    System.out.println("Блокировка соотношения сторон установлена: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+    System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
     pres.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
+
+Да. Таблица предоставляет метод [setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), а у абзацев есть [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Использование обоих методов обеспечивает правильный порядок RTL и корректный рендеринг внутри ячеек.
+
+**Как предотвратить перемещение или изменение размеров таблицы конечным пользователем?**
+
+Используйте [защиту форм](/slides/ru/androidjava/applying-protection-to-presentation/), чтобы отключить перемещение, изменение размеров, выделение и т.д. Эти ограничения применяются и к таблицам.
+
+**Поддерживается ли установка изображения в качестве фона ячейки?**
+
+Да. Вы можете задать [заполнение изображением](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать площадь ячейки в выбранном режиме (растягивание или повтор).

@@ -1,29 +1,43 @@
 ---
-title: En-tête et Pied de page de Présentation
+title: Gérer les en-têtes et pieds de page des présentations sur Android
+linktitle: En-tête & Pied de page
 type: docs
 weight: 140
 url: /fr/androidjava/presentation-header-and-footer/
-keywords: "En-tête et pied de page PowerPoint en Java"
-description: "En-tête et pied de page PowerPoint en Java"
+keywords:
+- en-tête
+- texte d'en-tête
+- pied de page
+- texte de pied de page
+- définir l'en-tête
+- définir le pied de page
+- support
+- notes
+- PowerPoint
+- OpenDocument
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Utilisez Aspose.Slides pour Android via Java pour ajouter et personnaliser les en-têtes et pieds de page dans les présentations PowerPoint et OpenDocument afin d’obtenir un rendu professionnel."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/fr/androidjava/) fournit un support pour travailler avec le texte des en-têtes et pieds de page des diapositives qui sont en fait maintenus au niveau du modèle de diapositive.
+[Aspose.Slides](/slides/fr/androidjava/) offre une prise en charge pour travailler avec le texte des en‑têtes et pieds de page des diapositives qui sont réellement maintenus au niveau du maître de diapositive.
 
 {{% /alert %}} 
 
-[Aspose.Slides pour Android via Java](/slides/fr/androidjava/) fournit la fonctionnalité pour gérer les en-têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du modèle de présentation.
+[Aspose.Slides for Android via Java](/slides/fr/androidjava/) offre la fonctionnalité de gestion des en‑têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux‑ci sont en fait gérés au niveau du maître de présentation.
 
-## **Gérer l'en-tête et le pied de page dans la présentation**
-Les notes de certaines diapositives spécifiques peuvent être supprimées comme montré dans l'exemple ci-dessous :
-
+## **Gérer les en‑têtes et pieds de page dans une présentation**
+Les notes d'une diapositive spécifique peuvent être supprimées comme indiqué dans l'exemple ci-dessous :
 ```java
 // Charger la présentation
 Presentation pres = new Presentation("headerTest.pptx");
 try {
     // Définir le pied de page
-    pres.getHeaderFooterManager().setAllFootersText("Mon texte de pied de page");
+    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
     pres.getHeaderFooterManager().setAllFootersVisibility(true);
 
     // Accéder et mettre à jour l'en-tête
@@ -39,8 +53,9 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ```java
-// Méthode pour définir le texte de l'en-tête/pied de page
+// Méthode pour définir le texte d'en-tête/pied de page
 public static void updateHeaderFooterText(IBaseSlide master)
 {
     for (IShape shape : master.getShapes())
@@ -49,45 +64,45 @@ public static void updateHeaderFooterText(IBaseSlide master)
         {
             if (shape.getPlaceholder().getType() == PlaceholderType.Header)
             {
-                ((IAutoShape)shape).getTextFrame().setText("Salut nouveau en-tête");
+                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
             }
         }
     }
 }
 ```
 
-## **Gérer l'en-tête et le pied de page dans les slides de distribution et de notes**
-Aspose.Slides pour Android via Java prend en charge l'en-tête et le pied de page dans les diapositives de distribution et de notes. Veuillez suivre les étapes ci-dessous :
 
-- Charger une [Présentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) contenant une vidéo.
-- Modifier les paramètres d'en-tête et de pied de page pour le modèle de notes et toutes les diapositives de notes.
-- Rendre le modèle de notes et tous les espaces réservés de pied de page visibles.
-- Rendre le modèle de notes et tous les espaces réservés de date et d'heure visibles.
-- Modifier les paramètres d'en-tête et de pied de page uniquement pour la première diapositive de notes.
-- Rendre l'espace réservé d'en-tête de la diapositive de notes visible.
-- Définir du texte pour l'espace réservé d'en-tête de la diapositive de notes.
-- Définir du texte pour l'espace réservé de date-heure de la diapositive de notes.
+## **Gérer les en‑têtes et pieds de page sur les diapositives de support et de notes**
+Aspose.Slides for Android via Java prend en charge les en‑têtes et pieds de page dans les diapositives de support et de notes. Veuillez suivre les étapes ci‑dessous :
+
+- Charger une Presentation contenant une vidéo.
+- Modifier les paramètres d'en‑tête et de pied de page pour le maître des notes et toutes les diapositives de notes.
+- Définir le maître des diapositives de notes et tous les espaces réservés du pied de page enfants comme visibles.
+- Définir le maître des diapositives de notes et tous les espaces réservés de date et heure enfants comme visibles.
+- Modifier les paramètres d'en‑tête et de pied de page uniquement pour la première diapositive de notes.
+- Définir l'espace réservé d'en‑tête de la diapositive de notes comme visible.
+- Définir le texte pour l'espace réservé d'en‑tête de la diapositive de notes.
+- Définir le texte pour l'espace réservé de date‑heure de la diapositive de notes.
 - Écrire le fichier de présentation modifié.
 
-Extrait de code fourni dans l'exemple ci-dessous.
-
+Extrait de code fourni dans l'exemple ci‑dessous.
 ```java
 Presentation pres = new Presentation("presentation.pptx");
 try {
-    // Modifier les paramètres d'en-tête et de pied de page pour le modèle de notes et toutes les diapositives de notes
+    // Modifier les paramètres d'en-tête et de pied de page pour le maître des notes et toutes les diapositives de notes
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (masterNotesSlide != null)
     {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // rendre le modèle de notes et tous les espaces réservés de pied de page visibles
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // rendre le modèle de notes et tous les espaces réservés d'en-tête visibles
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // rendre le modèle de notes et tous les espaces réservés de numéro de diapositive visibles
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // rendre le modèle de notes et tous les espaces réservés de date et d'heure visibles
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // rendre la diapositive maître des notes et tous les espaces réservés du pied de page enfants visibles
+        headerFooterManager.setFooterAndChildFootersVisibility(true); // rendre la diapositive maître des notes et tous les espaces réservés de l'en-tête enfants visibles
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // rendre la diapositive maître des notes et tous les espaces réservés du numéro de diapositive enfants visibles
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // rendre la diapositive maître des notes et tous les espaces réservés de date et d'heure enfants visibles
 
-        headerFooterManager.setHeaderAndChildHeadersText("Texte de l'en-tête"); // définir le texte du modèle de notes et tous les espaces réservés d'en-tête
-        headerFooterManager.setFooterAndChildFootersText("Texte du pied de page"); // définir le texte du modèle de notes et tous les espaces réservés de pied de page
-        headerFooterManager.setDateTimeAndChildDateTimesText("Texte de date et heure"); // définir le texte du modèle de notes et tous les espaces réservés de date et d'heure
+        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // définir le texte sur la diapositive maître des notes et tous les espaces réservés d'en-tête enfants
+        headerFooterManager.setFooterAndChildFootersText("Footer text"); // définir le texte sur la diapositive maître des notes et tous les espaces réservés de pied de page enfants
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // définir le texte sur la diapositive maître des notes et tous les espaces réservés de date et d'heure enfants
     }
 
     // Modifier les paramètres d'en-tête et de pied de page uniquement pour la première diapositive de notes
@@ -102,17 +117,36 @@ try {
             headerFooterManager.setFooterVisibility(true); // rendre cet espace réservé de pied de page de diapositive de notes visible
 
         if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // rendre cet espace réservé de numéro de diapositive de notes visible
+            headerFooterManager.setSlideNumberVisibility(true); // rendre cet espace réservé du numéro de diapositive de diapositive de notes visible
 
         if (!headerFooterManager.isDateTimeVisible())
             headerFooterManager.setDateTimeVisibility(true); // rendre cet espace réservé de date-heure de diapositive de notes visible
 
-        headerFooterManager.setHeaderText("Nouveau texte d'en-tête"); // définir le texte pour l'espace réservé d'en-tête de la diapositive de notes
-        headerFooterManager.setFooterText("Nouveau texte de pied de page"); // définir le texte pour l'espace réservé de pied de page de la diapositive de notes
-        headerFooterManager.setDateTimeText("Nouveau texte de date et d'heure"); // définir le texte pour l'espace réservé de date-heure de la diapositive de notes
+        headerFooterManager.setHeaderText("New header text"); // définir le texte sur l'espace réservé d'en-tête de diapositive de notes
+        headerFooterManager.setFooterText("New footer text"); // définir le texte sur l'espace réservé de pied de page de diapositive de notes
+        headerFooterManager.setDateTimeText("New date and time text"); // définir le texte sur l'espace réservé de date-heure de diapositive de notes
     }
     pres.save("testresult.pptx",SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Puis‑je ajouter un « en‑tête » aux diapositives normales ?**
+
+Dans PowerPoint, l'« en‑tête » n'existe que pour les notes et les supports ; sur les diapositives normales, les éléments pris en charge sont le pied de page, la date/heure et le numéro de diapositive. Dans Aspose.Slides, cela correspond aux mêmes limitations : en‑tête uniquement pour Notes/Handout, et sur les diapositives — Footer/DateTime/SlideNumber.
+
+**Et si la mise en page ne contient pas de zone de pied de page—puis‑je « activer » sa visibilité ?**
+
+Oui. Vérifiez la visibilité via le gestionnaire d'en‑tête/pied de page et activez‑la si nécessaire. Ces indicateurs et méthodes API sont conçus pour les cas où l'espace réservé est manquant ou masqué.
+
+**Comment faire en sorte que le numéro de diapositive commence à une valeur autre que 1 ?**
+
+Définissez le numéro de première diapositive de la présentation ; après cela, tous les numéros sont recalculés. Par exemple, vous pouvez commencer à 0 ou 10, et masquer le numéro sur la diapositive de titre.
+
+**Que se passe‑t‑il avec les en‑têtes/pieds de page lors de l'exportation vers PDF/images/HTML ?**
+
+Ils sont rendus comme des éléments de texte normaux de la présentation. Ainsi, si les éléments sont visibles sur les diapositives/pages de notes, ils apparaîtront également dans le format de sortie avec le reste du contenu.

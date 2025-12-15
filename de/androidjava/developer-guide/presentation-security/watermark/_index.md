@@ -1,43 +1,56 @@
 ---
-title: Wasserzeichen
+title: Wasserzeichen zu Präsentationen auf Android hinzufügen
+linktitle: Wasserzeichen
 type: docs
 weight: 40
-url: /de/androidjava/wasserzeichen/
+url: /de/androidjava/watermark/
 keywords:
-- wasserzeichen
-- wasserzeichen hinzufügen
-- textwasserzeichen
-- bildwasserzeichen
+- Wasserzeichen
+- Textwasserzeichen
+- Bildwasserzeichen
+- Wasserzeichen hinzufügen
+- Wasserzeichen ändern
+- Wasserzeichen entfernen
+- Wasserzeichen löschen
+- Wasserzeichen zu PPT hinzufügen
+- Wasserzeichen zu PPTX hinzufügen
+- Wasserzeichen zu ODP hinzufügen
+- Wasserzeichen aus PPT entfernen
+- Wasserzeichen aus PPTX entfernen
+- Wasserzeichen aus ODP entfernen
+- Wasserzeichen aus PPT löschen
+- Wasserzeichen aus PPTX löschen
+- Wasserzeichen aus ODP löschen
 - PowerPoint
-- präsentation
+- OpenDocument
+- Präsentation
 - Android
 - Java
-- Aspose.Slides für Android über Java
-description: "Text- und Bildwasserzeichen zu PowerPoint-Präsentationen in Java hinzufügen"
+- Aspose.Slides
+description: "Verwalten Sie Text- und Bildwasserzeichen in PowerPoint- und OpenDocument-Präsentationen auf Android in Java, um einen Entwurf, vertrauliche Informationen und mehr anzuzeigen."
 ---
 
 ## **Über Wasserzeichen**
 
-**Ein Wasserzeichen** in einer Präsentation ist ein Text- oder Bildstempel, der auf einer Folie oder auf allen Folien der Präsentation verwendet wird. Normalerweise wird ein Wasserzeichen verwendet, um anzuzeigen, dass die Präsentation ein Entwurf ist (z.B. ein "Entwurf" Wasserzeichen), dass sie vertrauliche Informationen enthält (z.B. ein "Vertraulich" Wasserzeichen), um anzugeben, zu welchem Unternehmen sie gehört (z.B. ein "Unternehmensname" Wasserzeichen), um den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem es anzeigt, dass die Präsentation nicht kopiert werden sollte. Wasserzeichen werden sowohl im PowerPoint- als auch im OpenOffice-Präsentationsformat verwendet. In Aspose.Slides können Sie Wasserzeichen zu PowerPoint PPT, PPTX und OpenOffice ODP-Dateiformaten hinzufügen.
+**Ein Wasserzeichen** in einer Präsentation ist ein Text‑ oder Bildstempel, der auf einer Folie oder über alle Folien einer Präsentation hinweg verwendet wird. In der Regel wird ein Wasserzeichen verwendet, um anzuzeigen, dass die Präsentation ein Entwurf ist (z. B. ein „Draft“-Wasserzeichen), dass sie vertrauliche Informationen enthält (z. B. ein „Confidential“-Wasserzeichen), um anzugeben, zu welchem Unternehmen sie gehört (z. B. ein „Company Name“-Wasserzeichen), um den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem es anzeigt, dass die Präsentation nicht kopiert werden darf. Wasserzeichen werden sowohl in PowerPoint‑ als auch in OpenOffice‑Präsentationsformaten verwendet. In Aspose.Slides können Sie ein Wasserzeichen zu PowerPoint‑PPT-, PPTX‑ und OpenOffice‑ODP‑Dateiformaten hinzufügen.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/android-java/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint- oder OpenOffice-Dokumenten zu erstellen und deren Design und Verhalten zu ändern. Der gemeinsame Aspekt ist, dass Sie zum Hinzufügen von Textwasserzeichen das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) Interface verwenden sollten, und um Bildwasserzeichen hinzuzufügen, verwenden Sie die [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) Klasse oder füllen eine Wasserzeichenform mit einem Bild. `PictureFrame` implementiert das [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) Interface, wodurch Sie alle flexiblen Einstellungen des Formobjekts nutzen können. Da `ITextFrame` keine Form ist und ihre Einstellungen begrenzt sind, wird sie in ein [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) Objekt eingewickelt.
+In [**Aspose.Slides**](https://products.aspose.com/slides/android-java/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint‑ oder OpenOffice‑Dokumenten zu erstellen und deren Design und Verhalten zu ändern. Der gemeinsame Aspekt ist, dass Sie zum Hinzufügen von Textwasserzeichen das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑Interface verwenden sollten und zum Hinzufügen von Bildwasserzeichen die [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/)‑Klasse oder das Füllen einer Wasserzeichenform mit einem Bild nutzen. `PictureFrame` implementiert das [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)‑Interface, sodass Sie alle flexiblen Einstellungen des Formobjekts verwenden können. Da `ITextFrame` keine Form ist und seine Einstellungen begrenzt sind, wird es in ein [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)‑Objekt eingewickelt.
 
-Es gibt zwei Möglichkeiten, wie ein Wasserzeichen angewendet werden kann: auf eine einzelne Folie oder auf alle Präsentationsfolien. Der Folienmaster wird verwendet, um ein Wasserzeichen auf allen Präsentationsfolien anzuwenden - das Wasserzeichen wird zum Folienmaster hinzugefügt, dort vollständig gestaltet und auf alle Folien angewendet, ohne das Recht zur Bearbeitung des Wasserzeichens auf einzelnen Folien zu beeinträchtigen.
+Es gibt zwei Methoden, ein Wasserzeichen anzuwenden: auf einer einzelnen Folie oder auf allen Folien der Präsentation. Der Folienmaster wird verwendet, um ein Wasserzeichen auf alle Folien anzuwenden – das Wasserzeichen wird dem Folienmaster hinzugefügt, dort vollständig gestaltet und auf alle Folien angewendet, ohne die Möglichkeit zu beeinträchtigen, das Wasserzeichen auf einzelnen Folien zu bearbeiten.
 
-Ein Wasserzeichen wird normalerweise als nicht bearbeitbar für andere Benutzer betrachtet. Um zu verhindern, dass das Wasserzeichen (oder besser gesagt die übergeordnete Form des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Funktion zur Formensperrung an. Eine bestimmte Form kann auf einer normalen Folie oder auf einem Folienmaster gesperrt werden. Wenn die Wasserzeichenform auf dem Folienmaster gesperrt ist, wird sie auf allen Präsentationsfolien gesperrt.
+Ein Wasserzeichen gilt in der Regel als für andere Benutzer nicht bearbeitbar. Um zu verhindern, dass das Wasserzeichen (bzw. die übergeordnete Form des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Form‑Sperrfunktion. Eine bestimmte Form kann auf einer normalen Folie oder auf einem Folienmaster gesperrt werden. Wenn die Wasserzeichenform auf dem Folienmaster gesperrt ist, ist sie auf allen Folien der Präsentation gesperrt.
 
-Sie können einen Namen für das Wasserzeichen festlegen, sodass Sie es in Zukunft, wenn Sie es löschen möchten, nach dem Namen in den Formen der Folie finden können.
+Sie können dem Wasserzeichen einen Namen zuweisen, sodass Sie es später, wenn Sie es löschen möchten, über den Namen in den Formen der Folie finden können.
 
-Sie können das Wasserzeichen auf beliebige Weise gestalten; es gibt jedoch normalerweise gemeinsame Merkmale in Wasserzeichen, wie z.B. zentrierte Ausrichtung, Drehung, Vordergrundposition usw. Wir werden im Folgenden betrachten, wie man diese in den Beispielen verwendet.
+Sie können das Wasserzeichen nach Belieben gestalten; jedoch gibt es in der Regel gemeinsame Merkmale von Wasserzeichen, wie zentrierte Ausrichtung, Drehung, Vordergrundposition usw. Wir werden im Folgenden zeigen, wie diese in den Beispielen verwendet werden können.
 
 ## **Textwasserzeichen**
 
-### **Textwasserzeichen zu einer Folie hinzufügen**
+### **Ein Textwasserzeichen zu einer Folie hinzufügen**
 
-Um ein Textwasserzeichen in PPT, PPTX oder ODP hinzuzufügen, können Sie zunächst eine Form zur Folie hinzufügen und dann einen Textrahmen zu dieser Form hinzufügen. Der Textrahmen wird durch das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) Interface repräsentiert. Dieser Typ erbt nicht von [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), das über eine breite Palette von Eigenschaften zur flexiblen Positionierung des Wasserzeichens verfügt. Daher wird das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) Objekt in ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) Objekt eingewickelt. Um Wasserzeichentext zur Form hinzuzufügen, verwenden Sie die [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) Methode wie unten gezeigt.
-
+Um ein Textwasserzeichen in PPT, PPTX oder ODP hinzuzufügen, können Sie zunächst eine Form zur Folie hinzufügen und dann dieser Form einen Textframe hinzufügen. Der Textframe wird durch das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑Interface dargestellt. Dieser Typ erbt nicht von [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), das über einen großen Satz von Eigenschaften zur flexiblen Positionierung des Wasserzeichens verfügt. Daher wird das [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)‑Objekt in ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)‑Objekt eingewickelt. Um dem Shape Text für das Wasserzeichen hinzuzufügen, verwenden Sie die Methode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) wie unten gezeigt.
 ```java
-String watermarkText = "VERTRAULICH";
+String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,16 +61,16 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
+
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/de/androidjava/text-formatting/)
+- [Wie man die TextFrame‑Klasse verwendet](/slides/de/androidjava/text-formatting/)
 {{% /alert %}}
 
-### **Textwasserzeichen zu einer Präsentation hinzufügen**
+### **Ein Textwasserzeichen zu einer Präsentation hinzufügen**
 
-Wenn Sie ein Textwasserzeichen zu der gesamten Präsentation (d.h. zu allen Folien auf einmal) hinzufügen möchten, fügen Sie es zum [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) hinzu. Die restliche Logik ist die gleiche, wie beim Hinzufügen eines Wasserzeichens zu einer einzelnen Folie - erstellen Sie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) Objekt und fügen Sie dann das Wasserzeichen damit hinzu, indem Sie die [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) Methode verwenden.
-
+Wenn Sie ein Textwasserzeichen zur gesamten Präsentation hinzufügen möchten (d. h. alle Folien auf einmal), fügen Sie es dem [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) hinzu. Der Rest der Logik ist derselbe wie beim Hinzufügen eines Wasserzeichens zu einer einzelnen Folie – erstellen Sie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)‑Objekt und fügen Sie das Wasserzeichen anschließend mit der Methode [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) hinzu.
 ```java
-String watermarkText = "VERTRAULICH";
+String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -68,33 +81,33 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
+
 {{% alert color="primary" title="Siehe auch" %}} 
 - [Wie man den Folienmaster verwendet](/slides/de/androidjava/slide-master/)
 {{% /alert %}}
 
-### **Wasserzeichenformtransparenz einstellen**
+### **Transparenz der Wasserzeichenform festlegen**
 
-Standardmäßig ist die Rechteckform mit Füll- und Linienfarben gestaltet. Die folgenden Codezeilen machen die Form transparent.
-
+Standardmäßig ist die Rechteckform mit Füll‑ und Linienfarben formatiert. Die folgenden Codezeilen machen die Form transparent.
 ```java
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 ```
 
+
 ### **Schriftart für ein Textwasserzeichen festlegen**
 
 Sie können die Schriftart des Textwasserzeichens wie unten gezeigt ändern.
-
 ```java
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
 ```
 
-### **Wasserzeichentextfarbe festlegen**
 
-Um die Farbe des Wasserzeichentexts festzulegen, verwenden Sie diesen Code:
+### **Farbe des Wasserzeichnungstextes festlegen**
 
+Um die Farbe des Wasserzeichnungstextes festzulegen, verwenden Sie diesen Code:
 ```java
 int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -103,10 +116,10 @@ fillFormat.setFillType(FillType.Solid);
 fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
 ```
 
+
 ### **Ein Textwasserzeichen zentrieren**
 
-Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren, und dafür können Sie Folgendes tun:
-
+Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren; dazu können Sie Folgendes tun:
 ```java
 SizeF slideSize = presentation.getSlideSize().getSize();
 
@@ -121,7 +134,6 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(
 ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 ```
 
-Das Bild unten zeigt das Endergebnis.
 
 ![Das Textwasserzeichen](text_watermark.png)
 
@@ -130,7 +142,6 @@ Das Bild unten zeigt das Endergebnis.
 ### **Ein Bildwasserzeichen zu einer Präsentation hinzufügen**
 
 Um ein Bildwasserzeichen zu einer Präsentationsfolie hinzuzufügen, können Sie Folgendes tun:
-
 ```java
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
@@ -140,12 +151,12 @@ watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(imag
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 ```
 
-## **Ein Wasserzeichen vom Bearbeiten sperren**
 
-Wenn es notwendig ist, zu verhindern, dass ein Wasserzeichen bearbeitet wird, verwenden Sie die [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) Methode auf der Form. Mit dieser Eigenschaft können Sie die Form davor schützen, ausgewählt, skaliert, repositioniert, mit anderen Elementen gruppiert, ihren Text vor dem Bearbeiten gesperrt und vieles mehr zu werden:
+### **Ein Wasserzeichen vor Bearbeitung sperren**
 
+Falls es notwendig ist, ein Wasserzeichen vor einer Bearbeitung zu schützen, verwenden Sie die Methode [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) auf der Form. Mit dieser Eigenschaft können Sie die Form davor schützen, ausgewählt, in der Größe geändert, neu positioniert, mit anderen Elementen gruppiert, ihr Text vor Bearbeitung gesperrt zu werden und vieles mehr:
 ```java
-// Sperren Sie die Wasserzeichenform vor Modifikationen
+// Sperre die Wasserzeichenform vor Änderungen
 watermarkShape.getAutoShapeLock().setSelectLocked(true);
 watermarkShape.getAutoShapeLock().setSizeLocked(true);
 watermarkShape.getAutoShapeLock().setTextLocked(true);
@@ -153,37 +164,37 @@ watermarkShape.getAutoShapeLock().setPositionLocked(true);
 watermarkShape.getAutoShapeLock().setGroupingLocked(true);
 ```
 
-## **Ein Wasserzeichen nach vorne bringen**
 
-In Aspose.Slides kann die Z-Reihenfolge von Formen über die [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) Methode festgelegt werden. Um dies zu tun, müssen Sie diese Methode von der Liste der Präsentationsfolien aufrufen und die Formreferenz sowie ihre Reihenfolgenummer an die Methode übergeben. Auf diese Weise ist es möglich, eine Form nach vorne zu bringen oder sie auf die Rückseite der Folie zu senden. Diese Funktion ist besonders nützlich, wenn Sie ein Wasserzeichen vor die Präsentation platzieren müssen:
+### **Ein Wasserzeichen nach vorne bringen**
 
+In Aspose.Slides kann die Z‑Reihenfolge von Formen über die Methode [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) festgelegt werden. Dazu müssen Sie diese Methode aus der Liste der Präsentationsfolien aufrufen und die Formreferenz sowie deren Ordnungsnummer übergeben. Auf diese Weise kann eine Form nach vorne bzw. nach hinten verschoben werden. Diese Funktion ist besonders nützlich, wenn Sie ein Wasserzeichen vor die Präsentation stellen müssen:
 ```java
 int shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Wasserzeichenrotation festlegen**
 
-Hier ist ein Codebeispiel, wie Sie die Rotation des Wasserzeichens anpassen, damit es diagonal über die Folie positioniert ist:
+### **Drehung des Wasserzeichens festlegen**
 
+Hier ein Codebeispiel, wie Sie die Drehung des Wasserzeichens anpassen können, sodass es diagonal über die Folie positioniert wird:
 ```java
 double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
 watermarkShape.setRotation((float)diagonalAngle);
 ```
 
-## **Einen Namen für ein Wasserzeichen festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, den Namen einer Form festzulegen. Indem Sie den Formnamen verwenden, können Sie in Zukunft darauf zugreifen, um ihn zu bearbeiten oder zu löschen. Um den Namen der Wasserzeichenform festzulegen, weisen Sie ihn der [IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) Methode zu:
+### **Einen Namen für ein Wasserzeichen festlegen**
 
+Aspose.Slides ermöglicht es, den Namen einer Form festzulegen. Durch die Verwendung des Formnamens können Sie später darauf zugreifen, um sie zu ändern oder zu löschen. Um den Namen der Wasserzeichenform festzulegen, weisen Sie ihn der Methode [IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) zu:
 ```java
 watermarkShape.setName("watermark");
 ```
 
-## **Ein Wasserzeichen entfernen**
 
-Um die Wasserzeichenform zu entfernen, verwenden Sie die [IAutoShape.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getName--) Methode, um sie in den Folienformen zu finden. Übergeben Sie dann die Wasserzeichenform an die [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) Methode:
+### **Ein Wasserzeichen entfernen**
 
+Um die Wasserzeichenform zu entfernen, verwenden Sie die Methode [IAutoShape.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getName--) , um sie in den Folienformen zu finden. Anschließend übergeben Sie die Wasserzeichenform an die Methode [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
 ```java
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
@@ -194,8 +205,29 @@ for (IShape shape : slideShapes) {
 }
 ```
 
-## **Ein Live-Beispiel**
 
-Sie möchten vielleicht die **Aspose.Slides kostenlose** [Wasserzeichen hinzufügen](https://products.aspose.app/slides/watermark) und [Wasserzeichen entfernen](https://products.aspose.app/slides/watermark/remove-watermark) Online-Tools ausprobieren.
+## **FAQ**
 
-![Online-Tools zum Hinzufügen und Entfernen von Wasserzeichen](online_tools.png)
+**Was ist ein Wasserzeichen und warum sollte ich es verwenden?**
+
+Ein Wasserzeichen ist ein Text‑ oder Bildüberlagerung, die auf Folien angewendet wird und dazu dient, geistiges Eigentum zu schützen, die Markenbekanntheit zu erhöhen oder die unbefugte Nutzung von Präsentationen zu verhindern.
+
+**Kann ich ein Wasserzeichen zu allen Folien einer Präsentation hinzufügen?**
+
+Ja, Aspose.Slides ermöglicht es, programmgesteuert ein Wasserzeichen zu jeder Folie einer Präsentation hinzuzufügen. Sie können durch alle Folien iterieren und die Wasserzeicheneinstellungen einzeln anwenden.
+
+**Wie kann ich die Transparenz des Wasserzeichens anpassen?**
+
+Sie können die Transparenz des Wasserzeichens anpassen, indem Sie die Füllformat‑Einstellungen ([getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getFillFormat--)) der Form ändern. Dadurch wird das Wasserzeichen dezent und lenkt nicht von den Folieninhalten ab.
+
+**Welche Bildformate werden für Wasserzeichen unterstützt?**
+
+Aspose.Slides unterstützt verschiedene Bildformate wie PNG, JPEG, GIF, BMP, SVG und weitere.
+
+**Kann ich die Schriftart und den Stil eines Textwasserzeichens anpassen?**
+
+Ja, Sie können jede Schriftart, Größe und Stil wählen, um das Design Ihrer Präsentation anzupassen und die Marken‑konsistenz zu wahren.
+
+**Wie ändere ich die Position oder Ausrichtung eines Wasserzeichens?**
+
+Sie können die Position und Ausrichtung des Wasserzeichens programmgesteuert ändern, indem Sie die Koordinaten, Größe und Drehungseigenschaften der Form anpassen.

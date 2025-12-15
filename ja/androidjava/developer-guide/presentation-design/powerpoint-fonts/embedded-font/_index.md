@@ -1,32 +1,43 @@
 ---
-title: 埋め込みフォント - PowerPoint Java API
-linktitle: 埋め込みフォント
+title: Android のプレゼンテーションにフォントを埋め込む
+linktitle: フォントの埋め込み
 type: docs
 weight: 40
 url: /ja/androidjava/embedded-font/
-keywords: "フォント, 埋め込みフォント, フォントの追加, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
-description: "Java での PowerPoint プレゼンテーションに埋め込みフォントを使用する"
-
+keywords:
+- フォントを追加
+- フォントを埋め込む
+- フォント埋め込み
+- 埋め込みフォントを取得
+- 埋め込みフォントを追加
+- 埋め込みフォントを削除
+- 埋め込みフォントを圧縮
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用して、PowerPoint および OpenDocument のプレゼンテーションに TrueType フォントを埋め込み、すべてのプラットフォームで正確なレンダリングを実現します。"
 ---
 
-**PowerPoint の埋め込みフォント**は、プレゼンテーションを任意のシステムやデバイスで正しく表示したい場合に便利です。作業の際に第三者のフォントや非標準フォントを使用した場合は、フォントを埋め込む理由がさらに増えます。それ以外の場合（埋め込みフォントがない場合）、スライド上のテキストや数字、レイアウト、スタイルなどが変更されたり、混乱を招く長方形に変わったりする可能性があります。
+**PowerPoint の埋め込みフォント** は、プレゼンテーションを任意のシステムやデバイスで開いたときに正しく表示させたい場合に便利です。作業で創造的にサードパーティ製や標準外のフォントを使用したのであれば、フォントを埋め込む理由はさらに増えます。それ以外の場合（埋め込みフォントがない場合）、スライド上のテキストや数値、レイアウト、スタイルなどが変化したり、意味不明な四角形に置き換わったりする可能性があります。
 
-[FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) クラス、[FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) クラス、[Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラス、およびそれらのインターフェースには、PowerPoint プレゼンテーションで埋め込みフォントを操作するために必要なプロパティとメソッドのほとんどが含まれています。
+[FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) クラス、[FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) クラス、[Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラス、およびそれらのインターフェイスは、PowerPoint プレゼンテーションで埋め込みフォントを操作するために必要なプロパティとメソッドの大部分を提供します。
 
-## **プレゼンテーションから埋め込みフォントを取得または削除する**
+## **埋め込みフォントの取得と削除**
 
-Aspose.Slides は、プレゼンテーションに埋め込まれたフォントを取得（または調べる）ために、[getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) メソッド（[FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) クラスによって公開されている）を提供します。フォントを削除するには、同じクラスによって公開されている [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) メソッドを使用します。
+Aspose.Slides は、[FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) クラスで公開されている [getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) メソッドを提供し、プレゼンテーションに埋め込まれたフォントを取得（または確認）できるようにします。フォントを削除するには、同じクラスで公開されている [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) メソッドを使用します。
 
-以下の Java コードは、プレゼンテーションから埋め込みフォントを取得して削除する方法を示しています：
-
+この Java コードは、プレゼンテーションから埋め込みフォントを取得および削除する方法を示しています:
 ```java
-// プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化
+// プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
 try {
-    // 埋め込み "FunSized" フォントを使用したテキストフレームを含むスライドをレンダリング
+    // 埋め込みフォント "FunSized" を使用するテキストフレームを含むスライドをレンダリングします
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-    // 画像を JPEG 形式でディスクに保存
+    //Save 画像を JPEG 形式でディスクに保存します
     try {
         slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
     } finally {
@@ -35,10 +46,10 @@ try {
 
     IFontsManager fontsManager = pres.getFontsManager();
 
-    // すべての埋め込みフォントを取得
+    // すべての埋め込みフォントを取得します
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // "Calibri" フォントを見つける
+    // "Calibri" フォントを検索します
     IFontData calibriEmbeddedFont = null;
     for (int i = 0; i < embeddedFonts.length; i++) {
         System.out.println(""+ embeddedFonts[i].getFontName());
@@ -48,30 +59,30 @@ try {
         }
     }
 
-    // "Calibri" フォントを削除
+    // "Calibri" フォントを削除します
     fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
 
-    // プレゼンテーションをレンダリング; "Calibri" フォントは既存のものに置き換えられる
+    // プレゼンテーションをレンダリングします; "Calibri" フォントは既存のフォントに置き換えられます
      slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-     // 画像を JPEG 形式でディスクに保存
+     //Save 画像を JPEG 形式でディスクに保存します
      try {
          slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
      } finally {
          if (slideImage != null) slideImage.dispose();
      }
 
-    // 埋め込み "Calibri" フォントなしのプレゼンテーションをディスクに保存
+    // 埋め込み "Calibri" フォントなしでプレゼンテーションをディスクに保存します
     pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **プレゼンテーションに埋め込みフォントを追加する**
 
-[EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) 列挙体と [addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) メソッドの 2 つのオーバーロードを使用すると、お好みの（埋め込み）ルールを選択してプレゼンテーションにフォントを埋め込むことができます。この Java コードは、プレゼンテーションにフォントを埋め込んで追加する方法を示しています：
+## **埋め込みフォントの追加**
 
+[EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) 列挙体と、[addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) メソッドの 2 つのオーバーロードを使用して、プレゼンテーションにフォントを埋め込む際の好みの（埋め込み）ルールを選択できます。この Java コードは、プレゼンテーションにフォントを埋め込み、追加する方法を示しています:
 ```java
 // プレゼンテーションを読み込む
 Presentation pres = new Presentation("Fonts.pptx");
@@ -98,19 +109,19 @@ try {
         }
     }
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存します
     pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **埋め込みフォントを圧縮する**
 
-プレゼンテーションに埋め込まれたフォントを圧縮してファイルサイズを削減できるように、Aspose.Slides は [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) メソッド（[Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラスによって公開されている）を提供しています。
+## **埋め込みフォントの圧縮**
 
-この Java コードは、埋め込み PowerPoint フォントを圧縮する方法を示しています：
+プレゼンテーションに埋め込まれたフォントを圧縮し、ファイルサイズを削減できるように、Aspose.Slides は [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) クラスで公開されている [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) メソッドを提供します。
 
+この Java コードは、埋め込み PowerPoint フォントを圧縮する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -120,3 +131,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **よくある質問**
+
+**プレゼンテーション内の特定のフォントが、埋め込みにもかかわらずレンダリング時に置き換えられるかどうかをどのように判断できますか？**
+
+フォントマネージャーの [substitution information](/slides/ja/androidjava/font-substitution/) と [fallback/substitution rules](/slides/ja/androidjava/fallback-font/) を確認してください。フォントが利用できない、または制限されている場合は、フォールバックが使用されます。
+
+**Arial や Calibri などの「システム」フォントを埋め込む価値はありますか？**
+
+通常はありません—これらのフォントはほぼ常に利用可能です。ただし、Docker や事前にフォントがインストールされていない Linux サーバーなどの「薄い」環境での完全なポータビリティが必要な場合は、システムフォントを埋め込むことで予期しない置き換えのリスクを排除できます。

@@ -1,118 +1,146 @@
 ---
-title: Präsentationseigenschaften
+title: Präsentationseigenschaften auf Android verwalten
+linktitle: Präsentationseigenschaften
 type: docs
 weight: 70
 url: /de/androidjava/presentation-properties/
+keywords:
+- PowerPoint-Eigenschaften
+- Präsentationseigenschaften
+- Dokumenteigenschaften
+- Eingebaute Eigenschaften
+- Benutzerdefinierte Eigenschaften
+- Erweiterte Eigenschaften
+- Eigenschaften verwalten
+- Eigenschaften ändern
+- Dokument-Metadaten
+- Metadaten bearbeiten
+- Korrektursprache
+- Standardsprache
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Meistern Sie Präsentationseigenschaften in Aspose.Slides für Android via Java und optimieren Sie Suche, Branding und Arbeitsabläufe in Ihren PowerPoint- und OpenDocument-Dateien."
 ---
 
 {{% alert color="primary" %}} 
 
-Microsoft PowerPoint bietet eine Funktion, um einige Eigenschaften zu den Präsentationsdateien hinzuzufügen. Diese Dokumenteigenschaften ermöglichen es, nützliche Informationen zusammen mit den Dokumenten (Präsentationsdateien) zu speichern. Es gibt zwei Arten von Dokumenteigenschaften, wie folgt:
+Microsoft PowerPoint bietet eine Funktion zum Hinzufügen von Eigenschaften zu Präsentationsdateien. Diese Dokumenteigenschaften ermöglichen es, nützliche Informationen zusammen mit den Dokumenten (Präsentationsdateien) zu speichern. Es gibt zwei Arten von Dokumenteigenschaften:
 
-- Systemdefinierte (Integrierte) Eigenschaften
-- Benutzerdefinierte (Eigene) Eigenschaften
+- Systemdefinierte (eingebaute) Eigenschaften
+- Benutzerdefinierte (eigene) Eigenschaften
 
-**Integrierte** Eigenschaften enthalten allgemeine Informationen über das Dokument wie Dokumenttitel, Autorname, Dokumentstatistiken usw. **Benutzerdefinierte** Eigenschaften sind diejenigen, die von den Benutzern als **Name/Wert**-Paare definiert werden, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für Android über Java können Entwickler die Werte integrierter Eigenschaften sowie benutzerdefinierter Eigenschaften abrufen und ändern.
+**Eingebaute** Eigenschaften enthalten allgemeine Informationen zum Dokument, wie Dokumenttitel, Autorname, Dokumentstatistiken usw. **Benutzerdefinierte** Eigenschaften werden von den Benutzern als **Name/Wert**‑Paare definiert, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für Android via Java können Entwickler auf die Werte eingebauter Eigenschaften sowie benutzerdefinierter Eigenschaften zugreifen und sie ändern.
 
 {{% /alert %}} 
 
 ## **Dokumenteigenschaften in PowerPoint**
-Microsoft PowerPoint 2007 ermöglicht die Verwaltung der Dokumenteigenschaften der Präsentationsdateien. Alles, was Sie tun müssen, ist, auf das Office-Symbol zu klicken und das Menüelement **Vorbereiten | Eigenschaften | Erweiterte Eigenschaften** von Microsoft PowerPoint 2007 auszuwählen, wie unten gezeigt:
+
+Microsoft PowerPoint 2007 ermöglicht die Verwaltung der Dokumenteigenschaften von Präsentationsdateien. Alles, was Sie tun müssen, ist das Office‑Symbol zu klicken und anschließend den Menüpunkt **Prepare | Properties | Advanced Properties** in Microsoft PowerPoint 2007 auszuwählen, wie unten gezeigt:
 
 {{% alert color="primary" %}} 
 
-Bitte beachten Sie, dass Sie keine Werte für die **Anwendung** und **Produzenten** Felder festlegen können, da Aspose Ltd. und Aspose.Slides für Android über Java x.x.x in diesen Feldern angezeigt werden.
+Bitte beachten Sie, dass Sie keine Werte für die Felder **Application** und **Producer** festlegen können, da Aspose Ltd. und Aspose.Slides für Android via Java x.x.x in diesen Feldern angezeigt werden.
 
 {{% /alert %}} 
 
-|**Auswahl des Menüelements Erweiterte Eigenschaften**|** |
+|**Advanced‑Eigenschaften‑Menü auswählen**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Nachdem Sie das Menüelement **Erweiterte Eigenschaften** ausgewählt haben, öffnet sich ein Dialogfeld, das Ihnen die Verwaltung der Dokumenteigenschaften der PowerPoint-Datei ermöglicht, wie im folgenden Bild dargestellt:
+|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-|**Eigenschaften-Dialog**|** |
+Nachdem Sie den Menüpunkt **Advanced Properties** ausgewählt haben, erscheint ein Dialog, der Ihnen die Verwaltung der Dokumenteigenschaften der PowerPoint‑Datei ermöglicht, wie in der Abbildung unten gezeigt:
+
+|**Eigenschaften‑Dialog**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Im obigen **Eigenschaften-Dialog** können Sie sehen, dass es viele Registerkarten gibt, wie **Allgemein**, **Zusammenfassung**, **Statistik**, **Inhalt** und **Benutzerdefiniert**. Alle diese Registerkarten ermöglichen es, verschiedene Arten von Informationen zu den PowerPoint-Dateien zu konfigurieren. Die **Benutzerdefinierte** Registerkarte wird verwendet, um die benutzerdefinierten Eigenschaften der PowerPoint-Dateien zu verwalten.
+|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-## Mit Dokumenteigenschaften arbeiten mit Aspose.Slides für Android über Java
+Im obigen **Eigenschaften‑Dialog** sehen Sie viele Registerkarten wie **General**, **Summary**, **Statistics**, **Contents** und **Custom**. Alle diese Registerkarten erlauben die Konfiguration verschiedener Informationsarten, die sich auf die PowerPoint‑Dateien beziehen. Die Registerkarte **Custom** wird verwendet, um benutzerdefinierte Eigenschaften der PowerPoint‑Dateien zu verwalten.
 
-Wie zuvor beschrieben, unterstützt Aspose.Slides für Android über Java zwei Arten von Dokumenteigenschaften, nämlich **Integrierte** und **Benutzerdefinierte** Eigenschaften. Entwickler können beide Arten von Eigenschaften mit der API von Aspose.Slides für Android über Java abrufen. Aspose.Slides für Android über Java stellt die Klasse [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) zur Verfügung, die die mit einer Präsentationsdatei verknüpften Dokumenteigenschaften über die **Presentation.DocumentProperties**-Eigenschaft darstellt.
 
-Entwickler können die **IDocumentProperties**-Eigenschaft, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Objekt bereitgestellt wird, verwenden, um auf die Dokumenteigenschaften der Präsentationsdateien zuzugreifen, wie unten beschrieben:
 
-## **Auf integrierte Eigenschaften zugreifen**
-Diese Eigenschaften, die vom [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) Objekt bereitgestellt werden, umfassen: **Creator** (Autor), **Description**, **Keywords** **Created** (Erstellungsdatum), **Modified** (Änderungsdatum), **Printed** (Letztes Druckdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Ist sie zwischen verschiedenen Produzenten geteilt?), **PresentationFormat**, **Subject** und **Title**
+Arbeiten mit Dokumenteigenschaften mit Aspose.Slides für Android via Java
 
+Wie bereits beschrieben, unterstützt Aspose.Slides für Android via Java zwei Arten von Dokumenteigenschaften, nämlich **eingebaute** und **benutzerdefinierte** Eigenschaften. Entwickler können daher beide Arten von Eigenschaften über die Aspose.Slides‑API für Android via Java nutzen. Aspose.Slides für Android via Java stellt die Klasse [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) bereit, die die Dokumenteigenschaften einer Präsentationsdatei über die Eigenschaft **Presentation.DocumentProperties** repräsentiert.
+
+Entwickler können die **IDocumentProperties**‑Eigenschaft, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Objekt bereitgestellt wird, nutzen, um auf die Dokumenteigenschaften der Präsentationsdateien zuzugreifen, wie unten beschrieben:
+
+## **Zugriff auf eingebaute Eigenschaften**
+
+Diese über das Objekt [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) bereitgestellten Eigenschaften umfassen: **Creator** (Autor), **Description**, **Keywords**, **Created** (Erstellungsdatum), **Modified** (Änderungsdatum), **Printed** (Datum des letzten Drucks), **LastModifiedBy**, **SharedDoc** (Wird zwischen verschiedenen Produzenten geteilt?), **PresentationFormat**, **Subject** und **Title**.
 ```java
-// Instanziiere die Präsentationsklasse, die die Präsentation darstellt
+// Instanziieren Sie die Presentation-Klasse, die die Präsentation darstellt
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Erstelle eine Referenz auf das IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
+    // Erstellen Sie eine Referenz zum IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Zeige die integrierten Eigenschaften an
-    System.out.println("Kategorie : " + dp.getCategory());
-    System.out.println("Aktueller Status : " + dp.getContentStatus());
-    System.out.println("Erstellungsdatum : " + dp.getCreatedTime());
-    System.out.println("Autor : " + dp.getAuthor());
-    System.out.println("Beschreibung : " + dp.getComments());
-    System.out.println("Schlüsselwörter : " + dp.getKeywords());
-    System.out.println("Zuletzt geändert von : " + dp.getLastSavedBy());
-    System.out.println("Vorgesetzter : " + dp.getManager());
-    System.out.println("Änderungsdatum : " + dp.getLastSavedTime());
-    System.out.println("Präsentationsformat : " + dp.getPresentationFormat());
-    System.out.println("Letztes Druckdatum : " + dp.getLastPrinted());
-    System.out.println("Ist zwischen Produzenten geteilt : " + dp.getSharedDoc());
-    System.out.println("Betreff : " + dp.getSubject());
-    System.out.println("Titel : " + dp.getTitle());
+    // Zeige die eingebauten Eigenschaften an
+    System.out.println("Category : " + dp.getCategory());
+    System.out.println("Current Status : " + dp.getContentStatus());
+    System.out.println("Creation Date : " + dp.getCreatedTime());
+    System.out.println("Author : " + dp.getAuthor());
+    System.out.println("Description : " + dp.getComments());
+    System.out.println("KeyWords : " + dp.getKeywords());
+    System.out.println("Last Modified By : " + dp.getLastSavedBy());
+    System.out.println("Supervisor : " + dp.getManager());
+    System.out.println("Modified Date : " + dp.getLastSavedTime());
+    System.out.println("Presentation Format : " + dp.getPresentationFormat());
+    System.out.println("Last Print Date : " + dp.getLastPrinted());
+    System.out.println("Is Shared between producers : " + dp.getSharedDoc());
+    System.out.println("Subject : " + dp.getSubject());
+    System.out.println("Title : " + dp.getTitle());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Integrierte Eigenschaften ändern**
-Das Ändern der integrierten Eigenschaften von Präsentationsdateien ist so einfach wie das Abrufen dieser. Sie können einfach einen Stringwert einer gewünschten Eigenschaft zuweisen, und der Eigenschaftswert wird geändert. Im Beispiel unten haben wir demonstriert, wie wir die integrierten Dokumenteigenschaften der Präsentationsdatei mit Aspose.Slides für Android über Java ändern können.
 
+## **Eingebaute Eigenschaften ändern**
+
+Das Ändern der eingebauten Eigenschaften von Präsentationsdateien ist genauso einfach wie das Auslesen. Sie können einfach einen Zeichenkettenwert einer gewünschten Eigenschaft zuweisen, und der Eigenschaftswert wird geändert. Im nachfolgenden Beispiel wird gezeigt, wie wir die eingebauten Dokumenteigenschaften einer Präsentationsdatei mit Aspose.Slides für Android via Java ändern können.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Erstelle eine Referenz auf das IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
+    // Erstelle eine Referenz zum IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Setze die integrierten Eigenschaften
-    dp.setAuthor("Aspose.Slides für Android über Java");
-    dp.setTitle("Ändern von Präsentationseigenschaften");
-    dp.setSubject("Aspose Thema");
-    dp.setComments("Aspose Beschreibung");
+    // Setze die eingebauten Eigenschaften
+    dp.setAuthor("Aspose.Slides for Android via Java");
+    dp.setTitle("Modifying Presentation Properties");
+    dp.setSubject("Aspose Subject");
+    dp.setComments("Aspose Description");
     dp.setManager("Aspose Manager");
     
-    // Speichern Sie Ihre Präsentation in einer Datei
+    // Speichere deine Präsentation in einer Datei
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Dieses Beispiel ändert die integrierten Eigenschaften der Präsentation, die wie folgt angezeigt werden können:
 
-|**Integrierte Dokumenteigenschaften nach der Änderung**|** |
+Dieses Beispiel ändert die eingebauten Eigenschaften der Präsentation, wie unten dargestellt:
+
+|**Eingebaute Dokumenteigenschaften nach der Änderung**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Benutzerdefinierte Dokumenteigenschaften hinzufügen**
-Aspose.Slides für Android über Java ermöglicht es Entwicklern auch, benutzerdefinierte Werte für Dokumenteigenschaften von Präsentationen hinzuzufügen. Ein Beispiel wird unten gegeben, das zeigt, wie benutzerdefinierte Eigenschaften für eine Präsentation festgelegt werden.
 
+Aspose.Slides für Android via Java ermöglicht es Entwicklern außerdem, benutzerdefinierte Werte für Dokumenteigenschaften einer Präsentation festzulegen. Das nachstehende Beispiel zeigt, wie benutzerdefinierte Eigenschaften für eine Präsentation gesetzt werden können.
 ```java
 Presentation pres = new Presentation();
 try {
-    // Dokumenteigenschaften abrufen
+    // Abrufen der Dokumenteigenschaften
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // Benutzerdefinierte Eigenschaften hinzufügen
-    dProps.set_Item("Neue Benutzerdefinierte", 12);
-    dProps.set_Item("Mein Name", "Mudassir");
-    dProps.set_Item("Benutzerdefiniert", 124);
+    // Hinzufügen benutzerdefinierter Eigenschaften
+    dProps.set_Item("New Custom", 12);
+    dProps.set_Item("My Name", "Mudassir");
+    dProps.set_Item("Custom", 124);
     
     // Abrufen des Eigenschaftsnamen an einem bestimmten Index
     String getPropertyName = dProps.getCustomPropertyName(2);
@@ -120,34 +148,35 @@ try {
     // Entfernen der ausgewählten Eigenschaft
     dProps.removeCustomProperty(getPropertyName);
     
-    // Präsentation speichern
+    // Speichern der Präsentation
     pres.save("CustomDemo.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-|**Hinzugefügte benutzerdefinierte Dokumenteigenschaften**|** |
+
+|**Hinzugefügte benutzerdefinierte Dokumenteigenschaften**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Zugriff auf und Ändern von benutzerdefinierten Eigenschaften**
-Aspose.Slides für Android über Java ermöglicht es Entwicklern auch, die Werte benutzerdefinierter Eigenschaften abzurufen. Ein Beispiel wird unten gegeben, das zeigt, wie Sie auf all diese benutzerdefinierten Eigenschaften für eine Präsentation zugreifen und sie ändern können.
+## **Zugriff auf benutzerdefinierte Eigenschaften und Änderung**
 
+Aspose.Slides für Android via Java ermöglicht es Entwicklern außerdem, die Werte benutzerdefinierter Eigenschaften zu lesen. Das nachstehende Beispiel zeigt, wie Sie alle diese benutzerdefinierten Eigenschaften einer Präsentation lesen und ändern können.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Erstelle eine Referenz auf das DocumentProperties-Objekt, das mit der Präsentation verknüpft ist
+    // Erstellen Sie eine Referenz zum DocumentProperties-Objekt, das mit der Präsentation verknüpft ist
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Zugriff auf und Ändern von benutzerdefinierten Eigenschaften
+    // Zugriff auf und Ändern benutzerdefinierter Eigenschaften
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Namen und Werte der benutzerdefinierten Eigenschaften anzeigen
-        System.out.println("Benutzerdefinierter Eigenschaftsname : " + dp.getCustomPropertyName(i));
-        System.out.println("Benutzerdefinierter Eigenschaftswert : " + dp.get_Item(dp.getCustomPropertyName(i)));
+        // Anzeigen von Namen und Werten benutzerdefinierter Eigenschaften
+        System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
+        System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // Werte der benutzerdefinierten Eigenschaften ändern
-        dp.set_Item(dp.getCustomPropertyName(i), "Neuer Wert " + (i + 1));
+        // Werte benutzerdefinierter Eigenschaften ändern
+        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
     // Speichern Sie Ihre Präsentation in einer Datei
@@ -157,58 +186,61 @@ try {
 }
 ```
 
-Dieses Beispiel ändert die benutzerdefinierten Eigenschaften der [PPTX](https://docs.fileformat.com/presentation/pptx/) Präsentation. Die folgenden Abbildungen zeigen die benutzerdefinierten Eigenschaften der Präsentation vor und nach der Änderung:
 
-|**Benutzerdefinierte Eigenschaften vor der Änderung**|** |
+Dieses Beispiel ändert die benutzerdefinierten Eigenschaften der [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Präsentation. Die folgenden Abbildungen zeigen die benutzerdefinierten Eigenschaften vor und nach der Änderung:
+
+|**Benutzerdefinierte Eigenschaften vor der Änderung**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-
-|**Benutzerdefinierte Eigenschaften nach der Änderung**|** |
+|**Benutzerdefinierte Eigenschaften nach der Änderung**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Erweiterte Dokumenteigenschaften**
+
 {{% alert color="primary" %}} 
 
-Neue Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) und [WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) wurden zur Schnittstelle [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) hinzugefügt, die Logik des Eigenschaftssetters [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) wurde geändert.
+Neue Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), und [WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) wurden zu [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) hinzugefügt, die Logik des Setters der Eigenschaft [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) wurde geändert.
 
 {{% /alert %}} 
 
-Die beiden neuen Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) und [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) wurden zur [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) Schnittstelle hinzugefügt. Sie bieten schnellen Zugriff auf Dokumenteigenschaften und ermöglichen es, Eigenschaften zu ändern und zu aktualisieren, ohne eine gesamte Präsentation zu laden.
+Die beiden neuen Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) und [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) wurden zur Schnittstelle [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) hinzugefügt. Sie ermöglichen einen schnellen Zugriff auf Dokumenteigenschaften und erlauben das Ändern und Aktualisieren von Eigenschaften, ohne die gesamte Präsentation zu laden.
 
-Das typische Szenario, das die Eigenschaften lädt, einige Werte ändert und das Dokument aktualisiert, kann folgendermaßen implementiert werden:
-
+Das typische Szenario, bei dem die Eigenschaften geladen, ein Wert geändert und das Dokument aktualisiert wird, kann wie folgt implementiert werden:
 ```java
-// Lese die Informationen zur Präsentation
+// Lese die Informationen der Präsentation
+// Erhalte die aktuellen Eigenschaften
+// Setze die neuen Werte für die Felder Autor und Titel
+// Aktualisiere die Präsentation mit neuen Werten
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// Erhalte die aktuellen Eigenschaften
+// obtain the current properties
 IDocumentProperties props = info.readDocumentProperties();
 
-// Setze die neuen Werte der Autor- und Titel-Felder
-props.setAuthor("Neuer Autor");
-props.setTitle("Neuer Titel");
+// set the new values of Author and Title fields
+props.setAuthor("New Author");
+props.setTitle("New Title");
 
-// Aktualisiere die Präsentation mit neuen Werten
+// update the presentation with a new values
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Es gibt eine andere Möglichkeit, die Eigenschaften einer bestimmten Präsentation als Vorlage zu verwenden, um Eigenschaften in anderen Präsentationen zu aktualisieren:
 
+Eine weitere Möglichkeit besteht darin, die Eigenschaften einer bestimmten Präsentation als Vorlage zu verwenden, um Eigenschaften in anderen Präsentationen zu aktualisieren:
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
-template.setAuthor("Vorlagenautor");
-template.setTitle("Vorlagen-Titel");
-template.setCategory("Vorlagenkategorie");
-template.setKeywords("Schlüsselwort1, Schlüsselwort2, Schlüsselwort3");
-template.setCompany("Unsere Firma");
-template.setComments("Aus Vorlage erstellt");
-template.setContentType("Vorlageninhalt");
-template.setSubject("Vorlagenbetreff");
+template.setAuthor("Template Author");
+template.setTitle("Template Title");
+template.setCategory("Template Category");
+template.setKeywords("Keyword1, Keyword2, Keyword3");
+template.setCompany("Our Company");
+template.setComments("Created from template");
+template.setContentType("Template Content");
+template.setSubject("Template Subject");
 
 updateByTemplate("doc1.pptx", template);
 updateByTemplate("doc2.odp", template);
@@ -224,19 +256,19 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Eine neue Vorlage kann von Grund auf neu erstellt und dann verwendet werden, um mehrere Präsentationen zu aktualisieren:
 
+Eine neue Vorlage kann von Grund auf erstellt und dann verwendet werden, um mehrere Präsentationen zu aktualisieren:
 ```java
 DocumentProperties template = new DocumentProperties();\
 
-template.setAuthor("Vorlagenautor");
-template.setTitle("Vorlagen-Titel");
-template.setCategory("Vorlagenkategorie");
-template.setKeywords("Schlüsselwort1, Schlüsselwort2, Schlüsselwort3");
-template.setCompany("Unsere Firma");
-template.setComments("Aus Vorlage erstellt");
-template.setContentType("Vorlageninhalt");
-template.setSubject("Vorlagenbetreff");
+template.setAuthor("Template Author");
+template.setTitle("Template Title");
+template.setCategory("Template Category");
+template.setKeywords("Keyword1, Keyword2, Keyword3");
+template.setCompany("Our Company");
+template.setComments("Created from template");
+template.setContentType("Template Content");
+template.setSubject("Template Subject");
 
 updateByTemplate("doc1.pptx", template);
 updateByTemplate("doc2.odp", template);
@@ -252,26 +284,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Überprüfen, ob die Präsentation geändert oder erstellt wurde**
-Aspose.Slides für Android über Java bietet die Möglichkeit zu überprüfen, ob eine Präsentation geändert oder erstellt wurde. Ein Beispiel wird unten gegeben, das zeigt, wie überprüft werden kann, ob die Präsentation erstellt oder geändert wurde.
 
-```java
-IPresentationInfo info=PresentationFactory.getInstance().getPresentationInfo("props.pptx");
+## **Korrektursprache festlegen**
 
-IDocumentProperties props = info.readDocumentProperties();
-String app = props.getNameOfApplication();
-String ver = props.getAppVersion();
+Aspose.Slides stellt die Eigenschaft LanguageId (bereitgestellt von der Klasse PortionFormat) zur Verfügung, um die Korrektursprache für ein PowerPoint‑Dokument festzulegen. Die Korrektursprache ist die Sprache, für die Rechtschreibung und Grammatik in PowerPoint überprüft werden.
 
-System.out.println("Anwendungsname: " + app);
-System.out.println("Anwendungsversion: " + ver);
-```
-
-## **Sprache für die Korrekturhilfe festlegen**
-
-Aspose.Slides bietet die Eigenschaft LanguageId (bereitgestellt von der Klasse PortionFormat), um Ihnen zu ermöglichen, die Korrektursprache für ein PowerPoint-Dokument festzulegen. Die Korrektursprache ist die Sprache, für die Rechtschreibung und Grammatik in PowerPoint überprüft werden.
-
-Dieser Java-Code zeigt Ihnen, wie Sie die Korrektursprache für ein PowerPoint-Dokument festlegen: xxx Warum fehlt LanguageId in der Java PortionFormat-Klasse?
-
+Dieser Java‑Code zeigt Ihnen, wie Sie die Korrektursprache für PowerPoint festlegen: xxx Warum fehlt LanguageId in der Java‑PortionFormat‑Klasse?
 ```java
 Presentation pres = new Presentation(pptxFileName);
 try {
@@ -288,7 +306,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // setze die Id einer Korrektursprache
+    portionFormat.setLanguageId("zh-CN"); // legt die ID einer Korrektursprache fest
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -297,23 +315,44 @@ try {
 }
 ```
 
-## **Standardsprache festlegen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie die Standardsprache für eine gesamte PowerPoint-Präsentation festlegen:
+## **Standard‑Sprache festlegen**
 
+Dieser Java‑Code zeigt Ihnen, wie Sie die Standardsprache für eine gesamte PowerPoint‑Präsentation festlegen:
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // Fügt eine neue rechteckige Form mit Text hinzu
+    // Fügt eine neue Rechteckform mit Text hinzu
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("Neuer Text");
+    shp.getTextFrame().setText("New Text");
 
-    // Überprüft die Sprache des ersten Portions
+    // Prüft die Sprache der ersten Portion
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Live‑Beispiel**
+
+Probieren Sie die Online‑App [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) aus, um zu sehen, wie Sie mit Dokumenteigenschaften über die Aspose.Slides‑API arbeiten können:
+
+[![PowerPoint‑Metadaten ansehen & bearbeiten](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***FAQ**
+
+**Wie kann ich eine eingebaute Eigenschaft aus einer Präsentation entfernen?**
+
+Eingebaute Eigenschaften sind ein integraler Bestandteil der Präsentation und können nicht vollständig entfernt werden. Sie können jedoch deren Werte ändern oder, falls die jeweilige Eigenschaft es zulässt, auf leer setzen.
+
+**Was geschieht, wenn ich eine benutzerdefinierte Eigenschaft hinzufüge, die bereits existiert?**
+
+Wird eine bereits vorhandene benutzerdefinierte Eigenschaft hinzugefügt, wird ihr bestehender Wert durch den neuen überschrieben. Ein vorheriges Entfernen oder Prüfen der Eigenschaft ist nicht erforderlich, da Aspose.Slides den Wert automatisch aktualisiert.
+
+**Kann ich auf Präsentationseigenschaften zugreifen, ohne die gesamte Präsentation zu laden?**
+
+Ja, Sie können auf Präsentationseigenschaften zugreifen, ohne die gesamte Präsentation zu laden, indem Sie die Methode `getPresentationInfo` der Klasse [PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/) verwenden. Anschließend nutzen Sie die Methode `readDocumentProperties` der Schnittstelle [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/), um die Eigenschaften effizient zu lesen, Speicher zu sparen und die Leistung zu verbessern.
