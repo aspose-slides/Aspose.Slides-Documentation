@@ -1,121 +1,138 @@
 ---
-title: Benutzerdefinierte Form
+title: Präsentationsformen auf Android anpassen
+linktitle: Benutzerdefinierte Form
 type: docs
 weight: 20
 url: /de/androidjava/custom-shape/
-keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
-description: "Fügen Sie eine benutzerdefinierte Form in PowerPoint-Präsentationen in Java hinzu"
+keywords:
+- benutzerdefinierte Form
+- Form hinzufügen
+- Form erstellen
+- Form ändern
+- Formgeometrie
+- Geometriepfad
+- Pfadpunkte
+- Bearbeitungspunkte
+- Punkt hinzufügen
+- Punkt entfernen
+- Bearbeitungsoperation
+- abgerundete Ecke
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erstellen und anpassen von Formen in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java: Geometriepfade, abgerundete Ecken, zusammengesetzte Formen."
 ---
 
-# Ändern einer Form mithilfe von Bearbeitungspunkten
+## **Form mit Bearbeitungspunkten ändern**
 Betrachten Sie ein Quadrat. In PowerPoint können Sie mit **Bearbeitungspunkten** 
 
-* die Ecke des Quadrats hinein oder heraus bewegen
-* die Krümmung für eine Ecke oder einen Punkt angeben
+* die Ecke des Quadrats nach innen oder außen verschieben
+* die Krümmung einer Ecke oder eines Punktes festlegen
 * neue Punkte zum Quadrat hinzufügen
-* Punkte auf dem Quadrat manipulieren usw.
+* Punkte auf dem Quadrat manipulieren usw. 
 
-Im Wesentlichen können Sie die beschriebenen Aufgaben bei jeder Form durchführen. Mithilfe von Bearbeitungspunkten können Sie eine Form ändern oder eine neue Form aus einer vorhandenen Form erstellen.
+Im Wesentlichen können Sie die beschriebenen Aufgaben bei jeder Form ausführen. Mit Bearbeitungspunkten können Sie eine Form ändern oder aus einer bestehenden Form eine neue Form erstellen. 
 
 ## **Tipps zur Formbearbeitung**
 
 ![overview_image](custom_shape_0.png)
 
-Bevor Sie PowerPoint-Formen über Bearbeitungspunkte bearbeiten, sollten Sie diese Punkte zu Formen beachten:
+Bevor Sie damit beginnen, PowerPoint‑Formen über Bearbeitungspunkte zu bearbeiten, sollten Sie diese Punkte zu Formen beachten:
 
 * Eine Form (oder ihr Pfad) kann entweder geschlossen oder offen sein.
-* Wenn eine Form geschlossen ist, fehlt ein Start- oder Endpunkt. Wenn eine Form offen ist, hat sie einen Anfang und ein Ende.
-* Alle Formen bestehen aus mindestens 2 Ankerpunkten, die durch Linien miteinander verbunden sind.
-* Eine Linie ist entweder gerade oder gekrümmt. Ankerpunkte bestimmen die Beschaffenheit der Linie.
+* Wenn eine Form geschlossen ist, hat sie keinen Start‑ oder Endpunkt. Wenn eine Form offen ist, hat sie einen Anfang und ein Ende. 
+* Alle Formen bestehen aus mindestens 2 Ankerpunkten, die durch Linien miteinander verbunden sind
+* Eine Linie ist entweder gerade oder gekrümmt. Ankerpunkte bestimmen die Art der Linie. 
 * Ankerpunkte existieren als Eckpunkte, gerade Punkte oder glatte Punkte:
-  * Ein Eckpunkt ist ein Punkt, an dem 2 gerade Linien in einem Winkel zusammentreffen.
-  * Ein glatter Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie existieren und die Segmente der Linie in einer sanften Kurve zusammenlaufen. In diesem Fall sind alle Griffe gleich weit vom Ankerpunkt entfernt.
-  * Ein gerader Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie existieren und deren Segmente in einer sanften Kurve zusammenlaufen. In diesem Fall müssen die Griffe nicht gleich weit vom Ankerpunkt entfernt sein.
-* Durch Verschieben oder Bearbeiten von Ankerpunkten (was den Winkel der Linien ändert) können Sie das Aussehen einer Form verändern.
+  * Ein Eckpunkt ist ein Punkt, an dem 2 gerade Linien in einem Winkel zusammentreffen. 
+  * Ein glatter Punkt ist ein Punkt, an dem 2 Griffpunkte in einer geraden Linie liegen und die Liniensegmente in einer glatten Kurve zusammenlaufen. In diesem Fall sind alle Griffpunkte vom Ankerpunkt gleich weit entfernt. 
+  * Ein gerader Punkt ist ein Punkt, an dem 2 Griffpunkte in einer geraden Linie liegen und die Segmente dieser Linie in einer glatten Kurve zusammenlaufen. In diesem Fall müssen die Griffpunkte nicht gleich weit vom Ankerpunkt entfernt sein. 
+* Durch Verschieben oder Bearbeiten von Ankerpunkten (die den Winkel der Linien ändern) können Sie das Aussehen einer Form verändern. 
 
-Um PowerPoint-Formen über Bearbeitungspunkte zu bearbeiten, bietet **Aspose.Slides** die [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse und das [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) Interface.
+Um PowerPoint‑Formen über Bearbeitungspunkte zu bearbeiten, stellt **Aspose.Slides** die Klasse [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) und das Interface [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) bereit.
 
-* Eine [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Instanz repräsentiert einen Geometriepfeil des [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape) Objekts.
-* Um den `GeometryPath` von der `IGeometryShape` Instanz abzurufen, können Sie die Methode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) verwenden.
-* Um den `GeometryPath` für eine Form festzulegen, können Sie diese Methoden verwenden: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) für *feste Formen* und [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) für *komposite Formen*.
-* Um Segmente hinzuzufügen, können Sie die Methoden unter [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) verwenden.
-* Durch Verwendung der Methoden [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) und [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) können Sie das Aussehen für einen Geometriepfeil festlegen.
-* Mit der Methode [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--) können Sie den Geometriepfeil einer `GeometryShape` als Array von Pfadsegmenten abrufen.
-* Um auf zusätzliche Anpassungsoptionen für die Geometrie der Form zuzugreifen, können Sie [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) in [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) umwandeln.
-* Verwenden Sie die Methoden [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) und [graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (aus der [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) Klasse), um [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) in [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) und umgekehrt umzuwandeln.
+* Eine [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Instanz stellt einen Geometriepfad des [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape) Objekts dar.
+* Um das `GeometryPath` aus der `IGeometryShape`‑Instanz abzurufen, können Sie die Methode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) verwenden.
+* Um das `GeometryPath` für eine Form festzulegen, können Sie diese Methoden verwenden: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) für *solide Formen* und [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) für *komplexe Formen*.
+* Zum Hinzufügen von Segmenten können Sie die Methoden unter [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) verwenden.
+* Mit den Methoden [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) und [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) können Sie das Aussehen eines Geometriepfads festlegen.
+* Mit der Methode [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--) können Sie den Geometriepfad einer `GeometryShape` als Array von Pfadsegmenten abrufen.
+* Um zusätzliche Anpassungsoptionen für Formgeometrien zu erhalten, können Sie [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) in [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) konvertieren.
+* Verwenden Sie die Methoden [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) und [graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (aus der Klasse [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil)), um [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) in [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) hin und her zu konvertieren.
 
 ## **Einfache Bearbeitungsoperationen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie
+Dieser Java‑Code zeigt, wie Sie
 
-**Eine Linie** an das Ende eines Pfades hinzufügen
-
-```java
+**Eine Linie** an das Ende eines Pfads hinzufügen  
+``` java
 public void lineTo(java.awt.geom.Point2D.Float point);
 public void lineTo(float x, float y);
 ```
-**Eine Linie** an einer bestimmten Position auf einem Pfad hinzufügen:
 
-```java    
+**Eine Linie** an einer angegebenen Position auf einem Pfad hinzufügen:  
+``` java    
 public void lineTo(java.awt.geom.Point2D.Float point, long index);
 public void lineTo(float x, float y, long index);
 ```
-**Eine kubische Bézier-Kurve** am Ende eines Pfades hinzufügen:
 
-```java
+**Eine kubische Bézier‑Kurve** an das Ende eines Pfads hinzufügen:  
+``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Eine kubische Bézier-Kurve** an einer bestimmten Position auf einem Pfad hinzufügen:
 
-```java
+**Eine kubische Bézier‑Kurve** an der angegebenen Position auf einem Pfad hinzufügen:  
+``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
 ```
-**Eine quadratische Bézier-Kurve** am Ende eines Pfades hinzufügen:
 
-```java
+**Eine quadratische Bézier‑Kurve** an das Ende eines Pfads hinzufügen:  
+``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Eine quadratische Bézier-Kurve** an einer bestimmten Position auf einem Pfad hinzufügen:
 
-```java
+**Eine quadratische Bézier‑Kurve** an einer angegebenen Position auf einem Pfad hinzufügen:  
+``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
 ```
-**Einen gegebenen Bogen** zu einem Pfad hinzufügen:
 
-```java
+**Einen angegebenen Bogen** an einen Pfad anhängen:  
+``` java
 public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Die aktuelle Figur** eines Pfades schließen:
 
-```java
+**Die aktuelle Figur** eines Pfads schließen:  
+``` java
 public void closeFigure();
 ```
-**Die Position für den nächsten Punkt** festlegen:
 
-```java
+**Die Position für den nächsten Punkt** festlegen:  
+``` java
 public void moveTo(java.awt.geom.Point2D.Float point);
 public void moveTo(float x, float y);
 ```
-**Das Pfadsegment** an einem bestimmten Index entfernen:
 
-```java
+**Den Pfadabschnitt** an einem angegebenen Index entfernen:  
+``` java
 public void removeAt(int index);
 ```
 
-## **Benutzerdefinierte Punkte zur Form hinzufügen**
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) Klasse und setzen Sie den [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) Typ.
-2. Holen Sie sich eine Instanz der [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse aus der Form.
-3. Fügen Sie einen neuen Punkt zwischen den beiden oberen Punkten auf dem Pfad hinzu.
-4. Fügen Sie einen neuen Punkt zwischen den beiden unteren Punkten auf dem Pfad hinzu.
+
+## **Benutzerdefinierte Punkte zu einer Form hinzufügen**
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) und setzen Sie den Typ [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
+2. Holen Sie sich eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) von der Form.
+3. Fügen Sie einen neuen Punkt zwischen den beiden oberen Punkten des Pfads hinzu.
+4. Fügen Sie einen neuen Punkt zwischen den beiden unteren Punkten des Pfads hinzu.
 5. Wenden Sie den Pfad auf die Form an.
 
-Dieser Java-Code zeigt Ihnen, wie Sie benutzerdefinierte Punkte zu einer Form hinzufügen:
-
-```java
+Dieser Java‑Code zeigt, wie Sie benutzerdefinierte Punkte zu einer Form hinzufügen:  
+``` java
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -129,18 +146,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## Punkte von der Form entfernen
+## **Punkte aus einer Form entfernen**
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) Klasse und setzen Sie den [ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) Typ.
-2. Holen Sie sich eine Instanz der [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse aus der Form.
-3. Entfernen Sie das Segment für den Pfad.
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) und setzen Sie den Typ [ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
+2. Holen Sie sich eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) von der Form.
+3. Entfernen Sie das Segment des Pfads.
 4. Wenden Sie den Pfad auf die Form an.
 
-Dieser Java-Code zeigt Ihnen, wie Sie Punkte von einer Form entfernen:
-
-```java
+Dieser Java‑Code zeigt, wie Sie Punkte aus einer Form entfernen:  
+``` java
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -153,19 +170,19 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example2_image](custom_shape_2.png)
 
-## **Benutzerdefinierte Form erstellen**
+## **Eine benutzerdefinierte Form erstellen**
 
 1. Berechnen Sie die Punkte für die Form.
-2. Erstellen Sie eine Instanz der [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse.
+2. Erstellen Sie eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
 3. Füllen Sie den Pfad mit den Punkten.
-4. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) Klasse.
+4. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
 5. Wenden Sie den Pfad auf die Form an.
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine benutzerdefinierte Form erstellen:
-
-```java
+Dieser Java‑Code zeigt, wie Sie eine benutzerdefinierte Form erstellen:  
+``` java
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
 float R = 100, r = 50;
@@ -204,18 +221,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example3_image](custom_shape_3.png)
 
-## **Komposite benutzerdefinierte Form erstellen**
+## **Eine zusammengesetzte benutzerdefinierte Form erstellen**
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) Klasse.
-2. Erstellen Sie die erste Instanz der [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse.
-3. Erstellen Sie die zweite Instanz der [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Klasse.
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
+2. Erstellen Sie eine erste Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
+3. Erstellen Sie eine zweite Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
 4. Wenden Sie die Pfade auf die Form an.
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine komposite benutzerdefinierte Form erstellen:
-
-```java
+Dieser Java‑Code zeigt, wie Sie eine zusammengesetzte benutzerdefinierte Form erstellen:  
+``` java
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -240,12 +257,12 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **Benutzerdefinierte Form mit abgerundeten Ecken erstellen**
+## **Eine benutzerdefinierte Form mit abgerundeten Ecken erstellen**
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine benutzerdefinierte Form mit abgerundeten Ecken (nach innen) erstellen:
-
+Dieser Java‑Code zeigt, wie Sie eine benutzerdefinierte Form mit abgerundeten Ecken (nach innen) erstellen;  
 ```java
 float shapeX = 20f;
 float shapeY = 20f;
@@ -290,30 +307,55 @@ try {
 }
 ```
 
-## **Konvertieren von GeometryPath zu java.awt.Shape** 
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) Klasse.
-2. Erstellen Sie eine Instanz der [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) Klasse.
-3. Konvertieren Sie die Instanz von [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) in die Instanz von [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) mithilfe von [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil).
+## **Herausfinden, ob eine Formgeometrie geschlossen ist**
+
+Eine geschlossene Form ist definiert als eine Form, deren alle Seiten miteinander verbunden sind und eine einheitliche Grenze ohne Lücken bilden. Eine solche Form kann eine einfache geometrische Form oder ein komplexes benutzerdefiniertes Kontur sein. Das folgende Codebeispiel zeigt, wie man prüft, ob eine Formgeometrie geschlossen ist:  
+```java
+boolean isGeometryClosed(IGeometryShape geometryShape)
+{
+    Boolean isClosed = null;
+
+    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+        int dataLength = geometryPath.getPathData().length;
+        if (dataLength == 0)
+            continue;
+
+        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
+        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+
+        if (isClosed == false)
+            return false;
+    }
+
+    return isClosed == true;
+}
+```
+
+
+## **GeometryPath in java.awt.Shape konvertieren**
+
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
+2. Erstellen Sie eine Instanz der Klasse [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
+3. Konvertieren Sie die [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) Instanz mithilfe von [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) in die [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) Instanz.
 4. Wenden Sie die Pfade auf die Form an.
 
-Dieser Java-Code—eine Implementierung der oben genannten Schritte—demonstriert den **GeometryPath** zu **GraphicsPath** Konversionsprozess:
-
-```java
+Dieser Java‑Code – eine Umsetzung der obigen Schritte – demonstriert den Konvertierungsprozess von **GeometryPath** zu **GraphicsPath**:  
+``` java
 Presentation pres = new Presentation();
 try {
-    // Erstellen Sie eine neue Form
+    // Neue Form erstellen
     GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
             getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    // Holen Sie sich den Geometriepfeil der Form
+    // Geometriepfad der Form abrufen
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // Erstellen Sie einen neuen Grafikpfad mit Text
+    // Neuen Grafikpfad mit Text erstellen
     Shape graphicsPath;
     Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in Form";
+    String text = "Text in shape";
     BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
     Graphics2D g2 = img.createGraphics();
 
@@ -326,14 +368,26 @@ try {
         g2.dispose();
     }
 
-    // Konvertieren Sie den Grafikpfad in einen Geometriepfeil
+    // Grafikpfad in Geometriepfad konvertieren
     IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Setzen Sie die Kombination aus neuem Geometriepfeil und ursprünglichem Geometriepfeil auf die Form
+    // Kombination aus neuem Geometriepfad und ursprünglichem Geometriepfad für die Form festlegen
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**Was passiert mit Füllung und Kontur, nachdem die Geometrie ersetzt wurde?**  
+Der Stil bleibt an der Form erhalten; nur die Kontur ändert sich. Füllung und Kontur werden automatisch auf die neue Geometrie angewendet.
+
+**Wie rotiere ich eine benutzerdefinierte Form zusammen mit ihrer Geometrie korrekt?**  
+Verwenden Sie die Methode [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) der Form; die Geometrie rotiert zusammen mit der Form, da sie an das eigene Koordinatensystem der Form gebunden ist.
+
+**Kann ich eine benutzerdefinierte Form in ein Bild konvertieren, um das Ergebnis zu „sperren“?**  
+Ja. Exportieren Sie den gewünschten [Folie](/slides/de/androidjava/convert-powerpoint-to-png/)‑Bereich oder die [Form](/slides/de/androidjava/create-shape-thumbnails/) selbst in ein Rasterformat; das erleichtert die weitere Arbeit mit umfangreichen Geometrien.

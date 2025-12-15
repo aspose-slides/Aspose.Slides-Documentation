@@ -1,26 +1,36 @@
 ---
-title: 形状効果
+title: Android でのプレゼンテーションにおけるシェイプエフェクトの適用
+linktitle: シェイプエフェクト
 type: docs
 weight: 30
-url: /ja/androidjava/shape-effect
-keywords: "形状効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
-description: "JavaでPowerPointの形状に効果を適用する"
+url: /ja/androidjava/shape-effect/
+keywords:
+- シェイプエフェクト
+- 影エフェクト
+- 反射エフェクト
+- グローエフェクト
+- ソフトエッジエフェクト
+- エフェクト形式
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用して、PPT および PPTX ファイルに高度なシェイプエフェクトを適用し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
 
-PowerPointの効果は形状を目立たせるために使用できますが、[フィル](/slides/ja/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、形状に説得力のある反射を作成したり、形状の光を広げたりできます。
+PowerPoint のエフェクトはシェイプを際立たせるために使用できますが、[fills](/slides/ja/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPoint のエフェクトを使用すると、シェイプにリアルな反射を作成したり、シェイプのグローを広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPointでは、形状に適用できる6つの効果を提供しています。1つまたは複数の効果を形状に適用できます。
+* PowerPoint はシェイプに適用できる 6 つのエフェクトを提供しています。シェイプに 1 つまたは複数のエフェクトを適用できます。  
+* エフェクトの組み合わせによっては、他よりも見栄えが良いものがあります。このため、PowerPoint の **Preset** オプションがあります。Preset オプションは実質的に 2 つ以上のエフェクトの見栄えが良い既知の組み合わせです。このように、プリセットを選択することで、異なるエフェクトをテストしたり組み合わせて、良い組み合わせを見つけるために時間を浪費する必要がなくなります。
 
-* 効果の組み合わせによっては、他の組み合わせよりもより良く見えるものがあります。このため、PowerPointのオプションには**プリセット**があります。プリセットオプションは、2つ以上の効果の間で知られている見栄えの良い組み合わせです。このようにして、プリセットを選択すれば、素敵な組み合わせを見つけるために異なる効果をテストまたは組み合わせる時間を無駄にすることはありません。
+Aspose.Slides は、[EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat) クラスの下にプロパティとメソッドを提供しており、PowerPoint プレゼンテーションのシェイプに同じエフェクトを適用できます。
 
-Aspose.Slidesは、PowerPointプレゼンテーションの形状に同じ効果を適用するための[EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat)クラスのプロパティとメソッドを提供します。
+## **シャドウ効果を適用する**
 
-## **影効果の適用**
-
-このJavaコードは、矩形に外側の影効果（[OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)）を適用する方法を示しています：
-
+この Java コードは、外部シャドウ効果（[OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) を矩形に適用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,10 +47,10 @@ try {
 }
 ```
 
-## **反射効果の適用**
 
-このJavaコードは、形状に反射効果を適用する方法を示しています：
+## **反射効果を適用する**
 
+この Java コードは、シェイプに反射効果を適用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +68,10 @@ try {
 }
 ```
 
-## **光彩効果の適用**
 
-このJavaコードは、形状に光彩効果を適用する方法を示しています：
+## **グロー効果を適用する**
 
+この Java コードは、シェイプにグロー効果を適用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +87,10 @@ try {
 }
 ```
 
-## **ソフトエッジ効果の適用**
 
-このJavaコードは、形状にソフトエッジ効果を適用する方法を示しています：
+## **ソフトエッジ効果を適用する**
 
+この Java コードは、シェイプにソフトエッジを適用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,3 +104,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **よくある質問**
+
+**同じシェイプに複数のエフェクトを適用できますか？**
+
+はい、影、反射、グローなどの異なるエフェクトを単一のシェイプに組み合わせて、より動的な外観を作成できます。
+
+**どのようなシェイプにエフェクトを適用できますか？**
+
+オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプにエフェクトを適用できます。
+
+**グループ化されたシェイプにエフェクトを適用できますか？**
+
+はい、グループ化されたシェイプにエフェクトを適用できます。エフェクトはグループ全体に適用されます。

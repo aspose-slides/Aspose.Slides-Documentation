@@ -1,23 +1,36 @@
 ---
-title: منطقة رسم المخطط
+title: تخصيص مناطق رسم المخططات في العروض التقديمية على Android
+linktitle: منطقة الرسم
 type: docs
 url: /ar/androidjava/chart-plot-area/
+keywords:
+- مخطط
+- منطقة الرسم
+- عرض منطقة الرسم
+- ارتفاع منطقة الرسم
+- حجم منطقة الرسم
+- وضع التخطيط
+- باوربوينت
+- عرض تقديمي
+- أندرويد
+- جافا
+- Aspose.Slides
+description: "اكتشف كيفية تخصيص مناطق رسم المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides لنظام Android عبر Java. حسّن مظهر شرائحك بسهولة."
 ---
 
-## **احصل على عرض وارتفاع منطقة رسم المخطط**
-يوفر Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة.
+## **الحصول على عرض وارتفاع منطقة رسم المخطط**
+توفر Aspose.Slides لـ Android عبر Java واجهة برمجة تطبيقات بسيطة لـ .
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. أضف مخططًا بالبيانات الافتراضية.
-1. استدعاء [method IChart.validateChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#validateChartLayout--) للحصول على القيم الفعلية.
-1. الحصول على موقع X الفعلي (اليسار) لعنصر المخطط بالنسبة للزاوية العليا اليسرى من المخطط.
-1. الحصول على الجزء العلوي الفعلي لعنصر المخطط بالنسبة للزاوية العليا اليسرى من المخطط.
-1. الحصول على العرض الفعلي لعنصر المخطط.
-1. الحصول على الارتفاع الفعلي لعنصر المخطط.
-
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) .
+2. الوصول إلى الشريحة الأولى.
+3. إضافة مخطط مع البيانات الافتراضية.
+4. استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#validateChartLayout--) قبل الحصول على القيم الفعلية.
+5. الحصول على الموقع الفعلي X (اليسار) لعنصر المخطط بالنسبة إلى الزاوية اليسرى العليا للمخطط.
+6. الحصول على الجزء العلوي الفعلي لعنصر المخطط بالنسبة إلى الزاوية اليسرى العليا للمخطط.
+7. الحصول على العرض الفعلي لعنصر المخطط.
+8. الحصول على الارتفاع الفعلي لعنصر المخطط.
 ```java
-// Create an instance of Presentation class
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation();
 try {
     Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
@@ -32,16 +45,16 @@ try {
 }
 ```
 
+
 ## **تعيين وضع تخطيط منطقة رسم المخطط**
-يوفر Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة لتعيين وضع التخطيط لمنطقة رسم المخطط. تم إضافة الطريقتين [**setLayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea#setLayoutTargetType-int-) و [**getLayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea#getLayoutTargetType--) إلى فئة [**ChartPlotArea**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea) وواجهة [**IChartPlotArea**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartPlotArea). إذا كان تخطيط منطقة الرسم محددًا يدويًا، فإن هذه الخاصية تحدد ما إذا كان يجب تخطيط منطقة الرسم داخلها (لا تشمل المحاور وعلامات المحاور) أو خارجها (تشمل المحاور وعلامات المحاور). هناك قيمتان ممكنتان تم تحديدهما في تعداد [**LayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType).
+توفر Aspose.Slides لـ Android عبر Java واجهة برمجة تطبيقات بسيطة لتعيين وضع تخطيط منطقة رسم المخطط. تم إضافة الطريقتين [**setLayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea#setLayoutTargetType-int-) و [**getLayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea#getLayoutTargetType--) إلى الفئة [**ChartPlotArea**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartPlotArea) والواجهة [**IChartPlotArea**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartPlotArea). إذا تم تحديد تخطيط منطقة الرسم يدويًا، تحدد هذه الخاصية ما إذا كان سيتم تخطيط المنطقة من الداخل (بدون المحاور وعناوين المحاور) أو من الخارج (مع المحاور وعناوين المحاور). هناك قيمتان ممكنتان معرفتان في تعداد [**LayoutTargetType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType).
 
-- [**LayoutTargetType.Inner**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Inner) - تحدد أن حجم منطقة الرسم يجب أن يحدد حجم منطقة الرسم، دون تضمين علامات الترقيم وعلامات المحاور.
-- [**LayoutTargetType.Outer**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Outer) - تحدد أن حجم منطقة الرسم يجب أن يحدد حجم منطقة الرسم، وعلامات الترقيم، وعلامات المحاور.
+- [**LayoutTargetType.Inner**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Inner) - يحدد أن حجم منطقة الرسم يحدد حجم المنطقة دون علامات التدرج وعناوين المحاور.
+- [**LayoutTargetType.Outer**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Outer) - يحدد أن حجم منطقة الرسم يحدد حجم المنطقة وعلامات التدرج وعناوين المحاور.
 
-يتم إعطاء كود عينة أدناه.
-
+الشفرة النموذجية موضحة أدناه.
 ```java
-// Create an instance of Presentation class
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -57,3 +70,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما الوحدات التي تُرجع بها القيم الفعلية لـ x و y والعرض والارتفاع؟**  
+بالنقاط؛ 1 بوصة = 72 نقطة. هذه هي وحدات إحداثيات Aspose.Slides.
+
+**كيف تختلف منطقة الرسم عن منطقة المخطط من حيث المحتوى؟**  
+منطقة الرسم هي منطقة رسم البيانات (السلاسل، خطوط الشبكة، خطوط الاتجاه، إلخ)؛ أما منطقة المخطط فتشتمل على العناصر المحيطة (العنوان، المفتاح، إلخ). في المخططات ثلاثية الأبعاد، تشمل منطقة الرسم أيضًا الجدران/الأرضية والمحاور.
+
+**كيف يتم تفسير x و y والعرض والارتفاع لمنطقة الرسم عندما يكون التخطيط يدويًا؟**  
+هي كسور (0–1) من الحجم الكلي للمخطط؛ في هذا الوضع يتم إلغاء التمركز التلقائي وتُستخدم الكسور التي تحددها.
+
+**لماذا تغير موقع منطقة الرسم بعد إضافة/نقل المفتاح؟**  
+المفتاح يقع في منطقة المخطط خارج منطقة الرسم لكنه يؤثر على التخطيط والمساحة المتاحة، لذا قد تتحرك منطقة الرسم عندما يكون التمركز التلقائي مفعّلاً. (هذا سلوك قياسي لمخططات PowerPoint.)

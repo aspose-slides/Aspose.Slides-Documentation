@@ -1,18 +1,29 @@
 ---
-title: Порция
+title: Управление текстовыми частями в презентациях на Android
+linktitle: Текстовая часть
 type: docs
 weight: 70
 url: /ru/androidjava/portion/
+keywords:
+- текстовая часть
+- часть текста
+- координаты текста
+- позиция текста
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как управлять текстовыми частями в презентациях PowerPoint с помощью Aspose.Slides для Android через Java, повышая производительность и возможности настройки."
 ---
 
-## **Получение координат позиции порции**
-Метод [**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) был добавлен в интерфейс [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPortion) и класс [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion), который позволяет получать координаты начала порции.
-
+## **Получить координаты части текста**
+[**getCoordinates()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) метод был добавлен в [IPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IPortion) и [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) класс, который позволяет получить координаты начала части.
 ```java
-// Создание экземпляра класса Presentation, представляющего PPTX
+// Создать экземпляр класса Presentation, представляющего PPTX
 Presentation pres = new Presentation();
 try {
-    // Переформатирование контекста презентации
+    // Переформирование контекста презентации
     IAutoShape shape = (IAutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
     ITextFrame textFrame = (ITextFrame) shape.getTextFrame();
@@ -29,3 +40,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я применить гиперссылку только к части текста в одном абзаце?**
+
+Да, вы можете [назначить гиперссылку](/slides/ru/androidjava/manage-hyperlinks/) отдельной части; только этот фрагмент будет кликабельным, а не весь абзац.
+
+**Как работает наследование стилей: что переопределяет Portion и что берется из Paragraph/TextFrame?**
+
+Свойства уровня [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) имеют высший приоритет. Если свойство не задано в [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/), движок берёт его из [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/); если оно не задано и там, — из [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) или стиля [theme](https://reference.aspose.com/slides/androidjava/com.aspose.slides/theme/).
+
+**Что произойдет, если шрифт, указанный для Portion, отсутствует на целевой машине/сервере?**
+
+[Правила подстановки шрифтов](/slides/ru/androidjava/font-selection-sequence/) применяются. Текст может перераспределиться: метрики, переносы и ширина могут измениться, что важно для точного позиционирования.
+
+**Могу ли я задать прозрачность заливки текста или градиент для конкретного Portion независимо от остального абзаца?**
+
+Да, цвет текста, заливка и прозрачность на уровне [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) могут отличаться от соседних фрагментов.

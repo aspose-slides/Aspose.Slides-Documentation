@@ -1,33 +1,49 @@
 ---
-title: خط الاتجاه
+title: إضافة خطوط اتجاه إلى مخططات العرض التقديمي على Android
+linktitle: خط الاتجاه
 type: docs
 url: /ar/androidjava/trend-line/
+keywords:
+- مخطط
+- خط اتجاه
+- خط اتجاه أسي
+- خط اتجاه خطي
+- خط اتجاه لوغاريتمي
+- خط اتجاه متوسط متحرك
+- خط اتجاه متعدد الحدود
+- خط اتجاه أسّي
+- خط اتجاه مخصص
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "أضف وعدل خطوط الاتجاه بسرعة في مخططات PowerPoint باستخدام Aspose.Slides لنظام Android عبر Java — دليل عملي لجذب جمهورك."
 ---
 
 ## **إضافة خط اتجاه**
-تقدم Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة في المخطط:
+توفر Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة للرسوم البيانية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة مخطط مع بيانات افتراضية مع أي نوع مطلوب (هذا المثال يستخدم ChartType.ClusteredColumn).
-1. إضافة خط اتجاه أسي لسلسلة المخطط 1.
-1. إضافة خط اتجاه خطي لسلسلة المخطط 1.
-1. إضافة خط اتجاه لوغاريتمي لسلسلة المخطط 2.
-1. إضافة خط اتجاه متوسط متحرك لسلسلة المخطط 2.
-1. إضافة خط اتجاه متعدد الحدود لسلسلة المخطط 3.
-1. إضافة خط اتجاه قوى لسلسلة المخطط 3.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة رسم بياني ببيانات افتراضية وأحد الأنواع المطلوبة (هذا المثال يستخدم ChartType.ClusteredColumn).
+1. إضافة خط اتجاه أسي للسلسلة 1 من الرسم البياني.
+1. إضافة خط اتجاه خطي للسلسلة 1 من الرسم البياني.
+1. إضافة خط اتجاه لوغاريتمي للسلسلة 2 من الرسم البياني.
+1. إضافة خط اتجاه متوسط متحرك للسلسلة 2 من الرسم البياني.
+1. إضافة خط اتجاه متعدد الحدود للسلسلة 3 من الرسم البياني.
+1. إضافة خط اتجاه أسّي للسلسلة 3 من الرسم البياني.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-الشفرة التالية تستخدم لإنشاء مخطط مع خطوط الاتجاه.
-
+يتم استخدام الشيفرة التالية لإنشاء رسم بياني مع خطوط الاتجاه.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء مثيل من الفئة Presentation
 Presentation pres = new Presentation();
 try {
-    // إنشاء مخطط عمودي متجمع
+    // إنشاء مخطط عمودي مجمع
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
     
-    // إضافة خط اتجاه أسّي لسلسلة المخطط 1
+    // إضافة خط اتجاه أسي لسلسلة المخطط 1
     ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
     tredLinep.setDisplayEquation(false);
     tredLinep.setDisplayRSquaredValue(false);
@@ -42,13 +58,13 @@ try {
     // إضافة خط اتجاه لوغاريتمي لسلسلة المخطط 2
     ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
     tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("خط الاتجاه اللوغاريتمي الجديد");
+    tredLineLog.addTextFrameForOverriding("New log trend line");
     
     // إضافة خط اتجاه متوسط متحرك لسلسلة المخطط 2
     ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
     tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
     tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("اسم خط الاتجاه الجديد");
+    tredLineMovAvg.setTrendlineName("New TrendLine Name");
     
     // إضافة خط اتجاه متعدد الحدود لسلسلة المخطط 3
     ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
@@ -56,7 +72,7 @@ try {
     tredLinePol.setForward(1);
     tredLinePol.setOrder((byte)3);
     
-    // إضافة خط اتجاه قوى لسلسلة المخطط 3
+    // إضافة خط اتجاه أسّي لسلسلة المخطط 3
     ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
     tredLinePower.setTrendlineType(TrendlineType.Power);
     tredLinePower.setBackward(1);
@@ -68,18 +84,18 @@ try {
 }
 ```
 
+
 ## **إضافة خط مخصص**
-تقدم Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في المخطط. لإضافة خط بسيط على الشريحة المحددة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
+توفر Aspose.Slides لنظام Android عبر Java واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في الرسم البياني. لإضافة خط بسيط مستوي إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات التالية:
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)
-- الحصول على مرجع شريحة باستخدام فهرسها
-- إنشاء مخطط جديد باستخدام طريقة AddChart المقدمة من كائن Shapes
-- إضافة شكل تلقائي من نوع الخط باستخدام طريقة AddAutoShape المقدمة من كائن Shapes
+- إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)
+- الحصول على مرجع الشريحة باستخدام فهرستها
+- إنشاء رسم بياني جديد باستخدام طريقة AddChart المتاحة عبر كائن Shapes
+- إضافة AutoShape من نوع الخط باستخدام طريقة AddAutoShape المتاحة عبر كائن Shapes
 - تعيين لون خطوط الشكل.
-- كتابة العرض التقديمي المعدل كملف PPTX
+- حفظ العرض التقديمي المعدل كملف PPTX
 
-الشفرة التالية تستخدم لإنشاء مخطط مع خطوط مخصصة.
-
+يتم استخدام الشيفرة التالية لإنشاء رسم بياني مع خطوط مخصصة.
 ```java
 // إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
@@ -95,3 +111,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**ماذا يعني 'forward' و 'backward' بالنسبة لخط الاتجاه؟**
+
+إنها أطوال خط الاتجاه الممتدة إلى الأمام أو الخلف: بالنسبة للرسوم البيانية النقطية (XY) — بوحدات المحور؛ بالنسبة للرسوم غير النقطية — بعدد الفئات. يُسمح فقط بالقيم غير السالبة.
+
+**هل سيظل خط الاتجاه محفوظًا عند تصدير العرض التقديمي إلى PDF أو SVG، أو عند تحويل الشريحة إلى صورة؟**
+
+نعم. تقوم Aspose.Slides بتحويل العروض التقديمية إلى [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)/[SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/) وتُصوّر الرسوم البيانية إلى صور؛ خطوط الاتجاه، كجزء من الرسم البياني، تُحافظ عليها هذه العمليات. هناك طريقة متاحة أيضًا لـ [تصدير صورة للرسم البياني](/slides/ar/androidjava/create-shape-thumbnails/) نفسه.

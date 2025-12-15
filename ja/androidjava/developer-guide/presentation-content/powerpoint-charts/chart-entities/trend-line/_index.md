@@ -1,62 +1,78 @@
 ---
-title: トレンドライン
+title: Android のプレゼンテーションチャートにトレンドラインを追加
+linktitle: トレンドライン
 type: docs
 url: /ja/androidjava/trend-line/
+keywords:
+- チャート
+- トレンドライン
+- 指数トレンドライン
+- 線形トレンドライン
+- 対数トレンドライン
+- 移動平均トレンドライン
+- 多項式トレンドライン
+- べき乗トレンドライン
+- カスタムトレンドライン
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java を使用して PowerPoint のチャートにトレンドラインをすばやく追加およびカスタマイズし、聴衆を引き付ける実用的なガイド。"
 ---
 
-## **トレンドラインの追加**
-Aspose.Slides for Android via Javaは、さまざまなチャートのトレンドラインを管理するためのシンプルなAPIを提供します：
+## **トレンドラインを追加**
+Aspose.Slides for Android via Java は、さまざまなチャートのトレンドラインを管理するためのシンプルな API を提供します。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. スライドのインデックスを使ってスライドの参照を取得します。
-1. デフォルトデータを持つチャートを追加し、任意のタイプを選択します（この例ではChartType.ClusteredColumnを使用）。
-1. チャート系列1に対して指数トレンドラインを追加します。
-1. チャート系列1に対して線形トレンドラインを追加します。
-1. チャート系列2に対して対数トレンドラインを追加します。
-1. チャート系列2に対して移動平均トレンドラインを追加します。
-1. チャート系列3に対して多項式トレンドラインを追加します。
-1. チャート系列3に対して幾何トレンドラインを追加します。
-1. 修正されたプレゼンテーションをPPTXファイルとして書き出します。
+1. [プレゼンテーション](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. デフォルトデータと任意のタイプのチャートを追加します（この例では ChartType.ClusteredColumn を使用）。
+1. チャート系列 1 に指数トレンドラインを追加します。
+1. チャート系列 1 に線形トレンドラインを追加します。
+1. チャート系列 2 に対数トレンドラインを追加します。
+1. チャート系列 2 に移動平均トレンドラインを追加します。
+1. チャート系列 3 に多項式トレンドラインを追加します。
+1. チャート系列 3 にべき乗トレンドラインを追加します。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
 
-以下のコードはトレンドライン付きのチャートを作成するために使用されます。
-
+以下のコードはトレンドライン付きチャートを作成するために使用されます。
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // クラスタ列チャートを作成
+    // クラスタード・カラム チャートを作成
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
     
-    // チャート系列1のために指数トレンドラインを追加
+    // チャート系列 1 に指数トレンドラインを追加
     ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
     tredLinep.setDisplayEquation(false);
     tredLinep.setDisplayRSquaredValue(false);
     
-    // チャート系列1のために線形トレンドラインを追加
+    // チャート系列 1 に線形トレンドラインを追加
     ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
     tredLineLin.setTrendlineType(TrendlineType.Linear);
     tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     
     
-    // チャート系列2のために対数トレンドラインを追加
+    // チャート系列 2 に対数トレンドラインを追加
     ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
     tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("新しい対数トレンドライン");
+    tredLineLog.addTextFrameForOverriding("New log trend line");
     
-    // チャート系列2のために移動平均トレンドラインを追加
+    // チャート系列 2 に移動平均トレンドラインを追加
     ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
     tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
     tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("新しいトレンドライン名");
+    tredLineMovAvg.setTrendlineName("New TrendLine Name");
     
-    // チャート系列3のために多項式トレンドラインを追加
+    // チャート系列 3 に多項式トレンドラインを追加
     ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
     tredLinePol.setTrendlineType(TrendlineType.Polynomial);
     tredLinePol.setForward(1);
     tredLinePol.setOrder((byte)3);
     
-    // チャート系列3のために幾何トレンドラインを追加
+    // チャート系列 3 にべき乗トレンドラインを追加
     ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
     tredLinePower.setTrendlineType(TrendlineType.Power);
     tredLinePower.setBackward(1);
@@ -68,20 +84,20 @@ try {
 }
 ```
 
-## **カスタムラインの追加**
-Aspose.Slides for Android via Javaは、チャートにカスタムラインを追加するためのシンプルなAPIを提供します。プレゼンテーションの選択されたスライドにシンプルな平面ラインを追加するには、以下の手順に従ってください：
 
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します
-- インデックスを使用してスライドの参照を取得します
-- Shapesオブジェクトで公開されているAddChartメソッドを使用して新しいチャートを作成します
-- Shapesオブジェクトで公開されているAddAutoShapeメソッドを使用して線形タイプのAutoShapeを追加します
-- 形状のラインの色を設定します。
-- 修正されたプレゼンテーションをPPTXファイルとして書き出します
+## **カスタムラインを追加**
+Aspose.Slides for Android via Java は、チャートにカスタムラインを追加するシンプルな API を提供します。プレゼンテーションの選択したスライドにシンプルな直線を追加するには、以下の手順に従ってください。
 
-以下のコードはカスタムライン付きのチャートを作成するために使用されます。
+- Presentation クラスのインスタンスを作成します。
+- インデックスを使用してスライドの参照を取得します。
+- Shapes オブジェクトが提供する AddChart メソッドを使用して新しいチャートを作成します。
+- Shapes オブジェクトが提供する AddAutoShape メソッドを使用して線タイプの AutoShape を追加します。
+- シェイプの線の色を設定します。
+- 変更されたプレゼンテーションを PPTX ファイルとして書き出します。
 
+以下のコードはカスタムライン付きチャートを作成するために使用されます。
 ```java
-// Presentationクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
@@ -95,3 +111,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**トレンドラインの「forward」と「backward」は何を意味しますか？**
+
+トレンドラインを前方または後方に投影した長さを表します。散布図（XY）チャートの場合は軸の単位で、散布図以外のチャートの場合はカテゴリ数で表されます。負の値は使用できません。
+
+**トレンドラインは PDF や SVG にエクスポートしたり、スライドを画像としてレンダリングしたりしたときに保持されますか？**
+
+はい。Aspose.Slides はプレゼンテーションを [PDF](/slides/ja/androidjava/convert-powerpoint-to-pdf/)/[SVG](/slides/ja/androidjava/render-a-slide-as-an-svg-image/) に変換し、チャートを画像としてレンダリングします。トレンドラインはチャートの一部としてこれらの操作中に保持されます。また、チャート自体の画像をエクスポートするためのメソッドも利用可能です。

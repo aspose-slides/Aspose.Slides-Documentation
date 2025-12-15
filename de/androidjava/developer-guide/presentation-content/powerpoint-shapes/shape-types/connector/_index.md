@@ -1,25 +1,37 @@
 ---
-title: Connector
+title: Verwalten von Verbindern in Präsentationen auf Android
+linktitle: Verbinder
 type: docs
 weight: 10
 url: /de/androidjava/connector/
-keywords: "Verbindungen von Formen, Verbindungsstücken, PowerPoint Formen, PowerPoint Präsentation, Java, Aspose.Slides für Android über Java"
-description: "Verbinden von PowerPoint Formen in Java"
+keywords:
+- Verbinder
+- Verbinder-Typ
+- Verbinderpunkt
+- Verbinderlinie
+- Verbinderwinkel
+- Formen verbinden
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Ermöglichen Sie Java-Apps, Linien in PowerPoint-Folien auf Android zu zeichnen, zu verbinden und automatisch zu routen - erhalten Sie die volle Kontrolle über gerade, Ellenbogen- und gekrümmte Verbinder."
 ---
 
-Ein PowerPoint-Connector ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und auch dann an den Formen bleibt, wenn sie auf einer bestimmten Folie verschoben oder neu positioniert werden. 
+Ein PowerPoint‑Verbinder ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und an den Formen befestigt bleibt, selbst wenn sie auf einer Folie verschoben oder neu positioniert werden.
 
-Connectoren sind typischerweise mit *Verbindungspunkten* (grüne Punkte) verbunden, die standardmäßig auf allen Formen vorhanden sind. Verbindungspunkte erscheinen, wenn der Cursor sich ihnen nähert.
+Verbinder sind typischerweise mit *Verbindungspunkten* (grüne Punkte) verbunden, die standardmäßig auf allen Formen vorhanden sind. Verbindungspunkte erscheinen, wenn ein Cursor ihnen nahekommt.
 
-*Anpassungspunkte* (orange Punkte), die nur bei bestimmten Connectoren vorhanden sind, werden verwendet, um die Positionen und Formen der Connectoren zu modifizieren.
+*Anpassungspunkte* (orange Punkte), die nur bei bestimmten Verbindern existieren, werden verwendet, um die Positionen und Formen von Verbindern zu ändern.
 
-## **Arten von Connectoren**
+## **Typen von Verbindern**
 
-In PowerPoint können Sie gerade, winkelige (eckige) und gekrümmte Connectoren verwenden. 
+In PowerPoint können Sie gerade, Ellenbogen‑ (gewinkelte) und gekrümmte Verbinder verwenden.
 
-Aspose.Slides bietet diese Connectoren:
+Aspose.Slides bietet diese Verbinder:
 
-| Connector                      | Bild                                                         | Anzahl der Anpassungspunkte |
+| Verbinder | Bild | Anzahl der Anpassungspunkte |
 | ------------------------------ | ------------------------------------------------------------ | --------------------------- |
 | `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
@@ -32,39 +44,38 @@ Aspose.Slides bietet diese Connectoren:
 | `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
 | `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
 
-## **Formen mit Connectoren verbinden**
+## **Formen mit Verbindern verbinden**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-1. Erhalten Sie eine Folienreferenz über ihren Index.
-1. Fügen Sie zwei [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) zur Folie hinzu, indem Sie die `addAutoShape` Methode des `Shapes` Objekts verwenden.
-1. Fügen Sie einen Connector mit der `addConnector` Methode des `Shapes` Objekts hinzu, indem Sie den Connector-Typ definieren.
-1. Verbinden Sie die Formen mit dem Connector. 
-1. Rufen Sie die `reroute` Methode auf, um den kürzesten Verbindungspfad anzuwenden.
-1. Speichern Sie die Präsentation. 
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Holen Sie sich die Referenz einer Folie über ihren Index.
+1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) hinzu, indem Sie die Methode `addAutoShape` des `Shapes`‑Objekts verwenden.
+1. Fügen Sie einen Verbinder hinzu, indem Sie die Methode `addConnector` des `Shapes`‑Objekts verwenden und den Verbinder‑Typ angeben.
+1. Verbinden Sie die Formen mithilfe des Verbinders.
+1. Rufen Sie die Methode `reroute` auf, um den kürzesten Verbindungsweg anzuwenden.
+1. Speichern Sie die Präsentation.
 
-Dieser Java-Code zeigt, wie man einen Connector (einen gewinkelten Connector) zwischen zwei Formen (einer Ellipse und einem Rechteck) hinzufügt:
-
+Dieser Java‑Code zeigt, wie Sie einen Verbinder (einen gebogenen Verbinder) zwischen zwei Formen (einer Ellipse und einem Rechteck) hinzufügen:
 ```Java
-// Erstellt eine Präsentationsklasse, die die PPTX-Datei darstellt
+// Instanziiert eine Presentation-Klasse, die die PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
-    // Greift auf die Shapes-Sammlung für eine bestimmte Folie zu
+    // Greift auf die Shapes-Sammlung einer bestimmten Folie zu
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
     
-    // Fügt eine Ellipse Autoshape hinzu
+    // Fügt eine Ellipse-AutoShape hinzu
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
     
-    // Fügt eine Rechteck Autoshape hinzu
+    // Fügt ein Rechteck-AutoShape hinzu
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
     
-    // Fügt eine Connector-Form zur Shapes-Sammlung der Folie hinzu
+    // Fügt ein Connector-Shape zur Shapes-Sammlung der Folie hinzu
     IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
     
-    // Verbindet die Formen mit dem Connector
+    // Verbindet die Shapes mithilfe des Connectors
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
     
-    // Ruft reroute auf, um den automatischen kürzesten Pfad zwischen den Formen festzulegen
+    // Ruft reroute auf, das den automatischen kürzesten Pfad zwischen den Shapes festlegt
     connector.reroute();
     
     // Speichert die Präsentation
@@ -74,53 +85,51 @@ try {
 }
 ```
 
-{{%  alert title="HINWEIS"  color="warning"   %}} 
 
-Die `Connector.reroute` Methode leitet einen Connector neu und zwingt ihn, den kürzest möglichen Pfad zwischen den Formen zu nehmen. Um dies zu erreichen, kann die Methode die Punkte `setStartShapeConnectionSiteIndex` und `setEndShapeConnectionSiteIndex` ändern. 
-
+{{%  alert title="NOTE"  color="warning"   %}} 
+Die Methode `Connector.reroute` leitet einen Verbinder um und zwingt ihn, den kürzesten möglichen Weg zwischen Formen zu nehmen. Um dies zu erreichen, kann die Methode die Punkte `setStartShapeConnectionSiteIndex` und `setEndShapeConnectionSiteIndex` ändern. 
 {{% /alert %}} 
 
-## **Verbindungspunkt angeben**
+## **Verbindungspunkt festlegen**
 
-Wenn Sie möchten, dass ein Connector zwei Formen über bestimmte Punkte auf den Formen verbindet, müssen Sie Ihre bevorzugten Verbindungspunkte auf diese Weise angeben:
+Wenn Sie möchten, dass ein Verbinder zwei Formen über bestimmte Punkte auf den Formen verbindet, müssen Sie die gewünschten Verbindungspunkte wie folgt angeben:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
-1. Erhalten Sie eine Folienreferenz über ihren Index.
-1. Fügen Sie zwei [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) zur Folie hinzu, indem Sie die `addAutoShape` Methode des `Shapes` Objekts verwenden.
-1. Fügen Sie einen Connector mit der `addConnector` Methode des `Shapes` Objekts hinzu, indem Sie den Connector-Typ definieren.
-1. Verbinden Sie die Formen mit dem Connector. 
-1. Setzen Sie Ihre bevorzugten Verbindungspunkte auf den Formen. 
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Holen Sie sich die Referenz einer Folie über ihren Index.
+1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) hinzu, indem Sie die Methode `addAutoShape` des `Shapes`‑Objekts verwenden.
+1. Fügen Sie einen Verbinder hinzu, indem Sie die Methode `addConnector` des `Shapes`‑Objekts verwenden und den Verbinder‑Typ angeben.
+1. Verbinden Sie die Formen mithilfe des Verbinders.
+1. Legen Sie die gewünschten Verbindungspunkte auf den Formen fest.
 1. Speichern Sie die Präsentation.
 
-Dieser Java-Code demonstriert eine Operation, bei der ein bevorzugter Verbindungspunkt angegeben wird:
-
+Dieser Java‑Code demonstriert einen Vorgang, bei dem ein bevorzugter Verbindungspunkt festgelegt wird:
 ```java
-// Erstellt eine Präsentationsklasse, die eine PPTX-Datei darstellt
+// Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
-    // Greift auf die Shapes-Sammlung für eine bestimmte Folie zu
+    // Greift auf die Shape-Sammlung einer bestimmten Folie zu
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
 
-    // Fügt eine Ellipse Autoshape hinzu
+    // Fügt eine Ellipse-AutoShape hinzu
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Fügt eine Rechteck Autoshape hinzu
+    // Fügt eine Rechteck-AutoShape hinzu
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
-    // Fügt eine Connector-Form zur Shapes-Sammlung der Folie hinzu
+    // Fügt ein Connector-Shape zur Shape-Sammlung der Folie hinzu
     IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Verbindet die Formen mit dem Connector
+    // Verbindet die Shapes mithilfe des Connectors
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Setzt den bevorzugten Verbindungspunktindex auf der Ellipse-Form
+    // Legt den Index des bevorzugten Verbindungspunkts auf der Ellipse-Shape fest
     int wantedIndex = 6;
 
-    // Überprüft, ob der bevorzugte Index kleiner ist als die maximale Anzahl von Verbindungspunkt-Indizes
+    // Prüft, ob der bevorzugte Index kleiner ist als die maximale Anzahl von Verbindungspunkten
     if (ellipse.getConnectionSiteCount() > wantedIndex) 
     {
-        // Setzt den bevorzugten Verbindungspunkt auf der Ellipse-Autoshape
+        // Setzt den bevorzugten Verbindungspunkt auf der Ellipse-AutoShape
         connector.setStartShapeConnectionSiteIndex(wantedIndex);
     }
 
@@ -131,16 +140,16 @@ try {
 }
 ```
 
-## **Connector-Punkt anpassen**
 
-Sie können einen bestehenden Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Connectoren](/slides/de/androidjava/connector/#types-of-connectors)**
+## **Einen Verbinderpunkt anpassen**
 
-#### **Einfacher Fall**
+Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Typen von Verbindern.](/slides/de/androidjava/connector/#types-of-connectors)**
 
-Betrachten Sie einen Fall, in dem ein Connector zwischen zwei Formen (A und B) durch eine dritte Form (C) verläuft:
+### **Einfacher Fall**
+
+Betrachten Sie einen Fall, in dem ein Verbinder zwischen zwei Formen (A und B) durch eine dritte Form (C) verläuft:
 
 ![connector-obstruction](connector-obstruction.png)
-
 ```java
 Presentation pres = new Presentation();
 try {
@@ -164,60 +173,60 @@ try {
 }
 ```
 
-Um die dritte Form zu vermeiden oder zu umgehen, können wir den Connector anpassen, indem wir seine vertikale Linie auf diese Weise nach links verschieben:
+
+Um die dritte Form zu meiden oder zu umgehen, können wir den Verbinder anpassen, indem wir seine vertikale Linie nach links verschieben:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```java
 IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
 adj2.setRawValue(adj2.getRawValue() + 10000);
 ```
 
-### **Komplexe Fälle** 
 
-Um kompliziertere Anpassungen vorzunehmen, müssen Sie Folgendes berücksichtigen:
+### **Komplexe Fälle**
 
-* Ein anpassbarer Punkt eines Connectors ist stark mit einer Formel verknüpft, die seine Position berechnet und bestimmt. Änderungen am Standort des Punkts können die Form des Connectors beeinflussen.
-* Die Anpassungspunkte eines Connectors sind in einer strengen Reihenfolge in einem Array definiert. Die Anpassungspunkte werden von einem Startpunkt des Connectors zu seinem Endpunkt nummeriert.
-* Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Connector-Form wider. 
-  * Die Form wird durch die Start- und Endpunkte des Connectors multipliziert mit 1000 begrenzt. 
-  * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren respektiv den Prozentsatz der Breite, den Prozentsatz der Höhe und den Prozentsatz der Breite (wieder).
-* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Drehung und die Reflexion des Connectors berücksichtigen. **Hinweis**: Der Drehwinkel für alle Connectoren, die unter **[Arten von Connectoren](/slides/de/androidjava/connector/#types-of-connectors)** gezeigt werden, beträgt 0.
+Um komplexere Anpassungen durchzuführen, müssen Sie folgende Aspekte berücksichtigen:
+
+* Der anpassbare Punkt eines Verbinders ist eng mit einer Formel verknüpft, die seine Position berechnet und bestimmt. Änderungen der Punktposition können daher die Form des Verbinders verändern.
+* Die Anpassungspunkte eines Verbinders werden in einem Array in einer festen Reihenfolge definiert. Die Punkte werden vom Startpunkt des Verbinders bis zum Endpunkt nummeriert.
+* Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Verbinderform wider.
+  * Die Form wird durch die Start‑ und Endpunkte des Verbinders multipliziert mit 1000 begrenzt.
+  * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren jeweils den Prozentsatz der Breite, den Prozentsatz der Höhe und erneut den Prozentsatz der Breite.
+* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung und Spiegelung des Verbinders berücksichtigen. **Hinweis**: Der Drehwinkel für alle unter **[Typen von Verbindern](/slides/de/androidjava/connector/#types-of-connectors)** gezeigten Verbinder beträgt 0.
 
 #### **Fall 1**
 
-Betrachten Sie einen Fall, in dem zwei Textfeldobjekte über einen Connector miteinander verbunden sind:
+Betrachten Sie einen Fall, in dem zwei Textfeld‑Objekte über einen Verbinder verbunden sind:
 
 ![connector-shape-complex](connector-shape-complex.png)
-
 ```java
-// Erstellt eine Präsentationsklasse, die eine PPTX-Datei darstellt
+// Instanziert eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
-    // Greift auf die erste Folie in der Präsentation zu
+    // Holt die erste Folie der Präsentation
     ISlide sld = pres.getSlides().get_Item(0);
-    // Fügt Formen hinzu, die durch einen Connector verbunden werden
+    // Fügt Formen hinzu, die über einen Verbinder verbunden werden sollen
     IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("Von");
+    shapeFrom.getTextFrame().setText("From");
     IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("Zu");
-    // Fügt einen Connector hinzu
+    shapeTo.getTextFrame().setText("To");
+    // Fügt einen Verbinder hinzu
     IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Gibt die Richtung des Connectors an
+    // Legt die Richtung des Verbinders fest
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Gibt die Farbe des Connectors an
+    // Legt die Farbe des Verbinders fest
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Gibt die Dicke der Linienstärke des Connectors an
+    // Legt die Linienstärke des Verbinders fest
     connector.getLineFormat().setWidth(3);
     
-    // Verbindet die Formen mit dem Connector
+    // Verbindet die Formen miteinander mit dem Verbinder
     connector.setStartShapeConnectedTo(shapeFrom);
     connector.setStartShapeConnectionSiteIndex(3);
     connector.setEndShapeConnectedTo(shapeTo);
     connector.setEndShapeConnectionSiteIndex(2);
     
-    // Ruft die Anpassungspunkte für den Connector ab
+    // Holt die Anpassungspunkte des Verbinders
     IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
     IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
@@ -226,29 +235,30 @@ try {
 }
 ```
 
+
 **Anpassung**
 
-Wir können die Werte der Anpassungspunkte des Connectors ändern, indem wir den entsprechenden Breiten- und Höhenprozentsatz um 20 % und 200 % erhöhen:
-
+Wir können die Werte der Anpassungspunkte des Verbinders ändern, indem wir die entsprechenden Breiten‑ bzw. Höhen‑Prozentsätze um 20 % bzw. 200 % erhöhen:
 ```java
 // Ändert die Werte der Anpassungspunkte
 adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
+
 Das Ergebnis:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Um ein Modell zu definieren, das es uns ermöglicht, die Koordinaten und die Form einzelner Teile des Connectors zu bestimmen, erstellen wir eine Form, die dem horizontalen Teil des Connectors am Punkt connector.getAdjustments().get_Item(0) entspricht:
-
+Um ein Modell zu definieren, das uns die Koordinaten und die Form einzelner Teile des Verbinders bestimmt, erstellen wir eine Form, die der horizontalen Komponente des Verbinders am Punkt `connector.getAdjustments().get_Item(0)` entspricht:
 ```java
-// Zeichnet das vertikale Element des Connectors
+// Zeichnet die vertikale Komponente des Verbinders
 float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
 float y = connector.getY();
 float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
+
 
 Das Ergebnis:
 
@@ -256,26 +266,25 @@ Das Ergebnis:
 
 #### **Fall 2**
 
-In **Fall 1** haben wir eine einfache Connector-Anpassungsoperation unter Verwendung grundlegender Prinzipien demonstriert. In normalen Situationen müssen Sie die Drehung des Connectors und seine Darstellungen (die durch connector.getRotation(), connector.getFrame().getFlipH() und connector.getFrame().getFlipV() festgelegt werden) berücksichtigen. Wir werden nun den Prozess demonstrieren.
+In **Fall 1** haben wir einen einfachen Verbinder‑Anpassungsvorgang anhand grundlegender Prinzipien demonstriert. In normalen Situationen müssen Sie die Drehung des Verbinders und seine Anzeige (die durch `connector.getRotation()`, `connector.getFrame().getFlipH()` und `connector.getFrame().getFlipV()` festgelegt werden) berücksichtigen. Wir werden nun den Vorgang demonstrieren.
 
-Zuerst fügen wir ein neues Textfeldobjekt (**Zu 1**) zur Folie hinzu (zur Verbindungszwecken) und erstellen einen neuen (grünen) Connector, der es mit den Objekten, die wir bereits erstellt haben, verbindet.
-
+Zuerst fügen wir ein neues Textfeld‑Objekt (**To 1**) zur Folie hinzu (zur Verbindung) und erstellen einen neuen (grünen) Verbinder, der es mit den bereits erstellten Objekten verbindet.
 ```java
-// Erstellt ein neues Bindungsobjekt
+// Erzeugt ein neues Bindungsobjekt
 IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("Zu 1");
-// Erstellt einen neuen Connector
+shapeTo_1.getTextFrame().setText("To 1");
+// Erzeugt einen neuen Verbinder
 connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
 connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 connector.getLineFormat().setWidth(3);
-// Verbindet Objekte über den neu erstellten Connector
+// Verbindet Objekte mit dem neu erstellten Verbinder
 connector.setStartShapeConnectedTo(shapeFrom);
 connector.setStartShapeConnectionSiteIndex(2);
 connector.setEndShapeConnectedTo(shapeTo_1);
 connector.setEndShapeConnectionSiteIndex(3);
-// Ruft die Anpassungspunkte des Connectors ab
+// Ruft die Anpassungspunkte des Verbinders ab
 adjValue_0 = connector.getAdjustments().get_Item(0);
 adjValue_1 = connector.getAdjustments().get_Item(1);
 // Ändert die Werte der Anpassungspunkte
@@ -283,23 +292,22 @@ adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
+
 Das Ergebnis:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Zweitens erstellen wir eine Form, die dem horizontalen Teil des Connectors entspricht, der durch den neuen Connector-Punkt connector.getAdjustments().get_Item(0) verläuft. Wir werden die Werte aus den Connector-Daten für connector.getRotation(), connector.getFrame().getFlipH() und connector.getFrame().getFlipV() verwenden und die gängige Koordinatenumrechnungsformel für die Drehung um einen gegebenen Punkt x0 anwenden:
+Zweitens erstellen wir eine Form, die der horizontalen Komponente des Verbinders entspricht, die durch den Anpassungspunkt des neuen Verbinders `connector.getAdjustments().get_Item(0)` verläuft. Wir verwenden die Werte aus den Connector‑Daten für `connector.getRotation()`, `connector.getFrame().getFlipH()` und `connector.getFrame().getFlipV()` und wenden die bekannte Koordinatenumwandlungsformel für die Drehung um einen gegebenen Punkt x0 an:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-In unserem Fall beträgt der Drehwinkel des Objekts 90 Grad und der Connector wird vertikal dargestellt, sodass dies der entsprechende Code ist:
-
+In unserem Fall beträgt der Rotationswinkel des Objekts 90 Grad und der Verbinder wird vertikal angezeigt, sodass der entsprechende Code lautet:
 ```java
-// Speichert die Koordinaten des Connectors
+// Speichert die Koordinaten des Verbinders
 x = connector.getX();
 y = connector.getY();
-// Korrigiert die Koordinaten des Connectors, falls sie erscheinen
+// Korrigiert die Koordinaten des Verbinders falls erforderlich
 if (connector.getFrame().getFlipH() == NullableBool.True)
 {
     x += connector.getWidth();
@@ -308,33 +316,33 @@ if (connector.getFrame().getFlipV() == NullableBool.True)
 {
     y += connector.getHeight();
 }
-// Nimmt den Wert des Anpassungspunkts als Koordinaten
+// Verwendet den Wert des Anpassungspunkts als Koordinate
 x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Konvertiert die Koordinaten, da Sin(90) = 1 und Cos(90) = 0
+//  Konvertiert die Koordinaten weil Sin(90) = 1 und Cos(90) = 0
 float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
 float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Bestimmt die Breite des horizontalen Elements unter Verwendung des Wertes des zweiten Anpassungspunktes
+// Bestimmt die Breite der horizontalen Komponente unter Verwendung des zweiten Anpassungspunkts
 float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
+
 Das Ergebnis:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Wir haben Berechnungen mit einfachen Anpassungen und komplizierten Anpassungspunkten (Anpassungspunkte mit Drehwinkeln) demonstriert. Mit dem erlernten Wissen können Sie Ihr eigenes Modell (oder Code) entwickeln, um ein `GraphicsPath`-Objekt zu erstellen oder sogar die Anpassungspunktwerte eines Connectors basierend auf bestimmten Folienkoordinaten festzulegen.
+Wir haben Berechnungen gezeigt, die sowohl einfache Anpassungen als auch komplizierte Anpassungspunkte (Anpassungspunkte mit Drehwinkeln) umfassen. Mit dem erworbenen Wissen können Sie Ihr eigenes Modell entwickeln (oder Code schreiben), um ein `GraphicsPath`‑Objekt zu erhalten oder sogar die Werte der Anpassungspunkte eines Verbinders anhand spezifischer Folienkoordinaten festzulegen.
 
-## **Winkel der Connector-Linien finden**
+## **Winkel von Verbinder‑Linien ermitteln**
 
 1. Erstellen Sie eine Instanz der Klasse.
-1. Erhalten Sie eine Folienreferenz über ihren Index.
-1. Greifen Sie auf die Connector-Linienform zu.
-1. Verwenden Sie die Breite, Höhe, Höhe des Formenrahmens und Breite des Formenrahmens, um den Winkel zu berechnen.
+2. Holen Sie sich die Referenz einer Folie über ihren Index.
+3. Greifen Sie auf die Verbinder‑Linienform zu.
+4. Verwenden Sie die Linienbreite, Höhe, den Rahmen‑Höhe und die Rahmen‑Breite der Form, um den Winkel zu berechnen.
 
-Dieser Java-Code demonstriert eine Operation, in der wir den Winkel für eine Connector-Linienform berechnet haben:
-
+Dieser Java‑Code demonstriert einen Vorgang, bei dem wir den Winkel einer Verbinder‑Linienform berechnet haben:
 ```java
 Presentation pres = new Presentation("ConnectorLineAngle.pptx");
 try {
@@ -379,3 +387,18 @@ public static double getDirection(float w, float h, boolean flipH, boolean flipV
     return angle * 180.0 / Math.PI;
 }
 ```
+
+
+## **FAQ**
+
+**Wie kann ich feststellen, ob ein Verbinder an einer bestimmten Form „geklebt“ werden kann?**
+
+Prüfen Sie, ob die Form [Verbindungspunkte](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--) bereitstellt. Gibt es keine oder ist die Anzahl null, ist das Kleben nicht möglich; verwenden Sie in diesem Fall freie Endpunkte und positionieren Sie diese manuell. Es ist sinnvoll, die Anzahl der Punkte vor dem Anbinden zu prüfen.
+
+**Was passiert mit einem Verbinder, wenn ich eine der verbundenen Formen lösche?**
+
+Seine Enden werden getrennt; der Verbinder bleibt als gewöhnliche Linie mit freiem Start‑/Endpunkt auf der Folie erhalten. Sie können ihn entweder löschen oder die Verbindungen neu zuordnen und, falls nötig, [reroute](https://reference.aspose.com/slides/androidjava/com.aspose.slides/connector/#reroute--) verwenden.
+
+**Werden Verbinder‑Verbindungen beim Kopieren einer Folie in eine andere Präsentation beibehalten?**
+
+In der Regel ja, sofern die Ziel­formen ebenfalls kopiert werden. Wird die Folie in eine andere Datei eingefügt, ohne dass die verbundenen Formen mitkopiert werden, werden die Enden frei und Sie müssen sie erneut anbringen.

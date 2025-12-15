@@ -1,13 +1,26 @@
 ---
-title: Gestionar SmartArt
+title: Administrar SmartArt en presentaciones de PowerPoint en Android
+linktitle: Administrar SmartArt
 type: docs
 weight: 10
 url: /es/androidjava/manage-smartart/
+keywords:
+- SmartArt
+- texto de SmartArt
+- tipo de diseño
+- propiedad oculta
+- organigrama
+- organigrama de imágenes
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda a crear y editar SmartArt de PowerPoint con Aspose.Slides para Android utilizando ejemplos claros de código Java que aceleran el diseño de diapositivas y la automatización."
 ---
 
-## **Obtener texto de SmartArt**
-Ahora se ha añadido el método TextFrame a la interfaz [ISmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtShape) y a la clase [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) respectivamente. Esta propiedad te permite obtener todo el texto de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) si no tiene solo texto de nodos. El siguiente código de muestra te ayudará a obtener texto del nodo SmartArt.
-
+## **Obtener texto de un objeto SmartArt**
+Ahora se ha añadido el método TextFrame a la interfaz [ISmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtShape) y a la clase [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) respectivamente. Esta propiedad le permite obtener todo el texto de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) si no solo tiene texto de nodos. El siguiente código de ejemplo le ayudará a obtener texto de un nodo SmartArt.
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -28,16 +41,16 @@ try {
 }
 ```
 
-## **Cambiar el tipo de diseño de SmartArt**
-Para cambiar el tipo de diseño de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Por favor sigue los pasos a continuación:
 
-- Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Obtén la referencia de una diapositiva utilizando su índice.
-- Añade [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- Cambia [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setLayout-int-) a BasicProcess.
-- Escribe la presentación como un archivo PPTX.
-  En el ejemplo dado a continuación, hemos añadido un conector entre dos formas.
+## **Cambiar el tipo de diseño de un objeto SmartArt**
+Para cambiar el tipo de diseño de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Siga los pasos a continuación:
 
+- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Obtenga la referencia de una diapositiva mediante su índice.
+- Agregue [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
+- Cambie [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setLayout-int-) a BasicProcess.
+- Guarde la presentación como un archivo PPTX.
+En el ejemplo a continuación, hemos agregado un conector entre dos formas.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -54,17 +67,17 @@ try {
 }
 ```
 
-## **Verificar la propiedad oculta de SmartArt**
-Ten en cuenta: el método [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--)) devuelve verdadero si este nodo es un nodo oculto en el modelo de datos. Para verificar la propiedad oculta de cualquier nodo de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Por favor sigue los pasos a continuación:
 
-- Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Añade [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
-- Añade un nodo en SmartArt.
-- Verifica la propiedad [isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--) .
-- Escribe la presentación como un archivo PPTX.
+## **Comprobar la propiedad Oculta de un objeto SmartArt**
+Nota: el método [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--)) devuelve true si este nodo está oculto en el modelo de datos. Para comprobar la propiedad oculta de cualquier nodo de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Siga los pasos a continuación:
 
-En el ejemplo dado a continuación, hemos añadido un conector entre dos formas.
+- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Agregue [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
+- Agregue un nodo en SmartArt.
+- Compruebe la propiedad [isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#isHidden--).
+- Guarde la presentación como un archivo PPTX.
 
+En el ejemplo a continuación, hemos agregado un conector entre dos formas.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -74,8 +87,8 @@ try {
     // Añadir nodo en SmartArt 
     ISmartArtNode node = smart.getAllNodes().addNode();
 
-    // Verificar propiedad isHidden
-    boolean hidden = node.isHidden(); // Devuelve verdadero
+    // Comprobar la propiedad isHidden
+    boolean hidden = node.isHidden(); // Devuelve true
 
     if (hidden)
     {
@@ -88,22 +101,22 @@ try {
 }
 ```
 
-## **Obtener o establecer el tipo de diagrama organizacional**
-Los métodos [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) permiten obtener o establecer el tipo de diagrama organizacional asociado con el nodo actual. Para obtener o establecer el tipo de diagrama organizacional. Por favor sigue los pasos a continuación:
 
-- Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Añade [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) en la diapositiva.
-- Obtén o [establece el tipo de diagrama organizacional](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
-- Escribe la presentación como un archivo PPTX.
-  En el ejemplo dado a continuación, hemos añadido un conector entre dos formas.
+## **Obtener o establecer el tipo de organigrama**
+Los métodos [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--) y [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) permiten obtener o establecer el tipo de organigrama asociado al nodo actual. Para obtener o establecer el tipo de organigrama, siga los pasos a continuación:
 
+- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- Agregue [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) en la diapositiva.
+- Obtenga o [establezca el tipo de organigrama](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
+- Guarde la presentación como un archivo PPTX.
+En el ejemplo a continuación, hemos agregado un conector entre dos formas.
 ```java
 Presentation pres = new Presentation();
 try {
     // Añadir SmartArt BasicProcess
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // Obtener o establecer el tipo de diagrama organizacional
+    // Obtener o establecer el tipo de organigrama
     smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
     // Guardar presentación
@@ -113,16 +126,16 @@ try {
 }
 ```
 
-## **Crear un diagrama organizacional de imagen**
-Aspose.Slides para Android a través de Java proporciona una API simple para crear gráficos y diagramas organizacionales de imágenes de manera sencilla. Para crear un gráfico en una diapositiva:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtén la referencia de una diapositiva mediante su índice.
-1. Añade un gráfico con datos predeterminados junto con el tipo deseado (ChartType.PictureOrganizationChart).
-1. Escribe la presentación modificada en un archivo PPTX.
+## **Crear un organigrama de imagen**
+Aspose.Slides para Android vía Java proporciona una API sencilla para crear gráficos de PictureOrganization de manera fácil. Para crear un gráfico en una diapositiva:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Obtenga la referencia de una diapositiva mediante su índice.
+1. Agregue un gráfico con datos predeterminados junto con el tipo deseado (ChartType.PictureOrganizationChart).
+1. Guarde la presentación modificada en un archivo PPTX
 
 El siguiente código se utiliza para crear un gráfico.
-
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -133,16 +146,16 @@ try {
 }
 ```
 
-## **Obtener o establecer el estado de SmartArt**
-Para cambiar el tipo de diseño de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Por favor sigue los pasos a continuación:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Añade [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) en la diapositiva.
-1. [Obtén](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#isReversed--) o [establece](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setReversed-boolean-) el estado del diagrama SmartArt.
-1. Escribe la presentación como un archivo PPTX.
+## **Obtener o establecer el estado de SmartArt**
+Para cambiar el tipo de diseño de [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). Siga los pasos a continuación:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Agregue [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) en la diapositiva.
+1. [Get](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#isReversed--) o [Set](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#setReversed-boolean-) el estado del diagrama SmartArt.
+1. Guarde la presentación como un archivo PPTX.
 
 El siguiente código se utiliza para crear un gráfico.
-
 ```java
 // Instanciar la clase Presentation que representa el archivo PPTX
 Presentation pres = new Presentation();
@@ -154,9 +167,28 @@ try {
     smart.setReversed(true);
     boolean flag = smart.isReversed();
     
-    // Guardar presentación
+    // Guardar la presentación
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿SmartArt admite espejo/inversión para idiomas RTL?**
+
+Sí. El método [setReversed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/#setReversed-boolean-) cambia la dirección del diagrama (LTR/RTL) si el tipo de SmartArt seleccionado admite la inversión.
+
+**¿Cómo puedo copiar SmartArt a la misma diapositiva o a otra presentación conservando el formato?**
+
+Puede [clonar la forma SmartArt](/slides/es/androidjava/shape-manipulations/) a través de la colección de formas ([ShapeCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-)) o [clonar toda la diapositiva](/slides/es/androidjava/clone-slides/) que contiene esta forma. Ambos enfoques conservan el tamaño, la posición y el estilo.
+
+**¿Cómo renderizo SmartArt a una imagen raster para vista previa o exportación web?**
+
+[Renderice la diapositiva](/slides/es/androidjava/convert-powerpoint-to-png/) (o toda la presentación) a PNG/JPEG mediante la API que convierte diapositivas/presentaciones a imágenes; SmartArt se dibujará como parte de la diapositiva.
+
+**¿Cómo puedo seleccionar programáticamente un SmartArt específico en una diapositiva si hay varios?**
+
+Una práctica común es usar [texto alternativo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--) (Alt Text) o un [nombre](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getName--) y buscar la forma por ese atributo dentro de [formas de diapositiva](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--), luego comprobar el tipo para confirmar que es [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/). La documentación describe técnicas típicas para encontrar y trabajar con formas.

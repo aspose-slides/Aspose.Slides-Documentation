@@ -1,45 +1,60 @@
 ---
-title: 图表格式化
+title: 在 Android 上格式化演示文稿图表
+linktitle: 图表格式化
 type: docs
 weight: 60
 url: /zh/androidjava/chart-formatting/
+keywords:
+- 格式化图表
+- 图表格式化
+- 图表实体
+- 图表属性
+- 图表设置
+- 图表选项
+- 字体属性
+- 圆角边框
+- PowerPoint
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "了解 Aspose.Slides for Android via Java 中的图表格式化，并使用专业、抢眼的样式提升您的 PowerPoint 演示文稿。"
 ---
 
-## **格式化图表元素**
-Aspose.Slides for Android via Java 允许开发者从头开始向幻灯片添加自定义图表。本文解释了如何格式化不同的图表元素，包括图表类别和数值轴。
+## **格式化图表实体**
+Aspose.Slides for Android via Java 允许开发人员从头在幻灯片中添加自定义图表。本文说明了如何格式化不同的图表实体，包括图表类别轴和数值轴。
 
-Aspose.Slides for Android via Java 提供了一个简单的 API 来管理不同的图表元素并使用自定义值格式化它们：
+Aspose.Slides for Android via Java 提供了一个简单的 API，用于管理不同的图表实体并使用自定义值进行格式化：
 
-1. 创建一个 [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 创建一个 [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
 1. 通过索引获取幻灯片的引用。
-1. 添加一个带有默认数据的图表以及任何所需的类型（在本示例中，我们将使用 ChartType.LineWithMarkers）。
+1. 添加带有默认数据的图表，并使用任意所需类型（本例中使用 ChartType.LineWithMarkers）。
 1. 访问图表的数值轴并设置以下属性：
-   1. 设置数值轴主网格线的 **线格式**
-   1. 设置数值轴次网格线的 **线格式**
-   1. 设置数值轴的 **数字格式**
-   1. 设置数值轴的 **最小、最大、主要和次要单位**
-   1. 设置数值轴数据的 **文本属性**
-   1. 设置数值轴的 **标题**
-   1. 设置数值轴的 **线格式**
+   1. 为数值轴主网格线设置 **Line format**。
+   1. 为数值轴次网格线设置 **Line format**。
+   1. 为数值轴设置 **Number Format**。
+   1. 为数值轴设置 **Min、Max、Major 和 Minor 单位**。
+   1. 为数值轴数据设置 **Text Properties**。
+   1. 为数值轴设置 **Title**。
+   1. 为数值轴设置 **Line Format**。
 1. 访问图表的类别轴并设置以下属性：
-   1. 设置类别轴主网格线的 **线格式**
-   1. 设置类别轴次网格线的 **线格式**
-   1. 设置类别轴数据的 **文本属性**
-   1. 设置类别轴的 **标题**
-   1. 设置类别轴的 **标签定位**
-   1. 设置类别轴标签的 **旋转角度**
-1. 访问图表的图例并设置它们的 **文本属性**
-1. 设置图表图例在不重叠图表的情况下显示
-1. 访问图表的 **辅助数值轴**并设置以下属性：
-   1. 启用辅助 **数值轴**
-   1. 设置辅助数值轴的 **线格式**
-   1. 设置辅助数值轴的 **数字格式**
-   1. 设置辅助数值轴的 **最小、最大、主要和次要单位**
-1. 现在在辅助数值轴上绘制第一个图表系列
-1. 设置图表后墙的填充颜色
-1. 设置图表绘图区域的填充颜色
-1. 将修改后的演示文稿写入 PPTX 文件
-
+   1. 为类别轴主网格线设置 **Line format**。
+   1. 为类别轴次网格线设置 **Line format**。
+   1. 为类别轴数据设置 **Text Properties**。
+   1. 为类别轴设置 **Title**。
+   1. 为类别轴设置 **Label Positioning**。
+   1. 为类别轴标签设置 **Rotation Angle**。
+1. 访问图表图例并为其设置 **Text Properties**。
+1. 设置显示图例而不与图表重叠。
+1. 访问图表的 **Secondary Value Axis** 并设置以下属性：
+   1. 启用次要 **Value Axis**。
+   1. 为次要数值轴设置 **Line Format**。
+   1. 为次要数值轴设置 **Number Format**。
+   1. 为次要数值轴设置 **Min、Max、Major 和 Minor 单位**。
+1. 现在在次要数值轴上绘制第一条图表系列。
+1. 设置图表背墙的填充颜色。
+1. 设置图表绘图区域的填充颜色。
+1. 将修改后的演示文稿写入 PPTX 文件。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -54,7 +69,7 @@ try {
     chart.hasTitle();
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    chartTitle.setText("示例图表");
+    chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chartTitle.getPortionFormat().setFontHeight(20);
@@ -77,7 +92,7 @@ try {
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // 设置图表最大、最小值
+    // 设置图表最大值、最小值
     chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
@@ -101,7 +116,7 @@ try {
     chart.getAxes().getVerticalAxis().hasTitle();
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("主轴");
+    valtitle.setText("Primary Axis");
     valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     valtitle.getPortionFormat().setFontHeight(20);
@@ -127,12 +142,12 @@ try {
     txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     txtCat.setLatinFont(new FontData("Arial"));
 
-    // 设置类别标题
+    // 设置类别轴标题
     chart.getAxes().getHorizontalAxis().hasTitle();
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
     IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("示例类别");
+    catTitle.setText("Sample Category");
     catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     catTitle.getPortionFormat().setFontHeight(20);
@@ -153,23 +168,23 @@ try {
     txtleg.getFillFormat().setFillType(FillType.Solid);
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
-    // 设置图表图例在不重叠图表的情况下显示
+    // 设置显示图例而不与图表重叠
 
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
 
     chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // 设置辅助数值轴
+    // 设置次要数值轴
     chart.getAxes().getSecondaryVerticalAxis().isVisible();
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
 
-    // 设置辅助数值轴数字格式
+    // 设置次要数值轴数字格式
     chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
-    // 设置图表最大、最小值
+    // 设置图表最大值、最小值
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
@@ -180,7 +195,7 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
 
-    // 设置图表后墙颜色
+    // 设置图表背墙颜色
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
@@ -198,16 +213,16 @@ try {
 }
 ```
 
-## **设置图表字体属性**
-Aspose.Slides for Android via Java 支持设置图表的字体相关属性。请按照以下步骤设置图表的字体属性。
 
-- 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。
+## **为图表设置字体属性**
+Aspose.Slides for Android via Java 提供了针对图表的字体相关属性设置支持。请按照以下步骤为图表设置字体属性。
+
+- 实例化 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类对象。
 - 在幻灯片上添加图表。
 - 设置字体高度。
 - 保存修改后的演示文稿。
 
-以下是示例代码。
-
+下面给出示例代码。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -223,19 +238,19 @@ try {
 }
 ```
 
-## **设置数字格式**
-Aspose.Slides for Android via Java 提供了一个简单的 API 来管理图表数据格式：
+
+## **设置数值格式**
+Aspose.Slides for Android via Java 提供了一个简单的 API，用于管理图表数据格式：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
 1. 通过索引获取幻灯片的引用。
-1. 添加一个带有默认数据的图表以及任何所需的类型（本示例使用 ChartType.ClusteredColumn）。
-1. 从可能的预设值中设置预设数字格式。
-1. 遍历每个图表系列中的图表数据单元格并设置图表数据数字格式。
+1. 添加带有默认数据的图表，并使用任意所需类型（本例使用 **ChartType.ClusteredColumn**）。
+1. 从可能的预设值中设置预设数值格式。
+1. 遍历每个图表系列中的图表数据单元格并设置图表数据数值格式。
 1. 保存演示文稿。
-1. 设置自定义数字格式。
-1. 在每个图表系列中遍历图表数据单元格并设置不同的图表数据数字格式。
+1. 设置自定义数值格式。
+1. 遍历每个图表系列中的图表数据单元格并设置不同的图表数据数值格式。
 1. 保存演示文稿。
-
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -243,7 +258,7 @@ try {
     // 访问第一张演示文稿幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 添加默认的簇状柱形图
+    // 添加默认的聚集柱形图
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
     // 访问图表系列集合
@@ -265,21 +280,21 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-可能的预设数字格式值及其预设索引如下：
 
-|**0**|一般|
+以下表格列出了可能的预设数值格式值、对应的预设索引以及可使用的格式：
+
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
 |**4**|#,##0.00|
 |**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;红色$-#,##0|
+|**6**|$#,##0;Red$-#,##0|
 |**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;红色$-#,##0.00|
+|**8**|$#,##0.00;Red$-#,##0.00|
 |**9**|0%|
 |**10**|0.00%|
 |**11**|0.00E+00|
@@ -295,9 +310,9 @@ try {
 |**21**|h:mm:ss|
 |**22**|m/d/yy h:mm|
 |**37**|#,##0;-#,##0|
-|**38**|#,##0;红色-#,##0|
+|**38**|#,##0;Red-#,##0|
 |**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;红色-#,##0.00|
+|**40**|#,##0.00;Red-#,##0.00|
 |**41**|_ * #,##0_ ;_ * "_ ;_ @_|
 |**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
@@ -308,17 +323,16 @@ try {
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **设置图表区域圆角**
-Aspose.Slides for Android via Java 支持设置图表区域。方法 [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) 和 [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) 已添加到 [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) 接口和 [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) 类。
+## **设置图表区域圆角边框**
+Aspose.Slides for Android via Java 为设置图表区域提供了支持。已在 [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) 接口和 [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) 类中添加了方法 [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) 和 [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-)。
 
 1. 实例化 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类对象。
 1. 在幻灯片上添加图表。
 1. 设置图表的填充类型和填充颜色。
-1. 设置圆角属性为 True。
+1. 将圆角属性设为 True。
 1. 保存修改后的演示文稿。
 
-以下是示例代码。
-
+下面给出示例代码。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -335,3 +349,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**我可以为柱形/面积图设置半透明填充，同时保持边框不透明吗？**
+
+可以。填充透明度和轮廓是分开配置的。这对于在密集可视化中提高网格和数据的可读性非常有用。
+
+**当数据标签重叠时，我该怎么办？**
+
+可以减小字体大小，禁用非必要的标签组件（例如类别），设置标签偏移/位置，必要时仅为选定点显示标签，或将格式切换为 “值 + 图例”。
+
+**我可以对系列应用渐变或图案填充吗？**
+
+可以。通常同时提供纯色和渐变/图案填充。实际使用时应适度使用渐变，并避免与网格和文字的对比度降低的组合。

@@ -1,100 +1,123 @@
 ---
-title: إنشاء أو تحديث مخططات عرض تقديمي PowerPoint على Android
-linktitle: إنشاء مخطط
+title: إنشاء أو تحديث مخططات عرض PowerPoint على Android
+linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
 url: /ar/androidjava/create-chart/
-keywords: "إنشاء مخطط, مخطط مبعثر, مخطط دائري, مخطط خريطة شجرية, مخطط سهمي, مخطط صندوق وشِعَرة, مخطط مدرج تكراري, مخطط قمع, مخطط انفجار شمسي, مخطط متعدد الفئات, عرض تقديمي PowerPoint, Java, Aspose.Slides لنظام Android عبر Java"
-description: "إنشاء مخطط في عرض تقديمي PowerPoint باستخدام Java"
+keywords:
+- إضافة مخطط
+- إنشاء مخطط
+- تحرير مخطط
+- تغيير مخطط
+- تحديث مخطط
+- مخطط مبعثر
+- مخطط دائري
+- مخطط خطي
+- مخطط شجرة خريطة
+- مخطط أسهم
+- مخطط صندوق وشارب
+- مخطط قمع
+- مخطط شمسية
+- مخطط هيستوغرام
+- مخطط رادار
+- مخطط متعدد الفئات
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للأندرويد. إضافة وتنسيق وتحرير المخططات مع أمثلة شيفرة Java عملية."
 ---
 
-## نظرة عامة
+## **نظرة عامة**
 
-هذه المقالة تصف كيفية **إنشاء مخططات عرض تقديمي PowerPoint باستخدام Java**. يمكنك أيضًا **تحديث المخططات باستخدام Java**. تغطي المواضيع التالية.
+تصف هذه المقالة كيفية **إنشاء مخططات عروض PowerPoint التقديمية باستخدام Java**. يمكنك أيضًا **تحديث المخططات باستخدام Java**. تغطي المواضيع التالية.
 
-_مخطط_: **عادي**
-- [Java Create PowerPoint Chart](#java-create-powerpoint-chart)
-- [Java Create Presentation Chart](#java-create-presentation-chart)
-- [Java Create PowerPoint Presentation Chart](#java-create-powerpoint-presentation-chart)
+_المخطط_: **عادي**
+- [إنشاء مخطط PowerPoint في Java](#java-create-powerpoint-chart)
+- [إنشاء مخطط عرض تقديمي في Java](#java-create-presentation-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint في Java](#java-create-powerpoint-presentation-chart)
 
-_مخطط_: **مبعثر**
-- [Java Create Scattered Chart](#java-create-scattered-chart)
-- [Java Create PowerPoint Scattered Chart](#java-create-powerpoint-scattered-chart)
-- [Java Create PowerPoint Presentation Scattered Chart](#java-create-powerpoint-presentation-scattered-chart)
+_المخطط_: **منتشر**
+- [إنشاء مخطط منتشر في Java](#java-create-scattered-chart)
+- [إنشاء مخطط PowerPoint منتشر في Java](#java-create-powerpoint-scattered-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint منتشر في Java](#java-create-powerpoint-presentation-scattered-chart)
 
-_مخطط_: **دائري**
-- [Java Create Pie Chart](#java-create-pie-chart)
-- [Java Create PowerPoint Pie Chart](#java-create-powerpoint-pie-chart)
-- [Java Create PowerPoint Presentation Pie Chart](#java-create-powerpoint-presentation-pie-chart)
+_المخطط_: **دائري**
+- [إنشاء مخطط دائري في Java](#java-create-pie-chart)
+- [إنشاء مخطط PowerPoint دائري في Java](#java-create-powerpoint-pie-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint دائري في Java](#java-create-powerpoint-presentation-pie-chart)
 
-_مخطط_: **خريطة شجرية**
-- [Java Create Tree Map Chart](#java-create-tree-map-chart)
-- [Java Create PowerPoint Tree Map Chart](#java-create-powerpoint-tree-map-chart)
-- [Java Create PowerPoint Presentation Tree Map Chart](#java-create-powerpoint-presentation-tree-map-chart)
+_المخطط_: **شجرة خريطة**
+- [إنشاء مخطط شجرة خريطة في Java](#java-create-tree-map-chart)
+- [إنشاء مخطط PowerPoint شجرة خريطة في Java](#java-create-powerpoint-tree-map-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة في Java](#java-create-powerpoint-presentation-tree-map-chart)
 
-_مخطط_: **سهم**
-- [Java Create Stock Chart](#java-create-stock-chart)
-- [Java Create PowerPoint Stock Chart](#java-create-powerpoint-stock-chart)
-- [Java Create PowerPoint Presentation Stock Chart](#java-create-powerpoint-presentation-stock-chart)
+_المخطط_: **سهمي**
+- [إنشاء مخطط سهمي في Java](#java-create-stock-chart)
+- [إنشاء مخطط PowerPoint سهمي في Java](#java-create-powerpoint-stock-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint سهمي في Java](#java-create-powerpoint-presentation-stock-chart)
 
-_مخطط_: **صندوق وشِعَرة**
-- [Java Create Box and Whisker Chart](#java-create-box-and-whisker-chart)
-- [Java Create PowerPoint Box and Whisker Chart](#java-create-powerpoint-box-and-whisker-chart)
-- [Java Create PowerPoint Presentation Box and Whisker Chart](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_المخطط_: **مربع وشارب**
+- [إنشاء مخطط مربع وشارب في Java](#java-create-box-and-whisker-chart)
+- [إنشاء مخطط PowerPoint مربع وشارب في Java](#java-create-powerpoint-box-and-whisker-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint مربع وشارب في Java](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
-_مخطط_: **قمع**
-- [Java Create Funnel Chart](#java-create-funnel-chart)
-- [Java Create PowerPoint Funnel Chart](#java-create-powerpoint-funnel-chart)
-- [Java Create PowerPoint Presentation Funnel Chart](#java-create-powerpoint-presentation-funnel-chart)
+_المخطط_: **قمع**
+- [إنشاء مخطط قمع في Java](#java-create-funnel-chart)
+- [إنشاء مخطط PowerPoint قمع في Java](#java-create-powerpoint-funnel-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint قمع في Java](#java-create-powerpoint-presentation-funnel-chart)
 
-_مخطط_: **انفجار شمسي**
-- [Java Create Sunburst Chart](#java-create-sunburst-chart)
-- [Java Create PowerPoint Sunburst Chart](#java-create-powerpoint-sunburst-chart)
-- [Java Create PowerPoint Presentation Sunburst Chart](#java-create-powerpoint-presentation-sunburst-chart)
+_المخطط_: **شمسية**
+- [إنشاء مخطط شمسية في Java](#java-create-sunburst-chart)
+- [إنشاء مخطط PowerPoint شمسية في Java](#java-create-powerpoint-sunburst-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint شمسية في Java](#java-create-powerpoint-presentation-sunburst-chart)
 
-_مخطط_: **مدرج تكراري**
-- [Java Create Histogram Chart](#java-create-histogram-chart)
-- [Java Create PowerPoint Histogram Chart](#java-create-powerpoint-histogram-chart)
-- [Java Create PowerPoint Presentation Histogram Chart](#java-create-powerpoint-presentation-histogram-chart)
+_المخطط_: **هيستوغرام**
+- [إنشاء مخطط هيستوغرام في Java](#java-create-histogram-chart)
+- [إنشاء مخطط PowerPoint هيستوغرام في Java](#java-create-powerpoint-histogram-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint هيستوغرام في Java](#java-create-powerpoint-presentation-histogram-chart)
 
-_مخطط_: **رادار**
-- [Java Create Radar Chart](#java-create-radar-chart)
-- [Java Create PowerPoint Radar Chart](#java-create-powerpoint-radar-chart)
-- [Java Create PowerPoint Presentation Radar Chart](#java-create-powerpoint-presentation-radar-chart)
+_المخطط_: **رادار**
+- [إنشاء مخطط رادار في Java](#java-create-radar-chart)
+- [إنشاء مخطط PowerPoint رادار في Java](#java-create-powerpoint-radar-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint رادار في Java](#java-create-powerpoint-presentation-radar-chart)
 
-_مخطط_: **متعدد الفئات**
-- [Java Create Multi Category Chart](#java-create-multi-category-chart)
-- [Java Create PowerPoint Multi Category Chart](#java-create-powerpoint-multi-category-chart)
-- [Java Create PowerPoint Presentation Multi Category Chart](#java-create-powerpoint-presentation-multi-category-chart)
+_المخطط_: **متعدد الفئات**
+- [إنشاء مخطط متعدد الفئات في Java](#java-create-multi-category-chart)
+- [إنشاء مخطط PowerPoint متعدد الفئات في Java](#java-create-powerpoint-multi-category-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات في Java](#java-create-powerpoint-presentation-multi-category-chart)
 
-_مخطط_: **خريطة**
-- [Java Create Map Chart](#java-create-map-chart)
-- [Java Create PowerPoint Map Chart](#java-create-powerpoint-map-chart)
-- [Java Create PowerPoint Presentation Map Chart](#java-create-powerpoint-presentation-map-chart)
+_المخطط_: **خريطة**
+- [إنشاء مخطط خريطة في Java](#java-create-map-chart)
+- [إنشاء مخطط PowerPoint خريطة في Java](#java-create-powerpoint-map-chart)
+- [إنشاء مخطط عرض تقديمي PowerPoint خريطة في Java](#java-create-powerpoint-presentation-map-chart)
 
-_إجراء_: **تحديث المخطط**
-- [Java Update PowerPoint Chart](#java-update-powerpoint-chart)
-- [Java Update Presentation Chart](#java-update-presentation-chart)
-- [Java Update PowerPoint Presentation Chart](#java-update-powerpoint-presentation-chart)
+_الإجراء_: **تحديث المخطط**
+- [تحديث مخطط PowerPoint في Java](#java-update-powerpoint-chart)
+- [تحديث مخطط عرض تقديمي في Java](#java-update-presentation-chart)
+- [تحديث مخطط عرض تقديمي PowerPoint في Java](#java-update-powerpoint-presentation-chart)
 
 
 ## **إنشاء مخطط**
 تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة من جدول أو ورقة عمل.
 
-**لماذا ننشئ مخططات؟**
+**لماذا نُنشئ المخططات؟**
 
 باستخدام المخططات، يمكنك:
 
 * تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في العرض التقديمي
 * إظهار الأنماط والاتجاهات في البيانات
-* استنتاج الاتجاه والزخم للبيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة
+* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة
 * اكتشاف القيم الشاذة أو الأخطاء أو البيانات غير المنطقية
 * توصيل أو عرض بيانات معقدة
 
-في PowerPoint، يمكنك إنشاء مخططات عبر وظيفة الإدراج التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (مستندة إلى أنواع المخططات الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة الإدراج التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (مستندة إلى أنواع مخططات شائعة) ومخططات مخصصة.
 
 {{% alert color="primary" %}} 
-للسماح لك بإنشاء مخططات، توفر Aspose.Slides الفئة [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType). الحقول تحت هذه الفئة تمثل أنواع المخططات المختلفة.
+
+لتمكينك من إنشاء المخططات، توفر Aspose.Slides الفئة [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType). الحقول داخل هذه الفئة تمثل أنواع المخططات المختلفة.
+
 {{% /alert %}} 
 
 ### **إنشاء مخططات عادية**
@@ -104,100 +127,100 @@ _الخطوات: إنشاء مخطط_
 - <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي في Java</strong></a>
 - <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint في Java</strong></a>
 
-_خطوات الكود:_
+_خطوات الشيفرة:_
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط مع بعض البيانات وتحديد نوع المخطط المفضل لديك.
-4. إضافة عنوان للمخطط.
-5. الوصول إلى ورقة بيانات المخطط.
-6. مسح جميع السلاسل والفئات الافتراضية.
-7. إضافة سلاسل وفئات جديدة.
-8. إضافة بعض البيانات الجديدة لسلسلة المخطط.
-9. إضافة لون تعبئة لسلسلة المخطط.
-10. إضافة تسميات لسلسلة المخطط.
+3. إضافة مخطط مع بعض البيانات وتحديد نوع المخطط المفضل لديك. 
+4. إضافة عنوان للمخطط. 
+5. الوصول إلى ورقة بيانات المخطط. 
+6. مسح جميع السلاسل والفئات الافتراضية. 
+7. إضافة سلاسل وفئات جديدة. 
+8. إضافة بيانات جديدة لسلسلة المخطط. 
+9. تعيين لون تعبئة لسلسلة المخطط. 
+10. إضافة تسميات لسلسلة المخطط. 
 11. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط عادي:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط عادي:
 ```java
-// ينشئ كائن من فئة العرض التقديمي التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // إضافة مخطط ببياناته الافتراضية
+    // يضيف مخططًا بالبيانات الافتراضية الخاصة به
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // تعيين عنوان المخطط
+    // يضبط عنوان المخطط
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.hasTitle();
     
-    // تعيين السلسلة الأولى لعرض القيم
+    // يضبط السلسلة الأولى لإظهار القيم
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // تعيين الفهرس لورقة بيانات المخطط
+    // يضبط الفهرس لورقة بيانات المخطط
     int defaultWorksheetIndex = 0;
     
-    // الحصول على ورقة عمل بيانات المخطط
+    // يحصل على ورقة عمل بيانات المخطط
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // حذف السلاسل والفئات الافتراضية المُولَّدة
+    // يحذف السلاسل والفئات الافتراضية التي تم إنشاؤها
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // إضافة سلاسل جديدة
+    // يضيف سلاسل جديدة
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // إضافة فئات جديدة
+    // يضيف فئات جديدة
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // أخذ السلسلة الأولى للمخطط
+    // يأخذ السلسلة الأولى للمخطط
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // الآن يتم ملء بيانات السلسلة
+    // الآن يملء بيانات السلسلة
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // تعيين لون التعبئة للسلسلة
+    // يضبط لون ملء السلسلة
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // أخذ السلسلة الثانية للمخطط
+    // يأخذ السلسلة الثانية للمخطط
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // ملء بيانات السلسلة
+    // يملء بيانات السلسلة
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // تعيين لون التعبئة للسلسلة
+    // يضبط لون ملء السلسلة
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
     //إنشاء تسميات مخصصة لكل فئة للسلسلة الجديدة
-    // تعيين التسمية الأولى لعرض اسم الفئة
+    // يضبط التسمية الأولى لإظهار اسم الفئة
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // عرض القيمة للتسمية الثالثة
+    // يعرض القيمة للتسمية الثالثة
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Saves the presentation with chart
+    // يحفظ العرض التقديمي مع المخطط
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -205,38 +228,39 @@ try {
 ```
 
 
-### **إنشاء مخططات مبعثة**
 
-المخططات المبعثرة (المعروفة أيضًا باسم مخططات النقط أو رسومات x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+### **إنشاء مخططات منتشرة**
 
-قد ترغب في استخدام مخطط مبعثر عندما:
+المخططات المنتشرة (المعروفة أيضًا باسم مخططات التشتت أو الرسوم البيانية s‑x) تُستخدم عادة للتحقق من الأنماط أو إظهار الارتباط بين متغيرين.
 
-* لديك بيانات رقمية مزدوجة
-* لديك متغيران يرتبطان جيدًا معًا
-* تريد معرفة ما إذا كان المتغيران مرتبطين
-* لديك متغير مستقل له قيم متعددة بالنسبة للمتغير التابع
+قد ترغب في استخدام مخطط منتشر عندما:
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط مبعثر في Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مبعثر في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مبعثر في Java</strong></a>
+* لديك بيانات عددية مزدوجة
+* لديك متغيران يتناغمان معًا
+* تريد تحديد ما إذا كان المتغيران مرتبطين
+* لديك متغير مستقل له قيم متعددة للمتغير التابع
+
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط منتشر في Java</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint منتشر في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint منتشر في Java</strong></a>
 
 1. يرجى اتباع الخطوات المذكورة أعلاه في [إنشاء مخططات عادية](#creating-normal-charts)
-2. في الخطوة الثالثة، أضف مخططًا مع بعض البيانات وحدد نوع المخطط كأحد الأنواع التالية
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخطط مبعثر مع علامات._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخطط مبعثر متصل بمنحنيات، مع علامات بيانات._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخطط مبعثر متصل بمنحنيات، بدون علامات بيانات._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخطط مبعثر متصل بخطوط، مع علامات بيانات._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخطط مبعثر متصل بخطوط، بدون علامات بيانات._
+2. للخطوة الثالثة، أضف مخططًا مع بعض البيانات وحدد نوع المخطط كإحداها:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخطط تشتت مع علامات._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخطط تشتت متصل بخطوط سلسة وعلامات._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخطط تشتت متصل بخطوط سلسة دون علامات._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخطط تشتت متصل بخطوط مستقيمة وعلامات._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخطط تشتت متصل بخطوط مستقيمة دون علامات._
 
-هذا الكود في Java يوضح كيفية إنشاء مخططات مبثرة مع سلسلة مختلفة من العلامات:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخططات منتشرة مع سلاسل علامات مختلفة:
 ```java
 // ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // إنشاء المخطط الافتراضي
+    // ينشئ المخطط الافتراضي
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
     // يحصل على فهرس ورقة عمل بيانات المخطط الافتراضية
@@ -248,42 +272,42 @@ try {
     // يحذف السلسلة التجريبية
     chart.getChartData().getSeries().clear();
     
-    // إضافة سلاسل جديدة
+    // يضيف سلاسل جديدة
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // أخذ السلسلة الأولى للمخطط
+    // يأخذ السلسلة الأولى للمخطط
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // إضافة نقطة جديدة (1:3) إلى السلسلة
+    // يضيف نقطة جديدة (1:3) إلى السلسلة
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
-    // إضافة نقطة جديدة (2:10)
+    // يضيف نقطة جديدة (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // تغيير نوع السلسلة
+    // يغيّر نوع السلسلة
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // تغيير علامة سلسلة المخطط
+    // يغيّر علامة سلسلة المخطط
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // أخذ السلسلة الثانية للمخطط
+    // يأخذ السلسلة الثانية للمخطط
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // إضافة نقطة جديدة (5:2) هناك
+    // يضيف نقطة جديدة (5:2) هناك
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
-    // إضافة نقطة جديدة (3:1)
+    // يضيف نقطة جديدة (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
     
-    // إضافة نقطة جديدة (2:2)
+    // يضيف نقطة جديدة (2:2)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     
-    // إضافة نقطة جديدة (5:1)
+    // يضيف نقطة جديدة (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // تغيير علامة سلسلة المخطط
+    // يغيّر علامة سلسلة المخطط
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -296,26 +320,26 @@ try {
 
 ### **إنشاء مخططات دائرية**
 
-المخططات الدائرية تُستخدم لإظهار العلاقة بين الجزء والكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت البيانات تحتوي على أجزاء أو تسميات كثيرة، قد تفضل استخدام مخطط شريطي بدلاً منها.
+تُستعمل المخططات الدائرية لعرض علاقة الجزء إلى الكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية ذات قيم رقمية. إذا كان لديك عدد كبير من الأجزاء أو التسميات، قد تفضل استخدام مخطط شريطي بدلاً من ذلك.
 
 <a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط دائري في Java</strong></a> |
 <a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint دائري في Java</strong></a> |
 <a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint دائري في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Pie).
-4. الوصول إلى بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Pie).
+4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات جديدة لسلسلة المخطط.
-8. إضافة نقاط جديدة للمخططات وإضافة ألوان مخصصة لشرائح المخطط الدائري.
+8. إضافة نقاط جديدة للمخطط وتحديد ألوان مخصصة لشرائح المخطط الدائري.
 9. تعيين تسميات للسلاسل.
-10. تعيين خطوط ربة لتسميات السلاسل.
-11. تعيين زاوية الدوران لشرائح المخطط الدائري.
-12. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+10. تعيين خطوط قائد للتسميات.
+11. تعيين زاوية الدوران لشريحة المخطط الدائري.
+12. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط دائري:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط دائري:
 ```java
 // ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف PPTX
 Presentation pres = new Presentation();
@@ -323,10 +347,10 @@ try {
     // يصل إلى الشريحة الأولى
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // يضيف مخططًا ببيانات افتراضية
+    // يضيف مخططًا بالبيانات الافتراضية
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // يضبط عنوان المخطط
+    // يحدد عنوان المخطط
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
@@ -341,7 +365,7 @@ try {
     // يحصل على ورقة عمل بيانات المخطط
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // يحذف السلاسل والفئات الافتراضية المُولَّدة
+    // يحذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -358,8 +382,8 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // لا يعمل في النسخة الجديدة
-    // إضافة نقاط جديدة وتعيين لون القطاع
+    // غير فعال في النسخة الجديدة
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -367,7 +391,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // يضبط حدود القطاع
+    // يحدد حد القطاع
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -378,7 +402,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // يضبط حدود القطاع
+    // يحدد حد القطاع
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -389,14 +413,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // يضبط حدود القطاع
+    // يحدد حد القطاع
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // ينشئ تسميات مخصصة لكل فئة للسلسلة الجديدة
+    // ينشئ تسميات مخصصة لكل من الفئات للسلسلة الجديدة
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -411,13 +435,13 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // يظهر الخطوط القائدة للمخطط
+    // يظهر خطوط القادة للمخطط
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // يضبط زاوية الدوران لشرائح مخطط الدائرة
+    // يحدد زاوية دوران قطاعات المخطط الدائري
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // يحفظ العرض التقديمي مع مخطط
+    // يحفظ العرض التقديمي مع المخطط
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -427,18 +451,18 @@ try {
 
 ### **إنشاء مخططات خطية**
 
-المخططات الخطية (المعروفة أيضًا باسم الرسوم الخطية) تُستخدم عندما تريد إظهار تغيّر القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة الكثير من البيانات في آنٍ واحد، تتبع التغيّرات والاتجاهات مع الزمن، إبراز الشذوذ في سلاسل البيانات، إلخ.
+المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) تُستخدم عندما تريد إظهار تغيّر القيم عبر الزمن. باستخدام مخطط خطي، يمكنك مقارنة الكثير من البيانات في آن واحد، تتبع التغيّرات والاتجاهات عبر الزمن، وإبراز القيم الشاذة في السلاسل، إلخ.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة عبر فهرستها.
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.Line`).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. الحصول على مرجع الشريحة عبر فهرسها.
+1. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب (في هذه الحالة، `ChartType.Line`).
 1. الوصول إلى ورقة بيانات المخطط IChartDataWorkbook.
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
 1. إضافة بيانات جديدة لسلسلة المخطط.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط خطي:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط خطي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -451,7 +475,7 @@ try {
 ```
 
 
-بشكل افتراضي، تُربط النقاط في المخطط الخطي بخطوط مستقيمة مستمرة. إذا كنت تريد ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع بهذه الطريقة:
+افتراضيًا، تُربط النقاط في مخطط خطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع بهذه الطريقة:
 ```java
 IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
 
@@ -462,24 +486,24 @@ for (IChartSeries series : lineChart.getChartData().getSeries())
 ```
 
 
-### **إنشاء مخططات خريطة شجرية**
+### **إنشاء مخططات شجرة خريطة**
 
-مخططات خريطة شجرية تُستخدم لبيانات المبيعات عندما تريد إظهار الحجم النسبي للفئات مع جذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير في كل فئة.
+تُستعمل مخططات شجرة الخريطة لبيانات المبيعات عندما تريد إظهار حجم الفئات النسبية وفي الوقت نفسه لفت الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير في كل فئة.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط خريطة شجرية في Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint خريطة شجرية في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint خريطة شجرية في Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط شجرة خريطة في Java</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint شجرة خريطة في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).TreeMap).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).TreeMap).
 4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط خريطة شجرية:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط شجرة خريطة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -540,17 +564,17 @@ try {
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint سهمي في Java</strong></a> |
 <a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint سهمي في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).OpenHighLowClose).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).OpenHighLowClose).
 4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات جديدة لسلسلة المخطط.
 8. تحديد تنسيق خطوط HiLowLines.
-9. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+9. كتابة العرض التقديمي المعدل كملف PPTX.
 
-الكود النموذجي في Java لإنشاء مخطط سهمي:
+يعرض مثال الشيفرة التالي في Java كيفية إنشاء مخطط سهمي:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -606,22 +630,22 @@ try {
 ```
 
 
-### **إنشاء مخططات صندوق وشِعَرة**
+### **إنشاء مخططات مربع وشارب**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط صندوق وشِعَرة في Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint صندوق وشِعَرة في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint صندوق وشِعَرة في Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط مربع وشارب في Java</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مربع وشارب في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مربع وشارب في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).BoxAndWhisker).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).BoxAndWhisker).
 4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط صندوق وشِعَرة:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط مربع وشارب:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -661,18 +685,18 @@ try {
 ```
 
 
-### **إنشاء مخططات قمعية**
+### **إنشاء مخططات قمع**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط قمعي في Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint قمعي في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint قمعي في Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط قمع في Java</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint قمع في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint قمع في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Funnel).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Funnel).
+4. كتابة العرض التقديمي المعدل كملف PPTX.
 
-الكود في Java يوضح كيفية إنشاء مخطط قمعي:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط قمع:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -707,18 +731,18 @@ try {
 ```
 
 
-### **إنشاء مخططات انفجار شمسي**
+### **إنشاء مخططات شمسية**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط انفجار شمسي في Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint انفجار شمسي في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint انفجار شمسي في Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط شمسية في Java</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint شمسية في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint شمسية في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).sunburst).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).sunburst).
+4. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط انفجار شمسي:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط شمسية:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -771,21 +795,21 @@ try {
 ```
 
 
-### **إنشاء مخططات مدرج تكراري**
+### **إنشاء مخططات هيستوغرام**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط مدرج تكراري في Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مدرج تكراري في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مدرج تكراري في Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط هيستوغرام في Java</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint هيستوغرام في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint هيستوغرام في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Histogram).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Histogram).
 4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
-7. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+7. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط مدرج تكراري:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط هيستوغرام:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -813,18 +837,18 @@ try {
 ```
 
 
-### **إنشاء مخططات رادارية**
+### **إنشاء مخططات رادار**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط راداري في Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint راداري في Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint راداري في Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط رادار في Java</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint رادار في Java</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint رادار في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببعض البيانات وتحديد نوع المخطط المفضل لديك (`ChartType.Radar` في هذه الحالة).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. إضافة مخطط مع بعض البيانات وتحديد نوع المخطط المفضل (`ChartType.Radar` في هذه الحالة).
+4. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط راداري:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط رادار:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -842,16 +866,16 @@ try {
 <a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint متعدد الفئات في Java</strong></a> |
 <a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات في Java</strong></a>
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).ClusteredColumn).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. إضافة مخطط بالبيانات الافتراضية والنوع المطلوب ([ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).ClusteredColumn).
 4. الوصول إلى ورقة بيانات المخطط [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط متعدد الفئات:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط متعدد الفئات:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -879,7 +903,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // إضافة سلسلة
+    // إضافة السلسلة
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -902,13 +926,13 @@ try {
 
 ### **إنشاء مخططات خريطة**
 
-مخطط الخريطة هو تمثيل مرئي لمنطقة تحتوي على بيانات. تُستخدم مخططات الخريطة للمقارنة بين البيانات أو القيم عبر المناطق الجغرافية.
+المخطط الخريطة هو تصور لمنطقة تحتوي على بيانات. تُستعمل مخططات الخريطة لمقارنة البيانات أو القيم عبر المناطق الجغرافية.
 
 <a name="java-create-map-chart" id="java-create-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط خريطة في Java</strong></a> |
 <a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint خريطة في Java</strong></a> |
 <a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint خريطة في Java</strong></a>
 
-هذا الكود في Java يوضح كيفية إنشاء مخطط خريطة:
+تُظهر الشيفرة التالية في Java كيفية إنشاء مخطط خريطة:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -920,13 +944,13 @@ try {
 ```
 
 
-### **إنشاء مخططات مركبة**
+### **إنشاء مخططات مدمجة**
 
-المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+المخطط المدمج (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعات بيانات متعددة، مما يساعد على تحديد العلاقات بينها.
 
 ![The combination chart](combination_chart.png)
 
-الكود التالي في Java يوضح كيفية إنشاء المخطط المركب المعروض أعلاه في عرض تقديمي PowerPoint:
+تُظهر الشيفرة التالية في Java كيفية إنشاء المخطط المدمج الموضح أعلاه في عرض تقديمي PowerPoint:
 ```java
 static void createComboChart() {
     Presentation presentation = new Presentation();
@@ -949,7 +973,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // تعيين عنوان المخطط.
+    // ضبط عنوان المخطط.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -958,11 +982,11 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // تعيين مفتاح المخطط.
+    // ضبط وسيلة إيضاح المخطط.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // حذف السلاسل والفئات الافتراضية المُولَّدة.
+    // حذف السلاسل والفئات الافتراضية التي تم إنشاؤها.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -1022,28 +1046,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // تعيين المحور الأفقي.
+    // ضبط المحور الأفقي.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // تعيين المحور الرأسي.
+    // ضبط المحور العمودي.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // تعيين لون خطوط الشبكة العمودية الرئيسية.
+    // ضبط لون خطوط الشبكة الرئيسية العمودية.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // تعيين المحور الأفقي الثانوي.
+    // ضبط المحور الأفقي الثانوي.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1051,7 +1075,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // تعيين المحور الرأسي الثانوي.
+    // ضبط المحور العمودي الثانوي.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1079,28 +1103,28 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط عرض تقديمي في Java</strong></a> |
 <a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط عرض تقديمي PowerPoint في Java</strong></a>
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تمثل العرض التقديمي الذي يحتوي على المخطط المراد تحديثه.
-2. الحصول على مرجع شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) الذي يمثل العرض التقديمي الذي يحتوي على المخطط المراد تحديثه.
+2. الحصول على مرجع الشريحة عبر فهرسها.
 3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
 4. الوصول إلى ورقة بيانات المخطط.
-5. تعديل بيانات سلاسل المخطط بتغيير قيم السلاسل.
+5. تعديل بيانات سلسلة المخطط بتغيير قيم السلسلة.
 6. إضافة سلسلة جديدة وتعبئة البيانات فيها.
 7. كتابة العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية تحديث مخطط:
+تُظهر الشيفرة التالية في Java كيفية تحديث مخطط:
 ```java
 Presentation pres = new Presentation();
 try {
     // الوصول إلى الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // الحصول على المخطط مع البيانات الافتراضية
+    // الحصول على المخطط بالبيانات الافتراضية
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // تعيين فهرس ورقة بيانات المخطط
+    // ضبط فهرس ورقة بيانات المخطط
     int defaultWorksheetIndex = 0;
 
-    // الحصول على ورقة عمل بيانات المخططات
+    // الحصول على ورقة عمل بيانات المخطط
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
     // تعديل اسم فئة المخطط
@@ -1131,7 +1155,7 @@ try {
     // أخذ السلسلة الثالثة للمخطط
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // الآن تعبئة بيانات السلسلة
+    // الآن يتم تعبئة بيانات السلسلة
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1146,17 +1170,17 @@ try {
 ```
 
 
-## **تحديد نطاق البيانات للمخططات**
+## **تعيين نطاق البيانات لمخطط**
 
- لتحديد نطاق البيانات لمخطط، قم بالخطوات التالية:
+لتعيين نطاق البيانات لمخطط، اتبع ما يلي:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تمثل العرض التقديمي الذي يحتوي على المخطط.
-2. الحصول على مرجع شريحة عبر فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) الذي يمثل العرض التقديمي الذي يحتوي على المخطط.
+2. الحصول على مرجع الشريحة عبر فهرسها.
 3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
 4. الوصول إلى بيانات المخطط وتعيين النطاق.
 5. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في Java يوضح كيفية تحديد نطاق البيانات لمخطط:
+تُظهر الشيفرة التالية في Java كيفية تعيين نطاق البيانات لمخطط:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1176,7 +1200,7 @@ try {
 
 عند استخدام علامة افتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-هذا الكود في Java يوضح كيفية تعيين علامة سلسلة مخطط تلقائيًا:
+تُظهر الشيفرة التالية في Java كيفية تعيين علامة سلسلة المخطط تلقائيًا:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1203,7 +1227,7 @@ try {
     //أخذ السلسلة الثانية للمخطط
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //الآن يتم تعبئة بيانات السلسلة
+    //الآن تعبئة بيانات السلسلة
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1217,3 +1241,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما أنواع المخططات التي يدعمها Aspose.Slides؟**
+
+يدعم Aspose.Slides مجموعة واسعة من [أنواع المخططات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المناطقية، المتناثرة، الهيستوغرام، الرادار، والعديد غيرها. تسمح هذه المرونة باختيار النوع الأنسب لتصور بياناتك.
+
+**كيف يمكن إضافة مخطط جديد إلى شريحة؟**
+
+لإضافة مخطط، عليك أولاً إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ، ثم استرجاع الشريحة المطلوبة باستخدام فهرسها، ثم استدعاء الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا المخطط مباشرةً في العرض التقديمي.
+
+**كيف يمكن تحديث البيانات المعروضة في مخطط؟**
+
+يمكنك تحديث بيانات المخطط عبر الوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))، مسح أي سلاسل أو فئات افتراضية، ثم إضافة البيانات المخصصة الخاصة بك. يتيح لك ذلك تحديث المخطط لعرض أحدث البيانات.
+
+**هل يمكن تخصيص مظهر المخطط؟**
+
+نعم، يوفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، وسيلة الإيضاح، وعناصر [التنسيق](/slides/ar/androidjava/chart-entities/) الأخرى لتناسب متطلبات التصميم الخاصة بك.

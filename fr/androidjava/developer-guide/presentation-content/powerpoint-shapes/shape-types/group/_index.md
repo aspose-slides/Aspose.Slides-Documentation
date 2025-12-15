@@ -1,21 +1,32 @@
 ---
-title: Groupe
+title: Formes de groupe de présentation sur Android
+linktitle: Groupe de formes
 type: docs
 weight: 40
 url: /fr/androidjava/group/
+keywords:
+- forme de groupe
+- groupe de formes
+- ajouter groupe
+- texte alternatif
+- PowerPoint
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Apprenez à regrouper et dissocier des formes dans des présentations PowerPoint en utilisant Aspose.Slides pour Android — guide rapide, pas à pas, avec du code Java gratuit."
 ---
 
 ## **Ajouter une forme de groupe**
-Aspose.Slides prend en charge le travail avec des formes de groupe sur les diapositives. Cette fonctionnalité aide les développeurs à créer des présentations plus riches. Aspose.Slides pour Android via Java prend en charge l'ajout ou l'accès à des formes de groupe. Il est possible d'ajouter des formes à une forme de groupe ajoutée pour la remplir ou d'accéder à n'importe quelle propriété de la forme de groupe. Pour ajouter une forme de groupe à une diapositive en utilisant Aspose.Slides pour Android via Java :
+Aspose.Slides prend en charge la manipulation des formes de groupe sur les diapositives. Cette fonctionnalité aide les développeurs à créer des présentations plus riches. Aspose.Slides for Android via Java permet d’ajouter ou d’accéder aux formes de groupe. Il est possible d’ajouter des formes à une forme de groupe ajoutée pour la remplir ou d’accéder à n’importe quelle propriété de la forme de groupe. Pour ajouter une forme de groupe à une diapositive en utilisant Aspose.Slides for Android via Java :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtenez la référence d'une diapositive en utilisant son Index.
+1. Obtenez la référence d’une diapositive en utilisant son Index
 1. Ajoutez une forme de groupe à la diapositive.
 1. Ajoutez les formes à la forme de groupe ajoutée.
-1. Enregistrez la présentation modifiée en tant que fichier PPTX.
+1. Enregistrez la présentation modifiée en fichier PPTX.
 
-L'exemple ci-dessous ajoute une forme de groupe à une diapositive.
-
+L’exemple ci‑dessous ajoute une forme de groupe à une diapositive.
 ```java
 // Instancier la classe Presentation
 Presentation pres = new Presentation();
@@ -29,13 +40,13 @@ try {
     // Ajouter une forme de groupe à la diapositive
     IGroupShape groupShape = slideShapes.addGroupShape();
     
-    // Ajouter des formes à l'intérieur de la forme de groupe ajoutée
+    // Ajouter des formes à l'intérieur du groupe ajouté
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // Ajouter un cadre de forme de groupe
+    // Ajouter le cadre de la forme de groupe
     groupShape.setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0));
 
     // Écrire le fichier PPTX sur le disque
@@ -45,19 +56,19 @@ try {
 }
 ```
 
+
 ## **Accéder à la propriété AltText**
-Ce sujet montre des étapes simples, accompagnées d'exemples de code, pour ajouter une forme de groupe et accéder à la propriété AltText des formes de groupe sur les diapositives. Pour accéder à AltText d'une forme de groupe dans une diapositive en utilisant Aspose.Slides pour Android via Java :
+Ce sujet présente des étapes simples, illustrées par des exemples de code, pour ajouter une forme de groupe et accéder à la propriété AltText des formes de groupe sur les diapositives. Pour accéder à l’AltText d’une forme de groupe dans une diapositive en utilisant Aspose.Slides for Android via Java :
 
 1. Instanciez la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) qui représente un fichier PPTX.
-1. Obtenez la référence d'une diapositive en utilisant son Index.
+1. Obtenez la référence d’une diapositive en utilisant son Index.
 1. Accédez à la collection de formes des diapositives.
 1. Accédez à la forme de groupe.
 1. Accédez à la propriété [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--).
 
-L'exemple ci-dessous accède au texte alternatif de la forme de groupe.
-
+L’exemple ci‑dessous accède au texte alternatif de la forme de groupe.
 ```java
-// Instancier la classe Presentation qui représente un fichier PPTX
+// Instancier la classe Presentation qui représente le fichier PPTX
 Presentation pres = new Presentation("AltText.pptx");
 try {
     // Obtenir la première diapositive
@@ -85,3 +96,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Le groupement imbriqué (un groupe à l’intérieur d’un groupe) est‑il pris en charge ?**
+
+Oui. [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/) possède une méthode [getParentGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getParentGroup--), qui indique directement le support de la hiérarchie (un groupe peut être l’enfant d’un autre groupe).
+
+**Comment contrôler l’ordre Z du groupe par rapport aux autres objets sur la diapositive ?**
+
+Utilisez la méthode [getZOrderPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getZOrderPosition--) du [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/) pour inspecter sa position dans la pile d’affichage.
+
+**Puis‑je empêcher le déplacement/l’édition/le dégroupage ?**
+
+Oui. La section de verrouillage du groupe est exposée via [getGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/#getGroupShapeLock--), ce qui vous permet de restreindre les opérations sur l’objet.

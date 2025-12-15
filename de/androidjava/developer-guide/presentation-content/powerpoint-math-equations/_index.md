@@ -1,45 +1,58 @@
 ---
-title: PowerPoint Math-Gleichungen
+title: Mathematische Gleichungen zu PowerPoint‑Präsentationen auf Android hinzufügen
+linktitle: PowerPoint Mathegleichungen
 type: docs
 weight: 80
 url: /de/androidjava/powerpoint-math-equations/
-keywords: " PowerPoint Math-Gleichungen, PowerPoint Math-Symbole, PowerPoint Formel, PowerPoint Math-Text"
-description: "PowerPoint Math-Gleichungen, PowerPoint Math-Symbole, PowerPoint Formel, PowerPoint Math-Text"
+keywords:
+- Mathegleichung
+- Mathematisches Symbol
+- Mathematische Formel
+- Mathematischer Text
+- Mathematische Gleichung hinzufügen
+- Mathematisches Symbol hinzufügen
+- Mathematische Formel hinzufügen
+- Mathematischen Text hinzufügen
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Mathematische Gleichungen in PowerPoint PPT und PPTX mit Aspose.Slides für Android einfügen und bearbeiten, unterstützt OMML, Formatierungsoptionen und klare Java‑Codebeispiele."
 ---
 
-## **Überblick**
-In PowerPoint ist es möglich, eine mathematische Gleichung oder Formel zu schreiben und sie in der Präsentation darzustellen. Dazu werden verschiedene mathematische Symbole in PowerPoint repräsentiert und können dem Text oder der Gleichung hinzugefügt werden. Dafür wird der Konstruktor für mathematische Gleichungen in PowerPoint verwendet, der hilft, komplexe Formeln wie:
+## **Übersicht**
+In PowerPoint ist es möglich, eine mathematische Gleichung oder Formel zu schreiben und in der Präsentation anzuzeigen. Dazu sind verschiedene mathematische Symbole in PowerPoint dargestellt und können dem Text oder der Gleichung hinzugefügt werden. Hierfür wird der mathematische Gleichungskonstruktor in PowerPoint verwendet, der das Erstellen komplexer Formeln wie folgt erleichtert:
 
-- Mathematische Brüche
-- Mathematische Wurzeln
-- Mathematische Funktionen
-- Grenzwerte und logarithmische Funktionen
-- N-äre Operationen
-- Matrizen
+- Mathematischer Bruch
+- Mathematisches Radikal
+- Mathematische Funktion
+- Grenzen und Logarithmus‑Funktionen
+- N‑stellige Operationen
+- Matrix
 - Große Operatoren
-- Sinus-, Cosinusfunktionen
+- Sin‑, Cos‑Funktionen
 
-Um eine mathematische Gleichung in PowerPoint hinzuzufügen, wird das Menü *Einfügen -> Gleichung* verwendet:
+Um eine mathematische Gleichung in PowerPoint hinzuzufügen, wird das Menü *Einfügen → Gleichung* verwendet:
 
 ![todo:image_alt_text](powerpoint-math-equations_1.png)
 
-Dies erstellt einen matematischen Text in XML, der in PowerPoint wie folgt angezeigt werden kann:
+Damit wird ein mathematischer Text in XML erzeugt, der in PowerPoint wie folgt angezeigt wird:
 
 ![todo:image_alt_text](powerpoint-math-equations_2.png)
 
-PowerPoint unterstützt zahlreiche mathematische Symbole zur Erstellung von mathematischen Gleichungen. Das Erstellen komplizierter mathematischer Gleichungen in PowerPoint führt jedoch oft nicht zu einem guten und professionell aussehenden Ergebnis. Benutzer, die häufig mathematische Präsentationen erstellen müssen, greifen auf Drittanbieter-Lösungen zurück, um ansprechend aussehende mathematische Formeln zu erstellen.
+PowerPoint unterstützt zahlreiche mathematische Symbole zum Erstellen von Gleichungen. Das Erstellen komplizierter Gleichungen führt jedoch oft nicht zu einem professionellen Ergebnis. Benutzer, die häufig mathematische Präsentationen erstellen, greifen daher auf Drittanbieter‑Lösungen zurück, um ansprechende Formeln zu erzeugen.
 
-Mit der [**Aspose.Slide API**](https://products.aspose.com/slides/androidjava/) können Sie programmgesteuert in C# mit mathematischen Gleichungen in PowerPoint-Präsentationen arbeiten. Erstellen Sie neue mathematische Ausdrücke oder bearbeiten Sie zuvor erstellte. Der Export mathematischer Strukturen in Bilder wird ebenfalls teilweise unterstützt.
-
+Mit [**Aspose.Slide API**](https://products.aspose.com/slides/androidjava/) können Sie mathematische Gleichungen in PowerPoint‑Präsentationen programmgesteuert in C# bearbeiten. Erzeugen Sie neue mathematische Ausdrücke oder editieren Sie bereits vorhandene. Der Export mathematischer Strukturen in Bilder wird ebenfalls teilweise unterstützt.
 
 ## **So erstellen Sie eine mathematische Gleichung**
-Mathematische Elemente werden zum Erstellen beliebiger mathematischer Konstruktionen mit jeder Verschachtelungsebene verwendet. Eine lineare Sammlung mathematischer Elemente bildet einen mathematischen Block, der durch die [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)-Klasse repräsentiert wird. Die [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)-Klasse ist im Wesentlichen ein separates mathematisches Ausdruck, Formel oder Gleichung. **[MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion)** ist ein mathematischer Anteil, der dazu verwendet wird, mathematischen Text zu halten (nicht zu verwechseln mit [**Portion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion)). Die [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph)-Klasse ermöglicht die Manipulation einer Menge von Mathematikblöcken. Die oben genannten Klassen sind der Schlüssel zur Arbeit mit mathematischen Gleichungen in PowerPoint über die Aspose.Slides API.
+Mathematische Elemente werden zum Aufbau beliebiger mathematischer Konstruktionen mit beliebiger Verschachtelungstiefe verwendet. Eine lineare Sammlung mathematischer Elemente bildet einen mathematischen Block, der durch die Klasse [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) dargestellt wird. Die Klasse [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) ist im Wesentlichen ein abgegrenzter mathematischer Ausdruck, eine Formel oder Gleichung. [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) ist ein mathematischer Abschnitt, der mathematischen Text enthält (nicht zu verwechseln mit [**Portion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion)). [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) ermöglicht die Manipulation einer Menge von MathBlocks. Die genannten Klassen sind der Schlüssel zur Arbeit mit PowerPoint‑Mathe‑Gleichungen über die Aspose.Slides‑API.
 
-Sehen wir uns an, wie wir die folgende mathematische Gleichung über die Aspose.Slides API erstellen können:
+Im Folgenden wird gezeigt, wie die folgende mathematische Gleichung mittels Aspose.Slides‑API erzeugt wird:
 
 ![todo:image_alt_text](powerpoint-math-equations_3.png)
 
-Um einen mathematischen Ausdruck auf der Folie hinzuzufügen, fügen Sie zuerst eine Form hinzu, die den mathematischen Text enthalten wird:
+Um einen mathematischen Ausdruck auf einer Folie hinzuzufügen, fügen Sie zuerst eine Form hinzu, die den mathematischen Text enthalten soll:
 
 ```java
 Presentation pres = new Presentation();
@@ -50,13 +63,13 @@ try {
 }
 ``` 
 
-Nach der Erstellung wird die Form standardmäßig bereits einen Absatz mit einem mathematischen Anteil enthalten. Die [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion)-Klasse ist ein Anteil, der einen mathematischen Text enthält. Um auf den mathematischen Inhalt in der [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) zuzugreifen, verweisen Sie auf die [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph)-Variable:
+Nach dem Erzeugen enthält die Form standardmäßig einen Absatz mit einem mathematischen Abschnitt. Die Klasse [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) ist ein Abschnitt, der mathematischen Text enthält. Um auf den mathematischen Inhalt von [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) zuzugreifen, verwenden Sie die Variable [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph):
 
 ```java
 IMathParagraph mathParagraph = ((MathPortion)mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 ``` 
 
-Die [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph)-Klasse ermöglicht das Lesen, Hinzufügen, Bearbeiten und Löschen von Mathematikblöcken ([**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)), die aus einer Kombination von mathematischen Elementen bestehen. Erstellen Sie beispielsweise einen Bruch und platzieren Sie ihn in der Präsentation:
+Die Klasse [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) ermöglicht das Lesen, Hinzufügen, Bearbeiten und Löschen von MathBlocks ([**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)), die aus einer Kombination mathematischer Elemente bestehen. Beispiel: Erstellen Sie einen Bruch und fügen Sie ihn in die Präsentation ein:
 
 ```java
 IMathFraction fraction = new MathematicalText("x").divide("y");
@@ -64,7 +77,7 @@ IMathFraction fraction = new MathematicalText("x").divide("y");
 mathParagraph.add(new MathBlock(fraction));
 ``` 
 
-Jedes mathematische Element wird durch eine Klasse dargestellt, die das [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement)-Interface implementiert. Dieses Interface bietet viele Methoden zum einfachen Erstellen mathematischer Ausdrücke. Sie können mit einer einzigen Zeile Code einen ziemlich komplexen mathematischen Ausdruck erstellen. Zum Beispiel würde der Satz des Pythagoras so aussehen:
+Jedes mathematische Element wird durch eine Klasse repräsentiert, die das Interface [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) implementiert. Dieses Interface bietet zahlreiche Methoden zum einfachen Erzeugen mathematischer Ausdrücke. Sie können mit einer einzigen Codezeile einen recht komplexen Ausdruck bauen. Beispiel: Der Satz des Pythagoras sieht so aus:
 
 ```java
 IMathBlock mathBlock = new MathematicalText("c")
@@ -75,9 +88,9 @@ IMathBlock mathBlock = new MathematicalText("c")
         .join(new MathematicalText("b").setSuperscript("2"));
 ``` 
 
-Die Operationen des [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement)-Interfaces sind in jedem Elementtyp implementiert, einschließlich des [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock).
+Operationen des Interfaces [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) werden in allen Elementtypen implementiert, einschließlich [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock).
 
-Das vollständige Quellcode-Beispiel:
+Vollständiges Beispiel:
 
 ```java
 Presentation pres = new Presentation();
@@ -104,48 +117,54 @@ try {
 }
 ``` 
 
-## **Typen mathematischer Elemente**
-Mathematische Ausdrücke werden aus Sequenzen mathematischer Elemente gebildet. Die Sequenz mathematischer Elemente wird durch einen mathematischen Block dargestellt, und die Argumente der mathematischen Elemente bilden eine baumartige Verschachtelung.
+## **Mathematische Elementtypen**
+Mathematische Ausdrücke setzen sich aus Sequenzen mathematischer Elemente zusammen. Die Sequenz wird durch einen mathematischen Block dargestellt, und die Argumente der Elemente bilden eine baumartige Verschachtelung.
 
-Es gibt viele Arten von mathematischen Elementen, die zur Konstruktion eines mathematischen Blocks verwendet werden können. Jedes dieser Elemente kann in ein anderes Element aufgenommen (aggregiert) werden. Das heißt, Elemente sind tatsächlich Container für andere und bilden eine baumartige Struktur. Der einfachste Elementtyp enthält keine anderen Elemente des mathematischen Textes.
+Es gibt zahlreiche Elementtypen, die zum Aufbau eines mathematischen Blocks verwendet werden können. Jeder dieser Typen kann in einem anderen Element aggregiert werden – Elemente fungieren also als Container und bilden eine baumartige Struktur. Der einfachste Elementtyp enthält keine weiteren Elemente des mathematischen Textes.
 
-Jeder Typ eines mathematischen Elements implementiert das [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement)-Interface, das die Verwendung eines gemeinsamen Satzes von mathematischen Operationen auf verschiedenen Typen von mathematischen Elementen ermöglicht.
-### **MathematicalText-Klasse**
-Die [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText)-Klasse repräsentiert einen mathematischen Text - das zugrunde liegende Element aller mathematischen Konstruktionen. Mathematischer Text kann Operanden und Operatoren, Variablen und jeden anderen linearen Text darstellen.
+Jeder Typ implementiert das Interface [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement), wodurch ein gemeinsamer Satz von Operationen auf unterschiedliche Elementtypen anwendbar ist.
+
+### **MathematicalText‑Klasse**
+Die Klasse [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) repräsentiert mathematischen Text – das Basiselement aller mathematischen Konstruktionen. Sie kann Operanden, Operatoren, Variablen sowie beliebigen linearen Text darstellen.
 
 Beispiel: 𝑎=𝑏+𝑐
-### **MathFraction-Klasse**
-Die [**MathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction)-Klasse spezifiziert das Bruchobjekt, das aus einem Zähler und einem Nenner besteht, die durch eine Bruchlinie getrennt sind. Die Bruchlinie kann horizontal oder schräg sein, je nach Bruchteilen. Das Bruchobjekt wird auch verwendet, um die Stapel-Funktion darzustellen, die ein Element über einem anderen anordnet, ohne Bruchlinie.
+
+### **MathFraction‑Klasse**
+Die Klasse [**MathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction) definiert ein Bruchobjekt bestehend aus Zähler und Nenner, getrennt durch einen Bruchstrich. Der Strich kann horizontal oder diagonal sein, je nach Eigenschaften. Das Objekt dient auch zur Darstellung einer Stapelfunktion, bei der ein Element über einem anderen ohne Bruchstrich liegt.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_4.png)
-### **MathRadical-Klasse**
-Die [**MathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical)-Klasse spezifiziert die radikale Funktion (mathematische Wurzel), bestehend aus einer Basis und einem optionalen Grad.
+
+### **MathRadical‑Klasse**
+Die Klasse [**MathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical) definiert die Radikal‑ (Wurzel‑) Funktion, bestehend aus einer Basis und einer optionalen Gradzahl.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_5.png)
-### **MathFunction-Klasse**
-Die [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction)-Klasse spezifiziert eine Funktion eines Arguments. Enthält Eigenschaften: [getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getName--) - Funktionsname und [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getBase--) - Funktion Argument.
+
+### **MathFunction‑Klasse**
+Die Klasse [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) definiert eine Funktions‑Notation mit Argument. Sie besitzt die Eigenschaften [getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getName--) – Funktionsname – und [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getBase--) – Funktionsargument.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_6.png)
-### **MathNaryOperator-Klasse**
-Die [**MathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator)-Klasse spezifiziert ein N-äres mathematisches Objekt, wie Summation und Integral. Es besteht aus einem Operator, einer Basis (oder Operand) und optionalen oberen und unteren Grenzen. Beispiele für N-äre Operatoren sind Summation, Vereinigung, Schnittmenge, Integral.
 
-Diese Klasse enthält keine einfachen Operatoren wie Addition, Subtraktion usw. Sie werden durch ein einzelnes Textelement - [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) dargestellt.
+### **MathNaryOperator‑Klasse**
+Die Klasse [**MathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator) definiert ein n‑stelliges mathematisches Objekt, z. B. Summation oder Integral. Sie besteht aus einem Operator, einer Basis (bzw. einem Operanden) und optionalen oberen und unteren Grenzen. Beispiele sind Summation, Vereinigung, Schnittmenge, Integral.
+
+Einfache Operatoren wie Plus oder Minus werden nicht durch diese Klasse, sondern durch das Element [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) dargestellt.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_7.png)
-### **MathLimit-Klasse**
-Die [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit)-Klasse erstellt die obere oder untere Grenze. Sie spezifiziert das Grenzwertobjekt, das aus Text auf der Basislinie und sofort darüber oder darunter reduziertem Text besteht. Dieses Element beinhaltet nicht das Wort „lim“, erlaubt jedoch die Platzierung von Text an der Ober- oder Unterseite des Ausdrucks. So wird der Ausdruck 
+
+### **MathLimit‑Klasse**
+Die Klasse [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) erzeugt eine obere oder untere Grenze. Sie besteht aus Text auf der Grundlinie und verkleinertem Text darüber bzw. darunter. Das Element enthält nicht das Wort „lim“, sondern ermöglicht das Platzieren von Text über oder unter dem Ausdruck. So wird der Ausdruck
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-mit einer Kombination aus [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) und [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit)-Elementen so erstellt:
+mittels einer Kombination aus [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) und [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) wie folgt erzeugt:
 
 ```java
 MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
@@ -153,60 +172,63 @@ MathLimit funcName = new MathLimit(new MathematicalText("lim"), new Mathematical
 MathFunction mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
 ``` 
 
-
-### **MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement-Klassen**
+### **MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement‑Klassen**
 - [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
 - [MathSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement)
 - [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement)
 - [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement)
 
-Die folgenden Klassen spezifizieren einen tiefen Index oder einen oberen Index. Sie können gleichzeitig Subscript und Superscript auf der linken oder rechten Seite eines Arguments setzen, aber ein einzelnes Subscript oder Superscript wird nur auf der rechten Seite unterstützt. Der [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) kann auch verwendet werden, um den mathematischen Grad einer Zahl zu setzen.
+Diese Klassen definieren einen tiefen bzw. hohen Index. Sie ermöglichen das gleichzeitige Setzen von Tief- und Hochstellen links oder rechts vom Argument; ein einzelner Tief‑ oder Hochindex wird jedoch nur rechts unterstützt. Der [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) kann zudem zur Angabe des mathematischen Grades einer Zahl verwendet werden.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_9.png)
-### **MathMatrix-Klasse**
-Die [**MathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix)-Klasse spezifiziert das Matrixobjekt, das aus untergeordneten Elementen besteht, die in einer oder mehreren Zeilen und Spalten angeordnet sind. Es ist wichtig zu beachten, dass Matrizen keine eingebauten Trennsymbole haben. Um die Matrix in Klammern zu setzen, sollten Sie das Trennzeichenobjekt - [**IMathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter) - verwenden. Null-Argumente können verwendet werden, um Lücken in Matrizen zu erstellen.
 
-Beispiel: 
+### **MathMatrix‑Klasse**
+Die Klasse [**MathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix) definiert ein Matrix‑Objekt, das aus Kind‑Elementen in Zeilen und Spalten besteht. Hinweis: Matrizen besitzen keine eingebauten Begrenzungszeichen. Um die Matrix in Klammern zu setzen, verwenden Sie das Begrenzungs‑Objekt – [**IMathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter). Null‑Argumente können Lücken in Matrizen erzeugen.
+
+Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_10.png)
-### **MathArray-Klasse**
-Die [**MathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray)-Klasse spezifiziert ein vertikales Array von Gleichungen oder beliebigen mathematischen Objekten.
+
+### **MathArray‑Klasse**
+Die Klasse [**MathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray) definiert ein vertikales Array von Gleichungen oder anderen mathematischen Objekten.
 
 Beispiel:
 
 ![todo:image_alt_text](powerpoint-math-equations_11.png)
+
 ### **Formatierung mathematischer Elemente**
-- Die [**MathBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox)-Klasse: Zeichnet einen rechteckigen oder einen anderen Rahmen um das [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
-  
+- **MathBorderBox**‑Klasse: zeichnet einen rechteckigen oder anderen Rahmen um das [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
+
   Beispiel: ![todo:image_alt_text](powerpoint-math-equations_12.png)
 
-- Die [**MathBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBox)-Klasse: Spezifiziert das logische Boxen (Verpacken) des mathematischen Elements. Beispielsweise kann ein eingekästetes Objekt als Operator-Emulator mit oder ohne Ausrichtungspunkt dienen, als Zeilenumbruch dienen oder so gruppiert werden, dass Zeilenumbrüche innerhalb nicht erlaubt sind. Beispielsweise sollte der "==" Operator eingekästet werden, um Zeilenumbrüche zu verhindern.
-- Die [**MathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter)-Klasse: Spezifiziert das Trennobjekt, das aus öffnenden und schließenden Zeichen (wie Klammern, geschweifte Klammern, eckige Klammern und senkrechte Striche) besteht und ein oder mehrere mathematische Elemente innerhalb enthält, die durch ein angegebenes Zeichen getrennt sind. Beispiele: (𝑥2); [𝑥2|𝑦2].
-  
+- **MathBox**‑Klasse: definiert die logische Gruppierung (Boxing) des mathematischen Elements. Zum Beispiel kann ein „geboxter“ Operator als Emulation mit oder ohne Ausrichtungspunkt dienen, als Zeilenumbruch‑Markierung oder als nicht trennbare Gruppe.
+
+- **MathDelimiter**‑Klasse: definiert das Begrenzungs‑Objekt mit öffnenden und schließenden Zeichen (Klammern, geschweiften Klammern, eckigen Klammern, senkrechten Strichen) und einem oder mehreren mathematischen Elementen innerhalb, getrennt durch ein angegebenes Zeichen.
+
   Beispiel: ![todo:image_alt_text](powerpoint-math-equations_13.png)
 
-- Die [**MathAccent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent)-Klasse: Spezifiziert die Akzentfunktion, die aus einer Basis und einem kombinierten diakritischen Zeichen besteht.
+- **MathAccent**‑Klasse: definiert die Akzent‑Funktion, bestehend aus einer Basis und einem kombinierenden diakritischen Zeichen.
 
   Beispiel: 𝑎́.
 
-- Die [**MathBar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBar)-Klasse: Spezifiziert die Linienfunktion, die aus einem Basisargument und einem Über- oder Unterstrich besteht.
-  
+- **MathBar**‑Klasse: definiert die Strich‑Funktion, bestehend aus einem Basis‑Argument und einem Über‑ bzw. Unterstrich.
+
   Beispiel: ![todo:image_alt_text](powerpoint-math-equations_14.png)
 
-- Die [**MathGroupingCharacter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter)-Klasse: Spezifiziert ein Gruppierungssymbol über oder unter einem Ausdruck, um normalerweise die Beziehungen zwischen den Elementen hervorzuheben.
-  
+- **MathGroupingCharacter**‑Klasse: definiert ein Gruppierungszeichen über oder unter einem Ausdruck, üblicherweise zur Hervorhebung von Beziehungen zwischen Elementen.
+
   Beispiel: ![todo:image_alt_text](powerpoint-math-equations_15.png)
 
-
 ## **Mathematische Operationen**
-Jedes mathematische Element und jede mathematische Ausdruck (via [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)) implementiert das [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement)-Interface. Es ermöglicht Ihnen, Operationen auf der vorhandenen Struktur zu verwenden und komplexere mathematische Ausdrücke zu bilden. Alle Operationen haben zwei Parametersätze: entweder [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) oder string als Argumente. Instanzen der [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText)-Klasse werden implizit aus angegebenen Zeichenfolgen erstellt, wenn Zeichenfolgenargumente verwendet werden. Die in Aspose.Slides verfügbaren mathematischen Operationen sind unten aufgeführt.
-### **Join-Methode**
-- [join(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#join-java.lang.String-)
-- [join(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#join-com.aspose.slides.IMathElement-)
+Jedes mathematische Element und jeder mathematische Ausdruck (via [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)) implementiert das Interface [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement). Es erlaubt, Operationen auf der bestehenden Struktur anzuwenden und komplexere Ausdrücke zu bilden. Alle Operationen besitzen zwei Parameter‑Varianten: entweder ein [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) oder einen String. Instanzen der Klasse [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) werden implizit aus den übergebenen Strings erzeugt. Die in Aspose.Slides verfügbaren mathematischen Operationen sind unten aufgeführt.
 
-Verbindet ein mathematisches Element und bildet einen mathematischen Block. Zum Beispiel:
+### **Join‑Methode**
+- join(String)
+- join(IMathElement)
+
+Verknüpft ein mathematisches Element und bildet einen MathBlock. Beispiel:
 
 ```java
 IMathElement element1 = new MathematicalText("x");
@@ -216,13 +238,13 @@ IMathElement element2 = new MathematicalText("y");
 IMathBlock block = element1.join(element2);
 ``` 
 
-### **Divide-Methode**
-- [divide(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-java.lang.String-)
-- [divide(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-)
-- [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-java.lang.String-int-)
-- [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-int-)
+### **Divide‑Methode**
+- divide(String)
+- divide(IMathElement)
+- divide(String, MathFractionTypes)
+- divide(IMathElement, MathFractionTypes)
 
-Erstellt einen Bruch des angegebenen Typs mit diesem Zähler und dem angegebenen Nenner. Zum Beispiel:
+Erzeugt einen Bruch des angegebenen Typs mit diesem Zähler und dem angegebenen Nenner. Beispiel:
 
 ```java
 IMathElement numerator = new MathematicalText("x");
@@ -230,30 +252,25 @@ IMathElement numerator = new MathematicalText("x");
 IMathFraction fraction = numerator.divide("y", MathFractionTypes.Linear);
 ``` 
 
-### **Enclose-Methode**
-- [enclose()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#enclose--)
-- [enclose(Char, Char)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#enclose-char-char-)
+### **Enclose‑Methode**
+- enclose()
+- enclose(Char, Char)
 
-Schließt das Element in angegebenen Zeichen wie Klammern oder einem anderen Zeichen als Rahmen ein.
+Umgibt das Element mit angegebenen Zeichen, z. B. Klammern.
 
 ```java
 /**
- * <p>
- * Schließt ein mathe Element in Klammern ein
- * </p>
+ * Enclose a math element in parenthesis
  */
 public IMathDelimiter enclose();
 
 /**
- * <p>
- * Schließt dieses Element in angegebenen Zeichen wie Klammern oder anderen Zeichen als Rahmen ein
- * </p>
+ * Encloses this element in specified characters such as parenthesis or another characters as framing
  */
 public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
 ``` 
 
-
-Zum Beispiel:
+Beispiel:
 
 ```java
 IMathDelimiter delimiter = new MathematicalText("x").enclose('[', ']');
@@ -261,49 +278,37 @@ IMathDelimiter delimiter = new MathematicalText("x").enclose('[', ']');
 IMathDelimiter delimiter2 = new MathematicalText("elem1").join("elem2").enclose();
 ``` 
 
-### **Function-Methode**
-- [function(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#function-java.lang.String-)
-- [function(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#function-com.aspose.slides.IMathElement-)
+### **Function‑Methode**
+- function(String)
+- function(IMathElement)
 
-Nimmt eine Funktion eines Arguments unter Verwendung des aktuellen Objekts als Funktionsnamen.
+Erzeugt eine Funktion eines Arguments, wobei das aktuelle Objekt als Funktionsname verwendet wird.
 
 ```java
-/**
- * <p>
- * Nimmt eine Funktion eines Arguments und verwendet diese Instanz als Funktionsnamen
- * </p>
- */
 public IMathFunction function(IMathElement functionArgument);
 
-/**
- * <p>
- * Nimmt eine Funktion eines Arguments und verwendet diese Instanz als Funktionsnamen
- * </p>
- */
 public IMathFunction function(String functionArgument);
 ``` 
 
-
-Zum Beispiel:
+Beispiel:
 
 ```java
 IMathFunction func = new MathematicalText("sin").function("x");
 ``` 
 
-### **AsArgumentOfFunction-Methode**
-- [asArgumentOfFunction(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-java.lang.String-)
-- [asArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-java.lang.String-)
+### **AsArgumentOfFunction‑Methode**
+- asArgumentOfFunction(String)
+- asArgumentOfFunction(IMathElement)
+- asArgumentOfFunction(MathFunctionsOfOneArgument)
+- asArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)
+- asArgumentOfFunction(MathFunctionsOfTwoArguments, String)
 
-Nimmt die angegebene Funktion, indem die aktuelle Instanz als Argument verwendet wird. Sie können:
+Verwendet das aktuelle Objekt als Argument einer Funktion. Sie können:
+- Einen String als Funktionsnamen angeben, z. B. “cos”.
+- Einen der vordefinierten Enumerationswerte [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) oder [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments) wählen, z. B. [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).**ArcSin**.
+- Eine Instanz von [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) verwenden.
 
-- eine Zeichenfolge als Funktionsnamen angeben, z.B. „cos“.
-- einen der vordefinierten Werte der Enumerationen [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) oder [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments) auswählen, z.B. [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- die Instanz des [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) auswählen.
-
-Zum Beispiel:
+Beispiel:
 
 ```java
 MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
@@ -317,17 +322,17 @@ IMathFunction func3 = new MathematicalText("x").asArgumentOfFunction(MathFunctio
 IMathFunction func4 = new MathematicalText("x").asArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3");
 ``` 
 
-### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft-Methoden**
-- [setSubscript(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubscript-java.lang.String-)
-- [setSubscript(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubscript-com.aspose.slides.IMathElement-)
-- [setSuperscript(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSuperscript-java.lang.String-)
-- [setSuperscript(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSuperscript-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheRight-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheRight-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
+### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft‑Methoden**
+- setSubscript(String)
+- setSubscript(IMathElement)
+- setSuperscript(String)
+- setSuperscript(IMathElement)
+- setSubSuperscriptOnTheRight(String, String)
+- setSubSuperscriptOnTheRight(IMathElement, IMathElement)
+- setSubSuperscriptOnTheLeft(String, String)
+- setSubSuperscriptOnTheLeft(IMathElement, IMathElement)
 
-Setzt Subscript und Superscript. Sie können Subscript und Superscript gleichzeitig auf der linken oder rechten Seite des Arguments setzen, aber ein einzelnes Subscript oder Superscript wird nur auf der rechten Seite unterstützt. Das **Superscript** kann auch verwendet werden, um den mathematischen Grad einer Zahl zu setzen.
+Setzt Tief- und Hochstellen. Sie können Tief‑ und Hochstellen gleichzeitig links bzw. rechts vom Argument setzen; ein einzelner Tief‑ oder Hochindex wird nur rechts unterstützt. Der **Superscript** kann zudem zum Setzen des mathematischen Grades einer Zahl verwendet werden.
 
 Beispiel:
 
@@ -335,11 +340,11 @@ Beispiel:
 IMathLeftSubSuperscriptElement script = new MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
 ``` 
 
-### **Radical-Methode**
-- [radical(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#radical-java.lang.String-)
-- [radical(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#radical-com.aspose.slides.IMathElement-)
+### **Radical‑Methode**
+- radical(String)
+- radical(IMathElement)
 
-Spezifiziert die mathematische Wurzel des gegebenen Grades des angegebenen Arguments.
+Definiert die mathematische Wurzel des angegebenen Grades aus dem übergebenen Argument.
 
 Beispiel:
 
@@ -347,34 +352,34 @@ Beispiel:
 IMathRadical radical = new MathematicalText("x").radical("3");
 ``` 
 
-### **SetUpperLimit und SetLowerLimit-Methoden**
-- [setUpperLimit(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setUpperLimit-java.lang.String-)
-- [setUpperLimit(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setUpperLimit-com.aspose.slides.IMathElement-)
-- [setLowerLimit(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setLowerLimit-java.lang.String-)
-- [setLowerLimit(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setLowerLimit-com.aspose.slides.IMathElement-)
+### **SetUpperLimit und SetLowerLimit‑Methoden**
+- setUpperLimit(String)
+- setUpperLimit(IMathElement)
+- setLowerLimit(String)
+- setLowerLimit(IMathElement)
 
-Nimmt die obere oder untere Grenze. Hier zeigen der obere und der untere Wert einfach die Position des Arguments relativ zur Basis an.
+Setzt eine obere bzw. untere Grenze. Die Position gibt lediglich an, ob das Argument über oder unter der Basis liegt.
 
-Betrachten wir einen Ausdruck: 
+Beispielausdruck:
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-Solche Ausdrücke können durch eine Kombination aus den Klassen [MathFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) und [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) sowie den Operationen des [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) wie folgt erstellt werden:
+Solche Ausdrücke können durch Kombination der Klassen **MathFunction** und **MathLimit** sowie der Operationen von **IMathElement** erzeugt werden:
 
 ```java
 IMathFunction mathExpression = new MathematicalText("lim").setLowerLimit("x→∞").function("x");
 ``` 
 
-### **Nary- und Integral-Methoden**
-- [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#nary-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-int-)
-- [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-int-)
+### **Nary‑ und Integral‑Methoden**
+- nary(MathNaryOperatorTypes, IMathElement, IMathElement)
+- nary(MathNaryOperatorTypes, String, String)
+- integral(MathIntegralTypes)
+- integral(MathIntegralTypes, IMathElement, IMathElement)
+- integral(MathIntegralTypes, String, String)
+- integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)
+- integral(MathIntegralTypes, String, String, MathLimitLocations)
 
-Sowohl die **nary**- als auch die **integral**-Methoden erstellen und geben den N-ären Operator vom Typ [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) zurück. In der nary-Methode spezifiziert die Enumeration [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperatorTypes) den Typ des Operators: Summation, Vereinigung usw., jedoch nicht Integrale. In der Integral-Methode gibt es den spezialisierten Integral-Operator mit der Enumeration von Integraltypen [**MathIntegralTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathIntegralTypes). 
+Beide Methoden erzeugen und geben den N‑stellig‑Operator zurück, dargestellt durch den Typ [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator). Bei **nary** gibt die Enumeration **MathNaryOperatorTypes** den Operatortyp an (Summation, Union usw., ohne Integrale). Die **integral**‑Methode verwendet die Enumeration **MathIntegralTypes**.
 
 Beispiel:
 
@@ -384,8 +389,8 @@ IMathBlock baseArg = new MathematicalText("x").join(new MathematicalText("dx").t
 IMathNaryOperator integral = baseArg.integral(MathIntegralTypes.Simple, "0", "1");
 ``` 
 
-### **ToMathArray-Methode**
-Die [**toMathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toMathArray--) platziert Elemente in einem vertikalen Array. Wenn diese Operation für eine Instanz von [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) aufgerufen wird, werden alle untergeordneten Elemente im zurückgegebenen Array platziert.
+### **ToMathArray‑Methode**
+Die Methode [**toMathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toMathArray--) ordnet Elemente in ein vertikales Array ein. Wird sie für ein [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)‑Objekt aufgerufen, werden alle Kind‑Elemente im zurückgegebenen Array platziert.
 
 Beispiel:
 
@@ -393,12 +398,12 @@ Beispiel:
 IMathArray arrayFunction = new MathematicalText("x").join("y").toMathArray();
 ``` 
 
-### **Formatierungsvorgänge: Akzent, Überstreichen, Unterstreichen, Gruppieren, InBorderBox, InBox**
-- Die [**accent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#accent-char-) Methode setzt ein Akzentzeichen (ein Zeichen oben auf dem Element).
-- Die [**overbar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#overbar--) und [**underbar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#underbar--) Methoden setzen eine Linie oben oder unten.
-- Die [**group**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#group--) Methode platziert in einer Gruppe mithilfe eines Gruppierungszeichens wie einer unteren geschweiften Klammer oder einem anderen.
-- Die [**toBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toBorderBox--) Methode platziert in einem Randkasten.
-- Die [**toBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toBox--) Methode platziert in einer nicht sichtbaren Box (logische Gruppierung).
+### **Formatierungsoperationen: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
+- **accent** ‑ setzt ein Akzentzeichen (ein Zeichen oberhalb des Elements).
+- **overbar** und **underbar** ‑ setzen einen Strich oben bzw. unten.
+- **group** ‑ platziert das Element in einer Gruppe mittels eines Gruppierungszeichens wie einer geschweiften Klammer unten oder einem anderen.
+- **toBorderBox** ‑ legt das Element in einen Rahmen‑Box.
+- **toBox** ‑ legt das Element in eine nicht‑visuelle Box (logische Gruppierung).
 
 Beispiele:
 
@@ -413,3 +418,17 @@ IMathBorderBox borderBox = new MathematicalText("x+y+z").toBorderBox();
 
 IMathBox boxedOperator = new MathematicalText(":=").toBox();
 ``` 
+
+## **FAQ**
+
+**Wie füge ich einer PowerPoint‑Folie eine mathematische Gleichung hinzu?**
+
+Um eine mathematische Gleichung hinzuzufügen, erstellen Sie ein MathShape‑Objekt, das automatisch einen mathematischen Abschnitt enthält. Anschließend rufen Sie das [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) aus dem [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) ab und fügen [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/)-Objekte hinzu.
+
+**Ist es möglich, komplex verschachtelte mathematische Ausdrücke zu erstellen?**
+
+Ja, Aspose.Slides ermöglicht das Erzeugen komplexer mathematischer Ausdrücke durch Verschachteln von MathBlocks. Jedes mathematische Element implementiert das Interface [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), das das Anwenden von Operationen (Join, Divide, Enclose usw.) zur Kombination zu komplexeren Strukturen erlaubt.
+
+**Wie kann ich eine bestehende mathematische Gleichung aktualisieren oder ändern?**
+
+Um eine Gleichung zu aktualisieren, greifen Sie über das [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) auf die vorhandenen MathBlocks zu. Durch Methoden wie Join, Divide, Enclose usw. können Sie einzelne Elemente der Gleichung bearbeiten. Nach den Änderungen speichern Sie die Präsentation, um die Änderungen zu übernehmen.

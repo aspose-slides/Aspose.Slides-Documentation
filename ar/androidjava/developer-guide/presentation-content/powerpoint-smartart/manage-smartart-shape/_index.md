@@ -1,56 +1,72 @@
 ---
-title: إدارة شكل SmartArt
+title: إدارة رسومات SmartArt في العروض التقديمية على Android
+linktitle: رسومات SmartArt
 type: docs
 weight: 20
 url: /ar/androidjava/manage-smartart-shape/
+keywords:
+- كائن SmartArt
+- رسم SmartArt
+- نمط SmartArt
+- لون SmartArt
+- إنشاء SmartArt
+- إضافة SmartArt
+- تحرير SmartArt
+- تغيير SmartArt
+- الوصول إلى SmartArt
+- نوع تخطيط SmartArt
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "أتمتة إنشاء وتحرير وتنسيق SmartArt في PowerPoint باستخدام Aspose.Slides لـ Android، مع أمثلة شفرة Java مختصرة وإرشادات تركّز على الأداء."
 ---
 
-
 ## **إنشاء شكل SmartArt**
-قدمت Aspose.Slides لـ Android عبر Java واجهة برمجة تطبيقات لإنشاء أشكال SmartArt. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات التالية:
+قدمت Aspose.Slides for Android عبر Java واجهة برمجة تطبيقات لإنشاء أشكال SmartArt. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات أدناه:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-1. احصل على مرجع لشريحة باستخدام العنصر الخاص بها.
-1. [أضف شكلاً من أشكال SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيين [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType).
-1. قم بحفظ العرض التقديمي المعدل كملف PPTX.
-
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
+3. [إضافة شكل SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيينه إلى [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType).
+4. حفظ العرض التقديمي المعدل كملف PPTX.
 ```java
-// Instantiate Presentation Class
+// إنشاء فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // Get first slide
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Add Smart Art Shape
+    // إضافة شكل SmartArt
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
     
-    // Saving presentation
+    // حفظ العرض التقديمي
     pres.save("SimpleSmartArt.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
 |**الشكل: تم إضافة شكل SmartArt إلى الشريحة**|
 
 ## **الوصول إلى شكل SmartArt في الشريحة**
-سيتم استخدام الكود التالي للوصول إلى أشكال SmartArt المضافة في شريحة العرض التقديمي. في الكود العينة، سنتنقل عبر كل شكل داخل الشريحة ونفحص ما إذا كان شكلًا من [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). إذا كان الشكل من نوع SmartArt، فسنجري تحويل نوعه إلى [**SmartArt**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) مثيل.
-
+سيتم استخدام الكود التالي للوصول إلى أشكال SmartArt المضافة في شريحة العرض التقديمي. في كود العينة سنجتاز كل شكل داخل الشريحة ونتحقق مما إذا كان شكلًا من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt). إذا كان الشكل من نوع SmartArt فسنقوم بتحويله إلى نسخة من [**SmartArt**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt).
 ```java
-// Load the desired the presentation
+// تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
-    // Traverse through every shape inside first slide
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes())
     {
-        // Check if shape is of SmartArt type
+        // تحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt)
         {
-            // Typecast shape to SmartArtEx
+            // تحويل الشكل إلى SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
-            System.out.println("اسم الشكل:" + smart.getName());
+            System.out.println("Shape Name:" + smart.getName());
         }
     }
 } finally {
@@ -58,31 +74,31 @@ try {
 }
 ```
 
+
 ## **الوصول إلى شكل SmartArt بنوع تخطيط معين**
-سيساعد الكود العينة التالي في الوصول إلى شكل [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) بنوع تخطيط معين. يرجى ملاحظة أنه لا يمكنك تغيير نوع التخطيط لشكل SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) الشكل.
+سيساعدك الكود العيني التالي على الوصول إلى شكل [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) بنوع تخطيط معين. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType لخصائص SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt).
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class وقم بتحميل العرض التقديمي مع شكل SmartArt.
-1. احصل على مرجع الشريحة الأولى باستخدام العنصر الخاص بها.
-1. تنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-1. تحقق من شكل SmartArt بنوع تخطيط معين وقم بأداء ما يجب القيام به بعد ذلك.
-
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+3. المرور عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
+5. التحقق من شكل SmartArt بنوع التخطيط المحدد والقيام بما يلزم بعد ذلك.
 ```java
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
-    // Traverse through every shape inside first slide
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes())
     {
-        // Check if shape is of SmartArt type
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt)
         {
-            // Typecast shape to SmartArtEx
+            // تحويل الشكل إلى SmartArtEx
             ISmartArt smart = (ISmartArt) shape;
 
-            // Checking SmartArt Layout
+            // التحقق من تخطيط SmartArt
             if (smart.getLayout() == SmartArtLayoutType.BasicBlockList)
             {
-                System.out.println("قم بشيء هنا....");
+                System.out.println("Do some thing here....");
             }
         }
     }
@@ -90,93 +106,116 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 
 ## **تغيير نمط شكل SmartArt**
 في هذا المثال، سنتعلم كيفية تغيير النمط السريع لأي شكل SmartArt.
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class وقم بتحميل العرض التقديمي مع شكل SmartArt.
-1. احصل على مرجع الشريحة الأولى باستخدام العنصر الخاص بها.
-1. تنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-1. ابحث عن شكل SmartArt بنمط معين.
-1. قم بتعيين النمط الجديد لشكل SmartArt.
-1. قم بحفظ العرض التقديمي.
-
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+3. المرور عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
+5. البحث عن شكل SmartArt بنمط معين.
+6. تعيين النمط الجديد لشكل SmartArt.
+7. حفظ العرض التقديمي.
 ```java
-// Instantiate Presentation Class
+// إنشاء فئة Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Get first slide
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Traverse through every shape inside first slide
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
-        // Check if shape is of SmartArt type
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Typecast shape to SmartArtEx
+            // تحويل الشكل إلى SmartArtEx
             ISmartArt smart = (ISmartArt) shape;
     
-            // Checking SmartArt style
+            // التحقق من نمط SmartArt
             if (smart.getQuickStyle() == SmartArtQuickStyleType.SimpleFill) {
-                // Changing SmartArt Style
+                // تغيير نمط SmartArt
                 smart.setQuickStyle(SmartArtQuickStyleType.Cartoon);
             }
         }
     }
-    // Saving presentation
+    // حفظ العرض التقديمي
     pres.save("ChangeSmartArtStyle.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
-|**الشكل: شكل SmartArt مع نمط متغير**|
+|**الشكل: شكل SmartArt مع نمط تم تغييره**|
 
-## **تغيير نمط لون شكل SmartArt**
-في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الكود العينة التالي، سنصل إلى شكل SmartArt بنمط لون معين وسنغير نمطه.
+## **تغيير نمط لون SmartArt**
+في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الكود العيني التالي سيتم الوصول إلى شكل SmartArt بنمط لون معين وتغيير نمطه.
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class وقم بتحميل العرض التقديمي مع شكل SmartArt.
-1. احصل على مرجع الشريحة الأولى باستخدام العنصر الخاص بها.
-1. تنقل عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وقم بتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-1. ابحث عن شكل SmartArt بنمط لون معين.
-1. قم بتعيين نمط اللون الجديد لشكل SmartArt.
-1. قم بحفظ العرض التقديمي.
-
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+3. المرور عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان كذلك.
+5. البحث عن شكل SmartArt بنمط لون معين.
+6. تعيين نمط اللون الجديد لشكل SmartArt.
+7. حفظ العرض التقديمي.
 ```java
-// Instantiate Presentation Class
+// إنشاء فئة Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Get first slide
+    // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Traverse through every shape inside first slide
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
-        // Check if shape is of SmartArt type
+        // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Typecast shape to SmartArtEx
+            // تحويل الشكل إلى SmartArtEx
             ISmartArt smart = (ISmartArt) shape;
     
-            // Checking SmartArt color type
+            // التحقق من نوع لون SmartArt
             if (smart.getColorStyle() == SmartArtColorType.ColoredFillAccent1) {
-                // Changing SmartArt color type
+                // تغيير نوع لون SmartArt
                 smart.setColorStyle(SmartArtColorType.ColorfulAccentColors);
             }
         }
     }
-    // Saving presentation
+    // حفظ العرض التقديمي
     pres.save("ChangeSmartArtColorStyle.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|
 | :- |
-|**الشكل: شكل SmartArt مع نمط لون متغير**|
+|**الشكل: شكل SmartArt مع نمط لون تم تغييره**|
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحريك SmartArt ككائن واحد؟**
+
+نعم. SmartArt هو شكل، لذا يمكنك تطبيق [الرسوم المتحركة القياسية](/slides/ar/androidjava/powerpoint-animation/) عبر واجهة برمجة تطبيقات الرسوم المتحركة (دخول، خروج، تأكيد، مسارات الحركة) كما هو الحال مع الأشكال الأخرى.
+
+**كيف يمكنني العثور على SmartArt محدد في شريحة إذا لم أكن أعرف معرفه الداخلي؟**
+
+قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل باستخدام تلك القيمة—هذه طريقة موصى بها لتحديد موقع الشكل المستهدف.
+
+**هل يمكنني تجميع SmartArt مع أشكال أخرى؟**
+
+نعم. يمكنك تجميع SmartArt مع أشكال أخرى (صور، جداول، إلخ) ثم [التعامل مع المجموعة](/slides/ar/androidjava/group/).
+
+**كيف أحصل على صورة لـ SmartArt محدد (مثلاً للمعاينة أو التقرير)؟**
+
+صدّر صورة مصغرة/صورة للشكل؛ يمكن للمكتبة [إنتاج أشكال فردية](/slides/ar/androidjava/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
+
+**هل سيحافظ شكل SmartArt على مظهره عند تحويل العرض التقديمي بالكامل إلى PDF؟**
+
+نعم. تُستهدف محرك التصيير دقة عالية لتصدير [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.

@@ -1,394 +1,502 @@
 ---
-title: Форматирование фигур
+title: Форматирование фигур PowerPoint на Android
+linktitle: Форматирование фигур
 type: docs
 weight: 20
 url: /ru/androidjava/shape-formatting/
-keywords: "Формат фигуры, формат линий, стиль соединения, градиентная заливка, заливка узором, заливка изображением, заливка сплошным цветом, вращение фигур, эффекты 3D-обводки, эффект 3D-вращения, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Форматирование фигуры в презентации PowerPoint на Java"
+keywords:
+- форматировать форму
+- форматировать линию
+- форматировать стиль соединения
+- градиентная заливка
+- узорчатая заливка
+- заполнение изображением
+- текстурная заливка
+- сплошная заливка
+- прозрачность фигуры
+- повернуть фигуру
+- 3d эффект фаски
+- 3d эффект вращения
+- сбросить форматирование
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как форматировать фигуры PowerPoint на Android с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
 ---
 
-В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, вы можете форматировать фигуры, изменяя или применяя определенные эффекты к их составным линиям. Кроме того, вы можете форматировать фигуры, задавая параметры, которые определяют, как они (то есть область внутри них) заполняются.
+## **Обзор**
+
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, вы можете форматировать их, изменяя или применяя эффекты к их контуру. Кроме того, вы можете форматировать фигуры, задавая параметры, которые контролируют заполнение их внутренностей.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-**Aspose.Slides для Android через Java** предоставляет интерфейсы и свойства, которые позволяют форматировать фигуры на основе известных параметров в PowerPoint.
+Aspose.Slides for Android via Java предоставляет интерфейсы и методы, позволяющие форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-С помощью Aspose.Slides вы можете указать предпочитаемый стиль линии для фигуры. Эти шаги описывают такую процедуру:
+С помощью Aspose.Slides вы можете задать пользовательский стиль линии для фигуры. Ниже приведены шаги, описывающие процедуру:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите цвет для линий фигуры.
-5. Установите ширину для линий фигуры.
-6. Установите [стиль линии](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) для линии фигуры.
-7. Установите [стиль штриха](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) для линии фигуры.
-8. Запишите измененную презентацию в файл PPTX.
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите стиль линии [line style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linestyle/) фигуры.
+5. Установите ширину линии.
+6. Установите [dash style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) линии.
+7. Установите цвет линии для фигуры.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на Java демонстрирует операцию, в которой мы отформатировали прямоугольник `AutoShape`:
-
+Следующий код демонстрирует, как отформатировать прямоугольный `AutoShape`:
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем автозаполнение типа прямоугольник
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    // Добавить автофигуру типа Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Устанавливаем цвет заливки для фигуры прямоугольника
-    shp.getFillFormat().setFillType(FillType.Solid);
-    shp.getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    // Установить цвет заливки для прямоугольной фигуры.
+    shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Применяем некоторые форматирования к линиям прямоугольника
-    shp.getLineFormat().setStyle(LineStyle.ThickThin);
-    shp.getLineFormat().setWidth(7);
-    shp.getLineFormat().setDashStyle(LineDashStyle.Dash);
+    // Применить форматирование к линиям прямоугольника.
+    shape.getLineFormat().setStyle(LineStyle.ThickThin);
+    shape.getLineFormat().setWidth(7);
+    shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Устанавливаем цвет линии для прямоугольника
-    shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    // Установить цвет линии прямоугольника.
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Записываем файл PPTX на диск
-    pres.save("RectShpLn_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Форматирование стилей соединения**
-Это три типа опций соединения:
 
-* Закругленное
-* Угловое
-* Скошенное
+Результат:
 
-По умолчанию, когда PowerPoint соединяет две линии под углом (или угол фигуры), он использует настройку **Закругленное**. Однако, если вы хотите нарисовать фигуру с очень острыми углами, вам может понадобиться выбрать **Угловое**.
+![The formatted lines in the presentation](formatted-lines.png)
 
-![join-style-powerpoint](join-style-powerpoint.png)
+## **Форматирование стилей соединений**
 
-Этот код на Java демонстрирует операцию, в которой были созданы 3 прямоугольника (изображение выше) с настройками типов соединения Угловое, Скошенное и Закругленное:
+Вот три варианта типа соединения:
 
+* Круглый
+* Срез
+* Фаска
+
+По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), он использует параметр **Round**. Однако, если вы рисуете фигуру с острыми углами, вам может подойти параметр **Miter**.
+
+![The join style in the presentation](join-style-powerpoint.png)
+
+Следующий код на Java демонстрирует, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек типа соединения Miter, Bevel и Round:
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Добавить три автофигуры типа Rectangle.
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Добавляем 3 автозаполнения прямоугольников
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-    IShape shp3 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+    // Установить цвет заливки для каждой прямоугольной фигуры.
+    shape1.getFillFormat().setFillType(FillType.Solid);
+    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    shape2.getFillFormat().setFillType(FillType.Solid);
+    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    shape3.getFillFormat().setFillType(FillType.Solid);
+    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Устанавливаем цвет заливки для фигуры прямоугольника
-    shp1.getFillFormat().setFillType(FillType.Solid);
-    shp1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp3.getFillFormat().setFillType(FillType.Solid);
-    shp3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Установить толщину линии.
+    shape1.getLineFormat().setWidth(15);
+    shape2.getLineFormat().setWidth(15);
+    shape3.getLineFormat().setWidth(15);
 
-    // Устанавливаем ширину линий 
-    shp1.getLineFormat().setWidth(15);
-    shp2.getLineFormat().setWidth(15);
-    shp3.getLineFormat().setWidth(15);
+    // Установить цвет линии для каждого прямоугольника.
+    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Устанавливаем цвет для линии прямоугольника
-    shp1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shp2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shp3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    // Установить стиль соединения.
+    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Устанавливаем стиль соединения
-    shp1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shp2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shp3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    // Добавить текст к каждому прямоугольнику.
+    shape1.getTextFrame().setText("Miter Join Style");
+    shape2.getTextFrame().setText("Bevel Join Style");
+    shape3.getTextFrame().setText("Round Join Style");
 
-    // Добавляем текст к каждому прямоугольнику
-    ((IAutoShape)shp1).getTextFrame().setText("Угловое соединение");
-    ((IAutoShape)shp2).getTextFrame().setText("Скошенное соединение");
-    ((IAutoShape)shp3).getTextFrame().setText("Закругленное соединение");
-
-    // Записываем файл PPTX на диск
-    pres.save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Градиентная заливка**
-В PowerPoint градиентная заливка — это опция форматирования, которая позволяет вам применить непрерывный смешивание цветов к фигуре. Например, вы можете применить два или более цветов в конфигурации, где один цвет постепенно исчезает и меняется на другой цвет.
 
-Вот как использовать Aspose.Slides для применения градиентной заливки к фигуре:
+## **Заливка градиентом**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+В PowerPoint заливка градиентом — это параметр форматирования, позволяющий применить к фигуре плавный переход цветов. Например, можно применить два и более цветов так, чтобы один постепенно переходил в другой.
+
+Вот как применить заливку градиентом к фигуре с помощью Aspose.Slides:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FillType) фигуры на `Gradient`.
-5. Добавьте ваши 2 предпочтительных цвета с определенными позициями, используя методы `Add`, предоставляемые коллекцией `GradientStops`, связанной с классом `GradientFormat`.
-6. Запишите измененную презентацию в файл PPTX.
-
-Этот код на Java демонстрирует операцию, в которой был использован эффект градиентной заливки на эллипсе:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) фигуры в `Gradient`.
+5. Добавьте два желаемых цвета с определенными позициями, используя методы `add` коллекции градиентных остановок, предоставляемой интерфейсом [IGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/).
+6. Сохраните изменённую презентацию в файл PPTX.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, который представляет файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем эллипс автозаполнения
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
+    // Добавить автофигуру типа Ellipse.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Применяем форматирование градиента к эллипсу
-    shp.getFillFormat().setFillType(FillType.Gradient);
-    shp.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    // Применить градиентное форматирование к эллипсу.
+    shape.getFillFormat().setFillType(FillType.Gradient);
+    shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Устанавливаем направление градиента
-    shp.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
+    // Установить направление градиента.
+    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // Добавляем 2 градиентных остановки
-    shp.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shp.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
+    // Добавить две градиентные остановки.
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // Записываем файл PPTX на диск
-    pres.save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+Результат:
+
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **Заливка узором**
-В PowerPoint заливка узором — это опция форматирования, которая позволяет вам применить дизайн из двух цветов, состоящий из точек, полос, пересечений или клеток к фигуре. Кроме того, вы можете выбрать ваши предпочитаемые цвета для переднего плана и фона узора.
 
-Aspose.Slides предоставляет более 45 предопределенных стилей, которые могут быть использованы для форматирования фигур и обогащения презентаций. Даже после выбора предопределенного узора, вы все равно можете указать цвета, которые должен содержать узор.
+В PowerPoint заливка узором — это параметр форматирования, позволяющий применить к фигуре двухцветный дизайн, например, точки, полосы, штриховку или шахматную сетку. Вы можете выбрать пользовательские цвета для переднего и заднего плана узора.
 
-Вот как использовать Aspose.Slides для применения заливки узором к фигуре:
+Aspose.Slides предоставляет более 45 предопределенных стилей узоров, которые можно применять к фигурам для повышения визуальной привлекательности презентаций. Даже после выбора предопределенного узора вы всё равно можете указать точные цвета, которые он будет использовать.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+Вот как применить заливку узором к фигуре с помощью Aspose.Slides:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FillType) фигуры на `Pattern`.
-5. Установите предпочтительный стиль узора для фигуры. 
-6. Установите [Цвет фона](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternFormat#getBackColor--) для [PatternFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternFormat).
-7. Установите [Цвет переднего плана](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternFormat#getForeColor--) для [PatternFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PatternFormat).
-8. Запишите измененную презентацию в файл PPTX.
-
-Этот код на Java демонстрирует операцию, где была использована заливка узором для украшения прямоугольника:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) фигуры в `Pattern`.
+5. Выберите стиль узора из предопределенных вариантов.
+6. Установите [Background Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getBackColor--) узора.
+7. Установите [Foreground Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getForeColor--) узора.
+8. Сохраните изменённую презентацию в файл PPTX.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем прямоугольник автозаполнения
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавить автофигуру типа Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Устанавливаем тип заливки на узор
-    shp.getFillFormat().setFillType(FillType.Pattern);
+    // Установить тип заливки в Pattern.
+    shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Устанавливаем стиль узора
-    shp.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
+    // Установить стиль узора.
+    shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Устанавливаем цвета узора
-    shp.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
-    shp.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
+    // Установить цвета фона и переднего плана узора.
+    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
+    shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Записываем файл PPTX на диск
-    pres.save("RectShpPatt_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+Результат:
+
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Заливка изображением**
-В PowerPoint заливка изображением — это опция форматирования, которая позволяет вам поместить изображение внутри фигуры. По сути, вы можете использовать изображение в качестве фона фигуры.
 
-Вот как использовать Aspose.Slides для заполнения фигуры изображением:
+В PowerPoint заливка изображением — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, эффективно используя изображение как фон фигуры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+Вот как использовать Aspose.Slides для применения заливки изображением к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FillType) фигуры на `Picture`.
-5. Установите режим заливки изображения на Плитка.
-6. Создайте объект `IPPImage`, используя изображение, которое будет использоваться для заполнения фигуры.
-7. Установите свойство `Picture.Image` объекта `PictureFillFormat` на недавно созданный `IPPImage`.
-8. Запишите измененную презентацию в файл PPTX.
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) фигуры в `Picture`.
+5. Установите режим заливки изображения в `Tile` (или другой предпочтительный режим).
+6. Создайте объект [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) из изображения, которое хотите использовать.
+7. Передайте изображение методу `ISlidesPicture.setImage`.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на Java показывает вам, как заполнить фигуру изображением:
+Допустим, у нас есть файл "lotus.png" со следующим изображением:
+
+![The lotus picture](lotus.png)
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем прямоугольник автозаполнения
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавить автофигуру типа Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Устанавливаем тип заливки на изображение
-    shp.getFillFormat().setFillType(FillType.Picture);
+    // Установить тип заливки в Picture.
+    shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Устанавливаем режим заливки изображения
-    shp.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
+    // Установить режим заливки изображением.
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Устанавливаем изображение
-    IPPImage picture;
-    IImage image = Images.fromFile("Tulips.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    shp.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    // Загрузить изображение и добавить его в ресурсы презентации.
+    IImage image = Images.fromFile("lotus.png");
+    IPPImage picture = presentation.getImages().addImage(image);
+    image.dispose();
 
-    // Записываем файл PPTX на диск
-    pres.save("RectShpPic_out.pptx", SaveFormat.Pptx);
-} catch(Exception e) {
+    // Установить изображение.
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+
+    // Сохранить файл PPTX на диск.
+    presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Сплошная цветная заливка**
-В PowerPoint сплошная цветная заливка — это опция форматирования, которая позволяет вам залить фигуру одним цветом. Выбранный цвет обычно является простым цветом. Цвет применяется к фону фигуры с любыми специальными эффектами или изменениями.
 
-Вот как использовать Aspose.Slides для применения сплошной цветной заливки к фигуре:
+Результат:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+![The shape with picture fill](picture-fill.png)
+
+### **Мозаика изображения как текстура**
+
+Если вы хотите установить мозаичное изображение как текстуру и настроить поведение мозаики, вы можете использовать следующие методы интерфейса [IPictureFillFormat] и класса [PictureFillFormat]:
+
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Устанавливает режим заливки изображения — `Tile` или `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Задает выравнивание плиток внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Определяет, будет ли плитка отражена по горизонтали, вертикали или обеим осям.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Устанавливает горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Устанавливает вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Определяет горизонтальный масштаб плитки в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Определяет вертикальный масштаб плитки в процентах.
+
+Следующий пример кода показывает, как добавить прямоугольную фигуру с мозаичной заливкой изображением и настроить параметры плитки:
+```java
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
+try {
+    // Получить первый слайд.
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+
+    // Добавить автофигуру прямоугольника.
+    IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+
+    // Установить тип заливки фигуры в Picture.
+    shape.getFillFormat().setFillType(FillType.Picture);
+
+    // Загрузить изображение и добавить его в ресурсы презентации.
+    IImage sourceImage = Images.fromFile("lotus.png");
+    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
+    sourceImage.dispose();
+
+    // Присвоить изображение фигуре.
+    IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
+    pictureFillFormat.getPicture().setImage(presentationImage);
+
+    // Настроить режим заливки изображением и параметры мозаики.
+    pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
+    pictureFillFormat.setTileOffsetX(-32);
+    pictureFillFormat.setTileOffsetY(-32);
+    pictureFillFormat.setTileScaleX(50);
+    pictureFillFormat.setTileScaleY(50);
+    pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
+    pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Сохранить файл PPTX на диск.
+    presentation.save("tile.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+Результат:
+
+![The tile options](tile-options.png)
+
+## **Заливка сплошным цветом**
+
+В PowerPoint заливка сплошным цветом — это параметр форматирования, который заполняет фигуру одним равномерным цветом. Этот простой фон применяется без градиентов, текстур или узоров.
+
+Чтобы применить заливку сплошным цветом к фигуре с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FillType) фигуры на `Solid`.
-5. Установите ваш предпочитаемый цвет для фигуры.
-6. Запишите измененную презентацию в файл PPTX.
-
-Этот код на Java показывает вам, как применить сплошную цветную заливку к коробке в PowerPoint:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) фигуры в `Solid`.
+5. Назначьте желаемый цвет заливки фигуре.
+6. Сохраните изменённую презентацию в файл PPTX.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide slide = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем прямоугольник автозаполнения
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавить автофигуру типа Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Устанавливаем тип заливки на Сплошной
+    // Установить тип заливки в Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Устанавливаем цвет для прямоугольника
+    // Установить цвет заливки.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Записываем файл PPTX на диск
-    pres.save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+Результат:
+
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Установка прозрачности**
 
-В PowerPoint при заливке фигур сплошными цветами, градиентами, изображениями или текстурами, вы можете установить уровень прозрачности, который определяет непрозрачность заливки. Таким образом, например, если вы установите низкий уровень прозрачности, объект слайда или фон, находящийся за (фигурой), будет виден.
+В PowerPoint, когда вы применяете заливку сплошным цветом, градиентом, изображением или текстурой к фигурам, вы также можете установить уровень прозрачности, чтобы контролировать непрозрачность заливки. Более высокое значение прозрачности делает фигуру более просвечивающей, позволяя видеть фон или находящиеся под ней объекты.
 
-Aspose.Slides позволяет вам установить уровень прозрачности для фигуры следующим образом:
+Aspose.Slides позволяет задавать уровень прозрачности, изменяя альфа‑значение в цвете, используемом для заливки. Вот как это сделать:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Используйте `new Color` с установленным компонентом альфа.
-5. Сохраните объект как файл PowerPoint.
-
-Этот код на Java демонстрирует процесс:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) в `Solid`.
+5. Используйте `Color` для определения цвета с прозрачностью (компонент `alpha` управляет прозрачностью).
+6. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем сплошную фигуру
-    IShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
+    // Добавить сплошную прямоугольную автофигуру.
+    IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Добавляем прозрачную фигуру поверх сплошной фигуры
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(new Color(204, 102, 0, 128));
-    
-    // Записываем файл PPTX на диск
-    pres.save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
+    // Добавить прозрачную прямоугольную автофигуру поверх сплошной фигуры.
+    IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.getFillFormat().setFillType(FillType.Solid);
+    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+
+    // Сохранить файл PPTX на диск.
+    presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Вращение фигур**
-Aspose.Slides позволяет вам вращать фигуру, добавленную на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+Результат:
+
+![The transparent shape](shape-transparency.png)
+
+## **Поворот фигур**
+
+Aspose.Slides позволяет поворачивать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или требованиями к дизайну.
+
+Чтобы повернуть фигуру на слайде, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Поверните фигуру на необходимое количество градусов.
-5. Запишите измененную презентацию в файл PPTX.
-
-Этот код на Java показывает вам, как вращать фигуру на 90 градусов:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Установите свойство вращения фигуры на требуемый угол.
+5. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation();
 try {
-    // Получаем первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Получить первый слайд.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем прямоугольник автозаполнения
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавить автофигуру типа Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Вращаем фигуру на 90 градусов
-    shp.setRotation(90);
+    // Повернуть фигуру на 5 градусов.
+    shape.setRotation(5);
 
-    // Записываем файл PPTX на диск
-    pres.save("RectShpRot_out.pptx", SaveFormat.Pptx);
+    // Сохранить файл PPTX на диск.
+    presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Добавление эффектов 3D-обводки**
-Aspose.Slides позволяет вам добавлять эффекты 3D-обводки к фигуре, изменяя ее параметры [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+Результат:
+
+![The shape rotation](shape-rotation.png)
+
+## **Добавление 3D‑эффектов фаски**
+
+Aspose.Slides позволяет применять 3D‑эффекты фаски к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/).
+
+Чтобы добавить 3D‑эффекты фаски к фигуре, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Установите ваши предпочтительные параметры для свойств [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) фигуры.
-5. Запишите презентацию на диск.
-
-Этот код на Java показывает вам, как добавить эффекты 3D-обводки к фигуре:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Настройте [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) фигуры для определения параметров фаски.
+5. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation.
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавляем фигуру на слайд
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // Добавить фигуру на слайд.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    ILineFillFormat format = shape.getLineFormat().getFillFormat();
-    format.setFillType(FillType.Solid);
-    format.getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // Устанавливаем параметры ThreeDFormat фигуры
+    // Установить свойства ThreeDFormat фигуры.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -397,61 +505,83 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Записываем презентацию в файл PPTX
-    pres.save("Bavel_out.pptx", SaveFormat.Pptx);
+    // Сохранить презентацию как файл PPTX.
+    presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Добавление эффекта 3D-вращения**
-Aspose.Slides позволяет вам применять эффекты 3D-вращения к фигуре, изменяя ее параметры [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat) следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+Результат:
+
+![The 3D bevel effect](3D-bevel-effect.png)
+
+## **Добавление 3D‑эффектов вращения**
+
+Aspose.Slides позволяет применять 3D‑эффекты вращения к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/).
+
+Чтобы применить 3D‑вращение к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) на слайд.
-4. Укажите ваши предпочтительные значения для [CameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICamera#getCameraType--) и [LightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILightRig#getLightType--).
-5. Запишите презентацию на диск.
-
-Этот код на Java показывает вам, как применить эффекты 3D-вращения к фигуре:
+3. Добавьте [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) на слайд.
+4. Используйте методы [setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) и [setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) для определения 3D‑вращения.
+5. Сохраните презентацию.
 
 ```java
-// Создаем экземпляр класса презетации, представляющего файл презентации
-Presentation pres = new Presentation();
+// Создать экземпляр класса Presentation.
+Presentation presentation = new Presentation();
 try {
-    IShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.getTextFrame().setText("Hello, Aspose!");
 
     autoShape.getThreeDFormat().setDepth(6);
     autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(0, 35, 20);
-    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
-    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-
-    // Записываем презентацию в файл PPTX
-    pres.save("Rotation_out.pptx", SaveFormat.Pptx);
+    // Сохранить презентацию как файл PPTX.
+    presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+Результат:
+
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Сброс форматирования**
 
-Этот код на Java показывает вам, как сбросить форматирование на слайде и вернуть положение, размер и форматирование каждой фигуры, имеющей плейсхолдер на [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutSlide), к значениям по умолчанию:
-
+Следующий код на Java демонстрирует, как сбросить форматирование слайда и вернуть позицию, размер и оформление всех фигур с заполняющими элементами на [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) к их настройкам по умолчанию:
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        // каждая фигура на слайде, которая имеет плейсхолдер на макете, будет возвращена к значениям по умолчанию
+    for (ISlide slide : presentation.getSlides()) {
+        // Сбросить каждую фигуру на слайде, у которой есть заполнитель на макете.
         slide.reset();
     }
+    presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Влияет ли форматирование фигур на конечный размер файла презентации?**
+
+Только незначительно. Встроенные изображения и медиа‑файлы занимают большую часть объёма файла, тогда как параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
+
+**Как определить фигуры на слайде, имеющие одинаковое форматирование, чтобы их сгруппировать?**
+
+Сравните ключевые свойства форматирования каждой фигуры — параметры заливки, линии и эффекты. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает последующее управление стилями.
+
+**Могу ли я сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
+
+Да. Сохраните примеры фигур с нужными стилями в шаблонный набор слайдов или файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где требуется.

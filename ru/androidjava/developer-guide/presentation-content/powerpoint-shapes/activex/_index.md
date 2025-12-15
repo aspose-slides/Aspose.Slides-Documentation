@@ -1,68 +1,80 @@
 ---
-title: ActiveX
+title: Управление элементами ActiveX в презентациях на Android
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ru/androidjava/activex/
+keywords:
+- ActiveX
+- элемент управления ActiveX
+- управление ActiveX
+- добавление ActiveX
+- модификация ActiveX
+- медиаплеер
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как Aspose.Slides for Android via Java использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
 ---
-
 
 {{% alert color="primary" %}} 
 
-Элементы управления ActiveX используются в презентациях. Aspose.Slides для Android через Java позволяет добавлять и управлять элементами управления ActiveX, но они немного сложнее в управлении по сравнению с обычными элементами презентации. Мы реализовали поддержку добавления активного элемента управления Media Player в Aspose.Slides. Обратите внимание, что элементы управления ActiveX не являются фигурами; они не являются частью [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection) презентации. Вместо этого они являются частью отдельной [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection). В этой теме мы покажем вам, как с ними работать.
+ActiveX‑элементы используются в презентациях. Aspose.Slides for Android via Java позволяет добавлять и управлять ActiveX‑элементами, но они несколько сложнее в управлении по сравнению с обычными фигурами презентации. Мы реализовали поддержку добавления ActiveX‑элемента Media Player в Aspose.Slides. Обратите внимание, что ActiveX‑элементы не являются фигурами; они не являются частью [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection) презентации. Они находятся в отдельной [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection). В этой теме мы покажем, как с ними работать.
 
 {{% /alert %}} 
 
-## **Добавление элемента управления Media Player ActiveX на слайд**
-Чтобы добавить элемент управления ActiveX Media Player, выполните следующие действия:
+## **Добавить ActiveX‑элемент Media Player на слайд**
+Чтобы добавить элемент управления ActiveX Media Player, выполните следующее:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и создайте пустой экземпляр презентации.
-1. Доступ к целевому слайду в [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Добавьте элемент управления ActiveX Media Player, используя метод [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-), предоставленный [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
-1. Получите доступ к элементу управления ActiveX Media Player и установите путь к видео, используя его свойства.
-1. Сохраните презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и сформируйте пустую презентацию.  
+2. Получите целевой слайд в объекте [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+3. Добавьте элемент управления Media Player ActiveX с помощью метода [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) из интерфейса [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).  
+4. Доступитесь к элементу управления Media Player ActiveX и укажите путь к видео, используя его свойства.  
+5. Сохраните презентацию в файл PPTX.  
 
-Этот образец кода, основанный на вышеуказанных действиях, показывает, как добавить элемент управления Media Player ActiveX на слайд:
-
+Этот пример кода, основанный на описанных выше шагах, демонстрирует, как добавить ActiveX‑элемент Media Player на слайд:
 ```java
-// Создание пустого экземпляра презентации
+// Создать пустой экземпляр презентации
 Presentation pres = new Presentation();
 try {
-    // Добавление элемента управления Media Player ActiveX
+    // Добавление элемента управления ActiveX Media Player
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Доступ к элементу управления Media Player ActiveX и установка пути к видео
+    // Доступ к элементу управления ActiveX Media Player и установка пути к видео
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
-    // Сохранение презентации
+    // Сохранить презентацию
     pres.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Изменение элемента управления ActiveX**
+
+## **Изменить ActiveX‑элемент**
 {{% alert color="primary" %}} 
 
-Aspose.Slides для Android через Java 7.1.0 и более новые версии оборудованы компонентами для управления элементами управления ActiveX. Вы можете получить доступ к уже добавленному элементу управления ActiveX в вашей презентации и изменить или удалить его через его свойства.
+Aspose.Slides for Android via Java версии 7.1.0 и новее оснащён компонентами для управления ActiveX‑элементами. Вы можете получить доступ к уже добавленному элементу ActiveX в презентации и изменить или удалить его через свойства.
 
 {{% /alert %}} 
 
-Чтобы управлять простым элементом управления ActiveX, таким как текстовое поле и простая кнопка на слайде, выполните следующие действия:
+Чтобы управлять простым ActiveX‑элементом, таким как текстовое поле и простая командная кнопка на слайде, выполните следующее:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с элементами управления ActiveX в ней.
-1. Получите ссылку на слайд по его индексу.
-1. Получите доступ к элементам управления ActiveX на слайде, получив доступ к [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
-1. Получите доступ к элементу управления TextBox1 ActiveX, используя объект [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl).
-1. Измените свойства элемента управления TextBox1 ActiveX, включая текст, шрифт, высоту шрифта и позицию рамки.
-1. Получите доступ ко второму элементу управления, названному CommandButton1.
-1. Измените заголовок кнопки, шрифт и позицию.
-1. Сдвиньте положение рамок элементов управления ActiveX.
-1. Запишите измененную презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию, содержащую ActiveX‑элементы.  
+2. Получите ссылку на слайд по его индексу.  
+3. Получите доступ к ActiveX‑элементам на слайде через [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).  
+4. Доступитесь к ActiveX‑элементу TextBox1 с помощью объекта [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl).  
+5. Измените свойства ActiveX‑элемента TextBox1, включая текст, шрифт, высоту шрифта и позицию рамки.  
+6. Получите второй элемент управления под названием CommandButton1.  
+7. Измените подпись кнопки, шрифт и позицию.  
+8. Сдвиньте положение рамок ActiveX‑элементов.  
+9. Запишите изменённую презентацию в файл PPTX.  
 
-Этот образец кода, основанный на вышеуказанных действиях, показывает, как управлять простым элементом управления ActiveX: 
-
+Этот пример кода, основанный на описанных выше шагах, показывает, как управлять простым ActiveX‑элементом:
 ```java
-// Доступ к презентации с элементами управления ActiveX
+// Доступ к презентации с элементами ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
     // Доступ к первому слайду в презентации
@@ -72,11 +84,11 @@ try {
     IControl control = slide.getControls().get_Item(0);
 
     if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Измененный текст";
+        String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Изменение заменяющего изображения. PowerPoint заменит это изображение во время активации activeX,
-        // так что иногда нормально оставить изображение без изменений.
+        // Замена заменяющего изображения. PowerPoint заменит это изображение при активации ActiveX,
+        // поэтому иногда можно оставить изображение без изменений.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -113,13 +125,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Изменение заголовка кнопки
+    // Изменение подписи кнопки
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Показать MessageBox";
+        String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Изменение заменяющего
+        // Замена заменяющего изображения
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -172,3 +184,18 @@ try {
             if (pres != null) pres.dispose();
         }
 ```
+
+
+## **FAQ**
+
+**Сохраняет ли Aspose.Slides ActiveX‑элементы при чтении и повторном сохранении, если они не могут быть выполнены в среде Java?**  
+
+Да. Aspose.Slides рассматривает их как часть презентации и может читать/изменять их свойства и рамки; для их сохранения не требуется выполнение самих элементов.
+
+**Чем ActiveX‑элементы отличаются от OLE‑объектов в презентации?**  
+
+ActiveX‑элементы — это интерактивные управляемые элементы (кнопки, текстовые поля, медиаплеер), тогда как [OLE](/slides/ru/androidjava/manage-ole/) относится к встроенным объектам приложений (например, листу Excel). Они хранятся и обрабатываются иначе и имеют разные модели свойств.
+
+**Работают ли события ActiveX и макросы VBA, если файл был изменён Aspose.Slides?**  
+
+Aspose.Slides сохраняет существующую разметку и метаданные; однако события и макросы исполняются только внутри PowerPoint на Windows при разрешённой безопасности. Библиотека не выполняет VBA.

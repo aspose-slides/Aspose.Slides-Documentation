@@ -1,82 +1,94 @@
 ---
-title: ActiveX
+title: Android のプレゼンテーションで ActiveX コントロールを管理する
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ja/androidjava/activex/
+keywords:
+- ActiveX
+- ActiveX コントロール
+- ActiveX の管理
+- ActiveX の追加
+- ActiveX の変更
+- メディア プレーヤー
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java が ActiveX を利用して PowerPoint プレゼンテーションを自動化および強化し、開発者にスライドの強力な制御を提供する方法を学びます。"
 ---
-
 
 {{% alert color="primary" %}} 
 
-ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Android via Java は、ActiveX コントロールを追加および管理する機能を提供しますが、通常のプレゼンテーションシェイプと比較すると管理が少し難しいです。Aspose.Slides では Media Player Active コントロールを追加するサポートを実装しました。ActiveX コントロールはシェイプではなく、プレゼンテーションの [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection) の一部ではありません。代わりに、別の [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) の一部です。このトピックでは、それらの使い方を説明します。
+ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Android via Java を使用すると ActiveX コントロールを追加および管理できますが、通常のプレゼンテーション シェイプと比較すると管理がやや難しくなります。Aspose.Slides に Media Player Active コントロールの追加サポートを実装しました。ActiveX コントロールはシェイプではなく、プレゼンテーションの[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection)の一部ではありません。代わりに別個の[IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection)の一部です。このトピックでは、これらの操作方法を示します。
 
 {{% /alert %}} 
 
-## **スライドに Media Player ActiveX コントロールを追加する**
-ActiveX Media Player コントロールを追加するには、次の手順を行います：
+## **スライドにメディア プレーヤー ActiveX コントロールを追加する**
+ActiveX メディア プレーヤー コントロールを追加するには、次の手順を実行します。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、空のプレゼンテーションインスタンスを生成します。
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) で対象のスライドにアクセスします。
-1. [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) により公開されている [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) メソッドを使用して、Media Player ActiveX コントロールを追加します。
-1. Media Player ActiveX コントロールにアクセスし、そのプロパティを使って動画パスを設定します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、空のプレゼンテーション インスタンスを生成します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) で対象スライドにアクセスします。
+1. [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) が提供する[addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) メソッドを使用して Media Player ActiveX コントロールを追加します。
+1. Media Player ActiveX コントロールにアクセスし、そのプロパティを使用してビデオ パスを設定します。
 1. プレゼンテーションを PPTX ファイルとして保存します。
 
-上記の手順に基づいたこのサンプルコードは、スライドに Media Player ActiveX コントロールを追加する方法を示しています：
-
+このサンプルコードは、上記の手順に基づき、スライドに Media Player ActiveX コントロールを追加する方法を示します。
 ```java
-// Create empty presentation instance
+// 空のプレゼンテーションインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // Adding the Media Player ActiveX control
+    // Media Player ActiveX コントロールを追加
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Access the Media Player ActiveX control and set the video path
+    // Media Player ActiveX コントロールにアクセスし、ビデオパスを設定
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
-    // Save the Presentation
+    // プレゼンテーションを保存
     pres.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **ActiveX コントロールの変更**
+
+## **ActiveX コントロールを変更する**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java 7.1.0 以降のバージョンには、ActiveX コントロールを管理するコンポーネントが備わっています。すでにプレゼンテーションに追加された ActiveX コントロールにアクセスし、そのプロパティを通じて変更または削除することができます。
+Aspose.Slides for Android via Java 7.1.0 以降のバージョンは、ActiveX コントロールを管理するコンポーネントを備えています。プレゼンテーションに既に追加されている ActiveX コントロールにアクセスし、プロパティを介して変更または削除できます。
 
 {{% /alert %}} 
 
-スライド上のテキストボックスやシンプルなコマンドボタンのようなシンプルな ActiveX コントロールを管理するには、次の手順を行います：
+スライド上のテキスト ボックスやシンプルなコマンド ボタンなどのシンプルな ActiveX コントロールを管理するには、次の手順を実行します。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールが含まれているプレゼンテーションを読み込みます。
-1. インデックスを指定してスライドへの参照を取得します。
-1. [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) にアクセスしてスライド内の ActiveX コントロールにアクセスします。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションをロードします。
+1. インデックスでスライド参照を取得します。
+1. [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) にアクセスして、スライド内の ActiveX コントロールにアクセスします。
 1. [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl) オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
-1. テキスト、フォント、フォントの高さ、フレーム位置を含む TextBox1 ActiveX コントロールのプロパティを変更します。
-1. CommandButton1 という名前の二番目のコントロールにアクセスします。
+1. テキスト、フォント、フォント高さ、フレーム位置を含む TextBox1 ActiveX コントロールのプロパティを変更します。
+1. CommandButton1 と呼ばれる2番目のコントロールにアクセスします。
 1. ボタンのキャプション、フォント、位置を変更します。
-1. ActiveX コントロールのフレームの位置をずらします。
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
+1. ActiveX コントロールのフレーム位置をシフトします。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
 
-上記の手順に基づいたこのサンプルコードは、シンプルな ActiveX コントロールを管理する方法を示しています： 
-
+このサンプルコードは、上記の手順に基づき、シンプルな ActiveX コントロールを管理する方法を示します。
 ```java
-// Accessing the presentation with ActiveX controls
+// ActiveX コントロールを使用したプレゼンテーションにアクセス
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
-    // Accessing the first slide in presentation
+    // プレゼンテーションの最初のスライドにアクセス
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // changing TextBox text
+    // テキストボックスのテキストを変更
     IControl control = slide.getControls().get_Item(0);
 
     if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Changing substitute image. PowerPoint will replace this image during activeX activation,
-        // so sometime it's OK to leave image unchanged.
+        // 代替画像を変更します。PowerPoint は ActiveX の有効化時にこの画像を置き換えます、
+        // そのため、画像を変更しないままにしておいても問題ない場合があります。
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -113,13 +125,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Changing Button caption
+    // ボタンのキャプションを変更
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Changing substitute
+        // 代替画像を変更
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -156,7 +168,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // moving 100 points down
+            // 100 ポイント下に移動
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -164,7 +176,7 @@ try {
             }
             pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-            // removing controls
+            // コントロールを削除
             pres.getSlides().get_Item(0).getControls().clear();
             pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
         } catch(IOException e) {
@@ -172,3 +184,18 @@ try {
             if (pres != null) pres.dispose();
         }
 ```
+
+
+## **FAQ**
+
+**Java ランタイムで実行できない場合でも、Aspose.Slides は ActiveX コントロールを読み取り再保存時に保持しますか？**
+
+はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体を実行する必要はありません。
+
+**ActiveX コントロールはプレゼンテーション内の OLE オブジェクトとどのように異なりますか？**
+
+ActiveX コントロールはインタラクティブな管理対象コントロール（ボタン、テキスト ボックス、メディア プレーヤー）であり、[OLE](/slides/ja/androidjava/manage-ole/) は埋め込みアプリケーション オブジェクト（例: Excel ワークシート）を指します。これらは異なる方法で保存・処理され、プロパティ モデルも異なります。
+
+**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは機能しますか？**
+
+Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows の PowerPoint 内で、セキュリティが許可された場合にのみ実行されます。このライブラリは VBA を実行しません。

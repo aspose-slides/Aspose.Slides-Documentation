@@ -1,123 +1,147 @@
 ---
-title: AndroidでPowerPointプレゼンテーションチャートを作成または更新
-linktitle: チャートを作成
+title: AndroidでPowerPointプレゼンテーションのチャートを作成または更新
+linktitle: チャートの作成または更新
 type: docs
 weight: 10
 url: /ja/androidjava/create-chart/
-keywords: "チャートの作成、散布図、円グラフ、ツリーマップチャート、株価チャート、箱ひげ図、ヒストグラムチャート、ファンネルチャート、サンバーストチャート、マルチカテゴリチャート、PowerPointプレゼンテーション、Java、Aspose.Slides for Android via Java"
-description: "JavaでPowerPointプレゼンテーションにチャートを作成"
+keywords:
+- チャートの追加
+- チャートの作成
+- チャートの編集
+- チャートの変更
+- チャートの更新
+- 散布図
+- 円グラフ
+- 折れ線グラフ
+- ツリーマップチャート
+- 株価チャート
+- 箱ひげ図
+- ファンネルチャート
+- サンバーストチャート
+- ヒストグラムチャート
+- レーダーチャート
+- マルチカテゴリチャート
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を使用して、PowerPoint プレゼンテーション内のチャートを作成・カスタマイズします。実用的な Java コード例でチャートの追加、書式設定、編集が可能です。"
 ---
 
-## 概要
+## **概要**
 
-この記事では、**JavaでPowerPointプレゼンテーションチャートを作成**する方法について説明します。また、**Javaでチャートを更新**することもできます。以下のトピックを取り上げます。
+この記事では、**Java で PowerPoint プレゼンテーション チャートを作成する方法** を説明します。また、**Java でチャートを更新することもできます**。以下のトピックをカバーしています。
 
-_チャート_: **標準**
-- [JavaでPowerPointチャートを作成](#java-create-powerpoint-chart)
-- [Javaでプレゼンテーションチャートを作成](#java-create-presentation-chart)
-- [JavaでPowerPointプレゼンテーションチャートを作成](#java-create-powerpoint-presentation-chart)
+_チャート_: **通常**
+- [Java で PowerPoint チャートを作成](#java-create-powerpoint-chart)
+- [Java でプレゼンテーションチャートを作成](#java-create-presentation-chart)
+- [Java で PowerPoint プレゼンテーションチャートを作成](#java-create-powerpoint-presentation-chart)
 
 _チャート_: **散布図**
-- [Javaで散布図チャートを作成](#java-create-scattered-chart)
-- [JavaでPowerPoint散布図チャートを作成](#java-create-powerpoint-scattered-chart)
-- [JavaでPowerPointプレゼンテーション散布図チャートを作成](#java-create-powerpoint-presentation-scattered-chart)
+- [Java で散布図を作成](#java-create-scattered-chart)
+- [Java で PowerPoint 散布図を作成](#java-create-powerpoint-scattered-chart)
+- [Java で PowerPoint プレゼンテーション散布図を作成](#java-create-powerpoint-presentation-scattered-chart)
 
 _チャート_: **円グラフ**
-- [Javaで円グラフを作成](#java-create-pie-chart)
-- [JavaでPowerPoint円グラフを作成](#java-create-powerpoint-pie-chart)
-- [JavaでPowerPointプレゼンテーション円グラフを作成](#java-create-powerpoint-presentation-pie-chart)
+- [Java で円グラフを作成](#java-create-pie-chart)
+- [Java で PowerPoint 円グラフを作成](#java-create-powerpoint-pie-chart)
+- [Java で PowerPoint プレゼンテーション円グラフを作成](#java-create-powerpoint-presentation-pie-chart)
 
 _チャート_: **ツリーマップ**
-- [Javaでツリーマップチャートを作成](#java-create-tree-map-chart)
-- [JavaでPowerPointツリーマップチャートを作成](#java-create-powerpoint-tree-map-chart)
-- [JavaでPowerPointプレゼンテーションツリーマップチャートを作成](#java-create-powerpoint-presentation-tree-map-chart)
+- [Java でツリーマップを作成](#java-create-tree-map-chart)
+- [Java で PowerPoint ツリーマップを作成](#java-create-powerpoint-tree-map-chart)
+- [Java で PowerPoint プレゼンテーションツリーマップを作成](#java-create-powerpoint-presentation-tree-map-chart)
 
 _チャート_: **株価**
-- [Javaで株価チャートを作成](#java-create-stock-chart)
-- [JavaでPowerPoint株価チャートを作成](#java-create-powerpoint-stock-chart)
-- [JavaでPowerPointプレゼンテーション株価チャートを作成](#java-create-powerpoint-presentation-stock-chart)
+- [Java で株価チャートを作成](#java-create-stock-chart)
+- [Java で PowerPoint 株価チャートを作成](#java-create-powerpoint-stock-chart)
+- [Java で PowerPoint プレゼンテーション株価チャートを作成](#java-create-powerpoint-presentation-stock-chart)
 
 _チャート_: **箱ひげ図**
-- [Javaで箱ひげ図チャートを作成](#java-create-box-and-whisker-chart)
-- [JavaでPowerPoint箱ひげ図チャートを作成](#java-create-powerpoint-box-and-whisker-chart)
-- [JavaでPowerPointプレゼンテーション箱ひげ図チャートを作成](#java-create-powerpoint-presentation-box-and-whisker-chart)
+- [Java で箱ひげ図を作成](#java-create-box-and-whisker-chart)
+- [Java で PowerPoint 箱ひげ図を作成](#java-create-powerpoint-box-and-whisker-chart)
+- [Java で PowerPoint プレゼンテーション箱ひげ図を作成](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
 _チャート_: **ファンネル**
-- [Javaでファンネルチャートを作成](#java-create-funnel-chart)
-- [JavaでPowerPointファンネルチャートを作成](#java-create-powerpoint-funnel-chart)
-- [JavaでPowerPointプレゼンテーションファンネルチャートを作成](#java-create-powerpoint-presentation-funnel-chart)
+- [Java でファンネルチャートを作成](#java-create-funnel-chart)
+- [Java で PowerPoint ファンネルチャートを作成](#java-create-powerpoint-funnel-chart)
+- [Java で PowerPoint プレゼンテーションファンネルチャートを作成](#java-create-powerpoint-presentation-funnel-chart)
 
 _チャート_: **サンバースト**
-- [Javaでサンバーストチャートを作成](#java-create-sunburst-chart)
-- [JavaでPowerPointサンバーストチャートを作成](#java-create-powerpoint-sunburst-chart)
-- [JavaでPowerPointプレゼンテーションサンバーストチャートを作成](#java-create-powerpoint-presentation-sunburst-chart)
+- [Java でサンバーストチャートを作成](#java-create-sunburst-chart)
+- [Java で PowerPoint サンバーストチャートを作成](#java-create-powerpoint-sunburst-chart)
+- [Java で PowerPoint プレゼンテーションサンバーストチャートを作成](#java-create-powerpoint-presentation-sunburst-chart)
 
 _チャート_: **ヒストグラム**
-- [Javaでヒストグラムチャートを作成](#java-create-histogram-chart)
-- [JavaでPowerPointヒストグラムチャートを作成](#java-create-powerpoint-histogram-chart)
-- [JavaでPowerPointプレゼンテーションヒストグラムチャートを作成](#java-create-powerpoint-presentation-histogram-chart)
+- [Java でヒストグラムチャートを作成](#java-create-histogram-chart)
+- [Java で PowerPoint ヒストグラムチャートを作成](#java-create-powerpoint-histogram-chart)
+- [Java で PowerPoint プレゼンテーションヒストグラムチャートを作成](#java-create-powerpoint-presentation-histogram-chart)
 
 _チャート_: **レーダー**
-- [Javaでレーダーチャートを作成](#java-create-radar-chart)
-- [JavaでPowerPointレーダーチャートを作成](#java-create-powerpoint-radar-chart)
-- [JavaでPowerPointプレゼンテーションレーダーチャートを作成](#java-create-powerpoint-presentation-radar-chart)
+- [Java でレーダーチャートを作成](#java-create-radar-chart)
+- [Java で PowerPoint レーダーチャートを作成](#java-create-powerpoint-radar-chart)
+- [Java で PowerPoint プレゼンテーションレーダーチャートを作成](#java-create-powerpoint-presentation-radar-chart)
 
-_チャート_: **複数カテゴリ**
-- [Javaで複数カテゴリチャートを作成](#java-create-multi-category-chart)
-- [JavaでPowerPoint複数カテゴリチャートを作成](#java-create-powerpoint-multi-category-chart)
-- [JavaでPowerPointプレゼンテーション複数カテゴリチャートを作成](#java-create-powerpoint-presentation-multi-category-chart)
+_チャート_: **マルチカテゴリ**
+- [Java でマルチカテゴリチャートを作成](#java-create-multi-category-chart)
+- [Java で PowerPoint マルチカテゴリチャートを作成](#java-create-powerpoint-multi-category-chart)
+- [Java で PowerPoint プレゼンテーションマルチカテゴリチャートを作成](#java-create-powerpoint-presentation-multi-category-chart)
 
-_チャート_: **地図**
-- [Javaで地図チャートを作成](#java-create-map-chart)
-- [JavaでPowerPoint地図チャートを作成](#java-create-powerpoint-map-chart)
-- [JavaでPowerPointプレゼンテーション地図チャートを作成](#java-create-powerpoint-presentation-map-chart)
+_チャート_: **マップ**
+- [Java でマップチャートを作成](#java-create-map-chart)
+- [Java で PowerPoint マップチャートを作成](#java-create-powerpoint-map-chart)
+- [Java で PowerPoint プレゼンテーションマップチャートを作成](#java-create-powerpoint-presentation-map-chart)
 
 _アクション_: **チャートの更新**
-- [JavaでPowerPointチャートを更新](#java-update-powerpoint-chart)
-- [Javaでプレゼンテーションチャートを更新](#java-update-presentation-chart)
-- [JavaでPowerPointプレゼンテーションチャートを更新](#java-update-powerpoint-presentation-chart)
+- [Java で PowerPoint チャートを更新](#java-update-powerpoint-chart)
+- [Java でプレゼンテーションチャートを更新](#java-update-presentation-chart)
+- [Java で PowerPoint プレゼンテーションチャートを更新](#java-update-powerpoint-presentation-chart)
+
 
 ## **チャートの作成**
-チャートは、データをすばやく視覚化し、テーブルやスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
+チャートは、データをすばやく視覚化し、テーブルやスプレッドシートではすぐに分からない洞察を得るのに役立ちます。 
 
 **なぜチャートを作成するのか？**
 
 チャートを使用すると、  
 
-* 大量のデータを 1 つのスライドに集約、要約、凝縮できる  
+* 大量のデータをプレゼンテーションの 1 スライドに集約、要約、または凝縮できる  
 * データのパターンやトレンドを明らかにできる  
-* 時間経過や特定の測定単位に対するデータの方向性と勢いを推測できる  
-* 外れ値や異常、エラー、意味不明なデータを検出できる  
-* 複雑なデータを伝達または提示できる  
+* 時間経過や特定の測定単位に対するデータの方向性や勢いを推測できる  
+* 外れ値、異常、誤り、意味のないデータなどを検出できる  
+* 複雑なデータを効果的に伝達できる  
 
-PowerPoint では「挿入」機能で多数のテンプレートを使ってチャートを作成できます。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
+PowerPoint では、挿入機能を使って多くのテンプレートからさまざまなチャートを作成できます。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートやカスタムチャートを作成できます。 
 
-{{% alert color="primary" %}}  
-チャート作成を支援するために、Aspose.Slides は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType) クラスを提供します。このクラスのフィールドはさまざまなチャートタイプに対応しています。  
-{{% /alert %}}
+{{% alert color="primary" %}} 
+
+チャート作成を容易にするため、Aspose.Slides は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType) クラスを提供します。このクラスのフィールドはさまざまなチャートタイプに対応しています。
+
+{{% /alert %}} 
 
 ### **標準チャートの作成**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>手順:</em> JavaでPowerPointチャートを作成</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>手順:</em> Javaでプレゼンテーションチャートを作成</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションチャートを作成</strong></a>
+_Steps: Create Chart_  
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>手順:</em> Java で PowerPoint チャートを作成</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>手順:</em> Java でプレゼンテーションチャートを作成</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>手順:</em> Java で PowerPoint プレゼンテーションチャートを作成</strong></a>
 
-_Code Steps:_
+**コード手順:**
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2. インデックスを使用してスライドの参照を取得します。  
-3. データを含むチャートを追加し、希望するチャートタイプを指定します。  
+3. データを指定してチャートを追加し、目的のチャートタイプを選択します。  
 4. チャートにタイトルを追加します。  
-5. チャートデータのワークシートにアクセスします。  
+5. チャート データ ワークシートにアクセスします。  
 6. 既定の系列とカテゴリをすべてクリアします。  
 7. 新しい系列とカテゴリを追加します。  
-8. 系列用に新しいチャートデータを追加します。  
-9. 系列の塗りつぶし色を設定します。  
+8. 系列用に新しいチャート データを追加します。  
+9. 系列に塗りつぶし色を設定します。  
 10. 系列のラベルを追加します。  
 11. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは標準チャートの作成方法を示しています:  
+この Java コードは標準チャートの作成方法を示しています。
 ```java
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -161,7 +185,7 @@ try {
     // 最初のチャート系列を取得します
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 系列データを入力します
+    // 系列データを現在設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -173,7 +197,7 @@ try {
     // 2 番目のチャート系列を取得します
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // 系列データを入力します
+    // 系列データを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
@@ -182,7 +206,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Create新しい系列の各カテゴリにカスタム ラベルを作成します
+    //Create カスタムラベルを新しい系列の各カテゴリに作成します
     // 最初のラベルにカテゴリ名を表示するよう設定します
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -205,28 +229,28 @@ try {
 
 
 ### **散布図チャートの作成**
-散布図（散布プロットまたは X‑Y グラフとも呼ばれる）は、変数間のパターンや相関を確認する際によく使用されます。
+散布図（別名散布プロットまたは x‑y グラフ）は、2 つの変数間のパターンや相関を確認する際に使用されます。  
 
-以下の場合に散布図の使用を検討してください  
+散布図を使用したい場合  
 
-* 対になった数値データがある  
-* 2 つの変数がペアで関連付けられる  
-* 2 変数が相関しているか判定したい  
-* 従属変数に対して独立変数が複数の値を持つ
+* ペアになっている数値データがあるとき  
+* 2 つの変数が相互に関係しているとき  
+* 2 変数が関連しているかどうかを判断したいとき  
+* 従属変数に対して独立変数が複数の値を持つとき  
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>手順:</em> Javaで散布図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>手順:</em> JavaでPowerPoint散布図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション散布図チャートを作成</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>手順:</em> Java で散布図を作成</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>手順:</em> Java で PowerPoint 散布図を作成</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>手順:</em> Java で PowerPoint プレゼンテーション散布図を作成</strong></a>
 
-1. [標準チャートの作成](#creating-normal-charts) で示した手順に従います。  
-2. 3 番目の手順で、以下のいずれかのチャートタイプを指定してチャートを追加します  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _散布図（マーカー付き）_  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _滑らかな線とマーカー付き散布図_  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _滑らかな線のみの散布図_  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線とマーカー付き散布図_  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _直線のみの散布図_
+1. [標準チャートの作成](#creating-normal-charts) で示した手順に従ってください。  
+2. 3 番目の手順で、チャートを追加するときに以下のいずれかのタイプを指定します  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) – _散布チャートを表します。_  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _曲線で接続された散布チャート（データ マーカー付き）を表します。_  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) – _曲線で接続された散布チャート（データ マーカーなし）を表します。_  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _直線で接続された散布チャート（データ マーカー付き）を表します。_  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) – _直線で接続された散布チャート（データ マーカーなし）を表します。_  
 
-この Java コードは、異なるマーカー系列を持つ散布図の作成方法を示しています:  
+この Java コードは、異なるマーカ 系列を使用した散布図の作成方法を示しています。  
 ```java
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -294,26 +318,26 @@ try {
 
 ### **円グラフの作成**
 
-円グラフは、データの全体に対する部分の関係を示すのに最適です。ただし、項目やラベルが多数ある場合は棒グラフの方が適しています。
+円グラフは、データの部分と全体の関係を示すのに最適です。特にカテゴリ別ラベルと数値がある場合に有用です。ただし、部分やラベルが多数ある場合は、棒グラフの使用を検討してください。  
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>手順:</em> Javaで円グラフを作成</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>手順:</em> JavaでPowerPoint円グラフを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション円グラフを作成</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>手順:</em> Java で円グラフを作成</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>手順:</em> Java で PowerPoint 円グラフを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>手順:</em> Java で PowerPoint プレゼンテーション円グラフを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Pie）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. インデックスでスライドを取得します。  
+3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Pie）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
-7. 系列用に新しいチャートデータを追加します。  
-8. 円グラフのセクターに新しいポイントとカスタム色を追加します。  
+7. 系列用に新しいチャート データを追加します。  
+8. 円グラフの各セクタに新しいポイントとカスタム 色を追加します。  
 9. 系列のラベルを設定します。  
-10. 系列ラベルのリーダー線を設定します。  
+10. 系列ラベルのリーダー ラインを設定します。  
 11. 円グラフスライドの回転角度を設定します。  
 12. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは円グラフの作成方法を示しています:  
+この Java コードは円グラフの作成方法を示しています。  
 ```java
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -351,13 +375,13 @@ try {
     // 新しい系列を追加します
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // 系列データを入力します
+    //系列データを設定します
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // 新しいバージョンでは動作しません
-    // 新しいポイントを追加し、セクターの色を設定します
+    // 新しいバージョンでは機能しません
+    // 新しいポイントを追加し、セクタの色を設定します
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -365,7 +389,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // セクターの枠線を設定します
+    // セクタの枠線を設定します
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -376,7 +400,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // セクターの枠線を設定します
+    // セクタの枠線を設定します
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -387,7 +411,7 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // セクターの枠線を設定します
+    // セクタの枠線を設定します
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
@@ -412,7 +436,7 @@ try {
     // チャートのリーダーラインを表示します
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // 円グラフセクターの回転角度を設定します
+    // パイ チャート セクタの回転角度を設定します
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // チャート付きのプレゼンテーションを保存します
@@ -425,18 +449,18 @@ try {
 
 ### **折れ線グラフの作成**
 
-折れ線グラフ（折れ線グラフ）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、複数のデータを同時に比較したり、時間に伴う変化やトレンドを追跡したり、異常を強調したりできます。
+折れ線グラフ（別名ライン グラフ）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、複数のデータを同時に比較したり、トレンドや異常を強調したりできます。  
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-1. インデックスでスライドの参照を取得します。  
-1. デフォルトデータと希望のタイプ（この場合は `ChartType.Line`）でチャートを追加します。  
-1. チャートデータの IChartDataWorkbook にアクセスします。  
+1. スライドのインデックスで参照を取得します。  
+1. デフォルト データと希望のタイプ（この場合は `ChartType.Line`）でチャートを追加します。  
+1. チャート データ IChartDataWorkbook にアクセスします。  
 1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. 系列用に新しいチャートデータを追加します。  
+1. 系列用に新しいチャート データを追加します。  
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードは折れ線グラフの作成方法を示しています:  
+この Java コードは折れ線グラフの作成方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -449,7 +473,7 @@ try {
 ```
 
 
-デフォルトでは、折れ線グラフのポイントは直線で結ばれます。破線で結びたい場合は、次のようにダッシュタイプを指定できます:  
+既定では、折れ線グラフのポイントは直線で連結されます。破線で結びたい場合は、次のように破線タイプを指定します。  
 ```java
 IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
 
@@ -462,22 +486,22 @@ for (IChartSeries series : lineChart.getChartData().getSeries())
 
 ### **ツリーマップチャートの作成**
 
-ツリーマップチャートは、売上データなどでカテゴリごとのサイズを示し、同時に大きな貢献度を持つ項目に注意を引きやすくします。
+ツリーマップチャートは、カテゴリ別の相対的なサイズを示し、同時に各カテゴリ内の大きな貢献項目に注目させるのに適しています。  
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>手順:</em> Javaでツリーマップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>手順:</em> JavaでPowerPointツリーマップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションツリーマップチャートを作成</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>手順:</em> Java でツリーマップチャートを作成</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>手順:</em> Java で PowerPoint ツリーマップチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>手順:</em> Java で PowerPoint プレゼンテーションツリーマップチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).TreeMap）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. インデックスでスライドを取得します。  
+3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).TreeMap）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
-7. 系列用に新しいチャートデータを追加します。  
+7. 系列用に新しいチャート データを追加します。  
 8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この Java コードはツリーマップチャートの作成方法を示しています:  
+この Java コードはツリーマップチャートの作成方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -488,7 +512,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //ブランチ 1
+    // ブランチ 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -500,7 +524,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //ブランチ 2
+    // ブランチ 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -534,17 +558,17 @@ try {
 
 ### **株価チャートの作成**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>手順:</em> Javaで株価チャートを作成</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>手順:</em> JavaでPowerPoint株価チャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション株価チャートを作成</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>手順:</em> Java で株価チャートを作成</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>手順:</em> Java で PowerPoint 株価チャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>手順:</em> Java で PowerPoint プレゼンテーション株価チャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).OpenHighLowClose）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. インデックスでスライドを取得します。  
+3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).OpenHighLowClose）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
-7. 系列用に新しいチャートデータを追加します。  
+7. 系列用に新しいチャート データを追加します。  
 8. HiLowLines の書式を指定します。  
 9. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
@@ -606,20 +630,20 @@ try {
 
 ### **箱ひげ図の作成**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>手順:</em> Javaで箱ひげ図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>手順:</em> JavaでPowerPoint箱ひげ図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション箱ひげ図チャートを作成</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>手順:</em> Java で箱ひげ図を作成</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>手順:</em> Javaで PowerPoint 箱ひげ図を作成</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーション箱ひげ図を作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).BoxAndWhisker）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).BoxAndWhisker）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
-7. 系列用に新しいチャートデータを追加します。  
+7. 系列用に新しいチャート データを追加します。  
 8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-箱ひげ図作成の Java コード:  
+この Java コードは箱ひげ図の作成方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -661,13 +685,13 @@ try {
 
 ### **ファンネルチャートの作成**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>手順:</em> Javaでファンネルチャートを作成</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>手順:</em> JavaでPowerPointファンネルチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションファンネルチャートを作成</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>手順:</em> Javaで ファンネルチャートを作成</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>手順:</em> Javaで PowerPoint ファンネルチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションファンネルチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Funnel）でチャートを追加します。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Funnel）でチャートを追加します。  
 4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 ファンネルチャート作成の Java コード:  
@@ -707,13 +731,13 @@ try {
 
 ### **サンバーストチャートの作成**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>手順:</em> Javaでサンバーストチャートを作成</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>手順:</em> JavaでPowerPointサンバーストチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションサンバーストチャートを作成</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>手順:</em> Javaで サンバーストチャートを作成</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>手順:</em> Javaで PowerPoint サンバーストチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションサンバーストチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).sunburst）でチャートを追加します。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（この場合は [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).sunburst）でチャートを追加します。  
 4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 サンバーストチャート作成の Java コード:  
@@ -771,14 +795,14 @@ try {
 
 ### **ヒストグラムチャートの作成**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>手順:</em> Javaでヒストグラムチャートを作成</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>手順:</em> JavaでPowerPointヒストグラムチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションヒストグラムチャートを作成</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>手順:</em> Javaで ヒストグラムチャートを作成</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>手順:</em> Javaで PowerPoint ヒストグラムチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションヒストグラムチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Histogram）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Histogram）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
 7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
@@ -813,13 +837,13 @@ try {
 
 ### **レーダーチャートの作成**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>手順:</em> Javaでレーダーチャートを作成</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>手順:</em> JavaでPowerPointレーダーチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションレーダーチャートを作成</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>手順:</em> Javaで レーダーチャートを作成</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>手順:</em> Javaで PowerPoint レーダーチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションレーダーチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. データを含むチャートを追加し、希望するタイプ（この場合は `ChartType.Radar`）を指定します。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（この場合は `ChartType.Radar`）でチャートを追加します。  
 4. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
 レーダーチャート作成の Java コード:  
@@ -834,22 +858,22 @@ try {
 ```
 
 
-### **複数カテゴリチャートの作成**
+### **マルチカテゴリチャートの作成**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>手順:</em> Javaで複数カテゴリチャートを作成</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>手順:</em> JavaでPowerPoint複数カテゴリチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション複数カテゴリチャートを作成</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>手順:</em> Javaで マルチカテゴリチャートを作成</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>手順:</em> Javaで PowerPoint マルチカテゴリチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションマルチカテゴリチャートを作成</strong></a>
 
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. デフォルトデータと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).ClusteredColumn）でチャートを追加します。  
-4. チャートデータの [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
+2. スライドのインデックスで参照を取得します。  
+3. デフォルト データと希望のタイプ（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).ClusteredColumn）でチャートを追加します。  
+4. チャート データ [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) にアクセスします。  
 5. 既定の系列とカテゴリをクリアします。  
 6. 新しい系列とカテゴリを追加します。  
-7. 系列用に新しいチャートデータを追加します。  
+7. 系列用に新しいチャート データを追加します。  
 8. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-複数カテゴリチャート作成の Java コード:  
+マルチカテゴリチャート作成の Java コード:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -877,7 +901,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // シリーズを追加
+    // 系列を追加
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -898,15 +922,15 @@ try {
 ```
 
 
-### **地図チャートの作成**
+### **マップチャートの作成**
 
-地図チャートは、データを含む領域を視覚化します。地図チャートは、地域ごとのデータや値を比較するのに最適です。
+マップチャートは、データを含む領域の可視化です。マップチャートは、地理的領域ごとのデータや値を比較するのに最適です。  
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>手順:</em> Javaで地図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>手順:</em> JavaでPowerPoint地図チャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーション地図チャートを作成</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>手順:</em> Javaで マップチャートを作成</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>手順:</em> Javaで PowerPoint マップチャートを作成</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションマップチャートを作成</strong></a>
 
-この Java コードは地図チャートの作成方法を示しています:  
+この Java コードはマップチャートの作成方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -920,11 +944,11 @@ try {
 
 ### **組み合わせチャートの作成**
 
-組み合わせチャート（コンボチャート）は、単一のグラフに 2 つ以上のチャートタイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いを強調、比較、検証でき、関係性を把握しやすくなります。
+組み合わせチャート（コンボチャート）は、1 つのグラフに 2 つ以上のチャート タイプを組み合わせます。このチャートは、データセット間の関係を特定しやすくします。  
 
-![組み合わせチャート](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-以下の Java コードは、上記の組み合わせチャートを PowerPoint プレゼンテーションに作成する方法を示しています:  
+以下の Java コードは、上記の組み合わせチャートを PowerPoint プレゼンテーションに作成する方法を示します。  
 ```java
 static void createComboChart() {
     Presentation presentation = new Presentation();
@@ -1020,28 +1044,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // 水平軸を設定します。
+    // 横軸を設定します。
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 垂直軸を設定します。
+    // 縦軸を設定します。
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // 垂直主目盛線の色を設定します。
+    // 縦軸の主要グリッドラインの色を設定します。
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // 第2水平軸を設定します。
+    // 二次横軸を設定します。
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1049,7 +1073,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // 第2垂直軸を設定します。
+    // 二次縦軸を設定します。
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1073,70 +1097,70 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **チャートの更新**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>手順:</em> JavaでPowerPointチャートを更新</strong></a> |
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>手順:</em> Javaで PowerPoint チャートを更新</strong></a> |
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>手順:</em> Javaでプレゼンテーションチャートを更新</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>手順:</em> JavaでPowerPointプレゼンテーションチャートを更新</strong></a>
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>手順:</em> Javaで PowerPoint プレゼンテーションチャートを更新</strong></a>
 
-1. 更新対象のチャートが含まれるプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスをインスタンス化します。  
+1. 更新対象のチャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
 2. インデックスを使用してスライドの参照を取得します。  
 3. すべてのシェイプを走査して目的のチャートを見つけます。  
-4. チャートデータのワークシートにアクセスします。  
-5. 系列の値を変更してチャートデータ系列を修正します。  
-6. 新しい系列を追加し、そのデータを入力します。  
+4. チャートのデータ ワークシートにアクセスします。  
+5. 系列の値を変更してチャート データ 系列を更新します。  
+6. 新しい系列を追加し、データを入力します。  
 7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-チャートを更新する Java コード:  
+この Java コードはチャートの更新方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドにアクセスします
+    // 最初のスライドマーカーにアクセス
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // デフォルトデータでチャートを取得します
+    // デフォルトデータのチャートを取得
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // チャートデータシートのインデックスを設定します
+    // チャート データ シートのインデックスを設定
     int defaultWorksheetIndex = 0;
 
-    // チャートデータのワークシートを取得します
+    // チャート データ ワークシートを取得
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // チャートのカテゴリ名を変更します
+    // チャート カテゴリ名を変更
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // 最初のチャート系列を取得します
+    // 最初のチャート系列を取得
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // 系列データを更新します
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更します
+    // 系列データを更新中
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 2番目のチャート系列を取得します
+    // 2 番目のチャート系列を取得
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // 系列データを更新します
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更します
+    // 系列データを更新中
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // 新しい系列を追加します
+    // 新しい系列を追加中
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // 3番目のチャート系列を取得します
+    // 3 番目のチャート系列を取得
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // 系列データを設定します
+    // 系列データを設定中
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // チャート付きのプレゼンテーションを保存します
+    // チャート付きプレゼンテーションを保存
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1144,17 +1168,17 @@ try {
 ```
 
 
-## **チャートのデータ範囲設定**
+## **チャートのデータ範囲の設定**
 
 チャートのデータ範囲を設定する手順は次のとおりです。
 
-1. 対象チャートが含まれるプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスをインスタンス化します。  
-2. インデックスでスライドの参照を取得します。  
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
+2. スライドのインデックスで参照を取得します。  
 3. すべてのシェイプを走査して目的のチャートを見つけます。  
-4. チャートデータにアクセスし、範囲を設定します。  
+4. チャート データにアクセスし、範囲を設定します。  
 5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-データ範囲を設定する Java コード:  
+この Java コードはチャートのデータ範囲を設定する方法を示しています。  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1170,11 +1194,11 @@ try {
 ```
 
 
-## **チャートでのデフォルトマーカー使用**
+## **チャートでデフォルト マーカーを使用する**
 
-チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるマーカー記号が割り当てられます。
+チャートでデフォルト マーカーを使用すると、各系列に自動的に異なるマーカー記号が設定されます。
 
-デフォルトマーカーを自動設定する Java コード:  
+この Java コードは系列マーカーを自動設定する方法を示しています：  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -1198,10 +1222,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // 2番目のチャート系列を取得します
+    //2番目のチャート系列を取得
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // 系列データを設定します
+    //系列データを設定中
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1215,3 +1239,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides がサポートするチャート タイプは何ですか？**
+
+Aspose.Slides は、[chart types](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) を含む多種多様なチャート タイプ（棒グラフ、折れ線、円グラフ、エリア、散布図、ヒストグラム、レーダーなど）をサポートしています。この柔軟性により、データ可視化に最適なチャート タイプを選択できます。
+
+**スライドに新しいチャートを追加するにはどうすればよいですか？**
+
+まず [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャート追加メソッドを呼び出してチャート タイプと初期データを指定します。この手順でチャートがプレゼンテーションに組み込まれます。
+
+**チャートに表示されるデータを更新するにはどうすればよいですか？**
+
+[IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) にアクセスし、既定の系列とカテゴリをクリアしてからカスタム データを追加することで、チャート データを更新できます。これにより最新のデータを反映したチャートに刷新できます。
+
+**チャートの外観をカスタマイズできますか？**
+
+はい。Aspose.Slides は豊富なカスタマイズ オプションを提供します。色、フォント、ラベル、凡例、その他の [formatting elements](/slides/ja/androidjava/chart-entities/) を変更して、デザイン要件に合わせてチャートの外観を調整できます。
