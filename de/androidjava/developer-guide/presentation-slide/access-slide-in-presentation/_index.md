@@ -1,109 +1,122 @@
 ---
-title: Zugriff auf Folie in Präsentation
+title: Zugriff auf Präsentationsfolien unter Android
+linktitle: Zugriff auf Folie
 type: docs
 weight: 20
 url: /de/androidjava/access-slide-in-presentation/
-keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer, Index, ID, Position Java, Aspose.Slides"
-description: "Zugriff auf PowerPoint-Folie über Index, ID oder Position in Java. Folieneigenschaften bearbeiten"
+keywords:
+- Folie zugreifen
+- Folienindex
+- Folien-ID
+- Folienposition
+- Position ändern
+- Folieneigenschaften
+- Foliennummer
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android zugreifen und verwalten können. Steigern Sie die Produktivität mit Java-Codebeispielen."
 ---
 
-Aspose.Slides ermöglicht es Ihnen, auf Folien auf zwei Arten zuzugreifen: über den Index und über die ID.
+Aspose.Slides ermöglicht den Zugriff auf Folien auf zwei Arten: über den Index und über die ID.
 
-## **Zugriff auf Folie über Index**
+## **Zugriff auf eine Folie über den Index**
 
-Alle Folien in einer Präsentation sind numerisch basierend auf der Folienposition angeordnet, beginnend mit 0. Die erste Folie ist über den Index 0 zugänglich; die zweite Folie wird über den Index 1 aufgerufen; usw.
+Alle Folien in einer Präsentation sind numerisch nach ihrer Position angeordnet, beginnend bei 0. Die erste Folie ist über den Index 0 zugänglich; die zweite Folie über den Index 1; usw.
 
-Die Klasse Presentation, die eine Präsentationsdatei darstellt, stellt alle Folien als eine [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) Sammlung (Sammlung von [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) Objekten) zur Verfügung. Dieser Java-Code zeigt Ihnen, wie Sie auf eine Folie über ihren Index zugreifen:
-
+Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt alle Folien als Sammlung von [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) (Sammlung von [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/)‑Objekten) bereit. Dieser Java‑Code zeigt, wie man über den Index auf eine Folie zugreift:
 ```java
 // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Greift auf eine Folie über ihren Folienindex zu
+    // Greift auf eine Folie zu, indem ihr Folienindex verwendet wird
     ISlide slide = pres.getSlides().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Zugriff auf Folie über ID**
 
-Jede Folie in einer Präsentation hat eine eindeutige ID, die mit ihr verknüpft ist. Sie können die [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) Methode (bereitgestellt von der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse) verwenden, um diese ID anzusteuern. Dieser Java-Code zeigt, wie Sie eine gültige Folien-ID angeben und auf diese Folie über die [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) Methode zugreifen:
+## **Zugriff auf eine Folie über die ID**
 
+Jede Folie in einer Präsentation hat eine eindeutige ID. Sie können die Methode [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)) verwenden, um diese ID anzusprechen. Dieser Java‑Code zeigt, wie man eine gültige Folien‑ID übergibt und die Folie über die Methode [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) aufruft:
 ```java
 // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Ruft eine Folien-ID ab
+    // Ruft die Folien-ID ab
     int id = (int) pres.getSlides().get_Item(0).getSlideId();
     
-    // Greift auf die Folie über ihre ID zu
+    // Greift über die ID auf die Folie zu
     IBaseSlide slide = pres.getSlideById(id);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Folienposition ändern**
 
-Aspose.Slides ermöglicht es Ihnen, die Position einer Folie zu ändern. Zum Beispiel können Sie festlegen, dass die erste Folie zur zweiten Folie werden soll.
+## **Ändern der Folienposition**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-1. Holen Sie sich die Referenz auf die Folie (deren Position Sie ändern möchten) über ihren Index.
-1. Setzen Sie eine neue Position für die Folie über die [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-) Eigenschaft.
-1. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht das Ändern einer Folienposition. Beispielsweise können Sie festlegen, dass die erste Folie zur zweiten Folie wird.
 
-Dieser Java-Code zeigt einen Vorgang, bei dem die Folie an Position 1 auf Position 2 verschoben wird:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse.  
+1. Holen Sie sich die Referenz der Folie (deren Position Sie ändern möchten) über deren Index.  
+1. Setzen Sie eine neue Position für die Folie über die Eigenschaft [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-).  
+1. Speichern Sie die geänderte Präsentation.
 
+Dieser Java‑Code demonstriert eine Operation, bei der die Folie an Position 1 zu Position 2 verschoben wird:
 ```java
 // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Ruft die Folie ab, deren Position geändert wird
+    // Holt die Folie, deren Position geändert wird
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Setzt die neue Position für die Folie
     sld.setSlideNumber(2);
     
-    // Speichert die modifizierte Präsentation
+    // Speichert die geänderte Präsentation
     pres.save("helloworld_Pos.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden andere Folien automatisch angepasst.
 
-## **Foliennummer setzen**
+Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden die anderen Folien automatisch angepasst.
 
-Mit der [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) Eigenschaft (bereitgestellt von der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse) können Sie eine neue Nummer für die erste Folie in einer Präsentation festlegen. Dieser Vorgang führt dazu, dass andere Foliennummern neu berechnet werden.
+## **Festlegen der Foliennummer**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-1. Holen Sie sich die Foliennummer.
-1. Setzen Sie die Foliennummer.
-1. Speichern Sie die modifizierte Präsentation.
+Mit der Eigenschaft [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)) können Sie eine neue Nummer für die erste Folie einer Präsentation festlegen. Dieser Vorgang bewirkt, dass die anderen Foliennummern neu berechnet werden.
 
-Dieser Java-Code zeigt einen Vorgang, bei dem die erste Foliennummer auf 10 gesetzt wird:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse.  
+1. Holen Sie die Foliennummer.  
+1. Setzen Sie die Foliennummer.  
+1. Speichern Sie die geänderte Präsentation.
 
+Dieser Java‑Code demonstriert eine Operation, bei der die erste Foliennummer auf 10 gesetzt wird:
 ```java
 // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
-    // Ruft die Foliennummer ab
+    // Ermittelt die Foliennummer
     int firstSlideNumber = pres.getFirstSlideNumber();
 
     // Setzt die Foliennummer
     pres.setFirstSlideNumber(10);
 	
-    // Speichert die modifizierte Präsentation
+    // Speichert die geänderte Präsentation
     pres.save("Set_Slide_Number_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung von der zweiten Folie aus starten (und die Nummerierung für die erste Folie ausblenden) auf diese Weise:
 
+Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung ab der zweiten Folie beginnen (und die Nummerierung für die erste Folie ausblenden) auf folgende Weise:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -112,18 +125,33 @@ try {
     presentation.getSlides().addEmptySlide(layoutSlide);
     presentation.getSlides().addEmptySlide(layoutSlide);
 
-    // Setzt die Nummer für die erste Präsentationsfolie
+    // Setzt die Nummer für die erste Folie der Präsentation
     presentation.setFirstSlideNumber(0);
 
-    // Zeigt Foliennummern für alle Folien an
+    // Zeigt die Foliennummern für alle Folien an
     presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
 
-    // Blendert die Foliennummer für die erste Folie aus
+    // Blendet die Foliennummer für die erste Folie aus
     presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
 
-    // Speichert die modifizierte Präsentation
+    // Speichert die geänderte Präsentation
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Entspricht die von einem Benutzer gesehene Foliennummer dem nullbasierten Index der Sammlung?**
+
+Die auf einer Folie angezeigte Nummer kann mit einem beliebigen Wert beginnen (z. B. 10) und muss nicht mit dem Index übereinstimmen; die Beziehung wird durch die Einstellung der [first slide number](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) der Präsentation gesteuert.
+
+**Beeinflussen ausgeblendete Folien das Indexieren?**
+
+Ja. Eine ausgeblendete Folie bleibt in der Sammlung und wird beim Indexieren gezählt; „ausgeblendet“ bezieht sich auf die Anzeige, nicht auf ihre Position in der Sammlung.
+
+**Ändert sich der Index einer Folie, wenn andere Folien hinzugefügt oder entfernt werden?**
+
+Ja. Indizes spiegeln stets die aktuelle Reihenfolge der Folien wider und werden bei Einfüge‑, Lösch‑ und Verschiebe‑Vorgängen neu berechnet.

@@ -1,18 +1,33 @@
 ---
-title: Erstellen einer Fallback-Schriftarten-Sammlung
+title: Fallback-Schriftartensammlungen auf Android konfigurieren
+linktitle: Fallback-Schriftartensammlung
 type: docs
 weight: 20
 url: /de/androidjava/create-fallback-fonts-collection/
+keywords:
+- Fallback-Schriftart
+- Fallback-Regel
+- Schriftartensammlung
+- Schriftart konfigurieren
+- Schriftart einrichten
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Richten Sie eine Fallback-Schriftartensammlung in Aspose.Slides für Android über Java ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
 ---
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) Klasse können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+## **Fallback-Regeln anwenden**
 
-Diese Sammlung kann dann der [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) Methode der [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/androidjava/about-fontsmanager-and-fontsloader/).
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Jede [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) hat eine [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) Methode mit ihrer eigenen Instanz der [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) Klasse.
+Dann kann diese Sammlung der Methode [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) der [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) Klasse zugewiesen werden. FontsManager steuert die Schriften in der gesamten Präsentation. Lesen Sie mehr [Über FontsManager und FontsLoader](/slides/de/androidjava/about-fontsmanager-and-fontsloader/).
 
-Hier ist ein Beispiel, wie man eine Sammlung von Fallback-Schriftartenregeln erstellt und sie in den [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
+Jede [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) hat eine Methode [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) mit ihrer eigenen Instanz der Klasse [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager).
 
+Hier ist ein Beispiel, wie man eine Sammlung von Fallback‑Schriftregeln erstellt und sie dem [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -27,8 +42,27 @@ try {
 }
 ```
 
-Nachdem der FontsManager mit der Sammlung von Fallback-Schriftarten initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsdarstellung angewendet.
+
+Nachdem FontsManager mit einer Fallback‑Schriftartensammlung initialisiert wurde, werden die Fallback‑Schriften während der Präsentationsrenderung angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr darüber, wie man eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/androidjava/render-presentation-with-fallback-font/).
+Lesen Sie mehr darüber, wie Sie die Präsentation mit einer Fallback‑Schrift rendern [Präsentation mit Fallback‑Schrift rendern](/slides/de/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
+
+Nein. Fallback‑Regeln sind Laufzeit‑Render‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+
+**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+
+Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeglichen Text in diesen Objekten verwendet.
+
+**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
+
+Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
+
+**Können Ersatz/Substitution für fehlende Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
+
+Ja. Sie sind unabhängige Stufen derselben Schriftauflösungs‑Pipeline: Zuerst löst die Engine die Verfügbarkeit von Schriftarten ([Ersatz](/slides/de/androidjava/font-replacement/)/[Substitution](/slides/de/androidjava/font-substitution/)) auf, anschließend füllt Fallback Lücken für fehlende Glyphen in verfügbaren Schriftarten.

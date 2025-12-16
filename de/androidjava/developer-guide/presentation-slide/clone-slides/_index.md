@@ -1,94 +1,104 @@
 ---
-title: Folien klonen
+title: Folien einer Präsentation auf Android duplizieren
+linktitle: Folien klonen
 type: docs
 weight: 35
 url: /de/androidjava/clone-slides/
+keywords:
+- Folie klonen
+- Folie kopieren
+- Folie speichern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Duplizieren Sie PowerPoint-Folien mit Aspose.Slides für Android. Folgen Sie unseren klaren Java-Code-Beispielen, um die Erstellung von PPTs in Sekunden zu automatisieren und manuelle Arbeit zu vermeiden."
 ---
 
-
-## **Folien in der Präsentation klonen**
-Klonen ist der Prozess, eine exakte Kopie oder Nachbildung von etwas zu erstellen. Aspose.Slides für Android über Java ermöglicht es, eine Kopie oder einen Klon einer beliebigen Folie zu erstellen und diese geklonte Folie dann in die aktuelle oder eine andere geöffnete Präsentation einzufügen. Der Prozess des Folienklonens erstellt eine neue Folie, die von Entwicklern geändert werden kann, ohne die Originalfolie zu verändern. Es gibt mehrere mögliche Wege, eine Folie zu klonen:
+## **Folien in einer Präsentation klonen**
+Klonen ist der Vorgang, bei dem eine exakte Kopie oder ein Duplikat von etwas erstellt wird. Aspose.Slides for Android via Java ermöglicht es ebenfalls, eine Kopie oder einen Klon einer beliebigen Folie zu erstellen und diesen geklonten Folie in die aktuelle oder eine andere geöffnete Präsentation einzufügen. Der Vorgang des Folienklonens erzeugt eine neue Folie, die von Entwicklern geändert werden kann, ohne die Originalfolie zu verändern. Es gibt mehrere mögliche Arten, eine Folie zu klonen:
 
 - Klonen am Ende innerhalb einer Präsentation.
-- Klonen an einer anderen Position innerhalb der Präsentation.
+- Klonen an einer anderen Position innerhalb einer Präsentation.
 - Klonen am Ende in einer anderen Präsentation.
 - Klonen an einer anderen Position in einer anderen Präsentation.
 - Klonen an einer bestimmten Position in einer anderen Präsentation.
 
-In Aspose.Slides für Android über Java ermöglicht eine Sammlung von [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide)-Objekten, die durch das [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Objekt bereitgestellt wird, die Methoden [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) und [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) zur Durchführung der oben genannten Arten des Folienklonens.
+In Aspose.Slides for Android via Java stellt (eine Sammlung von [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide)‑Objekten), die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Objekt bereitgestellt wird, die Methoden [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) und [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) zur Durchführung der oben genannten Arten des Folienklonens zur Verfügung.
 
-## **Klonen am Ende innerhalb einer Präsentation**
-Wenn Sie eine Folie klonen und dann am Ende der vorhandenen Folien innerhalb derselben Präsentationsdatei verwenden möchten, verwenden Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode gemäß den nachstehenden Schritten:
+## **Eine Folie am Ende einer Präsentation klonen**
+Wenn Sie eine Folie klonen und anschließend innerhalb derselben Präsentationsdatei am Ende der vorhandenen Folien verwenden möchten, verwenden Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode gemäß den unten aufgeführten Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.
-1. Instanziieren Sie die Klasse [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) durch Referenzierung der von dem [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Objekt bereitgestellten Folienkollektion.
-1. Rufen Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode ab, die von dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Objekt bereitgestellt wird, und übergeben Sie die zu klonende Folie als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode.
-1. Schreiben Sie die bearbeitete Präsentationsdatei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Klasse, indem Sie auf die Folien‑Sammlung zugreifen, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Objekt bereitgestellt wird.
+1. Rufen Sie die von der [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Objekt bereitgestellte [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die zu klonende Folie als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode.
+1. Schreiben Sie die geänderte Präsentationsdatei.
 
-Im folgenden Beispiel haben wir eine Folie (die sich an der ersten Position – Null-Index – der Präsentation befindet) an das Ende der Präsentation geklont.
-
+Im nachstehenden Beispiel haben wir eine Folie (die an erster Position – Index 0 – der Präsentation liegt) an das Ende der Präsentation geklont.
 ```java
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // Klonen Sie die gewünschte Folie an das Ende der Sammlung von Folien in derselben Präsentation
+    // Klone die gewünschte Folie an das Ende der Foliensammlung in derselben Präsentation
     ISlideCollection slds = pres.getSlides();
 
     slds.addClone(pres.getSlides().get_Item(0));
 
-    // Schreiben Sie die bearbeitete Präsentation auf die Festplatte
+    // Schreibe die geänderte Präsentation auf die Festplatte
     pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Klonen an einer anderen Position innerhalb der Präsentation**
-Wenn Sie eine Folie klonen und dann innerhalb derselben Präsentationsdatei, aber an einer anderen Position verwenden möchten, verwenden Sie die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) Methode:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.
-1. Instanziieren Sie die Klasse, indem Sie auf die [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Sammlung zugreifen, die von dem [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Objekt bereitgestellt wird.
-1. Rufen Sie die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) Methode ab, die von dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Objekt bereitgestellt wird, und übergeben Sie die zu klonende Folie zusammen mit dem Index für die neue Position als Parameter an die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) Methode.
-1. Schreiben Sie die bearbeitete Präsentation als PPTX-Datei.
+## **Eine Folie an einer anderen Position innerhalb einer Präsentation klonen**
+Wenn Sie eine Folie klonen und anschließend innerhalb derselben Präsentationsdatei, jedoch an einer anderen Position, verwenden möchten, verwenden Sie die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-)‑Methode:
 
-Im folgenden Beispiel haben wir eine Folie (die sich an der Null-Index – Position 1 – der Präsentation befindet) an den Index 1 – Position 2 – der Präsentation geklont.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.
+1. Instanziieren Sie die Klasse, indem Sie auf die [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Sammlung zugreifen, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Objekt bereitgestellt wird.
+1. Rufen Sie die von der [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Objekt bereitgestellte [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die zu klonende Folie zusammen mit dem Index für die neue Position als Parameter an die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-)‑Methode.
+1. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Im nachstehenden Beispiel haben wir eine Folie (die an Index 0 – Position 1 – der Präsentation liegt) auf Index 1 – Position 2 – der Präsentation geklont.
 ```java
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // Klonen Sie die gewünschte Folie an das Ende der Sammlung von Folien in derselben Präsentation
+    // Klone die gewünschte Folie an das Ende der Foliensammlung in derselben Präsentation
     ISlideCollection slds = pres.getSlides();
 
-    // Klonen Sie die gewünschte Folie an den angegebenen Index in derselben Präsentation
+    // Klone die gewünschte Folie an den angegebenen Index in derselben Präsentation
     slds.insertClone(2, pres.getSlides().get_Item(1));
 
-    // Schreiben Sie die bearbeitete Präsentation auf die Festplatte
+    // Schreibe die geänderte Präsentation auf die Festplatte
     pres.save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Klonen am Ende in einer anderen Präsentation**
-Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei am Ende der vorhandenen Folien verwenden möchten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Präsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Zielpräsentation enthält, zu der die Folie hinzugefügt wird.
-1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) Klasse, indem Sie auf die [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Sammlung zugreifen, die von dem Präsentationsobjekt der Zielpräsentation bereitgestellt wird.
-1. Rufen Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode ab, die von dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Objekt bereitgestellt wird, und übergeben Sie die Folie aus der Quellpräsentation als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode.
-1. Schreiben Sie die bearbeitete Zielpräsentationsdatei.
+## **Eine Folie am Ende einer anderen Präsentation klonen**
+Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei am Ende der vorhandenen Folien verwenden müssen:
 
-Im folgenden Beispiel haben wir eine Folie (von der ersten Index der Quellpräsentation) an das Ende der Zielpräsentation geklont.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Zielpräsentation enthält, zu der die Folie hinzugefügt werden soll.
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection)‑Klasse, indem Sie auf die [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Sammlung zugreifen, die vom Präsentations‑Objekt der Zielpräsentation bereitgestellt wird.
+1. Rufen Sie die von der [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Objekt bereitgestellte [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode.
+1. Schreiben Sie die geänderte Zielpräsentationsdatei.
 
+Im nachstehenden Beispiel haben wir eine Folie (aus dem ersten Index der Quellpräsentation) an das Ende der Zielpräsentation geklont.
 ```java
-// Instanziieren Sie die Präsentationsklasse, um die Quellpräsentationsdatei zu laden
+// Instanziiere die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Instanziieren Sie die Präsentationsklasse für die Ziel-PPTX (wo die Folie geklont werden soll)
+    // Instanziiere die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll)
     Presentation destPres = new Presentation();
     try {
-        // Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Sammlung von Folien in der Zielpräsentation
+        // Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Foliensammlung in der Zielpräsentation
         ISlideCollection slds = destPres.getSlides();
 
         slds.addClone(srcPres.getSlides().get_Item(0));
@@ -103,30 +113,30 @@ try {
 }
 ```
 
-## **Klonen an einer anderen Position in einer anderen Präsentation**
-Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei an einer bestimmten Position verwenden möchten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Präsentation enthält, zu der die Folie hinzugefügt werden soll.
-1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Klasse, indem Sie auf die Folienkollektion zugreifen, die von dem Präsentationsobjekt der Zielpräsentation bereitgestellt wird.
-1. Rufen Sie die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) Methode ab, die von dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Objekt bereitgestellt wird, und übergeben Sie die Folie aus der Quellpräsentation zusammen mit der gewünschten Position als Parameter an die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) Methode.
-1. Schreiben Sie die bearbeitete Zielpräsentationsdatei.
+## **Eine Folie an einer anderen Position in einer anderen Präsentation klonen**
+Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei an einer bestimmten Position verwenden müssen:
 
-Im folgenden Beispiel haben wir eine Folie (von der Null-Index der Quellpräsentation) an den Index 1 (Position 2) der Zielpräsentation geklont.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Präsentation enthält, zu der die Folie hinzugefügt werden soll.
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Klasse, indem Sie auf die Folien‑Sammlung zugreifen, die vom Präsentations‑Objekt der Zielpräsentation bereitgestellt wird.
+1. Rufen Sie die von der [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Objekt bereitgestellte [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation zusammen mit der gewünschten Position als Parameter an die [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-)‑Methode.
+1. Schreiben Sie die geänderte Zielpräsentationsdatei.
 
+Im nachstehenden Beispiel haben wir eine Folie (aus dem Index 0 der Quellpräsentation) auf Index 1 (Position 2) der Zielpräsentation geklont.
 ```java
-// Instanziieren Sie die Präsentationsklasse, um die Quellpräsentationsdatei zu laden
+// Instanziiere die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Instanziieren Sie die Präsentationsklasse für die Ziel-PPTX (wo die Folie geklont werden soll)
+    // Instanziiere die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll)
     Presentation destPres = new Presentation();
     try {
-        // Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Sammlung von Folien in der Zielpräsentation
+        // Klone die gewünschte Folie aus der Quellpräsentation an das Ende der Foliensammlung in der Zielpräsentation
         ISlideCollection slds = destPres.getSlides();
 
         slds.insertClone(2, srcPres.getSlides().get_Item(0));
 
-        // Schreiben Sie die Zielpräsentation auf die Festplatte
+        // Schreibe die Zielpräsentation auf die Festplatte
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -136,47 +146,47 @@ try {
 }
 ```
 
-## **Klonen an einer bestimmten Position in einer anderen Präsentation**
-Wenn Sie eine Folie mit einer Masterfolie aus einer Präsentation klonen und in einer anderen Präsentation verwenden möchten, müssen Sie zuerst die gewünschte Masterfolie aus der Quellpräsentation in die Zielpräsentation klonen. Dann müssen Sie diese Masterfolie verwenden, um die Folie mit der Masterfolie zu klonen. Die [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) erwartet eine Masterfolie aus der Zielpräsentation und nicht aus der Quellpräsentation. Um die Folie mit einer Masterfolie zu klonen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die Zielpräsentation enthält, in die die Folie geklont werden soll.
-1. Greifen Sie auf die Folie zu, die mit der Masterfolie geklont werden soll.
-1. Instanziieren Sie die [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) Klasse, indem Sie auf die Masters-Sammlung zugreifen, die von dem [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Objekt der Zielpräsentation bereitgestellt wird.
-1. Rufen Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode ab, die von dem [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) Objekt bereitgestellt wird, und übergeben Sie die Masterfolie aus der Quell-PPTX alsParameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode.
-1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Klasse, indem Sie die Referenz auf die Folienkollektion setzen, die von dem [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Objekt der Zielpräsentation bereitgestellt wird.
-1. Rufen Sie die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode ab, die von dem [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) Objekt bereitgestellt wird, und übergeben Sie die Folie aus der Quellpräsentation, die geklont werden soll, und die Masterfolie als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) Methode.
-1. Schreiben Sie die bearbeitete Zielpräsentationsdatei.
+## **Eine Folie an einer bestimmten Position in einer anderen Präsentation klonen**
+Wenn Sie eine Folie mit einer Masterfolie aus einer Präsentation klonen und in einer anderen Präsentation verwenden müssen, müssen Sie zunächst die gewünschte Masterfolie aus der Quellpräsentation in die Zielpräsentation klonen. Anschließend verwenden Sie diese Masterfolie, um die Folie mit Masterfolie zu klonen. Die Methode [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) erwartet eine Masterfolie aus der Zielpräsentation und nicht aus der Quellpräsentation. Folgen Sie bitte den untenstehenden Schritten, um die Folie mit Master zu klonen:
 
-Im folgenden Beispiel haben wir eine Folie mit einer Masterfolie (die sich an der Null-Index der Quellpräsentation befindet) an das Ende der Zielpräsentation geklont, wobei wir eine Masterfolie von der Quellfolie verwendet haben.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse, die die Zielpräsentation enthält, in die die Folie geklont werden soll.
+1. Greifen Sie auf die zu klonende Folie zusammen mit der Masterfolie zu.
+1. Instanziieren Sie die [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)‑Klasse, indem Sie auf die Masters‑Sammlung zugreifen, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Objekt der Zielpräsentation bereitgestellt wird.
+1. Rufen Sie die von der [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection)‑Objekt bereitgestellte [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die Masterfolie aus der Quell‑PPTX als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode.
+1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Klasse, indem Sie die Referenz auf die Folien‑Sammlung setzen, die vom [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Objekt der Zielpräsentation bereitgestellt wird.
+1. Rufen Sie die von der [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)‑Objekt bereitgestellte [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode auf und übergeben Sie die Folie aus der Quellpräsentation sowie die Masterfolie als Parameter an die [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)‑Methode.
+1. Schreiben Sie die geänderte Zielpräsentationsdatei.
 
+Im nachstehenden Beispiel haben wir eine Folie mit einer Masterfolie (die an Index 0 der Quellpräsentation liegt) an das Ende der Zielpräsentation geklont, wobei die Masterfolie aus der Quellfolie verwendet wurde.
 ```java
-// Instanziieren Sie die Präsentationsklasse, um die Quellpräsentationsdatei zu laden
+// Instanziiere die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
 Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
-    // Instanziieren Sie die Präsentationsklasse für die Zielpräsentation (wo die Folie geklont werden soll)
+    // Instanziiere die Presentation-Klasse für die Zielpräsentation (in die die Folie geklont werden soll)
     Presentation destPres = new Presentation();
     try {
-        // Instanziieren Sie ISlide aus der Sammlung von Folien in der Quellpräsentation zusammen mit
+        // Instanziiere ISlide aus der Foliensammlung der Quellpräsentation zusammen mit
         // Masterfolie
         ISlide SourceSlide = srcPres.getSlides().get_Item(0);
         IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung von Masterfolien in der
+        // Kopiere die gewünschte Masterfolie aus der Quellpräsentation in die Master-Sammlung der
         // Zielpräsentation
         IMasterSlideCollection masters = destPres.getMasters();
         IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung von Masterfolien in der
+        // Kopiere die gewünschte Masterfolie aus der Quellpräsentation in die Master-Sammlung der
         // Zielpräsentation
         IMasterSlide iSlide = masters.addClone(SourceMaster);
 
-        // Klonen Sie die gewünschte Folie aus der Quellpräsentation mit der gewünschten Masterfolie an das Ende der
-        // Sammlung von Folien in der Zielpräsentation
+        // Klone die gewünschte Folie aus der Quellpräsentation mit dem gewünschten Master an das Ende der
+        // Foliensammlung in der Zielpräsentation
         ISlideCollection slds = destPres.getSlides();
         slds.addClone(SourceSlide, iSlide, true);
 
-        // Speichern Sie die Zielpräsentation auf die Festplatte
+        // Speichere die Zielpräsentation auf die Festplatte
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -186,18 +196,18 @@ try {
 }
 ```
 
-## **Klonen am Ende in einem angegebenen Abschnitt**
-Wenn Sie eine Folie klonen und diese dann innerhalb derselben Präsentationsdatei, aber in einem anderen Abschnitt, verwenden möchten, verwenden Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) Methode, die von dem [**ISlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) Interface bereitgestellt wird. Aspose.Slides für Android über Java ermöglicht es, eine Folie aus dem ersten Abschnitt zu klonen und dann diese geklonte Folie in den zweiten Abschnitt derselben Präsentation einzufügen.
 
-Der folgende Codeausschnitt zeigt Ihnen, wie Sie eine Folie klonen und die geklonte Folie in einen bestimmten Abschnitt einfügen.
+## **Eine Folie am Ende eines angegebenen Abschnitts klonen**
+Wenn Sie eine Folie klonen und anschließend innerhalb derselben Präsentationsdatei, jedoch in einem anderen Abschnitt, verwenden möchten, verwenden Sie die [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-)‑Methode, die vom [**ISlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection)‑Interface bereitgestellt wird. Aspose.Slides for Android via Java ermöglicht das Klonen einer Folie aus dem ersten Abschnitt und das Einfügen dieser geklonten Folie in den zweiten Abschnitt derselben Präsentation.
 
+Der folgende Code‑Auszug zeigt, wie Sie eine Folie klonen und die geklonte Folie in einen angegebenen Abschnitt einfügen.
 ```java
 IPresentation presentation = new Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
-    presentation.getSections().addSection("Abschnitt 1", presentation.getSlides().get_Item(0));
+    presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
 
-    ISection section2 = presentation.getSections().appendEmptySection("Abschnitt 2");
+    ISection section2 = presentation.getSections().appendEmptySection("Section 2");
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
     
 	// Speichern Sie die Zielpräsentation auf die Festplatte
@@ -206,3 +216,18 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Werden Notizen des Sprechers und Reviewer‑Kommentare geklont?**
+
+Ja. Die Notizenseite und die Review‑Kommentare werden im Klon mitkopiert. Wenn Sie sie nicht möchten, [entfernen Sie sie](/slides/de/androidjava/presentation-notes/) nach dem Einfügen.
+
+**Wie werden Diagramme und deren Datenquellen behandelt?**
+
+Das Diagramm‑Objekt, die Formatierung und die eingebetteten Daten werden kopiert. Wenn das Diagramm an eine externe Quelle (z. B. eine OLE‑eingebettete Arbeitsmappe) gebunden war, bleibt diese Verknüpfung als [OLE‑Objekt](/slides/de/androidjava/manage-ole/) erhalten. Nach dem Verschieben zwischen Dateien sollten Sie die Datenverfügbarkeit prüfen und das Aktualisierungsverhalten überprüfen.
+
+**Kann ich die Einfügeposition und die Abschnitte für den Klon steuern?**
+
+Ja. Sie können den Klon an einem bestimmten Folien‑Index einfügen und ihn in einen gewünschten [Abschnitt](/slides/de/androidjava/slide-section/) verschieben. Existiert der Zielabschnitt nicht, müssen Sie ihn zuerst erstellen und anschließend die Folie dort hineinverschieben.

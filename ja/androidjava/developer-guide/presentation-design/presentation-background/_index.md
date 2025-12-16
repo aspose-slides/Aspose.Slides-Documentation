@@ -1,194 +1,261 @@
 ---
-title: プレゼンテーションの背景
+title: Android でプレゼンテーションの背景を管理する
+linktitle: スライド背景
 type: docs
 weight: 20
 url: /ja/androidjava/presentation-background/
-keywords: "PowerPoint 背景, Javaで背景を設定"
-description: "JavaでPowerPointプレゼンテーションの背景を設定"
+keywords:
+- プレゼンテーション背景
+- スライド背景
+- 単色
+- グラデーションカラー
+- 画像背景
+- 背景の透明度
+- 背景プロパティ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を Java で利用し、PowerPoint および OpenDocument ファイルに動的な背景を設定する方法を学び、プレゼンテーションを向上させるコードのヒントをご紹介します。"
 ---
 
-スライドの背景画像として、単色、グラデーションカラー、および画像がよく使用されます。背景は、**通常のスライド**（単一のスライド）または**マスター スライド**（複数のスライドを一度に）に設定できます。
+## **概要**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+単色、グラデーション、画像はスライドの背景として一般的に使用されます。**通常スライド**（単一スライド）または**マスタースライド**（複数のスライドに同時に適用）に背景を設定できます。
 
-## **通常のスライドの背景として単色を設定**
+![PowerPoint の背景](powerpoint-background.png)
 
-Aspose.Slidesを使用すると、プレゼンテーション内の特定のスライドの背景に単色を設定できます（たとえそのプレゼンテーションにマスター スライドが含まれていても）。背景の変更は、選択したスライドにのみ影響します。
+## **通常スライドに単色背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. スライドの背景の [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) によって公開される [SolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) プロパティを使用して、背景に単色を指定します。
-5. 修正されたプレゼンテーションを保存します。
+Aspose.Slides を使用すると、プレゼンテーション内の特定のスライドの背景として単色を設定できます（プレゼンテーションがマスタースライドを使用している場合でも）。この変更は選択したスライドのみに適用されます。
 
-このJavaコードは、通常のスライドの背景として単色（青）を設定する方法を示しています：
+1. Presentation クラスのインスタンスを作成します。
+2. スライドの BackgroundType を `OwnBackground` に設定します。
+3. スライドの背景 FillType を `Solid` に設定します。
+4. FillFormat の [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) メソッドを使用して単色背景色を指定します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の Java の例は、通常スライドの背景に青の単色を設定する方法を示しています。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation("MasterBG.pptx");
+// Presentation クラスのインスタンスを作成します。
+Presentation presentation = new Presentation();
 try {
-    // 最初の ISlide の背景色を青に設定
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // スライドの背景色を青に設定します。
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
-    // プレゼンテーションをディスクに保存
-    pres.save("ContentBG.pptx", SaveFormat.Pptx);
+    // プレゼンテーションをディスクに保存します。
+    presentation.save("SolidColorBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **マスター スライドの背景として単色を設定**
 
-Aspose.Slidesを使用すると、プレゼンテーションのマスター スライドの背景に単色を設定できます。マスター スライドは、すべてのスライドの書式設定設定を含めて制御するテンプレートとして機能します。そのため、マスター スライドの背景として単色を選択すると、その新しい背景がすべてのスライドに使用されます。
+## **マスタースライドに単色背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. マスター スライド（`Masters`）の [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスター スライドの背景の [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) によって公開される [SolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) プロパティを使用して、背景に単色を指定します。
-5. 修正されたプレゼンテーションを保存します。
+Aspose.Slides を使用すると、プレゼンテーションのマスタースライドの背景として単色を設定できます。マスタースライドはすべてのスライドの書式設定を制御するテンプレートとして機能するため、マスタースライドの背景に単色を選択すると、すべてのスライドに適用されます。
 
-このJavaコードは、プレゼンテーションのマスター スライドの背景として単色（フォレストグリーン）を設定する方法を示しています：
+1. Presentation クラスのインスタンスを作成します。
+2. master スライドの BackgroundType（`getMasters` 経由）を `OwnBackground` に設定します。
+3. master スライドの背景 FillType を `Solid` に設定します。
+4. [getSolidFillColor] メソッドを使用して単色背景色を指定します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の Java の例は、マスタースライドの背景に単色（緑）を設定する方法を示しています。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation();
+// Presentation クラスのインスタンスを作成します。
+Presentation presentation = new Presentation();
 try {
-    // マスター ISlide の背景色をフォレスト グリーンに設定
-    pres.getMasters().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    
-    // プレゼンテーションをディスクに保存
-    pres.save("MasterBG.pptx", SaveFormat.Pptx);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+
+    // マスタースライドの背景色をフォレストグリーンに設定します。
+    masterSlide.getBackground().setType(BackgroundType.OwnBackground);
+    masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+
+    // プレゼンテーションをディスクに保存します。
+    presentation.save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **スライドの背景としてグラデーションカラーを設定**
 
-グラデーションは、色の徐々に変化するグラフィカルな効果です。スライドの背景としてグラデーションカラーを使用すると、プレゼンテーションが芸術的でプロフェッショナルに見えます。Aspose.Slidesを使用すると、プレゼンテーションのスライドにグラデーションカラーを背景として設定できます。
+## **スライドにグラデーション背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスター スライドの背景の [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 列挙型を `Gradient` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) によって公開される [GradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) プロパティを使用して、お好みのグラデーション設定を指定します。
-5. 修正されたプレゼンテーションを保存します。
+グラデーションは、色が徐々に変化することで作成されるグラフィック効果です。スライドの背景として使用すると、プレゼンテーションがより芸術的でプロフェッショナルに見えます。Aspose.Slides を使用すると、スライドの背景としてグラデーション色を設定できます。
 
-このJavaコードは、スライドの背景としてグラデーションカラーを設定する方法を示しています：
+1. Presentation クラスのインスタンスを作成します。
+2. スライドの BackgroundType を `OwnBackground` に設定します。
+3. スライドの背景 FillType を `Gradient` に設定します。
+4. FillFormat の [getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) メソッドを使用して、希望するグラデーション設定を構成します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の Java の例は、スライドの背景にグラデーション色を設定する方法を示しています。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation("MasterBG.pptx");
+// Presentation クラスのインスタンスを作成します。
+Presentation presentation = new Presentation();
 try {
-    // 背景にグラデーション効果を適用
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Gradient);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+    ISlide slide = presentation.getSlides().get_Item(0);
     
-    // プレゼンテーションをディスクに保存
-    pres.save("ContentBG_Grad.pptx", SaveFormat.Pptx);
+    // 背景にグラデーション効果を適用します。
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
+    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    // プレゼンテーションをディスクに保存します。
+    presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **スライドの背景として画像を設定**
 
-単色やグラデーションカラーに加えて、Aspose.Slidesではプレゼンテーションのスライドの背景として画像を設定することもできます。
+## **スライド背景に画像を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスター スライドの背景の [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 列挙型を `Picture` に設定します。
-4. スライドの背景に使用する画像をロードします。
+単色やグラデーションの塗りつぶしに加えて、Aspose.Slides では画像をスライドの背景として使用できます。
+
+1. Presentation クラスのインスタンスを作成します。
+2. スライドの BackgroundType を `OwnBackground` に設定します。
+3. スライドの背景 FillType を `Picture` に設定します。
+4. スライドの背景として使用したい画像をロードします。
 5. 画像をプレゼンテーションの画像コレクションに追加します。
-6. [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) によって公開される [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) プロパティを使用して、画像を背景として設定します。
-7. 修正されたプレゼンテーションを保存します。
+6. FillFormat の [getPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) メソッドを使用して、画像を背景として割り当てます。
+7. 変更したプレゼンテーションを保存します。
 
-このJavaコードは、スライドの背景として画像を設定する方法を示しています：
-
+以下の Java の例は、スライドの背景に画像を設定する方法を示しています。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation();
+// Presentation クラスのインスタンスを作成します。
+Presentation presentation = new Presentation();
 try {
-    // 背景画像の条件を設定
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Picture);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat()
-            .setPictureFillMode(PictureFillMode.Stretch);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // 背景画像のプロパティを設定します。
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
     
-    // 画像をロード
-    IPPImage imgx;
-    IImage image = Images.fromFile("Desert.jpg");
-    try {
-        imgx = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    // 画像をプレゼンテーションの画像コレクションに追加
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
+    // 画像をロードします。
+    IImage image = Images.fromFile("Tulips.jpg");
+    // 画像をプレゼンテーションの画像コレクションに追加します。
+    IPPImage ppImage = presentation.getImages().addImage(image);
+    image.dispose();
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
     
-    // プレゼンテーションをディスクに保存
-    pres.save("ContentBG_Img.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    // プレゼンテーションをディスクに保存します。
+    presentation.save("ImageAsBackground.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **背景画像の透過性を変更**
 
-スライドの背景画像の透明度を調整して、スライドの内容が目立つようにする場合があります。このJavaコードは、スライドの背景画像の透明度を変更する方法を示しています：
-
+以下のコードサンプルは、背景の塗りつぶしタイプをタイル状の画像に設定し、タイルのプロパティを変更する方法を示しています。
 ```java
-int transparencyValue = 30; // 例えば
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-// 画像変換操作のコレクションを取得
+    IBackground background = firstSlide.getBackground();
+
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Picture);
+
+    IImage newImage = Images.fromFile("image.png");
+    IPPImage ppImage = presentation.getImages().addImage(newImage);
+    newImage.dispose();
+
+    // 背景の塗りつぶしに使用する画像を設定します。
+    IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
+    backPictureFillFormat.getPicture().setImage(ppImage);
+
+    // ピクチャーフィルモードをタイルに設定し、タイルプロパティを調整します。
+    backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
+    backPictureFillFormat.setTileOffsetX(15f);
+    backPictureFillFormat.setTileOffsetY(15f);
+    backPictureFillFormat.setTileScaleX(46f);
+    backPictureFillFormat.setTileScaleY(87f);
+    backPictureFillFormat.setTileAlignment(RectangleAlignment.Center);
+    backPictureFillFormat.setTileFlip(TileFlip.FlipY);
+
+    presentation.save("TileBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+{{% alert color="primary" %}}
+さらに読む: [**タイル画像をテクスチャとして**](/slides/ja/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
+### **背景画像の透明度を変更する**
+
+スライドの背景画像の透明度を調整して、スライドの内容を際立たせたい場合があります。以下の Java コードは、スライド背景画像の透明度を変更する方法を示しています。
+```java
+int transparencyValue = 30; // 例として。
+
+// Get the collection of picture transform operations.
 IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
 
-// 固定割合の透明度効果を見つける
-AlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform)
-{
-    if (operation instanceof AlphaModulateFixed)
-    {
-        transparencyOperation = (AlphaModulateFixed)operation;
+// Find an existing fixed-percentage transparency effect.
+IAlphaModulateFixed transparencyOperation = null;
+for (IImageTransformOperation operation : imageTransform) {
+    if (operation instanceof IAlphaModulateFixed) {
+        transparencyOperation = (IAlphaModulateFixed)operation;
         break;
     }
 }
 
-// 新しい透明度値を設定
-if (transparencyOperation == null)
-{
+// Set the new transparency value.
+if (transparencyOperation == null) {
     imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
 }
-else
-{
+else {
     transparencyOperation.setAmount(100 - transparencyValue);
 }
 ```
 
-## **スライド背景の値を取得**
 
-Aspose.Slidesは、スライドの背景の有効な値を取得するために [IBackgroundEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/) インターフェースを提供します。このインターフェースは、効果的な [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) および効果的な [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) に関する情報を含んでいます。
+## **スライドの背景値を取得する**
 
-[BaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/) クラスからの [Background](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getBackground--) プロパティを使用して、スライドの背景の有効な値を取得できます。
+Aspose.Slides は、スライドの実際の背景値を取得するための [IBackgroundEffectiveData] インターフェイスを提供します。このインターフェイスは、実際の [FillFormat] と [EffectFormat] を公開します。
 
-このJavaコードは、スライドの有効な背景値を取得する方法を示しています：
+[BaseSlide] クラスの `getBackground` メソッドを使用して、スライドの実際の背景を取得できます。
 
+以下の Java の例は、スライドの実際の背景値を取得する方法を示しています。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation("SamplePresentation.pptx");
+// Presentation クラスのインスタンスを作成します。
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    IBackgroundEffectiveData effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // マスター、レイアウト、テーマを考慮した実効背景を取得します。
+    IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
-        System.out.println("塗りつぶし色: " + effBackground.getFillFormat().getSolidFillColor());
+        System.out.println("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
     else
-        System.out.println("塗りつぶしタイプ: " + effBackground.getFillFormat().getFillType());
+        System.out.println("Fill type: " + effBackground.getFillFormat().getFillType());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**カスタム背景をリセットしてテーマ/レイアウトの背景を復元できますか？**
+
+はい。スライドのカスタム塗りつぶしを削除すると、背景は対応する [layout](/slides/ja/androidjava/slide-layout/)/[master](/slides/ja/androidjava/slide-master/) スライド（つまり [theme background](/slides/ja/androidjava/presentation-theme/)）から再び継承されます。
+
+**後でプレゼンテーションのテーマを変更した場合、背景はどうなりますか？**
+
+スライドが独自の塗りつぶしを持っている場合は、変更されません。背景が [layout](/slides/ja/androidjava/slide-layout/)/[master](/slides/ja/androidjava/slide-master/) から継承されている場合は、[new theme](/slides/ja/androidjava/presentation-theme/) に合わせて更新されます。

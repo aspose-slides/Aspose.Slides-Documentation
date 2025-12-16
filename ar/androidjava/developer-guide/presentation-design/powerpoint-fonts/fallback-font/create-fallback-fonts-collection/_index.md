@@ -1,18 +1,33 @@
 ---
-title: إنشاء مجموعة خطوط احتياطية
+title: تكوين مجموعات خطوط التعويض على Android
+linktitle: مجموعة خطوط التعويض
 type: docs
 weight: 20
 url: /ar/androidjava/create-fallback-fonts-collection/
+keywords:
+- خط تعويض
+- قاعدة تعويض
+- مجموعة خطوط
+- تكوين الخط
+- إعداد الخط
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إعداد مجموعة خطوط تعويض في Aspose.Slides لنظام Android عبر Java للحفاظ على اتساق النص ووضوحه في عروض PowerPoint وOpenDocument."
 ---
 
-يمكن تنظيم نسخ من [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection)، التي تنفذ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) واجهة. من الممكن إضافة أو إزالة القواعد من المجموعة.
+## **تطبيق قواعد التعويض**
 
-ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) في [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) المصنف. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/androidjava/about-fontsmanager-and-fontsloader/).
+يمكن تنظيم كائنات [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) التي تُطبق [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) كمجموعة. يمكن إضافة أو إزالة القواعد من المجموعة.
 
-كل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لديه طريقة [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) مع نسخته الخاصة من [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) المصنف.
+بعد ذلك يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [About FontsManager and FontsLoader](/slides/ar/androidjava/about-fontsmanager-and-fontsloader/).
 
-إليك مثالاً عن كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها في [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) لعرض تقديمي معين:  
+لكل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) طريقة [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) مع نسخة خاصة من فئة [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager).
 
+فيما يلي مثال على إنشاء مجموعة قواعد خطوط التعويض وتعيينها إلى [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) لعرض تقديمي معين:  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -27,8 +42,27 @@ try {
 }
 ```
 
-بعد أن يتم تهيئة FontsManager مع مجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
+
+بعد تهيئة FontsManager بمجموعة خطوط التعويض، تُطبَّق خطوط التعويض أثناء عرض التقديم.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/ar/androidjava/render-presentation-with-fallback-font/).
+اقرأ المزيد حول [Render Presentation with Fallback Font](/slides/ar/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل سيتم تضمين قواعد التعويض في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
+
+لا. قواعد التعويض هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+
+**هل يتطبق التعويض على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
+
+نعم. تُستخدم نفس آلية استبدال الرموز لأي نص في هذه الكائنات.
+
+**هل توزع Aspose أي خطوط مع المكتبة؟**
+
+لا. تقوم بإضافة واستخدام الخطوط بنفسك وتكون مسؤوليتك بالكامل.
+
+**هل يمكن استخدام الاستبدال/الاستبدال للخطوط المفقودة والتعويض عن الرموز الغائبة معًا؟**
+
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يُحلّ المحرك توفر الخط ([replacement](/slides/ar/androidjava/font-replacement/)/[substitution](/slides/ar/androidjava/font-substitution/))، ثم يملأ التعويض الفجوات للرموز الغائبة في الخطوط المتوفرة.

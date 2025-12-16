@@ -1,271 +1,212 @@
 ---
-title: スライドを変換
+title: Android でプレゼンテーション スライドを画像に変換
+linktitle: スライドから画像へ
 type: docs
 weight: 35
 url: /ja/androidjava/convert-slide/
-keywords: 
-- スライドを画像に変換
-- スライドを画像としてエクスポート
+keywords:
+- スライドを変換
+- スライドをエクスポート
+- スライドから画像へ
 - スライドを画像として保存
-- スライドを画像に
-- スライドをPNGに
-- スライドをJPEGに
-- スライドをビットマップに
+- スライドを PNG に変換
+- スライドを JPEG に変換
+- スライドをビットマップに変換
+- スライドを TIFF に変換
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
 - Java
-- Aspose.Slides for Android via Java
-description: "JavaでPowerPointスライドを画像（ビットマップ、PNG、またはJPG）に変換"
+- Aspose.Slides
+description: "Aspose.Slides for Android を使用して PPT、PPTX、ODP のスライドを画像に変換します—高速で高品質なレンダリングと明確な Java コード例を提供。"
 ---
 
-Aspose.Slides for Android via Javaを使用すると、スライド（プレゼンテーション内の）を画像に変換できます。サポートされている画像形式は、BMP、PNG、JPG（JPEG）、GIFなどです。
+## **概要**
 
-スライドを画像に変換するには、次の手順を実行します：
+Aspose.Slides for Android via Java は、PowerPoint および OpenDocument のプレゼンテーションスライドを、BMP、PNG、JPG（JPEG）、GIF などのさまざまな画像形式に簡単に変換できるようにします。
 
-1. まず、変換パラメーターと変換するスライドオブジェクトを設定します：
-   * [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiffOptions)インターフェースを使用するか、
-   * [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions)インターフェースを使用します。
+スライドを画像に変換するには、次の手順に従います。
 
-2. 次に、[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--)メソッドを使用して、スライドを画像に変換します。
+1. 変換設定を定義し、エクスポートしたいスライドを選択します。使用できるのは：
+    - [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) インターフェイス、または
+    - [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/) インターフェイス。
+2. [getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) メソッドを呼び出してスライド画像を生成します。
 
-## **ビットマップおよびその他の画像形式について**
+Aspose.Slides for Android via Java では、[IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) はピクセルデータで定義された画像を操作できるインターフェイスです。このインターフェイスを使用して、幅広い形式（BMP、JPG、PNG など）で画像を保存できます。
 
-Javaにおける[Images](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Images)は、ピクセルデータで定義された画像を操作するためのオブジェクトです。このクラスのインスタンスを使用して、幅広い形式（JPG、PNGなど）で画像を保存できます。
+## **スライドをビットマップに変換し、PNG で画像を保存する**
 
-{{% alert title="情報" color="info" %}}
+スライドをビットマップオブジェクトに変換してアプリケーションで直接使用できます。または、スライドをビットマップに変換してから、JPEG や他の任意の形式で画像を保存することもできます。
 
-Asposeは最近、オンラインの[Text to GIF](https://products.aspose.app/slides/text-to-gif)変換ツールを開発しました。
-
-{{% /alert %}}
-
-## **スライドをビットマップに変換し、PNG形式で画像を保存する**
-
-このJavaコードは、プレゼンテーションの最初のスライドをビットマップオブジェクトに変換し、その後画像をPNG形式で保存する方法を示しています：
-
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
+このコードは、プレゼンテーションの最初のスライドをビットマップオブジェクトに変換し、PNG 形式で画像を保存する方法を示しています:
+```java 
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // プレゼンテーションの最初のスライドをImagesオブジェクトに変換
-    IImage slideImage = pres.getSlides().get_Item(0).getImage();
-
-	// 画像をPNG形式で保存
+    // プレゼンテーションの最初のスライドをビットマップに変換します。
+    IImage image = presentation.getSlides().get_Item(0).getImage();
 	try {
-        // ディスクに画像を保存します。
-         slideImage.save("Slide_0.png", ImageFormat.Png);
+        // 画像を PNG 形式で保存します。
+        image.save("Slide_0.png", ImageFormat.Png);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        image.dispose();
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-このサンプルコードは、[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getImage-java.awt.Dimension-)メソッドを使用して、プレゼンテーションの最初のスライドをビットマップオブジェクトに変換する方法を示しています：
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
+## **カスタムサイズでスライドを画像に変換する**
+
+特定のサイズの画像が必要な場合があります。[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) のオーバーロードを使用すると、幅と高さを指定してスライドを画像に変換できます。
+
+このサンプルコードは、その方法を示しています:
+```java 
+Size imageSize = new Size(1820, 1040);
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-	// プレゼンテーションのスライドサイズを取得
-	Dimension2D slideSize = new Dimension((int) slideSize.getWidth(), (int) slideSize.getHeight());
+    // 指定したサイズでプレゼンテーションの最初のスライドをビットマップに変換します。
+    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
-	// スライドサイズでImagesを作成
-    IImage slideImage = sld.getImage(new RenderingOptions(), slideSize);
     try {
-         // ディスクに画像を保存します。
-          slideImage.save("Slide_0.png", ImageFormat.Png);
+        // 画像を JPEG 形式で保存します。
+        image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        image.dispose();
     }
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="ヒント" color="primary" %}} 
 
-スライドをImagesオブジェクトに変換し、そのオブジェクトをどこかに直接使用することができます。また、スライドをImagesに変換し、その後JPEGや他の形式で画像を保存することもできます。
+## **ノートとコメント付きスライドを画像に変換する**
 
-{{% /alert %}}  
+一部のスライドにはノートやコメントが含まれている場合があります。
 
-## **カスタムサイズの画像にスライドを変換する**
+Aspose.Slides は、[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) および [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/) の 2 つのインターフェイスを提供し、プレゼンテーションスライドを画像にレンダリングする際の制御が可能です。両インターフェイスには `setSlidesLayoutOptions` メソッドが含まれており、スライドを画像に変換する際にノートやコメントのレンダリングを設定できます。
 
-特定のサイズの画像を取得する必要があるかもしれません。[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-)メソッドのオーバーロードを使用することで、特定の寸法（長さと幅）を持つ画像にスライドを変換できます。
+[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) クラスを使用すると、結果画像内でノートとコメントの位置を好みで指定できます。
 
-このサンプルコードは、Javaの[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getImage-java.awt.Dimension-)メソッドを使用して、提案された変換を示しています：
+このコードは、ノートとコメント付きスライドを画像に変換する方法を示しています:
+```java 
+float scaleX = 2;
+float scaleY = scaleX;
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
+// プレゼンテーション ファイルを読み込みます。
+Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    // 指定されたサイズのビットマップにプレゼンテーションの最初のスライドを変換
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1820, 1040));
-	
-	// 画像をJPEG形式で保存
-	try {
-         // ディスクに画像を保存します。
-          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
+    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
+    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // ノートの位置を設定します。
+    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // コメントの位置を設定します。
+    notesCommentsOptions.setCommentsAreaWidth(500);                         // コメント領域の幅を設定します。
+    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // コメント領域の色を設定します。
+
+    // レンダリング オプションを作成します。
+    RenderingOptions options = new RenderingOptions();
+    options.setSlidesLayoutOptions(notesCommentsOptions);
+
+    // プレゼンテーションの最初のスライドを画像に変換します。
+    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+
+    try {
+        // 画像を GIF 形式で保存します。
+        image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        image.dispose();
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ノートとコメント付きのスライドを画像に変換する**
 
-一部のスライドにはノートやコメントが含まれています。
+{{% alert title="Note" color="warning" %}} 
 
-Aspose.Slidesは、プレゼンテーションのスライドを画像にレンダリングする際に制御を可能にする二つのインターフェース—[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiffOptions)と[IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions)—を提供します。両方のインターフェースには、スライドを画像に変換する際にノートやコメントを追加できる[INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INotesCommentsLayoutingOptions)インターフェースがあります。
-
-{{% alert title="情報" color="info" %}} 
-
-[INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INotesCommentsLayoutingOptions)インターフェースを使用すると、結果の画像におけるノートやコメントの好みの位置を指定できます。
+スライドから画像への変換プロセスでは、[setNotesPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) メソッドは `BottomFull`（ノートの位置を指定する）を適用できません。これは、ノートのテキストが大きすぎて、指定された画像サイズに収まらない可能性があるためです。
 
 {{% /alert %}} 
 
-このJavaコードは、ノートとコメントを含むスライドの変換プロセスを示しています：
+## **TIFF オプションを使用してスライドを画像に変換する**
 
-``` java 
-Presentation pres = new Presentation("PresentationNotesComments.pptx");
+[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) インターフェイスは、サイズ、解像度、カラーパレットなどのパラメータを指定でき、生成される TIFF 画像をより細かく制御できます。
+
+このコードは、TIFF オプションを使用して 300 DPI の解像度と 2160 × 2800 のサイズで白黒画像を出力する変換プロセスを示しています:
+```java 
+// プレゼンテーション ファイルを読み込みます。
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // レンダリングオプションを作成
-    IRenderingOptions options = new RenderingOptions();
+    // プレゼンテーションから最初のスライドを取得します。
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // ページ上でノートの位置を設定
-    options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
+    // 出力 TIFF 画像の設定を構成します。
+    TiffOptions tiffOptions = new TiffOptions();
+    tiffOptions.setImageSize(new Size(2160, 2880));                  // 画像サイズを設定します。
+    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // ピクセル形式を設定します（白黒）。
+    tiffOptions.setDpiX(300);                                        // 水平解像度を設定します。
+    tiffOptions.setDpiY(300);                                        // 垂直解像度を設定します。
 
-    // ページ上でコメントの位置を設定 
-    options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+    // 指定されたオプションでスライドを画像に変換します。
+    IImage image = slide.getImage(tiffOptions);
 
-    // コメント出力領域の幅を設定
-    options.getNotesCommentsLayouting().setCommentsAreaWidth(500);
-
-    // コメントエリアの色を設定
-    options.getNotesCommentsLayouting().setCommentsAreaColor(Color.LIGHT_GRAY);
-
-    // プレゼンテーションの最初のスライドをビットマップオブジェクトに変換
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, 2f, 2f);
-
-    // 画像をGIF形式で保存
     try {
-          slideImage.save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+        // TIFF 形式で画像を保存します。
+        image.save("output.tiff", ImageFormat.Tiff);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        image.dispose();
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-このJavaコードは、[getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide#getImage-java.awt.Dimension-)メソッドを使用してノート付きのスライドの変換プロセスを示しています：
-
-``` java
-Presentation pres = new Presentation("PresentationNotes.pptx");
-try {
-	// プレゼンテーションのノートサイズを取得
-	Dimension2D notesSize = pres.getNotesSize().getSize();
-
-	// レンダリングオプションを作成
-	IRenderingOptions options = new RenderingOptions();
-
-	// ノートの位置を設定
-	options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-
-	// ノートのサイズでImagesを作成
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, notesSize);
-
-	// 画像をPNG形式で保存
-    try {
-         // ディスクに画像を保存します。
-          slideImage.save("Slide_0.png", ImageFormat.Png);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-{{% alert title="注意" color="warning" %}} 
-
-スライドを画像に変換するプロセスにおいて、[NotesPositions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-)プロパティは、ノートの位置を指定するためにBottomFullに設定することはできません。なぜなら、ノートのテキストが大きい場合、指定された画像サイズに収まらない可能性があるからです。
-
-{{% /alert %}} 
-
-## **ITiffOptionsを使用してスライドを画像に変換する**
-
-[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiffOptions)インターフェースは、生成される画像に対するパラメーターにより多くの制御を提供します。このインターフェースを使用すると、生成される画像のサイズ、解像度、カラーパレットなどのパラメーターを指定できます。
-
-このJavaコードは、ITiffOptionsを使用して300dpiの解像度で2160×2800サイズの白黒画像を出力する変換プロセスを示しています：
-
-``` java 
-Presentation pres = new Presentation("PresentationNotesComments.pptx");
-try {
-	// インデックスでスライドを取得
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	// TiffOptionsオブジェクトを作成
-	TiffOptions options = new TiffOptions();
-	options.setImageSize(new Dimension(2160, 2880));
-
-	// ソースフォントが見つからない場合に使用されるフォントを設定
-	options.setDefaultRegularFont("Arial Black");
-
-	// ページ上でノートの位置を設定
-	options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-
-	// ピクセル形式を設定（白黒）
-	options.setPixelFormat(ImagePixelFormat.Format1bppIndexed);
-
-	// 解像度を設定
-	options.setDpiX(300);
-	options.setDpiY(300);
-
-	// スライドをビットマップオブジェクトに変換
-	IImage slideImage = slide.getImage(options);
-
-	// 画像をTIFF形式で保存
-	try {
-          slideImage.save("PresentationNotesComments.tiff", ImageFormat.Tiff);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-{{% alert title="注意" color="warning" %}} 
-
-TiffサポートはJDK 9以前のバージョンでは保証されていません。
-
-{{% /alert %}} 
 
 ## **すべてのスライドを画像に変換する**
 
-Aspose.Slidesを使用すると、単一のプレゼンテーション内のすべてのスライドを画像に変換できます。実質的には、プレゼンテーション全体を画像に変換することができます。 
+Aspose.Slides は、プレゼンテーション内のすべてのスライドを画像に変換でき、プレゼンテーション全体を一連の画像に変換することができます。
 
-このサンプルコードは、プレゼンテーション内のすべてのスライドを画像に変換する方法を示しています：
+このサンプルコードは、Java でプレゼンテーション内のすべてのスライドを画像に変換する方法を示しています:
+```java 
+float scaleX = 2;
+float scaleY = scaleX;
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // スライドごとにプレゼンテーションを画像の配列にレンダリング
-    for (int i = 0 ; i < pres.getSlides().size(); i++)
+    // プレゼンテーションをスライド単位で画像にレンダリングします。
+    for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // 非表示のスライドを制御（非表示のスライドはレンダリングしない）
-        if (pres.getSlides().get_Item(i).getHidden())
+        // 非表示スライドを制御します（非表示スライドはレンダリングしません）。
+        if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
-        // スライドをビットマップオブジェクトに変換
-        IImage slideImage = pres.getSlides().get_Item(i).getImage(2f, 2f);
+        // スライドを画像に変換します。
+        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
 
-        // 画像をPNG形式で保存
         try {
-              slideImage.save("Slide_" + i + ".png", ImageFormat.Png);
+            // 画像を JPEG 形式で保存します。
+            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
         } finally {
-             if (slideImage != null) slideImage.dispose();
+            image.dispose();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
-} 
+    presentation.dispose();
+}
 ```
+
+
+## **よくある質問**
+
+**Aspose.Slides はアニメーション付きスライドのレンダリングをサポートしていますか？**
+
+いいえ、`getImage` メソッドはスライドの静止画のみを保存し、アニメーションは含まれません。
+
+**非表示スライドを画像としてエクスポートできますか？**
+
+はい、非表示スライドも通常のスライドと同様に処理できます。処理ループに含めることを忘れないでください。
+
+**画像を影やエフェクト付きで保存できますか？**
+
+はい、Aspose.Slides はスライドを画像として保存する際に、影、透明度、その他のグラフィック効果のレンダリングをサポートしています。

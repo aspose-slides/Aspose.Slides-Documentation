@@ -1,99 +1,109 @@
 ---
-title: Клонировать слайды
+title: Клонирование слайдов презентации на Android
+linktitle: Клонировать слайды
 type: docs
 weight: 35
 url: /ru/androidjava/clone-slides/
+keywords:
+- клонировать слайд
+- копировать слайд
+- сохранить слайд
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Дублирование слайдов PowerPoint с помощью Aspose.Slides для Android. Следуйте нашим понятным примерам кода на Java, чтобы автоматизировать создание PPT за считанные секунды и избавиться от ручной работы."
 ---
 
-
 ## **Клонирование слайдов в презентации**
-Клонирование — это процесс создания точной копии или реплики чего-либо. Aspose.Slides для Android через Java также позволяет сделать копию или клонировать любой слайд и затем вставить этот клонированный слайд в текущую или любую другую открытую презентацию. Процесс клонирования слайдов создает новый слайд, который может быть изменен разработчиками без изменения оригинального слайда. Существует несколько возможных способов клонирования слайда:
+Клонирование — это процесс создания точной копии или реплики чего‑либо. Aspose.Slides for Android via Java также позволяет создать копию или клон любого слайда и затем вставить этот клон в текущую или любую другую открытую презентацию. При клонировании слайда создаётся новый слайд, который разработчики могут изменять, не затрагивая оригинал. Существует несколько способов клонирования слайда:
 
-- Клонировать в конце внутри презентации.
-- Клонировать в другое место внутри презентации.
-- Клонировать в конце в другой презентации.
-- Клонировать в другое место в другой презентации.
-- Клонировать в определенной позиции в другой презентации.
+- Клонировать в конец внутри презентации.
+- Клонировать в другое положение внутри презентации.
+- Клонировать в конец в другой презентации.
+- Клонировать в другое положение в другой презентации.
+- Клонировать в указанное положение в другой презентации.
 
-В Aspose.Slides для Android через Java (коллекция объектов [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide)) предоставленная объектом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) предоставляет методы [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) и [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) для выполнения вышеперечисленных типов клонирования слайдов.
+В Aspose.Slides for Android via Java (коллекция объектов [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide)) , доступная через объект [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), предоставляет методы [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) и [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) для выполнения перечисленных видов клонирования слайдов.
 
-## **Клонировать в конце внутри презентации**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации в конце существующих слайдов, используйте метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) в соответствии с шагами, указанными ниже:
+## **Клонирование слайда в конец презентации**
+Если необходимо клонировать слайд и затем использовать его в том же файле презентации в конце существующих слайдов, используйте метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) согласно следующей последовательности:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) ссылаясь на коллекцию слайдов, предоставленную объектом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд, который необходимо клонировать, в качестве параметра методу [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Запишите измененный файл презентации.
+2. Получите объект [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) через свойство Slides презентации.
+3. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) у объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд, который нужно клонировать, в качестве параметра.
+4. Сохраните изменённый файл презентации.
 
-В приведенном ниже примере мы клонировали слайд (находящийся на первом месте — нулевой индекс — презентации) в конец презентации.
-
+В примере ниже мы клонировали слайд (находившийся на первой позиции — индекс 0 — презентации) в конец презентации.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создайте экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // Клонирование нужного слайда в конец коллекции слайдов в той же презентации
+    // Клонируйте нужный слайд в конец коллекции слайдов в той же презентации
     ISlideCollection slds = pres.getSlides();
 
     slds.addClone(pres.getSlides().get_Item(0));
 
-    // Запись измененной презентации на диск
+    // Запишите изменённую презентацию на диск
     pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Клонировать в другое место внутри презентации**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации, но в другом месте, используйте метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-):
+
+## **Клонирование слайда в другое положение внутри презентации**
+Если нужно клонировать слайд и использовать его в том же файле презентации, но в другом месте, используйте метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-):
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Создайте экземпляр класса, ссылаясь на коллекцию [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) предоставленную объектом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Вызовите метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд, который необходимо клонировать, вместе с индексом для новой позиции в качестве параметра методу [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
-1. Запишите измененную презентацию в файл PPTX.
+2. Получите объект [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) у презентации.
+3. Вызовите метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) у объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд для клонирования вместе с индексом новой позиции.
+4. Сохраните изменённый документ в формате PPTX.
 
-В приведенном ниже примере мы клонировали слайд (находящийся на нулевом индексе — позиция 1 — презентации) в индекс 1 — Позиция 2 — презентации.
-
+В примере ниже мы клонировали слайд (находившийся на нулевом индексе — позиция 1 — презентации) в индекс 1 — позиция 2 — презентации.
 ```java
-// Создание экземпляра класса Presentation, представляющего файл презентации
+// Создайте экземпляр класса Presentation, представляющего файл презентации
 Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // Клонирование нужного слайда в конец коллекции слайдов в той же презентации
+    // Клонируйте нужный слайд в конец коллекции слайдов в той же презентации
     ISlideCollection slds = pres.getSlides();
 
-    // Клонирование нужного слайда в указанный индекс в той же презентации
+    // Клонируйте нужный слайд в указанный индекс в той же презентации
     slds.insertClone(2, pres.getSlides().get_Item(1));
 
-    // Запись измененной презентации на диск
+    // Запишите изменённую презентацию на диск
     pres.save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Клонировать в конце в другой презентации**
-Если вам нужно клонировать слайд из одной презентации и использовать его в другом файле презентации, в конце существующих слайдов:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащий презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащий целевую презентацию, в которую будет добавлен слайд.
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection), ссылаясь на коллекцию [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) предоставленную объектом Presentation целевой презентации.
-1. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд из исходной презентации в качестве параметра методу [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) метода.
-1. Запишите измененный файл целевой презентации.
+## **Клонирование слайда в конец другой презентации**
+Если необходимо клонировать слайд из одной презентации и добавить его в другую презентацию в конец существующих слайдов:
 
-В приведенном ниже примере мы клонировали слайд (с первого индекса исходной презентации) в конец целевой презентации.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащей исходную презентацию.
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащей целевую презентацию.
+3. Получите объект [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) через коллекцию [**Slides**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) целевой презентации.
+4. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) у объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте в него слайд из исходной презентации.
+5. Сохраните изменённый файл целевой презентации.
 
+В примере ниже мы клонировали слайд (с первого индекса исходной презентации) в конец целевой презентации.
 ```java
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создайте экземпляр класса Presentation для загрузки исходного файла презентации
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Создание экземпляра класса Presentation для целевой PPTX (куда слайд будет клонирован)
+    // Создайте экземпляр класса Presentation для целевой PPTX (куда будет клонироваться слайд)
     Presentation destPres = new Presentation();
     try {
-        // Клонирование нужного слайда из исходной презентации в конец коллекции слайдов целевой презентации
+        // Клонируйте нужный слайд из исходной презентации в конец коллекции слайдов целевой презентации
         ISlideCollection slds = destPres.getSlides();
 
         slds.addClone(srcPres.getSlides().get_Item(0));
 
-        // Запись целевой презентации на диск
+        // Запишите целевую презентацию на диск
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -103,30 +113,30 @@ try {
 }
 ```
 
-## **Клонировать в другое место в другой презентации**
-Если вам нужно клонировать слайд из одной презентации и использовать его в другом файле презентации в определенной позиции:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащей исходную презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащего презентацию, в которую будет добавляться слайд.
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) ссылаясь на коллекцию слайдов, предоставленную объектом Presentation целевой презентации.
-1. Вызовите метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд из исходной презентации вместе с желаемой позицией в качестве параметра методу [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
-1. Запишите измененный файл целевой презентации.
+## **Клонирование слайда в другое положение в другой презентации**
+Если необходимо клонировать слайд из одной презентации и разместить его в другой презентации в определённом месте:
 
-В приведенном ниже примере мы клонировали слайд (из нулевого индекса исходной презентации) в индекс 1 (позиция 2) целевой презентации.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с исходной презентацией.
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с целевой презентацией.
+3. Получите объект [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) через коллекцию Slides целевой презентации.
+4. Вызовите метод [insertClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) у объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд из исходной презентации вместе с требуемым индексом позиции.
+5. Сохраните изменённый файл целевой презентации.
 
+В примере ниже мы клонировали слайд (с нулевого индекса исходной презентации) в индекс 1 (позиция 2) целевой презентации.
 ```java
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создайте экземпляр класса Presentation для загрузки исходного файла презентации
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Создание экземпляра класса Presentation для целевой PPTX (куда слайд будет клонирован)
+    // Создайте экземпляр класса Presentation для целевого PPTX (куда будет клонироваться слайд)
     Presentation destPres = new Presentation();
     try {
-        // Клонирование нужного слайда из исходной презентации в конец коллекции слайдов целевой презентации
+        // Клонируйте нужный слайд из исходной презентации в конец коллекции слайдов целевой презентации
         ISlideCollection slds = destPres.getSlides();
 
         slds.insertClone(2, srcPres.getSlides().get_Item(0));
 
-        // Запись целевой презентации на диск
+        // Запишите целевую презентацию на диск
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -136,47 +146,47 @@ try {
 }
 ```
 
-## **Клонировать в определенной позиции в другой презентации**
-Если вам нужно клонировать слайд с мастер-слайдом из одной презентации и использовать его в другой презентации, сначала необходимо клонировать нужный мастер-слайд из исходной презентации в целевую презентацию. Затем вы должны использовать этот мастер-слайд для клонирования слайда с мастер-слайдом. Метод [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ожидает мастер-слайд из целевой презентации, а не из исходной. Чтобы клонировать слайд с мастером, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащего исходную презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation), содержащего целевую презентацию, в которую будет клонироваться слайд.
-1. Получите слайд, который будет клонироваться, вместе с мастер-слайдом.
-1. Создайте экземпляр класса [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection), ссылаясь на коллекцию мастеров, предоставленную объектом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) целевой презентации.
-1. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) объекта [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) и передайте мастер из исходной PPTX, который должен быть клонирован, в качестве параметра метода [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) ссылаясь на коллекцию слайдов, предоставленную объектом Presentation целевой презентации.
-1. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте слайд из исходной презентации, который необходимо клонировать, и мастер-слайд в качестве параметров к методу [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) метода.
-1. Запишите измененный файл целевой презентации.
+## **Клонирование слайда в конкретном положении в другой презентации**
+Если необходимо клонировать слайд вместе с мастер‑слайдом из одной презентации и использовать его в другой, сперва нужно склонировать нужный мастер‑слайд из исходной презентации в целевую. Затем используйте этот мастер‑слайд при клонировании слайда. Метод [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ожидает мастер‑слайд из целевой презентации, а не из исходной. Чтобы клонировать слайд с мастером, выполните следующие шаги:
 
-В приведенном ниже примере мы клонировали слайд с мастером (находящийся на нулевом индексе исходной презентации) в конец целевой презентации, используя мастер из исходного слайда.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с исходной презентацией.
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) с целевой презентацией.
+3. Получите доступ к клонируемому слайду вместе с его мастер‑слайдом.
+4. Получите объект [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) через коллекцию Masters целевой презентации.
+5. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) у объекта [IMasterSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterSlideCollection) и передайте мастер‑слайд из исходного PPTX.
+6. Получите объект [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) через коллекцию Slides целевой презентации.
+7. Вызовите метод [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) у объекта [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) и передайте в него слайд из исходной презентации и мастер‑слайд.
+8. Сохраните изменённый файл целевой презентации.
 
+В примере ниже мы клонировали слайд с мастером (находившийся на нулевом индексе исходной презентации) в конец целевой презентации, используя мастер‑слайд из исходного слайда.
 ```java
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создайте экземпляр класса Presentation для загрузки исходного файла презентации
 Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
-    // Создание экземпляра класса Presentation для целевой презентации (куда слайд будет клонирован)
+    // Создайте экземпляр класса Presentation для целевой презентации (куда будет клонироваться слайд)
     Presentation destPres = new Presentation();
     try {
-        // Создание ISlide из коллекции слайдов в исходной презентации вместе с
-        // мастер-слайдом
+        // Получите ISlide из коллекции слайдов исходной презентации вместе с
+        // Мастер‑слайдом
         ISlide SourceSlide = srcPres.getSlides().get_Item(0);
         IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // Клонирование нужного мастер-слайда из исходной презентации в коллекцию мастеров в
-        // цели презентации
+        // Клонируйте нужный мастер‑слайд из исходной презентации в коллекцию мастеров в
+        // целевой презентации
         IMasterSlideCollection masters = destPres.getMasters();
         IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // Клонирование нужного мастер-слайда из исходной презентации в коллекцию мастеров в
+        // Клонируйте нужный мастер‑слайд из исходной презентации в коллекцию мастеров в
         // целевой презентации
         IMasterSlide iSlide = masters.addClone(SourceMaster);
 
-        // Клонирование нужного слайда из исходной презентации с нужным мастером в конец
-        // коллекции слайдов целевой презентации
+        // Клонируйте нужный слайд из исходной презентации с выбранным мастером в конец
+        // коллекции слайдов в целевой презентации
         ISlideCollection slds = destPres.getSlides();
         slds.addClone(SourceSlide, iSlide, true);
 
-        // Сохранение целевой презентации на диск
+        // Сохраните целевую презентацию на диск
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -186,23 +196,38 @@ try {
 }
 ```
 
-## **Клонировать в конце в указанном разделе**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации, но в другом разделе, используйте метод [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) интерфейса [**ISlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection). Aspose.Slides для Android через Java позволяет клонировать слайд из первого раздела и затем вставить этот клонированный слайд во второй раздел той же презентации.
 
-Следующий кодовый фрагмент показывает, как клонировать слайд и вставить клонированный слайд в указанный раздел.
+## **Клонирование слайда в конец указанного раздела**
+Если нужно клонировать слайд и разместить его в том же файле презентации, но в другом разделе, используйте метод [**addClone**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) интерфейса [**ISlideCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection). Aspose.Slides for Android via Java позволяет клонировать слайд из первого раздела и вставить его во второй раздел той же презентации.
 
+Следующий фрагмент кода демонстрирует, как клонировать слайд и вставить его в указанный раздел.
 ```java
 IPresentation presentation = new Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
-    presentation.getSections().addSection("Раздел 1", presentation.getSlides().get_Item(0));
+    presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
 
-    ISection section2 = presentation.getSections().appendEmptySection("Раздел 2");
+    ISection section2 = presentation.getSections().appendEmptySection("Section 2");
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
     
-	// Сохранение целевой презентации на диск
-    presentation.save(dataDir + "КлонСлайдаВОпределенныйРаздел.pptx", SaveFormat.Pptx);
+	// Сохраните целевую презентацию на диск
+    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Клонируются ли заметки к спикеру и комментарии рецензентов?**
+
+Да. Страницы заметок и комментарии включаются в клон. Если они не нужны, [удалите их](/slides/ru/androidjava/presentation-notes/) после вставки.
+
+**Как обрабатываются диаграммы и их источники данных?**
+
+Объект диаграммы, форматирование и встроенные данные копируются. Если диаграмма была связана с внешним источником (например, OLE‑встроенной книгой), связь сохраняется как [OLE‑объект](/slides/ru/androidjava/manage-ole/). После перемещения между файлами проверьте доступность данных и поведение обновления.
+
+**Можно ли управлять позицией вставки и разделами клона?**
+
+Да. Вы можете вставить клон в конкретный индекс слайда и поместить его в выбранный [раздел](/slides/ru/androidjava/slide-section/). Если целевой раздел отсутствует, создайте его заранее и переместите слайд туда.

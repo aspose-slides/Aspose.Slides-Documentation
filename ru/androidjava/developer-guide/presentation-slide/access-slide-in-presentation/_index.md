@@ -1,60 +1,73 @@
 ---
-title: Доступ к слайду в презентации
+title: Доступ к слайдам презентации на Android
+linktitle: Доступ к слайду
 type: docs
 weight: 20
 url: /ru/androidjava/access-slide-in-presentation/
-keywords: "Доступ к PowerPoint презентации, Доступ к слайду, Изменение свойств слайда, Изменение позиции слайда, Установка номера слайда, индекса, ID, позиции Java, Aspose.Slides"
-description: "Доступ к слайду PowerPoint по индексу, ID или позиции в Java. Изменение свойств слайда"
+keywords:
+- доступ к слайду
+- индекс слайда
+- идентификатор слайда
+- позиция слайда
+- изменить позицию
+- свойства слайда
+- номер слайда
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как получать доступ к слайдам и управлять ими в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Android. Повышайте продуктивность с примерами кода на Java."
 ---
 
 Aspose.Slides позволяет получать доступ к слайдам двумя способами: по индексу и по ID.
 
-## **Доступ к слайду по индексу**
+## **Получить слайд по индексу**
 
-Все слайды в презентации располагаются в числовом порядке в зависимости от позиции слайда, начиная с 0. Первый слайд доступен по индексу 0; второй слайд — по индексу 1; и так далее.
+Все слайды в презентации расположены численно в порядке их позиции, начиная с 0. Первый слайд доступен по индексу 0; второй — по индексу 1; и т.д.
 
-Класс Presentation, представляющий файл презентации, предоставляет все слайды в коллекции [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) (коллекция объектов [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/)). Этот код на Java показывает, как получить доступ к слайду по его индексу:
-
+Класс Presentation, представляющий файл презентации, предоставляет все слайды как коллекцию [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) (коллекцию объектов [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/)). Этот Java‑код показывает, как получить слайд по его индексу:
 ```java
 // Создает объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Получает слайд, используя его индекс
+    // Получает слайд по его индексу
     ISlide slide = pres.getSlides().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Доступ к слайду по ID**
 
-Каждый слайд в презентации имеет уникальный ID. Вы можете использовать метод [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) (предоставляемый классом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)), чтобы получить доступ к этому ID. Этот код на Java показывает, как указать действительный ID слайда и получить доступ к этому слайду через метод [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-):
+## **Получить слайд по ID**
 
+Каждому слайду в презентации присвоен уникальный идентификатор. Вы можете использовать метод [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-) (доступный в классе [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)) для получения слайда по этому ID. Этот Java‑код показывает, как передать корректный ID слайда и получить его через метод [getSlideById](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideById-long-):
 ```java
-// Создает объект Presentation, представляющий файл презентации
+// Создаёт объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("demo.pptx");
 try {
     // Получает ID слайда
     int id = (int) pres.getSlides().get_Item(0).getSlideId();
     
-    // Получает доступ к слайду по его ID
+    // Получает слайд по его ID
     IBaseSlide slide = pres.getSlideById(id);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Изменение позиции слайда**
 
-Aspose.Slides позволяет вам изменять позицию слайда. Например, вы можете указать, что первый слайд должен стать вторым.
+## **Изменить позицию слайда**
+
+Aspose.Slides позволяет изменять позицию слайда. Например, можно указать, что первый слайд должен стать вторым.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Получите ссылку на слайд (позицию которого вы хотите изменить) по его индексу.
-1. Установите новую позицию для слайда через свойство [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-).
-1. Сохраните измененную презентацию.
+2. Получите ссылку на слайд (позицию которого нужно изменить) по его индексу
+3. Задайте новую позицию слайда через свойство [setSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#setSlideNumber-int-).
+4. Сохраните изменённую презентацию.
 
-Этот код на Java демонстрирует операцию, в которой слайд на позиции 1 перемещается на позицию 2:
-
+Этот Java‑код демонстрирует операцию, при которой слайд из позиции 1 перемещается в позицию 2:
 ```java
 // Создает объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("Presentation.pptx");
@@ -65,28 +78,28 @@ try {
     // Устанавливает новую позицию для слайда
     sld.setSlideNumber(2);
     
-    // Сохраняет измененную презентацию
+    // Сохраняет изменённую презентацию
     pres.save("helloworld_Pos.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-Первый слайд стал вторым; второй слайд стал первым. Когда вы изменяете позицию слайда, другие слайды автоматически корректируются.
 
-## **Установка номера слайда**
+Первый слайд стал вторым; второй — первым. При изменении позиции одного слайда остальные автоматически корректируются.
 
-С помощью свойства [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) (предоставляемого классом [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)) вы можете указать новый номер для первого слайда в презентации. Эта операция приводит к перерасчету номеров других слайдов.
+## **Установить номер слайда**
+
+С помощью свойства [setFirstSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) (доступного в классе [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)) можно задать новый номер для первого слайда в презентации. Эта операция приводит к пересчёту номеров остальных слайдов.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Получите номер слайда.
-1. Установите номер слайда.
-1. Сохраните измененную презентацию.
+2. Получите номер слайда.
+3. Установите номер слайда.
+4. Сохраните изменённую презентацию.
 
-Этот код на Java демонстрирует операцию, в которой номер первого слайда устанавливается на 10:
-
+Этот Java‑код демонстрирует операцию, при которой номер первого слайда устанавливается в 10:
 ```java
-// Создает объект Presentation, представляющий файл презентации
+// Создаёт объект Presentation, представляющий файл презентации
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
     // Получает номер слайда
@@ -95,15 +108,15 @@ try {
     // Устанавливает номер слайда
     pres.setFirstSlideNumber(10);
 	
-    // Сохраняет измененную презентацию
+	// Сохраняет изменённую презентацию
     pres.save("Set_Slide_Number_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-Если вы хотите пропустить первый слайд, вы можете начать нумерацию со второго слайда (и скрыть нумерацию для первого слайда) следующим образом:
 
+Если вы хотите пропустить первый слайд, можно начать нумерацию со второго слайда (и скрыть нумерацию первого) следующим образом:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -115,15 +128,30 @@ try {
     // Устанавливает номер для первого слайда презентации
     presentation.setFirstSlideNumber(0);
 
-    // Показывает номера слайдов для всех слайдов
+    // Отображает номера слайдов для всех слайдов
     presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
 
     // Скрывает номер слайда для первого слайда
     presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
 
-    // Сохраняет измененную презентацию
+    // Сохраняет изменённую презентацию
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Совпадает ли номер слайда, видимый пользователем, с нулевой базой индекса коллекции?**
+
+Номер, отображаемый на слайде, может начинаться с произвольного значения (например, 10) и не обязан соответствовать индексу; связь контролируется настройкой [first slide number](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) презентации.
+
+**Влияют ли скрытые слайды на индексацию?**
+
+Да. Скрытый слайд остаётся в коллекции и учитывается при индексации; «скрытый» относится к отображению, а не к его позиции в коллекции.
+
+**Изменяется ли индекс слайда, когда добавляются или удаляются другие слайды?**
+
+Да. Индексы всегда отражают текущий порядок слайдов и пересчитываются при вставке, удалении и перемещении.

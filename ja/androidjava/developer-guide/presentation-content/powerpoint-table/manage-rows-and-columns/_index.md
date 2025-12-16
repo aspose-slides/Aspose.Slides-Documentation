@@ -1,24 +1,42 @@
 ---
-title: 行と列の管理
+title: Android で PowerPoint テーブルの行と列を管理
+linktitle: 行と列
 type: docs
 weight: 20
 url: /ja/androidjava/manage-rows-and-columns/
-keywords: "テーブル, テーブルの行と列, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
-description: "Java で PowerPoint プレゼンテーションのテーブルの行と列を管理する"
+keywords:
+- テーブル行
+- テーブル列
+- 最初の行
+- テーブルヘッダー
+- 行のクローン
+- 列のクローン
+- 行のコピー
+- 列のコピー
+- 行の削除
+- 列の削除
+- 行のテキスト書式設定
+- 列のテキスト書式設定
+- テーブルスタイル
+- PowerPoint
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android を使用して Java で PowerPoint のテーブル行と列を管理し、プレゼンテーションの編集とデータ更新を高速化します。"
 ---
 
-PowerPoint プレゼンテーションのテーブルの行と列を管理できるようにするために、Aspose.Slides は [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) クラス、[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) インターフェース、その他多くのタイプを提供します。
+PowerPoint プレゼンテーションでテーブルの行と列を管理できるように、Aspose.Slides は [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) クラス、[ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) インターフェイス、その他多数の型を提供します。
 
-## **最初の行をヘッダーとして設定する**
+## **最初の行をヘッダーとして設定**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。 
-3. [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトを作成し、nullに設定します。
-4. すべての [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) オブジェクトを反復処理して、関連するテーブルを見つけます。
-5. テーブルの最初の行をヘッダーとして設定します。 
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトを作成し、null に設定します。
+4. すべての [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) オブジェクトを反復処理して、対象のテーブルを見つけます。
+5. テーブルの最初の行をヘッダーとして設定します。
 
-以下の Java コードは、テーブルの最初の行をヘッダーとして設定する方法を示しています：
-
+この Java コードは、テーブルの最初の行をヘッダーとして設定する方法を示します。
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("table.pptx");
@@ -36,7 +54,7 @@ try {
         {
             tbl = (ITable)shp;
             
-            // テーブルの最初の行をヘッダーとして設定します
+            //テーブルの最初の行をヘッダーとして設定します
             tbl.setFirstRow(true);
         }
     }
@@ -48,19 +66,19 @@ try {
 }
 ```
 
+
 ## **テーブルの行または列をクローンする**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。 
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
 3. `columnWidth` の配列を定義します。
 4. `rowHeight` の配列を定義します。
-5. [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトをスライドに [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを通じて追加します。
+5. [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを使用して、スライドに [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトを追加します。
 6. テーブルの行をクローンします。
 7. テーブルの列をクローンします。
-8. 修正したプレゼンテーションを保存します。
+8. 変更されたプレゼンテーションを保存します。
 
-以下の Java コードは、PowerPoint テーブルの行または列をクローンする方法を示しています：
-
+この Java コードは、PowerPoint テーブルの行または列をクローンする方法を示します。
 ```java
  // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("Test.pptx");
@@ -68,7 +86,7 @@ try {
     // 最初のスライドにアクセスします
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 幅のあるカラムと高さのある行を定義します
+    // 列の幅と行の高さを定義します
     double[] dblCols = { 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
@@ -76,28 +94,28 @@ try {
     ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
     // 行 1 のセル 1 にテキストを追加します
-    table.get_Item(0, 0).getTextFrame().setText("行 1 セル 1");
+    table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
 
     // 行 1 のセル 2 にテキストを追加します
-    table.get_Item(1, 0).getTextFrame().setText("行 1 セル 2");
+    table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
 
-    // 行 1 をテーブルの最後にクローンします
+    // テーブルの末尾に行 1 をクローンします
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
     // 行 2 のセル 1 にテキストを追加します
-    table.get_Item(0, 1).getTextFrame().setText("行 2 セル 1");
+    table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
 
     // 行 2 のセル 2 にテキストを追加します
-    table.get_Item(1, 1).getTextFrame().setText("行 2 セル 2");
+    table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
 
-    // 行 2 をテーブルの 4 番目の行としてクローンします
+    // テーブルの 4 行目として行 2 をクローンします
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // 最初の列を最後にクローンします
+    // 末尾に最初の列をクローンします
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
 
-    // 2 番目の列を 4 番目の列インデックスでクローンします
-    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
+    // 4 番目の列インデックスに 2 番目の列をクローンします
+    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
     
     // プレゼンテーションをディスクに保存します
     pres.save("table_out.pptx", SaveFormat.Pptx);
@@ -106,19 +124,19 @@ try {
 }
 ```
 
+
 ## **テーブルから行または列を削除する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。 
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
 3. `columnWidth` の配列を定義します。
 4. `rowHeight` の配列を定義します。
-5. [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトをスライドに [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを通じて追加します。
-6. テーブル行を削除します。
-7. テーブル列を削除します。
-8. 修正したプレゼンテーションを保存します。 
+5. [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを使用して、スライドに [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトを追加します。
+6. テーブルの行を削除します。
+7. テーブルの列を削除します。
+8. 変更されたプレゼンテーションを保存します。
 
-以下の Java コードは、テーブルから行または列を削除する方法を示しています：
-
+この Java コードは、テーブルから行または列を削除する方法を示します。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -137,18 +155,18 @@ try {
 }
 ```
 
-## **テーブル行レベルでのテキストフォーマットを設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。 
-3. スライドから関連する [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトにアクセスします。
+## **テーブル行レベルでテキスト書式設定を行う**
+
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. スライドから対象の [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトにアクセスします。
 4. 最初の行のセルの [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。
 5. 最初の行のセルの [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) を設定します。
-6. 2 番目の行のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
-7. 修正したプレゼンテーションを保存します。
+6. 2 行目のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
+7. 変更されたプレゼンテーションを保存します。
 
-以下の Java コードは、操作を示しています。
-
+この Java コードは操作を示します。
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
@@ -162,14 +180,14 @@ try {
 	
     someTable.getRows().get_Item(0).setTextFormat(portionFormat);
     
-    // 最初の行のセルのテキストの整列と右マージンを設定します
+    // 最初の行のセルのテキスト配置と右余白を設定します
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
 	
     someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
     
-    // 2 番目の行のセルのテキストの垂直タイプを設定します
+    // 2 行目のセルのテキスト縦方向タイプを設定します
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
 	
@@ -182,24 +200,24 @@ try {
 }
 ```
 
-## **テーブル列レベルでのテキストフォーマットを設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションを読み込みます。
-2. インデックスを使用してスライドの参照を取得します。 
-3. スライドから関連する [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトにアクセスします。
+## **テーブル列レベルでテキスト書式設定を行う**
+
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. スライドから対象の [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) オブジェクトにアクセスします。
 4. 最初の列のセルの [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。
 5. 最初の列のセルの [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) を設定します。
-6. 2 番目の列のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
-7. 修正したプレゼンテーションを保存します。 
+6. 2 列目のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
+7. 変更されたプレゼンテーションを保存します。
 
-以下の Java コードは、操作を示しています： 
-
+この Java コードは操作を示します：
 ```java
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
     // 最初のスライドの最初のシェイプがテーブルであると仮定します
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
 
     // 最初の列のセルのフォント高さを設定します
     PortionFormat portionFormat = new PortionFormat();
@@ -207,14 +225,14 @@ try {
 	
     someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // 最初の列のセルのテキストの整列と右マージンを1 回の呼び出しで設定します
+    // 最初の列のセルのテキスト配置と右余白を一度に設定します
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
 	
     someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // 2 番目の列のセルのテキストの垂直タイプを設定します
+    // 2 列目のセルのテキスト縦方向タイプを設定します
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
 	
@@ -226,10 +244,10 @@ try {
 }
 ```
 
-## **テーブルスタイルのプロパティを取得する**
 
-Aspose.Slides を使用すると、別のテーブルや他の場所で使用するために、テーブルのスタイルプロパティを取得できます。この Java コードは、テーブルのプリセットスタイルからスタイルプロパティを取得する方法を示しています：
+## **テーブルスタイルプロパティの取得**
 
+Aspose.Slides を使用すると、テーブルのスタイル プロパティを取得でき、取得した詳細を別のテーブルや他の場所で利用できます。この Java コードは、テーブルのプリセットスタイルからスタイル プロパティを取得する方法を示します。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -240,3 +258,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**既に作成されたテーブルに PowerPoint のテーマ/スタイルを適用できますか？**
+
+はい。テーブルはスライド／レイアウト／マスターテーマを継承しますが、その上で塗りつぶし、枠線、テキストカラーを上書きすることも可能です。
+
+**Excel のようにテーブル行を並べ替えできますか？**
+
+いいえ、Aspose.Slides のテーブルには組み込みのソートやフィルタ機能はありません。まずメモリ上でデータをソートし、その順序でテーブルの行を再度設定してください。
+
+**特定のセルにカスタムカラーを保持しながら、帯状（ストライプ）列を使用できますか？**
+
+はい。帯状列を有効にした上で、特定のセルにローカル書式を上書きできます。セルレベルの書式設定はテーブルスタイルよりも優先されます。
