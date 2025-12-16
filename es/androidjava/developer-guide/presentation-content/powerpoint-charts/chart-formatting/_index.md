@@ -1,45 +1,60 @@
 ---
-title: Formato de Gráficos
+title: Formato de gráficos de presentación en Android
+linktitle: Formato de gráfico
 type: docs
 weight: 60
 url: /es/androidjava/chart-formatting/
+keywords:
+- formato de gráfico
+- formato de gráfico
+- entidad de gráfico
+- propiedades de gráfico
+- configuración de gráfico
+- opciones de gráfico
+- propiedades de fuente
+- borde redondeado
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda a formatear gráficos en Aspose.Slides para Android mediante Java y mejore su presentación de PowerPoint con un estilo profesional y llamativo."
 ---
 
-## **Formatear Entidades de Gráficos**
-Aspose.Slides para Android a través de Java permite a los desarrolladores agregar gráficos personalizados a sus diapositivas desde cero. Este artículo explica cómo formatear diferentes entidades de gráficos, incluyendo el eje de categoría y el eje de valores.
+## **Formato de entidades de gráfico**
+Aspose.Slides for Android via Java permite a los desarrolladores agregar gráficos personalizados a sus diapositivas desde cero. Este artículo explica cómo dar formato a diferentes entidades de gráfico, incluidas la categoría del gráfico y el eje de valores.
 
-Aspose.Slides para Android a través de Java proporciona una API simple para gestionar diferentes entidades de gráficos y formatearlas utilizando valores personalizados:
+Aspose.Slides for Android via Java proporciona una API sencilla para gestionar diferentes entidades de gráfico y darles formato mediante valores personalizados:
 
-1. Crear una instancia de la clase [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtener una referencia de la diapositiva por su índice.
-1. Agregar un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (en este ejemplo utilizaremos ChartType.LineWithMarkers).
-1. Acceder al Eje de Valores del gráfico y establecer las siguientes propiedades:
-   1. Establecer **Formato de Línea** para las líneas de cuadrícula principales del Eje de Valores
-   1. Establecer **Formato de Línea** para las líneas de cuadrícula menores del Eje de Valores
-   1. Establecer **Formato de Número** para el Eje de Valores
-   1. Establecer **Valores Mínimos, Máximos, Mayores y Menores** para el Eje de Valores
-   1. Establecer **Propiedades de Texto** para los datos del Eje de Valores
-   1. Establecer **Título** para el Eje de Valores
-   1. Establecer **Formato de Línea** para el Eje de Valores
-1. Acceder al Eje de Categoría del gráfico y establecer las siguientes propiedades:
-   1. Establecer **Formato de Línea** para las líneas de cuadrícula principales del Eje de Categoría
-   1. Establecer **Formato de Línea** para las líneas de cuadrícula menores del Eje de Categoría
-   1. Establecer **Propiedades de Texto** para los datos del Eje de Categoría
-   1. Establecer **Título** para el Eje de Categoría
-   1. Establecer **Posicionamiento de Etiquetas** para el Eje de Categoría
-   1. Establecer **Ángulo de Rotación** para las etiquetas del Eje de Categoría
-1. Acceder a la Leyenda del gráfico y establecer las **Propiedades de Texto** para ellas
-1. Establecer la visualización de las Leyendas del gráfico sin sobreponerse al gráfico
-1. Acceder al **Eje de Valores Secundario** del gráfico y establecer las siguientes propiedades:
-   1. Habilitar el **Eje de Valores Secundario**
-   1. Establecer **Formato de Línea** para el Eje de Valores Secundario
-   1. Establecer **Formato de Número** para el Eje de Valores Secundario
-   1. Establecer **Valores Mínimos, Máximos, Mayores y Menores** para el Eje de Valores Secundario
-1. Ahora trazar la primera serie de gráficos en el Eje de Valores Secundario
-1. Establecer el color de relleno de la pared trasera del gráfico
-1. Establecer el color de relleno del área de trazado del gráfico
-1. Escribir la presentación modificada en un archivo PPTX
-
+1. Cree una instancia de la clase [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga la referencia de una diapositiva por su índice.
+1. Agregue un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (en este ejemplo usaremos ChartType.LineWithMarkers).
+1. Acceda al eje de valores del gráfico y establezca las siguientes propiedades:
+   1. Establecer **Line format** para las líneas de la cuadrícula mayor del eje de valores
+   1. Establecer **Line format** para las líneas de la cuadrícula menor del eje de valores
+   1. Establecer **Number Format** para el eje de valores
+   1. Establecer **Min, Max, Major and Minor units** para el eje de valores
+   1. Establecer **Text Properties** para los datos del eje de valores
+   1. Establecer **Title** para el eje de valores
+   1. Establecer **Line Format** para el eje de valores
+1. Acceda al eje de categorías del gráfico y establezca las siguientes propiedades:
+   1. Establecer **Line format** para las líneas de la cuadrícula mayor del eje de categorías
+   1. Establecer **Line format** para las líneas de la cuadrícula menor del eje de categorías
+   1. Establecer **Text Properties** para los datos del eje de categorías
+   1. Establecer **Title** para el eje de categorías
+   1. Establecer **Label Positioning** para el eje de categorías
+   1. Establecer **Rotation Angle** para las etiquetas del eje de categorías
+1. Acceda a la leyenda del gráfico y establezca las **Text Properties** para ella
+1. Configure la visualización de leyendas del gráfico sin que se superpongan al gráfico
+1. Acceda al **Secondary Value Axis** del gráfico y establezca las siguientes propiedades:
+   1. Habilite el **Value Axis** secundario
+   1. Establecer **Line Format** para el eje de valores secundario
+   1. Establecer **Number Format** para el eje de valores secundario
+   1. Establecer **Min, Max, Major and Minor units** para el eje de valores secundario
+1. Ahora dibuje la primera serie del gráfico en el eje de valores secundario
+1. Establezca el color de relleno del fondo del gráfico
+1. Establezca el color de relleno del área de trazado del gráfico
+1. Escriba la presentación modificada en un archivo PPTX
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -47,37 +62,37 @@ try {
     // Accediendo a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregando el gráfico de ejemplo
+    // Añadiendo el gráfico de ejemplo
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Estableciendo el Título del Gráfico
+    // Estableciendo el título del gráfico
     chart.hasTitle();
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    chartTitle.setText("Gráfico de Ejemplo");
+    chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chartTitle.getPortionFormat().setFontHeight(20);
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Estableciendo formato de líneas de cuadrícula principales para el eje de valores
+    // Estableciendo el formato de líneas de cuadrícula principales para el eje de valores
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Estableciendo formato de líneas de cuadrícula menores para el eje de valores
+    // Estableciendo el formato de líneas de cuadrícula menores para el eje de valores
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Estableciendo formato de número del eje de valores
+    // Estableciendo el formato numérico del eje de valores
     chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Estableciendo valores máximos y mínimos del gráfico
+    // Estableciendo los valores máximo y mínimo del gráfico
     chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
@@ -88,7 +103,7 @@ try {
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Estableciendo Propiedades de Texto del Eje de Valores
+    // Estableciendo las propiedades de texto del eje de valores
     IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
     txtVal.setFontBold(NullableBool.True);
     txtVal.setFontHeight(16);
@@ -97,28 +112,28 @@ try {
     txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
     txtVal.setLatinFont(new FontData("Times New Roman"));
 
-    // Estableciendo título del eje de valores
+    // Estableciendo el título del eje de valores
     chart.getAxes().getVerticalAxis().hasTitle();
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Eje Primario");
+    valtitle.setText("Primary Axis");
     valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     valtitle.getPortionFormat().setFontHeight(20);
     valtitle.getPortionFormat().setFontBold(NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Estableciendo formato de líneas de cuadrícula principales para el eje de categoría
+    // Estableciendo el formato de líneas de cuadrícula principales para el eje de categorías
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Estableciendo formato de líneas de cuadrícula menores para el eje de categoría
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    // Estableciendo el formato de líneas de cuadrícula menores para el eje de categorías
+    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Estableciendo Propiedades de Texto del Eje de Categoría
+    // Estableciendo las propiedades de texto del eje de categorías
     IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
     txtCat.setFontBold(NullableBool.True);
     txtCat.setFontHeight(16);
@@ -127,25 +142,25 @@ try {
     txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     txtCat.setLatinFont(new FontData("Arial"));
 
-    // Estableciendo Título de Categoría
+    // Estableciendo el título de la categoría
     chart.getAxes().getHorizontalAxis().hasTitle();
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
     IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Categoría de Ejemplo");
+    catTitle.setText("Sample Category");
     catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     catTitle.getPortionFormat().setFontHeight(20);
     catTitle.getPortionFormat().setFontBold(NullableBool.True);
     catTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Estableciendo posición de etiquetas del eje de categoría
+    // Estableciendo la posición de la etiqueta del eje de categorías
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
 
-    // Estableciendo ángulo de rotación de las etiquetas del eje de categoría
+    // Estableciendo el ángulo de rotación de la etiqueta del eje de categorías
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Estableciendo Propiedades de Texto de las Leyendas
+    // Estableciendo las propiedades de texto de las leyendas
     IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
     txtleg.setFontBold(NullableBool.True);
     txtleg.setFontHeight(16);
@@ -153,7 +168,7 @@ try {
     txtleg.getFillFormat().setFillType(FillType.Solid);
     txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
 
-    // Establecer la visualización de leyendas del gráfico sin superponerse al gráfico
+    // Mostrar las leyendas del gráfico sin superponerlas al gráfico
 
     chart.getLegend().setOverlay(true);
     // chart.ChartData.Series[0].PlotOnSecondAxis=true;
@@ -164,12 +179,12 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
 
-    // Estableciendo Formato de Número para el Eje de Valores Secundario
+    // Estableciendo el formato numérico del eje de valores secundario
     chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
-    // Estableciendo valores máximos y mínimos para el gráfico
+    // Estableciendo los valores máximo y mínimo del gráfico
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
     chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
@@ -180,7 +195,7 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
 
-    // Estableciendo color de la pared trasera del gráfico
+    // Estableciendo el color de la pared trasera del gráfico
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
@@ -191,23 +206,23 @@ try {
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Guardar Presentación
+    // Guardar presentación
     pres.save("FormattedChart.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer Propiedades de Fuente para el Gráfico**
-Aspose.Slides para Android a través de Java proporciona soporte para establecer las propiedades relacionadas con la fuente para el gráfico. Por favor, siga los pasos a continuación para establecer las propiedades de la fuente para el gráfico.
 
-- Instanciar el objeto de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Agregar el gráfico en la diapositiva.
+## **Establecer propiedades de fuente para un gráfico**
+Aspose.Slides for Android via Java brinda soporte para establecer las propiedades relacionadas con la fuente del gráfico. Siga los pasos a continuación para establecer las propiedades de fuente para el gráfico.
+
+- Instanciar un objeto de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+- Agregar un gráfico en la diapositiva.
 - Establecer la altura de la fuente.
 - Guardar la presentación modificada.
 
-A continuación se presenta un ejemplo de muestra.
-
+A continuación se muestra un ejemplo de muestra.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -223,52 +238,52 @@ try {
 }
 ```
 
-## **Establecer Formato de Números**
-Aspose.Slides para Android a través de Java proporciona una API simple para gestionar el formato de datos de gráficos:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtener una referencia de la diapositiva por su índice.
-1. Agregar un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (este ejemplo utiliza **ChartType.ClusteredColumn**).
-1. Establecer el formato de número preestablecido a partir de los posibles valores preestablecidos.
-1. Recorrer la celda de datos del gráfico en cada serie de gráficos y establecer el formato de número de datos del gráfico.
-1. Guardar la presentación.
-1. Establecer el formato de número personalizado.
-1. Recorrer la celda de datos del gráfico dentro de cada serie de gráficos y establecer un formato de número de datos de gráfico diferente.
-1. Guardar la presentación.
+## **Establecer el formato numérico**
+Aspose.Slides for Android via Java proporciona una API sencilla para gestionar el formato de datos del gráfico:
 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Obtenga la referencia de una diapositiva por su índice.
+1. Agregue un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (este ejemplo usa **ChartType.ClusteredColumn**).
+1. Establezca el formato numérico predefinido a partir de los valores predefinidos posibles.
+1. Recorra la celda de datos del gráfico en cada serie y establezca el formato numérico de los datos del gráfico.
+1. Guarde la presentación.
+1. Establezca el formato numérico personalizado.
+1. Recorra la celda de datos del gráfico dentro de cada serie y establezca un formato numérico de datos diferente.
+1. Guarde la presentación.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Accediendo a la primera diapositiva de la presentación
+    // Acceder a la primera diapositiva de la presentación
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregando un gráfico de columnas agrupadas predeterminado
+    // Agregar un gráfico de columnas agrupadas predeterminado
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-    // Accediendo a la colección de series del gráfico
+    // Acceder a la colección de series del gráfico
     IChartSeriesCollection series = chart.getChartData().getSeries();
     
-    // Recorrer cada serie de gráficos
+    // Recorrer cada serie del gráfico
     for (IChartSeries ser : series) 
     {
         // Recorrer cada celda de datos en la serie
         for (IChartDataPoint cell : ser.getDataPoints()) 
         {
-            // Estableciendo el formato de número
+            // Establecer el formato numérico
             cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // Guardando la presentación
+    // Guardar la presentación
     pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
-Los posibles valores de formato de número preestablecido junto con su índice preestablecido que se pueden utilizar se presentan a continuación:
+
+Los posibles valores de formato numérico predefinidos junto con su índice predefinido y que pueden usarse se muestran a continuación:
 
 |**0**|General|
 | :- | :- |
@@ -308,17 +323,16 @@ Los posibles valores de formato de número preestablecido junto con su índice p
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Establecer Bordes Redondeados en el Área del Gráfico**
-Aspose.Slides para Android a través de Java proporciona soporte para establecer el área del gráfico. Se han agregado los métodos [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) y [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) a la interfaz [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) y a la clase [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart).
+## **Establecer bordes redondeados del área del gráfico**
+Aspose.Slides for Android via Java brinda soporte para configurar el área del gráfico. Los métodos [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) y [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) se han añadido a la interfaz [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) y a la clase [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart).
 
-1. Instanciar el objeto de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Agregar el gráfico en la diapositiva.
-1. Establecer el tipo de relleno y el color de relleno del gráfico.
-1. Establecer la propiedad de bordes redondeados a Verdadero.
+1. Instanciar un objeto de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+1. Agregar un gráfico en la diapositiva.
+1. Establecer el tipo de relleno y el color de relleno del gráfico
+1. Establecer la propiedad de esquina redondeada en True.
 1. Guardar la presentación modificada.
 
-A continuación se presenta un ejemplo de muestra.
-
+A continuación se muestra un ejemplo de muestra. 
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -335,3 +349,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo establecer rellenos semitransparentes para columnas/áreas manteniendo el borde opaco?**
+
+Sí. La transparencia del relleno y el contorno se configuran por separado. Esto es útil para mejorar la legibilidad de la cuadrícula y los datos en visualizaciones densas.
+
+**¿Cómo puedo manejar las etiquetas de datos cuando se superponen?**
+
+Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste el desplazamiento/posición de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
+
+**¿Puedo aplicar rellenos de degradado o patrón a las series?**
+
+Sí. Tanto los rellenos sólidos como los de degradado/patrón están típicamente disponibles. En la práctica, use degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.

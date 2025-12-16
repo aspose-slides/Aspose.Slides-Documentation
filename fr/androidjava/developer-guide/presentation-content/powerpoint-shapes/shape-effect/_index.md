@@ -1,26 +1,37 @@
 ---
-title: Effet de forme
+title: Appliquer des effets de forme aux présentations sur Android
+linktitle: Effet de forme
 type: docs
 weight: 30
-url: /fr/androidjava/shape-effect
-keywords: "Effet de forme, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
-description: "Appliquer un effet à une forme PowerPoint en Java"
+url: /fr/androidjava/shape-effect/
+keywords:
+- effet de forme
+- effet d'ombre
+- effet de réflexion
+- effet de lueur
+- effet de bords souples
+- format d'effet
+- PowerPoint
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Transformez vos fichiers PPT et PPTX avec des effets de forme avancés grâce à Aspose.Slides pour Android via Java — créez des diapositives percutantes et professionnelles en quelques secondes."
 ---
 
-Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/androidjava/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des reflets convaincants sur une forme, diffuser une lueur d'une forme, etc.
+Alors que les effets dans PowerPoint peuvent être utilisés pour mettre en valeur une forme, ils diffèrent des [remplissages](/slides/fr/androidjava/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des reflets convaincants sur une forme, diffuser la lueur d’une forme, etc.
 
-<img src="shape-effect.png" alt="effet de forme" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint propose six effets qui peuvent être appliqués aux formes. Vous pouvez appliquer un ou plusieurs effets à une forme.
+* PowerPoint propose six effets qui peuvent être appliqués aux formes. Vous pouvez appliquer un ou plusieurs effets à une forme. 
 
-* Certaines combinaisons d'effets semblent meilleures que d'autres. Pour cette raison, PowerPoint propose des options sous **Préréglage**. Les options de préréglage sont essentiellement une combinaison connue et esthétiquement plaisante de deux effets ou plus. De cette manière, en sélectionnant un préréglage, vous ne perdrez pas de temps à tester ou à combiner différents effets pour trouver une belle combinaison.
+* Certaines combinaisons d’effets sont plus esthétiques que d’autres. Pour cette raison, les options PowerPoint se trouvent sous **Préréglage**. Les options Préréglage sont essentiellement une combinaison connue et attrayante de deux effets ou plus. Ainsi, en sélectionnant un préréglage, vous n’aurez pas à perdre du temps à tester ou à combiner différents effets pour trouver une bonne combinaison.
 
-Aspose.Slides fournit des propriétés et des méthodes sous la classe [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat) qui vous permettent d'appliquer les mêmes effets aux formes dans les présentations PowerPoint.
+Aspose.Slides fournit des propriétés et des méthodes sous la classe [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat) qui vous permettent d’appliquer les mêmes effets aux formes dans les présentations PowerPoint.
 
-## **Appliquer un effet d'ombre**
+## **Appliquer un effet d’ombre**
 
-Ce code Java montre comment appliquer l'effet d'ombre externe ([OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) à un rectangle :
-
+Ce code Java vous montre comment appliquer l’effet d’ombre extérieure ([OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) à un rectangle:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,10 +48,10 @@ try {
 }
 ```
 
+
 ## **Appliquer un effet de réflexion**
 
-Ce code Java montre comment appliquer l'effet de réflexion à une forme :
-
+Ce code Java vous montre comment appliquer l’effet de réflexion à une forme:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +69,10 @@ try {
 }
 ```
 
+
 ## **Appliquer un effet de lueur**
 
-Ce code Java montre comment appliquer l'effet de lueur à une forme :
-
+Ce code Java vous montre comment appliquer l’effet de lueur à une forme:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +88,10 @@ try {
 }
 ```
 
-## **Appliquer un effet de bords adoucis**
 
-Ce code Java montre comment appliquer les bords adoucis à une forme :
+## **Appliquer un effet de bords souples**
 
+Ce code Java vous montre comment appliquer les bords souples à une forme:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,3 +105,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Puis‑je appliquer plusieurs effets à la même forme ?**
+
+Oui, vous pouvez combiner différents effets, tels que l’ombre, la réflexion et la lueur, sur une seule forme pour créer une apparence plus dynamique.
+
+**À quelles formes puis‑je appliquer des effets ?**
+
+Vous pouvez appliquer des effets à diverses formes, notamment les formes automatiques, les graphiques, les tableaux, les images, les objets SmartArt, les objets OLE, etc.
+
+**Puis‑je appliquer des effets à des formes groupées ?**
+
+Oui, vous pouvez appliquer des effets à des formes groupées. L’effet sera appliqué à l’ensemble du groupe.

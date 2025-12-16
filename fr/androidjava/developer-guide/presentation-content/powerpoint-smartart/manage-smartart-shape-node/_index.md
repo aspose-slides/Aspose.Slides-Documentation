@@ -1,35 +1,49 @@
 ---
-title: Créer ou gérer un nœud de forme SmartArt PowerPoint en Java
-linktitle: Gérer le nœud de forme SmartArt
+title: Gérer les nœuds de forme SmartArt dans les présentations sur Android
+linktitle: Nœud de forme SmartArt
 type: docs
 weight: 30
 url: /fr/androidjava/manage-smartart-shape-node/
-keywords: smartart powerpoint, nœuds smartart, position smartart, supprimer smartart, ajouter nœuds smartart, présentation powerpoint, powerpoint java, api java powerpoint
-description: Gérer le nœud smart art et le nœud enfant dans les présentations PowerPoint en Java
+keywords:
+- nœud SmartArt
+- nœud enfant
+- ajouter un nœud
+- position du nœud
+- accéder au nœud
+- supprimer le nœud
+- position personnalisée
+- nœud assistant
+- format de remplissage
+- rendu du nœud
+- PowerPoint
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Gérez les nœuds de forme SmartArt dans les fichiers PPT et PPTX avec Aspose.Slides pour Android. Obtenez des exemples de code Java clairs et des astuces pour simplifier vos présentations."
 ---
 
-## **Ajouter un nœud SmartArt dans une présentation PowerPoint en utilisant Java**
-Aspose.Slides pour Android via Java a fourni la plus simple API pour gérer les formes SmartArt de la manière la plus facile. Le code exemple suivant aidera à ajouter un nœud et un nœud enfant à l'intérieur de la forme SmartArt.
+## **Ajouter un nœud SmartArt**
+Aspose.Slides for Android via Java a fourni l'API la plus simple pour gérer les formes SmartArt de la manière la plus facile. Le code d'exemple suivant aidera à ajouter un nœud et un nœud enfant à l'intérieur d'une forme SmartArt.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. [Ajoutez un nouveau nœud](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) dans la forme SmartArt [**NodeCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) et définissez le texte dans TextFrame.
-1. Maintenant, [ajoutez](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) un [**nœud enfant**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) dans le nœud [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) nouvellement ajouté et définissez le texte dans TextFrame.
-1. Enregistrez la présentation.
-
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. [Ajouter un nouveau nœud](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) dans la forme SmartArt [**NodeCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) et définir le texte dans le TextFrame.
+1. Maintenant, [Ajouter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) un [**Child Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) dans le nœud SmartArt ajouté récemment et définir le texte dans le TextFrame.
+1. Enregistrer la présentation.
 ```java
 // Charger la présentation souhaitée
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Parcourez chaque forme dans la première diapositive
+    // Parcourir chaque forme dans la première diapositive
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof SmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Convertir la forme en SmartArt
             SmartArt smart = (SmartArt) shape;
     
             // Ajouter un nouveau nœud SmartArt
@@ -38,11 +52,11 @@ try {
             // Ajouter du texte
             TemNode.getTextFrame().setText("Test");
     
-            // Ajouter un nouveau nœud enfant dans le nœud parent. Il sera ajouté à la fin de la collection
+            // Ajouter un nouveau nœud enfant au nœud parent. Il sera ajouté à la fin de la collection
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Ajouter du texte
-            newNode.getTextFrame().setText("Nouveau nœud ajouté");
+            newNode.getTextFrame().setText("New Node Added");
         }
     }
     
@@ -53,34 +67,34 @@ try {
 }
 ```
 
+
 ## **Ajouter un nœud SmartArt à une position spécifique**
-Dans le code exemple suivant, nous avons expliqué comment ajouter les nœuds enfants appartenant aux nœuds respectifs de la forme SmartArt à une position particulière.
+Dans le code d'exemple suivant, nous expliquons comment ajouter les nœuds enfants appartenant aux nœuds respectifs d'une forme SmartArt à une position particulière.
 
-1. Créez une instance de la classe Presentation.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Ajoutez une forme SmartArt de type [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) dans la diapositive accédée.
-1. Accédez au premier nœud de la forme SmartArt ajoutée.
-1. Maintenant, ajoutez le [**nœud enfant**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) pour le [**nœud**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) sélectionné à la position 2 et définissez son texte.
-1. Enregistrez la présentation.
-
+1. Créer une instance de la classe Presentation.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) de type [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) dans la diapositive accédée.
+1. Accéder au premier nœud de la forme SmartArt ajoutée.
+1. Maintenant, ajouter le [**Child Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) pour le [**Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) sélectionné à la position 2 et définir son texte.
+1. Enregistrer la présentation.
 ```java
-// Création d'une instance de présentation
+// Créer une instance de présentation
 Presentation pres = new Presentation();
 try {
-    // Accédez à la diapositive de la présentation
+    // Accéder à la diapositive de la présentation
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Ajoutez Smart Art IShape
+    // Ajouter un IShape Smart Art
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // Accédez au nœud SmartArt à l'index 0
+    // Accéder au nœud SmartArt à l'index 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
     // Ajouter un nouveau nœud enfant à la position 2 dans le nœud parent
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).addNodeByPosition(2);
 
     // Ajouter du texte
-    chNode.getTextFrame().setText("Texte d'exemple ajouté");
+    chNode.getTextFrame().setText("Sample Text Added");
 
     // Enregistrer la présentation
     pres.save("AddSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
@@ -89,39 +103,39 @@ try {
 }
 ```
 
-## **Accéder au nœud SmartArt dans une présentation PowerPoint en utilisant Java**
-Le code exemple suivant aidera à accéder aux nœuds à l'intérieur de la forme SmartArt. Veuillez noter que vous ne pouvez pas changer le LayoutType du SmartArt car il est en lecture seule et est défini uniquement lorsque la forme SmartArt est ajoutée.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. Parcourez tous les [**nœuds**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
-1. Accédez et affichez des informations telles que la position du nœud SmartArt, le niveau et le texte.
+## **Accéder à un nœud SmartArt**
+Le code d'exemple suivant aidera à accéder aux nœuds à l'intérieur d'une forme SmartArt. Notez que vous ne pouvez pas modifier le LayoutType du SmartArt car il est en lecture seule et ne peut être défini que lors de l'ajout de la forme SmartArt.
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. Parcourir tous les [**Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
+1. Accéder et afficher des informations telles que la position du nœud SmartArt, son niveau et le texte.
 ```java
 // Instancier la classe Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
-    // Obtenez la première diapositive
+    // Obtenir la première diapositive
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Parcourez chaque forme dans la première diapositive
+    // Parcourir chaque forme dans la première diapositive
     for (IShape shape : slide.getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Caster la forme en SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Parcourez tous les nœuds à l'intérieur de SmartArt
+            // Parcourir tous les nœuds à l'intérieur du SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Accédez au nœud SmartArt à l'index i
+                // Accéder au nœud SmartArt à l'index i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
-                // Impression des paramètres du nœud SmartArt
+                // Afficher les paramètres du nœud SmartArt
                 System.out.print(node.getTextFrame().getText() + " " + node.getLevel() + " " + node.getPosition());
             }
         }
@@ -131,47 +145,47 @@ try {
 }
 ```
 
-## **Accéder au nœud enfant SmartArt**
-Le code exemple suivant aidera à accéder aux nœuds enfants appartenant aux nœuds respectifs de la forme SmartArt.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. Parcourez tous les [**nœuds**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
-1. Pour chaque nœud SmartArt sélectionné [**Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode), parcourez tous les [**nœuds enfants**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) à l'intérieur du nœud particulier.
-1. Accédez et affichez des informations telles que la position, le niveau et le texte du [**nœud enfant**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--).
+## **Accéder à un nœud enfant SmartArt**
+Le code d'exemple suivant aidera à accéder aux nœuds enfants appartenant aux nœuds respectifs d'une forme SmartArt.
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. Parcourir tous les [**Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) à l'intérieur de la forme SmartArt.
+1. Pour chaque [**Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) sélectionné, parcourir tous les [**Child Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) à l'intérieur du nœud particulier.
+1. Accéder et afficher des informations telles que la position du [**Child Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) , son niveau et le texte.
 ```java
 // Instancier la classe Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
-    // Obtenez la première diapositive
+    // Obtenir la première diapositive
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Parcourez chaque forme dans la première diapositive
+    // Parcourir chaque forme dans la première diapositive
     for (IShape shape : slide.getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Caster la forme en SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Parcourez tous les nœuds à l'intérieur de SmartArt
+            // Parcourir tous les nœuds à l'intérieur du SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Accédez au nœud SmartArt à l'index i
+                // Accéder au nœud SmartArt à l'index i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // Parcourez les nœuds enfants dans le nœud SmartArt à l'index i
+                // Parcourir les nœuds enfants du nœud SmartArt à l'index i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
-                    // Accédez au nœud enfant dans le nœud SmartArt
+                    // Accéder au nœud enfant dans le nœud SmartArt
                     SmartArtNode node = (SmartArtNode) node0.getChildNodes().get_Item(j);
     
-                    // Imprimez les paramètres du nœud enfant SmartArt
-                    System.out.print("j = " + j + ", Texte = " + node.getTextFrame().getText() + ",  Niveau = " + node.getLevel() + ", Position = " + node.getPosition());
+                    // Afficher les paramètres du nœud enfant SmartArt
+                    System.out.print("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
         }
@@ -181,69 +195,69 @@ try {
 }
 ```
 
-## **Accéder au nœud enfant SmartArt à une position spécifique**
-Dans cet exemple, nous allons apprendre à accéder aux nœuds enfants à une position partielle appartenant aux nœuds respectifs de la forme SmartArt.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Ajoutez une forme SmartArt de type [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).
-1. Accédez à la forme SmartArt ajoutée.
-1. Accédez au nœud à l'index 0 pour la forme SmartArt accédée.
-1. Maintenant, accédez au [**nœud enfant**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) à la position 1 pour le nœud SmartArt accédé en utilisant la méthode **get_Item()**.
-1. Accédez et affichez des informations telles que la position, le niveau et le texte du [**nœud enfant**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--).
+## **Accéder à un nœud enfant SmartArt à une position spécifique**
+Dans cet exemple, nous apprendrons à accéder aux nœuds enfants à une position particulière appartenant aux nœuds respectifs d'une forme SmartArt.
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Ajouter une forme SmartArt de type [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).
+1. Accéder à la forme SmartArt ajoutée.
+1. Accéder au nœud d'index 0 de la forme SmartArt accédée.
+1. Maintenant, accéder au [**Child Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) à la position 1 du nœud SmartArt accédé en utilisant la méthode **get_Item()**.
+1. Accéder et afficher des informations telles que la position du [**Child Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) , son niveau et le texte.
 ```java
 // Instancier la présentation
 Presentation pres = new Presentation();
 try {
-    // Accédez à la première diapositive
+    // Accéder à la première diapositive
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Ajoutez la forme SmartArt dans la première diapositive
+    // Ajouter la forme SmartArt dans la première diapositive
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // Accédez au nœud SmartArt à l'index 0
+    // Accéder au nœud SmartArt à l'index 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-    // Accédez au nœud enfant à la position 1 dans le nœud parent
+    // Accéder au nœud enfant à la position 1 dans le nœud parent
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
-    // Imprimez les paramètres du nœud enfant SmartArt
-    System.out.print("Texte = " + chNode.getTextFrame().getText() + ",  Niveau = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
+    // Afficher les paramètres du nœud enfant SmartArt
+    System.out.print("Text = " + chNode.getTextFrame().getText() + ",  Level = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Supprimer un nœud SmartArt dans une présentation PowerPoint utilisant Java**
-Dans cet exemple, nous allons apprendre à supprimer les nœuds à l'intérieur de la forme SmartArt.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. Vérifiez si le [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) a plus de 0 nœuds.
-1. Sélectionnez le nœud SmartArt à supprimer.
-1. Maintenant, supprimez le nœud sélectionné en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
-1. Enregistrez la présentation.
+## **Supprimer un nœud SmartArt**
+Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une forme SmartArt.
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. Vérifier si le [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) possède plus de 0 nœuds.
+1. Sélectionner le nœud SmartArt à supprimer.
+1. Maintenant, supprimer le nœud sélectionné en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
+1. Enregistrer la présentation.
 ```java
 // Charger la présentation souhaitée
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Parcourez chaque forme dans la première diapositive
+    // Parcourir chaque forme de la première diapositive
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Convertir la forme en SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Accédez au nœud SmartArt à l'index 0
+                // Accéder au nœud SmartArt à l'index 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 // Supprimer le nœud sélectionné
@@ -252,41 +266,41 @@ try {
         }
     }
     
-    // Enregistrez la présentation
+    // Enregistrer la présentation
     pres.save("RemoveSmartArtNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Supprimer un nœud SmartArt à une position spécifique**
-Dans cet exemple, nous allons apprendre à supprimer les nœuds à l'intérieur de la forme SmartArt à une position particulière.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la première diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. Sélectionnez le nœud de forme SmartArt à l'index 0.
-1. Maintenant, vérifiez si le nœud SmartArt sélectionné a plus de 2 nœuds enfants.
-1. Maintenant, supprimez le nœud à **la position 1** en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
-1. Enregistrez la présentation.
+## **Supprimer un nœud SmartArt d'une position spécifique**
+Dans cet exemple, nous apprendrons à supprimer les nœuds à l'intérieur d'une forme SmartArt à une position particulière.
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la première diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. Sélectionner le nœud de la forme SmartArt d'index 0.
+1. Maintenant, vérifier si le nœud SmartArt sélectionné possède plus de 2 nœuds enfants.
+1. Maintenant, supprimer le nœud à la **Position 1** en utilisant la méthode [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
+1. Enregistrer la présentation.
 ```java
 // Charger la présentation souhaitée
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Parcourez chaque forme dans la première diapositive
+    // Parcourir chaque forme de la première diapositive
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof SmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Convertir la forme en SmartArt
             SmartArt smart = (SmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Accédez au nœud SmartArt à l'index 0
+                // Accéder au nœud SmartArt à l'index 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
@@ -298,20 +312,20 @@ try {
         }
     }
     
-    // Enregistrez la présentation
+    // Enregistrer la présentation
     pres.save("RemoveSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Définir une position personnalisée pour le nœud enfant dans SmartArt**
-Maintenant, Aspose.Slides pour Android via Java prend en charge la définition des propriétés [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) et [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-) de [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape). Le snippet de code ci-dessous montre comment définir la position, la taille et la rotation personnalisées pour SmartArtShape. Veuillez noter que l'ajout de nouveaux nœuds entraîne un recalcul des positions et des tailles de tous les nœuds. Également avec les paramètres de position personnalisés, l'utilisateur peut définir les nœuds selon les exigences.
 
+## **Définir une position personnalisée pour un nœud enfant dans un objet SmartArt**
+Aspose.Slides for Android via Java prend désormais en charge la définition des propriétés [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) et [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-). Le fragment de code ci‑dessous montre comment définir la position, la taille et la rotation personnalisées d’un SmartArtShape ; notez que l’ajout de nouveaux nœuds entraîne un recalcul des positions et tailles de tous les nœuds. Avec des paramètres de position personnalisés, l’utilisateur peut positionner les nœuds selon ses besoins.
 ```java
 // Instancier la classe Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
-try {
+try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
     // Déplacer la forme SmartArt vers une nouvelle position
@@ -320,99 +334,99 @@ try {
     shape.setX(shape.getX() + shape.getWidth() * 2);
     shape.setY(shape.getY() - shape.getHeight() * 2);
 
-    // Changer les largeurs des formes SmartArt
+    // Modifier les largeurs de la forme SmartArt
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
     shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
 
-    // Changer la hauteur des formes SmartArt
+    // Modifier la hauteur de la forme SmartArt
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
     shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-    // Changer la rotation des formes SmartArt
+    // Modifier la rotation de la forme SmartArt
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
     shape.setRotation(90);
 
     pres.save("SmartArt.pptx", SaveFormat.Pptx);
-} finally {
+}finally {
     pres.dispose();
 }
 ```
 
-## **Vérifiez le nœud Assistant**
+
+## **Vérifier un nœud Assistant**
 {{% alert color="primary" %}} 
 
-Dans cet article, nous examinerons plus en détail les fonctionnalités des formes SmartArt ajoutées dans les diapositives de présentation de façon programmatique en utilisant Aspose.Slides pour Android via Java.
+Dans cet article, nous examinerons plus en détail les fonctionnalités des formes SmartArt ajoutées aux diapositives de présentation de manière programmatique à l'aide d'Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 
-Nous utiliserons la forme SmartArt source suivante pour notre investigation dans les différentes sections de cet article.
+Nous utiliserons la forme SmartArt suivante pour nos investigations dans les différentes sections de cet article.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**Figure : Forme SmartArt source dans la diapositive**|
 
-Dans le code exemple suivant, nous allons examiner comment identifier les **nœuds assistants** dans la collection de nœuds SmartArt et les modifier.
+Dans le code d'exemple suivant, nous examinerons comment identifier les **Assistant Nodes** dans la collection de nœuds SmartArt et les modifier.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et chargez la présentation avec la forme SmartArt.
-1. Obtenez la référence de la deuxième diapositive en utilisant son index.
-1. Parcourez chaque forme dans la première diapositive.
-1. Vérifiez si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et convertissez la forme sélectionnée en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est un SmartArt.
-1. Parcourez tous les nœuds à l'intérieur de la forme SmartArt et vérifiez s'ils sont [**nœuds assistants**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Changez le statut du nœud assistant en nœud normal.
-1. Enregistrez la présentation.
-
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et charger la présentation contenant une forme SmartArt.
+1. Obtenir la référence de la deuxième diapositive en utilisant son index.
+1. Parcourir chaque forme à l'intérieur de la première diapositive.
+1. Vérifier si la forme est de type [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) et la convertir en [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) si c'est le cas.
+1. Parcourir tous les nœuds à l'intérieur de la forme SmartArt et vérifier s'ils sont des [**Assistant Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
+1. Modifier le statut du nœud Assistant pour le ramener à un nœud normal.
+1. Enregistrer la présentation.
 ```java
-// Création d'une instance de présentation
+// Créer une instance de présentation
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Parcourez chaque forma dans la première diapositive
+    // Parcourir chaque forme à l'intérieur de la première diapositive
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Vérifiez si la forme est de type SmartArt
+        // Vérifier si la forme est de type SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Convertissez la forme en SmartArt
+            // Convertir la forme en SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // Parcourez tous les nœuds de la forme SmartArt
+            // Parcourir tous les nœuds de la forme SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // Vérifiez si le nœud est un nœud assistant
+                // Vérifier si le nœud est un nœud Assistant
                 if (node.isAssistant()) 
                 {
-                    // Définit le nœud assistant sur false et le transforme en nœud normal
+                    // Définir le nœud Assistant sur false et le rendre normal
                     node.isAssistant();
                 }
             }
         }
     }
     
-    // Enregistrez la présentation
+    // Enregistrer la présentation
     pres.save("ChangeAssitantNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Figure : Nœuds assistants changés dans la forme SmartArt à l'intérieur de la diapositive**|
+|**Figure : Nœuds assistant modifiés dans la forme SmartArt de la diapositive**|
 
-## **Définir le format de remplissage du nœud**
-Aspose.Slides pour Android via Java permet d'ajouter des formes SmartArt personnalisées et de définir leur format de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage en utilisant Aspose.Slides pour Android via Java.
+## **Définir le format de remplissage d'un nœud**
+Aspose.Slides for Android via Java rend possible l'ajout de formes SmartArt personnalisées et la définition de leur format de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage à l'aide d'Aspose.Slides for Android via Java.
 
-Veuillez suivre les étapes ci-dessous :
+Veuillez suivre les étapes ci‑dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Obtenez la référence d'une diapositive en utilisant son index.
-1. Ajoutez une forme [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) en définissant son [**LayoutType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Définissez le [**FillFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getFillFormat--) pour les nœuds de forme SmartArt.
-1. Écrivez la présentation modifiée sous forme de fichier PPTX.
-
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Obtenir la référence d'une diapositive en utilisant son index.
+1. Ajouter une forme [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) en définissant son [**LayoutType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
+1. Définir le [**FillFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getFillFormat--) pour les nœuds de la forme SmartArt.
+1. Enregistrer la présentation modifiée au format PPTX.
 ```java
 // Instancier la présentation
 Presentation pres = new Presentation();
@@ -423,7 +437,7 @@ try {
     // Ajouter la forme SmartArt et les nœuds
     ISmartArt chevron = slide.getShapes().addSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
     ISmartArtNode node = chevron.getAllNodes().addNode();
-    node.getTextFrame().setText("Un peu de texte");
+    node.getTextFrame().setText("Some text");
     
     // Définir la couleur de remplissage du nœud
     for (IShape item : node.getShapes()) 
@@ -439,29 +453,29 @@ try {
 }
 ```
 
-## **Générer une miniature du nœud enfant de SmartArt**
-Les développeurs peuvent générer une miniature du nœud enfant d'un SmartArt en suivant les étapes ci-dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. [Ajoutez SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Obtenez la référence d'un nœud en utilisant son index.
-1. Obtenez l'image miniature.
-1. Enregistrez l'image miniature dans n'importe quel format d'image souhaité.
+## **Générer une miniature d'un nœud enfant SmartArt**
+Les développeurs peuvent générer une miniature d'un nœud enfant d'un SmartArt en suivant les étapes ci‑dessous :
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. [Ajouter SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
+1. Obtenir la référence d'un nœud en utilisant son index.
+1. Récupérer l'image miniature.
+1. Enregistrer l'image miniature dans le format d'image souhaité.
 ```java
-// Instancier la classe Presentation qui représente le fichier PPTX 
+// Instancier la classe Presentation qui représente le fichier PPTX
 Presentation pres = new Presentation();
 try {
-    // Ajouter SmartArt 
+    // Ajouter SmartArt
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // Obtenez la référence d'un nœud en utilisant son index  
+    // Obtenir la référence d'un nœud en utilisant son index  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
-    // Obtenez la miniature
+    // Obtenir la miniature
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
-    // Enregistrez la miniature
+    // Enregistrer la miniature
     try {
           slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
     } finally {
@@ -471,3 +485,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**L'animation SmartArt est-elle prise en charge ?**
+
+Oui. SmartArt est traité comme une forme ordinaire, vous pouvez donc [appliquer des animations standard](/slides/fr/androidjava/shape-animation/) (entrée, sortie, mise en valeur, trajectoires de mouvement) et ajuster le timing. Vous pouvez également animer les formes à l'intérieur des nœuds SmartArt si nécessaire.
+
+**Comment localiser de façon fiable un SmartArt spécifique sur une diapositive si son ID interne est inconnu ?**
+
+Attribuez et recherchez par le [texte alternatif](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--). En définissant un AltText distinctif sur le SmartArt, vous pouvez le retrouver programmatiquement sans dépendre d'identifiants internes.
+
+**L'apparence du SmartArt sera-t-elle conservée lors de la conversion de la présentation en PDF ?**
+
+Oui. Aspose.Slides rend le SmartArt avec une haute fidélité visuelle lors de l'[export PDF](/slides/fr/androidjava/convert-powerpoint-to-pdf/), conservant la disposition, les couleurs et les effets.
+
+**Puis‑je extraire une image de l'ensemble du SmartArt (pour des aperçus ou rapports) ?**
+
+Oui. Vous pouvez rendre une forme SmartArt vers des [formats raster](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) ou vers [SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) pour une sortie vectorielle évolutive, adaptée aux miniatures, aux rapports ou à une utilisation Web.

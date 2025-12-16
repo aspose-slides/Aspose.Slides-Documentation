@@ -1,33 +1,45 @@
 ---
-title: Серия графиков
+title: Управление данными серий диаграмм в презентациях на Android
+linktitle: Серии данных
 type: docs
 url: /ru/androidjava/chart-series/
-keywords: "Серия графиков, цвет серии, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Серия графиков в презентациях PowerPoint на Java"
+keywords:
+- серии диаграмм
+- перекрытие серий
+- цвет серии
+- цвет категории
+- имя серии
+- точка данных
+- промежуток серии
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Узнайте, как управлять сериями диаграмм на Android для PowerPoint (PPT/PPTX) с практическими примерами кода на Java и рекомендациями по оптимизации ваших презентаций данных."
 ---
 
-Серия - это ряд или столбец чисел, нанесенных на график.
+Серия — это строка или столбец чисел, отображаемый на диаграмме.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установить перекрытие серии графиков**
+## **Установить перекрытие серии диаграммы**
 
-С помощью свойства [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) вы можете указать, насколько столбцы и бары должны перекрываться на 2D-графике (диапазон: от -100 до 100). Это свойство применяется ко всем сериям родительской группы серий: это проекция соответствующего свойству группы. Следовательно, это свойство является доступным только для чтения.
+С помощью метода [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) можно определить, насколько столбцы и бары должны перекрываться на 2D‑диаграмме (диапазон: –100 … 100). Это свойство применяется ко всем сериям родительской группы серий: это проекция соответствующего свойства группы. Поэтому свойство доступно только для чтения.
 
-Используйте свойство `ParentSeriesGroup.Overlap` для чтения и записи, чтобы установить желаемое значение для `Overlap`.
+Используйте метод записи `getParentSeriesGroup().setOverlap()` для задания желаемого значения перекрытия.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Добавьте столбчатый график на слайд.
-1. Получите доступ к первой серии графиков.
-1. Получите доступ к `ParentSeriesGroup` серии графиков и установите желаемое значение перекрытия для серии.
+1. Добавьте на слайд кластеризованную столбчатую диаграмму.
+1. Получите первую серию диаграммы.
+1. Получите `ParentSeriesGroup` серии диаграммы и задайте нужное значение перекрытия.
 1. Запишите изменённую презентацию в файл PPTX.
 
-Этот код на Java показывает, как установить перекрытие для серии графиков:
-
+Этот код Java демонстрирует, как установить перекрытие для серии диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Добавляет график
+    // Добавляет диаграмму
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
     IChartSeriesCollection series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0)
@@ -43,17 +55,17 @@ try {
 }
 ```
 
+
 ## **Изменить цвет серии**
-Aspose.Slides для Android через Java позволяет изменить цвет серии следующим образом:
+Aspose.Slides для Android через Java позволяет изменить цвет серии следующим способом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Добавьте график на слайде.
-1. Получите доступ к серии, цвет которой вы хотите изменить.
+1. Добавьте на слайд диаграмму.
+1. Получите серию, цвет которой требуется изменить.
 1. Установите желаемый тип заливки и цвет заливки.
 1. Сохраните изменённую презентацию.
 
-Этот код на Java показывает, как изменить цвет серии:
-
+Этот код Java показывает, как изменить цвет серии:
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -70,17 +82,17 @@ try {
 }
 ```
 
+
 ## **Изменить цвет категории серии**
 Aspose.Slides для Android через Java позволяет изменить цвет категории серии следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Добавьте график на слайде.
-1. Получите доступ к категории серии, цвет которой вы хотите изменить.
+1. Добавьте на слайд диаграмму.
+1. Получите категорию серии, цвет которой требуется изменить.
 1. Установите желаемый тип заливки и цвет заливки.
 1. Сохраните изменённую презентацию.
 
-Этот код на Java показывает, как изменить цвет категории серии:
-
+Этот код Java демонстрирует, как изменить цвет категории серии:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -96,26 +108,26 @@ try {
 }
 ```
 
-## **Изменить название серии** 
 
-По умолчанию названия для легенды графика соответствуют содержимому ячеек над каждым столбцом или строкой данных.
+## **Изменить имя серии** 
 
-В нашем примере (образец изображения),
+По умолчанию имена в легенде диаграммы берутся из ячеек, расположенных сверху над каждым столбцом или строкой данных.
 
-* столбцы - это *Серия 1, Серия 2,* и *Серия 3*;
-* строки - это *Категория 1, Категория 2, Категория 3,* и *Категория 4.* 
+В нашем примере (см. изображение)  
 
-Aspose.Slides для Android через Java позволяет обновить или изменить название серии в данных графика и легенде.
+* столбцы — *Series 1, Series 2* и *Series 3*;  
+* строки — *Category 1, Category 2, Category 3* и *Category 4*.
 
-Этот код на Java показывает, как изменить название серии в данных графика `ChartDataWorkbook`:
+Aspose.Slides для Android через Java позволяет обновлять или изменять имя серии в данных диаграммы и в легенде.
 
+Этот код Java показывает, как изменить имя серии в данных диаграммы `ChartDataWorkbook`:
 ```java
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
 
     IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("Новое имя");
+    seriesCell.setValue("New name");
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -123,8 +135,8 @@ try {
 }
 ```
 
-Этот код на Java показывает, как изменить название серии в легенде через `Series`:
 
+Этот код Java показывает, как изменить имя серии в легенде через `Series`:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -132,31 +144,31 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("Новое имя");
+    name.getAsCells().get_Item(0).setValue("New name");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Установить цвет заливки для серии графиков**
 
-Aspose.Slides для Android через Java позволяет установить автоматический цвет заливки для серий графиков внутри области построения следующим образом:
+## **Установить цвет заливки серии диаграммы**
+
+Aspose.Slides для Android через Java позволяет задать автоматический цвет заливки серии диаграммы в области построения следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте график с данными по умолчанию на основе вашего предпочтительного типа (в примере ниже мы использовали `ChartType.ClusteredColumn`).
-1. Получите доступ к серии графиков и установите цвет заливки на Авто.
+1. Добавьте диаграмму с данными по умолчанию, используя требуемый тип (в примере ниже использовался `ChartType.ClusteredColumn`).
+1. Получите серию диаграммы и задайте цвет заливки — Automatic.
 1. Сохраните презентацию в файл PPTX.
 
-Этот код на Java показывает, как установить автоматический цвет заливки для серии графиков:
-
+Этот код Java демонстрирует, как задать автоматический цвет заливки серии диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Создаёт столбчатый график
+    // Создает сгруппированную столбчатую диаграмму
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // Устанавливает формат заливки серии на автоматический
+    // Устанавливает автоматический формат заливки серии
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
     {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
@@ -169,17 +181,17 @@ try {
 }
 ```
 
-## **Установить инвертированные цвета заливки для серий графиков**
-Aspose.Slides позволяет установить инвертированный цвет заливки для серий графиков внутри области построения следующим образом:
+
+## **Установить инвертированный цвет заливки для серии диаграммы**
+Aspose.Slides позволяет установить инвертированный цвет заливки серии диаграммы в области построения следующим способом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте график с данными по умолчанию на основе вашего предпочтительного типа (в примере ниже мы использовали `ChartType.ClusteredColumn`).
-1. Получите доступ к серии графиков и установите цвет заливки на инвертированный.
+1. Добавьте диаграмму с данными по умолчанию, используя требуемый тип (в примере ниже использовался `ChartType.ClusteredColumn`).
+1. Получите серию диаграммы и задайте цвет заливки — Invert.
 1. Сохраните презентацию в файл PPTX.
 
-Этот код на Java демонстрирует операцию:
-
+Этот код Java демонстрирует операцию:
 ```java
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
@@ -191,12 +203,12 @@ try {
     chart.getChartData().getCategories().clear();
 
     // Добавляет новые серии и категории
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Серия 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Категория 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Категория 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Категория 3"));
+    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
-    // Берет первую серию графиков и заполняет ее данными серии.
+    // Берёт первую серию диаграммы и заполняет её данными серии.
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
@@ -213,11 +225,11 @@ try {
 }
 ```
 
-## **Установить инвертацию для серии, когда значение отрицательное**
-Aspose.Slides позволяет установить инверсию через свойства `IChartDataPoint.InvertIfNegative` и `ChartDataPoint.InvertIfNegative`. Когда инверсия установлена с помощью свойств, точка данных инвертирует свои цвета, когда получает отрицательное значение.
 
-Этот код на Java демонстрирует операцию:
+## **Сделать серию инвертируемой при отрицательном значении**
+Aspose.Slides позволяет задавать инверсию через свойства `IChartDataPoint.InvertIfNegative` и `ChartDataPoint.InvertIfNegative`. При установке инверсии через эти свойства точка данных меняет цвета, когда получает отрицательное значение.
 
+Этот код Java демонстрирует операцию:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -241,18 +253,18 @@ try {
 }
 ```
 
-## **Очистить данные определённых точек данных**
-Aspose.Slides для Android через Java позволяет очистить данные `DataPoints` для определённой серии графиков следующим образом:
+
+## **Очистить данные конкретной точки**
+Aspose.Slides для Android через Java позволяет очистить данные `DataPoints` конкретной серии диаграммы следующим способом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Получите ссылку на график по его индексу.
-4. Просмотрите все точки данных графика и установите `XValue` и `YValue` в null.
-5. Очистите все `DataPoints` для конкретной серии графиков.
+3. Получите ссылку на диаграмму по её индексу.
+4. Пройдитесь по всем `DataPoints` диаграммы и задайте `XValue` и `YValue` значение null.
+5. Очистите все `DataPoints` для конкретной серии диаграммы.
 6. Запишите изменённую презентацию в файл PPTX.
 
-Этот код на Java демонстрирует операцию:
-
+Этот код Java демонстрирует операцию:
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
 try {
@@ -274,44 +286,44 @@ try {
 }
 ```
 
-## **Установить ширину пробелов для серии**
-Aspose.Slides для Android через Java позволяет установить ширину пробелов для серии с помощью свойства **`GapWidth`** следующим образом:
+
+## **Установить ширину промежутка серии**
+Aspose.Slides для Android через Java позволяет задать ширину промежутка серии через свойство **`GapWidth`** следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите доступ к первому слайду.
-3. Добавьте график с данными по умолчанию.
-4. Получите доступ к любой серии графиков.
-5. Установите свойство `GapWidth`.
-6. Запишите изменённую презентацию в файл PPTX.
+1. Перейдите к первому слайду.
+1. Добавьте диаграмму с данными по умолчанию.
+1. Получите любую серию диаграммы.
+1. Задайте свойство `GapWidth`.
+1. Запишите изменённую презентацию в файл PPTX.
 
-Этот код на Java показывает, как установить ширину пробелов для серии:
-
+Этот код Java показывает, как установить ширину промежутка серии:
 ```java
-// Создаёт пустую презентацию 
+// Создает пустую презентацию 
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд презентации
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавляет график с данными по умолчанию
+    // Добавляет диаграмму с данными по умолчанию
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
     
-    // Устанавливает индекс рабочего листа графика
+    // Устанавливает индекс листа данных диаграммы
     int defaultWorksheetIndex = 0;
     
-    // Получает рабочий лист данных графика
+    // Получает лист данных диаграммы
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Добавляет серии
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Серия 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Серия 2"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
     // Добавляет категории
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Категория 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Категория 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Категория 3"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Берёт вторую серию графиков
+    // Берет вторую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
     
     // Заполняет данные серии
@@ -331,3 +343,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Существует ли ограничение на количество серий в одной диаграмме?**
+
+Aspose.Slides не накладывает фиксированного ограничения на количество добавляемых серий. Практический предел определяется читаемостью диаграммы и доступной памяти приложения.
+
+**Что делать, если столбцы внутри кластера расположены слишком близко или слишком далеко друг от друга?**
+
+Отрегулируйте параметр `GapWidth` для этой серии (или её родительской группы серий). Увеличение значения расширяет пространство между столбцами, уменьшение – сужает его.

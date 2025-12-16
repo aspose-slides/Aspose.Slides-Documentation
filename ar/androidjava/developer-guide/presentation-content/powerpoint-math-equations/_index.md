@@ -1,45 +1,58 @@
 ---
-title: معادلات الرياضيات في PowerPoint
+title: إضافة معادلات رياضية إلى عروض PowerPoint على Android
+linktitle: معادلات الرياضيات في PowerPoint
 type: docs
 weight: 80
 url: /ar/androidjava/powerpoint-math-equations/
-keywords: "معادلات الرياضيات في PowerPoint, رموز الرياضيات في PowerPoint, صيغة PowerPoint, نص الرياضيات في PowerPoint"
-description: "معادلات الرياضيات في PowerPoint, رموز الرياضيات في PowerPoint, صيغة PowerPoint, نص الرياضيات في PowerPoint"
+keywords:
+- معادلة رياضية
+- رمز رياضي
+- صيغة رياضية
+- نص رياضي
+- إضافة معادلة رياضية
+- إضافة رمز رياضي
+- إضافة صيغة رياضية
+- إضافة نص رياضي
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إدراج وتحرير المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides لأندرويد، مع دعم OMML، والتحكم في التنسيق، وعينات كود Java واضحة."
 ---
 
 ## **نظرة عامة**
-في PowerPoint، من الممكن كتابة معادلة أو صيغة رياضية وعرضها في العرض التقديمي. للقيام بذلك، يتم تمثيل رموز رياضية متنوعة في PowerPoint ويمكن إضافتها إلى النص أو المعادلة. من أجل ذلك، يتم استخدام منشئ المعادلات الرياضية في PowerPoint، والذي يساعد على إنشاء صيغ معقدة مثل:
+في PowerPoint، يمكن كتابة معادلة رياضية أو صيغة وعرضها في العرض التقديمي. للقيام بذلك، يتم تمثيل رموز رياضية مختلفة في PowerPoint ويمكن إضافتها إلى النص أو المعادلة. لهذا يتم استخدام مُنشئ المعادلات الرياضية في PowerPoint، الذي يساعد على إنشاء صيغ معقدة مثل:
 
 - كسر رياضي
 - جذر رياضي
 - دالة رياضية
-- حدود ودوال لوغاريتمية
+- الحدود والدوال اللوغاريتمية
 - عمليات N-ary
 - مصفوفة
 - عوامل كبيرة
-- دوال الجيب وجيب التمام
+- دوال جيبية وجيب تمام
 
-لإضافة معادلة رياضية في PowerPoint، يتم استخدام قائمة *إدراج -> معادلة*:
+لإضافة معادلة رياضية في PowerPoint، يتم استخدام القائمة *Insert -> Equation*:
 
 ![todo:image_alt_text](powerpoint-math-equations_1.png)
 
-سيؤدي ذلك إلى إنشاء نص رياضي بتنسيق XML يمكن عرضه في PowerPoint كما يلي:
+سوف يتم إنشاء نص رياضي بصيغة XML يمكن عرضه في PowerPoint كما يلي:
 
 ![todo:image_alt_text](powerpoint-math-equations_2.png)
 
-يدعم PowerPoint العديد من الرموز الرياضية لإنشاء المعادلات الرياضية. ومع ذلك، فإن إنشاء معادلات رياضية معقدة في PowerPoint غالبًا ما لا ينتج عنه نتيجة جيدة ومهنية. يلجأ المستخدمون، الذين يحتاجون إلى إنشاء عروض تقديمية رياضية بشكل متكرر، إلى استخدام حلول طرف ثالث لإنشاء صيغ رياضية جذابة.
+يدعم PowerPoint العديد من الرموز الرياضية لإنشاء المعادلات. ومع ذلك، لا ينتج عن إنشاء معادلات رياضية معقدة في PowerPoint نتيجة جيدة ومهنية دائمًا. المستخدمون الذين يحتاجون إلى إنشاء عروض تقديمية رياضية بشكل متكرر يلجأون إلى حلول الطرف الثالث لإنشاء صيغ رياضية ذات مظهر جيد.
 
-باستخدام [**Aspose.Slide API**](https://products.aspose.com/slides/androidjava/)، يمكنك العمل مع المعادلات الرياضية في العروض التقديمية لـ PowerPoint برمجيًا بلغة C#. قم بإنشاء تعبيرات رياضية جديدة أو تحرير التعبيرات التي تم إنشاؤها مسبقًا. كما يتم دعم تصدير الهياكل الرياضية إلى صور جزئيًا.
+باستخدام [**Aspose.Slide API**](https://products.aspose.com/slides/androidjava/)، يمكنك العمل مع المعادلات الرياضية في عروض PowerPoint برمجيًا بلغة C#. إنشاء تعبيرات رياضية جديدة أو تعديل تلك التي تم إنشاؤها مسبقًا. كما أن تصدير البنى الرياضية إلى صور مدعوم جزئيًا.
 
-
-## **كيف يتم إنشاء معادلة رياضية**
-تستخدم العناصر الرياضية لبناء أي إنشائات رياضية بمستويات تعشيق مختلفة. تشكل مجموعة خطية من العناصر الرياضية كتلة رياضية تمثلها فئة [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock). تعتبر فئة [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) معادلة رياضية منفصلة أو صيغة أو معادلة. [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) هو جزء رياضي، يستخدم للاحتفاظ بالنص الرياضي (لا تخلط بينه وبين [**Portion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion)). تتيح فئة [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) التلاعب بمجموعة من الكتل الرياضية. تعتبر الفئات المذكورة أعلاه المفتاح للعمل مع معادلات الرياضيات في PowerPoint عن طريق Aspose.Slides API.
+## **كيفية إنشاء معادلة رياضية**
+تُستخدم العناصر الرياضية لبناء أي بنية رياضية بغض النظر عن مستوى التداخل. يُكوّن مجموعة خطية من العناصر الرياضية كتلة رياضية يتم تمثيلها بالفئة [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock). تمثل فئة [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) تعبيرا أو صيغة أو معادلة رياضية منفصلة. تُستخدم فئة [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) لتخزين النص الرياضي (لا تُخلط مع [**Portion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion)). تُتيح فئة [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) معالجة مجموعة من كتل الرياضيات. الفئات المذكورة أعلاه هي المفتاح للعمل مع معادلات PowerPoint الرياضية عبر Aspose.Slides API.
 
 دعنا نرى كيف يمكننا إنشاء المعادلة الرياضية التالية عبر Aspose.Slides API:
 
 ![todo:image_alt_text](powerpoint-math-equations_3.png)
 
-لإضافة تعبير رياضي على الشريحة، أولاً، أضف شكلًا سيحتوي على النص الرياضي:
+لإضافة تعبير رياضي إلى الشريحة، أولًا أضف شكلًا سيحتوي على النص الرياضي:
 
 ```java
 Presentation pres = new Presentation();
@@ -50,13 +63,13 @@ try {
 }
 ``` 
 
-بعد الإنشاء، سيكون الشكل يحتوي بالفعل على فقرة واحدة مع جزء رياضي بشكل افتراضي. تسمح فئة [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) بالوصول إلى المحتوى الرياضي داخل [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) بالإشارة إلى المتغير [**MathParagraph** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph):
+بعد الإنشاء، سيحتوي الشكل بالفعل على فقرة واحدة بها Portion رياضي بشكل افتراضي. تمثل فئة [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) Portion يحتوي على نص رياضي. للوصول إلى المحتوى الرياضي داخل [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion)، استخدم المتغيّر [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph):
 
 ```java
 IMathParagraph mathParagraph = ((MathPortion)mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)).getMathParagraph();
 ``` 
 
-تسمح لك فئة [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) بقراءة وإضافة وتحرير وحذف كتل رياضية ([**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock))، التي تتكون من مجموعة من العناصر الرياضية. على سبيل المثال، قم بإنشاء كسر وضعه في العرض التقديمي:
+تسمح فئة [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) بقراءة وإضافة وتحرير وحذف كتل الرياضيات ([**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)) التي تتكوّن من مجموعة من العناصر الرياضية. على سبيل المثال، لإنشاء كسر ووضعه في العرض:
 
 ```java
 IMathFraction fraction = new MathematicalText("x").divide("y");
@@ -64,7 +77,7 @@ IMathFraction fraction = new MathematicalText("x").divide("y");
 mathParagraph.add(new MathBlock(fraction));
 ``` 
 
-كل عنصر رياضي يمثل بفئة معينة تنفذ واجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement). توفر هذه الواجهة العديد من الطرق لإنشاء تعبيرات رياضية بسهولة. يمكنك إنشاء تعبير رياضي معقد تمامًا بسطر واحد من الشيفرة. على سبيل المثال، ستبدو نظرية فيثاغورس كما يلي:
+كل عنصر رياضي يُمثَّل بفئة تُنفّذ الواجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement). تُوفر هذه الواجهة العديد من الطرق لإنشاء تعبيرات رياضية بسهولة. يمكنك إنشاء تعبير رياضي معقد عبر سطر واحد من الشيفرة. على سبيل المثال، صيغة فيثاغورس ستظهر هكذا:
 
 ```java
 IMathBlock mathBlock = new MathematicalText("c")
@@ -75,9 +88,9 @@ IMathBlock mathBlock = new MathematicalText("c")
         .join(new MathematicalText("b").setSuperscript("2"));
 ``` 
 
-تُنفذ عمليات واجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) في أي نوع من العناصر، بما في ذلك [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock).
+يتم تنفيذ عمليات الواجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) في أي نوع من العناصر، بما في ذلك [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock).
 
-عينة الشيفرة المصدرية الكاملة:
+العينة الكاملة للشيفرة:
 
 ```java
 Presentation pres = new Presentation();
@@ -105,47 +118,53 @@ try {
 ``` 
 
 ## **أنواع العناصر الرياضية**
-تتكون التعبيرات الرياضية من تسلسلات من العناصر الرياضية. يتم تمثيل تسلسل العناصر الرياضية بواسطة كتلة رياضية، وتشكل معاملات العناصر الرياضية تعشيقًا على شكل شجرة.
+تتكوّن التعابير الرياضية من تسلسلات من العناصر الرياضية. يُمثَّل تسلسل العناصر الرياضية بكتلة رياضية، وتشكّل معلمات العناصر شجرة متداخلة.
 
-هناك الكثير من أنواع العناصر الرياضية التي يمكن استخدامها لبناء كتلة رياضية. يمكن تضمين كل من هذه العناصر (تجميعها) في عنصر آخر. أي، العناصر في الواقع حاويات لعناصر أخرى، تشكل هيكلًا شجريًا. أبسط نوع من العناصر هو ذلك الذي لا يحتوي على عناصر أخرى من النص الرياضي.
+هناك العديد من أنواع العناصر الرياضية التي يمكن استخدامها لتكوين كتلة رياضية. يمكن تضمين كل عنصر داخل عنصر آخر، أي أن العناصر تعمل كحاويات تشكّل بنية شجرية. أبسط نوع هو العنصر الذي لا يحتوي على عناصر أخرى من النص الرياضي.
 
-كل نوع من عناصر الرياضيات ينفذ واجهة [**IMathElement** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) مما يسمح باستخدام مجموعة مشتركة من العمليات الرياضية على أنواع مختلفة من عناصر الرياضيات.
+كل نوع من العناصر الرياضية يُنفّذ الواجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement)، مما يتيح استخدام مجموعة مشتركة من عمليات الرياضيات على الأنواع المختلفة.
+
 ### **فئة MathematicalText**
-تُمثل فئة [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) نصًا رياضيًا - العنصر الأساسي لجميع الإنشاءات الرياضية. قد يمثل النص الرياضي المعاملات والعوامل والمتغيرات وأي نص خطي آخر.
+تمثّل فئة [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) نصًا رياضيًا – العنصر الأساسي لكل البُنى الرياضية. يمكن أن يمثل النص المتغيرات والعوامل وأي نص خطي آخر.
 
 مثال: 𝑎=𝑏+𝑐
+
 ### **فئة MathFraction**
-تحدد فئة [**MathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction) كائن الكسر، والذي يتكون من بسط ومقام مفصولين بشرط كسر. يمكن أن يكون شرط الكسر أفقيًا أو مائلًا، اعتمادًا على خصائص الكسر. يُستخدم كائن الكسر أيضًا لتمثيل دالة التكديس، التي تضع عنصرًا فوق آخر، بدون شرط كسر.
+تحدد فئة [**MathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction) كائن الكسر، مكوّنًا من البسط والمقام مفصولين بشريط كسر. يمكن أن يكون الشريط أفقيًا أو مائلًا حسب خصائص الكسر. يُستخدم الكائن أيضًا لتمثيل دالة التكدس التي تضع عنصرًا فوق آخر بدون شريط كسر.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_4.png)
+
 ### **فئة MathRadical**
-تحدد فئة [**MathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical) دالة الجذر (الجذر الرياضي)، والتي تتكون من قاعدة، ودرجة اختيارية.
+تحدد فئة [**MathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical) دالة الجذر الرياضي، مكوّنة من الأساس ودرجة اختيارية.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_5.png)
+
 ### **فئة MathFunction**
-تحدد فئة [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) دالة لمعامل. تحتوي على الخصائص: [getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getName--) - اسم الدالة و[getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getBase--) - معامل الدالة.
+تحدد فئة [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) دالة للمعامل. تحتوي على الخاصيتين: [getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getName--) – اسم الدالة و[getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction#getBase--) – معامل الدالة.
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_6.png)
-### **فئة MathNaryOperator**
-تحدد فئة [**MathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator) كائن رياضي N-ary، مثل الجمع والتكامل. يتكون من عامل، قاعدة (أو معامل)، وحدود عليا وسفلى اختيارية. من أمثلة العوامل N-ary الجمع، الاتحاد، التقاطع، التكامل.
 
-لا تتضمن هذه الفئة عوامل بسيطة مثل الجمع، الطرح، وما إلى ذلك. يتم تمثيلها بواسطة عنصر نصي واحد - [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText).
+### **فئة MathNaryOperator**
+تحدد فئة [**MathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator) كائنًا رياضيًا من نوع N-ary مثل الجمع والتكامل. تتكوّن من عامل، أساس (أو معاملة)، وحدود علوية وسفلية اختيارية. تشمل أمثلة المشغلات N-ary: الجمع، الاتحاد، التقاطع، التكامل.
+
+هذه الفئة لا تشمل المشغلات البسيطة مثل الجمع أو الطرح؛ تلك تُمثَّل بعنصر نصي واحد – [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText).
 
 مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_7.png)
+
 ### **فئة MathLimit**
-تُنشئ فئة [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) الحد العلوي أو السفلي. تحدد كائن الحد، الذي يتكون من نص على الخط الأساسي ونص بحجم مصغر مباشرةً أعلاه أو أسفله. لا تتضمن هذه العنصر كلمة "lim"، لكن تسمح لك بإضافة نص في الجزء العلوي أو السفلي من التعبير. لذا، فإن التعبير 
+تنشئ فئة [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) حدًا علويًا أو سفليًا. يحدّد كائن الحد النص على خط القاعدة والنص المصغّر أعلى أو أسفل هذا الخط. لا تتضمن هذه العنصر كلمة “lim”؛ بل تسمح بوضع النص في أعلى أو أسفل التعبير. لذا، يُنشأ التعبير التالي:
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-يتم إنشاؤه باستخدام مزيج من عناصر [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) و[**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) بهذه الطريقة:
+باستخدام دمج [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) و[**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) هكذا:
 
 ```java
 MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
@@ -153,61 +172,63 @@ MathLimit funcName = new MathLimit(new MathematicalText("lim"), new Mathematical
 MathFunction mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
 ``` 
 
-
-### **فئات MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement**
+### **الفئات MathSubscriptElement، MathSuperscriptElement، MathRightSubSuperscriptElement، MathLeftSubSuperscriptElement**
 - [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
 - [MathSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement)
 - [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement)
 - [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement)
 
-تحدد الفئات التالية فهرسًا سفليًا أو علوياً. يمكنك تعيين النقص العلوي والسفلي في نفس الوقت على الجانب الأيسر أو الأيمن من معامل، ولكن النقص الفردي أو العلوي مدعوم فقط على الجانب الأيمن. يمكن أيضًا استخدام [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) لتعيين الدرجة الرياضية لعدد.
+تحدد هذه الفئات أسفل أو أعلى الفهرس. يمكن ضبط السوبسَّكريبت والسوبسْكريبت في الوقت نفسه على اليمين أو اليسار، لكن السوبسَّكريبت أو السوبسْكريبت الوحيد مدعوم فقط على الجانب الأيمن. يمكن أيضًا استعمال [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) لتحديد درجة الجذر الرياضي للعدد.
 
-مثال: 
+مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_9.png)
-### **فئة MathMatrix**
-تحدد فئة [**MathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix) كائن المصفوفة، الذي يتكون من عناصر فرعية مرتبة في صفوف وأعمدة. من المهم ملاحظة أن المصفوفات لا تحتوي على فواصل زمنية مضمنة. لوضع المصفوفة بين الأقواس، يجب استخدام كائن الفاصل - [**IMathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter). يمكن استخدام معاملات فارغة لإنشاء فجوات في المصفوفات.
 
-مثال: 
+### **فئة MathMatrix**
+تحدد فئة [**MathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix) كائن المصفوفة، مكوّنًا من عناصر فرعية مرتبة في صفوف وأعمدة. تجدر الإشارة إلى أن المصفوفات لا تحتوي على محددات مدمجة؛ لإحاطة المصفوفة بأقواس يجب استخدام كائن المحدد – [**IMathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter). يمكن تمرير قيم فارغة لإنشاء فجوات في المصفوفة.
+
+مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_10.png)
-### **فئة MathArray**
-تحدد فئة [**MathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray) مصفوفة عمودية من المعادلات أو أي كائنات رياضية.
 
-مثال: 
+### **فئة MathArray**
+تحدد فئة [**MathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray) مصفوفة رأسية من المعادلات أو أي كائنات رياضية.
+
+مثال:
 
 ![todo:image_alt_text](powerpoint-math-equations_11.png)
+
 ### **تنسيق العناصر الرياضية**
-- فئة [**MathBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox): ترسم إطارًا مستطيلًا أو أي إطار آخر حول [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
-  
+- فئة [**MathBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox): ترسم حدودًا مستطيلة أو أخرى حول [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
+
   مثال: ![todo:image_alt_text](powerpoint-math-equations_12.png)
 
-- فئة [**MathBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBox): تحدد التعبئة المنطقية (تغليف) العنصر الرياضي. على سبيل المثال، يمكن أن يكون الكائن المعبأ جهاز محاكاة عامل مع أو بدون نقطة محاذاة، أو يكون نقطة انقطاع، أو يتم تجميعها بحيث لا تسمح بانقطاعات داخلية. على سبيل المثال، يجب تغليف عامل "==" لمنع الانقطاعات.
+- فئة [**MathBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBox): تحدد تغليفًا منطقيًا للعنصر الرياضي. على سبيل المثال، يمكن أن يعمل كمحاكي عامل مع أو بدون نقطة محاذاة، أو ككسر سطر، أو يُجمّع بحيث لا يُسمح بكسور سطر داخله. مثال: يجب تغليف العامل "==" لمنع كسر السطر.
 
-- فئة [**MathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter): تحدد كائن الفاصل، الذي يتكون من أحرف مفتوحة ومغلقة (مثل الأقواس، والأقواس، والأطواق، والأشرطة الرأسية)، وواحدة أو أكثر من العناصر الرياضية بالداخل، مفصولة بواسطة حرف معين. أمثلة: (𝑥2); [𝑥2|𝑦2].
-  
+- فئة [**MathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter): تحدد كائن المحدد، مكوّنًا من حروف افتتاحية وإغلاقية (مثل الأقواس أو الأقواس المعقوفة أو القوسين العموديين) وعناصر رياضية واحدة أو أكثر مفصولة بحرف محدد. مثال: (𝑥2); [𝑥2|𝑦2].
+
   مثال: ![todo:image_alt_text](powerpoint-math-equations_13.png)
 
-- فئة [**MathAccent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent): تحدد وظيفة الانحناء، التي تتكون من قاعدة وعلامة تشكيل مركبة.
+- فئة [**MathAccent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent): تحدد دالة التشكيل، مكوّنة من أساس وعلامة تشكيل مدمجة.
 
   مثال: 𝑎́.
 
-- فئة [**MathBar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBar): تحدد وظيفة الشريط، والتي تتكون من حجة الأساس وشريط فوقها أو تحتها.
-  
+- فئة [**MathBar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBar): تحدد دالة الشريط، مكوّنة من معامل أساسي وشريط علوي أو سفلي.
+
   مثال: ![todo:image_alt_text](powerpoint-math-equations_14.png)
 
-- فئة [**MathGroupingCharacter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter): تحدد رمز التجميع فوق أو أسفل تعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.
-  
+- فئة [**MathGroupingCharacter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter): تحدد رمز تجميع فوق أو تحت التعبير، عادةً لتسليط الضوء على العلاقات بين العناصر.
+
   مثال: ![todo:image_alt_text](powerpoint-math-equations_15.png)
 
+## **العمليات الرياضية**
+كل عنصر رياضي وتعبير رياضي (عبر [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)) يُنفّذ الواجهة [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement). يتيح لك ذلك استخدام عمليات على البنية الحالية وتكوين تعبيرات رياضية أكثر تعقيدًا. جميع العمليات لها مجموعتين من المعاملات: إما [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) أو سلسلة نصية كمعاملات. تُنشأ كائنات [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) ضمنيًا من السلاسل عند استخدام المعاملات النصية. تُدرج عمليات الرياضيات المتاحة في Aspose.Slides أدناه.
 
-## **عمليات رياضية**
-كل عنصر رياضي ومعادلة رياضية (عبر [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)) تنفذ واجهة [**IMathElement** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) مما يسمح لك باستخدام العمليات على الهيكل الحالي وتشكيل تعبيرات رياضية أكثر تعقيدًا. جميع العمليات لديها مجموعتين من المعلمات: إما [**IMathElement** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) أو سلسلة كوسيطات. يتم إنشاء مثيلات فئة [**MathematicalText** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) ضمنيًا من السلاسل المحددة عند استخدام وسيطات السلسلة. العمليات الرياضية المتاحة في Aspose.Slides مدرجة أدناه.
-### **طريقة الانضمام**
+### **طريقة Join**
 - [join(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#join-java.lang.String-)
 - [join(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#join-com.aspose.slides.IMathElement-)
 
-ينضم عنصر رياضي ويشكل كتلة رياضية. على سبيل المثال:
+تنضم عنصرًا رياضيًا وتشكّل كتلة رياضية. مثال:
 
 ```java
 IMathElement element1 = new MathematicalText("x");
@@ -217,13 +238,13 @@ IMathElement element2 = new MathematicalText("y");
 IMathBlock block = element1.join(element2);
 ``` 
 
-### **طريقة القسمة**
+### **طريقة Divide**
 - [divide(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-java.lang.String-)
 - [divide(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-)
 - [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-java.lang.String-int-)
 - [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-int-)
 
-يخلق كسرًا من النوع المحدد مع البسط هذا والمقام المحدد. على سبيل المثال:
+تنشئ كسرًا من النوع المحدد مع هذا البسط والمقام المحدد. مثال:
 
 ```java
 IMathElement numerator = new MathematicalText("x");
@@ -231,11 +252,11 @@ IMathElement numerator = new MathematicalText("x");
 IMathFraction fraction = numerator.divide("y", MathFractionTypes.Linear);
 ``` 
 
-### **طريقة الإغلاق**
+### **طريقة Enclose**
 - [enclose()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#enclose--)
 - [enclose(Char, Char)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#enclose-char-char-)
 
-يُغلق العنصر في أحرف محددة مثل الأقواس أو حرف آخر كإطار.
+تُحَاط العنصر بأحرف محددة مثل الأقواس أو أي حرف آخر كإطار.
 
 ```java
 /**
@@ -253,8 +274,7 @@ public IMathDelimiter enclose();
 public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
 ``` 
 
-
-على سبيل المثال:
+مثال:
 
 ```java
 IMathDelimiter delimiter = new MathematicalText("x").enclose('[', ']');
@@ -262,11 +282,11 @@ IMathDelimiter delimiter = new MathematicalText("x").enclose('[', ']');
 IMathDelimiter delimiter2 = new MathematicalText("elem1").join("elem2").enclose();
 ``` 
 
-### **طريقة الدالة**
+### **طريقة Function**
 - [function(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#function-java.lang.String-)
 - [function(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#function-com.aspose.slides.IMathElement-)
 
-تأخذ دالة لمعامل مستخدمة الحالية كاسم الدالة.
+تأخذ دالة بمعامل باستخدام الكائن الحالي كاسم الدالة.
 
 ```java
 /**
@@ -284,27 +304,26 @@ public IMathFunction function(IMathElement functionArgument);
 public IMathFunction function(String functionArgument);
 ``` 
 
-
-على سبيل المثال:
+مثال:
 
 ```java
 IMathFunction func = new MathematicalText("sin").function("x");
 ``` 
 
-### **طريقة asArgumentOfFunction**
+### **طريقة AsArgumentOfFunction**
 - [asArgumentOfFunction(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-java.lang.String-)
 - [asArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-com.aspose.slides.IMathElement-)
 - [asArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-)
 - [asArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-com.aspose.slides.IMathElement-)
 - [asArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#asArgumentOfFunction-int-java.lang.String-)
 
-تأخذ الدالة المحددة باستخدام المثيل الحالي كحجة. يمكنك:
+تأخذ الدالة المحددة باستخدام المثيل الحالي كمعامل. يمكنك:
 
-- تحديد سلسلة كاسم الدالة، على سبيل المثال "cos".
-- اختيار واحدة من القيم المحددة مسبقًا من التعدادات [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) أو [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments)، على سبيل المثال [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- اختيار مثيل من [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
+- تحديد سلسلة كاسم الدالة، مثل “cos”.
+- اختيار أحد القيم المحددة مسبقًا في تعداد [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) أو [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments)، مثل [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument#ArcSin).
+- اختيار مثيل [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement).
 
-على سبيل المثال:
+مثال:
 
 ```java
 MathLimit funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
@@ -318,7 +337,7 @@ IMathFunction func3 = new MathematicalText("x").asArgumentOfFunction(MathFunctio
 IMathFunction func4 = new MathematicalText("x").asArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3");
 ``` 
 
-### **طرق SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft**
+### **طرق SetSubscript، SetSuperscript، SetSubSuperscriptOnTheRight، SetSubSuperscriptOnTheLeft**
 - [setSubscript(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubscript-java.lang.String-)
 - [setSubscript(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubscript-com.aspose.slides.IMathElement-)
 - [setSuperscript(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSuperscript-java.lang.String-)
@@ -328,7 +347,7 @@ IMathFunction func4 = new MathematicalText("x").asArgumentOfFunction(MathFunctio
 - [setSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-java.lang.String-java.lang.String-)
 - [setSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
 
-تعيين فهرس سفلي وعلوي. يمكنك تعيين فهرس سفلي وعلوي في نفس الوقت على الجانب الأيسر أو الأيمن من المعامل، لكن يتم دعم الفهرس الفردي أو العلوي فقط على الجانب الأيمن. يمكن أيضًا استخدام الفهرس العلوي لتعيين الدرجة الرياضية لعدد.
+تضبط السوبسَّكريبت والسوبسْكريبت. يمكنك ضبطهما معًا على اليمين أو اليسار، لكن السوبسَّكريبت أو السوبسْكريبت الفردي مدعوم فقط على الجانب الأيمن. يمكن أيضًا استخدام **Superscript** لتحديد درجة عدد رياضي.
 
 مثال:
 
@@ -336,11 +355,11 @@ IMathFunction func4 = new MathematicalText("x").asArgumentOfFunction(MathFunctio
 IMathLeftSubSuperscriptElement script = new MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
 ``` 
 
-### **طريقة الجذر**
+### **طريقة Radical**
 - [radical(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#radical-java.lang.String-)
 - [radical(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#radical-com.aspose.slides.IMathElement-)
 
-تحدد الجذر الرياضي من الدرجة المحددة من المعامل المحدد.
+تحدّد جذرًا رياضيًا من الدرجة المحددة للمعامل المحدد.
 
 مثال:
 
@@ -348,25 +367,25 @@ IMathLeftSubSuperscriptElement script = new MathematicalText("y").setSubSuperscr
 IMathRadical radical = new MathematicalText("x").radical("3");
 ``` 
 
-### **طرق SetUpperLimit و SetLowerLimit**
+### **طرق SetUpperLimit وSetLowerLimit**
 - [setUpperLimit(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setUpperLimit-java.lang.String-)
 - [setUpperLimit(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setUpperLimit-com.aspose.slides.IMathElement-)
 - [setLowerLimit(String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setLowerLimit-java.lang.String-)
 - [setLowerLimit(IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#setLowerLimit-com.aspose.slides.IMathElement-)
 
-تأخذ الحد العلوي أو السفلي. هنا، يشير الحد العلوي والسفلي ببساطة إلى موقع المعامل بالنسبة للأساس.
+تُحدد الحد العلوي أو السفلي. هنا، يُشير العلوي والسفلي ببساطة إلى موضع المعامل بالنسبة للأساس.
 
-دعونا نفكر في تعبير: 
+لنفترض التعبير التالي:
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-يمكن إنشاء مثل هذه التعابير من خلال مزيج من فئات [MathFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) و [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit)، وعمليات [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) كالتالي:
+يمكن إنشاء مثل هذه التعبيرات عبر دمج فئتي [MathFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) و[MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) والعمليات في [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) كما يلي:
 
 ```java
 IMathFunction mathExpression = new MathematicalText("lim").setLowerLimit("x→∞").function("x");
 ``` 
 
-### **طرق Nary و Integral**
+### **طرق Nary وIntegral**
 - [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
 - [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#nary-int-java.lang.String-java.lang.String-)
 - [integral(MathIntegralTypes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-)
@@ -375,7 +394,7 @@ IMathFunction mathExpression = new MathematicalText("lim").setLowerLimit("x→�
 - [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-int-)
 - [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-int-)
 
-تقوم كلا من **nary** و **integral** بإنشاء وإرجاع عامل N-ary يتم تمثيله بواسطة نوع [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) . في طريقة nary، يحدد تعداد [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperatorTypes) نوع العامل: الجمع، الاتحاد، إلخ، دون تضمين التكامل. في طريقة التكامل، هناك عملية متخصصة هي التكامل مع تعداد من أنواع التكامل [**MathIntegralTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathIntegralTypes). 
+كل من طريقتي **nary** و**integral** تُنشئ وتُعيد مشغلًا من نوع N‑ary يُمثَّل بنوع [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator). تحدد عددية [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperatorTypes) نوع المشغل: جمع، اتحاد، إلخ، ولا تشمل التكاملات. في طريقة Integral، هناك عملية مخصصة للتكامل مع تعداد أنواع التكامل [**MathIntegralTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathIntegralTypes).
 
 مثال:
 
@@ -385,8 +404,8 @@ IMathBlock baseArg = new MathematicalText("x").join(new MathematicalText("dx").t
 IMathNaryOperator integral = baseArg.integral(MathIntegralTypes.Simple, "0", "1");
 ``` 
 
-### **طريقة toMathArray**
-[**toMathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toMathArray--) تضع العناصر في مصفوفة عمودية. إذا تم استدعاء هذه العملية على مثيل [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)، ستوضع جميع العناصر الفرعية في المصفوفة المرتجعة.
+### **طريقة ToMathArray**
+تُدرج العناصر في مصفوفة رأسية. إذا استُدعيت هذه العملية على كائن من فئة [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)، فستُوضَع جميع العناصر الفرعية في المصفوفة المرجعة.
 
 مثال:
 
@@ -394,12 +413,12 @@ IMathNaryOperator integral = baseArg.integral(MathIntegralTypes.Simple, "0", "1"
 IMathArray arrayFunction = new MathematicalText("x").join("y").toMathArray();
 ``` 
 
-### **عمليات التنسيق: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- تحدد طريقة [**accent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#accent-char-) علامة الانحناء (حرف على قمة العنصر).
-- تحدد طرق [**overbar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#overbar--) و[**underbar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#underbar--) شريطًا في الأعلى أو الأسفل.
-- تضع طريقة [**group**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#group--) في مجموعة باستخدام حرف التجميع مثل قوس سفلي ملتوي أو أي شيء آخر.
-- تضع طريقة [**toBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toBorderBox--) في صندوق حدود.
-- تضع طريقة [**toBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#toBox--) في صندوق غير مرئي (تجميع منطقي).
+### **عمليات التنسيق: Accent، Overbar، Underbar، Group، ToBorderBox، ToBox**
+- طريقة **accent** تُضيف علامة تشكيل (حرف فوق العنصر).  
+- طريقتا **overbar** و**underbar** تُضيفان شريطًا فوق أو تحت العنصر.  
+- طريقة **group** تضع العنصر في مجموعة باستخدام علامة تجميع مثل القوس السفلي أو غيره.  
+- طريقة **toBorderBox** تُضع العنصر في حد‑مربع.  
+- طريقة **toBox** تُضع العنصر في صندوق منطقي غير مرئي (تجميع منطقي).
 
 أمثلة:
 
@@ -414,3 +433,17 @@ IMathBorderBox borderBox = new MathematicalText("x+y+z").toBorderBox();
 
 IMathBox boxedOperator = new MathematicalText(":=").toBox();
 ``` 
+
+## **الأسئلة الشائعة**
+
+**كيف يمكن إضافة معادلة رياضية إلى شريحة PowerPoint؟**
+
+لإضافة معادلة رياضية، تحتاج إلى إنشاء كائن شكل رياضي، الذي يحتوي تلقائيًا على Portion رياضي. ثم تستخرج [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) من [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) وتضيف كائنات [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) إليها.
+
+**هل يمكن إنشاء تعبيرات رياضية معقدة متداخلة؟**
+
+نعم، يتيح Aspose.Slides إنشاء تعبيرات رياضية معقدة عن طريق تداخل MathBlocks. كل عنصر رياضي يُنفّذ الواجهة [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) التي تسمح بتطبيق عمليات (Join، Divide، Enclose، إلخ) لدمج العناصر في هياكل أكثر تعقيدًا.
+
+**كيف يمكن تحديث أو تعديل معادلة رياضية موجودة؟**
+
+لتحديث معادلة، تحتاج إلى الوصول إلى MathBlocks الموجودة عبر [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/). ثم باستخدام طرق مثل Join، Divide، Enclose وغيرها، يمكنك تعديل عناصر المعادلة الفردية. بعد التحرير، احفظ العرض لتطبيق التغييرات.

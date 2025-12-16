@@ -1,20 +1,31 @@
 ---
-title: Datenpunkte von Baumkarten und Sonnenstrahl-Diagrammen
+title: Datenpunkte in Treemap- und Sunburst-Diagrammen unter Android anpassen
+linktitle: Datenpunkte in Treemap- und Sunburst-Diagrammen
 type: docs
 url: /de/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
-keywords: "Sonnenstrahl-Diagramm in Aspose.Slides für Android über Java"
-description: "Sonnenstrahl-Diagramm, Sonnenstrahl-Grafik, Sonnenstrahl-Diagramm, Radialdiagramm, Radialgrafik oder Mehrstufiges Kreisdiagramm mit Aspose.Slides für Android über Java."
+keywords:
+- Treemap-Diagramm
+- Sunburst-Diagramm
+- Datenpunkt
+- Beschriftungsfarbe
+- Zweigfarbe
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Datenpunkte in Treemap- und Sunburst-Diagrammen mit Aspose.Slides für Android via Java verwalten können, kompatibel mit PowerPoint-Formaten."
 ---
 
-Unter den verschiedenen Arten von PowerPoint-Diagrammen gibt es zwei "hierarchische" Typen - **Baumkarte** und **Sonnenstrahl** Diagramm (auch bekannt als Sonnenstrahl-Grafik, Sonnenstrahl-Diagramm, Radialdiagramm, Radialgrafik oder Mehrstufiges Kreisdiagramm). Diese Diagramme stellen hierarchische Daten dar, die als Baum strukturiert sind - von den Blättern bis zur Spitze des Zweigs. Blätter werden durch die Serien-Datenpunkte definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie definiert. Aspose.Slides für Android über Java ermöglicht die Formatierung von Datenpunkten im Sonnenstrahl-Diagramm und Baumkarte in Java.
 
-Hier ist ein Sonnenstrahl-Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während andere Spalten hierarchische Datenpunkte definieren:
+Unter den verschiedenen PowerPoint‑Diagrammtypen gibt es zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Graph, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Graph oder Multi‑Level‑Kreisdiagramm). Diese Diagramme zeigen hierarchische Daten, die als Baum strukturiert sind – von den Blättern bis zur Spitze des Astes. Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie bestimmt. Aspose.Slides für Android via Java ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap‑Diagramms in Java.
+
+Hier ist ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blatt‑Knoten definieren, während andere Spalten hierarchische Datenpunkte definieren:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Lassen Sie uns beginnen, indem wir ein neues Sonnenstrahl-Diagramm zur Präsentation hinzufügen:
-
+Beginnen wir damit, ein neues Sunburst‑Diagramm zur Präsentation hinzuzufügen:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,39 +37,27 @@ try {
 }
 ```
 
+
 {{% alert color="primary" title="Siehe auch" %}} 
-- [**Erstellen eines Sonnenstrahl-Diagramms**](/slides/de/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Erstellen von Sunburst‑Diagrammen**](/slides/de/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
-Wenn es notwendig ist, die Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:
+Wenn es erforderlich ist, Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) Klassen 
-und [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) Methode 
-bieten Zugriff zur Formatierung von Datenpunkten in Baumkarten und Sonnenstrahl-Diagrammen. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager)
-wird verwendet, um auf mehrstufige Kategorien zuzugreifen - es stellt den Container für 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) Objekte dar.
-Im Grunde ist es ein Wrapper für 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartCategoryLevelsManager) mit
-den hinzugefügten Eigenschaften, die spezifisch für Datenpunkte sind. 
-Die Klasse [**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) hat
-zwei Methoden: [**getFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) und 
-[**getDataLabel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--), die
-Zugriff auf die entsprechenden Einstellungen ermöglichen.
-## **Datenpunktwert anzeigen**
-Wert des Datenpunkts "Blatt 4" anzeigen:
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager), [IChartDataPointLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) Klassen und die Methode [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) bieten Zugriff zum Formatieren von Datenpunkten der Treemap‑ und Sunburst‑Diagramme. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevelsManager) wird verwendet, um mehrstufige Kategorien zuzugreifen – es stellt den Container von [**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel)-Objekten dar. Im Grunde ist es ein Wrapper für [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartCategoryLevelsManager) mit den speziell für Datenpunkte hinzugefügten Eigenschaften. Die Klasse [**IChartDataPointLevel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel) verfügt über zwei Methoden: [**getFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) und [**getDataLabel**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) , die Zugriff auf die entsprechenden Einstellungen bieten.
 
+## **Wert eines Datenpunkts anzeigen**
+Wert des Datenpunkts "Leaf 4" anzeigen:
 ```java
 IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
 ```
 
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
-## **Datenpunktlabel und Farbe festlegen**
-Datenlabel für "Zweig 1" festlegen, um den Seriennamen ("Series1") anstelle des Kategorienamens anzuzeigen. Dann den Textfarbe auf gelb setzen:
-
+## **Datenpunktbeschriftung und -farbe festlegen**
+Setzen Sie die Datenbeschriftung von "Branch 1" so, dass der Serienname ("Series1") anstelle des Kategorienamens angezeigt wird. Anschließend die Textfarbe auf Gelb setzen:
 ```java
 IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
@@ -68,11 +67,11 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 ```
 
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
-## **Farbe des Datenpunktzweigs festlegen**
-Farbe des Branches "Dampfer 4" ändern:
-
+## **Farbe eines Datenpunktzweigs festlegen**
+Farbe des Zweigs "Steam 4" ändern:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -91,4 +90,23 @@ try {
 }
 ```
 
+
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+
+## **FAQ**
+
+**Kann ich die Reihenfolge (Sortierung) der Segmente in Sunburst/Treemap ändern?**
+
+Nein. PowerPoint sortiert Segmente automatisch (in der Regel absteigend nach Wert und im Uhrzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Sie können die Reihenfolge nicht direkt ändern; Sie erreichen dies durch Vorverarbeitung der Daten.
+
+**Wie beeinflusst das Präsentationsthema die Farben von Segmenten und Beschriftungen?**
+
+Diagrammfarben erben das [Thema/Palette](/slides/de/androidjava/presentation-theme/) der Präsentation, sofern Sie nicht explizit Füllungen/Schriften festlegen. Für konsistente Ergebnisse sollten Sie feste Füllungen und Textformatierungen auf den erforderlichen Ebenen festlegen.
+
+**Wird der Export nach PDF/PNG benutzerdefinierte Zweigfarben und Beschriftungseinstellungen beibehalten?**
+
+Ja. Beim Export der Präsentation bleiben die Diagrammeinstellungen (Füllungen, Beschriftungen) in den Ausgabeformaten erhalten, da Aspose.Slides das Diagramm mit den angewendeten Formatierungen rendert.
+
+**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements berechnen, um ein benutzerdefiniertes Overlay über dem Diagramm zu platzieren?**
+
+Ja. Nachdem das Diagrammlayout validiert wurde, stehen für Elemente die tatsächlichen *x*- und *y*-Werte zur Verfügung (z. B. für ein [DataLabel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/)), was eine präzise Positionierung von Overlays ermöglicht.

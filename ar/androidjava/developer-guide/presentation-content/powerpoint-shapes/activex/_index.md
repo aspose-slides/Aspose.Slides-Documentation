@@ -1,36 +1,48 @@
 ---
-title: ActiveX
+title: "إدارة عناصر التحكم ActiveX في العروض التقديمية على Android"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /ar/androidjava/activex/
+keywords:
+- "ActiveX"
+- "تحكم ActiveX"
+- "إدارة ActiveX"
+- "إضافة ActiveX"
+- "تعديل ActiveX"
+- "مشغل وسائط"
+- "PowerPoint"
+- "عرض تقديمي"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "تعرف على كيفية استفادة Aspose.Slides for Android عبر Java من ActiveX لأتمتة وتعزيز عروض PowerPoint التقديمية، مما يمنح المطورين تحكمًا قويًا في الشرائح."
 ---
-
 
 {{% alert color="primary" %}} 
 
-تُستخدم عناصر ActiveX في العروض التقديمية. تسمح لك Aspose.Slides لـ Android عبر Java بإضافة وإدارة عناصر ActiveX، لكنها تتطلب بعض المهارة في الإدارة مقارنةً بأشكال العرض التقديمية العادية. لقد قمنا بتنفيذ دعم لإضافة عنصر التحكم في مشغل الوسائط Active في Aspose.Slides. لاحظ أن عناصر ActiveX ليست أشكالًا؛ بل هي جزء من [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection) المنفصلة بدلاً من [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection). في هذا الموضوع، سنوضح لك كيفية العمل معها.
+تُستخدم عناصر التحكم ActiveX في العروض التقديمية. يتيح Aspose.Slides for Android عبر Java إضافة وإدارة عناصر التحكم ActiveX، لكنها تكون أصعب قليلاً في الإدارة مقارنة بالأشكال العادية في العرض. لقد قمنا بتطبيق دعم لإضافة عنصر تحكم Media Player ActiveX في Aspose.Slides. لاحظ أن عناصر التحكم ActiveX ليست أشكالاً؛ فهي ليست جزءًا من مجموعة الأشكال [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IShapeCollection). بل هي جزء من مجموعة التحكم المنفصلة [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection). في هذا الموضوع، سنوضح لك كيفية العمل معها.
 
 {{% /alert %}} 
 
-## **إضافة عنصر التحكم في مشغل الوسائط ActiveX إلى الشريحة**
-لإضافة عنصر تحكم ActiveX لمشغل الوسائط، قم بما يلي:
+## **إضافة عنصر تحكم Media Player ActiveX إلى شريحة**
+لإضافة عنصر تحكم Media Player ActiveX، قم بما يلي:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وإنشاء مثال تقديم فارغ.
-1. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. إضافة عنصر التحكم ActiveX لمشغل الوسائط باستخدام طريقة [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) المعروضة بواسطة [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
-1. الوصول إلى عنصر التحكم ActiveX لمشغل الوسائط وتعيين مسار الفيديو باستخدام خصائصه.
-1. حفظ العرض التقديمي كملف PPTX.
+1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وابدأ عرضًا تقديميًا فارغًا.
+2. احصل على الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+3. أضف عنصر تحكم Media Player ActiveX باستخدام طريقة [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) التي توجد في [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
+4. احصل على عنصر تحكم Media Player ActiveX واضبط مسار الفيديو باستخدام خصائصه.
+5. احفظ العرض التقديمي كملف PPTX.
 
-تظهر عينة التعليمات البرمجية هذه، بناءً على الخطوات أعلاه، كيفية إضافة عنصر التحكم ActiveX لمشغل الوسائط إلى الشريحة:
-
+هذا مثال برمجي، بناءً على الخطوات أعلاه، يوضح كيفية إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
 ```java
-// إنشاء مثيل تقديم فارغ
+// إنشاء مثال عرض تقديمي فارغ
 Presentation pres = new Presentation();
 try {
-    // إضافة عنصر التحكم ActiveX لمشغل الوسائط
+    // إضافة عنصر تحكم Media Player ActiveX
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // الوصول إلى عنصر التحكم ActiveX لمشغل الوسائط وتعيين مسار الفيديو
+    // الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // حفظ العرض التقديمي
@@ -40,27 +52,27 @@ try {
 }
 ```
 
-## **ت modifier عنصر التحكم ActiveX**
+
+## **تعديل عنصر تحكم ActiveX**
 {{% alert color="primary" %}} 
 
-تم تجهيز Aspose.Slides لـ Android عبر Java 7.1.0 والإصدارات الأحدث بمكونات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف بالفعل في عرضك التقديمي وتعديله أو حذفه من خلال خصائصه.
+تتوفر في Aspose.Slides for Android عبر Java الإصدار 7.1.0 وما بعده مكوّنات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف مسبقًا في عرضك التقديمي وتعديله أو حذفه عبر خصائصه.
 
 {{% /alert %}} 
 
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة، قم بما يلي:
+لإدارة عنصر تحكم ActiveX بسيط مثل صندوق نص وزر أمر بسيط على شريحة، قم بما يلي:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي مع عناصر التحكم ActiveX فيه.
-1. الحصول على مرجع الشريحة حسب فهرسها.
-1. الوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
-1. الوصول إلى عنصر التحكم ActiveX TextBox1 باستخدام كائن [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl).
-1. تغيير خصائص عنصر التحكم ActiveX TextBox1 التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
-1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
-1. تغيير عنوان الزر، الخط، والموقع.
-1. نقل موقع إطارات عناصر التحكم ActiveX.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وحمّل العرض الذي يحتوي على عناصر تحكم ActiveX.
+2. احصل على مرجع الشريحة عبر فهرستها.
+3. ادخل إلى عناصر التحكم في الشريحة عبر [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControlCollection).
+4. احصل على عنصر التحكم TextBox1 ActiveX باستخدام كائن [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IControl).
+5. غير خصائص عنصر التحكم TextBox1 ActiveX التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
+6. احصل على عنصر التحكم الثاني المسمى CommandButton1.
+7. غير تسمية الزر، الخط، والموقع.
+8. قم بتحريك مواقع إطارات عناصر التحكم ActiveX.
+9. اكتب العرض التقديمي المعدل إلى ملف PPTX.
 
-تظهر عينة التعليمات البرمجية هذه، بناءً على الخطوات أعلاه، كيفية إدارة عنصر تحكم ActiveX بسيط: 
-
+هذا مثال برمجي، بناءً على الخطوات أعلاه، يوضح كيفية إدارة عنصر تحكم ActiveX بسيط:
 ```java
 // الوصول إلى العرض التقديمي مع عناصر التحكم ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
@@ -68,15 +80,15 @@ try {
     // الوصول إلى الشريحة الأولى في العرض التقديمي
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // تغيير نص TextBox
+    // تغيير نص صندوق النص
     IControl control = slide.getControls().get_Item(0);
 
     if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "تم تغيير النص";
+        String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // تغيير الصورة البديلة. سيقوم PowerPoint باستبدال هذه الصورة أثناء تفعيل ActiveX،
-        // لذلك في بعض الأحيان من الجيد ترك الصورة دون تغيير.
+        // تغيير صورة الاستبدال. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX،
+        // لذلك في بعض الأحيان يمكن ترك الصورة دون تغيير.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -113,13 +125,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // تغيير عنوان الزر
+    // تغيير تسمية الزر
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "عرض رسالة";
+        String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // تغيير الصورة البديلة
+        // تغيير الاستبدال
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -145,30 +157,45 @@ try {
         graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
 
         graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
+                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
+                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
 
-        graphics.dispose();
+                graphics.dispose();
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ImageIO.write(image, "PNG", baos);
 
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
+                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+            }
 
-    // التحرك 100 نقطة للأسفل
-    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-        IShapeFrame frame = ctl.getFrame();
-        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
+            // نقل الأسفل 100 نقطة
+            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
+                IShapeFrame frame = ctl.getFrame();
+                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
+                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+            }
+            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-    // إزالة العناصر
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+            // إزالة عناصر التحكم
+            pres.getSlides().get_Item(0).getControls().clear();
+            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
+        } catch(IOException e) {
+        } finally {
+            if (pres != null) pres.dispose();
+        }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يحتفظ Aspose.Slides بعناصر التحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل Java؟**
+
+نعم. يتعامل Aspose.Slides مع هذه العناصر كجزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها للحفاظ عليها.
+
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض التقديمي؟**
+
+عناصر التحكم ActiveX هي عناصر تفاعلية مُدارة (أزرار، صناديق نص، مشغل وسائط)، بينما يشير [OLE](/slides/ar/androidjava/manage-ole/) إلى كائنات تطبيق مدمجة (مثل ورقة عمل Excel). يتم تخزينها ومعالجتها بشكل مختلف وتملك نماذج خصائص مختلفة.
+
+**هل تعمل أحداث ActiveX والماكروهات VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
+
+يحافظ Aspose.Slides على العلامات الوصفية والبيانات الموجودة؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.

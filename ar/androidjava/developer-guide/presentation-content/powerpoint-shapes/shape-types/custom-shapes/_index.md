@@ -1,120 +1,137 @@
 ---
-title: الشكل المخصص
+title: تخصيص أشكال العرض على Android
+linktitle: شكل مخصص
 type: docs
 weight: 20
 url: /ar/androidjava/custom-shape/
-keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، Java، Aspose.Slides for Android via Java"
-description: "إضافة شكل مخصص في عرض PowerPoint في Java"
+keywords:
+- شكل مخصص
+- إضافة شكل
+- إنشاء شكل
+- تغيير شكل
+- هندسة الشكل
+- مسار الهندسة
+- نقاط المسار
+- نقاط التحرير
+- إضافة نقطة
+- إزالة نقطة
+- عملية تحرير
+- زاوية منحنية
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لأندرويد عبر Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
 
-# تغيير الشكل باستخدام نقاط التحرير
-اعتبر مربعاً. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك
+## **تغيير شكل باستخدام نقاط التحرير**
+اعتبر مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك 
 
 * تحريك زاوية المربع إلى الداخل أو الخارج
 * تحديد الانحناء لزاوية أو نقطة
 * إضافة نقاط جديدة إلى المربع
-* التلاعب بالنقاط على المربع، إلخ.
+* التلاعب بالنقاط على المربع، إلخ. 
 
-بشكل أساسي، يمكنك أداء المهام الموصوفة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود.
+في الأساس، يمكنك تنفيذ المهام الموصوفة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود.
 
-## **نصائح لتعديل الأشكال**
+## **نصائح تحرير الشكل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل أن تبدأ في تعديل أشكال PowerPoint من خلال نقاط التحرير، قد ترغب في أخذ هذه النقاط في الاعتبار حول الأشكال:
+قبل البدء في تحرير أشكال PowerPoint عبر نقاط التحرير، قد ترغب في مراعاة هذه النقاط حول الأشكال:
 
 * يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* عندما يكون الشكل مغلقًا، فإنه يفتقر إلى نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، فإنه يحتوي على بداية ونهاية.
-* تتكون جميع الأشكال من نقطتين ربط على الأقل مرتبطة ببعضها البعض بواسطة خطوط.
-* يمكن أن تكون الخطوط إما مستقيمة أو منحنية. تحدد نقاط الربط طبيعة الخط.
-* توجد نقاط الربط كنقاط زوايا، نقاط مستقيمة، أو نقاط ناعمة:
-  * نقطة الزاوية هي نقطة حيث تنضم خطان مستقيمان بزاوية.
-  * نقطة ناعمة هي نقطة حيث توجد نقطتان يدويتان في خط مستقيم وتنضم مقاطع الخط في منحنى ناعم. في هذه الحالة، تكون جميع المفاتيح مفصولة عن نقطة الربط بمسافة متساوية.
-  * نقطة مستقيمة هي نقطة حيث توجد نقطتان يدويتان في خط مستقيم وتلك المقاطع في منحنى ناعم. في هذه الحالة، لا يجب أن تكون المفاتيح مفصولة عن نقطة الربط بمسافة متساوية.
-* من خلال نقل أو تعديل نقاط الربط (التي تغير زاوية الخطوط)، يمكنك تغيير شكل مظهر الشكل.
+* عندما يكون الشكل مغلقًا، لا توجد نقطة بدء أو انتهاء. عندما يكون الشكل مفتوحًا، يكون له بداية ونهاية. 
+* تتكون جميع الأشكال من نقطتي ارتباط على الأقل مرتبطتين ببعضهما عبر خطوط
+* الخط إما مستقيم أو منحني. تحدد نقاط الارتكاز طبيعة الخط. 
+* نقاط الارتكاز توجد كزوايا، أو نقاط مستقيمة، أو نقاط ناعمة:
+  * نقطة الزاوية هي نقطة يلتقي فيها خطان مستقيمان بزاوية. 
+  * نقطة ناعمة هي نقطة يوجد فيها مقبضان في خط مستقيم وتلتقي أقسام الخط بمنحنى ناعم. في هذه الحالة، يتم فصل جميع المقابض عن نقطة الارتكاز بمسافة متساوية. 
+  * نقطة مستقيمة هي نقطة يوجد فيها مقبضان في خط مستقيم وتلتقي أقسام الخط بمنحنى ناعم. في هذه الحالة، لا يلزم أن تكون المقابض منفصلة عن نقطة الارتكاز بمسافة متساوية. 
+* عن طريق تحريك أو تحرير نقاط الارتكاز (التي تغير زاوية الخطوط)، يمكنك تعديل مظهر الشكل. 
 
-لتعديل أشكال PowerPoint من خلال نقاط التحرير، تقدم **Aspose.Slides** فئة [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) وواجهة [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath).
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** فئة [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) والواجهة [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath).
 
-* يمثل مثيل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) مسار هندسي لكائن [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape).
-* لاسترداد `GeometryPath` من مثيل `IGeometryShape`، يمكنك استخدام الطريقة [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--).
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) للأشكال *الصلبة* و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) للأشكال *التركيبية*.
-* لإضافة مقاطع، يمكنك استخدام الأساليب تحت [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath).
-* باستخدام الطرق [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) و [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-)، يمكنك تعيين مظهر لمسار هندسي.
-* باستخدام الطريقة [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--)، يمكنك استرداد المسار الهندسي لشكل `GeometryShape` كمصفوفة من مقاطع المسار.
+* مثيل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) يمثل مسارًا هندسيًا لكائن [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape).
+* لاسترداد `GeometryPath` من مثيل `IGeometryShape`، يمكنك استخدام طريقة [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) .
+* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) للأشكال *الصلبة* و[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) للأشكال *المركبة*.
+* لإضافة مقاطع، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath).
+* باستخدام طرق [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) و[IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-)، يمكنك تعيين مظهر مسار هندسي.
+* باستخدام طريقة [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--) ، يمكنك استرجاع مسار الهندسة لـ `GeometryShape` كمصفوفة من مقاطع المسار.
 * للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* استخدم الطرق [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) و [graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (من فئة [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) والعكس.
+* استخدم طرق [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) و[graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (من فئة [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) والعكس.
 
 ## **عمليات تحرير بسيطة**
 
-هذا الكود في Java يوضح لك كيفية
+يعرض لك هذا الكود Java كيفية
 
-**إضافة خط** إلى نهاية مسار
-
+**إضافة خط** إلى نهاية المسار
 ``` java
 public void lineTo(java.awt.geom.Point2D.Float point);
 public void lineTo(float x, float y);
 ```
-**إضافة خط** إلى وضع محدد على مسار:
 
-``` java    
+**إضافة خط** إلى موضع محدد على المسار:
+``` java
 public void lineTo(java.awt.geom.Point2D.Float point, long index);
 public void lineTo(float x, float y, long index);
 ```
-**إضافة منحنى بيزير مكعب** إلى نهاية مسار:
 
+**إضافة منحنى بيزييه مكعب** إلى نهاية المسار:
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**إضافة منحنى بيزير مكعب** إلى الموضع المحدد على المسار:
 
+**إضافة منحنى بيزييه مكعب** إلى الموضع المحدد على المسار:
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
 ```
-**إضافة منحنى بيزير رباعي** إلى نهاية مسار:
 
+**إضافة منحنى بيزييه تربيعي** إلى نهاية المسار:
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**إضافة منحنى بيزير رباعي** إلى موضع محدد على مسار:
 
+**إضافة منحنى بيزييه تربيعي** إلى موضع محدد على المسار:
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
 ```
-**إضافة قوس معين** إلى مسار:
 
+**إلحاق قوس معين** إلى مسار:
 ``` java
 public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**إغلاق الشكل الحالي** لمسار:
 
+**إغلاق الشكل الحالي** للمسار:
 ``` java
 public void closeFigure();
 ```
-**تعيين الموقع للنقطة التالية**:
 
+**تحديد الموقع للنقطة التالية**:
 ``` java
 public void moveTo(java.awt.geom.Point2D.Float point);
 public void moveTo(float x, float y);
 ```
-**إزالة مقطع المسار** عند فهرس معين:
 
+**إزالة مقطع المسار** عند فهرس محدد:
 ``` java
 public void removeAt(int index);
 ```
 
-## **إضافة نقاط مخصصة إلى الشكل**
-1. قم بإنشاء مثيل لفئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) وقم بتعيين النوع [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
-2. احصل على مثيل لفئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) من الشكل.
-3. أضف نقطة جديدة بين النقطتين العلوية على المسار.
+
+## **إضافة نقاط مخصصة إلى شكل**
+1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) وضع نوع [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
+2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) من الشكل.
+3. أضف نقطة جديدة بين النقطتين العلويتين على المسار.
 4. أضف نقطة جديدة بين النقطتين السفلية على المسار.
-5. قم بتطبيق المسار على الشكل.
+5. طبّق المسار على الشكل.
 
-هذا الكود في Java يوضح لك كيفية إضافة نقاط مخصصة إلى شكل:
-
+يعرض لك هذا الكود Java كيفية إضافة نقاط مخصصة إلى شكل:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -129,17 +146,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-##  إزالة النقاط من الشكل
+## **إزالة نقاط من شكل**
 
-1. قم بإنشاء مثيل لفئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) وقم بتعيين النوع [ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
-2. احصل على مثيل لفئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) من الشكل.
-3. قم بإزالة المقطع لمسار.
-4. قم بتطبيق المسار على الشكل.
+1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) وضع نوع [ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType).
+2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) من الشكل.
+3. أزل المقطع للمسار.
+4. طبّق المسار على الشكل.
 
-هذا الكود في Java يوضح لك كيفية إزالة النقاط من شكل:
-
+يعرض لك هذا الكود Java كيفية إزالة النقاط من شكل:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -153,18 +170,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example2_image](custom_shape_2.png)
 
-##  **إنشاء شكل مخصص**
+## **إنشاء شكل مخصص**
 
 1. احسب النقاط للشكل.
-2. قم بإنشاء مثيل لفئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
-3. قم بملء المسار بالنقاط.
-4. قم بإنشاء مثيل لفئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
-5. قم بتطبيق المسار على الشكل.
+2. أنشئ مثيلًا من فئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
+3. عبئ المسار بالنقاط.
+4. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
+5. طبّق المسار على الشكل.
 
-هذا الكود في Java يوضح لك كيفية إنشاء شكل مخصص:
-
+يعرض لك هذا الكود Java كيفية إنشاء شكل مخصص:
 ``` java
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
@@ -203,20 +220,19 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
+
 ![example3_image](custom_shape_3.png)
 
 
 ## **إنشاء شكل مخصص مركب**
 
-1. قم بإنشاء مثيل لفئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
-2. قم بإنشاء مثيل أول لفئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
-3. قم بإنشاء مثيل ثانٍ لفئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
-4. قم بتطبيق المسارين على الشكل.
+1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
+2. أنشئ المثيل الأول من فئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
+3. أنشئ المثيل الثاني من فئة [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath).
+4. طبّق المسارات على الشكل.
 
-هذا الكود في Java يوضح لك كيفية إنشاء شكل مخصص مركب:
-
+يعرض لك هذا الكود Java كيفية إنشاء شكل مخصص مركب:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -242,12 +258,12 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example4_image](custom_shape_4.png)
 
 ## **إنشاء شكل مخصص بزوايا منحنية**
 
-هذا الكود في Java يوضح لك كيفية إنشاء شكل مخصص بزوايا منحنية (إلى الداخل):
-
+يعرض لك هذا الكود Java كيفية إنشاء شكل مخصص بزوايا منحنية (متجهة إلى الداخل);
 ```java
 float shapeX = 20f;
 float shapeY = 20f;
@@ -292,15 +308,40 @@ try {
 }
 ```
 
+
+## **اكتشف ما إذا كانت هندسة الشكل مغلقة**
+
+الشكل المغلق يُعرّف بأنه الشكل الذي تتصل جميع جوانبه، مكوّناً حدًا واحدًا دون فراغات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح مثال الشيفرة التالي كيفية التحقق مما إذا كانت هندسة الشكل مغلقة:
+```java
+boolean isGeometryClosed(IGeometryShape geometryShape)
+{
+    Boolean isClosed = null;
+
+    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+        int dataLength = geometryPath.getPathData().length;
+        if (dataLength == 0)
+            continue;
+
+        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
+        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+
+        if (isClosed == false)
+            return false;
+    }
+
+    return isClosed == true;
+}
+```
+
+
 ## **تحويل GeometryPath إلى java.awt.Shape** 
 
-1. قم بإنشاء مثيل لفئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
-2. قم بإنشاء مثيل لفئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. قم بتحويل مثيل [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil).
-4. قم بتطبيق المسارات على الشكل.
+1. أنشئ مثيلًا من فئة [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape).
+2. أنشئ مثيلًا من فئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
+3. حوّل مثيل [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil).
+4. طبّق المسارات على الشكل.
 
-هذا الكود في Java—نموذج لتطبيق الخطوات أعلاه—يظهر عملية تحويل **GeometryPath** إلى **GraphicsPath**:
-
+يعرض لك هذا الكود Java—تنفيذ للخطوات أعلاه—عملية التحويل من **GeometryPath** إلى **GraphicsPath**:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -308,14 +349,14 @@ try {
     GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
             getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    // الحصول على المسار الهندسي للشكل
+    // الحصول على مسار الهندسة للشكل
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // إنشاء مسار رسومي جديد مع نص
+    // إنشاء مسار رسومي جديد بالنص
     Shape graphicsPath;
     Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "نص في الشكل";
+    String text = "Text in shape";
     BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
     Graphics2D g2 = img.createGraphics();
 
@@ -332,10 +373,22 @@ try {
     IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // تعيين مجموعة من المسار الهندسي الجديد والمسار الأصلي إلى الشكل
+    // تعيين دمج مسار الهندسة الجديد والمسار الأصلي إلى الشكل
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **الأسئلة الشائعة**
+
+**ماذا سيحدث للملء والحدود بعد استبدال الهندسة؟**  
+يبقى النمط مع الشكل؛ يتغير فقط المخطط. يتم تطبيق الملء والحدود تلقائيًا على الهندسة الجديدة.
+
+**كيف يمكنني تدوير شكل مخصص مع الهندسة الخاصة به بشكل صحيح؟**  
+استخدم طريقة [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) للShape؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+
+**هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**  
+نعم. قم بتصدير منطقة [الشريحة](/slides/ar/androidjava/convert-powerpoint-to-png/) المطلوبة أو الـ[شكل](/slides/ar/androidjava/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ هذا يبسط العمل الإضافي مع الهندسات المعقدة.

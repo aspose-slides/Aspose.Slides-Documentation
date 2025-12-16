@@ -1,26 +1,37 @@
 ---
-title: Efecto de Forma
+title: Aplicar efectos de forma en presentaciones en Android
+linktitle: Efecto de forma
 type: docs
 weight: 30
-url: /es/androidjava/shape-effect
-keywords: "Efecto de forma, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
-description: "Aplicar efecto a la forma de PowerPoint en Java"
+url: /es/androidjava/shape-effect/
+keywords:
+- efecto de forma
+- efecto de sombra
+- efecto de reflexión
+- efecto de resplandor
+- efecto de bordes suaves
+- formato de efecto
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Transforma tus archivos PPT y PPTX con efectos de forma avanzados usando Aspose.Slides para Android mediante Java — crea diapositivas impactantes y profesionales en segundos."
 ---
 
-Mientras que los efectos en PowerPoint se pueden utilizar para hacer que una forma destaque, difieren de los [rellenos](/slides/es/androidjava/shape-formatting/#gradient-fill) o contornos. Usando efectos de PowerPoint, puedes crear reflexiones convincentes en una forma, difundir el brillo de una forma, etc.
+Mientras que los efectos en PowerPoint pueden usarse para resaltar una forma, difieren de los [rellenos](/slides/es/androidjava/shape-formatting/#gradient-fill) o contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint proporciona seis efectos que se pueden aplicar a las formas. Puedes aplicar uno o más efectos a una forma.
+* PowerPoint proporciona seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o más efectos a una forma. 
 
-* Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, las opciones de PowerPoint están bajo **Preset**. Las opciones de Preset son esencialmente una combinación conocida y atractiva de dos o más efectos. De esta manera, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+* Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint ofrece opciones bajo **Preset**. Las opciones de Preset son esencialmente una combinación conocida de dos o más efectos con buen aspecto. De este modo, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat) que te permiten aplicar los mismos efectos a las formas en las presentaciones de PowerPoint.
+Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat) que permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
-## **Aplicar Efecto de Sombra**
+## **Aplicar un efecto de sombra**
 
-Este código Java te muestra cómo aplicar el efecto de sombra externa ([OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) a un rectángulo:
-
+Este código Java muestra cómo aplicar el efecto de sombra externa ([OuterShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) a un rectángulo:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -37,10 +48,10 @@ try {
 }
 ```
 
-## **Aplicar Efecto de Reflexión**
 
-Este código Java te muestra cómo aplicar el efecto de reflexión a una forma:
+## **Aplicar un efecto de reflejo**
 
+Este código Java muestra cómo aplicar el efecto de reflejo a una forma:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +69,10 @@ try {
 }
 ```
 
-## **Aplicar Efecto de Brillo**
 
-Este código Java te muestra cómo aplicar el efecto de brillo a una forma:
+## **Aplicar un efecto de resplandor**
 
+Este código Java muestra cómo aplicar el efecto de resplandor a una forma:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -77,10 +88,10 @@ try {
 }
 ```
 
-## **Aplicar Efecto de Bordes Suaves**
 
-Este código Java te muestra cómo aplicar bordes suaves a una forma:
+## **Aplicar un efecto de bordes suaves**
 
+Este código Java muestra cómo aplicar los bordes suaves a una forma:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -94,3 +105,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**¿Puedo aplicar varios efectos a la misma forma?**
+
+Sí, puedes combinar diferentes efectos, como sombra, reflejo y resplandor, en una sola forma para crear una apariencia más dinámica.
+
+**¿A qué formas puedo aplicar efectos?**
+
+Puedes aplicar efectos a varias formas, incluidas autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
+
+**¿Puedo aplicar efectos a formas agrupadas?**
+
+Sí, puedes aplicar efectos a formas agrupadas. El efecto se aplicará a todo el grupo.

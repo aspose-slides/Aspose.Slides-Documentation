@@ -1,29 +1,43 @@
 ---
-title: Создание или управление узлом формы SmartArt PowerPoint на Java
-linktitle: Управление узлом формы SmartArt
+title: Управление узлами фигур SmartArt в презентациях на Android
+linktitle: Узел фигуры SmartArt
 type: docs
 weight: 30
 url: /ru/androidjava/manage-smartart-shape-node/
-keywords: smartart powerpoint, узлы smartart, позиция smartart, удалить smartart, добавить узлы smartart, презентация powerpoint, powerpoint java, powerpoint java api
-description: Управление узлом smart art и дочерними узлами в презентациях PowerPoint на Java
+keywords:
+- Узел SmartArt
+- Дочерний узел
+- Добавить узел
+- Позиция узла
+- Доступ к узлу
+- Удалить узел
+- Пользовательская позиция
+- Узел-ассистент
+- Формат заполнения
+- Отрисовка узла
+- PowerPoint
+- Презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Управляйте узлами фигур SmartArt в PPT и PPTX с помощью Aspose.Slides для Android. Получите понятные примеры кода на Java и советы для оптимизации ваших презентаций."
 ---
 
-## **Добавление узла SmartArt в презентацию PowerPoint с использованием Java**
-Aspose.Slides для Android через Java предоставляет самый простой API для управления фигурами SmartArt самым простым способом. Пример кода ниже поможет добавить узел и дочерний узел внутри фигуры SmartArt.
+## **Добавить узел SmartArt**
+Aspose.Slides for Android via Java предоставляет самый простой API для управления фигурами SmartArt самым лёгким способом. Ниже приведён пример кода, который поможет добавить узел и дочерний узел внутри фигуры SmartArt.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. [Добавьте новый узел](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) в фигуру SmartArt [**NodeCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) и задайте текст в TextFrame.
-1. Теперь [добавьте](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) [**дочерний узел**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) в только что добавленный [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) узел и задайте текст в TextFrame.
-1. Сохраните презентацию.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре на первом слайде.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. [Добавить новый узел](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) в коллекцию узлов фигуры SmartArt **NodeCollection** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) и задайте текст в TextFrame.  
+6. Теперь [добавьте](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) **дочерний узел** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) в только что добавленный узел SmartArt и задайте текст в TextFrame.  
+7. Сохраните презентацию.  
 ```java
-// Загрузите желаемую презентацию
+// Загрузите нужную презентацию
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Пройдите через каждую фигуру на первом слайде
+    // Обойдите каждую фигуру на первом слайде
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Проверьте, является ли фигура типом SmartArt
@@ -36,13 +50,13 @@ try {
             SmartArtNode TemNode = (SmartArtNode) smart.getAllNodes().addNode();
     
             // Добавление текста
-            TemNode.getTextFrame().setText("Тест");
+            TemNode.getTextFrame().setText("Test");
     
             // Добавление нового дочернего узла в родительский узел. Он будет добавлен в конец коллекции
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Добавление текста
-            newNode.getTextFrame().setText("Новый узел добавлен");
+            newNode.getTextFrame().setText("New Node Added");
         }
     }
     
@@ -53,16 +67,16 @@ try {
 }
 ```
 
-## **Добавление узла SmartArt в определённой позиции**
-В следующем примере кода мы объяснили, как добавить дочерние узлы, принадлежащие соответствующим узлам фигуры SmartArt, в определённой позиции.
 
-1. Создайте экземпляр класса Presentation.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Добавьте фигуру SmartArt типа [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) на доступном слайде.
-1. Получите доступ к первому узлу в добавленной фигуре SmartArt.
-1. Теперь добавьте [**дочерний узел**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) для выбранного [**узла**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) на позиции 2 и задайте его текст.
-1. Сохраните презентацию.
+## **Добавить узел SmartArt в определённой позиции**
+В следующем примере кода показано, как добавить дочерние узлы, принадлежащие соответствующим узлам фигуры SmartArt, в конкретную позицию.
 
+1. Создайте экземпляр класса Presentation.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Добавьте фигуру [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) типа SmartArt на выбранный слайд.  
+4. Получите первый узел в добавленной фигуре SmartArt.  
+5. Теперь добавьте **дочерний узел** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) для выбранного **узла** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) в позиции 2 и задайте его текст.  
+6. Сохраните презентацию.  
 ```java
 // Создание экземпляра презентации
 Presentation pres = new Presentation();
@@ -70,17 +84,17 @@ try {
     // Доступ к слайду презентации
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавление фигуры Smart Art IShape
+    // Добавление Smart Art IShape
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
     // Доступ к узлу SmartArt по индексу 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
-    // Добавление нового дочернего узла на позиции 2 в родительском узле
+    // Добавление нового дочернего узла на позицию 2 в родительском узле
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).addNodeByPosition(2);
 
-    // Добавьте текст
-    chNode.getTextFrame().setText("Добавленный образец текста");
+    // Добавить текст
+    chNode.getTextFrame().setText("Sample Text Added");
 
     // Сохранение презентации
     pres.save("AddSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
@@ -89,39 +103,39 @@ try {
 }
 ```
 
-## **Доступ к узлу SmartArt в презентации PowerPoint с использованием Java**
-Следующий пример кода поможет получить доступ к узлам внутри фигуры SmartArt. Обратите внимание, что вы не можете изменить LayoutType SmartArt, так как он является доступным только для чтения и устанавливается только при добавлении фигуры SmartArt.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. Пройдите через все [**узлы**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) внутри фигуры SmartArt.
-1. Получите и отобразите информацию, такую как позиция узла SmartArt, уровень и текст.
+## **Доступ к узлу SmartArt**
+Следующий пример кода поможет получить доступ к узлам внутри фигуры SmartArt. Обратите внимание, что изменить LayoutType SmartArt нельзя, так как он только для чтения и задаётся лишь при добавлении фигуры SmartArt.
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре на первом слайде.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. Пройдитесь по всем **узлам** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) внутри фигуры SmartArt.  
+6. Доступ и вывод информации, такой как позиция узла SmartArt, уровень и текст.  
 ```java
-// Создание экземпляра класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
-    // Получите первый слайд
+    // Получить первый слайд
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Пройдите через каждую фигуру на первом слайде
+    // Обойти все фигуры на первом слайде
     for (IShape shape : slide.getShapes()) 
     {
-        // Проверьте, является ли фигура типом SmartArt
+        // Проверить, является ли фигура типом SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Приведите фигуру к типу SmartArt
+            // Привести фигуру к типу SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Пройдите через все узлы внутри SmartArt
+            // Обойти все узлы внутри SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Получение узла SmartArt по индексу i
+                // Доступ к узлу SmartArt с индексом i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
-                // Печать параметров узла SmartArt
+                // Вывод параметров узла SmartArt
                 System.out.print(node.getTextFrame().getText() + " " + node.getLevel() + " " + node.getPosition());
             }
         }
@@ -131,47 +145,47 @@ try {
 }
 ```
 
+
 ## **Доступ к дочернему узлу SmartArt**
 Следующий пример кода поможет получить доступ к дочерним узлам, принадлежащим соответствующим узлам фигуры SmartArt.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. Пройдите через все [**узлы**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) внутри фигуры SmartArt.
-1. Для каждого выбранного узла SmartArt [**Node**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) пройдите через все [**дочерние узлы**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) внутри конкретного узла.
-1. Получите и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре на первом слайде.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. Пройдитесь по всем **узлам** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt#getAllNodes--) внутри фигуры SmartArt.  
+6. Для каждого выбранного **узла** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode) пройдитесь по всем **дочерним узлам** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) внутри конкретного узла.  
+7. Доступ и вывод информации, такой как позиция **дочернего узла** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--), уровень и текст.  
 ```java
-// Создание экземпляра класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
-    // Получите первый слайд
+    // Получить первый слайд
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Пройдите через каждую фигуру на первом слайде
+    // Обойти все фигуры на первом слайде
     for (IShape shape : slide.getShapes()) 
     {
-        // Проверьте, является ли фигура типом SmartArt
+        // Проверить, является ли фигура типом SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Приведите фигуру к типу SmartArt
+            // Привести фигуру к типу SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Пройдите через все узлы внутри SmartArt
+            // Обойти все узлы внутри SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Получение узла SmartArt по индексу i
+                // Доступ к узлу SmartArt с индексом i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // Пройдите через дочерние узлы в узле SmartArt по индексу i
+                // Обход дочерних узлов в узле SmartArt с индексом i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
-                    // Получение дочернего узла в узле SmartArt
+                    // Доступ к дочернему узлу в узле SmartArt
                     SmartArtNode node = (SmartArtNode) node0.getChildNodes().get_Item(j);
     
-                    // Печать параметров дочернего узла SmartArt
-                    System.out.print("j = " + j + ", Текст = " + node.getTextFrame().getText() + ", Уровень = " + node.getLevel() + ", Позиция = " + node.getPosition());
+                    // Вывод параметров дочернего узла SmartArt
+                    System.out.print("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
         }
@@ -181,156 +195,156 @@ try {
 }
 ```
 
+
 ## **Доступ к дочернему узлу SmartArt в определённой позиции**
-В этом примере мы научимся получать доступ к дочерним узлам в конкретной позиции, принадлежащим соответствующим узлам фигуры SmartArt.
+В этом примере мы научимся получать доступ к дочерним узлам в конкретных позициях, принадлежащим соответствующим узлам фигуры SmartArt.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Добавьте фигуру SmartArt типа [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).
-1. Получите доступ к добавленной фигуре SmartArt.
-1. Получите доступ к узлу по индексу 0 для полученной фигуры SmartArt.
-1. Теперь получите доступ к [**дочернему узлу**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) на позиции 1 для полученного узла SmartArt, используя метод **get_Item()**.
-1. Получите и отобразите информацию, такую как позиция дочернего узла, уровень и текст.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Добавьте фигуру типа [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) SmartArt.  
+4. Доступ к добавленной фигуре SmartArt.  
+5. Доступ к узлу с индексом 0 в полученной фигуре SmartArt.  
+6. Теперь доступ к **дочернему узлу** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) в позиции 1 для выбранного узла SmartArt с помощью метода **get_Item()**.  
+7. Доступ и вывод информации, такой как позиция **дочернего узла** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--), уровень и текст.  
 ```java
-// Создание экземпляра презентации
+// Создать экземпляр презентации
 Presentation pres = new Presentation();
 try {
     // Доступ к первому слайду
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавление фигуры SmartArt на первом слайде
+    // Добавление SmartArt формы в первый слайд
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // Получение узла SmartArt по индексу 0
+    // Доступ к узлу SmartArt с индексом 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
     // Доступ к дочернему узлу на позиции 1 в родительском узле
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
-    // Печать параметров дочернего узла SmartArt
-    System.out.print("Текст = " + chNode.getTextFrame().getText() + ", Уровень = " + chNode.getLevel() + ", Позиция = " + chNode.getPosition());
+    // Вывод параметров дочернего узла SmartArt
+    System.out.print("Text = " + chNode.getTextFrame().getText() + ",  Level = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Удаление узла SmartArt в презентации PowerPoint с использованием Java**
+
+## **Удалить узел SmartArt**
 В этом примере мы научимся удалять узлы внутри фигуры SmartArt.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. Проверьте, есть ли у [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) больше 0 узлов.
-1. Выберите узел SmartArt, который нужно удалить.
-1. Теперь удалите выбранный узел с помощью метода [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
-1. Сохраните презентацию.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре на первом слайде.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. Проверьте, содержит ли SmartArt более 0 узлов.  
+6. Выберите узел SmartArt, который нужно удалить.  
+7. Теперь удалите выбранный узел с помощью метода [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).  
+8. Сохраните презентацию.  
 ```java
-// Загрузите желаемую презентацию
+// Загрузить нужную презентацию
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Пройдите через каждую фигуру на первом слайде
+    // Обойти каждую фигуру на первом слайде
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Проверьте, является ли фигура типом SmartArt
+        // Проверить, является ли фигура типом SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Приведите фигуру к типу SmartArt
+            // Привести фигуру к типу SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Получение узла SmartArt по индексу 0
+                // Доступ к узлу SmartArt с индексом 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-                // Удаление выбранного узла
+                // Удалить выбранный узел
                 smart.getAllNodes().removeNode(node);
             }
         }
     }
     
-    // Сохранение презентации
+    // Сохранить презентацию
     pres.save("RemoveSmartArtNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Удаление узла SmartArt в определённой позиции**
-В этом примере мы научимся удалять узлы внутри фигуры SmartArt на определённой позиции.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на первый слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. Выберите узел фигуры SmartArt по индексу 0.
-1. Теперь проверьте, есть ли у выбранного узла SmartArt более 2 дочерних узлов.
-1. Теперь удалите узел на **позиции 1** с помощью метода [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
-1. Сохраните презентацию.
+## **Удалить узел SmartArt из определённой позиции**
+В этом примере мы научимся удалять узлы внутри фигуры SmartArt в конкретной позиции.
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на первый слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре на первом слайде.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. Выберите узел фигуры SmartArt с индексом 0.  
+6. Теперь проверьте, содержит ли выбранный узел SmartArt более 2 дочерних узла.  
+7. Теперь удалите узел в **позиции 1** с помощью метода [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).  
+8. Сохраните презентацию.  
 ```java
-// Загрузите желаемую презентацию
+// Загрузить нужную презентацию
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Пройдите через каждую фигуру на первом слайде
+    // Обойти каждую фигуру на первом слайде
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Проверьте, является ли фигура типом SmartArt
+        // Проверить, является ли фигура типом SmartArt
         if (shape instanceof SmartArt) 
         {
-            // Приведите фигуру к типу SmartArt
+            // Привести фигуру к типу SmartArt
             SmartArt smart = (SmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Получение узла SmartArt по индексу 0
+                // Доступ к узлу SmartArt с индексом 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
                 {
-                    // Удаление дочернего узла на позиции 1
+                    // Удалить дочерний узел на позиции 1
                     (node.getChildNodes()).removeNode(1);
                 }
             }
         }
     }
     
-    // Сохранение презентации
+    // Сохранить презентацию
     pres.save("RemoveSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Установка пользовательской позиции для дочернего узла в SmartArt**
-Теперь Aspose.Slides для Android через Java поддерживает установку свойств [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) и [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-). Код ниже показывает, как задать пользовательскую позицию SmartArtShape, размер и поворот. Также обратите внимание, что добавление новых узлов вызывает перерасчет позиций и размеров всех узлов. Также с помощью пользовательских настроек позиции пользователи могут настраивать узлы в соответствии с требованиями.
 
+## **Установить пользовательскую позицию для дочернего узла в объекте SmartArt**
+Теперь Aspose.Slides for Android via Java поддерживает установку свойств [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) **X** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) и **Y** (https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-). Ниже показан фрагмент кода, который задаёт пользовательскую позицию, размер и поворот SmartArtShape; также обратите внимание, что добавление новых узлов приводит к перерасчёту позиций и размеров всех узлов. С пользовательскими настройками позиции пользователь может размещать узлы согласно требованиям.  
 ```java
-// Создание экземпляра класса Presentation
+// Создать экземпляр класса Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-    // Перемещение фигуры SmartArt в новую позицию
+    // Переместить форму SmartArt в новую позицию
     ISmartArtNode node = smart.getAllNodes().get_Item(1);
     ISmartArtShape shape = node.getShapes().get_Item(1);
     shape.setX(shape.getX() + shape.getWidth() * 2);
     shape.setY(shape.getY() - shape.getHeight() * 2);
 
-    // Изменение ширины фигур SmartArt
+    // Изменить ширину формы SmartArt
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
     shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
 
-    // Изменение высоты фигур SmartArt
+    // Изменить высоту формы SmartArt
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
     shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-    // Изменение поворота фигур SmartArt
+    // Изменить поворот формы SmartArt
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
     shape.setRotation(90);
@@ -341,50 +355,50 @@ try{
 }
 ```
 
-## **Проверка узла-ассистента**
+
+## **Проверка узла‑ассистента**
 {{% alert color="primary" %}} 
 
-В этой статье мы дополнительно исследуем функции фигур SmartArt, добавленных в слайды презентации программно с использованием Aspose.Slides для Android через Java.
+В этой статье мы подробнее рассмотрим возможности фигур SmartArt, добавляемых в слайды презентаций программно с помощью Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 
-Мы используем следующую исходную фигуру SmartArt для нашего исследования в различных разделах этой статьи.
+Для исследования в различных разделах статьи мы будем использовать следующую исходную фигуру SmartArt.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**Рисунок: Исходная фигура SmartArt в слайде**|
 
-В следующем примере кода мы исследуем, как идентифицировать **узлы-ассистенты** в коллекции узлов SmartArt и изменять их.
+В следующем примере кода мы исследуем, как определить **узлы‑ассистенты** в коллекции узлов SmartArt и изменить их.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.
-1. Получите ссылку на второй слайд, используя его индекс.
-1. Пройдите через каждую фигуру на первом слайде.
-1. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.
-1. Пройдите через все узлы внутри фигуры SmartArt и проверьте, являются ли они [**узлами-ассистентами**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Измените статус узла-ассистента на нормальный узел.
-1. Сохраните презентацию.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию с фигурой SmartArt.  
+2. Получите ссылку на второй слайд, используя его индекс.  
+3. Пройдитесь по каждой фигуре внутри первого слайда.  
+4. Проверьте, является ли фигура типом [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) и приведите выбранную фигуру к типу [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), если это SmartArt.  
+5. Пройдитесь по всем узлам внутри фигуры SmartArt и проверьте, являются ли они [**узлами‑ассистентами**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).  
+6. Измените статус узла‑ассистента на обычный узел.  
+7. Сохраните презентацию.  
 ```java
 // Создание экземпляра презентации
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Пройдите через каждую фигуру на первом слайде
+    // Обход каждой фигуры на первом слайде
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Проверьте, является ли фигура типом SmartArt
+        // Проверка, является ли фигура типом SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Приведите фигуру к типу SmartArt
+            // Приведение фигуры к типу SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // Пройдите через все узлы фигуры SmartArt
+            // Обход всех узлов фигуры SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // Проверьте, является ли узел узлом-ассистентом
+                // Проверка, является ли узел помощником
                 if (node.isAssistant()) 
                 {
-                    // Установите узел-ассистент на false и сделайте его узлом нормальным
+                    // Установка свойства Assistant у узла в false, делаем его обычным узлом
                     node.isAssistant();
                 }
             }
@@ -398,34 +412,34 @@ try {
 }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Рисунок: Узлы-ассистенты изменены в фигуре SmartArt внутри слайда**|
+|**Рисунок: Узлы‑ассистенты изменены в фигуре SmartArt внутри слайда**|
 
-## **Установка формата заливки узла**
-Aspose.Slides для Android через Java позволяет добавлять настраиваемые фигуры SmartArt и устанавливать их формат заливки. Эта статья объясняет, как создать и получить доступ к фигурам SmartArt и установить их формат заливки с использованием Aspose.Slides для Android через Java.
+## **Установить формат заполнения узла**
+Aspose.Slides for Android via Java позволяет добавлять пользовательские фигуры SmartArt и задавать им формат заполнения. В этой статье объясняется, как создавать и получать доступ к фигурам SmartArt и задавать им формат заполнения с помощью Aspose.Slides for Android via Java.
 
-Пожалуйста, следуйте приведённым ниже шагам:
+Пожалуйста, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте фигуру [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), установив её [**LayoutType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Установите [**FillFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getFillFormat--) для узлов фигуры SmartArt.
-1. Запишите изменённую презентацию в файл PPTX.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+2. Получите ссылку на слайд, используя его индекс.  
+3. Добавьте фигуру [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt), задав её [**LayoutType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).  
+4. Задайте [**FillFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getFillFormat--) для узлов фигуры SmartArt.  
+5. Сохраните изменённую презентацию в виде файла PPTX.  
 ```java
-// Создание экземпляра презентации
+// Создать экземпляр презентации
 Presentation pres = new Presentation();
 try {
     // Доступ к слайду
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Добавление фигуры SmartArt и узлов
+    // Добавление SmartArt формы и узлов
     ISmartArt chevron = slide.getShapes().addSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
     ISmartArtNode node = chevron.getAllNodes().addNode();
-    node.getTextFrame().setText("Некоторый текст");
+    node.getTextFrame().setText("Some text");
     
-    // Установка цвета заливки узла
+    // Установка цвета заполнения узла
     for (IShape item : node.getShapes()) 
     {
         item.getFillFormat().setFillType(FillType.Solid);
@@ -439,29 +453,29 @@ try {
 }
 ```
 
-## **Создание миниатюры дочернего узла SmartArt**
-Разработчики могут создать миниатюру дочернего узла SmartArt, следуя приведённым ниже шагам:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. [Добавьте SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Получите ссылку на узел, используя его индекс.
-1. Получите изображение миниатюры.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+## **Создать миниатюру дочернего узла SmartArt**
+Разработчики могут создать миниатюру дочернего узла SmartArt, выполнив следующие шаги:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
+2. [Добавьте SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).  
+3. Получите ссылку на узел, используя его индекс.  
+4. Получите изображение миниатюры.  
+5. Сохраните изображение миниатюры в любом нужном формате.  
 ```java
-// Создание экземпляра класса Presentation, представляющего файл PPTX 
+// Создать экземпляр класса Presentation, представляющего файл PPTX 
 Presentation pres = new Presentation();
 try {
-    // Добавление SmartArt 
+    // Добавить SmartArt 
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // Получение ссылки на узел, используя его индекс  
+    // Получить ссылку на узел, используя его индекс  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
-    // Получение миниатюры
+    // Получить миниатюру
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
-    // Сохранение миниатюры
+    // Сохранить миниатюру
     try {
           slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
     } finally {
@@ -471,3 +485,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Поддерживается ли анимация SmartArt?**
+
+Да. SmartArt рассматривается как обычная фигура, поэтому вы можете [применять стандартные анимации](/slides/ru/androidjava/shape-animation/) (вход, выход, акцент, траектории движения) и настраивать тайминг. При необходимости можно анимировать фигуры внутри узлов SmartArt.
+
+**Как надёжно найти конкретный SmartArt на слайде, если его внутренний ID неизвестен?**
+
+Назначьте и ищите по [альтернативному тексту](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--). Установка уникального AltText у SmartArt позволяет программно находить его без использования внутренних идентификаторов.
+
+**Сохранится ли внешний вид SmartArt при конвертации презентации в PDF?**
+
+Да. Aspose.Slides визуализирует SmartArt с высокой точностью при [экспорте в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/), сохраняя макет, цвета и эффекты.
+
+**Можно ли извлечь изображение всего SmartArt (для превью или отчётов)?**
+
+Да. Вы можете отрисовать фигуру SmartArt в [растровый формат](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) или в [SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-), что подходит для миниатюр, отчётов или веб‑использования.

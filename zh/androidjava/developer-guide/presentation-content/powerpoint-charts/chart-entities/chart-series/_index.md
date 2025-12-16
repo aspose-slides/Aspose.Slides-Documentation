@@ -1,9 +1,22 @@
 ---
-title: 图表系列
+title: 在 Android 上管理演示文稿中的图表数据系列
+linktitle: 数据系列
 type: docs
 url: /zh/androidjava/chart-series/
-keywords: "图表系列, 系列颜色, PowerPoint演示文稿, Java, Aspose.Slides for Android via Java"
-description: "Java中的PowerPoint演示文稿中的图表系列"
+keywords:
+- 图表系列
+- 系列重叠
+- 系列颜色
+- 类别颜色
+- 系列名称
+- 数据点
+- 系列间隙
+- PowerPoint
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "了解如何在 Android 上使用实用的 Java 示例代码和最佳实践来管理 PowerPoint（PPT/PPTX）中的图表系列，从而提升您的数据演示。"
 ---
 
 系列是绘制在图表中的一行或一列数字。
@@ -12,18 +25,17 @@ description: "Java中的PowerPoint演示文稿中的图表系列"
 
 ## **设置图表系列重叠**
 
-使用 [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) 属性，可以指定条形图和柱形图在2D图表上应重叠的程度（范围：-100到100）。该属性适用于父系列组的所有系列：这是适当组属性的投影。因此，此属性为只读。
+使用 [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 方法，您可以确定 2D 图表中柱形和条形的重叠程度（范围：-100 到 100）。此属性适用于父系列组的所有系列：它是相应组属性的投影。因此，此属性为只读。
 
-使用 `ParentSeriesGroup.Overlap` 读/写属性设置您所需的 `Overlap` 值。
+使用 `getParentSeriesGroup().setOverlap()` 写入方法来设置您偏好的重叠值。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-1. 在幻灯片上添加一个聚类柱形图。
-1. 访问第一个图表系列。
-1. 访问图表系列的 `ParentSeriesGroup` 并设置您所需的系列重叠值。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 在幻灯片上添加簇状柱形图。  
+1. 访问第一个图表系列。  
+1. 访问图表系列的 `ParentSeriesGroup` 并为该系列设置首选的重叠值。  
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下Java代码显示了如何设置图表系列的重叠：
-
+此 Java 代码演示如何为图表系列设置重叠：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -43,17 +55,18 @@ try {
 }
 ```
 
-## **更改系列颜色**
-Aspose.Slides for Android via Java允许您通过以下方式更改系列颜色：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-1. 在幻灯片上添加图表。
-1. 访问您要更改颜色的系列。
-1. 设置您所需的填充类型和填充颜色。
+## **更改系列颜色**
+
+Aspose.Slides for Android via Java 可按以下方式更改系列颜色：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 在幻灯片上添加图表。  
+1. 访问您想要更改颜色的系列。  
+1. 设置您偏好的填充类型和填充颜色。  
 1. 保存修改后的演示文稿。
 
-以下Java代码显示了如何更改系列的颜色：
-
+此 Java 代码演示如何更改系列颜色：
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -70,17 +83,18 @@ try {
 }
 ```
 
-## **更改系列类别的颜色**
-Aspose.Slides for Android via Java允许您通过以下方式更改系列类别的颜色：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-1. 在幻灯片上添加图表。
-1. 访问您要更改颜色的系列类别。
-1. 设置您所需的填充类型和填充颜色。
+## **更改系列类别颜色**
+
+Aspose.Slides for Android via Java 可按以下方式更改系列类别的颜色：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 在幻灯片上添加图表。  
+1. 访问您想要更改颜色的系列类别。  
+1. 设置您偏好的填充类型和填充颜色。  
 1. 保存修改后的演示文稿。
 
-以下Java代码显示了如何更改系列类别的颜色：
-
+此 Java 代码演示如何更改系列类别颜色：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -96,26 +110,26 @@ try {
 }
 ```
 
-## **更改系列名称** 
 
-默认情况下，图表的图例名称是每列或每行数据上方单元格的内容。
+## **更改系列名称**
 
-在我们的示例中（示例图像），
+默认情况下，图表的图例名称来源于每列或每行数据上方单元格的内容。
 
-* 列是 *系列 1, 系列 2,* 和 *系列 3*；
-* 行是 *类别 1, 类别 2, 类别 3,* 和 *类别 4.* 
+在我们的示例（示例图）中：
 
-Aspose.Slides for Android via Java允许您更新或更改系列名称在其图表数据和图例中。
+* 列对应 *Series 1、Series 2* 和 *Series 3*；  
+* 行对应 *Category 1、Category 2、Category 3* 和 *Category 4*。
 
-以下Java代码显示了如何在其图表数据 `ChartDataWorkbook` 中更改系列的名称：
+Aspose.Slides for Android via Java 允许您在图表数据和图例中更新或更改系列名称。
 
+此 Java 代码演示如何在图表数据 `ChartDataWorkbook` 中更改系列名称：
 ```java
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
 
     IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("新名称");
+    seriesCell.setValue("New name");
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -123,8 +137,8 @@ try {
 }
 ```
 
-以下Java代码显示了如何通过 `Series` 更改图例中的系列名称：
 
+此 Java 代码演示如何通过 `Series` 在图例中更改系列名称：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -132,31 +146,31 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("新名称");
+    name.getAsCells().get_Item(0).setValue("New name");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **设置图表系列填充颜色**
 
-Aspose.Slides for Android via Java允许您通过以下方式设置图表系列内部的自动填充颜色：
+Aspose.Slides for Android via Java 可按以下方式为绘图区域内的图表系列设置自动填充颜色：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，基于您所需的类型（在下面的示例中，我们使用了 `ChartType.ClusteredColumn`）。
-4. 访问图表系列并将填充颜色设置为自动。
-5. 将演示文稿保存为PPTX文件。
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 根据您偏好的类型添加带默认数据的图表（下面示例使用 `ChartType.ClusteredColumn`）。  
+1. 访问图表系列并将填充颜色设为 Automatic。  
+1. 将演示文稿保存为 PPTX 文件。
 
-以下Java代码显示了如何设置图表系列的自动填充颜色：
-
+此 Java 代码演示如何为图表系列设置自动填充颜色：
 ```java
 Presentation pres = new Presentation();
 try {
-    // 创建聚类柱形图
+    // 创建簇状柱形图
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // 将系列填充格式设置为自动
+    // 设置系列填充格式为自动
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
     {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
@@ -169,17 +183,18 @@ try {
 }
 ```
 
-## **设置图表系列反转填充颜色**
-Aspose.Slides允许您通过以下方式设置图表系列内部的反转填充颜色：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加一个带有默认数据的图表，基于您所需的类型（在下面的示例中，我们使用了 `ChartType.ClusteredColumn`）。
-4. 访问图表系列并将填充颜色设置为反转。
-5. 将演示文稿保存为PPTX文件。
+## **为图表系列设置反转填充颜色**
 
-以下Java代码演示了该操作：
+Aspose.Slides 可按以下方式为绘图区域内的图表系列设置反转填充颜色：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 通过索引获取幻灯片引用。  
+1. 根据您偏好的类型添加带默认数据的图表（下面示例使用 `ChartType.ClusteredColumn`）。  
+1. 访问图表系列并将填充颜色设为 invert。  
+1. 将演示文稿保存为 PPTX 文件。
+
+此 Java 代码演示该操作：
 ```java
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
@@ -190,11 +205,11 @@ try {
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    // 添加新系列和类别
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "系列 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "类别 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "类别 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "类别 3"));
+    // 添加新的系列和类别
+    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
     // 获取第一个图表系列并填充其系列数据。
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
@@ -213,11 +228,12 @@ try {
 }
 ```
 
-## **设置负值时反转系列**
-Aspose.Slides允许您通过 `IChartDataPoint.InvertIfNegative` 和 `ChartDataPoint.InvertIfNegative` 属性进行反转。当使用这些属性设置反转时，数据点在获得负值时会反转其颜色。
 
-以下Java代码演示了该操作：
+## **在数值为负时将系列反转**
 
+Aspose.Slides 通过 `IChartDataPoint.InvertIfNegative` 和 `ChartDataPoint.InvertIfNegative` 属性实现反转。当通过这些属性设置反转时，数据点在取负值时会反转其颜色。
+
+此 Java 代码演示该操作：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -241,18 +257,19 @@ try {
 }
 ```
 
-## **清除特定数据点的数据**
-Aspose.Slides for Android via Java允许您通过以下方式清除特定图表系列的 `DataPoints` 数据：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 通过其索引获取图表的引用。
-4. 遍历所有图表 `DataPoints` ，并将 `XValue` 和 `YValue` 设置为null。
-5. 清除特定图表系列的所有 `DataPoints`。
-6. 将修改后的演示文稿写入PPTX文件。
+## **清除特定点数据**
 
-以下Java代码演示该操作：
+Aspose.Slides for Android via Java 可按以下方式清除特定图表系列的 `DataPoints` 数据：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片引用。  
+3. 通过索引获取图表引用。  
+4. 遍历所有图表 `DataPoints` 并将 `XValue` 和 `YValue` 设为 null。  
+5. 清除特定图表系列的所有 `DataPoints`。  
+6. 将修改后的演示文稿写入 PPTX 文件。
+
+此 Java 代码演示该操作：
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
 try {
@@ -274,42 +291,43 @@ try {
 }
 ```
 
-## **设置系列间隔宽度**
-Aspose.Slides for Android via Java允许您通过 **`GapWidth`** 属性设置系列的间隔宽度，具体方法如下：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 添加带有默认数据的图表。
-4. 访问任意图表系列。
-5. 设置 `GapWidth` 属性。
-6. 将修改后的演示文稿写入PPTX文件。
+## **设置系列间隙宽度**
 
-以下Java代码显示了如何设置系列的间隔宽度：
+Aspose.Slides for Android via Java 通过 **`GapWidth`** 属性可为系列设置间隙宽度，方法如下：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 访问第一张幻灯片。  
+1. 添加带默认数据的图表。  
+1. 访问任意图表系列。  
+1. 设置 `GapWidth` 属性。  
+1. 将修改后的演示文稿写入 PPTX 文件。
+
+此 Java 代码演示如何设置系列的间隙宽度：
 ```java
-// 创建空白演示文稿 
+// 创建空演示文稿 
 Presentation pres = new Presentation();
 try {
     // 访问演示文稿的第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 添加带有默认数据的图表
+    // 添加一个带默认数据的图表
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
     
-    // 设置图表数据表的索引
+    // 设置图表数据工作表的索引
     int defaultWorksheetIndex = 0;
     
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // 添加系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "系列 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "系列 2"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
     // 添加类别
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "类别 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "类别 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "类别 3"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
     // 获取第二个图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
@@ -322,7 +340,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // 设置GapWidth值
+    // 设置 GapWidth 值
     series.getParentSeriesGroup().setGapWidth(50);
     
     // 将演示文稿保存到磁盘
@@ -331,3 +349,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**单个图表能包含的系列数量是否有限制？**
+
+Aspose.Slides 对您添加的系列数量没有固定上限。实际上限取决于图表的可读性以及应用程序可用的内存。
+
+**如果簇内的柱形之间距离过近或过远怎么办？**
+
+调整该系列（或其父系列组）的 `GapWidth` 设置。增大该值会扩大柱形之间的间距，减小则会使它们更靠近。

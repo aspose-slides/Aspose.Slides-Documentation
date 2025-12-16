@@ -1,29 +1,40 @@
 ---
-title: مجموعة
+title: أشكال مجموعة العرض التقديمي على Android
+linktitle: مجموعة الشكل
 type: docs
 weight: 40
 url: /ar/androidjava/group/
+keywords:
+- شكل مجموعة
+- مجموعة الشكل
+- إضافة مجموعة
+- نص بديل
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "تعلم كيفية تجميع وفك تجميع الأشكال في عروض PowerPoint باستخدام Aspose.Slides للأندرويد—دليل سريع خطوة بخطوة مع كود Java مجاني."
 ---
 
 ## **إضافة شكل مجموعة**
-يدعم Aspose.Slides العمل مع أشكال المجموعات على الشرائح. تساعد هذه الميزة المطورين في دعم عروض تقديمية أغنى. يدعم Aspose.Slides لنظام Android عبر Java إضافة أو الوصول إلى أشكال المجموعات. من الممكن إضافة أشكال إلى شكل مجموعة تم إضافته لتعبئته أو الوصول إلى أي خاصية من خصائص شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides لنظام Android عبر Java:
+Aspose.Slides يدعم العمل مع أشكال المجموعات على الشرائح. تساعد هذه الميزة المطورين على إنشاء عروض تقديمية أكثر ثراءً. Aspose.Slides للأندرويد عبر جافا يدعم إضافة أو الوصول إلى أشكال المجموعات. يمكن إضافة أشكال إلى شكل مجموعة مضاف لملئه أو للوصول إلى أي خاصية من خصائص شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides للأندرويد عبر جافا:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. الحصول على مرجع شريحة باستخدام فهرسها.
-1. إضافة شكل مجموعة إلى الشريحة.
-1. إضافة الأشكال إلى شكل المجموعة المضاف.
-1. حفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+2. الحصول على مرجع شريحة باستخدام فهرسها
+3. إضافة شكل مجموعة إلى الشريحة.
+4. إضافة الأشكال إلى شكل المجموعة المُضاف.
+5. حفظ العرض التقديمي المعدل كملف PPTX.
 
 المثال أدناه يضيف شكل مجموعة إلى شريحة.
-
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation();
 try {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // الوصول إلى مجموعة الأشكال على الشرائح
+    // الوصول إلى مجموعة الأشكال في الشرائح
     IShapeCollection slideShapes = sld.getShapes();
 
     // إضافة شكل مجموعة إلى الشريحة
@@ -35,7 +46,7 @@ try {
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // إضافة إطار شكل المجموعة
+    // إضافة إطار لشكل المجموعة
     groupShape.setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0));
 
     // كتابة ملف PPTX إلى القرص
@@ -45,19 +56,19 @@ try {
 }
 ```
 
-## **الوصول إلى خاصية AltText**
-توضح هذه الموضوع خطوات بسيطة، مكتملة بأمثلة من الشيفرة، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعة على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides لنظام Android عبر Java:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تمثل ملف PPTX.
-1. الحصول على مرجع الشريحة باستخدام فهرسها.
-1. الوصول إلى مجموعة الأشكال على الشرائح.
-1. الوصول إلى شكل المجموعة.
-1. الوصول إلى خاصية [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) .
+## **الوصول إلى خاصية AltText**
+هذا الموضوع يوضح خطوات بسيطة، مع أمثلة أكواد، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعات على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides للأندرويد عبر جافا:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) التي تمثل ملف PPTX.
+2. الحصول على مرجع شريحة باستخدام فهرسها.
+3. الوصول إلى مجموعة الأشكال في الشرائح.
+4. الوصول إلى شكل المجموعة.
+5. الوصول إلى خاصية [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) .
 
 المثال أدناه يصل إلى النص البديل لشكل المجموعة.
-
 ```java
-// إنشاء مثيل من فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation("AltText.pptx");
 try {
     // الحصول على الشريحة الأولى
@@ -65,7 +76,7 @@ try {
     
     for (int i = 0; i < sld.getShapes().size(); i++)
     {
-        // الوصول إلى مجموعة الأشكال على الشرائح
+        // الوصول إلى مجموعة الأشكال في الشرائح
         IShape shape = sld.getShapes().get_Item(i);
     
         if (shape instanceof GroupShape)
@@ -85,3 +96,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يتم دعم التجميع المتداخل (مجموعة داخل مجموعة)؟**
+
+نعم. [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/) يحتوي على طريقة [getParentGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getParentGroup--)، التي تشير مباشرةً إلى دعم الهرمية (يمكن أن تكون مجموعة طفلاً لمجموعة أخرى).
+
+**كيف يمكنني التحكم في ترتيب Z للمجموعة بالنسبة للكائنات الأخرى على الشريحة؟**
+
+استخدم طريقة [getZOrderPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getZOrderPosition--) الخاصة بـ [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/) لفحص موقعها في مكدس العرض.
+
+**هل يمكنني منع التحريك/التحرير/إلغاء التجميع؟**
+
+نعم. قسم القفل للمجموعة متاح عبر [getGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/#getGroupShapeLock--)، مما يتيح لك تقييد العمليات على الكائن.

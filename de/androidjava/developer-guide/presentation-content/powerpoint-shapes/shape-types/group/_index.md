@@ -1,26 +1,37 @@
 ---
-title: Gruppe
+title: Gruppenpräsentationsformen auf Android
+linktitle: Formgruppe
 type: docs
 weight: 40
 url: /de/androidjava/group/
+keywords:
+- Gruppenform
+- Formgruppe
+- Gruppe hinzufügen
+- Alternativtext
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Formen in PowerPoint-Präsentationen mit Aspose.Slides für Android gruppieren und Gruppierungen aufheben – ein schneller, schrittweiser Leitfaden mit kostenlosem Java-Code."
 ---
 
 ## **Gruppenform hinzufügen**
-Aspose.Slides unterstützt die Arbeit mit Gruppenformen auf Folien. Diese Funktion hilft Entwicklern, reichhaltigere Präsentationen zu unterstützen. Aspose.Slides für Android über Java unterstützt das Hinzufügen oder Zugreifen auf Gruppenformen. Es ist möglich, Formen zu einer hinzugefügten Gruppenform hinzuzufügen, um sie zu füllen oder auf eine Eigenschaft der Gruppenform zuzugreifen. Um eine Gruppenform zu einer Folie mit Aspose.Slides für Android über Java hinzuzufügen:
+Aspose.Slides unterstützt die Arbeit mit Gruppenformen auf Folien. Diese Funktion hilft Entwicklern, reichhaltigere Präsentationen zu unterstützen. Aspose.Slides für Android via Java unterstützt das Hinzufügen oder den Zugriff auf Gruppenformen. Es ist möglich, Formen zu einer hinzugefügten Gruppenform hinzuzufügen, um sie zu füllen, oder auf beliebige Eigenschaften der Gruppenform zuzugreifen. So fügen Sie einer Folie eine Gruppenform mit Aspose.Slides für Android via Java hinzu:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse.
-1. Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
+1. Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
 1. Fügen Sie der Folie eine Gruppenform hinzu.
-1. Fügen Sie die Formen zur hinzugefügten Gruppenform hinzu.
-1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Fügen Sie der hinzugefügten Gruppenform die Formen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
 
-Das folgende Beispiel fügt einer Folie eine Gruppenform hinzu.
-
+Das nachstehende Beispiel fügt einer Folie eine Gruppenform hinzu.
 ```java
-// Instanziiere die Presentation-Klasse
+// Presentation‑Klasse instanziieren
 Presentation pres = new Presentation();
 try {
-    // Holen Sie sich die erste Folie
+    // Erste Folie abrufen
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Zugriff auf die Formensammlung der Folien
@@ -35,32 +46,32 @@ try {
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // Hinzufügen eines Rahmen der Gruppenform
+    // Hinzufügen des Gruppenformrahmens
     groupShape.setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0));
 
-    // Schreiben Sie die PPTX-Datei auf die Festplatte
+    // PPTX‑Datei auf Datenträger schreiben
     pres.save("GroupShape.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Alternativen Textzugriff**
-Dieses Thema zeigt einfache Schritte, vollständig mit Codebeispielen, um eine Gruppenform hinzuzufügen und auf die Eigenschaft AltText von Gruppenformen auf Folien zuzugreifen. Um auf AltText einer Gruppenform in einer Folie mit Aspose.Slides für Android über Java zuzugreifen:
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)-Klasse, die die PPTX-Datei darstellt.
-1. Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
-1. Zugriff auf die Formensammlung der Folien.
-1. Zugriff auf die Gruppenform.
-1. Zugriff auf die [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) Eigenschaft.
+## **Zugriff auf die AltText‑Eigenschaft**
+Dieses Thema zeigt einfache Schritte, einschließlich Codebeispielen, zum Hinzufügen einer Gruppenform und zum Zugriff auf die AltText‑Eigenschaft von Gruppenformen auf Folien. So greifen Sie mit Aspose.Slides für Android via Java auf den AltText einer Gruppenform in einer Folie zu:
 
-Das folgende Beispiel greift auf den alternativen Text der Gruppenform zu.
+1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse, die eine PPTX-Datei darstellt.
+1. Holen Sie die Referenz einer Folie, indem Sie deren Index verwenden.
+1. Greifen Sie auf die Formensammlung der Folien zu.
+1. Greifen Sie auf die Gruppenform zu.
+1. Greifen Sie auf die [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) Eigenschaft zu.
 
+Das nachstehende Beispiel greift auf den alternativen Text der Gruppenform zu.
 ```java
-// Instanziiere die Presentation-Klasse, die die PPTX-Datei darstellt
+// Instanziieren Sie die Presentation-Klasse, die die PPTX-Datei darstellt
 Presentation pres = new Presentation("AltText.pptx");
 try {
-    // Holen Sie sich die erste Folie
+    // Erste Folie abrufen
     ISlide sld = pres.getSlides().get_Item(0);
     
     for (int i = 0; i < sld.getShapes().size(); i++)
@@ -85,3 +96,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wird verschachteltes Gruppieren (eine Gruppe innerhalb einer Gruppe) unterstützt?**
+
+Ja. [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/) verfügt über die Methode [getParentGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getParentGroup--), die direkt die Hierarchieunterstützung anzeigt (eine Gruppe kann ein Kind einer anderen Gruppe sein).
+
+**Wie kann ich die Z‑Reihenfolge der Gruppe relativ zu anderen Objekten auf der Folie steuern?**
+
+Verwenden Sie die Methode [getZOrderPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getZOrderPosition--) der [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/), um ihre Position im Anzeigestapel zu prüfen.
+
+**Kann ich das Verschieben/Bearbeiten/Entgruppieren verhindern?**
+
+Ja. Der Sperrabschnitt der Gruppe ist über [getGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/#getGroupShapeLock--) verfügbar, sodass Sie Vorgänge an dem Objekt einschränken können.

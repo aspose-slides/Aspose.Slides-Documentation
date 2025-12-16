@@ -1,14 +1,27 @@
 ---
-title: Párrafo
+title: Obtener límites de párrafo de presentaciones en Android
+linktitle: Párrafo
 type: docs
 weight: 60
 url: /es/androidjava/paragraph/
+keywords:
+- límites de párrafo
+- límites de porción de texto
+- coordenada de párrafo
+- coordenada de porción
+- tamaño de párrafo
+- tamaño de porción de texto
+- marco de texto
+- PowerPoint
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda a obtener los límites de párrafo y de porción de texto en Aspose.Slides para Android mediante Java para optimizar la posición del texto en presentaciones de PowerPoint."
 ---
 
-
-## Obtener Coordenadas de Párrafo y Porción en TextFrame ##
-Usando Aspose.Slides para Android a través de Java, los desarrolladores ahora pueden obtener las coordenadas rectangulares para Párrafo dentro de la colección de párrafos de TextFrame. También te permite obtener [las coordenadas de porción](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) dentro de la colección de porciones de un párrafo. En este tema, vamos a demostrar con la ayuda de un ejemplo cómo obtener las coordenadas rectangulares para el párrafo junto con la posición de la porción dentro de un párrafo.
-
+## **Obtener coordenadas de párrafo y porción en un TextFrame**
+Con Aspose.Slides para Android a través de Java, los desarrolladores ahora pueden obtener las coordenadas rectangulares del Paragraph dentro de la colección de párrafos de TextFrame. También permite obtener [las coordenadas de la porción](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) dentro de la colección de porciones de un párrafo. En este tema, demostraremos con la ayuda de un ejemplo cómo obtener las coordenadas rectangulares del párrafo junto con la posición de la porción dentro de un párrafo.
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
@@ -20,27 +33,27 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 ```
 
 
-## **Obtener Coordenadas Rectangulares de Párrafo**
-Usando [**getRect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--) los desarrolladores pueden obtener el rectángulo de límites del párrafo.
 
+## **Obtener coordenadas rectangulares de un párrafo**
+Con el método [**getRect()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--) los desarrolladores pueden obtener el rectángulo de los límites del párrafo.
 ```java
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
     IAutoShape shape = (IAutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     ITextFrame textFrame = shape.getTextFrame();
     Rectangle2D.Float rect = textFrame.getParagraphs().get_Item(0).getRect();
-    System.out.println("X: " + rect.x + " Y: " + rect.y + " Ancho: " + rect.width + " Altura: " + rect.height);
+    System.out.println("X: " + rect.x + " Y: " + rect.y + " Width: " + rect.width + " Height: " + rect.height);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Obtener tamaño de párrafo y porción dentro del marco de texto de la celda de la tabla** ##
 
-Para obtener el [Porción](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) o el [Párrafo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph) tamaño y coordenadas en un marco de texto de celda de tabla, puedes usar los métodos [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getRect--) y [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--).
+## **Obtener el tamaño de un párrafo y porción dentro de un TextFrame de celda de tabla**
 
-Este código de muestra demuestra la operación descrita:
+Para obtener el tamaño y las coordenadas de la [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Portion) o el [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Paragraph) en un TextFrame de celda de tabla, puedes usar los métodos [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getRect--) y [IParagraph.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--) .
 
+Este código de ejemplo muestra la operación descrita:
 ```java
 Presentation pres = new Presentation("source.pptx");
 try {
@@ -81,3 +94,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿En qué unidades se devuelven las coordenadas de un párrafo y las porciones de texto?**
+
+En puntos, donde 1 pulgada = 72 puntos. Esto se aplica a todas las coordenadas y dimensiones en la diapositiva.
+
+**¿El ajuste de línea afecta los límites del párrafo?**
+
+Sí. Si el [wrapping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-) está habilitado en el [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/), el texto se rompe para ajustarse al ancho del área, lo que cambia los límites reales del párrafo.
+
+**¿Se pueden mapear de manera fiable las coordenadas del párrafo a píxeles en la imagen exportada?**
+
+Sí. Convierta puntos a píxeles usando: píxeles = puntos × (DPI / 72). El resultado depende del DPI elegido para el renderizado/exportación.
+
+**¿Cómo obtener los parámetros de formato "effective" del párrafo, teniendo en cuenta la herencia de estilos?**
+
+Utilice la [estructura de datos de formato de párrafo effective](/slides/es/androidjava/shape-effective-properties/); devuelve los valores consolidados finales para sangrías, espaciado, ajuste de línea, RTL y más.

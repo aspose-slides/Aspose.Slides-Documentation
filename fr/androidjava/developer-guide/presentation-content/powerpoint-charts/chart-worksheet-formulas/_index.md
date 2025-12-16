@@ -1,50 +1,70 @@
 ---
-title: Formules de Tableau de Bord
+title: Appliquer les formules de feuille de calcul de graphique dans les présentations sur Android
+linktitle: Formules de feuille de calcul
 type: docs
 weight: 70
 url: /fr/androidjava/chart-worksheet-formulas/
-keywords: "équations powerpoint, formules de tableau powerpoint"
-description: "Équations et Formules de Tableau PowerPoint"
+keywords:
+- feuille de calcul du graphique
+- feuille de travail du graphique
+- formule de graphique
+- formule de feuille de calcul
+- formule de feuille de calcul
+- source de données
+- constante logique
+- constante numérique
+- constante de chaîne
+- constante d’erreur
+- constante arithmétique
+- opérateur de comparaison
+- style A1
+- style R1C1
+- fonction prédéfinie
+- PowerPoint
+- présentation
+- Android
+- Java
+- Aspose.Slides
+description: "Appliquer des formules de style Excel dans Aspose.Slides pour Android via les feuilles de travail de graphiques Java et automatiser les rapports dans les fichiers PPT et PPTX."
 ---
 
-
-## **À propos des Formules de Tableau de Bord dans les Présentations**
-Le **tableau de bord** (ou feuille de calcul de tableau) dans une présentation est la source de données du tableau. Le tableau de bord contient des données, qui sont représentées de manière graphique sur le tableau. Lorsque vous créez un tableau dans PowerPoint, la feuille de calcul associée à ce tableau est également créée automatiquement. La feuille de calcul de tableau est créée pour tous les types de tableaux : tableau linéaire, tableau à barres, tableau en rayon, tableau circulaire, etc. Pour voir le tableau de bord dans PowerPoint, vous devez double-cliquer sur le tableau :
+## **À propos des formules de feuille de calcul de graphique dans les présentations**
+**Feuille de calcul du graphique** (ou feuille de travail du graphique) dans une présentation est la source de données du graphique. La feuille de calcul du graphique contient les données qui sont représentées graphiquement sur le graphique. Lorsque vous créez un graphique dans PowerPoint, la feuille de calcul associée à ce graphique est également créée automatiquement. La feuille de calcul du graphique est créée pour tous les types de graphiques : graphique en courbes, graphique à barres, graphique en anneau, graphique circulaire, etc. Pour voir la feuille de calcul du graphique dans PowerPoint, double‑cliquez sur le graphique :
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
 
-Le tableau de bord contient les noms des éléments du tableau (Nom de Catégorie : *Catégorie1*, Nom de Série) et un tableau avec des données numériques appropriées à ces catégories et séries. Par défaut, lorsque vous créez un nouveau tableau, les données du tableau de bord sont définies avec les données par défaut. Vous pouvez ensuite modifier les données du tableau dans la feuille de calcul manuellement.
+La feuille de calcul du graphique contient les noms des éléments du graphique (Nom de catégorie : *Category1*, Nom de série) et un tableau avec des données numériques correspondant à ces catégories et séries. Par défaut, lorsqu’on crée un nouveau graphique, les données de la feuille de calcul du graphique sont initialisées avec les données par défaut. Vous pouvez ensuite modifier les données du tableau manuellement dans la feuille de calcul.
 
-En général, le tableau représente des données compliquées (par exemple, des analystes financiers, des analystes scientifiques), ayant des cellules qui sont calculées à partir des valeurs dans d'autres cellules ou d'autres données dynamiques. Calculer manuellement la valeur d'une cellule et l'encoder en dur dans la cellule rend difficile son changement à l'avenir. Si vous changez la valeur d'une certaine cellule, toutes les cellules qui en dépendent devront également être mises à jour. De plus, les données de la table peuvent dépendre des données d'autres tables, créant un schéma de données de présentation complexe nécessitant d'être mis à jour de manière facile et flexible.
+En général, le graphique représente des données complexes (par ex. analyses financières, analyses scientifiques), avec des cellules calculées à partir des valeurs d’autres cellules ou d’autres données dynamiques. Calculer manuellement la valeur d’une cellule et la coder en dur rend difficile toute modification ultérieure. Si vous modifiez la valeur d’une cellule donnée, toutes les cellules qui en dépendent devront également être mises à jour. De plus, les données du tableau peuvent dépendre des données d’autres tableaux, créant un schéma de données de présentation complexe qui doit pouvoir être mis à jour de façon simple et flexible.
 
-La **formule de tableau de bord** dans une présentation est une expression pour calculer et mettre à jour automatiquement les données du tableau de bord. La formule de tableau définit la logique de calcul des données pour une certaine cellule ou un ensemble de cellules. La formule de tableau est une formule mathématique ou une formule logique, qui utilise : des références de cellules, des fonctions mathématiques, des opérateurs logiques, des opérateurs arithmétiques, des fonctions de conversion, des constantes de chaîne, etc. La définition de la formule est écrite dans une cellule, et cette cellule ne contient pas une valeur simple. La formule de tableau calcule la valeur et la renvoie, puis cette valeur est assignée à la cellule. Les formules de tableau de bord dans les présentations sont en fait les mêmes que les formules Excel, et les mêmes fonctions, opérateurs et constantes par défaut sont supportés pour leur mise en œuvre.
+**La formule de feuille de calcul du graphique** dans une présentation est une expression permettant de calculer et de mettre à jour automatiquement les données de la feuille de calcul du graphique. La formule de feuille de calcul définit la logique de calcul des données pour une cellule donnée ou un ensemble de cellules. Une formule de feuille de calcul est une formule mathématique ou logique qui utilise : des références de cellules, des fonctions mathématiques, des opérateurs logiques, des opérateurs arithmétiques, des fonctions de conversion, des constantes littérales, etc. La définition de la formule est écrite dans une cellule, qui ne contient donc pas une valeur simple. La formule calcule la valeur et la renvoie, puis cette valeur est affectée à la cellule. Les formules de feuille de calcul du graphique dans les présentations sont en fait les mêmes que les formules Excel, et les mêmes fonctions, opérateurs et constantes par défaut sont prises en charge pour leur implémentation.
 
-Dans [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/), le tableau de bord est représenté par la méthode
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) du type 
+Dans [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) la feuille de calcul du graphique est représentée par la méthode
+[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) du type
 [**IChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
-La formule de tableau peut être assignée et changée avec la méthode 
+Une formule de feuille de calcul peut être affectée et modifiée avec la méthode
 [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-).
-Les fonctionnalités suivantes sont supportées pour les formules dans Aspose.Slides :
+Les fonctionnalités suivantes sont prises en charge pour les formules dans Aspose.Slides :
 
 - Constantes logiques
 - Constantes numériques
 - Constantes de chaîne
-- Constantes d'erreur
+- Constantes d’erreur
 - Opérateurs arithmétiques
 - Opérateurs de comparaison
-- Références de cellules au format A1
-- Références de cellules au format R1C1
+- Références de cellules au style A1
+- Références de cellules au style R1C1
 - Fonctions prédéfinies
 
-En général, les feuilles de calcul stockent les dernières valeurs calculées des formules. Si, après le chargement de la présentation, les données du tableau n'ont pas été modifiées - la méthode [**IChartDataCell.getValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getValue--) renvoie ces valeurs lors de la lecture. Mais, si les données du tableau ont été modifiées, lors de la lecture de la propriété **ChartDataCell.Value**, une exception [**CellUnsupportedDataException**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CellUnsupportedDataException) pour les formules non pris en charge est lancée. Cela est dû au fait que lorsque les formules sont analysées avec succès, les dépendances des cellules sont déterminées et la véracité des dernières valeurs est déterminée. Mais, si la formule ne peut pas être analysée, la véracité de la valeur de la cellule ne peut pas être garantie.
 
-## **Ajouter une Formule de Tableau de Bord à la Présentation**
-Tout d'abord, ajoutez un tableau à la première diapositive d'une nouvelle présentation avec 
+Typiquement, les feuilles de calcul stockent les dernières valeurs calculées des formules. Si, après le chargement de la présentation, les données du graphique n’ont pas été modifiées, la méthode [**IChartDataCell.getValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getValue--) renvoie ces valeurs lors de la lecture. En revanche, si les données de la feuille de calcul ont été modifiées, la lecture de la propriété **ChartDataCell.Value** lève l’exception [**CellUnsupportedDataException**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CellUnsupportedDataException) pour les formules non prises en charge. Cela s’explique par le fait que, lorsque les formules sont analysées avec succès, les dépendances des cellules sont déterminées et la validité des dernières valeurs est vérifiée. En revanche, si la formule ne peut pas être analysée, la validité de la valeur de la cellule ne peut pas être garantie.
+
+## **Ajouter une formule de feuille de calcul du graphique à une présentation**
+Tout d’abord, ajoutez un graphique à la première diapositive d’une nouvelle présentation avec
 [IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
-La feuille de calcul du tableau est automatiquement créée et peut être accédée avec la méthode 
+La feuille de calcul du graphique est créée automatiquement et peut être accédée avec la méthode
 [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) :
-
 ```java
 Presentation pres = new Presentation();
 try {
@@ -58,10 +78,9 @@ try {
 }
 ```
 
-Écrivons quelques valeurs dans les cellules avec la propriété 
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) 
-de type **Object**, ce qui signifie que vous pouvez définir n'importe quelle valeur à la propriété :
 
+Écrivons quelques valeurs dans les cellules avec la propriété
+[**IChartDataCell.setValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) du type **Object**, ce qui signifie que vous pouvez affecter n’importe quelle valeur à cette propriété :
 ```java
 workbook.getCell(0, "F2").setValue(-2.5);
 
@@ -70,129 +89,130 @@ workbook.getCell(0, "G3").setValue(6.3);
 workbook.getCell(0, "H4").setValue(3);
 ```
 
-Maintenant, pour écrire une formule dans la cellule, vous pouvez utiliser la méthode 
+
+Ensuite, pour écrire une formule dans la cellule, utilisez la méthode
 [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) :
 
-*Remarque* : la méthode [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) est utilisée pour définir des références de cellules au format A1.
+*Note* : la méthode [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) sert à définir des références de cellules au style A1.
 
-Pour définir la référence de cellule [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--), vous pouvez utiliser la méthode [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) :
+Pour définir la référence de cellule [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--), utilisez la méthode [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) :
 
 Ensuite, si vous essayez de lire les valeurs des cellules B2 et C2, elles seront calculées :
-
 ```java
 Object value1 = cell1.getValue(); // 7.8
 
 Object value2 = cell2.getValue(); // 2.1
 ```
 
-## **Constantes Logiques**
-Vous pouvez utiliser des constantes logiques telles que *FALSE* et *TRUE* dans les formules de cellules :
 
+## **Constantes logiques**
+Vous pouvez utiliser des constantes logiques telles que *FALSE* et *TRUE* dans les formules de cellules :
 ```java
 workbook.getCell(0, "A2").setValue(false);
 IChartDataCell cell = workbook.getCell(0, "B2");
 cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // la valeur contient "false" booléen
+Object value = cell.getValue(); // la valeur contient le booléen "false"
 ```
 
-## **Constantes Numériques**
-Les nombres peuvent être utilisés en notations communes ou scientifiques pour créer une formule de tableau de bord :
 
+## **Constantes numériques**
+Les nombres peuvent être utilisés en notation décimale ou scientifique pour créer des formules de feuille de calcul du graphique :
 ```java
 workbook.getCell(0, "A2").setFormula("1 + 0.5");
 workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
 ```
 
-## **Constantes de Chaîne**
-Une constante de chaîne (ou littérale) est une valeur spécifique qui est utilisée telle quelle et ne change pas. Les constantes de chaîne peuvent être : des dates, des textes, des nombres, etc. :
 
+## **Constantes de chaîne**
+Une constante de chaîne (ou littérale) est une valeur spécifique utilisée telle quelle et qui ne change pas. Les constantes de chaîne peuvent être : des dates, des textes, des nombres, etc. :
 ```java
 workbook.getCell(0, "A2").setFormula("\"abc\"");
 workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
 ```
 
-## **Constantes d'Erreur**
-Parfois, il n'est pas possible de calculer le résultat par la formule. Dans ce cas, le code d'erreur est affiché dans la cellule au lieu de sa valeur. Chaque type d'erreur a un code spécifique :
 
-- #DIV/0! - la formule tente de diviser par zéro.
-- #GETTING_DATA - peut être affiché sur une cellule, tandis que sa valeur est encore en cours de calcul.
-- #N/A - les informations sont manquantes ou non disponibles. Certaines raisons peuvent être : les cellules utilisées dans la formule sont vides, un caractère d'espace supplémentaire, une faute d'orthographe, etc.
-- #NAME? - une certaine cellule ou d'autres objets de formule ne peuvent pas être trouvés par leur nom.
-- #NULL! - peut apparaître lorsqu'il y a une erreur dans la formule, comme : (,) ou un caractère d'espace utilisé à la place d'un deux-points (:).
-- #NUM! - le numérique dans la formule peut être invalide, trop long ou trop petit, etc.
-- #REF! - référence de cellule invalide.
-- #VALUE! - type de valeur inattendu. Par exemple, une valeur de chaîne définie à une cellule numérique.
+## **Constantes d’erreur**
+Parfois il n’est pas possible de calculer le résultat de la formule. Dans ce cas, le code d’erreur est affiché dans la cellule à la place de sa valeur. Chaque type d’erreur possède un code spécifique :
 
+- #DIV/0! – la formule tente de diviser par zéro.
+- #GETTING_DATA – peut être affiché dans une cellule pendant que sa valeur est en cours de calcul.
+- #N/A – l’information est manquante ou indisponible. Parmi les raisons possibles : les cellules utilisées dans la formule sont vides, un espace supplémentaire, une faute de frappe, etc.
+- #NAME? – une cellule ou un autre objet de formule ne peut pas être trouvé par son nom.
+- #NULL! – peut apparaître lorsqu’il y a une erreur dans la formule, par ex. : (,) ou un espace utilisé à la place d’un deux‑points (:).
+- #NUM! – le nombre dans la formule est invalide, trop grand ou trop petit, etc.
+- #REF! – référence de cellule invalide.
+- #VALUE! – type de valeur inattendu. Par exemple, une chaîne affectée à une cellule numérique.
 ```java
 IChartDataCell cell = workbook.getCell(0, "A2");
 cell.setFormula("2 / 0");
 Object value = cell.getValue(); // la valeur contient la chaîne "#DIV/0!"
 ```
 
-## **Opérateurs Arithmétiques**
-Vous pouvez utiliser tous les opérateurs arithmétiques dans les formules de feuille de calcul de tableau :
 
-|**Opérateur** |**Signification** |**Exemple**|
+## **Opérateurs arithmétiques**
+Vous pouvez utiliser tous les opérateurs arithmétiques dans les formules de la feuille de calcul du graphique :
+
+|**Opérateur**|**Signification**|**Exemple**|
 | :- | :- | :- |
-|+ (signe plus) |Addition ou plus unaire|2 + 3|
-|- (signe moins) |Soustraction ou négation |2 - 3<br>-3|
-|* (astérisque)|Multiplication |2 * 3|
-|/ (barre oblique)|Division |2 / 3|
-|% (signe pourcentage) |Pourcentage |30%|
-|^ (accent circonflexe) |Exponentiation |2 ^ 3|
+|+ (signe plus)|Addition ou signe plus unaire|2 + 3|
+|- (signe moins)|Soustraction ou négation|2 - 3<br>-3|
+|* (astérisque)|Multiplication|2 * 3|
+|/ (barre oblique)|Division|2 / 3|
+|% (pourcentage)|Pourcentage|30%|
+|^ (accent circonflexe)|Exponentiation|2 ^ 3|
 
-*Remarque* : Pour changer l'ordre d'évaluation, enfermez entre parenthèses la partie de la formule à calculer en premier.
+*Note* : pour modifier l’ordre d’évaluation, encadrez la partie de la formule à calculer en premier avec des parenthèses.
 
-## **Opérateurs de Comparaison**
-Vous pouvez comparer les valeurs des cellules avec les opérateurs de comparaison. Lorsque deux valeurs sont comparées en utilisant ces opérateurs, le résultat est une valeur logique soit *TRUE* ou FALSE :
+## **Opérateurs de comparaison**
+Vous pouvez comparer les valeurs de cellules avec les opérateurs de comparaison. Lorsque deux valeurs sont comparées à l’aide de ces opérateurs, le résultat est une valeur logique, soit *TRUE* soit FALSE :
 
-|**Opérateur** |**Signification** |**Signification** |
+|**Opérateur**|**Signification**|**Exemple**|
 | :- | :- | :- |
-|= (signe égal) |Égal à |A2 = 3|
-|<> (signe de non égal) |Différent de|A2 <> 3|
-|> (signe supérieur) |Supérieur à|A2 > 3|
-|>= (signe supérieur ou égal) |Supérieur ou égal à|A2 >= 3|
-|< (signe inférieur)|Inférieur à|A2 < 3|
-|<= (signe inférieur ou égal)|Inférieur ou égal à|A2 <= 3|
+|= (égal)|Égal à|A2 = 3|
+|<> (différent)|Différent de|A2 <> 3|
+|> (supérieur)|Supérieur à|A2 > 3|
+|>= (supérieur ou égal)|Supérieur ou égal à|A2 >= 3|
+|< (inférieur)|Inférieur à|A2 < 3|
+|<= (inférieur ou égal)|Inférieur ou égal à|A2 <= 3|
 
-## **Références de Cellules au Format A1**
-Les **références de cellules au format A1** sont utilisées pour les feuilles de calcul, où la colonne a un identifiant de lettre (par exemple "*A*") et la ligne a un identifiant numérique (par exemple "*1*"). Les références de cellules au format A1 peuvent être utilisées de la manière suivante :
+## **Références de cellules au style A1**
+**Les références de cellules au style A1** sont utilisées pour les feuilles de calcul où la colonne possède un identifiant alphabétique (par ex. * A*) et la ligne un identifiant numérique (par ex. *1*). Les références de cellules au style A1 peuvent être employées de la façon suivante :
 
-|**Référence de cellule**|**Exemple**|||
+|**Référence de cellule**|**Exemple**| | |
 | :- | :- | :- | :- |
-||Absolue |Relative |Mixte|
-|Cellule |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Ligne |$2:$2 |2:2 |-|
-|Colonne |$A:$A |A:A |-|
-|Plage |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| |Absolue|Relative|Mixte|
+|Cellule|$A$2|A2|<p>A$2</p><p>$A2</p>|
+|Ligne|$2:$2|2:2|-|
+|Colonne|$A:$A|A:A|-|
+|Plage|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
 
-Voici un exemple d'utilisation de la référence de cellule au format A1 dans une formule :
-
+Voici un exemple d’utilisation d’une référence de cellule au style A1 dans une formule :
 ```java
 workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
 ```
 
-## **Références de Cellules au Format R1C1**
-Les **références de cellules au format R1C1** sont utilisées pour les feuilles de calcul, où une ligne et une colonne ont toutes deux un identifiant numérique. Les références de cellules au format R1C1 peuvent être utilisées de la manière suivante :
 
-|**Référence de cellule**|**Exemple**|||
+## **Références de cellules au style R1C1**
+**Les références de cellules au style R1C1** sont utilisées pour les feuilles de calcul où la ligne et la colonne possèdent toutes deux des identifiants numériques. Les références de cellules au style R1C1 peuvent être employées de la façon suivante :
+
+|**Référence de cellule**|**Exemple**| | |
 | :- | :- | :- | :- |
-||Absolue |Relative |Mixte|
-|Cellule |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Ligne |R2|R[2]|-|
-|Colonne |C3|C[3]|-|
-|Plage |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+| |Absolue|Relative|Mixte|
+|Cellule|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|Ligne|R2|R[2]|-|
+|Colonne|C3|C[3]|-|
+|Plage|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
 
-Voici un exemple d'utilisation de la référence de cellule au format A1 dans une formule :
-
+Voici un exemple d’utilisation d’une référence de cellule au style R1C1 dans une formule :
 ```java
 workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
 ```
 
-## **Fonctions Prédéfinies**
-Il existe des fonctions prédéfinies qui peuvent être utilisées dans les formules pour simplifier leur mise en œuvre. Ces fonctions encapsulent les opérations les plus couramment utilisées, telles que : 
+
+## **Fonctions prédéfinies**
+Il existe des fonctions prédéfinies qui peuvent être utilisées dans les formules pour simplifier leur implémentation. Ces fonctions encapsulent les opérations les plus couramment utilisées, telles que :
 
 - ABS
 - AVERAGE
@@ -200,7 +220,7 @@ Il existe des fonctions prédéfinies qui peuvent être utilisées dans les form
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (système de date 1900)
+- DATE (système de dates 1900)
 - DAYS
 - FIND
 - FINDB
@@ -211,3 +231,13 @@ Il existe des fonctions prédéfinies qui peuvent être utilisées dans les form
 - MAX
 - SUM
 - VLOOKUP
+
+## **FAQ**
+
+**Les fichiers Excel externes sont‑ils pris en charge comme source de données pour un graphique avec des formules ?**
+
+Oui. Aspose.Slides prend en charge les classeurs externes en tant que [source de données du graphique](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatasourcetype/), ce qui vous permet d’utiliser des formules provenant d’un fichier XLSX hors de la présentation.
+
+**Les formules de graphique peuvent‑elles référencer des feuilles du même classeur par le nom de la feuille ?**
+
+Oui. Les formules suivent le modèle de référence standard d’Excel, vous pouvez donc référencer d’autres feuilles du même classeur ou d’un classeur externe. Pour les références externes, incluez le chemin d’accès et le nom du classeur en utilisant la syntaxe Excel.

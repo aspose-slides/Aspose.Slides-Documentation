@@ -1,24 +1,35 @@
 ---
-title: Управление ячейками
+title: Управление ячейками таблиц в презентациях на Android
+linktitle: Управление ячейками
 type: docs
 weight: 30
 url: /ru/androidjava/manage-cells/
-keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Java, Aspose.Slides для Android через Java"
-description: "Ячейки таблицы в презентациях PowerPoint на Java"
+keywords:
+- ячейка таблицы
+- объединение ячеек
+- удаление границы
+- разделение ячейки
+- изображение в ячейке
+- цвет фона
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Легко управляйте ячейками таблиц в PowerPoint с помощью Aspose.Slides для Android на Java. Освойте быстрый доступ, изменение и стилизацию ячеек для бесшовной автоматизации слайдов."
 ---
 
-## **Определение объединенной ячейки таблицы**
+## **Определить объединённую ячейку таблицы**
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите таблицу из первого слайда. 
-3. Переберите строки и столбцы таблицы, чтобы найти объединенные ячейки.
-4. Выведите сообщение, когда будут найдены объединенные ячейки.
+2. Получите таблицу с первого слайда.
+3. Переберите строки и столбцы таблицы, чтобы найти объединённые ячейки.
+4. Выведите сообщение, когда найдены объединённые ячейки.
 
-Этот код на Java показывает, как определить объединенные ячейки таблицы в презентации:
-
+Этот Java‑код показывает, как определить объединённые ячейки таблицы в презентации:
 ```java
 Presentation pres = new Presentation("SomePresentationWithTable.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // предполагая, что Slide#0.Shape#0 это таблица
+    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // предполагая, что Slide#0.Shape#0 является таблицей
     for (int i = 0; i < table.getRows().size(); i++)
     {
         for (int j = 0; j < table.getColumns().size(); j++)
@@ -26,7 +37,7 @@ try {
             ICell currentCell = table.getRows().get_Item(i).get_Item(j);
             if (currentCell.isMergedCell())
             {
-                System.out.println(String.format("Ячейка %d;%d является частью объединенной ячейки с RowSpan=%d и ColSpan=%d, начиная с ячейки %d;%d.",
+                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
                         i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
             }
         }
@@ -36,32 +47,32 @@ try {
 }
 ```
 
-## **Удаление границ ячеек таблицы**
+
+## **Удалить границы ячеек таблицы**
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Определите массив столбцов с шириной.
-4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд через метод [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Переберите каждую ячейку, чтобы очистить верхние, нижние, правые и левые границы.
-7. Сохраните измененную презентацию как файл PPTX.
+2. Получите ссылку на слайд по его индексу.
+3. Определите массив столбцов с указанием ширины.
+4. Определите массив строк с указанием высоты.
+5. Добавьте таблицу на слайд с помощью метода [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+6. Переберите каждую ячейку, чтобы очистить верхнюю, нижнюю, правую и левую границы.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на Java показывает, как удалить границы у ячеек таблицы:
-
+Этот Java‑код показывает, как удалить границы из ячеек таблицы:
 ```java
-// Создает экземпляр класса Presentation, представляющий файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
-    // Получает первый слайд
+    // Доступ к первому слайду
     Slide sld = (Slide)pres.getSlides().get_Item(0);
 
-    // Определяет столбцы с ширинами и строки с высотами
+    // Определяет столбцы с шириной и строки с высотой
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
     // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Устанавливает формат границ для каждой ячейки
+    // Устанавливает формат границы для каждой ячейки
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -80,11 +91,11 @@ try {
 }
 ```
 
-## **Нумерация в объединенных ячейках**
-Если мы объединим 2 пары ячеек (1, 1) x (2, 1) и (1, 2) x (2, 2), итоговая таблица будет пронумерована. Этот код на Java демонстрирует процесс:
 
+## **Нумерация в объединённых ячейках**
+Если мы объединяем 2 пары ячеек (1, 1) × (2, 1) и (1, 2) × (2, 2), полученная таблица будет нумероваться. Этот Java‑код демонстрирует процесс:
 ```java
-// Создает экземпляр класса Presentation, представляющий файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -97,7 +108,7 @@ try {
     // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Устанавливает формат границ для каждой ячейки
+    // Устанавливает формат границы для каждой ячейки
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -132,10 +143,10 @@ try {
 }
 ```
 
-Затем мы объединим ячейки дальше, объединив (1, 1) и (1, 2). Результатом будет таблица, содержащая большую объединенную ячейку в центре:
 
+Затем мы дальше объединяем ячейки, объединив (1, 1) и (1, 2). В результате получается таблица с большой объединённой ячейкой в центре:
 ```java
-// Создает экземпляр класса Presentation, представляющий файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -148,7 +159,7 @@ try {
     // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Устанавливает формат границ для каждой ячейки
+    // Устанавливает формат границы для каждой ячейки
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -179,23 +190,23 @@ try {
 
     // Объединяет ячейки (1, 1) x (1, 2)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-
-    // Записывает файл PPTX на диск
+	
+	// Записывает файл PPTX на диск
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Нумерация в разделенной ячейке**
-В предыдущих примерах, когда ячейки таблицы были объединены, нумерация или номерная система в других ячейках не изменялась. 
 
-На этот раз мы берем обычную таблицу (таблицу без объединенных ячеек) и затем пытаемся разделить ячейку (1,1), чтобы получить специальную таблицу. Вы можете обратить внимание на нумерацию этой таблицы, которая может показаться странной. Тем не менее, именно так Microsoft PowerPoint нумерует ячейки таблицы, и Aspose.Slides делает то же самое. 
+## **Нумерация в разделённой ячейке**
+В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или система чисел в остальных ячейках не изменялась.
 
-Этот код на Java демонстрирует описанный нами процесс:
+На этот раз мы берём обычную таблицу (таблицу без объединённых ячеек) и пытаемся разделить ячейку (1,1), получая особую таблицу. Обратите внимание на нумерацию этой таблицы, которая может показаться странной. Однако так нумерует ячейки таблицы Microsoft PowerPoint, и Aspose.Slides делает то же самое.
 
+Этот Java‑код демонстрирует описанный процесс:
 ```java
-// Создает экземпляр класса Presentation, представляющий файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -208,7 +219,7 @@ try {
     // Добавляет форму таблицы на слайд
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Устанавливает формат границ для каждой ячейки
+    // Устанавливает формат границы для каждой ячейки
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -237,20 +248,19 @@ try {
     // Объединяет ячейки (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
-    // Делит ячейку (1, 1)
+    // Разделяет ячейку (1, 1)
     tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
 
-    // Записывает файл PPTX на диск
+    //Записывает файл PPTX на диск
     pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **Изменить цвет фона ячейки таблицы**
-
-Этот код на Java показывает, как изменить цвет фона ячейки таблицы:
-
+Этот Java‑код показывает, как изменить цвет фона ячейки таблицы:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -259,10 +269,10 @@ try {
     double[] dblCols = { 150, 150, 150, 150 };
     double[] dblRows = { 50, 50, 50, 50, 50 };
 
-    // создайте новую таблицу
+    // создать новую таблицу
     ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // установите цвет фона для ячейки 
+    // задать цвет фона ячейки 
     ICell cell = table.get_Item(2, 3);
     cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -273,23 +283,22 @@ try {
 }
 ```
 
-## **Добавить изображение внутри ячейки таблицы**
 
+## **Добавить изображение в ячейку таблицы**
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд через его индекс.
-3. Определите массив столбцов с шириной.
-4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд через метод [AddTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Создайте объект `Images`, чтобы удерживать файл изображения.
+2. Получите ссылку на слайд по его индексу.
+3. Определите массив столбцов с указанием ширины.
+4. Определите массив строк с указанием высоты.
+5. Добавьте таблицу на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+6. Создайте объект `Images` для хранения файла изображения.
 7. Добавьте изображение `IImage` в объект `IPPImage`.
-8. Установите `FillFormat` для ячейки таблицы в режим `Picture`.
+8. Установите для ячейки таблицы `FillFormat` значение `Picture`.
 9. Добавьте изображение в первую ячейку таблицы.
-10. Сохраните измененную презентацию как файл PPTX.
+10. Сохраните изменённую презентацию в файл PPTX
 
-Этот код на Java показывает, как поместить изображение внутри ячейки таблицы при создании таблицы:
-
+Этот Java‑код показывает, как разместить изображение в ячейке таблицы при её создании:
 ```java
-// Создает экземпляр класса Presentation, представляющий файл PPTX
+// Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -302,7 +311,7 @@ try {
     // Добавляет форму таблицы на слайд
     ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // Создайте объект IPPImage, используя файл изображения
+    // Создаёт объект IPPImage из файла изображения
     IPPImage picture;
     IImage image = Images.fromFile("image.jpg");
     try {
@@ -324,3 +333,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Могу ли я задать разную толщину и стиль линий для разных сторон одной ячейки?**
+
+Да. Границы [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут различаться. Это логически вытекает из управления границами по отдельным сторонам ячейки, продемонстрированного в статье.
+
+**Что происходит с изображением, если я изменю размер столбца/строки после установки картинки как фона ячейки?**
+
+Поведение зависит от [режима заливки](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подстраивается под новую ячейку; при замостке плитки пересчитываются. В статье упоминаются режимы отображения изображения в ячейке.
+
+**Могу ли я назначить гиперссылку всему содержимому ячейки?**
+
+[Hyperlinks](/slides/ru/androidjava/manage-hyperlinks/) задаются на уровне текста (portion) внутри текстового кадра ячейки или на уровне всей таблицы/фигуры. На практике вы назначаете ссылку отдельной части или всему тексту в ячейке.
+
+**Могу ли я задать разные шрифты внутри одной ячейки?**
+
+Да. Текстовый кадр ячейки поддерживает [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (фрагменты) с независимым форматированием — семью шрифтов, стилем, размером и цветом.

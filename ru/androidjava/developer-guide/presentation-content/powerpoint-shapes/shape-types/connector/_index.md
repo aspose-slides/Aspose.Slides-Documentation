@@ -1,66 +1,77 @@
 ---
-title: Соединитель
+title: Управление коннекторами в презентациях на Android
+linktitle: Коннектор
 type: docs
 weight: 10
 url: /ru/androidjava/connector/
-keywords: "Соединить фигуры, соединители, фигуры PowerPoint, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
-description: "Соединить фигуры PowerPoint на Java"
+keywords:
+- коннектор
+- тип коннектора
+- точка коннектора
+- линия коннектора
+- угол коннектора
+- соединять фигуры
+- PowerPoint
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Позвольте Java‑приложениям рисовать, соединять и автоматически прокладывать линии в слайдах PowerPoint на Android — получайте полный контроль над прямыми, угловыми и изогнутыми коннекторами."
 ---
 
-Соединитель в PowerPoint — это специальная линия, которая соединяет или связывает две фигуры и остается прикрепленной к фигурам, даже когда они перемещаются или reposition на данном слайде.
+Коннектор PowerPoint — это специальная линия, соединяющая две фигуры и остающаяся привязанной к фигурам даже при их перемещении или переустановке на слайде. 
 
-Соединители обычно подключены к *точкам соединения* (зеленые точки), которые по умолчанию существуют на всех фигурах. Точки соединения появляются, когда курсор приближается к ним.
+Коннекторы обычно присоединяются к *точкам соединения* (зеленым точкам), которые присутствуют на всех фигурах по умолчанию. Точки соединения появляются, когда курсор приближается к ним.
 
-*Точки регулировки* (оранжевые точки), которые существуют только на определенных соединителях, используются для изменения положения и формы соединителей.
+*Точки регулировки* (оранжевые точки), которые существуют только у некоторых коннекторов, используются для изменения положения и формы коннекторов.
 
-## **Типы Соединителей**
+## **Типы коннекторов**
 
-В PowerPoint вы можете использовать прямые, угловые и изогнутые соединители.
+В PowerPoint можно использовать прямые, сгибные (угловые) и изогнутые коннекторы. 
 
-Aspose.Slides предоставляет следующие соединители:
+Aspose.Slides предоставляет следующие коннекторы:
 
-| Соединитель                     | Изображение                                                  | Количество точек регулировки |
-| ------------------------------- | ------------------------------------------------------------ | ----------------------------- |
-| `ShapeType.Line`                | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                             |
-| `ShapeType.StraightConnector1`  | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                             |
-| `ShapeType.BentConnector2`      | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                             |
-| `ShapeType.BentConnector3`      | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                             |
-| `ShapeType.BentConnector4`      | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                             |
-| `ShapeType.BentConnector5`      | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                             |
-| `ShapeType.CurvedConnector2`    | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                             |
-| `ShapeType.CurvedConnector3`    | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                             |
-| `ShapeType.CurvedConnector4`    | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                             |
-| `ShapeType.CurvedConnector5`    | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                             |
+| Коннектор                      | Изображение                                                   | Количество точек регулировки |
+| ------------------------------ | ------------------------------------------------------------- | ---------------------------- |
+| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                            |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                            |
+| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                            |
+| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                            |
+| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                            |
+| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                            |
+| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                            |
+| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                            |
+| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                            |
+| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                            |
 
-## **Соедините Фигуры С Помощью Соединителей**
+## **Подключение фигур с помощью коннекторов**
 
 1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд по индексу.
+1. Получите ссылку на слайд по его индексу.
 1. Добавьте две [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) на слайд, используя метод `addAutoShape`, доступный через объект `Shapes`.
-1. Добавьте соединитель, используя метод `addConnector`, доступный через объект `Shapes`, определив тип соединителя.
-1. Соедините фигуры с помощью соединителя.
-1. Вызовите метод `reroute`, чтобы применить кратчайший путь соединения.
-1. Сохраните презентацию.
+1. Добавьте коннектор, используя метод `addConnector` объекта `Shapes`, указав тип коннектора.
+1. Соедините фигуры с помощью коннектора. 
+1. Вызовите метод `reroute`, чтобы применить самый короткий путь соединения.
+1. Сохраните презентацию. 
 
-Этот код на Java показывает, как добавить соединитель (изогнутый соединитель) между двумя фигурами (эллипсом и прямоугольником):
-
+Этот Java‑код показывает, как добавить коннектор (изогнутый коннектор) между двумя фигурами (эллипсом и прямоугольником):
 ```Java
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создает объект презентации, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает коллекцию фигур для конкретного слайда
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
     
-    // Добавляет эллипс
+    // Добавляет автодиаграмму Эллипс
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
     
-    // Добавляет прямоугольник
+    // Добавляет автодиаграмму Прямоугольник
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
     
-    // Добавляет форму соединителя в коллекцию фигур слайда
+    // Добавляет форму‑коннектор в коллекцию фигур слайда
     IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
     
-    // Соединяет фигуры с помощью соединителя
+    // Соединяет фигуры с помощью коннектора
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
     
@@ -74,53 +85,53 @@ try {
 }
 ```
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
 
-Метод `Connector.reroute` перенастраивает соединитель и заставляет его занимать кратчайший возможный путь между фигурами. Для достижения своей цели метод может изменить точки `setStartShapeConnectionSiteIndex` и `setEndShapeConnectionSiteIndex`.
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-{{% /alert %}}
+Метод `Connector.reroute` перенастраивает коннектор и заставляет его занять самый короткий возможный путь между фигурами. Для достижения этой цели метод может изменить точки `setStartShapeConnectionSiteIndex` и `setEndShapeConnectionSiteIndex`. 
 
-## **Укажите Точку Соединения**
+{{% /alert %}} 
 
-Если вы хотите, чтобы соединитель связывал две фигуры, используя конкретные точки на фигурах, вам нужно указать желаемые точки соединения следующим образом:
+## **Указание точки соединения**
+
+Если вы хотите, чтобы коннектор связывал две фигуры через конкретные точки на фигурах, укажите желаемые точки соединения следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд по индексу.
+1. Получите ссылку на слайд по его индексу.
 1. Добавьте две [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) на слайд, используя метод `addAutoShape`, доступный через объект `Shapes`.
-1. Добавьте соединитель, используя метод `addConnector`, доступный через объект `Shapes`, определив тип соединителя.
-1. Соедините фигуры с помощью соединителя.
-1. Установите желаемые точки соединения на фигурах.
+1. Добавьте коннектор, используя метод `addConnector` объекта `Shapes`, указав тип коннектора.
+1. Соедините фигуры с помощью коннектора. 
+1. Установите желаемые точки соединения на фигурах. 
 1. Сохраните презентацию.
 
-Этот код на Java демонстрирует операцию, в которой указывается желаемая точка соединения:
-
+Этот Java‑код демонстрирует операцию, в которой задаётся предпочтительная точка соединения:
 ```java
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создает объект класса презентации, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает коллекцию фигур для конкретного слайда
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
 
-    // Добавляет эллипс
+    // Добавляет автофигуру Эллипс
     IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Добавляет прямоугольник
+    // Добавляет автофигуру Прямоугольник
     IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
-    // Добавляет форму соединителя в коллекцию фигур слайда
+    // Добавляет форму‑коннектор в коллекцию фигур слайда
     IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Соединяет фигуры с помощью соединителя
+    // Соединяет фигуры с помощью коннектора
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Устанавливает индекс желаемой точки соединения на фигуре Эллипс
+    // Устанавливает предпочтительный индекс точки соединения для фигуры Эллипс
     int wantedIndex = 6;
 
-    // Проверяет, меньше ли желаемый индекс максимального количества индексов соединения
+    // Проверяет, меньше ли предпочтительный индекс максимального количества точек соединения
     if (ellipse.getConnectionSiteCount() > wantedIndex) 
     {
-        // Устанавливает желаемую точку соединения на эллипсе
+        // Устанавливает предпочтательную точку соединения для автофигуры Эллипс
         connector.setStartShapeConnectionSiteIndex(wantedIndex);
     }
 
@@ -131,16 +142,16 @@ try {
 }
 ```
 
-## **Регулировка Точки Соединителя**
 
-Вы можете регулировать существующий соединитель через его точки регулировки. Только соединители с точками регулировки могут быть изменены таким образом. Смотрите таблицу в разделе **[Типы соединителей.](/slides/ru/androidjava/connector/#types-of-connectors)**
+## **Регулировка точки коннектора**
 
-#### **Простой Случай**
+Вы можете регулировать существующий коннектор через его точки регулировки. Только коннекторы с точками регулировки можно изменять таким образом. См. таблицу в разделе **[Типы коннекторов](/slides/ru/androidjava/connector/#types-of-connectors)**
 
-Рассмотрим случай, когда соединитель между двумя фигурами (A и B) проходит через третью фигуру (C):
+### **Простой случай**
+
+Рассмотрим случай, когда коннектор между двумя фигурами (A и B) проходит через третью фигуру (C):
 
 ![connector-obstruction](connector-obstruction.png)
-
 ```java
 Presentation pres = new Presentation();
 try {
@@ -164,60 +175,60 @@ try {
 }
 ```
 
-Чтобы избежать или обойти третью фигуру, мы можем отрегулировать соединитель, переместив его вертикальную линию влево следующим образом:
+
+Чтобы избежать или обойти третью фигуру, мы можем отрегулировать коннектор, сместив его вертикальную линию влево следующим образом:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```java
 IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
 adj2.setRawValue(adj2.getRawValue() + 10000);
 ```
 
-### **Сложные Случаи**
 
-Для выполнения более сложных корректировок необходимо учитывать следующие моменты:
+### **Сложные случаи** 
 
-* Точка регулировки соединителя сильно связана с формулой, которая вычисляет и определяет ее позицию. Поэтому изменения в положении точки могут изменять форму соединителя.
-* Точки регулировки соединителя определены в строгом порядке в массиве. Точки регулировки нумеруются от начальной точки соединителя до его конечной.
-* Значения точек регулировки отражают процент ширины/высоты формы соединителя.
-  * Форма ограничивается начальной и конечной точками соединителя, умноженными на 1000. 
-  * Первая, вторая и третья точки определяют процент от ширины, процент от высоты и процент от ширины (снова) соответственно.
-* Для расчетов, которые определяют координаты точек регулировки соединителя, необходимо учитывать вращение соединителя и его отражение. **Примечание**: угол вращения для всех соединителей, указанных в разделе **[Типы соединителей](/slides/ru/androidjava/connector/#types-of-connectors)**, составляет 0.
+Для выполнения более сложных регулировок необходимо учитывать следующее:
+
+* Точка регулировки коннектора тесно связана с формулой, вычисляющей её положение. Поэтому изменение положения точки может изменить форму коннектора.  
+* Точки регулировки коннектора определены в строгом порядке в массиве. Точки нумеруются от начальной до конечной точки коннектора.  
+* Значения точек регулировки отражают процент от ширины/высоты фигуры коннектора.  
+  * Фигура ограничена начальной и конечной точками коннектора, умноженными на 1000.  
+  * Первая точка, вторая точка и третья точка определяют соответственно процент от ширины, процент от высоты и снова процент от ширины.  
+* При вычислении координат точек регулировки необходимо учитывать вращение коннектора и его отражение. **Note** что угол вращения всех коннекторов, показанных в разделе **[Типы коннекторов](/slides/ru/androidjava/connector/#types-of-connectors)**, равен 0.
 
 #### **Случай 1**
 
-Рассмотрим случай, когда два объекта текстового кадра связаны между собой через соединитель:
+Рассмотрим случай, когда два текстовых кадра связаны друг с другом через коннектор:
 
 ![connector-shape-complex](connector-shape-complex.png)
-
 ```java
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создает объект класса презентации, представляющий файл PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд в презентации
     ISlide sld = pres.getSlides().get_Item(0);
-    // Добавляет фигуры, которые будут соединены через соединитель
+    // Добавляет фигуры, которые будут соединены коннектором
     IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("От");
+    shapeFrom.getTextFrame().setText("From");
     IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("К");
-    // Добавляет соединитель
+    shapeTo.getTextFrame().setText("To");
+    // Добавляет коннектор
     IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Указывает направление соединителя
+    // Указывает направление коннектора
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Указывает цвет соединителя
+    // Указывает цвет коннектора
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Указывает толщину линии соединителя
+    // Указывает толщину линии коннектора
     connector.getLineFormat().setWidth(3);
     
-    // Связывает фигуры вместе с помощью соединителя
+    // Связывает фигуры коннектором
     connector.setStartShapeConnectedTo(shapeFrom);
     connector.setStartShapeConnectionSiteIndex(3);
     connector.setEndShapeConnectedTo(shapeTo);
     connector.setEndShapeConnectionSiteIndex(2);
     
-    // Получает точки регулировки для соединителя
+    // Получает точки регулировки коннектора
     IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
     IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
@@ -226,29 +237,30 @@ try {
 }
 ```
 
-**Регулировка**
 
-Мы можем изменить значения точек регулировки соединителя, увеличив процент ширины и высоты на 20% и 200% соответственно:
+**Adjustment**
 
+Мы можем изменить значения точек регулировки коннектора, увеличив соответствующие процентные значения ширины и высоты на 20 % и 200 % соответственно:
 ```java
 // Изменяет значения точек регулировки
 adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
+
 Результат:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Чтобы определить модель, которая позволит нам определить координаты и форму отдельных частей соединителя, давайте создадим фигуру, которая соответствует горизонтальному компоненту соединителя в точке connector.getAdjustments().get_Item(0):
-
+Чтобы определить модель, позволяющую вычислить координаты и форму отдельных частей коннектора, создадим фигуру, соответствующую горизонтальной составляющей коннектора в точке `connector.getAdjustments().get_Item(0)`:
 ```java
-// Рисует вертикальный компонент соединителя
+// Рисует вертикальную составляющую коннектора
 float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
 float y = connector.getY();
 float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
+
 
 Результат:
 
@@ -256,26 +268,25 @@ sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 
 #### **Случай 2**
 
-В **Случае 1** мы продемонстрировали простую операцию регулировки соединителя, используя основные принципы. В обычных ситуациях необходимо учитывать вращение соединителя и его отображение (которые задаются параметрами connector.getRotation(), connector.getFrame().getFlipH(), и connector.getFrame().getFlipV()). Теперь мы продемонстрируем этот процесс.
+В **Случае 1** мы продемонстрировали простую операцию регулировки коннектора, используя базовые принципы. В обычных ситуациях необходимо учитывать вращение коннектора и его отображение (которые задаются методами `connector.getRotation()`, `connector.getFrame().getFlipH()` и `connector.getFrame().getFlipV()`). Сейчас мы покажем процесс.
 
-Сначала добавим новый объект текстового кадра (**К 1**) на слайд (для целей соединения) и создадим новый (зеленый) соединитель, который связывает его с объектами, которые мы уже создали.
-
+Сначала добавим новый текстовый кадр (**To 1**) на слайд (для целей соединения) и создадим новый (зеленый) коннектор, соединяющий его с уже созданными объектами.
 ```java
-// Создает новый связывающий объект
+// Создаёт новый объект привязки
 IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("К 1");
-// Создает новый соединитель
+shapeTo_1.getTextFrame().setText("To 1");
+// Создаёт новый коннектор
 connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
 connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 connector.getLineFormat().setWidth(3);
-// Связывает объекты, используя вновь созданный соединитель
+// Соединяет объекты с помощью вновь созданного коннектора
 connector.setStartShapeConnectedTo(shapeFrom);
 connector.setStartShapeConnectionSiteIndex(2);
 connector.setEndShapeConnectedTo(shapeTo_1);
 connector.setEndShapeConnectionSiteIndex(3);
-// Получает точки регулировки соединителя
+// Получает точки регулировки коннектора
 adjValue_0 = connector.getAdjustments().get_Item(0);
 adjValue_1 = connector.getAdjustments().get_Item(1);
 // Изменяет значения точек регулировки
@@ -283,23 +294,23 @@ adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
 adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
+
 Результат:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Во-вторых, создадим фигуру, которая будет соответствовать горизонтальному компоненту соединителя, который проходит через новую точку регулировки соединителя connector.getAdjustments().get_Item(0). Мы будем использовать значения из данных соединителя для параметров connector.getRotation(), connector.getFrame().getFlipH(), и connector.getFrame().getFlipV() и применим популярную формулу преобразования координат для поворота вокруг данной точки x0:
+Затем создадим фигуру, соответствующую горизонтальной составляющей коннектора, проходящей через новую точку регулировки `connector.getAdjustments().get_Item(0)`. Используем значения из данных коннектора для `connector.getRotation()`, `connector.getFrame().getFlipH()` и `connector.getFrame().getFlipV()` и применим популярную формулу преобразования координат при вращении вокруг точки x₀:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+X = (x — x₀) * cos(α) — (y — y₀) * sin(α) + x₀;
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+Y = (x — x₀) * sin(α) + (y — y₀) * cos(α) + y₀;
 
-В нашем случае угол объекта равен 90 градусам, и соединитель отображается вертикально, так что это соответствующий код:
-
+В нашем случае угол вращения объекта = 90°, а коннектор отображается вертикально, поэтому код выглядит так:
 ```java
-// Сохраняет координаты соединителя
+// Сохраняет координаты коннектора
 x = connector.getX();
 y = connector.getY();
-// Корректирует координаты соединителя в случае появления
+// Корректирует координаты коннектора, если это необходимо
 if (connector.getFrame().getFlipH() == NullableBool.True)
 {
     x += connector.getWidth();
@@ -308,33 +319,33 @@ if (connector.getFrame().getFlipV() == NullableBool.True)
 {
     y += connector.getHeight();
 }
-// Принимает значение точки регулировки как координату
+// Берёт значение точки регулировки как координату
 x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Преобразует координаты, так как Sin(90) = 1 и Cos(90) = 0
+//  Преобразует координаты, поскольку Sin(90) = 1 и Cos(90) = 0
 float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
 float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Определяет ширину горизонтального компонента с использованием второго значения точки регулировки
+// Определяет ширину горизонтального компонента, используя значение второй точки регулировки
 float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
 IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
 shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
+
 Результат:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Мы продемонстрировали расчеты, связанные с простыми регулировками и сложными точками регулировки (точками регулировки с углами вращения). Используя полученные знания, вы можете разработать свою собственную модель (или написать код), чтобы получить объект `GraphicsPath` или даже установить значения точек регулировки соединителя на основе конкретных координат слайда.
+Мы продемонстрировали расчёты, включающие простые регулировки и сложные точки регулировки (точки с углами вращения). Используя полученные знания, вы можете разработать собственную модель (или написать код) для получения объекта `GraphicsPath` или даже установить значения точек регулировки коннектора на основе конкретных координат слайда.
 
-## **Найдите Угол Линий Соединителей**
+## **Нахождение угла линий коннектора**
 
 1. Создайте экземпляр класса.
-1. Получите ссылку на слайд по индексу.
-1. Получите форму линии соединителя.
-1. Используйте ширину линии, высоту, высоту рамки фигуры и ширину рамки фигуры, чтобы рассчитать угол.
+1. Получите ссылку на слайд по его индексу.
+1. Доступ к форме линии коннектора.
+1. Используйте ширину, высоту, высоту рамки фигуры и ширину рамки фигуры для вычисления угла.
 
-Этот код на Java демонстрирует операцию, в которой мы рассчитали угол для формы линии соединителя:
-
+Этот Java‑код демонстрирует операцию, в которой вычисляется угол линии коннектора:
 ```java
 Presentation pres = new Presentation("ConnectorLineAngle.pptx");
 try {
@@ -379,3 +390,18 @@ public static double getDirection(float w, float h, boolean flipH, boolean flipV
     return angle * 180.0 / Math.PI;
 }
 ```
+
+
+## **FAQ**
+
+**Как определить, может ли коннектор «приклеиться» к конкретной фигуре?**
+
+Проверьте, предоставляет ли фигура [connection sites](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--). Если их нет или их количество равно 0, приклеивание недоступно; в этом случае используйте свободные концы и размещайте их вручную. Рекомендуется проверить количество сайтов перед привязкой.
+
+**Что происходит с коннектором, если я удалю одну из соединённых фигур?**
+
+Его концы будут отсоединены; коннектор останется на слайде как обычная линия со свободным началом/концом. Вы можете либо удалить его, либо переустановить соединения и, при необходимости, [reroute](https://reference.aspose.com/slides/androidjava/com.aspose.slides/connector/#reroute--).
+
+**Сохраняются ли привязки коннектора при копировании слайда в другую презентацию?**
+
+Как правило, да, при условии, что связанные фигуры также копируются. Если слайд вставляется в другой файл без соединённых фигур, концы становятся свободными и их нужно будет снова прикрепить.
