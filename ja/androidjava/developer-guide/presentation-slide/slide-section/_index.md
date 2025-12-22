@@ -1,25 +1,38 @@
 ---
-title: スライドセクション
+title: Android でプレゼンテーションのスライド セクションを管理する
+linktitle: スライド セクション
 type: docs
 weight: 90
 url: /ja/androidjava/slide-section/
+keywords:
+- セクションの作成
+- セクションの追加
+- セクションの編集
+- セクションの変更
+- セクション名
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Android 用 Java の Aspose.Slides で PowerPoint と OpenDocument のスライド セクションを効率化します—分割、名前変更、並べ替えで PPTX および ODP のワークフローを最適化します。"
 ---
 
-Aspose.Slides for Android via Javaを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成することができます。
+Aspose.Slides for Android via Java を使用すると、PowerPoint プレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。
 
-以下のような状況で、セクションを作成し、それを使用してプレゼンテーションのスライドを論理的な部分に整理または分割したい場合があります。
+次のような状況で、プレゼンテーション内のスライドを論理的な部分に整理または分割するためにセクションを作成したい場合があります。
 
-- 他の人やチームと一緒に大きなプレゼンテーションに取り組んでいるとき、特定のスライドを同僚やチームメンバーに割り当てる必要がある場合。
-- 多くのスライドを含むプレゼンテーションを扱っていて、そのコンテンツを一度に管理または編集するのに苦労している場合。
+- 大規模なプレゼンテーションを他の人やチームと共同で作業していて、特定のスライドを同僚やチームメンバーに割り当てる必要がある場合。  
+- 多数のスライドを含むプレゼンテーションを扱っていて、一度にその内容を管理または編集するのが困難な場合。
 
-理想的には、類似のスライドを収容するセクションを作成するべきです。スライドは何か共通の要素を持っているか、ルールに基づいてグループとして存在できるものです。そして、そのセクションにスライドを説明する名前を付けるべきです。
+理想的には、類似したスライドをまとめるセクションを作成すべきです。スライドが共通点を持つ、またはルールに基づいてグループ化できる場合、そのセクションにスライドの内容を説明する名前を付けます。
 
-## プレゼンテーションでのセクションの作成
+## **プレゼンテーションでセクションを作成する**
 
-プレゼンテーションにスライドを収容するセクションを追加するために、Aspose.Slides for Android via Javaは、作成しようとしているセクションの名前とセクションが始まるスライドを指定できる[addSection()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-)メソッドを提供します。
+プレゼンテーション内のスライドを格納するセクションを追加するには、Aspose.Slides for Android via Java は、作成するセクションの名前とセクションの開始スライドを指定できる [addSection()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) メソッドを提供します。
 
-このサンプルコードは、Javaでプレゼンテーションにセクションを作成する方法を示しています：
-
+このサンプルコードは、Java でプレゼンテーションにセクションを作成する方法を示しています。
 ```java
 Presentation pres = new Presentation();
 try {
@@ -29,8 +42,8 @@ try {
     ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
     ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
 
-    ISection section1 = pres.getSections().addSection("セクション 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("セクション 2", newSlide3); // section1はnewSlide2で終了し、その後section2が始まる   
+    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
+    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 は newSlide2 で終了し、その後 section2 が開始されます   
 
     pres.save("pres-sections.pptx", SaveFormat.Pptx);
 
@@ -39,7 +52,7 @@ try {
 
     pres.getSections().removeSectionWithSlides(section2);
 
-    pres.getSections().appendEmptySection("最後の空のセクション");
+    pres.getSections().appendEmptySection("Last empty section");
 
     pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
 } finally {
@@ -47,18 +60,30 @@ try {
 }
 ```
 
-## セクションの名前を変更する
 
-PowerPointプレゼンテーションでセクションを作成した後、その名前を変更することを決定する場合があります。
+## **セクションの名前を変更する**
 
-このサンプルコードは、Aspose.Slidesを使用してJavaでプレゼンテーション内のセクションの名前を変更する方法を示しています：
+PowerPoint プレゼンテーションでセクションを作成した後、その名前を変更したくなることがあります。
 
+このサンプルコードは、Aspose.Slides を使用して Java でプレゼンテーションのセクション名を変更する方法を示しています。
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     ISection section = pres.getSections().get_Item(0);
-    section.setName("私のセクション");
+    section.setName("My section");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**PPT（PowerPoint 97–2003）形式で保存するときにセクションは保持されますか？**  
+いいえ。PPT 形式はセクションのメタデータをサポートしていないため、.ppt に保存するとセクションのグループ化情報は失われます。
+
+**セクション全体を「非表示」にできますか？**  
+いいえ。非表示にできるのは個々のスライドだけです。セクションという単位には「非表示」状態はありません。
+
+**スライドからセクションを素早く見つけたり、逆にセクションの最初のスライドを取得したりできますか？**  
+はい。セクションは開始スライドによって一意に定義されます。スライドが与えられればそのスライドが属するセクションを判定でき、セクションが与えられればその最初のスライドにアクセスできます。
