@@ -1,73 +1,68 @@
 ---
-title: Visor de Presentaciones
+title: Crear un visor de presentaciones en Android
+linktitle: Visor de presentaciones
 type: docs
 weight: 50
 url: /es/androidjava/presentation-viewer/
-keywords: "Visor de PPT de PowerPoint"
-description: "Visor de PPT de PowerPoint en Java"
+keywords:
+- ver presentación
+- visor de presentaciones
+- crear visor de presentaciones
+- ver PPT
+- ver PPTX
+- ver ODP
+- PowerPoint
+- OpenDocument
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Crea un visor de presentaciones personalizado en Java usando Aspose.Slides para Android. Muestra fácilmente archivos PowerPoint y OpenDocument sin Microsoft PowerPoint."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides para Android mediante Java se utiliza para crear archivos de presentación con diapositivas. Estas diapositivas pueden verse abriendo presentaciones en Microsoft PowerPoint, por ejemplo. Sin embargo, a veces los desarrolladores pueden necesitar ver las diapositivas como imágenes en su visor de imágenes preferido o crear su propio visor de presentaciones. En esos casos, Aspose.Slides le permite exportar una diapositiva individual como una imagen. Este artículo describe cómo hacerlo.
 
-Aspose.Slides para Android a través de Java se utiliza para crear archivos de presentación, completos con diapositivas. Estas diapositivas se pueden visualizar abriendo presentaciones con Microsoft PowerPoint. Pero a veces, los desarrolladores también pueden necesitar ver diapositivas como imágenes en su visor de imágenes favorito o crear su propio visor de presentaciones. En tales casos, Aspose.Slides para Android a través de Java te permite exportar una diapositiva individual a una imagen. Este artículo describe cómo hacerlo.
+## **Generar una imagen SVG a partir de una diapositiva**
 
-{{% /alert %}} 
+Para generar una imagen SVG a partir de una diapositiva de una presentación con Aspose.Slides, siga los pasos a continuación:
 
-## **Ejemplo en Vivo**
-Puedes probar la aplicación gratuita [**Visor de Aspose.Slides**](https://products.aspose.app/slides/viewer/) para ver qué puedes implementar con la API de Aspose.Slides:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **Generar Imagen SVG desde Diapositiva**
-Para generar una imagen SVG desde cualquier diapositiva deseada con Aspose.Slides para Android a través de Java, sigue los pasos a continuación:
-
-- Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Obtén la referencia de la diapositiva deseada utilizando su ID o índice.
-- Obtén la imagen SVG en un flujo de memoria.
-- Guarda el flujo de memoria en un archivo.
-
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga la referencia de la diapositiva por su índice.
+1. Abra un flujo de archivo.
+1. Guarde la diapositiva como una imagen SVG en el flujo de archivo.
 ```java
-// Instanciar una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Acceder a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Crear un objeto de flujo de memoria
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Generar imagen SVG de la diapositiva y guardarla en el flujo de memoria
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Generar SVG con ID de Forma Personalizados**
-Aspose.Slides para Android a través de Java se puede utilizar para generar [SVG](https://docs.fileformat.com/page-description-language/svg/) desde una diapositiva con ID de forma personalizados. Para eso, usa la propiedad ID de [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShape), que representa el ID personalizado de las formas en el SVG generado. CustomSvgShapeFormattingController se puede utilizar para establecer el ID de forma.
 
+## **Generar un SVG con un ID de forma personalizado**
+
+Aspose.Slides puede usarse para generar un [SVG](https://docs.fileformat.com/page-description-language/svg/) a partir de una diapositiva con un ID de forma personalizado. Para ello, utilice el método `setId` de [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` puede usarse para establecer el ID de la forma.
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+
 ```java
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
 {
@@ -77,7 +72,7 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
     {
         m_shapeIndex = 0;
     }
-    
+
     public CustomSvgShapeFormattingController(int shapeStartIndex)
     {
         m_shapeIndex = shapeStartIndex;
@@ -90,109 +85,100 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
 }
 ```
 
-## **Crear Imagen de Miniatura de Diapositivas**
-Aspose.Slides para Android a través de Java te ayuda a generar imágenes en miniatura de las diapositivas. Para generar la miniatura de cualquier diapositiva deseada utilizando Aspose.Slides para Android a través de Java:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtén la imagen en miniatura de la diapositiva referenciada a una escala específica.
-1. Guarda la imagen en miniatura en cualquier formato de imagen deseado.
+## **Crear una imagen miniatura de diapositiva**
 
+Aspose.Slides le ayuda a generar imágenes en miniatura de diapositivas. Para generar una miniatura de una diapositiva usando Aspose.Slides, siga los pasos a continuación:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga la referencia de la diapositiva por su índice.
+1. Obtenga la imagen miniatura de la diapositiva referenciada a una escala definida.
+1. Guarde la imagen miniatura en cualquier formato de imagen deseado.
 ```java
-// Instanciar una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Acceder a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // Crear una imagen a escala completa
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Guardar la imagen en el disco en formato JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **Crear Miniatura con Dimensiones Definidas por el Usuario**
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtén la imagen en miniatura de la diapositiva referenciada a una escala específica.
-1. Guarda la imagen en miniatura en cualquier formato de imagen deseado.
+## **Crear una miniatura de diapositiva con dimensiones definidas por el usuario**
 
+Para crear una imagen miniatura de diapositiva con dimensiones definidas por el usuario, siga los pasos a continuación:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga la referencia de la diapositiva por su índice.
+1. Obtenga la imagen miniatura de la diapositiva referenciada con las dimensiones definidas.
+1. Guarde la imagen miniatura en cualquier formato de imagen deseado.
 ```java
-// Instanciar una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Acceder a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
 
-    // Dimensión definida por el usuario
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Obtener valor escalado de X y Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Crear una imagen a escala completa
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // Guardar la imagen en el disco en formato JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Crear Miniatura desde Diapositiva en Vista de Notas**
-Para generar la miniatura de cualquier diapositiva deseada en Vista de Notas utilizando Aspose.Slides para Android a través de Java:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtén la imagen en miniatura de la diapositiva referenciada a una escala específica en vista de Notas.
-1. Guarda la imagen en miniatura en cualquier formato de imagen deseado.
+## **Crear una miniatura de diapositiva con notas del presentador**
 
-El fragmento de código a continuación produce una miniatura de la primera diapositiva de una presentación en Vista de Notas.
+Para generar la miniatura de una diapositiva con notas del presentador usando Aspose.Slides, siga los pasos a continuación:
 
+1. Cree una instancia de la clase [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/).
+1. Utilice el método `RenderingOptions.setSlidesLayoutOptions` para establecer la posición de las notas del presentador.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga la referencia de la diapositiva por su índice.
+1. Obtenga la imagen miniatura de la diapositiva referenciada con las opciones de renderizado.
+1. Guarde la imagen miniatura en cualquier formato de imagen deseado.
 ```java
-// Instanciar una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Acceder a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Dimensión definida por el usuario
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // Obtener valor escalado de X y Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Crear una imagen a escala completa
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Guardar la imagen en el disco en formato JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **Ejemplo en vivo**
+
+Puede probar la aplicación gratuita [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) para ver lo que puede implementar con la API de Aspose.Slides:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **Preguntas frecuentes**
+
+**¿Puedo incrustar un visor de presentaciones en una aplicación web?**
+
+Sí. Puede usar Aspose.Slides en el lado del servidor para renderizar diapositivas como imágenes o HTML y mostrarlas en el navegador. Las funciones de navegación y zoom pueden implementarse con JavaScript para una experiencia interactiva.
+
+**¿Cuál es la mejor manera de mostrar diapositivas dentro de un visor personalizado?**
+
+El enfoque recomendado es renderizar cada diapositiva como una imagen (p.ej., PNG o SVG) o convertirla a HTML usando Aspose.Slides, y luego mostrar el resultado dentro de un cuadro de imagen (para escritorio) o contenedor HTML (para web).
+
+**¿Cómo manejo presentaciones grandes con muchas diapositivas?**
+
+Para presentaciones extensas, considere la carga diferida o el renderizado bajo demanda de las diapositivas. Esto significa generar el contenido de una diapositiva solo cuando el usuario navega a ella, reduciendo la memoria y el tiempo de carga.

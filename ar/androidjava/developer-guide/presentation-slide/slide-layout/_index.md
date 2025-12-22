@@ -1,77 +1,103 @@
 ---
-title: تخطيط الشريحة
+title: تطبيق أو تغيير تخطيطات الشرائح على Android
+linktitle: تخطيط الشريحة
 type: docs
 weight: 60
 url: /ar/androidjava/slide-layout/
-keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل الطفل، تعديل المحتوى، حجم الصفحة، جافا، Aspose.Slides"
-description: "تعيين حجم الشريحة وخياراتها في PowerPoint باستخدام جافا"
+keywords:
+- تخطيط الشريحة
+- تخطيط المحتوى
+- العنصر النائب
+- تصميم العرض التقديمي
+- تصميم الشريحة
+- تخطيط غير مستخدم
+- رؤية التذييل
+- شريحة العنوان
+- العنوان والمحتوى
+- عنوان القسم
+- محتويان
+- مقارنة
+- عنوان فقط
+- تخطيط فارغ
+- محتوى مع تسمية
+- صورة مع تسمية
+- العنوان والنص العمودي
+- عنوان و نص عمودي
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "إدارة وتخصيص تخطيطات الشرائح في Aspose.Slides for Android. استكشاف أنواع التخطيطات، التحكم في العناصر النائبة، ورؤية التذييل من خلال أمثلة كود Java."
 ---
 
-يحتوي تخطيط الشريحة على صناديق العناصر النائبة ومعلومات التنسيق لجميع المحتويات التي تظهر على الشريحة. يحدد التخطيط العناصر النائبة المتاحة ومكان وضعها.
+## **نظرة عامة**
 
-تتيح لك تخطيطات الشرائح إنشاء وتصميم العروض التقديمية بسرعة (سواء كانت بسيطة أو معقدة). هذه بعض من أكثر تخطيطات الشرائح شيوعًا المستخدمة في عروض PowerPoint:
+يحدد تخطيط الشريحة ترتيب صناديق العنصر النائب والتنسيق للمحتوى على الشريحة. يتحكم في العناصر النائبة المتاحة ومكان ظهورها. تساعد تخطيطات الشرائح على تصميم العروض بسرعة وبشكل متسق—سواءً كنت تنشئ شيئًا بسيطًا أو أكثر تعقيدًا. بعض أكثر تخطيطات الشرائح شيوعًا في PowerPoint تشمل:
 
-* **تخطيط شريحة العنوان**. يتكون هذا التخطيط من عنصرين نائبيين للنص. واحد للنص الرئيسي والآخر للعناوين الفرعية.
-* **تخطيط العنوان والمحتوى**. يحتوي هذا التخطيط على عنصر نائب صغير نسبيًا في الأعلى للعناوين وعنصر نائب أكبر للمحتوى الرئيسي (مثل المخططات والفقارات والقوائم النقطية والقوائم المرقمة والصور وما إلى ذلك).
-* **تخطيط فارغ**. يفتقر هذا التخطيط إلى العناصر النائبة، لذا فإنه يسمح لك بإنشاء عناصر من الصفر.
+**تخطيط شريحة العنوان** – يتضمن عنصرين نائبيْن للنص: أحدهما للعنوان والآخر للعنوان الفرعي.
 
-نظرًا لأن الشريحة الرئيسية هي أعلى شريحة في التسلسل الهرمي التي تخزن معلومات حول تخطيطات الشرائح، يمكنك استخدام الشريحة الرئيسية للوصول إلى تخطيطات الشرائح وإجراء تغييرات عليها. يمكن الوصول إلى شريحة التخطيط عن طريق النوع أو الاسم. بالمثل، تحتوي كل شريحة على معرف فريد، يمكن استخدامه للوصول إليها.
+**تخطيط العنوان والمحتوى** – يحتوي على عنصر عنوان أصغر في الأعلى وآخر أكبر أدناه للمحتوى الرئيسي (مثل النص، النقاط، المخططات، الصور، وأكثر).
 
-بدلاً من ذلك، يمكنك إجراء تغييرات مباشرة على تخطيط شريحة محددة في عرض تقديمي.
+**التخطيط الفارغ** – لا يحتوي على عناصر نائبة، مما يمنحك التحكم الكامل لتصميم الشريحة من الصفر.
 
-* للسماح لك بالعمل مع تخطيطات الشرائح (بما في ذلك تلك الموجودة في الشرائح الرئيسية)، توفر Aspose.Slides خصائص مثل [getLayoutSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) و [getMasters()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) ضمن فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-* لأداء المهام ذات الصلة، توفر Aspose.Slides [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterlayoutslidecollection/)، [SlideSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/)، [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslideheaderfootermanager/)، والعديد من الأنواع الأخرى.
+تعد تخطيطات الشرائح جزءًا من الشريحة الرئيسية (slide master)، وهي الشريحة العليا التي تُعرّف أنماط التخطيط للعرض التقديمي. يمكنك الوصول إلى تخطيطات الشرائح وتعديلها عبر الشريحة الرئيسية—إما بحسب النوع أو الاسم أو المعرف الفريد. بدلاً من ذلك، يمكنك تعديل تخطيط شريحة معينة مباشرةً داخل العرض التقديمي.
 
-{{% alert title="معلومات" color="info" %}}
+للعمل مع تخطيطات الشرائح في Aspose.Slides for Android، يمكنك استخدام:
 
-للحصول على مزيد من المعلومات حول العمل مع الشرائح الرئيسية على وجه الخصوص، انظر إلى مقالة [شريحة الرئيسية](https://docs.aspose.com/slides/androidjava/slide-master/) .
+- طرق مثل [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) و[getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) ضمن فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)
+- أنواع مثل [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)، و[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
 
+{{% alert title="Info" color="info" %}}
+للتعلم المزيد حول العمل مع الشرائح الرئيسية، اطلع على مقال [Slide Master](/slides/ar/androidjava/slide-master/).
 {{% /alert %}}
 
-## **إضافة تخطيط شريحة إلى العرض التقديمي**
+## **إضافة تخطيطات شرائح إلى العروض التقديمية**
 
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. الوصول إلى مجموعة [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/) .
-1. استعرض الشرائح التخطيطية الموجودة للتأكد من أن الشريحة التخطيطية المطلوبة موجودة بالفعل في مجموعة الشريحة التخطيطية. خلاف ذلك، أضف الشريحة التخطيطية التي تريدها.
-1. أضف شريحة فارغة بناءً على الشريحة التخطيطية الجديدة.
+لتخصيص مظهر وبنية الشرائح الخاصة بك، قد تحتاج إلى إضافة تخطيطات شرائح جديدة إلى العرض التقديمي. يتيح لك Aspose.Slides for Android التحقق مما إذا كان تخطيط معين موجودًا بالفعل، إضافة واحد جديد إذا لزم الأمر، واستخدامه لإدراج شرائح بناءً على ذلك التخطيط.
+
+1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. وصول إلى [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
+1. تحقق مما إذا كان تخطيط الشريحة المطلوب موجودًا بالفعل في المجموعة. إذا لم يكن موجودًا، أضف تخطيط الشريحة الذي تحتاجه.
+1. أضف شريحة فارغة بناءً على تخطيط الشريحة الجديد.
 1. احفظ العرض التقديمي.
 
-يظهر هذا الكود Java كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
-
+يعرض الكود Java التالي كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
 ```java
-// إنشاء مثيل من فئة Presentation التي تمثل ملف العرض
-Presentation pres = new Presentation("AccessSlides.pptx");
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PowerPoint.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // يستعرض أنواع الشرائح التخطيطية
-    IMasterLayoutSlideCollection layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
+    // التنقل عبر أنواع شرائح التخطيط لاختيار شريحة تخطيط.
+    IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
     ILayoutSlide layoutSlide = null;
-
     if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
         layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
     else
         layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
 
     if (layoutSlide == null) {
-        // الوضع الذي لا يحتوي فيه العرض تقديمي على بعض أنواع التخطيط.
-        // يحتوي ملف العرض فقط على أنواع تخطيط فارغة ومخصصة.
-        // لكن الشرائح التخطيطية ذات الأنواع المخصصة لها أسماء شرائح مختلفة،
-        // مثل " عنوان "، " عنوان ومحتوى "، وما إلى ذلك. ومن الممكن استخدام هذه
-        // الأسماء لاختيار الشريحة التخطيطية.
-        // يمكنك أيضًا استخدام مجموعة من أنواع الأشكال النائبة. على سبيل المثال،
-        // يجب أن تحتوي شريحة العنوان على نوع عنصر نائب العنوان فقط، وما إلى ذلك.
+        // حالة لا يحتوي فيها العرض التقديمي على جميع أنواع التخطيط.
+        // ملف العرض التقديمي يحتوي فقط على أنواع التخطيط Blank و Custom.
+        // مع ذلك، قد تحتوي شرائح التخطيط ذات الأنواع المخصصة على أسماء يمكن التعرف عليها،
+        // مثل "Title" و "Title and Content" وغيرها، والتي يمكن استخدامها لاختيار شريحة التخطيط.
+        // يمكنك أيضًا الاعتماد على مجموعة من أنواع أشكال العنصر النائب.
+        // على سبيل المثال، يجب أن تحتوي شريحة العنوان على نوع العنصر النائب Title فقط، وهكذا.
         for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
+            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
             }
         }
+
         if (layoutSlide == null) {
             for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName() == "Title") {
+                if (titleLayoutSlide.getName().equals("Title")) {
                     layoutSlide = titleLayoutSlide;
                     break;
                 }
             }
+
             if (layoutSlide == null) {
                 layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
                 if (layoutSlide == null) {
@@ -81,165 +107,163 @@ try {
         }
     }
 
-    // يضيف شريحة فارغة مع الشريحة التخطيطية المضافة
-    pres.getSlides().insertEmptySlide(0, layoutSlide);
+    // إضافة شريحة فارغة باستخدام شريحة التخطيط المضافة.
+    presentation.getSlides().insertEmptySlide(0, layoutSlide);
 
-    // يحفظ العرض على القرص
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **إزالة الشريحة التخطيطية غير المستخدمة**
-
-توفر Aspose.Slides الطريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) من فئة [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) للسماح لك بحذف الشرائح التخطيطية غير المرغوب فيها وغير المستخدمة. يوضح هذا الكود Java كيفية إزالة شريحة تخطيط من عرض PowerPoint:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(pres);
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تعيين الحجم والنوع لتخطيط الشريحة**
-
-للسماح لك بتعيين الحجم والنوع لشريحة تخطيط معينة، توفر Aspose.Slides الخصائص [getType()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getType--) و [getSize()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getSize--) (من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ). يوضح هذا Java العملية:
-
-```java
-// إنشاء مثيل من كائن Presentation الذي يمثل ملف العرض
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    Presentation auxPresentation = new Presentation();
-    try {
-        // تعيين حجم الشريحة للعرض المنشأ إلى حجم المصدر
-        auxPresentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit);
-        //getType());
-        auxPresentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize);
-        
-        // يستنسخ الشريحة المطلوبة
-        auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-        auxPresentation.getSlides().removeAt(0);
-        
-        // يحفظ العرض على القرص
-        auxPresentation.save("size.pptx", SaveFormat.Pptx);
-    } finally {
-        auxPresentation.dispose();
-    }
+    // حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تعيين رؤية التذييل داخل الشريحة**
 
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. قم بتعيين عنصر نائب تذييل الشريحة ليكون مرئيًا.
-1. قم بتعيين عنصر نائب التاريخ والوقت ليكون مرئيًا.
-1. احفظ العرض.
+## **إزالة تخطيطات الشرائح غير المستخدمة**
 
-يظهر هذا الكود Java كيفية تعيين الرؤية لتذييل الشريحة (وأداء المهام ذات الصلة):
+يوفر Aspose.Slides الطريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) من فئة [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) لتسمح لك بحذف تخطيطات الشرائح غير المرغوب فيها وغير المستخدمة.
 
+يعرض الكود Java التالي كيفية إزالة تخطيط شريحة من عرض PowerPoint:
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
-    if (!headerFooterManager.isFooterVisible()) // يتم استخدام طريقة isFooterVisible لتحديد أن عنصر نائب تذييل الشريحة مفقود
-    {
-        headerFooterManager.setFooterVisibility(true); // يتم استخدام طريقة setFooterVisibility لتعيين عنصر نائب تذييل الشريحة ليكون مرئيًا
-    }
-    if (!headerFooterManager.isSlideNumberVisible()) // يتم استخدام طريقة isSlideNumberVisible لتحديد أن عنصر نائب رقم الصفحة مفقود
-    {
-        headerFooterManager.setSlideNumberVisibility(true); // يتم استخدام طريقة setSlideNumberVisibility لتعيين عنصر نائب رقم الشريحة ليكون مرئيًا
-    }
-    if (!headerFooterManager.isDateTimeVisible()) // يتم استخدام طريقة isDateTimeVisible لتحديد أن عنصر نائب التاريخ والوقت مفقود
-    {
-        headerFooterManager.setDateTimeVisibility(true); // يتم استخدام طريقة SetFooterVisibility لتعيين عنصر نائب التاريخ والوقت ليكون مرئيًا
-    }
-    headerFooterManager.setFooterText("نص التذييل"); // يتم استخدام طريقة SetFooterText لتعيين نص لتذييل الشريحة.
-    headerFooterManager.setDateTimeText("نص التاريخ والوقت"); // يتم استخدام طريقة SetDateTimeText لتعيين نص لعنصر نائب التاريخ والوقت للشريحة.
+    Compress.removeUnusedLayoutSlides(presentation);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تعيين رؤية تذييل الطفل داخل الشريحة**
 
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. احصل على مرجع للشريحة الرئيسية من خلال فهرسها.
-1. قم بتعيين الشريحة الرئيسية وجميع العناصر النائبة للتذييل لتكون مرئية.
-1. قم بتعيين نص للشريحة الرئيسية وجميع العناصر النائبة للتذييل.
-1. قم بتعيين نص للشريحة الرئيسية وجميع العناصر النائبة للتاريخ والوقت.
-1. احفظ العرض.
+## **إضافة عناصر نائبة إلى تخطيطات الشرائح**
 
-يظهر هذا الكود Java العملية:
+يوفر Aspose.Slides الطريقة [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)، والتي تسمح لك بإضافة عناصر نائبة جديدة إلى تخطيط الشريحة.
 
+يحتوي هذا المدير على طرق للأنواع التالية من العناصر النائبة:
+
+| عنصر نائب في PowerPoint | طريقة [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ![Content](content.png) | addContentPlaceholder(float x,float y,float width,float height) |
+| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x,float y,float width,float height) |
+| ![Text](text.png) | addTextPlaceholder(float x,float y,float width,float height) |
+| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x,float y,float width,float height) |
+| ![Picture](picture.png) | addPicturePlaceholder(float x,float y,float width,float height) |
+| ![Chart](chart.png) | addChartPlaceholder(float x,float y,float width,float height) |
+| ![Table](table.png) | addTablePlaceholder(float x,float y,float width,float height) |
+| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x,float y,float width,float height) |
+| ![Media](media.png) | addMediaPlaceholder(float x,float y,float width,float height) |
+| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x,float y,float width,float height) |
+
+يعرض الكود Java التالي كيفية إضافة أشكال عنصر نائب جديدة إلى تخطيط الشريحة الفارغة:
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
-try {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-    headerFooterManager.setFooterAndChildFootersVisibility(true); // يتم استخدام طريقة setFooterAndChildFootersVisibility لتعيين الشريحة الرئيسية وجميع العناصر النائبة لتذييل الطفل لتكون مرئية
-    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // يتم استخدام طريقة setSlideNumberAndChildSlideNumbersVisibility لتعيين الشريحة الرئيسية وجميع العناصر النائبة لرقم الصفحة لتكون مرئية
-    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // يتم استخدام طريقة setDateTimeAndChildDateTimesVisibility لتعيين الشريحة الرئيسية وجميع العناصر النائبة للتاريخ والوقت لتكون مرئية
-
-    headerFooterManager.setFooterAndChildFootersText("نص التذييل"); // يتم استخدام طريقة setFooterAndChildFootersText لتعيين النصوص للشريحة الرئيسية وجميع العناصر النائبة للتذييل
-    headerFooterManager.setDateTimeAndChildDateTimesText("نص التاريخ والوقت"); // يتم استخدام طريقة setDateTimeAndChildDateTimesText لتعيين نص للشريحة الرئيسية وجميع العناصر النائبة للتاريخ والوقت
-} finally {
-    presentation.dispose();
-}
-```
-
-## **تعيين حجم الشريحة مع مراعاة تعديل المحتوى**
-
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) وقم بتحميل العرض التقديمي الذي يحتوي على الشريحة التي تريد تعيين حجمها.
-1. قم بإنشاء مثيل آخر من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) لإنشاء عرض تقديمي جديد.
-1. احصل على مرجع الشريحة (من العرض التقديمي الأول) من خلال فهرسها.
-1. قم بتعيين عنصر نائب تذييل الشريحة ليكون مرئيًا.
-1. قم بتعيين عنصر نائب التاريخ والوقت ليكون مرئيًا.
-1. احفظ العرض.
-
-يظهر هذا الكود Java العملية:
-
-```java
-// إنشاء مثيل من كائن Presentation الذي يمثل ملف عرض
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    // تعيين حجم الشريحة للعرض المنشأ إلى حجم المصدر
-    presentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit); // يتم استخدام طريقة SetSize لتعيين حجم الشريحة مع تعديل المحتوى للتأكد من التوافق
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // يتم استخدام طريقة SetSize لتعيين حجم الشريحة بحجم محتوى أقصى
-
-    // يحفظ العرض على القرص
-    presentation.save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **تعيين حجم الصفحة عند إنشاء PDF**
-
-غالبًا ما يتم تحويل عروض تقديمية معينة (مثل الملصقات) إلى مستندات PDF. إذا كنت تبحث عن تحويل PowerPoint إلى PDF للوصول إلى أفضل خيارات الطباعة والوصول، فعليك تعيين الشرائح إلى أحجام تناسب مستندات PDF (A4، على سبيل المثال).
-
-توفر Aspose.Slides فئة [SlideSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/) للسماح لك بتحديد إعداداتك المفضلة للشرائح. يوضح هذا الكود Java كيفية استخدام خاصية [getType()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getType--) (من فئة `SlideSize`) لتعيين حجم ورق محدد للشرائح في عرض تقديمي:
-
-```java
-// إنشاء مثيل من كائن Presentation الذي يمثل ملف العرض 
 Presentation presentation = new Presentation();
 try {
-    // تعيين خاصية SlideSize.Type  
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-    
-    // تعيين خصائص مختلفة لخيارات PDF
-    PdfOptions opts = new  PdfOptions();
-    opts.setSufficientResolution(600);
-    
-    // يحفظ العرض على القرص
-    presentation.save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
+    // احصل على شريحة التخطيط الفارغ.
+    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    // احصل على مدير العنصر النائب لشريحة التخطيط.
+    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+
+    // أضف عناصر نائبة مختلفة إلى شريحة التخطيط الفارغ.
+    placeholderManager.addContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.addChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.addTablePlaceholder(350, 310, 350, 180);
+
+    // أضف شريحة جديدة باستخدام التخطيط الفارغ.
+    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
+
+    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+
+النتيجة:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **ضبط رؤية تذييل الشريحة لتخطيط معين**
+
+في عروض PowerPoint، يمكن إظهار أو إخفاء عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص اعتمادًا على تخطيط الشريحة. يتيح لك Aspose.Slides for Android التحكم في رؤية هذه العناصر النائبة في التذييل. هذا مفيد عندما تريد أن تعرض بعض التخطيطات معلومات التذييل بينما تظل أخرى نظيفة وبسيطة.
+
+1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. احصل على مرجع لتخطيط الشريحة عبر فهرسه.
+1. عيّن عنصر نائب تذييل الشريحة إلى مرئي.
+1. عيّن عنصر نائب رقم الشريحة إلى مرئي.
+1. عيّن عنصر نائب التاريخ/الوقت إلى مرئي.
+1. احفظ العرض التقديمي.
+
+يعرض الكود Java التالي كيفية ضبط رؤية تذييل الشريحة وأداء المهام المرتبطة:
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+
+    if (!headerFooterManager.isFooterVisible()) {
+        headerFooterManager.setFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.isSlideNumberVisible()) {
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.isDateTimeVisible()) {
+        headerFooterManager.setDateTimeVisibility(true);
+    }
+
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **ضبط رؤية تذييل الشرائح الفرعية**
+
+​في عروض PowerPoint، يمكن التحكم في عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص على مستوى الشريحة الرئيسية لضمان الاتساق عبر جميع تخطيطات الشرائح. يتيح لك Aspose.Slides for Android ضبط رؤية ومحتوى هذه العناصر النائبة على الشريحة الرئيسية ونشر هذه الإعدادات إلى جميع تخطيطات الشرائح الفرعية. يضمن هذا النهج توحيد معلومات التذييل طوال العرض التقديمي.​
+
+1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. احصل على مرجع إلى الشريحة الرئيسية عبر فهرستها.
+1. عيّن جميع عناصر تذييل الشريحة الرئيسية والفرعية إلى مرئية.
+1. عيّن جميع عناصر رقم الشريحة الرئيسية والفرعية إلى مرئية.
+1. عيّن جميع عناصر التاريخ/الوقت الرئيسية والفرعية إلى مرئية.
+1. احفظ العرض التقديمي.
+
+يعرض الكود Java التالي هذا العملية:
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
+
+    headerFooterManager.setFooterAndChildFootersVisibility(true);
+    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.setFooterAndChildFootersText("Footer text");
+    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين الشريحة الرئيسية وتخطيط الشريحة؟**
+
+تحدد الشريحة الرئيسية السمة العامة والتنسيق الافتراضي، بينما تحدد تخطيطات الشرائح ترتيبات محددة للعناصر النائبة لأنواع مختلفة من المحتوى.
+
+**هل يمكنني نسخ تخطيط شريحة من عرض تقديمي إلى آخر؟**
+
+نعم، يمكنك استنساخ تخطيط شريحة من مجموعة تخطيطات عرض تقديمي باستخدام طريقة [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--)، وإدراجه في عرض تقديمي آخر باستخدام طريقة `addClone`.
+
+**ماذا يحدث إذا حذفت تخطيط شريحة لا يزال مستخدمًا من قبل شريحة أخرى؟**
+
+إذا حاولت حذف تخطيط شريحة لا يزال مُشارًا إليه من قبل شريحة واحدة على الأقل في العرض التقديمي، سيطرح Aspose.Slides استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/). لتجنب ذلك، استخدم طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) التي تزيل بأمان فقط تخطيطات الشرائح غير المستخدمة.
