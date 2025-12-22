@@ -256,7 +256,7 @@ try {
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What’s the difference between a master slide and a layout slide?**
 

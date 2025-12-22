@@ -20,7 +20,7 @@ keywords:
 description: "Evaluate Aspose.Slides for Android via Java and explore API features for PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations—start your free trial."
 ---
 
-{{% alert color="primary" %}} 
+## **Aspose.Slides Evaluation**
 
 You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license.
 
@@ -32,4 +32,20 @@ The evaluation version of Aspose.Slides (without a license specified) provides f
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
-{{% /alert %}}
+## **FAQ**
+
+**Can I test multiple presentations in parallel across different threads in evaluation mode?**
+
+Yes. You can process different documents in parallel; you should not share the same presentation object [across threads](/slides/androidjava/multithreading/). Evaluation mode does not affect this.
+
+**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
+
+No. Aspose.Slides is a standalone engine and does not require PowerPoint installed for either evaluation or production.
+
+**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
+
+Yes. The [converters](/slides/androidjava/convert-presentation/) work; the output will include a watermark.
+
+**Can I use a temporary license for load testing without a watermark?**
+
+Yes. A 30-day temporary license removes evaluation-mode limitations and allows testing without a watermark.

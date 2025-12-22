@@ -236,3 +236,29 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends on the specific requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
+
+This happens because Excel tries to maintain the original window size when activated, while the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain aspect ratio, which can cause the resizing.
+
+**Is it possible to prevent this resizing issue entirely?**
+
+Yes. By scaling the OLE frame to fit the Excel cell range size or scaling the cell range to fit the desired OLE frame size, you can prevent unwanted resizing.
+
+**Which scaling method should I use, OLE frame scaling or cell range scaling?**
+
+Select **OLE frame scaling** if you want to maintain the original Excel row and column sizes. Select **cell range scaling** if you want a fixed size for the OLE frame in your presentation.
+
+**Will these solutions work if my presentation is based on a template?**
+
+Yes. Both solutions work for presentations created from templates and from scratch.
+
+**Is there a limit to the size of the OLE frame when using these methods?**
+
+No. You can make the OLE object frame any size as long as you set the scale appropriately.
+
+**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+
+Yes. By taking a snapshot of the target Excel cell range and setting it as the OLE frame's placeholder image, you can display a custom preview image in place of the default placeholder.
