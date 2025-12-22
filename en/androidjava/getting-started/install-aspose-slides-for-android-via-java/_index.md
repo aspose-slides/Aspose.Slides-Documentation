@@ -22,14 +22,14 @@ Previously, Aspose.Slides for Android via Java was distributed as a single ZIP 
 
 1. If you want to use a version older than Aspose.Words for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
 1. Add the extracted Jar file in your application by using the Build Path configuration. 
-### **Adding reference to Aspose.Slides for Android via Java Jar**
+### **Add a Reference to Aspose.Slides for Android via Java Jar**
 1. Download the newest version of [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/androidjava)
 1. Copy aspose-slides-18.9-android.via.java.jar into your project’s *libs/*folder
 
 ![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
 
 ![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
-### **Install Aspose.Slides for Android via Java from Maven Repository**
+### **Install Aspose.Slides for Android via Java from the Maven Repository**
 1. Add maven repository into your build.gradle. 
 1. Add [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) JAR as a dependency.
 
@@ -237,3 +237,16 @@ The full code should look like this:
 ## **Versioning**
 Since 2018, the versioning of Aspose.Slides for Android via Java complies with Aspose.Slides for Java. 
 
+## **FAQ**
+
+**How can I verify that Aspose.Slides is integrated correctly?**
+
+Build your project, instantiate a blank [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) and save it under a new name. If the file is created without throwing exceptions, the library has been integrated successfully.
+
+**How can I limit memory consumption when processing large presentations?**
+
+Raise JVM memory limits only as high as needed, and close each [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance in a `finally` block to release the cache promptly. This prevents out‑of‑memory errors and keeps overall memory usage predictable during batch operations.
+
+**Can I exclude unwanted export formats to shrink the final JAR size?**
+
+Current Aspose.Slides releases are shipped as a single monolithic library, so you cannot disable specific exporters such as PDF or SVG at build time.
