@@ -1,73 +1,68 @@
 ---
-title: Просмотрщик презентаций
+title: Создать просмотрщик презентаций на Android
+linktitle: Просмотрщик презентаций
 type: docs
 weight: 50
 url: /ru/androidjava/presentation-viewer/
-keywords: "Просмотрщик PowerPoint PPT"
-description: "Просмотрщик PowerPoint PPT на Java"
+keywords:
+- просмотр презентации
+- просмотрщик презентаций
+- создать просмотрщик презентаций
+- просмотр PPT
+- просмотр PPTX
+- просмотр ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- Android
+- Java
+- Aspose.Slides
+description: "Создайте пользовательский просмотрщик презентаций на Java, используя Aspose.Slides для Android. Легко отображайте файлы PowerPoint и OpenDocument без Microsoft PowerPoint."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides для Android через Java используется для создания файлов презентаций со слайдами. Эти слайды можно просматривать, открывая презентации, например, в Microsoft PowerPoint. Однако иногда разработчикам может потребоваться просматривать слайды в виде изображений в предпочитаемом просмотрщике изображений или создавать свой собственный просмотрщик презентаций. В таких случаях Aspose.Slides позволяет экспортировать отдельный слайд как изображение. В этой статье описано, как это сделать.
 
-Aspose.Slides для Android через Java используется для создания файлов презентаций с слайдами. Эти слайды можно просматривать, открывая презентации с помощью Microsoft PowerPoint. Но иногда разработчикам также может понадобиться просматривать слайды в виде изображений в их любимом просмотрщике изображений или создать свой собственный просмотрщик презентаций. В таких случаях Aspose.Slides для Android через Java позволяет экспортировать отдельный слайд в изображение. Эта статья описывает, как это сделать.
+## **Создать SVG‑изображение со слайда**
 
-{{% /alert %}} 
+Чтобы создать SVG‑изображение из слайда презентации с помощью Aspose.Slides, выполните следующие шаги:
 
-## **Живой пример**
-Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что вы можете реализовать с помощью API Aspose.Slides:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **Генерация изображения SVG из слайда**
-Чтобы сгенерировать изображение SVG из любого нужного слайда с помощью Aspose.Slides для Android через Java, выполните следующие шаги:
-
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Получите ссылку на нужный слайд, используя его ID или индекс.
-- Получите изображение SVG в памяти.
-- Сохраните поток памяти в файл.
-
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Откройте файловый поток.
+1. Сохраните слайд как SVG‑изображение в файловый поток.
 ```java
-// Создайте экземпляр класса Presentation, который представляет файл презентации
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Получите доступ к первому слайду
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Создайте объект потока памяти
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Генерируйте изображение SVG слайда и сохраняйте в поток памяти
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Генерация SVG с пользовательскими ID фигур**
-Aspose.Slides для Android через Java может быть использован для генерации [SVG](https://docs.fileformat.com/page-description-language/svg/) из слайда с пользовательским ID фигур. Для этого используйте свойство ID из [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShape), которое представляет собой пользовательский ID фигур в сгенерированном SVG. CustomSvgShapeFormattingController может быть использован для установки ID фигуры.
 
+## **Создать SVG с пользовательским идентификатором формы**
+
+Aspose.Slides можно использовать для генерации [SVG](https://docs.fileformat.com/page-description-language/svg/) из слайда с пользовательским ID формы. Для этого используйте метод `setId` из [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` можно использовать для установки ID формы.
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+
 ```java
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
 {
@@ -77,7 +72,7 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
     {
         m_shapeIndex = 0;
     }
-    
+
     public CustomSvgShapeFormattingController(int shapeStartIndex)
     {
         m_shapeIndex = shapeStartIndex;
@@ -90,109 +85,100 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
 }
 ```
 
-## **Создание эскиза изображения слайда**
-Aspose.Slides для Android через Java помогает вам генерировать эскизы изображений слайдов. Чтобы сгенерировать эскиз любого нужного слайда с использованием Aspose.Slides для Android через Java:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-1. Получите изображение эскиза указанного слайда на заданном масштабе.
-1. Сохраните изображение эскиза в любом нужном формате.
+## **Создать изображение миниатюры слайда**
 
+Aspose.Slides помогает создавать изображения миниатюр слайдов. Чтобы создать миниатюру слайда с помощью Aspose.Slides, выполните следующие шаги:
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Получите изображение миниатюры ссылки на слайд в определённом масштабе.
+1. Сохраните изображение миниатюры в любом желаемом формате изображения.
 ```java
-// Создайте экземпляр класса Presentation, который представляет файл презентации
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Получите доступ к первому слайду
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // Создайте изображение полного масштаба
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Сохраните изображение на диск в формате JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **Создание эскиза с пользовательскими размерами**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-1. Получите изображение эскиза указанного слайда на заданном масштабе.
-1. Сохраните изображение эскиза в любом нужном формате.
+## **Создать миниатюру слайда с пользовательскими размерами**
 
+Чтобы создать изображение миниатюры слайда с пользовательскими размерами, выполните следующие шаги:
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Получите изображение миниатюры ссылки на слайд с заданными размерами.
+1. Сохраните изображение миниатюры в любом желаемом формате изображения.
 ```java
-// Создайте экземпляр класса Presentation, который представляет файл презентации
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Получите доступ к первому слайду
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
 
-    // Пользовательские размеры
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Получите масштабированное значение X и Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Создайте изображение полного масштаба
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // Сохраните изображение на диск в формате JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Создание эскиза из слайда в режиме заметок**
-Чтобы сгенерировать эскиз любого нужного слайда в режиме заметок, используя Aspose.Slides для Android через Java:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-1. Получите изображение эскиза указанного слайда на заданном масштабе в режиме заметок.
-1. Сохраните изображение эскиза в любом нужном формате.
+## **Создать миниатюру слайда с заметками докладчика**
 
-Приведенный ниже фрагмент кода создает эскиз первого слайда презентации в режиме заметок.
+Чтобы создать миниатюру слайда с заметками докладчика с помощью Aspose.Slides, выполните следующие шаги:
 
+1. Создайте экземпляр класса [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/).
+1. Используйте метод `RenderingOptions.setSlidesLayoutOptions` для установки положения заметок докладчика.
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Получите изображение миниатюры ссылки на слайд с параметрами рендеринга.
+1. Сохраните изображение миниатюры в любом желаемом формате изображения.
 ```java
-// Создайте экземпляр класса Presentation, который представляет файл презентации
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Получите доступ к первому слайду
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Пользовательские размеры
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // Получите масштабированное значение X и Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Создайте изображение полного масштаба
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Сохраните изображение на диск в формате JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **Пример в работе**
+
+Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что можно реализовать с помощью API Aspose.Slides:
+
+![Онлайн‑просмотрщик PowerPoint](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Могу ли я встроить просмотрщик презентаций в веб‑приложение?**
+
+Да. Вы можете использовать Aspose.Slides на стороне сервера для рендеринга слайдов в виде изображений или HTML и отображать их в браузере. Навигацию и функции масштабирования можно реализовать с помощью JavaScript для интерактивного взаимодействия.
+
+**Какой лучший способ отображать слайды внутри кастомного просмотрщика?**
+
+Рекомендуемый подход — рендерить каждый слайд как изображение (например, PNG или SVG) или конвертировать его в HTML с помощью Aspose.Slides, затем отображать результат в элементе picture box (для настольных приложений) или в HTML‑контейнере (для веба).
+
+**Как работать с большими презентациями, содержащими много слайдов?**
+
+Для больших наборов слайдов рекомендуется использовать отложенную загрузку или рендеринг по запросу. Это означает генерацию содержимого слайда только при переходе пользователя к нему, что снижает потребление памяти и время загрузки.

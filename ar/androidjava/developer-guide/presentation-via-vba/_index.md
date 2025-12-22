@@ -1,39 +1,54 @@
 ---
-title: العرض عبر VBA
+title: إدارة مشاريع VBA في العروض التقديمية على Android
+linktitle: عرض تقديمي عبر VBA
 type: docs
 weight: 250
 url: /ar/androidjava/presentation-via-vba/
-keywords: "ماكرو، ماكروز، VBA، ماكرو VBA، إضافة ماكرو، إزالة ماكرو، إضافة VBA، إزالة VBA، استخراج ماكرو، استخراج VBA، ماكرو PowerPoint، عرض PowerPoint، Java، Aspose.Slides for Android via Java"
-description: "إضافة وإزالة واستخراج ماكروس VBA في عروض PowerPoint بجافا"
+keywords:
+- ماكرو
+- VBA
+- ماكرو VBA
+- إضافة ماكرو
+- إزالة ماكرو
+- استخراج ماكرو
+- إضافة VBA
+- إزالة VBA
+- استخراج VBA
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "اكتشف كيف يمكنك إنشاء ومعالجة عروض PowerPoint وOpenDocument عبر VBA باستخدام Aspose.Slides لنظام Android عبر Java لتبسيط سير عملك."
 ---
 
-{{% alert title="ملاحظة" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-عند تحويل عرض يحتوي على ماكروز إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، تتجاهل Aspose.Slides جميع الماكروز (لا تُنقل الماكروز إلى الملف الناتج).
+عند تحويل عرض تقديمي يحتوي على ماكرو إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، يتجاهل Aspose.Slides جميع الماكروهات (لا تُنقل الماكروهات إلى الملف الناتج).
 
-عند إضافة ماكروز إلى عرض أو إعادة حفظ عرض يحتوي على ماكروز، تقوم Aspose.Slides ببساطة بكتابة بيانت الماكروز.
+عند إضافة ماكروهات إلى عرض تقديمي أو إعادة حفظ عرض تقديمي يحتوي على ماكروهات، يقوم Aspose.Slides ببساطة بكتابة البايتات الخاصة بالماكروهات.
 
-لا تقوم Aspose.Slides **أبدًا** بتشغيل الماكروز في العرض.
+Aspose.Slides **أبدًا** لا ينفذ الماكروهات في العرض التقديمي.
 
 {{% /alert %}}
 
-## **إضافة ماكروس VBA**
+## **إضافة ماكروهات VBA**
 
-توفر Aspose.Slides فئة [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/) للسماح لك بإنشاء مشاريع VBA (ومراجع المشاريع) وتحرير الوحدات الموجودة. يمكنك استخدام واجهة [IVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/) لإدارة VBA المضمن في عرض.
+توفر Aspose.Slides الفئة [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/) لتسمح لك بإنشاء مشاريع VBA (ومراجع المشروع) وتعديل الوحدات الحالية. يمكنك استخدام الواجهة [IVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/) لإدارة VBA المدمج في عرض تقديمي.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. استخدم مُنشئ [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/#VbaProject--) لإضافة مشروع VBA جديد.
-1. أضف وحدة إلى VbaProject.
-1. قم بضبط كود المصدر للوحدة.
-1. أضف مراجع إلى <stdole>.
-1. أضف مراجع إلى **Microsoft Office**.
-1. اربط المراجع بمشروع VBA.
-1. احفظ العرض.
+1. إضافة وحدة إلى VbaProject.
+1. تعيين شفرة المصدر للوحدة.
+1. إضافة مراجع إلى <stdole>.
+1. إضافة مراجع إلى **Microsoft Office**.
+1. ربط المراجع بمشروع VBA.
+1. حفظ العرض التقديمي.
 
-يوضح لك هذا الرمز بلغة Java كيفية إضافة ماكرو VBA من الصفر إلى عرض:
-
+يعرض هذا الكود Java كيفية إضافة ماكرو VBA من الصفر إلى عرض تقديمي:
 ```java
-// ينشئ مثيلًا من فئة العرض
+// ينشئ كائنًا من فئة العرض التقديمي
 Presentation pres = new Presentation();
 try {
     // ينشئ مشروع VBA جديد
@@ -42,70 +57,70 @@ try {
     // يضيف وحدة فارغة إلى مشروع VBA
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
-    // يضبط كود المصدر للوحدة
+    // يضبط شفرة المصدر للوحدة
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // ينشئ مرجعًا إلى <stdole>
+    // ينشئ إشارة إلى <stdole>
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // ينشئ مرجعًا إلى Office
+    // ينشئ إشارة إلى Office
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // يضيف المراجع إلى مشروع VBA
+    // يضيف مراجع إلى مشروع VBA
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-قد ترغب في التحقق من **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros)، وهو تطبيق ويب مجاني يُستخدم لإزالة الماكروز من مستندات PowerPoint وExcel وWord. 
+قد ترغب في تجربة **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros)، وهو تطبيق ويب مجاني يُستخدم لإزالة الماكروهات من مستندات PowerPoint وExcel وWord.
 
 {{% /alert %}} 
 
-## **إزالة ماكروس VBA**
+## **إزالة ماكروهات VBA**
 
-باستخدام خاصية [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getVbaProject--) تحت فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)، يمكنك إزالة ماكرو VBA.
+باستخدام خاصية [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getVbaProject--) ضمن الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class، يمكنك إزالة ماكرو VBA.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وقم بتحميل العرض الذي يحتوي على الماكرو.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
 1. الوصول إلى وحدة الماكرو وإزالتها.
-1. احفظ العرض المعدل.
+1. حفظ العرض التقديمي المعدل.
 
-يوضح لك هذا الرمز بلغة Java كيفية إزالة ماكرو VBA:
-
+يعرض هذا الكود Java كيفية إزالة ماكرو VBA:
 ```java
-// يحمل العرض الذي يحتوي على الماكرو
+// يحمل العرض التقديمي الذي يحتوي على الماكرو
 Presentation pres = new Presentation("VBA.pptm");
 try {
     // يصل إلى وحدة Vba ويزيلها 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **استخراج ماكروس VBA**
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وقم بتحميل العرض الذي يحتوي على الماكرو.
-2. تحقق مما إذا كان العرض يحتوي على مشروع VBA.
-3. قم بتكرار جميع الوحدات الموجودة في مشروع VBA لعرض الماكروز.
+## **استخراج ماكروهات VBA**
 
-يوضح لك هذا الرمز بلغة Java كيفية استخراج ماكروس VBA من عرض يحتوي على ماكروز:
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
+2. التحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
+3. التجول عبر جميع الوحدات الموجودة في مشروع VBA لعرض الماكروهات.
 
+يعرض هذا الكود Java كيفية استخراج ماكروهات VBA من عرض تقديمي يحتوي على ماكروهات:
 ```java
-// يحمل العرض الذي يحتوي على الماكرو
+// تحميل العرض التقديمي الذي يحتوي على الماكرو
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // يتحقق مما إذا كان العرض يحتوي على مشروع VBA
+    if (pres.getVbaProject() != null) // يتحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -117,3 +132,40 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور**
+
+باستخدام طريقة [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) يمكنك تحديد ما إذا كانت خصائص المشروع محمية بكلمة مرور.
+
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) وتحميل عرض تقديمي يحتوي على ماكرو.
+2. التحقق مما إذا كان العرض التقديمي يحتوي على [VBA project](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/).
+3. التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور لعرض خصائصه.
+```java
+Presentation presentation = new Presentation("VBA.pptm");
+try {
+    if (presentation.getVbaProject() != null) { // تحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
+        if (presentation.getVbaProject().isPasswordProtected()) {
+            System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
+                    presentation.getVbaProject().getName());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **الأسئلة الشائعة**
+
+**ماذا يحدث للماكروهات إذا حفظت العرض التقديمي كملف PPTX؟**
+
+سيتم إزالة الماكروهات لأن PPTX لا يدعم VBA. للاحتفاظ بالماكروهات، اختر PPTM أو PPSM أو POTM.
+
+**هل يمكن لـ Aspose.Slides تشغيل الماكروهات داخل عرض تقديمي، مثلاً لتحديث البيانات؟**
+
+لا. المكتبة لا تنفذ شفرة VBA أبدًا؛ التنفيذ ممكن فقط داخل PowerPoint مع إعدادات الأمان المناسبة.
+
+**هل يتم دعم العمل مع عناصر تحكم ActiveX المرتبطة بشفرة VBA؟**
+
+نعم، يمكنك الوصول إلى عناصر تحكم ActiveX الموجودة [ActiveX controls](/slides/ar/androidjava/activex/)، تعديل خصائصها، وإزالتها. هذا مفيد عندما تتفاعل الماكروهات مع ActiveX.

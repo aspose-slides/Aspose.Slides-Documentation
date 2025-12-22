@@ -1,23 +1,34 @@
 ---
-title: استخراج الصور من أشكال العرض
+title: استخراج الصور من أشكال العرض التقديمي
+linktitle: صورة من الشكل
 type: docs
 weight: 100
 url: /ar/androidjava/extracting-images-from-presentation-shapes/
-keywords: "استخراج صورة، PowerPoint، PPT، PPTX، عرض PowerPoint، Java، Aspose.Slides for Android عبر Java"
-description: "استخراج الصور من عرض PowerPoint في Java"
-
+keywords:
+- استخراج صورة
+- استرجاع صورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides للأندرويد عبر جافا — حل سريع ومناسب للمطورين."
 ---
+
+## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
 
-غالبًا ما تضاف الصور إلى الأشكال وتستخدم أيضًا كخلفيات للشرائح. يتم إضافة كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/)، وهي مجموعة من [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) كائنات.
+غالبًا ما يتم إضافة الصور إلى الأشكال وتُستخدم أيضًا بشكل شائع كخلفيات للشرائح. يتم إضافة كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
 
-تشرح هذه المقالة كيف يمكنك استخراج الصور المضافة إلى العروض. 
+توضح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك تحديد موقع الصورة أولاً من خلال المرور بكل شريحة ثم المرور بكل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
-
+لاستخراج صورة من عرض تقديمي، يجب أولًا تحديد موقع الصورة من خلال المرور عبر كل شريحة ثم عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. 
 ```java
     public void extractImages()
     {
@@ -39,23 +50,23 @@ description: "استخراج الصور من عرض PowerPoint في Java"
             //الوصول إلى الشريحة الأولى Slide sl = pres.getSlideByPosition(i);
             if (sl.getBackground().getFillFormat().getFillType() == FillType.Picture)
             {
-                //الحصول على الصورة الخلفية
+                //يحصل على الصورة الخلفية
                 backImage = sl.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                 imageType = getImageTType(backImage);
 
                 String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "." + imageType;
-                //حفظ الصورة
+                //يحفظ الصورة
                 backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
             } else
             {
                 if (sl.getLayoutSlide().getBackground().getFillFormat().getFillType() == FillType.Picture)
                 {
-                    //الحصول على الصورة الخلفية
+                    //يحصل على الصورة الخلفية
                     backImage = sl.getLayoutSlide().getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                     imageType = getImageTType(backImage);
 
                     String imagePath = folderPath + "backImage_" + "LayoutSlide_" + slideIndex + "." + imageType;
-                    //حفظ الصورة
+                    //يحفظ الصورة
                     backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
             }
@@ -82,11 +93,11 @@ description: "استخراج الصور من عرض PowerPoint في Java"
                     ifImageFound = true;
                 }
 
-                //تعيين تنسيق الصورة المفضل
+                //يضبط تنسيق الصورة المفضل
                 if (ifImageFound)
                 {
                     String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "_Shape_" + j + "." + imageType;
-                    //حفظ الصورة
+                    //يحفظ الصورة
                     img.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
                 ifImageFound = false;
@@ -108,3 +119,22 @@ description: "استخراج الصور من عرض PowerPoint في Java"
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحولات شكل؟**
+
+نعم. عندما تصل إلى صورة الشكل، تحصل على كائن الصورة من [image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) للعرض التقديمي، مما يعني البكسلات الأصلية دون أي قص أو تأثيرات تنسيق. تمر عملية العمل عبر مجموعة صور العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) التي تخزن البيانات الخام.
+
+**هل هناك خطر من تكرار الملفات المتطابقة عند حفظ العديد من الصور مرة واحدة؟**
+
+نعم، إذا قمت بالحفظ دون تمييز. قد تحتوي [image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) للعرض التقديمي على بيانات ثنائية متطابقة يتم الإشارة إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتوى البيانات المستخرجة قبل الكتابة.
+
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة معينة من مجموعة الصور في العرض التقديمي؟**
+
+لا يخزن Aspose.Slides روابط عكسية من [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) إلى الأشكال. قم بإنشاء خريطة يدويًا أثناء الاستعراض: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/)، سجّل الأشكال التي تستخدمها.
+
+**هل يمكنني استخراج الصور المدمجة داخل كائنات OLE، مثل المستندات المرفقة؟**
+
+ليس مباشرةً، لأن كائن OLE هو حاوية. يلزم استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال صور العرض التقديمي عبر [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.

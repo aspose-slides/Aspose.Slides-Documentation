@@ -1,73 +1,68 @@
 ---
-title: プレゼンテーションビューア
+title: Androidでプレゼンテーションビューアを作成する
+linktitle: プレゼンテーションビューア
 type: docs
 weight: 50
 url: /ja/androidjava/presentation-viewer/
-keywords: "PowerPoint PPTビューワ"
-description: "JavaでのPowerPoint PPTビューワ"
+keywords:
+- プレゼンテーションを表示
+- プレゼンテーションビューア
+- プレゼンテーションビューアを作成
+- PPTを表示
+- PPTXを表示
+- ODPを表示
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Android
+- Java
+- Aspose.Slides
+description: "Android用のAspose.Slidesを使用してJavaでカスタムプレゼンテーションビューアを作成します。Microsoft PowerPointなしでPowerPointおよびOpenDocumentファイルを簡単に表示できます。"
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides for Android via Java は、スライド付きのプレゼンテーション ファイルを作成するために使用されます。これらのスライドは、たとえば Microsoft PowerPoint でプレゼンテーションを開くことで表示できます。ただし、開発者がスライドを好みの画像ビューアで画像として表示したり、独自のプレゼンテーション ビューアを作成したりする必要がある場合があります。そのような場合、Aspose.Slides を使用すると、個々のスライドを画像としてエクスポートできます。本記事ではその手順を説明します。
 
-Aspose.Slides for Android via Javaは、スライドを含むプレゼンテーションファイルを作成するために使用されます。これらのスライドは、Microsoft PowerPointを使用してプレゼンテーションを開くことで表示できます。しかし、時には開発者はお気に入りの画像ビューアでスライドを画像として表示したり、自分自身のプレゼンテーションビューアを作成したりする必要がある場合があります。そのような場合に、Aspose.Slides for Android via Javaを使用すると、個々のスライドを画像にエクスポートすることができます。この記事では、その方法について説明します。
+## **スライドから SVG 画像を生成する**
 
-{{% /alert %}} 
+Aspose.Slides を使用してプレゼンテーション スライドから SVG 画像を生成するには、以下の手順に従ってください。
 
-## **ライブ例**
-[**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/)の無料アプリを試して、Aspose.Slides APIで何を実装できるか確認できます：
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **スライドからSVG画像を生成する**
-Aspose.Slides for Android via Javaを使用して、任意のスライドからSVG画像を生成するには、以下の手順に従ってください。
-
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-- IDまたはインデックスを使用して、希望するスライドの参照を取得します。
-- メモリストリーム内にSVG画像を取得します。
-- メモリストリームをファイルに保存します。
-
+1. [プレゼンテーション](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライド参照を取得します。
+1. ファイル ストリームを開きます。
+1. スライドを SVG 画像としてファイル ストリームに保存します。
 ```java
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを生成します
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // メモリストリームオブジェクトを作成します
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // スライドのSVG画像を生成し、メモリストリームに保存します
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **カスタム形状IDを使用してSVGを生成する**
-Aspose.Slides for Android via Javaを使用して、カスタム形状IDを持つスライドから[SVG](https://docs.fileformat.com/page-description-language/svg/)を生成することができます。そのためには、生成されたSVG内の形状のカスタムIDを表す[ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShape)のIDプロパティを使用します。CustomSvgShapeFormattingControllerを使用して形状IDを設定できます。
 
+## **カスタムシェイプ ID で SVG を生成する**
+
+Aspose.Slides を使用して、カスタム シェイプ ID を持つスライドから [SVG](https://docs.fileformat.com/page-description-language/svg/) を生成できます。このためには、[ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/) の `setId` メソッドを使用します。`CustomSvgShapeFormattingController` を使用してシェイプ ID を設定できます。
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+
 ```java
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
 {
@@ -77,7 +72,7 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
     {
         m_shapeIndex = 0;
     }
-    
+
     public CustomSvgShapeFormattingController(int shapeStartIndex)
     {
         m_shapeIndex = shapeStartIndex;
@@ -90,109 +85,100 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
 }
 ```
 
+
 ## **スライドのサムネイル画像を作成する**
-Aspose.Slides for Android via Javaを使用すると、スライドのサムネイル画像を生成することができます。Aspose.Slides for Android via Javaを使用して、希望するスライドのサムネイルを生成するには：
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して、希望するスライドの参照を取得します。
-1. 指定されたスケールで参照されたスライドのサムネイル画像を取得します。
-1. 任意の希望する画像形式でサムネイル画像を保存します。
+Aspose.Slides はスライドのサムネイル画像の生成を支援します。Aspose.Slides を使用してスライドのサムネイルを生成するには、以下の手順に従ってください。
 
+1. [プレゼンテーション](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライド参照を取得します。
+1. 参照スライドのサムネイル画像を定義されたスケールで取得します。
+1. サムネイル画像を任意の画像形式で保存します。
 ```java
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを生成します
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // フルスケール画像を作成します
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 画像をJPEG形式でディスクに保存します
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **ユーザー定義の寸法でサムネイルを作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して、希望するスライドの参照を取得します。
-1. 指定されたスケールで参照されたスライドのサムネイル画像を取得します。
-1. 任意の希望する画像形式でサムネイル画像を保存します。
+## **ユーザー定義サイズでスライドのサムネイルを作成する**
 
+ユーザー定義サイズでスライドのサムネイル画像を作成するには、以下の手順に従ってください。
+
+1. [プレゼンテーション](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライド参照を取得します。
+1. 定義された寸法で参照スライドのサムネイル画像を取得します。
+1. サムネイル画像を任意の画像形式で保存します。
 ```java
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを生成します
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
 
-    // ユーザー定義の寸法
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // XおよびYのスケーリング値を取得します
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // フルスケール画像を作成します
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // 画像をJPEG形式でディスクに保存します
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **ノートスライドビューでスライドからサムネイルを作成する**
-Aspose.Slides for Android via Javaを使用して、ノートスライドビューで任意の希望するスライドのサムネイルを生成するには：
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して、希望するスライドの参照を取得します。
-1. ノートスライドビューで指定されたスケールで参照されたスライドのサムネイル画像を取得します。
-1. 任意の希望する画像形式でサムネイル画像を保存します。
+## **スピーカーノート付きスライドのサムネイルを作成する**
 
-以下のコードスニペットは、ノートスライドビューでプレゼンテーションの最初のスライドのサムネイルを生成します。
+Aspose.Slides を使用してスピーカーノート付きスライドのサムネイルを生成するには、以下の手順に従ってください。
 
+1. [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/renderingoptions/) クラスのインスタンスを作成します。
+1. `RenderingOptions.setSlidesLayoutOptions` メソッドを使用してスピーカーノートの位置を設定します。
+1. [プレゼンテーション](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライド参照を取得します。
+1. レンダリング オプションを使用して参照スライドのサムネイル画像を取得します。
+1. サムネイル画像を任意の画像形式で保存します。
 ```java
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを生成します
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // ユーザー定義の寸法
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // XおよびYのスケーリング値を取得します
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // フルスケール画像を作成します
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // 画像をJPEG形式でディスクに保存します
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **ライブ例**
+
+Aspose.Slides APIで実装できることを確認するために、無料アプリの [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) を試すことができます：
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Web アプリケーションにプレゼンテーション ビューアを埋め込むことはできますか？**
+
+はい。サーバー側で Aspose.Slides を使用してスライドを画像または HTML としてレンダリングし、ブラウザーに表示できます。ナビゲーションやズーム機能は JavaScript で実装でき、インタラクティブな体験を提供します。
+
+**カスタムビューア内でスライドを表示する最適な方法は何ですか？**
+
+推奨されるアプローチは、各スライドを画像（例: PNG または SVG）としてレンダリングするか、Aspose.Slides を使用して HTML に変換し、デスクトップの場合はピクチャーボックス、Web の場合は HTML コンテナ内に表示することです。
+
+**多数のスライドがある大規模なプレゼンテーションをどのように扱いますか？**
+
+大規模なデッキの場合、スライドの遅延ロードまたはオンデマンドレンダリングを検討してください。これは、ユーザーがスライドに移動したときにのみそのコンテンツを生成し、メモリ使用量と読み込み時間を削減することを意味します。
