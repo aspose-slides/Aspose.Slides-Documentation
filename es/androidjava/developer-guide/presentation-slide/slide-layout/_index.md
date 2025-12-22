@@ -1,77 +1,103 @@
 ---
-title: Diseño de Diapositivas
+title: Aplicar o Cambiar diseños de diapositiva en Android
+linktitle: Diseño de diapositiva
 type: docs
 weight: 60
 url: /es/androidjava/slide-layout/
-keyword: "Establecer tamaño de diapositiva, configurar opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, Java, Aspose.Slides"
-description: "Establecer el tamaño y las opciones de la diapositiva de PowerPoint en Java"
+keywords:
+- diseño de diapositiva
+- diseño de contenido
+- marcador de posición
+- diseño de presentación
+- diseño de diapositiva
+- diseño no utilizado
+- visibilidad del pie de página
+- diapositiva de título
+- título y contenido
+- encabezado de sección
+- dos contenidos
+- comparación
+- solo título
+- diseño en blanco
+- contenido con subtítulo
+- imagen con subtítulo
+- título y texto vertical
+- título vertical y texto
+- PowerPoint
+- OpenDocument
+- presentación
+- Android
+- Java
+- Aspose.Slides
+description: "Administre y personalice los diseños de diapositivas en Aspose.Slides para Android. Explore los tipos de diseño, el control de marcadores de posición y la visibilidad del pie de página mediante ejemplos de código Java."
 ---
 
-Un diseño de diapositiva contiene los cuadros de marcador de posición y la información de formato para todo el contenido que aparece en una diapositiva. El diseño determina los marcadores de posición de contenido disponibles y dónde se colocan.
+## **Visión general**
 
-Los diseños de diapositivas te permiten crear y diseñar presentaciones rápidamente (ya sean simples o complejas). Estos son algunos de los diseños de diapositivas más populares utilizados en las presentaciones de PowerPoint:
+Un diseño de diapositiva define la disposición de los cuadros de marcador de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones de forma rápida y coherente, ya sea que esté creando algo simple o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
 
-* **Diseño de Diapositiva de Título**. Este diseño consta de dos marcadores de posición de texto. Un marcador de posición es para el título y el otro es para el subtítulo.
-* **Diseño de Título y Contenido**. Este diseño contiene un marcador de posición relativamente pequeño en la parte superior para el título y un marcador de posición más grande para el contenido principal (gráfico, párrafos, lista con viñetas, lista numerada, imágenes, etc).
-* **Diseño en Blanco**. Este diseño carece de marcadores de posición, por lo que te permite crear elementos desde cero.
+**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
 
-Dado que un patrón de diapositiva es la diapositiva jerárquica principal que almacena información sobre los diseños de diapositivas, puedes usar la diapositiva maestra para acceder a los diseños de diapositivas y realizar cambios en ellos. Se puede acceder a una diapositiva de diseño por tipo o nombre. De manera similar, cada diapositiva tiene un id único, que puede ser utilizado para acceder a ella.
+**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (como texto, viñetas, gráficos, imágenes y más).
 
-Alternativamente, puedes hacer cambios directamente a un diseño de diapositiva específico en una presentación.
+**Diseño en blanco** – No contiene marcadores de posición, dándole control total para diseñar la diapositiva desde cero.
 
-* Para permitirte trabajar con diseños de diapositivas (incluidos los de las diapositivas maestras), Aspose.Slides proporciona propiedades como [getLayoutSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) y [getMasters()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) bajo la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-* Para realizar tareas relacionadas, Aspose.Slides proporciona [MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslideheaderfootermanager/), y muchos otros tipos.
+Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar las diapositivas de diseño a través de la diapositiva maestra, ya sea por su tipo, nombre o ID único. Alternativamente, puede editar una diapositiva de diseño específica directamente dentro de la presentación.
+
+Para trabajar con diseños de diapositiva en Aspose.Slides para Android, puede usar:
+
+- Métodos como [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) y [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) bajo la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)
+- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), y [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Para obtener más información sobre el trabajo con Diapositivas Maestras en particular, consulta el artículo [Diapositiva Maestra](https://docs.aspose.com/slides/androidjava/slide-master/).
-
+Para obtener más información sobre el trabajo con diapositivas maestras, consulte el artículo [Slide Master](/slides/es/androidjava/slide-master/).
 {{% /alert %}}
 
-## **Agregar Diseño de Diapositiva a la Presentación**
+## **Agregar diseños de diapositiva a presentaciones**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Accede a la [colección MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
-1. Revisa las diapositivas de diseño existentes para confirmar que el diseño de diapositiva requerido ya existe en la colección de Diapositivas de Diseño. De lo contrario, agrega la diapositiva de diseño que desees.
-1. Agrega una diapositiva en blanco basada en la nueva diapositiva de diseño.
-1. Guarda la presentación.
+Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevas diapositivas de diseño a una presentación. Aspose.Slides para Android le permite verificar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
 
-Este código Java te muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Acceda a la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
+1. Verifique si la diapositiva de diseño deseada ya existe en la colección. Si no, agregue la diapositiva de diseño que necesita.
+1. Agregue una diapositiva vacía basada en la nueva diapositiva de diseño.
+1. Guarde la presentación.
 
+El siguiente código Java muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
 ```java
-// Instancia una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("AccessSlides.pptx");
+// Instanciar la clase Presentation que representa un archivo PowerPoint.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // Revisa los tipos de diapositivas de diseño
-    IMasterLayoutSlideCollection layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
+    // Recorrer los tipos de diapositivas de diseño para seleccionar una diapositiva de diseño.
+    IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
     ILayoutSlide layoutSlide = null;
-
     if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
         layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
     else
         layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
 
     if (layoutSlide == null) {
-        // La situación en la que una presentación no contiene algunos tipos de diseño.
-        // El archivo de presentación solo contiene tipos de diseño en blanco y personalizados.
-        // Pero las diapositivas de diseño con tipos personalizados tienen nombres de diapositiva diferentes,
-        // como "Título", "Título y Contenido", etc. Y es posible usar estos
-        // nombres para la selección de la diapositiva de diseño.
-        // También puedes utilizar un conjunto de tipos de forma de marcador de posición. Por ejemplo,
-        // la diapositiva de título debería tener únicamente el tipo de marcador de posición de Título, etc.
+        // Situación en la que la presentación no contiene todos los tipos de diseños.
+        // El archivo de presentación contiene solo tipos de diseño en blanco y personalizados.
+        // Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
+        // como "Title", "Title and Content", etc., que pueden usarse para la selección de diapositivas de diseño.
+        // También puede basarse en un conjunto de tipos de formas de marcador de posición.
+        // Por ejemplo, una diapositiva de título debería tener solo el tipo de marcador de posición Title, y así sucesivamente.
         for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
+            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
             }
         }
+
         if (layoutSlide == null) {
             for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName() == "Title") {
+                if (titleLayoutSlide.getName().equals("Title")) {
                     layoutSlide = titleLayoutSlide;
                     break;
                 }
             }
+
             if (layoutSlide == null) {
                 layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
                 if (layoutSlide == null) {
@@ -81,165 +107,163 @@ try {
         }
     }
 
-    // Agrega una diapositiva vacía con el diseño agregado
-    pres.getSlides().insertEmptySlide(0, layoutSlide);
+    // Añadir una diapositiva vacía usando la diapositiva de diseño añadida.
+    presentation.getSlides().insertEmptySlide(0, layoutSlide);
 
-    // Guarda la presentación en disco
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Eliminar Diapositiva de Diseño No Utilizada**
-
-Aspose.Slides proporciona el método [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la clase [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) para permitirte eliminar diapositivas de diseño no deseadas y no utilizadas. Este código Java te muestra cómo eliminar una diapositiva de diseño de una presentación de PowerPoint:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(pres);
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Establecer Tamaño y Tipo para el Diseño de Diapositiva**
-
-Para permitirte establecer el tamaño y tipo para una diapositiva de diseño específica, Aspose.Slides proporciona las propiedades [getType()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getType--) y [getSize()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getSize--) (de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)). Este Java demuestra la operación:
-
-```java
-// Instancia un objeto Presentation que representa un archivo de presentación
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    Presentation auxPresentation = new Presentation();
-    try {
-        // Establece el tamaño de la diapositiva para la presentación generada al de la fuente
-        auxPresentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit);
-        //getType());
-        auxPresentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize);
-        
-        // Clona la diapositiva requerida
-        auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-        auxPresentation.getSlides().removeAt(0);
-        
-        // Guarda la presentación en disco
-        auxPresentation.save("size.pptx", SaveFormat.Pptx);
-    } finally {
-        auxPresentation.dispose();
-    }
+    // Guardar la presentación en disco.
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Establecer Visibilidad del Pie de Página Dentro de la Diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Establece la visibilidad del marcador de posición del pie de página de la diapositiva a visible.
-1. Establece la visibilidad del marcador de posición de fecha y hora a visible.
-1. Guarda la presentación.
+## **Eliminar diseños de diapositiva no utilizados**
 
-Este código Java te muestra cómo establecer la visibilidad para un pie de página de diapositiva (y realizar tareas relacionadas):
+Aspose.Slides proporciona el método [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la clase [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) para permitirle eliminar diseños de diapositiva no deseados y sin uso.
 
+El siguiente código Java muestra cómo eliminar una diapositiva de diseño de una presentación de PowerPoint:
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
-    if (!headerFooterManager.isFooterVisible()) // El método isFooterVisible se usa para especificar que falta un marcador de posición de pie de página de la diapositiva
-    {
-        headerFooterManager.setFooterVisibility(true); // El método setFooterVisibility se usa para establecer un marcador de posición de pie de página de diapositiva como visible
-    }
-    if (!headerFooterManager.isSlideNumberVisible()) // El método isSlideNumberVisible se usa para especificar que falta un marcador de posición de número de página de la diapositiva
-    {
-        headerFooterManager.setSlideNumberVisibility(true); // El método setSlideNumberVisibility se usa para establecer un marcador de posición de número de página de la diapositiva como visible
-    }
-    if (!headerFooterManager.isDateTimeVisible()) // El método isDateTimeVisible se usa para especificar que falta un marcador de posición de fecha y hora de la diapositiva
-    {
-        headerFooterManager.setDateTimeVisibility(true); // El método SetFooterVisibility se utiliza para establecer un marcador de posición de fecha y hora de la diapositiva como visible
-    }
-    headerFooterManager.setFooterText("Texto del pie de página"); // El método SetFooterText se usa para establecer un texto para un marcador de posición de pie de página de la diapositiva.
-    headerFooterManager.setDateTimeText("Texto de fecha y hora"); // El método SetDateTimeText se usa para establecer un texto para un marcador de posición de fecha y hora de la diapositiva.
+    Compress.removeUnusedLayoutSlides(presentation);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Establecer Visibilidad del Pie de Página Secundario Dentro de la Diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtén una referencia para la diapositiva maestra a través de su índice.
-1. Establece la diapositiva maestra y todos los marcadores de posición de pie de página secundarios a visible.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios.
-1. Guarda la presentación.
+## **Agregar marcadores de posición a diseños de diapositiva**
 
-Este código Java demuestra la operación:
+Aspose.Slides ofrece el método [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) que permite agregar nuevos marcadores de posición a una diapositiva de diseño.
 
+Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
+
+| Marcador de posición de PowerPoint | Método de [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Contenido](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
+| ![Contenido (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Texto](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
+| ![Texto (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Imagen](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
+| ![Gráfico](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
+| ![Tabla](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Multimedia](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
+| ![Imagen en línea](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+
+El siguiente código Java muestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
-try {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-    headerFooterManager.setFooterAndChildFootersVisibility(true); // El método setFooterAndChildFootersVisibility se usa para establecer la diapositiva maestra y todos los marcadores de posición de pie de página secundarios como visibles
-    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // El método setSlideNumberAndChildSlideNumbersVisibility se utiliza para establecer la diapositiva maestra y todos los marcadores de posición de número de página secundarios como visibles
-    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // El método setDateTimeAndChildDateTimesVisibility se utiliza para establecer una diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios como visibles
-
-    headerFooterManager.setFooterAndChildFootersText("Texto del pie de página"); // El método setFooterAndChildFootersText se utiliza para establecer textos para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios
-    headerFooterManager.setDateTimeAndChildDateTimesText("Texto de fecha y hora"); // El método setDateTimeAndChildDateTimesText se utiliza para establecer texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Establecer Tamaño de Diapositiva con Respecto al Escalado de Contenido**
-
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) clase y carga la presentación que contiene la diapositiva cuyo tamaño deseas establecer.
-1. Crea otra instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) clase para generar una nueva presentación.
-1. Obtén la referencia de la diapositiva (de la primera presentación) a través de su índice.
-1. Establece la visibilidad del marcador de posición del pie de página de la diapositiva a visible.
-1. Establece la visibilidad del marcador de posición de fecha y hora a visible.
-1. Guarda la presentación.
-
-Este código Java demuestra la operación:
-
-```java
-// Instancia un objeto Presentation que representa un archivo de presentación
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    // Establece el tamaño de la diapositiva para las presentaciones generadas al de la fuente
-    presentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit); // El método SetSize se usa para establecer el tamaño de la diapositiva con escala de contenido para asegurar ajuste
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // El método SetSize se usa para establecer el tamaño de la diapositiva con el tamaño máximo del contenido
-
-    // Guarda la presentación en disco
-    presentation.save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Establecer Tamaño de Página al Generar PDF**
-
-Ciertas presentaciones (como carteles) a menudo se convierten a documentos PDF. Si deseas convertir tu PowerPoint a PDF para acceder a las mejores opciones de impresión y accesibilidad, deseas establecer tus diapositivas en tamaños que se adapten a documentos PDF (A4, por ejemplo).
-
-Aspose.Slides proporciona la clase [SlideSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/) para permitirte especificar tus configuraciones preferidas para las diapositivas. Este código Java te muestra cómo usar la propiedad [getType()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#getType--) (de la clase `SlideSize`) para establecer un tamaño de papel específico para las diapositivas en una presentación:
-
-```java
-// Instancia un objeto Presentation que representa un archivo de presentación 
 Presentation presentation = new Presentation();
 try {
-    // Establece la propiedad SlideSize.Type  
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-    
-    // Establece diferentes propiedades para las opciones PDF
-    PdfOptions opts = new  PdfOptions();
-    opts.setSufficientResolution(600);
-    
-    // Guarda la presentación en disco
-    presentation.save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
+    // Obtenga la diapositiva de diseño en blanco.
+    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    // Obtenga el administrador de marcadores de posición de la diapositiva de diseño.
+    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+
+    // Añada diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    placeholderManager.addContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.addChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.addTablePlaceholder(350, 310, 350, 180);
+
+    // Añada una nueva diapositiva con el diseño en blanco.
+    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
+
+    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+
+El resultado:
+
+![Los marcadores de posición en la diapositiva de diseño](add_placeholders.png)
+
+## **Establecer visibilidad del pie de página para una diapositiva de diseño**
+
+En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides para Android le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información de pie de página mientras que otros permanecen limpios y mínimos.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva de diseño por su índice.
+1. Establezca el marcador de posición del pie de página de la diapositiva como visible.
+1. Establezca el marcador de posición del número de diapositiva como visible.
+1. Establezca el marcador de posición de fecha y hora como visible.
+1. Guarde la presentación.
+
+El siguiente código Java muestra cómo establecer la visibilidad del pie de página de una diapositiva y realizar tareas relacionadas:
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+
+    if (!headerFooterManager.isFooterVisible()) {
+        headerFooterManager.setFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.isSlideNumberVisible()) {
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.isDateTimeVisible()) {
+        headerFooterManager.setDateTimeVisibility(true);
+    }
+
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **Establecer visibilidad del pie de página hijo para una diapositiva**
+
+En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de la diapositiva maestra para garantizar coherencia en todas las diapositivas de diseño. Aspose.Slides para Android permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estos ajustes a todas las diapositivas de diseño hijas. Este enfoque asegura información uniforme de pie de página en toda la presentación.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva maestra por su índice.
+1. Establezca los marcadores de posición de pie de página de la maestra y de todos los hijos como visibles.
+1. Establezca los marcadores de posición del número de diapositiva de la maestra y de todos los hijos como visibles.
+1. Establezca los marcadores de posición de fecha y hora de la maestra y de todos los hijos como visibles.
+1. Guarde la presentación.
+
+El siguiente código Java demuestra esta operación:
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
+
+    headerFooterManager.setFooterAndChildFootersVisibility(true);
+    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.setFooterAndChildFootersText("Footer text");
+    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **Preguntas frecuentes**
+
+**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
+
+Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
+
+**¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
+
+Sí, puede clonar una diapositiva de diseño de la colección de diapositivas de diseño de una presentación, accesible mediante el método [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--), e insertarla en otra presentación usando el método `addClone`.
+
+**¿Qué sucede si elimino una diapositiva de diseño que todavía es usada por una diapositiva?**
+
+Si intenta eliminar una diapositiva de diseño que todavía está referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/). Para evitarlo, use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) que elimina de forma segura solo las diapositivas de diseño que no están en uso.

@@ -1,103 +1,115 @@
 ---
-title: Folienübergang
+title: Folienübergänge in Präsentationen auf Android verwalten
+linktitle: Folienübergang
 type: docs
 weight: 80
 url: /de/androidjava/slide-transition/
-keywords: "PowerPoint Folienübergang, Morph-Übergang in Java"
-description: "PowerPoint Folienübergang, PowerPoint Morph-Übergang in Java"
+keywords:
+- Folienübergang
+- Folienübergang hinzufügen
+- Folienübergang anwenden
+- erweiterter Folienübergang
+- Morph‑Übergang
+- Übergangstyp
+- Übergangseffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folienübergänge in Aspose.Slides für Android via Java anpassen, mit Schritt‑für‑Schritt‑Anleitung für PowerPoint‑ und OpenDocument‑Präsentationen."
 ---
 
-
-## **Überblick**
+## **Übersicht**
 {{% alert color="primary" %}} 
 
-Aspose.Slides für Android über Java ermöglicht es Entwicklern, die Folienübergangseffekte der Folien zu verwalten oder anzupassen. In diesem Thema werden wir erörtern, wie Folienübergänge mit großer Leichtigkeit mithilfe von Aspose.Slides für Android über Java gesteuert werden können.
+Aspose.Slides für Android via Java ermöglicht Entwicklern zudem das Verwalten und Anpassen von Folienübergangseffekten. In diesem Thema besprechen wir, wie man Folienübergänge mit großer Leichtigkeit mithilfe von Aspose.Slides für Android via Java steuern kann.
 
 {{% /alert %}} 
 
-Um das Verständnis zu erleichtern, haben wir die Verwendung von Aspose.Slides für Android über Java zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf die Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen.
+Um das Verständnis zu erleichtern, haben wir die Verwendung von Aspose.Slides für Android via Java zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf die Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen.
 
 ## **Folienübergang hinzufügen**
-Um einen einfachen Folienübergangseffekt zu erstellen, befolgen Sie die folgenden Schritte:
+Um einen einfachen Folienübergangseffekt zu erstellen, folgen Sie den untenstehenden Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasse.
-1. Wenden Sie einen Folienübergangstyp auf die Folie an, aus einem der von Aspose.Slides für Android über Java angebotenen Übergangseffekte durch das TransitionType-Enum.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasse.
+1. Wenden Sie einen Folienübergangstyp auf die Folie an, indem Sie einen der von Aspose.Slides für Android via Java angebotenen Übergangseffekte über das TransitionType-Enum auswählen.
 1. Schreiben Sie die modifizierte Präsentationsdatei.
-
 ```java
-// Instanziieren Sie die Presentation-Klasse zum Laden der Quellpräsentationsdatei
+// Instanziieren der Presentation-Klasse zum Laden der Quelldatei
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // Wenden Sie den Übergang des Typus Kreis auf Folie 1 an
+    // Kreis-Übergangstyp auf Folie 1 anwenden
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Wenden Sie den Übergang des Typus Kombi auf Folie 2 an
+    // Kamm-Übergangstyp auf Folie 2 anwenden
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Schreiben Sie die Präsentation auf die Festplatte
+    // Präsentation auf Festplatte schreiben
     presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+
 ## **Erweiterten Folienübergang hinzufügen**
-Im obigen Abschnitt haben wir nur einen einfachen Übergangseffekt auf die Folie angewendet. Um diesen einfachen Übergangseffekt noch besser und kontrollierbarer zu gestalten, befolgen Sie bitte die folgenden Schritte:
+Im vorherigen Abschnitt haben wir nur einen einfachen Übergangseffekt auf die Folie angewendet. Um diesen einfachen Übergangseffekt nun noch besser und steuerbarer zu machen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasse.
-1. Wenden Sie einen Folienübergangstyp auf die Folie an, aus einem der von Aspose.Slides für Android über Java angebotenen Übergangseffekte.
-1. Sie können den Übergang auch auf "Bei Klick fortsetzen", nach einem bestimmten Zeitraum oder beides setzen.
-1. Wenn der Folienübergang auf "Bei Klick fortsetzen" aktiviert ist, wird der Übergang nur vorangetrieben, wenn jemand mit der Maus klickt. Darüber hinaus wird der Übergang automatisch fortschreiten, wenn die Eigenschaft "Nach Zeit fortschreiten" gesetzt ist und die angegebene Zeit vergangen ist.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasse.
+1. Wenden Sie einen Folienübergangstyp auf die Folie an, indem Sie einen der von Aspose.Slides für Android via Java angebotenen Übergangseffekte auswählen.
+1. Sie können den Übergang außerdem auf „Advance On Click“, nach einem bestimmten Zeitraum oder beides setzen.
+1. Wenn der Folienübergang auf „Advance On Click“ aktiviert ist, wird der Übergang nur fortschreiten, wenn jemand mit der Maus klickt. Ist die Eigenschaft „Advance After Time“ gesetzt, wird der Übergang automatisch nach Ablauf der festgelegten Vorlaufzeit fortschreiten.
 1. Schreiben Sie die modifizierte Präsentation als Präsentationsdatei.
-
 ```java
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt
+// Instanziieren der Presentation-Klasse, die eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // Wenden Sie den Übergang des Typus Kreis auf Folie 1 an
+    // Kreis-Übergangstyp auf Folie 1 anwenden
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Setzen Sie die Übergangszeit auf 3 Sekunden
+    // Setzen der Übergangszeit auf 3 Sekunden
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // Wenden Sie den Übergang des Typus Kombi auf Folie 2 an
+    // Kamm-Übergangstyp auf Folie 2 anwenden
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // Setzen Sie die Übergangszeit auf 5 Sekunden
+    // Setzen der Übergangszeit auf 5 Sekunden
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // Wenden Sie den Übergang des Typus Zoom auf Folie 3 an
+    // Zoom-Übergangstyp auf Folie 3 anwenden
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // Setzen Sie die Übergangszeit auf 7 Sekunden
+    // Setzen der Übergangszeit auf 7 Sekunden
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 
-    // Schreiben Sie die Präsentation auf die Festplatte
+    // Präsentation auf Festplatte schreiben
     pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
+
 ## **Morph-Übergang**
 {{% alert color="primary" %}} 
 
-Aspose.Slides für Android über Java unterstützt jetzt den [Morph-Übergang](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). Sie repräsentieren den neuen Morph-Übergang, der in PowerPoint 2019 eingeführt wurde.
+Aspose.Slides für Android via Java unterstützt jetzt den [Morph Transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). Sie stellen den neuen Morph‑Übergang vor, der in PowerPoint 2019 eingeführt wurde.
 
 {{% /alert %}} 
 
-Der Morph-Übergang ermöglicht es Ihnen, eine flüssige Bewegung von einer Folie zur nächsten zu animieren. Dieser Artikel beschreibt das Konzept und wie man den Morph-Übergang verwendet. Um den Morph-Übergang effektiv zu nutzen, benötigen Sie zwei Folien mit mindestens einem gemeinsamen Objekt. Der einfachste Weg ist, die Folie zu duplizieren und das Objekt auf der zweiten Folie an einen anderen Ort zu verschieben.
+Der Morph‑Übergang ermöglicht es, eine sanfte Bewegung von einer Folie zur nächsten zu animieren. Dieser Artikel beschreibt das Konzept und die Verwendung des Morph‑Übergangs. Um den Morph‑Übergang effektiv zu nutzen, benötigen Sie zwei Folien mit mindestens einem gemeinsamen Objekt. Der einfachste Weg besteht darin, die Folie zu duplizieren und das Objekt auf der zweiten Folie an eine andere Position zu verschieben.
 
-Der folgende Codeausschnitt zeigt, wie Sie eine Kopie der Folie mit etwas Text zur Präsentation hinzufügen und einen [Morph-Typ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionType) für die zweite Folie festlegen.
-
+Das folgende Code‑Snippet zeigt, wie man eine Kopie der Folie mit etwas Text zur Präsentation hinzufügt und für die zweite Folie einen Übergang des [Morph‑Typ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionType) festlegt.
 ```java
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph-Übergang in PowerPoint-Präsentationen");
+    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
 
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
 
@@ -116,17 +128,17 @@ finally {
 }
 ```
 
-## **Morph-Übergangstypen**
-Das neue [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionMorphType) Enum wurde hinzugefügt. Es repräsentiert verschiedene Typen von Morph-Folienübergängen.
 
-Das TransitionMorphType-Enum hat drei Mitglieder:
+## **Morph‑Übergangstypen**
+Das neue [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionMorphType)‑Enum wurde hinzugefügt. Es stellt verschiedene Typen des Morph‑Folienübergangs dar.
 
-- ByObject: Der Morph-Übergang wird unter Berücksichtigung von Formen als unteilbare Objekte durchgeführt.
-- ByWord: Der Morph-Übergang wird mit dem Übertragen von Text nach Wörtern durchgeführt, wo möglich.
-- ByChar: Der Morph-Übergang wird mit dem Übertragen von Text nach Zeichen durchgeführt, wo möglich.
+Das TransitionMorphType‑Enum hat drei Mitglieder:
 
-Der folgende Codeausschnitt zeigt, wie Sie den Morph-Übergang auf eine Folie anwenden und den Morph-Typ ändern:
+- ByObject: Der Morph‑Übergang wird unter Berücksichtigung der Formen als unteilbare Objekte ausgeführt.
+- ByWord: Der Morph‑Übergang wird durchgeführt, indem der Text nach Möglichkeit wortweise übertragen wird.
+- ByChar: Der Morph‑Übergang wird durchgeführt, indem der Text nach Möglichkeit zeichenweise übertragen wird.
 
+Das folgende Code‑Snippet zeigt, wie man den Morph‑Übergang für eine Folie festlegt und den Morph‑Typ ändert:
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -138,27 +150,46 @@ try {
 }
 ```
 
+
 ## **Übergangseffekte festlegen**
-Aspose.Slides für Android über Java unterstützt das Festlegen von Übergangseffekten wie, von Schwarz, von links, von rechts usw. Um den Übergangseffekt festzulegen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Android via Java unterstützt das Festlegen von Übergangseffekten wie „From Black“, „From Left“, „From Right“ usw. Um den Übergangseffekt festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
+- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
 - Holen Sie sich die Referenz der Folie.
-- Festlegen des Übergangseffekts.
-- Schreiben Sie die Präsentation als [PPTX ](https://docs.fileformat.com/presentation/pptx/)Datei.
+- Setzen Sie den Übergangseffekt.
+- Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
 
-Im folgenden Beispiel haben wir die Übergangseffekte festgelegt.
-
+Im nachfolgenden Beispiel haben wir die Übergangseffekte festgelegt.
 ```java
-// Erstellen Sie eine Instanz der Presentation-Klasse
+// Erstelle eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
     // Effekt festlegen
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
     ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
     
-    // Schreiben Sie die Präsentation auf die Festplatte
+    // Präsentation auf die Festplatte schreiben
     presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich die Wiedergabegeschwindigkeit eines Folienübergangs steuern?**
+
+Ja. Setzen Sie die [speed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-) des Übergangs mittels der [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) Einstellung (z. B. langsam/mittel/schnell).
+
+**Kann ich einer Transition Audio anhängen und sie wiederholen lassen?**
+
+Ja. Sie können einen Ton für den Übergang einbetten und das Verhalten über Einstellungen wie Sound‑Modus und Schleife steuern (z. B. [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), sowie Metadaten wie [setSoundIsBuiltIn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) und [setSoundName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+
+**Was ist der schnellste Weg, denselben Übergang auf jede Folie anzuwenden?**
+
+Konfigurieren Sie den gewünschten Übergangstyp in den Übergangseinstellungen jeder Folie; Übergänge werden pro Folie gespeichert, sodass das Anwenden desselben Typs auf alle Folien ein konsistentes Ergebnis liefert.
+
+**Wie kann ich prüfen, welcher Übergang derzeit auf einer Folie eingestellt ist?**
+
+Untersuchen Sie die [transition settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--) der Folie und lesen Sie den [transition type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setType-int-); dieser Wert gibt genau an, welcher Effekt angewendet ist.

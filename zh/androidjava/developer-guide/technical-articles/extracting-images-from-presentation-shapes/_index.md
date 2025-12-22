@@ -1,23 +1,34 @@
 ---
-title: 从幻灯片形状中提取图像
+title: 从演示文稿形状中提取图像
+linktitle: 形状中的图像
 type: docs
 weight: 100
 url: /zh/androidjava/extracting-images-from-presentation-shapes/
-keywords: "提取图像, PowerPoint, PPT, PPTX, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
-description: "在 Java 中从 PowerPoint 演示文稿中提取图像"
-
+keywords:
+- 提取图像
+- 检索图像
+- 幻灯片背景
+- 形状背景
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Android
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Android via Java 从 PowerPoint 和 OpenDocument 演示文稿的形状中提取图像 —— 快速、代码友好的解决方案。"
 ---
+
+## **从形状中提取图像**
 
 {{% alert color="primary" %}} 
 
-图像通常被添加到形状中，并且经常用作幻灯片的背景。图像对象是通过 [IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/) 添加的，它是 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 对象的集合。
+图像通常添加到形状中，也常用作幻灯片的背景。图像对象是通过[IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/) 添加的，它是一个[IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 对象的集合。
 
-本文解释了如何提取添加到演示文稿中的图像。
+本文说明如何提取已添加到演示文稿中的图像。 
 
 {{% /alert %}} 
 
-要从演示文稿中提取图像，您必须首先通过遍历每个幻灯片以及每个形状来定位图像。一旦找到或识别图像，您可以提取它并将其保存为新文件。
-
+要从演示文稿中提取图像，需要先遍历每个幻灯片，然后遍历每个形状以定位图像。找到或确定图像后，即可提取并将其保存为新文件。 
 ```java
     public void extractImages()
     {
@@ -39,30 +50,30 @@ description: "在 Java 中从 PowerPoint 演示文稿中提取图像"
             //访问第一张幻灯片 Slide sl = pres.getSlideByPosition(i);
             if (sl.getBackground().getFillFormat().getFillType() == FillType.Picture)
             {
-                //获取背景图像
+                //获取背景图片
                 backImage = sl.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                 imageType = getImageTType(backImage);
 
                 String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "." + imageType;
-                //保存图像
+                //保存图片
                 backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
             } else
             {
                 if (sl.getLayoutSlide().getBackground().getFillFormat().getFillType() == FillType.Picture)
                 {
-                    //获取背景图像
+                    //获取背景图片
                     backImage = sl.getLayoutSlide().getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                     imageType = getImageTType(backImage);
 
                     String imagePath = folderPath + "backImage_" + "LayoutSlide_" + slideIndex + "." + imageType;
-                    //保存图像
+                    //保存图片
                     backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
             }
 
             for (int j = 0; j < sl.getShapes().size(); j++)
             {
-                //访问包含图像的形状
+                // 访问包含图像的形状
                 IShape sh = sl.getShapes().get_Item(j);
 
                 if (sh instanceof IAutoShape)
@@ -86,7 +97,7 @@ description: "在 Java 中从 PowerPoint 演示文稿中提取图像"
                 if (ifImageFound)
                 {
                     String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "_Shape_" + j + "." + imageType;
-                    //保存图像
+                    //保存图片
                     img.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
                 ifImageFound = false;
@@ -108,3 +119,22 @@ description: "在 Java 中从 PowerPoint 演示文稿中提取图像"
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 ```
+
+
+## **常见问题**
+
+**是否可以在不进行任何裁剪、效果或形状转换的情况下提取原始图像？**
+
+是的。当您访问形状的图像时，获取的是演示文稿的[image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) 中的图像对象，这意味着是未裁剪或未加样式效果的原始像素。工作流会遍历演示文稿的图像集合和[PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) 对象，这些对象存储原始数据。
+
+**一次保存大量图像时是否会导致相同文件的重复？**
+
+是的，如果不加区分地全部保存的话。演示文稿的[image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) 可能包含由不同形状或幻灯片引用的相同二进制数据。为避免重复，在写入之前应比较哈希值、大小或提取数据的内容。
+
+**如何确定哪些形状链接到演示文稿集合中的特定图像？**
+
+Aspose.Slides 不会存储从[PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) 到形状的反向链接。遍历时手动构建映射：每当发现对[PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) 的引用时，记录使用该图像的形状。
+
+**是否可以提取嵌入在 OLE 对象（如附加文档）中的图像？**
+
+不能直接提取，因为 OLE 对象是一个容器。需要先提取 OLE 包本身，然后使用其他工具分析其内容。演示文稿的图片形状是通过[PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) 工作的；OLE 是一种不同的对象类型。

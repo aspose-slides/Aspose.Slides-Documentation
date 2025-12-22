@@ -1,23 +1,34 @@
 ---
-title: Extrahieren von Bildern aus Präsentationsformen
+title: Bilder aus Formen der Präsentation extrahieren
+linktitle: Bild aus Form
 type: docs
 weight: 100
 url: /de/androidjava/extracting-images-from-presentation-shapes/
-keywords: "Bild extrahieren, PowerPoint, PPT, PPTX, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
-description: "Bilder aus PowerPoint-Präsentationen in Java extrahieren"
-
+keywords:
+- Bild extrahieren
+- Bild abrufen
+- Folienhintergrund
+- Formhintergrund
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Bilder aus Formen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android über Java extrahieren - schnelle, code-freundliche Lösung."
 ---
+
+## **Bilder aus Formen extrahieren**
 
 {{% alert color="primary" %}} 
 
-Bilder werden oft zu Formen hinzugefügt und auch häufig als Hintergrund von Folien verwendet. Die Bildobjekte werden über [IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/) hinzugefügt, die eine Sammlung von [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) Objekten ist.
+Bilder werden häufig zu Formen hinzugefügt und auch oft als Folienhintergründe verwendet. Die Bildobjekte werden über [IImageCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/), das eine Sammlung von [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) Objekten ist, hinzugefügt.
 
-Dieser Artikel erklärt, wie Sie die in Präsentationen hinzugefügten Bilder extrahieren können. 
+Dieser Artikel erklärt, wie Sie die zu Präsentationen hinzugefügten Bilder extrahieren können. 
 
 {{% /alert %}} 
 
-Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst finden, indem Sie jede Folie durchgehen und dann jede Form durchgehen. Sobald das Bild gefunden oder identifiziert ist, können Sie es extrahieren und als neue Datei speichern. 
-
+Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst finden, indem Sie jede Folie und anschließend jede Form durchgehen. Sobald das Bild gefunden oder identifiziert ist, können Sie es extrahieren und als neue Datei speichern. 
 ```java
     public void extractImages()
     {
@@ -32,14 +43,14 @@ Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst 
         {
 
             slideIndex++;
-            //Zugriff auf die erste Folie
+            //Greift auf die erste Folie zu
             ISlide sl = pres.getSlides().get_Item(i);
 
 
-            //Zugriff auf die erste Folie Slide sl = pres.getSlideByPosition(i);
+            //Greift auf die erste Folie zu Slide sl = pres.getSlideByPosition(i);
             if (sl.getBackground().getFillFormat().getFillType() == FillType.Picture)
             {
-                //Erhält das Hintergrundbild
+                //Holt das Hintergrundbild
                 backImage = sl.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                 imageType = getImageTType(backImage);
 
@@ -50,7 +61,7 @@ Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst 
             {
                 if (sl.getLayoutSlide().getBackground().getFillFormat().getFillType() == FillType.Picture)
                 {
-                    //Erhält das Hintergrundbild
+                    //Holt das Hintergrundbild
                     backImage = sl.getLayoutSlide().getBackground().getFillFormat().getPictureFillFormat().getPicture().getImage();
                     imageType = getImageTType(backImage);
 
@@ -62,7 +73,7 @@ Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst 
 
             for (int j = 0; j < sl.getShapes().size(); j++)
             {
-                // Zugriff auf die Form, die ein Bild enthält
+                // Greift auf die Form zu, die ein Bild enthält
                 IShape sh = sl.getShapes().get_Item(j);
 
                 if (sh instanceof IAutoShape)
@@ -82,7 +93,7 @@ Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst 
                     ifImageFound = true;
                 }
 
-                //Setzt das bevorzugte Bildformat
+                //Legt das bevorzugte Bildformat fest
                 if (ifImageFound)
                 {
                     String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "_Shape_" + j + "." + imageType;
@@ -108,3 +119,23 @@ Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zuerst 
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 ```
+
+
+
+## **FAQ**
+
+**Kann ich das Originalbild ohne Zuschneidung, Effekte oder Form‑Transformationen extrahieren?**
+
+Ja. Wenn Sie auf das Bild einer Form zugreifen, erhalten Sie das Bildobjekt aus der [image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--), was die ursprünglichen Pixel ohne Zuschneiden oder Stil‑Effekte bedeutet. Der Ablauf durchläuft die Bildsammlung der Präsentation und die [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) Objekte, die die Rohdaten speichern.
+
+**Besteht das Risiko, beim gleichzeitigen Speichern vieler Bilder identische Dateien zu duplizieren?**
+
+Ja, wenn Sie alles wahllos speichern. Die [image collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) einer Präsentation kann identische Binärdaten enthalten, die von verschiedenen Formen oder Folien referenziert werden. Um Duplikate zu vermeiden, vergleichen Sie vor dem Schreiben die Hashes, Größen oder Inhalte der extrahierten Daten.
+
+**Wie kann ich ermitteln, welche Formen mit einem bestimmten Bild aus der Bildsammlung der Präsentation verknüpft sind?**
+
+Aspose.Slides speichert keine Rückverweise von [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) zu Formen. Erstellen Sie während der Traversierung manuell eine Zuordnung: Jedes Mal, wenn Sie eine Referenz auf ein [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/) finden, notieren Sie, welche Formen es verwenden.
+
+**Kann ich Bilder extrahieren, die in OLE‑Objekten eingebettet sind, z. B. angehängte Dokumente?**
+
+Nicht direkt, da ein OLE‑Objekt ein Container ist. Sie müssen das OLE‑Paket selbst extrahieren und dann dessen Inhalt mit separaten Werkzeugen analysieren. Präsentations‑Bildformen arbeiten über [PPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ppimage/); OLE ist ein anderer Objekttyp.
