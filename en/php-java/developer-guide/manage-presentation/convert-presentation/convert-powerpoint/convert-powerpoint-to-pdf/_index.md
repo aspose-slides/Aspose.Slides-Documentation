@@ -147,7 +147,7 @@ try {
 }
 ```
 
-### **Convert PowerPoint to Password Protected PDF**
+### **Convert PowerPoint to Password-Protected PDF**
 
 This code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) class:
 
@@ -310,25 +310,25 @@ Aspose.Slides supports PDF conversion operations, allowing you to convert PDF fi
 
 {{% /alert %}}
 
-## **Frequently Asked Questions**
+## **FAQ**
 
-1. **Can I convert multiple PowerPoint files to PDF in bulk?**
+**Can I convert multiple PowerPoint files to PDF in bulk?**
 
 Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
 
-2. **Is it possible to password-protect the converted PDF?**
+**Is it possible to password-protect the converted PDF?**
 
 Absolutely. Use the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) class to set a password and define access permissions during the conversion process.
 
-3. **How do I include hidden slides in the PDF?**
+**How do I include hidden slides in the PDF?**
 
 Use the `setShowHiddenSlides` method in the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
 
-4. **Can Aspose.Slides maintain high image quality in the PDF?**
+**Can Aspose.Slides maintain high image quality in the PDF?**
 
 Yes, you can control image quality by using methods such as `setJpegQuality` and `setSufficientResolution` in the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) class to ensure high-quality images in your PDF.
 
-5. **Does Aspose.Slides support PDF/A compliance standards?**
+**Does Aspose.Slides support PDF/A compliance standards?**
 
 Yes, Aspose.Slides allows you to export PDFs that comply with various standards, including PDF/A1a, PDF/A1b, and PDF/UA, ensuring your documents meet accessibility and archival requirements.
 

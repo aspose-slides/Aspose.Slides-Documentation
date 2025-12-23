@@ -38,7 +38,7 @@ Aspose.Slides provides all the interfaces and classes you need to work with Powe
 
 An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
-## **Add Multiple Paragraph Containing Multiple Portions**
+## **Add Multiple Paragraphs Containing Multiple Portions**
 
 These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
 
@@ -339,7 +339,7 @@ try {
 ```
 
 
-## **Manage Paragraph with Custom Numbered List**
+## **Manage a Paragraph with a Custom Numbered List**
 
 The [IBulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
 
@@ -449,7 +449,7 @@ try {
 }
 ```
 
-## **Set Hanging Indent for Paragraph**
+## **Set Hanging Indent for a Paragraph**
 
 This PHP code shows you how to set the hanging indent for a paragraph:
 
@@ -476,7 +476,7 @@ try {
 }
 ```
 
-## **Manage End Paragraph Run Properties for Paragraph**
+## **Manage End Paragraph Run Properties**
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 1. Get the reference for the slide containing the paragraph through its position.
@@ -554,7 +554,7 @@ try {
 ```
 
 
-## **Export Paragraphs Text to HTML**
+## **Export Paragraph Text to HTML**
 
 Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
 
@@ -696,3 +696,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I completely disable line wrapping inside a text frame?**
+
+Yes. Use the text frame’s wrapping setting ([setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/)) to turn wrapping off so lines won’t break at the frame’s edges.
+
+**How can I get the exact on-slide bounds of a specific paragraph?**
+
+You can retrieve the paragraph’s (and even a single portion’s) bounding rectangle to know its precise position and size on the slide.
+
+**Where is paragraph alignment (left/right/center/justify) controlled?**
+
+[Alignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) is a paragraph-level setting in [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/); it applies to the whole paragraph regardless of individual portion formatting.
+
+**Can I set a spell-check language for just part of a paragraph (e.g., one word)?**
+
+Yes. The language is set at the portion level ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)), so multiple languages can coexist within a single paragraph.

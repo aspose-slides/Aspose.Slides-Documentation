@@ -25,6 +25,8 @@ keywords:
 description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for PHP via Java. High-quality visuals with simple code examples."
 ---
 
+## **SVG Format**
+
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
 
 SVG is one of the few formats for images that meets very high standards in these terms: scalability, interactivity, performance, accessibility, programmability, and others. For these reasons, it is commonly used in web development. 
@@ -34,6 +36,8 @@ You may want to use SVG files when you need to
 - **print your presentation in a *very large format*.** SVG images can scale up to any resolution or level. You get to resize SVG images as many times as necessary without sacrificing quality.
 - **use charts and graphs from your slides in *different mediums or platforms**.* Most readers can interpret SVG files. 
 - **use the *smallest possible sizes of images***. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
+
+## **Render a Slide as an SVG Image**
 
 Aspose.Slides for PHP via Java allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
 
@@ -69,3 +73,16 @@ This sample code  shows you how to convert PPT to SVG using Aspose.Slides:
   }
 ```
 
+## **FAQ**
+
+**Why might the resulting SVG look different across browsers?**
+
+Support for specific SVG features is implemented differently by browser engines. [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) parameters help smooth out incompatibilities.
+
+**Is it possible to export not only slides but also individual shapes to SVG?**
+
+Yes. Any [shape can be saved as a separate SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/), which is convenient for icons, pictograms, and reusing graphics.
+
+**Can multiple slides be combined into a single SVG (strip/document)?**
+
+The standard scenario is one slide → one SVG. Combining several slides into a single SVG canvas is a post-processing step performed at the application level.

@@ -127,16 +127,16 @@ try {
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
-**What happens to additional slide layouts and master slides?**
+**Do hyperlinks survive the export to Markdown?**
 
-Layouts and master slides themselves are not exported: only the final content of each slide is written to Markdown, so background or placeholder elements appear merely as ordinary text or images where applicable.
+Yes. Text [hyperlinks](/slides/php-java/manage-hyperlinks/) are preserved as standard Markdown links. Slide [transitions](/slides/php-java/slide-transition/) and [animations](/slides/php-java/powerpoint-animation/) are not converted.
 
-**Are animations and slide transitions preserved?**
+**Can I speed up conversion by running it in multiple threads?**
 
-No. Because Markdown is a static format, animations, triggers, and transitions are omitted, leaving a linear text document with any embedded images in place.
+You can parallelize across files, but [don’t share](/slides/php-java/multithreading/) the same [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance across threads. Use separate instances/processes per file to avoid contention.
 
-**Can hidden slides be included when exporting to Markdown?**
+**What happens to images—where are they saved, and are the paths relative?**
 
-Yes. By default, hidden slides are skipped. Enable the dedicated option in the save settings to include them, and the text and images from those slides will be inserted into the output document in their original sequence.
+[Images](/slides/php-java/image/) are exported to a dedicated folder, and the Markdown file references them with relative paths by default. You can configure the base output path and asset folder name to keep a predictable repository structure.

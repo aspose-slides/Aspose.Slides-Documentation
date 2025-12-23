@@ -17,7 +17,7 @@ keywords:
 description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for PHP via Java, with examples for PowerPoint and OpenDocument presentations."
 ---
 
-## Data Storage in Presentation Files
+## **Data Storage in Presentation Files**
 
 PPTX files—items with the .pptx extension—are stored in the PresentationML format, which is part of the Office Open XML specification. The Office Open XML format defines the structure for data contained in presentations. 
 
@@ -31,7 +31,7 @@ Tags are essentially string-key pair values.
 
 {{% /alert %}} 
 
-## Getting the Values for Tags
+## **Get Values of Tags**
 
 In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for PHP via Java for [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
 
@@ -46,7 +46,7 @@ In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://
   }
 ```
 
-## Adding Tags to Presentations
+## **Add Tags to Presentations**
 
 Aspose.Slides allows you to add tags to presentations. A tag typically consists of two items: 
 
@@ -98,3 +98,17 @@ Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.sl
     }
   }
 ```
+
+## **FAQ**
+
+**Can I remove all tags from a presentation, slide, or shape in one operation?**
+
+Yes. The [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) supports a [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/) operation that deletes all key–value pairs at once.
+
+**How do I delete a single tag by its name without iterating over the whole collection?**
+
+Use the [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) operation on [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) to delete the tag by its key.
+
+**How can I retrieve the complete list of tag names for analytics or filtering?**
+
+Use [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) on the [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/); it returns an array of all tag names.

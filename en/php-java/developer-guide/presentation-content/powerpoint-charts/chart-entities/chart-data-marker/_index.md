@@ -75,3 +75,13 @@ In the example given below, we have set the chart marker options on data points 
     }
   }
 ```
+
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/php-java/aspose.slides/markerstyletype/) class. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/php-java/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/php-java/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

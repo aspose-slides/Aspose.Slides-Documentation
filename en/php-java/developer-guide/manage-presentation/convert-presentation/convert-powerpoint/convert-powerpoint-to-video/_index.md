@@ -380,3 +380,16 @@ Then the generated frames can be compiled to produce a video. See the [Convert P
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
+## **FAQ**
+
+**Is it possible to convert presentations that are password protected?**
+
+Yes, Aspose.Slides allows working with [password-protected presentations](/slides/php-java/password-protected-presentation/). When processing such files, you need to provide the correct password so that the library can access the content of the presentation.
+
+**Does Aspose.Slides support usage in cloud solutions?**
+
+Yes, Aspose.Slides can be integrated into cloud applications and services. The library is designed to work in server environments, ensuring high performance and scalability for batch processing of files.
+
+**Are there any size limitations for presentations during conversion?**
+
+Aspose.Slides is capable of handling presentations of virtually any size. However, when working with very large files, additional system resources may be required, and it is sometimes recommended to optimize the presentation to improve performance.
