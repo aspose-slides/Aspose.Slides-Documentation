@@ -1,39 +1,40 @@
 ---
-title: プレゼンテーションの確認
+title: PHP でプレゼンテーション情報を取得および更新
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/php-java/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
 - プレゼンテーション形式
-- プレゼンテーションプロパティ
-- ドキュメントプロパティ
-- プロパティの取得
-- プロパティの読み取り
-- プロパティの変更
-- プロパティの修正
-- PPTX
-- PPT
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
+- プロパティ取得
+- プロパティ読み取り
+- プロパティ変更
+- プロパティ修正
+- プロパティ更新
+- PPTX の検査
+- PPT の検査
+- ODP の検査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - PHP
-- Java
-description: "Javaを介してPHPでPowerPointプレゼンテーションのプロパティを読み取り、変更します"
+- Aspose.Slides
+description: "Aspose.Slides for PHP を使用して、PowerPoint および OpenDocument プレゼンテーションのスライド、構造、メタデータを調査し、迅速な洞察とスマートなコンテンツ監査を実現します。"
 ---
 
-Aspose.Slides for PHP via Javaを使用すると、プレゼンテーションを調べてそのプロパティを把握し、挙動を理解することができます。
+Aspose.Slides for PHP via Java を使用すると、プレゼンテーションを調査してそのプロパティを把握し、動作を理解できます。
 
-{{% alert title="情報" color="info" %}} 
-
-[PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo)および[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/)クラスには、ここでの操作に使われるプロパティとメソッドが含まれています。
-
+{{% alert title="Info" color="info" %}} 
+ここで使用される操作に必要なプロパティとメソッドは、[PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo) と [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) クラスに含まれています。
 {{% /alert %}} 
 
 ## **プレゼンテーション形式の確認**
 
-プレゼンテーションに取り組む前に、現在どの形式（PPT、PPTX、ODPなど）でプレゼンテーションが保存されているかを知りたいと思うことがあります。
+プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）を確認したい場合があります。
 
-プレゼンテーションを読み込まずにその形式を確認できます。以下のPHPコードを参照してください：
-
+プレゼンテーションを読み込まずに形式を確認できます。以下の PHP コードをご覧ください:
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
   echo($info->getLoadFormat());// PPTX
@@ -47,54 +48,76 @@ Aspose.Slides for PHP via Javaを使用すると、プレゼンテーション�
 
 ```
 
+
 ## **プレゼンテーションプロパティの取得**
 
-このPHPコードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
-
+この PHP コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）の取得方法を示します。
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
   $props = $info->readDocumentProperties();
   echo($props->getCreatedTime());
   echo($props->getSubject());
   echo($props->getTitle());
-  # ..
-
+  # ...
 ```
 
-[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#DocumentProperties--)クラスの下にあるプロパティも確認したいかもしれません。
+
+[DocumentProperties のプロパティ](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#DocumentProperties--) をご覧になることができます。
 
 ## **プレゼンテーションプロパティの更新**
 
-Aspose.Slidesは、プレゼンテーションプロパティを変更するための[PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)メソッドを提供しています。
+Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) メソッドを提供します。
 
-PowerPointプレゼンテーションが、以下に示すドキュメントプロパティを持っていると仮定しましょう。
+以下に示すように、ドキュメントプロパティが設定された PowerPoint プレゼンテーションがあるとします。
 
-![PowerPointプレゼンテーションの元のドキュメントプロパティ](input_properties.png)
+![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
-
+このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています:
 ```php
 $fileName = "sample.pptx";
 
 $info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
 
 $properties = $info->readDocumentProperties();
-$properties->setTitle("私のタイトル");
+$properties->setTitle("My title");
 $properties->setLastSavedTime(new Java("java.util.Date"));
 
 $info->updateDocumentProperties($properties);
 $info->writeBindedPresentation($fileName);
 ```
 
-ドキュメントプロパティを変更した結果は以下に示されています。
 
-![PowerPointプレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
+ドキュメントプロパティを変更した結果は以下の通りです。
 
-## **役立つリンク**
+![PowerPoint プレゼンテーションの変更後ドキュメントプロパティ](output_properties.png)
 
-プレゼンテーションとそのセキュリティ属性に関するさらに詳細な情報を得るために、以下のリンクが役立つかもしれません：
+## **便利なリンク**
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護されているかどうかの確認（読み取り専用）](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションをロードする前にパスワード保護されているかどうかの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+プレゼンテーションとそのセキュリティ属性に関する詳細情報については、以下のリンクが役立ちます:
+
+- [プレゼンテーションが暗号化されているかの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [プレゼンテーションが書き込み保護（読み取り専用）かどうかの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [ロード前にプレゼンテーションがパスワード保護されているかの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
 - [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **よくある質問**
+
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認するにはどうすればよいですか？**
+
+プレゼンテーションレベルで [埋め込みフォント情報](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getembeddedfonts/) を探し、次にそれらのエントリを [実際に使用されているフォント](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getfonts/) と比較して、レンダリングに必須のフォントを特定します。
+
+**ファイルに非表示スライドがあるか、またその数をすばやく確認するには？**
+
+[スライド コレクション](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) を反復し、各スライドの [可視性フラグ](https://reference.aspose.com/slides/php-java/aspose.slides/slide/gethidden/) を確認します。
+
+**カスタムスライドサイズと向きが使用されているか、デフォルトと異なるかを検出できますか？**
+
+はい。現在の [スライド サイズ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslidesize/) と向きを標準のプリセットと比較します。これにより、印刷やエクスポート時の挙動を予測できます。
+
+**チャートが外部データソースを参照しているかどうかをすばやく確認する方法はありますか？**
+
+はい。すべての [チャート](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) を走査し、各チャートの [データ ソース](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) を確認します。データが内部かリンクベースか、壊れたリンクがあるかどうかを把握します。
+
+**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価するにはどうすればよいですか？**
+
+各スライドについてオブジェクト数を数え、大きな画像、透過、影、アニメーション、マルチメディアなどをチェックします。概算の複雑度スコアを付けて、パフォーマンス上のボトルネックとなり得るスライドをフラグします。

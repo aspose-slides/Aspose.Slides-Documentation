@@ -1,350 +1,334 @@
 ---
-title: Administrar OLE
+title: Gestionar OLE en presentaciones usando PHP
+linktitle: Gestionar OLE
 type: docs
 weight: 40
 url: /es/php-java/manage-ole/
 keywords:
+- Objeto OLE
+- Vinculación e incrustación de objetos
 - agregar OLE
 - incrustar OLE
-- agregar un objeto
-- incrustar un objeto
-- incrustar un archivo
+- agregar objeto
+- incrustar objeto
+- agregar archivo
+- incrustar archivo
 - objeto vinculado
-- Vinculación y Embebido de Objetos
-- objeto OLE
-- PowerPoint 
+- archivo vinculado
+- cambiar OLE
+- icono OLE
+- título OLE
+- extraer OLE
+- extraer objeto
+- extraer archivo
+- PowerPoint
 - presentación
 - PHP
-- Java
-- Aspose.Slides para PHP a través de Java
-description: Agregar objetos OLE a presentaciones de PowerPoint en PHP
+- Aspose.Slides
+description: "Optimice la gestión de objetos OLE en PowerPoint y archivos OpenDocument con Aspose.Slides para PHP vía Java. Incruste, actualice y exporte contenido OLE sin problemas."
 ---
 
 {{% alert color="primary" %}} 
 
-OLE  (Vinculación y Embebido de Objetos) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación sean colocados en otra aplicación a través de la vinculación o la incrustación. 
+OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se inserten en otra aplicación mediante enlaces o incrustaciones. 
 
 {{% /alert %}} 
 
-Considera un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
+Considere un gráfico creado en MS Excel. El gráfico se coloca luego dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
 
-- Un objeto OLE puede aparecer como un ícono. En este caso, al hacer doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se te solicita que selecciones una aplicación para abrir o editar el objeto. 
-- Un objeto OLE puede mostrar contenidos reales, por ejemplo, los contenidos de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puedes modificar los datos del gráfico dentro de la aplicación PowerPoint.
+- Un objeto OLE puede aparecer como un icono. En este caso, al hacer doble clic en el icono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita al usuario que seleccione una aplicación para abrir o editar el objeto. 
+- Un objeto OLE puede mostrar su contenido real, como el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puede modificar los datos del gráfico dentro de PowerPoint.
 
-[Aspose.Slides para PHP a través de Java](https://products.aspose.com/slides/php-java/) te permite insertar Objetos OLE en diapositivas como Marcos de Objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame)).
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) permite insertar objetos OLE en diapositivas como marcos de objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/)). 
 
-## **Agregar Marcos de Objetos OLE a las Diapositivas**
-Suponiendo que ya creaste un gráfico en Microsoft Excel y deseas incrustar ese gráfico en una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para PHP a través de Java, puedes hacerlo de esta manera:
+## **Agregar marcos de objetos OLE a diapositivas**
 
-1. Crea una instancia de la [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva utilizando su índice.
-1. Abre el archivo de Excel que contiene el objeto gráfico de Excel y guárdalo en `MemoryStream`.
-1. Agrega el [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) a la diapositiva que contiene el array de bytes y otra información sobre el objeto OLE.
-1. Escribe la presentación modificada como un archivo PPTX.
+Suponiendo que ya haya creado un gráfico en Microsoft Excel y quiera incrustarlo en una diapositiva como un marco de objeto OLE usando Aspose.Slides for PHP via Java, puede hacerlo de esta manera:
 
-En el ejemplo a continuación, agregamos un gráfico de un archivo de Excel a una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para PHP a través de Java.
-**Nota** que el constructor [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IOleEmbeddedDataInfo) toma una extensión de objeto embebido como segundo parámetro. Esta extensión permite que PowerPoint interprete correctamente el tipo de archivo y elija la aplicación adecuada para abrir este objeto OLE.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+1. Obtener la referencia de una diapositiva mediante su índice. 
+1. Leer el archivo Excel como una matriz de bytes. 
+1. Agregar el [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) a la diapositiva que contiene la matriz de bytes y otra información sobre el objeto OLE. 
+1. Guardar la presentación modificada como un archivo PPTX. 
 
+En el ejemplo siguiente, agregamos un gráfico de un archivo Excel a una diapositiva como un marco de objeto OLE usando Aspose.Slides for PHP via Java.  
+**Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/) recibe una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE. 
 ```php
-  # Instancia la clase Prseetation que representa el archivo PPTX
-  $pres = new Presentation();
-  try {
-    # Accede a la primera diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Carga un archivo de Excel al flujo
-    $fs = new Java("java.io.FileInputStream", "book1.xlsx");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
-    $mstream = new Java("java.io.ByteArrayOutputStream");
-    $buf = $Array->newInstance($Byte, 4096);
-    while (true) {
-      $bytesRead = $fs->read($buf, 0, $Array->getLength($buf));
-      if ($bytesRead <= 0) {
-        break;
-      }
-      $mstream->write($buf, 0, $bytesRead);
-    } 
-    $fs->close();
-    # Crea un objeto de datos para incrustar
-    $dataInfo = new OleEmbeddedDataInfo($mstream->toByteArray(), "xlsx");
-    $mstream->close();
-    # Agrega una forma de Marco de Objeto Ole
-    $oleObjectFrame = $sld->getShapes()->addOleObjectFrame(0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $dataInfo);
-    # Escribe el archivo PPTX en disco
-    $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+$slideSize = $presentation->getSlideSize()->getSize();
+$slide = $presentation->getSlides()->get_Item(0);
+
+// Prepare data for the OLE object.
+$fileData = file_get_contents("book.xlsx");
+$dataInfo = new OleEmbeddedDataInfo($fileData, "xlsx");
+
+// Add the OLE object frame to the slide.
+$slide->getShapes()->addOleObjectFrame(0, 0, $slideSize->getWidth(), $slideSize->getHeight(), $dataInfo);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Acceder a Marcos de Objetos OLE**
-Si un objeto OLE ya está incrustado en una diapositiva, puedes encontrar o acceder fácilmente a ese objeto de esta manera:
 
-1. Crea una instancia de la [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva utilizando su índice.
-1. Accede a la forma del Marco de Objeto OLE.
+### **Agregar marcos de objetos OLE vinculados**
 
-   En nuestro ejemplo, usamos el PPTX creado anteriormente, que tiene solo una forma en la primera diapositiva. Luego *convertimos* ese objeto como un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame). Este fue el Marco de Objeto OLE deseado para ser accedido.
-1. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación sobre él.
+Aspose.Slides for PHP via Java permite agregar un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) sin incrustar datos, solo con un vínculo al archivo. 
 
-En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego se escriben sus datos de archivo en un archivo de Excel.
-
+Este código PHP muestra cómo agregar un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) con un archivo Excel vinculado a una diapositiva: 
 ```php
-  # Carga el PPTX en un objeto Presentación
-  $pres = new Presentation("AccessingOLEObjectFrame.pptx");
-  try {
-    # Accede a la primera diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Convierte la forma a OleObjectFrame
-    $oleObjectFrame = $sld->getShapes()->get_Item(0);
-    # Lee el OLE Object y lo escribe en disco
-    if (!java_is_null($oleObjectFrame)) {
-      # Obtiene los datos del archivo embebido
-      $data = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileData();
-      # Obtiene la extensión del archivo embebido
-      $fileExtention = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension();
-      # Crea una ruta para guardar el archivo extraído
-      $extractedPath = "excelFromOLE_out" . $fileExtention;
-      # Guarda los datos extraídos
-      $fstr = new Java("java.io.FileOutputStream", $extractedPath);
-      $Array = new java_class("java.lang.reflect.Array");
-      try {
-        $fstr->write($data, 0, $Array->getLength($data));
-      } finally {
-        $fstr->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+
+// Agregar un marco de objeto OLE con un archivo Excel vinculado.
+$slide->getShapes()->addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Cambiar los Datos del Objeto OLE**
 
-Si un objeto OLE ya está incrustado en una diapositiva, puedes acceder fácilmente a ese objeto y modificar sus datos de esta manera:
+## **Acceder a marcos de objetos OLE**
 
-1. Abre la presentación deseada con el objeto OLE incrustado creando una instancia de la [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva a través de su índice. 
-1. Accede a la forma del Marco de Objeto OLE.
+Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de esta forma:
 
-   En nuestro ejemplo, usamos el PPTX creado anteriormente que tiene solo una forma en la primera diapositiva. Luego *convertimos* ese objeto como un [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame). Este fue el Marco de Objeto OLE deseado para ser accedido.
-1. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación sobre él.
-1. Crea el objeto Workbook y accede a los Datos OLE.
-1. Accede a la Hoja de Cálculo deseada y modifica los datos.
-1. Guarda el Workbook actualizado en flujos.
-1. Cambia los datos del objeto OLE a partir de datos de flujo.
+1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+2. Obtener la referencia de la diapositiva mediante su índice. 
+3. Acceder a la forma [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). En nuestro ejemplo, usamos la PPTX creada previamente que tiene solo una forma en la primera diapositiva. 
+4. Una vez accedido al marco del objeto OLE, puede realizar cualquier operación sobre él. 
 
-En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego sus datos de archivo se modifican para cambiar los datos del gráfico:
-
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y a sus datos de archivo. 
 ```php
-  $pres = new Presentation("ChangeOLEObjectData.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $ole = null;
-    # Recorre todas las formas en busca del marco Ole
-    foreach($slide->getShapes() as $shape) {
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
-        $ole = $shape;
-      }
-    }
-    if (!java_is_null($ole)) {
-      $msln = new ByteArrayInputStream($ole->getEmbeddedData()->getEmbeddedFileData());
-      try {
-        # Lee los datos del objeto en el Workbook
-        $Wb = new Workbook($msln);
-        $msout = new Java("java.io.ByteArrayOutputStream");
-        try {
-          # Modifica los datos del workbook
-          $Wb->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
-          $Wb->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
-          $Wb->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
-          $Wb->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
-          $so1 = new OoxmlSaveOptions(SaveFormat::XLSX);
-          $Wb->save($msout, $so1);
-          # Cambia los datos del objeto Ole frame
-          $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
-          $ole->setEmbeddedData($newData);
-        } finally {
-          if (!java_is_null($msout)) {
-            $msout->close();
-          }
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$shape = $slide->getShapes()->get_Item(0);
+
+if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
+    $oleFrame = $shape;
+    
+    // Obtener los datos del archivo incrustado.
+    $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
+
+    // Obtener la extensión del archivo incrustado.
+    $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
+
+    // ...
+}
+```
+
+
+### **Acceder a propiedades de marcos de objetos OLE vinculados**
+
+Aspose.Slides permite acceder a las propiedades de los marcos de objetos OLE vinculados. 
+
+Este código PHP muestra cómo comprobar si un objeto OLE está vinculado y luego obtener la ruta del archivo vinculado: 
+```php
+$presentation = new Presentation("sample.ppt");
+$slide = $presentation->getSlides()->get_Item(0);
+$shape = $slide->getShapes()->get_Item(0);
+
+if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
+    $oleFrame = $shape;
+
+    // Verificar si el objeto OLE está vinculado.
+    if (java_values($oleFrame->isObjectLink()) != 0) {
+        // Imprimir la ruta completa del archivo vinculado.
+        echo "OLE object frame is linked to: " . $oleFrame->getLinkPathLong() . PHP_EOL;
+
+        // Imprimir la ruta relativa del archivo vinculado si está presente.
+        // Sólo las presentaciones PPT pueden contener la ruta relativa.
+        $relativePath = java_values($oleFrame->getLinkPathRelative());
+        if (!is_null($relativePath) && $relativePath !== "") {
+            echo "OLE object frame relative path: " . $oleFrame->getLinkPathRelative() . PHP_EOL;
         }
-      } finally {
-        if (!java_is_null($msln)) {
-          $msln->close();
-        }
-      }
     }
-    $pres->save("OleEdit_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
+
+$presentation->dispose();
 ```
 
-## Incrustar Otros Tipos de Archivos en Diapositivas
 
-Además de gráficos de Excel, Aspose.Slides para PHP a través de Java te permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puedes insertar archivos HTML, PDF y ZIP como objetos en una diapositiva. Cuando un usuario hace doble clic en el objeto insertado, el objeto se lanza automáticamente en el programa relevante, o el usuario es dirigido a seleccionar un programa apropiado para abrir el objeto.
+## **Cambiar datos de objetos OLE**
 
-Este código PHP te muestra cómo incrustar HTML y ZIP en una diapositiva:
+{{% alert color="primary" %}} 
 
+En esta sección, el ejemplo de código a continuación usa [Aspose.Cells for PHP via Java](/cells/php-java/). 
+
+{{% /alert %}} 
+
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder a ese objeto y modificar sus datos de esta manera:
+
+1. Cargar una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+2. Obtener la referencia de la diapositiva mediante su índice. 
+3. Acceder a la forma [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). En nuestro ejemplo, usamos la PPTX creada previamente que tiene una forma en la primera diapositiva. 
+4. Una vez accedido al marco del objeto OLE, puede realizar cualquier operación sobre él. 
+5. Crear un objeto `Workbook` y acceder a los datos OLE. 
+6. Acceder a la `Worksheet` deseada y modificar los datos. 
+7. Guardar el `Workbook` actualizado en un flujo. 
+8. Cambiar los datos del objeto OLE desde el flujo. 
+
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico. 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-    try {
-        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.html"));
-        $bytes = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($bytes);
-    } finally {
-        if (!java_is_null($dis)) $dis->close();
-    }
-    $htmlBytes = $bytes;
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$shape = $slide->getShapes()->get_Item(0);
 
-    $dataInfoHtml = new OleEmbeddedDataInfo($htmlBytes, "html");
-    $oleFrameHtml = $slide->getShapes()->addOleObjectFrame(150, 120, 50, 50, $dataInfoHtml);
-    $oleFrameHtml->setObjectIcon(true);
-    try {
-        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.zip"));
-        $bytes = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($bytes);
-    } finally {
-        if (!java_is_null($dis)) $dis->close();
-    }
-    $zipBytes = $bytes;
+if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
+    $oleFrame = $shape;
 
-    $dataInfoZip = new OleEmbeddedDataInfo($zipBytes, "zip");
-    $oleFrameZip = $slide->getShapes()->addOleObjectFrame(150, 220, 50, 50, $dataInfoZip);
-    $oleFrameZip->setObjectIcon(true);
-    $pres->save("embeddedOle.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $oleStream = new ByteArrayInputStream($oleFrame->getEmbeddedData()->getEmbeddedFileData());
+
+    // Leer los datos del objeto OLE como un objeto Workbook.
+    $workbook = new Workbook($oleStream);
+
+    $newOleStream = new Java("java.io.ByteArrayOutputStream");
+
+    // Modificar los datos del libro de trabajo.
+    $workbook->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
+    $workbook->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
+    $workbook->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
+    $workbook->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
+
+    $fileOptions = new OoxmlSaveOptions(SaveFormat::XLSX);
+    $workbook->save($newOleStream, $fileOptions);
+
+    // Cambiar los datos del objeto del marco OLE.
+    $newData = new OleEmbeddedDataInfo($newOleStream->toByteArray(), $oleFrame->getEmbeddedData()->getEmbeddedFileExtension());
+    $oleFrame->setEmbeddedData($newData);
+
+    $newOleStream->close();
+    $oleStream->close();
+}
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## Establecer Tipos de Archivo para Objetos Incrustados
 
-Al trabajar en presentaciones, es posible que necesites reemplazar objetos OLE antiguos por nuevos. O quizás necesites reemplazar un objeto OLE no admitido por uno admitido. 
+## **Incrustar otros tipos de archivo en diapositivas**
 
-Aspose.Slides para PHP a través de Java te permite establecer el tipo de archivo para un objeto incrustado. De esta manera, puedes cambiar los datos del marco OLE o su extensión.
+Además de los gráficos de Excel, Aspose.Slides for PHP via Java permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando el usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le solicita al usuario que seleccione un programa adecuado para abrirlo. 
 
-Este Java te muestra cómo establecer el tipo de archivo para un objeto OLE incrustado:
-
+Este código PHP muestra cómo incrustar HTML y ZIP en una diapositiva: 
 ```php
-  $pres = new Presentation("embeddedOle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $oleObjectFrame = $slide->getShapes()->get_Item(0);
-    echo("La extensión de los datos embebidos actuales es: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-    try {
-        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.zip"));
-        $bytes = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($bytes);
-    } finally {
-        if (!java_is_null($dis)) $dis->close();
-    }
-    $oleObjectFrame->setEmbeddedData(new OleEmbeddedDataInfo($bytes, "zip"));
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
 
-    $pres->save("embeddedChanged.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$htmlData = file_get_contents("sample.html");
+$htmlDataInfo = new OleEmbeddedDataInfo($htmlData, "html");
+$htmlOleFrame = $slide->getShapes()->addOleObjectFrame(150, 120, 50, 50, $htmlDataInfo);
+$htmlOleFrame->setObjectIcon(true);
+
+$zipData = file_get_contents("sample.zip");
+$zipDataInfo = new OleEmbeddedDataInfo($zipData, "zip");
+$zipOleFrame = $slide->getShapes()->addOleObjectFrame(150, 220, 50, 50, $zipDataInfo);
+$zipOleFrame->setObjectIcon(true);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## Establecer Imágenes de Icono y Títulos para Objetos Incrustados
 
-Después de incrustar un objeto OLE, se añade automáticamente una vista previa que consiste en una imagen de ícono y un título. La vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. 
+## **Establecer tipos de archivo para objetos incrustados**
 
-Si deseas usar una imagen y un texto específicos como elementos en la vista previa, puedes establecer la imagen del ícono y el título utilizando Aspose.Slides para PHP a través de Java.
+Al trabajar con presentaciones, puede necesitar reemplazar objetos OLE antiguos por nuevos o sustituir un objeto OLE no compatible por uno compatible. Aspose.Slides for PHP via Java permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión. 
 
-Este código PHP te muestra cómo establecer la imagen del ícono y el título para un objeto incrustado:
-
+Este código PHP muestra cómo establecer el tipo de archivo para un objeto OLE incrustado a `zip`: 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $oleObjectFrame = $slide->getShapes()->get_Item(0);
-    $oleImage;
-    $image = Images->fromFile("image.png");
-    try {
-      $oleImage = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $oleObjectFrame->setSubstitutePictureTitle("Mi título");
-    $oleObjectFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
-    $oleObjectFrame->setObjectIcon(false);
-    $pres->save("embeddedOle-newImage.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
+$fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
+$fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
+
+echo "Current embedded file extension is: " . $fileExtension . PHP_EOL;
+
+// Change the file type to ZIP.
+$oleFrame->setEmbeddedData(new OleEmbeddedDataInfo($fileData, "zip"));
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## **Prevenir que un Marco de Objeto OLE se Redimensione y Reposicione**
 
-Después de agregar un objeto OLE vinculado a una diapositiva de presentación, al abrir la presentación en PowerPoint, es posible que veas un mensaje pidiéndote que actualices los enlaces. Hacer clic en el botón "Actualizar Enlaces" puede cambiar el tamaño y la posición del marco de objeto OLE porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint te solicite actualizar los datos del objeto, establece el método `setUpdateAutomatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) a `false`:
+## **Establecer imágenes de ícono y títulos para objetos incrustados**
 
+Después de incrustar un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de ícono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea usar una imagen y un texto específicos como elementos de la vista previa, puede establecer la imagen del ícono y el título mediante Aspose.Slides for PHP via Java. 
+
+Este código PHP muestra cómo establecer la imagen del ícono y el título para un objeto incrustado: 
 ```php
-$oleObjectFrame->setUpdateAutomatic(false);
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+$oleFrame = $slide->getShapes()->get_Item(0);
+
+// Agregar una imagen a los recursos de la presentación.
+$imageData = file_get_contents("image.png");
+$oleImage = $presentation->getImages()->addImage($imageData);
+
+// Establecer un título y la imagen para la vista previa OLE.
+$oleFrame->setSubstitutePictureTitle("My title");
+$oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
+$oleFrame->setObjectIcon(true);
+
+$presentation->save("output.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
-## Extrayendo Archivos Incrustados
 
-Aspose.Slides para PHP a través de Java te permite extraer archivos incrustados en diapositivas como objetos OLE de esta manera:
+## **Impedir que un marco de objeto OLE sea redimensionado y reposicionado**
 
-1. Crea una instancia de la [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) clase que contiene el objeto OLE que deseas extraer.
-2. Recorre todas las formas en la presentación y accede a la forma [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe).
-3. Accede a los datos del archivo incrustado desde el Marco de Objeto OLE y escribe en disco. 
-
-Este código PHP te muestra cómo extraer un archivo incrustado en una diapositiva como un objeto OLE:
-
+Después de agregar un objeto OLE vinculado a una diapositiva de presentación, al abrir la presentación en PowerPoint puede aparecer un mensaje que le pide actualizar los vínculos. Al hacer clic en el botón “Update Links” (Actualizar vínculos) el tamaño y la posición del marco del objeto OLE pueden cambiar porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite la actualización de los datos del objeto, establezca el método `setUpdateAutomatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) en `false`: 
 ```php
-  $pres = new Presentation("embeddedOle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($index = 0; $index < java_values($slide->getShapes()->size()) ; $index++) {
-      $shape = $slide->getShapes()->get_Item($index);
-      $oleFrame = $shape;
-      if (!java_is_null($oleFrame)) {
-        $data = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
-        $extension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
-        # Guarda los datos extraídos
-        $fstr = new Java("java.io.FileOutputStream", "oleFrame" . $index . $extension);
-        $Array = new java_class("java.lang.reflect.Array");
-        try {
-          $fstr->write($data, 0, $Array->getLength($data));
-        } finally {
-          $fstr->close();
-        }
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$oleFrame->setUpdateAutomatic(false);
 ```
+
+
+## **Extraer archivos incrustados**
+
+Aspose.Slides for PHP via Java permite extraer los archivos incrustados en diapositivas como objetos OLE de la siguiente manera:
+
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) que contenga los objetos OLE que desea extraer. 
+2. Recorrer todas las formas de la presentación y acceder a las formas [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/). 
+3. Acceder a los datos de los archivos incrustados desde los marcos de objetos OLE y escribirlos en disco. 
+
+Este código PHP muestra cómo extraer archivos incrustados en una diapositiva como objetos OLE: 
+```php
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+
+$shapeCount = java_values($slide->getShapes()->size());
+for ($index = 0; $index < $shapeCount; $index++) {
+    $shape = $slide->getShapes()->get_Item($index);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
+        $oleFrame = $shape;
+
+        $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
+        $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
+
+        $filePath = "OLE_object_" . $index . $fileExtension;
+        file_put_contents($filePath, $fileData);
+    }
+}
+
+$presentation->dispose();
+```
+
+
+## **Preguntas frecuentes**
+
+**¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imagenes?**  
+
+Lo que es visible en la diapositiva se renderiza: el ícono/imagen de sustituto (vista previa). El contenido OLE “en vivo” no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para asegurar la apariencia esperada en el PDF exportado.  
+
+**¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no lo muevan/editen en PowerPoint?**  
+
+Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/php-java/applying-protection-to-presentation/). No es un cifrado, pero impide eficazmente ediciones y movimientos accidentales.  
+
+**¿Por qué un objeto Excel vinculado “salta” o cambia de tamaño al abrir la presentación?**  
+
+PowerPoint puede refrescar la vista previa del OLE vinculado. Para una apariencia estable, siga las prácticas de la [Solución de trabajo para el redimensionamiento de hojas de cálculo](/slides/es/php-java/working-solution-for-worksheet-resizing/): ajuste el marco al rango o escale el rango a un marco fijo y establezca una imagen de sustitución adecuada.  
+
+**¿Se conservarán las rutas relativas de los objetos OLE vinculados en el formato PPTX?**  
+
+En PPTX la información de “ruta relativa” no está disponible; solo se guarda la ruta completa. Las rutas relativas existen en el formato PPT anterior. Para portabilidad, prefiera rutas absolutas confiables/URIs accesibles o incrustar los archivos.

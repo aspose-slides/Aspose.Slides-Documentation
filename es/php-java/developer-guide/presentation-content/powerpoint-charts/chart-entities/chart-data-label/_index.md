@@ -1,17 +1,27 @@
 ---
-title: Etiqueta de Datos del Gráfico
+title: Administrar etiquetas de datos de gráficos en presentaciones usando PHP
+linktitle: Etiqueta de datos
 type: docs
 url: /es/php-java/chart-data-label/
-keywords: "Etiqueta de datos del gráfico, distancia de la etiqueta, Java, Aspose.Slides para PHP vía Java"
-description: "Configurar la etiqueta de datos del gráfico de PowerPoint y la distancia"
+keywords:
+- gráfico
+- etiqueta de datos
+- precisión de datos
+- porcentaje
+- distancia de etiqueta
+- ubicación de etiqueta
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprenda a agregar y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para PHP a través de Java para diapositivas más atractivas."
 ---
 
 Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.
 
-## **Establecer la Precisión de los Datos en las Etiquetas de Datos del Gráfico**
+## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
 
 Este código PHP muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
-
 ```php
   $pres = new Presentation();
   try {
@@ -26,9 +36,9 @@ Este código PHP muestra cómo establecer la precisión de los datos en una etiq
   }
 ```
 
-## **Mostrar Porcentaje como Etiquetas**
-Aspose.Slides para PHP vía Java permite establecer etiquetas de porcentaje en gráficos mostrados. Este código PHP demuestra la operación:
 
+## **Mostrar porcentaje como etiquetas**
+Aspose.Slides para PHP a través de Java permite establecer etiquetas de porcentaje en los gráficos mostrados. Este código PHP demuestra la operación:
 ```php
   # Crea una instancia de la clase Presentation
   $pres = new Presentation();
@@ -73,25 +83,25 @@ Aspose.Slides para PHP vía Java permite establecer etiquetas de porcentaje en g
   }
 ```
 
-## **Establecer el Símbolo de Porcentaje con Etiquetas de Datos del Gráfico**
-Este código PHP muestra cómo establecer el símbolo de porcentaje para una etiqueta de datos del gráfico:
 
+## **Establecer el signo de porcentaje en las etiquetas de datos del gráfico**
+Este código PHP muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 ```php
   # Crea una instancia de la clase Presentation
   $pres = new Presentation();
   try {
-    # Obtiene la referencia de una diapositiva a través de su índice
+    # Obtiene la referencia de una diapositiva mediante su índice
     $slide = $pres->getSlides()->get_Item(0);
-    # Crea el gráfico de Columnas Apiladas de Porcentajes en una diapositiva
+    # Crea el gráfico PercentsStackedColumn en una diapositiva
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # Establece NumberFormatLinkedToSource como falso
+    # Establece NumberFormatLinkedToSource a false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    # Obtiene la hoja de trabajo de datos del gráfico
+    # Obtiene la hoja de datos del gráfico
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # Agrega nuevas series
+    # Agrega una nueva serie
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
@@ -108,13 +118,13 @@ Este código PHP muestra cómo establecer el símbolo de porcentaje para una eti
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Agrega nuevas series
+    # Agrega una nueva serie
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Establece el tipo de relleno y el color
+    # Establece el tipo y color de relleno
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -132,9 +142,9 @@ Este código PHP muestra cómo establecer el símbolo de porcentaje para una eti
   }
 ```
 
-## **Establecer Distancias de Etiqueta Desde el Eje**
-Este código PHP muestra cómo establecer la distancia de la etiqueta desde un eje de categoría al tratar con un gráfico trazado desde ejes:
 
+## **Establecer la distancia de la etiqueta desde un eje**
+Este código PHP muestra cómo establecer la distancia de la etiqueta desde un eje de categoría cuando se trabaja con un gráfico trazado a partir de ejes:
 ```php
   # Crea una instancia de la clase Presentation
   $pres = new Presentation();
@@ -154,12 +164,12 @@ Este código PHP muestra cómo establecer la distancia de la etiqueta desde un e
   }
 ```
 
-## **Ajustar la Ubicación de la Etiqueta**
 
-Cuando creas un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden terminar demasiado cerca de su borde. En tal caso, debes ajustar la ubicación de la etiqueta de datos para que las líneas de conexión se muestren claramente.
+## **Ajustar la ubicación de la etiqueta**
+
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En ese caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas de guía se muestren claramente.
 
 Este código PHP muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel:
-
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +188,19 @@ Este código PHP muestra cómo ajustar la ubicación de la etiqueta en un gráfi
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
+
+Combine la colocación automática de etiquetas, líneas de guía y tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos/clave.
+
+**¿Cómo puedo deshabilitar las etiquetas solo para valores cero, negativos o vacíos?**
+
+Filtre los puntos de datos antes de habilitar las etiquetas y desactívelas para valores de 0, valores negativos o valores ausentes según una regla definida.
+
+**¿Cómo puedo garantizar un estilo de etiqueta consistente al exportar a PDF/imagenes?**
+
+Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.

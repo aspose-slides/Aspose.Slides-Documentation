@@ -1,37 +1,48 @@
 ---
-title: Autofit-Einstellungen verwalten
+title: Verbessern Sie Ihre Präsentationen mit AutoFit in PHP
+linktitle: Autofit-Einstellungen
 type: docs
 weight: 30
 url: /de/php-java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "Legen Sie die Autofit-Einstellungen für Textfelder in PowerPoint fest"
+keywords:
+- Textfeld
+- Autofit
+- Nicht automatisch anpassen
+- Text anpassen
+- Text verkleinern
+- Text umbrechen
+- Formgröße anpassen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Verwalten Sie AutoFit-Einstellungen in Aspose.Slides für PHP, um die Textanzeige in Ihren PowerPoint- und OpenDocument-Präsentationen zu optimieren und die Lesbarkeit des Inhalts zu verbessern."
 ---
 
-Standardmäßig verwendet Microsoft PowerPoint beim Hinzufügen eines Textfelds die Einstellung **Form ändern, um Text anzupassen** für das Textfeld – es passt die Größe des Textfelds automatisch an, um sicherzustellen, dass der Text immer darin passt.
+Standardmäßig verwendet Microsoft PowerPoint beim Hinzufügen eines Textfelds die Einstellung **Resize shape to fix text** für das Textfeld – es passt die Größe des Textfelds automatisch an, sodass dessen Text immer hineinpasst. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Wenn der Text im Textfeld länger oder größer wird, vergrößert PowerPoint automatisch das Textfeld – erhöht die Höhe –, um mehr Text aufnehmen zu können.
-* Wenn der Text im Textfeld kürzer oder kleiner wird, reduziert PowerPoint automatisch das Textfeld – verringert die Höhe –, um überflüssigen Platz zu räumen.
+* Wenn der Text im Textfeld länger oder größer wird, vergrößert PowerPoint das Textfeld automatisch – erhöht seine Höhe – um mehr Text aufnehmen zu können. 
+* Wenn der Text im Textfeld kürzer oder kleiner wird, reduziert PowerPoint das Textfeld automatisch – verringert seine Höhe – um überflüssigen Raum zu entfernen. 
 
-In PowerPoint gibt es 4 wichtige Parameter oder Optionen, die das Autofit-Verhalten für ein Textfeld steuern:
+In PowerPoint sind dies die 4 wichtigen Parameter oder Optionen, die das Autofit‑Verhalten für ein Textfeld steuern: 
 
-* **Nicht anpassen**
-* **Text bei Überlauf verkleinern**
-* **Form ändern, um Text anzupassen**
-* **Text in der Form umbrechen.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides für PHP über Java bietet ähnliche Optionen – einige Eigenschaften der [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) Klasse –, die es Ihnen ermöglichen, das Autofit-Verhalten für Textfelder in Präsentationen zu steuern.
+Aspose.Slides für PHP über Java bietet ähnliche Optionen – einige Eigenschaften der Klasse [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) –, die es Ihnen ermöglichen, das Autofit‑Verhalten für Textfelder in Präsentationen zu steuern.
 
-## **Form ändern, um Text anzupassen**
+## **Formgröße an Text anpassen**
 
-Wenn Sie möchten, dass der Text in einem Feld immer in dieses Feld passt, nachdem Änderungen am Text vorgenommen wurden, müssen Sie die Option **Form ändern, um Text anzupassen** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) Klasse) auf `Shape`.
+Wenn Sie möchten, dass der Text in einem Feld nach Änderungen immer in dieses Feld passt, müssen Sie die Option **Resize shape to fix text** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) auf `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
-
-Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Text immer in sein Feld in einer PowerPoint-Präsentation passen muss:
 
 ```php
   $pres = new Presentation();
@@ -52,15 +63,14 @@ Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Text immer in sein Feld
   }
 ```
 
-Wenn der Text länger oder größer wird, wird das Textfeld automatisch angepasst (Höhenerhöhung), um sicherzustellen, dass der gesamte Text darin passt. Wenn der Text kürzer wird, geschieht das Gegenteil.
 
-## **Nicht anpassen**
+Wird der Text länger oder größer, wird das Textfeld automatisch (Höhenvergrößerung) angepasst, sodass der gesamte Text hineinpasst. Wird der Text kürzer, geschieht das Gegenteil. 
 
-Wenn Sie möchten, dass ein Textfeld oder eine Form ihre Dimensionen beibehält, unabhängig von den Änderungen, die am enthaltenen Text vorgenommen werden, müssen Sie die Option **Nicht anpassen** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) Klasse) auf `None`.
+## **Nicht automatisch anpassen**
+
+Wenn Sie möchten, dass ein Textfeld oder eine Form ihre Abmessungen unabhängig von Änderungen am enthaltenen Text beibehält, müssen Sie die Option **Do not Autofit** verwenden. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) auf `None`.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
-
-Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Textfeld in einer PowerPoint-Präsentation immer seine Dimensionen beibehalten muss:
 
 ```php
   $pres = new Presentation();
@@ -81,15 +91,14 @@ Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Textfeld in einer Power
   }
 ```
 
-Wenn der Text zu lang für sein Feld wird, läuft er über.
+
+Wird der Text zu lang für sein Feld, läuft er über. 
 
 ## **Text bei Überlauf verkleinern**
 
-Wenn ein Text zu lang für sein Feld wird, können Sie über die Option **Text bei Überlauf verkleinern** festlegen, dass die Größe und der Abstand des Textes reduziert werden müssen, um ihn in das Feld einzupassen. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) Klasse) auf `Normal`.
+Wenn ein Text zu lang für sein Feld ist, können Sie mit der Option **Shrink text on overflow** festlegen, dass Größe und Abstand des Textes reduziert werden, damit er in das Feld passt. Um diese Einstellung festzulegen, setzen Sie die Eigenschaft [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) auf `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
-
-Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Text bei Überlauf in einer PowerPoint-Präsentation verkleinert werden muss:
 
 ```php
   $pres = new Presentation();
@@ -110,17 +119,14 @@ Dieser PHP-Code zeigt Ihnen, wie Sie festlegen, dass ein Text bei Überlauf in e
   }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Wenn die Option **Text bei Überlauf verkleinern** verwendet wird, wird die Einstellung nur angewendet, wenn der Text zu lang für sein Feld wird.
-
+Wird die Option **Shrink text on overflow** verwendet, wird die Einstellung nur angewendet, wenn der Text zu lang für sein Feld wird. 
 {{% /alert %}}
 
 ## **Text umbrechen**
 
-Wenn Sie möchten, dass der Text in einer Form innerhalb dieser Form umgebrochen wird, wenn der Text über die Grenzen der Form hinausgeht (nur Breite), müssen Sie den Parameter **Text in der Form umbrechen** verwenden. Um diese Einstellung festzulegen, müssen Sie die Eigenschaft [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) (aus der [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) Klasse) auf `true` setzen.
-
-Dieser PHP-Code zeigt Ihnen, wie Sie die Wrap Text-Einstellung in einer PowerPoint-Präsentation verwenden:
+Wenn Sie möchten, dass der Text in einer Form innerhalb dieser Form umbrochen wird, sobald er die Randbreite der Form überschreitet, verwenden Sie den Parameter **Wrap text in shape**. Um diese Einstellung festzulegen, müssen Sie die Eigenschaft [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) (aus der Klasse [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) auf `true` setzen.
 
 ```php
   $pres = new Presentation();
@@ -141,8 +147,21 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Wrap Text-Einstellung in einer PowerPoi
   }
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
 
-Wenn Sie die Eigenschaft `WrapText` für eine Form auf `False` setzen, läuft der Text, der innerhalb der Form länger wird als die Breite der Form, über die Ränder der Form entlang einer einzigen Linie hinaus.
-
+{{% alert title="Note" color="warning" %}} 
+Wenn Sie die Eigenschaft `WrapText` für eine Form auf `False` setzen, wird der Text, sobald er länger als die Breite der Form wird, über die Formgrenzen hinaus in einer einzigen Zeile erweitert. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Beeinflussen die inneren Ränder des Textrahmens AutoFit?**
+
+Ja. Innenabstände (Padding) verkleinern den nutzbaren Bereich für Text, sodass AutoFit früher greift – Schriftgröße wird reduziert oder die Form früher angepasst. Überprüfen und passen Sie die Ränder an, bevor Sie AutoFit feinjustieren.
+
+**Wie interagiert AutoFit mit manuellen und weichen Zeilenumbrüchen?**
+
+Erzwungene Umbrüche bleiben erhalten, und AutoFit passt Schriftgröße und Zeilenabstand um sie herum an. Das Entfernen unnötiger Umbrüche reduziert häufig, wie aggressiv AutoFit den Text verkleinern muss.
+
+**Beeinflusst das Ändern der Designschriftart oder das Auslösen einer Schriftartsubstitution die AutoFit-Ergebnisse?**
+
+Ja. Das Ersetzen durch eine Schriftart mit anderen Glyphenmaßen verändert Textbreite und -höhe, was die endgültige Schriftgröße und den Zeilenumbruch ändern kann. Nach jeder Schriftartänderung oder -substitution sollten Sie die Folien erneut prüfen.

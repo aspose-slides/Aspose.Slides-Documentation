@@ -1,33 +1,39 @@
 ---
-title: HTML5へのエクスポート
+title: PHPでプレゼンテーションをHTML5に変換
+linktitle: プレゼンテーションをHTML5へ
 type: docs
 weight: 40
 url: /ja/php-java/export-to-html5/
 keywords:
-- PowerPointからHTML
-- スライドからHTML
-- HTML5
-- HTMLエクスポート
-- プレゼンテーションをエクスポート
-- プレゼンテーションを変換
-- スライドを変換
+- PowerPointをHTML5に変換
+- OpenDocumentをHTML5に変換
+- プレゼンテーションをHTML5に変換
+- スライドをHTML5に変換
+- PPTをHTML5に変換
+- PPTXをHTML5に変換
+- ODPをHTML5に変換
+- PPTをHTML5として保存
+- PPTXをHTML5として保存
+- ODPをHTML5として保存
+- PPTをHTML5にエクスポート
+- PPTXをHTML5にエクスポート
+- ODPをHTML5にエクスポート
 - PHP
-- Aspose.Slides for PHP via Java
-description: "PHPでPowerPointをHTML5にエクスポート"
+- Aspose.Slides
+description: "Java経由でPHP用Aspose.Slidesを使用し、PowerPointおよびOpenDocumentのプレゼンテーションをレスポンシブなHTML5にエクスポートします。書式、アニメーション、インタラクティブ性を保持します。"
 ---
 
 {{% alert title="情報" color="info" %}}
 
-[Aspose.Slides 21.9](/slides/ja/php-java/aspose-slides-for-java-21-9-release-notes/)では、HTML5エクスポートのサポートを実装しました。
+[Aspose.Slides 21.9](/slides/ja/php-java/aspose-slides-for-java-21-9-release-notes/)で、HTML5 エクスポートのサポートを実装しました。
 
 {{% /alert %}} 
 
-ここでのHTML5へのエクスポートプロセスでは、Web拡張機能や依存関係なしにPowerPointをHTMLに変換できます。この方法では、独自のテンプレートを使用して、エクスポートプロセスと生成されたHTML、CSS、JavaScript、およびアニメーション属性を定義する非常に柔軟なオプションを適用できます。
+この HTML5 エクスポートプロセスにより、Web 拡張機能や依存関係なしで PowerPoint を HTML に変換できます。独自のテンプレートを使用して、エクスポートプロセスや生成される HTML、CSS、JavaScript、アニメーション属性を定義する非常に柔軟なオプションを適用できます。
 
-## **PowerPointをHTML5にエクスポート**
+## **PowerPoint を HTML5 にエクスポート**
 
-このPHPコードは、Web拡張機能や依存関係なしにプレゼンテーションをHTML5にエクスポートする方法を示しています：
-
+この PHP コードは、Web 拡張機能や依存関係なしでプレゼンテーションを HTML5 にエクスポートする方法を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -39,14 +45,14 @@ description: "PHPでPowerPointをHTML5にエクスポート"
   }
 ```
 
+
 {{% alert color="primary" %}} 
 
-この場合、クリーンなHTMLが得られます。 
+この場合、クリーンな HTML が取得できます。
 
 {{% /alert %}}
 
-形状のアニメーションとスライドのトランジションの設定をこのように指定することもできます：
-
+この方法で形状アニメーションやスライド遷移の設定を指定できます:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -61,10 +67,10 @@ description: "PHPでPowerPointをHTML5にエクスポート"
   }
 ```
 
-## **PowerPointをHTMLにエクスポート**
 
-このJavaは、標準のPowerPointからHTMLへのプロセスを示しています：
+## **PowerPoint を HTML にエクスポート**
 
+この Java は、標準的な PowerPoint から HTML への変換プロセスを示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -76,13 +82,13 @@ description: "PHPでPowerPointをHTML5にエクスポート"
   }
 ```
 
-この場合、プレゼンテーションの内容はSVGを通じて次のようにレンダリングされます：
 
+この場合、プレゼンテーションの内容は SVG を介して次のように描画されます:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> スライドの内容はここに入ります </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
@@ -90,18 +96,18 @@ description: "PHPでPowerPointをHTML5にエクスポート"
 
 ```
 
+
 {{% alert title="注意" color="warning" %}} 
 
-この方法を使用してPowerPointをHTMLにエクスポートする際、SVGレンダリングにより、特定の要素にスタイルを適用したりアニメートしたりすることはできません。 
+この方法で PowerPoint を HTML にエクスポートすると、SVG 描画のため、スタイルの適用や特定要素のアニメーションはできません。
 
 {{% /alert %}}
 
-## **PowerPointをHTML5スライドビューにエクスポート**
+## **PowerPoint を HTML5 スライドビューにエクスポート**
 
-**Aspose.Slides** は、PowerPointプレゼンテーションをスライドビュー形式で表示するHTML5ドキュメントに変換することを可能にします。この場合、生成されたHTML5ファイルをブラウザで開くと、ウェブページ上でスライドビュー形式でプレゼンテーションが表示されます。
+**Aspose.Slides** を使用すると、PowerPoint プレゼンテーションを HTML5 ドキュメントに変換でき、スライドはスライドビュー モードで表示されます。この場合、生成された HTML5 ファイルをブラウザーで開くと、Web ページ上でスライドビュー モードのプレゼンテーションが表示されます。
 
-このPHPコードは、PowerPointからHTML5スライドビューへのエクスポートプロセスを示しています：
-
+この PHP コードは、PowerPoint を HTML5 スライドビューにエクスポートするプロセスを示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -116,17 +122,18 @@ description: "PHPでPowerPointをHTML5にエクスポート"
   }
 ```
 
-## コメント付きプレゼンテーションをHTML5ドキュメントに変換
 
-PowerPointのコメントは、ユーザーがプレゼンテーションスライドにメモやフィードバックを残すためのツールです。これは特に、複数の人が特定のスライド要素に対して提案や意見を追加できるコラボレーションプロジェクトにおいて便利です。各コメントには著者の名前が表示され、誰がその意見を残したのか追跡するのが容易です。
+## **コメント付き HTML5 ドキュメントへのプレゼンテーション変換**
 
-以下のPowerPointプレゼンテーションが「sample.pptx」ファイルに保存されているとしましょう。
+PowerPoint のコメントは、ユーザーがスライドにメモやフィードバックを残すためのツールです。共同作業プロジェクトで特に有用で、複数のユーザーがメインコンテンツを変更せずに特定のスライド要素に提案やコメントを追加できます。各コメントには作成者名が表示され、誰がコメントしたかを簡単に追跡できます。
 
-![プレゼンテーションスライド上の二つのコメント](two_comments_pptx.png)
+例えば、"sample.pptx" ファイルに保存された PowerPoint プレゼンテーションがあるとします。
 
-PowerPointプレゼンテーションをHTML5ドキュメントに変換する際、出力ドキュメントにプレゼンテーションからコメントを含めるかどうかを簡単に指定できます。これを行うには、`Html5Options`クラスの`getNotesCommentsLayouting`メソッドでコメントの表示パラメータを指定する必要があります。
+![プレゼンテーション スライド上の 2 つのコメント](two_comments_pptx.png)
 
-以下のコード例は、コメントがスライドの右側に表示されるHTML5ドキュメントへのプレゼンテーションの変換を示しています。
+PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際に、出力ドキュメントにコメントを含めるかどうかを簡単に指定できます。そのためには、`Html5Options` クラスの `getNotesCommentsLayouting` メソッドでコメントの表示パラメーターを指定します。
+
+以下のコード例は、スライドの右側にコメントを表示した HTML5 ドキュメントにプレゼンテーションを変換します。
 ```php
 $html5Options = new Html5Options();
 $html5Options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
@@ -136,6 +143,21 @@ $presentation->save("output.html", SaveFormat::Html5, $html5Options);
 $presentation->dispose();
 ```
 
-「output.html」ドキュメントは以下の画像に示されています。
 
-![出力HTML5ドキュメント内のコメント](two_comments_html5.png)
+下の画像に「output.html」ドキュメントが示されています。
+
+![出力された HTML5 ドキュメント内のコメント](two_comments_html5.png)
+
+## **FAQ**
+
+**オブジェクト アニメーションやスライド遷移を HTML5 で再生させるかどうか制御できますか？**
+
+はい、HTML5 では [shape animations](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) と [slide transitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/) を有効または無効にする個別のオプションが提供されています。
+
+**コメントの出力はサポートされており、スライドに対してどの位置に配置できますか？**
+
+はい、HTML5 でコメントを追加でき、ノートやコメントの [layout settings](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) を使用して（例：スライドの右側）配置できます。
+
+**セキュリティや CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
+
+はい、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできる [setting](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) があり、厳格なセキュリティポリシーに対応できます。

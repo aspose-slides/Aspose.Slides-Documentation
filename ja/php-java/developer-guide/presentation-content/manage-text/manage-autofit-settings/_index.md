@@ -1,38 +1,50 @@
 ---
-title: 自動サイズ設定の管理
+title: PHP で AutoFit を使用してプレゼンテーションを強化する
+linktitle: AutoFit 設定
 type: docs
 weight: 30
 url: /ja/php-java/manage-autofit-settings/
-keywords: "テキストボックス, 自動サイズ, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "PowerPoint のテキストボックスの自動サイズ設定を設定する"
+keywords:
+- テキストボックス
+- AutoFit
+- AutoFit なし
+- テキストに合わせる
+- テキストを縮小
+- テキストを折り返す
+- 図形のサイズ変更
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP の AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションでテキスト表示を最適化し、コンテンツの可読性を向上させます。"
 ---
 
-デフォルトでは、テキストボックスを追加すると、Microsoft PowerPointはテキストボックスに対して**テキストに合わせて形状をサイズ変更**設定を使用します。これにより、テキストボックスが自動的にサイズ変更され、テキストが常に収まるようになります。
+既定では、テキストボックスを追加すると、Microsoft PowerPoint はテキストボックスに対して **Resize shape to fix text** 設定を使用します。テキストボックスは自動的にサイズが変更され、テキストが常に収まるようになります。 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* テキストボックス内のテキストが長くなるか大きくなると、PowerPointは自動的にテキストボックスを拡大し、高さを増加させてより多くのテキストを保持できるようにします。
-* テキストボックス内のテキストが短くなるか小さくなると、PowerPointは自動的にテキストボックスを縮小し、高さを減少させて余分なスペースをクリアします。
+* テキストボックス内のテキストが長くまたは大きくなると、PowerPoint はテキストボックスの高さを増やして自動的に拡大し、より多くのテキストを保持できるようにします。 
+* テキストボックス内のテキストが短くまたは小さくなると、PowerPoint はテキストボックスの高さを減らして自動的に縮小し、余分なスペースを除去します。 
 
-PowerPointでは、テキストボックスの自動サイズ動作を制御するための4つの重要なパラメータまたはオプションがあります：
+PowerPoint では、テキストボックスの自動調整動作を制御する重要なパラメーターまたはオプションが 4 つあります: 
 
-* **自動サイズしない**
-* **オーバーフロー時にテキストを縮小**
-* **テキストに合わせて形状をサイズ変更**
-* **形状内でテキストを折り返す。**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for PHP via Javaは、プレゼンテーション内のテキストボックスの自動サイズ動作を制御するための類似のオプションを提供します。これには、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスのいくつかのプロパティが含まれます。
+Aspose.Slides for PHP via Java は、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスのいくつかのプロパティとして、プレゼンテーション内のテキストボックスの自動調整動作を制御できる同様のオプションを提供します。
 
-## **テキストに合わせて形状をサイズ変更**
+## **Resize a Shape to Fit Text**
 
-テキストが変更された後も、常にテキストがボックスに収まるようにしたい場合は、**テキストに合わせて形状をサイズ変更**オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスから）を`Shape`に設定します。
+テキストが変更された後も常にボックスに収まるようにするには、**Resize shape to fix text** オプションを使用する必要があります。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスの [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) プロパティを `Shape` に設定します。
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-このPHPコードは、PowerPointプレゼンテーション内でテキストが常にボックスに収まるように指定する方法を示しています：
-
+この PHP コードは、PowerPoint プレゼンテーションでテキストが常にボックスに収まるように指定する方法を示しています:
 ```php
   $pres = new Presentation();
   try {
@@ -52,16 +64,16 @@ Aspose.Slides for PHP via Javaは、プレゼンテーション内のテキス�
   }
 ```
 
-テキストが長くなるか大きくなると、テキストボックスは自動的にサイズが変更され（高さが増加）、すべてのテキストがその中に収まります。テキストが短くなると、その逆が起こります。
 
-## **自動サイズしない**
+テキストが長くまたは大きくなると、テキストボックスは自動的に高さが増えてリサイズされ、すべてのテキストが収まります。テキストが短くなると、その逆が行われます。 
 
-テキストボックスまたは形状の内部にあるテキストに変更が加えられてもその寸法を維持したい場合は、**自動サイズしない**オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスから）を`None`に設定します。
+## **Do Not Autofit**
+
+テキストボックスまたは図形がテキストの変更に関係なくサイズを保持するようにするには、**Do not Autofit** オプションを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスの [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) プロパティを `None` に設定します。
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-このPHPコードは、PowerPointプレゼンテーション内でテキストボックスが常にその寸法を維持するように指定する方法を示しています：
-
+この PHP コードは、PowerPoint プレゼンテーションでテキストボックスが常にサイズを保持するように指定する方法を示しています:
 ```php
   $pres = new Presentation();
   try {
@@ -81,16 +93,16 @@ Aspose.Slides for PHP via Javaは、プレゼンテーション内のテキス�
   }
 ```
 
-テキストがボックスに対して長すぎる場合、テキストは溢れ出します。
 
-## **オーバーフロー時にテキストを縮小**
+テキストがボックスに対して長すぎると、テキストははみ出します。 
 
-テキストがボックスに対して長すぎる場合、**オーバーフロー時にテキストを縮小**オプションを使用することで、テキストのサイズと間隔を減少させてボックスに収まるように指定できます。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスから）を`Normal`に設定します。
+## **Shrink Text on Overflow**
+
+テキストがボックスに対して長すぎる場合、**Shrink text on overflow** オプションを使用して、テキストのサイズと行間を縮小し、ボックスに収めることができます。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスの [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) プロパティを `Normal` に設定します。
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-このPHPコードは、PowerPointプレゼンテーション内でテキストがオーバーフロー時に縮小されるように指定する方法を示しています：
-
+この PHP コードは、PowerPoint プレゼンテーションでテキストが溢れたときに縮小されるように指定する方法を示しています:
 ```php
   $pres = new Presentation();
   try {
@@ -110,18 +122,16 @@ Aspose.Slides for PHP via Javaは、プレゼンテーション内のテキス�
   }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-**オーバーフロー時にテキストを縮小**オプションが使用されると、設定はテキストがボックスに対して長すぎる場合にのみ適用されます。
-
+{{% alert title="Info" color="info" %}}
+**Shrink text on overflow** オプションが使用されると、テキストがボックスに対して長くなったときのみ設定が適用されます。 
 {{% /alert %}}
 
-## **テキストを折り返す**
+## **Wrap Text**
 
-テキストが形状の境界（幅）の外に出た場合に、形状の内部にテキストを折り返したい場合は、**形状内でテキストを折り返す**パラメータを使用する必要があります。この設定を指定するには、[WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスから）を`true`に設定する必要があります。
+テキストが図形の幅を超えたときに、その図形内で折り返すようにしたい場合は、**Wrap text in shape** パラメーターを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスの [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) プロパティを `true` に設定します。
 
-このPHPコードは、PowerPointプレゼンテーション内でテキストを折り返す設定を使用する方法を示しています：
-
+この PHP コードは、PowerPoint プレゼンテーションで Wrap Text 設定を使用する方法を示しています:
 ```php
   $pres = new Presentation();
   try {
@@ -141,8 +151,21 @@ Aspose.Slides for PHP via Javaは、プレゼンテーション内のテキス�
   }
 ```
 
-{{% alert title="注意" color="warning" %}}
 
-形状に対して`WrapText`プロパティを`False`に設定すると、形状内のテキストが形状の幅よりも長くなると、テキストは単一行で形状の境界を超えて拡張されます。
-
+{{% alert title="Note" color="warning" %}} 
+`WrapText` プロパティを `False` に設定した図形では、テキストが図形の幅を超えると、テキストは単一行で図形の枠を超えて伸びます。 
 {{% /alert %}}
+
+## **FAQ**
+
+**テキストフレームの内部余白は AutoFit に影響しますか？**
+
+はい。余白（内部マージン）はテキストの使用可能領域を減らすため、AutoFit がより早く発動し、フォントが縮小されたり図形がリサイズされたりします。AutoFit を調整する前に余白を確認し、必要に応じて調整してください。
+
+**AutoFit は手動改行やソフト改行とどのように連動しますか？**
+
+強制改行はそのまま残り、AutoFit はそれらの周囲でフォントサイズや行間を調整します。不要な改行を削除すると、AutoFit がテキストを縮小する必要が減少することがあります。
+
+**テーマフォントの変更やフォント置換は AutoFit の結果に影響しますか？**
+
+はい。異なる字形メトリクスを持つフォントに置換すると、テキストの幅や高さが変わり、最終的なフォントサイズや行折り返しが変わる可能性があります。フォントを変更または置換した後は、スライドを再確認してください。

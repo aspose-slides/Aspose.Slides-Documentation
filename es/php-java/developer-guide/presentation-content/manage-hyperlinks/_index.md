@@ -1,31 +1,48 @@
 ---
-title: Administrar Hipervínculos
+title: Gestionar hipervínculos de presentación en PHP
+linktitle: Gestionar hipervínculo
 type: docs
 weight: 20
 url: /es/php-java/manage-hyperlinks/
-keywords: "Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, Java"
-description: "Cómo agregar un hipervínculo a una Presentación de PowerPoint"
+keywords:
+- agregar URL
+- agregar hipervínculo
+- crear hipervínculo
+- formatear hipervínculo
+- eliminar hipervínculo
+- actualizar hipervínculo
+- hipervínculo de texto
+- hipervínculo de diapositiva
+- hipervínculo de forma
+- hipervínculo de imagen
+- hipervínculo de video
+- hipervínculo mutable
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Gestione fácilmente los hipervínculos en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para PHP a través de Java — mejore la interactividad y el flujo de trabajo en minutos."
 ---
 
-Un hipervínculo es una referencia a un objeto o datos o un lugar en algo. Estos son los hipervínculos comunes en las Presentaciones de PowerPoint:
+Un hipervínculo es una referencia a un objeto, a datos o a un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
 
 * Enlaces a sitios web dentro de textos, formas o medios
 * Enlaces a diapositivas
 
-Aspose.Slides para PHP a través de Java te permite realizar muchas tareas relacionadas con hipervínculos en presentaciones.
+Aspose.Slides for PHP via Java le permite realizar muchas tareas relacionadas con hipervínculos en presentaciones.
 
 {{% alert color="primary" %}} 
 
-Es posible que quieras revisar el simple [editor de PowerPoint en línea gratuito de Aspose.](https://products.aspose.app/slides/editor)
+Puede que desee consultar Aspose simple, [editor de PowerPoint en línea gratuito.](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
-## **Agregando Hipervínculos URL**
+## **Agregar hipervínculos URL**
 
-### **Agregando Hipervínculos URL a Textos**
+### **Agregar hipervínculos URL al texto**
 
-Este código PHP te muestra cómo agregar un hipervínculo de sitio web a un texto:
-
+Este código PHP le muestra cómo agregar un hipervínculo a un sitio web en un texto:
 ```php
   $presentation = new Presentation();
   try {
@@ -33,7 +50,7 @@ Este código PHP te muestra cómo agregar un hipervínculo de sitio web a un tex
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -43,16 +60,16 @@ Este código PHP te muestra cómo agregar un hipervínculo de sitio web a un tex
   }
 ```
 
-### **Agregando Hipervínculos URL a Formas o Marcos**
 
-Este código de ejemplo te muestra cómo agregar un hipervínculo de sitio web a una forma:
+### **Agregar hipervínculos URL a formas o marcos**
 
+Este código de ejemplo le muestra cómo agregar un hipervínculo a un sitio web en una forma:
 ```php
   $pres = new Presentation();
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
     $shape->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $shape->getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $shape->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -61,12 +78,12 @@ Este código de ejemplo te muestra cómo agregar un hipervínculo de sitio web a
   }
 ```
 
-### **Agregando Hipervínculos URL a Medios**
 
-Aspose.Slides te permite agregar hipervínculos a imágenes, archivos de audio y video.
+### **Agregar hipervínculos URL a medios**
 
-Este código de ejemplo te muestra cómo agregar un hipervínculo a una **imagen**:
+Aspose.Slides le permite agregar hipervínculos a imágenes, archivos de audio y video.
 
+Este código de ejemplo le muestra cómo agregar un hipervínculo a una **imagen**:
 ```php
   $pres = new Presentation();
   try {
@@ -80,10 +97,10 @@ Este código de ejemplo te muestra cómo agregar un hipervínculo a una **imagen
         $image->dispose();
       }
     }
-    # Crea un marco de imagen en la diapositiva 1 basado en la imagen agregada anteriormente
+    # Crea un marco de imagen en la diapositiva 1 basado en la imagen añadida previamente
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $pictureFrame->getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -93,8 +110,8 @@ Este código de ejemplo te muestra cómo agregar un hipervínculo a una **imagen
   }
 ```
 
-Este código de ejemplo te muestra cómo agregar un hipervínculo a un **archivo de audio**:
 
+Este código de ejemplo le muestra cómo agregar un hipervínculo a un **archivo de audio**:
 ```php
   $pres = new Presentation();
   try {
@@ -111,7 +128,7 @@ try {
 
     $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->addAudioFrameEmbedded(10, 10, 100, 100, $audio);
     $audioFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $audioFrame->getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $audioFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -121,8 +138,8 @@ try {
   }
 ```
 
-Este código de ejemplo te muestra cómo agregar un hipervínculo a un **video**:
 
+Este código de ejemplo le muestra cómo agregar un hipervínculo a un **video**:
 ```php
   $pres = new Presentation();
   try {
@@ -139,7 +156,7 @@ try {
 
     $videoFrame = $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $videoFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $videoFrame->getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $videoFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -149,18 +166,18 @@ try {
   }
 ```
 
-{{%  alert  title="Consejo"  color="primary"  %}} 
 
-Es posible que quieras ver *[Administrar OLE](/slides/es/php-java/manage-ole/)*.
+{{%  alert  title="Tip"  color="primary"  %}} 
+
+Puede que desee ver *[Administrar OLE](/slides/es/php-java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Usando Hipervínculos para Crear una Tabla de Contenidos**
+## **Usar hipervínculos para crear una tabla de contenido**
 
-Dado que los hipervínculos te permiten agregar referencias a objetos o lugares, puedes usarlos para crear una tabla de contenidos.
+Dado que los hipervínculos le permiten agregar referencias a objetos o lugares, puede utilizarlos para crear una tabla de contenido.
 
-Este código de muestra te muestra cómo crear una tabla de contenidos con hipervínculos:
-
+Este código de ejemplo le muestra cómo crear una tabla de contenido con hipervínculos:
 ```php
   $pres = new Presentation();
   try {
@@ -173,9 +190,9 @@ Este código de muestra te muestra cómo crear una tabla de contenidos con hiper
     $paragraph = new Paragraph();
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $paragraph->setText("Título de la diapositiva 2 .......... ");
+    $paragraph->setText("Title of slide 2 .......... ");
     $linkPortion = new Portion();
-    $linkPortion->setText("Página 2");
+    $linkPortion->setText("Page 2");
     $linkPortion->getPortionFormat()->getHyperlinkManager()->setInternalHyperlinkClick($secondSlide);
     $paragraph->getPortions()->add($linkPortion);
     $contentTable->getTextFrame()->getParagraphs()->add($paragraph);
@@ -187,26 +204,26 @@ Este código de muestra te muestra cómo crear una tabla de contenidos con hiper
   }
 ```
 
-## **Formateando Hipervínculos**
+
+## **Formatear hipervínculos**
 
 ### **Color**
 
-Con la propiedad [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) en la interfaz [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink), puedes establecer el color para los hipervínculos y también obtener la información de color de los hipervínculos. La función se introdujo por primera vez en PowerPoint 2019, por lo que los cambios que involucran la propiedad no se aplican a versiones anteriores de PowerPoint.
+Con la propiedad [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) en la interfaz [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink), puede establecer el color de los hipervínculos y también obtener la información de color de los hipervínculos. La función se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
 
-Este código de ejemplo demuestra una operación donde se agregaron hipervínculos con diferentes colores a la misma diapositiva:
-
+Este código de ejemplo demuestra una operación en la que se agregaron hipervínculos con diferentes colores a la misma diapositiva:
 ```php
   $pres = new Presentation();
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
-    $shape1->addTextFrame("Este es un ejemplo de hipervínculo de color.");
+    $shape1->addTextFrame("This is a sample of colored hyperlink.");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $portionFormat::getHyperlinkClick()->setColorSource(HyperlinkColorSource->PortionFormat);
     $portionFormat::getFillFormat()->setFillType(FillType::Solid);
     $portionFormat::getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $shape2 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
-    $shape2->addTextFrame("Este es un ejemplo de hipervínculo habitual.");
+    $shape2->addTextFrame("This is a sample of usual hyperlink.");
     $shape2->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pres->save("presentation-out-hyperlink.pptx", SaveFormat::Pptx);
   } finally {
@@ -216,12 +233,12 @@ Este código de ejemplo demuestra una operación donde se agregaron hipervíncul
   }
 ```
 
-## **Eliminando Hipervínculos en Presentaciones**
 
-### **Eliminando Hipervínculos de Textos**
+## **Eliminar hipervínculos de presentaciones**
 
-Este código PHP te muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
+### **Eliminar hipervínculos del texto**
 
+Este código PHP le muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
 ```php
   $pres = new Presentation();
   try {
@@ -244,10 +261,10 @@ Este código PHP te muestra cómo eliminar el hipervínculo de un texto en una d
   }
 ```
 
-### **Eliminando Hipervínculos de Formas o Marcos**
 
-Este código PHP te muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación:
+### **Eliminar hipervínculos de formas o marcos**
 
+Este código PHP le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación:
 ```php
   $pres = new Presentation();
   try {
@@ -263,9 +280,10 @@ Este código PHP te muestra cómo eliminar el hipervínculo de una forma en una 
   }
 ```
 
-## **Hipervínculo Mutable**
 
-La clase [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) es mutable. Con esta clase, puedes cambiar los valores de estas propiedades:
+## **Hipervínculo mutable**
+
+La clase [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) es mutable. Con esta clase, puede cambiar los valores de estas propiedades:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -273,8 +291,7 @@ La clase [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-El fragmento de código te muestra cómo agregar un hipervínculo a una diapositiva y editar su tooltip más tarde:
-
+El fragmento de código le muestra cómo agregar un hipervínculo a una diapositiva y editar su información sobre herramientas más tarde:
 ```php
   $pres = new Presentation();
   try {
@@ -282,7 +299,7 @@ El fragmento de código te muestra cómo agregar un hipervínculo a una diaposit
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("Más del 70% de las empresas Fortune 100 confían en las APIs de Aspose");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $pres->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -292,9 +309,10 @@ El fragmento de código te muestra cómo agregar un hipervínculo a una diaposit
   }
 ```
 
-## **Propiedades Soportadas en IHyperlinkQueries**
 
-Puedes acceder a [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) desde una presentación, diapositiva o texto para el cual se define el hipervínculo.
+## **Propiedades compatibles en IHyperlinkQueries**
+
+Puede acceder a [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) desde una presentación, diapositiva o texto para el cual está definido el hipervínculo.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -306,3 +324,17 @@ La clase [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo crear una navegación interna no solo a una diapositiva, sino a una "sección" o a la primera diapositiva de una sección?**
+
+Las secciones en PowerPoint son agrupaciones de diapositivas; la navegación técnicamente apunta a una diapositiva específica. Para "navegar a una sección", normalmente se enlaza a su primera diapositiva.
+
+**¿Puedo adjuntar un hipervínculo a los elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
+
+Sí. Los elementos de la diapositiva maestra y de diseño admiten hipervínculos. Estos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
+
+**¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o video?**
+
+En [PDF](/slides/es/php-java/convert-powerpoint-to-pdf/) y [HTML](/slides/es/php-java/convert-powerpoint-to-html/), sí, los enlaces generalmente se conservan. Al exportar a [imágenes](/slides/es/php-java/convert-powerpoint-to-png/) y [video](/slides/es/php-java/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (los fotogramas rasterizados/video no admiten hipervínculos).

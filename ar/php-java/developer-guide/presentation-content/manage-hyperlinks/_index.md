@@ -1,39 +1,54 @@
 ---
-title: إدارة الارتباطات التشعبية
+title: إدارة ارتباطات العرض التقديمي في PHP
+linktitle: إدارة الارتباط التشعبي
 type: docs
 weight: 20
 url: /ar/php-java/manage-hyperlinks/
-keywords: "PowerPoint ارتباط تشعبي، ارتباط نصي، ارتباط شريحة، ارتباط شكل، ارتباط صورة، ارتباط فيديو، Java"
-description: "كيفية إضافة ارتباط تشعبي إلى عرض PowerPoint"
+keywords:
+- إضافة URL
+- إضافة ارتباط تشعبي
+- إنشاء ارتباط تشعبي
+- تنسيق ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشرائح
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
+- ارتباط تشعبي قابل للتعديل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "إدارة الروابط التشعبية بسهولة في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides لـ PHP عبر Java — تحسين التفاعلية وسير العمل في دقائق."
 ---
 
-الارتباط التشعبي هو مرجع لكائن أو بيانات أو مكان في شيء ما. هذه هي الارتباطات التشعبية الشائعة في عروض PowerPoint:
+الارتباط التشعبي هو مرجع إلى كائن أو بيانات أو مكان في شيء ما. هذه أمثلة على الارتباطات التشعبية الشائعة في عروض PowerPoint:
 
-* روابط لمواقع الويب داخل النصوص أو الأشكال أو الوسائط
+* روابط إلى مواقع الويب داخل النصوص أو الأشكال أو الوسائط
 * روابط إلى الشرائح
 
-Aspose.Slides ل PHP عبر Java يسمح لك بأداء العديد من المهام التي تتعلق بالارتباطات التشعبية في العروض التقديمية.
+Aspose.Slides for PHP via Java تتيح لك تنفيذ العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية.
 
 {{% alert color="primary" %}} 
-
-قد ترغب في الاطلاع على محرر PowerPoint عبر الإنترنت البسيط [المجاني من Aspose.](https://products.aspose.app/slides/editor)
-
+قد ترغب في تجربة Aspose البسيط، [محرر PowerPoint المجاني عبر الإنترنت.](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **إضافة روابط URL**
+## **إضافة ارتباطات URL**
 
-### **إضافة روابط URL إلى النصوص**
+### **إضافة ارتباطات URL إلى النص**
 
-يوضح هذا الرمز PHP كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
-
+يعرض لك هذا الكود PHP كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
 ```php
   $presentation = new Presentation();
   try {
     $shape1 = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
-    $shape1->addTextFrame("Aspose: APIs لتنسيقات الملفات");
+    $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -43,16 +58,16 @@ Aspose.Slides ل PHP عبر Java يسمح لك بأداء العديد من ال
   }
 ```
 
-### **إضافة روابط URL إلى الأشكال أو الأطر**
 
-يوضح هذا الرمز عينة كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
+### **إضافة ارتباطات URL إلى الأشكال أو الإطارات**
 
+يعرض لك هذا الكود النموذجى كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
 ```php
   $pres = new Presentation();
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
     $shape->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $shape->getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $shape->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -61,16 +76,16 @@ Aspose.Slides ل PHP عبر Java يسمح لك بأداء العديد من ال
   }
 ```
 
-### **إضافة روابط URL إلى الوسائط**
 
-تتيح لك Aspose.Slides إضافة روابط تشعبية إلى الصور والصوت وملفات الفيديو.
+### **إضافة ارتباطات URL إلى الوسائط**
 
-يوضح هذا الرمز كيفية إضافة ارتباط تشعبي إلى **صورة**:
+يتيح لك Aspose.Slides إضافة ارتباطات تشعبية إلى ملفات الصور والصوت والفيديو. 
 
+يعرض لك هذا الكود النموذجى كيفية إضافة ارتباط تشعبي إلى **صورة**:
 ```php
   $pres = new Presentation();
   try {
-    # إضافة صورة إلى العرض
+    # يضيف صورة إلى العرض التقديمي
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -80,10 +95,10 @@ Aspose.Slides ل PHP عبر Java يسمح لك بأداء العديد من ال
         $image->dispose();
       }
     }
-    # إنشاء إطار صورة على الشريحة 1 بناءً على الصورة المضافة مسبقًا
+    # ينشئ إطار صورة على الشريحة 1 استنادًا إلى الصورة المضافة مسبقًا
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $pictureFrame->getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -93,8 +108,8 @@ Aspose.Slides ل PHP عبر Java يسمح لك بأداء العديد من ال
   }
 ```
 
-يوضح هذا الرمز كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
 
+يعرض لك هذا الكود النموذجى كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
 ```php
   $pres = new Presentation();
   try {
@@ -111,7 +126,7 @@ try {
 
     $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->addAudioFrameEmbedded(10, 10, 100, 100, $audio);
     $audioFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $audioFrame->getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $audioFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -121,8 +136,8 @@ try {
   }
 ```
 
-يوضح هذا الرمز كيفية إضافة ارتباط تشعبي إلى **فيديو**:
 
+يعرض لك هذا الكود النموذجى كيفية إضافة ارتباط تشعبي إلى **فيديو**:
 ```php
   $pres = new Presentation();
   try {
@@ -139,7 +154,7 @@ try {
 
     $videoFrame = $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $videoFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $videoFrame->getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $videoFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -149,17 +164,14 @@ try {
   }
 ```
 
-{{% alert title="نصيحة" color="primary" %}} 
 
-قد ترغب في رؤية *[إدارة OLE](/slides/ar/php-java/manage-ole/)*.
-
+{{%  alert  title="Tip"  color="primary"  %}} 
+قد ترغب في الاطلاع على *[إدارة OLE](/slides/ar/php-java/manage-ole/)*.
 {{% /alert %}}
 
 ## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
 
-نظرًا لأن الارتباطات التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
-
-يوضح هذا الرمز كيفية إنشاء جدول محتويات باستخدام الارتباطات التشعبية:
+نظرًا لأن الارتباطات التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات. 
 
 ```php
   $pres = new Presentation();
@@ -173,9 +185,9 @@ try {
     $paragraph = new Paragraph();
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $paragraph->setText("عنوان الشريحة 2 .......... ");
+    $paragraph->setText("Title of slide 2 .......... ");
     $linkPortion = new Portion();
-    $linkPortion->setText("الصفحة 2");
+    $linkPortion->setText("Page 2");
     $linkPortion->getPortionFormat()->getHyperlinkManager()->setInternalHyperlinkClick($secondSlide);
     $paragraph->getPortions()->add($linkPortion);
     $contentTable->getTextFrame()->getParagraphs()->add($paragraph);
@@ -187,26 +199,25 @@ try {
   }
 ```
 
+
 ## **تنسيق الارتباطات التشعبية**
 
 ### **اللون**
 
-مع خاصية [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink)، يمكنك تعيين اللون للارتباطات التشعبية وأيضًا الحصول على معلومات اللون من الارتباطات التشعبية. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint القديمة.
-
-يوضح هذا الرمز عملية أُضيفت فيها ارتباطات تشعبية بألوان مختلفة إلى نفس الشريحة:
+باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink)، يمكنك تعيين اللون للارتباطات التشعبية وكذلك الحصول على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint القديمة.
 
 ```php
   $pres = new Presentation();
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
-    $shape1->addTextFrame("هذا نموذج لارتباط تشعبي ملون.");
+    $shape1->addTextFrame("This is a sample of colored hyperlink.");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $portionFormat::getHyperlinkClick()->setColorSource(HyperlinkColorSource->PortionFormat);
     $portionFormat::getFillFormat()->setFillType(FillType::Solid);
     $portionFormat::getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $shape2 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
-    $shape2->addTextFrame("هذا نموذج لارتباط تشعبي عادي.");
+    $shape2->addTextFrame("This is a sample of usual hyperlink.");
     $shape2->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pres->save("presentation-out-hyperlink.pptx", SaveFormat::Pptx);
   } finally {
@@ -216,12 +227,12 @@ try {
   }
 ```
 
-## **إزالة الارتباطات التشعبية في العروض التقديمية**
 
-### **إزالة الارتباطات التشعبية من النصوص**
+## **إزالة الارتباطات التشعبية من العروض التقديمية**
 
-يوضح هذا الرمز PHP كيفية إزالة الارتباط التشعبي من نص في شريحة تقديمية:
+### **إزالة الارتباطات التشعبية من النص**
 
+يعرض لك هذا الكود PHP كيفية إزالة الارتباط التشعبي من نص في شريحة عرض تقديمي:
 ```php
   $pres = new Presentation();
   try {
@@ -244,10 +255,10 @@ try {
   }
 ```
 
-### **إزالة الارتباطات التشعبية من الأشكال أو الأطر**
 
-يوضح هذا الرمز PHP كيفية إزالة الارتباط التشعبي من شكل في شريحة تقديمية:
+### **إزالة الارتباطات التشعبية من الأشكال أو الإطارات**
 
+يعرض لك هذا الكود PHP كيفية إزالة الارتباط التشعبي من شكل في شريحة عرض تقديمي:
 ```php
   $pres = new Presentation();
   try {
@@ -263,9 +274,10 @@ try {
   }
 ```
 
-## **الارتباطات التشعبية القابلة للتعديل**
 
-فئة [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) قابلة للتعديل. مع هذه الفئة، يمكنك تغيير القيم لهذه الخصائص:
+## **الارتباط التشعبي القابل للتعديل**
+
+فئة [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير القيم للخصائص التالية:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -273,16 +285,15 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-يوضح الرمز كيفية إضافة ارتباط تشعبي إلى شريحة وتحرير الأداة التوضيحية له لاحقًا:
-
+يعرض لك مقطع الشفرة كيفية إضافة ارتباط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
 ```php
   $pres = new Presentation();
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
-    $shape1->addTextFrame("Aspose: APIs لتنسيقات الملفات");
+    $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("أكثر من 70% من شركات Fortune 100 تثق في APIs من Aspose");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $pres->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -292,17 +303,29 @@ try {
   }
 ```
 
+
 ## **الخصائص المدعومة في IHyperlinkQueries**
 
-يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) من عرض أو شريحة أو نص يتم تعريف الارتباط التشعبي له.
+يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي له.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-تدعم فئة [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) هذه الطرق والخصائص:
+فئة [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) تدعم هذه الطرق والخصائص:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+
+## **الأسئلة الشائعة**
+
+**How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?**  
+الأقسام في PowerPoint هي مجموعات من الشرائح؛ وتستهدف عملية التنقل شريحة محددة تقنيًا. للانتقال إلى قسم، عادةً ما تقوم بالربط إلى شريحته الأولى.
+
+**Can I attach a hyperlink to master slide elements so it works on all slides?**  
+نعم. تدعم عناصر الشريحة الرئيسية وتخطيط الشريحة الارتباطات التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر أثناء عرض الشرائح.
+
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**  
+في [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/php-java/convert-powerpoint-to-html/)، نعم — عادةً ما يتم الحفاظ على الروابط. عند التصدير إلى [الصور](/slides/ar/php-java/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/php-java/convert-powerpoint-to-video/)، لن يتم نقل القدرة على النقر لأن هذه الصيغ (إطارات نقطية/فيديو) لا تدعم الارتباطات التشعبية.

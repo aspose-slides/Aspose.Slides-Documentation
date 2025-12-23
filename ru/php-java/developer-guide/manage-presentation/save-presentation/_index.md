@@ -1,161 +1,212 @@
 ---
-title: Сохранить Презентацию
+title: Сохранение презентаций в PHP
+linktitle: Сохранить презентацию
 type: docs
 weight: 80
 url: /ru/php-java/save-presentation/
+keywords:
+- сохранить PowerPoint
+- сохранить OpenDocument
+- сохранить презентацию
+- сохранить слайд
+- сохранить PPT
+- сохранить PPTX
+- сохранить ODP
+- презентация в файл
+- презентация в поток
+- предопределенный тип представления
+- строгий формат Office Open XML
+- режим Zip64
+- обновление миниатюры
+- прогресс сохранения
+- PHP
+- Aspose.Slides
+description: "Узнайте, как сохранять презентации с помощью Aspose.Slides для PHP через Java — экспортировать в PowerPoint или OpenDocument, сохраняя макеты, шрифты и эффекты."
 ---
 
 ## **Обзор**
-{{% alert color="primary" %}} 
 
-[Открытие Презентации](/slides/ru/php-java/open-presentation/) описывает, как использовать класс [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
+[Open Presentations in PHP](/slides/ru/php-java/open-presentation/) описывает, как использовать класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) для открытия презентации. В этой статье объясняется, как создавать и сохранять презентации. Класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) содержит содержимое презентации. Независимо от того, создаёте ли вы презентацию с нуля или изменяете существующую, вам понадобится сохранить её после окончания работы. С Aspose.Slides для PHP вы можете сохранять в **файл** или **поток**. В этой статье рассматриваются различные способы сохранения презентации.
 
-{{% /alert %}} 
+## **Сохранение презентаций в файлы**
 
-Класс [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) хранит содержимое презентации. Независимо от того, создаете ли вы презентацию с нуля или модифицируете существующую, по завершении вы захотите сохранить презентацию. С помощью Aspose.Slides для PHP через Java ее можно сохранить в виде **файла** или **потока**. Эта статья объясняет, как сохранить презентацию различными способами:
-
-## **Сохранение Презентации в Файл**
-Сохраните презентацию в файл, вызвав метод [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) класса [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation). Просто передайте имя файла и [**SaveFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/SaveFormat) в метод [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-).
-
-Следующие примеры показывают, как сохранить презентацию с использованием Aspose.Slides для PHP через Java.
-
+Сохраните презентацию в файл, вызвав метод `save` класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Чтобы вызвать метод, передайте имя файла и формат сохранения. В следующем примере показано, как сохранить презентацию с помощью Aspose.Slides.
 ```php
-  # Создание объекта Presentation, представляющего PPT файл
-  $pres = new Presentation();
-  try {
-    # ...выполнение каких-то операций...
-    # Сохраните вашу презентацию в файл
-    $pres->save("demoPass.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+$presentation = new Presentation();
+try {
+    // Выполните здесь некоторую работу...
+
+    // Сохраните презентацию в файл.
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **Сохранение презентаций в потоки**
+
+Вы можете сохранить презентацию в поток, передав поток вывода в метод `save` класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Презентацию можно записать в различные типы потоков. В примере ниже мы создаём новую презентацию и сохраняем её в файловый поток.
+```php
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+$presentation = new Presentation();
+try {
+    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    try {
+        // Сохраните презентацию в поток.
+        $presentation->save($fileStream, SaveFormat::Pptx);
+    } finally {
+        $fileStream->close();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Сохранение Презентации в Поток**
-Можно сохранить презентацию в поток, передав выходной поток методу [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.io.OutputStream-int-) класса [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation). Существует множество типов потоков, в которые можно сохранить презентацию. В следующем примере мы создали новый файл Презентации, добавили текст в фигуру и сохранили презентацию в поток.
 
+## **Сохранение презентаций с предопределённым типом представления**
+
+Aspose.Slides позволяет задать начальное представление, которое PowerPoint использует при открытии сгенерированной презентации, через класс [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/). Используйте метод [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/#setLastView) со значением из перечисления [ViewType](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/).
 ```php
-  # Создание объекта Presentation, представляющего PPT файл
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 200, 200);
-    # Добавить текст к фигуре
-    $shape->getTextFrame()->setText("Этот демонстрационный пример показывает, как создать файл PowerPoint и сохранить его в поток.");
-    $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
-    $pres->save($os, SaveFormat::Pptx);
-    $os->close();
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("SlideMasterView.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Сохранение Презентации с Предопределенным Типом Вида**
-Aspose.Slides для PHP через Java предоставляет возможность установить тип вида для создаваемой презентации при ее открытии в PowerPoint с помощью класса [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties). Свойство [**setLastView**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#setLastView-int-) используется для установки типа вида с помощью перечисления [**ViewType**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewType).
 
+## **Сохранение презентаций в строгом формате Office Open XML**
+
+Aspose.Slides позволяет сохранять презентацию в строгом формате Office Open XML. Используйте класс [PptxOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/) и установите его свойство conformance при сохранении. Если вы зададите [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/php-java/aspose.slides/conformance/#Iso29500_2008_Strict), выходной файл будет сохранён в строгом формате Office Open XML.
+
+В примере ниже создаётся презентация и сохраняется в строгом формате Office Open XML.
 ```php
-  # Открытие файла презентации
-  $pres = new Presentation();
-  try {
-    # Установка типа вида
-    $pres->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # Сохранение презентации
-    $pres->save("newDemo.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$options = new PptxOptions();
+$options->setConformance(Conformance::Iso29500_2008_Strict);
+
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+$presentation = new Presentation();
+try {
+    // Сохраните презентацию в строгом формате Office Open XML.
+    $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Сохранение Презентаций в Строгом Формате Office Open XML**
-Aspose.Slides позволяет сохранять презентацию в строгом формате Office Open XML. Для этой цели предоставляется класс [**PptxOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions), в котором вы можете установить свойство Conformance во время сохранения файла презентации. Если вы установите его значение как [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/php-java/aspose.slides/Conformance#Iso29500_2008_Strict), тогда выходной файл презентации будет сохранен в строгом формате Open XML.
 
-Следующий пример кода создает презентацию и сохраняет ее в строгом формате Office Open XML. При вызове метода [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) для презентации объект [**PptxOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions) передается в него с установленным свойством Conformance как [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/php-java/aspose.slides/Conformance#Iso29500_2008_Strict).
+## **Сохранение презентаций в формате Office Open XML в режиме Zip64**
 
+Файл Office Open XML представляет собой ZIP‑архив, который накладывает ограничения в 4 ГБ (2^32 байт) на несжатый размер любого файла, сжатый размер любого файла и общий размер архива, а также ограничивает количество файлов в архиве 65 535 (2^16‑1). Расширения формата ZIP64 снимают эти ограничения до 2^64.
+
+Метод [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setZip64Mode) позволяет выбрать, когда использовать расширения формата ZIP64 при сохранении файла Office Open XML.
+
+Этот метод может использоваться со следующими режимами:
+
+- [IfNecessary](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#IfNecessary) использует расширения ZIP64 только если презентация превышает указанные выше ограничения. Это режим по умолчанию.
+- [Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never) никогда не использует расширения ZIP64.
+- [Always](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Always) всегда использует расширения ZIP64.
+
+В следующем коде демонстрируется, как сохранить презентацию как PPTX с включёнными расширениями ZIP64:
 ```php
-  # Создание объекта Presentation, представляющего PPT файл
-  $pres = new Presentation();
-  try {
-    # Получить первый слайд
-    $slide = $pres->getSlides()->get_Item(0);
-    # Добавить автозащиту типа линия
-    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    # Установить параметры сохранения Строгого формата Office Open XML
-    $options = new PptxOptions();
-    $options->setConformance(Conformance->Iso29500_2008_Strict);
-    # Сохранить вашу презентацию в файл
-    $pres->save("demoPass.pptx", SaveFormat::Pptx, $options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$pptxOptions = new PptxOptions();
+$pptxOptions->setZip64Mode(Zip64Mode::Always);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Сохранение Презентаций в Формате Office Open XML в Режиме Zip64**
-Файл Office Open XML является ZIP-архивом, который имеет ограничение в 4 ГБ (2^32 байт) на несжатый размер файла, сжатый размер файла и общий размер архива, а также ограничение в 65,535 (2^16-1) файлов в архиве. Расширения формата ZIP64 увеличивают эти лимиты до 2^64.
 
-Новое свойство [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/) позволяет вам выбирать, когда использовать расширения формата ZIP64 для сохраненного файла Office Open XML.
+{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
 
-Это свойство предоставляет следующие режимы:
-
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#IfNecessary) означает, что расширения формата ZIP64 будут использоваться только в том случае, если презентация выходит за пределы указанных ограничений. Это режим по умолчанию.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never) означает, что расширения формата ZIP64 использоваться не будут. 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Always) означает, что расширения формата ZIP64 будут использоваться всегда.
-
-Следующий код демонстрирует, как сохранить презентацию в формате PPTX с расширениями формата ZIP64:
-
-```php
-  $pres = new Presentation("Sample.pptx");
-  try {
-    $pptxOptions = new PptxOptions();
-    $pptxOptions->setZip64Mode(Zip64Mode::Always);
-    
-    $pres->save("Sample-zip64.pptx", SaveFormat::Pptx, $pptxOptions);
-  } finally {
-    $pres->dispose();
-  }
-```
-
-{{% alert title="Примечание" color="warning" %}}
-
-Сохранение в режиме Zip64Mode.Never вызовет [PptxException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxexception/), если презентация не может быть сохранена в формате ZIP32.
+При сохранении с использованием [Zip64Mode.Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never) выбрасывается исключение [PptxException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxexception/), если презентацию нельзя сохранить в формате ZIP32.
 
 {{% /alert %}}
 
-## **Сохранение Обновлений Прогресса в Процентах**
-Новый интерфейс [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) был добавлен в интерфейс [**ISaveOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/ISaveOptions) и абстрактный класс [**SaveOptions** ](https://reference.aspose.com/slides/php-java/aspose.slides/SaveOptions). Интерфейс [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) представляет собой объект обратного вызова для сохранения обновлений прогресса в процентах. 
+## **Сохранение презентаций без обновления миниатюры**
 
-Следующие примеры кода показывают, как использовать интерфейс [IProgressCallback](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback):
+Метод [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) управляет генерацией миниатюры при сохранении презентации в PPTX:
 
+- Если установить `true`, миниатюра обновляется во время сохранения. Это значение по умолчанию.
+- Если установить `false`, текущая миниатюра сохраняется. Если у презентации нет миниатюры, она не генерируется.
+
+В коде ниже презентация сохраняется в PPTX без обновления её миниатюры.
 ```php
-  class ExportProgressHandler {
-    function reporting($progressValue) {
-      # Используйте значение процента прогресса здесь
-      $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-      echo($progress . "% файл конвертирован");
-    }
-  }
+$pptxOptions = new PptxOptions();
+$pptxOptions->setRefreshThumbnail(false);
 
-  # Открытие файла презентации
-  $pres = new Presentation("ConvertToPDF.pptx");
-  try {
-    $saveOptions = new PdfOptions();
-    $progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
-    $saveOptions->setProgressCallback($progressHandler);
-    $pres->save("ConvertToPDF.pdf", SaveFormat::Pdf, $saveOptions);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
+}
+finally {
+    $presentation->dispose();
+}
 ```
+
 
 {{% alert title="Информация" color="info" %}}
 
-С помощью собственного API Aspose разработала [бесплатное приложение PowerPoint Splitter](https://products.aspose.app/slides/splitter), которое позволяет пользователям разбивать свои презентации на несколько файлов. По сути, приложение сохраняет выбранные слайды из заданной презентации в виде новых файлов PowerPoint (PPTX или PPT). 
+Эта опция помогает уменьшить время, необходимое для сохранения презентации в формате PPTX.
 
 {{% /alert %}}
+
+## **Сохранение прогресса в процентах**
+
+Отчёт о прогрессе сохранения настраивается через метод [setProgressCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setProgressCallback) класса [SaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) и его наследников. Предоставьте Java‑прокси, реализующий интерфейс [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iprogresscallback/); во время экспорта обратный вызов получает периодические обновления в процентах.
+
+В следующих фрагментах кода показано, как использовать `IProgressCallback`.
+```php
+class ExportProgressHandler {
+    function reporting($progressValue) {
+        // Используйте здесь значение процента прогресса.
+        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+        echo($progress . "% of the file has been converted.");
+    }
+}
+
+$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+
+$saveOptions = new PdfOptions();
+$saveOptions->setProgressCallback($progressHandler);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+{{% alert title="Информация" color="info" %}}
+
+Aspose разработала бесплатное приложение [PowerPoint Splitter](https://products.aspose.app/slides/splitter) на основе собственного API. Приложение позволяет разбить презентацию на несколько файлов, сохранив выбранные слайды как новые файлы PPTX или PPT.
+
+{{% /alert %}}
+
+## **FAQ**
+
+**Поддерживается ли «быстрое сохранение» (инкрементальное сохранение), при котором записываются только изменения?**
+
+Нет. При каждом сохранении создаётся полный целевой файл; инкрементальное «быстрое сохранение» не поддерживается.
+
+**Можно ли безопасно сохранять один и тот же объект Presentation из нескольких потоков?**
+
+Нет. Экземпляр [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) **не является потокобезопасным** (/slides/ru/php-java/multithreading/); сохраняйте его из одного потока.
+
+**Что происходит с гиперссылками и внешними файлами при сохранении?**
+
+[Гиперссылки](/slides/ru/php-java/manage-hyperlinks/) сохраняются. Внешние файлы, связанные, например, видео по относительным путям, автоматически не копируются — убедитесь, что указанные пути остаются доступными.
+
+**Можно ли задавать/сохранять метаданные документа (Автор, Название, Компания, Дата)?**
+
+Да. Стандартные [свойства документа](/slides/ru/php-java/presentation-properties/) поддерживаются и будут записаны в файл при сохранении.

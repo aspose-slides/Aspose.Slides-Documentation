@@ -1,41 +1,56 @@
 ---
-title: Анимированные графики
+title: Анимация диаграмм PowerPoint в PHP
+linktitle: Анимированные диаграммы
 type: docs
 weight: 80
 url: /ru/php-java/animated-charts/
+keywords:
+- диаграмма
+- анимированная диаграмма
+- анимация диаграммы
+- ряд диаграммы
+- категория диаграммы
+- элемент ряда
+- элемент категории
+- добавить эффект
+- тип эффекта
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Создайте впечатляющие анимированные диаграммы с помощью Aspose.Slides for PHP via Java. Улучшите презентации динамичными визуальными элементами в файлах PPT и PPTX — начните сейчас."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides для PHP через Java поддерживает анимацию элементов графиков. **Серии**, **Категории**, **Элементы Серий**, **Элементы Категорий** могут быть анимированы с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for PHP via Java поддерживает анимацию элементов диаграммы. **Series**, **Categories**, **Series Elements**, **Categories Elements** могут быть анимированы с помощью метода [**ISequence**.**addEffect**](https://reference.aspose.com/slides/php-java/aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
-## **Анимация серий графика**
-Если вы хотите анимировать серию графика, напишите код в соответствии с перечисленными ниже шагами:
+## **Анимация рядов диаграммы**
+Если вы хотите анимировать ряд диаграммы, напишите код согласно перечисленным ниже шагам:
 
 1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте серию.
+1. Получите ссылку на объект диаграммы.
+1. Анимируйте ряд.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали серии графика.
-
+В приведённом ниже примере мы анимировали ряды диаграммы.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
+  # Создать экземпляр класса Presentation, представляющего файл презентации
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Анимируйте серию
+    # Анимировать ряд
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Запишите модифицированную презентацию на диск
+    # Сохранить изменённую презентацию на диск
     $pres->save("AnimatingSeries_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -44,18 +59,18 @@ Aspose.Slides для PHP через Java поддерживает анимаци
   }
 ```
 
-## **Анимация категорий графика**
-Если вы хотите анимировать категорию графика, напишите код в соответствии с перечисленными ниже шагами:
+
+## **Анимация категорий диаграммы**
+Если вы хотите анимировать категории диаграммы, напишите код согласно перечисленным ниже шагам:
 
 1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
+1. Получите ссылку на объект диаграммы.
 1. Анимируйте категорию.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали категорию графика.
-
+В приведённом ниже примере мы анимировали категории диаграммы.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
+  # Создать экземпляр класса Presentation, представляющего файл презентации
   $pres = new Presentation("ExistingChart.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -74,25 +89,25 @@ Aspose.Slides для PHP через Java поддерживает анимаци
   }
 ```
 
-## **Анимация элементов серии**
-Если вы хотите анимировать элементы серии, напишите код в соответствии с перечисленными ниже шагами:
+
+## **Анимация элемента ряда**
+Если вы хотите анимировать элементы рядов, напишите код согласно перечисленным ниже шагам:
 
 1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте элементы серии.
+1. Получите ссылку на объект диаграммы.
+1. Анимируйте элементы рядов.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали элементы серий.
-
+В приведённом ниже примере мы анимировали элементы рядов.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
+  # Создать экземпляр класса Presentation, представляющего файл презентации
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Анимируйте элементы серии
+    # Анимировать элементы серии
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 0, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -106,7 +121,7 @@ Aspose.Slides для PHP через Java поддерживает анимаци
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Запишите файл презентации на диск
+    # Сохранить файл презентации на диск
     $pres->save("AnimatingSeriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -115,25 +130,25 @@ Aspose.Slides для PHP через Java поддерживает анимаци
   }
 ```
 
-## **Анимация элементов категории**
-Если вы хотите анимировать элементы категорий, напишите код в соответствии с перечисленными ниже шагами:
+
+## **Анимация элемента категории**
+Если вы хотите анимировать элементы категорий, напишите код согласно перечисленным ниже шагам:
 
 1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
+1. Получите ссылку на объект диаграммы.
 1. Анимируйте элементы категорий.
 1. Запишите файл презентации на диск.
 
-В приведенном ниже примере мы анимировали элементы категорий.
-
+В приведённом ниже примере мы анимировали элементы категорий.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
+  # Создать экземпляр класса Presentation, представляющего файл презентации
   $pres = new Presentation("ExistingChart.pptx");
   try {
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     $slide = $pres->getSlides()->get_Item(0);
     $shapes = $slide->getShapes();
     $chart = $shapes->get_Item(0);
-    # Анимируйте элементы категорий
+    # Анимировать элементы категорий
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectType::Fade, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 0, 0, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 0, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
@@ -147,7 +162,7 @@ Aspose.Slides для PHP через Java поддерживает анимаци
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Запишите файл презентации на диск
+    # Сохранить файл презентации на диск
     $pres->save("AnimatingCategoriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -155,3 +170,21 @@ Aspose.Slides для PHP через Java поддерживает анимаци
     }
   }
 ```
+
+
+## **Вопросы и ответы**
+
+**Поддерживаются ли разные типы эффектов (например, появление, акцент, завершение) для диаграмм так же, как для обычных фигур?**  
+Да. Диаграмма рассматривается как фигура, поэтому она поддерживает стандартные типы анимационных эффектов, включая появление, акцент и завершение, с полным управлением через временную шкалу слайда и последовательности анимаций.
+
+**Можно ли комбинировать анимацию диаграммы с переходами слайдов?**  
+Да. [Transitions](/slides/ru/php-java/slide-transition/) применяются к слайду, тогда как анимационные эффекты — к объектам на слайде. Вы можете использовать их одновременно в одной презентации и управлять ими независимо.
+
+**Сохраняются ли анимации диаграмм при сохранении в PPTX?**  
+Да. При [сохранении в PPTX](/slides/ru/php-java/save-presentation/) все анимационные эффекты и их порядок сохраняются, так как они являются частью родной модели анимации презентации.
+
+**Можно ли читать существующие анимации диаграмм из презентации и изменять их?**  
+Да. API предоставляет доступ к временной шкале слайда, последовательностям и эффектам, позволяя просматривать существующие анимации диаграмм и корректировать их без полного пересоздания.
+
+**Можно ли создать видео, включающее анимацию диаграмм, с помощью Aspose.Slides?**  
+Да. Вы можете [экспортировать презентацию в видео](/slides/ru/php-java/convert-powerpoint-to-video/), сохраняя анимацию, настраивая тайминги и другие параметры экспорта, чтобы полученный видеоклип отражал анимированное воспроизведение.

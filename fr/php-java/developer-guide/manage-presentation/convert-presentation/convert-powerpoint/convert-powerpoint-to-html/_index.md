@@ -1,14 +1,33 @@
 ---
-title: Convertir PowerPoint en HTML
-linktitle: Convertir PowerPoint en HTML
+title: Convertir des présentations PowerPoint en HTML avec PHP
+linktitle: PowerPoint en HTML
 type: docs
 weight: 30
 url: /fr/php-java/convert-powerpoint-to-html/
-keywords: "PHP  PowerPoint en HTML, Convertir Présentation PowerPoint, PPTX, PPT, PPT en HTML, PPTX en HTML, PowerPoint en HTML, Enregistrer PowerPoint en HTML, Enregistrer PPT en HTML, Enregistrer PPTX en HTML, Java, Aspose.Slides, exportation HTML"
-description: "Convertir PowerPoint en HTML : Enregistrer PPTX ou PPT en HTML. Enregistrer les diapositives en HTML"
+keywords:
+- convertir PowerPoint
+- convertir présentation
+- convertir diapositive
+- convertir PPT
+- convertir PPTX
+- PowerPoint en HTML
+- présentation en HTML
+- diapositive en HTML
+- PPT en HTML
+- PPTX en HTML
+- enregistrer PowerPoint en HTML
+- enregistrer présentation en HTML
+- enregistrer diapositive en HTML
+- enregistrer PPT en HTML
+- enregistrer PPTX en HTML
+- exporter PPT en HTML
+- exporter PPTX en HTML
+- PHP
+- Aspose.Slides
+description: "Convertir des présentations PowerPoint en HTML réactif avec PHP. Conservez la mise en page, les liens et les images grâce au guide de conversion Aspose.Slides pour des résultats rapides et impeccables."
 ---
 
-## **Aperçu**
+## **Vue d'ensemble**
 
 Cet article explique comment convertir une présentation PowerPoint au format HTML en utilisant PHP. Il couvre les sujets suivants.
 
@@ -18,37 +37,38 @@ Cet article explique comment convertir une présentation PowerPoint au format HT
 - Convertir ODP en HTML
 - Convertir une diapositive PowerPoint en HTML
 
-## **Java PowerPoint en HTML**
+## **PowerPoint en HTML avec PHP**
 
-Pour le code exemple Java pour convertir PowerPoint en HTML, veuillez consulter la section ci-dessous c'est-à-dire [Convertir PowerPoint en HTML](#convert-powerpoint-to-html). Le code peut charger plusieurs formats comme PPT, PPTX et ODP dans un objet Présentation et l'enregistrer au format HTML.
+Pour le code d'exemple Java permettant de convertir PowerPoint en HTML, veuillez consulter la section ci-dessous, c’est-a-dire [Convert PowerPoint to HTML](#convert-powerpoint-to-html). Le code peut charger plusieurs formats tels que PPT, PPTX et ODP dans l'objet Presentation et l'enregistrer au format HTML.
 
-## **À propos de la conversion PowerPoint en HTML**
-En utilisant [**Aspose.Slides pour PHP via Java**](https://products.aspose.com/slides/php-java/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**.
+## **A propos de la conversion PowerPoint en HTML**
 
-**Aspose.Slides** fournit de nombreuses options (principalement de la classe [**HtmlOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions)) qui définissent le processus de conversion de PowerPoint en HTML :
+En utilisant [**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**.
+
+**Aspose.Slides** fournit de nombreuses options (principalement de la classe [**HtmlOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions)) qui définissent le processus de conversion PowerPoint en HTML :
 
 * Convertir une présentation PowerPoint entière en HTML.
 * Convertir une diapositive spécifique d'une présentation PowerPoint en HTML.
-* Convertir les médias de la présentation (images, vidéos, etc.) en HTML.
-* Convertir une présentation PowerPoint en HTML responsive.
-* Convertir une présentation PowerPoint en HTML avec des notes de conférencier incluses ou exclues.
-* Convertir une présentation PowerPoint en HTML avec des commentaires inclus ou exclus.
-* Convertir une présentation PowerPoint en HTML avec des polices originales ou intégrées.
-* Convertir une présentation PowerPoint en HTML tout en utilisant le nouveau style CSS.
+* Convertir les médias de la présentation (images, videos, etc.) en HTML.
+* Convertir une présentation PowerPoint en HTML reactif.
+* Convertir une présentation PowerPoint en HTML avec ou sans notes du presentateur.
+* Convertir une présentation PowerPoint en HTML avec ou sans commentaires.
+* Convertir une présentation PowerPoint en HTML avec les polices originales ou incorporees.
+* Convertir une présentation PowerPoint en HTML en utilisant le nouveau style CSS.
 
 {{% alert color="primary" %}} 
 
-En utilisant sa propre API, Aspose a développé des convertisseurs gratuits [présentation en HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc.
+En utilisant son propre API, Aspose a developpe des convertisseurs gratuits [presentation en HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Vous voudrez peut-être consulter d'autres [convertisseurs gratuits d'Aspose](https://products.aspose.app/slides/conversion).
+Vous pouvez egalement consulter d'autres [convertisseurs gratuits d'Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
 
 {{% alert title="Note" color="warning" %}} 
 
-En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge ces opérations de conversion impliquant le format HTML : 
+En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge les operations de conversion suivantes impliquant le format HTML : 
 
 * [HTML en image](https://products.aspose.com/slides/php-java/conversion/html-to-image/)
 * [HTML en JPG](https://products.aspose.com/slides/php-java/conversion/html-to-jpg/)
@@ -59,21 +79,20 @@ En plus des processus de conversion décrits ici, Aspose.Slides prend également
 
 
 ## **Convertir PowerPoint en HTML**
-En utilisant Aspose.Slides, vous pouvez convertir une présentation PowerPoint entière en HTML de cette manière :
+En utilisant Aspose.Slides, vous pouvez convertir une presentation PowerPoint entière en HTML de cette maniere :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Utilisez la méthode [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) pour enregistrer l'objet en tant que fichier HTML.
+1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe.
+2. Utilisez la [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) methode pour enregistrer l'objet en tant que fichier HTML.
 
-Ce code vous montre comment convertir un PowerPoint en HTML :
-
+Ce code montre comment convertir un PowerPoint en HTML :
 ```php
-// Instancier un objet Presentation représentant un fichier de présentation
+// Instancier un objet Presentation qui représente un fichier de présentation
   $pres = new Presentation("Convert_HTML.pptx");
   try {
     $htmlOpt = new HtmlOptions();
     $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     $htmlOpt->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter("", false));
-    # Sauvegarde de la présentation en HTML
+    # Enregistrement de la présentation en HTML
     $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
   } finally {
     if (!java_is_null($pres)) {
@@ -83,17 +102,17 @@ Ce code vous montre comment convertir un PowerPoint en HTML :
 ```
 
 
-## **Convertir PowerPoint en HTML responsive**
-Aspose.Slides fournit la classe [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/ResponsiveHtmlController) qui vous permet de générer des fichiers HTML responsives. Ce code vous montre comment convertir une présentation PowerPoint en HTML responsive :
 
+## **Convertir PowerPoint en HTML réactif**
+Aspose.Slides fourni la classe [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/ResponsiveHtmlController) qui vous permet de generer des fichiers HTML reactifs. Ce code montre comment convertir une presentation PowerPoint en HTML reactif :
 ```php
-// Instancier un objet Presentation représentant un fichier de présentation
+// Instancier un objet Presentation qui représente un fichier de présentation
   $pres = new Presentation("Convert_HTML.pptx");
   try {
     $controller = new ResponsiveHtmlController();
     $htmlOptions = new HtmlOptions();
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    # Sauvegarde de la présentation en HTML
+    # Enregistrement de la présentation en HTML
     $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
   } finally {
     if (!java_is_null($pres)) {
@@ -102,16 +121,16 @@ Aspose.Slides fournit la classe [ResponsiveHtmlController](https://reference.asp
   }
 ```
 
-## **Convertir PowerPoint en HTML avec notes**
-Ce code vous montre comment convertir un PowerPoint en HTML avec des notes :
 
+## **Convertir PowerPoint en HTML avec notes**
+Ce code montre comment convertir un PowerPoint en HTML avec les notes :
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     $opt = new HtmlOptions();
     $options = $opt->getNotesCommentsLayouting();
     $options->setNotesPosition(NotesPositions::BottomFull);
-    # Sauvegarde des pages de notes
+    # Enregistrement des pages de notes
     $pres->save("Output.html", SaveFormat::Html, $opt);
   } finally {
     if (!java_is_null($pres)) {
@@ -120,14 +139,14 @@ Ce code vous montre comment convertir un PowerPoint en HTML avec des notes :
   }
 ```
 
+
 ## **Convertir PowerPoint en HTML avec polices originales**
 
-Aspose.Slides fournit la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) qui permet d'incorporer toutes les polices dans une présentation lors de la conversion de la présentation en HTML.
+Aspose.Slides fourni la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) qui vous permet d'incorporer toutes les polices d'une presentation lors de la conversion en HTML.
 
-Pour empêcher certaines polices d'être incorporées, vous pouvez passer un tableau de noms de polices à un constructeur paramétré de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController). Les polices populaires, telles que Calibri ou Arial, lorsqu'elles sont utilisées dans une présentation, n'ont pas besoin d'être incorporées car la plupart des systèmes contiennent déjà de telles polices. Lorsque ces polices sont incorporées, le document HTML résultant devient inutilement volumineux.
+Pour eviter l'incorporation de certaines polices, vous pouvez transmettre un tableau de noms de polices a un constructeur parametre de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController). Les polices populaires, telles que Calibri ou Arial, lorsqu'utilisees dans une presentation, n'ont pas besoin d'etre incorporees car la plupart des systemes les contiennent deja. Lorsque ces polices sont incorporees, le document HTML resultant devient inutilement volumineux.
 
-La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) prend en charge l'héritage et fournit la méthode [WriteFont](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) qui est destinée à être remplacée.
-
+La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController) supporte l'héritage et fournit la méthode [WriteFont](https://reference.aspose.com/slides/php-java/aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) qui est destinée a être surchargée.
 ```php
   $pres = new Presentation("input.pptx");
   try {
@@ -144,12 +163,12 @@ La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-
   }
 ```
 
-## **Convertir PowerPoint en HTML avec des images de haute qualité**
 
-Par défaut, lorsque vous convertissez PowerPoint en HTML, Aspose.Slides produit un petit HTML avec des images à 72 DPI et des zones recadrées supprimées. Pour obtenir des fichiers HTML avec des images de haute qualité, vous devez définir la propriété `PicturesCompression` (de la classe `HtmlOptions`) sur 96 (c'est-à-dire `PicturesCompression.Dpi96`) ou des [valeurs supérieures](https://reference.aspose.com/slides/php-java/aspose.slides/PicturesCompression).
+## **Convertir PowerPoint en HTML avec images haute qualite**
 
-Ce code PHP vous montre comment convertir une présentation PowerPoint en HTML tout en obtenant des images de haute qualité à 150 DPI (c'est-à-dire `PicturesCompression.Dpi150`) :
+Par défaut, lors de la conversion de PowerPoint en HTML, Aspose.Slides genere un HTML avec des images a 72 DPI et supprime les zones recadrees. Pour obtenir des fichiers HTML avec des images de meilleure qualite, vous devez definir la propriete `PicturesCompression` (de la classe `HtmlOptions`) sur 96 (c'est-a-dire `PicturesCompression.Dpi96`) ou des [valeurs](https://reference.aspose.com/slides/php-java/aspose.slides/PicturesCompression).
 
+Ce code PHP montre comment convertir une presentation PowerPoint en HTML tout en obtenant des images haute qualite a 150 DPI (c'est-a-dire `PicturesCompression.Dpi150`) :
 ```php
   $pres = new Presentation("InputDoc.pptx");
   try {
@@ -163,8 +182,8 @@ Ce code PHP vous montre comment convertir une présentation PowerPoint en HTML t
   }
 ```
 
-Ce code vous montre comment produire un HTML avec des images de qualité complète :
 
+Ce code montre comment produire du HTML avec des images en pleine qualite :
 ```php
   $pres = new Presentation("InputDoc.pptx");
   try {
@@ -178,11 +197,11 @@ Ce code vous montre comment produire un HTML avec des images de qualité complè
   }
 ```
 
+
 ## **Convertir une diapositive en HTML**
-Pour convertir une diapositive spécifique d'un PowerPoint en HTML, vous devez instancier la même classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) (utilisée pour convertir des présentations entières en HTML) et ensuite utiliser la méthode [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) pour enregistrer le fichier au format HTML. La classe [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions) peut être utilisée pour spécifier des options de conversion supplémentaires :
+Pour convertir une diapositive specifique d'un PowerPoint en HTML, vous devez instancier la meme [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe (utilisee pour convertir des presentations entieres en HTML) puis utiliser la [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) methode pour enregistrer le fichier au format HTML. La classe [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/HtmlOptions) peut etre utilisee pour specifier des options de conversion supplementaires :
 
-Ce code PHP vous montre comment convertir une diapositive dans une présentation PowerPoint en HTML :
-
+Ce code PHP montre comment convertir une diapositive d'une presentation PowerPoint en HTML :
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\HtmlOptions;
@@ -219,9 +238,9 @@ class CustomFormattingController
     $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
 	$formattingController= java_closure(new CustomFormattingController(), null, java("com.aspose.slides.IHtmlFormattingController"));
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($formattingController));
-    # Sauvegarder le fichier
+    # Enregistrement du fichier
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Diapositive Individuelle" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
+      $pres->save("Individual Slide" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
     }
   } finally {
     if (!java_is_null($pres)) {
@@ -230,11 +249,11 @@ class CustomFormattingController
   }
 ```
 
+
 ## **Enregistrer le CSS et les images lors de l'exportation en HTML**
-En utilisant de nouveaux fichiers de style CSS, vous pouvez facilement modifier le style du fichier HTML résultant du processus de conversion de PowerPoint en HTML. 
+En utilisant les nouveaux fichiers de style CSS, vous pouvez facilement modifier le style du fichier HTML resultnant du processus de conversion PowerPoint en HTML. 
 
-Le code PHP dans cet exemple vous montre comment utiliser des méthodes remplaçables pour créer un document HTML personnalisé avec un lien vers un fichier CSS :
-
+Le code PHP de cet exemple montre comment utiliser des methodes surchargables pour creer un document HTML personnalise avec un lien vers un fichier CSS :
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\HtmlOptions;
@@ -245,7 +264,7 @@ use aspose\slides\EmbedAllFontsHtmlController;
 class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
     const m_basePath = 0;
 
-    # Modèle de l'en-tête personnalisé
+    # Modèle d'en-tête personnalisé
     const Header = "<!DOCTYPE html>\n" .
             "<html>\n" .
             "<head>\n" .
@@ -270,7 +289,7 @@ class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
 
     public function writeAllFonts($generator, $presentation)
     {
-        $generator->addHtml("<!-- Polices intégrées -->");
+        $generator->addHtml("<!-- Embedded fonts -->");
         parent::writeAllFonts($generator, $presentation);
     }
 }
@@ -287,12 +306,12 @@ class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
   }
 ```
 
-## **Lier toutes les polices lors de la conversion d'une présentation en HTML**
 
-Si vous ne souhaitez pas incorporer les polices (pour éviter d'augmenter la taille du HTML résultant), vous pouvez lier toutes les polices en implémentant votre propre version de `LinkAllFontsHtmlController`. 
+## **Lier toutes les polices lors de la conversion d'une presentation en HTML**
 
-Ce code PHP vous montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant "Calibri" et "Arial" (puisqu'elles existent déjà dans le système) :
+Si vous ne souhaitez pas incorporer les polices (pour eviter d'augmenter la taille du HTML resultant), vous pouvez lier toutes les polices en implementant votre propre version `LinkAllFontsHtmlController`. 
 
+Ce code PHP montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant "Calibri" et "Arial" (puisqu'elles existent deja dans le systeme) :
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\HtmlOptions;
@@ -321,7 +340,7 @@ class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     {
         try {
             $fontName = java_is_null($substitutedFont) ? $originalFont->getFontName() : $substitutedFont->getFontName();
-            $path = $fontName . ".woff"; // un certain assainissement de chemin peut être nécessaire
+            $path = $fontName . ".woff"; // une certaine désinfection du chemin peut être nécessaire
 			$fstr = new Java("java.io.FileOutputStream", $this->m_basePath . $path);
 			$Array = new java_class("java.lang.reflect.Array");
 			try {
@@ -356,9 +375,9 @@ class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
   }
 ```
 
-## **Convertir PowerPoint en HTML responsive**
-Ce code PHP vous montre comment convertir une présentation PowerPoint en HTML responsive :
 
+## **Convertir PowerPoint en HTML réactif**
+Ce code PHP montre comment convertir une presentation PowerPoint en HTML réactif :
 ```php
   $pres = new Presentation("SomePresentation.pptx");
   try {
@@ -373,16 +392,15 @@ Ce code PHP vous montre comment convertir une présentation PowerPoint en HTML r
 ```
 
 
-## **Exporter des fichiers multimédia en HTML**
-En utilisant Aspose.Slides pour PHP via Java, vous pouvez exporter des fichiers multimédia de cette manière :
+## **Exporter les fichiers multimédia en HTML**
+En utilisant Aspose.Slides for PHP via Java, vous pouvez exporter des fichiers multimédia de cette maniere :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Obtenez une référence à la diapositive.
-1. Ajoutez une vidéo à la diapositive.
-1. Écrivez la présentation en tant que fichier HTML.
+1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) classe.
+2. Obtenez une référence à la diapositive.
+3. Ajoutez une video à la diapositive.
+4. Enregistrez la presentation sous forme de fichier HTML.
 
-Ce code PHP vous montre comment ajouter une vidéo à la présentation et ensuite l'enregistrer en tant que HTML :
-
+Ce code PHP montre comment ajouter une video a la presentation puis l'enregistrer en HTML :
 ```php
 // Chargement d'une présentation
   $pres = new Presentation();
@@ -403,12 +421,12 @@ Ce code PHP vous montre comment ajouter une vidéo à la présentation et ensuit
     $video = $pres->getVideos()->addVideo($videoData);
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
-    # Définir les options HTML
+    # Définition des options HTML
     $htmlOptions = new HtmlOptions($controller);
     $svgOptions = new SVGOptions($controller);
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
     $htmlOptions->setSlideImageFormat(SlideImageFormat::svg($svgOptions));
-    # Sauvegarder le fichier
+    # Enregistrement du fichier
     $pres->save($fileName, SaveFormat::Html, $htmlOptions);
   } catch (JavaException $e) {
   } finally {
@@ -417,3 +435,18 @@ Ce code PHP vous montre comment ajouter une vidéo à la présentation et ensuit
     }
   }
 ```
+
+
+## **FAQ**
+
+**Quelle est la performance d'Aspose.Slides lors de la conversion de plusieurs presentations en HTML?**
+
+La performance dépend de la taille et de la complexite des presentations. Aspose.Slides est tres efficace et scalable pour les operations en lot. Pour obtenir des performances optimales lors de la conversion d'un grand nombre de presentations, il est recommande d'utiliser le multithreading ou le traitement parallel chaque fois que possible.
+
+**Aspose.Slides prend-il en charge l'exportation des hyperliens vers HTML?**
+
+Oui, Aspose.Slides prend pleinement en charge l'exportation des hyperliens incorporees vers HTML. Lorsque vous convertissez des presentations au format HTML, les hyperliens sont preserves automatiquement et restent cliquables.
+
+**Existe-t-il une limite au nombre de diapositives lors de la conversion de presentations en HTML?**
+
+Il n'existe aucune limite au nombre de diapositives lorsque vous utilisez Aspose.Slides. Vous pouvez convertir des presentations de toute taille. Cependant, pour des presentations contenant un nombre tres eleve de diapositives, la performance peut dépendre des ressources disponibles sur votre serveur ou systeme.

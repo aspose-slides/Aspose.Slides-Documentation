@@ -1,57 +1,65 @@
 ---
-title: テキストボックスの管理
+title: PHP を使用したプレゼンテーション内のテキストボックス管理
+linktitle: テキストボックスの管理
 type: docs
 weight: 20
 url: /ja/php-java/manage-textbox/
-description: PHPを使用してPowerPointスライドにテキストボックスを作成します。PHPを使用してPowerPointスライドにテキストボックスまたはテキストフレームに列を追加します。PHPを使用してPowerPointスライドにハイパーリンク付きのテキストボックスを追加します。
+keywords:
+- テキストボックス
+- テキストフレーム
+- テキスト追加
+- テキスト更新
+- テキストボックス作成
+- テキストボックス確認
+- テキスト列追加
+- ハイパーリンク追加
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP を使用すると、PowerPoint および OpenDocument ファイル内でテキストボックスの作成、編集、複製が簡単になり、プレゼンテーションの自動化が向上します。"
 ---
 
+スライド上のテキストは通常、テキスト ボックスまたはシェイプに存在します。そのため、スライドにテキストを追加するには、テキスト ボックスを追加し、そのテキスト ボックスにテキストを入れる必要があります。Aspose.Slides for PHP via Java は、テキストを含むシェイプを追加できる [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) インターフェイスを提供しています。
 
-スライド上のテキストは一般的にテキストボックスまたは図形に存在します。したがって、スライドにテキストを追加するには、テキストボックスを追加し、その中にテキストを入れる必要があります。Aspose.Slides for PHP via Javaはテキストを含む図形を追加することを可能にする[IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape)インターフェースを提供します。
-
-{{% alert title="情報" color="info" %}}
-
-Aspose.Slidesはまた、スライドに図形を追加することを可能にする[IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape)インターフェースを提供します。しかし、`IShape`インターフェースを介して追加されたすべての図形がテキストを保持できるわけではありません。ただし、[IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape)インターフェースを介して追加された図形はテキストを含むことができます。
-
+{{% alert title="Info" color="info" %}}
+Aspose.Slides には、スライドにシェイプを追加できる [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) インターフェイスも用意されています。ただし、`IShape` インターフェイスで追加したすべてのシェイプがテキストを保持できるわけではありません。`[IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape)` インターフェイスで追加したシェイプはテキストを含むことができます。
 {{% /alert %}}
 
-{{% alert title="注意" color="warning" %}} 
-
-したがって、テキストを追加したい図形を扱う場合、それが`IAutoShape`インターフェースを介してキャストされたことを確認する必要があります。そうすれば、`IAutoShape`のプロパティである[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame)を使用することができます。このページの[テキストの更新](https://docs.aspose.com/slides/php-java/manage-textbox/#update-text)のセクションを参照してください。
-
+{{% alert title="Note" color="warning" %}} 
+したがって、テキストを追加したいシェイプを扱う場合は、まずそのシェイプが `IAutoShape` インターフェイスにキャストされているか確認してください。`IAutoShape` の下にあるプロパティ `TextFrame` を使用できるようになるからです。このページの [Update Text](https://docs.aspose.com/slides/php-java/manage-textbox/#update-text) セクションをご参照ください。
 {{% /alert %}}
 
-## **スライドにテキストボックスを作成する**
+## **Create a Text Box on a Slide**
 
-スライドにテキストボックスを作成するには、以下の手順を実行します。
+テキスト ボックスをスライドに作成する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのインスタンスを作成します。
-2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。 
-3. 指定された位置に`ShapeType`が`Rectangle`として設定された[IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape)オブジェクトを追加し、新しく追加された`IAutoShape`オブジェクトの参照を取得します。
-4. テキストを含む`TextFrame`プロパティを`IAutoShape`オブジェクトに追加します。以下の例では、次のテキストを追加しました：*Aspose TextBox*
-5. 最後に、`Presentation`オブジェクトを使用してPPTXファイルを書き込みます。 
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
+2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。  
+3. スライド上の指定位置に `Rectangle` として `ShapeType` を設定した [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) オブジェクトを追加し、追加された `IAutoShape` オブジェクトへの参照を取得します。  
+4. テキストを含む `TextFrame` プロパティを `IAutoShape` オブジェクトに追加します。以下の例では、*Aspose TextBox* というテキストを追加しています。  
+5. 最後に `Presentation` オブジェクトを使って PPTX ファイルを書き出します。
 
-以下のPHPコードは、上記の手順の実装を示しており、スライドにテキストを追加する方法を示します：
-
+以下の PHP コードは、上記手順の実装例で、スライドにテキストを追加する方法を示しています:
 ```php
-  # Presentationをインスタンス化します
+  # プレゼンテーションをインスタンス化
   $pres = new Presentation();
   try {
-    # プレゼンテーションの最初のスライドを取得します
+    # プレゼンテーションの最初のスライドを取得
     $sld = $pres->getSlides()->get_Item(0);
-    # 自動図形を長方形として追加します
+    # タイプを Rectangle に設定した AutoShape を追加
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # 長方形にTextFrameを追加します
+    # 矩形に TextFrame を追加
     $ashp->addTextFrame(" ");
-    # テキストフレームにアクセスします
+    # テキストフレームにアクセス
     $txtFrame = $ashp->getTextFrame();
-    # テキストフレーム用の段落オブジェクトを作成します
+    # テキストフレーム用の Paragraph オブジェクトを作成
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # 段落用のポーションオブジェクトを作成します
+    # Paragraph 用の Portion オブジェクトを作成
     $portion = $para->getPortions()->get_Item(0);
-    # テキストを設定します
+    # テキストを設定
     $portion->setText("Aspose TextBox");
-    # プレゼンテーションをディスクに保存します
+    # プレゼンテーションをディスクに保存
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -60,56 +68,82 @@ Aspose.Slidesはまた、スライドに図形を追加することを可能に�
   }
 ```
 
-## **テキストボックスの形状を確認する**
 
-Aspose.Slidesは、図形を調べてテキストボックスを見つけるための[isTextBox()](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--)プロパティを提供します（[AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)クラスから）。
+## **Check for a Text Box Shape**
 
-![テキストボックスと図形](istextbox.png)
+Aspose.Slides は、[AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) クラスの [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--) メソッドを提供しており、シェイプがテキスト ボックスかどうかを判定できます。
 
-このPHPコードは、図形がテキストボックスとして作成されたかどうかを確認する方法を示しています：
+![Text box and shape](istextbox.png)
 
+この PHP コードは、シェイプがテキスト ボックスとして作成されたかどうかを確認する方法を示しています:
 ```php
 class ShapeCallback {
-    function invoke($shape, $slide, $index){
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")))
-        $autoShape = $shape;
-        echo(java_is_true($autoShape->isTextBox()) ? "図形はテキストボックスです" : "図形はテキストボックスではありません");
+    function invoke($shape, $slide, $index) {
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+            $autoShape = $shape;
+            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
+        }
     }
 }
 
-  $pres = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("sample.pptx");
+try {
     $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($pres, $forEachShapeCallback);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    ForEach::shape($presentation, $forEachShapeCallback);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **テキストボックスに列を追加する**
 
-Aspose.Slidesは、テキストボックスに列を追加できる[ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-)および[ColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnSpacing-double-)プロパティ（[ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat)インターフェースおよび[TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)クラスから）を提供します。テキストボックス内の列の数を指定し、列間のスペーシングをポイント単位で設定できます。
+`addAutoShape` メソッド（[ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラス）で単にオートシェイプを追加した場合、`isTextBox` メソッドは `false` を返します。しかし、`addTextFrame` メソッドまたは `setText` メソッドでオートシェイプにテキストを追加すると、`isTextBox` プロパティは `true` を返します。
+```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
 
-このコードは、前述の操作を示しています：
+$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+// shape1->isTextBox() は false を返します
+$shape1->addTextFrame("shape 1");
+// shape1->isTextBox() は true を返します
 
+$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
+// shape2->isTextBox() は false を返します
+$shape2->getTextFrame()->setText("shape 2");
+// shape2->isTextBox() は true を返します
+
+$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
+// shape3->isTextBox() は false を返します
+$shape3->addTextFrame("");
+// shape3->isTextBox() は false を返します
+
+$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
+// shape4->isTextBox() は false を返します
+$shape4->getTextFrame()->setText("");
+// shape4->isTextBox() は false を返します
+```
+
+
+## **Add Columns to a Text Box**
+
+Aspose.Slides は、[ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) インターフェイスおよび [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) クラスの [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) と [ColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnSpacing-double-) プロパティを提供しており、テキスト ボックスに列を追加できます。列数と列間のポイント単位の間隔を設定できます。
+
+以下のコードは、上記操作を実演したものです:
 ```php
   $pres = new Presentation();
   try {
-    # プレゼンテーションの最初のスライドを取得します
+    # プレゼンテーションの最初のスライドを取得
     $slide = $pres->getSlides()->get_Item(0);
-    # 自動図形を長方形として追加します
+    # タイプを Rectangle に設定した AutoShape を追加
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # 長方形にTextFrameを追加します
-    $aShape->addTextFrame("これらのすべての列は、単一のテキストコンテナ内に制限されています -- " . "テキストを追加したり削除したりできますが、新しいテキストまたは残りのテキストは自動的に " . "コンテナ内で流れるように調整されます。テキストが1つのコンテナから " . "他のコンテナに流れることはありません -- PowerPointのテキストの列オプションは制限されています！");
-    # TextFrameのテキストフォーマットを取得します
+    # 矩形に TextFrame を追加
+    $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
+    # TextFrame のテキスト形式を取得
     $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # TextFrame内の列数を指定します
+    # TextFrame の列数を指定
     $format->setColumnCount(3);
-    # 列間のスペーシングを指定します
+    # 列間の間隔を指定
     $format->setColumnSpacing(10);
-    # プレゼンテーションを保存します
+    # プレゼンテーションを保存
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -119,11 +153,11 @@ Aspose.Slidesは、テキストボックスに列を追加できる[ColumnCount]
 ```
 
 
-## **テキストフレームに列を追加する**
-Aspose.Slides for PHP via Javaは、テキストフレーム内に列を追加できる[ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-)プロパティを提供します（[ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat)インターフェースから）。このプロパティを通じて、テキストフレーム内に好きな数の列を指定できます。
+## **Add Columns to a Text Frame**
 
-このPHPコードは、テキストフレーム内に列を追加する方法を示します：
+Aspose.Slides for PHP via Java は、[ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) インターフェイスの [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) プロパティを提供しており、テキスト フレーム内に列を追加できます。このプロパティを使用して、テキスト フレーム内の列数を指定できます。
 
+この PHP コードは、テキスト フレームに列を追加する方法を示しています:
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
   $pres = new Presentation();
@@ -131,7 +165,7 @@ Aspose.Slides for PHP via Javaは、テキストフレーム内に列を追加�
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     $format = $shape1->getTextFrame()->getTextFrameFormat();
     $format->setColumnCount(2);
-    $shape1->getTextFrame()->setText("これらのすべての列は、単一のテキストコンテナ内に保持される必要があります -- " . "テキストを追加したり削除したりできます - 新しいテキストや残りのテキストは自動的に " . "コンテナ内にとどまるように調整されます。テキストが1つのコンテナから " . "他のコンテナに溢れることはありません -- PowerPointのテキストの列オプションは制限されています！");
+    $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
     $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test = new Presentation($outPptxFileName);
     try {
@@ -175,34 +209,34 @@ Aspose.Slides for PHP via Javaは、テキストフレーム内に列を追加�
   }
 ```
 
-## **テキストを更新する**
 
-Aspose.Slidesを使用すると、テキストボックスに含まれるテキストを変更または更新したり、プレゼンテーションに含まれるすべてのテキストを変更したりできます。 
+## **Update Text**
 
-このPHPコードは、プレゼンテーション内のすべてのテキストを更新または変更する操作を示しています：
+Aspose.Slides を使用すると、テキスト ボックス内のテキストやプレゼンテーション全体に含まれるテキストを変更または更新できます。
 
+以下の PHP コードは、プレゼンテーション内のすべてのテキストを更新（変更）する操作例です:
 ```php
   $pres = new Presentation("text.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
       foreach($slide->getShapes() as $shape) {
-        # 図形がテキストフレームをサポートしているか確認します（IAutoShape）。
+        # shapeがテキストフレーム（IAutoShape）をサポートしているか確認します。
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $autoShape = $shape;
-          # テキストフレーム内の段落を繰り返します
+          # テキストフレーム内の段落を反復処理します
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # 段落内の各ポーションを繰り返します
+            # 段落内の各ポーションを反復処理します
             foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// テキストを変更
+              $portion->setText($portion->getText()->replace("years", "months"));// テキストを変更します
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// 書式を変更
+              $portion->getPortionFormat()->setFontBold(NullableBool::True);// 書式を変更します
 
             }
           }
         }
       }
     }
-    # 変更されたプレゼンテーションを保存します
+    # 変更したプレゼンテーションを保存します
     $pres->save("text-changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -211,41 +245,41 @@ Aspose.Slidesを使用すると、テキストボックスに含まれるテキ�
   }
 ```
 
-## **ハイパーリンク付きのテキストボックスを追加する** 
 
-テキストボックス内にリンクを挿入できます。テキストボックスをクリックすると、ユーザーはリンクを開くように指示されます。 
+## **Add a Text Box with a Hyperlink** 
 
-リンクを含むテキストボックスを追加するには、以下の手順を実行します。
+テキスト ボックス内にリンクを挿入できます。テキスト ボックスがクリックされると、ユーザーはリンク先へ移動します。
 
-1. `Presentation`クラスのインスタンスを作成します。 
-2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。 
-3. 指定された位置に`ShapeType`が`Rectangle`として設定された`AutoShape`オブジェクトを追加し、新しく追加されたAutoShapeオブジェクトへの参照を取得します。
-4. *Aspose TextBox*をデフォルトのテキストとして含む`AutoShape`オブジェクトに`TextFrame`を追加します。 
-5. `IHyperlinkManager`クラスをインスタンス化します。 
-6. `IHyperlinkManager`オブジェクトを、`TextFrame`の好きなポーションに関連付けられた[HyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getHyperlinkClick--)プロパティに割り当てます。
-7. 最後に、`Presentation`オブジェクトを使ってPPTXファイルを書き込みます。 
+テキスト ボックスにリンクを含める手順は次のとおりです。
 
-以下のPHPコードは、上記の手順の実装を示しており、ハイパーリンク付きのテキストボックスをスライドに追加する方法を示します：
+1. `Presentation` クラスのインスタンスを作成します。  
+2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。  
+3. スライド上の指定位置に `Rectangle` として `ShapeType` を設定した `AutoShape` オブジェクトを追加し、追加された AutoShape オブジェクトへの参照を取得します。  
+4. `AutoShape` オブジェクトに `TextFrame` を追加し、デフォルトテキストとして *Aspose TextBox* を設定します。  
+5. `IHyperlinkManager` クラスのインスタンスを作成します。  
+6. `TextFrame` の対象部分に対し、`IHyperlinkManager` オブジェクトを [HyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getHyperlinkClick--) プロパティに割り当てます。  
+7. 最後に `Presentation` オブジェクトを使って PPTX ファイルを書き出します。
 
+以下の PHP コードは、上記手順の実装例で、ハイパーリンク付きテキスト ボックスをスライドに追加する方法を示しています:
 ```php
-  # PPTXを表すPresentationクラスをインスタンス化します
+  # PPTX を表す Presentation クラスをインスタンス化
   $pres = new Presentation();
   try {
-    # プレゼンテーションの最初のスライドを取得します
+    # プレゼンテーションの最初のスライドを取得
     $slide = $pres->getSlides()->get_Item(0);
-    # 自動図形オブジェクトを長方形として追加します
+    # タイプを Rectangle に設定した AutoShape オブジェクトを追加
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # 図形をAutoShapeにキャストします
+    # シェイプを AutoShape にキャスト
     $pptxAutoShape = $shape;
-    # AutoShapeに関連付けられたITextFrameプロパティにアクセスします
+    # AutoShape に関連付けられた ITextFrame プロパティにアクセス
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # フレームにテキストを追加します
+    # フレームにテキストを追加
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # ポーションテキストのハイパーリンクを設定します
+    # ポーションテキストにハイパーリンクを設定
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # PPTXプレゼンテーションを保存します
+    # PPTX プレゼンテーションを保存
     $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -253,3 +287,14 @@ Aspose.Slidesを使用すると、テキストボックスに含まれるテキ�
     }
   }
 ```
+
+
+## **FAQ**
+
+**マスタースライドでテキスト ボックスとテキスト プレースホルダーの違いは何ですか？**
+
+プレースホルダー（[placeholder](/slides/ja/php-java/manage-placeholder/)）は、[マスタ](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) からスタイル/位置を継承し、[レイアウト](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) でオーバーライド可能です。一方、通常のテキスト ボックスは特定のスライド上の独立オブジェクトであり、レイアウトを切り替えても変わりません。
+
+**チャート、テーブル、SmartArt 内のテキストを除外して、プレゼンテーション全体でテキストを一括置換するにはどうすればよいですか？**
+
+テキスト フレームを持つオートシェイプだけを対象に反復処理し、埋め込みオブジェクト（[チャート](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)、[テーブル](https://reference.aspose.com/slides/php-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)）はそれぞれのコレクションを別途走査するか、対象タイプから除外してください。

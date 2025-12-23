@@ -1,12 +1,22 @@
 ---
-title: 提示框
+title: 使用 PHP 管理演示文稿图表中的标注
+linktitle: 标注
 type: docs
 url: /zh/php-java/callout/
+keywords:
+- 图表标注
+- 使用标注
+- 数据标签
+- 标签格式
+- PowerPoint
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "使用简洁的代码示例在 Aspose.Slides for PHP via Java 中创建和设置标注，兼容 PPT 和 PPTX，以自动化演示文稿工作流。"
 ---
 
-## **使用提示框**
-新增的方法 [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) 和 [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) 被添加到 [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) 接口。这些方法确定指定图表的数据标签将作为数据提示框显示还是作为数据标签显示。
-
+## **使用标注**
+已向 [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) 类和 [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) 接口添加了新方法 **getShowLabelAsDataCallout()** 和 **setShowLabelAsDataCallout()**。这些方法决定指定图表的数据标签是显示为数据标注还是显示为普通数据标签。
 ```php
   $pres = new Presentation();
   try {
@@ -22,9 +32,9 @@ url: /zh/php-java/callout/
   }
 ```
 
-## **为环形图设置提示框**
-Aspose.Slides for PHP via Java 提供支持为环形图设置系列数据标签提示框形状。以下是示例代码。
 
+## **为环形图设置标注**
+Aspose.Slides for PHP via Java 提供了为环形图设置系列数据标签标注形状的支持。下面给出示例代码。
 ```php
   $pres = new Presentation();
   try {
@@ -84,3 +94,14 @@ Aspose.Slides for PHP via Java 提供支持为环形图设置系列数据标签�
     }
   }
 ```
+
+
+## **常见问题**
+
+**在将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注会被保留吗？**
+
+是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/php-java/export-to-html5/)、[SVG](/slides/zh/php-java/render-a-slide-as-an-svg-image/) 或 [栅格图像](/slides/zh/php-java/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
+
+**自定义字体在标注中有效吗？导出时能保留其外观吗？**
+
+是的。Aspose.Slides 支持将 [嵌入字体](/slides/zh/php-java/embedded-font/) 嵌入到演示文稿中，并在导出为如 [PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/) 等格式时控制字体嵌入，从而确保标注在不同系统上显示一致。

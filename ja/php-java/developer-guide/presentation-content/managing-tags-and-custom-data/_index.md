@@ -1,29 +1,37 @@
 ---
-title: タグとカスタムデータの管理
+title: "プレゼンテーションでタグとカスタムデータをPHPで管理する"
+linktitle: "タグとカスタムデータ"
 type: docs
 weight: 300
-url: /ja/php-java/managing-tags-and-custom-data
-
+url: /ja/php-java/managing-tags-and-custom-data/
+keywords:
+- "ドキュメント プロパティ"
+- "タグ"
+- "カスタム データ"
+- "タグの追加"
+- "ペア値"
+- "PowerPoint"
+- "プレゼンテーション"
+- "PHP"
+- "Aspose.Slides"
+description: "Aspose.Slides for PHP via Java で、PowerPoint と OpenDocument のプレゼンテーションの例を用いて、タグとカスタムデータの追加、読み取り、更新、削除方法を学びます。"
 ---
 
-## プレゼンテーションファイルのデータストレージ
+## **プレゼンテーション ファイルのデータ ストレージ**
 
-PPTXファイル（拡張子.pptxのアイテム）は、Office Open XML仕様の一部であるPresentationML形式で保存されます。Office Open XML形式は、プレゼンテーションに含まれるデータの構造を定義します。
+PPTX ファイル（拡張子が .pptx の項目）は、Office Open XML 仕様の一部である PresentationML フォーマットで保存されます。Office Open XML フォーマットは、プレゼンテーションに含まれるデータの構造を定義します。
 
-*スライド*はプレゼンテーションの要素の1つであり、*スライド部分*は単一のスライドの内容を含んでいます。スライド部分は、ISO/IEC 29500によって定義された多数の部分（ユーザー定義タグなど）との明示的な関係を持つことができます。
+*スライド* はプレゼンテーションの要素の一つであり、*スライド パート* は単一のスライドの内容を保持します。スライド パートは、ISO/IEC 29500 で定義されたユーザー定義タグなど、多くのパートへの明示的な関連付けを持つことができます。
 
-カスタムデータ（プレゼンテーション特有）またはユーザーは、タグ（[ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)）やCustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)）として存在できます。
+カスタム データ（プレゼンテーション固有）またはユーザーは、タグ（[ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)）および CustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)）として存在できます。
 
 {{% alert color="primary" %}} 
-
-タグは本質的に文字列キーと値のペアです。
-
+タグは本質的に文字列キーと値のペアです。 
 {{% /alert %}} 
 
-## タグの値を取得する
+## **タグの値の取得**
 
-スライドでは、タグは[IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--)および[IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-)メソッドに対応します。このサンプルコードは、Aspose.Slides for PHPを使用してJava経由で[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)からタグの値を取得する方法を示しています。
-
+スライドでは、タグは [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) および [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) メソッドに対応します。このサンプル コードは、Aspose.Slides for PHP via Java を使用して [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) のタグの値を取得する方法を示しています：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -35,17 +43,16 @@ PPTXファイル（拡張子.pptxのアイテム）は、Office Open XML仕様�
   }
 ```
 
-## プレゼンテーションにタグを追加する
 
-Aspose.Slidesは、プレゼンテーションにタグを追加することを許可します。タグは通常、以下の2つの項目で構成されます。
+## **プレゼンテーションへのタグの追加**
 
-- カスタムプロパティの名前 - `MyTag`
-- カスタムプロパティの値 - `My Tag Value`
+Aspose.Slides を使用すると、プレゼンテーションにタグを追加できます。タグは通常、2 つの項目で構成されます:
+- カスタム プロパティの名前 – `MyTag`
+- カスタム プロパティの値 – `My Tag Value`
 
-特定のルールまたはプロパティに基づいて複数のプレゼンテーションを分類する必要がある場合、これらのプレゼンテーションにタグを追加することで利益を得ることができます。たとえば、北米の国々からのすべてのプレゼンテーションをカテゴリー化またはまとめたい場合、北米タグを作成し、関連する国（アメリカ、メキシコ、カナダ）を値として割り当てることができます。
+特定のルールやプロパティに基づいてプレゼンテーションを分類する必要がある場合、タグを追加すると便利です。たとえば、北米諸国のプレゼンテーションをすべてまとめて分類したい場合、北米タグを作成し、該当する国（米国、メキシコ、カナダ）を値として割り当てることができます。
 
-このサンプルコードは、Aspose.Slides for PHPを使用してJava経由で[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)にタグを追加する方法を示しています。
-
+このサンプル コードは、Aspose.Slides for PHP via Java を使用して [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) にタグを追加する方法を示しています：
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -58,8 +65,8 @@ Aspose.Slidesは、プレゼンテーションにタグを追加することを�
   }
 ```
 
-タグは[Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide)にも設定できます。
 
+タグは [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) に対しても設定できます：
 ```php
   $pres = new Presentation();
   try {
@@ -72,8 +79,8 @@ Aspose.Slidesは、プレゼンテーションにタグを追加することを�
   }
 ```
 
-また、個々の[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape)にも設定できます。
 
+または任意の個別 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) に対しても設定できます：
 ```php
   $pres = new Presentation();
   try {
@@ -87,3 +94,18 @@ Aspose.Slidesは、プレゼンテーションにタグを追加することを�
     }
   }
 ```
+
+
+## **よくある質問**
+
+**プレゼンテーション、スライド、またはシェイプからすべてのタグを一度に削除できますか？**
+
+はい。[tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) は、すべてのキーと値のペアを一度に削除する [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/) 操作をサポートしています。
+
+**コレクション全体を走査せずに、名前で単一のタグを削除するにはどうすればよいですか？**
+
+[tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) の [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) 操作を使用して、キーでタグを削除します。
+
+**分析やフィルタリングのためにタグ名の完全なリストを取得するにはどうすればよいですか？**
+
+[tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) 上で [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) を使用します。すべてのタグ名の配列が返されます。

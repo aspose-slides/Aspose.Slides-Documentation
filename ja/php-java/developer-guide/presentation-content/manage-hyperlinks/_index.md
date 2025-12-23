@@ -1,31 +1,46 @@
 ---
-title: ハイパーリンクの管理
+title: PHPでプレゼンテーションのハイパーリンクを管理する
+linktitle: ハイパーリンクを管理する
 type: docs
 weight: 20
 url: /ja/php-java/manage-hyperlinks/
-keywords: "PowerPoint ハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, Java"
-description: "PowerPoint プレゼンテーションにハイパーリンクを追加する方法"
+keywords:
+- URLを追加
+- ハイパーリンクを追加
+- ハイパーリンクを作成
+- ハイパーリンクの書式設定
+- ハイパーリンクを削除
+- ハイパーリンクを更新
+- テキストハイパーリンク
+- スライドハイパーリンク
+- 図形ハイパーリンク
+- 画像ハイパーリンク
+- ビデオハイパーリンク
+- 可変ハイパーリンク
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument のプレゼンテーションのハイパーリンクを手軽に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
 
-ハイパーリンクは、オブジェクトやデータ、または何かの中の場所への参照です。これらはPowerPointプレゼンテーションで一般的なハイパーリンクです：
+ハイパーリンクは、オブジェクトやデータ、または何かの場所への参照です。これらは PowerPoint プレゼンテーションで一般的なハイパーリンクです：
 
-* テキスト、形状、またはメディア内のウェブサイトへのリンク
+* テキスト、図形、またはメディア内のウェブサイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for PHP via Javaを使用すると、プレゼンテーション内のハイパーリンクに関する多くのタスクを実行できます。
+Aspose.Slides for PHP via Java を使用すると、プレゼンテーション内のハイパーリンクに関連するさまざまな操作を実行できます。
 
 {{% alert color="primary" %}} 
-
-Asposeのシンプルな、[無料のオンラインPowerPointエディタ](https://products.aspose.app/slides/editor)をチェックしてみてください。
-
+Aspose のシンプルな、[無料オンライン PowerPoint エディタ](https://products.aspose.app/slides/editor)をご確認ください。
 {{% /alert %}} 
 
-## **URLハイパーリンクの追加**
+## **URL ハイパーリンクの追加**
 
-### **テキストへのURLハイパーリンクの追加**
+### **テキストへの URL ハイパーリンクの追加**
 
-このPHPコードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています：
-
+この PHP コードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています：
 ```php
   $presentation = new Presentation();
   try {
@@ -33,7 +48,7 @@ Asposeのシンプルな、[無料のオンラインPowerPointエディタ](http
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -43,16 +58,16 @@ Asposeのシンプルな、[無料のオンラインPowerPointエディタ](http
   }
 ```
 
-### **形状またはフレームへのURLハイパーリンクの追加**
 
-このサンプルコードは、形状にウェブサイトのハイパーリンクを追加する方法を示しています：
+### **図形またはフレームへの URL ハイパーリンクの追加**
 
+このサンプルコードは、図形にウェブサイトのハイパーリンクを追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
     $shape->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $shape->getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $shape->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -61,12 +76,12 @@ Asposeのシンプルな、[無料のオンラインPowerPointエディタ](http
   }
 ```
 
-### **メディアへのURLハイパーリンクの追加**
 
-Aspose.Slidesを使用すると、画像、音声、動画ファイルにハイパーリンクを追加できます。 
+### **メディアへの URL ハイパーリンクの追加**
+
+Aspose.Slides を使用すると、画像、オーディオ、ビデオ ファイルにハイパーリンクを追加できます。 
 
 このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています：
-
 ```php
   $pres = new Presentation();
   try {
@@ -80,10 +95,10 @@ Aspose.Slidesを使用すると、画像、音声、動画ファイルにハイ�
         $image->dispose();
       }
     }
-    # 以前に追加された画像に基づいてスライド1にピクチャーフレームを作成
+    # 以前に追加された画像に基づいてスライド1に画像フレームを作成
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $pictureFrame->getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -93,8 +108,8 @@ Aspose.Slidesを使用すると、画像、音声、動画ファイルにハイ�
   }
 ```
 
-このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています：
 
+このサンプルコードは、**オーディオ ファイル**にハイパーリンクを追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -111,7 +126,7 @@ try {
 
     $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->addAudioFrameEmbedded(10, 10, 100, 100, $audio);
     $audioFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $audioFrame->getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $audioFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -121,8 +136,8 @@ try {
   }
 ```
 
-このサンプルコードは、**動画**にハイパーリンクを追加する方法を示しています：
 
+このサンプルコードは、**ビデオ**にハイパーリンクを追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -139,7 +154,7 @@ try {
 
     $videoFrame = $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $videoFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $videoFrame->getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $videoFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -149,18 +164,16 @@ try {
   }
 ```
 
+
 {{%  alert  title="Tip"  color="primary"  %}} 
-
-* [OLEの管理](/slides/ja/php-java/manage-ole/)を参照してみてください。
-
+ご覧ください *[管理 OLE](/slides/ja/php-java/manage-ole/)*。
 {{% /alert %}}
 
-## **ハイパーリンクを使用して目次を作成する**
+## **ハイパーリンクを使用した目次の作成**
 
-ハイパーリンクを使用すると、オブジェクトや場所への参照を追加できるため、目次を作成できます。 
+ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次を作成するために使用できます。 
 
-このサンプルコードは、ハイパーリンク付きの目次を作成する方法を示しています：
-
+このサンプルコードは、ハイパーリンクを使用した目次の作成方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -173,9 +186,9 @@ try {
     $paragraph = new Paragraph();
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $paragraph->setText("スライド2のタイトル .......... ");
+    $paragraph->setText("Title of slide 2 .......... ");
     $linkPortion = new Portion();
-    $linkPortion->setText("ページ 2");
+    $linkPortion->setText("Page 2");
     $linkPortion->getPortionFormat()->getHyperlinkManager()->setInternalHyperlinkClick($secondSlide);
     $paragraph->getPortions()->add($linkPortion);
     $contentTable->getTextFrame()->getParagraphs()->add($paragraph);
@@ -187,26 +200,26 @@ try {
   }
 ```
 
-## **ハイパーリンクのフォーマット**
+
+## **ハイパーリンクの書式設定**
 
 ### **色**
 
-[ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-)プロパティを使用して、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能はPowerPoint 2019で初めて導入されているため、このプロパティに関する変更は古いバージョンのPowerPointには適用されません。
+[IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink) インターフェイスの [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は古いバージョンの PowerPoint には適用されません。
 
 このサンプルコードは、異なる色のハイパーリンクを同じスライドに追加する操作を示しています：
-
 ```php
   $pres = new Presentation();
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
-    $shape1->addTextFrame("これはカラーハイパーリンクのサンプルです。");
+    $shape1->addTextFrame("This is a sample of colored hyperlink.");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $portionFormat::getHyperlinkClick()->setColorSource(HyperlinkColorSource->PortionFormat);
     $portionFormat::getFillFormat()->setFillType(FillType::Solid);
     $portionFormat::getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $shape2 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
-    $shape2->addTextFrame("これは通常のハイパーリンクのサンプルです。");
+    $shape2->addTextFrame("This is a sample of usual hyperlink.");
     $shape2->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pres->save("presentation-out-hyperlink.pptx", SaveFormat::Pptx);
   } finally {
@@ -216,12 +229,12 @@ try {
   }
 ```
 
-## **プレゼンテーション内のハイパーリンクの削除**
 
-### **テキストからハイパーリンクを削除**
+## **プレゼンテーションからハイパーリンクを削除する**
 
-このPHPコードは、プレゼンテーションスライド内のテキストからハイパーリンクを削除する方法を示しています：
+### **テキストからハイパーリンクを削除する**
 
+この PHP コードは、プレゼンテーション スライドのテキストからハイパーリンクを削除する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -244,10 +257,10 @@ try {
   }
 ```
 
-### **形状またはフレームからハイパーリンクを削除**
 
-このPHPコードは、プレゼンテーションスライド内の形状からハイパーリンクを削除する方法を示しています：
+### **図形またはフレームからハイパーリンクを削除する**
 
+この PHP コードは、プレゼンテーション スライドの図形からハイパーリンクを削除する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -263,9 +276,10 @@ try {
   }
 ```
 
+
 ## **可変ハイパーリンク**
 
-[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink)クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます：
+[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます：
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -273,8 +287,7 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-コードスニペットは、スライドにハイパーリンクを追加し、そのツールチップを後で編集する方法を示しています：
-
+このコード スニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -282,7 +295,7 @@ try {
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat::getHyperlinkClick()->setTooltip("70%以上のFortune 100企業がAspose APIsを信頼しています");
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $portionFormat::setFontHeight(32);
     $pres->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
@@ -292,17 +305,29 @@ try {
   }
 ```
 
-## **IHyperlinkQueriesでサポートされているプロパティ**
 
-プレゼンテーション、スライド、またはハイパーリンクが定義されているテキストから[IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries)にアクセスできます。
+## **IHyperlinkQueries でサポートされているプロパティ**
+
+ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストから IHyperlinkQueries にアクセスできます。
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries)クラスは、次のメソッドとプロパティをサポートしています：
+[IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) クラスは次のメソッドとプロパティをサポートしています：
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+
+## **よくある質問**
+
+**スライドだけでなく「セクション」やセクションの最初のスライドへ内部ナビゲーションを作成するにはどうすればよいですか？**  
+PowerPoint のセクションはスライドのグループ化です。ナビゲーションは技術的に特定のスライドを対象とします。セクションへ「移動」するには、通常そのセクションの最初のスライドにリンクします。
+
+**マスタースライド要素にハイパーリンクを付与してすべてのスライドで機能させることはできますか？**  
+はい。マスタースライドやレイアウト要素はハイパーリンクをサポートします。そのリンクは子スライド上に表示され、スライドショー中にクリック可能です。
+
+**ハイパーリンクは PDF、HTML、画像、またはビデオにエクスポートしたときに保持されますか？**  
+[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/php-java/convert-powerpoint-to-html/) では、リンクは通常保持されます。画像 [PNG](/slides/ja/php-java/convert-powerpoint-to-png/) やビデオ [MP4](/slides/ja/php-java/convert-powerpoint-to-video/) へのエクスポートでは、ラスターフレームやビデオはハイパーリンクをサポートしないため、クリック可能性は引き継がれません。
