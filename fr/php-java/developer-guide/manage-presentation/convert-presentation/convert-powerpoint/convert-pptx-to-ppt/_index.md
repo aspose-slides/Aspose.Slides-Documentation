@@ -1,22 +1,33 @@
 ---
-title: Convertir PPTX en PPT
-linktitle: Convertir PPTX en PPT
+title: Convertir PPTX en PPT en PHP
+linktitle: PPTX en PPT
 type: docs
 weight: 21
 url: /fr/php-java/convert-pptx-to-ppt/
-keywords: "PHP  Convertir PPTX en PPT, Convertir Présentation PowerPoint, PPTX en PPT, Java, Aspose.Slides"
-description: "Convertir une présentation PowerPoint PPTX en PPT"
+keywords:
+- convertir PowerPoint
+- convertir présentation
+- convertir diapositive
+- convertir PPTX
+- PPTX en PPT
+- enregistrer PPTX en PPT
+- exporter PPTX vers PPT
+- PowerPoint
+- présentation
+- PHP
+- Aspose.Slides
+description: "Convertissez facilement PPTX en PPT avec Aspose.Slides — assurez une compatibilité transparente avec les formats PowerPoint tout en préservant la mise en page et la qualité de votre présentation."
 ---
 
-## **Aperçu**
+## **Vue d'ensemble**
 
-Cet article explique comment convertir une présentation PowerPoint au format PPTX en format PPT en utilisant PHP. Le sujet suivant est abordé.
+Cet article explique comment convertir une présentation PowerPoint au format PPTX en format PPT à l'aide de PHP. Le sujet suivant est couvert.
 
 - Convertir PPTX en PPT
 
-## **Java Convertir PPTX en PPT**
+## **Convertir PPTX en PPT en PHP**
 
-Pour le code source Java permettant de convertir PPTX en PPT, veuillez consulter la section ci-dessous c'est-à-dire [Convertir PPTX en PPT](#convert-pptx-en-ppt). Cela charge simplement le fichier PPTX et le sauvegarde au format PPT. En précisant différents formats de sauvegarde, vous pouvez également enregistrer le fichier PPTX dans de nombreux autres formats tels que PDF, XPS, ODP, HTML, etc., comme discuté dans ces articles.
+Pour le code d'exemple Java permettant de convertir PPTX en PPT, veuillez consulter la section ci‑dessous, à savoir [Convertir PPTX en PPT](#convert-pptx-to-ppt). Il charge simplement le fichier PPTX et l'enregistre au format PPT. En spécifiant différents formats d’enregistrement, vous pouvez également enregistrer le fichier PPTX dans de nombreux autres formats comme PDF, XPS, ODP, HTML, etc., comme expliqué dans ces articles.
 
 - [Java Convertir PPTX en PDF](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-pdf/)
 - [Java Convertir PPTX en XPS](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-xps/)
@@ -25,12 +36,25 @@ Pour le code source Java permettant de convertir PPTX en PPT, veuillez consulter
 - [Java Convertir PPTX en Image](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-png/)
 
 ## **Convertir PPTX en PPT**
-Pour convertir un PPTX en PPT, il suffit de passer le nom du fichier et le format de sauvegarde à la méthode **Save** de la classe [**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation). L'exemple de code PHP ci-dessous convertit une présentation de PPTX en PPT en utilisant les options par défaut.
-
+Pour convertir un PPTX en PPT, il suffit de transmettre le nom du fichier et le format d’enregistrement à la méthode **Save** de la classe [**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation). L’exemple de code PHP ci‑dessous convertit une présentation de PPTX en PPT en utilisant les options par défaut.
 ```php
-  # instancier un objet Presentation représentant un fichier PPTX
+  # instancier un objet Presentation qui représente un fichier PPTX
   $presentation = new Presentation("template.pptx");
-  # sauvegarder la présentation en tant que PPT
+  # enregistrer la présentation au format PPT
   $presentation->save("output.ppt", SaveFormat::Ppt);
-
 ```
+
+
+## **FAQ**
+
+**Toutes les effets et fonctionnalités PPTX sont‑ils conservés lors de l’enregistrement au format PPT hérité (97–2003) ?**
+
+Pas toujours. Le format PPT ne prend pas en charge certaines capacités plus récentes (par exemple, certains effets, objets et comportements), de sorte que les fonctionnalités peuvent être simplifiées ou rasterisées pendant la conversion.
+
+**Puis‑je convertir uniquement des diapositives sélectionnées en PPT au lieu de toute la présentation ?**
+
+L’enregistrement direct cible la présentation entière. Pour convertir des diapositives spécifiques, créez une nouvelle présentation contenant uniquement ces diapositives et enregistrez‑la au format PPT ; alternativement, utilisez un service/API qui prend en charge les paramètres de conversion par diapositive.
+
+**Les présentations protégées par mot de passe sont‑elles prises en charge ?**
+
+Oui. Vous pouvez détecter si un fichier est protégé, l’ouvrir avec un mot de passe, et également [configurer les paramètres de protection/chiffrement](/slides/fr/php-java/password-protected-presentation/) pour le PPT enregistré.

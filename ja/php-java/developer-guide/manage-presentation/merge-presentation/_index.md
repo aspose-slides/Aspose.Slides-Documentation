@@ -1,68 +1,77 @@
 ---
-title: 統合プレゼンテーション
+title: PHP でプレゼンテーションを効率的にマージ
+linktitle: プレゼンテーションのマージ
 type: docs
 weight: 40
 url: /ja/php-java/merge-presentation/
-keywords: "PowerPointを統合する, PPTX, PPT, PowerPointを結合する, プレゼンテーションを統合する, プレゼンテーションを結合する, Java"
-description: "PowerPointプレゼンテーションを統合または結合します"
+keywords:
+- PowerPoint のマージ
+- プレゼンテーションのマージ
+- スライドのマージ
+- PPT のマージ
+- PPTX のマージ
+- ODP のマージ
+- PowerPoint を結合
+- プレゼンテーションを結合
+- スライドを結合
+- PPT を結合
+- PPTX を結合
+- ODP を結合
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint (PPT、PPTX) および OpenDocument (ODP) プレゼンテーションを手軽にマージし、ワークフローを効率化します。"
 ---
 
-{{% alert  title="ヒント" color="primary" %}} 
+## **プレゼンテーションのマージ**
 
-**Asposeの無料オンライン** [Mergerアプリ](https://products.aspose.app/slides/merger)をチェックしてみてください。これを使用すると、同じ形式でPowerPointプレゼンテーションを統合したり（PPTからPPT、PPTXからPPTXなど）、異なる形式のプレゼンテーションを統合したり（PPTからPPTX、PPTXからODPなど）できます。
-
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
-
-{{% /alert %}} 
-
-## **プレゼンテーションの統合**
-
-1つのプレゼンテーションを別のプレゼンテーションに統合すると、実質的にそれらのスライドが1つのプレゼンテーションにまとめられ、1ファイルを取得します。
+プレゼンテーションを別のプレゼンテーションにマージすると、スライドを単一のプレゼンテーションに結合して、1つのファイルにすることになります。
 
 {{% alert title="情報" color="info" %}}
 
-ほとんどのプレゼンテーションプログラム（PowerPointやOpenOffice）には、ユーザーがそのようにプレゼンテーションを結合する機能が欠けています。
+ほとんどのプレゼンテーションプログラム（PowerPoint や OpenOffice）には、ユーザーがこのようにプレゼンテーションを結合できる機能がありません。
 
-しかし、[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/)は、さまざまな方法でプレゼンテーションを統合することを可能にします。すべての図形、スタイル、テキスト、書式設定、コメント、アニメーションなどを失うことなく、質やデータの損失を心配することなくプレゼンテーションを統合できます。
+[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/) は、さまざまな方法でプレゼンテーションをマージできるようにします。形状、スタイル、テキスト、書式設定、コメント、アニメーションなど、すべての要素を損失や品質低下を心配することなくマージできます。
 
-**関連情報**
+**参照**
 
-[スライドを複製](https://docs.aspose.com/slides/php-java/clone-slides/)。
-
-{{% /alert %}}
-
-### **統合できるもの**
-
-Aspose.Slidesを使用すると、次のものを統合できます。
-
-* 完全なプレゼンテーション。プレゼンテーションのすべてのスライドが1つのプレゼンテーションに集約されます
-* 特定のスライド。選択したスライドが1つのプレゼンテーションに集約されます
-* 1つの形式のプレゼンテーション（PPTからPPT、PPTXからPPTXなど）と異なる形式（PPTからPPTX、PPTXからODPなど）を相互に統合できます。
-
-{{% alert title="注意" color="warning" %}} 
-
-プレゼンテーションの他に、Aspose.Slidesは他のファイルも統合できます：
-
-* [画像](https://products.aspose.com/slides/php-java/merger/image-to-image/)、例えば、[JPGからJPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/)または[PNGからPNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
-* 文書、例えば、[PDFからPDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/)または[HTMLからHTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
-* そして、[画像からPDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/)や[JPGからPDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/)または[TIFFからPDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/)など、2つの異なるファイル。
+[Clone Slides](https://docs.aspose.com/slides/php-java/clone-slides/).
 
 {{% /alert %}}
 
-### **統合オプション**
+### **マージできるもの**
 
-出力プレゼンテーション内の各スライドがユニークなスタイルを保持するか、すべてのスライドに特定のスタイルを使用するかを決定するオプションを適用できます。
+Aspose.Slides を使用すると、次のものをマージできます。
 
-プレゼンテーションを統合するために、Aspose.Slidesは[AddClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)メソッド（[ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection)インターフェイスから）を提供します。プレゼンテーションの統合プロセスパラメータを定義する`AddClone`メソッドのいくつかの実装があります。各Presentationオブジェクトには[Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--)コレクションがあるため、スライドを統合したいプレゼンテーションから`AddClone`メソッドを呼び出すことができます。
+* プレゼンテーション全体。すべてのスライドが 1 つのプレゼンテーションにまとめられます  
+* 特定のスライド。選択したスライドが 1 つのプレゼンテーションにまとめられます  
+* 同一フォーマットのプレゼンテーション（PPT から PPT、PPTX から PPTX など）および異なるフォーマット（PPT から PPTX、PPTX から ODP など）を相互にマージできます。
 
-`AddClone`メソッドは、ソーススライドのクローンである`ISlide`オブジェクトを返します。出力プレゼンテーションのスライドは、ソースからのスライドの単なるコピーです。したがって、ソースのプレゼンテーションに影響を与えることを心配することなく、結果のスライド（たとえば、スタイルや書式設定オプションまたはレイアウトを適用）を変更できます。
+{{% alert title="注" color="warning" %}} 
 
-## **プレゼンテーションを統合する**
+プレゼンテーションに加えて、Aspose.Slides は他のファイルのマージもサポートします。
 
-Aspose.Slidesは、スライドがレイアウトやスタイルを保持したまま統合することを可能にする[**AddClone(ISlide)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-)メソッドを提供しています（デフォルトのパラメータ）。
+* [画像](https://products.aspose.com/slides/php-java/merger/image-to-image/)、たとえば [JPG から JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) や [PNG から PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)  
+* ドキュメント、たとえば [PDF から PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) や [HTML から HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)  
+* 画像と PDF のように異なる種類のファイル（例: 画像から PDF、JPG から PDF、TIFF から PDF）
 
-このPHPコードは、プレゼンテーションを統合する方法を示しています：
+{{% /alert %}}
 
+### **マージ オプション**
+
+次のように、出力プレゼンテーションの各スライドが個別のスタイルを保持するか、すべてのスライドに同じスタイルを適用するかを決定するオプションを適用できます。
+
+* 出力プレゼンテーションの各スライドが固有のスタイルを保持するか  
+* 出力プレゼンテーションのすべてのスライドに特定のスタイルを使用するか  
+
+プレゼンテーションをマージするには、Aspose.Slides は [AddClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) メソッド（[ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection) インターフェイス）を提供します。`AddClone` メソッドには、プレゼンテーション マージ プロセスのパラメーターを定義する複数の実装があります。すべての Presentation オブジェクトは [Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) コレクションを持っているため、スライドをマージしたいプレゼンテーションから `AddClone` メソッドを呼び出すことができます。
+
+`AddClone` メソッドは `ISlide` オブジェクトを返します。これはソース スライドのクローンです。出力プレゼンテーションのスライドは、単にソース スライドのコピーです。したがって、ソース プレゼンテーションに影響を与えることなく、結果のスライドに対して（たとえばスタイルや書式設定オプション、レイアウトを適用する）変更を行うことができます。
+
+## **プレゼンテーションのマージ** 
+
+Aspose.Slides は、スライドのレイアウトとスタイルを保持したままスライドを結合できる [**AddClone(ISlide)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) メソッドを提供します（デフォルト パラメーター）。
+
+この PHP コードはプレゼンテーションのマージ方法を示しています:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -84,12 +93,12 @@ Aspose.Slidesは、スライドがレイアウトやスタイルを保持した�
   }
 ```
 
-## **スライドマスターを使用したプレゼンテーションの統合**
 
-Aspose.Slidesは、スライドマスタープレゼンテーションテンプレートを適用しながらスライドを統合することを可能にする[**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)メソッドを提供します。このようにして、必要に応じて出力プレゼンテーション内のスライドのスタイルを変更できます。
+## **スライド マスターを使用したプレゼンテーションのマージ** 
 
-このコードは、説明された操作を示しています：
+Aspose.Slides は、スライド マスター プレゼンテーション テンプレートを適用しながらスライドを結合できる [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを提供します。この方法では、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。
 
+このコードは上記の操作を示しています:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -111,18 +120,61 @@ Aspose.Slidesは、スライドマスタープレゼンテーションテンプ�
   }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-スライドマスターのスライドレイアウトは自動的に決定されます。適切なレイアウトが決定できない場合、`AddClone`メソッドの`allowCloneMissingLayout`ブールパラメータがtrueに設定されている場合、ソーススライドのレイアウトが使用されます。そうでない場合は、[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException)がスローされます。
+{{% alert title="注" color="warning" %}} 
+
+スライド マスターのレイアウトは自動的に決定されます。適切なレイアウトが決定できない場合、`AddClone` メソッドの `allowCloneMissingLayout` ブール パラメーターが true に設定されていれば、ソース スライドのレイアウトが使用されます。そうでなければ、[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) がスローされます。
 
 {{% /alert %}}
 
-出力プレゼンテーション内のスライドに異なるスライドレイアウトを持たせたい場合は、統合の際に[AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-)メソッドを代わりに使用してください。
+出力プレゼンテーションのスライドに別のレイアウトを使用したい場合は、マージ時に [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) メソッドを使用してください。
 
-## **特定のスライドをプレゼンテーションから統合する**
+## **プレゼンテーションから特定のスライドをマージ** 
 
-このPHPコードは、異なるプレゼンテーションから特定のスライドを選択して結合し、1つの出力プレゼンテーションを取得する方法を示しています：
+複数のプレゼンテーションから特定のスライドをマージすると、カスタム スライド デッキを作成できます。Aspose.Slides for PHP via Java は、必要なスライドだけを選択してインポートできるようにします。API は元のスライドの書式設定、レイアウト、デザインを保持します。
 
+以下の PHP コードは新しいプレゼンテーションを作成し、2 つの別のプレゼンテーションからタイトル スライドを追加して結果をファイルに保存します:
+```php
+function getTitleSlide(Presentation $presentation) {
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
+            return $slide;
+        }
+    }
+    return null;
+}
+```
+
+```php
+$presentation = new Presentation();
+$presentation1 = new Presentation($folderPath . "presentation1.pptx");
+$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+try {
+    $presentation->getSlides()->removeAt(0);
+    
+    $slide1 = getTitleSlide($presentation1);
+
+    if ($slide1 != null)
+        $presentation->getSlides()->addClone($slide1);
+
+    $slide2 = getTitleSlide($presentation2);
+
+    if ($slide2 != null)
+        $presentation->getSlides()->addClone($slide2);
+
+    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation2->dispose();
+    $presentation1->dispose();
+    $presentation->dispose();
+}
+```
+
+
+## **スライド レイアウトを使用したプレゼンテーションのマージ** 
+
+この PHP コードは、プレゼンテーションからスライドを結合し、希望するスライド レイアウトを適用して 1 つの出力プレゼンテーションを作成する方法を示しています:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -144,43 +196,18 @@ Aspose.Slidesは、スライドマスタープレゼンテーションテンプ�
   }
 ```
 
-## **スライドレイアウトを適用したプレゼンテーションの統合**
 
-このPHPコードは、プレゼンテーションからスライドを結合し、好みのスライドレイアウトを適用して1つの出力プレゼンテーションを取得する方法を示しています：
+## **異なるスライド サイズのプレゼンテーションのマージ** 
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+{{% alert title="注" color="warning" %}} 
 
-## **異なるスライドサイズを持つプレゼンテーションの統合**
-
-{{% alert title="注意" color="warning" %}} 
-
-異なるスライドサイズを持つプレゼンテーションを統合することはできません。 
+異なるスライド サイズのプレゼンテーションはマージできません。 
 
 {{% /alert %}}
 
-異なるスライドサイズを持つ2つのプレゼンテーションを統合するには、1つのプレゼンテーションのサイズを他のプレゼンテーションのサイズと一致させるようにリサイズする必要があります。
+サイズが異なる 2 つのプレゼンテーションをマージするには、どちらかのプレゼンテーションのサイズを他方に合わせてリサイズする必要があります。
 
-このサンプルコードは、説明された操作を示しています：
-
+このサンプルコードは上記の操作を示しています:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -203,10 +230,10 @@ Aspose.Slidesは、スライドマスタープレゼンテーションテンプ�
   }
 ```
 
-## **プレゼンテーションセクションへのスライドの統合**
 
-このPHPコードは、特定のスライドをプレゼンテーションのセクションに統合する方法を示しています：
+## **スライドをプレゼンテーション セクションにマージ** 
 
+この PHP コードは、特定のスライドをプレゼンテーションのセクションにマージする方法を示しています:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -228,10 +255,28 @@ Aspose.Slidesは、スライドマスタープレゼンテーションテンプ�
   }
 ```
 
-スライドはセクションの最後に追加されます。
 
-{{% alert title="ヒント" color="primary" %}}
+スライドはセクションの末尾に追加されます。
 
-Asposeは[無料のコラージュウェブアプリ](https://products.aspose.app/slides/collage)を提供しています。このオンラインサービスを利用することで、[JPGからJPG](https://products.aspose.app/slides/collage/jpg)またはPNGからPNG画像を統合し、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid)を作成することができます。
+## **関連情報**
 
-{{% /alert %}}
+
+Aspose は [FREE Online Collage Maker](https://products.aspose.app/slides/collage) を提供しています。このオンライン サービスを使用すると、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG の画像をマージしたり、[フォト グリッド](https://products.aspose.app/slides/collage/photo-grid) を作成したりできます。
+
+[Aspose FREE Online Merger](https://products.aspose.app/slides/merger) も確認してください。これは、同じ形式（例: PPT から PPT、PPTX から PPTX）または異なる形式（例: PPT から PPTX、PPTX から ODP）の PowerPoint プレゼンテーションをマージできます。
+
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+
+## **FAQ**
+
+**プレゼンテーションをマージするときのスライド数に制限はありますか？**
+
+厳密な制限はありません。Aspose.Slides は大容量ファイルを処理できますが、パフォーマンスはサイズやシステムリソースに依存します。非常に大きなプレゼンテーションの場合は、64 ビット JVM を使用し、十分なヒープ メモリを割り当てることを推奨します。
+
+**埋め込み動画や音声があるプレゼンテーションをマージできますか？**
+
+はい。Aspose.Slides はスライドに埋め込まれたマルチメディア コンテンツを保持しますが、最終的なプレゼンテーションは大幅にサイズが増加する可能性があります。
+
+**フォントはマージ時に保持されますか？**
+
+はい。ソース プレゼンテーションで使用されたフォントは、システムにインストールされているか [埋め込み](/slides/ja/php-java/embedded-font/) されている限り、出力ファイルに保持されます。

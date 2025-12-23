@@ -1,17 +1,27 @@
 ---
-title: Diagramm-Datenbeschriftung
+title: Diagrammbeschriftungen in Präsentationen mit PHP verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/php-java/chart-data-label/
-keywords: "Diagramm Datenbeschriftung,Beschriftungsabstand, Java, Aspose.Slides für PHP über Java"
-description: "Setze PowerPoint-Diagramm Datenbeschriftung und Abstand"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozentsatz
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für PHP via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Diagrammdatenserien oder einzelnen Datenpunkten. Sie ermöglichen es den Lesern, Datenserien schnell zu identifizieren, und machen die Diagramme leichter verständlich.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
 
-## **Präzision der Daten in Diagramm-Datenbeschriftungen festlegen**
+## **Datenpräzision in Diagrammbeschriftungen festlegen**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Datenpräzision in einer Diagramm-Datenbeschriftung festlegen:
-
+Dieser PHP‑Code zeigt, wie man die Datenpräzision in einer Diagrammbeschriftung festlegt:
 ```php
   $pres = new Presentation();
   try {
@@ -26,14 +36,15 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Datenpräzision in einer Diagramm-Daten
   }
 ```
 
-## **Prozentsätze als Beschriftungen anzeigen**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, Prozentbeschriftungen auf angezeigten Diagrammen festzulegen. Dieser PHP-Code demonstriert die Operation:
 
+## **Prozentsatz als Beschriftungen anzeigen**
+
+Aspose.Slides für PHP via Java ermöglicht das Festlegen von Prozentbeschriftungen in angezeigten Diagrammen. Dieser PHP‑Code demonstriert die Vorgehensweise:
 ```php
-  # Erstellt eine Instanz der Präsentationsklasse
+  # Erstellt eine Instanz der Presentation-Klasse
   $pres = new Presentation();
   try {
-    # Holen Sie sich die erste Folie
+    # Holt die erste Folie
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
     $series;
@@ -73,25 +84,26 @@ Aspose.Slides für PHP über Java ermöglicht es Ihnen, Prozentbeschriftungen au
   }
 ```
 
-## **Prozentsymbol mit Diagramm-Datenbeschriftungen festlegen**
-Dieser PHP-Code zeigt Ihnen, wie Sie das Prozentsymbol für eine Diagramm-Datenbeschriftung festlegen:
 
+## **Prozentzeichen in Diagrammbeschriftungen festlegen**
+
+Dieser PHP‑Code zeigt, wie man das Prozentzeichen für eine Diagrammbeschriftung festlegt:
 ```php
-  # Erstellt eine Instanz der Präsentationsklasse
+  # Erstellt eine Instanz der Presentation-Klasse
   $pres = new Presentation();
   try {
-    # Erhält die Referenz einer Folie über ihren Index
+    # Holt die Referenz einer Folie über ihren Index
     $slide = $pres->getSlides()->get_Item(0);
-    # Erstellt das Prozentsäulen-Diagramm auf einer Folie
+    # Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # Setzt die NumberFormatLinkedToSource auf false
+    # Setzt NumberFormatLinkedToSource auf false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    # Holen Sie sich das Diagrammdatenarbeitsblatt
+    # Holt das Arbeitsblatt der Diagrammdaten
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # Fügt neue Serien hinzu
+    # Fügt eine neue Serie hinzu
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
@@ -100,7 +112,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Prozentsymbol für eine Diagramm-Datenb
     # Setzt die Füllfarbe der Serie
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Setzt die LabelFormat-Eigenschaften
+    # Setzt die Eigenschaften des LabelFormats
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,13 +120,13 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Prozentsymbol für eine Diagramm-Datenb
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Fügt neue Serien hinzu
+    # Fügt eine neue Serie hinzu
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Setzt Fülltyp und Farbe
+    # Setzt Fülltyp und -farbe
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -132,14 +144,15 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Prozentsymbol für eine Diagramm-Datenb
   }
 ```
 
-## **Abstände der Beschriftungen von der Achse festlegen**
-Dieser PHP-Code zeigt Ihnen, wie Sie den Beschriftungsabstand von einer Kategoriekante festlegen, wenn Sie mit einem Diagramm arbeiten, das aus Achsen geplottet wird:
 
+## **Beschriftungsabstand von einer Achse festlegen**
+
+Dieser PHP‑Code zeigt, wie man den Abstand der Beschriftung von einer Kategorienachse einstellt, wenn man ein Diagramm mit Achsen erstellt:
 ```php
-  # Erstellt eine Instanz der Präsentationsklasse
+  # Erstellt eine Instanz der Presentation-Klasse
   $pres = new Presentation();
   try {
-    # Erhält eine Referenz auf eine Folie
+    # Holt die Referenz einer Folie
     $sld = $pres->getSlides()->get_Item(0);
     # Erstellt ein Diagramm auf der Folie
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
@@ -154,12 +167,12 @@ Dieser PHP-Code zeigt Ihnen, wie Sie den Beschriftungsabstand von einer Kategori
   }
 ```
 
+
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das nicht auf einer Achse beruht, wie z. B. ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand liegen. In einem solchen Fall müssen Sie den Standort der Datenbeschriftung anpassen, damit die Führungsleitungen klar angezeigt werden.
+Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, beispielsweise ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nahe am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Führungs‑Linien klar dargestellt werden.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Beschriftungsposition auf einem Kreisdiagramm anpassen:
-
+Dieser PHP‑Code zeigt, wie man die Beschriftungsposition in einem Kreisdiagramm anpasst:
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +191,19 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Beschriftungsposition auf einem Kreisdi
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlappen?**
+
+Kombinieren Sie automatische Beschriftungsplatzierung, Führungs‑Linien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme bzw. wichtige Punkte anzeigen.
+
+**Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**
+
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und deaktivieren Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel.
+
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+
+Setzen Sie Schriftarten (Familie, Größe) explizit und prüfen Sie, ob die Schriftart auf der Rendering‑Seite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

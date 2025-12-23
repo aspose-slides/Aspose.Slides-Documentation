@@ -1,35 +1,56 @@
 ---
-title: Marco de Imagen
+title: Administrar marcos de imagen en presentaciones usando PHP
+linktitle: Marco de imagen
 type: docs
 weight: 10
 url: /es/php-java/picture-frame/
-keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formateo de marco de imagen, propiedades del marco de imagen, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
-description: "Agregar marco de imagen a la presentación de PowerPoint"
-
+keywords:
+- marco de imagen
+- agregar marco de imagen
+- crear marco de imagen
+- agregar imagen
+- crear imagen
+- extraer imagen
+- imagen raster
+- imagen vectorial
+- recortar imagen
+- área recortada
+- propiedad StretchOff
+- formateo de marco de imagen
+- propiedades del marco de imagen
+- escala relativa
+- efecto de imagen
+- relación de aspecto
+- transparencia de imagen
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Agregar marcos de imagen a presentaciones PowerPoint y OpenDocument con Aspose.Slides para PHP mediante Java. Optimice su flujo de trabajo y mejore los diseños de diapositivas."
 ---
 
-Un marco de imagen es una forma que contiene una imagen; es como una imagen en un marco.
+Un marco de imagen es una forma que contiene una imagen—es como una foto en un marco. 
 
-Puedes agregar una imagen a una diapositiva a través de un marco de imagen. De esta manera, puedes formatear la imagen al formatear el marco de imagen.
+Puede agregar una imagen a una diapositiva mediante un marco de imagen. De esta manera, puede dar formato a la imagen formateando el marco de imagen.
 
 {{% alert  title="Consejo" color="primary" %}} 
 
-Aspose proporciona conversores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—que permiten a las personas crear presentaciones rápidamente a partir de imágenes.
+Aspose ofrece convertidores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—que permiten crear presentaciones rápidamente a partir de imágenes. 
 
 {{% /alert %}} 
 
-## **Crear Marco de Imagen**
+## **Crear un Marco de Imagen**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Crea un objeto [IPPImage]() añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada con el objeto de presentación que se usará para llenar la forma.
-4. Especifica el ancho y alto de la imagen.
-5. Crea un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame) basado en el ancho y alto de la imagen a través del método `AddPictureFrame` expuesto por el objeto de forma asociado con la diapositiva referenciada.
-6. Agrega un marco de imagen (que contiene la imagen) a la diapositiva.
-7. Escribe la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Cree un objeto [IPPImage]() agregando una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.  
+4. Especifique el ancho y la altura de la imagen.  
+5. Cree un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame) basado en el ancho y la altura de la imagen mediante el método `AddPictureFrame` expuesto por el objeto de forma asociado a la diapositiva referenciada.  
+6. Agregue un marco de imagen (que contiene la foto) a la diapositiva.  
+7. Guarde la presentación modificada como un archivo PPTX.  
 
 Este código PHP muestra cómo crear un marco de imagen:
-
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
@@ -38,7 +59,7 @@ Este código PHP muestra cómo crear un marco de imagen:
     $sld = $pres->getSlides()->get_Item(0);
     # Instancia la clase Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Agrega un marco de imagen con la altura y ancho equivalentes de la imagen
+    # Agrega un marco de imagen con la altura y anchura equivalentes de la imagen
     $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     # Escribe el archivo PPTX en disco
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
@@ -50,39 +71,39 @@ Este código PHP muestra cómo crear un marco de imagen:
   }
 ```
 
+
 {{% alert color="warning" %}} 
 
-Los marcos de imagen te permiten crear rápidamente diapositivas de presentación basadas en imágenes. Cuando combinas el marco de imagen con las opciones de guardado de Aspose.Slides, puedes manipular las operaciones de entrada/salida para convertir imágenes de un formato a otro. Puedes querer ver estas páginas: convertir [imagen a JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); convertir [JPG a imagen](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); convertir [JPG a PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), convertir [PNG a JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); convertir [PNG a SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), convertir [SVG a PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
+Los marcos de imagen le permiten crear rápidamente diapositivas de presentación basadas en imágenes. Cuando combina el marco de imagen con las opciones de guardado de Aspose.Slides, puede manipular operaciones de entrada/salida para convertir imágenes de un formato a otro. Es posible que desee consultar estas páginas: convertir [imagen a JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); convertir [JPG a imagen](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); convertir [JPG a PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), convertir [PNG a JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); convertir [PNG a SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), convertir [SVG a PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).  
 
 {{% /alert %}}
 
-## **Crear Marco de Imagen con Escala Relativa**
+## **Crear un Marco de Imagen con Escala Relativa**
 
-Al alterar la escala relativa de una imagen, puedes crear un marco de imagen más complicado.
+Al modificar la escala relativa de una imagen, puede crear un marco de imagen más complejo.  
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Agrega una imagen a la colección de imágenes de la presentación.
-4. Crea un [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada con el objeto de presentación que se usará para llenar la forma.
-5. Especifica el ancho y alto relativos de la imagen en el marco de imagen.
-6. Escribe la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Agregue una imagen a la colección de imágenes de la presentación.  
+4. Cree un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.  
+5. Especifique el ancho y la altura relativos de la imagen en el marco de imagen.  
+6. Guarde la presentación modificada como un archivo PPTX.  
 
 Este código PHP muestra cómo crear un marco de imagen con escala relativa:
-
 ```php
-  # Instancia la clase Presentation que representa el PPTX
+  # Instanciar la clase Presentation que representa el PPTX
   $pres = new Presentation();
   try {
-    # Obtiene la primera diapositiva
+    # Obtener la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Instancia la clase Image
+    # Instanciar la clase Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Agrega un marco de imagen con altura y ancho equivalentes de la imagen
+    # Añadir marco de imagen con altura y anchura equivalentes de la imagen
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Estableciendo la escala relativa de ancho y alto
+    # Establecer escala relativa de ancho y alto
     $pf->setRelativeScaleHeight(0.8);
     $pf->setRelativeScaleWidth(1.35);
-    # Escribe el archivo PPTX en disco
+    # Escribir el archivo PPTX en disco
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -92,10 +113,10 @@ Este código PHP muestra cómo crear un marco de imagen con escala relativa:
   }
 ```
 
-## **Extraer Imagen de un Marco de Imagen**
 
-Puedes extraer imágenes de objetos [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame) y guardarlas en formatos PNG, JPG y otros. El siguiente ejemplo de código demuestra cómo extraer una imagen del documento "sample.pptx" y guardarla en formato PNG.
+## **Extraer Imágenes Raster de los Marcos de Imagen**
 
+Puede extraer imágenes raster de objetos [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame) y guardarlas en PNG, JPG y otros formatos. El ejemplo de código a continuación muestra cómo extraer una imagen del documento “sample.pptx” y guardarla en formato PNG.  
 ```php
   $presentation = new Presentation("sample.pptx");
   try {
@@ -118,43 +139,68 @@ Puedes extraer imágenes de objetos [PictureFrame](https://reference.aspose.com/
   }
 ```
 
-## **Obtener Transparencia de la Imagen**
 
-Aspose.Slides permite obtener la transparencia de una imagen. Este código PHP demuestra la operación:
+## **Extraer Imágenes SVG de los Marcos de Imagen**
 
+Cuando una presentación contiene gráficos SVG ubicados dentro de formas [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), Aspose.Slides for PHP via Java permite recuperar las imágenes vectoriales originales con total fidelidad. Al recorrer la colección de formas de la diapositiva, puede identificar cada [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), comprobar si el [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) subyacente contiene contenido SVG y luego guardar esa imagen en disco o en un flujo en su formato SVG nativo.  
+
+El siguiente ejemplo de código muestra cómo extraer una imagen SVG de un marco de imagen:  
 ```php
-  $presentation = new Presentation($folderPath . "Test.pptx");
+$presentation = new Presentation("sample.pptx");
+
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+
+        if ($svgImage !== null) {
+            file_put_contents("output.svg", $svgImage->getSvgData());
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **Obtener la Transparencia de una Imagen**
+
+Aspose.Slides permite obtener el efecto de transparencia aplicado a una imagen. Este código PHP muestra la operación:  
+```php
+  $presentation = new Presentation("Test.pptx");
   $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
   foreach($imageTransform as $effect) {
     if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
       $alphaModulateFixed = $effect;
       $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Transparencia de la imagen: " . $transparencyValue);
+      echo("Picture transparency: " . $transparencyValue);
     }
   }
 ```
 
-## **Formateo del Marco de Imagen**
 
-Aspose.Slides ofrece muchas opciones de formateo que pueden aplicarse a un marco de imagen. Usando esas opciones, puedes alterar un marco de imagen para que coincida con requisitos específicos.
+## **Formato de Marco de Imagen**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Crea un [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada con el objeto de presentación que se usará para llenar la forma.
-4. Especifica el ancho y alto de la imagen.
-5. Crea un `PictureFrame` basado en el ancho y alto de la imagen a través del método [AddPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) expuesto por el objeto [IShapes](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) asociado con la diapositiva referenciada.
-6. Agrega el marco de imagen (que contiene la imagen) a la diapositiva.
-7. Establece el color de línea del marco de imagen.
-8. Establece el ancho de línea del marco de imagen.
-9. Rota el marco de imagen dándole un valor positivo o negativo.
-   * Un valor positivo rota la imagen en el sentido de las agujas del reloj.
-   * Un valor negativo rota la imagen en sentido antihorario.
-10. Agrega el marco de imagen (que contiene la imagen) a la diapositiva.
-11. Escribe la presentación modificada como un archivo PPTX.
+Aspose.Slides ofrece muchas opciones de formato que pueden aplicarse a un marco de imagen. Con esas opciones, puede modificar un marco de imagen para que cumpla requisitos específicos.  
 
-Este código PHP demuestra el proceso de formateo del marco de imagen:
+1. Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Cree un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la [IImagescollection](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.  
+4. Especifique el ancho y la altura de la imagen.  
+5. Cree un `PictureFrame` basado en el ancho y la altura de la imagen mediante el método [AddPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) expuesto por el objeto [IShapes](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) asociado a la diapositiva referenciada.  
+6. Agregue el marco de imagen (que contiene la foto) a la diapositiva.  
+7. Establezca el color de línea del marco de imagen.  
+8. Establezca el grosor de línea del marco de imagen.  
+9. Gire el marco de imagen proporcionando un valor positivo o negativo.  
+   * Un valor positivo gira la imagen en sentido horario.  
+   * Un valor negativo gira la imagen en sentido antihorario.  
+10. Agregue el marco de imagen (que contiene la foto) a la diapositiva.  
+11. Guarde la presentación modificada como un archivo PPTX.  
 
+Este código PHP demuestra el proceso de formato del marco de imagen:  
 ```php
   # Instancia la clase Presentation que representa el PPTX
   $pres = new Presentation();
@@ -163,7 +209,7 @@ Este código PHP demuestra el proceso de formateo del marco de imagen:
     $sld = $pres->getSlides()->get_Item(0);
     # Instancia la clase Image
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Agrega un marco de imagen con altura y ancho equivalentes de la imagen
+    # Agrega un marco de imagen con la altura y anchura equivalentes de la imagen
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     # Aplica algún formato a PictureFrameEx
     $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -180,16 +226,16 @@ Este código PHP demuestra el proceso de formateo del marco de imagen:
   }
 ```
 
+
 {{% alert title="Consejo" color="primary" %}}
 
-Aspose recientemente desarrolló un [creador de collages gratuito](https://products.aspose.app/slides/collage). Si alguna vez necesitas [fusionar imágenes JPG/JPEG](https://products.aspose.app/slides/collage/jpg) o PNG, [crear cuadrículas a partir de fotos](https://products.aspose.app/slides/collage/photo-grid), puedes usar este servicio. 
+Aspose desarrolló recientemente un [fabricante de collages gratuito](https://products.aspose.app/slides/collage). Si alguna vez necesita [fusionar JPG/JPEG](https://products.aspose.app/slides/collage/jpg) o imágenes PNG, [crear cuadrículas a partir de fotos](https://products.aspose.app/slides/collage/photo-grid), puede usar este servicio.  
 
 {{% /alert %}}
 
-## **Agregar Imagen como Enlace**
+## **Agregar una Imagen como Enlace**
 
-Para evitar tamaños grandes de presentación, puedes agregar imágenes (o videos) a través de enlaces en lugar de incrustar los archivos directamente en las presentaciones. Este código PHP muestra cómo agregar una imagen y un video en un marcador de posición:
-
+Para evitar tamaños grandes de presentación, puede agregar imágenes (o videos) mediante enlaces en lugar de incrustar los archivos directamente en las presentaciones. Este código PHP muestra cómo agregar una imagen y un video en un marcador de posición:  
 ```php
   $presentation = new Presentation("input.pptx");
   try {
@@ -225,10 +271,10 @@ Para evitar tamaños grandes de presentación, puedes agregar imágenes (o video
   }
 ```
 
-## **Recortar Imagen**
 
-Este código PHP muestra cómo recortar una imagen existente en una diapositiva:
+## **Recortar Imágenes**
 
+Este código PHP muestra cómo recortar una imagen existente en una diapositiva:  
 ```php
   $pres = new Presentation();
   # Crea un nuevo objeto de imagen
@@ -242,9 +288,9 @@ Este código PHP muestra cómo recortar una imagen existente en una diapositiva:
         $image->dispose();
       }
     }
-    # Agrega un PictureFrame a una Diapositiva
+    # Agrega un PictureFrame a una diapositiva
     $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Recorta la imagen (valores de porcentaje)
+    # Recorta la imagen (valores en porcentaje)
     $picFrame->getPictureFormat()->setCropLeft(23.6);
     $picFrame->getPictureFormat()->setCropRight(21.5);
     $picFrame->getPictureFormat()->setCropTop(3);
@@ -259,19 +305,19 @@ Este código PHP muestra cómo recortar una imagen existente en una diapositiva:
   }
 ```
 
-## Eliminar Áreas Recortadas de la Imagen
 
-Si deseas eliminar las áreas recortadas de una imagen contenida en un marco, puedes usar el método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) que devuelve la imagen recortada o la imagen original si el recorte no es necesario.
+## **Eliminar Áreas Recortadas de una Imagen**
 
-Este código PHP demuestra la operación:
+Si desea eliminar las áreas recortadas de una imagen contenida en un marco, puede usar el método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Este método devuelve la imagen recortada o la imagen original si el recorte no es necesario.  
 
+Este código PHP demuestra la operación:  
 ```php
   $presentation = new Presentation("PictureFrameCrop.pptx");
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     # Obtiene el PictureFrame de la primera diapositiva
     $picFrame = $slide->getShapes()->get_Item(0);
-    # Elimina áreas recortadas de la imagen del PictureFrame y devuelve la imagen recortada
+    # Elimina las áreas recortadas de la imagen del PictureFrame y devuelve la imagen recortada
     $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
     # Guarda el resultado
     $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
@@ -282,20 +328,20 @@ Este código PHP demuestra la operación:
   }
 ```
 
+
 {{% alert title="NOTA" color="warning" %}} 
 
-El método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) agrega la imagen recortada a la colección de imágenes de la presentación. Si la imagen solo se usa en el [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) procesado, esta configuración puede reducir el tamaño de la presentación. De lo contrario, el número de imágenes en la presentación resultante aumentará.
+El método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) agrega la imagen recortada a la colección de imágenes de la presentación. Si la imagen se usa solo en el [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) procesado, esta configuración puede reducir el tamaño de la presentación. De lo contrario, el número de imágenes en la presentación resultante aumentará.  
 
-Este método convierte archivos metafiles WMF/EMF a imagen raster PNG en la operación de recorte. 
+Este método convierte archivos metafile WMF/EMF a imágenes PNG raster en la operación de recorte.  
 
 {{% /alert %}}
 
-## **Bloquear Proporción de Aspecto**
+## **Bloquear la Proporción de Aspecto**
 
-Si deseas que una forma que contiene una imagen mantenga su proporción de aspecto incluso después de cambiar las dimensiones de la imagen, puedes usar el método [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) para establecer la configuración de *Bloquear Proporción de Aspecto*.
+Si desea que una forma que contiene una imagen mantenga su proporción de aspecto incluso después de cambiar las dimensiones de la imagen, puede usar el método [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) para establecer la configuración *Lock Aspect Ratio*.  
 
-Este código PHP muestra cómo bloquear la proporción de aspecto de una forma:
-
+Este código PHP muestra cómo bloquear la proporción de aspecto de una forma:  
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -311,7 +357,7 @@ Este código PHP muestra cómo bloquear la proporción de aspecto de una forma:
       }
     }
     $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # Establece la forma para mantener la proporción al redimensionar
+    # establecer la forma para preservar la relación de aspecto al redimensionar
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {
   } finally {
@@ -321,30 +367,30 @@ Este código PHP muestra cómo bloquear la proporción de aspecto de una forma:
   }
 ```
 
+
 {{% alert title="NOTA" color="warning" %}} 
 
-Esta configuración de *Bloquear Proporción de Aspecto* solo preserva la proporción de aspecto de la forma y no de la imagen que contiene.
+Esta configuración *Lock Aspect Ratio* preserva solo la proporción de la forma y no la imagen que contiene.  
 
 {{% /alert %}}
 
-## **Usar Propiedad StretchOff**
+## **Utilizar la Propiedad StretchOff**
 
-Usando las propiedades [StretchOffsetLeft](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetRight--) y [StretchOffsetBottom](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) de la interfaz [IPictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat) y de la clase [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat), puedes especificar un rectángulo de llenado.
+Usando las propiedades [StretchOffsetLeft](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetRight--) y [StretchOffsetBottom](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) de la interfaz [IPictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat) y la clase [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IPictureFillFormat), puede especificar un rectángulo de relleno.  
 
-Cuando se especifica que se estire una imagen, un rectángulo fuente se escala para ajustarse al rectángulo de llenado especificado. Cada borde del rectángulo de llenado se define por un desplazamiento porcentual del borde correspondiente de la caja delimitadora de la forma. Un porcentaje positivo especifica un interior, mientras que un porcentaje negativo especifica un exterior.
+Cuando se especifica estiramiento para una imagen, un rectángulo fuente se escala para ajustarse al rectángulo de relleno especificado. Cada borde del rectángulo de relleno se define mediante un desplazamiento porcentual desde el borde correspondiente del cuadro delimitador de la forma. Un porcentaje positivo indica un inset mientras que uno negativo indica un outset.  
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentatio).
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Agrega una figura rectangular `AutoShape`. 
-4. Crea una imagen.
-5. Establece el tipo de llenado de la forma.
-6. Establece el modo de llenado de imagen de la forma.
-7. Agrega una imagen establecida para llenar la forma.
-8. Especifica los desplazamientos de la imagen desde el borde correspondiente de la caja delimitadora de la forma.
-9. Escribe la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentatio).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Agregue una forma rectangular `AutoShape`.  
+4. Cree una imagen.  
+5. Establezca el tipo de relleno de la forma.  
+6. Establezca el modo de relleno de imagen de la forma.  
+7. Agregue una imagen de conjunto para rellenar la forma.  
+8. Especifique los desplazamientos de imagen desde el borde correspondiente del cuadro delimitador de la forma.  
+9. Guarde la presentación modificada como un archivo PPTX.  
 
-Este código PHP demuestra un proceso en el que se usa la propiedad StretchOff:
-
+Este código PHP demuestra un proceso en el que se utiliza la propiedad StretchOff:  
 ```php
   # Instancia la clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
@@ -361,15 +407,15 @@ Este código PHP demuestra un proceso en el que se usa la propiedad StretchOff:
         $image->dispose();
       }
     }
-    # Agrega una AutoShape configurada como Rectángulo
+    # Agrega un AutoShape configurado como Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Establece el tipo de llenado de la forma
+    # Establece el tipo de relleno de la forma
     $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Establece el modo de llenado de imagen de la forma
+    # Establece el modo de relleno de imagen de la forma
     $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Establece la imagen para llenar la forma
+    # Establece la imagen para rellenar la forma
     $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Especifica los desplazamientos de la imagen desde el borde correspondiente de la caja delimitadora de la forma
+    # Especifica los desplazamientos de la imagen desde el borde correspondiente del cuadro delimitador de la forma
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
@@ -383,3 +429,22 @@ Este código PHP demuestra un proceso en el que se usa la propiedad StretchOff:
     }
   }
 ```
+
+
+## **Preguntas Frecuentes**
+
+**¿Cómo puedo averiguar qué formatos de imagen son compatibles con PictureFrame?**  
+
+Aspose.Slides admite tanto imágenes raster (PNG, JPEG, BMP, GIF, etc.) como imágenes vectoriales (por ejemplo, SVG) a través del objeto de imagen asignado a un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/). La lista de formatos compatibles generalmente se superpone con las capacidades del motor de conversión de diapositivas e imágenes.  
+
+**¿Cómo afectará la inserción de decenas de imágenes grandes al tamaño y rendimiento del PPTX?**  
+
+Incrustar imágenes grandes aumenta el tamaño del archivo y el uso de memoria; enlazar imágenes ayuda a mantener bajo el tamaño de la presentación pero requiere que los archivos externos permanezcan accesibles. Aspose.Slides permite agregar imágenes mediante enlace para reducir el tamaño del archivo.  
+
+**¿Cómo puedo bloquear un objeto de imagen para que no se mueva o redimensione accidentalmente?**  
+
+Utilice los [bloqueos de forma](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/getpictureframelock/) para un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) (por ejemplo, desactivar mover o redimensionar). El mecanismo de bloqueo se describe para formas en un artículo separado de [protección](/slides/es/php-java/applying-protection-to-presentation/) y es compatible con varios tipos de formas, incluido [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).  
+
+**¿Se preserva la fidelidad vectorial SVG al exportar una presentación a PDF/imagenes?**  
+
+Aspose.Slides permite extraer un SVG de un [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) como el vector original. Al [exportar a PDF](/slides/es/php-java/convert-powerpoint-to-pdf/) o a [formatos raster](/slides/es/php-java/convert-powerpoint-to-png/), el resultado puede rasterizarse según la configuración de exportación; el hecho de que el SVG original se almacene como vector se confirma mediante el comportamiento de extracción.

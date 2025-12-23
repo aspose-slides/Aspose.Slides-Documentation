@@ -1,106 +1,140 @@
 ---
-title: Конвертация PowerPoint в Markdown
+title: Конвертация презентаций PowerPoint в Markdown на PHP
+linktitle: PowerPoint в Markdown
 type: docs
 weight: 140
 url: /ru/php-java/convert-powerpoint-to-markdown/
-keywords: "Конвертация PowerPoint в Markdown, Конвертация ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, Java, Aspose.Slides для PHP через Java"
-description: "Конвертация PowerPoint в Markdown"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в MD
+- презентацию в MD
+- слайд в MD
+- PPT в MD
+- PPTX в MD
+- сохранить PowerPoint как Markdown
+- сохранить презентацию как Markdown
+- сохранить слайд как Markdown
+- сохранить PPT как MD
+- сохранить PPTX как MD
+- экспортировать PPT в MD
+- exportPPTX в MD
+- PowerPoint
+- презентация
+- Markdown
+- PHP
+- Aspose.Slides
+description: "Конвертируйте слайды PowerPoint — PPT, PPTX — в чистый Markdown с помощью Aspose.Slides для PHP через Java, автоматизируйте документацию и сохраняйте форматирование."
 ---
 
-{{% alert color="info" %}} 
+## **Обзор**
 
-Поддержка конвертации PowerPoint в Markdown была реализована в [Aspose.Slides 23.7](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-23-7-release-notes/).
+Aspose.Slides for PHP via Java позволяет конвертировать содержимое презентаций в Markdown, позволяя повторно использовать файлы PowerPoint (PPT, PPTX) и OpenDocument (ODP) для вики, Git‑репозиториев и генераторов статических сайтов. API сохраняет иерархию слайдов, создавая лёгкий, удобочитаемый Markdown, что позволяет автоматизировать конвейеры документирования и держать исходные презентации и файлы Markdown в идеальном согласовании.
 
-{{% /alert %}} 
+Поддержка конвертации PowerPoint‑to‑Markdown была реализована в [Aspose.Slides 23.7](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-php-via-java-23-7-release-notes/).
 
-{{% alert color="warning" %}} 
+## **Конвертировать презентацию в Markdown**
 
-Экспорт PowerPoint в Markdown **без изображений** по умолчанию. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам необходимо задать `markdownSaveOptions.setExportType(MarkdownExportType::Visual)` и также задать `BasePath`, где будут сохраняться изображения, на которые ссылается документ Markdown.
+Этот раздел объясняет, как Aspose.Slides конвертирует презентации PowerPoint и OpenDocument (PPT, PPTX, ODP) в чистый Markdown, сохраняя оригинальную иерархию слайдов, текст и базовое форматирование, чтобы вы могли повторно использовать контент в документации или в рабочих процессах с контролем версий без дополнительных ручных усилий.
 
-{{% /alert %}} 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) для представления презентации.  
+1. Используйте метод [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save), чтобы экспортировать его как файл Markdown.
 
-## **Конвертация PowerPoint в Markdown**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), чтобы представить объект презентации.
-2. Используйте метод [Save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-), чтобы сохранить объект как файл Markdown.
-
-Этот PHP код показывает, как конвертировать PowerPoint в Markdown:
-
+Этот PHP‑код показывает, как конвертировать презентацию PowerPoint в Markdown:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->save("pres.md", SaveFormat::Md);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.md", SaveFormat::Md);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## Конвертация PowerPoint в вкус Markdown
 
-Aspose.Slides позволяет вам конвертировать PowerPoint в Markdown (содержит базовый синтаксис), CommonMark, GitHub-формат Markdown, Trello, XWiki, GitLab и 17 других вкусов Markdown.
+## **Конвертировать презентацию в вариант Markdown**
 
-Этот PHP код показывает, как конвертировать PowerPoint в CommonMark:
+Aspose.Slides позволяет конвертировать презентации PowerPoint в Markdown с базовым синтаксисом, а также в CommonMark, GitHub‑flavored Markdown, Trello, XWiki, GitLab и семнадцать других вариантов Markdown.
 
+Следующий PHP‑код демонстрирует, как конвертировать презентацию PowerPoint в CommonMark:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setFlavor(Flavor->CommonMark);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setFlavor(Flavor->CommonMark);
+
+    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-23 поддерживаемых вкуса Markdown [перечислены в перечислении Flavor](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/) из класса [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/).
 
-## **Конвертация презентации, содержащей изображения, в Markdown**
+23 поддерживаемых варианта Markdown перечислены в [Flavor enumeration](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/).
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, которые позволяют использовать определенные параметры или настройки для выходного файла Markdown. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) может быть установлено на значения, которые определяют, как изображения отображаются или обрабатываются: `Sequential`, `TextOnly`, `Visual`.
+## **Конвертировать презентацию с изображениями в Markdown**
 
-### **Конвертация изображений последовательно**
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) раскрывает свойства и перечисления, позволяющие настроить результирующий файл Markdown. Например, перечисление [MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) задаёт, как обрабатывать изображения: `Sequential`, `TextOnly` или `Visual`.
 
-Если вы хотите, чтобы изображения появлялись по одному в выходном Markdown, вам нужно выбрать последовательный вариант. Этот PHP код показывает, как конвертировать презентацию, содержащую изображения, в Markdown:
+{{% alert color="warning" %}}
+По умолчанию экспорт PowerPoint‑to‑Markdown **не включает изображения**. Чтобы внедрить изображения, вызовите `markdownSaveOptions.setExportType(MarkdownExportType::Visual)` и установите `BasePath`, указывающий, куда будут сохраняться изображения, на которые ссылается файл Markdown.
+{{% /alert %}}
 
+### **Конвертировать изображения последовательно**
+
+Если вы хотите, чтобы изображения появлялись по отдельности, одно за другим, в результирующем Markdown, выберите опцию `Sequential`. Следующий PHP‑код показывает, как конвертировать презентацию с изображениями в Markdown:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setShowHiddenSlides(true);
-    $markdownSaveOptions->setShowSlideNumber(true);
-    $markdownSaveOptions->setFlavor(Flavor->Github);
-    $markdownSaveOptions->setExportType(MarkdownExportType::Sequential);
-    $markdownSaveOptions->setNewLineType(NewLineType::Windows);
-    $pres->save("doc.md", array(1, 2, 3, 4, 5, 6, 7, 8, 9 ), SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setShowHiddenSlides(true);
+    $saveOptions->setShowSlideNumber(true);
+    $saveOptions->setFlavor(Flavor->Github);
+    $saveOptions->setExportType(MarkdownExportType::Sequential);
+    $saveOptions->setNewLineType(NewLineType::Windows);
+
+    $slideIndices = array(1, 2, 3, 4);
+    $presentation->save("presentation.md", $slideIndices, SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Конвертация изображений визуально**
 
-Если вы хотите, чтобы изображения появлялись вместе в выходном Markdown, вам необходимо выбрать визуальный вариант. В этом случае изображения будут сохранены в текущей директории приложения (и для них будет построен относительный путь в документе Markdown), или вы можете указать свой предпочтительный путь и имя папки.
+### **Конвертировать изображения визуально**
 
-Этот PHP код демонстрирует операцию:
+Если вы хотите, чтобы изображения появлялись вместе в результирующем Markdown, выберите опцию `Visual`. В этом случае изображения сохраняются в текущий каталог приложения (и для них генерируется относительный путь в документе Markdown), либо вы можете указать предпочтительный каталог и имя папки.
 
+Следующий PHP‑код демонстрирует эту операцию:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("presentation.pptx");
+try {
     $outPath = "c:/documents";
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setExportType(MarkdownExportType::Visual);
-    $markdownSaveOptions->setImagesSaveFolderName("md-images");
-    $markdownSaveOptions->setBasePath($outPath);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setExportType(MarkdownExportType::Visual);
+    $saveOptions->setImagesSaveFolderName("md-images");
+    $saveOptions->setBasePath($outPath);
+
+    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Сохраняются ли гиперссылки при экспорте в Markdown?**
+
+Да. Текстовые [гиперссылки](/slides/ru/php-java/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. [Переходы](/slides/ru/php-java/slide-transition/) и [анимации](/slides/ru/php-java/powerpoint-animation/) слайдов не конвертируются.
+
+**Могу ли я ускорить конвертацию, запустив её в нескольких потоках?**
+
+Можно выполнять параллельную обработку файлов, но [не делитесь](/slides/ru/php-java/multithreading/) одним и тем же экземпляром [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры/процессы для каждого файла, чтобы избежать конфликтов.
+
+**Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**
+
+[Изображения](/slides/ru/php-java/image/) экспортируются в отдельную папку, а файл Markdown по умолчанию ссылается на них относительными путями. Вы можете настроить базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.

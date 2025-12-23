@@ -1,12 +1,22 @@
 ---
-title: Appel
+title: Gestion des repères dans les graphiques de présentation avec PHP
+linktitle: Repère
 type: docs
 url: /fr/php-java/callout/
+keywords:
+- repère de graphique
+- utilisation du repère
+- étiquette de données
+- format d'étiquette
+- PowerPoint
+- présentation
+- PHP
+- Aspose.Slides
+description: "Créez et stylisez des repères dans Aspose.Slides pour PHP via Java avec des exemples de code concis, compatibles avec PPT et PPTX, afin d'automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des Appels**
-De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) et [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat). Ces méthodes déterminent si l'étiquette de données du graphique spécifié sera affichée comme un appel de données ou comme une étiquette de données.
-
+## **Utilisation des repères**
+De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) et [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) ont été ajoutées à la classe [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) et à l'interface [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat). Ces méthodes déterminent si l’étiquette de données du graphique spécifié sera affichée comme repère de données ou comme étiquette de données.
 ```php
   $pres = new Presentation();
   try {
@@ -22,9 +32,9 @@ De nouvelles méthodes [**getShowLabelAsDataCallout()**](https://reference.aspos
   }
 ```
 
-## **Définir un Appel pour un Graphique en Beignets**
-Aspose.Slides pour PHP via Java fournit un support pour définir la forme de l'appel d'étiquette de données de série pour un graphique en beignets. Un exemple d'échantillon est donné ci-dessous.
 
+## **Définir un repère pour un diagramme en anneau**
+Aspose.Slides pour PHP via Java prend en charge la définition de la forme du repère d’étiquette de données de série pour un diagramme en anneau. L’exemple ci‑dessous est fourni. 
 ```php
   $pres = new Presentation();
   try {
@@ -36,7 +46,7 @@ Aspose.Slides pour PHP via Java fournit un support pour définir la forme de l'
     $chart->setLegend(false);
     $seriesIndex = 0;
     while ($seriesIndex < 15) {
-      $series = $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, $seriesIndex + 1, "SÉRIE " . $seriesIndex), $chart->getType());
+      $series = $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, $seriesIndex + 1, "SERIES " . $seriesIndex), $chart->getType());
       $series->setExplosion(0);
       $series->getParentSeriesGroup()->setDoughnutHoleSize(20);
       $series->getParentSeriesGroup()->setFirstSliceAngle(351);
@@ -44,7 +54,7 @@ Aspose.Slides pour PHP via Java fournit un support pour définir la forme de l'
     } 
     $categoryIndex = 0;
     while ($categoryIndex < 15) {
-      $chart->getChartData()->getCategories()->add($workBook->getCell(0, $categoryIndex + 1, 0, "CATÉGORIE " . $categoryIndex));
+      $chart->getChartData()->getCategories()->add($workBook->getCell(0, $categoryIndex + 1, 0, "CATEGORY " . $categoryIndex));
       $i = 0;
       while ($i < java_values($chart->getChartData()->getSeries()->size())) {
         $iCS = $chart->getChartData()->getSeries()->get_Item($i);
@@ -84,3 +94,14 @@ Aspose.Slides pour PHP via Java fournit un support pour définir la forme de l'
     }
   }
 ```
+
+
+## **FAQ**
+
+**Les repères sont-ils conservés lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
+
+Oui. Les repères font partie du rendu du graphique, de sorte que lorsque vous exportez vers [PDF](/slides/fr/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/php-java/export-to-html5/), [SVG](/slides/fr/php-java/render-a-slide-as-an-svg-image/), ou [raster images](/slides/fr/php-java/convert-powerpoint-to-png/), ils sont conservés avec le formatage de la diapositive.
+
+**Les polices personnalisées fonctionnent-elles dans les repères, et leur apparence peut-elle être conservée lors de l’exportation ?**
+
+Oui. Aspose.Slides prend en charge l'[incorporation de polices](/slides/fr/php-java/embedded-font/) dans la présentation et contrôle l’incorporation des polices lors des exportations comme le [PDF](/slides/fr/php-java/convert-powerpoint-to-pdf/), garantissant que les repères conservent le même aspect sur différents systèmes.

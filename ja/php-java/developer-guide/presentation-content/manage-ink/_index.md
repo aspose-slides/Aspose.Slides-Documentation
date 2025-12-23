@@ -1,40 +1,50 @@
 ---
-title: インクの管理
+title: PHPでプレゼンテーションのインクオブジェクトを管理
+linktitle: インクの管理
 type: docs
 weight: 95
 url: /ja/php-java/manage-ink/
-keywords: "PowerPoint のインク, インクツール, Java インク, PowerPoint で描画, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "インクツールを使用して PowerPoint Java でオブジェクトを描画する"
+keywords:
+- インク
+- インクオブジェクト
+- インクトレース
+- インクの管理
+- インクの描画
+- 描画
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "PowerPointのインクオブジェクトを管理 — Aspose.Slides for PHP via Javaでデジタルインクを作成、編集、スタイル設定します。トレース、ブラシの色とサイズのコードサンプルを取得できます。"
 ---
 
-PowerPointは、非標準の図形を描くためのインク機能を提供しており、これを使用して他のオブジェクトを強調表示したり、接続やプロセスを示したり、スライド上の特定の項目に注意を引くことができます。
+PowerPoint は、標準的でない図形を描くためのインク機能を提供しており、これを使用して他のオブジェクトを強調表示したり、接続やプロセスを示したり、スライド上の特定の項目に注意を引くことができます。
 
-Aspose.Slidesは、インクオブジェクトを作成および管理するために必要なすべてのインクタイプ（例: [Ink](https://reference.aspose.com/slides/php-java/aspose.slides/ink/) クラス）を提供します。
+Aspose.Slides は、インクオブジェクトの作成と管理に必要なすべての Ink タイプ（例: [Ink](https://reference.aspose.com/slides/php-java/aspose.slides/ink/) クラス）を提供します。
 
-## **通常のオブジェクトとインクオブジェクトの違い**
+## **通常オブジェクトとインクオブジェクトの違い**
 
-PowerPointのスライド上のオブジェクトは通常、シェイプオブジェクトとして表されます。シェイプオブジェクトは、その最も簡単な形において、オブジェクト自体の領域（そのフレーム）とそのプロパティを定義するコンテナです。後者には、コンテナの面積サイズ、コンテナの形状、コンテナの背景などが含まれます。詳細については、[シェイプレイアウトフォーマット](https://docs.aspose.com/slides/php-java/shape-manipulations/#access-layout-formats-for-shape)を参照してください。
+PowerPoint スライド上のオブジェクトは通常、シェイプオブジェクトで表されます。シェイプオブジェクトは、最も単純な形ではオブジェクト自体（フレーム）の領域とそのプロパティを定義するコンテナです。これにはコンテナ領域のサイズ、コンテナの形状、コンテナの背景などが含まれます。詳細は [Shape Layout Format](https://docs.aspose.com/slides/php-java/shape-manipulations/#access-layout-formats-for-shape) を参照してください。
 
-ただし、PowerPointがインクオブジェクトを扱う場合、サイズを除くオブジェクトフレーム（コンテナ）のすべてのプロパティを無視します。コンテナエリアのサイズは、標準の `width` および `height` 値によって決まります：
+しかし、PowerPoint がインクオブジェクトを扱う場合、サイズ以外のフレーム（コンテナ）プロパティはすべて無視されます。コンテナ領域のサイズは標準の `width` と `height` 値で決定されます:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **インクシェイプのトレース**
+## **Inkshape トレース**
 
-トレースは、ユーザーがデジタルインクを記入する際のペンの軌跡を記録するために使用される基本要素または標準です。トレースは、接続されたポイントのシーケンスを記述した記録です。
+トレースは、ユーザーがデジタルインクで書く際のペンの軌跡を記録する基本要素または標準です。トレースは接続された点のシーケンスを記述した録画です。
 
-最も単純な形式のエンコーディングは、各サンプルポイントのX座標とY座標を指定します。すべての接続されたポイントが描画されると、次のような画像が生成されます：
+最も単純なエンコーディング形態は、各サンプル点の X と Y 座標を指定します。すべての接続された点が描画されると、次のような画像が生成されます:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## 描画のためのブラシプロパティ
+## **描画用ブラシのプロパティ**
 
-ブラシを使用してトレース要素のポイントを結ぶ線を描画できます。ブラシには独自の色とサイズがあり、それは `Brush.Color` および `Brush.Size` プロパティに対応しています。
+トレース要素の点を結ぶ線を描くためにブラシを使用できます。ブラシには `Brush.Color` と `Brush.Size` プロパティに対応する独自の色とサイズがあります。
 
-### **インクブラシの色を設定する**
+### **インク ブラシの色を設定**
 
-このPHPコードは、ブラシの色を設定する方法を示しています：
-
+この PHP コードはブラシの色を設定する方法を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -50,10 +60,10 @@ PowerPointのスライド上のオブジェクトは通常、シェイプオブ�
   }
 ```
 
-### **インクブラシのサイズを設定する**
 
-このPHPコードは、ブラシのサイズを設定する方法を示しています：
+### **インク ブラシのサイズを設定**
 
+この PHP コードはブラシのサイズを設定する方法を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -69,25 +79,26 @@ PowerPointのスライド上のオブジェクトは通常、シェイプオブ�
   }
 ```
 
-一般に、ブラシの幅と高さは一致しないため、PowerPointはブラシサイズを表示しません（データセクションはグレーアウトされます）。しかし、ブラシの幅と高さが一致する場合、PowerPointは次のようにそのサイズを表示します：
+
+一般に、ブラシの幅と高さは一致せず、PowerPoint はブラシサイズを表示しません（データ セクションはグレー表示）。しかし、幅と高さが一致する場合、PowerPoint は次のようにサイズを表示します:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-明確さのために、インクオブジェクトの高さを増やし、重要な寸法を確認しましょう：
+明確にするために、インクオブジェクトの高さを増やし、重要な寸法を確認しましょう:
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-コンテナ（フレーム）は、ブラシのサイズを考慮しません - 常に線の太さがゼロであると仮定します（最後の画像参照）。
+コンテナ（フレーム）はブラシのサイズを考慮せず、常に線の太さをゼロと見なします（最後の画像参照）。
 
-したがって、全体のインクオブジェクトの可視領域を決定するには、トレースオブジェクトのブラシサイズを考慮する必要があります。ここで、ターゲットオブジェクト（手書きのテキストトレースオブジェクト）はコンテナ（フレーム）サイズにスケーリングされています。コンテナ（フレーム）のサイズが変更されると、ブラシサイズは一定であり、逆も同様です。
+したがって、インクオブジェクト全体の可視領域を決定するには、トレースオブジェクトのブラシサイズを考慮する必要があります。ここでは、対象オブジェクト（手書きテキストのトレースオブジェクト）がコンテナ（フレーム）サイズにスケーリングされています。コンテナ（フレーム）のサイズが変わると、ブラシサイズは一定のままであり、逆も同様です。
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPointは、テキストを扱うときにも同じ動作を示します：
+PowerPoint はテキストを扱う場合も同じ動作を示します:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**さらなる学習**
+**Further reading**
 
-* シェイプに関する一般的な情報については、[PowerPoint シェイプ](https://docs.aspose.com/slides/php-java/powerpoint-shapes/)セクションを参照してください。
-* 効果的な値に関する詳細については、[シェイプの効果的なプロパティ](https://docs.aspose.com/slides/php-java/shape-effective-properties/#getting-effective-font-height-value)を参照してください。
+* シェイプ全般については、[PowerPoint Shapes](https://docs.aspose.com/slides/php-java/powerpoint-shapes/) セクションを参照してください。
+* 有効な値に関する詳細情報は、[Shape Effective Properties](https://docs.aspose.com/slides/php-java/shape-effective-properties/#getting-effective-font-height-value) を参照してください。

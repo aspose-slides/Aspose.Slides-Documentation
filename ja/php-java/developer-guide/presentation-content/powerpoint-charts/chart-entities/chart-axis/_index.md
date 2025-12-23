@@ -1,27 +1,43 @@
 ---
-title: チャート軸
+title: PHP を使用してプレゼンテーションのチャート軸をカスタマイズする
+linktitle: チャート軸
 type: docs
 url: /ja/php-java/chart-axis/
-keywords: "PowerPoint チャート軸, プレゼンテーション チャート, Java, チャート軸の操作, チャートデータ"
-description: "PowerPointチャート軸の編集方法"
+keywords:
+- チャート軸
+- 垂直軸
+- 水平軸
+- 軸のカスタマイズ
+- 軸の操作
+- 軸の管理
+- 軸のプロパティ
+- 最大値
+- 最小値
+- 軸線
+- 日付形式
+- 軸タイトル
+- 軸の位置
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "レポートや可視化のために、PowerPoint プレゼンテーションのチャート軸をカスタマイズする方法を、Java 経由で PHP 用 Aspose.Slides を使用して学びましょう。"
 ---
 
+## **チャートの垂直軸の最大値を取得**
+Aspose.Slides for PHP via Java を使用すると、垂直軸上の最小値と最大値を取得できます。次の手順を実行してください：
 
-## **チャートの垂直軸の最大値を取得する**
-Aspose.Slides for PHP via Javaを使用すると、垂直軸の最小値と最大値を取得できます。次の手順に従ってください：
-
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. デフォルトデータのチャートを追加します。
-1. 軸の実際の最大値を取得します。
-1. 軸の実際の最小値を取得します。
-1. 軸の実際の主要単位を取得します。
-1. 軸の実際の小単位を取得します。
-1. 軸の実際の主要単位スケールを取得します。
-1. 軸の実際の小単位スケールを取得します。
+1. デフォルトデータでチャートを追加します。
+1. 軸上の実際の最大値を取得します。
+1. 軸上の実際の最小値を取得します。
+1. 軸の実際の主単位を取得します。
+1. 軸の実際の副単位を取得します。
+1. 軸の実際の主単位スケールを取得します。
+1. 軸の実際の副単位スケールを取得します。
 
-このサンプルコードは、上記の手順の実装を示し、必要な値を取得する方法を示します：
-
+このサンプルコード（上記手順の実装）は、必要な値の取得方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -31,7 +47,7 @@ Aspose.Slides for PHP via Javaを使用すると、垂直軸の最小値と最�
     $minValue = $chart->getAxes()->getVerticalAxis()->getActualMinValue();
     $majorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMajorUnit();
     $minorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMinorUnit();
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存します
     $pres->save("MaxValuesVerticalAxis_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -40,18 +56,18 @@ Aspose.Slides for PHP via Javaを使用すると、垂直軸の最小値と最�
   }
 ```
 
-## **軸間でデータを入れ替える**
-Aspose.Slidesを使用すると、軸間でデータを迅速に入れ替えることができます。垂直軸（y軸）で表されるデータが水平軸（x軸）に移動し、その逆も行います。
 
-このPHPコードは、チャート上の軸間でデータを入れ替えるタスクを実行する方法を示しています：
+## **軸間のデータを入れ替える**
+Aspose.Slides を使用すると、軸間のデータを簡単に入れ替えることができます。垂直軸（Y 軸）のデータが水平軸（X 軸）に移動し、その逆も同様です。
 
+この PHP コードは、チャート上で軸間のデータ入れ替えタスクを実行する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    # 行と列を入れ替える
+    # 行と列を入れ替えます
     $chart->getChartData()->switchRowColumn();
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存します
     $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -60,10 +76,10 @@ Aspose.Slidesを使用すると、軸間でデータを迅速に入れ替える�
   }
 ```
 
+
 ## **折れ線グラフの垂直軸を無効にする**
 
-このPHPコードは、折れ線グラフの垂直軸を非表示にする方法を示しています：
-
+この PHP コードは、折れ線グラフの垂直軸を非表示にする方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -77,10 +93,10 @@ Aspose.Slidesを使用すると、軸間でデータを迅速に入れ替える�
   }
 ```
 
+
 ## **折れ線グラフの水平軸を無効にする**
 
 このコードは、折れ線グラフの水平軸を非表示にする方法を示しています：
-
 ```php
   $pres = new Presentation();
   try {
@@ -94,10 +110,10 @@ Aspose.Slidesを使用すると、軸間でデータを迅速に入れ替える�
   }
 ```
 
-## **カテゴリ軸の変更**
 
-**CategoryAxisType**プロパティを使用すると、希望するカテゴリ軸のタイプ（**date**または**text**）を指定できます。このコードは、操作を示しています：
+## **カテゴリ軸を変更する**
 
+**CategoryAxisType** プロパティを使用して、希望するカテゴリ軸のタイプ（**date** または **text**）を指定できます。このコードは操作をデモンストレーションします：
 ```php
   $presentation = new Presentation("ExistingChart.pptx");
   try {
@@ -114,9 +130,9 @@ Aspose.Slidesを使用すると、軸間でデータを迅速に入れ替える�
   }
 ```
 
-## **カテゴリ軸値のための日付フォーマットの設定**
-Aspose.Slides for PHP via Javaを使用すると、カテゴリ軸値の日付フォーマットを設定できます。この操作は以下のPHPコードで示されています：
 
+## **カテゴリ軸の値の日時形式を設定する**
+Aspose.Slides for PHP via Java を使用すると、カテゴリ軸の値の日時形式を設定できます。この操作は PHP コードで示されています：
 ```php
   $pres = new Presentation();
   try {
@@ -144,13 +160,14 @@ Aspose.Slides for PHP via Javaを使用すると、カテゴリ軸値の日付�
     }
   }
 ```
+
 ```php
 
 ```
 
-## **チャート軸タイトルの回転角度を設定する**
-Aspose.Slides for PHP via Javaを使用すると、チャート軸タイトルの回転角度を設定できます。このPHPコードは、操作を示しています：
 
+## **チャート軸タイトルの回転角度を設定する**
+Aspose.Slides for PHP via Java を使用すると、チャート軸タイトルの回転角度を設定できます。この PHP コードは操作を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -165,9 +182,9 @@ Aspose.Slides for PHP via Javaを使用すると、チャート軸タイトル�
   }
 ```
 
-## **カテゴリまたは値軸での位置軸の設定**
-Aspose.Slides for PHP via Javaを使用すると、カテゴリまたは値軸での位置軸を設定できます。このPHPコードは、タスクを実行する方法を示しています：
 
+## **カテゴリ軸または値軸の位置を設定する**
+Aspose.Slides for PHP via Java を使用すると、カテゴリ軸または値軸の位置を設定できます。この PHP コードはタスクの実行方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -181,9 +198,9 @@ Aspose.Slides for PHP via Javaを使用すると、カテゴリまたは値軸�
   }
 ```
 
-## **チャート値軸に表示単位ラベルを有効にする**
-Aspose.Slides for PHP via Javaを使用すると、チャートの値軸に単位ラベルを表示するように設定できます。このPHPコードは、操作を示しています：
 
+## **チャート値軸に単位ラベルを表示する**
+Aspose.Slides for PHP via Java を使用すると、チャートの値軸に単位ラベルを表示するよう構成できます。この PHP コードは操作を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -196,3 +213,14 @@ Aspose.Slides for PHP via Javaを使用すると、チャートの値軸に単�
     }
   }
 ```
+
+
+## **FAQ**
+
+**軸が交差する位置（軸交差点）の値はどのように設定しますか？**
+
+軸は [crossing setting](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) を提供しています。ゼロ、最大カテゴリ/値、または特定の数値で交差させることができます。これは X 軸を上下にシフトしたり、基準線を強調したりするのに便利です。
+
+**目盛りラベルを軸に対してどのように配置できますか（横、外側、内側）？**
+
+[label position](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) を "cross"、"outside"、"inside" のいずれかに設定します。これにより可読性が向上し、特に小さなチャートでスペースを節約できます。
