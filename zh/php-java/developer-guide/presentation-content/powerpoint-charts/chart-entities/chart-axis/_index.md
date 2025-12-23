@@ -1,27 +1,43 @@
 ---
-title: 图表轴
+title: 使用 PHP 在演示文稿中自定义图表轴
+linktitle: 图表轴
 type: docs
 url: /zh/php-java/chart-axis/
-keywords: "PowerPoint 图表轴, 演示图表, Java, 操作图表轴, 图表数据"
-description: "如何编辑 PowerPoint 图表轴"
+keywords:
+- 图表轴
+- 纵轴
+- 横轴
+- 自定义轴
+- 操作轴
+- 管理轴
+- 轴属性
+- 最大值
+- 最小值
+- 轴线
+- 日期格式
+- 轴标题
+- 轴位置
+- PowerPoint
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中自定义图表轴，以用于报告和可视化。"
 ---
 
+## **获取图表中纵轴的最大值**
+Aspose.Slides for PHP via Java 允许您获取纵轴的最小值和最大值。请按照以下步骤操作：
 
-## **获取图表垂直轴的最大值**
-Aspose.Slides for PHP via Java 允许您获取垂直轴上的最小值和最大值。请按照以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 添加一个带有默认数据的图表。
 1. 获取轴上的实际最大值。
 1. 获取轴上的实际最小值。
-1. 获取轴上的实际主要单位。
-1. 获取轴上的实际次要单位。
-1. 获取轴上的实际主要单位刻度。
-1. 获取轴上的实际次要单位刻度。
+1. 获取轴的实际主单位。
+1. 获取轴的实际次单位。
+1. 获取轴的实际主单位比例。
+1. 获取轴的实际次单位比例。
 
-这个示例代码—上述步骤的实现—向您展示如何获取所需的值：
-
+下面的示例代码——上述步骤的实现——演示了如何获取所需的值：
 ```php
   $pres = new Presentation();
   try {
@@ -40,11 +56,11 @@ Aspose.Slides for PHP via Java 允许您获取垂直轴上的最小值和最大�
   }
 ```
 
-## **在轴之间交换数据**
-Aspose.Slides 允许您快速在轴之间交换数据—垂直轴（y轴）上的数据移动到水平轴（x轴），反之亦然。
 
-以下 PHP 代码向您展示如何在图表的轴之间执行数据交换任务：
+## **交换轴之间的数据**
+Aspose.Slides 允许您快速交换轴之间的数据——纵轴（y 轴）上的数据移动到横轴（x 轴），反之亦然。
 
+下面的 PHP 代码演示了如何在图表上执行轴之间的数据交换任务：
 ```php
   $pres = new Presentation();
   try {
@@ -60,10 +76,9 @@ Aspose.Slides 允许您快速在轴之间交换数据—垂直轴（y轴）上�
   }
 ```
 
-## **禁用线性图表的垂直轴**
 
-此 PHP 代码向您展示如何隐藏线性图表的垂直轴：
-
+## **禁用折线图的纵轴**
+下面的 PHP 代码演示了如何隐藏折线图的纵轴：
 ```php
   $pres = new Presentation();
   try {
@@ -77,10 +92,9 @@ Aspose.Slides 允许您快速在轴之间交换数据—垂直轴（y轴）上�
   }
 ```
 
-## **禁用线性图表的水平轴**
 
-该代码向您展示如何隐藏线性图表的水平轴：
-
+## **禁用折线图的横轴**
+下面的代码演示了如何隐藏折线图的横轴：
 ```php
   $pres = new Presentation();
   try {
@@ -94,10 +108,9 @@ Aspose.Slides 允许您快速在轴之间交换数据—垂直轴（y轴）上�
   }
 ```
 
+
 ## **更改类别轴**
-
-使用 **CategoryAxisType** 属性，可以指定您首选的类别轴类型（**日期**或**文本**）。以下代码演示了该操作：
-
+使用 **CategoryAxisType** 属性，您可以指定首选的类别轴类型（**date** 或 **text**）。下面的代码演示了此操作：
 ```php
   $presentation = new Presentation("ExistingChart.pptx");
   try {
@@ -114,9 +127,9 @@ Aspose.Slides 允许您快速在轴之间交换数据—垂直轴（y轴）上�
   }
 ```
 
-## **设置类别轴值的日期格式**
-Aspose.Slides for PHP via Java 允许您为类别轴值设置日期格式。以下 PHP 代码演示了该操作：
 
+## **设置类别轴值的日期格式**
+Aspose.Slides for PHP via Java 允许您为类别轴值设置日期格式。下面的 PHP 代码演示了此操作：
 ```php
   $pres = new Presentation();
   try {
@@ -144,13 +157,14 @@ Aspose.Slides for PHP via Java 允许您为类别轴值设置日期格式。以�
     }
   }
 ```
+
 ```php
 
 ```
 
-## **设置图表轴标题的旋转角度**
-Aspose.Slides for PHP via Java 允许您设置图表轴标题的旋转角度。此 PHP 代码演示了该操作：
 
+## **设置图表轴标题的旋转角度**
+Aspose.Slides for PHP via Java 允许您为图表轴标题设置旋转角度。下面的 PHP 代码演示了此操作：
 ```php
   $pres = new Presentation();
   try {
@@ -165,9 +179,9 @@ Aspose.Slides for PHP via Java 允许您设置图表轴标题的旋转角度。�
   }
 ```
 
-## **在类别轴或数值轴中设置位置轴**
-Aspose.Slides for PHP via Java 允许您在类别轴或数值轴中设置位置轴。以下 PHP 代码展示了如何执行该任务：
 
+## **设置类别轴或数值轴上的轴位置**
+Aspose.Slides for PHP via Java 允许您在类别轴或数值轴上设置轴的位置。下面的 PHP 代码展示了如何完成此任务：
 ```php
   $pres = new Presentation();
   try {
@@ -181,9 +195,9 @@ Aspose.Slides for PHP via Java 允许您在类别轴或数值轴中设置位置�
   }
 ```
 
-## **启用图表数值轴上的显示单位标签**
-Aspose.Slides for PHP via Java 允许您配置图表以在其图表数值轴上显示单位标签。此 PHP 代码演示该操作：
 
+## **在图表数值轴上启用显示单位标签**
+Aspose.Slides for PHP via Java 允许您配置图表在其数值轴上显示单位标签。下面的 PHP 代码演示了此操作：
 ```php
   $pres = new Presentation();
   try {
@@ -196,3 +210,14 @@ Aspose.Slides for PHP via Java 允许您配置图表以在其图表数值轴上�
     }
   }
 ```
+
+
+## **FAQ**
+
+**如何设置一个轴与另一个轴交叉的值（轴交叉）？**
+
+轴提供了一个 [crossing setting](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/)：您可以选择在零、在最大类别/数值或在特定数值处交叉。这对于上下移动 X 轴或突出基准线非常有用。
+
+**如何相对于轴定位刻度标签（旁侧、外部、内部）？**
+
+将 [label position](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) 设置为 “cross”、 “outside” 或 “inside”。这会影响可读性，并有助于节省空间，尤其是在小型图表上。

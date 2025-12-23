@@ -1,36 +1,50 @@
 ---
-title: ワードアート
+title: PHPでWordArt効果を作成および適用
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/php-java/wordart/
+keywords:
+- WordArt
+- WordArtを作成
+- WordArtテンプレート
+- WordArt効果
+- 影効果
+- 表示効果
+- グロー効果
+- WordArt変換
+- 3D効果
+- 外部影効果
+- 内部影効果
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via JavaでWordArt効果を作成およびカスタマイズします。このステップバイステップガイドは、開発者がプロフェッショナルなテキストでプレゼンテーションを向上させるのに役立ちます。"
 ---
 
-
-## **ワードアートについて？**
-ワードアートは、テキストに効果を適用して目立たせる機能です。例えば、ワードアートを使用すると、テキストをアウトライン化したり、色（またはグラデーション）で塗りつぶしたり、3D効果を追加したりすることができます。また、テキストの形を傾けたり、曲げたり、引き延ばしたりすることもできます。
+## **WordArt について?**
+WordArt（または Word Art）は、テキストに効果を適用して目立たせることができる機能です。たとえば WordArt を使用すると、テキストに輪郭線を付けたり、色（またはグラデーション）で塗りつぶしたり、3D 効果を追加したりできます。また、テキストの形状をねじったり、曲げたり、伸ばしたりすることもできます。
 
 {{% alert color="primary" %}} 
-
-ワードアートを使用することで、テキストをグラフィックオブジェクトのように扱うことができます。一般的に、ワードアートは、テキストをより魅力的または目立たせるために施された効果や特別な修正で構成されています。
-
+WordArt はテキストをグラフィックオブジェクトのように扱うことができます。一般的に、WordArt はテキストをより魅力的または目立たせるために行われる効果や特別な変更で構成されています。 
 {{% /alert %}} 
 
-**Microsoft PowerPointにおけるワードアート**
+**Microsoft PowerPoint の WordArt**
 
-Microsoft PowerPointでワードアートを使用するには、あらかじめ定義されたワードアートテンプレートのいずれかを選択する必要があります。ワードアートテンプレートは、テキストまたはその形状に適用される効果のセットです。
+Microsoft PowerPoint で WordArt を使用するには、事前定義された WordArt テンプレートのいずれかを選択する必要があります。WordArt テンプレートは、テキストまたはその形状に適用される効果のセットです。
 
-**Aspose.Slidesにおけるワードアート**
+**Aspose.Slides の WordArt**
 
-Aspose.Slides for PHP via Java 20.10では、ワードアートのサポートを実装し、その後のAspose.Slides for PHP via Javaリリースで機能の改善を行いました。
+Aspose.Slides for PHP via Java 20.10 で WordArt のサポートを実装し、以降の Aspose.Slides for PHP via Java のリリースで機能を改善しました。
 
-Aspose.Slides for PHP via Javaを使用すると、自分自身のワードアートテンプレート（1つの効果または効果の組み合わせ）を簡単に作成し、テキストに適用できます。
+Aspose.Slides for PHP via Java を使用すると、独自の WordArt テンプレート（単一の効果または効果の組み合わせ）を簡単に作成し、テキストに適用できます。
 
-## シンプルなワードアートテンプレートを作成し、テキストに適用する
+## **シンプルな WordArt テンプレートを作成しテキストに適用する**
 
-**Aspose.Slidesを使用して** 
+**Aspose.Slides の使用** 
 
-まず、次のPHPコードを使用してシンプルなテキストを作成します：
-
+まず、この PHP コードを使用してシンプルなテキストを作成します:
 ```php
   $pres = new Presentation();
   try {
@@ -45,30 +59,29 @@ Aspose.Slides for PHP via Javaを使用すると、自分自身のワードア�
     }
   }
 ```
-次に、効果をより目立たせるために、テキストのフォントの高さを大きな値に設定します：
 
+次に、このコードでテキストのフォント高さを大きく設定し、効果をより目立たせます:
 ```php
   $fontData = new FontData("Arial Black");
   $portion->getPortionFormat()->setLatinFont($fontData);
   $portion->getPortionFormat()->setFontHeight(36);
+
 ```
 
-**Microsoft PowerPointを使用して**
 
-Microsoft PowerPointでワードアート効果メニューに移動します：
+**Microsoft PowerPoint の使用**
 
+Microsoft PowerPoint で WordArt 効果メニューを開きます:
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-右側のメニューから、あらかじめ定義されたワードアート効果を選択できます。左側のメニューから、新しいワードアートの設定を指定できます。 
+右側のメニューから事前定義された WordArt 効果を選択できます。左側のメニューから新しい WordArt の設定を指定できます。
 
-これらは利用可能なパラメータやオプションの一部です：
-
+利用可能なパラメータまたはオプションの一部は次のとおりです:
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用**
 
-次に、以下のコードを使用してテキストに[SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid)パターンカラーを適用し、幅1の黒いテキストの境界線を追加します：
-
+ここでは、テキストに [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid) パターンカラーを適用し、幅 1 の黒いテキスト枠線をこのコードで追加します:
 ```php
   $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -78,24 +91,22 @@ Microsoft PowerPointでワードアート効果メニューに移動します：
   $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 ```
 
-結果のテキスト：
 
+結果のテキストは次のとおりです:
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## 他のワードアート効果の適用
+## **その他の WordArt 効果を適用する**
 
-**Microsoft PowerPointを使用して**
+**Microsoft PowerPoint の使用**
 
-プログラムのインターフェースから、テキスト、テキストブロック、形状、または同様の要素にこれらの効果を適用できます：
-
+プログラムのインターフェイスから、テキスト、テキストブロック、図形、または同様の要素にこれらの効果を適用できます:
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-例えば、影、反射、グロー効果はテキストに適用できます。3Dフォーマットと3D回転効果はテキストブロックに適用でき、ソフトエッジプロパティは形状オブジェクトに適用できます（3Dフォーマットプロパティが設定されていない場合でも影響を与えます）。
+たとえば、シャドウ、反射、グロウ効果はテキストに適用できます。3D フォーマットと 3D 回転効果はテキストブロックに適用できます。ソフトエッジ プロパティは図形オブジェクトに適用でき（3D フォーマット プロパティが設定されていなくても効果があります）。
 
-### 影効果の適用
+### **シャドウ効果を適用する**
 
-ここでは、テキストに関連するプロパティのみを設定します。このコードを使用してテキストに影効果を適用します：
-
+ここでは、テキストに関連するプロパティのみを設定することを目的としています。このコードでテキストにシャドウ効果を適用します。
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
@@ -109,29 +120,27 @@ Microsoft PowerPointでワードアート効果メニューに移動します：
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
 ```
 
-Aspose.Slides APIは3種類の影をサポートしています：OuterShadow, InnerShadow, およびPresetShadow。
 
-PresetShadowを使用すると、テキストに影を適用できます（プリセット値を使用）。
+Aspose.Slides API は、OuterShadow、InnerShadow、PresetShadow の 3 種類のシャドウをサポートしています。
 
-**Microsoft PowerPointを使用して**
+PresetShadow を使用すると、テキストに（プリセット値で）シャドウを適用できます。
 
-PowerPointでは、1種類の影を使用できます。以下はその例です：
+**Microsoft PowerPoint の使用**
 
+PowerPoint では、1 種類のシャドウのみ使用できます。例は次のとおりです:
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用**
 
-Aspose.Slidesでは、実際に2種類の影を同時に適用できます：InnerShadowとPresetShadow。
+Aspose.Slides は実際に、InnerShadow と PresetShadow の 2 種類のシャドウを同時に適用できます。
 
-**注意事項：**
+注記:
+- OuterShadow と PresetShadow を同時に使用すると、OuterShadow の効果のみが適用されます。
+- OuterShadow と InnerShadow を同時に使用した場合、適用される効果は PowerPoint のバージョンによって異なります。たとえば、PowerPoint 2013 では効果が二重になり、PowerPoint 2007 では OuterShadow の効果が適用されます。
 
-- OuterShadowとPresetShadowが一緒に使用されると、OuterShadow効果のみが適用されます。 
-- OuterShadowとInnerShadowが同時に使用されると、結果の効果はPowerPointのバージョンによって異なります。例えば、PowerPoint 2013では効果が二重になりますが、PowerPoint 2007ではOuterShadow効果が適用されます。 
+### **テキストに反射効果を適用する**
 
-### テキストへの表示効果の適用
-
-次のコードサンプルを通じて、テキストに表示を追加します：
-
+このコードサンプルでテキストに反射効果を追加します。
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
@@ -146,10 +155,10 @@ Aspose.Slidesでは、実際に2種類の影を同時に適用できます：Inn
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
 ```
 
-### テキストへのグロー効果の適用
 
-次のコードを使用して、テキストにグロー効果を適用し、光るようにさせます：
+### **テキストにグロウ効果を適用する**
 
+このコードを使用してテキストにグロウ効果を適用し、輝かせたり目立たせたりします。
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
@@ -157,45 +166,40 @@ Aspose.Slidesでは、実際に2種類の影を同時に適用できます：Inn
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
 ```
 
-操作の結果：
 
+操作の結果は次のとおりです:
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-影、表示、およびグローのパラメータを変更できます。効果のプロパティは、テキストの各部分に別々に設定されます。
-
+シャドウ、反射、グロウのパラメータは変更できます。効果のプロパティはテキストの各部分に個別に設定されます。 
 {{% /alert %}} 
 
-### ワードアートにおける変形の使用
+### **WordArt の変形を使用する**
 
-次のコードを通じて、テキスト全体のブロックに固有のTransformプロパティを使用します：
+このコードで Transform プロパティ（テキスト全体に固有）を使用します。
 ```php
   $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
 ```
 
-結果：
 
+結果は次のとおりです:
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-Microsoft PowerPointとAspose.Slides for PHP via Javaは、あらかじめ定義された変形タイプを一定数提供します。
-
+Microsoft PowerPoint と Aspose.Slides for PHP via Java の両方が、いくつかの事前定義された変形タイプを提供しています。 
 {{% /alert %}} 
 
-**PowerPointを使用して**
+**PowerPoint の使用**
 
-あらかじめ定義された変形タイプにアクセスするには、**フォーマット** -> **テキスト効果** -> **変形**に進みます。
+事前定義された変形タイプにアクセスするには、**Format** → **TextEffect** → **Transform** の順に進みます。
 
-**Aspose.Slidesを使用して**
+**Aspose.Slides の使用**
 
-変形タイプを選択するには、TextShapeType列挙体を使用します。
+変形タイプを選択するには、TextShapeType 列挙体を使用します。
 
-### テキストと形状への3D効果の適用
+### **テキストと図形に 3D 効果を適用する**
 
-次のサンプルコードを使用して、テキスト形状に3D効果を設定します：
-
+このサンプルコードでテキスト図形に 3D 効果を設定します:
 ```php
   $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
@@ -215,12 +219,11 @@ Microsoft PowerPointとAspose.Slides for PHP via Javaは、あらかじめ定義
   $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-結果のテキストとその形状：
 
+結果のテキストとその形状は次のとおりです:
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-次のPHPコードを使用して、テキストに3D効果を適用します：
-
+この PHP コードでテキストに 3D 効果を適用します:
 ```php
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
@@ -240,54 +243,52 @@ Microsoft PowerPointとAspose.Slides for PHP via Javaは、あらかじめ定義
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-操作の結果：
 
+操作の結果は次のとおりです:
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+テキストやその形状への 3D 効果の適用および効果間の相互作用は、特定のルールに基づきます。
 
-テキストまたはその形状への3D効果の適用および効果間の相互作用は、特定のルールに基づいています。
+テキストとそのテキストを含む形状についてシーンを考えます。3D 効果は 3D オブジェクトの表現と、オブジェクトが配置されるシーンを含みます。
 
-テキストとそのテキストを含む形状のシーンを考慮してください。3D効果には、3Dオブジェクトの表現とオブジェクトが置かれたシーンが含まれます。
+- 図形とテキストの両方にシーンが設定されている場合、図形のシーンが優先され、テキストのシーンは無視されます。
+- 図形に独自のシーンがなく 3D 表現がある場合、テキストのシーンが使用されます。
+- それ以外の場合（形状に元々 3D 効果がない場合）、形状は平面のままで、3D 効果はテキストにのみ適用されます。
 
-- 両方の図形とテキストにシーンが設定されている場合、図形のシーンが優先され、テキストのシーンは無視されます。
-- 図形に独自のシーンがないが3D表現がある場合、テキストのシーンが使用されます。
-- それ以外の場合（形状が元々3D効果を持たない場合）、形状は平坦であり、3D効果はテキストにのみ適用されます。
-
-これらの説明は、ThreeDFormat.getLightRig()およびThreeDFormat.getCamera()メソッドに関連しています。
-
+これらの説明は ThreeDFormat.getLightRig() および ThreeDFormat.getCamera() メソッドに関連しています。 
 {{% /alert %}} 
 
-## **テキストへのアウトシャドウ効果の適用**
-Aspose.Slides for PHP via Javaは、[**IOuterShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow)および[**IInnerShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow)クラスを提供しており、[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame)で扱われるテキストに影効果を適用できます。以下の手順に従ってください：
+## **テキストに外部シャドウ効果を適用する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスのインスタンスを作成します。
+Aspose.Slides for PHP via Java は、[**IOuterShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow) と [**IInnerShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow) クラスを提供し、[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame) に含まれるテキストにシャドウ効果を適用できます。次の手順を実行してください。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。
 2. インデックスを使用してスライドの参照を取得します。
-3. スライドに長方形タイプのオートシェイプを追加します。
-4. オートシェイプに関連するTextFrameにアクセスします。
-5. オートシェイプのFillTypeをNoFillに設定します。
-6. OuterShadowクラスをインスタンス化します。
-7. 影のBlurRadiusを設定します。
-8. 影のDirectionを設定します。
-9. 影のDistanceを設定します。
-10. RectanglelAlignをTopLeftに設定します。
-11. 影のPresetColorをBlackに設定します。
-12. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして保存します。
+3. スライドに Rectangle タイプの AutoShape を追加します。
+4. AutoShape に関連付けられた TextFrame にアクセスします。
+5. AutoShape の FillType を NoFill に設定します。
+6. OuterShadow クラスのインスタンスを作成します。
+7. シャドウの BlurRadius を設定します。
+8. シャドウの Direction を設定します。
+9. シャドウの Distance を設定します。
+10. RectanglelAlign を TopLeft に設定します。
+11. シャドウの PresetColor を Black に設定します。
+12. プレゼンテーションを書き出して [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルに保存します。
 
-次のサンプルコードは、上記の手順の実装であり、テキストにアウトシャドウ効果を適用する方法を示しています：
-
+上記手順の実装例であるこのサンプルコードは、テキストに外部シャドウ効果を適用する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
-    # Get reference of the slide
+    # スライドの参照を取得
     $sld = $pres->getSlides()->get_Item(0);
-    # Add an AutoShape of Rectangle type
+    # Rectangle タイプの AutoShape を追加
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Add TextFrame to the Rectangle
+    # Rectangle に TextFrame を追加
     $ashp->addTextFrame("Aspose TextBox");
-    # Disable shape fill in case we want to get shadow of text
+    # テキストのシャドウを取得できるようにシェイプの塗りつぶしを無効化
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Add outer shadow and set all necessary parameters
+    # 外部シャドウを追加し、必要なすべてのパラメータを設定
     $ashp->getEffectFormat()->enableOuterShadowEffect();
     $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
     $shadow->setBlurRadius(4.0);
@@ -295,7 +296,7 @@ Aspose.Slides for PHP via Javaは、[**IOuterShadow**](https://reference.aspose.
     $shadow->setDistance(3);
     $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
     $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # Write the presentation to disk
+    # プレゼンテーションをディスクに保存
     $pres->save("pres_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -304,46 +305,47 @@ Aspose.Slides for PHP via Javaは、[**IOuterShadow**](https://reference.aspose.
   }
 ```
 
-## **シェイプへのインナーシャドウ効果の適用**
-以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスのインスタンスを作成します。
+## **図形に内部シャドウ効果を適用する**
+
+次の手順を実行してください。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。
 2. スライドの参照を取得します。
-3. 長方形タイプのオートシェイプを追加します。
-4. InnerShadowEffectを有効にします。
+3. Rectangle タイプの AutoShape を追加します。
+4. InnerShadowEffect を有効にします。
 5. 必要なすべてのパラメータを設定します。
-6. ColorTypeをSchemeとして設定します。
-7. Scheme Colorを設定します。
-8. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして保存します。
+6. ColorType を Scheme に設定します。
+7. Scheme Color を設定します。
+8. プレゼンテーションを書き出して [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルに保存します。
 
-次のサンプルコード（上記の手順に基づく）は、2つのシェイプの間に接続を追加する方法を示しています：
-
+上記手順に基づくこのサンプルコードは、2 つの図形間にコネクタを追加する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
-    # Get reference of the slide
+    # スライドの参照を取得
     $slide = $pres->getSlides()->get_Item(0);
-    # Add an AutoShape of Rectangle type
+    # Rectangle タイプの AutoShape を追加
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Add TextFrame to the Rectangle
+    # Rectangle に TextFrame を追加
     $ashp->addTextFrame("Aspose TextBox");
     $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $pf = $port->getPortionFormat();
     $pf->setFontHeight(50);
-    # Enable InnerShadowEffect
+    # InnerShadowEffect を有効化
     $ef = $pf->getEffectFormat();
     $ef->enableInnerShadowEffect();
-    # Set all necessary parameters
+    # 必要なすべてのパラメータを設定
     $ef->getInnerShadowEffect()->setBlurRadius(8.0);
     $ef->getInnerShadowEffect()->setDirection(90.0);
     $ef->getInnerShadowEffect()->setDistance(6.0);
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # Set ColorType as Scheme
+    # ColorType を Scheme に設定
     $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Set Scheme Color
+    # Scheme カラーを設定
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # Save Presentation
+    # プレゼンテーションを保存
     $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -351,3 +353,22 @@ Aspose.Slides for PHP via Javaは、[**IOuterShadow**](https://reference.aspose.
     }
   }
 ```
+
+
+## **FAQ**
+
+**異なるフォントやスクリプト（例: アラビア語、中国語）でも WordArt 効果を使用できますか？**
+
+はい、Aspose.Slides は Unicode をサポートしており、主要なフォントやスクリプトすべてで動作します。シャドウ、塗りつぶし、輪郭などの WordArt 効果は言語に関係なく適用できますが、フォントの可用性やレンダリングはシステムフォントに依存する場合があります。
+
+**スライドマスター要素にも WordArt 効果を適用できますか？**
+
+はい、タイトルプレースホルダー、フッター、背景テキストなど、マスタースライド上の図形にも WordArt 効果を適用できます。マスター レイアウトに加えた変更は、関連付けられたすべてのスライドに反映されます。
+
+**WordArt 効果はプレゼンテーションのファイルサイズに影響しますか？**
+
+多少は影響します。シャドウ、グロウ、グラデーション塗りつぶしなどの WordArt 効果は、追加の書式メタデータによりファイルサイズをわずかに増加させることがありますが、差は通常はごくわずかです。
+
+**プレゼンテーションを保存せずに WordArt 効果の結果をプレビューできますか？**
+
+はい、[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) または [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) インターフェイスの `getImage` メソッドを使用して、WordArt を含むスライドを画像（PNG、JPEG など）にレンダリングできます。これにより、プレゼンテーション全体を保存またはエクスポートする前に、メモリ上または画面上で結果をプレビューできます。

@@ -1,35 +1,47 @@
 ---
-title: Video-Frame
+title: Verwalten von Video-Frames in Präsentationen mit PHP
+linktitle: Video-Frame
 type: docs
 weight: 10
 url: /de/php-java/video-frame/
-keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "Video-Frame zu einer PowerPoint-Präsentation hinzufügen"
+keywords:
+- Video hinzufügen
+- Video erstellen
+- Video einbetten
+- Video extrahieren
+- Video abrufen
+- Video-Frame
+- Webquelle
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für PHP über Java hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 
-Ein gut platzierter Video in einer Präsentation kann Ihre Botschaft überzeugender gestalten und das Engagement Ihres Publikums erhöhen.
+Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und das Engagement Ihres Publikums erhöhen.
 
-PowerPoint ermöglicht es Ihnen, Videos auf zwei Arten zu einer Folie in einer Präsentation hinzuzufügen:
+PowerPoint ermöglicht es Ihnen, Videos in einer Präsentation auf zwei Arten zu einer Folie hinzuzufügen:
 
-* Fügen Sie ein lokales Video hinzu oder betten Sie es ein (auf Ihrem Computer gespeichert)
-* Fügen Sie ein Online-Video hinzu (aus einer Webquelle wie YouTube).
+* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
+* Ein Online-Video hinzufügen (von einer Webquelle wie YouTube).
 
-Um Ihnen das Hinzufügen von Videos (Video-Objekten) zu einer Präsentation zu ermöglichen, bietet Aspose.Slides die [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) Schnittstelle, die [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) Schnittstelle und andere relevante Typen.
+Um Ihnen das Hinzufügen von Videos (Videoobjekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides die Schnittstelle [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/), die Schnittstelle [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) und weitere relevante Typen bereit.
 
-## **Eingebetteten Video-Frame erstellen**
+## **Erstellen eingebetteter VideoFrames**
 
-Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video-Frame erstellen, um das Video in Ihre Präsentation einzubetten.
+Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video-Frame erstellen, um das Video in Ihre Präsentation einzubetten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Holen Sie einen Verweis auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) Objekt hinzu und geben Sie den Videodateipfad an, um das Video in die Präsentation einzubetten.
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) Objekt hinzu, um einen Rahmen für das Video zu erstellen.
-1. Speichern Sie die bearbeitete Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
+1. Holen Sie sich den Referenz einer Folie über deren Index.
+1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/)-Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten.
+1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/)-Objekt hinzu, um einen Frame für das Video zu erstellen.
+1. Speichern Sie die geänderte Präsentation.
 
 Dieser PHP-Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
-
 ```php
-  # Instanziiert die Presentation-Klasse
+  # Instanziert die Presentation-Klasse
   $pres = new Presentation("pres.pptx");
   try {
     # Lädt das Video
@@ -37,7 +49,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Prä
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
     # Holt die erste Folie und fügt einen Video-Frame hinzu
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # Speichert die Präsentation auf der Festplatte
+    # Speichert die Präsentation auf dem Datenträger
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -47,8 +59,8 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Prä
   }
 ```
 
-Alternativ können Sie ein Video hinzufügen, indem Sie den Dateipfad direkt an die [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) Methode übergeben:
 
+Alternativ können Sie ein Video hinzufügen, indem Sie dessen Dateipfad direkt an die Methode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) übergeben:
 ```php
   $pres = new Presentation();
   try {
@@ -61,20 +73,20 @@ Alternativ können Sie ein Video hinzufügen, indem Sie den Dateipfad direkt an 
   }
 ```
 
-## **Video-Frame mit Video aus einer Webquelle erstellen**
 
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube-Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Weblink zu Ihrer Präsentation hinzufügen.
+## **Erstellen von VideoFrames mit Video aus Webquellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Holen Sie einen Verweis auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) Objekt hinzu und geben Sie den Link zum Video an.
-1. Legen Sie ein Thumbnail für den Video-Frame fest.
+Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das gewünschte Video online verfügbar ist (z. B. auf YouTube), können Sie es über dessen Weblink zu Ihrer Präsentation hinzufügen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse
+1. Holen Sie sich den Referenz einer Folie über deren Index.
+1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/)-Objekt hinzu und übergeben Sie den Link zum Video.
+1. Legen Sie ein Miniaturbild für den Video‑Frame fest.
 1. Speichern Sie die Präsentation.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
-
+Dieser PHP-Code zeigt Ihnen, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```php
-  # Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+  # Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation();
   try {
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
@@ -90,19 +102,19 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein Video aus dem Web zu einer Folie in ein
 
 ```
 
-## **Video von der Folie extrahieren**
 
-Neben dem Hinzufügen von Videos zu Folien ermöglicht es Aspose.Slides, Videos, die in Präsentationen eingebettet sind, zu extrahieren.
+## **Video aus Folien extrahieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse, um die Präsentation zu laden, die das Video enthält.
-2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) Objekte.
-3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) zu finden.
-4. Speichern Sie das Video auf der Festplatte.
+Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse, um die Präsentation zu laden, die das Video enthält.
+2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/)-Objekte.
+3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/)-Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) zu finden.
+4. Speichern Sie das Video auf dem Datenträger.
 
 Dieser PHP-Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie extrahieren:
-
 ```php
-  # Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+  # Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -112,7 +124,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie ext
           $type = $vf->getEmbeddedVideo()->getContentType();
           $ss = $type->lastIndexOf('-');
           $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # Holt die Dateierweiterung
+          # Ermittelt die Dateierweiterung
           $charIndex = $type->indexOf("/");
           $type = $type->substring($charIndex + 1);
           $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
@@ -129,3 +141,22 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie ext
     }
   }
 ```
+
+
+## **FAQ**
+
+**Welche Wiedergabeparameter können für einen VideoFrame geändert werden?**
+
+Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/) (automatisch oder per Klick) und das [Looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)-Objekts zur Verfügung.
+
+**Wirkt sich das Hinzufügen eines Videos auf die Dateigröße der PPTX aus?**
+
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, wodurch die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie ein Online-Video hinzufügen, werden ein Link und ein Miniaturbild eingebettet, sodass die Größensteigerung geringer ist.
+
+**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
+
+Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) im Frame austauschen und dabei die Geometrie der Form beibehalten; dies ist ein gängiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+
+**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
+
+Ja. Ein eingebettetes Video hat einen [Content‑Typ](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/), den Sie auslesen und beispielsweise beim Speichern auf dem Datenträger verwenden können.

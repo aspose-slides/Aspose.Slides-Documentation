@@ -1,42 +1,52 @@
 ---
-title: Administrar Zoom
+title: Administrar Zoom de Presentación en PHP
+linktitle: Administrar Zoom
 type: docs
 weight: 60
 url: /es/php-java/manage-zoom/
-keywords: "Zoom, marco de zoom, agregar zoom, formato del marco de zoom, resumen de zoom, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
-description: "Agregar zoom o marcos de zoom a presentaciones de PowerPoint"
+keywords:
+- zoom
+- marco de zoom
+- zoom de diapositiva
+- zoom de sección
+- zoom de resumen
+- agregar zoom
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Cree y personalice Zoom con Aspose.Slides para PHP vía Java - cambie entre secciones, agregue miniaturas y transiciones en presentaciones PPT, PPTX y ODP."
 ---
 
-## **Descripción General**
-Los zooms en PowerPoint te permiten saltar hacia y desde diapositivas, secciones y partes específicas de una presentación. Cuando estás presentando, esta capacidad de navegar rápidamente a través del contenido puede resultar muy útil.
+## **Visión general**
+Los Zoom en PowerPoint le permiten saltar a y desde diapositivas, secciones y partes específicas de una presentación. Cuando está presentando, esta capacidad de navegar rápidamente por el contenido puede resultar muy útil. 
 
 ![overview_image](overview.png)
 
-* Para resumir toda una presentación en una sola diapositiva, utiliza un [Resumen de Zoom](#Resumen-de-Zoom).
-* Para mostrar solo diapositivas seleccionadas, utiliza un [Zoom de Diapositiva](#Zoom-de-Diapositiva).
-* Para mostrar solo una sección, utiliza un [Zoom de Sección](#Zoom-de-Sección).
+* Para resumir toda una presentación en una sola diapositiva, use un [Zoom de resumen](#Summary-Zoom).
+* Para mostrar solo diapositivas seleccionadas, use un [Zoom de diapositiva](#Slide-Zoom).
+* Para mostrar solo una sección, use un [Zoom de sección](#Section-Zoom).
 
-## **Zoom de Diapositiva**
-Un zoom de diapositiva puede hacer que tu presentación sea más dinámica, permitiéndote navegar libremente entre diapositivas en el orden que elijas sin interrumpir el flujo de tu presentación. Los zooms de diapositiva son excelentes para presentaciones cortas sin muchas secciones, pero aún puedes usarlos en diferentes escenarios de presentación.
+## **Zoom de diapositiva**
+Un zoom de diapositiva puede hacer su presentación más dinámica, permitiéndole navegar libremente entre diapositivas en cualquier orden que elija sin interrumpir el flujo de su presentación. Los zoom de diapositiva son excelentes para presentaciones cortas sin muchas secciones, pero aún puede utilizarlos en diferentes escenarios de presentación.
 
-Los zooms de diapositiva te ayudan a profundizar en múltiples piezas de información mientras sientes que estás en un solo lienzo.
+Los zoom de diapositiva le ayudan a profundizar en múltiples piezas de información mientras siente que está en un único lienzo. 
 
 ![overview_image](slidezoomsel.png)
 
 Para los objetos de zoom de diapositiva, Aspose.Slides proporciona la enumeración [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/ZoomImageType), la interfaz [IZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IZoomFrame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Creando Marcos de Zoom**
+### **Crear marcos de zoom**
 
-Puedes agregar un marco de zoom en una diapositiva de esta manera:
+Puede agregar un marco de zoom a una diapositiva de esta manera:
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea nuevas diapositivas a las que pretendes vincular los marcos de zoom.
-3.	Agrega un texto de identificación y un fondo a las diapositivas creadas.
-4.  Agrega marcos de zoom (que contienen las referencias a las diapositivas creadas) a la primera diapositiva.
-5.	Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear nuevas diapositivas a las que pretende enlazar los marcos de zoom. 
+3.	Agregar un texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregar marcos de zoom (que contienen referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Guardar la presentación modificada como un archivo PPTX.
 
-Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código PHP le muestra cómo crear un marco de zoom en una diapositiva:
 ```php
   $pres = new Presentation();
   try {
@@ -49,14 +59,14 @@ Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
     $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     # Crea un cuadro de texto para la segunda diapositiva
     $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Segunda Diapositiva");
+    $autoshape->getTextFrame()->setText("Second Slide");
     # Crea un fondo para la tercera diapositiva
     $slide3->getBackground()->setType(BackgroundType::OwnBackground);
     $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     # Crea un cuadro de texto para la tercera diapositiva
     $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Tercer Diapositiva");
+    $autoshape->getTextFrame()->setText("Trird Slide");
     # Agrega objetos ZoomFrame
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
@@ -68,17 +78,17 @@ Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
     }
   }
 ```
-### **Creando Marcos de Zoom con Imágenes Personalizadas**
-Con Aspose.Slides para PHP a través de Java, puedes crear un marco de zoom con una imagen de vista previa de diapositiva diferente de esta manera:
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea una nueva diapositiva a la que pretendes vincular el marco de zoom.
-3.	Agrega un texto de identificación y un fondo a la diapositiva.
-4.  Crea un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para llenar el marco.
-5.  Agrega marcos de zoom (que contienen la referencia a la diapositiva creada) a la primera diapositiva.
-6.	Escribe la presentación modificada como un archivo PPTX.
 
-Este código PHP te muestra cómo crear un marco de zoom con una imagen diferente:
+### **Crear marcos de zoom con imágenes personalizadas**
+Con Aspose.Slides for PHP via Java, puede crear un marco de zoom con una imagen de vista previa de diapositiva diferente de esta manera:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear una nueva diapositiva a la que pretenda enlazar el marco de zoom. 
+3.	Agregar un texto de identificación y un fondo a la diapositiva.
+4.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para rellenar el marco.
+5.	Agregar marcos de zoom (que contienen la referencia a la diapositiva creada) a la primera diapositiva.
+6.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo crear un marco de zoom con una imagen diferente:
 ```php
   $pres = new Presentation();
   try {
@@ -88,10 +98,10 @@ Este código PHP te muestra cómo crear un marco de zoom con una imagen diferent
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Crea un cuadro de texto para la segunda diapositiva
+    # Crea un cuadro de texto para la tercera diapositiva
     $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Segunda Diapositiva");
-    # Crea una nueva imagen para el objeto zoom
+    $autoshape->getTextFrame()->setText("Second Slide");
+    # Crea una nueva imagen para el objeto de zoom
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -112,23 +122,23 @@ Este código PHP te muestra cómo crear un marco de zoom con una imagen diferent
     }
   }
 ```
-### **Formateando Marcos de Zoom**
-En las secciones anteriores, te mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complejos, tienes que alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom.
 
-Puedes controlar el formato de un marco de zoom en una diapositiva de esta manera:
+### **Dar formato a los marcos de zoom**
+En las secciones anteriores, le mostramos cómo crear marcos de zoom simples. Para crear marcos de zoom más complejos, debe modificar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un marco de zoom. 
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea nuevas diapositivas a las que pretendes vincular el marco de zoom.
-3.	Agrega algo de texto de identificación y fondo a las diapositivas creadas.
-4.  Agrega marcos de zoom (que contienen las referencias a las diapositivas creadas) a la primera diapositiva.
-5.  Crea un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para llenar el marco.
-6.  Establece una imagen personalizada para el primer objeto de zoom frame.
-7.  Cambia el formato de línea para el segundo objeto de zoom frame.
-8.  Elimina el fondo de una imagen del segundo objeto de zoom frame.
-5.	Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom en una diapositiva de esta manera:
 
-Este código PHP te muestra cómo cambiar el formato de un marco de zoom en una diapositiva:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear nuevas diapositivas a enlazar a las que pretenda enlazar el marco de zoom. 
+3.	Agregar algún texto de identificación y un fondo a las diapositivas creadas.
+4.	Agregar marcos de zoom (que contienen referencias a las diapositivas creadas) a la primera diapositiva.
+5.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para rellenar el marco.
+6.	Establecer una imagen personalizada para el primer objeto de marco de zoom.
+7.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+8.	Eliminar el fondo de una imagen del segundo objeto de marco de zoom.
+5.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo cambiar el formato de un marco de zoom en una diapositiva:
 ```php
   $pres = new Presentation();
   try {
@@ -141,14 +151,14 @@ Este código PHP te muestra cómo cambiar el formato de un marco de zoom en una 
     $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     # Crea un cuadro de texto para la segunda diapositiva
     $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Segunda Diapositiva");
+    $autoshape->getTextFrame()->setText("Second Slide");
     # Crea un fondo para la tercera diapositiva
     $slide3->getBackground()->setType(BackgroundType::OwnBackground);
     $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     # Crea un cuadro de texto para la tercera diapositiva
     $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Tercer Diapositiva");
+    $autoshape->getTextFrame()->setText("Trird Slide");
     # Agrega objetos ZoomFrame
     $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
     $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
@@ -164,12 +174,12 @@ Este código PHP te muestra cómo cambiar el formato de un marco de zoom en una 
     }
     # Establece una imagen personalizada para el objeto zoomFrame1
     $zoomFrame1->setImage($picture);
-    # Establece un formato de zoom frame para el objeto zoomFrame2
+    # Establece un formato de marco de zoom para el objeto zoomFrame2
     $zoomFrame2->getLineFormat()->setWidth(5);
     $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
     $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Configuración para No mostrar fondo para el objeto zoomFrame2
+    # Configuración para no mostrar el fondo del objeto zoomFrame2
     $zoomFrame2->setShowBackground(false);
     # Guarda la presentación
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -181,27 +191,27 @@ Este código PHP te muestra cómo cambiar el formato de un marco de zoom en una 
   }
 ```
 
-## **Zoom de Sección**
 
-Un zoom de sección es un enlace a una sección en tu presentación. Puedes usar zoom de sección para volver a secciones que realmente deseas enfatizar. O puedes usarlos para resaltar cómo ciertas partes de tu presentación se conectan.
+## **Zoom de sección**
+
+Un zoom de sección es un enlace a una sección de su presentación. Puede usar los zoom de sección para volver a secciones que desea enfatizar realmente. O puede usarlos para resaltar cómo ciertas partes de su presentación se conectan. 
 
 ![overview_image](seczoomsel.png)
 
 Para los objetos de zoom de sección, Aspose.Slides proporciona la interfaz [ISectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionZoomFrame) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Creando Marcos de Zoom de Sección**
+### **Crear marcos de zoom de sección**
 
-Puedes agregar un marco de zoom de sección a una diapositiva de esta manera:
+Puede agregar un marco de zoom de sección a una diapositiva de esta manera:
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea una nueva diapositiva.
-3.	Agrega un fondo de identificación a la diapositiva creada.
-4.  Crea una nueva sección a la que pretendes vincular el marco de zoom.
-5.  Agrega un marco de zoom de sección (que contenga referencias a la sección creada) a la primera diapositiva.
-6.	Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear una nueva diapositiva. 
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Agregar un marco de zoom de sección (que contiene referencias a la sección creada) a la primera diapositiva.
+6.	Guardar la presentación modificada como un archivo PPTX.
 
-Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
-
+Este código PHP le muestra cómo crear un marco de zoom en una diapositiva:
 ```php
   $pres = new Presentation();
   try {
@@ -210,8 +220,8 @@ Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Agrega una nueva Sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
+    # Agrega una nueva sección a la presentación
+    $pres->getSections()->addSection("Section 1", $slide);
     # Agrega un objeto SectionZoomFrame
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     # Guarda la presentación
@@ -222,20 +232,20 @@ Este código PHP te muestra cómo crear un marco de zoom en una diapositiva:
     }
   }
 ```
-### **Creando Marcos de Zoom de Sección con Imágenes Personalizadas**
 
-Utilizando Aspose.Slides para PHP a través de Java, puedes crear un marco de zoom de sección con una imagen de vista previa de diapositiva diferente de esta manera:
+### **Crear marcos de zoom de sección con imágenes personalizadas**
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea una nueva diapositiva.
-3.	Agrega un fondo de identificación a la diapositiva creada.
-4.	Crea una nueva sección a la que pretendes vincular el marco de zoom.
-5.  Crea un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para llenar el marco.
-5.  Agrega un marco de zoom de sección (que contenga una referencia a la sección creada) a la primera diapositiva.
-6.	Escribe la presentación modificada como un archivo PPTX.
+Usando Aspose.Slides for PHP via Java, puede crear un marco de zoom de sección con una imagen de vista previa de diapositiva diferente de esta manera:
 
-Este código PHP te muestra cómo crear un marco de zoom con una imagen diferente:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear una nueva diapositiva.
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para rellenar el marco.
+5.	Agregar un marco de zoom de sección (que contiene una referencia a la sección creada) a la primera diapositiva.
+6.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo crear un marco de zoom con una imagen diferente:
 ```php
   $pres = new Presentation();
   try {
@@ -244,9 +254,9 @@ Este código PHP te muestra cómo crear un marco de zoom con una imagen diferent
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Agrega una nueva Sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
-    # Crea una nueva imagen para el objeto zoom
+    # Agrega una nueva sección a la presentación
+    $pres->getSections()->addSection("Section 1", $slide);
+    # Crea una nueva imagen para el objeto de zoom
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -267,28 +277,28 @@ Este código PHP te muestra cómo crear un marco de zoom con una imagen diferent
     }
   }
 ```
-### **Formateando Marcos de Zoom de Sección**
 
-Para crear marcos de zoom de sección más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un marco de zoom de sección.
+### **Dar formato a los marcos de zoom de sección**
 
-Puedes controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
+Para crear marcos de zoom de sección más complejos, debe modificar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un marco de zoom de sección. 
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea una nueva diapositiva.
-3.	Agrega un fondo de identificación a la diapositiva creada.
-4.	Crea una nueva sección a la que pretendes vincular el marco de zoom.
-5.	Agrega un marco de zoom de sección (que contenga referencias a la sección creada) a la primera diapositiva.
-6.	Cambia el tamaño y la posición del objeto de zoom de sección creado.
-7.	Crea un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para llenar el marco.
-8.	Establece una imagen personalizada para el objeto de marco de zoom de sección creado.
-9.	Establece la capacidad de *volver a la diapositiva original desde la sección vinculada*.
-10.	Elimina el fondo de una imagen del objeto de marco de zoom de sección.
-11.	Cambia el formato de línea para el segundo objeto de zoom frame.
-12.	Cambia la duración de la transición.
-13.	Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un marco de zoom de sección en una diapositiva de esta manera:
 
-Este código PHP te muestra cómo cambiar el formato de un marco de zoom de sección:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear una nueva diapositiva.
+3.	Agregar un fondo de identificación a la diapositiva creada.
+4.	Crear una nueva sección a la que pretenda enlazar el marco de zoom. 
+5.	Agregar un marco de zoom de sección (que contiene referencias a la sección creada) a la primera diapositiva.
+6.	Cambiar el tamaño y la posición del objeto de zoom de sección creado.
+7.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la colección Images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para rellenar el marco.
+8.	Establecer una imagen personalizada para el objeto de marco de zoom de sección creado.
+9.	Establecer la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+10.	Eliminar el fondo de una imagen del objeto de zoom de sección.
+11.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambiar la duración de la transición.
+13.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo cambiar el formato de un marco de zoom de sección:
 ```php
   $pres = new Presentation();
   try {
@@ -297,11 +307,11 @@ Este código PHP te muestra cómo cambiar el formato de un marco de zoom de secc
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Agrega una nueva Sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
+    # Agrega una nueva sección a la presentación
+    $pres->getSections()->addSection("Section 1", $slide);
     # Agrega un objeto SectionZoomFrame
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # Formato para SectionZoomFrame
+    # Formato del SectionZoomFrame
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
@@ -333,25 +343,26 @@ Este código PHP te muestra cómo cambiar el formato de un marco de zoom de secc
   }
 ```
 
-## **Resumen de Zoom**
 
-Un resumen de zoom es como una página de aterrizaje donde se muestran todas las piezas de tu presentación a la vez. Cuando estás presentando, puedes usar el zoom para ir de un lugar en tu presentación a otro en cualquier orden que desees. Puedes ser creativo, saltar hacia adelante o volver a piezas de tu presentación sin interrumpir el flujo de tu presentación.
+
+## **Zoom de resumen**
+
+Un zoom de resumen es como una página de inicio donde todas las piezas de su presentación se muestran a la vez. Cuando está presentando, puede usar el zoom para pasar de un lugar de su presentación a otro en cualquier orden que desee. Puede ser creativo, adelantar o volver a visitar partes de su presentación sin interrumpir el flujo de la misma.
 
 ![overview_image](sumzoomsel.png)
 
-Para los objetos de resumen de zoom, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+Para los objetos de zoom de resumen, Aspose.Slides proporciona las interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) y [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) y algunos métodos bajo la interfaz [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Creando Resumen de Zoom**
+### **Crear un zoom de resumen**
 
-Puedes agregar un marco de resumen de zoom a una diapositiva de esta manera:
+Puede agregar un marco de zoom de resumen a una diapositiva de esta manera:
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea nuevas diapositivas con un fondo de identificación y nuevas secciones para las diapositivas creadas.
-3.  Agrega el marco de resumen de zoom a la primera diapositiva.
-4.	Escribe la presentación modificada como un archivo PPTX.
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar el marco de zoom de resumen a la primera diapositiva.
+4.	Guardar la presentación modificada como un archivo PPTX.
 
-Este código PHP te muestra cómo crear un marco de resumen de zoom en una diapositiva:
-
+Este código PHP le muestra cómo crear un marco de zoom de resumen en una diapositiva:
 ```php
   $pres = new Presentation();
   try {
@@ -361,28 +372,28 @@ Este código PHP te muestra cómo crear un marco de resumen de zoom en una diapo
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 2", $slide);
+    $pres->getSections()->addSection("Section 2", $slide);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 3", $slide);
+    $pres->getSections()->addSection("Section 3", $slide);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 4", $slide);
+    $pres->getSections()->addSection("Section 4", $slide);
     # Agrega un objeto SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Guarda la presentación
@@ -394,20 +405,20 @@ Este código PHP te muestra cómo crear un marco de resumen de zoom en una diapo
   }
 ```
 
-### **Agregando y Eliminando Sección de Resumen de Zoom**
 
-Todas las secciones en un marco de resumen de zoom están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection). Puedes agregar o eliminar un objeto de sección de resumen de zoom a través de la interfaz [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) de esta manera:
+### **Agregar y eliminar una sección de zoom de resumen**
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea nuevas diapositivas con un fondo de identificación y nuevas secciones para las diapositivas creadas.
-3.  Agrega un marco de resumen de zoom a la primera diapositiva.
-4.  Agrega una nueva diapositiva y sección a la presentación.
-5.  Agrega la sección creada al marco de resumen de zoom.
-6.  Elimina la primera sección del marco de resumen de zoom.
-7.	Escribe la presentación modificada como un archivo PPTX.
+Todas las secciones en un marco de zoom de resumen están representadas por objetos [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection), que se almacenan en el objeto [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection). Puede agregar o eliminar un objeto de sección de zoom de resumen a través de la interfaz [ISummaryZoomSectionCollection] de esta manera:
 
-Este código PHP te muestra cómo agregar y eliminar secciones en un marco de resumen de zoom:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar un marco de zoom de resumen a la primera diapositiva.
+4.	Agregar una nueva diapositiva y sección a la presentación.
+5.	Agregar la sección creada al marco de zoom de resumen.
+6.	Eliminar la primera sección del marco de zoom de resumen.
+7.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo agregar y eliminar secciones en un marco de zoom de resumen:
 ```php
   $pres = new Presentation();
   try {
@@ -417,15 +428,15 @@ Este código PHP te muestra cómo agregar y eliminar secciones en un marco de re
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 2", $slide);
-    # Agrega objeto SummaryZoomFrame
+    $pres->getSections()->addSection("Section 2", $slide);
+    # Agrega un objeto SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
@@ -433,10 +444,10 @@ Este código PHP te muestra cómo agregar y eliminar secciones en un marco de re
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $section3 = $pres->getSections()->addSection("Sección 3", $slide);
-    # Agrega una sección al Resumen de Zoom
+    $section3 = $pres->getSections()->addSection("Section 3", $slide);
+    # Agrega una sección al Summary Zoom
     $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Elimina sección del Resumen de Zoom
+    # Elimina la sección del Summary Zoom
     $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
     # Guarda la presentación
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -447,25 +458,25 @@ Este código PHP te muestra cómo agregar y eliminar secciones en un marco de re
   }
 ```
 
-### **Formateando Secciones de Resumen de Zoom**
 
-Para crear objetos de sección de resumen de zoom más complicados, debes alterar el formato de un marco simple. Hay varias opciones de formato que puedes aplicar a un objeto de sección de resumen de zoom.
+### **Dar formato a las secciones de zoom de resumen**
 
-Puedes controlar el formato de un objeto de sección de resumen de zoom en un marco de resumen de zoom de esta manera:
+Para crear objetos de sección de zoom de resumen más complejos, debe modificar el formato de un marco simple. Existen varias opciones de formato que puede aplicar a un objeto de sección de zoom de resumen. 
 
-1.	Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2.	Crea nuevas diapositivas con un fondo de identificación y nuevas secciones para las diapositivas creadas.
-3.  Agrega un marco de resumen de zoom a la primera diapositiva.
-4.  Obtén un objeto de sección de resumen de zoom para el primer objeto de la `ISummaryZoomSectionCollection`.
-7.  Crea un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) agregando una imagen a la colección de imágenes asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para llenar el marco.
-8.  Establece una imagen personalizada para el objeto de marco de sección de resumen creado.
-9.  Establece la capacidad de *volver a la diapositiva original desde la sección vinculada*.
-11. Cambia el formato de línea para el segundo objeto de zoom frame.
-12. Cambia la duración de la transición.
-13.	Escribe la presentación modificada como un archivo PPTX.
+Puede controlar el formato de un objeto de sección de zoom de resumen en un marco de zoom de resumen de esta manera:
 
-Este código PHP te muestra cómo cambiar el formato para un objeto de sección de resumen de zoom:
+1.	Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+2.	Crear nuevas diapositivas con fondo de identificación y nuevas secciones para las diapositivas creadas.
+3.	Agregar un marco de zoom de resumen a la primera diapositiva.
+4.	Obtener un objeto de sección de zoom de resumen para el primer objeto de la `ISummaryZoomSectionCollection`.
+7.	Crear un objeto [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) añadiendo una imagen a la colección images asociada con el objeto [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) que se usará para rellenar el marco.
+8.	Establecer una imagen personalizada para el objeto de marco de zoom de sección creado.
+9.	Establecer la capacidad de *volver a la diapositiva original desde la sección enlazada*. 
+11.	Cambiar el formato de línea para el segundo objeto de marco de zoom.
+12.	Cambiar la duración de la transición.
+13.	Guardar la presentación modificada como un archivo PPTX.
 
+Este código PHP le muestra cómo cambiar el formato de un objeto de sección de zoom de resumen:
 ```php
   $pres = new Presentation();
   try {
@@ -475,14 +486,14 @@ Este código PHP te muestra cómo cambiar el formato para un objeto de sección 
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Agrega una nueva diapositiva a la presentación
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Agrega una nueva sección a la presentación
-    $pres->getSections()->addSection("Sección 2", $slide);
+    $pres->getSections()->addSection("Section 2", $slide);
     # Agrega un objeto SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Obtiene el primer objeto SummaryZoomSection
@@ -513,3 +524,18 @@ Este código PHP te muestra cómo cambiar el formato para un objeto de sección 
     }
   }
 ```
+
+
+## **FAQ**
+
+**¿Puedo controlar el regreso a la diapositiva “principal” después de mostrar el objetivo?**
+
+Sí. El [Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) o la [sección](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) tiene un comportamiento `ReturnToParent` que, cuando está habilitado, envía a los espectadores de regreso a la diapositiva de origen después de visitar el contenido objetivo.
+
+**¿Puedo ajustar la “velocidad” o duración de la transición del Zoom?**
+
+Sí. Zoom permite establecer un `TransitionDuration` para que pueda controlar cuánto tiempo tarda la animación de salto.
+
+**¿Existen límites en la cantidad de objetos Zoom que una presentación puede contener?**
+
+No hay un límite de API duro documentado. Los límites prácticos dependen de la complejidad total de la presentación y del rendimiento del visor. Puede agregar muchos marcos de Zoom, pero considere el tamaño del archivo y el tiempo de renderizado.

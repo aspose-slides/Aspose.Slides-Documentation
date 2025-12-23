@@ -1,26 +1,43 @@
 ---
-title: Diagrammachse
+title: Diagrammachsen in Präsentationen mit PHP anpassen
+linktitle: Diagrammachse
 type: docs
 url: /de/php-java/chart-axis/
-keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammacht manipulieren, Diagrammdaten"
-description: "Wie man die Diagrammachse in PowerPoint bearbeitet"
+keywords:
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- Maximalwert
+- Minimalwert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Entdecken Sie, wie Sie Aspose.Slides für PHP via Java verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 
-## **Ermitteln der Maximalwerte der vertikalen Achse in Diagrammen**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die minimalen und maximalen Werte auf einer vertikalen Achse zu ermitteln. Befolgen Sie diese Schritte:
+## **Maximale Werte auf der vertikalen Achse von Diagrammen abrufen**
+Aspose.Slides für PHP via Java ermöglicht das Abrufen der Mindest‑ und Höchstwerte einer vertikalen Achse. Befolgen Sie diese Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Holen Sie den tatsächlichen Maximalwert auf der Achse.
-1. Holen Sie den tatsächlichen Minimalwert auf der Achse.
-1. Holen Sie die tatsächliche Haupteinheit der Achse.
-1. Holen Sie die tatsächliche Nebeneinheit der Achse.
-1. Holen Sie den tatsächlichen Maßstab der Haupteinheit der Achse.
-1. Holen Sie den tatsächlichen Maßstab der Nebeneinheit der Achse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+2. Greifen Sie auf die erste Folie zu.  
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+4. Ermitteln Sie den tatsächlichen Maximalwert der Achse.  
+5. Ermitteln Sie den tatsächlichen Minimalwert der Achse.  
+6. Ermitteln Sie die tatsächliche Haupteinheit der Achse.  
+7. Ermitteln Sie die tatsächliche Nebeneinheit der Achse.  
+8. Ermitteln Sie die tatsächliche Hauptskalierung der Achse.  
+9. Ermitteln Sie die tatsächliche Nebenskala der Achse.  
 
-Dieser Beispielcode - eine Implementierung der oben genannten Schritte - zeigt Ihnen, wie Sie die erforderlichen Werte erhalten:
-
+Dieser Beispielcode – eine Umsetzung der obigen Schritte – zeigt, wie Sie die erforderlichen Werte abrufen:
 ```php
   $pres = new Presentation();
   try {
@@ -39,16 +56,16 @@ Dieser Beispielcode - eine Implementierung der oben genannten Schritte - zeigt I
   }
 ```
 
-## **Daten zwischen Achsen swapen**
-Aspose.Slides ermöglicht es Ihnen, die Daten zwischen den Achsen schnell zu tauschen - die auf der vertikalen Achse (y-Achse) dargestellten Daten werden zur horizontalen Achse (x-Achse) und umgekehrt verschoben.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Datenwechselaufgabe zwischen den Achsen in einem Diagramm ausführen:
+## **Daten zwischen Achsen austauschen**
+Aspose.Slides ermöglicht es, die Daten zwischen den Achsen schnell zu vertauschen – die Daten der vertikalen Achse (y‑Achse) werden zur horizontalen Achse (x‑Achse) verschoben und umgekehrt.  
 
+Dieser PHP‑Code zeigt, wie Sie den Datentausch zwischen Achsen in einem Diagramm durchführen:
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    # Wechselt Zeilen und Spalten
+    # Tauscht Zeilen und Spalten
     $chart->getChartData()->switchRowColumn();
     # Speichert die Präsentation
     $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
@@ -59,10 +76,9 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Datenwechselaufgabe zwischen den Achsen
   }
 ```
 
-## **Deaktivieren der vertikalen Achse für Liniendiagramme**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
-
+## **Vertikale Achse bei Liniendiagrammen deaktivieren**
+Dieser PHP‑Code zeigt, wie Sie die vertikale Achse eines Liniendiagramms ausblenden:
 ```php
   $pres = new Presentation();
   try {
@@ -76,10 +92,9 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die vertikale Achse für ein Liniendiagramm
   }
 ```
 
-## **Deaktivieren der horizontalen Achse für Liniendiagramme**
 
-Dieser Code zeigt Ihnen, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
-
+## **Horizontale Achse bei Liniendiagrammen deaktivieren**
+Dieser Code zeigt, wie Sie die horizontale Achse eines Liniendiagramms ausblenden:
 ```php
   $pres = new Presentation();
   try {
@@ -93,10 +108,9 @@ Dieser Code zeigt Ihnen, wie Sie die horizontale Achse für ein Liniendiagramm a
   }
 ```
 
-## **Ändern der Kategoriedachse**
 
-Mit der **CategoryAxisType** Eigenschaft können Sie Ihren bevorzugten Typ der Kategoriedachse (**Datum** oder **Text**) festlegen. Dieser Code demonstriert den Vorgang:
-
+## **Kategorieachse ändern**
+Mit der Eigenschaft **CategoryAxisType** können Sie den gewünschten Kategorieachsentyp (**date** oder **text**) festlegen. Dieser Code demonstriert die Vorgehensweise:
 ```php
   $presentation = new Presentation("ExistingChart.pptx");
   try {
@@ -113,9 +127,9 @@ Mit der **CategoryAxisType** Eigenschaft können Sie Ihren bevorzugten Typ der K
   }
 ```
 
-## **Festlegen des Datumsformats für den Wert der Kategoriedachse**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, das Datumsformat für einen Wert der Kategoriedachse festzulegen. Der Vorgang wird in diesem PHP-Code demonstriert:
 
+## **Datumsformat für Werte der Kategorieachse festlegen**
+Aspose.Slides für PHP via Java ermöglicht das Festlegen des Datumsformats für einen Wert der Kategorieachse. Der Vorgang wird in diesem PHP‑Code demonstriert:
 ```php
   $pres = new Presentation();
   try {
@@ -143,13 +157,14 @@ Aspose.Slides für PHP über Java ermöglicht es Ihnen, das Datumsformat für ei
     }
   }
 ```
+
 ```php
 
 ```
 
-## **Festlegen des Drehwinkels für den Titel der Diagrammachse**
-Aspose.Slides für PHP über Java erlaubt es Ihnen, den Drehwinkel für den Titel einer Diagrammachse festzulegen. Dieser PHP-Code demonstriert den Vorgang:
 
+## **Drehwinkel für einen Diagrammachsentitel festlegen**
+Aspose.Slides für PHP via Java ermöglicht das Festlegen des Drehwinkels für einen Diagrammachsentitel. Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   $pres = new Presentation();
   try {
@@ -164,9 +179,9 @@ Aspose.Slides für PHP über Java erlaubt es Ihnen, den Drehwinkel für den Tite
   }
 ```
 
-## **Festlegen der Position der Achse in einer Kategorie- oder Wertachse**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die Position der Achse in einer Kategorie- oder Wertachse festzulegen. Dieser PHP-Code zeigt, wie Sie die Aufgabe ausführen:
 
+## **Position der Achse auf einer Kategorie‑ oder Wertachse festlegen**
+Aspose.Slides für PHP via Java ermöglicht das Festlegen der Achsenposition in einer Kategorie‑ oder Wertachse. Dieser PHP‑Code zeigt, wie die Aufgabe durchgeführt wird:
 ```php
   $pres = new Presentation();
   try {
@@ -180,9 +195,9 @@ Aspose.Slides für PHP über Java ermöglicht es Ihnen, die Position der Achse i
   }
 ```
 
-## **Aktivieren des Anzeigewertetiketts auf der Wertachse des Diagramms**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass es ein Einheitslabel auf seiner Wertachse anzeigt. Dieser PHP-Code demonstriert den Vorgang:
 
+## **Anzeigeeinheits‑Label auf der Diagrammwertachse aktivieren**
+Aspose.Slides für PHP via Java ermöglicht die Konfiguration eines Diagramms, ein Einheitsetikett auf seiner Wertachse anzuzeigen. Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   $pres = new Presentation();
   try {
@@ -195,3 +210,11 @@ Aspose.Slides für PHP über Java ermöglicht es Ihnen, ein Diagramm so zu konfi
     }
   }
 ```
+
+
+## **FAQ**
+**Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**  
+Achsen bieten eine [crossing setting](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/)-Option: Sie können wählen, bei null, beim maximalen Kategorie‑/Wert oder bei einem bestimmten numerischen Wert zu kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder eine Basislinie zu betonen.
+
+**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (nebeneinander, außerhalb, innen)?**  
+Setzen Sie die [label position](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) auf „cross“, „outside“ oder „inside“. Dies beeinflusst die Lesbarkeit und spart Platz, insbesondere bei kleinen Diagrammen.

@@ -1,12 +1,22 @@
 ---
-title: Вызов
+title: Управление подсказками в диаграммах презентаций с использованием PHP
+linktitle: Подсказка
 type: docs
-url: /ru/php-java/vyzov/
+url: /ru/php-java/callout/
+keywords:
+- подсказка диаграммы
+- использовать подсказку
+- подпись данных
+- формат подписи
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Создавайте и оформляйте подсказки в Aspose.Slides для PHP через Java с лаконичными примерами кода, совместимыми с PPT и PPTX, чтобы автоматизировать рабочие процессы презентаций."
 ---
 
-## **Использование вызовов**
-Новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) были добавлены в класс [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) и интерфейс [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat). Эти методы определяют, будет ли отображаться указанный метка данных графика как вызов данных или как метка данных.
-
+## **Использование подсказок**
+New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) class and [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) interface. These methods determine either specified chart's data label will be displayed as data callout or as data label.
 ```php
   $pres = new Presentation();
   try {
@@ -22,9 +32,9 @@ url: /ru/php-java/vyzov/
   }
 ```
 
-## **Установка вызова для кольцевой диаграммы**
-Aspose.Slides для PHP через Java предоставляет поддержку установки формы вызова метки данных для кольцевой диаграммы. Пример приведён ниже.
 
+## **Установить подсказку для кольцевой диаграммы**
+Aspose.Slides for PHP via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given.
 ```php
   $pres = new Presentation();
   try {
@@ -36,7 +46,7 @@ Aspose.Slides для PHP через Java предоставляет поддер
     $chart->setLegend(false);
     $seriesIndex = 0;
     while ($seriesIndex < 15) {
-      $series = $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, $seriesIndex + 1, "СЕРИЯ " . $seriesIndex), $chart->getType());
+      $series = $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, $seriesIndex + 1, "SERIES " . $seriesIndex), $chart->getType());
       $series->setExplosion(0);
       $series->getParentSeriesGroup()->setDoughnutHoleSize(20);
       $series->getParentSeriesGroup()->setFirstSliceAngle(351);
@@ -44,7 +54,7 @@ Aspose.Slides для PHP через Java предоставляет поддер
     } 
     $categoryIndex = 0;
     while ($categoryIndex < 15) {
-      $chart->getChartData()->getCategories()->add($workBook->getCell(0, $categoryIndex + 1, 0, "КАТЕГОРИЯ " . $categoryIndex));
+      $chart->getChartData()->getCategories()->add($workBook->getCell(0, $categoryIndex + 1, 0, "CATEGORY " . $categoryIndex));
       $i = 0;
       while ($i < java_values($chart->getChartData()->getSeries()->size())) {
         $iCS = $chart->getChartData()->getSeries()->get_Item($i);
@@ -84,3 +94,14 @@ Aspose.Slides для PHP через Java предоставляет поддер
     }
   }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Сохраняются ли подсказки при конвертации презентации в PDF, HTML5, SVG или изображения?**
+
+Да. Подсказки являются частью отрисовки диаграммы, поэтому при экспорте в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/php-java/export-to-html5/), [SVG](/slides/ru/php-java/render-a-slide-as-an-svg-image/), или [растровые изображения](/slides/ru/php-java/convert-powerpoint-to-png/), они сохраняются вместе с форматированием слайда.
+
+**Работают ли пользовательские шрифты в подсказках, и можно ли сохранить их внешний вид при экспорте?**
+
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/php-java/embedded-font/) в презентацию и контролирует встраивание шрифтов при экспорте, например в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид подсказок на разных системах.

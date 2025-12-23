@@ -1,34 +1,46 @@
 ---
-title: علامة بيانات الرسم البياني
+title: إدارة علامات بيانات المخطط في العروض التقديمية باستخدام PHP
+linktitle: علامة البيانات
 type: docs
 url: /ar/php-java/chart-data-marker/
+keywords:
+- مخطط
+- نقطة بيانات
+- علامة
+- خيارات العلامة
+- حجم العلامة
+- نوع التعبئة
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "تعرف على كيفية تخصيص علامات بيانات المخطط في Aspose.Slides لـ PHP، مما يعزز تأثير العروض التقديمية عبر صيغ PPT و PPTX مع أمثلة برمجية واضحة."
 ---
 
-## **تعيين خيارات علامة الرسم البياني**
-يمكن تعيين العلامات على نقاط بيانات الرسم البياني داخل سلاسل معينة. من أجل تعيين خيارات علامة الرسم البياني، يرجى اتباع الخطوات أدناه:
+## **ضبط خيارات علامات المخطط**
+يمكن ضبط العلامات على نقاط بيانات المخطط داخل السلاسل المحددة. لتحديد خيارات علامات المخطط، يرجى اتباع الخطوات أدناه:
 
-- قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- إنشاء الرسم البياني الافتراضي.
+- إنشاء فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+- إنشاء المخطط الافتراضي.
 - تعيين الصورة.
-- أخذ أول سلسلة رسم بياني.
+- الحصول على أول سلسلة مخطط.
 - إضافة نقطة بيانات جديدة.
 - كتابة العرض التقديمي إلى القرص.
 
-في المثال الموضح أدناه، قمنا بتعيين خيارات علامة الرسم البياني على مستوى نقاط البيانات.
-
+في المثال الموضح أدناه، قمنا بضبط خيارات علامات المخطط على مستوى نقاط البيانات.
 ```php
   # إنشاء عرض تقديمي فارغ
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إنشاء الرسم البياني الافتراضي
+    # إنشاء المخطط الافتراضي
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 0, 0, 400, 400);
-    # الحصول على فهرس ورقة العمل الافتراضية لبيانات الرسم البياني
+    # الحصول على فهرس ورقة العمل لبيانات المخطط الافتراضي
     $defaultWorksheetIndex = 0;
-    # الحصول على ورقة العمل لبيانات الرسم البياني
+    # الحصول على ورقة عمل بيانات المخطط
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # حذف السلاسل التجريبية
+    # حذف سلسلة العرض التجريبية
     $chart->getChartData()->getSeries()->clear();
     # إضافة سلسلة جديدة
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -36,9 +48,9 @@ url: /ar/php-java/chart-data-marker/
     $imgx1 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Desert.jpg")));
     # تحميل الصورة 2
     $imgx2 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Tulips.jpg")));
-    # أخذ أول سلسلة رسم بياني
+    # أخذ سلسلة المخطط الأولى
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # إضافة نقطة جديدة (1:3) هناك.
+    # Add new point (1:3) there.
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 4.5));
     $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx1);
@@ -51,9 +63,9 @@ url: /ar/php-java/chart-data-marker/
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 4, 1, 4.5));
     $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx2);
-    # تغيير علامة سلسلة الرسم البياني
+    # تغيير علامة سلسلة المخطط
     $series->getMarker()->setSize(15);
-    # حفظ العرض التقديمي مع الرسم البياني
+    # حفظ العرض التقديمي مع المخطط
     $pres->save("ScatterChart.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -62,3 +74,14 @@ url: /ar/php-java/chart-data-marker/
     }
   }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما هي أشكال العلامات المتاحة جاهزة؟**
+
+الأشكال القياسية متاحة (دائرة، مربع، ماسي، مثلث، إلخ)؛ تُحدد القائمة بواسطة فئة [MarkerStyleType](https://reference.aspose.com/slides/php-java/aspose.slides/markerstyletype/) . إذا كنت بحاجة إلى شكل غير قياسي، استخدم علامة مع تعبئة صورة لمحاكاة الرسوم المخصصة.
+
+**هل تُحافظ العلامات عند تصدير مخطط إلى صورة أو SVG؟**
+
+نعم. عند تصيير المخططات إلى [raster formats](/slides/ar/php-java/convert-powerpoint-to-png/) أو حفظ [shapes as SVG](/slides/ar/php-java/render-a-slide-as-an-svg-image/)، تحتفظ العلامات بمظهرها وإعداداتها، بما في ذلك الحجم، التعبئة، والحد الخارجي.

@@ -1,16 +1,37 @@
 ---
-title: Convertir PowerPoint en GIF animé
+title: Convertir des présentations PowerPoint en GIF animés en PHP
+linktitle: PowerPoint en GIF
 type: docs
 weight: 65
 url: /fr/php-java/convert-powerpoint-to-animated-gif/
-keywords: "Convertir PowerPoint en GIF animé, PPT en GIF, PPTX en GIF"
-description: "Convertir PowerPoint en GIF animé : PPT en GIF, PPTX en GIF, avec l'API Aspose.Slides."
+keywords:
+- GIF animé
+- convertir PowerPoint
+- convertir la présentation
+- convertir la diapositive
+- convertir PPT
+- convertir PPTX
+- PowerPoint en GIF
+- présentation en GIF
+- diapositive en GIF
+- PPT en GIF
+- PPTX en GIF
+- enregistrer PPT en GIF
+- enregistrer PPTX en GIF
+- exporter PPT en GIF
+- exporter PPTX en GIF
+- paramètres par défaut
+- paramètres personnalisés
+- PowerPoint
+- présentation
+- PHP
+- Aspose.Slides
+description: "Convertissez facilement des présentations PowerPoint (PPT, PPTX) en GIF animés avec Aspose.Slides pour PHP via Java. Résultats rapides et de haute qualité."
 ---
 
-## Conversion des présentations en GIF animé avec les paramètres par défaut ##
+## **Convertir des présentations en GIF animé avec les paramètres par défaut**
 
-Ce code d'exemple vous montre comment convertir une présentation en GIF animé en utilisant les paramètres standards :
-
+Ce code d'exemple vous montre comment convertir une présentation en GIF animé en utilisant les paramètres standard :
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -22,26 +43,24 @@ Ce code d'exemple vous montre comment convertir une présentation en GIF animé 
   }
 ```
 
-Le GIF animé sera créé avec des paramètres par défaut.
 
-{{%  alert  title="CONSEIL"  color="primary"  %}} 
+Le GIF animé sera créé avec les paramètres par défaut. 
 
-Si vous souhaitez personnaliser les paramètres pour le GIF, vous pouvez utiliser la classe [GifOptions](https://reference.aspose.com/slides/php-java/aspose.slides/GifOptions). Consultez le code d'exemple ci-dessous.
-
+{{% alert title="ASTUCE" color="primary" %}} 
+Si vous préférez personnaliser les paramètres du GIF, vous pouvez utiliser la classe [GifOptions](https://reference.aspose.com/slides/php-java/aspose.slides/GifOptions). Voir le code d'exemple ci-dessous.
 {{% /alert %}} 
 
-## Conversion des présentations en GIF animé avec des paramètres personnalisés ##
-Ce code d'exemple montre comment convertir une présentation en GIF animé en utilisant des paramètres personnalisés :
-
+## **Convertir des présentations en GIF animé avec des paramètres personnalisés**
+Ce code d'exemple vous montre comment convertir une présentation en GIF animé en utilisant des paramètres personnalisés :
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $gifOptions = new GifOptions();
     $gifOptions->setFrameSize(new Java("java.awt.Dimension", 960, 720));// la taille du GIF résultant
 
-    $gifOptions->setDefaultDelay(2000);// combien de temps chaque diapositive sera affichée avant de passer à la suivante
+    $gifOptions->setDefaultDelay(2000);// durée d'affichage de chaque diapositive avant de passer à la suivante
 
-    $gifOptions->setTransitionFps(35);// augmenter le FPS pour une meilleure qualité d'animation de transition
+    $gifOptions->setTransitionFps(35);// augmenter le FPS pour améliorer la qualité de l'animation de transition
 
     $pres->save("pres.gif", SaveFormat::Gif, $gifOptions);
   } finally {
@@ -51,8 +70,17 @@ Ce code d'exemple montre comment convertir une présentation en GIF animé en ut
   }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Vous voudrez peut-être consulter un convertisseur GRATUIT [Texte en GIF](https://products.aspose.app/slides/text-to-gif) développé par Aspose.
-
+Vous pourriez vouloir essayer un convertisseur GRATUIT [Text to GIF](https://products.aspose.app/slides/text-to-gif) développé par Aspose. 
 {{% /alert %}}
+
+## **FAQ**
+
+**Et si les polices utilisées dans la présentation ne sont pas installées sur le système ?**
+
+Installez les polices manquantes ou [configurez les polices de secours](/slides/fr/php-java/powerpoint-fonts/). Aspose.Slides les remplacera, mais l'apparence peut différer. Pour l'image de marque, assurez-vous toujours que les polices requises sont explicitement disponibles.
+
+**Puis-je superposer un filigrane sur les images du GIF ?**
+
+Oui. [Ajoutez un objet/logo semi-transparent](/slides/fr/php-java/watermark/) à la diapositive maîtresse ou aux diapositives individuelles avant l'exportation — le filigrane apparaîtra sur chaque image.

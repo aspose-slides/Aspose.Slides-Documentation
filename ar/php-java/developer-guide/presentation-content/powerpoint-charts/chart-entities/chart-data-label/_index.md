@@ -1,17 +1,27 @@
 ---
-title: تسمية بيانات الرسم البياني
+title: إدارة تسميات بيانات المخطط في العروض التقديمية باستخدام PHP
+linktitle: تسمية البيانات
 type: docs
 url: /ar/php-java/chart-data-label/
-keywords: "تسمية بيانات الرسم البياني, مسافة التسمية, جافا, Aspose.Slides for PHP عبر جافا"
-description: "تعيين تسمية بيانات الرسم البياني في PowerPoint والمسافة"
+keywords:
+- مخطط
+- تسمية البيانات
+- دقة البيانات
+- نسبة مئوية
+- مسافة التسمية
+- موقع التسمية
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java للحصول على شرائح أكثر جاذبية."
 ---
 
-تظهر تسميات البيانات على الرسم البياني تفاصيل حول سلسلة بيانات الرسم البياني أو نقاط البيانات الفردية. تتيح للقراء التعرف بسرعة على سلسلة البيانات وتجعل الرسوم البيانية أسهل في الفهم.
+تُظهر تسميات البيانات في المخطط تفاصيل حول سلاسل بيانات المخطط أو النقاط البيانية الفردية. فهي تتيح للقراء تحديد سلاسل البيانات بسرعة وتُسهل فهم المخططات.
 
-## **تعيين دقة البيانات في تسميات بيانات الرسم البياني**
+## **تحديد دقة البيانات في تسميات بيانات المخطط**
 
-يوضح هذا الرمز PHP كيفية تعيين دقة البيانات في تسمية بيانات الرسم البياني:
-
+يعرض لك هذا الكود PHP كيفية تحديد دقة البيانات في تسمية بيانات المخطط:
 ```php
   $pres = new Presentation();
   try {
@@ -26,11 +36,12 @@ description: "تعيين تسمية بيانات الرسم البياني في 
   }
 ```
 
-## **عرض النسب المئوية كعلامات**
-يتيح لك Aspose.Slides for PHP عبر جافا تعيين علامات النسب المئوية على الرسوم البيانية المعروضة. يوضح هذا الرمز PHP العملية:
 
+## **عرض النسبة المئوية كتسميات**
+
+تمكنك Aspose.Slides for PHP عبر Java من ضبط تسميات النسبة المئوية على المخططات المعروضة. يوضح لك هذا الكود PHP العملية:
 ```php
-  # ينشئ مثيلاً من فئة Presentation
+  # إنشاء مثال من فئة Presentation
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى
@@ -64,7 +75,7 @@ description: "تعيين تسمية بيانات الرسم البياني في 
         $lbl->getDataLabelFormat()->setShowBubbleSize(false);
       }
     }
-    # يحفظ العرض التقديمي الذي يحتوي على الرسم البياني
+    # يحفظ العرض التقديمي الذي يحتوي على المخطط
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -73,34 +84,36 @@ description: "تعيين تسمية بيانات الرسم البياني في 
   }
 ```
 
-## **تعيين علامة النسب المئوية مع تسميات بيانات الرسم البياني**
-يوضح لك هذا الرمز PHP كيفية تعيين علامة النسب المئوية لتسمية بيانات الرسم البياني:
 
+
+## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
+
+يُظهر لك هذا الكود PHP كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 ```php
-  # ينشئ مثيلاً من فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation();
   try {
-    # يحصل على إشارة إلى الشريحة من خلال مؤشرها
+    # الحصول على مرجع الشريحة عبر الفهرس الخاص بها
     $slide = $pres->getSlides()->get_Item(0);
-    # ينشئ الرسم البياني PercentsStackedColumn على شريحة
+    # إنشاء مخطط PercentsStackedColumn على شريحة
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # يعين NumberFormatLinkedToSource إلى false
+    # تعيين NumberFormatLinkedToSource إلى false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    # يحصل على ورقة بيانات الرسم البياني
+    # الحصول على ورقة العمل الخاصة ببيانات المخطط
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # يضيف سلاسل جديدة
+    # إضافة سلسلة جديدة
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # يعين لون التعبئة للسلسلة
+    # تعيين لون التعبئة للسلسلة
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # يعين خصائص LabelFormat
+    # تعيين خصائص LabelFormat
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,13 +121,13 @@ description: "تعيين تسمية بيانات الرسم البياني في 
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # يضيف سلاسل جديدة
+    # إضافة سلسلة جديدة
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # يعين نوع ولون التعبئة
+    # تعيين نوع التعبئة واللون
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -123,7 +136,7 @@ description: "تعيين تسمية بيانات الرسم البياني في 
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # يكتب العرض التقديمي إلى القرص
+    # كتابة العرض التقديمي إلى القرص
     $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -132,20 +145,21 @@ description: "تعيين تسمية بيانات الرسم البياني في 
   }
 ```
 
-## **تعيين مسافات العلامات** من المحور
-يوضح لك هذا الرمز PHP كيفية تعيين مسافة العلامة من محور الفئات عند التعامل مع رسم بياني مرسوم من المحاور:
 
+## **تحديد مسافة التسمية من المحور**
+
+يعرض لك هذا الكود PHP كيفية تحديد مسافة التسمية من المحور الفئوي عندما تتعامل مع مخطط مرسوم من المحاور:
 ```php
-  # ينشئ مثيلاً من فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation();
   try {
-    # يحصل على إشارة إلى الشريحة
+    # الحصول على مرجع الشريحة
     $sld = $pres->getSlides()->get_Item(0);
-    # ينشئ رسمًا بيانيًا على الشريحة
+    # إنشاء مخطط على الشريحة
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # يعين مسافة العلامة من محور
+    # تعيين مسافة التسمية من المحور
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # يكتب العرض التقديمي إلى القرص
+    # كتابة العرض التقديمي إلى القرص
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -154,12 +168,12 @@ description: "تعيين تسمية بيانات الرسم البياني في 
   }
 ```
 
-## **تعديل مكان العلامة**
 
-عند إنشاء رسم بياني لا يعتمد على أي محور مثل الرسم البياني الدائري، قد تنتهي تسميات بيانات الرسم البياني بالقرب من حافته. في مثل هذه الحالة، يجب عليك تعديل موقع تسمية البيانات بحيث يتم عرض خطوط الدليل بوضوح.
+## **ضبط موقع التسمية**
 
-يوضح لك هذا الرمز PHP كيفية تعديل موقع العلامة على رسم بياني دائري:
+عندما تنشئ مخططًا لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات بيانات المخطط قريبة جدًا من حافته. في هذه الحالة، يجب ضبط موقع تسمية البيانات بحيث تُظهر خطوط الربط بوضوح.
 
+يعرض لك هذا الكود PHP كيفية ضبط موقع التسمية في مخطط الفطيرة:
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +192,19 @@ description: "تعيين تسمية بيانات الرسم البياني في 
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكتظة؟**
+
+استخدم وضعية التسمية التلقائية، خطوط الربط، وتقليل حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/الرئيسية.
+
+**كيف يمكنني تعطيل التسميات للقيم صفر أو السلبية أو الفارغة فقط؟**
+
+قم بفلترة نقاط البيانات قبل تفعيل التسميات واغلق العرض للقيم الصفرية أو السلبية أو القيم المفقودة وفق قاعدة محددة.
+
+**كيف يمكنني ضمان تناسق نمط التسميات عند التصدير إلى PDF/الصور؟**
+
+حدد الخطوط بوضوح (العائلة، الحجم) وتأكد من توفر الخط على جانب التجسيد لتجنب اللجوء إلى الخط الاحتياطي.

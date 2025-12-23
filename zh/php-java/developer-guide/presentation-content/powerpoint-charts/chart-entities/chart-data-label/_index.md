@@ -1,17 +1,27 @@
 ---
-title: 图表数据标签
+title: 使用 PHP 在演示文稿中管理图表数据标签
+linktitle: 数据标签
 type: docs
 url: /zh/php-java/chart-data-label/
-keywords: "图表数据标签, 标签距离, Java, Aspose.Slides for PHP via Java"
-description: "设置PowerPoint图表数据标签和距离"
+keywords:
+- 图表
+- 数据标签
+- 数据精度
+- 百分比
+- 标签距离
+- 标签位置
+- PowerPoint
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
 
-图表上的数据标签显示有关图表数据系列或单个数据点的详细信息。它们允许读者快速识别数据系列，并使图表更易于理解。
+图表中的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并且还能使图表更易于理解。
 
-## **设置图表数据标签中的数据精度**
+## **在图表数据标签中设置数据精度**
 
-以下PHP代码展示如何在图表数据标签中设置数据精度：
-
+此 PHP 代码演示了如何在图表数据标签中设置数据精度：
 ```php
   $pres = new Presentation();
   try {
@@ -26,14 +36,15 @@ description: "设置PowerPoint图表数据标签和距离"
   }
 ```
 
-## **将百分比作为标签显示**
-Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标签。以下PHP代码演示了此操作：
 
+## **将百分比显示为标签**
+
+Aspose.Slides for PHP via Java 允许您在显示的图表上设置百分比标签。此 PHP 代码演示了该操作：
 ```php
-  # 创建Presentation类的实例
+  # 创建 Presentation 类的实例
   $pres = new Presentation();
   try {
-    # 获取第一个幻灯片
+    # 获取第一张幻灯片
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
     $series;
@@ -73,25 +84,26 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
   }
 ```
 
-## **设置图表数据标签中的百分号**
-以下PHP代码展示如何为图表数据标签设置百分号：
 
+## **在图表数据标签中设置百分号**
+
+此 PHP 代码演示如何为图表数据标签设置百分号：
 ```php
-  # 创建Presentation类的实例
+  # 创建 Presentation 类的实例
   $pres = new Presentation();
   try {
-    # 通过索引获取幻灯片的引用
+    # 获取通过索引的幻灯片引用
     $slide = $pres->getSlides()->get_Item(0);
-    # 在幻灯片上创建PercentsStackedColumn图表
+    # 在幻灯片上创建 PercentsStackedColumn 图表
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # 将NumberFormatLinkedToSource设置为false
+    # 将 NumberFormatLinkedToSource 设置为 false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
     # 获取图表数据工作表
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # 添加新的系列
+    # 添加新系列
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
@@ -100,7 +112,7 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
     # 设置系列的填充颜色
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # 设置LabelFormat属性
+    # 设置 LabelFormat 属性
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,7 +120,7 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # 添加新的系列
+    # 添加新系列
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
@@ -132,18 +144,19 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
   }
 ```
 
-## **设置标签距离** 从轴
-以下PHP代码展示如何在处理从轴绘制的图表时设置分类轴的标签距离：
 
+## **设置标签与轴的距离**
+
+此 PHP 代码演示在处理基于坐标轴绘制的图表时，如何设置标签与类别轴的距离：
 ```php
-  # 创建Presentation类的实例
+  # 创建 Presentation 类的实例
   $pres = new Presentation();
   try {
     # 获取幻灯片的引用
     $sld = $pres->getSlides()->get_Item(0);
-    # 在幻灯片上创建一个图表
+    # 在幻灯片上创建图表
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # 设置标签距离
+    # 设置标签与轴的距离
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
     # 将演示文稿写入磁盘
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -154,12 +167,12 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
   }
 ```
 
+
 ## **调整标签位置**
 
-当您创建一个不依赖于任何轴的图表（如饼图）时，图表的数据标签可能会与边缘太近。在这种情况下，您需要调整数据标签的位置，以便清晰显示引导线。
+当您创建不依赖任何坐标轴的图表（例如饼图）时，图表的数据标签可能会过于靠近边缘。在这种情况下，必须调整数据标签的位置，以便清晰显示引线。
 
-以下PHP代码展示如何在饼图上调整标签位置：
-
+此 PHP 代码演示如何在饼图上调整标签位置：
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +191,19 @@ Aspose.Slides for PHP via Java允许您在显示的图表上设置百分比标�
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **常见问题**
+
+**如何防止在密集图表上数据标签重叠？**
+
+结合自动标签放置、引线以及减小字体大小；必要时隐藏某些字段（例如类别），或仅对极值/关键点显示标签。
+
+**如何仅对零、负值或空值禁用标签？**
+
+在启用标签前过滤数据点，并依据定义的规则关闭对值为 0、负值或缺失值的显示。
+
+**如何在导出为 PDF/图像时确保标签样式一致？**
+
+显式设置字体（系列、大小），并确认渲染端已安装该字体以避免回退。

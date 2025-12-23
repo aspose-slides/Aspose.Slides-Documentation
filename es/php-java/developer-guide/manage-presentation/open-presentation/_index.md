@@ -1,167 +1,172 @@
 ---
-title: Presentación Abierta
-linktitle: Presentación Abierta
+title: Abrir presentaciones en PHP
+linktitle: Abrir presentación
 type: docs
 weight: 20
 url: /es/php-java/open-presentation/
-keywords: "Abrir PowerPoint, PPTX, PPT, Presentación Abierta, Cargar Presentación, Java"
-description: "Abrir o cargar presentación PPT, PPTX, ODP "
+keywords:
+- abrir PowerPoint
+- abrir OpenDocument
+- abrir presentación
+- abrir PPTX
+- abrir PPT
+- abrir ODP
+- cargar presentación
+- cargar PPTX
+- cargar PPT
+- cargar ODP
+- presentación protegida
+- presentación grande
+- recurso externo
+- objeto binario
+- PHP
+- Aspose.Slides
+description: "Abra presentaciones PowerPoint (.pptx, .ppt) y OpenDocument (.odp) sin esfuerzo con Aspose.Slides para PHP a través de Java — rápido, fiable, con todas las funciones."
 ---
 
-Además de crear presentaciones de PowerPoint desde cero, Aspose.Slides te permite abrir presentaciones existentes. Después de cargar una presentación, puedes obtener información sobre la presentación, editar la presentación (contenido en sus diapositivas), agregar nuevas diapositivas o eliminar las existentes, etc. 
+## **Descripción general**
 
-## Presentación Abierta
+Más allá de crear presentaciones de PowerPoint desde cero, Aspose.Slides también le permite abrir presentaciones existentes. Después de cargar una presentación, puede obtener información sobre ella, editar el contenido de las diapositivas, agregar nuevas diapositivas, eliminar las existentes y mucho más.
 
-Para abrir una presentación existente, simplemente debes instanciar la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y pasar la ruta del archivo (de la presentación que deseas abrir) a su constructor.
+## **Abrir presentaciones**
 
-Este código PHP te muestra cómo abrir una presentación y también averiguar cuántas diapositivas contiene:
+Para abrir una presentación existente, instancie la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y pase la ruta del archivo a su constructor.
 
+El siguiente ejemplo en PHP muestra cómo abrir una presentación y obtener su recuento de diapositivas:
 ```php
-  # Instancia la clase Presentation y pasa la ruta del archivo a su constructor
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Imprime el número total de diapositivas presentes en la presentación
-    echo($pres->getSlides()->size());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Instanciar la clase Presentation y pasar una ruta de archivo a su constructor.
+$presentation = new Presentation("Sample.pptx");
+try {
+    // Imprimir el número total de diapositivas en la presentación.
+    echo($presentation->getSlides()->size());
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Abrir Presentación Protegida por Contraseña**
 
-Cuando tengas que abrir una presentación protegida por contraseña, puedes pasar la contraseña a través de la propiedad [Password](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#getPassword--) (de la clase [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/)) para descifrar la presentación y cargarla. Este código PHP demuestra la operación:
+## **Abrir presentaciones protegidas con contraseña**
 
+Cuando necesite abrir una presentación protegida con contraseña, pase la contraseña a través del método [setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) de la clase [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/) para descifrarla y cargarla. El siguiente código PHP demuestra esta operación:
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("TU_CONTRASEÑA");
-  $pres = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # Realiza alguna operación con la presentación descifrada
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$presentation = new Presentation("Sample.pptx", $loadOptions);
+try {
+    // Realizar operaciones en la presentación descifrada.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## Abrir Presentación Grande
 
-Aspose.Slides proporciona opciones (la propiedad [BlobManagementOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) en particular) bajo la clase [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/LoadOptions) para permitirte cargar presentaciones grandes.
+## **Abrir presentaciones de gran tamaño**
 
-Este Java demuestra una operación en la que se carga una presentación grande (digamos de 2GB de tamaño):
+Aspose.Slides ofrece opciones—en particular el método [getBlobManagementOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) de la clase [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/)—para ayudarle a cargar presentaciones de gran tamaño.
 
+El siguiente código PHP muestra cómo cargar una presentación grande (por ejemplo, 2 GB):
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
-  $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-  $loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(0);
-  $pres = new Presentation("veryLargePresentation.pptx", $loadOptions);
-  try {
-    # La presentación grande ha sido cargada y puede ser utilizada, pero el consumo de memoria sigue siendo bajo.
-    # realiza cambios en la presentación.
-    $pres->getSlides()->get_Item(0)->setName("Presentación muy grande");
-    # La presentación se guardará en otro archivo. El consumo de memoria se mantiene bajo durante la operación
-    $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$filePath = "LargePresentation.pptx";
+
+$loadOptions = new LoadOptions();
+// Elegir el comportamiento KeepLocked—el archivo de la presentación permanecerá bloqueado durante la vida útil de
+// la instancia Presentation, pero no necesita cargarse en memoria ni copiarse a un archivo temporal.
+$loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+$loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+
+$presentation = new Presentation($filePath, $loadOptions);
+try {
+    // La gran presentación se ha cargado y puede usarse, mientras el consumo de memoria se mantiene bajo.
+
+    // Realizar cambios en la presentación.
+    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
+
+    // Guardar la presentación en otro archivo. El consumo de memoria se mantiene bajo durante esta operación.
+    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
+	
+	// ¡No haga esto! Se lanzará una excepción de E/S porque el archivo está bloqueado hasta que se libere el objeto Presentation.
+	//unlink($filePath);
+} finally {
+    $presentation->dispose();
+}
+// Está bien hacerlo aquí. El archivo fuente ya no está bloqueado por el objeto Presentation.
+unlink($filePath);
 ```
+
 
 {{% alert color="info" title="Info" %}}
+Para solucionar ciertas limitaciones al trabajar con flujos, Aspose.Slides puede copiar el contenido de un flujo. Cargar una presentación grande desde un flujo provoca que la presentación se copie y puede ralentizar la carga. Por lo tanto, cuando necesite cargar una presentación grande, recomendamos encarecidamente usar la ruta del archivo de presentación en lugar de un flujo.
 
-Para eludir ciertas limitaciones al interactuar con un flujo, Aspose.Slides puede copiar el contenido del flujo. Cargar una presentación grande a través de su flujo resultará en la copia del contenido de la presentación y causará una carga lenta. Por lo tanto, cuando pretendas cargar una presentación grande, te recomendamos encarecidamente que utilices la ruta del archivo de la presentación y no su flujo.
+Al crear una presentación que contenga objetos grandes (video, audio, imágenes de alta resolución, etc.), puede utilizar la [gestión de BLOB](/slides/es/php-java/manage-blob/) para reducir el consumo de memoria.
+{{%/alert %}}
 
-Cuando quieras crear una presentación que contenga objetos grandes (video, audio, imágenes grandes, etc.), puedes utilizar la [facilidad de Blob](https://docs.aspose.com/slides/php-java/manage-blob/) para reducir el consumo de memoria.
+## **Controlar recursos externos**
 
-{{%/alert %}} 
-
-## Cargar Presentación
-
-Aspose.Slides proporciona [IResourceLoadingCallback](https://reference.aspose.com/slides/php-java/aspose.slides/iresourceloadingcallback/) con un único método que te permite gestionar recursos externos. Este código PHP te muestra cómo usar la interfaz `IResourceLoadingCallback`:
-
+Aspose.Slides proporciona la interfaz [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) que le permite gestionar recursos externos. El siguiente código PHP muestra cómo usar la interfaz `IResourceLoadingCallback`:
 ```php
-
 class ImageLoadingHandler {
     function resourceLoading($args) {
-      if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-        # carga una imagen de sustitución
-        $file = new Java("java.io.File", "aspose-logo.jpg");
-        $Array = new JavaClass("java.lang.reflect.Array");
-        $Byte = new JavaClass("java.lang.Byte");
-        $imageBytes = $Array->newInstance($Byte, $Array->getLength($file));
-        try {
-            $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
-            $dis->readFully($imageBytes);
-        } finally {
-            if (!java_is_null($dis)) $dis->close();
+        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
+            // Cargar una imagen de sustitución.
+			$bytes = file_get_contents("aspose-logo.jpg");
+			$javaByteArray = java_values($bytes);
+            $args->setData($javaByteArray);
+            return ResourceLoadingAction::UserProvided;
+        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
+            // Establecer una URL de sustitución.
+            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
+            return ResourceLoadingAction::Default;
         }
-          $args->setData($imageBytes);
-          return ResourceLoadingAction::UserProvided;
-      } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-        # establece la url de sustitución
-        $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-        return ResourceLoadingAction::Default;
-      }
-      # omite todas las demás imágenes
-      return ResourceLoadingAction::Skip;
+        // Omitir todas las demás imágenes.
+        return ResourceLoadingAction::Skip;
     }
-  }
+}
 
-  $opts = new LoadOptions();
-  $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose.slides.IResourceLoadingCallback"));
-  $opts->setResourceLoadingCallback($loadingHandler);
-  $pres = new Presentation("presentation.pptx", $opts);
+$loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose.slides.IResourceLoadingCallback"));
+
+$loadOptions = new LoadOptions();
+$loadOptions->setResourceLoadingCallback($loadingHandler);
+
+$presentation = new Presentation("Sample.pptx", $loadOptions);
 ```
 
-## Cargar Presentación Sin Objetos Binarios Incorporados
 
-La presentación de PowerPoint puede contener los siguientes tipos de objetos binarios incorporados:
+## **Cargar presentaciones sin objetos binarios incrustados**
 
-- Proyecto VBA ([IPresentation.VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/));
-- Datos de objeto OLE incrustados ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- Datos binarios de control ActiveX ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+Una presentación de PowerPoint puede contener los siguientes tipos de objetos binarios incrustados:
 
-Usando la propiedad [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-), puedes cargar la presentación sin ningún objeto binario incorporado.
+- proyecto VBA (accesible mediante [Presentation.getVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject));
+- datos incrustados de objetos OLE (accesibles mediante [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
+- datos binarios de controles ActiveX (accesibles mediante [Control.getActiveXControlBinary](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getActiveXControlBinary)).
 
-Esta propiedad puede ser útil para eliminar contenido binario potencialmente malicioso.
+Utilizando el método [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), puede cargar una presentación sin ningún objeto binario incrustado.
 
-El código demuestra cómo cargar y guardar una presentación sin ningún contenido de malware:
-
-```java
-  $loadOptions = new LoadOptions();
-  $loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-  $pres = new Presentation("malware.ppt", $loadOptions);
-  try {
-    $pres->save("clean.ppt", SaveFormat::Ppt);
-  } finally {
-    if (!java_is_null(pres)) { 
-      $pres->dispose();
-    }
-  }
-```
-
-## Abrir y Guardar Presentación
-
-Pasos para Abrir y Guardar Presentación:
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) y pasa el archivo que deseas abrir.
-2. Guarda la presentación.
-
+Este método es útil para eliminar contenido binario potencialmente malicioso. El siguiente código PHP demuestra cómo cargar una presentación sin contenido binario incrustado:
 ```php
-  # Instancia un objeto Presentation que representa un archivo PPT
-  $pres = new Presentation();
-  try {
-    # ...hacer algún trabajo aquí...
-    # Guarda tu presentación en un archivo
-    $pres->save("demoPass.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
+
+$presentation = new Presentation("malware.ppt", $loadOptions);
+try {
+    // Realizar operaciones en la presentación.
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo saber que un archivo está corrupto y no se puede abrir?**
+
+Recibirá una excepción de análisis/validación de formato durante la carga. Estos errores a menudo indican una estructura ZIP no válida o registros de PowerPoint dañados.
+
+**¿Qué ocurre si faltan fuentes requeridas al abrir?**
+
+El archivo se abrirá, pero más adelante la [renderización/exportación](/slides/es/php-java/convert-presentation/) puede sustituir fuentes. [Configure sustituciones de fuentes](/slides/es/php-java/font-substitution/) o [agregue las fuentes requeridas](/slides/es/php-java/custom-font/) al entorno de ejecución.
+
+**¿Qué pasa con los medios incrustados (video/audio) al abrir?**
+
+Se convierten en recursos de la presentación. Si los medios se referencian mediante rutas externas, asegúrese de que esas rutas sean accesibles en su entorno; de lo contrario, la [renderización/exportación](/slides/es/php-java/convert-presentation/) puede omitir los medios.

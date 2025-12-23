@@ -1,42 +1,52 @@
 ---
-title: Управление зумом
+title: Управление масштабированием презентации в PHP
+linktitle: Управление зумом
 type: docs
 weight: 60
 url: /ru/php-java/manage-zoom/
-keywords: "Zoom, рамка зума, добавить зум, формат рамки зума, сводный зум, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
-description: "Добавить зум или рамки зума в презентации PowerPoint"
+keywords:
+- зум
+- кадр зума
+- масштабирование слайда
+- масштабирование раздела
+- обобщённый зум
+- добавить зум
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Создавайте и настраивайте зум с помощью Aspose.Slides for PHP via Java — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
 ## **Обзор**
-Зумы в PowerPoint позволяют переходить к конкретным слайдам, разделам и частям презентации. Эта возможность быстро перемещаться по контенту может быть очень полезной во время презентации.
+Zoom в PowerPoint позволяет переходить к определённым слайдам, разделам и частям презентации и обратно. При выступлении эта возможность быстрой навигации по содержимому может быть очень полезной. 
 
 ![overview_image](overview.png)
 
-* Чтобы подвести итог всей презентации на одном слайде, используйте [Сводный зум](#Summary-Zoom).
-* Чтобы показать только выбранные слайды, используйте [Зум слайда](#Slide-Zoom).
-* Чтобы показать только один раздел, используйте [Зум секции](#Section-Zoom).
+* Чтобы суммировать всю презентацию на одном слайде, используйте [Summary Zoom](#Summary-Zoom).
+* Чтобы показывать только выбранные слайды, используйте [Slide Zoom](#Slide-Zoom).
+* Чтобы показывать только один раздел, используйте [Section Zoom](#Section-Zoom).
 
-## **Зум слайда**
-Зум слайда может сделать вашу презентацию более динамичной, позволяя вам свободно перемещаться между слайдами в любом порядке, который вы выберете, не останавливая поток вашей презентации. Зумы слайдов отлично подходят для коротких презентаций без множества разделов, но вы также можете использовать их в различных сценариях презентации.
+## **Slide Zoom**
+Zoom слайда делает вашу презентацию более динамичной, позволяя свободно переходить между слайдами в любом порядке без прерывания подачи материала. Zoom слайды отлично подходят для коротких презентаций без множества разделов, но их можно использовать и в других сценариях.
 
-Зумы слайдов помогают вам углубиться в несколько частей информации, при этом создавая ощущение, что вы находитесь на одном холсте.
+Zoom слайды помогают углубиться в несколько блоков информации, оставаясь на едином холсте. 
 
 ![overview_image](slidezoomsel.png)
 
-Для объектов зума слайдов Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/ZoomImageType), интерфейс [IZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IZoomFrame) и несколько методов в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+Для объектов Zoom слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/ZoomImageType), интерфейс [IZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IZoomFrame) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Создание рамок зума**
+### **Create Zoom Frames**
 
-Вы можете добавить рамку зума на слайд следующим образом:
+Добавить Zoom‑кадр на слайд можно так:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новые слайды, к которым вы планируете привязать рамки зума.
-3. Добавьте текст идентификации и фон к созданным слайдам.
-4. Добавьте рамки зума (ссылающиеся на созданные слайды) на первый слайд.
-5. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create new slides to which you intend to link the zoom frames. 
+3.	Add an identification text and background to the created slides.
+4.	Add zoom frames (containing the references to created slides) to the first slide.
+5.	Write the modified presentation as a PPTX file.
 
-Этот код PHP показывает, как создать рамку зума на слайде:
-
+This PHP code shows you how to create a zoom frame on a slide:
 ```php
   $pres = new Presentation();
   try {
@@ -49,14 +59,14 @@ description: "Добавить зум или рамки зума в презен
     $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     # Создает текстовое поле для второго слайда
     $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Второй слайд");
+    $autoshape->getTextFrame()->setText("Second Slide");
     # Создает фон для третьего слайда
     $slide3->getBackground()->setType(BackgroundType::OwnBackground);
     $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     # Создает текстовое поле для третьего слайда
     $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Третий слайд");
+    $autoshape->getTextFrame()->setText("Trird Slide");
     # Добавляет объекты ZoomFrame
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
@@ -68,17 +78,17 @@ description: "Добавить зум или рамки зума в презен
     }
   }
 ```
-### **Создание рамок зума с пользовательскими изображениями**
-С помощью Aspose.Slides для PHP через Java вы можете создать рамку зума с другим изображением предварительного просмотра слайда следующим образом:
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новый слайд, к которому вы планируете привязать рамку зума.
-3. Добавьте текст идентификации и фон на слайд.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage), добавив изображение в коллекцию Изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который будет использоваться для заполнения рамки.
-5. Добавьте рамки зума (ссылающиеся на созданный слайд) на первый слайд.
-6. Запишите измененную презентацию в файл PPTX.
 
-Этот код PHP показывает, как создать рамку зума с другим изображением:
+### **Create Zoom Frames with Custom Images**
+With Aspose.Slides for PHP via Java, you can create a zoom frame with a different slide preview image this way:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create a new slide to which you intend to link the zoom frame. 
+3.	Add an identification text and background to the slide.
+4.	Create an [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object that will be used to fill the frame.
+5.	Add zoom frames (containing the reference to created slide) to the first slide.
+6.	Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to create a zoom frame with a different image:
 ```php
   $pres = new Presentation();
   try {
@@ -90,7 +100,7 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     # Создает текстовое поле для третьего слайда
     $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Второй слайд");
+    $autoshape->getTextFrame()->setText("Second Slide");
     # Создает новое изображение для объекта зума
     $picture;
     $image = Images->fromFile("image.png");
@@ -112,23 +122,23 @@ description: "Добавить зум или рамки зума в презен
     }
   }
 ```
-### **Форматирование рамок зума**
-В предыдущих разделах мы показали, как создать простые рамки зума. Чтобы создать более сложные рамки зума, необходимо изменить форматирование простой рамки. Существует несколько параметров форматирования, которые вы можете применить к рамке зума. 
 
-Вы можете управлять форматированием рамки зума на слайде следующим образом:
+### **Format Zoom Frames**
+In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новые слайды, которые вы планируете связать с рамкой зума. 
-3. Добавьте некоторый текст идентификации и фон к созданным слайдам.
-4. Добавьте рамки зума (ссылающиеся на созданные слайды) на первый слайд.
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage), добавив изображение в коллекцию Изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который будет использоваться для заполнения рамки.
-6. Установите пользовательское изображение для первого объекта рамки зума.
-7. Измените формат линии для второго объекта рамки зума.
-8. Удалите фон у изображения второго объекта рамки зума.
-5. Запишите измененную презентацию в файл PPTX.
+You can control a zoom frame's formatting on a slide this way:
 
-Этот код PHP показывает, как изменить форматирование рамки зума на слайде:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create new slides to link to which you intend to link the zoom frame. 
+3.	Add some identification text and background to the created slides.
+4.	Add zoom frames (containing the references to the created slides) to the first slide.
+5.	Create an [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object that will be used to fill the frame.
+6	Set a custom image for the first zoom frame object.
+7	Change the line format for the second zoom frame object.
+8	Remove the background from an image of the second zoom frame object.
+5.	Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to change a zoom frame's formatting on a slide:
 ```php
   $pres = new Presentation();
   try {
@@ -141,14 +151,14 @@ description: "Добавить зум или рамки зума в презен
     $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     # Создает текстовое поле для второго слайда
     $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Второй слайд");
+    $autoshape->getTextFrame()->setText("Second Slide");
     # Создает фон для третьего слайда
     $slide3->getBackground()->setType(BackgroundType::OwnBackground);
     $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     # Создает текстовое поле для третьего слайда
     $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Третий слайд");
+    $autoshape->getTextFrame()->setText("Trird Slide");
     # Добавляет объекты ZoomFrame
     $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
     $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
@@ -169,7 +179,7 @@ description: "Добавить зум или рамки зума в презен
     $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
     $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Настройки для показа фона для объекта zoomFrame2
+    # Настройка: не отображать фон для объекта zoomFrame2
     $zoomFrame2->setShowBackground(false);
     # Сохраняет презентацию
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -181,27 +191,27 @@ description: "Добавить зум или рамки зума в презен
   }
 ```
 
-## **Зум секции**
 
-Зум секции — это ссылка на раздел вашей презентации. Вы можете использовать зумы секций, чтобы вернуться к разделам, которые вы хотите действительно подчеркнуть. Или вы можете использовать их, чтобы показать, как определенные части вашей презентации взаимосвязаны.
+## **Section Zoom**
+
+Section Zoom — это ссылка на раздел вашей презентации. Вы можете использовать Section Zoom, чтобы возвращаться к разделам, которые хотите особо подчеркнуть, или показать, как отдельные части презентации взаимосвязаны. 
 
 ![overview_image](seczoomsel.png)
 
-Для объектов зума секций Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionZoomFrame) и несколько методов в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+Для объектов Section Zoom Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionZoomFrame) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Создание рамок зума секции**
+### **Create Section Zoom Frames**
 
-Вы можете добавить рамку зума секции на слайд следующим образом:
+Add a section zoom frame to a slide this way:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новый слайд. 
-3. Добавьте идентификационный фон на созданный слайд.
-4. Создайте новый раздел, к которому вы планируете привязать рамку зума. 
-5. Добавьте рамку зума секции (ссылающуюся на созданный раздел) на первый слайд.
-6. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create a new slide. 
+3.	Add an identification background to the created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.Add a section zoom frame (containing references to the created section) to the first slide.
+6.Write the modified presentation as a PPTX file.
 
-Этот код PHP показывает, как создать рамку зума на слайде:
-
+This PHP code shows you how to create a zoom frame on a slide:
 ```php
   $pres = new Presentation();
   try {
@@ -211,7 +221,7 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Добавляет объект SectionZoomFrame
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     # Сохраняет презентацию
@@ -222,20 +232,20 @@ description: "Добавить зум или рамки зума в презен
     }
   }
 ```
-### **Создание рамок зума секции с пользовательскими изображениями**
 
-Используя Aspose.Slides для PHP через Java, вы можете создать рамку зума секции с другим изображением предварительного просмотра слайда следующим образом:
+### **Create Section Zoom Frames with Custom Images**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон на созданный слайд.
-4. Создайте новый раздел, к которому вы планируете привязать рамку зума. 
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage), добавив изображение в коллекцию Изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который будет использоваться для заполнения рамки.
-5. Добавьте рамку зума секции (ссылающуюся на созданный раздел) на первый слайд.
-6. Запишите измененную презентацию в файл PPTX.
+Using Aspose.Slides for PHP via Java, you can create a section zoom frame with a different slide preview image this way:
 
-Этот код PHP показывает, как создать рамку зума с другим изображением:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create a new slide.
+3.	Add an identification background to created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.	Create an [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object that will be used to fill the frame.
+5.	Add a section zoom frame (containing a reference to the created section) to the first slide.
+6.	Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to create a zoom frame with a different image:
 ```php
   $pres = new Presentation();
   try {
@@ -245,7 +255,7 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Создает новое изображение для объекта зума
     $picture;
     $image = Images->fromFile("image.png");
@@ -267,28 +277,28 @@ description: "Добавить зум или рамки зума в презен
     }
   }
 ```
-### **Форматирование рамок зума секции**
 
-Чтобы создать более сложные рамки зума секции, необходимо изменить форматирование простой рамки. Существует несколько параметров форматирования, которые вы можете применить к рамке зума секции. 
+### **Format Section Zoom Frames**
 
-Вы можете управлять форматированием рамки зума секции на слайде следующим образом:
+To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон на созданный слайд.
-4. Создайте новый раздел, к которому вы планируете привязать рамку зума. 
-5. Добавьте рамку зума секции (ссылающуюся на созданный раздел) на первый слайд.
-6. Измените размер и положение для созданного объекта зума секции.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage), добавив изображение в коллекцию Изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который будет использоваться для заполнения рамки.
-8. Установите пользовательское изображение для созданного объекта рамки зума секции.
-9. Установите возможность *возврата на оригинальный слайд из связанного раздела*.
-10. Удалите фон у изображения объекта рамки зума секции.
-11. Измените формат линии для второго объекта зума.
-12. Измените продолжительность перехода.
-13. Запишите измененную презентацию в файл PPTX.
+You can control a section zoom frame's formatting on a slide this way:
 
-Этот код PHP показывает, как изменить форматирование рамки зума секции:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create a new slide.
+3.	Add identification background to created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.Add a section zoom frame (containing references to created section) to the first slide.
+6.Change the size and position for the created section zoom object.
+7.Create an [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object that will be used to fill the frame.
+8.Set a custom image for the created section zoom frame object.
+9.Set the *return to the original slide from the linked section* ability. 
+10.Remove the background from an image of the section zoom frame object.
+11.Change the line format for the second zoom frame object.
+12.Change the transition duration.
+13.Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to change a section zoom frame's formatting:
 ```php
   $pres = new Presentation();
   try {
@@ -298,8 +308,8 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
-    # Добавляет новый объект SectionZoomFrame
+    $pres->getSections()->addSection("Section 1", $slide);
+    # Добавляет объект SectionZoomFrame
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     # Форматирование для SectionZoomFrame
     $sectionZoomFrame->setX(100);
@@ -334,25 +344,24 @@ description: "Добавить зум или рамки зума в презен
 ```
 
 
-## **Сводный зум**
+## **Summary Zoom**
 
-Сводный зум подобен целевой странице, на которой отображаются все части вашей презентации одновременно. Когда вы презентуете, вы можете использовать зум, чтобы перемещаться из одного места в вашей презентации в другое в любом порядке, который вам нравится. Вы можете проявлять креативность, пропускать вперед или повторно посещать части вашей слайд-шоу, не прерывая поток вашей презентации.
+Summary Zoom — это как стартовая страница, где одновременно отображаются все части вашей презентации. При выступлении вы можете использовать Zoom, чтобы переходить от одного места к другому в любом порядке, креативно переключаться, пропускать или возвращаться к отдельным элементам слайд-шоу без нарушения потока подачи.
 
 ![overview_image](sumzoomsel.png)
 
-Для объектов сводного зума Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection), а также некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+Для объектов Summary Zoom Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-### **Создание сводного зума**
+### **Create a Summary Zoom**
 
-Вы можете добавить рамку сводного зума на слайд следующим образом:
+Add a summary zoom frame to a slide this way:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новые слайды с фоном идентификации и новыми разделами для созданных слайдов.
-3. Добавьте рамку сводного зума на первый слайд.
-4. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add the summary zoom frame to the first slide.
+4.Write the modified presentation as a PPTX file.
 
-Этот код PHP показывает, как создать рамку сводного зума на слайде:
-
+This PHP code shows you how to create a summary zoom frame on a slide:
 ```php
   $pres = new Presentation();
   try {
@@ -362,28 +371,28 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Добавляет новый слайд в презентацию
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 2", $slide);
+    $pres->getSections()->addSection("Section 2", $slide);
     # Добавляет новый слайд в презентацию
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 3", $slide);
+    $pres->getSections()->addSection("Section 3", $slide);
     # Добавляет новый слайд в презентацию
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 4", $slide);
+    $pres->getSections()->addSection("Section 4", $slide);
     # Добавляет объект SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Сохраняет презентацию
@@ -395,20 +404,20 @@ description: "Добавить зум или рамки зума в презен
   }
 ```
 
-### **Добавление и удаление секции сводного зума**
 
-Все секции в рамке сводного зума представлены объектами [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection). Вы можете добавить или удалить объект секции сводного зума через интерфейс [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) следующим образом:
+### **Add and Remove a Summary Zoom Section**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новые слайды с фоном идентификации и новыми разделами для созданных слайдов.
-3. Добавьте рамку сводного зума на первый слайд.
-4. Добавьте новый слайд и раздел в презентацию.
-5. Добавьте созданный раздел в рамку сводного зума.
-6. Удалите первый раздел из рамки сводного зума.
-7. Запишите измененную презентацию в файл PPTX.
+All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) interface this way:
 
-Этот код PHP показывает, как добавить и удалить секции в рамке сводного зума:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add a summary zoom frame into the first slide.
+4.Add a new slide and section to the presentation.
+5.Add the created section to the summary zoom frame.
+6.Remove the first section from the summary zoom frame.
+7.Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to add and remove sections in a summary zoom frame:
 ```php
   $pres = new Presentation();
   try {
@@ -418,14 +427,14 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Добавляет новый слайд в презентацию
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 2", $slide);
+    $pres->getSections()->addSection("Section 2", $slide);
     # Добавляет объект SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Добавляет новый слайд в презентацию
@@ -434,10 +443,10 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $section3 = $pres->getSections()->addSection("Раздел 3", $slide);
-    # Добавляет секцию в сводный зум
+    $section3 = $pres->getSections()->addSection("Section 3", $slide);
+    # Добавляет раздел в Summary Zoom
     $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Удаляет секцию из сводного зума
+    # Удаляет раздел из Summary Zoom
     $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
     # Сохраняет презентацию
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -448,25 +457,25 @@ description: "Добавить зум или рамки зума в презен
   }
 ```
 
-### **Форматирование секций сводного зума**
 
-Чтобы создать более сложные объекты секции сводного зума, необходимо изменить форматирование простой рамки. Существует несколько параметров форматирования, которые вы можете применить к объекту секции сводного зума. 
+### **Format Summary Zoom Sections**
 
-Вы можете управлять форматированием объекта секции сводного зума в рамке сводного зума следующим образом:
+To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Создайте новые слайды с фоном идентификации и новыми разделами для созданных слайдов.
-3. Добавьте рамку сводного зума на первый слайд.
-4. Получите объект секции сводного зума для первого объекта из `ISummaryZoomSectionCollection`.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage), добавив изображение в коллекцию изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который будет использоваться для заполнения рамки.
-8. Установите пользовательское изображение для созданного объекта рамки секции сводного зума.
-9. Установите возможность *возврата на оригинальный слайд из связанного раздела*.
-11. Измените формат линии для второго объекта зума.
-12. Измените продолжительность перехода.
-13. Запишите измененную презентацию в файл PPTX.
+You can control the formatting for a summary zoom section object in a summary zoom frame this way:
 
-Этот код PHP показывает, как изменить форматирование объекта секции сводного зума:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add a summary zoom frame to the first slide.
+4.Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
+7.Create an [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object that will be used to fill the frame.
+8.Set a custom image for the created section zoom frame object.
+9.Set the *return to the original slide from the linked section* ability. 
+11.Change the line format for the second zoom frame object.
+12.Change the transition duration.
+13.Write the modified presentation as a PPTX file.
 
+This PHP code shows you how to change the formatting for a summary zoom section object:
 ```php
   $pres = new Presentation();
   try {
@@ -476,23 +485,23 @@ description: "Добавить зум или рамки зума в презен
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 1", $slide);
+    $pres->getSections()->addSection("Section 1", $slide);
     # Добавляет новый слайд в презентацию
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Добавляет новый раздел в презентацию
-    $pres->getSections()->addSection("Раздел 2", $slide);
+    $pres->getSections()->addSection("Section 2", $slide);
     # Добавляет объект SummaryZoomFrame
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Получает первый объект SummaryZoomSection
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # Форматирование для объекта SummaryZoomSection
+    # Форматирование объекта SummaryZoomSection
     $picture;
     $image = Images->fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+      $picture = $pres->getImages()->addImage($picture);
     } finally {
       if (!java_is_null($image)) {
         $image->dispose();
@@ -514,3 +523,18 @@ description: "Добавить зум или рамки зума в презен
     }
   }
 ```
+
+
+## **FAQ**
+
+**Can I control returning to the 'parent' slide after showing the target?**
+
+Yes. The [Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) has a `ReturnToParent` behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+
+**Can I adjust the 'speed' or duration of the Zoom transition?**
+
+Yes. Zoom supports setting a `TransitionDuration` so you can control how long the jump animation takes.
+
+**Are there limits on how many Zoom objects a presentation can contain?**
+
+There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

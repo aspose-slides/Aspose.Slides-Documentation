@@ -1,40 +1,34 @@
 ---
-title: 3D Präsentation
+title: Erstellen von 3D-Präsentationen in PHP
+linktitle: 3D-Präsentation
 type: docs
 weight: 232
 url: /de/php-java/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3D Präsentation
-- 3D Rotation
-- 3D Tiefe
-- 3D Extrusion
-- 3D Farbverlauf
-- 3D Text
-- PowerPoint-Präsentation
+- 3D-Präsentation
+- 3D-Drehung
+- 3D-Tiefe
+- 3D-Extrusion
+- 3D-Gradient
+- 3D-Text
+- PowerPoint
+- OpenDocument
+- Präsentation
 - PHP
-- Aspose.Slides für PHP über Java
-description: "3D PowerPoint-Präsentation in PHP"
+- Aspose.Slides
+description: "Erstellen Sie mühelos interaktive 3D-Präsentationen in PHP mit Aspose.Slides. Exportieren Sie schnell in PowerPoint- und OpenDocument-Formate für vielseitige Nutzung."
 ---
 
-## Übersicht
-Seit Aspose.Slides Java 20.9 ist es möglich, 3D in Präsentationen zu erstellen. PowerPoint 3D ist eine Möglichkeit, Präsentationen Leben einzuhauchen. Zeigen Sie reale Objekte
-mit 3D-Präsentationen, demonstrieren Sie ein 3D-Modell Ihres zukünftigen Geschäftsprojekts, 3D-Modell des Gebäudes oder seiner Innenräume, 3D-Modell des Spielcharakters
-oder einfach eine 3D-Darstellung Ihrer Daten.
+## **Übersicht**
+Seit Aspose.Slides Java 20.9 ist es möglich, 3D in Präsentationen zu erstellen. PowerPoint 3D ist eine Möglichkeit, Präsentationen Leben einzuhauchen. Zeigen Sie reale Objekte mit einer 3D‑Präsentation, demonstrieren Sie ein 3D‑Modell Ihres zukünftigen Geschäftsprojekts, ein 3D‑Modell des Gebäudes oder seines Innenraums, ein 3D‑Modell des Spielcharakters oder einfach eine 3D‑Darstellung Ihrer Daten. 
 
-PowerPoint 3D-Modelle können aus 2D-Formen erstellt werden, indem solche Effekte auf sie angewendet werden: 3D-Rotation, 3D-Tiefe und Extrusion, 3D-Farbverlauf, 3D-Text usw.
-Die Liste der auf die Formen angewendeten 3D-Funktionen finden Sie in der Klasse **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**.
-Die Instanz der Klasse kann durch folgende Methoden erhalten werden:
+PowerPoint‑3D‑Modelle können aus 2D‑Formen erstellt werden, indem solche Effekte auf sie angewendet werden: 3D‑Drehung, 3D‑Tiefe und Extrusion, 3D‑Gradient, 3D‑Text usw. Die Liste der auf die Formen angewendeten 3D‑Funktionen findet sich in der Klasse **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**. Eine Instanz der Klasse kann erhalten werden durch:
+ 
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** Methode zum Erstellen eines PowerPoint‑3D‑Modells.
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** Methode zum Erstellen eines 3D‑Texts (WordArt).
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** Methode zur Erstellung eines PowerPoint 3D-Modells.
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** Methode zur Erstellung eines 3D-Texts
-(WordArt).
-
-Alle in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** implementierten Effekte können sowohl für Formen als auch für Text verwendet werden.
-Lassen Sie uns einen kurzen Blick auf die Hauptmethoden der Klasse **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** werfen. Im nächsten Beispiel
-erstellen wir eine rechteckige 2D-Form mit einem Text darauf. Durch das Erhalten der Kameraperspektive auf der Form ändern wir ihre Rotation und lassen sie wie ein 3D-Modell aussehen. Durch das Setzen eines flachen Lichts
-und seiner Richtung nach oben auf das 3D-Modell wird dem Modell mehr Volumen verliehen. Geänderte Materialien, Extrusionshöhe und Farbe lassen das 3D-Modell lebendiger wirken.  
+Alle in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** implementierten Effekte können sowohl für Formen als auch für Text verwendet werden. Lassen Sie uns einen kurzen Blick auf die wichtigsten Methoden der Klasse **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** werfen. Im nächsten Beispiel erstellen wir eine rechteckige 2D‑Form mit einem Text darauf. Durch das Abrufen der Kameraperspektive der Form ändern wir ihre Drehung und lassen sie wie ein 3D‑Modell aussehen. Das Einstellen eines flachen Lichts und seiner Richtung nach oben am 3D‑Modell verleiht dem Modell mehr Volumen. Geänderte Materialien, Extrusionshöhe und Farbe lassen das 3D‑Modell lebendiger wirken.  
 ``` php 
 $imageScale = 2;
 
@@ -61,52 +55,49 @@ $presentation->save("sandbox_3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-Hier ist das resultierende 3D-Modell:
+
+Hier ist das resultierende 3D‑Modell:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D Rotation
-Die Rotation des 3D-Modells in PowerPoint kann über das Menü erfolgen:
+## **3D‑Drehung**
+Die Drehung eines 3D‑Modells in PowerPoint kann über das Menü durchgeführt werden:
 
 ![todo:image_alt_text](img_02_01.png)
 
-Um ein 3D-Modell mit der Aspose.Slides-API zu drehen, verwenden Sie die Methode **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)**,
-setzten Sie die Rotation der Kamera relativ zur 3D-Form:
-
+Um ein 3D‑Modell mit der Aspose.Slides‑API zu drehen, verwenden Sie die Methode **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)**, setzen Sie die Drehung der Kamera relativ zur 3D‑Form:
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
-// ... set other 3D scene parameters
+// ... weitere 3D‑Szenenparameter setzen
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-## 3D Tiefe und Extrusion
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-und **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** Methoden
-werden verwendet, um eine Extrusion auf der Form zu erstellen:
 
+## **3D‑Tiefe und Extrusion**
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)** und **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** Methoden werden verwendet, um eine Extrusion auf einer Form zu erstellen:
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
 $shape->getThreeDFormat()->setExtrusionHeight(100);
 $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 128, 0, 128));
-# ... set other 3D scene parameters
+# ... weitere 3D‑Szenenparameter setzen
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
+
 In PowerPoint wird die Tiefe der Form über folgendes eingestellt:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3D Farbverlauf
-Ein 3D-Farbverlauf kann einem PowerPoint 3D-Form mehr Volumen verleihen:
-
+## **3D‑Gradient**
+Ein 3D‑Gradient kann einer PowerPoint‑3D‑Form mehr Volumen verleihen:
 ``` php
 $imageScale = 2;
 
@@ -135,11 +126,12 @@ $thumbnail->dispose();
 $presentation->dispose();
 ```
 
+
 So sieht es aus:
 
 ![todo:image_alt_text](img_02_03.png)
-
-Sie können auch einen Bildverlauf erstellen:
+  
+Sie können auch einen Bild‑Gradient erstellen:
 ``` php
 $shape->getFillFormat()->setFillType(FillType::Picture);
 
@@ -149,19 +141,20 @@ $image->dispose();
 
 $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-# ... setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
+# ... 3D einrichten: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* Eigenschaften
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
+
 Hier ist das Ergebnis:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D Text (WordArt)
-Um einen 3D-Text (WordArt) zu erstellen, tun Sie Folgendes:
+## **3D‑Text (WordArt)**
+Um einen 3D‑Text (WordArt) zu erstellen, gehen Sie wie folgt vor:
 ``` php
 $imageScale = 2;
 
@@ -181,7 +174,7 @@ $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternSty
 
 $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(128);
 $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-# setup "Arch Up" WordArt transform effect
+# Einrichten "Arch Up" WordArt Transformations-Effekt
 $textFrameFormat->setTransform(TextShapeType::ArchUp);
 
 $textFrameFormat->getThreeDFormat()->setExtrusionHeight(3.5);
@@ -200,13 +193,21 @@ $presentation->save("text3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
+
 Hier ist das Ergebnis:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## Nicht Unterstützt - Bald Verfügbar
-Die folgenden PowerPoint 3D-Funktionen sind noch nicht unterstützt: 
-- Fasen
-- Material
-- Kontur
-- Beleuchtung
+## **FAQ**
+
+**Werden 3D‑Effekte beim Exportieren einer Präsentation in Bilder/PDF/HTML erhalten bleiben?**
+
+Ja. Die Slides‑3D‑Engine rendert 3D‑Effekte beim Export in unterstützte Formate ([images](/slides/de/php-java/convert-powerpoint-to-png/),[PDF](/slides/de/php-java/convert-powerpoint-to-pdf/),[HTML](/slides/de/php-java/convert-powerpoint-to-html/), usw.).
+
+**Kann ich die „effektiven“ (finalen) 3D‑Parameterwerte abrufen, die Themen, Vererbung usw. berücksichtigen?**
+
+Ja. Slides bietet APIs zum [Lesen effektiver Werte](/slides/de/php-java/shape-effective-properties/) (einschließlich für 3D – Beleuchtung, Abschrägungen usw.), sodass Sie die final angewendeten Einstellungen sehen können.
+
+**Funktionieren 3D‑Effekte beim Konvertieren einer Präsentation in ein Video?**
+
+Ja. Beim [Erzeugen von Frames für das Video](/slides/de/php-java/convert-powerpoint-to-video/) werden 3D‑Effekte genauso gerendert wie bei [exportierten Bildern](/slides/de/php-java/convert-powerpoint-to-png/).

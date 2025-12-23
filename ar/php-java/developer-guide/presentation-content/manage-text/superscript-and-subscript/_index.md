@@ -1,34 +1,45 @@
 ---
-title: النص العلوي والنص السفلي
+title: إدارة النص العلوي والنص السفلي في العروض التقديمية باستخدام PHP
+linktitle: النص العلوي والنص السفلي
 type: docs
 weight: 80
 url: /ar/php-java/superscript-and-subscript/
+keywords:
+- النص العلوي
+- النص السفلي
+- إضافة نص علوي
+- إضافة نص سفلي
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "اتقن النص العلوي والنص السفلي في Aspose.Slides لـ PHP عبر Java وارتق بعروضك التقديمية بتنسيق نصي احترافي لتحقيق أقصى تأثير."
 ---
 
-## **إدارة نص النص العلوي والنص السفلي**
-يمكنك إضافة نص نص علوي ونص سفلي داخل أي جزء من الفقرة. لإضافة نص علوي أو نص سفلي في إطار نص Aspose.Slides، يجب استخدام [**setEscapement**](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setEscapement-float-) من فئة [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/PortionFormat).
+## **إدارة النص العلوي والنص السفلي**
+يمكنك إضافة نص علوي أو سفلي داخل أي جزء من الفقرة. لإضافة نص علوي أو سفلي في إطار النص Aspose.Slides يجب استخدام طريقة [**setEscapement**](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#setEscapement-float-) من فئة [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/PortionFormat) .
 
-تُعيد هذه الخاصية أو تعين نص النص العلوي أو النص السفلي (قيمة من -100% (نص سفلي) إلى 100% (نص علوي). على سبيل المثال:
+تُعيد هذه الخاصية أو تُحدد النص العلوي أو السفلي (القيمة من -100% (سفلي) إلى 100% (علوي)). على سبيل المثال:
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- الحصول على مرجع شريحة باستخدام فهرسها.
-- إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من نوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
-- الوصول إلى [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) المرتبطة بـ [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
+- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+- الحصول على مرجع الشريحة باستخدام فهرستها.
+- إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من النوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
+- الوصول إلى [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) .
 - مسح الفقرات الموجودة
-- إنشاء كائن فقرة جديدة لحفظ النص العلوي وإضافته إلى [IParagraphs collection](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getParagraphs--) من [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame).
+- إنشاء كائن فقرة جديد للاحتفاظ بالنص العلوي وإضافته إلى مجموعة [IParagraphs collection](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getParagraphs--) الخاصة بـ [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) .
 - إنشاء كائن جزء جديد
-- تعيين خاصية Escapement للجزء بين 0 إلى 100 لإضافة نص علوي. (0 يعني عدم وجود نص علوي)
-- تعيين نص ما لـ [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ثم إضافته إلى مجموعة الأجزاء في الفقرة.
-- إنشاء كائن فقرة جديدة لحفظ النص السفلي وإضافته إلى مجموعة IParagraphs من ITextFrame.
+- تعيين خاصية Escapement للجزء بين 0 إلى 100 لإضافة النص العلوي. (0 يعني عدم وجود نص علوي)
+- تعيين نص لبعض [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ثم إضافته إلى مجموعة الأجزاء في الفقرة.
+- إنشاء كائن فقرة جديد للاحتفاظ بالنص السفلي وإضافته إلى مجموعة IParagraphs في ITextFrame.
 - إنشاء كائن جزء جديد
-- تعيين خاصية Escapement للجزء بين 0 إلى -100 لإضافة نص سفلي. (0 يعني عدم وجود نص سفلي)
-- تعيين نص ما لـ [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ثم إضافته إلى مجموعة الأجزاء في الفقرة.
+- تعيين خاصية Escapement للجزء بين 0 إلى -100 لإضافة النص السفلي. (0 يعني عدم وجود نص سفلي)
+- تعيين نص لبعض [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) ثم إضافته إلى مجموعة الأجزاء في الفقرة.
 - حفظ العرض التقديمي كملف PPTX.
 
-ت implementation القيم أعلاه موضحة أدناه.
-
+تنفيذ الخطوات المذكورة أعلاه موضح أدناه.
 ```php
-  # إنشاء مثيل من فئة Presentation التي تمثل ملف PPTX
+  # إنشاء كائن من فئة Presentation يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الحصول على الشريحة
@@ -37,9 +48,9 @@ url: /ar/php-java/superscript-and-subscript/
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
-    # إنشاء فقرة لنص علوي
+    # إنشاء فقرة للنص العلوي
     $superPar = new Paragraph();
-    # إنشاء جزء بنص اعتيادي
+    # إنشاء جزء بنص عادي
     $portion1 = new Portion();
     $portion1->setText("SlideTitle");
     $superPar->getPortions()->add($portion1);
@@ -48,9 +59,9 @@ url: /ar/php-java/superscript-and-subscript/
     $superPortion->getPortionFormat()->setEscapement(30);
     $superPortion->setText("TM");
     $superPar->getPortions()->add($superPortion);
-    # إنشاء فقرة لنص سفلي
+    # إنشاء فقرة للنص السفلي
     $paragraph2 = new Paragraph();
-    # إنشاء جزء بنص اعتيادي
+    # إنشاء جزء بنص عادي
     $portion2 = new Portion();
     $portion2->setText("a");
     $paragraph2->getPortions()->add($portion2);
@@ -69,3 +80,18 @@ url: /ar/php-java/superscript-and-subscript/
     }
   }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل سيتم الحفاظ على النص العلوي والسفلي عند التصدير إلى PDF أو صيغ أخرى؟**
+
+نعم، يقوم Aspose.Slides بحفظ تنسيق النص العلوي والنص السفلي بشكل صحيح عند تصدير العروض التقديمية إلى PDF أو PPT/PPTX أو الصور أو أي صيغ مدعومة أخرى. يبقى التنسيق المتخصص محفوظًا في جميع ملفات الإخراج.
+
+**هل يمكن دمج النص العلوي أو السفلي مع أنماط تنسيق أخرى مثل الغامق أو المائل؟**
+
+نعم، يسمح Aspose.Slides بخلط أنماط النص المختلفة داخل جزء نص واحد. يمكنك تمكين الخط الغامق أو المائل أو التسطير، وتطبيق النص العلوي أو السفلي في الوقت نفسه عن طريق ضبط الخصائص المقابلة في [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
+
+**هل يعمل تنسيق النص العلوي والسفلي للنص داخل الجداول أو المخططات أو SmartArt؟**
+
+نعم، يدعم Aspose.Slides التنسيق داخل معظم الكائنات، بما في ذلك الجداول وعناصر المخططات. عند العمل مع SmartArt، يجب الوصول إلى العناصر المناسبة (مثل [SmartArtNode](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/)) وحاويات النص الخاصة بها، ثم ضبط خصائص [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) بنفس الطريقة.

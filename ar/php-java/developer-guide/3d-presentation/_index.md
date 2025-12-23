@@ -1,40 +1,34 @@
 ---
-title: تقديم ثلاثي الأبعاد
+title: إنشاء عروض تقديمية ثلاثية الأبعاد في PHP
+linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/php-java/3d-presentation/
 keywords:
-- ثلاثي الأبعاد
-- باوربوينت ثلاثي الأبعاد
-- تقديم ثلاثي الأبعاد
-- دوران ثلاثي الأبعاد
+- PowerPoint ثلاثي الأبعاد
+- عرض ثلاثي الأبعاد
+- تدوير ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
-- بروز ثلاثي الأبعاد
+- استخراج ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
-- تقديم باوربوينت
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - PHP
-- Aspose.Slides لـ PHP عبر Java
-description: "تقديم باوربوينت ثلاثي الأبعاد بلغة PHP"
+- Aspose.Slides
+description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في PHP باستخدام Aspose.Slides بسهولة. تصدير سريع إلى صيغ PowerPoint و OpenDocument للاستخدام المتنوع."
 ---
 
-## نظرة عامة
-منذ إصدار Aspose.Slides Java 20.9، أصبح من الممكن إنشاء محتوى ثلاثي الأبعاد في العروض التقديمية. باوربوينت ثلاثي الأبعاد هو وسيلة لإضفاء الحيوية على العروض التقديمية. عرض الأشياء الموجودة في العالم الحقيقي 
-بمحتوى ثلاثي الأبعاد، عرض نموذج ثلاثي الأبعاد لمشروعك التجاري المستقبلي، نموذج ثلاثي الأبعاد لمبنى أو ديكوره الداخلي، نموذج ثلاثي الأبعاد لشخصية لعبة، 
-أو مجرد تمثيل ثلاثي الأبعاد لبياناتك.
+## **نظرة عامة**
+منذ إصدار Aspose.Slides Java 20.9 أصبح من الممكن إنشاء رسومات ثلاثية الأبعاد في العروض التقديمية. PowerPoint 3D هو طريقة لإضفاء الحيوية على العروض. اعرض كائنات العالم الحقيقي باستخدام عرض ثلاثي الأبعاد، أو قدم نموذجًا ثلاثيًا لمشروع عملك المستقبلي، أو نموذجًا ثلاثيًا للمبنى أو داخله، أو نموذجًا ثلاثيًا لشخصية اللعبة، أو مجرد تمثيل ثلاثي الأبعاد لبياناتك.
 
-يمكن إنشاء نماذج باوربوينت ثلاثية الأبعاد من أشكال ثنائية الأبعاد، من خلال تطبيق تأثيرات مثل: دوران ثلاثي الأبعاد، عمق ثلاثي الأبعاد وبروز، تدرج ثلاثي الأبعاد، نص ثلاثي الأبعاد، إلخ.
-يمكن العثور على قائمة الميزات ثلاثية الأبعاد المطبقة على الأشكال في **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**.
-يمكن الحصول على مثيل من الفئة بواسطة:
+يمكن إنشاء نماذج PowerPoint 3D من الأشكال ثنائية الأبعاد عن طريق تطبيق هذه التأثيرات عليها: تدوير ثلاثي الأبعاد، عمق ثلاثي الأبعاد واستخراج، تدرج ثلاثي الأبعاد، نص ثلاثي الأبعاد، إلخ. يمكن العثور على قائمة ميزات 3D المطبقة على الأشكال في الفئة **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**. يمكن الحصول على نسخة من الفئة عبر:
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)**، لإنشاء نموذج ثلاثي الأبعاد في باوربوينت.
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)**، لإنشاء نص ثلاثي الأبعاد 
-(WordArt).
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** طريقة لإنشاء نموذج PowerPoint ثلاثي الأبعاد.
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** طريقة لإنشاء نص ثلاثي الأبعاد (WordArt).
 
-يمكن استخدام جميع التأثيرات المطبقة في **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** لكل من الأشكال والنصوص.
-دعنا نلقي نظرة سريعة على الأساليب الرئيسية في **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**. في المثال التالي
-نقوم بإنشاء شكل مستطيل ثنائي الأبعاد مع نص عليه. من خلال الحصول على عرض الكاميرا على الشكل، نغير دورانه ونجعله يبدو كنموذج ثلاثي الأبعاد. إعداد إضاءة مسطحة 
-واتجاهها نحو أعلى النموذج ثلاثي الأبعاد، لإضفاء المزيد من الحجم على النموذج. المواد المتغيرة، ارتفاع البروز واللون تجعل النموذج ثلاثي الأبعاد يبدو أكثر حيوية.  
+جميع التأثيرات المطبقة في **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** يمكن استخدامها لكل من الأشكال والنص. دعونا نلقي نظرة سريعة على الطرق الرئيسية في فئة **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)**. في المثال التالي نُنشئ شكلًا مستطيلاً ثنائي الأبعاد مع نص عليه. من خلال الحصول على منظور الكاميرا على الشكل، نُغيّر دورانه لجعله يُظهر كأنّه نموذج ثلاثي الأبعاد. ضبط إضاءة مسطحة واتجاهها إلى أعلى النموذج الثلاثي الأبعاد يضيف حجمًا أكبر للنموذج. تعديل المواد، ارتفاع الاستخراج واللون يجعل النموذج الثلاثي الأبعاد يبدو أكثر حيوية.
 ``` php 
 $imageScale = 2;
 
@@ -61,51 +55,49 @@ $presentation->save("sandbox_3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-إليك النموذج ثلاثي الأبعاد الناتج:
+
+هذا هو نموذج 3D الناتج:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## دوران ثلاثي الأبعاد
-يمكن عمل دوران النموذج ثلاثي الأبعاد في باوربوينت عبر قائمة:
+## **تدوير 3D**
+يمكن إجراء تدوير نموذج 3D في PowerPoint عبر القائمة:
 
 ![todo:image_alt_text](img_02_01.png)
 
-لدوران النموذج ثلاثي الأبعاد باستخدام واجهة برمجة تطبيقات Aspose.Slides، استخدم **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)**
-الطريقة، اضبط دوران الكاميرا بالنسبة للشكل ثلاثي الأبعاد:
-
+لتدوير نموذج 3D باستخدام Aspose.Slides API، استخدم طريقة **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)**، ثم اضبط دوران الكاميرا بالنسبة إلى الشكل ثلاثي الأبعاد:
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
-// ... اضبط معلمات المشهد ثلاثي الأبعاد الأخرى
+// ... اضبط باقي معلمات المشهد ثلاثي الأبعاد
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-## عمق ثلاثي الأبعاد وبروز
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-و**[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** تستخدم لإنشاء بروز على الشكل:
 
+## **عمق 3D واستخراج**
+طريقة **[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)** و **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** تُستخدم لإنشاء استخراج على الشكل:
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
 $shape->getThreeDFormat()->setExtrusionHeight(100);
 $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 128, 0, 128));
-# ... اضبط معلمات المشهد ثلاثي الأبعاد الأخرى
+# ... اضبط باقي معلمات المشهد ثلاثي الأبعاد
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-في باوربوينت، يتم تعيين عمق الشكل عبر:
+
+في PowerPoint، يتم تعيين عمق الشكل عبر:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## تدرج ثلاثي الأبعاد
-يمكن أن يجلب التدرج ثلاثي الأبعاد المزيد من الحجم لشكل باوربوينت ثلاثي الأبعاد:
-
+## **تدرج 3D**
+يمكن لتدرج 3D أن يضيف حجمًا أكبر إلى شكل PowerPoint ثلاثي الأبعاد:
 ``` php
 $imageScale = 2;
 
@@ -134,10 +126,11 @@ $thumbnail->dispose();
 $presentation->dispose();
 ```
 
-إليك كيف يبدو ذلك:
+
+هذا هو الشكل:
 
 ![todo:image_alt_text](img_02_03.png)
-
+  
 يمكنك أيضًا إنشاء تدرج صورة:
 ``` php
 $shape->getFillFormat()->setFillType(FillType::Picture);
@@ -148,19 +141,20 @@ $image->dispose();
 
 $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-# ... إعداد 3D: shape.ThreeDFormat.Camera، shape.ThreeDFormat.LightRig، shape.ThreeDFormat.Extrusion* الخصائص
+# ... إعداد ثلاثي الأبعاد: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* الخصائص
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-إليك النتيجة:
+
+هذا هو النتيجة:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## نص ثلاثي الأبعاد (WordArt)
-لإنشاء نص ثلاثي الأبعاد (WordArt)، اتبع ما يلي:
+## **نص 3D (WordArt)**
+لإنشاء نص ثلاثي الأبعاد (WordArt)، اتبع الخطوات التالية:
 ``` php
 $imageScale = 2;
 
@@ -180,7 +174,7 @@ $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternSty
 
 $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(128);
 $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-# إعداد تأثير تحويل "قوس لأعلى" لنص الـ WordArt
+# إعداد تأثير تحويل WordArt "Arch Up"
 $textFrameFormat->setTransform(TextShapeType::ArchUp);
 
 $textFrameFormat->getThreeDFormat()->setExtrusionHeight(3.5);
@@ -199,13 +193,21 @@ $presentation->save("text3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-إليك النتيجة:
+
+هذا هو النتيجة:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## غير مدعوم - قادم قريبًا
-الميزات التالية في باوربوينت ثلاثي الأبعاد غير مدعومة بعد:
-- حافة
-- مادة
-- محيط
-- إضاءة
+## **الأسئلة الشائعة**
+
+**هل سيتم حفظ تأثيرات ثلاثية الأبعاد عند تصدير العرض إلى صور/PDF/HTML؟**
+
+نعم. يقوم محرك Slides ثلاثي الأبعاد بتطبيق تأثيرات ثلاثية الأبعاد عند التصدير إلى الصيغ المدعومة ([images](/slides/ar/php-java/convert-powerpoint-to-png/), [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/), [HTML](/slides/ar/php-java/convert-powerpoint-to-html/), إلخ).
+
+**هل يمكنني استرجاع القيم "الفعّالة" (النهائية) لمعلمات 3D التي تأخذ في الاعتبار القوالب والوراثة وغيرها؟**
+
+نعم. توفر Slides واجهات برمجة تطبيقات ل[قراءة القيم الفعّالة](/slides/ar/php-java/shape-effective-properties/) (بما في ذلك للـ 3D—الإضاءة، الحواف، إلخ) حتى تتمكن من رؤية الإعدادات النهائية المطبقة.
+
+**هل تعمل تأثيرات 3D عند تحويل العرض إلى فيديو؟**
+
+نعم. عند [إنشاء إطارات للفيديو](/slides/ar/php-java/convert-powerpoint-to-video/)، يتم تطبيق تأثيرات 3D بنفس الطريقة كما هي في [الصور المصدرة](/slides/ar/php-java/convert-powerpoint-to-png/).

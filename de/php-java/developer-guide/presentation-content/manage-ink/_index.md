@@ -1,40 +1,50 @@
 ---
-title: Tinte verwalten
+title: Ink-Objekte in Präsentationen mit PHP verwalten
+linktitle: Ink verwalten
 type: docs
 weight: 95
 url: /de/php-java/manage-ink/
-keywords: "Tinte in PowerPoint, Tintenwerkzeuge, Java Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "Verwenden Sie Tintenwerkzeuge, um Objekte in PowerPoint Java zu zeichnen"
+keywords:
+- Tinte
+- Ink-Objekt
+- Ink-Spur
+- Ink verwalten
+- Ink zeichnen
+- Zeichnung
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Verwalten Sie PowerPoint-Ink-Objekte — erstellen, bearbeiten & gestalten digitale Tinte mit Aspose.Slides für PHP via Java. Erhalten Sie Code-Beispiele für Spuren, Pinselfarbe & Größe."
 ---
 
-PowerPoint bietet die Tintenfunktion, mit der Sie nicht-standardisierte Figuren zeichnen können, die verwendet werden können, um andere Objekte hervorzuheben, Verbindungen und Prozesse darzustellen und die Aufmerksamkeit auf bestimmte Elemente in einer Folie zu lenken.
+PowerPoint bietet die Ink‑Funktion, mit der Sie nicht standardisierte Figuren zeichnen können, die verwendet werden, um andere Objekte hervorzuheben, Verbindungen und Prozesse darzustellen und die Aufmerksamkeit auf bestimmte Elemente einer Folie zu lenken. 
 
-Aspose.Slides bietet alle benötigten Tintenarten (z. B. [Ink](https://reference.aspose.com/slides/php-java/aspose.slides/ink/) Klasse), um Tintenobjekte zu erstellen und zu verwalten.
+Aspose.Slides stellt alle Ink‑Typen (z. B. die Klasse [Ink](https://reference.aspose.com/slides/php-java/aspose.slides/ink/)) bereit, die Sie zum Erstellen und Verwalten von Ink‑Objekten benötigen.
 
-## **Unterschiede zwischen regulären Objekten und Tintenobjekten**
+## **Unterschiede zwischen regulären Objekten und Ink‑Objekten**
 
-Objekte auf einer PowerPoint-Folie werden typischerweise durch Formobjekte dargestellt. Ein Formobjekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) neben seinen Eigenschaften definiert. Letztere umfassen die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Für Informationen siehe [Shape Layout Format](https://docs.aspose.com/slides/php-java/shape-manipulations/#access-layout-formats-for-shape).
+Objekte auf einer PowerPoint‑Folie werden typischerweise durch Shape‑Objekte dargestellt. Ein Shape‑Objekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) zusammen mit seinen Eigenschaften definiert. Letzteres umfasst die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie unter [Shape Layout Format](https://docs.aspose.com/slides/php-java/shape-manipulations/#access-layout-formats-for-shape).
 
-Wenn PowerPoint jedoch mit einem Tintenobjekt zu tun hat, ignoriert es alle Eigenschaften des Objektrahmens (Containers) außer seiner Größe. Die Größe des Containerbereichs wird durch die Standardwerte `width` und `height` bestimmt:
+Wenn PowerPoint jedoch mit einem Ink‑Objekt arbeitet, ignoriert es alle Eigenschaften des Objektrahmens (Containers) außer seiner Größe. Die Größe des Containerbereichs wird durch die Standardwerte `width` und `height` bestimmt:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Tintenstriche**
+## **Inkshape‑Spuren**
 
-Ein Strich ist ein Grundelement oder Standard, der verwendet wird, um die Trajektorie eines Stiftes aufzuzeichnen, während ein Benutzer digitale Tinte schreibt. Striche sind Aufzeichnungen, die eine Sequenz von verbundenen Punkten beschreiben.
+Ein Trace ist ein Basiselement oder Standard, das verwendet wird, um die Bahn eines Stiftes aufzuzeichnen, wenn ein Benutzer digitale Tinte schreibt. Traces sind Aufzeichnungen, die Sequenzen von verbundenen Punkten beschreiben. 
 
-Die einfachste Form der Kodierung gibt die X- und Y-Koordinaten jedes Probenpunkts an. Wenn alle verbundenen Punkte gerendert werden, erzeugen sie ein Bild wie dieses:
+Die einfachste Form der Kodierung gibt die X‑ und Y‑Koordinaten jedes Abtastpunkts an. Wenn alle verbundenen Punkte gerendert werden, entsteht ein Bild wie dieses:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Pinsel Eigenschaften zum Zeichnen
+## **Pinsel‑Eigenschaften für das Zeichnen**
 
-Sie können einen Pinsel verwenden, um Linien zu ziehen, die die Punkte von Strichelementen verbinden. Der Pinsel hat seine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen.
+Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte von Trace‑Elementen verbinden. Der Pinsel hat seine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen. 
 
-### **Tintenpinsel-Farbe festlegen**
+### **Ink‑Pinselfarbe festlegen**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
-
+Dieser PHP‑Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -50,10 +60,10 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Farbe für einen Pinsel festlegen:
   }
 ```
 
-### **Tintenpinsel-Größe festlegen**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
+### **Ink‑Pinselgröße festlegen** 
 
+Dieser PHP‑Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -69,25 +79,26 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Größe für einen Pinsel festlegen:
   }
 ```
 
-Generell stimmen die Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Wenn jedoch die Breite und Höhe des Pinsels übereinstimmen, zeigt PowerPoint seine Größe so an:
+
+Im Allgemeinen stimmen die Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Stimmen jedoch Breite und Höhe des Pinsels überein, zeigt PowerPoint die Größe wie folgt an:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-Zur Verdeutlichung erhöhen wir die Höhe des Tintenobjekts und überprüfen die wichtigsten Abmessungen:
+Zur Verdeutlichung erhöhen wir die Höhe des Ink‑Objekts und betrachten die wichtigen Abmessungen: 
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-Der Container (Rahmen) berücksichtigt nicht die Größe der Pinsel – er geht immer davon aus, dass die Dicke der Linie null ist (siehe das letzte Bild).
+Der Container (Rahmen) berücksichtigt die Größe der Pinsel nicht – er geht immer davon aus, dass die Linienstärke null ist (siehe das letzte Bild). 
 
-Um daher den sichtbaren Bereich des gesamten Tintenobjekts zu bestimmen, müssen wir die Pinselgröße der Strichobjekte berücksichtigen. Hier wurde das Zielobjekt (das handgeschriebene Textstrichobjekt) auf die Größe des Containers (Rahmens) skaliert. Wenn sich die Größe des Containers (Rahmens) ändert, bleibt die Pinselgröße konstant und umgekehrt.
+Daher müssen wir zur Bestimmung des sichtbaren Bereichs des gesamten Ink‑Objekts die Pinselgröße der Trace‑Objekte berücksichtigen. Hier wurde das Zielobjekt (das Trace‑Objekt des handgeschriebenen Textes) auf die Größe des Containers (Rahmens) skaliert. Ändert sich die Größe des Containers (Rahmens), bleibt die Pinselgröße konstant und umgekehrt. 
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint zeigt dasselbe Verhalten im Umgang mit Texten:
+PowerPoint zeigt dasselbe Verhalten beim Umgang mit Texten:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**Weiterführende Informationen**
+**Weiterführende Literatur**
 
-* Um mehr über Formen im Allgemeinen zu erfahren, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/php-java/powerpoint-shapes/).
-* Für weitere Informationen zu effektiven Werten siehe [Shape Effective Properties](https://docs.aspose.com/slides/php-java/shape-effective-properties/#getting-effective-font-height-value).
+* Um allgemeine Informationen zu Shapes zu erhalten, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/php-java/powerpoint-shapes/).
+* Weitere Informationen zu effektiven Werten finden Sie unter [Shape Effective Properties](https://docs.aspose.com/slides/php-java/shape-effective-properties/#getting-effective-font-height-value).

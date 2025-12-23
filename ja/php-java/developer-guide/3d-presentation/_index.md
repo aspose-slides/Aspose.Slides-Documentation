@@ -1,32 +1,34 @@
 ---
-title: 3D プレゼンテーション
+title: PHPで3Dプレゼンテーションを作成
+linktitle: 3Dプレゼンテーション
 type: docs
 weight: 232
 url: /ja/php-java/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3D プレゼンテーション
-- 3D 回転
-- 3D 深さ
-- 3D 押し出し
-- 3D グラデーション
-- 3D テキスト
-- PowerPoint プレゼンテーション
+- 3Dプレゼンテーション
+- 3D回転
+- 3D奥行き
+- 3D押し出し
+- 3Dグラデーション
+- 3Dテキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - PHP
-- Aspose.Slides for PHP via Java
-description: "PHP における 3D PowerPoint プレゼンテーション"
+- Aspose.Slides
+description: "Aspose.Slides を使用して PHP でインタラクティブな 3D プレゼンテーションを簡単に作成できます。PowerPoint および OpenDocument 形式へ迅速にエクスポートし、さまざまな用途に活用できます。"
 ---
 
-## 概要
-Aspose.Slides Java 20.9 以降、プレゼンテーションで 3D を作成することが可能になりました。PowerPoint 3D は、プレゼンテーションに命を与える方法です。3D プレゼンテーションを使用して実世界のオブジェクトを表示したり、将来のビジネスプロジェクトの 3D モデル、建物やその内装の 3D モデル、ゲームキャラクターの 3D モデル、またはデータの 3D 表現を示したりすることができます。
+## **概要**
+Aspose.Slides Java 20.9 以降、プレゼンテーションで 3D を作成できるようになりました。PowerPoint 3D は、プレゼンテーションに命を吹き込む手段です。3D プレゼンテーションで実世界のオブジェクトを表示したり、将来のビジネスプロジェクトの 3D モデル、建物やその内部の 3D モデル、ゲームキャラクターの 3D モデル、あるいはデータの 3D 表現を示したりできます。
 
-PowerPoint の 3D モデルは、2D シェイプから作成でき、次のエフェクトを適用することができます: 3D 回転、3D 深さおよび押し出し、3D グラデーション、3D テキストなど。シェイプに適用される 3D 機能のリストは、**[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** クラスで確認できます。このクラスのインスタンスは次の方法で取得できます：
+PowerPoint の 3D モデルは、2D シェイプから作成でき、次のような効果を適用します：3D 回転、3D 奥行きと押し出し、3D グラデーション、3D テキストなど。シェイプに適用できる 3D 機能の一覧は **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** クラスにあります。このクラスのインスタンスは次の方法で取得できます。
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** メソッドを使用して PowerPoint 3D モデルを作成します。
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** メソッドを使用して 3D テキスト（WordArt）を作成します。
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** メソッドで PowerPoint 3D モデルを作成します。
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** メソッドで 3D テキスト（WordArt）を作成します。
 
-**[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** に実装されているすべてのエフェクトは、シェイプとテキストの両方に使用できます。次に、**[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** クラスの主要なメソッドをざっと見てみましょう。次の例では、テキストを含む長方形の 2D シェイプを作成します。シェイプにカメラビューを取得し、その回転を変更して 3D モデルのように見せます。平らな光を設定し、その方向を 3D モデルの上部に向けることで、モデルにより多くのボリュームをもたらします。変更されたマテリアル、押し出し高さおよび色により、3D モデルがより生き生きと見えるようになります。  
+**[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** で実装されているすべての効果は、シェイプとテキストの両方で使用できます。次に **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** クラスの主なメソッドを簡単に見てみましょう。次の例では、テキストを含む矩形の 2D シェイプを作成します。シェイプにカメラビューを取得し、回転させて 3D モデルのように見せます。平坦な光とその方向を 3D モデルの上部に設定し、モデルにボリュームを付加します。素材、押し出し高さ、色を変更すると、3D モデルがより生き生きとします。
 ``` php 
 $imageScale = 2;
 
@@ -53,49 +55,49 @@ $presentation->save("sandbox_3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-こちらが結果の 3D モデルです：
+
+以下は結果の 3D モデルです：
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D 回転
-PowerPoint での 3D モデルの回転はメニューで行えます：
+## **3D 回転**
+PowerPoint で 3D モデルを回転させるには、メニューを使用します：
 
 ![todo:image_alt_text](img_02_01.png)
 
-Aspose.Slides API を使用して 3D モデルを回転させるには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)** メソッドを使用し、3D シェイプに対するカメラの回転を設定します：
-
+Aspose.Slides API で 3D モデルを回転させるには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)** メソッドを使用し、カメラの回転を 3D シェイプに対して設定します：
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
-// ... その他の 3D シーンパラメータを設定
+// ... 他の3Dシーンパラメータを設定
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-## 3D 深さと押し出し
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)** および **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** メソッドは、シェイプに押し出しを作成するために使用されます：
 
+## **3D 奥行きと押し出し**
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)** と **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** メソッドは、シェイプに押し出しを作成するために使用します：
 ``` php
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
 $shape->getThreeDFormat()->setExtrusionHeight(100);
 $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 128, 0, 128));
-# ... その他の 3D シーンパラメータを設定
+# ... 他の 3D シーン パラメータを設定
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-PowerPoint では、シェイプの深さは次の方法で設定されます：
+
+PowerPoint では、シェイプの奥行きは次のように設定します：
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3D グラデーション
-3D グラデーションは PowerPoint の 3D シェイプにより多くのボリュームをもたらすことができます：
-
+## **3D グラデーション**
+3D グラデーションは PowerPoint の 3D シェイプにボリューム感を付与します：
 ``` php
 $imageScale = 2;
 
@@ -124,11 +126,12 @@ $thumbnail->dispose();
 $presentation->dispose();
 ```
 
-このように見えます：
+
+実際の見え方は次の通りです：
 
 ![todo:image_alt_text](img_02_03.png)
-
-画像のグラデーションも作成できます：
+  
+画像グラデーションも作成できます：
 ``` php
 $shape->getFillFormat()->setFillType(FillType::Picture);
 
@@ -138,19 +141,20 @@ $image->dispose();
 
 $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-# ... 3D をセットアップ: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* プロパティ
+# ... 3D を設定: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* プロパティ
 
 $thumbnail = $slide->getImage($imageScale, $imageScale);
 $thumbnail->save("sample_3d.png", ImageFormat::Png);
 $thumbnail->dispose();
 ```
 
-こちらが結果です：
+
+結果は以下の通りです：
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D テキスト (WordArt)
-3D テキスト (WordArt) を作成するには、次の手順を実行します：
+## **3D テキスト（WordArt）**
+3D テキスト（WordArt）を作成するには、以下の手順を実行します：
 ``` php
 $imageScale = 2;
 
@@ -160,7 +164,7 @@ $slide = $presentation->getSlides()->get_Item(0);
 $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
 $shape->getFillFormat()->setFillType(FillType::NoFill);
 $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
-$shape->getTextFrame()->setText("3D テキスト");
+$shape->getTextFrame()->setText("3D Text");
 
 $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
@@ -170,7 +174,7 @@ $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternSty
 
 $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(128);
 $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-# "アーチ上" WordArt 変形エフェクトを設定
+# "Arch Up" WordArt の変形効果を設定
 $textFrameFormat->setTransform(TextShapeType::ArchUp);
 
 $textFrameFormat->getThreeDFormat()->setExtrusionHeight(3.5);
@@ -189,13 +193,21 @@ $presentation->save("text3d.pptx", SaveFormat::Pptx);
 $presentation->dispose();
 ```
 
-こちらが結果です：
+
+結果は次のとおりです：
 
 ![todo:image_alt_text](img_02_05.png)
 
-## 未サポート - 近日公開
-次の PowerPoint 3D 機能はまだサポートされていません： 
-- ベベル
-- マテリアル
-- 輪郭
-- 照明
+## **FAQ**
+
+**プレゼンテーションを画像/PDF/HTML にエクスポートする際に、3D 効果は保持されますか？**
+
+はい。Slides の 3D エンジンは、サポートされている形式（[画像](/slides/ja/php-java/convert-powerpoint-to-png/)、[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/)、[HTML](/slides/ja/php-java/convert-powerpoint-to-html/) など）へのエクスポート時に 3D 効果をレンダリングします。
+
+**テーマや継承などを考慮した「実際の」3D パラメータ値（最終値）を取得できますか？**
+
+はい。Slides は [実際の値を読み取る](/slides/ja/php-java/shape-effective-properties/) API を提供しており、3D の照明やベベルなども含めて最終的に適用された設定を確認できます。
+
+**プレゼンテーションを動画に変換する際に、3D 効果は機能しますか？**
+
+はい。動画用フレームを生成する際（[動画への変換](/slides/ja/php-java/convert-powerpoint-to-video/)）も、3D 効果はエクスポートされた画像と同様にレンダリングされます。
