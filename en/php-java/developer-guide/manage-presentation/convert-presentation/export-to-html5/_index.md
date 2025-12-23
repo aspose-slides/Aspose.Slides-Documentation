@@ -123,7 +123,7 @@ This PHP code demonstrates the PowerPoint to HTML5 Slide View export process:
   }
 ```
 
-## Convert a Presentation to an HTML5 Document with Comments
+## **Convert Presentations to HTML5 Documents with Comments**
 
 Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
 
@@ -146,3 +146,17 @@ $presentation->dispose();
 The "output.html" document is shown in the image below.
 
 ![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **FAQ**
+
+**Can I control whether object animations and slide transitions will play in HTML5?**
+
+Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) and [slide transitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/).
+
+**Is the output of comments supported, and where can they be placed relative to the slide?**
+
+Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/#setSlidesLayoutOptions) for notes and comments.
+
+**Can I skip links that invoke JavaScript for security or CSP reasons?**
+
+Yes, there is a [setting](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) that allows you to skip hyperlinks with JavaScript calls during saving. This helps comply with strict security policies.

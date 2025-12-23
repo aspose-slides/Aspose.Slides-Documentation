@@ -20,7 +20,7 @@ keywords:
 description: "Modernize slide image processing by replacing deprecated imaging APIs with the PHP Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
-## Introduction
+## **Introduction**
 
 Historically, Aspose Slides has a dependency on java.awt and has in the public API the following classes from there:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
@@ -32,7 +32,7 @@ In order to get rid of dependencies on these classes, we added the so-called "Mo
 
 Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
 
-## Modern API
+## **Modern API**
 
 Added the following classes and enums to the public API:
 
@@ -74,7 +74,7 @@ $slideImage->dispose();
 $pres->dispose();
 ```
 
-## Replacing old code with Modern API
+## **Replacing Old Code with Modern API**
 
 In general, you will need to replace the call to the old method using ImageIO with the new one.
 
@@ -94,7 +94,7 @@ $slideImage->save("image.png", ImageFormat::Png);
 $slideImage->dispose();
 ```
 
-### Getting a slide thumbnail
+### **Getting a Slide Thumbnail**
 
 Code using a deprecated API:
 
@@ -129,7 +129,7 @@ $slideImage->dispose();
 $pres->dispose();
 ```
 
-### Getting a shape thumbnail
+### **Getting a Shape Thumbnail**
 
 Code using a deprecated API:
 
@@ -164,7 +164,7 @@ $shapeImage->dispose();
 $pres->dispose();
 ```
 
-### Getting a presentation thumbnail
+### **Getting a Presentation Thumbnail**
 
 Code using a deprecated API:
 
@@ -213,7 +213,7 @@ for ($i = 0; $i < count(java_values($images)); $i++)
 $pres->dispose();
 ```
 
-### Adding a picture to a presentation
+### **Adding a Picture to a Presentation**
 
 Code using a deprecated API:
 
@@ -254,9 +254,9 @@ $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectang
 $pres->dispose();
 ```
 
-## Methods to be removed and their replacement in Modern API
+## **Methods to Be Removed and Their Replacement in Modern API**
 
-### Presentation
+### **Presentation**
 | Method Signature                               | Replacement Method Signature                             |
 |-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
@@ -266,13 +266,13 @@ $pres->dispose();
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### Shape
+### **Shape**
 | Method Signature                                                      | Replacement Method Signature                                       |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
 | public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                           |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### Slide
+### **Slide**
 | Method Signature                                                      | Replacement Method Signature                                           |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
@@ -286,34 +286,34 @@ $pres->dispose();
 | public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely  |
 | public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely  |
 
-### Output
+### **Output**
 | Method Signature                                                | Replacement Method Signature                                |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
-### ImageCollection
+### **ImageCollection**
 | Method Signature                          | Replacement Method Signature               |
 |-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
+### **PPImage**
 | Method Signature                     | Replacement Method Signature   |
 |--------------------------------------|-----------------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
-### PatternFormat
+### **PatternFormat**
 | Method Signature                                          | Replacement Method Signature                        |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) |public final IImage getTile(Color background, Color foreground) |
 
-### PatternFormatEffectiveData
+### **PatternFormatEffectiveData**
 | Method Signature                                          | Replacement Method Signature                        |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
 
-## API support for Graphics2D will be discontinued
+## **API Support for Graphics2D Will Be Discontinued**
 
 Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and their support will be removed from the public API.
 
@@ -325,3 +325,16 @@ The part of the API that uses it will be removed:
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
+## **FAQ**
+
+**Why was java.awt.Graphics2D dropped?**
+
+Support for `Graphics2D` is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). All rendering methods to `Graphics2D` will be removed.
+
+**What is the practical benefit of IImage compared to BufferedImage?**
+
+[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
+
+**Will the Modern API affect the performance of generating thumbnails?**
+
+Switching from `getThumbnail` to `getImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

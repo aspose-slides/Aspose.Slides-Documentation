@@ -106,7 +106,7 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
   }
 ```
 
-## **Render Comments when saving Presentation into Image**
+## **Render Comments When Saving Slides as Images**
 Aspose.Slides for PHP via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This PHP code demonstrates the operation:
 
 ```php
@@ -141,7 +141,21 @@ Using the same principles described in this article, you can convert images from
 
 {{% /alert %}}
 
-## **See also**
+## **FAQ**
+
+**Does this method support batch conversion?**
+
+Yes, Aspose.Slides allows batch conversion of multiple slides to JPG in a single operation.
+
+**Does the conversion support SmartArt, charts, and other complex objects?**
+
+Yes, Aspose.Slides renders all content, including SmartArt, charts, tables, shapes, and more. However, the rendering accuracy may vary slightly compared to PowerPoint, especially when using custom or missing fonts.
+
+**Are there any limitations on the number of slides that can be processed?**
+
+Aspose.Slides itself does not impose any strict limits on the number of slides you can process. However, you may encounter out-of-memory error when working with large presentations or high-resolution images.
+
+## **See Also**
 
 See other options to convert PPT/PPTX into image like:
 

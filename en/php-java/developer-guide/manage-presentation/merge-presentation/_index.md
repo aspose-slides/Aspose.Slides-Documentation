@@ -95,7 +95,7 @@ This PHP code shows you how to merge presentations:
   }
 ```
 
-## **Merge Presentations with Slide Master**
+## **Merge Presentations with a Slide Master**
 
 Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
 
@@ -130,7 +130,7 @@ The slide layout for the slide master is determined automatically. When an appro
 
 If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging.
 
-## **Merge Specific Slides From Presentations**
+## **Merge Specific Slides from Presentations**
 
 Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for PHP via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
 
@@ -172,7 +172,7 @@ try {
 }
 ```
 
-## **Merge Presentations With Slide Layout**
+## **Merge Presentations with a Slide Layout**
 
 This PHP code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
@@ -197,7 +197,7 @@ This PHP code shows you how to combine slides from presentations while applying 
   }
 ```
 
-## **Merge Presentations With Different Slide Sizes**
+## **Merge Presentations with Different Slide Sizes**
 
 {{% alert title="Note" color="warning" %}} 
 
@@ -231,7 +231,7 @@ This sample code demonstrates the described operation:
   }
 ```
 
-## **Merge Slides to Presentation Section**
+## **Merge Slides to a Presentation Section**
 
 This PHP code shows you how to merge a specific slide to a section in a presentation:
 
@@ -267,3 +267,16 @@ Check out the [Aspose FREE Online Merger](https://products.aspose.app/slides/mer
 
 [![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
 
+## **FAQ**
+
+**Are there any limitations on the number of slides when merging presentations?**
+
+No strict limitations. Aspose.Slides can handle large files, but performance depends on the size and system resources. For very large presentations, it's recommended to use a 64-bit JVM and allocate sufficient heap memory.
+
+**Can I merge presentations with embedded video or audio?**
+
+Yes, Aspose.Slides preserves multimedia content embedded in slides, but the final presentation might become significantly larger.
+
+**Will fonts be preserved when merging presentations?**
+
+Yes. Fonts used in source presentations are preserved in the output file, assuming they are installed on the system or [embedded](/slides/php-java/embedded-font/).

@@ -64,7 +64,7 @@ This PHP code shows you how to convert a PowerPoint presentation to PNG:
   }
 ```
 
-## **Convert PowerPoint to PNG With Custom Dimensions**
+## **Convert PowerPoint to PNG with Custom Dimensions**
 
 If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
 
@@ -93,7 +93,7 @@ This code  demonstrates the described operation:
   }
 ```
 
-## **Convert PowerPoint to PNG With Custom Size**
+## **Convert PowerPoint to PNG with Custom Size**
 
 If you want to obtain PNG files around a certain size, you can pass your preferred `width` and `height` arguments for `ImageSize`. 
 
@@ -121,3 +121,16 @@ This code shows you how to convert a PowerPoint to PNG while specifying the size
   }
 ```
 
+## **FAQ**
+
+**How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?**
+
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/php-java/create-shape-thumbnails/); you can render a shape to a PNG image.
+
+**Is parallel conversion supported on a server?**
+
+Yes, but [don’t share](/slides/php-java/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+
+**What are the trial-version limitations when exporting to PNG?**
+
+The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/php-java/licensing/) until a license is applied.

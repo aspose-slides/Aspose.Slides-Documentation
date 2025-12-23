@@ -35,7 +35,7 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **Create a Text Box on a Slide**
 
 To create a textbox on a slide, go through these steps:
 
@@ -74,7 +74,7 @@ This PHP code—an implementation of the steps above—shows you how to add text
   }
 ```
 
-## **Check for Text Box Shape**
+## **Check for a Text Box Shape**
 
 Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--) method from the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) class, allowing you to examine shapes and identify text boxes.
 
@@ -128,7 +128,7 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() returns false
 ```
 
-## **Add Column In Text Box**
+## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
@@ -159,7 +159,7 @@ This code  demonstrates the described operation:
 ```
 
 
-## **Add Column In Text Frame**
+## **Add Columns to a Text Frame**
 Aspose.Slides for PHP via Java provides the [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
 
 This PHP code shows you how to add a column inside a text frame:
@@ -251,7 +251,7 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
   }
 ```
 
-## **Add Text Box with Hyperlink** 
+## **Add a Text Box with a Hyperlink** 
 
 You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
 
@@ -293,3 +293,13 @@ This PHP code—an implementation of the steps above—shows you how to add a te
     }
   }
 ```
+
+## **FAQ**
+
+**What’s the difference between a text box and a text placeholder when working with master slides?**
+
+A [placeholder](/slides/php-java/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
+
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+
+Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) by traversing their collections separately or skipping those object types.

@@ -86,6 +86,12 @@ This PHP code demonstrates the HTML to PowerPoint operation:
   }
 ```
 
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfimportoptions/) includes a [setDetectTables](https://reference.aspose.com/slides/php-java/aspose.slides/pdfimportoptions/#setDetectTables) method that enables table recognition. The effectiveness depends on the PDF’s structure.
+
 {{% alert title="Note" color="warning" %}} 
 
 You may also use Aspose.Slides to convert HTML to other popular file formats: 

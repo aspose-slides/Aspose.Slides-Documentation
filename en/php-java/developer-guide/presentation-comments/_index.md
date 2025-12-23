@@ -26,7 +26,7 @@ description: "Master presentation comments with Aspose.Slides for PHP via Java: 
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
-### **Why Add Comments to Presentations?**
+## **Why Add Comments to Presentations?**
 
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
@@ -37,7 +37,7 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for PHP 
 * The  [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc.
 * The [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
-## **Add Slide Comment**
+## **Add Slide Comments**
 This PHP code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```php
@@ -152,7 +152,7 @@ This PHP code shows you how to add comments and get replies to them:
 
 {{% /alert %}}
 
-## **Add Modern Comment**
+## **Add Modern Comments**
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
@@ -173,7 +173,7 @@ This PHP code shows you how to add a modern comment to a slide in a PowerPoint p
   }
 ```
 
-## **Remove Comment**
+## **Remove Comments**
 
 ### **Delete All Comments and Authors**
 
@@ -228,3 +228,16 @@ This PHP code shows you how to delete specific comments on a slide:
   }
 ```
 
+## **FAQ**
+
+**Does Aspose.Slides support a status like 'resolved' for modern comments?**
+
+Yes. [Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) expose a [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) method; you can write a [comment’s state](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) (for example, mark it as resolved), and this state is saved in the file and recognized by PowerPoint.
+
+**Are threaded discussions (reply chains) supported, and is there a nesting limit?**
+
+Yes. Each comment can reference its [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), enabling arbitrary reply chains. The API does not declare a specific nesting depth limit.
+
+**In what coordinate system is a comment marker’s position defined on a slide?**
+
+The position is stored as a floating-point point in the slide’s coordinate system. This lets you place the comment marker precisely where you need it.

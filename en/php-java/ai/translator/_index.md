@@ -28,7 +28,7 @@ description: "Translate PowerPoint slides with AI using Aspose.Slides for PHP. L
 
 Aspose.Slides is a powerful API for programmatically managing PowerPoint presentations. In addition to creating, editing, and converting slides, it offers AI-driven features - such as the Presentation Translation API for multilingual slide content.
 
-## **How it Works**
+## **How It Works**
 
 Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/php-java/aspose.slides/slidesaiagent/) class to communicate with AI services.
 

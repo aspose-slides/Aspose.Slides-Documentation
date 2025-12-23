@@ -29,7 +29,7 @@ keywords:
 description: "Easily convert PowerPoint presentations (PPT, PPTX) to animated GIFs with Aspose.Slides for PHP via Java. Fast, high-quality results."
 ---
 
-## Converting Presentations to Animated GIF Using Default Settings ##
+## **Convert Presentations to Animated GIF Using Default Settings**
 
 This sample code  shows you how to convert a presentation to animated GIF using standard settings:
 
@@ -52,7 +52,7 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 
 {{% /alert %}} 
 
-## Converting Presentations to Animated GIF Using Custom Settings ##
+## **Convert Presentations to Animated GIF Using Custom Settings**
 This sample code shows you how to convert a presentation to animated GIF using custom settings :
 
 ```php
@@ -78,3 +78,13 @@ This sample code shows you how to convert a presentation to animated GIF using c
 You may want to check out a FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter developed by Aspose. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**What if the fonts used in the presentation aren’t installed on the system?**
+
+Install the missing fonts or [configure fallback fonts](/slides/php-java/powerpoint-fonts/). Aspose.Slides will substitute, but the appearance may differ. For branding, always ensure the required typefaces are explicitly available.
+
+**Can I overlay a watermark on the GIF frames?**
+
+Yes. [Add a semi-transparent object/logo](/slides/php-java/watermark/) to the master slide or to individual slides before export — the watermark will appear on every frame.

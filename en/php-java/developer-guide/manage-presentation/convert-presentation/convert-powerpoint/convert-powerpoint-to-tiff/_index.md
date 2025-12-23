@@ -154,16 +154,16 @@ Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
-**1. Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
+**Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
 
 Yes. Aspose.Slides allows you to convert individual slides from PowerPoint and OpenDocument presentations into TIFF images separately.
 
-**2. Is there any limit to the number of slides when converting a presentation to TIFF?**
+**Is there any limit to the number of slides when converting a presentation to TIFF?**
 
 No, Aspose.Slides does not impose any restrictions on the number of slides. You can convert presentations of any size into TIFF format.
 
-**3. Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
+**Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
 
 No, TIFF is a static image format. Therefore, animations and transition effects are not preserved; only static snapshots of slides are exported.

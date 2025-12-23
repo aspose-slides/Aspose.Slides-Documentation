@@ -135,7 +135,7 @@ $loadOptions->setResourceLoadingCallback($loadingHandler);
 $presentation = new Presentation("Sample.pptx", $loadOptions);
 ```
 
-## **Load Presentations Without Embedded Binary Objects**
+## **Load Presentations without Embedded Binary Objects**
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 
@@ -158,3 +158,17 @@ try {
     $presentation->dispose();
 }
 ```
+
+## **FAQ**
+
+**How can I tell that a file is corrupted and can’t be opened?**
+
+You’ll get a parsing/format validation exception during load. Such errors often mention an invalid ZIP structure or broken PowerPoint records.
+
+**What happens if required fonts are missing when opening?**
+
+The file will open, but later [rendering/export](/slides/php-java/convert-presentation/) may substitute fonts. [Configure font substitutions](/slides/php-java/font-substitution/) or [add the required fonts](/slides/php-java/custom-font/) to the runtime environment.
+
+**What about embedded media (video/audio) when opening?**
+
+They become available as presentation resources. If media are referenced via external paths, ensure those paths are accessible in your environment; otherwise [rendering/export](/slides/php-java/convert-presentation/) may omit the media.
