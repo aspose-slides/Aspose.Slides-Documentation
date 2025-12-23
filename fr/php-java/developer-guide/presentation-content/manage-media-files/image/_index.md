@@ -1,39 +1,60 @@
 ---
-title: Image
+title: Optimiser la gestion des images dans les présentations avec PHP
+linktitle: Gérer les images
 type: docs
 weight: 10
 url: /fr/php-java/image/
-description: Travailler avec des images dans les diapositives dans les présentations PowerPoint en utilisant PHP. Ajouter des images depuis le disque ou depuis le web dans les diapositives PowerPoint en utilisant PHP. Ajouter des images aux modèles de diapositives ou en tant qu'arrière-plan de diapositive en utilisant PHP. Ajouter du SVG à la présentation PowerPoint en utilisant PHP. Convertir le SVG en formes dans PowerPoint en utilisant PHP. Ajouter des images en tant qu'EMF dans les diapositives en utilisant PHP.
+keywords:
+- ajouter image
+- ajouter photo
+- ajouter bitmap
+- remplacer image
+- remplacer photo
+- depuis le web
+- arrière-plan
+- ajouter PNG
+- ajouter JPG
+- ajouter SVG
+- ajouter EMF
+- ajouter WMF
+- ajouter TIFF
+- PowerPoint
+- OpenDocument
+- présentation
+- EMF
+- SVG
+- PHP
+- Aspose.Slides
+description: "Simplifiez la gestion des images dans PowerPoint et OpenDocument avec Aspose.Slides pour PHP via Java, en optimisant les performances et en automatisant votre flux de travail."
 ---
 
-## **Images dans les diapositives dans les présentations**
+## **Images dans les diapositives de présentation**
 
-Les images rendent les présentations plus engageantes et intéressantes. Dans Microsoft PowerPoint, vous pouvez insérer des images à partir d'un fichier, d'internet ou d'autres emplacements dans les diapositives. De même, Aspose.Slides vous permet d'ajouter des images aux diapositives de vos présentations par différents procédés.
+Les images rendent les présentations plus attrayantes et intéressantes. Dans Microsoft PowerPoint, vous pouvez insérer des images depuis un fichier, Internet ou d’autres emplacements sur les diapositives. De même, Aspose.Slides vous permet d’ajouter des images aux diapositives de vos présentations via différentes procédures. 
 
-{{% alert title="Conseil" color="primary" %}}
+{{% alert  title="Astuce" color="primary" %}} 
 
-Aspose propose des convertisseurs gratuits—[JPEG vers PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) et [PNG vers PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—qui permettent aux personnes de créer rapidement des présentations à partir d'images.
+Aspose propose des convertisseurs gratuits—[JPEG vers PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) et [PNG vers PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—qui permettent de créer rapidement des présentations à partir d’images. 
 
-{{% /alert %}}
+{{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
 
-Si vous voulez ajouter une image en tant qu'objet de cadre—surtout si vous prévoyez d'utiliser les options de mise en forme standard pour changer sa taille, ajouter des effets, etc.—voir [Cadre d'image](https://docs.aspose.com/slides/php-java/picture-frame/).
+Si vous souhaitez ajouter une image en tant qu’objet image—surtout si vous prévoyez d’utiliser les options de mise en forme standard pour modifier sa taille, ajouter des effets, etc.—voir [Cadre d’image](https://docs.aspose.com/slides/php-java/picture-frame/).
+
+{{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}}
+
+Vous pouvez manipuler les opérations d’entrée/sortie impliquant des images et des présentations PowerPoint pour convertir une image d’un format à un autre. Consultez ces pages : convertir [image en JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); convertir [JPG en image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); convertir [JPG en PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), convertir [PNG en JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); convertir [PNG en SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), convertir [SVG en PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-{{% alert title="Remarque" color="warning" %}}
-
-Vous pouvez manipuler les opérations d'entrée/sortie impliquant des images et des présentations PowerPoint pour convertir une image d'un format à un autre. Voir ces pages : convertir [image en JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/) ; convertir [JPG en image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/) ; convertir [JPG en PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/) ; convertir [PNG en JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/) ; convertir [PNG en SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/) ; convertir [SVG en PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides prend en charge les opérations avec des images dans ces formats populaires : JPEG, PNG, GIF, et d'autres.
+Aspose.Slides prend en charge les opérations avec des images dans ces formats populaires : JPEG, PNG, GIF et autres. 
 
 ## **Ajouter des images stockées localement aux diapositives**
 
-Vous pouvez ajouter une ou plusieurs images sur votre ordinateur à une diapositive dans une présentation. Ce code d'exemple vous montre comment ajouter une image à une diapositive :
-
+Vous pouvez ajouter une ou plusieurs images de votre ordinateur sur une diapositive d’une présentation. Ce code d’exemple vous montre comment ajouter une image à une diapositive :
 ```php
   $pres = new Presentation();
   try {
@@ -56,17 +77,17 @@ Vous pouvez ajouter une ou plusieurs images sur votre ordinateur à une diaposit
   }
 ```
 
-## **Ajouter des images depuis le web aux diapositives**
 
-Si l'image que vous souhaitez ajouter à une diapositive n'est pas disponible sur votre ordinateur, vous pouvez ajouter l'image directement depuis le web.
+## **Ajouter des images depuis le Web aux diapositives**
 
-Ce code d'exemple vous montre comment ajouter une image depuis le web à une diapositive :
+Si l’image que vous souhaitez ajouter à une diapositive n’est pas disponible sur votre ordinateur, vous pouvez l’ajouter directement depuis le web. 
 
+Ce code d’exemple vous montre comment ajouter une image depuis le web à une diapositive :
 ```php
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REMPLACER PAR URL]");
+    $imageUrl = new URL("[REPLACE WITH URL]");
     $connection = $imageUrl->openConnection();
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
@@ -96,12 +117,12 @@ Ce code d'exemple vous montre comment ajouter une image depuis le web à une dia
   }
 ```
 
-## **Ajouter des images aux modèles de diapositives**
 
-Un modèle de diapositive est la diapositive supérieure qui stocke et contrôle des informations (thème, mise en page, etc.) sur toutes les diapositives en dessous. Ainsi, lorsque vous ajoutez une image à un modèle de diapositive, cette image apparaît sur chaque diapositive sous ce modèle de diapositive.
+## **Ajouter des images aux maîtres de diapositive**
 
-Ce code d'exemple Java vous montre comment ajouter une image à un modèle de diapositive :
+Un maître de diapositive est la diapositive supérieure qui stocke et contrôle les informations (thème, mise en page, etc.) de toutes les diapositives qui en dépendent. Ainsi, lorsque vous ajoutez une image à un maître de diapositive, cette image apparaît sur chaque diapositive sous ce maître. 
 
+Ce code d’exemple Java vous montre comment ajouter une image à un maître de diapositive :
 ```php
   $pres = new Presentation();
   try {
@@ -125,22 +146,23 @@ Ce code d'exemple Java vous montre comment ajouter une image à un modèle de di
   }
 ```
 
-## **Ajouter des images comme arrière-plan de diapositive**
 
-Vous pouvez décider d'utiliser une image comme arrière-plan pour une diapositive spécifique ou plusieurs diapositives. Dans ce cas, vous devez voir *[Définir des images comme arrière-plans pour les diapositives](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)*.
+## **Ajouter des images en tant qu’arrière‑plan de diapositive**
 
-## **Ajouter du SVG aux présentations**
-Vous pouvez ajouter ou insérer n'importe quelle image dans une présentation en utilisant la méthode [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) qui appartient à l'interface [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+Vous pouvez choisir d’utiliser une image comme arrière‑plan d’une diapositive spécifique ou de plusieurs diapositives. Dans ce cas, consultez *[Définir des images comme arrière‑plans pour les diapositives](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)*.
 
-Pour créer un objet image basé sur une image SVG, vous pouvez le faire de cette manière :
+## **Ajouter des SVG aux présentations**
+Vous pouvez ajouter ou insérer n’importe quelle image dans une présentation en utilisant la méthode [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) appartenant à l’interface [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
 
-1. Créer un objet SvgImage pour l'insérer dans ImageShapeCollection
+Pour créer un objet image à partir d’une image SVG, vous pouvez procéder ainsi :
+
+1. Créer un objet SvgImage pour l’insérer dans ImageShapeCollection
 2. Créer un objet PPImage à partir de ISvgImage
-3. Créer un objet PictureFrame en utilisant l'interface IPPImage
+3. Créer un objet PictureFrame en utilisant l’interface IPPImage
 
-Ce code d'exemple vous montre comment mettre en œuvre les étapes ci-dessus pour ajouter une image SVG dans une présentation:
+Ce code d’exemple vous montre comment implémenter les étapes ci‑dessus pour ajouter une image SVG dans une présentation :
 ```php
-  # Instancier la classe Presentation qui représente un fichier PPTX
+  # Instancier la classe Presentation qui représente le fichier PPTX
   $pres = new Presentation();
   try {
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -166,15 +188,15 @@ try {
   }
 ```
 
-## **Convertir le SVG en un ensemble de formes**
-La conversion du SVG en un ensemble de formes dans Aspose.Slides est similaire à la fonctionnalité de PowerPoint utilisée pour travailler avec des images SVG :
 
-![Menu contextuel PowerPoint](img_01_01.png)
+## **Convertir SVG en un ensemble de formes**
+La conversion de SVG en un ensemble de formes d’Aspose.Slides est similaire à la fonctionnalité PowerPoint utilisée pour travailler avec des images SVG :
 
-La fonctionnalité est fournie par l'un des surcharges de la méthode [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) de l'interface [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) qui prend un objet [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage) comme premier argument.
+![PowerPoint Popup Menu](img_01_01.png)
 
-Ce code d'exemple vous montre comment utiliser la méthode décrite pour convertir un fichier SVG en un ensemble de formes :
+La fonctionnalité est fournie par l’une des surcharges de la méthode [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) de l’interface [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection), qui prend un objet [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage) comme premier argument.
 
+Ce code d’exemple vous montre comment utiliser la méthode décrite pour convertir un fichier SVG en un ensemble de formes :
 ```php
   # Créer une nouvelle présentation
   $presentation = new Presentation();
@@ -191,7 +213,7 @@ try {
 }
     $svgContent = $bytes;
 
-    # Créer un objet SvgImage
+    # Créer l'objet SvgImage
     $svgImage = new SvgImage($svgContent);
     # Obtenir la taille de la diapositive
     $slideSize = $presentation->getSlideSize()->getSize();
@@ -207,11 +229,11 @@ try {
   }
 ```
 
-## **Ajouter des images en tant qu'EMF dans les diapositives**
-Aspose.Slides pour PHP via Java vous permet de générer des images EMF à partir de feuilles Excel et d'ajouter les images en tant qu'EMF dans les diapositives avec Aspose.Cells.
 
-Ce code d'exemple vous montre comment réaliser la tâche décrite :
+## **Ajouter des images en tant qu’EMF aux diapositives**
+Aspose.Slides for PHP via Java vous permet de générer des images EMF à partir de feuilles Excel et d’ajouter ces images en tant qu’EMF dans les diapositives avec Aspose.Cells. 
 
+Ce code d’exemple vous montre comment réaliser la tâche décrite :
 ```php
   $book = new Workbook("chart.xlsx");
   $sheet = $book->getWorksheets()->get(0);
@@ -219,7 +241,7 @@ Ce code d'exemple vous montre comment réaliser la tâche décrite :
   $options->setHorizontalResolution(200);
   $options->setVerticalResolution(200);
   $options->setImageType(ImageType::EMF);
-  # Enregistrer le classeur dans un flux
+  # Enregistrer le classeur dans le flux
   $sr = new SheetRender($sheet, $options);
   $pres = new Presentation();
   try {
@@ -249,8 +271,71 @@ Ce code d'exemple vous montre comment réaliser la tâche décrite :
   }
 ```
 
+
+## **Remplacer des images dans la collection d’images**
+
+Aspose.Slides vous permet de remplacer les images stockées dans la collection d’images d’une présentation (y compris celles utilisées par les formes de diapositive). Cette section présente plusieurs approches pour mettre à jour les images de la collection. L’API propose des méthodes simples pour remplacer une image à l’aide de données binaires brutes, d’une instance [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) ou d’une autre image déjà présente dans la collection.
+
+Suivez les étapes ci‑dessous :
+
+1. Charger le fichier de présentation contenant des images en utilisant la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Charger une nouvelle image depuis un fichier dans un tableau d’octets.
+3. Remplacer l’image cible par la nouvelle image en utilisant le tableau d’octets.
+4. Dans la deuxième approche, charger l’image dans un objet [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) et remplacer l’image cible par cet objet.
+5. Dans la troisième approche, remplacer l’image cible par une image déjà présente dans la collection d’images de la présentation.
+6. Enregistrer la présentation modifiée en tant que fichier PPTX.
+```php
+// Instancier la classe Presentation qui représente un fichier de présentation.
+$presentation = new Presentation("sample.pptx");
+try {
+    // Première méthode.
+    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
+    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
+    $oldImage = $presentation->getImages()->get_Item(0);
+    $oldImage->replaceImage($imageData);
+
+    // Deuxième méthode.
+    $newImage = Images::fromFile("image1.png");
+    $oldImage = $presentation->getImages()->get_Item(1);
+    $oldImage->replaceImage($newImage);
+    $newImage->dispose();
+    
+    // Troisième méthode.
+    $oldImage = $presentation->getImages()->get_Item(2);
+    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
+    
+    // Enregistrer la présentation dans un fichier.
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
 {{% alert title="Info" color="info" %}}
 
-En utilisant le convertisseur gratuit Aspose [Texte vers GIF](https://products.aspose.app/slides/text-to-gif), vous pouvez facilement animer des textes, créer des GIF à partir de textes, etc.
+En utilisant le convertisseur GRATUIT Aspose [Text to GIF](https://products.aspose.app/slides/text-to-gif), vous pouvez facilement animer du texte, créer des GIF à partir de texte, etc. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**La résolution originale de l’image reste-t-elle intacte après l’insertion ?**
+
+Oui. Les pixels source sont conservés, mais l’apparence finale dépend de la façon dont le [picture](/slides/fr/php-java/picture-frame/) est redimensionné sur la diapositive et de toute compression appliquée lors de l’enregistrement.
+
+**Quelle est la meilleure façon de remplacer le même logo sur des dizaines de diapositives en même temps ?**
+
+Placez le logo sur la diapositive maître ou sur une mise en page et remplacez‑le dans la collection d’images de la présentation — les mises à jour se propageront à tous les éléments qui utilisent cette ressource.
+
+**Une SVG insérée peut-elle être convertie en formes modifiables ?**
+
+Oui. Vous pouvez convertir un SVG en un groupe de formes, après quoi chaque partie devient modifiable avec les propriétés de forme standard.
+
+**Comment définir une image comme arrière‑plan pour plusieurs diapositives en même temps ?**
+
+[Attribuez l’image comme arrière‑plan](/slides/fr/php-java/presentation-background/) sur la diapositive maître ou la mise en page concernée—toutes les diapositives utilisant ce maître/mise en page hériteront de l’arrière‑plan.
+
+**Comment empêcher la présentation de « gonfler » en taille à cause de nombreuses images ?**
+
+Réutilisez une même ressource d’image au lieu de la dupliquer, choisissez des résolutions raisonnables, appliquez une compression lors de l’enregistrement, et conservez les graphiques répétés sur le maître lorsque cela est approprié.

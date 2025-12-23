@@ -1,38 +1,50 @@
 ---
-title: Administrar la configuración de ajuste automático
+title: Mejora tus presentaciones con AutoFit en PHP
+linktitle: Configuración de Autofit
 type: docs
 weight: 30
 url: /es/php-java/manage-autofit-settings/
-keywords: "Cuadro de texto, Ajuste automático, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
-description: "Configurar la configuración de ajuste automático para cuadros de texto en PowerPoint"
+keywords:
+- cuadro de texto
+- autofit
+- no autofit
+- ajustar texto
+- reducir texto
+- envolver texto
+- redimensionar forma
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Gestiona la configuración de AutoFit en Aspose.Slides para PHP para optimizar la visualización de texto en tus presentaciones PowerPoint y OpenDocument y mejorar la legibilidad del contenido."
 ---
 
-De forma predeterminada, cuando agrega un cuadro de texto, Microsoft PowerPoint utiliza la configuración **Redimensionar forma para ajustar texto** para el cuadro de texto: redimensiona automáticamente el cuadro de texto para asegurarse de que su texto siempre quepa dentro de él.
+De forma predeterminada, cuando agregas un cuadro de texto, Microsoft PowerPoint usa la configuración **Resize shape to fix text** para el cuadro de texto; se redimensiona automáticamente el cuadro de texto para garantizar que su texto siempre quepa en él. 
 
-![cuadro-de-texto-en-powerpoint](textbox-in-powerpoint.png)
+![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Cuando el texto en el cuadro de texto se vuelve más largo o más grande, PowerPoint amplía automáticamente el cuadro de texto—aumenta su altura—para permitir que contenga más texto.
-* Cuando el texto en el cuadro de texto se vuelve más corto o más pequeño, PowerPoint reduce automáticamente el cuadro de texto—disminuye su altura—para eliminar espacio redundante.
+* Cuando el texto en el cuadro de texto se vuelve más largo o más grande, PowerPoint amplía automáticamente el cuadro de texto—incrementa su altura—para permitir que contenga más texto. 
+* Cuando el texto en el cuadro de texto se vuelve más corto o más pequeño, PowerPoint reduce automáticamente el cuadro de texto—disminuye su altura—para eliminar el espacio redundante. 
 
-En PowerPoint, estos son los 4 parámetros u opciones importantes que controlan el comportamiento de ajuste automático para un cuadro de texto:
+En PowerPoint, estos son los 4 parámetros u opciones importantes que controlan el comportamiento de ajuste automático para un cuadro de texto: 
 
 * **No ajustar automáticamente**
-* **Reducir texto en desbordamiento**
+* **Reducir texto al desbordarse**
 * **Redimensionar forma para ajustar texto**
 * **Ajustar texto en forma.**
 
-![opciones-de-ajuste-automático-powerpoint](autofit-options-powerpoint.png)
+![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides para PHP a través de Java proporciona opciones similares—algunas propiedades bajo la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)—que le permiten controlar el comportamiento de ajuste automático para cuadros de texto en presentaciones.
+Aspose.Slides for PHP via Java proporciona opciones similares—algunas propiedades de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)—que le permiten controlar el comportamiento de ajuste automático de los cuadros de texto en presentaciones.
 
-## **Redimensionar Forma para Ajustar Texto**
+## **Redimensionar forma para ajustar texto**
 
-Si desea que el texto en un cuadro siempre quepa dentro de ese cuadro después de que se realicen cambios en el texto, debe usar la opción **Redimensionar forma para ajustar texto**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `Shape`.
+Si desea que el texto en un cuadro siempre quepa en ese cuadro después de realizar cambios en el texto, debe utilizar la opción **Resize shape to fix text**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `Shape`.
 
-![configuración-de-ajuste-siempre-powerpoint](alwaysfit-setting-powerpoint.png)
+![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Este código PHP le muestra cómo especificar que un texto debe siempre ajustarse a su cuadro en una presentación de PowerPoint:
-
+Este código PHP muestra cómo especificar que un texto siempre debe caber en su cuadro en una presentación de PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -52,16 +64,16 @@ Este código PHP le muestra cómo especificar que un texto debe siempre ajustars
   }
 ```
 
-Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumento en altura) para asegurarse de que todo el texto quepa dentro de él. Si el texto se vuelve más corto, ocurre lo contrario.
 
-## **No Ajustar Automáticamente**
+Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumentará su altura) para garantizar que todo el texto quepa en él. Si el texto se vuelve más corto, ocurre lo contrario. 
 
-Si desea que un cuadro de texto o forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debe usar la opción **No ajustar automáticamente**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `None`.
+## **No Autoajustar**
 
-![configuración-no-ajustar-automáticamente-powerpoint](donotautofit-setting-powerpoint.png)
+Si desea que un cuadro de texto o una forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debe utilizar la opción **No Autoajustar**. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `None`.
 
-Este código PHP le muestra cómo especificar que un cuadro de texto debe mantener siempre sus dimensiones en una presentación de PowerPoint:
+![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
+Este código PHP muestra cómo especificar que un cuadro de texto debe mantener siempre sus dimensiones en una presentación de PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -81,16 +93,16 @@ Este código PHP le muestra cómo especificar que un cuadro de texto debe manten
   }
 ```
 
-Cuando el texto se vuelve demasiado largo para su cuadro, se desborda.
 
-## **Reducir Texto en Desbordamiento**
+Cuando el texto se vuelve demasiado largo para su cuadro, se desborda. 
 
-Si un texto se vuelve demasiado largo para su cuadro, a través de la opción **Reducir texto en desbordamiento**, puede especificar que el tamaño y el espaciado del texto deben reducirse para que quepa en su cuadro. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `Normal`.
+## **Reducir texto al desbordarse**
 
-![configuración-reducir-texto-en-desbordamiento-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+Si un texto se vuelve demasiado largo para su cuadro, mediante la opción **Shrink text on overflow** puede especificar que el tamaño y el espaciado del texto deben reducirse para que quepan en su cuadro. Para especificar esta configuración, establezca la propiedad [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `Normal`.
 
-Este código PHP le muestra cómo especificar que un texto debe ser reducido en desbordamiento en una presentación de PowerPoint:
+![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
+Este código PHP muestra cómo especificar que un texto debe reducirse al desbordarse en una presentación de PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -110,18 +122,16 @@ Este código PHP le muestra cómo especificar que un texto debe ser reducido en 
   }
 ```
 
-{{% alert title="Información" color="info" %}}
 
-Cuando se utiliza la opción **Reducir texto en desbordamiento**, la configuración se aplica solo cuando el texto se vuelve demasiado largo para su cuadro.
-
+{{% alert title="Info" color="info" %}}
+Cuando se utiliza la opción **Shrink text on overflow**, la configuración se aplica solo cuando el texto se vuelve demasiado largo para su cuadro. 
 {{% /alert %}}
 
-## **Ajustar Texto**
+## **Ajustar texto**
 
-Si desea que el texto en una forma se ajuste dentro de esa forma cuando el texto exceda el límite de la forma (solo ancho), debe usar el parámetro **Ajustar texto en forma**. Para especificar esta configuración, debe establecer la propiedad [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `true`.
+Si desea que el texto en una forma se ajuste dentro de esa forma cuando el texto supera el borde de la forma (solo ancho), debe usar el parámetro **Wrap text in shape**. Para especificar esta configuración, debe establecer la propiedad [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) en `true`.
 
-Este código PHP le muestra cómo usar la configuración de Ajustar Texto en una presentación de PowerPoint:
-
+Este código PHP muestra cómo usar la configuración Ajustar Texto en una presentación de PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -141,8 +151,21 @@ Este código PHP le muestra cómo usar la configuración de Ajustar Texto en una
   }
 ```
 
-{{% alert title="Nota" color="warning" %}} 
 
-Si establece la propiedad `WrapText` en `False` para una forma, cuando el texto dentro de la forma se vuelve más largo que el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea.
-
+{{% alert title="Note" color="warning" %}} 
+Si establece la propiedad `WrapText` en `False` para una forma, cuando el texto dentro de la forma se vuelve más largo que el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea. 
 {{% /alert %}}
+
+## **Preguntas frecuentes**
+
+**¿Los márgenes internos del marco de texto afectan al AutoFit?**
+
+Sí. El relleno (márgenes internos) reduce el área utilizable para el texto, por lo que AutoFit se activará antes, reduciendo la fuente o redimensionando la forma más pronto. Verifique y ajuste los márgenes antes de afinar AutoFit.
+
+**¿Cómo interactúa AutoFit con saltos de línea manuales y suaves?**
+
+Los saltos forzados permanecen en su lugar, y AutoFit adapta el tamaño de fuente y el espaciado alrededor de ellos. Eliminar saltos innecesarios a menudo reduce la agresividad con la que AutoFit necesita encoger el texto.
+
+**¿Afecta el cambio de la fuente del tema o la sustitución de fuentes a los resultados de AutoFit?**
+
+Sí. Sustituir a una fuente con métricas de glifo diferentes cambia el ancho/alto del texto, lo que puede alterar el tamaño final de la fuente y el ajuste de líneas. Después de cualquier cambio o sustitución de fuente, vuelva a comprobar las diapositivas.

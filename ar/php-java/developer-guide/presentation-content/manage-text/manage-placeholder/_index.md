@@ -1,41 +1,52 @@
 ---
-title: إدارة العنصر النائب
+title: إدارة عناصر النائب في العرض التقديمي باستخدام PHP
+linktitle: إدارة عناصر النائب
 type: docs
 weight: 10
 url: /ar/php-java/manage-placeholder/
-description: تغيير النص في عنصر نائب في شرائح PowerPoint باستخدام PHP. تعيين نص提示 في عنصر نائب في شرائح PowerPoint باستخدام PHP.
+keywords:
+- عنصر نائب
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- نص إرشادي
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "إدارة عناصر النائب بسهولة في Aspose.Slides لـ PHP عبر Java: استبدال النص، تخصيص النصوص الإرشادية وتعيين شفافية الصورة في PowerPoint وOpenDocument."
 ---
 
-## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
+## **تغيير النص في عنصر نائب**
+باستخدام [Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/)، يمكنك العثور على عناصر نائب وتعديلها على الشرائح في العروض التقديمية. يسمح Aspose.Slides لك بإجراء تغييرات على النص داخل عنصر نائب.
 
-**المتطلبات الأساسية**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي في تطبيق Microsoft PowerPoint القياسي.
+**المتطلبات المسبقة**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض في تطبيق Microsoft PowerPoint القياسي.
 
-هذا هو كيفية استخدام Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض التقديمي:
+إليك الطريقة التي تستخدم بها Aspose.Slides لاستبدال النص في عنصر نائب في ذلك العرض:
 
-1. قم بإنشاء كائن من فئة [`Presentation`](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وقم بتمرير العرض التقديمي كوسيط.
-2. احصل على مرجع للشرائح من خلال فهرسها.
-3. قم بتكرار الأشكال للعثور على العنصر النائب.
-4. قم بتحويل شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) وغيّر النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) المرتبط بـ [`AutoShape`](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-5. احفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [`Presentation`](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتمرير العرض التقديمي كمعامل.
+2. الحصول على مرجع الشريحة من خلال فهرسها.
+3. التمرّ عبر الأشكال للعثور على عنصر نائب.
+4. تحويل نوع شكل عنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) وتغيير النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) المرتبط بـ[`AutoShape`](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
+5. حفظ العرض التقديمي المعدَّل.
 
-يوضح كود PHP هذا كيفية تغيير النص في عنصر نائب:
-
+هذا الكود PHP يوضح كيفية تغيير النص في عنصر نائب:
 ```php
-  # إنشاء كائن من فئة Presentation
+  # ينشئ كائنًا من فئة Presentation
   $pres = new Presentation("ReplacingText.pptx");
   try {
     # الوصول إلى الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # التكرار عبر الأشكال للعثور على العنصر النائب
+    # يتنقل عبر الأشكال للعثور على العنصر النائب
     foreach($sld->getShapes() as $shp) {
       if (!java_is_null($shp->getPlaceholder())) {
-        # تغيير النص في كل عنصر نائب
-        $shp->getTextFrame()->setText("هذا هو العنصر النائب");
+        # يغيّر النص في كل عنصر نائب
+        $shp->getTextFrame()->setText("This is Placeholder");
       }
     }
-    # حفظ العرض التقديمي على القرص
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
+    # يحفظ العرض التقديمي إلى القرص
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -43,28 +54,28 @@ description: تغيير النص في عنصر نائب في شرائح PowerPoi
   }
 ```
 
-## **تعيين نص提示 في العنصر النائب**
-تحتوي التخطيطات القياسية والمعدة مسبقًا على نصوص提示 للعنصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص提示 المفضلة لديك في تخطيطات العناصر النائبة.
 
-يوضح كود PHP هذا كيفية تعيين نص提示 في العنصر النائب:
+## **تعيين نص إرشادي في عنصر نائب**
+تحتوي القوالب القياسية والمُعدة مسبقًا على نصوص إرشادية لعناصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص إرشادية مفضلة لديك في تخطيطات عناصر النائب.
 
+هذا الكود PHP يوضح كيفية تعيين النص الإرشادي في عنصر نائب:
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    # التكرار عبر الشريحة
+    # يتنقل عبر الشريحة
     foreach($slide->getSlide()->getShapes() as $shape) {
       if (java_instanceof($shape->getPlaceholder()) != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
         # PowerPoint يعرض "انقر لإضافة عنوان"
         if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
-          $text = "أضف عنوانًا";
-        } else // إضافة عنوان فرعي
+          $text = "Add Title";
+        } else // يضيف عنوانًا فرعيًا
         if ($shape->getPlaceholder()->getType() == PlaceholderType::Subtitle) {
-          $text = "أضف عنوانًا فرعيًا";
+          $text = "Add Subtitle";
         }
         $shape->getTextFrame()->setText($text);
-        echo("العنصر النائب مع النص: " . $text);
+        echo("Placeholder with text: " . $text);
       }
     }
     $pres->save("Placeholders_PromptText.pptx", SaveFormat::Pptx);
@@ -75,12 +86,12 @@ description: تغيير النص في عنصر نائب في شرائح PowerPoi
   }
 ```
 
-## **تعيين شفافية صورة العنصر النائب**
 
-يتيح لك Aspose.Slides تعيين شفافية الصورة الخلفية في عنصر نائب نصي. من خلال ضبط شفافية الصورة في مثل هذا الإطار، يمكنك جعل النص أو الصورة بارزًا (اعتمادًا على ألوان النص والصورة).
+## **تعيين شفافية صورة عنصر نائب**
 
-يوضح كود PHP هذا كيفية تعيين الشفافية لخلفية صورة (داخل شكل):
+يسمح Aspose.Slides لك بتعيين شفافية صورة الخلفية في عنصر نائب نصي. من خلال تعديل شفافية الصورة داخل هذا الإطار، يمكنك إبراز النص أو الصورة (اعتمادًا على ألوان النص والصورة).
 
+هذا الكود PHP يوضح كيفية تعيين شفافية خلفية الصورة (داخل شكل):
 ```php
   $presentation = new Presentation("example.pptx");
   $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -89,10 +100,25 @@ description: تغيير النص في عنصر نائب في شرائح PowerPoi
     if (java_instanceof($operationCollection->get_Item($i)), new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();
-      echo("قيمة الشفافية الحالية: " . $currentValue);
+      echo("Current transparency value: " . $currentValue);
       $alphaValue = 40;
       $alphaModulate->setAmount(100 - $alphaValue);
     }
   }
   $presentation->save("example_out.pptx", SaveFormat::Pptx);
 ```
+
+
+## **FAQ**
+
+**ما هو عنصر نائب أساسي، وكيف يختلف عن الشكل المحلي على الشريحة؟**
+
+عنصر نائب أساسي هو الشكل الأصلي الموجود في تخطيط أو ماستر تُورّث منه أشكال الشريحة—النوع، الموقع، وبعض التنسيق يأتي منه. الشكل المحلي يكون مستقلاً؛ إذا لم يكن هناك عنصر نائب أساسي، لا يُطبق الوراثة.
+
+**كيف يمكنني تحديث جميع العناوين أو الشروحات عبر العرض التقديمي دون المرور على كل شريحة؟**
+
+قم بتعديل عنصر نائب المقابل في التخطيط أو الماستر. الشرائح التي تعتمد على تلك التخطيطات/الماستر ستورّث التغيير تلقائيًا.
+
+**كيف أتحكم في عناصر النائب القياسية للترويسة/التذييل—التاريخ والوقت، رقم الشريحة، ونص التذييل؟**
+
+استخدم مديرات HeaderFooter في النطاق المناسب (الشرائح العادية، التخطيطات، الماستر، الملاحظات/النشرات) لتفعيل أو إلغاء تفعيل تلك العناصر وتعيين محتواها.

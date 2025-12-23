@@ -1,44 +1,56 @@
 ---
-title: Маркер данных диаграммы
+title: Управление маркерами данных диаграммы в презентациях с использованием PHP
+linktitle: Маркер данных
 type: docs
 url: /ru/php-java/chart-data-marker/
+keywords:
+- диаграмма
+- точка данных
+- маркер
+- параметры маркера
+- размер маркера
+- тип заливки
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как настроить маркеры данных диаграммы в Aspose.Slides для PHP, повышая эффективность презентаций в форматах PPT и PPTX с помощью понятных примеров кода."
 ---
 
-## **Настройка параметров маркера диаграммы**
-Маркеры могут быть настроены на точках данных диаграммы внутри конкретных серий. Для того чтобы настроить параметры маркера диаграммы, выполните следующие шаги:
+## **Установить параметры маркеров диаграммы**
+Маркеры можно задать для точек данных диаграммы внутри конкретных рядов. Чтобы установить параметры маркеров диаграммы, выполните следующие шаги:
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Создайте стандартную диаграмму.
-- Установите изображение.
-- Получите первую серию диаграммы.
-- Добавьте новую точку данных.
-- Сохраните презентацию на диск.
+- Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+- Создать диаграмму по умолчанию.
+- Установить изображение.
+- Получить первый ряд диаграммы.
+- Добавить новую точку данных.
+- Сохранить презентацию на диск.
 
-В приведенном ниже примере мы задали параметры маркера диаграммы на уровне точек данных.
-
+В приведенном ниже примере мы задали параметры маркеров диаграммы на уровне точек данных.
 ```php
   # Создание пустой презентации
   $pres = new Presentation();
   try {
-    # Доступ к первому слайду
+    # Получить первый слайд
     $slide = $pres->getSlides()->get_Item(0);
     # Создание стандартной диаграммы
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 0, 0, 400, 400);
-    # Получение индекса рабочего листа данных диаграммы
+    # Получение индекса листа данных диаграммы по умолчанию
     $defaultWorksheetIndex = 0;
-    # Получение рабочего листа данных диаграммы
+    # Получение листа данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаление демонстрационной серии
+    # Удалить демонстрационные серии
     $chart->getChartData()->getSeries()->clear();
-    # Добавление новой серии
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Серия 1"), $chart->getType());
-    # Загрузка изображения 1
+    # Добавить новую серию
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
+    # Загрузить изображение 1
     $imgx1 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Desert.jpg")));
-    # Загрузка изображения 2
+    # Загрузить изображение 2
     $imgx2 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Tulips.jpg")));
-    # Получение первой серии диаграммы
+    # Получить первую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Добавление новой точки (1:3) туда.
+    # Добавить новую точку (1:3) туда.
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 4.5));
     $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx1);
@@ -53,7 +65,7 @@ url: /ru/php-java/chart-data-marker/
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx2);
     # Изменение маркера серии диаграммы
     $series->getMarker()->setSize(15);
-    # Сохранение презентации с диаграммой
+    # Сохранить презентацию с диаграммой
     $pres->save("ScatterChart.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -62,3 +74,14 @@ url: /ru/php-java/chart-data-marker/
     }
   }
 ```
+
+
+## **FAQ**
+
+**Какие формы маркеров доступны из коробки?**
+
+Доступны стандартные формы (круг, квадрат, ромб, треугольник и т.д.); список определяется классом [MarkerStyleType](https://reference.aspose.com/slides/php-java/aspose.slides/markerstyletype/). Если нужна нестандартная форма, используйте маркер с заполнением изображением, чтобы имитировать пользовательскую визуализацию.
+
+**Сохраняются ли маркеры при экспорте диаграммы в изображение или SVG?**
+
+Да. При рендеринге диаграмм в [растровые форматы](/slides/ru/php-java/convert-powerpoint-to-png/) или сохранении [форм в SVG](/slides/ru/php-java/render-a-slide-as-an-svg-image/), маркеры сохраняют свой внешний вид и настройки, включая размер, заливку и контур.

@@ -1,29 +1,50 @@
 ---
-title: تحويل PowerPoint إلى فيديو
+title: تحويل عروض PowerPoint إلى فيديو في PHP
+linktitle: PowerPoint إلى فيديو
 type: docs
 weight: 130
 url: /ar/php-java/convert-powerpoint-to-video/
-keywords: "تحويل PowerPoint, PPT, PPTX, عرض تقديمي, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, Java, Aspose.Slides"
-description: "تحويل PowerPoint إلى فيديو"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى فيديو
+- العرض التقديمي إلى فيديو
+- PPT إلى فيديو
+- PPTX إلى فيديو
+- PowerPoint إلى MP4
+- العرض التقديمي إلى MP4
+- PPT إلى MP4
+- PPTX إلى MP4
+- حفظ PPT بصيغة MP4
+- حفظ PPTX بصيغة MP4
+- تصدير PPT إلى MP4
+- تصدير PPTX إلى MP4
+- تحويل الفيديو
+- PowerPoint
+- PHP
+- Aspose.Slides
+description: "تعلم كيفية تحويل عروض PowerPoint إلى فيديو باستخدام Aspose.Slides للـ PHP. اكتشف رمز العينة وتقنيات الأتمتة لتبسيط سير عملك."
 ---
 
-من خلال تحويل عرض PowerPoint التقديمي إلى فيديو، يمكنك الحصول على
+من خلال تحويل عرض PowerPoint التقديمي إلى فيديو، ستحصل على 
 
-* **زيادة في الوصول:** جميع الأجهزة (بغض النظر عن النظام) مزودة بمشغلات فيديو بشكل افتراضي مقارنةً بتطبيقات تشغيل العروض التقديمية، لذلك يجد المستخدمون أنه من الأسهل فتح أو تشغيل مقاطع الفيديو.
-* **وصول أكبر:** من خلال مقاطع الفيديو، يمكنك الوصول إلى جمهور كبير واستهدافهم بمعلومات قد تبدو مملة في عرض تقديمي. تشير معظم الاستطلاعات والإحصائيات إلى أن الناس يشاهدون ويستهلكون مقاطع الفيديو أكثر من أشكال المحتوى الأخرى، وعادةً ما يفضلون هذا المحتوى.
+* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن النظام الأساسي) مجهزة بتشغيل الفيديو افتراضيًا مقارنةً بتطبيقات فتح العروض، لذا يجد المستخدمون الأمر أسهل في فتح أو تشغيل الفيديوهات.
+* **توسيع الوصول:** من خلال الفيديوهات، يمكنك الوصول إلى جمهور كبير واستهدافهم بمعلومات قد تبدو مملة في عرض تقديمي. تشير معظم الاستطلاعات والإحصائيات إلى أن الناس يشاهدون ويستهلكون الفيديوهات أكثر من أشكال المحتوى الأخرى، وهم يفضلون هذا النوع من المحتوى عادةً.
 
 {{% alert color="primary" %}} 
 
-قد ترغب في التحقق من [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنه تطبيق مباشر وفعال للعملية الموضحة هنا.
+قد ترغب في فحص [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لأنه تنفيذ مباشر وفعّال للعملية الموضحة هنا.
 
 {{% /alert %}} 
 
 ## **تحويل PowerPoint إلى فيديو في Aspose.Slides**
 
-في [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/)، قمنا بتنفيذ دعم تحويل العرض التقديمي إلى فيديو.
+في [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/)، نفذنا دعمًا لتحويل العروض التقديمية إلى فيديو.
 
-* استخدم **Aspose.Slides** لإنشاء مجموعة من الإطارات (من شرائح العرض التقديمي) التي تتوافق مع معدل الإطارات المطلوب (FPS).
-* استخدم أداة خارجية مثل **ffmpeg** ([لـ Java](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو استنادًا إلى الإطارات.
+* استخدم **Aspose.Slides** لإنشاء مجموعة من الإطارات (من شرائح العرض) التي تتطابق مع معدل إطارات معين (FPS).
+* استخدم أداة طرف ثالث مثل **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) لإنشاء فيديو بناءً على الإطارات.
 
 ### **تحويل PowerPoint إلى فيديو**
 
@@ -38,16 +59,16 @@ description: "تحويل PowerPoint إلى فيديو"
 
 ```
 
-2. قم بتنزيل ffmpeg [هنا](https://ffmpeg.org/download.html).
 
-4. قم بتشغيل كود PHP لتحويل PowerPoint إلى فيديو.
+2. حمّل ffmpeg [هنا](https://ffmpeg.org/download.html).
 
-يوضح كود PHP هذا كيفية تحويل عرض تقديمي (يحتوي على شكل واثنين من تأثيرات الرسوم المتحركة) إلى فيديو:
+4. شغّل كود PHP للتحويل من PowerPoint إلى فيديو.
 
+هذا كود PHP يوضح لك كيفية تحويل عرض تقديمي (يتضمن شكلًا وتأثيري تحريك) إلى فيديو:
 ```php
   $presentation = new Presentation();
   try {
-    # إضافة شكل ابتسامة ثم تحريكه
+    # يضيف شكل ابتسامة ثم يحركه
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
@@ -85,7 +106,7 @@ description: "تحويل PowerPoint إلى فيديو"
         $animationsGenerator->dispose();
       }
     }
-    # تهيئة مجلد ثنائيات ffmpeg. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    # إعداد مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -96,22 +117,22 @@ description: "تحويل PowerPoint إلى فيديو"
   }
 ```
 
+
 ## **تأثيرات الفيديو**
 
-يمكنك تطبيق الرسوم المتحركة على الكائنات في الشرائح واستخدام الانتقالات بين الشرائح.
+يمكنك تطبيق الرسوم المتحركة على الكائنات في الشرائح واستخدام الانتقالات بين الشرائح. 
 
 {{% alert color="primary" %}} 
 
-قد ترغب في رؤية هذه المقالات: [رسوم متحركة PowerPoint](https://docs.aspose.com/slides/php-java/powerpoint-animation/)، [رسوم متحركة الشكل](https://docs.aspose.com/slides/php-java/shape-animation/)، و[تأثير الشكل](https://docs.aspose.com/slides/php-java/shape-effect/).
+قد ترغب في مشاهدة هذه المقالات: [رسوم متحركة في PowerPoint](https://docs.aspose.com/slides/php-java/powerpoint-animation/), [رسوم متحركة للأشكال](https://docs.aspose.com/slides/php-java/shape-animation/), و[تأثير الشكل](https://docs.aspose.com/slides/php-java/shape-effect/).
 
 {{% /alert %}} 
 
-تجعل الرسوم المتحركة والانتقالات العرض التقديمي أكثر جاذبية واهتمامًا—وهي تفعل الشيء نفسه بالنسبة لمقاطع الفيديو. دعنا نضيف شريحة أخرى وانتقال إلى كود العرض التقديمي السابق:
-
+الرسوم المتحركة والانتقالات تجعل عروض الشرائح أكثر جذبًا وإثارة للاهتمام—وتفعل الشيء نفسه للفيديوهات. لنضيف شريحة وانتقالًا آخرين إلى الكود للعرض السابق:
 ```php
-  # إضافة شكل ابتسامة وتحريكه
+  # يضيف شكل ابتسامة ويحركه
   # ...
-  # إضافة شريحة جديدة وانتقال متحرك
+  # يضيف شريحة جديدة وانتقالًا متحركًا
   $newSlide = $presentation->getSlides()->addEmptySlide($presentation->getSlides()->get_Item(0)->getLayoutSlide());
   $newSlide->getBackground()->setType(BackgroundType::OwnBackground);
   $newSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
@@ -119,19 +140,19 @@ description: "تحويل PowerPoint إلى فيديو"
   $newSlide->getSlideShowTransition()->setType(TransitionType::Push);
 ```
 
-يدعم Aspose.Slides أيضًا الرسوم المتحركة للنصوص. لذا نقوم بتحريك الفقرات على الكائنات، والتي ستظهر واحدة تلو الأخرى (مع تأخير مضبوط لثانية واحدة):
 
+يدعم Aspose.Slides أيضًا الرسوم المتحركة للنصوص. لذا نقوم بتحريك فقرات على الكائنات، وستظهر واحدة تلو الأخرى (مع تأخير ثانية واحدة):
 ```php
   $presentation = new Presentation();
   try {
-    # إضافة نصوص ورسوم متحركة
+    # يضيف نصًا وحركات
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 120, 300, 300);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Aspose Slides for Java"));
     $para2 = new Paragraph();
-    $para2->getPortions()->add(new Portion("تحويل عرض PowerPoint مع نص إلى فيديو"));
+    $para2->getPortions()->add(new Portion("convert PowerPoint Presentation with text to video"));
     $para3 = new Paragraph();
-    $para3->getPortions()->add(new Portion("فقرة تلو الأخرى"));
+    $para3->getPortions()->add(new Portion("paragraph by paragraph"));
     $paragraphCollection = $autoShape->getTextFrame()->getParagraphs();
     $paragraphCollection->add($para1);
     $paragraphCollection->add($para2);
@@ -177,7 +198,7 @@ description: "تحويل PowerPoint إلى فيديو"
         $animationsGenerator->dispose();
       }
     }
-    # تهيئة مجلد ثنائيات ffmpeg. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
+    # تكوين مجلد ملفات ffmpeg التنفيذية. راجع هذه الصفحة: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -188,16 +209,16 @@ description: "تحويل PowerPoint إلى فيديو"
   }
 ```
 
+
 ## **فئات تحويل الفيديو**
 
-لتمكينك من تنفيذ مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) الفئات.
+للسماح لك بأداء مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides الفئات [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) و[PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-تسمح لك [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) بتعيين حجم الإطار للفيديو (الذي سيتم إنشاؤه لاحقًا) من خلال بنائها. إذا قمت بتمرير مثيل من العرض التقديمي، سيتم استخدام `Presentation.SlideSize` ويتم إنشاء الرسوم المتحركة التي تستخدمها [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) يتيح لك تعيين حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) عبر المُنشئ الخاص به. إذا مررّت نسخة من العرض التقديمي، سيتم استخدام `Presentation.SlideSize` وينتج الرسوم المتحركة التي يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/).
 
-عندما يتم توليد الرسوم المتحركة، يتم توليد حدث `NewAnimation` لكل رسوم متحركة لاحقة، والذي يحتوي على بارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/). والأخير هو فئة تمثل لاعبًا لرسوم متحركة منفصلة.
+عند إنشاء الرسوم المتحركة، يتم توليد حدث `NewAnimation` لكل رسمة متحركة لاحقة، والذي يحتوي على معامل [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/). الأخير هو فئة تمثل مشغلًا لرسمة متحركة منفصلة.
 
-للاتصال بـ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/)، يتم استخدام خاصية [Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--) (المدة الكاملة للرسوم المتحركة) والطريقة [SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). يتم تعيين كل موضع للرسوم المتحركة ضمن النطاق *0 إلى المدة*، ثم ستقدم طريقة `GetFrame` صورة مدعومة تتوافق مع حالة الرسوم المتحركة في تلك اللحظة:
-
+للعمل مع [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/)، تُستخدم خاصية [Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--) (المدة الكاملة للرسمة المتحركة) والطريقة [SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). يتم تعيين كل موقع للرسمة المتحركة ضمن نطاق *0 إلى المدة*، ثم تُرجع طريقة `GetFrame` صورة BufferedImage تتطابق مع حالة الرسمة المتحركة في تلك اللحظة:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\PresentationPlayer;
@@ -211,10 +232,10 @@ use aspose\slides\EffectPresetClassType;
 
 class PresentationAnimationPlayer {
     function invoke($animationPlayer) {
-        echo(sprintf("المدة الكلية للرسوم المتحركة: %f", $animationPlayer->getDuration()));
-        $animationPlayer->setTimePosition(0);// الحالة الأولية للرسوم المتحركة
+        echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
+        $animationPlayer->setTimePosition(0);// حالة الرسوم المتحركة الأولية
         try {
-            # الحالة الأولية للرسوم المتحركة
+            # صورة حالة الرسوم المتحركة الأولية
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
@@ -228,7 +249,7 @@ class PresentationAnimationPlayer {
 }
 $presentation = new Presentation();
 try {
-    # إضافة شكل ابتسامة وتحريكه
+    # يضيف شكل ابتسامة ويُحركه
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -251,8 +272,8 @@ try {
 }
 ```
 
-لجعل كل الرسوم المتحركة في عرض تقديمي تلعب مرة واحدة، يتم استخدام فئة [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). تأخذ هذه الفئة مثيل من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) وFPS للتأثيرات في بنائها ثم تستدعي حدث `FrameTick` لجميع الرسوم المتحركة للحصول على تشغيلها:
 
+لجعل جميع الرسوم المتحركة في عرض تقديمي تُشغل في وقت واحد، تُستخدم فئة [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/). هذه الفئة تأخذ نسخة من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) ومعدل FPS للتأثيرات في المُنشئ الخاص بها، ثم تستدعي حدث `FrameTick` لجميع الرسوم المتحركة لتشغيلها:
 ```php
 
 class FrameTick {
@@ -290,70 +311,85 @@ class FrameTick {
   }
 ```
 
-ثم يمكن تجميع الإطارات الناتجة لإنتاج فيديو. انظر قسم [تحويل PowerPoint إلى فيديو](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **الرسوم المتحركة المدعومة والتأثيرات**
+ثم يمكن تجميع الإطارات المُولدة لإنتاج فيديو. راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+
+## **الرسوم المتحركة والتأثيرات المدعومة**
 
 **الدخول**:
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **ظهور** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تلاشي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **الطيران إلى الداخل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **التطفو إلى الداخل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **الانقسام** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **مسح** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **شكل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **عجلة** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أشرطة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **نمو & دوران** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تكبير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **تحويل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **قنبلة** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **التأكيد**:
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **نبض** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **نبض لون** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **اهتزاز** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دوران** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **نمو / انكماش** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تخفيف** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تظليل** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **إضاءة** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **شفافية** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **لون الكائن** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **لون تكميلي** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **لون الخط** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **لون التعبئة** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **الخروج**:
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **اختفاء** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تلاشي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **الطيران إلى الخارج** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **التطفو إلى الخارج** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **الانقسام** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **مسح** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **شكل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أشرطة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **انكماش & دوران** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تكبير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **تحويل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **قنبلة** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**مسارات الحركة:**
+**مسارات الحركة**:
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **خطوط** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أقواس** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **لفات** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أشكال** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دوائر** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **مسار مخصص** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+
+## **الأسئلة المتكررة**
+
+**هل من الممكن تحويل العروض التقديمية المحمية بكلمة مرور؟**
+
+نعم، يتيح Aspose.Slides العمل مع [العروض التقديمية المحمية بكلمة مرور](/slides/ar/php-java/password-protected-presentation/). عند معالجة هذه الملفات، يجب توفير كلمة المرور الصحيحة لكي تتمكن المكتبة من الوصول إلى محتوى العرض.
+
+**هل يدعم Aspose.Slides الاستخدام في حلول السحابة؟**
+
+نعم، يمكن دمج Aspose.Slides في تطبيقات وخدمات السحابة. صُممت المكتبة للعمل في بيئات الخوادم، مما يضمن أداءً عاليًا وقابلية توسع لمعالجة الملفات على نطاق واسع.
+
+**هل هناك أي حدود للحجم للعروض التقديمية أثناء التحويل؟**
+
+يمكن لـ Aspose.Slides التعامل مع عروض تقديمية بحجم شبه غير محدود. ومع ذلك، عند العمل مع ملفات كبيرة جدًا قد تتطلب موارد نظام إضافية، وقد يُنصح أحيانًا بتحسين العرض لتحسين الأداء.

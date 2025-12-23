@@ -1,31 +1,36 @@
 ---
-title: دمج العرض التقديمي
+title: دمج العروض التقديمية بكفاءة في PHP
+linktitle: دمج العروض التقديمية
 type: docs
 weight: 40
 url: /ar/php-java/merge-presentation/
-keywords: "دمج PowerPoint, PPTX, PPT, دمج PowerPoint, دمج العروض التقديمية, دمج العروض, Java"
-description: "دمج أو جمع عرض تقديمي PowerPoint"
+keywords:
+- دمج PowerPoint
+- دمج العروض التقديمية
+- دمج الشرائح
+- دمج PPT
+- دمج PPTX
+- دمج ODP
+- دمج PowerPoint
+- دمج العروض التقديمية
+- دمج الشرائح
+- دمج PPT
+- دمج PPTX
+- دمج ODP
+- PHP
+- Aspose.Slides
+description: "ادمج بسهولة عروض PowerPoint (PPT، PPTX) وعروض OpenDocument (ODP) باستخدام Aspose.Slides للـ PHP عبر Java، مما يُبسّط سير العمل الخاص بك."
 ---
-
-
-{{% alert  title="نصيحة" color="primary" %}} 
-
-قد ترغب في التحقق من **تطبيق Aspose المجاني عبر الإنترنت** [Merger app](https://products.aspose.app/slides/merger). يسمح للناس بدمج العروض التقديمية بتنسيق مماثل (PPT إلى PPT، PPTX إلى PPTX، إلخ) ودمج العروض في تنسيقات مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ).
-
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
-
-{{% /alert %}} 
-
 
 ## **دمج العروض التقديمية**
 
-عندما تقوم بدمج عرض تقديمي مع آخر، فأنت فعليًا تجمع شرائحهم في عرض تقديمي واحد للحصول على ملف واحد. 
+عند دمج عرض تقديمي مع آخر، فإنك في الواقع تجمع شرائحه في عرض تقديمي واحد للحصول على ملف واحد. 
 
-{{% alert title="معلومات" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-تفتقر معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) إلى وظائف تسمح للمستخدمين بدمج العروض التقديمية بهذه الطريقة. 
+معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تتيح للمستخدمين دمج العروض التقديمية بهذه الطريقة. 
 
-ومع ذلك، يسمح لك [**Aspose.Slides لـ PHP عبر Java**](https://products.aspose.com/slides/php-java/) بدمج العروض بطرق مختلفة. يمكنك دمج العروض التقديمية بكل أشكالها، أنماطها، نصوصها، تنسيقاتها، تعليقاتها، حركاتها، إلخ، دون الحاجة للقلق بشأن فقدان الجودة أو البيانات.
+[**Aspose.Slides للـ PHP عبر Java**](https://products.aspose.com/slides/php-java/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
 
 **انظر أيضًا**
 
@@ -33,41 +38,37 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
 
 {{% /alert %}}
 
-### **ما الذي يمكن دمجه**
+### **ما يمكن دمجه**
 
 مع Aspose.Slides، يمكنك دمج 
+* العروض التقديمية بالكامل. جميع الشرائح من العروض التقديمية تنتهي في عرض تقديمي واحد
+* شرائح محددة. الشرائح المختارة تنتهي في عرض تقديمي واحد
+* العروض التقديمية بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وفي صيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) مع بعضها البعض. 
 
-* العروض التقديمية بالكامل. تنتقل جميع الشرائح من العروض التقديمية إلى عرض تقديمي واحد
-* شرائح محددة. تنتهي الشرائح المحددة في عرض تقديمي واحد
-* العروض التقديمية بتنسيق واحد (PPT إلى PPT، PPTX إلى PPTX، إلخ) وفي تنسيقات مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) مع بعضها البعض. 
+{{% alert title="Note" color="warning" %}} 
 
-{{% alert title="ملاحظة" color="warning" %}} 
-
-بخلاف العروض التقديمية، يسمح لك Aspose.Slides بدمج ملفات أخرى:
-
-* [صيغ](https://products.aspose.com/slides/php-java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
-* مستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
-* وملفات مختلفة مثل [صورة إلى PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
+بالإضافة إلى العروض التقديمية، يسمح لك Aspose.Slides بدمج ملفات أخرى:
+* [الصور](https://products.aspose.com/slides/php-java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
+* المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
+* وأيضًا ملفين مختلفين مثل [الصورة إلى PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
 ### **خيارات الدمج**
 
-يمكنك تطبيق خيارات تحدد ما إذا كانت 
+يمكنك تطبيق خيارات تحدد ما إذا كان
+* كل شريحة في العرض التقديمي الناتج تحتفظ بنمط فريد
+* نمط محدد يُستخدم لجميع الشرائح في العرض التقديمي الناتج. 
 
-* كل شريحة في العرض التقديمي الناتج تحتفظ بأسلوب فريد
-* يتم استخدام أسلوب محدد لجميع الشرائح في العرض التقديمي الناتج. 
+لدمج العروض التقديمية، توفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection) ). هناك عدة تنفيذات لطرق `AddClone` التي تحدد معايير عملية دمج العروض التقديمية. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `AddClone` من العرض التقديمي الذي تريد دمج الشرائح إليه.
 
-لدمج العروض التقديمية، يوفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection)). هناك عدة تطبيقات لطرق `AddClone` التي تحدد معلمات عملية دمج العرض التقديمي. كل كائن عرض تقديمي لديه مجموعة [Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `AddClone` من العرض التقديمي الذي تريد دمج الشرائح فيه.
-
-ترجع طريقة `AddClone` كائن `ISlide`، وهو نسخة من الشريحة المصدر. الشرائح في العرض التقديمي الناتج هي ببساطة نسخة من الشرائح من المصدر. لذلك، يمكنك إجراء تغييرات على الشرائح الناتجة (على سبيل المثال، تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق بشأن تأثر العروض التقديمية المصدر. 
+طريقة `AddClone` تُعيد كائن `ISlide`، وهو نسخة من الشريحة المصدر. الشرائح في العرض التقديمي الناتج هي ببساطة نسخة من الشرائح الأصلية. لذلك، يمكنك إجراء تغييرات على الشرائح الناتجة (على سبيل المثال، تطبيق الأنماط أو خيارات التنسيق أو التخطيطات) دون القلق من التأثير على العروض التقديمية المصدر.
 
 ## **دمج العروض التقديمية** 
 
-يوفر Aspose.Slides طريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) التي تتيح لك دمج الشرائح بينما تحتفظ الشرائح بتخطيطات وعناصر تصميمها (معلمات افتراضية).
+توفر Aspose.Slides الطريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) التي تتيح لك دمج الشرائح مع بقاء تخطيطاتها وأنماطها (معلمات افتراضية).
 
-يظهر لك هذا الرمز PHP كيفية دمج العروض التقديمية:
-
+يظهر لك هذا الكود PHP كيفية دمج العروض التقديمية:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -89,12 +90,12 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
   }
 ```
 
-## **دمج العروض التقديمية مع شريحة الماستر**
 
-يوفر Aspose.Slides طريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تتيح لك دمج الشرائح مع تطبيق قالب عرض تقديمي لشريحة الماستر. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير الأسلوب للشرائح في العرض التقديمي الناتج.
+## **دمج العروض التقديمية باستخدام قالب رئيسي للشرائح** 
 
-يوضح هذا الرمز العملية الموصوفة:
+توفر Aspose.Slides الطريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تتيح لك دمج الشرائح مع تطبيق قالب رئيسي للشرائح. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض التقديمي الناتج.
 
+يظهر هذا الكود العملية الموصوفة:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -116,18 +117,61 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
   }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-يتم تحديد تخطيط الشريحة لشريحة الماستر تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم تعيين المعامل البولي `allowCloneMissingLayout` لطريقة `AddClone` على true، يتم استخدام التخطيط لشرائح المصدر. خلاف ذلك، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException).
+{{% alert title="Note" color="warning" %}} 
+
+يتم تحديد تخطيط الشريحة للقالب الرئيسي للشرائح تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط معامل `allowCloneMissingLayout` البولياني في طريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدر. وإلا، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException).
 
 {{% /alert %}}
 
-إذا كنت ترغب في أن تحتوي الشرائح في العرض التقديمي الناتج على تخطيط شريحة مختلف، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك عند الدمج.
+إذا كنت تريد أن تكون للشرائح في العرض التقديمي الناتج تخطيط شريحة مختلف، استخدم الطريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك عند الدمج.
 
-## **دمج شرائح محددة من العروض التقديمية**
+## **دمج شرائح محددة من العروض التقديمية** 
 
-يظهر لك هذا الرمز PHP كيفية اختيار ودمج شرائح محددة من عروض تقديمية مختلفة للحصول على عرض تقديمي واحد:
+دمج شرائح محددة من عدة عروض تقديمية مفيد لإنشاء مجموعات شرائح مخصصة. يسمح لك Aspose.Slides للـ PHP عبر Java باختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على التنسيق والتخطيط وتصميم الشرائح الأصلية.
 
+الكود PHP التالي ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح العنوان من عرضين تقديميين آخرين، ويحفظ النتيجة إلى ملف:
+```php
+function getTitleSlide(Presentation $presentation) {
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
+            return $slide;
+        }
+    }
+    return null;
+}
+```
+
+```php
+$presentation = new Presentation();
+$presentation1 = new Presentation($folderPath . "presentation1.pptx");
+$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+try {
+    $presentation->getSlides()->removeAt(0);
+    
+    $slide1 = getTitleSlide($presentation1);
+
+    if ($slide1 != null)
+        $presentation->getSlides()->addClone($slide1);
+
+    $slide2 = getTitleSlide($presentation2);
+
+    if ($slide2 != null)
+        $presentation->getSlides()->addClone($slide2);
+
+    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation2->dispose();
+    $presentation1->dispose();
+    $presentation->dispose();
+}
+```
+
+
+## **دمج العروض التقديمية باستخدام تخطيط شريحة** 
+
+يعرض لك هذا الكود PHP كيفية دمج الشرائح من العروض التقديمية مع تطبيق تخطيط الشريحة المفضل لديك للحصول على عرض تقديمي ناتج واحد:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -149,43 +193,18 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
   }
 ```
 
-## **دمج العروض التقديمية مع تخطيط الشريحة**
 
-يظهر لك هذا الرمز PHP كيفية دمج الشرائح من العروض التقديمية مع تطبيق التخطيط المفضل لديك عليها للحصول على عرض تقديمي واحد:
+## **دمج العروض التقديمية بأحجام شرائح مختلفة** 
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+{{% alert title="Note" color="warning" %}} 
 
-## **دمج العروض التقديمية مع أحجام شرائح مختلفة**
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-لا يمكنك دمج العروض التقديمية مع أحجام شرائح مختلفة. 
+لا يمكنك دمج العروض التقديمية ذات أحجام شرائح مختلفة. 
 
 {{% /alert %}}
 
-لدمج عرضين تقديميين مع أحجام شرائح مختلفة، تحتاج إلى تغيير حجم أحد العروض ليتناسب حجمه مع الآخر. 
+لدمج عرضين تقديميين بأحجام شرائح مختلفة، يجب تعديل حجم أحد العروض ليطابق حجم العرض الآخر.
 
-يوضح هذا الرمز العينة العملية الموضحة:
-
+يظهر هذا الكود العيني العملية الموصوفة:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -208,10 +227,10 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
   }
 ```
 
-## **دمج الشرائح إلى قسم في العرض التقديمي**
 
-يظهر لك هذا الرمز PHP كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
+## **دمج شرائح إلى قسم في العرض التقديمي** 
 
+يعرض لك هذا الكود PHP كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -233,10 +252,28 @@ description: "دمج أو جمع عرض تقديمي PowerPoint"
   }
 ```
 
-تمت إضافة الشريحة في نهاية القسم. 
 
-{{% alert title="نصيحة" color="primary" %}}
+يتم إضافة الشريحة في نهاية القسم. 
 
-تقدم Aspose تطبيق [ويب مجاني لتحرير الصور](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو صور PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
+## **انظر أيضًا**
 
-{{% /alert %}}
+
+توفر Aspose [صانع كولاج مجاني عبر الإنترنت](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج صور [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وأكثر.
+
+تفضل بزيارة [أسبوز مجاني دمج عبر الإنترنت](https://products.aspose.app/slides/merger). يتيح لك دمج عروض PowerPoint بنفس الصيغة (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر صيغ مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
+
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+
+## **الأسئلة الشائعة** 
+
+**هل هناك أي حدود لعدد الشرائح عند دمج العروض التقديمية؟**
+
+لا توجد حدود صارمة. يمكن لـ Aspose.Slides التعامل مع ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. للعروض التقديمية الكبيرة جدًا، يُنصح باستخدام JVM 64‑بت وتخصيص ذاكرة كومة كافية.
+
+**هل يمكنني دمج عروض تقديمية تحتوي على فيديو أو صوت مدمج؟**
+
+نعم، يحافظ Aspose.Slides على المحتوى الوسائط المتعددة المدمج في الشرائح، لكن قد يصبح العرض التقديمي النهائي أكبر حجمًا بشكل ملحوظ.
+
+**هل سيتم الحفاظ على الخطوط عند دمج العروض التقديمية؟**
+
+نعم. الخطوط المستخدمة في العروض التقديمية المصدرية تُحافظ عليها في الملف الناتج، بشرط أن تكون مثبتة على النظام أو [مضمنة](/slides/ar/php-java/embedded-font/).

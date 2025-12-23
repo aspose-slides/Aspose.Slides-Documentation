@@ -1,29 +1,39 @@
 ---
-title: Управление тегами и пользовательскими данными
+title: Управление тегами и пользовательскими данными в презентациях с использованием PHP
+linktitle: Теги и пользовательские данные
 type: docs
 weight: 300
-url: /ru/php-java/upravlenie-tegam-i-polzovatelskimi-dannymi
-
+url: /ru/php-java/managing-tags-and-custom-data/
+keywords:
+- свойства документа
+- тег
+- пользовательские данные
+- добавить тег
+- парные значения
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как добавлять, читать, обновлять и удалять теги и пользовательские данные в Aspose.Slides for PHP via Java, с примерами для презентаций PowerPoint и OpenDocument."
 ---
 
-## Хранение данных в файлах презентации
+## **Хранение данных в файлах презентаций**
 
-Файлы PPTX — это элементы с расширением .pptx — хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях.
+Файлы PPTX — элементы с расширением .pptx — хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях. 
 
-Каждый *слайд* является одним из элементов в презентациях, а *часть слайда* содержит содержимое одного слайда. Часть слайда может иметь явные связи с многими частями—такими как Пользовательские Теги—определенными в ISO/IEC 29500.
+При том, что *slide* является одним из элементов презентаций, *slide part* содержит содержимое отдельного слайда. Части слайда могут иметь явные связи со многими частями — например, с пользовательскими тегами — определёнными в ISO/IEC 29500. 
 
-Пользовательские данные (специфичные для презентации) или пользователя могут существовать в качестве тегов ([ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)).
+Пользовательские данные (специфичные для презентации) могут существовать в виде тегов ([ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
 
-Теги по сути представляют собой пары значений с ключом-строкой. 
+Теги, по сути, представляют собой парные значения строка‑ключ. 
 
 {{% /alert %}} 
 
-## Получение значений для тегов
+## **Получение значений тегов**
 
-В слайдах тег соответствует методам [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) и [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). Этот пример кода показывает, как получить значение тега с помощью Aspose.Slides для PHP через Java для [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
-
+В слайдах тег соответствует методам [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) и [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). В этом примере кода показано, как получить значение тега с помощью Aspose.Slides for PHP via Java для [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -35,17 +45,17 @@ url: /ru/php-java/upravlenie-tegam-i-polzovatelskimi-dannymi
   }
 ```
 
-## Добавление тегов к презентациям
 
-Aspose.Slides позволяет добавлять теги к презентациям. Тег обычно состоит из двух элементов: 
+## **Добавление тегов к презентациям**
 
-- название пользовательского свойства - `MyTag` 
-- значение пользовательского свойства - `My Tag Value`
+Aspose.Slides позволяет добавлять теги к презентациям. Тег обычно состоит из двух элементов:
 
-Если вам нужно классифицировать некоторые презентации на основе конкретного правила или свойства, вы можете извлечь выгоду из добавления тегов к этим презентациям. Например, если вы хотите категоризировать или объединить все презентации из стран Северной Америки, вы можете создать тег Северной Америки и затем назначить соответствующие страны (США, Мексика и Канада) в качестве значений.
+- имя пользовательского свойства — `MyTag`
+- значение пользовательского свойства — `My Tag Value`
 
-Этот пример кода показывает, как добавить тег к [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) с использованием Aspose.Slides для PHP через Java:
+Если вам необходимо классифицировать некоторые презентации по определённому правилу или свойству, то добавление тегов к этим презентациям может быть полезным. Например, если вы хотите сгруппировать все презентации из стран Северной Америки, вы можете создать тег «North American» и назначить в качестве значений соответствующие страны (США, Мексика и Канада). 
 
+В этом примере кода показано, как добавить тег к [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) с использованием Aspose.Slides for PHP via Java:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -58,8 +68,8 @@ Aspose.Slides позволяет добавлять теги к презента
   }
 ```
 
-Теги также могут быть установлены для [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
 
+Теги также можно установить для [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
 ```php
   $pres = new Presentation();
   try {
@@ -72,8 +82,8 @@ Aspose.Slides позволяет добавлять теги к презента
   }
 ```
 
-Или для любого отдельного [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape):
 
+Или любого отдельного [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape):
 ```php
   $pres = new Presentation();
   try {
@@ -87,3 +97,18 @@ Aspose.Slides позволяет добавлять теги к презента
     }
   }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я удалить все теги из презентации, слайда или формы за одну операцию?**
+
+Да. [Коллекция тегов](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) поддерживает операцию [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/), которая удаляет все пары ключ‑значение за один раз.
+
+**Как удалить один тег по его имени без перебора всей коллекции?**
+
+Используйте операцию [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) у [коллекции тегов](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/), чтобы удалить тег по его ключу.
+
+**Как получить полный список имён тегов для аналитики или фильтрации?**
+
+Вызовите [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) у [коллекции тегов](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/); он возвращает массив всех имён тегов.

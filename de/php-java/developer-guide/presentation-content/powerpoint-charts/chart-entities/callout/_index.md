@@ -1,12 +1,22 @@
 ---
-title: Callout
+title: Callouts in Präsentationsdiagrammen mit PHP verwalten
+linktitle: Hinweis
 type: docs
 url: /de/php-java/callout/
+keywords:
+- Diagramm-Callout
+- Callout verwenden
+- Datenbeschriftung
+- Beschriftungsformat
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für PHP via Java mit prägnanten Codebeispielen, kompatibel mit PPT und PPTX, um Präsentations-Workflows zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) und zur Schnittstelle [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob das angegebene Datenlabel des Diagramms als Daten-Callout oder als Datenlabel angezeigt wird.
-
+Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) und [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) wurden zur Klasse [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) und zum Interface [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) hinzugefügt. Diese Methoden bestimmen, ob die Datenbeschriftung eines angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird.
 ```php
   $pres = new Presentation();
   try {
@@ -22,9 +32,9 @@ Neue Methoden [**getShowLabelAsDataCallout()**](https://reference.aspose.com/sli
   }
 ```
 
-## **Callout für das Donut-Diagramm festlegen**
-Aspose.Slides für PHP über Java bietet Unterstützung für das Festlegen der Datenlabel-Callout-Form für ein Donut-Diagramm. Ein Beispiel ist unten angegeben.
 
+## **Callout für ein Doughnut‑Diagramm festlegen**
+Aspose.Slides für PHP via Java bietet Unterstützung zum Festlegen der Callout‑Form für Serien‑Datenbeschriftungen in einem Doughnut‑Diagramm. Nachfolgend ein Beispiel.
 ```php
   $pres = new Presentation();
   try {
@@ -84,3 +94,14 @@ Aspose.Slides für PHP über Java bietet Unterstützung für das Festlegen der D
     }
   }
 ```
+
+
+## **FAQ**
+
+**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bildformate erhalten?**
+
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Exportieren nach [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/de/php-java/export-to-html5/), [SVG](/slides/de/php-java/render-a-slide-as-an-svg-image/) oder [Rasterbildern](/slides/de/php-java/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
+
+**Funktionieren benutzerdefinierte Schriften in Callouts und kann ihr Aussehen beim Export erhalten bleiben?**
+
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriften](/slides/de/php-java/embedded-font/) in die Präsentation und steuert das Einbetten von Schriften während Exporte wie [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.

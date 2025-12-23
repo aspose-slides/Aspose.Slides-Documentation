@@ -1,17 +1,27 @@
 ---
-title: チャートデータラベル
+title: PHP を使用してプレゼンテーションのチャート データ ラベルを管理する
+linktitle: データ ラベル
 type: docs
 url: /ja/php-java/chart-data-label/
-keywords: "チャートデータラベル, ラベル距離, Java, Aspose.Slides for PHP via Java"
-description: "PowerPointチャートのデータラベルと距離を設定する"
+keywords:
+- チャート
+- データ ラベル
+- データ精度
+- パーセンテージ
+- ラベル距離
+- ラベル位置
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "PowerPoint プレゼンテーションで、Aspose.Slides for PHP via Java を使用してチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
 
-チャートのデータラベルは、チャートデータシリーズや個々のデータポイントの詳細を示します。これにより、読者はデータシリーズを迅速に特定でき、チャートを理解しやすくします。
+チャートのデータ ラベルは、チャートのデータ系列や個々のデータ ポイントに関する詳細を示します。これにより、読者はデータ系列をすばやく識別でき、チャートの理解も容易になります。
 
-## **チャートデータラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度を設定**
 
-このPHPコードは、チャートデータラベルでデータの精度を設定する方法を示しています。
-
+この PHP コードは、チャート データ ラベルのデータ精度を設定する方法を示します。
 ```php
   $pres = new Presentation();
   try {
@@ -26,14 +36,15 @@ description: "PowerPointチャートのデータラベルと距離を設定す�
   }
 ```
 
-## **パーセンテージをラベルとして表示する**
-Aspose.Slides for PHP via Javaは、表示されたチャートにパーセンテージラベルを設定することを許可します。このPHPコードは、操作を示しています。
 
+## **パーセンテージをラベルとして表示**
+
+Aspose.Slides for PHP via Java を使用すると、表示されるチャートにパーセンテージ ラベルを設定できます。この PHP コードは、その操作を示します。
 ```php
-  # プレゼンテーションクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
-    # 最初のスライドを取得
+    # 最初のスライドを取得します
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
     $series;
@@ -64,7 +75,7 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
         $lbl->getDataLabelFormat()->setShowBubbleSize(false);
       }
     }
-    # チャートを含むプレゼンテーションを保存
+    # チャートを含むプレゼンテーションを保存します
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -73,34 +84,35 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
   }
 ```
 
-## **チャートデータラベルにパーセンテージ記号を設定する**
-このPHPコードは、チャートデータラベルにパーセンテージ記号を設定する方法を示しています。
 
+## **チャート データ ラベルにパーセンテージ記号を設定**
+
+この PHP コードは、チャート データ ラベルにパーセンテージ記号を設定する方法を示します。
 ```php
-  # プレゼンテーションクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
-    # インデックスを介してスライドの参照を取得
+    # インデックスでスライドの参照を取得します
     $slide = $pres->getSlides()->get_Item(0);
-    # スライド上に PercentsStackedColumn チャートを作成
+    # スライド上に PercentsStackedColumn チャートを作成します
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # NumberFormatLinkedToSource を false に設定
+    # NumberFormatLinkedToSource を false に設定します
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    # チャートデータワークシートを取得
+    # チャート データのワークシートを取得します
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # 新しいシリーズを追加
+    # 新しい系列を追加します
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # シリーズの塗りつぶし色を設定
+    # 系列の塗りつぶし色を設定します
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # LabelFormat プロパティを設定
+    # LabelFormat のプロパティを設定します
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,13 +120,13 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # 新しいシリーズを追加
+    # 新しい系列を追加します
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # 塗りつぶしタイプと色を設定
+    # 塗りつぶしタイプと色を設定します
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -123,7 +135,7 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # プレゼンテーションをディスクに書き込む
+    # プレゼンテーションをディスクに保存します
     $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -132,20 +144,21 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
   }
 ```
 
-## **軸からのラベル距離を設定する**
-このPHPコードは、軸からのカテゴリラベルの距離を設定する方法を示しています。
 
+## **軸からのラベル距離を設定**
+
+この PHP コードは、軸からプロットされたチャートでカテゴリ軸からのラベル距離を設定する方法を示します。
 ```php
-  # プレゼンテーションクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
-    # スライドの参照を取得
+    # スライドの参照を取得します
     $sld = $pres->getSlides()->get_Item(0);
-    # スライド上にチャートを作成
+    # スライドにチャートを作成します
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # 軸からのラベル距離を設定
+    # 軸からラベルの距離を設定します
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # プレゼンテーションをディスクに書き込む
+    # プレゼンテーションを書き出します
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -154,12 +167,12 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
   }
 ```
 
-## **ラベルの位置を調整する**
 
-軸に依存しないチャート（例：円グラフ）を作成する場合、チャートのデータラベルが端に近すぎることがあります。そのような場合は、リーダーラインが明確に表示されるようにデータラベルの位置を調整する必要があります。
+## **ラベル位置の調整**
 
-このPHPコードは、円グラフのラベル位置を調整する方法を示しています。
+軸に依存しないチャート（例えば円グラフ）を作成する場合、チャートのデータ ラベルがエッジに近すぎることがあります。そのような場合、リーダー ラインが明確に表示されるようにデータ ラベルの位置を調整する必要があります。
 
+この PHP コードは、円グラフでラベル位置を調整する方法を示します。
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +191,19 @@ Aspose.Slides for PHP via Javaは、表示されたチャートにパーセン�
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**密なチャートでデータ ラベルの重なりを防ぐにはどうすればよいですか？**
+
+自動ラベル配置、リーダー ライン、フォントサイズの縮小を組み合わせます。必要に応じて、いくつかのフィールド（例: カテゴリ）を非表示にするか、極端なポイントや重要なポイントのラベルのみを表示します。
+
+**0、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+
+ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
+
+**PDF/画像にエクスポートする際に一貫したラベル スタイルを確保するにはどうすればよいですか？**
+
+フォント（ファミリ、サイズ）を明示的に設定し、フォントがレンダリング側で利用可能であることを確認してフォールバックを防ぎます。

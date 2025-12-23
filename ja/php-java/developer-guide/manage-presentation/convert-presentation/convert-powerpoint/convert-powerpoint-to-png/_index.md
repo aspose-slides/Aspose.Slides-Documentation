@@ -1,31 +1,47 @@
 ---
-title: PowerPointをPNGに変換
+title: PHPでPowerPointスライドをPNGに変換
+linktitle: PowerPointからPNGへ
 type: docs
 weight: 30
 url: /ja/php-java/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides for PHP via Java
-description: PowerPointプレゼンテーションをPNGに変換
+keywords:
+- PowerPointを変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPTを変換
+- PPTXを変換
+- PowerPointからPNGへ
+- プレゼンテーションからPNGへ
+- スライドからPNGへ
+- PPTからPNGへ
+- PPTXからPNGへ
+- PPTをPNGとして保存
+- PPTXをPNGとして保存
+- PPTをPNGにエクスポート
+- PPTXをPNGにエクスポート
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint プレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を保証します。"
 ---
 
-## **PowerPointをPNGに変換することについて**
+## **PowerPoint から PNG への変換について**
 
-PNG（ポータブルネットワークグラフィックス）フォーマットはJPEG（ジョイントフォトグラフィックエクスパートグループ）ほど一般的ではありませんが、それでも非常に人気があります。
+PNG（Portable Network Graphics）形式は JPEG（Joint Photographic Experts Group）ほど一般的ではありませんが、依然として非常に人気があります。
 
-**ユースケース:** 複雑な画像があり、サイズが問題でない場合は、PNGはJPEGよりも優れた画像フォーマットです。
+**使用例:** 複雑な画像でサイズが問題にならない場合、PNG は JPEG よりも優れた画像形式です。
 
-{{% alert title="ヒント" color="primary" %}} Asposeの無料**PowerPoint to PNG Converters**をチェックしてみてください: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) と [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらは、このページで説明されているプロセスのライブ実装です。 {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Aspose の無料 **PowerPoint to PNG コンバータ** をチェックしたいかもしれません: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) と [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらは本ページで説明したプロセスの実装例です。 {{% /alert %}}
 
-## **PowerPointをPNGに変換する**
+## **PowerPoint を PNG に変換する**
 
-これらの手順に従ってください。
+次の手順を実行してください:
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスをインスタンス化します。
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) メソッドを使用して[ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide)インターフェイスのコレクションからスライドオブジェクトを取得します。
-3. [ISlide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide)メソッドを使用して、各スライドのサムネイルを取得します。
-4. [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat))メソッドを使用して、スライドのサムネイルをPNG形式で保存します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスをインスタンス化します。
+2. [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) インターフェイスの下にある [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) コレクションからスライドオブジェクトを取得します。
+3. 各スライドのサムネイルを取得するために [ISlide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) メソッドを使用します。
+4. スライドのサムネイルを PNG 形式で保存するために [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) メソッドを使用します。
 
-このPHPコードは、PowerPointプレゼンテーションをPNGに変換する方法を示しています：
-
+この PHP コードは PowerPoint プレゼンテーションを PNG に変換する方法を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -47,12 +63,12 @@ PNG（ポータブルネットワークグラフィックス）フォーマッ�
   }
 ```
 
-## **カスタム寸法でPowerPointをPNGに変換する**
 
-特定のスケールのPNGファイルを取得したい場合は、結果のサムネイルの寸法を決定する`desiredX`と`desiredY`の値を設定できます。
+## **カスタム寸法で PowerPoint を PNG に変換する**
 
-このコードは、前述の操作を示しています：
+特定のスケールで PNG ファイルを取得したい場合は、結果のサムネイルの寸法を決定する `desiredX` と `desiredY` の値を設定できます。
 
+このコードは上記の操作を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -76,12 +92,12 @@ PNG（ポータブルネットワークグラフィックス）フォーマッ�
   }
 ```
 
-## **カスタムサイズでPowerPointをPNGに変換する**
 
-特定のサイズのPNGファイルを取得したい場合は、`ImageSize`のために好みの`width`と`height`の引数を渡すことができます。
+## **カスタムサイズで PowerPoint を PNG に変換する**
 
-このコードは、画像のサイズを指定しながらPowerPointをPNGに変換する方法を示しています：
+特定のサイズの PNG ファイルを取得したい場合は、`ImageSize` に対して希望の `width` と `height` を渡すことができます。
 
+このコードは、画像のサイズを指定しながら PowerPoint を PNG に変換する方法を示しています:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -103,3 +119,15 @@ PNG（ポータブルネットワークグラフィックス）フォーマッ�
     }
   }
 ```
+
+
+## **FAQ**
+
+**スライド全体ではなく、特定のシェイプ（例: チャートや画像）だけをエクスポートするにはどうすればよいですか？**  
+Aspose.Slides は [個々のシェイプのサムネイル生成](/slides/ja/php-java/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
+
+**サーバーでの並列変換はサポートされていますか？**  
+はい、ただしスレッド間で単一のプレゼンテーション インスタンスを共有しないでください。[共有しない](/slides/ja/php-java/multithreading/)ことが必要です。スレッドまたはプロセスごとに別々のインスタンスを使用してください。
+
+**PNG にエクスポートする際の評価版の制限は何ですか？**  
+評価モードでは出力画像に透かしが追加され、ライセンスが適用されるまで [その他の制限](/slides/ja/php-java/licensing/) が適用されます。

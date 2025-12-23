@@ -1,58 +1,74 @@
 ---
-title: PowerPointをXPSに変換
+title: PowerPoint プレゼンテーションを PHP で XPS に変換する
+linktitle: PowerPoint から XPS へ
 type: docs
 weight: 70
 url: /ja/php-java/convert-powerpoint-to-xps/
-keywords: "PPT, PPTX to XPS"
-description: "PowerPoint PPT(X)をXPSに変換"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint から XPS へ
+- プレゼンテーションから XPS へ
+- スライドから XPS へ
+- PPT から XPS へ
+- PPTX から XPS へ
+- PPT を XPS として保存
+- PPTX を XPS として保存
+- PPT を XPS にエクスポート
+- PPTX を XPS にエクスポート
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP (Java 経由) を使用して、PowerPoint PPT/PPTX を高品質でプラットフォームに依存しない XPS に変換します。ステップバイステップのガイドとサンプルコードを提供します。"
 ---
 
-## **XPSについて**
-Microsoftは[XPS](https://docs.fileformat.com/page-description-language/xps/)を[PDF](https://docs.fileformat.com/pdf/)の代替として開発しました。これは、PDFに非常に似たファイルを出力することにより、コンテンツを印刷できるようにします。XPS形式はXMLに基づいています。XPSファイルのレイアウトや構造は、すべてのオペレーティングシステムやプリンターで同じままです。
+## **XPS について**
+Microsoft は [XPS](https://docs.fileformat.com/page-description-language/xps/) を [PDF](https://docs.fileformat.com/pdf/) の代替として開発しました。PDF に非常に似たファイルを出力することでコンテンツを印刷できます。XPS フォーマットは XML をベースにしています。XPS ファイルのレイアウトや構造はすべての OS とプリンターで同じままです。
 
-## Microsoft XPS形式を使用するタイミング
+## **Microsoft XPS フォーマットの使用時期**
 
 {{% alert color="primary" %}} 
-
-Aspose.SlidesがPPTまたはPPTXプレゼンテーションをXPS形式に変換する方法を確認するには、[この無料のオンラインコンバーターアプリ](https://products.aspose.app/slides/conversion)をチェックしてください。
-
+Aspose.Slides が PPT または PPTX プレゼンテーションを XPS フォーマットに変換する方法を見るには、[この無料オンラインコンバータアプリ](https://products.aspose.app/slides/conversion) を確認してください。 
 {{% /alert %}} 
 
-ストレージコストを削減したい場合は、Microsoft PowerPointプレゼンテーションをXPS形式に変換できます。これにより、ドキュメントの保存、共有、印刷が容易になります。
+ストレージコストを削減したい場合は、Microsoft PowerPoint プレゼンテーションを XPS フォーマットに変換できます。これにより、ドキュメントの保存、共有、印刷が容易になります。
 
-Microsoftは、Windows（Windows 10でも）でXPSの強力なサポートを引き続き実装しているため、この形式でファイルを保存することを検討したいかもしれません。Windows 8.1、Windows 8、Windows 7、Windows Vistaを使用している場合、特定の操作においてXPSが最善の選択肢になるかもしれません。
+Microsoft は Windows (Windows 10 でも) で XPS の強力なサポートを継続的に実装しているため、このフォーマットでファイルを保存することを検討した方がよいでしょう。Windows 8.1、Windows 8、Windows 7、Windows Vista を使用している場合、特定の操作において XPS が最適な選択肢になることがあります。
 
-- **Windows 8**はXPSファイルにOXPS（Open XPS）形式を使用します。OXPSは、元のXPS形式の標準化されたバージョンです。Windows 8はPDFファイルよりもXPSファイルのサポートが優れています。
-  - **XPS:** 内蔵のXPSビューワ/リーダーおよびXPSへの印刷機能が利用可能です。
-  - **PDF**: PDFリーダーは利用できますが、PDFへの印刷機能はありません。
+- **Windows 8** は XPS ファイルに OXPS (Open XPS) フォーマットを使用します。OXPS は元の XPS フォーマットの標準化バージョンです。Windows 8 は PDF ファイルよりも XPS ファイルのサポートが優れています。 
+  - **XPS:** 組み込みの XPS ビューア/リーダーと XPS への印刷機能が利用可能です。 
+  - **PDF:** PDF リーダーは利用可能ですが、PDF への印刷機能はありません。 
 
-- **Windows 7およびWindows Vista**は元のXPS形式を使用しています。これらのオペレーティングシステムもPDFよりもXPSファイルをよりよくサポートしています。
-  - **XPS**: 内蔵のXPSビューワおよびXPSへの印刷機能が利用可能です。
-  - **PDF**: PDFリーダーはありません。PDFへの印刷機能はありません。
+- **Windows 7** と **Windows Vista** は元の XPS フォーマットを使用します。これらの OS も PDF より XPS のサポートが優れています。 
+  - **XPS:** 組み込みの XPS ビューアと XPS への印刷機能が利用可能です。 
+  - **PDF:** PDF リーダーがなく、PDF への印刷機能もありません。 
 
-|<p>**入力PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**出力XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**入力 PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**出力 XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoftは最終的にWindows 10のPDFへの印刷機能を通じてPDFでの印刷操作をサポートしました。それ以前は、ユーザーはXPS形式を介してドキュメントを印刷することが期待されていました。
+Microsoft は最終的に Windows 10 の Print to PDF 機能を通じて PDF の印刷操作サポートを実装しました。以前は、ユーザーは XPS フォーマットを介してドキュメントを印刷することが期待されていました。
 
-## Aspose.Slidesを使用したXPS変換
+## **Aspose.Slides を使用した XPS 変換**
 
-[**Aspose.Slides**](https://products.aspose.com/slides/php-java/) for Javaでは、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスが公開する[**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)メソッドを使用して、プレゼンテーション全体をXPSドキュメントに変換できます。
+Java 用の [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) では、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスが提供する [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) メソッドを使用して、プレゼンテーション全体を XPS ドキュメントに変換できます。
 
-プレゼンテーションをXPSに変換する際は、次の設定のいずれかを使用してプレゼンテーションを保存する必要があります。
+プレゼンテーションを XPS に変換する際は、以下の設定のいずれかで保存する必要があります：
 
-- デフォルト設定（[**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions)なし）
-- カスタム設定（[**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions)あり）
+- デフォルト設定（[**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions) を使用しない）
+- カスタム設定（[**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions) を使用）
 
-### **デフォルト設定を使用したプレゼンテーションのXPSへの変換**
+### **デフォルト設定でプレゼンテーションを XPS に変換**
 
-このサンプルコードは、標準設定を使用してプレゼンテーションをXPSドキュメントに変換する方法を示しています：
-
+このサンプルコードは、標準設定を使用してプレゼンテーションを XPS ドキュメントに変換する方法を示しています：
 ```php
-  # プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化する
   $pres = new Presentation("Convert_XPS.pptx");
   try {
-    # プレゼンテーションをXPSドキュメントに保存
+    # プレゼンテーションを XPS ドキュメントに保存する
     $pres->save("XPS_Output_Without_XPSOption.xps", SaveFormat::Xps);
   } finally {
     if (!java_is_null($pres)) {
@@ -61,18 +77,18 @@ Microsoftは最終的にWindows 10のPDFへの印刷機能を通じてPDFでの�
   }
 ```
 
-### **カスタム設定を使用したプレゼンテーションのXPSへの変換**
-このサンプルコードは、カスタム設定を使用してプレゼンテーションをXPSドキュメントに変換する方法を示しています：
 
+### **カスタム設定でプレゼンテーションを XPS に変換**
+このサンプルコードは、カスタム設定を使用してプレゼンテーションを XPS ドキュメントに変換する方法を示しています：
 ```php
-  # プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+  # プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化する
   $pres = new Presentation("Convert_XPS_Options.pptx");
   try {
-    # TiffOptionsクラスをインスタンス化
+    # TiffOptions クラスをインスタンス化する
     $options = new XpsOptions();
-    # メタファイルをPNGとして保存
+    # MetaFiles を PNG として保存
     $options->setSaveMetafilesAsPng(true);
-    # プレゼンテーションをXPSドキュメントに保存
+    # プレゼンテーションを XPS ドキュメントに保存する
     $pres->save("XPS_Output_With_Options.xps", SaveFormat::Xps, $options);
   } finally {
     if (!java_is_null($pres)) {
@@ -80,3 +96,12 @@ Microsoftは最終的にWindows 10のPDFへの印刷機能を通じてPDFでの�
     }
   }
 ```
+
+
+## **FAQ**
+
+**ファイルではなくストリームに XPS を保存できますか？**  
+はい。Aspose.Slides はストリームに直接エクスポートできるため、Web API、サーバー側パイプライン、またはファイルシステムに触れずに XPS を送信したいあらゆるシナリオに最適です。
+
+**非表示スライドは XPS に含まれますか、除外できますか？**  
+デフォルトでは、通常（表示）スライドのみがレンダリングされます。[非表示スライドを含めるか除外するか](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions/setshowhiddenslides/) を [エクスポート設定](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions/) で指定でき、出力に意図したページだけが含まれるようにできます。

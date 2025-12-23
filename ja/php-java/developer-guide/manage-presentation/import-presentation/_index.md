@@ -1,26 +1,42 @@
 ---
-title: プレゼンテーションのインポート
+title: PDFまたはHTMLからPHPでプレゼンテーションをインポート
+linktitle: プレゼンテーションをインポート
 type: docs
 weight: 60
 url: /ja/php-java/import-presentation/
-keywords: "PowerPointのインポート、PDFからプレゼンテーションへ、PDFからPPTXへ、PDFからPPTへ、Java、Aspose.Slides for PHP via Java"
-description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します"
+keywords:
+- プレゼンテーションをインポート
+- スライドをインポート
+- PDFをインポート
+- HTMLをインポート
+- PDFからプレゼンテーションへ
+- PDFからPPTへ
+- PDFからPPTXへ
+- PDFからODPへ
+- HTMLからプレゼンテーションへ
+- HTMLからPPTへ
+- HTMLからPPTXへ
+- HTMLからODPへ
+- PowerPoint
+- OpenDocument
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides を使用して、PHP で PDF および HTML ドキュメントを PowerPoint および OpenDocument のプレゼンテーションにシームレスかつ高速にインポートします。"
 ---
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/)を使用すると、他のフォーマットのファイルからプレゼンテーションをインポートできます。Aspose.Slidesは、PDF、HTMLドキュメントなどからプレゼンテーションをインポートできる[SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/)クラスを提供しています。
+[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/) を使用すると、他の形式のファイルからプレゼンテーションをインポートできます。Aspose.Slides は、[SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) クラスを提供し、PDF、HTML ドキュメントなどからプレゼンテーションをインポートできます。
 
-## **PDFからPowerPointをインポートする**
+## **PDF から PowerPoint にインポート**
 
-この場合、PDFをPowerPointプレゼンテーションに変換します。
+この場合、PDF を PowerPoint プレゼンテーションに変換します。
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/)クラスのインスタンスを作成します。
-2. [addFromPdf()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection#addFromPdf-java.lang.String-)メソッドを呼び出し、PDFファイルを渡します。
-3. [save()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-)メソッドを使用して、PowerPoint形式でファイルを保存します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/) クラスのインスタンスを作成します。  
+2. [addFromPdf()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection#addFromPdf-java.lang.String-) メソッドを呼び出し、PDF ファイルを渡します。  
+3. [save()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、PowerPoint 形式でファイルを保存します。
 
-このPHPコードは、PDFからPowerPointへの操作を示しています：
-
+この PHP コードは PDF から PowerPoint への変換を実演します:
 ```php
   $pres = new Presentation();
   try {
@@ -33,22 +49,20 @@ description: "PDFからPowerPointプレゼンテーションをインポート�
   }
 ```
 
-{{% alert  title="ヒント" color="primary" %}} 
 
-ここで説明されているプロセスのライブ実装である**Aspose無料** [PDFからPowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint)ウェブアプリをチェックすることをお勧めします。 
-
+{{% alert  title="Tip" color="primary" %}} 
+このプロセスの実装例として、**Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) Web アプリをご確認ください。 
 {{% /alert %}} 
 
-## **HTMLからPowerPointをインポートする**
+## **HTML から PowerPoint にインポート**
 
-この場合、HTMLドキュメントをPowerPointプレゼンテーションに変換します。
+この場合、HTML ドキュメントを PowerPoint プレゼンテーションに変換します。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/)クラスのインスタンスを作成します。
-2. [addFromHtml()](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-)メソッドを呼び出し、PDFファイルを渡します。
-3. [save()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-)メソッドを使用して、PowerPoint形式でファイルを保存します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/) クラスのインスタンスを作成します。  
+2. [addFromHtml()](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) メソッドを呼び出し、HTML ファイルを渡します。  
+3. [save()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) メソッドを使用して、PowerPoint 形式でファイルを保存します。
 
-このPHPコードは、HTMLからPowerPointへの操作を示しています：
-
+この PHP コードは HTML から PowerPoint への変換を実演します:
 ```php
   $presentation = new Presentation();
   try {
@@ -69,13 +83,19 @@ description: "PDFからPowerPointプレゼンテーションをインポート�
   }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-Aspose.Slidesを使用して、HTMLを他の一般的なファイル形式に変換することもできます： 
+## **FAQ**
 
-* [HTMLから画像](https://products.aspose.com/slides/php-java/conversion/html-to-image/)
-* [HTMLからJPG](https://products.aspose.com/slides/php-java/conversion/html-to-jpg/)
-* [HTMLからXML](https://products.aspose.com/slides/php-java/conversion/html-to-xml/)
-* [HTMLからTIFF](https://products.aspose.com/slides/php-java/conversion/html-to-tiff/)
+**PDF をインポートする際にテーブルは保持されますか？また、検出精度を向上させることはできますか？**
+
+インポート時にテーブルを検出できます。[PdfImportOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfimportoptions/) にはテーブル認識を有効にする [setDetectTables](https://reference.aspose.com/slides/php-java/aspose.slides/pdfimportoptions/#setDetectTables) メソッドが含まれています。効果は PDF の構造に依存します。
+
+{{% alert title="Note" color="warning" %}} 
+Aspose.Slides を使用して HTML を他の一般的なファイル形式に変換することもできます: 
+
+* [HTML を画像に変換](https://products.aspose.com/slides/php-java/conversion/html-to-image/)  
+* [HTML を JPG に変換](https://products.aspose.com/slides/php-java/conversion/html-to-jpg/)  
+* [HTML を XML に変換](https://products.aspose.com/slides/php-java/conversion/html-to-xml/)  
+* [HTML を TIFF に変換](https://products.aspose.com/slides/php-java/conversion/html-to-tiff/)  
 
 {{% /alert %}}

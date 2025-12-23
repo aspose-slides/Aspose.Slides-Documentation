@@ -1,29 +1,39 @@
 ---
-title: Gestión de Etiquetas y Datos Personalizados
+title: Gestionar etiquetas y datos personalizados en presentaciones usando PHP
+linktitle: Etiquetas y datos personalizados
 type: docs
 weight: 300
-url: /es/php-java/managing-tags-and-custom-data
-
+url: /es/php-java/managing-tags-and-custom-data/
+keywords:
+- propiedades del documento
+- etiqueta
+- datos personalizados
+- agregar etiqueta
+- pares de valores
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprenda a agregar, leer, actualizar y eliminar etiquetas y datos personalizados en Aspose.Slides para PHP via Java, con ejemplos para presentaciones PowerPoint y OpenDocument."
 ---
 
-## Almacenamiento de Datos en Archivos de Presentación
+## **Almacenamiento de datos en archivos de presentación**
 
-Los archivos PPTX—elementos con la extensión .pptx—se almacenan en el formato PresentationML, que es parte de la especificación Office Open XML. El formato Office Open XML define la estructura para los datos contenidos en las presentaciones.
+Los archivos PPTX—elementos con la extensión .pptx—se almacenan en el formato PresentationML, que forma parte de la especificación Office Open XML. El formato Office Open XML define la estructura de los datos contenidos en presentaciones. 
 
-Con una *diapositiva* siendo uno de los elementos en las presentaciones, una *parte de diapositiva* contiene el contenido de una sola diapositiva. Se permite que una parte de diapositiva tenga relaciones explícitas con muchas partes—como Etiquetas Definidas por el Usuario—definidas por la ISO/IEC 29500.
+Con una *diapositiva* como uno de los elementos de las presentaciones, una *parte de diapositiva* contiene el contenido de una única diapositiva. A una parte de diapositiva se le pueden asignar relaciones explícitas a muchas partes—como Etiquetas definidas por el usuario—definidas por ISO/IEC 29500. 
 
 Los datos personalizados (específicos de una presentación) o del usuario pueden existir como etiquetas ([ITagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ITagCollection)) y CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
 
-Las etiquetas son esencialmente pares de valores clave de cadena.
+Las etiquetas son esencialmente pares clave‑valor de tipo cadena. 
 
 {{% /alert %}} 
 
-## Obteniendo los Valores de las Etiquetas
+## **Obtener valores de etiquetas**
 
-En las diapositivas, una etiqueta corresponde a los métodos [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) y [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-). Este código de muestra te muestra cómo obtener el valor de una etiqueta con Aspose.Slides para PHP a través de Java para [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
-
+En diapositivas, una etiqueta corresponde a los métodos [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#getKeywords--) y [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . Este ejemplo de código muestra cómo obtener el valor de una etiqueta con Aspose.Slides for PHP via Java para [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation):
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -35,17 +45,17 @@ En las diapositivas, una etiqueta corresponde a los métodos [IDocumentPropertie
   }
 ```
 
-## Añadiendo Etiquetas a las Presentaciones
 
-Aspose.Slides te permite añadir etiquetas a las presentaciones. Una etiqueta típicamente consiste en dos elementos:
+## **Agregar etiquetas a presentaciones**
 
-- el nombre de una propiedad personalizada - `MyTag`
-- el valor de la propiedad personalizada - `My Tag Value`
+Aspose.Slides permite agregar etiquetas a presentaciones. Una etiqueta típicamente consta de dos elementos: 
 
-Si necesitas clasificar algunas presentaciones basadas en una regla o propiedad específica, entonces podrías beneficiarte de añadir etiquetas a esas presentaciones. Por ejemplo, si deseas categorizar o agrupar todas las presentaciones de países de América del Norte, puedes crear una etiqueta de América del Norte y luego asignar los países relevantes (EE. UU., México y Canadá) como los valores.
+- el nombre de una propiedad personalizada – `MyTag` 
+- el valor de la propiedad personalizada – `My Tag Value`
 
-Este código de muestra te muestra cómo añadir una etiqueta a una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) usando Aspose.Slides para PHP a través de Java:
+Si necesita clasificar algunas presentaciones según una regla o propiedad específica, puede beneficiarse añadiendo etiquetas a esas presentaciones. Por ejemplo, si desea agrupar todas las presentaciones de los países de América del Norte, puede crear una etiqueta América del Norte y asignar los países relevantes (EE. UU., México y Canadá) como valores. 
 
+Este ejemplo de código muestra cómo agregar una etiqueta a una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) usando Aspose.Slides for PHP via Java:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -58,8 +68,8 @@ Este código de muestra te muestra cómo añadir una etiqueta a una [Presentatio
   }
 ```
 
-Las etiquetas también se pueden establecer para [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
 
+Las etiquetas también pueden establecerse para [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
 ```php
   $pres = new Presentation();
   try {
@@ -72,8 +82,8 @@ Las etiquetas también se pueden establecer para [Slide](https://reference.aspos
   }
 ```
 
-O cualquier [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) individual:
 
+O cualquier [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) individual:
 ```php
   $pres = new Presentation();
   try {
@@ -87,3 +97,18 @@ O cualquier [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/I
     }
   }
 ```
+
+
+## **FAQ**
+
+**¿Puedo eliminar todas las etiquetas de una presentación, diapositiva o forma en una sola operación?**
+
+Sí. La [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) admite una operación [clear](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/clear/) que elimina todos los pares clave‑valor a la vez.
+
+**¿Cómo elimino una sola etiqueta por su nombre sin iterar sobre toda la colección?**
+
+Utilice la operación [Remove(name)](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/remove/) en la [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/) para eliminar la etiqueta por su clave.
+
+**¿Cómo puedo obtener la lista completa de nombres de etiquetas para análisis o filtrado?**
+
+Utilice [getNamesOfTags](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/getnamesoftags/) en la [tag collection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/); devuelve una matriz con todos los nombres de etiquetas.

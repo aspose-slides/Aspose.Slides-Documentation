@@ -1,106 +1,134 @@
 ---
-title: PowerPointをMarkdownに変換
+title: PHPでPowerPointプレゼンテーションをMarkdownに変換
+linktitle: PowerPointからMarkdownへ
 type: docs
 weight: 140
 url: /ja/php-java/convert-powerpoint-to-markdown/
-keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, Java, Aspose.Slides for PHP via Java"
-description: "PowerPointをMarkdownに変換"
+keywords:
+- PowerPointを変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPTを変換
+- PPTXを変換
+- PowerPointをMDへ
+- プレゼンテーションをMDへ
+- スライドをMDへ
+- PPTをMDへ
+- PPTXをMDへ
+- PowerPointをMarkdownとして保存
+- プレゼンテーションをMarkdownとして保存
+- スライドをMarkdownとして保存
+- PPTをMDとして保存
+- PPTXをMDとして保存
+- PPTをMDにエクスポート
+- PPTXをMDにエクスポート
+- PowerPoint
+- プレゼンテーション
+- Markdown
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して PowerPoint スライド（PPT、PPTX）をクリーンな Markdown に変換し、ドキュメントを自動化し、書式を保持します。"
 ---
 
-{{% alert color="info" %}} 
+## **概要**
 
-PowerPointからMarkdownへの変換サポートは、[Aspose.Slides 23.7](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-23-7-release-notes/)で実装されました。
+Aspose.Slides for PHP via Java は、プレゼンテーション コンテンツを Markdown に変換できるようにし、PowerPoint (PPT、PPTX) および OpenDocument (ODP) ファイルをウィキ、Git リポジトリ、静的サイトジェネレーター向けに再利用できるようにします。API はスライドの階層構造を保持しながら、軽量で人間が読みやすい Markdown を生成するため、ドキュメント パイプラインを自動化し、ソースのプレゼンテーションと Markdown ファイルを完全に同期させることができます。
 
-{{% /alert %}} 
+PowerPoint から Markdown への変換サポートは、[Aspose.Slides 23.7](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-php-via-java-23-7-release-notes/) に実装されました。
 
-{{% alert color="warning" %}} 
+## **プレゼンテーションを Markdown に変換**
 
-PowerPointからMarkdownへのエクスポートは、デフォルトで**画像なし**です。画像を含むPowerPoint文書をエクスポートする場合は、 `markdownSaveOptions.setExportType(MarkdownExportType::Visual)`を設定し、Markdown文書に参照される画像が保存される`BasePath`も設定する必要があります。
+このセクションでは、Aspose.Slides が PowerPoint と OpenDocument のプレゼンテーション (PPT、PPTX、ODP) をクリーンな Markdown に変換し、元のスライド階層、テキスト、主要な書式設定を保持したまま、ドキュメントやバージョン管理されたワークフローでコンテンツを再利用できる方法を説明します。
 
-{{% /alert %}} 
+1. プレゼンテーションを表すために、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) メソッドを使用して、Markdown ファイルとしてエクスポートします。
 
-## **PowerPointをMarkdownに変換**
-
-1. プレゼンテーションオブジェクトを表すために、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. [Save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)メソッドを使用して、オブジェクトをMarkdownファイルとして保存します。
-
-このPHPコードは、PowerPointをMarkdownに変換する方法を示しています：
-
+この PHP コードは、PowerPoint プレゼンテーションを Markdown に変換する方法を示しています。
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->save("pres.md", SaveFormat::Md);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $presentation->save("presentation.md", SaveFormat::Md);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## PowerPointをMarkdownフレーバーに変換
 
-Aspose.Slidesは、PowerPointを基本構文を含むMarkdown、CommonMark、GitHubフレーバーのMarkdown、Trello、XWiki、GitLab、および17種類の他のMarkdownフレーバーに変換することを可能にします。
+## **プレゼンテーションを Markdown フレーバーに変換**
 
-このPHPコードは、PowerPointをCommonMarkに変換する方法を示しています：
+Aspose.Slides は、PowerPoint プレゼンテーションを基本構文の Markdown に変換できるだけでなく、CommonMark、GitHub フレーバー Markdown、Trello、XWiki、GitLab、その他 17 の Markdown フレーバーにも変換できます。
 
+次の PHP コードは、PowerPoint プレゼンテーションを CommonMark に変換する方法を示しています。
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setFlavor(Flavor->CommonMark);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setFlavor(Flavor->CommonMark);
+
+    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-サポートされている23のMarkdownフレーバーは、[Flavor列挙型](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/)の下に[MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/)クラスから一覧表示されています。
 
-## **画像を含むプレゼンテーションをMarkdownに変換**
+サポートされている 23 種類の Markdown フレーバーは、[Flavor enumeration](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/) に一覧されています。
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/)クラスは、結果のMarkdownファイルのために特定のオプションや設定を使用できるプロパティと列挙型を提供します。[MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/)列挙型は、画像がどのようにレンダリングまたは処理されるかを決定する値に設定できます：`Sequential`、 `TextOnly`、 `Visual`。
+## **画像を含むプレゼンテーションを Markdown に変換**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) クラスは、生成される Markdown ファイルを構成できるプロパティと列挙体を公開します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) 列挙体は画像の処理方法を指定します：`Sequential`、`TextOnly`、または `Visual`。
+
+{{% alert color="warning" %}}
+デフォルトでは、PowerPoint から Markdown へのエクスポートは **画像を含みません**。画像を埋め込むには、`markdownSaveOptions.setExportType(MarkdownExportType::Visual)` を呼び出し、Markdown ファイルで参照される画像の保存先を指定する `BasePath` を設定します。
+{{% /alert %}}
 
 ### **画像を順次変換**
 
-結果のMarkdownに画像が1つずつ順番に表示されるようにしたい場合は、順次オプションを選択する必要があります。このPHPコードは、画像を含むプレゼンテーションをMarkdownに変換する方法を示しています：
-
+結果の Markdown で画像を個別に、1 つずつ順番に表示したい場合は、`Sequential` オプションを選択する必要があります。次の PHP コードは、画像を含むプレゼンテーションを Markdown に変換する方法を示しています。
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setShowHiddenSlides(true);
-    $markdownSaveOptions->setShowSlideNumber(true);
-    $markdownSaveOptions->setFlavor(Flavor->Github);
-    $markdownSaveOptions->setExportType(MarkdownExportType::Sequential);
-    $markdownSaveOptions->setNewLineType(NewLineType::Windows);
-    $pres->save("doc.md", array(1, 2, 3, 4, 5, 6, 7, 8, 9 ), SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setShowHiddenSlides(true);
+    $saveOptions->setShowSlideNumber(true);
+    $saveOptions->setFlavor(Flavor->Github);
+    $saveOptions->setExportType(MarkdownExportType::Sequential);
+    $saveOptions->setNewLineType(NewLineType::Windows);
+
+    $slideIndices = array(1, 2, 3, 4);
+    $presentation->save("presentation.md", $slideIndices, SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
+
 
 ### **画像を視覚的に変換**
 
-結果のMarkdownに画像をまとめて表示したい場合は、視覚的オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（Markdown文書内に相対パスが構築されます）、または好みのパスとフォルダー名を指定することができます。
+結果の Markdown で画像をまとめて表示したい場合は、`Visual` オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（Markdown ドキュメント内で相対パスが生成されます）、または希望するディレクトリとフォルダー名を指定することもできます。
 
-このPHPコードは、操作を示しています：
-
+次の PHP コードはこの操作を示しています。
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("presentation.pptx");
+try {
     $outPath = "c:/documents";
-    $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setExportType(MarkdownExportType::Visual);
-    $markdownSaveOptions->setImagesSaveFolderName("md-images");
-    $markdownSaveOptions->setBasePath($outPath);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $saveOptions = new MarkdownSaveOptions();
+    $saveOptions->setExportType(MarkdownExportType::Visual);
+    $saveOptions->setImagesSaveFolderName("md-images");
+    $saveOptions->setBasePath($outPath);
+
+    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **よくある質問**
+
+**ハイパーリンクは Markdown へのエクスポートで保持されますか？**
+
+はい。テキストの [hyperlinks](/slides/ja/php-java/manage-hyperlinks/) は標準的な Markdown リンクとして保持されます。スライドの [transitions](/slides/ja/php-java/slide-transition/) および [animations](/slides/ja/php-java/powerpoint-animation/) は変換されません。
+
+**

@@ -1,12 +1,22 @@
 ---
-title: コールアウト
+title: PHP を使用したプレゼンテーション チャートのコールアウト管理
+linktitle: コールアウト
 type: docs
 url: /ja/php-java/callout/
+keywords:
+- チャート コールアウト
+- コールアウト の使用
+- データ ラベル
+- ラベル フォーマット
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "簡潔なコード例で Aspose.Slides for PHP via Java のコールアウトを作成・スタイル設定し、PPT および PPTX に対応してプレゼンテーション ワークフローを自動化します。"
 ---
 
 ## **コールアウトの使用**
-新しいメソッド [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) と [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) が [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) クラスと [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) インターフェースに追加されました。これらのメソッドは、指定されたチャートのデータラベルがデータコールアウトとして表示されるか、データラベルとして表示されるかを決定します。
-
+新しいメソッド [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) と [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) が [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) クラスと [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) インターフェイスに追加されました。これらのメソッドは、指定されたチャートのデータ ラベルをデータ コールアウトとして表示するか、データ ラベルとして表示するかを決定します。
 ```php
   $pres = new Presentation();
   try {
@@ -22,9 +32,9 @@ url: /ja/php-java/callout/
   }
 ```
 
-## **ドーナツチャートのコールアウトを設定する**
-Aspose.Slides for PHP via Java は、ドーナツチャートの系列データラベルコールアウト形状を設定するためのサポートを提供します。以下にサンプル例を示します。
 
+## **ドーナツ チャートのコールアウトを設定する**
+Aspose.Slides for PHP via Java は、ドーナツ チャートの系列データ ラベル コールアウト形状の設定をサポートします。以下にサンプル例を示します。
 ```php
   $pres = new Presentation();
   try {
@@ -84,3 +94,14 @@ Aspose.Slides for PHP via Java は、ドーナツチャートの系列データ�
     }
   }
 ```
+
+
+## **FAQ**
+
+**プレゼンテーションを PDF、HTML5、SVG、または画像に変換する際に、コールアウトは保持されますか？**
+
+はい。コールアウトはチャートの描画の一部であるため、[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/php-java/export-to-html5/)、[SVG](/slides/ja/php-java/render-a-slide-as-an-svg-image/)、または [raster images](/slides/ja/php-java/convert-powerpoint-to-png/) にエクスポートする際に、スライドの書式設定とともに保持されます。
+
+**カスタム フォントはコールアウトで機能し、エクスポート時に外観が保持されますか？**
+
+はい。Aspose.Slides はプレゼンテーションへの[フォント埋め込み](/slides/ja/php-java/embedded-font/) をサポートしており、[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御します。これにより、異なるシステム間でもコールアウトの外観が同じまま保持されます。

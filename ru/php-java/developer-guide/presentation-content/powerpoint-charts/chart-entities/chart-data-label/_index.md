@@ -1,17 +1,26 @@
 ---
-title: Метка данных графика
+title: Управление подписями данных диаграмм в презентациях с использованием PHP
+linktitle: Подпись данных
 type: docs
 url: /ru/php-java/chart-data-label/
-keywords: "Метка данных графика, расстояние метки, Java, Aspose.Slides для PHP через Java"
-description: "Задать метку данных графика PowerPoint и расстояние"
+keywords:
+- диаграмма
+- подпись данных
+- точность данных
+- процент
+- расстояние подписи
+- расположение подписи
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides for PHP via Java для более увлекательных слайдов."
 ---
 
-Метки данных на графике отображают детали о серии данных графика или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и также делают графики более понятными.
+Подписи данных на диаграмме показывают детали о серии данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы более понятными.
 
-## **Установить точность данных в метках данных графика**
-
-Этот PHP-код показывает, как установить точность данных в метке данных графика:
-
+## **Установить точность данных в подписи диаграммы**
+Этот PHP‑код показывает, как установить точность данных в подписи диаграммы:
 ```php
   $pres = new Presentation();
   try {
@@ -26,9 +35,9 @@ description: "Задать метку данных графика PowerPoint и 
   }
 ```
 
-## **Отобразить процентные значения как метки**
-Aspose.Slides для PHP через Java позволяет установить процентные метки на отображаемых графиках. Этот PHP-код демонстрирует операцию:
 
+## **Отображать процент в подписи**
+Aspose.Slides для PHP через Java позволяет задавать процентные подписи на отображаемых диаграммах. Этот PHP‑код демонстрирует эту операцию:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation();
@@ -64,7 +73,7 @@ Aspose.Slides для PHP через Java позволяет установить
         $lbl->getDataLabelFormat()->setShowBubbleSize(false);
       }
     }
-    # Сохраняет презентацию, содержащую график
+    # Сохраняет презентацию, содержащую диаграмму
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -73,25 +82,25 @@ Aspose.Slides для PHP через Java позволяет установить
   }
 ```
 
-## **Установить знак процента с метками данных графика**
-Этот PHP-код показывает, как установить знак процента для метки данных графика:
 
+## **Установить знак процента в подписи диаграммы**
+Этот PHP‑код показывает, как установить знак процента в подписи диаграммы:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation();
   try {
     # Получает ссылку на слайд по его индексу
     $slide = $pres->getSlides()->get_Item(0);
-    # Создает график PercentsStackedColumn на слайде
+    # Создает диаграмму PercentsStackedColumn на слайде
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
     # Устанавливает NumberFormatLinkedToSource в false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных графика
+    # Получает лист данных диаграммы
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # Добавляет новые серии
+    # Добавляет новую серию
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
@@ -100,7 +109,7 @@ Aspose.Slides для PHP через Java позволяет установить
     # Устанавливает цвет заливки серии
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Устанавливает свойства LabelFormat
+    # Устанавливает свойства формата подписи
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,13 +117,13 @@ Aspose.Slides для PHP через Java позволяет установить
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Добавляет новые серии
+    # Добавляет новую серию
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Устанавливает тип и цвет заливки
+    # Устанавливает тип заливки и цвет
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -132,18 +141,18 @@ Aspose.Slides для PHP через Java позволяет установить
   }
 ```
 
-## **Установить расстояние меток** от оси
-Этот PHP-код показывает, как установить расстояние метки от категориальной оси, когда вы работаете с графиком, построенным по осям:
 
+## **Установить расстояние подписи от оси**
+Этот PHP‑код показывает, как установить расстояние подписи от категориальной оси при работе с диаграммой, построенной по осям:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation();
   try {
     # Получает ссылку на слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Создает график на слайде
+    # Создает диаграмму на слайде
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # Устанавливает расстояние метки от оси
+    # Устанавливает расстояние подписи от оси
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
     # Записывает презентацию на диск
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -154,12 +163,10 @@ Aspose.Slides для PHP через Java позволяет установить
   }
 ```
 
-## **Регулировка положения метки**
 
-Когда вы создаете график, который не зависит от каких-либо осей, например, круговой график, метки данных графика могут оказаться слишком близко к его краю. В таком случае вам нужно отрегулировать положение метки данных, чтобы линии связи отображались четко.
-
-Этот PHP-код показывает, как отрегулировать положение метки на круговом графике:
-
+## **Отрегулировать положение подписи**
+Когда вы создаёте диаграмму, не зависящую от осей, например круговую диаграмму, подписи данных могут оказаться слишком близко к её краю. В таком случае необходимо отрегулировать положение подписи, чтобы линии‑выноски отображались чётко.
+Этот PHP‑код показывает, как отрегулировать положение подписи на круговой диаграмме:
 ```php
   $pres = new Presentation();
   try {
@@ -178,4 +185,16 @@ Aspose.Slides для PHP через Java позволяет установить
   }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **Вопросы и ответы**
+
+**Как предотвратить перекрытие подписей данных на насыщенных диаграммах?**  
+Используйте автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных/ключевых точек.
+
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**  
+Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений в соответствии с определённым правилом.
+
+**Как обеспечить согласованный стиль подписи при экспорте в PDF/изображения?**  
+Явно задайте шрифты (семейство, размер) и убедитесь, что шрифт доступен на стороне рендеринга, чтобы избежать замены.
