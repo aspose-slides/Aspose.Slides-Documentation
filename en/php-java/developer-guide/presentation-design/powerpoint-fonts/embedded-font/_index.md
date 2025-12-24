@@ -24,7 +24,7 @@ description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations 
 
 The [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
 
-## **Get or Remove Embedded Fonts from Presentation**
+## **Get and Remove Embedded Fonts**
 
 Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) method (exposed by the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) method (exposed by the same class) is used.
 
@@ -78,7 +78,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
   }
 ```
 
-## **Add Embedded Fonts to Presentation**
+## **Add Embedded Fonts**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This PHP code shows you how to embed and add fonts to a presentation:
 
@@ -129,3 +129,12 @@ This PHP code shows you how to compress embedded PowerPoint fonts:
   }
 ```
 
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/php-java/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/php-java/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

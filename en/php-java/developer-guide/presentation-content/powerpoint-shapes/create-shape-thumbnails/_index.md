@@ -30,7 +30,7 @@ In this topic, we will show how to generate slide thumbnails in different situat
 - Generating a shape thumbnail for a slide shape with user-defined dimensions.
 - Generating a shape thumbnail in the bounds of a shape's appearance.
 
-## **Generating Shape Thumbnails from Slides**
+## **Generate a Shape Thumbnail from a Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for PHP via Java, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
@@ -61,7 +61,7 @@ This sample code shows you how to generate a shape thumbnail from a slide:
   }
 ```
 
-## **Generating Shape Thumbnails with User-Defined Scaling Factor**
+## **Generate a User-Defined Scaling Factor Thumbnail**
 To generate the shape thumbnail of a slide using Aspose.Slides for PHP via Java, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
@@ -92,7 +92,7 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
   }
 ```
 
-## **Generating Shape Thumbnail of Bounds**
+## **Create a Bounds-Based Shape Appearance Thumbnail**
 This method of creating thumbnails of shapes allows developers to generate a thumbnail in the bounds of the shape's appearance. It takes into account all the shape effects. The generated shape thumbnail is restricted by the slide bounds. To generate a thumbnail of a slide shape in the bound of its appearance, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
@@ -122,3 +122,25 @@ This sample code is based on the steps above:
     }
   }
 ```
+
+## **FAQ**
+
+**What image formats can be used when saving shape thumbnails?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) by saving the shape’s content as SVG.
+
+**What is the difference between Shape and Appearance bounds when rendering a thumbnail?**
+
+`Shape` uses the shape’s geometry; `Appearance` takes [visual effects](/slides/php-java/shape-effect/) (shadows, glows, etc.) into account.
+
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
+
+A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
+
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
+
+Yes. Any object represented as [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), and [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) can be saved as a thumbnail or as SVG.
+
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
+
+Yes. You should [provide the required fonts](/slides/php-java/custom-font/) (or [configure font substitutions](/slides/php-java/font-substitution/)) to avoid unwanted fallbacks and text reflow.

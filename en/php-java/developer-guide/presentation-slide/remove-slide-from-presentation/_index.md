@@ -18,7 +18,7 @@ description: "Effortlessly remove slides from PowerPoint and OpenDocument presen
 
 If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) object, you can specify the slide you want to remove.
 
-## **Remove Slide by Reference**
+## **Remove a Slide by Reference**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 1. Get a reference of the slide you want to remove through its ID or Index.
@@ -43,7 +43,7 @@ This PHP code shows you how to remove a slide through its reference:
 ```
 
 
-## **Remove Slide by Index**
+## **Remove a Slide by Index**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 1. Remove the slide from the presentation through its index position.
@@ -64,7 +64,7 @@ This PHP code shows you how to remove a slide through its index:
   }
 ```
 
-## **Remove Unused Layout Slide**
+## **Remove Unused Layout Slides**
 
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This PHP code shows you how to remove a layout slide from a PowerPoint presentation:
 
@@ -80,7 +80,7 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
   }
 ```
 
-## **Remove Unused Master Slide**
+## **Remove Unused Master Slides**
 
 Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This PHP code shows you how to remove a master slide from a PowerPoint presentation:
 
@@ -96,3 +96,24 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
   }
 ```
 
+## **FAQ**
+
+**What happens to slide indexes after I delete a slide?**
+
+After deletion, the [collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) reindexes: every subsequent slide shifts left by one position, so previous index numbers become outdated. If you need a stable reference, use each slide’s persistent ID rather than its index.
+
+**Is a slide’s ID different from its index, and does it change when neighboring slides are deleted?**
+
+Yes. The index is the slide’s position and will change when slides are added or removed. The slide ID is a persistent identifier and does not change when other slides are deleted.
+
+**How does deleting a slide affect slide sections?**
+
+If the slide belonged to a section, that section will simply contain one fewer slide. The section structure remains; if a section becomes empty, you can [remove or reorganize sections](/slides/php-java/slide-section/) as needed.
+
+**What happens to notes and comments attached to a slide when it’s deleted?**
+
+[Notes](/slides/php-java/presentation-notes/) and [comments](/slides/php-java/presentation-comments/) are tied to that specific slide and are removed along with it. Content on other slides is unaffected.
+
+**How is deleting slides different from cleaning up unused layouts/masters?**
+
+Deleting removes specific normal slides from the deck. Cleaning up unused layouts/masters removes layout or master slides that nothing references, reducing file size without changing remaining slide content. These actions are complementary: typically delete first, then clean up.

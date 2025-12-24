@@ -44,7 +44,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 * Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
-## **Apply Animation to TextBox**
+## **Apply Animation to a TextBox**
 
 Aspose.Slides for PHP via Java allows you to apply animation to the text in a shape.
 
@@ -89,7 +89,7 @@ Besides applying animations to text, you can also apply animations to a single [
 
 {{% /alert %}} 
 
-## **Apply Animation to PictureFrame**
+## **Apply Animation to a PictureFrame**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -130,7 +130,7 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
   }
 ```
 
-## **Apply Animation to Shape**
+## **Apply Animation to a Shape**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -176,7 +176,7 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
   }
 ```
 
-## **Get the Animation Effects Applied to Shape**
+## **Get the Animation Effects Applied to a Shape**
 
 The following examples show you how to use the `getEffectsByShape` method from the [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) class to get all animation effects applied to a shape.
 
@@ -320,7 +320,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 - [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
 - [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
 
-### **Add Animation Effect Sound**
+### **Add an Animation Effect Sound**
 
 This PHP code shows you how to add an animation effect sound and stop it when the next effect starts:
 
@@ -362,7 +362,7 @@ try {
   }
 ```
 
-### **Extract Animation Effect Sound**
+### **Extract an Animation Effect Sound**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
@@ -472,3 +472,16 @@ This PHP code demonstrates the operation:
   }
 ```
 
+## **FAQ**
+
+**How can I ensure animations are preserved when publishing the presentation to the web?**
+
+[Export to HTML5](/slides/php-java/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) responsible for [shape](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) and [transition](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/) animations. Plain HTML does not play slide animations, whereas HTML5 does.
+
+**How does changing the z-order (layer order) of shapes affect animation?**
+
+Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
+
+**Are there limitations when converting animations to video for certain effects?**
+
+In general, [animations are supported](/slides/php-java/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.

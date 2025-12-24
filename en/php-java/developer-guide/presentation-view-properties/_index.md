@@ -73,7 +73,7 @@ An example is given below shows how can you access [ViewProperties.getNormalView
   }
 ```
 
-## **Set Default Zoom Value**
+## **Set the Default Zoom Value**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for PHP via Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) as well as [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) could be set programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in [Aspose.Slides](/slides/).
@@ -99,3 +99,17 @@ In order to set the view properties. Please follow the steps below:
     $presentation->dispose();
   }
 ```
+
+## **FAQ**
+
+**Can I set different view settings for different sections of a presentation?**
+
+[View settings](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) are defined at the presentation level ([Normal View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/)), not per section, so a single set of parameters applies to the entire document when it opens.
+
+**Can I predefine different view states for different users?**
+
+No. The settings are stored in the file and are shared. Viewer applications may honor user preferences, but the file itself contains one set of view properties.
+
+**Can I prepare a template with predefined View Properties so new presentations open the same way?**
+
+Yes. Because [view properties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) are stored at the presentation level, you can embed them in a template and create new documents from it with the same initial view configuration.

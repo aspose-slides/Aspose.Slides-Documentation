@@ -18,6 +18,8 @@ keywords:
 description: "Set up a fallback fonts collection in Aspose.Slides for PHP via Java to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
+## **Apply Fallback Rules**
+
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.
 
 Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/php-java/about-fontsmanager-and-fontsloader/).
@@ -45,3 +47,21 @@ After FontsManager is initialised with fallback fonts collection, the fallback f
 {{% alert color="primary" %}} 
 Read more how to [Render Presentation with Fallback Font](/slides/php-java/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?**
+
+No. Fallback rules are runtime rendering settings; they are not serialized into PPTX and will not appear in PowerPoint's UI.
+
+**Does fallback apply to text inside SmartArt, WordArt, charts, and tables?**
+
+Yes. The same glyph-substitution mechanism is used for any text in these objects.
+
+**Does Aspose distribute any fonts with the library?**
+
+No. You add and use fonts on your side and under your own responsibility.
+
+**Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?**
+
+Yes. They are independent stages of the same font-resolution pipeline: first the engine resolves font availability ([replacement](/slides/php-java/font-replacement/)/[substitution](/slides/php-java/font-substitution/)), then fallback fills gaps for missing glyphs in available fonts.

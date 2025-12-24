@@ -22,7 +22,7 @@ Extract the contents of ZIP file to any folder on your computer. All examples ar
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **Import examples into the IDE**
+## **Import Examples into the IDE**
 The project uses Maven build system. Any modern IDE can easily open or import the project and its dependencies. Below we show you how to use popular IDEs to build and run the examples.
 
 ### **IntelliJ IDEA**
@@ -52,7 +52,7 @@ It will open the project and download the dependencies automatically. From the P
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Adding Aspose.Slides Library into Maven Local Repository**
+## **Add Aspose.Slides Library into Maven Local Repository**
 When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://releases.aspose.com/php-java/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
 
 ### **mvn install**

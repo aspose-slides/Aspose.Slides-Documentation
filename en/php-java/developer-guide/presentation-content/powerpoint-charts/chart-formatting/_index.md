@@ -189,7 +189,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
   }
 ```
 
-## **Set Font Properties for Chart**
+## **Set Font Properties for a Chart**
 Aspose.Slides for PHP via Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
@@ -214,7 +214,7 @@ Below sample example is given.
   }
 ```
 
-## **Set Format of Numerics**
+## **Set the Numeric Format**
 Aspose.Slides for PHP via Java provides a simple API for managing chart data format:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -323,3 +323,16 @@ Below sample example is given. 
   }
 ```
 
+## **FAQ**
+
+**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
+
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
+
+**How can I deal with data labels when they overlap?**
+
+Reduce the font size, disable nonessential label components (for example, categories), set the label offset/position, show labels only for selected points if necessary, or switch the format to "value + legend".
+
+**Can I apply gradient or pattern fills to series?**
+
+Yes. Both solid and gradient/pattern fills are typically available. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

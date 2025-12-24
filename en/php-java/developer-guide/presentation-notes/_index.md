@@ -32,7 +32,7 @@ Aspose.Slides for PHP via Java provides the feature of removing notes of any sli
 * Remove Notes of All Slides of a Presentation
 
 
-## **Remove Notes from Slide**
+## **Remove Notes from a Slide**
 Notes of some specific slide could be removed as shown in example below:
 
 ```php
@@ -51,7 +51,7 @@ Notes of some specific slide could be removed as shown in example below:
   }
 ```
 
-## **Remove Notes from Presentation**
+## **Remove Notes from a Presentation**
 Notes of all the slides of a presentation could be removed as shown in example below:
 
 ```php
@@ -73,7 +73,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
   }
 ```
 
-## **Add NotesStyle**
+## **Add a Notes Style**
 [getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```php
@@ -95,3 +95,13 @@ Notes of all the slides of a presentation could be removed as shown in example b
     }
   }
 ```
+
+## **FAQ**
+
+**Which API entity provides access to the notes of a specific slide?**
+
+Notes are accessed through the slide’s notes manager: the slide has a [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) and a [method](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/) that returns the notes object, or `null` if there are no notes.
+
+**Are there differences in notes support across the PowerPoint versions the library works with?**
+
+The library targets a broad range of Microsoft PowerPoint formats (97–newer) and ODP; notes are supported within these formats without depending on an installed copy of PowerPoint.

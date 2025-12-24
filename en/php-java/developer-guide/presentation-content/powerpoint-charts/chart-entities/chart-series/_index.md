@@ -22,7 +22,7 @@ A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set Chart Series Overlap**
+## **Set the Chart Series Overlap**
 
 With the [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
 
@@ -55,7 +55,7 @@ This PHP code shows you how to set the overlap for a chart series:
   }
 ```
 
-## **Change Series Color**
+## **Change the Series Color**
 Aspose.Slides for PHP via Java allows you to change a series' color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -82,7 +82,7 @@ This PHP code shows you how to change a series' color:
   }
 ```
 
-## **Change Series Category's Color**
+## **Change the Series Category Color**
 Aspose.Slides for PHP via Java allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -108,7 +108,7 @@ This code  shows you how to change a series category's color:
   }
 ```
 
-## **Change Series' Name** 
+## **Change the Series Name** 
 
 By default, the legend names for a chart are the contents of cells above each column or row of data. 
 
@@ -151,7 +151,7 @@ This PHP code shows you how to change a series name in its legend through`Series
   }
 ```
 
-## **Set Chart Series Fill Color**
+## **Set the Chart Series Fill Color**
 
 Aspose.Slides for PHP via Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
@@ -181,7 +181,7 @@ This PHP code shows you how to set the automatic fill color for a chart series:
   }
 ```
 
-## **Set Chart Series Invert Fill Colors**
+## **Set Invert Fill Color for a Chart Series**
 Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -224,7 +224,7 @@ This PHP code demonstrates the operation:
 ```
 
 
-## **Set Series to Invert When Value is Negative**
+## **Set a Series to Invert When Value Is Negative**
 Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
 This PHP code demonstrates the operation:
@@ -250,7 +250,7 @@ This PHP code demonstrates the operation:
   }
 ```
 
-## **Clear Specific Data Points' Data**
+## **Clear Specific Point Data**
 Aspose.Slides for PHP via Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -280,7 +280,7 @@ This PHP code demonstrates the operation:
   }
 ```
 
-## **Set Series Gap Width**
+## **Set the Series Gap Width**
 Aspose.Slides for PHP via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -330,3 +330,13 @@ This code  shows you how to set a series' Gap Width:
     }
   }
 ```
+
+## **FAQ**
+
+**Is there a limit to how many series a single chart can contain?**
+
+Aspose.Slides imposes no fixed cap on the number of series you add. The practical ceiling is set by chart readability and by the memory available to your application.
+
+**What if the columns within a cluster are too close together or too far apart?**
+
+Adjust the `GapWidth` setting for that series (or its parent series group). Increasing the value widens the space between columns, while decreasing it brings them closer together.

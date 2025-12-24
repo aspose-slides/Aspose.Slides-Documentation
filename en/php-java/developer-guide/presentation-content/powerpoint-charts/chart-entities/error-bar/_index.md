@@ -13,7 +13,7 @@ keywords:
 description: "Learn how to add and customize error bars in charts with Aspose.Slides for PHP via Java — optimize data visuals in PowerPoint presentations."
 ---
 
-## **Add Error Bar**
+## **Add Error Bars**
 Aspose.Slides for PHP via Java provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -50,7 +50,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
   }
 ```
 
-## **Add Custom Error Bar Value**
+## **Add Custom Error Bar Values**
 Aspose.Slides for PHP via Java provides a simple API for managing custom error bar values. The sample code applies when the [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -97,3 +97,17 @@ Aspose.Slides for PHP via Java provides a simple API for managing custom error b
     }
   }
 ```
+
+## **FAQ**
+
+**What happens to error bars when exporting a presentation to PDF or images?**
+
+They are rendered as part of the chart and preserved during conversion along with the rest of the chart formatting, assuming a compatible version or renderer.
+
+**Can error bars be combined with markers and data labels?**
+
+Yes. Error bars are a separate element and are compatible with markers and data labels; if elements overlap, you may need to adjust formatting.
+
+**Where can I find the list of properties and classes for working with error bars in the API?**
+
+In the API reference: the [ErrorBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/) class and the related classes [ErrorBarType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbartype/) and [ErrorBarValueType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarvaluetype/).

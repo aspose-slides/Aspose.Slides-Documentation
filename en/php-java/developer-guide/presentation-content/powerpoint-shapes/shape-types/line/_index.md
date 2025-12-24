@@ -27,7 +27,7 @@ Aspose.Slides for PHP via Java supports adding different kinds of shapes to the 
 
 {{% /alert %}} 
 
-## **Create Plain Line**
+## **Create a Plain Line**
 
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
@@ -55,7 +55,7 @@ In the example given below, we have added a line to the first slide of the prese
   }
 ```
 
-## **Create Arrow Shaped Line**
+## **Create an Arrow-Shaped Line**
 
 Aspose.Slides for PHP via Java also allows developers to configure some properties of the line to make it look more appealing. Let's try to configure few properties of a line to make it look like an arrow. Please follow the steps below to do so:
 
@@ -95,3 +95,17 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
     }
   }
 ```
+
+## **FAQ**
+
+**Can I convert a regular line into a connector so it "snaps" to shapes?**
+
+No. A regular line (an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) of type [Line](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/)) does not automatically become a connector. To make it snap to shapes, use the dedicated [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) type and the [corresponding APIs](/slides/php-java/connector/) for connections.
+
+**What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
+
+[Read the effective properties](/slides/php-java/shape-effective-properties/) through the `LineFormatEffectiveData`/`LineFillFormatEffectiveData`—these already account for inheritance and theme styles.
+
+**Can I lock a line against editing (moving, resizing)?**
+
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) that let you [disallow editing operations](/slides/php-java/applying-protection-to-presentation/).

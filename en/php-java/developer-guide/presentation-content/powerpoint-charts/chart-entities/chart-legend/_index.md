@@ -47,7 +47,7 @@ In the example given below, we have set the position and size for Chart legend.
   }
 ```
 
-## **Set Font Size of Legend**
+## **Set the Font Size of a Legend**
 The Aspose.Slides for PHP via Java lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -75,7 +75,7 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of leg
   }
 ```
 
-## **Set Font Size of Individual Legend**
+## **Set the Font Size of an Individual Legend**
 The Aspose.Slides for PHP via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -105,3 +105,16 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of ind
   }
 ```
 
+## **FAQ**
+
+**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+
+Yes. Use the non-overlay mode ([setOverlay(false)](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/)); in this case, the plot area will shrink to accommodate the legend.
+
+**Can I make multi-line legend labels?**
+
+Yes. Long labels wrap automatically when space is insufficient; forced line breaks are supported via newline characters in the series name.
+
+**How do I make the legend follow the presentation theme’s color scheme?**
+
+Do not set explicit colors/fills/fonts for the legend or its text. They will then inherit from the theme and update correctly when the design changes.

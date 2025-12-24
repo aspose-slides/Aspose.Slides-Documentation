@@ -38,7 +38,7 @@ use aspose\sldes;
 use aspose\sldes\Presentation;
 ```
 
-### **Instantiating a new Presentation**
+### **Instantiating a New Presentation**
 
 **Aspose.Slides for Java**
 
@@ -128,11 +128,11 @@ finally
 ?>
 ```
 
-### **Other Limitations of Aspose.Slides for PHP via Java API compared to Aspose.Slides for Java API**
+### **Other Limitations of Aspose.Slides for PHP via Java API Compared to Aspose.Slides for Java API**
 
 Aspose.Slides namespaces and the java classes they use are wrappers created by the PhpJavaBridge on top of the Java classes with the same name from the com.aspose.slides package.
 
-#### 1. **Wrapping java parameters and arguments**
+#### **1. Wrapping Java Parameters and Arguments**
 
 The parameters and arguments they return and accept are wrappers on top of the Java classes with the same names. Only strings and numeric types are converted automatically. Arrays, collections, bytes, and booleans are not converted.  
 
@@ -142,14 +142,14 @@ if ($node->isAssistant()) - wrong!
 if (java_values($node->isAssistant())) - correct!
 ```
 
-#### 2. **Extending Java class and instanceof operator**
+#### **2. Extending Java Class and Instanceof Operator**
 
 You cannot extend a Java class from a PHP class. As a workaround, you can implement composition when needed.
 The instanceof operator only works for a concrete class. It does not work for a class’s interface or parent class. 
 
 [workaround](https://stackoverflow.com/questions/36840618/php-java-bridge-usage-of-extend)
 
-#### 3. **A Java array is NOT a PHP array**
+#### **3. A Java Array Is NOT a PHP Array**
 
 Java array creation in PHP:
 ``` php
@@ -160,7 +160,7 @@ $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
 ```
 
-#### 4. **A Java array length**
+#### **4. A Java Array Length**
 
 ``` php
 $data->length; - does NOT work
@@ -171,7 +171,7 @@ $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
 ```
 
-#### 5. **The Java method Files.readAllBytes**
+#### **5. The Java Method Files.readAllBytes**
 
 ``` php
 $htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
@@ -190,7 +190,7 @@ try {
 }
 ```
 
-#### 6. **The Java method Files.write**
+#### **6. The Java Method Files.write**
 
 ``` php
 Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work

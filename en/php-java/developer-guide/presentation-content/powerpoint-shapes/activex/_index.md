@@ -25,7 +25,7 @@ ActiveX controls are used in presentations. Aspose.Slides for PHP via Java allow
 
 {{% /alert %}} 
 
-## **Adding Media Player ActiveX Control to Slide**
+## **Add a Media Player ActiveX Control to a Slide**
 To add an ActiveX Media Player control, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and generate an empty presentation instance.
@@ -53,7 +53,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
   }
 ```
 
-## **Modifying ActiveX Control**
+## **Modify an ActiveX Control**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for PHP via Java 7.1.0 and newer versions are equipped with components for managing ActiveX controls. You can access the already added ActiveX control in your presentation and modify or delete it through its properties.
@@ -160,3 +160,17 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
     }
   }
 ```
+
+## **FAQ**
+
+**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Java runtime?**
+
+Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
+
+**How do ActiveX controls differ from OLE objects in a presentation?**
+
+ActiveX controls are interactive managed controls (buttons, text boxes, media player), whereas [OLE](/slides/php-java/manage-ole/) refers to embedded application objects (for example, an Excel worksheet). They are stored and handled differently and have different property models.
+
+**Do ActiveX events and VBA macros work if the file has been modified by Aspose.Slides?**
+
+Aspose.Slides preserves the existing markup and metadata; however, events and macros run only inside PowerPoint on Windows when security allows it. The library does not execute VBA.

@@ -52,7 +52,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/php-java/
 
 {{% /alert %}} 
 
-## Purchased License
+## **Purchased License**
 
 After purchase, you need to apply the license file or stream. 
 
@@ -70,7 +70,7 @@ You can find pricing information on the [“Pricing Information”](https://purc
 
 {{% /alert %}}
 
-### **Setting a License in Aspose.Slides for PHP via Java**
+### **Set a License in Aspose.Slides for PHP via Java**
 
 Licenses can be applied from these locations:
 
@@ -92,7 +92,7 @@ New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier
 
 {{% /alert %}}
 
-#### **Applying a License Using a File**
+#### **Apply a License Using a File**
 
 This code snippet is used to set a license file:
 
@@ -112,7 +112,7 @@ $license->setLicense("Aspose.Slides.lic");
 
 When calling the setLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the setLicense method.
 
-#### **Applying a License from a Stream**
+#### **Apply a License from a Stream**
 
 This code snippet is used to apply a license from a stream:
 
@@ -127,3 +127,13 @@ $license = new License();
 $license->setLicense($stream);
 ?>
 ```
+
+## **FAQ**
+
+**Can I apply the license in a completely offline environment (no internet access)?**
+
+Yes. License validation is performed locally using the license file; no internet connection is required.
+
+**What happens after the one-year subscription expires? Will the library stop working?**
+
+No. The license is perpetual: you can continue using versions released before your subscription end date; you just won’t be eligible to use newer releases without renewing.
