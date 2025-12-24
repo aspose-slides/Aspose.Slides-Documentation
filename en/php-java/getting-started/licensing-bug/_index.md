@@ -13,12 +13,12 @@ description: "Learn how a licensing bug in Aspose.Slides for PHP via Java 23.2â€
 
 This article describes a licensing bug encountered in Aspose.Slides for PHP via Java versions 23.2, 23.3, 23.4, 23.5, 23.6 and 23.7. This bug caused perpetual licenses to become temporarily unusable after their subscription expired.
 
-## Symptoms ##
+## **Symptoms**
 
 After your perpetual license subscription expires, Aspose.Slides for PHP via Java versions 23.2 - 23.7 may report the license as expired, transitioning all functions into a evaluation mode.
 This behavior is incorrect and does not affect versions prior to 23.2 and after 23.7.
 
-## Resolution ##
+## **Resolution**
 
 Aspose.Slides for PHP via Java addressed this issue and released updated versions (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) with the fix.
 
@@ -41,6 +41,6 @@ If you experience any licensing issues with Aspose.Slides for PHP via Java:
 - Refer to the [Aspose documentation](https://docs.aspose.com/slides/php-java/getting-started/) for troubleshooting steps and known licensing issues.
 - Contact [Aspose support](https://forum.aspose.com/) for further assistance.
 
-## Affected products and versions ##
+## **Affected Products and Versions**
 
 Please note that this bug only impacts Aspose.Slides for PHP via Java versions 23.2 through 23.7. **Other Aspose products and other versions of Aspose.Slides are not affected**.

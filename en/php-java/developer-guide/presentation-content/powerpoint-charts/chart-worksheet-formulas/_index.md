@@ -28,7 +28,7 @@ description: "Apply Excel-style formulas in Aspose.Slides for PHP via Java chart
 ---
 
 
-## **About Chart Spreadsheet Formula in Presentation**
+## **About Chart Spreadsheet Formulas in Presentations**
 **Chart spreadsheet** (or chart worksheet) in presentation is the data source of the chart. Chart spreadsheet contains data, which are represented on the chart in a graphic way. When you create a chart in PowerPoint, the worksheet associated with this chart is automatically created too. Chart worksheet is created for all types of charts: line chart, bar chart, sunburst chart, pie chart, etc. To see chart spreadsheet in PowerPoint you should double-click on the chart:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
@@ -60,7 +60,7 @@ The following functionality is supported for formulas in Aspose.Slides:
 
 Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - [**IChartDataCell.getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getValue--) method it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the [**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException) for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 
-## **Add Chart Spreadsheet Formula to Presentation**
+## **Add a Chart Spreadsheet Formula to a Presentation**
 First, add a chart to the first slide of a new presentation with 
 [IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
 The worksheet of the chart is automatically created and can be accessed with 
@@ -185,7 +185,7 @@ You can compare the values of cells with the comparison operators. When two valu
 |< (less than sign)|Less than|A2 < 3|
 |<= (less than or equal to sign)|Less than or equal to|A2 <= 3|
 
-## **A1-style Cell References**
+## **A1-Style Cell References**
 **A1-style cell references** are used for the worksheets, where the column has a letter identifier (e.g. "*A*") and the row has a numeric identifier (e.g. "*1*"). A1-style cell references can be used in the following way:
 
 |**Cell reference**|**Example**|||
@@ -204,7 +204,7 @@ Here is an example how to use A1-style cell reference in formula:
 
 ```
 
-## **R1C1-style Cell References**
+## **R1C1-Style Cell References**
 **R1C1-style cell references** are used for the worksheets, where both a row and a column has the numeric identifier. R1C1-style cell references can be used in the following way:
 
 |**Cell reference**|**Example**|||
@@ -244,3 +244,12 @@ There are predefined functions, that can be used in the formulas to simplify the
 - SUM
 - VLOOKUP
 
+## **FAQ**
+
+**Are external Excel files supported as a data source for a chart with formulas?**
+
+Yes. Aspose.Slides supports external workbooks as a [chart's data source](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatasourcetype/), which lets you use formulas from an XLSX outside the presentation.
+
+**Can chart formulas reference sheets within the same workbook by sheet name?**
+
+Yes. Formulas follow the standard Excel reference model, so you can reference other sheets within the same workbook or an external workbook. For external references, include the path and workbook name using Excel syntax.

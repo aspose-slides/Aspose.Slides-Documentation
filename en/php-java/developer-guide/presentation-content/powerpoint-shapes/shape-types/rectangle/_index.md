@@ -23,7 +23,7 @@ Like previous topics, this one is also about adding a shape and this time the sh
 
 {{% /alert %}} 
 
-## **Add Rectangle to Slide**
+## **Add a Rectangle to a Slide**
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
@@ -50,7 +50,7 @@ In the example given below, we have added a simple rectangle to the first slide 
   }
 ```
 
-## **Add Formatted Rectangle to Slide**
+## **Add a Formatted Rectangle to a Slide**
 To add a formatted rectangle to a slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
@@ -87,3 +87,33 @@ The above steps are implemented in the example given below.
     }
   }
 ```
+
+## **FAQ**
+
+**How do I add a rectangle with rounded corners?**
+
+Use the rounded-corner [shape type](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) and adjust the corner radius in the shape’s properties; rounding can also be applied per corner via geometry adjustments.
+
+**How do I fill a rectangle with an image (texture)?**
+
+Select the picture [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), provide the image source, and configure [stretching/tiling modes](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/).
+
+**Can a rectangle have shadow and glow?**
+
+Yes. [Outer/inner shadow, glow, and soft edges](/slides/php-java/shape-effect/) are available with adjustable parameters.
+
+**Can I turn a rectangle into a button with a hyperlink?**
+
+Yes. [Assign a hyperlink](/slides/php-java/manage-hyperlinks/) to the shape click (jump to a slide, file, web address, or e-mail).
+
+**How can I protect a rectangle from moving and changes?**
+
+[Use shape locks](/slides/php-java/applying-protection-to-presentation/): you can forbid moving, resizing, selection, or text editing to preserve the layout.
+
+**Can I convert a rectangle to a raster image or SVG?**
+
+Yes. You can [render the shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) to an image with a specified size/scale or [export it as SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) for vector use.
+
+**How do I quickly get the actual (effective) properties of a rectangle considering theme and inheritance?**
+
+[Use the shape’s effective properties](/slides/php-java/shape-effective-properties/): the API returns computed values that account for theme styles, layout, and local settings, simplifying formatting analysis.

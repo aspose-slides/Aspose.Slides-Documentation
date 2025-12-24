@@ -24,7 +24,7 @@ keywords:
 description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for PHP via Java: geometry paths, curved corners, composite shapes."
 ---
 
-# Change a Shape Using Edit Points
+## **Change a Shape Using Edit Points**
 Consider a square. In PowerPoint, using **edit points**, you can 
 
 * move the square's corner in or out
@@ -116,7 +116,7 @@ This PHP code shows you how to
 
 ```
 
-## **Add Custom Points to Shape**
+## **Add Custom Points to a Shape**
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class from the shape.
 3. Add a new point between the two top points on the path.
@@ -141,7 +141,7 @@ This PHP code shows you how to add custom points to a shape:
 ```
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points From Shape
+## **Remove Points from a Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class from the shape.
@@ -165,7 +165,7 @@ This PHP code shows you how to remove points from a shape:
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Create Custom Shape**
+##  **Create a Custom Shape**
 
 1. Calculate the points for the shape.
 2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class.
@@ -209,7 +209,7 @@ This Java shows you how to create a custom shape:
 ![example3_image](custom_shape_3.png)
 
 
-## **Create Composite Custom Shape**
+## **Create a Composite Custom Shape**
 
   1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class.
   2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class.
@@ -243,7 +243,7 @@ This PHP code shows you to create a composite custom shape:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Create Custom Shape With Curved Corners**
+## **Create a Custom Shape with Curved Corners**
 
 This PHP code shows you how to create a custom shape with curved corners (inwards);
 
@@ -352,3 +352,17 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
   }
 ```
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setrotation/) method; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/php-java/convert-powerpoint-to-png/) area or the [shape](/slides/php-java/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

@@ -17,7 +17,7 @@ description: "Quickly duplicate PowerPoint slides with Aspose.Slides for PHP. Fo
 ---
 
 
-## **Clone Slides in Presentation**
+## **Clone Slides in a Presentation**
 Cloning is the process of making an exact copy or replica of something. Aspose.Slides for PHP via Java also makes it possible to make a copy or clone of any slide and then insert that cloned slide to the current or any other opened presentation. The process of slide cloning creates a new slide that can be modified by developers without changing the original slide. There are several possible ways to clone a slide:
 
 - Clone at End within a Presentation.
@@ -28,7 +28,7 @@ Cloning is the process of making an exact copy or replica of something. Aspose.S
 
 In Aspose.Slides for PHP via Java, (a collection of [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) objects) exposed by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) object provides the [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) and [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) methods to perform the above types of slide cloning
 
-## **Clone at End within a Presentation**
+## **Clone a Slide at the End of a Presentation**
 If you want to clone a slide and then use it within the same presentation file at the end of the existing slides, use the [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method according to the steps listed below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -52,7 +52,7 @@ In the example given below, we have cloned a slide (lying at the first position 
   }
 ```
 
-## **Clone at Another Position with in Presentation**
+## **Clone a Slide to Another Position within a Presentation**
 If you want to clone a slide and then use it within the same presentation file but at a different position, use the [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) method:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
@@ -77,7 +77,7 @@ In the example given below, we have cloned a slide (lying at the zero index – 
   }
 ```
 
-## **Clone at End in another Presentation**
+## **Clone a Slide at the End of Another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at the end of the existing slides:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class containing the presentation the slide will be cloned from.
@@ -108,7 +108,7 @@ In the example given below, we have cloned a slide (from the first index of the 
   }
 ```
 
-## **Clone at Another Position in another Presentation**
+## **Clone a Slide to Another Position in Another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at a specific position:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class containing the source presentation the slide will be cloned from.
@@ -139,7 +139,7 @@ In the example given below, we have cloned a slide (from the zero index of the s
   }
 ```
 
-## **Clone at specific position in another Presentation**
+## **Clone a Slide at a Specific Position in Another Presentation**
 If you need to clone a slide with a master slide from one presentation from and use it in another presentation, you need to clone the desired master slide from source presentation to destination presentation first. Then you need to use that master slide for cloning slide with master slide. The [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) expects a master slide from destination presentation rather than from source presentation. In order to clone the slide with a master, please follow the steps below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class containing the source presentation the slide will be cloned from.
@@ -185,7 +185,7 @@ In the example given below, we have cloned a slide with a master (lying at the z
   }
 ```
 
-## **Clone at End in Specified Section**
+## **Clone a Slide at the End of a Specified Section**
 If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) method exposed by the [**ISlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection) interface. Aspose.Slides for PHP via Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
 
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
@@ -205,3 +205,17 @@ The following code snippet shows you how to clone a slide and insert the cloned 
     }
   }
 ```
+
+## **FAQ**
+
+**Do speaker notes and reviewer comments get cloned?**
+
+Yes. The notes page and review comments are included in the clone. If you don’t want them, [remove them](/slides/php-java/presentation-notes/) after insertion.
+
+**How are charts and their data sources handled?**
+
+The chart object, formatting, and embedded data are copied. If the chart was linked to an external source (e.g., an OLE-embedded workbook), that linkage is preserved as an [OLE object](/slides/php-java/manage-ole/). After moving between files, verify data availability and refresh behavior.
+
+**Can I control the insertion position and sections for the clone?**
+
+Yes. You can insert the clone at a specific slide index and place it into a chosen [section](/slides/php-java/slide-section/). If the target section doesn’t exist, create it first and then move the slide into it.

@@ -23,12 +23,12 @@ keywords:
 description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint & OpenDocument."
 ---
 
-## Prerequisites:
+## **Prerequisites**
 * Install Docker on your machine. You can follow the official installation guide [here](https://docs.docker.com/get-docker/).
 
-## Steps:
+## **Steps**
 
-### 1. **Create Dockerfile** 
+### **1. Create a Dockerfile** 
    Create a new file named Dockerfile in your project directory with the following content:
    ```
    # Base image (official Ubuntu image)
@@ -141,13 +141,13 @@ description: "Run Aspose.Slides in Docker containers: configure images, dependen
    ENTRYPOINT ["/tmp/entrypoint.sh"]
    ```
 
-### 2. **Build Docker Image**
+### **2. Build the Docker Image**
    Run the following command in the directory where your Dockerfile is located to build the Docker image:
    ```bash
    docker build -t aspose-slides-php-java .
    ```
 
-### 3. **Run Docker Container**
+### **3. Run the Docker Container**
    Once the image is built, run the container:
    ```bash
    docker run -p 8080:8080 aspose-slides-php-java

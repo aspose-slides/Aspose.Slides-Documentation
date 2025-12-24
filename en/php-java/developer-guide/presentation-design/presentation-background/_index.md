@@ -56,7 +56,7 @@ try {
 }
 ```
 
-## **Set a Solid Color Background for the Master Slide**
+## **Set a Solid Color Background for a Master Slide**
 
 Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that controls formatting for all slides, so when you choose a solid color for the master slide’s background, it applies to every slide.
 
@@ -249,3 +249,13 @@ try {
     $presentation->dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I reset a custom background and restore the theme/layout background?**
+
+Yes. Remove the slide’s custom fill, and the background will be inherited again from the corresponding [layout](/slides/php-java/slide-layout/)/[master](/slides/php-java/slide-master/) slide (i.e., the [theme background](/slides/php-java/presentation-theme/)).
+
+**What happens to the background if I change the presentation’s theme later?**
+
+If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/php-java/slide-layout/)/[master](/slides/php-java/slide-master/), it will update to match the [new theme](/slides/php-java/presentation-theme/).
