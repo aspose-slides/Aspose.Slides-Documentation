@@ -120,7 +120,7 @@ This code  demonstrates the described operation:
 ```
 
 ### **Add an Image as BLOB to a Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/php-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
+With methods from the [ImageCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This PHP code shows you how to add a large image through the BLOB process:
 
@@ -190,7 +190,7 @@ Through the process involving a BLOB, you can load up a large presentation while
 
 ### **Change the Folder for Temporary Files**
 
-When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
+When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `setTempFilesRootPath`:
 
 ```php
   $loadOptions = new LoadOptions();
@@ -202,7 +202,7 @@ When the BLOB process is used, your computer creates temporary files in the defa
 
 {{% alert title="Info" color="info" %}}
 
-When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
+When you use `setTempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}
 

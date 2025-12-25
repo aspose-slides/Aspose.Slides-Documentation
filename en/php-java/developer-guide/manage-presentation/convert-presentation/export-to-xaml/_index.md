@@ -59,9 +59,9 @@ This PHP code shows you how to export a presentation to XAML with default settin
 
 ## **Export Presentations to XAML with Custom Options**
 
-You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML.
+You get to select options from the [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) class that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample PHP code:
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can use the [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) method with the value `true`. See this sample PHP code:
 
 ```php
   $pres = new Presentation("pres.pptx");

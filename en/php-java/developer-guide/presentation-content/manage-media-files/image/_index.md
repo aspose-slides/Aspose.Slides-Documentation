@@ -40,7 +40,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% alert title="Info" color="info" %}}
 
-If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](https://docs.aspose.com/slides/php-java/picture-frame/).
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](/slides/php-java/picture-frame/).
 
 {{% /alert %}} 
 
@@ -149,16 +149,16 @@ This Java sample code shows you how to add an image to a slide master:
 
 ## **Add Images as Slide Backgrounds**
 
-You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)*.
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see how to [Set an Image as a Slide Background](/slides/php-java/presentation-background/#set-an-image-as-a-slide-background).
 
 ## **Add SVG to Presentations**
-You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) interface.
+You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) method that belongs to the [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) class.
 
 To create an image object based on SVG image, you can do it this way:
 
 1. Create SvgImage object to insert it to ImageShapeCollection
 2. Create PPImage object from ISvgImage
-3. Create PictureFrame object using IPPImage interface
+3. Create PictureFrame object using the PPImage class
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```php
@@ -193,7 +193,7 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) method of the [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) interface that takes an [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage) object as the first argument.
+The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addgroupshape/) method of the [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) class that takes an [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
