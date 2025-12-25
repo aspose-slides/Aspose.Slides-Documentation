@@ -19,17 +19,21 @@ jobs:
         run: |
           BASE_SHA="${{ github.event.before }}"
           HEAD_SHA="${{ github.sha }}"
+          REPO_OWNER="${{ github.repository_owner }}"
           REPO="${GITHUB_REPOSITORY#*/}"
           BRANCHNAME="master"
           SOURCE_FOLDER="en/"
           TARGET_FOLDER=""
+          LANGUAGES='["ar","de", "es", "fr", "ja", "ru", "zh"]'
 
           echo "==== Translation Request Parameters ===="
           echo "Base SHA:      $BASE_SHA"
           echo "Head SHA:      $HEAD_SHA"
+          echo "Repository Owner: $REPO_OWNER"
           echo "Repository:    $REPO"
           echo "Source Folder: $SOURCE_FOLDER"
           echo "Target Folder: $TARGET_FOLDER"
+          echo "Languages:     $LANGUAGES"
           echo "========================================"
 
           curl -X POST "https://api.aspose.ai/slides-internal/translate-documentation" \
@@ -37,9 +41,11 @@ jobs:
             -d "{
               \"baseSha\": \"$BASE_SHA\",
               \"headSha\": \"$HEAD_SHA\",
+              \"repoOwner\": \"$REPO_OWNER\",
               \"repo\": \"$REPO\",
               \"branchName\": \"$BRANCHNAME\",
               \"sourceFolder\": \"$SOURCE_FOLDER\",
-              \"targetFolder\": \"$TARGET_FOLDER\"
+              \"targetFolder\": \"$TARGET_FOLDER\",
+              \"languages\": $LANGUAGES
             }"
 
