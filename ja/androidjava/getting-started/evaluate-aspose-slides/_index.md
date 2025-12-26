@@ -28,9 +28,11 @@ Aspose.Slides を簡単にダウンロードして評価できます。評価用
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 評価版の制限なしで Aspose.Slides をテストしたい場合は、30 日間の一時ライセンスを申請できます。詳細は[一時ライセンスの取得方法?](https://purchase.aspose.com/temporary-license)をご参照ください。
+
+{{% /alert %}}
 
 ## **FAQ**
 

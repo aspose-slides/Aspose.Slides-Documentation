@@ -21,14 +21,16 @@ description: "Evalúe Aspose.Slides para C++ y explore las características de l
 
 ## **Evaluación de Aspose.Slides**
 
-{{% alert color="primary" %}} 
 Puede descargar fácilmente Aspose.Slides para evaluación. La descarga de evaluación es la misma que la descarga comprada. La versión de evaluación simplemente se licenciará cuando añada unas pocas líneas de código para aplicar la licencia.
 
 La versión de evaluación de Aspose.Slides (sin una licencia especificada) proporciona toda la funcionalidad del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrirlo y guardarlo, y limita a una diapositiva al extraer el texto de las diapositivas de la presentación.
 
 ![todo:image_alt_text](evaluate-aspose.slides-001.png)
-{{% /alert %}} {{% alert color="primary" %}} 
+
+{{% alert color="primary" %}}
+
 Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, también puede solicitar una Licencia Temporal de 30 días. Consulte [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license)
+
 {{% /alert %}}
 
 ## **Preguntas frecuentes**

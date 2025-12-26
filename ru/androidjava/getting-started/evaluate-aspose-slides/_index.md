@@ -28,9 +28,11 @@ description: "Оцените Aspose.Slides для Android через Java и и�
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 Если вы хотите протестировать Aspose.Slides без ограничений оценочной версии, вы можете запросить 30‑дневную временную лицензию. См. [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
+
+{{% /alert %}}
 
 ## **FAQ**
 

@@ -28,7 +28,7 @@ The evaluation version of Aspose.Slides (without a license specified) provides f
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
