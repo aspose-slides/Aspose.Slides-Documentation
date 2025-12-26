@@ -31,32 +31,45 @@ Aspose Slides allows you to load these fonts using the [loadExternalFonts](https
 
 ## **Load Custom Fonts**
 
-Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+Aspose.Slides allows you to load fonts used in a presentation without installing them on the system. This affects export output—such as PDF, images, and other supported formats—so the resulting documents look consistent across environments. Fonts are loaded from custom directories.
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) class and call the [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) method.
-2. Load the presentation that will be rendered.
-3. [Clear the cache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) in the [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) class.
+1. Specify one or more folders that contain the font files.
+2. Call the static [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) method to load fonts from those folders.
+3. Load and render/export the presentation.
+4. Call [FontsLoader.clearCache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) to clear the font cache.
 
-This Java code demonstrates the font loading process:
+The following code example demonstrates the font loading process:
 
 ```java
-// Folders to seek fonts
-String[] folders = new String[] { externalFontsDir };
+// Define folders that contain custom font files.
+String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// Loads the custom font directory fonts
-FontsLoader.loadExternalFonts(folders);
+// Load custom fonts from the specified folders.
+FontsLoader.loadExternalFonts(fontFolders);
 
-// Do Some work and perform presentation/slide rendering
-Presentation pres = new Presentation("DefaultFonts.pptx");
+Presentation presentation = null;
 try {
-    pres.save("NewFonts_out.pptx", SaveFormat.Pptx);
+    presentation = new Presentation("sample.pptx");
+    
+    // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
+    presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    if (presentation != null) presentation.dispose();
 
-    // Clears Font Cachce
+    // Clear the font cache after the work is finished.
     FontsLoader.clearCache();
 }
 ```
+
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) adds additional folders to the font search paths, but it does not change the font initialization order.
+Fonts are initialized in this order:
+
+1. The default operating system font path.
+1. The paths loaded via [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/).
+
+{{%/alert %}}
 
 ## **Get Custom Font Folders**
 Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
