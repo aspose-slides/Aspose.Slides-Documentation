@@ -38,7 +38,7 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 3. Load and render/export the presentation.
 4. Call [FontsLoader.clearCache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) to clear the font cache.
 
-This Java code demonstrates the font loading process:
+The following code example demonstrates the font loading process:
 
 ```java
 // Define folders that contain custom font files.
@@ -47,14 +47,14 @@ String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 }
 // Load custom fonts from the specified folders.
 FontsLoader.loadExternalFonts(fontFolders);
 
-Presentation pres = null;
+Presentation presentation = null;
 try {
-    pres = new Presentation("sample.pptx");
+    presentation = new Presentation("sample.pptx");
     
     // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
-    pres.save("output.pdf", SaveFormat.Pdf);
+    presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    if (presentation != null) presentation.dispose();
 
     // Clear the font cache after the work is finished.
     FontsLoader.clearCache();

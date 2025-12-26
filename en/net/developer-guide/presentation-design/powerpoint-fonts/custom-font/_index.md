@@ -32,31 +32,40 @@ Aspose Slides allows you to load these fonts using the [FontsLoader.LoadExternal
 
 ## **Load Custom Fonts**
 
-Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+Aspose.Slides allows you to load fonts used in a presentation without installing them on the system. This affects export output—such as PDF, images, and other supported formats—so the resulting documents look consistent across environments. Fonts are loaded from custom directories.
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class and call the [LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) method.
-2. Load the presentation that will be rendered.
-3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class.
+1. Specify one or more folders that contain the font files.
+2. Call the static [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) method to load fonts from those folders.
+3. Load and render/export the presentation.
+4. Call [FontsLoader.ClearCache](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/clearcache/) to clear the font cache.
 
-This C# code demonstrates the font loading process:
+The following code example demonstrates the font loading process:
 
-``` csharp
-// The path to the documents directory
-string dataDir = "C:\\";
+```cs
+// Define folders that contain custom font files.
+string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
 
-// folders to seek fonts
-String[] folders = new String[] { dataDir };
+// Load custom fonts from the specified folders.
+FontsLoader.LoadExternalFonts(fontFolders);
 
-// Loads the custom font directory fonts
-FontsLoader.LoadExternalFonts(folders);
+using Presentation presentation = new Presentation("sample.pptx");
 
-// Do some work and perform presentation/slide rendering
-using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx"))
-    presentation.Save(dataDir + "NewFonts_out.pptx", SaveFormat.Pptx);
+// Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
+presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// Clears the font cache
+// Clear the font cache after the work is finished.
 FontsLoader.ClearCache();
 ```
+
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) adds additional folders to the font search paths, but it does not change the font initialization order.
+Fonts are initialized in this order:
+
+1. The default operating system font path.
+1. The paths loaded via [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/).
+
+{{%/alert %}}
 
 ## **Get Custom Font Folders**
 Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.

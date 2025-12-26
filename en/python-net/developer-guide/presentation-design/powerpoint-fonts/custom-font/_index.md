@@ -29,30 +29,41 @@ Aspose.Slides lets you load the following fonts using the `load_external_font` a
 
 ## **Load Custom Fonts**
 
-Aspose.Slides lets you load fonts for rendering presentations without installing them. The fonts are loaded from a custom directory.
+Aspose.Slides allows you to load fonts used in a presentation without installing them on the system. This affects export output—such as PDF, images, and other supported formats—so the resulting documents look consistent across environments. Fonts are loaded from custom directories.
 
-1. Call the `load_external_fonts` method from [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
-1. Load the presentation to be rendered.
-1. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class.
+1. Specify one or more folders that contain the font files.
+2. Call the static [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) method to load fonts from those folders.
+3. Load and render/export the presentation.
+4. Call [FontsLoader.clear_cache](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/clear_cache/) to clear the font cache.
 
-The following Python code demonstrates the font-loading process:
+The following code example demonstrates the font loading process:
 
-```python
+```py
 import aspose.slides as slides
 
-# Folders to search for fonts.
-font_folders = [ "C:\\MyFonts", "D:\\MyAdditionalFonts" ]
+# Define folders that contain custom font files.
+font_folders = [ external_font_folder1, external_font_folder2 ]
 
-# Load fonts from the custom directories.
+# Load custom fonts from the specified folders.
 slides.FontsLoader.load_external_fonts(font_folders)
 
-# Render the presentation.
-with slides.Presentation("Fonts.pptx") as presentation:
-    presentation.save("Fonts_out.pdf", slides.export.SaveFormat.PDF)
+with slides.Presentation("sample.pptx") as presentation:
+    # Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
+    presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Clear the font cache.
+# Clear the font cache after the work is finished.
 slides.FontsLoader.clear_cache()
 ```
+
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) adds additional folders to the font search paths, but it does not change the font initialization order.
+Fonts are initialized in this order:
+
+1. The default operating system font path.
+1. The paths loaded via [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
+
+{{%/alert %}}
 
 ## **Get the Custom Fonts Folder**
 
