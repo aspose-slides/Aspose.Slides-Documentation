@@ -22,7 +22,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Verwalten Sie Präsentationskommentare mit Aspose.Slides für Android via Java: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen.
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Android via Java: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen."
 ---
 
 In PowerPoint erscheint ein Kommentar als Notiz oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt oder Nachrichten angezeigt. 
