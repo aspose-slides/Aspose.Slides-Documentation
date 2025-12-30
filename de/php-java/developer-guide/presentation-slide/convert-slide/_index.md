@@ -1,277 +1,208 @@
 ---
-title: Folie konvertieren
+title: Präsentationsfolien in PHP zu Bildern konvertieren
+linktitle: Folie zu Bild
 type: docs
 weight: 35
 url: /de/php-java/convert-slide/
-keywords: 
-- folie in bild konvertieren
-- folie als bild exportieren
-- folie als bild speichern
-- folie zu bild
-- folie zu PNG
-- folie zu JPEG
-- folie zu bitmap
+keywords:
+- Folie konvertieren
+- Folie exportieren
+- Folie zu Bild
+- Folie als Bild speichern
+- Folie zu PNG
+- Folie zu JPEG
+- Folie zu Bitmap
+- Folie zu TIFF
+- PowerPoint
+- OpenDocument
+- Präsentation
 - PHP
-- Aspose.Slides für PHP über Java
-description: "Konvertieren Sie eine PowerPoint-Folie in ein Bild (Bitmap, PNG oder JPG) in PHP"
+- Aspose.Slides
+description: "Konvertieren Sie Folien von PPT, PPTX und ODP zu Bildern mit Aspose.Slides für PHP via Java — schnelle, hochwertige Darstellung mit klaren Codebeispielen."
 ---
 
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, Folien (in Präsentationen) in Bilder zu konvertieren. Dies sind die unterstützten Bildformate: BMP, PNG, JPG (JPEG), GIF und andere.
+## **Übersicht**
 
-Um eine Folie in ein Bild zu konvertieren, tun Sie Folgendes:
+Aspose.Slides für PHP via Java ermöglicht Ihnen das einfache Konvertieren von PowerPoint- und OpenDocument-Präsentationsfolien in verschiedene Bildformate, einschließlich BMP, PNG, JPG (JPEG), GIF und anderer Formate.
 
-1. Zuerst legen Sie die Konvertierungsparameter und die Folienobjekte, die konvertiert werden sollen, fest, indem Sie:
-   * das [ITiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/ITiffOptions) Interface oder
-   * das [IRenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/IRenderingOptions) Interface verwenden.
+Um eine Folie in ein Bild zu konvertieren, gehen Sie wie folgt vor:
 
-2. Zweitens konvertieren Sie die Folie in ein Bild, indem Sie die [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) Methode verwenden.
+1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie verwenden:
+    - Die [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) Klasse, oder
+    - Die [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/) Klasse.
+2. Erzeugen Sie das Folienbild, indem Sie die Methode [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) aufrufen.
 
-## **Über Bitmap und andere Bildformate**
+In Aspose.Slides für PHP via Java ist ein [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) eine Klasse, die es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixeldaten definiert sind. Sie können diese Klasse verwenden, um Bilder in einer Vielzahl von Formaten zu speichern (BMP, JPG, PNG usw.).
 
-In Java ist ein [Images](https://reference.aspose.com/slides/php-java/aspose.slides/Images) ein Objekt, das es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixel-Daten definiert sind. Sie können eine Instanz dieser Klasse verwenden, um Bilder in einer Vielzahl von Formaten (JPG, PNG usw.) zu speichern.
+## **Folien in Bitmaps konvertieren und die Bilder im PNG-Format speichern**
 
-{{% alert title="Info" color="info" %}}
+Sie können eine Folie in ein Bitmap-Objekt konvertieren und dieses direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild anschließend im JPEG-Format oder in einem anderen gewünschten Format speichern.
 
-Aspose hat kürzlich einen Online [Text to GIF](https://products.aspose.app/slides/text-to-gif) Konverter entwickelt.
-
-{{% /alert %}}
-
-## **Konvertieren von Folien in Bitmap und Speichern der Bilder im PNG-Format**
-
-Dieser PHP-Code zeigt Ihnen, wie Sie die erste Folie einer Präsentation in ein Bitmap-Objekt konvertieren und dann das Bild im PNG-Format speichern:
-
+Der folgende Code zeigt, wie die erste Folie einer Präsentation in ein Bitmap-Objekt konvertiert und das Bild im PNG-Format gespeichert wird:
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Konvertiert die erste Folie in der Präsentation in ein Images-Objekt
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage();
-    # Speichert das Bild im PNG-Format
+$presentation = new Presentation("Presentation.pptx");
+try {
+    // Konvertiere die erste Folie der Präsentation in ein Bitmap.
+    $image = $presentation->getSlides()->get_Item(0)->getImage();
     try {
-      # speichert das Bild auf der Festplatte.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
+        // Speichere das Bild im PNG-Format.
+        $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $image->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Dieser Beispielcode zeigt Ihnen, wie Sie die erste Folie einer Präsentation in ein Bitmap-Objekt konvertieren, indem Sie die [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) Methode verwenden:
 
+## **Folien in Bilder mit benutzerdefinierten Größen konvertieren**
+
+Möglicherweise benötigen Sie ein Bild mit einer bestimmten Größe. Durch die Verwendung einer Überladung der Methode [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) können Sie eine Folie in ein Bild mit spezifischen Abmessungen (Breite und Höhe) konvertieren.
+
+Der folgende Beispielcode zeigt, wie das geht:
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Holt die Größe der Präsentationsfolie
-    $slideSize = new Java("java.awt.Dimension", $slideSize->getWidth(), $slideSize->getHeight());
-    # Erstellt ein Images mit der Foliengröße
-    $slideImage = $sld->getImage(new RenderingOptions(), $slideSize);
+$imageSize = new Java("java.awt.Dimension", 1820, 1040);
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    // Konvertiere die erste Folie der Präsentation in ein Bitmap mit der angegebenen Größe.
+    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
     try {
-      # speichert das Bild auf der Festplatte.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
+        // Speichere das Bild im JPEG-Format.
+        $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $image->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="Tipp" color="primary" %}} 
 
-Sie können eine Folie in ein Images-Objekt konvertieren und das Objekt dann direkt irgendwo verwenden. Oder Sie können eine Folie in ein Images konvertieren und das Bild dann im JPEG- oder in einem anderen Format Ihrer Wahl speichern.
+## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
-{{% /alert %}}  
+Einige Folien können Notizen und Kommentare enthalten.
 
-## **Konvertieren von Folien in Bilder mit benutzerdefinierten Größen**
+Aspose.Slides bietet zwei Klassen [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) und [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/) — die es Ihnen ermöglichen, das Rendern von Präsentationsfolien in Bilder zu steuern. Beide Klassen enthalten die Methode `setSlidesLayoutOptions`, mit der Sie das Rendern von Notizen und Kommentaren auf einer Folie beim Konvertieren in ein Bild konfigurieren können.
 
-Vielleicht müssen Sie ein Bild einer bestimmten Größe erhalten. Mit einer Überladung der [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-) Methode können Sie eine Folie in ein Bild mit bestimmten Abmessungen (Länge und Breite) konvertieren.
+Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
 
-Dieser Beispielcode demonstriert die vorgeschlagene Konvertierung unter Verwendung der [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) Methode:
-
+Der folgende Code zeigt, wie eine Folie mit Notizen und Kommentaren konvertiert wird:
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Konvertiert die erste Folie in der Präsentation in ein Bitmap mit der angegebenen Größe
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 1820, 1040));
-    # Speichert das Bild im JPEG-Format
+$scaleX = 2;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+try {
+    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
+    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // Legt die Position der Notizen fest.
+    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // Legt die Position der Kommentare fest.
+    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Legt die Breite des Kommentarbereichs fest.
+    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Legt die Farbe des Kommentarbereichs fest.
+
+    // Erstelle die Rendering-Optionen.
+    $options = new RenderingOptions();
+    $options->setSlidesLayoutOptions($notesCommentsOptions);
+
+    // Konvertiere die erste Folie der Präsentation in ein Bild.
+    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
     try {
-      # speichert das Bild auf der Festplatte.
-      $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
+        // Speichere das Bild im GIF-Format.
+        $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $image->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Konvertieren von Folien mit Notizen und Kommentaren zu Bildern**
 
-Einige Folien enthalten Notizen und Kommentare.
-
-Aspose.Slides bietet zwei Schnittstellen—[ITiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/ITiffOptions) und [IRenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/IRenderingOptions)—die es Ihnen ermöglichen, das Rendering von Präsentationsfolien in Bilder zu steuern. Beide Schnittstellen verfügen über die [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/INotesCommentsLayoutingOptions) Schnittstelle, die es Ihnen ermöglicht, Notizen und Kommentare auf einer Folie hinzuzufügen, wenn Sie diese Folie in ein Bild konvertieren.
-
-{{% alert title="Info" color="info" %}} 
-
-Mit der [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/INotesCommentsLayoutingOptions) Schnittstelle können Sie Ihre bevorzugte Position für Notizen und Kommentare im resultierenden Bild angeben.
-
+{{% alert title="Note" color="warning" %}} 
+Bei jedem Vorgang zur Konvertierung von Folien in Bilder kann die Methode [setNotesPosition](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) `BottomFull` (zur Angabe der Position für Notizen) nicht anwenden, weil der Text einer Notiz zu groß sein kann, um in die angegebene Bildgröße zu passen.
 {{% /alert %}} 
 
-Dieser PHP-Code demonstriert den Konvertierungsprozess für eine Folie mit Notizen und Kommentaren:
+## **Folien mit TIFF-Optionen in Bilder konvertieren**
 
+Die Klasse [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) bietet eine höhere Kontrolle über das resultierende TIFF-Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und mehr festlegen können.
+
+Der folgende Code demonstriert einen Konvertierungsprozess, bei dem TIFF-Optionen verwendet werden, um ein Schwarz‑Weiß‑Bild mit einer Auflösung von 300 DPI und einer Größe von 2160 × 2800 auszugeben:
 ```php
-  $pres = new Presentation("PresentationNotesComments.pptx");
-  try {
-    # Erstellt die Rendering-Optionen
-    $options = new RenderingOptions();
-    # Setzt die Position der Notizen auf der Seite
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # Setzt die Position der Kommentare auf der Seite
-    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
-    # Setzt die Breite des Kommentarausgabebereichs
-    $options->getNotesCommentsLayouting()->setCommentsAreaWidth(500);
-    # Setzt die Farbe für den Kommentarausgabebereich
-    $options->getNotesCommentsLayouting()->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);
-    # Konvertiert die erste Folie der Präsentation in ein Bitmap-Objekt
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, 2.0, 2.0);
-    # Speichert das Bild im GIF-Format
-    try {
-      $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat::Gif);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+// Lade eine Präsentationsdatei.
+$presentation = new Presentation("sample.pptx");
+try {
+    // Hole die erste Folie aus der Präsentation.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Dieser PHP-Code demonstriert den Konvertierungsprozess für eine Folie mit Notizen unter Verwendung der [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) Methode:
-
-```php
-  $pres = new Presentation("PresentationNotes.pptx");
-  try {
-    # Holt die Größe der Präsentationsnotizen
-    $notesSize = $pres->getNotesSize()->getSize();
-    # Erstellt die Rendering-Optionen
-    $options = new RenderingOptions();
-    # Setzt die Position der Notizen
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # Erstellt ein Images mit der Größe der Notizen
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, $notesSize);
-    # Speichert das Bild im PNG-Format
-    try {
-      # speichert das Bild auf der Festplatte.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-In jedem Konvertierungsprozess von Folien zu Bildern kann die [NotesPositions](https://reference.aspose.com/slides/php-java/aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-) Eigenschaft nicht auf BottomFull gesetzt werden (um die Position für Notizen anzugeben), da der Text einer Notiz groß sein kann, was bedeutet, dass er möglicherweise nicht in die angegebene Bildgröße passt.
-
-{{% /alert %}} 
-
-## **Konvertieren von Folien zu Bildern unter Verwendung von ITiffOptions**
-
-Die [ITiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/ITiffOptions) Schnittstelle gibt Ihnen mehr Kontrolle (in Bezug auf Parameter) über das resultierende Bild. Mit dieser Schnittstelle können Sie die Größe, Auflösung, Farbpalette und andere Parameter für das resultierende Bild angeben.
-
-Dieser PHP-Code demonstriert einen Konvertierungsprozess, bei dem ITiffOptions verwendet wird, um ein schwarz-weiß-Bild mit einer Auflösung von 300 dpi und einer Größe von 2160 × 2800 auszugeben:
-
-```php
-  $pres = new Presentation("PresentationNotesComments.pptx");
-  try {
-    # Holt eine Folie nach ihrem Index
-    $slide = $pres->getSlides()->get_Item(0);
-    # Erstellt ein TiffOptions-Objekt
+    // Konfiguriere die Einstellungen des Ausgabe‑TIFF‑Bildes.
     $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));
-    # Setzt die Schriftart, die verwendet wird, falls die Quelldatei nicht gefunden wird
-    $options->setDefaultRegularFont("Arial Black");
-    # Setzt die Position der Notizen auf der Seite
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # Setzt das Pixel-Format (schwarz-weiß)
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);
-    # Setzt die Auflösung
-    $options->setDpiX(300);
-    $options->setDpiY(300);
-    # Konvertiert die Folie in ein Bitmap-Objekt
-    $slideImage = $slide->getImage($options);
-    # Speichert das Bild im TIFF-Format
+    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Bildgröße festlegen.
+    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Pixelformat festlegen (schwarz‑weiß).
+    $options->setDpiX(300);                                              // Horizontale Auflösung festlegen.
+    $options->setDpiY(300);                                              // Vertikale Auflösung festlegen.
+    
+    // Konvertiere die Folie mit den angegebenen Optionen zu einem Bild.
+    $image = $slide->getImage($options);
     try {
-      $slideImage->save("PresentationNotesComments.tiff", ImageFormat::Tiff);
+        // Bild im TIFF‑Format speichern.
+        $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $image->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
 
-Die Unterstützung von Tiff ist in Versionen vor JDK 9 nicht garantiert.
-
+{{% alert title="Note" color="warning" %}} 
+Die Tiff‑Unterstützung ist in Versionen vor JDK 9 nicht garantiert.
 {{% /alert %}} 
 
-## **Konvertieren aller Folien in Bilder**
+## **Alle Folien in Bilder konvertieren**
 
-Aspose.Slides ermöglicht es Ihnen, alle Folien in einer einzelnen Präsentation in Bilder zu konvertieren. Im Wesentlichen können Sie die gesamte Präsentation in Bilder konvertieren.
+Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren, wodurch die gesamte Präsentation in eine Reihe von Bildern umgewandelt wird.
 
-Dieser Beispielcode zeigt Ihnen, wie Sie alle Folien in einer Präsentation in Bilder konvertieren:
-
+Der folgende Beispielcode zeigt, wie alle Folien einer Präsentation in PHP in Bilder konvertiert werden:
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Rendert die Präsentation in ein Bilder-Array, folie für folie
-    for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      # Kontrolliert versteckte Folien (rendert keine versteckten Folien)
-      if ($pres->getSlides()->get_Item($i)->getHidden()) {
-        continue;
-      }
-      # Konvertiert die Folie in ein Bitmap-Objekt
-      $slideImage = $pres->getSlides()->get_Item($i)->getImage(2.0, 2.0);
-      # Speichert das Bild im PNG-Format
-      try {
-        $slideImage->save("Slide_" . $i . ".png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+$scaleX = 2;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    // Rendern Sie die Präsentation Folie für Folie zu Bildern.
+    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
+        // Versteckte Folien steuern (versteckte Folien nicht rendern).
+        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
+            continue;
         }
-      }
+
+        // Konvertieren Sie die Folie in ein Bild.
+        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+        try {
+            // Speichern Sie das Bild im JPEG-Format.
+            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+        } finally {
+            $image->dispose();
+        }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **FAQ**
+
+**Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
+
+Nein, die Methode `getImage` speichert nur ein statisches Bild der Folie, ohne Animationen.
+
+**Können ausgeblendete Folien als Bilder exportiert werden?**
+
+Ja, ausgeblendete Folien können genauso wie reguläre Folien verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
+
+**Können Bilder mit Schatten und Effekten gespeichert werden?**
+
+Ja, Aspose.Slides unterstützt das Rendern von Schatten, Transparenz und anderen grafischen Effekten beim Speichern von Folien als Bilder.

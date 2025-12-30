@@ -1,15 +1,24 @@
 ---
-title: Сравнить Слайды
+title: Сравнение слайдов презентации в PHP
+linktitle: Сравнение слайдов
 type: docs
 weight: 50
 url: /ru/php-java/compare-slides/
+keywords:
+- сравнение слайдов
+- сравнение слайдов
+- PowerPoint
+- OpenDocument
+- презентация
+- PHP
+- Aspose.Slides
+description: "Сравнивайте презентации PowerPoint и OpenDocument программно с помощью Aspose.Slides для PHP через Java. Быстро выявляйте различия слайдов в коде."
 ---
 
-## **Сравнить Два Слайда**
-Метод Equals был добавлен в интерфейс [IBaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide) и класс [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide). Он возвращает true для слайдов/макетов и слайдов/мастер-слайдов, которые идентичны по своей структуре и статическому содержимому.
+## **Сравнить два слайда**
+Метод Equals был добавлен в интерфейс [IBaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide) и класс [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide). Он возвращает true для слайдов/макетов и слайдов‑мастеров, которые идентичны по своей структуре и статическому содержимому.  
 
-Два слайда равны, если все формы, стили, тексты, анимация и другие настройки и т. д. равны. Сравнение не учитывает значения уникальных идентификаторов, например, SlideId, и динамическое содержимое, например, текущее значение даты в Заполнителе Даты.
-
+Два слайда считаются равными, если все фигуры, стили, тексты, анимация и другие настройки и т.д. совпадают. При сравнении не учитываются уникальные идентификаторы, например SlideId, и динамическое содержимое, например текущее значение даты в заполнителе даты.
 ```php
   $presentation1 = new Presentation("AccessSlides.pptx");
   try {
@@ -18,7 +27,7 @@ url: /ru/php-java/compare-slides/
       for($i = 0; $i < java_values($presentation1->getMasters()->size()) ; $i++) {
         for($j = 0; $j < java_values($presentation2->getMasters()->size()) ; $j++) {
           if ($presentation1->getMasters()->get_Item($i)->equals($presentation2->getMasters()->get_Item($j))) {
-            echo(sprintf("MasterSlide#%d из SomePresentation1 равен MasterSlide#%d из SomePresentation2", $i, $j));
+            echo(sprintf("SomePresentation1 MasterSlide#%d is equal to SomePresentation2 MasterSlide#%d", $i, $j));
           }
         }
       }
@@ -29,3 +38,18 @@ url: /ru/php-java/compare-slides/
     $presentation1->dispose();
   }
 ```
+
+
+## **FAQ**
+
+**Влияет ли факт скрытия слайда на сравнение самих слайдов?**
+
+[Статус скрытия](https://reference.aspose.com/slides/php-java/aspose.slides/slide/gethidden/) — это свойство уровня презентации/воспроизведения, а не визуального содержимого. Равенство двух конкретных слайдов определяется их структурой и статическим содержимым; сам факт скрытия слайда не делает слайды разными.
+
+**Учитываются ли гиперссылки и их параметры?**
+
+Да. Ссылки являются частью статического содержимого слайда. Если URL или действие гиперссылки различаются, это обычно считается различием в статическом содержимом.
+
+**Если диаграмма ссылается на внешний файл Excel, будет ли содержимое этого файла учитываться?**
+
+Нет. Сравнение производится на основе самих слайдов. Внешние источники данных обычно не читаются во время сравнения; учитывается только то, что присутствует в структуре и статическом состоянии слайда.

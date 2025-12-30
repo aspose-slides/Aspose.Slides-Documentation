@@ -1,188 +1,177 @@
 ---
-title: Просмотрщик презентаций
+title: Создать просмотрщик презентаций в PHP
+linktitle: Просмотрщик презентаций
 type: docs
 weight: 50
 url: /ru/php-java/presentation-viewer/
-keywords: "Просмотрщик PowerPoint PPT"
-description: "Просмотрщик PowerPoint PPT"
+keywords: 
+- просмотр презентации
+- просмотрщик презентаций
+- создать просмотрщик презентаций
+- просмотр PPT
+- просмотр PPTX
+- просмотр ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- PHP
+- Aspose.Slides
+description: "Создайте пользовательский просмотрщик презентаций, используя Aspose.Slides для PHP через Java. Легко отображайте файлы PowerPoint и OpenDocument без Microsoft PowerPoint."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides for PHP via Java используется для создания файлов презентаций со слайдами. Эти слайды можно просматривать, открывая презентации в Microsoft PowerPoint, например. Однако иногда разработчикам может потребоваться просматривать слайды как изображения в их предпочтительном просмотрщике изображений или создавать собственный просмотрщик презентаций. В таких случаях Aspose.Slides позволяет экспортировать отдельный слайд как изображение. В этой статье описано, как это сделать.
 
-Aspose.Slides для PHP через Java используется для создания файлов презентаций, включая слайды. Эти слайды можно просматривать, открывая презентации с помощью Microsoft PowerPoint. Но иногда разработчикам также может понадобиться просматривать слайды в виде изображений в своем любимом просмотрщике изображений или создавать свой собственный просмотрщик презентаций. В таких случаях Aspose.Slides для PHP через Java позволяет экспортировать отдельный слайд в изображение. В этой статье описывается, как это сделать.
+## **Создать SVG-изображение со слайда**
 
-{{% /alert %}} 
+Чтобы создать SVG‑изображение из слайда презентации с помощью Aspose.Slides, выполните следующие действия:
 
-## **Живой пример**
-Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что вы можете реализовать с помощью API Aspose.Slides:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **Создание SVG-изображения из слайда**
-Чтобы создать SVG-изображение из любого желаемого слайда с помощью Aspose.Slides для PHP через Java, выполните следующие шаги:
-
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Получите ссылку на нужный слайд, используя его идентификатор или индекс.
-- Получите SVG-изображение в потоке памяти.
-- Сохраните поток памяти в файл.
-
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Откройте файловый поток.
+4. Сохраните слайд как SVG‑изображение в файловый поток.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
-  $pres = new Presentation("CreateSlidesSVGImage.pptx");
-  try {
-    # Получите первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Создайте объект потока памяти
-    $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    # Создайте SVG-изображение слайда и сохраните в поток памяти
-    $sld->writeAsSvg($svgStream);
-    $svgStream->close();
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream);
+$svgStream->close();
+
+$presentation->dispose();
 ```
 
-## **Создание SVG с пользовательскими идентификаторами фигур**
-Aspose.Slides для PHP через Java можно использовать для создания [SVG](https://docs.fileformat.com/page-description-language/svg/) из слайда с пользовательским идентификатором фигуры. Для этого используйте свойство ID из [ISvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgShape), которое представляет собой пользовательский идентификатор фигур в сгенерированном SVG. CustomSvgShapeFormattingController можно использовать для установки идентификатора фигуры.
+
+## **Создать SVG с пользовательским идентификатором фигуры**
+
+Aspose.Slides можно использовать для создания [SVG](https://docs.fileformat.com/page-description-language/svg/) из слайда с пользовательским идентификатором фигуры. Для этого используйте метод `setId` из [SvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/). `CustomSvgShapeFormattingController` можно использовать для установки идентификатора фигуры.
+```php
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(0), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+
+$svgOptions = new SVGOptions();
+$svgOptions->setShapeFormattingController($shapeFormattingController);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream, $svgOptions);
+$svgStream->close();
+
+$presentation->dispose();
+```
 
 ```php
-
-  class CustomSvgShapeFormattingController {
+class CustomSvgShapeFormattingController {
     private $m_shapeIndex;
 
-    function __construct() {
-      $this->m_shapeIndex = 0;
+    public function __construct($shapeStartIndex) {
+        $this->m_shapeIndex = $shapeStartIndex;
     }
 
-    function __construct($shapeStartIndex) {
-      $this->m_shapeIndex = $shapeStartIndex;
+    public function formatShape($svgShape, $shape) {
+        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
-
-    function formatShape($svgShape, $shape) {
-      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
-  }
-
-  $pres = new Presentation("pptxFileName.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    try {
-      $svgOptions = new SVGOptions();
-      $shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
-      $svgOptions->setShapeFormattingController($shapeFormattingController);
-      $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+}
 ```
 
-## **Создание миниатюры слайда**
-Aspose.Slides для PHP через Java поможет вам создать миниатюры изображений слайдов. Чтобы создать миниатюру любого желаемого слайда с помощью Aspose.Slides для PHP через Java:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Получите ссылку на любой желаемый слайд, используя его идентификатор или индекс.
-1. Получите миниатюру изображения ссылающегося слайда на указанном масштабе.
-1. Сохраните миниатюру изображения в любом желаемом формате изображения.
+## **Создать миниатюру слайда**
 
+Aspose.Slides помогает создавать миниатюрные изображения слайдов. Чтобы создать миниатюру слайда с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Получите миниатюрное изображение ссылочного слайда с заданным масштабом.
+4. Сохраните миниатюрное изображение в любом требуемом формате изображения.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
-  $pres = new Presentation("ThumbnailFromSlide.pptx");
-  try {
-    # Получите первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Создайте изображение в полном масштабе
-    $slideImage = $sld->getImage(1.0, 1.0);
-    # Сохраните изображение на диск в формате JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$scaleX = 1.0;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($scaleX, $scaleY);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **Создание миниатюры с заданными пользователем размерами**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Получите ссылку на любой желаемый слайд, используя его идентификатор или индекс.
-1. Получите миниатюру изображения ссылающегося слайда на указанном масштабе.
-1. Сохраните миниатюру изображения в любом желаемом формате изображения.
+## **Создать миниатюру слайда с пользовательскими размерами**
 
+Чтобы создать изображение миниатюры слайда с пользовательскими размерами, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Получите миниатюрное изображение ссылочного слайда с заданными размерами.
+4. Сохраните миниатюрное изображение в любом требуемом формате изображения.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # Получите первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Размеры, заданные пользователем
-    $desiredX = 1200;
-    $desiredY = 800;
-    # Получение масштабированного значения X и Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    # Создайте изображение в полном масштабе
-    $slideImage = $sld->getImage($ScaleX, $ScaleY);
-    # Сохраните изображение на диск в формате JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$slideSize = new Java("java.awt.Dimension", 1200, 800);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($slideSize);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **Создание миниатюры из слайда в режиме заметок**
-Чтобы создать миниатюру любого желаемого слайда в режиме заметок, используя Aspose.Slides для PHP через Java:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Получите ссылку на любой желаемый слайд, используя его идентификатор или индекс.
-1. Получите миниатюру изображения ссылающегося слайда на указанном масштабе в режиме заметок.
-1. Сохраните миниатюру изображения в любом желаемом формате изображения.
+## **Создать миниатюру слайда с заметками докладчика**
 
-Следующий фрагмент кода производит миниатюру первого слайда презентации в режиме заметок.
+Чтобы создать миниатюру слайда с заметками докладчика с помощью Aspose.Slides, выполните следующие действия:
 
+1. Создайте экземпляр класса [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/).
+2. Используйте метод `RenderingOptions.setSlidesLayoutOptions` для установки положения заметок докладчика.
+3. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+4. Получите ссылку на слайд по его индексу.
+5. Получите миниатюрное изображение ссылочного слайда с указанными параметрами рендеринга.
+6. Сохраните миниатюрное изображение в любом требуемом формате изображения.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет файл презентации
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # Получите первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Размеры, заданные пользователем
-    $desiredX = 1200;
-    $desiredY = 800;
-    # Получение масштабированного значения X и Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    $opts = new RenderingOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # Создайте изображение в полном масштабе
-    $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
-    # Сохраните изображение на диск в формате JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$layoutingOptions = new NotesCommentsLayoutingOptions();
+$layoutingOptions->setNotesPosition(NotesPositions::BottomTruncated);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutingOptions);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($renderingOptions);
+$image->save("output.png", ImageFormat::Png);
+$image->dispose();
+
+$presentation->dispose();
 ```
+
+
+## **Живой пример**
+
+Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) чтобы увидеть, что можно реализовать с помощью API Aspose.Slides:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Могу ли я встроить просмотрщик презентаций в веб‑приложение?**
+
+Да. Вы можете использовать Aspose.Slides на стороне сервера для рендеринга слайдов в виде изображений или HTML и отображать их в браузере. Навигацию и функции масштабирования можно реализовать с помощью JavaScript для интерактивного опыта.
+
+**Как лучший способ отображать слайды внутри пользовательского просмотрщика?**
+
+Рекомендуемый подход — рендерить каждый слайд как изображение (например, PNG или SVG) или преобразовывать его в HTML с помощью Aspose.Slides, затем отображать результат в элементе picture box (для десктопа) или в HTML‑контейнере (для веба).
+
+**Как обрабатывать большие презентации с большим количеством слайдов?**
+
+Для больших наборов слайдов рекомендуется использовать отложенную загрузку или рендеринг по требованию. Это означает генерацию содержимого слайда только тогда, когда пользователь переходит к нему, что снижает потребление памяти и время загрузки.

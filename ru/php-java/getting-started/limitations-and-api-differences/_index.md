@@ -3,22 +3,31 @@ title: Ограничения и различия API
 type: docs
 weight: 100
 url: /ru/php-java/limitations-and-api-differences/
+keywords:
+- ограничение
+- различия API
+- сравнение пакетов
+- PowerPoint
+- OpenDocument
+- презентация
+- PHP
+- Aspose.Slides
+description: "Сравните ограничения и различия API между Aspose.Slides для PHP через Java и Aspose.Slides для Java."
 ---
 
-## **Различия в публичном API**
+## **Отличия публичного API**
 
-Этот список, используя примеры кода, демонстрирует некоторые различия между Aspose.Slides для Java и Aspose.Slides для PHP через Java API.
+Этот список, используя примеры кода, демонстрирует определённые различия между Aspose.Slides для Java и Aspose.Slides для PHP через Java API.
 
 ### **Импорт библиотеки (Сравнение пакетов)**
 
-**Aspose.Slides для Java**
-
+**Aspose.Slides for Java**
 ```java
 import com.aspose.slides.*;
 ```
 
-**Aspose.Slides для PHP через Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 require_once("Java.inc");
 require_once("lib/aspose.slides.php");
@@ -27,38 +36,38 @@ use aspose\sldes;
 use aspose\sldes\Presentation;
 ```
 
-### **Создание новой Презентации**
 
-**Aspose.Slides для Java**
+### **Создание новой презентации**
 
+**Aspose.Slides for Java**
 ```java
 Presentation presentation = new Presentation();
 ```
 
-**Aspose.Slides для PHP через Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $presentation = new Presentation();
 ```
 
-### **Enums или Константы**
 
-**Aspose.Slides для Java**
+### **Перечисления или константы**
 
+**Aspose.Slides for Java**
 ```java
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
 ```
 
-**Aspose.Slides для PHP через Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
 ```
 
+
 ### **Пример**
 
-**Aspose.Slides для Java**
-
+**Aspose.Slides for Java**
 ```java
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
@@ -69,14 +78,14 @@ public class Test
 {
     public static void main(String[] args) throws Exception
     {
-        // Создает объект Presentation, представляющий файл презентации
+        // Создаёт объект Presentation, представляющий файл презентации
         Presentation pres = new Presentation();
         try
         {
             // Получает первый слайд
             ISlide slide = pres.getSlides().get_Item(0);
 
-            // Добавляет автозакрашенный объект типа линия
+            // Добавляет автофигуру типа линия
             slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
             pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
         }
@@ -88,8 +97,8 @@ public class Test
 }
 ```
 
-**Aspose.Slides для PHP через Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 <?php
 require_once("Java.inc");
@@ -106,7 +115,7 @@ try
     // Получает первый слайд
     $slide = $pres->getSlides()->get_Item(0);
 
-    // Добавляет автозакрашенный объект типа линия
+    // Добавляет автофигуру типа линия
     $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     $pres->save("NewPresentation_out.pptx", SaveFormat::Pptx);
 }
@@ -117,29 +126,31 @@ finally
 ?>
 ```
 
+
 ### **Другие ограничения Aspose.Slides для PHP через Java API по сравнению с Aspose.Slides для Java API**
 
-Пространства имен Aspose.Slides и классы Java, которые они используют, являются оболочками, созданными PhpJavaBridge поверх классов Java с теми же именами из пакета com.aspose.slides.
+Пространства имён Aspose.Slides и используемые ими классы Java являются оболочками, созданными PhpJavaBridge поверх Java‑классов с тем же именем из пакета com.aspose.slides.
 
-#### 1. **Оборачивание java параметров и аргументов**
+#### **1. Обёртка параметров и аргументов Java**
 
-Параметры и аргументы, которые они возвращают и принимают, являются оболочками над классами Java с теми же именами. Только строки и числовые типы автоматически конвертируются. Массивы, коллекции, байты и логические значения не Конвертируются.
+Параметры и аргументы, которые они возвращают и принимают, являются обёртками поверх Java‑классов с теми же именами. Автоматически преобразуются только строки и числовые типы. Массивы, коллекции, байты и логические типы не преобразуются.  
 
-**Распространенная ошибка:**
+**Распространённая ошибка:**
 ``` php
-if ($node->isAssistant()) - неверно!
-if (java_values($node->isAssistant())) - верно!
+if ($node->isAssistant()) - wrong!
+if (java_values($node->isAssistant())) - correct!
 ```
 
-#### 2. **Расширение класса Java и оператор instanceof**
 
-Вы не можете расширять класс Java из PHP класса. В качестве обходного пути вы можете реализовать композицию, когда это необходимо. Оператор instanceof работает только для конкретного класса. Он не работает для интерфейса класса или родительского класса.
+#### **2. Наследование Java‑класса и оператор instanceof**
 
-[обходной путь](https://stackoverflow.com/questions/36840618/php-java-bridge-usage-of-extend)
+Нельзя наследовать Java‑класс от PHP‑класса. В качестве обходного решения можно использовать композицию при необходимости. Оператор instanceof работает только с конкретным классом. Он не работает с интерфейсом класса или его базовым классом. 
 
-#### 3. **Массив Java не является массивом PHP**
+[workaround](https://stackoverflow.com/questions/36840618/php-java-bridge-usage-of-extend)
 
-Создание массива Java в PHP:
+#### **3. Java‑массив НЕ является PHP‑массивом**
+
+Создание Java‑массива в PHP:
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Integer = new JavaClass("java.lang.Integer");
@@ -148,23 +159,25 @@ $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
 ```
 
-#### 4. **Длина массива Java**
 
+#### **4. Длина Java‑массива**
 ``` php
-$data->length; - не работает
+$data->length; - does NOT work
 ```
-обходной путь
-``` php
+
+workaround
+```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
 ```
 
-#### 5. **Метод Java Files.readAllBytes**
 
-``` php
-$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - не работает
+#### **5. Метод Java Files.readAllBytes**
+```php
+$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
 ```
-обходной путь
+
+workaround
 ``` php
 $file = new Java("java.io.File", "embedOle.html");
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -178,12 +191,13 @@ try {
 }
 ```
 
-#### 6. **Метод Java Files.write**
 
+#### **6. Метод Java Files.write**
 ``` php
-Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - не работает
+Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
 ```
-обходной путь
+
+workaround
 ``` php
 $fstr = new Java("java.io.FileOutputStream", $path);
 $Array = new java_class("java.lang.reflect.Array");

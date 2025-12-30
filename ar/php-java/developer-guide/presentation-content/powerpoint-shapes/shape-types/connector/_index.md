@@ -1,116 +1,123 @@
 ---
-title: الموصل
+title: "إدارة الموصلات في العروض التقديمية باستخدام PHP"
+linktitle: "موصل"
 type: docs
 weight: 10
 url: /ar/php-java/connector/
-keywords: "ربط الأشكال, الموصلات, أشكال PowerPoint, عرض PowerPoint, Java, Aspose.Slides لـ PHP عبر Java"
-description: "ربط أشكال PowerPoint"
+keywords:
+- موصل
+- نوع الموصل
+- نقطة الموصل
+- خط الموصل
+- زاوية الموصل
+- ربط الأشكال
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "تمكين تطبيقات PHP من رسم وربط وتوجيه الخطوط تلقائيًا في شرائح PowerPoint — الحصول على تحكم كامل في الموصلات المستقيمة والمقربة والمنحنية."
 ---
 
-موصل PowerPoint هو خط خاص يربط أو يربط بين شكلين معًا ويبقى متصلًا بالأشكال حتى عند تحريكها أو إعادة توضعها على الشريحة المعينة.
+موصل PowerPoint هو خط خاص يربط أو يوصّل شكلين معًا ويظل مرتبطًا بالأشكال حتى عندما يتم تحريكها أو إعادة وضعها على شريحة معينة. 
 
-عادةً ما تتصل الموصلات بـ *نقاط الاتصال* (نقاط خضراء) ، التي توجد على جميع الأشكال افتراضيًا. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
+عادةً ما يتم ربط الموصلات بـ *نقاط الاتصال* (نقاط خضراء)، التي توجد على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
 
-تستخدم *نقاط التعديل* (نقاط برتقالية) ، التي توجد فقط على موصلات معينة ، لتعديل مواضع وأشكال الموصلات.
+*نقاط الضبط* (نقاط برتقالية)، التي توجد فقط على بعض الموصلات، تُستخدم لتعديل مواقع الموصلات وأشكالها.
 
 ## **أنواع الموصلات**
 
-في PowerPoint ، يمكنك استخدام الموصلات المستقيمة ، الزاوية (المركبة) ، والمقوسة.
+في PowerPoint، يمكنك استخدام موصلات مستقيمة، ومقربة (زاوية)، ومنحنية. 
 
 توفر Aspose.Slides هذه الموصلات:
 
-| الموصل                          | الصورة                                                        | عدد نقاط التعديل |
-| ------------------------------- | ------------------------------------------------------------ | ---------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                |
+| الموصل | الصورة | عدد نقاط الضبط |
+| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
+| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
+| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
+| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
+| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
+| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
+| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
+| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
+| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
 
 ## **ربط الأشكال باستخدام الموصلات**
 
-1. إنشاء مثيل من فئة [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة شكلين [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` المعروفة بواسطة كائن `Shapes`.
-1. إضافة موصل باستخدام طريقة `addConnector` المعروفة بواسطة كائن `Shapes` من خلال تحديد نوع الموصل.
+1. أنشئ مثيلًا من فئة [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. احصل على مرجع شريحة من خلال فهرسها.
+1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) إلى الشريحة باستخدام الطريقة `addAutoShape` التي يوفرها كائن `Shapes`.
+1. أضف موصلًا باستخدام الطريقة `addConnector` التي يوفرها كائن `Shapes` مع تحديد نوع الموصل.
 1. ربط الأشكال باستخدام الموصل.
-1. استدعاء طريقة `reroute` لتطبيق أقصر مسار اتصال.
-1. حفظ العرض.
+1. استدعِ الطريقة `reroute` لتطبيق أقصر مسار اتصال.
+1. احفظ العرض التقديمي. 
 
-يظهر هذا الكود PHP كيفية إضافة موصل (موصل منحني) بين شكلين (بيضاوي ومستطيل):
-
+يظهر هذا الكود PHP كيفية إضافة موصل (موصل معقوف) بين شكلين (بيضة ومستطيل):
 ```php
-// ينشئ مثيل لفئة العرض تمثل ملف PPTX
+// ينشئ فئة العرض التقديمي التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
-    # الوصول إلى مجموعة الأشكال لشريحة معينة
+    # يصل إلى مجموعة الأشكال لشريحة معينة
     $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # إضافة شكل بيضاوي
+    # يضيف شكلاً إهليلجياً تلقائيًا
     $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # إضافة شكل مستطيل
+    # يضيف شكلاً مستطيلاً تلقائيًا
     $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # إضافة شكل موصل إلى مجموعة أشكال الشريحة
+    # يضيف شكل موصل إلى مجموعة أشكال الشريحة
     $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # ربط الأشكال باستخدام الموصل
+    # يربط الأشكال باستخدام الموصل
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # استدعاء reroute الذي يحدد أقصر مسار تلقائي بين الأشكال
+    # يستدعي reroute الذي يحدد أقصر مسار تلقائي بين الأشكال
     $connector->reroute();
-    # حفظ العرض
+    # يحفظ العرض التقديمي
     $pres->save("output.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) $pres.dispose();
 }
 ```
 
-{{%  alert title="ملحوظة"  color="warning"   %}} 
 
-تقوم طريقة `Connector.reroute` بإعادة توجيه الموصل وتفرض عليه أن يأخذ أقصر مسار ممكن بين الأشكال. لتحقيق هدفه، قد تغيّر الطريقة نقاط `setStartShapeConnectionSiteIndex` و `setEndShapeConnectionSiteIndex`. 
-
+{{%  alert title="NOTE"  color="warning"   %}} 
+طريقة `Connector.reroute` تعيد توجيه الموصل وتُجبره على اتخاذ أقصر مسار ممكن بين الأشكال. لتحقيق هدفها، قد تُغيّر الطريقة نقاط `setStartShapeConnectionSiteIndex` و `setEndShapeConnectionSiteIndex`. 
 {{% /alert %}} 
 
-## **تحديد نقطة الاتصال**
+## **تحديد نقطة اتصال**
 
-إذا كنت تريد موصل لربط شكلين باستخدام نقاط معينة على الأشكال، يجب عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
+إذا أردت أن يربط الموصل شكلين باستخدام نقاط معينة على الأشكال، عليك تحديد نقاط الاتصال المفضلة لديك بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة شكلين [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` المعروفة بواسطة كائن `Shapes`.
-1. إضافة موصل باستخدام طريقة `addConnector` المعروفة بواسطة كائن `Shapes` من خلال تحديد نوع الموصل.
+1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. احصل على مرجع شريحة من خلال فهرسها.
+1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) إلى الشريحة باستخدام الطريقة `addAutoShape` التي يوفرها كائن `Shapes`.
+1. أضف موصلًا باستخدام الطريقة `addConnector` التي يوفرها كائن `Shapes` مع تحديد نوع الموصل.
 1. ربط الأشكال باستخدام الموصل.
-1. تعيين نقاط الاتصال المفضلة لديك على الأشكال.
-1. حفظ العرض.
-
-يوضح هذا الكود PHP عملية يتم فيها تحديد نقطة الاتصال المفضلة:
+1. عيّن نقاط الاتصال المفضلة لديك على الأشكال.
+1. احفظ العرض التقديمي.
 
 ```php
-  # ينشئ مثيل لفئة العرض تمثل ملف PPTX
+  # ينشئ فئة العرض التقديمي التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الوصول إلى مجموعة الأشكال لشريحة معينة
     $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # إضافة شكل بيضاوي
+    # إضافة شكل إهليلجي تلقائي
     $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # إضافة شكل مستطيل
+    # إضافة شكل مستطيل تلقائي
     $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
     # إضافة شكل موصل إلى مجموعة أشكال الشريحة
     $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
     # ربط الأشكال باستخدام الموصل
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # تعيين فهرس نقطة الاتصال المفضلة على الشكل البيضاوي
+    # تحديد فهرس نقطة الاتصال المفضلة على شكل الإهليلج
     $wantedIndex = 6;
-    # التحقق مما إذا كان الفهرس المفضل أقل من الحد الأقصى لعدد فهارس الاتصال
+    # التحقق مما إذا كان الفهرس المفضل أقل من العدد الأقصى لنقاط الاتصال
     if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # تعيين نقطة الاتصال المفضلة على الشكل البيضاوي
+      # تحديد نقطة الاتصال المفضلة على الشكل الإهليلجي التلقائي
       $connector->setStartShapeConnectionSiteIndex($wantedIndex);
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -119,16 +126,16 @@ description: "ربط أشكال PowerPoint"
   }
 ```
 
-## **تعديل نقطة الموصل**
 
-يمكنك تعديل موصل موجود من خلال نقاط التعديل الخاصة به. يمكن تعديل الموصلات التي تحتوي فقط على نقاط تعديل بهذه الطريقة. راجع الجدول تحت **[أنواع الموصلات.](/slides/ar/php-java/connector/#types-of-connectors)**
+## **ضبط نقطة موصل**
 
-#### **حالة بسيطة**
+يمكنك ضبط موصل موجود من خلال نقاط الضبط الخاصة به. فقط الموصلات التي تحتوي على نقاط ضبط يمكن تعديلها بهذه الطريقة. راجع الجدول تحت **[أنواع الموصلات.](/slides/ar/php-java/connector/#types-of-connectors)**
 
-افترض وجود حالة يمر فيها موصل بين شكلين (أ و ب) عبر شكل ثالث (ج):
+### **حالة بسيطة**
+
+اعتبر حالة يكون فيها موصل بين شكلين (A و B) يمر عبر شكل ثالث (C):
 
 ![connector-obstruction](connector-obstruction.png)
-
 ```php
   $pres = new Presentation();
   try {
@@ -150,58 +157,59 @@ description: "ربط أشكال PowerPoint"
   }
 ```
 
-لتجنب أو تخطي الشكل الثالث، يمكننا تعديل الموصل عن طريق تحريك خطه العمودي إلى اليسار بهذه الطريقة:
+
+لتجنب الشكل الثالث أو تجاوزه، يمكننا ضبط الموصل بتحريك خطه العمودي إلى اليسار بهذه الطريقة:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```php
   $adj2 = $connector->getAdjustments()->get_Item(1);
   $adj2->setRawValue($adj2->getRawValue() + 10000);
+
 ```
+
 
 ### **حالات معقدة** 
 
-لإجراء تعديلات أكثر تعقيدًا، يجب أن تأخذ في اعتبارك هذه الأمور:
+لإجراء تعديلات أكثر تعقيدًا، عليك أخذ الأمور التالية في الاعتبار:
 
-* تتعلق نقطة تعديل الموصل ارتباطًا قويًا بالصيغ التي تحسب وتحدد موقعها. لذا فإن التغييرات على موقع النقطة قد تغير شكل الموصل.
-* تُعرف نقاط تعديل الموصل بترتيب صارم في صفيف. تُرقم نقاط التعديل من نقطة بداية الموصل إلى النهاية.
-* تعكس قيم نقطة التعديل نسبة عرض/ارتفاع شكل الموصل. 
-  * الشكل محاط بنقاط بداية ونهاية الموصل مضروبة في 1000. 
-  * تُعرف النقطة الأولى والنقطة الثانية والنقطة الثالثة النسبة من العرض، والنسبة من الارتفاع، والنسبة من العرض (مرة أخرى) على التوالي.
-* للتقديرات التي تحدد إحداثيات نقاط تعديل الموصل، يجب أن تأخذ في اعتبارك دوران الموصل وانعكاسه. **ملحوظة** أن زاوية الدوران لجميع الموصلات الموضحة تحت **[أنواع الموصلات](/slides/ar/php-java/connector/#types-of-connectors)** هي 0.
+* نقطة الضبط للموصل مرتبطة ارتباطًا وثيقًا بصيغة تحسب وتحدد موقعها. لذلك قد تغيّر تغييرات موقع النقطة شكل الموصل.
+* يتم تعريف نقاط ضبط الموصل بترتيب صارم في مصفوفة. تُرقم نقاط الضبط من نقطة بدء الموصل إلى نهايته.
+* قيم نقاط الضبط تعكس النسبة المئوية لعرض/ارتفاع شكل الموصل.
+  * يحد الشكل بنقطة بدء ونقطة نهاية الموصل مضروبة في 1000.
+  * النقطة الأولى، والنقطة الثانية، والنقطة الثالثة تحدد النسبة من العرض، والنسبة من الارتفاع، والنسبة من العرض (مرة أخرى) على التوالي.
+* لحسابات تحديد إحداثيات نقاط ضبط الموصل، عليك أخذ دوران الموصل وانعكاسه في الاعتبار. **ملاحظة** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/php-java/connector/#types-of-connectors)** هي 0.
 
 #### **الحالة 1**
 
-افترض وجود حالة حيث يرتبط كائنين إطار نص مع موصل:
+اعتبر حالة يكون فيها كائنان نصيان مربوطان معًا عبر موصل:
 
 ![connector-shape-complex](connector-shape-complex.png)
-
 ```php
-  # ينشئ مثيل لفئة العرض تمثل ملف PPTX
+  # ينشئ فئة عرض تقديمي تمثل ملف PPTX
   $pres = new Presentation();
   try {
-    # الحصول على الشريحة الأولى في العرض
+    # يحصل على الشريحة الأولى في العرض التقديمي
     $sld = $pres->getSlides()->get_Item(0);
-    # إضافة أشكال سيتم ربطها معًا من خلال موصل
+    # يضيف أشكالًا سيتم ربطها معًا عبر موصل
     $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("من");
+    $shapeFrom->getTextFrame()->setText("From");
     $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("إلى");
-    # إضافة موصل
+    $shapeTo->getTextFrame()->setText("To");
+    # يضيف موصلًا
     $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # تحدد الاتجاه الموصل
+    # يحدد اتجاه الموصل
     $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # تحدد لون الموصل
+    # يحدد لون الموصل
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # تحدد سمك خط الموصل
+    # يحدد سُمك خط الموصل
     $connector->getLineFormat()->setWidth(3);
-    # ربط الأشكال مع الموصل
+    # يربط الأشكال معًا باستخدام الموصل
     $connector->setStartShapeConnectedTo($shapeFrom);
     $connector->setStartShapeConnectionSiteIndex(3);
     $connector->setEndShapeConnectedTo($shapeTo);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # الحصول على نقاط التعديل للموصل
+    # يحصل على نقاط الضبط للموصل
     $adjValue_0 = $connector->getAdjustments()->get_Item(0);
     $adjValue_1 = $connector->getAdjustments()->get_Item(1);
   } finally {
@@ -211,29 +219,31 @@ description: "ربط أشكال PowerPoint"
   }
 ```
 
-**تعديل**
 
-يمكننا تغيير قيم نقاط تعديل الموصل عن طريق زيادة النسبة المقابلة للعروض والارتفاعات بنسبة 20٪ و 200٪ على التوالي:
+**الضبط**
 
+يمكننا تغيير قيم نقاط ضبط الموصل بزيادة النسبة المئوية للعرض والارتفاع المقابلة بنسبة 20% و200% على التوالي:
 ```php
-  # تغيير قيم نقاط التعديل
+  # يغيّر قيم نقاط الضبط
   $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
   $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتعريف نموذج يسمح لنا بتحديد إحداثيات وشكل أجزاء الموصل الفردية، دعنا ننشئ شكلًا يتوافق مع المكون الأفقي للموصل عند نقطة connector.getAdjustments().get_Item(0):
-
+لتعريف نموذج يتيح لنا تحديد إحداثيات وشكل الأجزاء الفردية للموصل، دعنا نُنشئ شكلًا يتوافق مع المكوّن الأفقي للموصل عند نقطة connector.getAdjustments().get_Item(0):
 ```php
-  # رسم المكون العمودي للموصل
+  # ارسم المكوّن العمودي للموصل
   $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
   $y = $connector->getY();
   $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
   $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
 ```
+
 
 النتيجة:
 
@@ -241,83 +251,82 @@ description: "ربط أشكال PowerPoint"
 
 #### **الحالة 2**
 
-في **الحالة 1**، عرضنا عملية تعديل موصل بسيطة باستخدام مبادئ أساسية. في الحالات العادية، يجب أخذ دوران الموصل وعرضه (والتي يتم تعيينها بواسطة connector.getRotation()، وconnector.getFrame().getFlipH()، وconnector.getFrame().getFlipV()) في الاعتبار. سنظهر الآن العملية.
+في **الحالة 1**، أظهرنا عملية ضبط موصل بسيطة باستخدام المبادئ الأساسية. في الحالات العادية، عليك أخذ دوران الموصل وعرضه (الذي يتم تعيينه بواسطة connector.getRotation()، connector.getFrame().getFlipH()، و connector.getFrame().getFlipV()) في الاعتبار. سنعرض الآن العملية.
 
-أولًا، دعنا نضيف كائن إطار نص جديد (**إلى 1**) إلى الشريحة (لغرض الاتصال) وننشئ موصلًا جديدًا (أخضر) يربطه بالأشياء التي أنشأناها بالفعل.
-
+أولاً، دعنا نضيف كائن إطار نصي جديد (**To 1**) إلى الشريحة (لأغراض الاتصال) وننشئ موصلًا (أخضر) جديدًا يربطه بالكائنات التي أنشأناها بالفعل.
 ```php
-  # إنشاء كائن ارتباط جديد
+  # ينشئ كائن ربط جديد
   $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("إلى 1");
-  # إنشاء موصل جديد
+  $shapeTo_1->getTextFrame()->setText("To 1");
+  # ينشئ موصلًا جديدًا
   $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
   $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
   $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
   $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
   $connector->getLineFormat()->setWidth(3);
-  # ربط الأشياء باستخدام الموصل الجديد الذي تم إنشاؤه
+  # يربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا
   $connector->setStartShapeConnectedTo($shapeFrom);
   $connector->setStartShapeConnectionSiteIndex(2);
   $connector->setEndShapeConnectedTo($shapeTo_1);
   $connector->setEndShapeConnectionSiteIndex(3);
-  # الحصول على نقاط تعديل الموصل
+  # يحصل على نقاط ضبط الموصل
   $adjValue_0 = $connector->getAdjustments()->get_Item(0);
   $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # تغيير قيم نقاط التعديل
+  # يغيّر قيم نقاط الضبط
   $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
   $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، دعنا ننشئ شكلًا سيتوافق مع المكون الأفقي للموصل الذي يمر عبر نقطة تعديل الموصل الجديدة connector.getAdjustments().get_Item(0). سنستخدم القيم من بيانات الموصل لـ connector.getRotation()، وconnector.getFrame().getFlipH()، وconnector.getFrame().getFlipV() وسنطبق معادلة تحويل الإحداثيات المعروفة للدوران حول نقطة معينة x0:
+ثانيًا، دعنا نُنشئ شكلًا سيتوافق مع المكوّن الأفقي للموصل الذي يمر عبر نقطة الضبط للموصل الجديد connector.getAdjustments().get_Item(0). سنستخدم القيم من بيانات الموصل لـ connector.getRotation()، connector.getFrame().getFlipH()، و connector.getFrame().getFlipV() ونطبق صيغة تحويل الإحداثيات الشهيرة للدوران حول نقطة معينة x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذلك هذا هو الكود المقابل:
-
+في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا هذا هو الكود المقابل:
 ```php
-  # حفظ إحداثيات الموصل
+  # يحفظ إحداثيات الموصل
   $x = $connector->getX();
   $y = $connector->getY();
-  # تصحيح إحداثيات الموصل في حالة ظهورها
+  # يصحح إحداثيات الموصل في حال ظهورها
   if ($connector->getFrame()->getFlipH() == NullableBool::True) {
     $x += $connector->getWidth();
   }
   if ($connector->getFrame()->getFlipV() == NullableBool::True) {
     $y += $connector->getHeight();
   }
-  # أخذ قيمة نقطة التعديل كإحداثية
+  # يأخذ قيمة نقطة الضبط كإحداثي
   $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # تحويل الإحداثيات نظرًا لأن Sin(90) = 1 و Cos(90) = 0
+  # يحوّل الإحداثيات لأن Sin(90) = 1 و Cos(90) = 0
   $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
   $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # تحديد عرض المكون الأفقي باستخدام قيمة نقطة التعديل الثانية
+  # يحدد عرض المكوّن الأفقي باستخدام قيمة نقطة الضبط الثانية
   $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
   $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
   $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
   $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
 ```
 
+
 النتيجة:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-عرضنا حسابات تتعلق بالتعديلات البسيطة ونقاط التعديل المعقدة (نقاط التعديل مع زوايا الدوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى تعيين قيم نقاط تعديل الموصل بناءً على إحداثيات الشريحة المحددة.
+أظهرنا حسابات تشمل تعديلات بسيطة ونقاط ضبط معقدة (نقاط ضبط ذات زوايا دوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى تعيين قيم نقاط ضبط الموصل بناءً على إحداثيات شريحة معينة.
 
-## **البحث عن زاوية خطوط الموصل**
+## **العثور على زاوية خطوط الموصل**
 
 1. إنشاء مثيل من الفئة.
-1. الحصول على مرجع الشريحة من خلال فهرسها.
+1. احصل على مرجع شريحة من خلال فهرسها.
 1. الوصول إلى شكل خط الموصل.
-1. استخدام عرض الخط ، الارتفاع ، ارتفاع شكل الإطار ، وعرض شكل الإطار لحساب الزاوية.
+1. استخدم عرض الخط، الارتفاع، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
 
-يوضح هذا الكود PHP عملية تمكنا من خلالها من حساب الزاوية لشكل خط الموصل:
-
+يظهر هذا الكود PHP عملية حساب الزاوية لشكل خط الموصل:
 ```php
   $pres = new Presentation("ConnectorLineAngle.pptx");
   try {
@@ -342,3 +351,18 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
     }
   }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني معرفة ما إذا كان يمكن "لصق" الموصل إلى شكل معين؟**
+
+تحقق من أن الشكل يوفّر [مواقع الاتصال](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getconnectionsitecount/). إذا لم تكن موجودة أو كان العدد صفرًا، فإن اللصق غير متاح؛ في هذه الحالة، استخدم نقاط النهاية الحرة وضعها يدويًا. من المنطقي فحص عدد المواقع قبل الإرفاق.
+
+**ماذا يحدث للموصل إذا حذفت أحد الأشكال المتصلة؟**
+
+ستُنقَط أطرافه؛ سيبقى الموصل على الشريحة كخط عادي بنقطة بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الاتصالات، وإذا لزم الأمر، [إعادة توجيه](https://reference.aspose.com/slides/php-java/aspose.slides/connector/reroute/).
+
+**هل يتم الحفاظ على ارتباطات الموصل عند نسخ شريحة إلى عرض تقديمي آخر؟**
+
+عادةً نعم، بشرط نسخ الأشكال المستهدفة أيضًا. إذا تم إدراج الشريحة في ملف آخر دون الأشكال المتصلة، تصبح الأطراف حرة وستحتاج إلى إعادة ربطها.

@@ -3,23 +3,31 @@ title: 制限とAPIの違い
 type: docs
 weight: 100
 url: /ja/php-java/limitations-and-api-differences/
+keywords:
+- 制限
+- APIの違い
+- パッケージ比較
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java と Aspose.Slides for Java の間の制限と API の違いを比較します。"
 ---
 
+## **Public API Differences**
 
-## **公開APIの違い**
+このリストは、サンプルコードセグメントを使用して、Aspose.Slides for Java と Aspose.Slides for PHP via Java API の間のいくつかの違いを示しています。
 
-このリストは、サンプルコードセグメントを使用して、Aspose.Slides for JavaとAspose.Slides for PHP via Java APIの間の特定の違いを示しています。
-
-### **ライブラリのインポート（パッケージの比較）**
+### **Importing library (Package Comparisons)**
 
 **Aspose.Slides for Java**
-
 ```java
 import com.aspose.slides.*;
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 require_once("Java.inc");
 require_once("lib/aspose.slides.php");
@@ -28,38 +36,38 @@ use aspose\sldes;
 use aspose\sldes\Presentation;
 ```
 
-### **新しいプレゼンテーションのインスタンス化**
+
+### **Instantiating a New Presentation**
 
 **Aspose.Slides for Java**
-
 ```java
 Presentation presentation = new Presentation();
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $presentation = new Presentation();
 ```
 
-### **列挙型または定数**
+
+### **Enums or Constants**
 
 **Aspose.Slides for Java**
-
 ```java
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
 ```
 
-### **例**
+
+### **Example**
 
 **Aspose.Slides for Java**
-
 ```java
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
@@ -70,14 +78,14 @@ public class Test
 {
     public static void main(String[] args) throws Exception
     {
-        // プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する
+        // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します
         Presentation pres = new Presentation();
         try
         {
             // 最初のスライドを取得する
             ISlide slide = pres.getSlides().get_Item(0);
 
-            // タイプをラインとしてオートシェイプを追加する
+            // タイプがラインに設定されたオートシェイプを追加する
             slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
             pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
         }
@@ -89,8 +97,8 @@ public class Test
 }
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 <?php
 require_once("Java.inc");
@@ -104,10 +112,10 @@ use aspose\slides\SaveFormat;
 $pres = new Presentation();
 try
 {
-    // 最初のスライドを取得する
+    // 最初のスライドを取得します
     $slide = $pres->getSlides()->get_Item(0);
 
-    // タイプをラインとしてオートシェイプを追加する
+    // タイプがラインに設定されたオートシェイプを追加します
     $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     $pres->save("NewPresentation_out.pptx", SaveFormat::Pptx);
 }
@@ -118,30 +126,31 @@ finally
 ?>
 ```
 
-### **Aspose.Slides for PHP via Java APIの他の制限（Aspose.Slides for Java APIに対して）**
 
-Aspose.Slidesの名前空間とそれが使用するjavaクラスは、com.aspose.slidesパッケージの同名のJavaクラスの上にPhpJavaBridgeによって作成されたラッパーです。
+### **Other Limitations of Aspose.Slides for PHP via Java API Compared to Aspose.Slides for Java API**
 
-#### 1. **Javaパラメーターと引数のラッピング**
+Aspose.Slides の名前空間とそれらが使用する Java クラスは、PhpJavaBridge が com.aspose.slides パッケージの同名 Java クラスの上に作成したラッパーです。
 
-返却されるパラメーターと引数は、同名のJavaクラスの上に重ねられたラッパーです。文字列と数値型のみが自動的に変換されます。配列、コレクション、バイト、ブール値は変換されません。  
+#### **1. Wrapping Java Parameters and Arguments**
 
-**一般的な間違い:**
+返却および受け取るパラメータと引数は、同名の Java クラスの上にあるラッパーです。文字列と数値型のみが自動的に変換されます。配列、コレクション、バイト、およびブール値は変換されません。  
+
+**A common mistake:**
 ``` php
-if ($node->isAssistant()) - 誤り！
-if (java_values($node->isAssistant())) - 正しい！
+if ($node->isAssistant()) - wrong!
+if (java_values($node->isAssistant())) - correct!
 ```
 
-#### 2. **Javaクラスの拡張とinstanceof演算子**
 
-PHPクラスからJavaクラスを拡張することはできません。必要に応じて、コンポジションを実装することで回避できます。
-instanceof演算子は具体的なクラスに対してのみ機能します。クラスのインターフェースや親クラスには機能しません。 
+#### **2. Extending Java Class and Instanceof Operator**
+
+PHP クラスから Java クラスを継承することはできません。回避策として、必要に応じてコンポジションを実装できます。instanceof 演算子は具体クラスに対してのみ機能し、インターフェイスや親クラスには機能しません。  
 
 [workaround](https://stackoverflow.com/questions/36840618/php-java-bridge-usage-of-extend)
 
-#### 3. **Java配列はPHP配列ではない**
+#### **3. A Java Array Is NOT a PHP Array**
 
-PHPにおけるJava配列の作成:
+PHP での Java 配列作成:
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Integer = new JavaClass("java.lang.Integer");
@@ -150,24 +159,26 @@ $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
 ```
 
-#### 4. **Java配列の長さ**
 
+#### **4. A Java Array Length**
 ``` php
-$data->length; - 動作しない
+$data->length; - does NOT work
 ```
-回避策
+
+workaround
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
 ```
 
-#### 5. **JavaメソッドFiles.readAllBytes**
 
+#### **5. The Java Method Files.readAllBytes**
 ``` php
-$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - 動作しない
+$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
 ```
-回避策
-``` php
+
+workaround
+```php
 $file = new Java("java.io.File", "embedOle.html");
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = new JavaClass("java.lang.Byte");
@@ -180,12 +191,13 @@ try {
 }
 ```
 
-#### 6. **JavaメソッドFiles.write**
 
+#### **6. The Java Method Files.write**
 ``` php
-Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - 動作しない
+Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
 ```
-回避策
+
+workaround
 ``` php
 $fstr = new Java("java.io.FileOutputStream", $path);
 $Array = new java_class("java.lang.reflect.Array");

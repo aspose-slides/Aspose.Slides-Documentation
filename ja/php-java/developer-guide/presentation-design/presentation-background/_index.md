@@ -1,193 +1,259 @@
 ---
-title: プレゼンテーションの背景
+title: PHPでプレゼンテーションの背景を管理する
+linktitle: スライド背景
 type: docs
 weight: 20
 url: /ja/php-java/presentation-background/
-keywords: "PowerPoint 背景, 背景を設定する"
-description: "PowerPoint プレゼンテーションの背景を設定する"
+keywords:
+- プレゼンテーション背景
+- スライド背景
+- 単色
+- グラデーション色
+- 画像背景
+- 背景の透明度
+- 背景プロパティ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument ファイルの動的な背景を設定する方法を学び、プレゼンテーションを強化するコードヒントを提供します。"
 ---
 
-スライドの背景画像としては、単色、グラデーション、画像がよく使用されます。背景は**通常のスライド**（単一スライド）または**マスタースライド**（複数スライド同時）に設定できます。
+## **概要**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+単色、グラデーション、画像はスライドの背景として一般的に使用されます。**通常スライド**（単一スライド）または**マスタースライド**（複数のスライドに一度に適用）に対して背景を設定できます。
 
-## **通常のスライドの背景に単色を設定する**
+![PowerPoint background](powerpoint-background.png)
 
-Aspose.Slidesを使用すれば、プレゼンテーション内の特定のスライドの背景に単色を設定することができます（たとえそのプレゼンテーションがマスタースライドを含んでいても）。背景の変更は選択したスライドのみに影響します。
+## **通常スライドの単色背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. スライドの背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) が公開する [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) プロパティを使用して、背景の単色を指定します。
-5. 修正したプレゼンテーションを保存します。
+Aspose.Slides を使用すると、プレゼンテーション内の特定のスライドに単色の背景を設定できます（プレゼンテーションがマスタースライドを使用している場合でも）。変更は選択したスライドのみに適用されます。
 
-以下のPHPコードは、通常のスライドの背景に単色（青）を設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) を `Solid` に設定します。
+4. 単色の背景色を指定するために、[FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) 上の [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) メソッドを使用します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の PHP サンプルは、通常スライドの背景を青の単色に設定する方法を示しています：
 ```php
-  # Presentation クラスのインスタンスを作成
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # 最初の ISlide の背景色を青に設定
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    # プレゼンテーションをディスクに書き込む
-    $pres->save("ContentBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Presentation クラスのインスタンスを作成します。
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // スライドの背景色を青に設定します。
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    
+    // プレゼンテーションをディスクに保存します。
+    $presentation->save("SolidColorBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **マスタースライドの背景に単色を設定する**
 
-Aspose.Slidesを使用すれば、プレゼンテーション内のマスタースライドの背景に単色を設定することができます。マスタースライドは、すべてのスライドのフォーマット設定を含み、制御するテンプレートとして機能します。したがって、マスタースライドの背景に単色を選択すると、その新しい背景がすべてのスライドに適用されます。
+## **マスタースライドの単色背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. マスタースライド (`Masters`) の [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスタースライドの背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) 列挙型を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) が公開する [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) プロパティを使用して、背景の単色を指定します。
-5. 修正したプレゼンテーションを保存します。
+Aspose.Slides を使用すると、プレゼンテーションのマスタースライドに単色の背景を設定できます。マスタースライドはすべてのスライドの書式設定を制御するテンプレートとして機能するため、マスタースライドの背景に単色を選択すると、すべてのスライドに適用されます。
 
-以下のPHPコードは、プレゼンテーション内のマスタースライドの背景に単色（フォレストグリーン）を設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. [getMasters] を介して取得したマスタースライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. マスタースライド背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) を `Solid` に設定します。
+4. 単色の背景色を指定するために、[getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) メソッドを使用します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の PHP サンプルは、マスタースライドの背景を緑の単色に設定する方法を示しています：
 ```php
-  # Presentation クラスのインスタンスを作成
-  $pres = new Presentation();
-  try {
-    # Master ISlide の背景色をフォレストグリーンに設定
-    $pres->getMasters()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # プレゼンテーションをディスクに書き込む
-    $pres->save("MasterBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Presentation クラスのインスタンスを作成します。
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+
+    // マスタースライドの背景色をフォレストグリーンに設定します。
+    $masterSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $masterSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $masterSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+
+    // プレゼンテーションをディスクに保存します。
+    $presentation->save("MasterSlideBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **スライドの背景にグラデーションを設定する**
 
-グラデーションは、色の緩やかな変化に基づくグラフィカルな効果です。スライドの背景として使用される場合、グラデーションカラーはプレゼンテーションを芸術的で専門的に見せます。Aspose.Slidesを使用すれば、プレゼンテーション内のスライドの背景にグラデーションカラーを設定することができます。
+## **スライドにグラデーション背景を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスタースライドの背景に対する [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) 列挙型を `Gradient` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) が公開する [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat--) プロパティを使用して、お好みのグラデーション設定を指定します。
-5. 修正したプレゼンテーションを保存します。
+グラデーションは、色が徐々に変化することで作られる視覚的効果です。スライドの背景として使用すると、プレゼンテーションがより芸術的でプロフェッショナルに見えます。Aspose.Slides を使用すると、スライドの背景にグラデーション色を設定できます。
 
-以下のPHPコードは、スライドの背景にグラデーションカラーを設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) を `Gradient` に設定します。
+4. 好みのグラデーション設定を構成するために、[FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) 上の [getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat) メソッドを使用します。
+5. 変更したプレゼンテーションを保存します。
 
+以下の PHP サンプルは、スライドの背景をグラデーション色に設定する方法を示しています：
 ```php
-  # Presentation クラスのインスタンスを作成
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # 背景にグラデーション効果を適用
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip->FlipBoth);
-    # プレゼンテーションをディスクに書き込む
-    $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Presentation クラスのインスタンスを作成します。
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // 背景にグラデーション効果を適用します。
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
+    $slide->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip::FlipBoth);
+
+    // プレゼンテーションをディスクに保存します。
+    $presentation->save("GradientBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
 
 ## **スライドの背景に画像を設定する**
 
-単色やグラデーションの他に、Aspose.Slidesはプレゼンテーション内のスライドの背景に画像を設定することも許可しています。
+単色やグラデーションの塗りつぶしに加えて、Aspose.Slides では画像をスライドの背景として使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) 列挙型を `OwnBackground` に設定します。
-3. マスタースライドの背景に対する [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) 列挙型を `Picture` に設定します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. スライドの [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) を `Picture` に設定します。
 4. スライドの背景として使用したい画像をロードします。
 5. 画像をプレゼンテーションの画像コレクションに追加します。
-6. [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) が公開する [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat--) プロパティを使用して、背景として画像を設定します。
-7. 修正したプレゼンテーションを保存します。
+6. 背景として画像を割り当てるために、[FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) 上の [getPictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat) メソッドを使用します。
+7. 変更したプレゼンテーションを保存します。
 
-以下のPHPコードは、スライドの背景に画像を設定する方法を示しています：
-
+以下の PHP サンプルは、スライドの背景に画像を設定する方法を示しています：
 ```php
-  # Presentation クラスのインスタンスを作成
-  $pres = new Presentation();
-  try {
-    # 背景画像の条件を設定
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Picture);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # 画像をロード
-    $imgx;
-    $image = Images->fromFile("Desert.jpg");
-    try {
-      $imgx = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # プレゼンテーションの画像コレクションに画像を追加
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($imgx);
-    # プレゼンテーションをディスクに書き込む
-    $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Presentation クラスのインスタンスを作成します。
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // 背景画像のプロパティを設定します。
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+    // 画像をロードします。
+    $image = Images::fromFile("Tulips.jpg");
+    // 画像をプレゼンテーションの画像コレクションに追加します。
+    $ppImage = $presentation->getImages()->addImage($image);
+    $image->dispose();
+
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    // プレゼンテーションをディスクに保存します。
+    $presentation->save("ImageAsBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+以下のコードサンプルは、背景の塗りつぶしタイプをタイル状の画像に設定し、タイルのプロパティを変更する方法を示しています：
+```php
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+
+    $background = $firstSlide->getBackground();
+
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Picture);
+
+    $newImage = Images::fromFile("image.png");
+    $ppImage = $presentation->getImages()->addImage($newImage);
+    $newImage->dispose();
+
+    // 背景塗りつぶしに使用する画像を設定します。
+    $backPictureFillFormat = $background->getFillFormat()->getPictureFillFormat();
+    $backPictureFillFormat->getPicture()->setImage($ppImage);
+
+    // ピクチャーフィルモードをタイルに設定し、タイルのプロパティを調整します。
+    $backPictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
+    $backPictureFillFormat->setTileOffsetX(15);
+    $backPictureFillFormat->setTileOffsetY(15);
+    $backPictureFillFormat->setTileScaleX(46);
+    $backPictureFillFormat->setTileScaleY(87);
+    $backPictureFillFormat->setTileAlignment(RectangleAlignment::Center);
+    $backPictureFillFormat->setTileFlip(TileFlip::FlipY);
+
+    $presentation->save("TileBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+{{% alert color="primary" %}}
+続きはこちら: [**テクスチャとしてのタイル画像**](/slides/ja/php-java/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **背景画像の透明度を変更する**
 
-スライドの背景画像の透明度を調整して、スライドの内容が際立つようにすることがあります。以下のPHPコードは、スライドの背景画像の透明度を変更する方法を示しています：
-
+スライドの背景画像の透明度を調整して、スライドの内容を際立たせたい場合があります。以下の PHP コードは、スライド背景画像の透明度を変更する方法を示しています：
 ```php
-  $transparencyValue = 30; // 例えば
+$transparencyValue = 30; // 例として。
 
-  # 画像変換操作のコレクションを取得
-  $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  # 固定パーセンテージの透明度効果を見つける
-  $transparencyOperation = null;
-  foreach($imageTransform as $operation) {
+// 画像変換操作のコレクションを取得します。
+$imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
+
+// 既存の固定パーセンテージ透明度効果を見つけます。
+$transparencyOperation = null;
+foreach($imageTransform as $operation) {
     if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $transparencyOperation = $operation;
-      break;
+        $transparencyOperation = $operation;
+        break;
     }
-  }
-  # 新しい透明度値を設定
-  if (java_is_null($transparencyOperation)) {
+}
+
+// 新しい透明度の値を設定します。
+if (java_is_null($transparencyOperation)) {
     $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
-  } else {
+} else {
     $transparencyOperation->setAmount(100 - $transparencyValue);
-  }
+}
 ```
 
-## **スライドの背景の値を取得する**
 
-Aspose.Slidesは、スライドの背景の有効な値を取得するために [IBackgroundEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/) インターフェイスを提供しています。このインターフェイスには、有効な [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getFillFormat--) と有効な [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) に関する情報が含まれています。
+## **スライド背景の値を取得する**
 
-[BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/) クラスの [Background](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getBackground--) プロパティを使用して、スライドの背景の有効な値を取得できます。
+Aspose.Slides は、スライドの有効な背景値を取得するための `BackgroundEffectiveData` クラスを提供します。このクラスは有効な [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) と [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) を公開します。
 
-以下のPHPコードは、スライドの有効な背景値を取得する方法を示しています：
+[BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/) クラスの `getBackground` メソッドを使用すると、スライドの有効な背景を取得できます。
 
+以下の PHP サンプルは、スライドの有効な背景値を取得する方法を示しています：
 ```php
-  # Presentation クラスのインスタンスを作成
-  $pres = new Presentation("SamplePresentation.pptx");
-  try {
-    $effBackground = $pres->getSlides()->get_Item(0)->getBackground()->getEffective();
-    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid) {
-      echo("塗りつぶし色: " . $effBackground->getFillFormat()->getSolidFillColor());
-    } else {
-      echo("塗りつぶしタイプ: " . $effBackground->getFillFormat()->getFillType());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Presentation クラスのインスタンスを作成します。
+$presentation = new Presentation("Sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // マスタ、レイアウト、テーマを考慮した有効な背景を取得します。
+    $effBackground = $slide->getBackground()->getEffective();
+
+    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid)
+        echo "Fill color: " . $effBackground->getFillFormat()->getSolidFillColor() . "\n";
+    else
+        echo "Fill type: " . $effBackground->getFillFormat()->getFillType() . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **FAQ**
+
+**カスタム背景をリセットしてテーマ/レイアウトの背景に戻すことはできますか？**
+
+はい。スライドのカスタム塗りつぶしを削除すると、背景は対応する[レイアウト](/slides/ja/php-java/slide-layout/)/[マスター](/slides/ja/php-java/slide-master/)スライド（すなわち[テーマ背景](/slides/ja/php-java/presentation-theme/)）から再度継承されます。
+
+**後でプレゼンテーションのテーマを変更した場合、背景はどうなりますか？**
+
+スライドが独自の塗りつぶしを持っている場合は変更されません。背景が[レイアウト](/slides/ja/php-java/slide-layout/)/[マスター](/slides/ja/php-java/slide-master/)から継承されている場合は、新しいテーマに合わせて更新されます。

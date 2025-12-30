@@ -1,137 +1,201 @@
 ---
-title: Descripción del Producto
+title: Resumen del producto
 type: docs
 weight: 10
 url: /es/php-java/product-overview/
+keywords:
+- resumen del producto
+- procesamiento de documentos
+- características clave
+- características de presentación
+- características de diapositivas
+- características gráficas
+- características multimedia
+- características de tabla
+- características de texto
+- características avanzadas
+- soporte técnico
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java le permite crear, editar y convertir presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) sin Microsoft Office."
 ---
 
 ![todo:image_alt_text](aspose_slides-for-php-via-java.png)
 
-## **Descripción del Producto**
-Aspose.Slides para PHP a través de Java es una biblioteca de clases multiplataforma que permite que tus aplicaciones realicen una amplia variedad de tareas de procesamiento de documentos sin utilizar Microsoft PowerPoint®.
+## **Descripción del producto**
+Aspose.Slides for PHP via Java es una biblioteca de clases multiplataforma que permite a sus aplicaciones realizar una amplia variedad de tareas de procesamiento de documentos sin utilizar Microsoft PowerPoint®.
 
-### Por qué deberías usar Aspose.Slides para PHP a través de Java
+### **Por qué debería usar Aspose.Slides for PHP via Java**
 
-- Aspose.Slides para PHP a través de Java es el primer y único componente que proporciona las funcionalidades necesarias para gestionar documentos de PowerPoint®. 
-- Aspose.Slides para PHP a través de Java ofrece numerosas características clave, como la gestión de textos, formas, tablas y animaciones, agregar audio y video en las diapositivas, previsualizar diapositivas, exportar diapositivas a SVG, PDF y otros formatos, y muchas más capacidades. 
-- Aspose.Slides para PHP a través de Java no solo te permite abrir archivos de PowerPoint de diferentes fuentes, sino que también te permite guardar tus presentaciones de diversas maneras. Por ejemplo, puedes guardar tus presentaciones en PPT; también puedes guardar tus diapositivas como imágenes. 
-- Aspose.Slides para PHP a través de Java te ofrece casi todas las características que podrías encontrar o no en Microsoft PowerPoint. Dada la versatilidad de Aspose.Slides para PHP a través de Java, además de tablas y diferentes tipos de formas, puedes usarlo para agregar diferentes tipos de marcos: marcos de texto, audio y video a tus diapositivas. 
+- Aspose.Slides for PHP via Java es el primer y único componente que proporciona las funcionalidades necesarias para gestionar documentos PowerPoint®. 
+- Aspose.Slides for PHP via Java ofrece numerosas características clave, como la gestión de textos, formas, tablas y animaciones, la incorporación de audio y vídeo a las diapositivas, la vista previa de diapositivas, la exportación de diapositivas a SVG, PDF y otros formatos, y muchas más capacidades. 
+- Aspose.Slides for PHP via Java no solo le permite abrir archivos PowerPoint de distintas fuentes, sino que también le permite guardar sus presentaciones de diversas formas. Por ejemplo, puede guardar sus presentaciones en PPT; también puede guardar sus diapositivas como imágenes. 
+- Aspose.Slides for PHP via Java le brinda casi todas las funciones que puede o no encontrar en Microsoft PowerPoint. Dada la versatilidad de Aspose.Slides for PHP via Java, además de tablas y diferentes tipos de formas, puede usarlo para añadir distintos tipos de marcos—texto, audio y vídeo— a sus diapositivas. 
 
 ## **Características de Aspose.Slides**
 
-Las características de Aspose.Slides para PHP a través de Java se pueden dividir en estos grupos:
+Las características de Aspose.Slides for PHP via Java se pueden dividir en los siguientes grupos:
 
-- Características de Presentación.
-- Características de Diapositivas.
-- Características Gráficas y Multimedia.
-- Características de Tabla.
-- Características de Texto y Párrafo.
-- Características Avanzadas.
+- Características de presentación.
+- Características de diapositivas.
+- Características gráficas y multimedia.
+- Características de tabla.
+- Características de texto y párrafo
+- Características avanzadas
 
-### **Características de Presentación**
+### **Características de presentación**
 
-- Abrir presentaciones de Microsoft PowerPoint desde diferentes fuentes.
-- Guardar presentaciones en diferentes formatos de Microsoft PowerPoint.
-- Crear presentaciones desde cero.
-- Convertir presentaciones a documentos PDF sin utilizar ningún otro componente.
-- Leer o modificar las propiedades del documento de una presentación.
-- Aplicar protección a la presentación.
-- Exportar la presentación a PDF.
-- Exportar la presentación a TIFF.
-- Exportar la presentación a XPS.
-- Exportar la presentación a SWF.
-- Exportar la presentación a Notas PDF / Notas Tiff.
-- Exportar la presentación a HTML.
+- Apertura de presentaciones Microsoft PowerPoint desde distintas fuentes.
+- Guardado de presentaciones en distintos formatos Microsoft PowerPoint.
+- Creación de presentaciones desde cero.
+- Conversión de presentaciones a documentos PDF sin utilizar ningún otro componente
+- Lectura o modificación de las propiedades del documento de una presentación
+- Aplicación de protección a una presentación
+- Exportación de una presentación a PDF
+- Exportación de una presentación a TIFF
+- Exportación de una presentación a XPS
+- Exportación de una presentación a SWF
+- Exportación de una presentación a PDF Note / Tiff Notes
+- Exportación de una presentación a HTML
 
-### **Características de Diapositivas**
+### **Características de diapositiva**
 
-- Crear nuevas diapositivas desde cero y agregarlas a presentaciones.
-- Acceder a cualquier diapositiva a través de su posición en una presentación.
-- Copiar o clonar diapositivas a la misma o a otra presentación.
-- Editar y eliminar diapositivas.
-- Copiar maestros con diapositivas automáticamente.
-- Previsualizar diapositivas.
-- Obtener o establecer el nombre de una diapositiva.
-- Guardar diapositivas como imágenes.
-- Exportar diapositivas al formato SVG.
-- Trabajar con muchos maestros en presentaciones.
-- Rellenar el fondo de las diapositivas con cualquier estilo soportado.
-- Agregar nuevas notas de diapositiva o gestionar las existentes.
-- Establecer nuevos maestros y estilos de diapositiva dinámicamente.
-- Agregar o modificar la transición del pase de diapositivas.
-- Agregar Transiciones Morph.
+- Creación de nuevas diapositivas desde cero y adición a presentaciones.
+- Acceso a cualquier diapositiva mediante su posición en una presentación.
+- Copia o clonación de diapositivas en la misma o en otra presentación.
+- Edición y eliminación de diapositivas.
+- Copia automática de masters con diapositivas.
+- Vista previa de diapositivas.
+- Obtención o establecimiento del nombre de una diapositiva.
+- Guardado de diapositivas como imágenes.
+- Exportación de diapositivas al formato SVG.
+- Trabajo con numerosos masters en presentaciones.
+- Rellenado del fondo de diapositivas con cualquier estilo compatible.
+- Añadido o gestión de notas de diapositiva.
+- Establecimiento dinámico de nuevos masters y estilos de diapositiva.
+- Añadido o modificación de transiciones de presentación de diapositivas.
+- Añadido de transiciones Morph
 
-### **Características Gráficas y Multimedia**
+### **Características gráficas y multimedia**
 
-- Crear o gestionar formas como líneas, rectángulos, elipsis y polilíneas.
-- Gestionar estilos de línea en formas.
-- Obtener el texto alternativo de una forma.
-- Rotar formas flip.
-- Rellenar formas en diferentes estilos: por ejemplo, sólido, degradado, patrón, textura e imagen.
-- Usar cualquiera de los 48 patrones predefinidos y 24 texturas.
-- Asignar enlaces a formas.
-- Leer, modificar y agregar nuevos efectos de animación a diapositivas y formas.
-- Agregar nuevas imágenes a presentaciones y gestionar las existentes.
-- Agregar nuevos viñetas de imágenes a presentaciones y gestionar las existentes.
-- Agregar nuevos marcos de audio a presentaciones y gestionar los existentes.
-- Agregar nuevos marcos de video a presentaciones y gestionar los existentes.
+- Creación o gestión de formas como líneas, rectángulos, elipses y polilíneas.
+- Gestión de estilos de línea en formas.
+- Obtención del texto alternativo de una forma.
+- Rotación y volteo de formas.
+- Relleno de formas con diferentes estilos—por ejemplo, sólido, degradado, patrón, textura e imagen.
+- Uso de cualquiera de los 48 patrones predefinidos y 24 texturas.
+- Asignación de enlaces a formas.
+- Lectura, modificación y añadido de nuevos efectos de animación a diapositivas y formas.
+- Añadido de nuevas imágenes a presentaciones y gestión de las existentes.
+- Añadido de nuevas viñetas con imagen a presentaciones y gestión de las existentes.
+- Añadido de nuevos marcos de audio a presentaciones y gestión de los existentes.
+- Añadido de nuevos marcos de vídeo a presentaciones y gestión de los existentes.
 
-### **Características de Tabla**
+### **Características de tabla**
 
-- Crear tablas desde cero y agregarlas a diapositivas.
-- Redimensionar y mover tablas.
-- Acceder a cualquier celda en una tabla.
-- Cambiar el formato y los bordes de cualquier celda.
-- Redimensionar columnas y filas.
-- Agregar y eliminar columnas y filas.
-- Establecer el ancho y el color del borde para toda la tabla.
+- Creación de tablas desde cero y adición a diapositivas.
+- Redimensionado y movimiento de tablas.
+- Acceso a cualquier celda de una tabla.
+- Cambio del formato y los bordes de cualquier celda.
+- Redimensionado de columnas y filas.
+- Añadido y eliminación de columnas y filas.
+- Establecimiento del ancho y color del borde para toda la tabla.
 
-### **Características de Texto y Párrafo**
+### **Características de texto y párrafo**
 
-- Obtener y establecer textos en marcadores de posición de texto y marcos de texto.
-- Obtener el tipo de un marcador de posición.
-- Cambiar el formato del texto en un marco de texto.
-- Agregar nuevas fuentes o gestionar las fuentes ya utilizadas en una presentación.
-- Cambiar textos y formato de texto.
-- Crear o gestionar enlaces en el texto.
-- Soportar tabulaciones y tabulaciones efectivas.
-- Agregar nuevos marcos de texto a casi cualquier tipo de forma.
-- Acceder y modificar los márgenes y las configuraciones de ajuste de texto de los marcos de texto.
-- Acceder y modificar la sangría de párrafos.
+- Obtención y establecimiento de textos en marcadores de posición de texto y marcos de texto.
+- Obtención del tipo de un marcador de posición.
+- Cambio del formato de texto en un marco de texto.
+- Añadido de nuevas fuentes o gestión de las fuentes ya usadas en una presentación.
+- Cambio de textos y formato de texto.
+- Creación o gestión de enlaces al texto.
+- Soporte de tabuladores y tabuladores efectivos.
+- Añadido de nuevos marcos de texto a casi cualquier tipo de forma.
+- Acceso y modificación de márgenes y ajustes de ajuste de texto de los marcos de texto.
+- Acceso y modificación de la sangría de párrafo.
 
-### **Características Avanzadas**
+### **Características avanzadas**
 
-- Acceder a objetos OLE incrustados en presentaciones.
-- Bloquear presentaciones.
+- Acceso a objetos OLE incrustados en presentaciones.
+- Bloqueo de presentaciones.
 
-## **Soporte Técnico**
+## **Soporte técnico**
 
-Aspose proporciona soporte técnico gratuito e ilimitado para todos sus productos. El soporte está disponible para todos los usuarios (incluidos los usuarios con paquetes de evaluación). Si necesitas ayuda con Aspose.Slides para PHP a través de Java, considera lo siguiente:
+Aspose ofrece soporte técnico ilimitado gratuito para todos sus productos. El soporte está disponible para todos los usuarios (incluidos los usuarios con paquetes de evaluación). Si necesita ayuda con Aspose.Slides for PHP via Java, considere lo siguiente:
 
-- La principal vía de soporte son los [Foros de Aspose](https://forum.aspose.com/). Publica tu pregunta en el [foro de Aspose.Slides](https://forum.aspose.com/c/slides/11)—y será respondida en unas pocas horas. El equipo de soporte de Aspose.Slides responde directamente a las preguntas publicadas en el foro.
-- Ten en cuenta que Aspose no proporciona soporte técnico por teléfono. El soporte telefónico solo está disponible para preguntas de ventas y compras.
-- Al esperar una respuesta en los foros, por favor ten paciencia y considera las diferencias horarias.
+- La vía principal de soporte es el [Aspose Forums](https://forum.aspose.com/). Publique su pregunta en el [foro de Aspose.Slides](https://forum.aspose.com/c/slides/11) y será respondida en unas pocas horas. El equipo de soporte de Aspose.Slides responde directamente a las preguntas publicadas en el foro.
+- Tenga en cuenta que Aspose no ofrece soporte técnico por teléfono. El soporte telefónico solo está disponible para preguntas de ventas y compra.
+- Cuando espere una respuesta en los foros, sea paciente y tenga en cuenta las diferencias horarias.
 
-Si tienes un problema con Aspose.Slides para PHP a través de Java, sigue estas pautas para resolverlo de la manera más eficiente:
+Si tiene un problema con Aspose.Slides for PHP via Java, siga estas directrices para resolverlo de la manera más eficiente:
 
-- Verifica y confirma que estás utilizando la última versión de Aspose.Slides para PHP a través de Java antes de reportar el problema. Quizás, el problema que experimentaste ya fue resuelto en una actualización.  
+- Verifique y confirme que está utilizando la última versión de Aspose.Slides for PHP via Java antes de informar del problema. Es posible que el problema que experimentó ya se haya resuelto en una actualización.  
 
-  Consulta [Descarga de Aspose.Slides](https://downloads.aspose.com/slides/php-java) para obtener información sobre la última versión del producto.
+  Consulte la [descarga de Aspose.Slides](https://downloads.aspose.com/slides/php-java) para obtener información sobre la última versión del producto.
 
-- Antes de reportar un problema, puede que desees revisar nuestros foros, esta documentación y la Referencia de la API. Quizás, la respuesta a tu pregunta ya fue proporcionada. 
+- Antes de informar de un problema, puede consultar nuestros foros, esta documentación y la Referencia de API. Tal vez la respuesta a su pregunta ya esté disponible. 
 
-- Al reportar un problema, incluye el documento original y (si es posible) un fragmento de tu código relacionado con el problema. Si necesitas adjuntar múltiples archivos, colócalos en un paquete ZIP. 
+- Al informar de un problema, incluya el documento original y (si es posible) un fragmento de su código relacionado con el problema. Si necesita adjuntar varios archivos, colóquelos en un paquete ZIP. 
 
-  Puedes adjuntar tus documentos de manera segura en Aspose.Forums porque solo tú y los desarrolladores de Aspose tienen acceso a los archivos adjuntos.
+  Puede adjuntar sus documentos de forma segura en Aspose.Forums porque solo usted y los desarrolladores de Aspose tienen acceso a los archivos adjuntos.
 
-- Crea y utiliza un hilo para un problema específico. Si experimentas otro problema, debes crear otro hilo para reportarlo. 
+- Cree y use un solo hilo para un problema específico. Si experimenta otro problema, debe crear otro hilo para informarlo. 
 
-Esta tabla lista los importantes recursos técnicos de Aspose.Slides para PHP a través de Java.
+Esta tabla enumera los recursos técnicos importantes de Aspose.Slides for PHP via Java.
 
 |**Recurso**|**Descripción**|
 | :- | :- |
-|[Página principal de Aspose.Slides para PHP a través de Java](https://products.aspose.com/slides/php-java/)|Página principal del producto.|
-|[Blog de Aspose.Slide](https://blog.aspose.com/category/slides/)|Verifica esta página regularmente para obtener información sobre nuevas versiones y consejos útiles sobre Aspose.Slides.|
-|[Descarga de Aspose.Slides para PHP a través de Java](https://packagist.org/packages/aspose/slides)|Descarga la última versión de Aspose.Slides aquí. A menudo lanzamos nuevas versiones.|
-|[ Foro de soporte de Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publica aquí tus preguntas y problemas para una resolución rápida.|
-|[Documentación del producto Aspose.Slides para PHP a través de Java](/slides/es/php-java/)|Documentación completa en línea que contiene este documento y la Referencia de la API de Aspose.Slides.|
+|[Página principal de Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/)|Página principal del producto.|
+|[Blog de Aspose.Slide](https://blog.aspose.com/category/slides/)|Visite esta página con regularidad para obtener información sobre nuevas versiones y consejos útiles sobre Aspose.Slides.|
+|[Descarga de Aspose.Slides for PHP via Java](https://packagist.org/packages/aspose/slides)|Descargue aquí la última versión de Aspose.Slides. Con frecuencia publicamos nuevas versiones.|
+|[Foro de soporte de Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publique sus preguntas y problemas aquí para una resolución rápida.|
+|[Documentación del producto Aspose.Slides for PHP via Java](/slides/es/php-java/)|Documentación en línea completa que contiene este documento y la Referencia de API de Aspose.Slides.|
+
+## **Preguntas frecuentes**
+
+**¿Admite niveles de conformidad PDF para archivado y accesibilidad (PDF/A y PDF/UA)?**
+
+Sí. Puede guardar en PDF con PDF/A-2a/2b/2u, PDF/A-3a/3b, así como PDF/UA configurando las [opciones de exportación PDF](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/).
+
+**¿Existe un mecanismo de sustitución de fuentes y soporte para fuentes personalizadas que garantice una renderización correcta?**
+
+Sí. La biblioteca le permite [cargar fuentes personalizadas](/slides/es/php-java/custom-font/) y [definir reglas de sustitución](/slides/es/php-java/fallback-font/) para que los glifos faltantes se sustituyan de forma fiable durante la conversión y renderizado.
+
+**¿Puedo detectar si un archivo está protegido con contraseña sin abrirlo completamente?**
+
+Sí. Puede [examinar una presentación](/slides/es/php-java/examine-presentation/) para determinar si necesita una contraseña antes de cargar el documento completo.
+
+**¿Se requiere Microsoft PowerPoint para el procesamiento y las conversiones?**
+
+No. Aspose.Slides es un motor independiente; PowerPoint no es necesario en el servidor ni en la estación de trabajo.
+
+**¿Es seguro procesar presentaciones desde varios hilos?**
+
+Sí, puede procesar diferentes documentos en paralelo en hilos separados; solo evite usar la misma instancia de presentación simultáneamente [entre hilos](/slides/es/php-java/multithreading/).
+
+**¿Se conservan las macros y puedo gestionar VBA en archivos PPTM/PPSM?**
+
+Sí. Las presentaciones con macros [son compatibles](/slides/es/php-java/presentation-via-vba/), y puede [examinar y gestionar proyectos VBA](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getvbaproject/) en esos archivos.
+
+**¿Puedo convertir PDF o HTML de nuevo a diapositivas de PowerPoint?**
+
+Sí. Puede [importar páginas PDF o contenido HTML](/slides/es/php-java/import-presentation/) para crear o rellenar diapositivas en una presentación.
+
+**¿Se admite la exportación a XPS y puedo controlar la calidad y el contenido del resultado XPS?**
+
+Sí. La [exportación a XPS](/slides/es/php-java/convert-powerpoint-to-xps/) está disponible, y las [opciones de guardado](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions/) le permiten ajustar la calidad de salida y el contenido incluido.
+
+**¿Puedo convertir diapositivas a imágenes y controlar la calidad de salida?**
+
+Sí. Las diapositivas pueden [renderizarse a PNG, JPEG, GIF, BMP, TIFF](/slides/es/php-java/convert-powerpoint-to-png/) y otros formatos con control detallado sobre el tamaño y la calidad.
+
+**¿Se admiten fórmulas matemáticas (MathML/MathText) y pueden exportarse?**
+
+Sí. Puede [crear y editar texto matemático](/slides/es/php-java/powerpoint-math-equations/) y [exportar ecuaciones](/slides/es/php-java/exporting-math-equations/), incluido a MathML.
+
+**¿Cómo maneja la biblioteca la encriptación y contraseñas (abrir, establecer, eliminar)?**
+
+[Admite](/slides/es/php-java/password-protected-presentation/) la apertura de presentaciones cifradas, la configuración o eliminación de contraseñas para abrir y modificar, y la comprobación del estado de protección de un archivo.

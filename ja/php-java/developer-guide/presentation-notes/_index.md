@@ -1,30 +1,35 @@
 ---
-title: プレゼンテーションノート
+title: PHPでプレゼンテーションノートを管理
+linktitle: プレゼンテーションノート
 type: docs
 weight: 110
 url: /ja/php-java/presentation-notes/
-keywords: "PowerPoint スピーカーメモ"
-description: "プレゼンテーションノート、スピーカーメモ"
+keywords:
+- ノート
+- ノート スライド
+- ノートを追加
+- ノートを削除
+- ノート スタイル
+- マスターノート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用してプレゼンテーションノートをカスタマイズします。PowerPoint や OpenDocument のノートとシームレスに連携し、生産性を向上させます。"
 ---
 
-
 {{% alert color="primary" %}} 
-
-Aspose.Slidesはプレゼンテーションからノートスライドを削除する機能をサポートしています。このトピックでは、ノートを削除するこの新機能を紹介し、プレゼンテーションからスタイル付きのノートスライドを追加する方法について説明します。 
-
+Aspose.Slides はプレゼンテーションからノート スライドを削除する機能をサポートしています。このトピックでは、ノートを削除し、任意のプレゼンテーションにノート スタイル スライドを追加する新機能をご紹介します。 
 {{% /alert %}} 
-
-Aspose.Slides for PHP via Javaは、任意のスライドのノートを削除する機能と、既存のノートにスタイルを追加する機能を提供します。開発者は以下の方法でノートを削除できます。
-
-* プレゼンテーションの特定のスライドのノートを削除します。
-* プレゼンテーションのすべてのスライドのノートを削除します。
-
+Aspose.Slides for PHP via Java は、任意のスライドのノートを削除し、既存のノートにスタイルを追加する機能を提供します。開発者は以下の方法でノートを削除できます:
+* プレゼンテーションの特定のスライドのノートを削除する。
+* プレゼンテーションのすべてのスライドのノートを削除する。
 
 ## **スライドからノートを削除する**
-特定のスライドのノートは、以下の例のように削除できます。
-
+以下の例のように、特定のスライドのノートを削除できます：
 ```php
-  # プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # 最初のスライドのノートを削除
@@ -39,11 +44,11 @@ Aspose.Slides for PHP via Javaは、任意のスライドのノートを削除�
   }
 ```
 
-## **プレゼンテーションからノートを削除する**
-プレゼンテーションのすべてのスライドのノートは、以下の例のように削除できます。
 
+## **プレゼンテーションからノートを削除する**
+以下の例のように、プレゼンテーションのすべてのスライドのノートを削除できます：
 ```php
-  # プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # すべてのスライドのノートを削除
@@ -61,18 +66,18 @@ Aspose.Slides for PHP via Javaは、任意のスライドのノートを削除�
   }
 ```
 
-## **ノートスタイルを追加する**
-[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide#getNotesStyle--) メソッドは、[IMasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide) インターフェイスおよび [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) クラスに追加されました。このプロパティはノートテキストのスタイルを指定します。実装は以下の例で示されています。
 
+## **ノート スタイルを追加する**
+[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide#getNotesStyle--) メソッドがそれぞれ [IMasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide) インターフェイスと [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) クラスに追加されました。このプロパティはノート テキストのスタイルを指定します。実装例は以下の例で示しています。
 ```php
-  # プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+  # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
-      # MasterNotesSlideのテキストスタイルを取得
+      # MasterNotesSlide のテキスト スタイルを取得
       $notesStyle = $notesMaster->getNotesStyle();
-      # 第1レベルの段落に記号の弾丸を設定
+      # 最初のレベルの段落にシンボル バレットを設定
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -83,3 +88,14 @@ Aspose.Slides for PHP via Javaは、任意のスライドのノートを削除�
     }
   }
 ```
+
+
+## **FAQ**
+
+**特定のスライドのノートにアクセスできる API エンティティはどれですか？**
+
+ノートはスライドのノート マネージャーを通じてアクセスされます。スライドは [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) を持ち、ノート オブジェクト（ノートが存在しない場合は `null`）を返す [method](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/) が用意されています。
+
+**ライブラリが対応する PowerPoint のバージョン間でノートのサポートに違いはありますか？**
+
+このライブラリは Microsoft PowerPoint のさまざまな形式（97 年以降）と ODP を対象としており、PowerPoint がインストールされているかどうかに依存せず、これらの形式でノートがサポートされています。

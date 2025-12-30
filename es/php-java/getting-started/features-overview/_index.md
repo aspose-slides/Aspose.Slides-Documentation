@@ -1,72 +1,113 @@
 ---
-title: Descripción General de Funciones
+title: Visión general de funcionalidades
 type: docs
 weight: 20
 url: /es/php-java/features-overview/
+keywords:
+- funcionalidades
+- plataformas compatibles
+- formato de archivo
+- conversión
+- renderizado
+- impresión
+- formateado
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Descubra Aspose.Slides for PHP via Java: una potente API para crear, editar, automatizar y convertir presentaciones PowerPoint y OpenDocument de manera eficiente."
 ---
 
-## **Plataformas Soportadas**
-Aspose.Slides para PHP a través de Java es una API independiente de la plataforma. Se puede usar en cualquier plataforma (Windows, Linux, MacOS, etc.) donde esté instalado PHP 7 o superior. Oracle JDK 7 o superior es otro requisito.
+## **Plataformas compatibles**
+Aspose.Slides for PHP via Java es una API independiente de la plataforma. Puede usarse en cualquier plataforma (Windows, Linux, macOS, etc.) donde esté instalado PHP 7 o superior. Oracle JDK 7 o superior es otro requisito.
 
-## **Formatos de Archivo y Conversiones**
-Aspose.Slides para PHP a través de Java soporta la mayoría de los formatos de documentos de PowerPoint. También permite exportarlos a los formatos de archivo populares que las organizaciones utilizan y comparten entre sí. Revisa estos detalles:
+## **Formatos de archivo y conversiones**
+Aspose.Slides for PHP via Java admite la mayoría de los formatos de documentos PowerPoint. También le permite exportarlos a los formatos de archivo populares que las organizaciones usan y comparten entre sí. Consulte los detalles a continuación:
 
-|**Función**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides para PHP a través de Java proporciona el procesamiento más rápido para este formato de documento de presentación.|
-|Conversión de PPT a PPTX|Aspose.Slides para PHP a través de Java soporta la conversión de PPT a PPTX.|
-|Formato de Documento Portátil (PDF)|Puedes exportar todos los formatos de archivo soportados a documentos en formato PDF de Adobe con un solo método.|
-|Especificación de Parser XML (XPS)|Puedes exportar todos los formatos de archivo soportados a documentos de Especificación de Parser XML (XPS) con un solo método.|
-|Formato de Archivo de Imagen Etiquetada (TIFF)|Puedes exportar todos los formatos de archivo de presentación soportados a Formato de Archivo de Imagen Etiquetada (TIFF).|
-|Conversión de PPTX a HTML|Aspose.Slides para PHP a través de Java soporta la conversión de PresentationEx a formato HTML.|
+|Microsoft PowerPoint (PPT)|Aspose.Slides for PHP via Java ofrece el procesamiento más rápido para este formato de documento de presentación.|
+|Conversión de PPT a PPTX|Aspose.Slides for PHP via Java admite la conversión de PPT a PPTX.|
+|Portable Document Format (PDF)|Puede exportar todos los formatos de archivo compatibles a documentos Adobe Portable Document Format (PDF) con un solo método.|
+|Especificación del Analizador XML (XPS)|Puede exportar todos los formatos de archivo compatibles a documentos XML Parser Specification (XPS) con un solo método.|
+|Tagged Image File Format (TIFF)|Puede exportar todos los formatos de archivo de presentación compatibles a Tagged Image File Format (TIFF).|
+|Conversión de PPTX a HTML|Aspose.Slides for PHP via Java admite la conversión de PresentationEx al formato HTML.|
 
-## **Renderización y Impresión**
-Aspose.Slides para PHP a través de Java soporta la renderización de alta fidelidad de las diapositivas en presentación a diferentes formatos gráficos. Revisa estos detalles:
+## **Renderizado de presentaciones**
+Aspose.Slides for PHP via Java admite el renderizado de alta fidelidad de diapositivas de una presentación a diferentes formatos gráficos. Consulte los detalles a continuación:
 
-|**Función**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Formatos de Imagen Soportados por Java|Usando Aspose.Slides para PHP a través de Java, puedes renderizar las diapositivas de presentación y las imágenes en las diapositivas a todos los formatos gráficos soportados por Java como TIFF, PNG, BMP, JPEG, GIF.|
-|Formato SVG|Aspose.Slides para PHP a través de Java también proporciona métodos integrados que permiten exportar diapositivas de presentación a formatos de Gráficos Vectoriales Escalables (SVG).|
-|Impresión de Presentaciones|Las últimas versiones de Aspose.Slides para PHP a través de Java proporcionan métodos de impresión integrados con diferentes opciones.|
-## **Funciones de Contenido**
-Aspose.Slides para PHP a través de Java te permite acceder, modificar o crear casi todos los elementos o contenidos de documentos de presentación. Revisa estos detalles:
+|Formatos de imagen compatibles con Java|Con Aspose.Slides for PHP via Java, puede renderizar diapositivas de presentación e imágenes en las diapositivas a todos los formatos gráficos compatibles con Java, como TIFF, PNG, BMP, JPEG y GIF.|
+|Formato SVG|Aspose.Slides for PHP via Java también ofrece métodos incorporados que le permiten exportar diapositivas de presentación a formatos Scalable Vector Graphics (SVG).|
+|Impresión de presentaciones|Las versiones más recientes de Aspose.Slides for PHP via Java proporcionan métodos de impresión incorporados con diferentes opciones.|
 
-|**Función**|**Descripción**|
+## **Funciones de contenido**
+Aspose.Slides for PHP via Java le permite acceder, modificar o crear casi todos los elementos o contenidos de los documentos de presentación. Consulte los detalles a continuación:
+
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Diapositivas Maestras|Las diapositivas maestras definen el diseño de las diapositivas normales. Aspose.Slides para PHP a través de Java te permite acceder y modificar las Diapositivas Maestras de documentos de presentación.|
-|Diapositivas Normales|Con Aspose.Slides para PHP a través de Java, puedes crear nuevas diapositivas de diferentes tipos; también puedes acceder y modificar diapositivas existentes en las presentaciones.|
-|Clonación / Copia de Diapositivas|Existen métodos integrados proporcionados por Aspose.Slides para PHP a través de Java que te permiten clonar o copiar diapositivas existentes dentro de una presentación. También puedes usar diapositivas copiadas y clonadas de una presentación a otra. Dado que una diapositiva hereda su diseño de la diapositiva maestra, los métodos de clonación integrados copian automáticamente la maestra al clonar.|
-|Gestión de Secciones de Diapositivas|Métodos para organizar diapositivas en diferentes secciones dentro de una presentación.|
-|Marcadores y Contenedores de Texto|Puedes acceder a los marcadores y contenedores de texto en una diapositiva. Además, puedes crear una diapositiva con contenedores de texto desde cero utilizando el método apropiado.|
-|Encabezados y Pies de Página|Aspose.Slides para PHP a través de Java facilita el manejo de encabezados/pies de página en las diapositivas.|
-|Notas en Diapositivas|Con Aspose.Slides para PHP a través de Java, puedes acceder y modificar notas asociadas a una diapositiva y también agregar nuevas notas.|
-|Encontrar una Forma|También puedes encontrar una forma particular de una diapositiva utilizando el texto alternativo asociado con la forma.|
-|Fondos|Aspose.Slides para PHP a través de Java te permite trabajar con fondos asociados con una diapositiva maestra o normal en una presentación.|
-|Cuadros de Texto|Los cuadros de texto pueden ser creados desde cero. Puedes acceder a cuadros de texto existentes. También puedes modificar su texto sin perder el formato original del texto.|
-|Formas Rectangulares|Puedes crear o modificar formas rectangulares con Aspose.Slides para PHP a través de Java.|
-|Formas de Polilinea|Puedes crear o modificar formas de polilinea con Aspose.Slides para PHP a través de Java.|
-|Formas Elípticas|Puedes crear o modificar formas elípticas con Aspose.Slides para PHP a través de Java.|
-|Formas en Grupo|Aspose.Slides para PHP a través de Java soporta formas en grupo.|
-|Formas Automáticas|Aspose.Slides para PHP a través de Java soporta formas automáticas.|
-|SmartArt|Aspose.Slides para PHP a través de Java proporciona soporte para formas SmartArt en MS PowerPoint.|
-|Gráficos|Aspose.Slides para PHP a través de Java proporciona soporte para Gráficos MSO en PowerPoint.|
-|Serialización de Formas|Aspose.Slides para PHP a través de Java soporta un gran número de formas. Cuando Aspose.Slides para PHP a través de Java carece de soporte para una forma, puedes utilizar un método de serialización a través del cual puedes serializar esa forma de una diapositiva existente. De esta manera, puedes utilizar la forma según tus requerimientos.|
-|Marcos de Imagen|Puedes gestionar imágenes en marcos de imagen con Aspose.Slides para PHP a través de Java.|
-|Marcos de Audio|Puedes vincular o incrustar archivos de audio en marcos de audio en las diapositivas con Aspose.Slides para PHP a través de Java.|
-|Marcos de Video|Puedes manejar archivos de video en marcos de video. Aspose.Slides para PHP a través de Java también proporciona soporte para videos vinculados e incrustados.|
-|Marco OLE|Puedes gestionar objetos OLE en marcos OLE con Aspose.Slides para PHP a través de Java.|
-|Tablas|Aspose.Slides para PHP a través de Java soporta tablas en las diapositivas.|
+|Diapositivas maestras|Las diapositivas maestras definen el diseño de las diapositivas normales. Aspose.Slides for PHP via Java le permite acceder y modificar las diapositivas maestras de los documentos de presentación.|
+|Diapositivas normales|Con Aspose.Slides for PHP via Java, puede crear nuevas diapositivas de diferentes tipos; también puede acceder y modificar diapositivas existentes en las presentaciones.|
+|Clonado / Copia de diapositivas|Aspose.Slides for PHP via Java dispone de métodos incorporados que le permiten clonar o copiar diapositivas existentes dentro de una presentación. También puede usar diapositivas copiadas y clonadas de una presentación a otra. Dado que una diapositiva hereda su diseño de la diapositiva maestra, los métodos de clonación incorporados copian automáticamente la maestra al clonar.|
+|Gestión de secciones de diapositivas|Métodos para organizar diapositivas en diferentes secciones dentro de una presentación.|
+|Marcadores de posición y marcadores de texto|Puede acceder a los marcadores de posición y marcadores de texto en una diapositiva. Además, puede crear una diapositiva con marcadores de texto desde cero usando el método apropiado.|
+|Encabezados y pies de página|Aspose.Slides for PHP via Java facilita la gestión de encabezados/pies de página en las diapositivas.|
+|Notas en diapositivas|Con Aspose.Slides for PHP via Java, puede acceder y modificar notas asociadas a una diapositiva y también añadir nuevas notas.|
+|Buscar una forma|También puede encontrar una forma concreta en una diapositiva usando el texto alternativo asociado a la forma.|
+|Fondos|Aspose.Slides for PHP via Java le permite trabajar con fondos asociados a una diapositiva maestra o normal en una presentación.|
+|Cuadros de texto|Los cuadros de texto pueden crearse desde cero. Puede acceder a los cuadros de texto existentes. También puede modificar sus textos sin perder el formato original.|
+|Formas rectangulares|Puede crear o modificar formas rectangulares con Aspose.Slides for PHP via Java.|
+|Formas de polilínea|Puede crear o modificar formas de polilínea con Aspose.Slides for PHP via Java.|
+|Formas de elipse|Puede crear o modificar formas de elipse con Aspose.Slides for PHP via Java.|
+|Formas agrupadas|Aspose.Slides for PHP via Java admite formas agrupadas.|
+|Formas automáticas|Aspose.Slides for PHP via Java admite formas automáticas.|
+|SmartArt|Aspose.Slides for PHP via Java ofrece soporte para formas SmartArt en MS PowerPoint.|
+|Gráficos|Aspose.Slides for PHP via Java ofrece soporte para gráficos MSO en PowerPoint.|
+|Serialización de formas|Aspose.Slides for PHP via Java admite una gran cantidad de formas. Cuando Aspose.Slides for PHP via Java no soporta una forma, puede usar un método de serialización mediante el cual puede serializar esa forma a partir de una diapositiva existente. De esta manera, puede reutilizar la forma según sus requisitos.|
+|Marcos de imagen|Puede gestionar imágenes en marcos de imagen con Aspose.Slides for PHP via Java.|
+|Marcos de audio|Puede enlazar o incrustar archivos de audio en marcos de audio en las diapositivas con Aspose.Slides for PHP via Java.|
+|Marcos de vídeo|Puede manejar archivos de vídeo en marcos de vídeo. Aspose.Slides for PHP via Java también ofrece soporte para vídeos vinculados e incrustados.|
+|Marco OLE|Puede gestionar objetos OLE en marcos OLE con Aspose.Slides for PHP via Java.|
+|Tablas|Aspose.Slides for PHP via Java admite tablas en diapositivas.|
 |Controles ActiveX|Soporte para controles ActiveX.|
-|Macros VBA|Soporte para gestionar macros VBA dentro de presentaciones.|
-|Marco de Texto|Puedes acceder al texto de cualquier forma a través del marco de texto asociado con esa forma.|
-|Escaneo de Texto|Puedes escanear texto en una presentación a nivel de presentación o diapositiva a través de métodos de escaneado integrados.|
-|Animaciones|Puedes aplicar animaciones a las formas.|
-|Presentaciones de Diapositivas|Aspose.Slides para PHP a través de Java soporta presentaciones de diapositivas y transiciones de diapositivas.|
+|Macros VBA|Soporte para la gestión de macros VBA dentro de presentaciones.|
+|Marco de texto|Puede acceder al texto de cualquier forma a través del marco de texto asociado a esa forma.|
+|Exploración de texto|Puede escanear texto en una presentación a nivel de presentación o diapositiva mediante métodos de escaneo incorporados.|
+|Animaciones|Puede aplicar animaciones a las formas.|
+|Presentaciones de diapositivas|Aspose.Slides for PHP via Java admite presentaciones de diapositivas y transiciones de diapositivas.|
 
-## **Funciones de Formato**
-Con Aspose.Slides para PHP a través de Java, puedes dar formato a textos y formas en las diapositivas de presentaciones. Revisa estos detalles:
+## **Funciones de formato**
+Con Aspose.Slides for PHP via Java, puede dar formato a textos y formas en diapositivas de presentaciones. Consulte los detalles a continuación:
 
-|**Función**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Formato de Texto|<p>En Aspose.Slides para PHP a través de Java, puedes gestionar textos a través de los marcos de texto asociados con las formas. Por lo tanto, puedes dar formato a los textos utilizando los párrafos y porciones asociadas con los marcos de texto. Estos elementos de texto pueden ser formateados a través de Aspose.Slides para PHP a través de Java.</p><p>- Tipo de Fuente</p><p>- Tamaño de Fuente</p><p>- Color de Fuente</p><p>- Sombras de Fuente</p><p>- Alineación del Párrafo</p><p>- Viñetas del Párrafo</p><p>- Orientación del Párrafo</p>|
-|Formato de Forma|<p>En Aspose.Slides para PHP a través de Java, el elemento básico de una diapositiva es una forma. Puedes dar formato a estos elementos de forma con Aspose.Slides para PHP a través de Java:</p><p>- Posición</p><p>- Tamaño</p><p>- Línea</p><p>- Relleno (incluyendo Patrón, Degradado, Sólido)</p><p>- Texto</p><p>- Imagen</p>|
+|Formato de texto|<p>En Aspose.Slides for PHP via Java, puede gestionar textos a través de los marcos de texto asociados a las formas. Por lo tanto, puede dar formato a los textos usando los párrafos y porciones asociados a los marcos de texto. Estos elementos de texto pueden formatearse mediante Aspose.Slides for PHP via Java.</p><p>- Tipo de fuente</p><p>- Tamaño de fuente</p><p>- Color de fuente</p><p>- Sombras de fuente</p><p>- Alineación de párrafo</p><p>- Viñetas de párrafo</p><p>- Orientación de párrafo</p>|
+|Formato de forma|<p>En Aspose.Slides for PHP via Java, el elemento básico de una diapositiva es una forma. Puede dar formato a estos elementos de forma con Aspose.Slides for PHP via Java:</p><p>- Posición</p><p>- Tamaño</p><p>- Línea</p><p>- Relleno (incluyendo Patrón, Degradado, Sólido)</p><p>- Texto</p><p>- Imagen</p>|
+
+## **FAQ**
+
+**¿Necesito instalar Microsoft PowerPoint en el servidor/PC para que la biblioteca funcione?**
+
+No. PowerPoint no es necesario; Aspose.Slides es un motor independiente para crear, editar, convertir y renderizar presentaciones.
+
+**¿Cómo funciona la multihilo? ¿Puede paralelizarse el procesamiento?**
+
+Es seguro procesar diferentes documentos en hilos distintos; el mismo [presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objeto no debe ser utilizado por [multiple threads](/slides/es/php-java/multithreading/) al mismo tiempo.
+
+**¿Se admiten contraseñas de archivo y cifrado?**
+
+Sí. [Puede](/slides/es/php-java/password-protected-presentation/) abrir presentaciones cifradas, establecer o eliminar una contraseña de apertura y escritura, y comprobar el estado de protección.
+
+**¿Debo preocuparme por los paquetes de fuentes en contenedores Linux?**
+
+Sí. Se recomienda instalar paquetes de fuentes comunes y/o especificar explícitamente [especificar directorios de fuentes](/slides/es/php-java/custom-font/) en su aplicación para evitar sustituciones inesperadas.
+
+**¿Existen limitaciones en la versión de evaluación?**
+
+En [modo de evaluación](/slides/es/php-java/licensing/), se añade una marca de agua a la salida y se aplican ciertas limitaciones; una [licencia temporal de 30 días](https://purchase.aspose.com/temporary-license/) está disponible para pruebas con todas las funciones.
+
+**¿Se admite la importación de formatos externos a una presentación (PDF/HTML → PPTX)?**
+
+Sí. Puede añadir [páginas PDF y contenido HTML](/slides/es/php-java/import-presentation/) a una presentación, convirtiéndolos en diapositivas.

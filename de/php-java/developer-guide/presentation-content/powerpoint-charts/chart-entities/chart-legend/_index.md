@@ -1,27 +1,36 @@
 ---
-title: Diagramm Legende
+title: Diagrammlegenden in Präsentationen mit PHP anpassen
+linktitle: Diagrammlegende
 type: docs
 url: /de/php-java/chart-legend/
+keywords:
+- Diagrammlegende
+- Legendenposition
+- Schriftgröße
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Passen Sie Diagrammlegenden mit Aspose.Slides für PHP via Java an, um PowerPoint-Präsentationen mit individuell gestalteter Legendenformatierung zu optimieren."
 ---
 
-## **Positionierung der Legende**
-Um die Eigenschaften der Legende festzulegen. Bitte folgen Sie den untenstehenden Schritten:
+## **Legendenpositionierung**
+Um die Eigenschaften der Legende festzulegen, befolgen Sie bitte die untenstehenden Schritte:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-- Holen Sie sich die Referenz zur Folie.
-- Fügen Sie ein Diagramm zur Folie hinzu.
-- Setzen Sie die Eigenschaften der Legende.
-- Schreiben Sie die Präsentation als PPTX-Datei.
+- Erzeugen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+- Holen Sie die Referenz der Folie.
+- Fügen Sie der Folie ein Diagramm hinzu.
+- Legen Sie die Eigenschaften der Legende fest.
+- Speichern Sie die Präsentation als PPTX-Datei.
 
-Im folgenden Beispiel haben wir die Position und Größe für die Diagrammlegende festgelegt.
-
+Im nachfolgenden Beispiel haben wir die Position und Größe der Diagrammlegende festgelegt.
 ```php
-  # Erstellen Sie eine Instanz der Presentation Klasse
+  # Instanz der Klasse Presentation erstellen
   $pres = new Presentation();
   try {
-    # Holen Sie sich die Referenz zur Folie
+    # Referenz der Folie abrufen
     $slide = $pres->getSlides()->get_Item(0);
-    # Fügen Sie ein gruppiertes Säulendiagramm zur Folie hinzu
+    # Ein gruppiertes Säulendiagramm auf der Folie hinzufügen
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
     # Legenden-Eigenschaften festlegen
     $chart->getLegend()->setX(50 / $chart->getWidth());
@@ -37,18 +46,18 @@ Im folgenden Beispiel haben wir die Position und Größe für die Diagrammlegend
   }
 ```
 
-## **Schriftgröße der Legende festlegen**
-Aspose.Slides für PHP über Java ermöglicht Entwicklern, die Schriftgröße der Legende festzulegen. Bitte folgen Sie den untenstehenden Schritten:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+## **Schriftgröße einer Legende festlegen**
+Aspose.Slides für PHP via Java ermöglicht Entwicklern, die Schriftgröße der Legende festzulegen. Befolgen Sie bitte die untenstehenden Schritte:
+
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 - Erstellen Sie das Standarddiagramm.
 - Legen Sie die Schriftgröße fest.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
-- Schreiben Sie die Präsentation auf die Festplatte.
-
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Speichern Sie die Präsentation auf dem Datenträger.
 ```php
-  # Erstellen Sie eine Instanz der Presentation Klasse
+  # Instanz der Klasse Presentation erstellen
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -65,19 +74,19 @@ Aspose.Slides für PHP über Java ermöglicht Entwicklern, die Schriftgröße de
   }
 ```
 
-## **Schriftgröße der einzelnen Legende festlegen**
-Aspose.Slides für PHP über Java ermöglicht Entwicklern, die Schriftgröße einzelner Legendeneinträge festzulegen. Bitte folgen Sie den untenstehenden Schritten:
 
-- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+## **Schriftgröße einer einzelnen Legende festlegen**
+Aspose.Slides für PHP via Java ermöglicht Entwicklern, die Schriftgröße einzelner Legendeinträge festzulegen. Befolgen Sie bitte die untenstehenden Schritte:
+
+- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 - Erstellen Sie das Standarddiagramm.
-- Greifen Sie auf den Legendeneintrag zu.
+- Zugriff auf den Legendeintrag.
 - Legen Sie die Schriftgröße fest.
-- Legen Sie den minimalen Achsenwert fest.
-- Legen Sie den maximalen Achsenwert fest.
-- Schreiben Sie die Präsentation auf die Festplatte.
-
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Speichern Sie die Präsentation auf dem Datenträger.
 ```php
-  # Erstellen Sie eine Instanz der Presentation Klasse
+  # Instanz der Klasse Presentation erstellen
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -94,3 +103,18 @@ Aspose.Slides für PHP über Java ermöglicht Entwicklern, die Schriftgröße ei
     }
   }
 ```
+
+
+## **FAQ**
+
+**Kann ich die Legende aktivieren, sodass das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**
+
+Ja. Verwenden Sie den Nicht‑Überlagerungsmodus ([setOverlay(false)](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/)); in diesem Fall verkleinert sich der Diagrammbereich, um die Legende aufzunehmen.
+
+**Kann ich mehrzeilige Legendenbeschriftungen erstellen?**
+
+Ja. Lange Beschriftungen werden automatisch umgebrochen, wenn nicht genug Platz vorhanden ist; erzwungene Zeilenumbrüche werden mittels Zeilenumbruchzeichen im Seriennamen unterstützt.
+
+**Wie kann ich die Legende an das Farbschema des Präsentationsthemas anpassen?**
+
+Setzen Sie keine expliziten Farben/Füllungen/Schriften für die Legende oder ihren Text. Sie erben dann vom Theme und werden bei Änderungen des Designs korrekt aktualisiert.

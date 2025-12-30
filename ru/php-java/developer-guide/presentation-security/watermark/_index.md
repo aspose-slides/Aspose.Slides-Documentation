@@ -1,205 +1,240 @@
 ---
-title: Водяной знак
+title: Добавить водяные знаки в презентации на PHP
+linktitle: Водяной знак
 type: docs
 weight: 40
 url: /ru/php-java/watermark/
-keywords: "водяной знак в презентации"
-description: "Используйте водяной знак в PowerPoint с помощью Aspose.Slides. Добавьте водяной знак в ppt-презентацию или удалите водяной знак. Вставьте изображение водяного знака или текстовый водяной знак."
+keywords:
+- водяной знак
+- текстовый водяной знак
+- графический водяной знак
+- добавить водяной знак
+- изменить водяной знак
+- удалить водяной знак
+- удалить водяной знак
+- добавить водяной знак в PPT
+- добавить водяной знак в PPTX
+- добавить водяной знак в ODP
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- PHP
+- Aspose.Slides
+description: "Управляйте текстовыми и графическими водяными знаками в презентациях PowerPoint и OpenDocument на PHP, чтобы обозначить черновик, конфиденциальную информацию, авторские права и многое другое."
 ---
 
+## **О водяных знаках**
 
-## **О водяном знаке**
-**Водяной знак** в презентации — это текстовый или изображенческий штамп, использующийся на слайде или на всех слайдах презентации. Обычно водяной знак используется для указания на то, что презентация является черновиком (например, водяной знак "Черновик"); что она содержит конфиденциальную информацию (например, водяной знак "Конфиденциально"); для указания, к какой компании она принадлежит (например, водяной знак с "Название компании"); для идентификации автора презентации и т. д. Водяной знак помогает предотвратить нарушение авторских прав на презентацию, указывая на то, что презентацию нельзя копировать. Водяные знаки используются как в форматах презентаций PowerPoint, так и OpenOffice. В Aspose.Slides вы можете добавить водяной знак в форматах файлов PowerPoint PPT, PPTX и OpenOffice ODP.
+**Водяной знак** в презентации — это текстовая или графическая метка, используемая на отдельном слайде или на всех слайдах презентации. Обычно водяной знак применяется для указания того, что презентация является черновиком (например, водяной знак «Черновик»), содержит конфиденциальную информацию (например, «Конфиденциально»), принадлежит определённой компании (например, «Название компании»), идентифицирует автора презентации и т.д. Водяной знак помогает предотвратить нарушение авторских прав, указывая, что копировать презентацию нельзя. Водяные знаки поддерживаются как в форматах PowerPoint, так и в OpenOffice. В Aspose.Slides вы можете добавить водяной знак в файлы PPT, PPTX и ODP.
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) есть различные способы создания водяного знака в PowerPoint или OpenOffice, чтобы обернуть его в разные формы, изменить дизайн и поведение и т. д. Общее в том, что для добавления текстовых водяных знаков вы должны использовать класс [**TextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame), а для добавления изображения водяного знака - [**PictureFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame/). [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame/) реализует интерфейс [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) и может использовать всю мощь гибких настроек объекта формы. [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) не является формой, и его настройки ограничены. Поэтому рекомендуется оборачивать объект [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) в объект [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape).
+В [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) существует несколько способов создания водяных знаков в документах PowerPoint или OpenOffice и изменения их дизайна и поведения. Общий принцип таков: для добавления текстовых водяных знаков следует использовать класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), а для графических — класс [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) или заполнить форму водяного знака изображением. `PictureFrame` реализует класс [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), что позволяет использовать все гибкие настройки объекта формы. Поскольку `ITextFrame` не является формой и его параметры ограничены, он оборачивается в объект [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
 
-Существует два способа применения водяного знака: к одному слайду и ко всем слайдам презентации. Слайд-мастер используется для применения водяного знака ко всем слайдам презентации — водяной знак добавляется в слайд-мастер, полностью разрабатывается там и применяется ко всем слайдам без изменения разрешения на редактирование водяного знака на слайдах.
+Водяной знак может быть применён двумя способами: к отдельному слайду или ко всем слайдам презентации. Для применения к каждому слайду используется мастер‑слайд — водяной знак добавляется в мастер‑слайд, полностью оформляется там и применяется ко всем слайдам, не ограничивая возможность изменения знака на отдельных слайдах.
 
-Водяной знак обычно считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (или, скорее, родительской формы водяного знака), Aspose.Slides предоставляет функциональность блокировки формы. Определенная форма может быть зафиксирована на обычном слайде или на слайде-мастере. При блокировке формы водяного знака на слайде-мастере она будет заблокирована на всех слайдах презентации.
+Обычно считается, что водяной знак недоступен для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (а точнее его родительской формы), Aspose.Slides предоставляет функции блокировки форм. Конкретную форму можно заблокировать как на обычном слайде, так и на мастере‑слайде. Когда форма водяного знака заблокирована на мастере‑слайде, она будет заблокирована на всех слайдах презентации.
 
-Вы можете установить имя водяного знака, чтобы в будущем, если вы захотите удалить водяной знак, вы могли найти его в формах слайда по имени.
+Вы можете задать имя водяному знаку, чтобы в дальнейшем, при необходимости удалить его, найти его среди форм слайда по имени.
 
-Вы можете разрабатывать водяной знак любым образом, однако обычно в водяных знаках присутствуют общие характеристики, такие как: центрированное выравнивание, вращение, передняя позиция и т. д. Мы рассмотрим, как использовать их в примерах ниже.
+Водяной знак можно оформить любым способом; однако обычно у него есть общие свойства, такие как центрирование, вращение, расположение спереди и т.д. Ниже мы рассмотрим, как использовать эти свойства в примерах.
+
 ## **Текстовый водяной знак**
-### **Добавить текстовый водяной знак на слайд**
-Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, вы можете сначала добавить форму на слайд, а затем добавить текстовый фрейм в эту форму. Текстовый фрейм представлен типом [**TextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape), который имеет широкий набор свойств для настройки водяного знака гибким образом. Поэтому рекомендуется оборачивать объект [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) в объект [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape). Чтобы добавить водяной знак в форму, используйте метод [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) с текстом водяного знака, переданным в него:
 
+### **Добавление текстового водяного знака на слайд**
+
+Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, сначала добавьте форму на слайд, затем добавьте к этой форме текстовый фрейм. Текстовый фрейм представляет класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Этот тип не наследуется от [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), который предоставляет широкий набор свойств для гибкого позиционирования водяного знака. Поэтому объект [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) оборачивается в объект [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Чтобы добавить текст водяного знака в форму, используйте метод [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) как показано ниже.
 ```php
-  # Откройте презентацию
-  $presentation = new Presentation();
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
-    $watermarkTextFrame = $watermarkShape->addTextFrame("Водяной знак");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+$watermarkText = "CONFIDENTIAL";
+
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+
+$presentation->dispose();
 ```
 
 
-
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/php-java/slide-master/)[TextFrame](/slides/ru/php-java/adding-and-formatting-text/)
+{{% alert color="primary" title="See also" %}} 
+- [How to Use the TextFrame Class](/slides/ru/php-java/text-formatting/)
 {{% /alert %}}
 
-### **Добавить текстовый водяной знак в презентацию**
-Если вы хотите добавить водяной знак в презентацию (каждый слайд сразу), добавьте его в [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide).
-Вся остальная логика такая же, как при добавлении водяного знака на один слайд — создать объект [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) и затем добавить водяной знак в него с помощью метода [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-):
+### **Добавление текстового водяного знака в презентацию**
 
+Если нужно добавить текстовый водяной знак во всю презентацию (т.е. на все слайды сразу), добавьте его в [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). Дальнейшая логика такая же, как при добавлении знака на один слайд — создайте объект [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) и затем добавьте к нему водяной знак с помощью метода [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame).
 ```php
-  # Откройте презентацию
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $watermarkShape = $master->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
-    $watermarkTextFrame = $watermarkShape->addTextFrame("Водяной знак");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$watermarkText = "CONFIDENTIAL";
+
+$presentation = new Presentation();
+$masterSlide = $presentation->getMasters()->get_Item(0);
+
+$watermarkShape = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+
+$presentation->dispose();
 ```
 
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/php-java/slide-master/)[Слайд-мастер](/slides/ru/php-java/slide-master/)
+{{% alert color="primary" title="See also" %}} 
+- [How to Use the Slide Master](/slides/ru/php-java/slide-master/)
 {{% /alert %}}
 
-### **Установить шрифт текстового водяного знака**
-Вы можете изменить шрифт текстового водяного знака:
+### **Установка прозрачности формы водяного знака**
 
+По умолчанию прямоугольная форма имеет цвета заливки и контура. Следующий код делает форму прозрачной.
 ```php
-  $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool::True);
-  $watermarkPortion->getPortionFormat()->setFontHeight(52);
-
+$watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
+$watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
 ```
 
 
-### **Установить прозрачность текстового водяного знака**
-Чтобы установить прозрачность текстового водяного знака, используйте этот код:
+### **Установка шрифта для текстового водяного знака**
 
+Вы можете изменить шрифт текстового водяного знака, как показано ниже.
 ```php
-  $alpha = 150;
-  $red = 200;
-  $green = 200;
-  $blue = 200;
-  $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $watermarkPortion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", $red, $green, $blue, $alpha));
-
+$textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+$textFormat->setLatinFont(new FontData("Arial"));
+$textFormat->setFontHeight(50);
 ```
 
 
-### **Центрировать текстовый водяной знак**
-Центрировать водяной знак на слайде можно следующим образом:
+### **Установка цвета текста водяного знака**
 
+Чтобы задать цвет текста водяного знака, используйте следующий код:
 ```php
-  $center = new Point2DFloat($pres->getSlideSize()->getSize()->getWidth() / 2, $pres->getSlideSize()->getSize()->getHeight() / 2);
-  $width = 300;
-  $height = 300;
-  $x = $center->getX() - $width / 2;
-  $y = $center->getY() - $height / 2;
-  # ...
-  $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, $x, $y, $width, $height);
+$alpha = 150;
+$red = 200;
+$green = 200;
+$blue = 200;
+$textColor = new Java("java.awt.Color", $red, $green, $blue, $alpha);
 
+$fillFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
+$fillFormat->setFillType(FillType::Solid);
+$fillFormat->getSolidFillColor()->setColor($textColor);
 ```
 
 
-## **Изображенческий водяной знак**
-### **Добавить изображенческий водяной знак в презентацию**
-Чтобы добавить изображенческий водяной знак на все слайды презентации, можно сделать следующее:
+### **Центрирование текстового водяного знака**
 
+Водяной знак можно центрировать на слайде, для чего выполните следующее:
 ```php
-  $picture;
-  $image = Images->fromFile("watermark.png");
-  try {
-    $picture = $pres->getImages()->addImage($image);
-  } finally {
-    if (!java_is_null($image)) {
-      $image->dispose();
+$slideSize = $presentation->getSlideSize()->getSize();
+$slideWidth = java_values($slideSize->getWidth());
+$slideHeight = java_values($slideSize->getHeight());
+
+$watermarkWidth = 400;
+$watermarkHeight = 40;
+$watermarkX = ($slideWidth - $watermarkWidth) / 2;
+$watermarkY = ($slideHeight - $watermarkHeight) / 2;
+
+$watermarkShape = $slide->getShapes()->addAutoShape(
+        ShapeType::Rectangle, $watermarkX, $watermarkY, $watermarkWidth, $watermarkHeight);
+
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+```
+
+
+Ниже показан окончательный результат.
+
+![The text watermark](text_watermark.png)
+
+## **Графический водяной знак**
+
+### **Добавление графического водяного знака в презентацию**
+
+Чтобы добавить графический водяной знак на слайд презентации, выполните следующее:
+```php
+$image = Images::fromFile("watermark.png");
+$picture = $presentation->getImages()->addImage($image);
+$image->dispose();
+
+$watermarkShape->getFillFormat()->setFillType(FillType::Picture);
+$watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
+$watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+```
+
+
+### **Блокировка редактирования водяного знака**
+
+Если требуется запретить редактирование водяного знака, используйте метод [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) у формы. С помощью этого свойства можно защитить форму от выбора, изменения размеров, перемещения, группировки с другими элементами, блокировать её текст от редактирования и многое другое:
+```php
+// Заблокировать форму водяного знака от изменения
+$watermarkShape->getAutoShapeLock()->setSelectLocked(true);
+$watermarkShape->getAutoShapeLock()->setSizeLocked(true);
+$watermarkShape->getAutoShapeLock()->setTextLocked(true);
+$watermarkShape->getAutoShapeLock()->setPositionLocked(true);
+$watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
+```
+
+
+### **Перемещение водяного знака на передний план**
+
+В Aspose.Slides порядок слоёв форм можно задать методом [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder). Для этого вызовите метод из списка слайдов презентации, передав ссылку на форму и номер её порядка. Таким образом можно переместить форму на передний план или отодвинуть её назад. Эта функция особенно полезна, когда нужно разместить водяной знак перед содержимым презентации:
+```php
+$shapeCount = java_values($slide->getShapes()->size());
+$slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
+```
+
+
+### **Установка вращения водяного знака**
+
+Ниже пример кода, показывающий, как задать вращение водяного знака, чтобы он располагался по диагонали слайда:
+```php
+$diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
+
+$watermarkShape->setRotation($diagonalAngle);
+```
+
+
+### **Задание имени водяному знаку**
+
+Aspose.Slides позволяет задать имя формы. Используя имя формы, в дальнейшем можно обратиться к ней для изменения или удаления. Чтобы задать имя формы водяного знака, присвойте его методу [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName):
+```php
+$watermarkShape->setName("watermark");
+```
+
+
+### **Удаление водяного знака**
+
+Чтобы удалить форму водяного знака, используйте метод [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) для поиска её среди форм слайда. Затем передайте найденную форму в метод [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove):
+```php
+$slideShapes = $slide->getShapes()->toArray();
+foreach ($slideShapes as $shape) {
+    if ($shape->getName() === "watermark") {
+        $slide->getShapes()->remove($shape);
     }
-  }
-  # ...
-  $watermarkShape->getFillFormat()->setFillType(FillType::Picture);
-  $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-  $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-
+}
 ```
 
 
+## **FAQ**
 
+**Что такое водяной знак и зачем он нужен?**
 
-## **Заблокировать водяной знак от редактирования**
-Если необходимо предотвратить редактирование водяного знака, используйте метод [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape#getShapeLock--) на форме, которая его оборачивает. С помощью этого метода вы можете защитить форму от выбора, изменения размера, изменения положения, группировки с другими элементами, заблокировать текст для редактирования и многое другое:
+Водяной знак — это наложенный на слайды текст или изображение, который помогает защищать интеллектуальную собственность, усиливать узнаваемость бренда или предотвращать несанкционированное использование презентаций.
 
-```php
-  # Заблокировать формы от изменения
-  $watermarkShape->getShapeLock()->setSelectLocked(true);
-  $watermarkShape->getShapeLock()->setSizeLocked(true);
-  $watermarkShape->getShapeLock()->setTextLocked(true);
-  $watermarkShape->getShapeLock()->setPositionLocked(true);
-  $watermarkShape->getShapeLock()->setGroupingLocked(true);
+**Можно ли добавить водяной знак на все слайды презентации?**
 
-```
+Да, Aspose.Slides позволяет программно добавить водяной знак на каждый слайд презентации. Можно пройтись по всем слайдам и применить настройки знака индивидуально.
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/ru/php-java/presentation-locking/)
-{{% /alert %}}
+**Как изменить прозрачность водяного знака?**
 
-## **Переместить водяной знак на передний план**
-В Aspose.Slides порядок наложения форм можно установить с помощью метода [**SlideCollection.reorder**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection#reorder-int-com.aspose.slides.ISlide...-). Для этого вам нужно вызвать этот метод из списка слайдов презентации и передать ссылку на форму и её номер порядка в метод. Таким образом, можно поместить форму на передний или задний план слайда. Эта функция особенно полезна, если нужно разместить водяной знак на переднем плане презентации:
+Прозрачность водяного знака можно изменить, задав параметры заливки ([getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getfillformat/)) формы. Это делает знак ненавязчивым и не отвлекает внимание от содержания слайда.
 
-```php
-  $slide->getShapes()->reorder($slide->getShapes()->size() - 1, $watermarkShape);
+**Какие форматы изображений поддерживаются для водяных знаков?**
 
-```
+Aspose.Slides поддерживает различные форматы изображений, такие как PNG, JPEG, GIF, BMP, SVG и другие.
 
+**Можно ли настроить шрифт и стиль текстового водяного знака?**
 
-## **Установить вращение водяного знака**
-Вот пример, как установить вращение водяного знака (и его родительской формы):
+Да, вы можете выбрать любой шрифт, размер и стиль, чтобы они соответствовали дизайну вашей презентации и поддерживали согласованность бренда.
 
-```php
-  $h = $pres->getSlideSize()->getSize()->getHeight();
-  $w = $pres->getSlideSize()->getSize()->getWidth();
-  $watermarkShape->setX($w - $watermarkShape->getWidth() / 2);
-  $watermarkShape->setY($h - $watermarkShape->getHeight() / 2);
-  $watermarkShape->setRotation(calculateRotation($h, $w));
+**Как изменить позицию или ориентацию водяного знака?**
 
-```
-
-```php
-
-```
-
-
-## **Установить имя для водяного знака**
-Aspose.Slides позволяет установить имя формы. По имени формы вы можете обратиться к ней в будущем, чтобы изменить или удалить. Чтобы установить имя родительской формы водяного знака — установите его в методе [**AutoShape.getName**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getName--):
-
-
-
-```php
-  $watermarkShape->setName("водяной знак");
-
-```
-
-
-## **Удалить водяной знак**
-Чтобы удалить форму водяного знака и его дочерние элементы с слайда, используйте метод [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getName--) для поиска в формах слайда. Затем передайте форму водяного знака в метод [**ShapeCollection.remove**](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) :
-
-```php
-  for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-    $shape = $slide->getShapes()->get_Item($i);
-    if ("водяной знак"->equals($shape->getName())) {
-      $slide->getShapes()->remove($watermarkShape);
-    }
-  }
-```
-
-
-## **Пример в реальном времени**
-Вам может быть интересно ознакомиться с **Aspose.Slides** **бесплатными** [**Добавить водяной знак** ](https://products.aspose.app/slides/watermark) и [**Удалить водяной знак**](https://products.aspose.app/slides/watermark/remove-watermark) онлайн инструментами. 
-
-![todo:image_alt_text](slides-watermark.png)
+Позицию и ориентацию водяного знака можно программно изменить, задав координаты, размер и угол вращения формы.

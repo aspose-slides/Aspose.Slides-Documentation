@@ -1,188 +1,177 @@
 ---
-title: 演示文稿查看器
+title: 在 PHP 中创建演示文稿查看器
+linktitle: 演示文稿查看器
 type: docs
 weight: 50
 url: /zh/php-java/presentation-viewer/
-keywords: "PowerPoint PPT 查看器"
-description: "PowerPoint PPT 查看器 "
+keywords:
+- 查看演示文稿
+- 演示文稿查看器
+- 创建演示文稿查看器
+- 查看 PPT
+- 查看 PPTX
+- 查看 ODP
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "使用 Aspose.Slides for PHP via Java 创建自定义演示文稿查看器。无需 Microsoft PowerPoint，即可轻松显示 PowerPoint 和 OpenDocument 文件。"
 ---
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides for PHP via Java 用于创建演示文稿文件，包含幻灯片。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文稿来查看。但有时，开发者可能还需要在他们喜欢的图像查看器中查看幻灯片作为图像，或创建自己专属的演示文稿查看器。在这种情况下，Aspose.Slides for PHP via Java 允许您将单个幻灯片导出为图像。本文描述了如何做到这一点。
-
-{{% /alert %}} 
-
-## **实时示例**
-您可以尝试 [**Aspose.Slides 查看器**](https://products.aspose.app/slides/viewer/) 免费应用程序，查看您可以使用 Aspose.Slides API 实现的功能：
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
+Aspose.Slides for PHP via Java 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过在 Microsoft PowerPoint 等程序中打开演示文稿来查看。然而，有时开发人员可能需要在自己喜欢的图像查看器中将幻灯片以图像形式查看，或创建自己的演示文稿查看器。在这种情况下，Aspose.Slides 允许您将单个幻灯片导出为图像。本文介绍了具体操作方法。
 
 ## **从幻灯片生成 SVG 图像**
-要使用 Aspose.Slides for PHP via Java 从任何所需的幻灯片生成 SVG 图像，请按照以下步骤进行：
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-- 通过使用其 ID 或索引获取所需幻灯片的引用。
-- 在内存流中获取 SVG 图像。
-- 将内存流保存到文件。
+要使用 Aspose.Slides 从演示文稿幻灯片生成 SVG 图像，请按照以下步骤操作：
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
+1. 按索引获取幻灯片引用。  
+1. 打开文件流。  
+1. 将幻灯片以 SVG 图像保存到文件流。  
 ```php
-  # 实例化表示演示文稿文件的 Presentation 类
-  $pres = new Presentation("CreateSlidesSVGImage.pptx");
-  try {
-    # 访问第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 创建一个内存流对象
-    $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    # 生成幻灯片的 SVG 图像并保存到内存流
-    $sld->writeAsSvg($svgStream);
-    $svgStream->close();
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream);
+$svgStream->close();
+
+$presentation->dispose();
 ```
+
 
 ## **使用自定义形状 ID 生成 SVG**
-Aspose.Slides for PHP via Java 可用于从具有自定义形状 ID 的幻灯片生成 [SVG](https://docs.fileformat.com/page-description-language/svg/)。为此，请使用来自 [ISvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgShape) 的 ID 属性，它表示生成的 SVG 中形状的自定义 ID。CustomSvgShapeFormattingController 可用于设置形状 ID。
 
+Aspose.Slides 可用于使用自定义形状 ID 从幻灯片生成 [SVG](https://docs.fileformat.com/page-description-language/svg/)。为此，请使用来自 [SvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/) 的 `setId` 方法。`CustomSvgShapeFormattingController` 可用于设置形状 ID。  
 ```php
+$slideIndex = 0;
 
-  class CustomSvgShapeFormattingController {
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(0), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+
+$svgOptions = new SVGOptions();
+$svgOptions->setShapeFormattingController($shapeFormattingController);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream, $svgOptions);
+$svgStream->close();
+
+$presentation->dispose();
+```
+  
+```php
+class CustomSvgShapeFormattingController {
     private $m_shapeIndex;
 
-    function __construct() {
-      $this->m_shapeIndex = 0;
+    public function __construct($shapeStartIndex) {
+        $this->m_shapeIndex = $shapeStartIndex;
     }
 
-    function __construct($shapeStartIndex) {
-      $this->m_shapeIndex = $shapeStartIndex;
+    public function formatShape($svgShape, $shape) {
+        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
-
-    function formatShape($svgShape, $shape) {
-      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
-  }
-
-  $pres = new Presentation("pptxFileName.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    try {
-      $svgOptions = new SVGOptions();
-      $shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
-      $svgOptions->setShapeFormattingController($shapeFormattingController);
-      $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+}
 ```
 
-## **创建幻灯片缩略图图像**
-Aspose.Slides for PHP via Java 帮助您生成幻灯片的缩略图图像。要使用 Aspose.Slides for PHP via Java 生成任何所需幻灯片的缩略图：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取任何所需幻灯片的引用。
-1. 在指定的比例上获取所引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+## **创建幻灯片缩略图**
 
+Aspose.Slides 帮助您生成幻灯片的缩略图。要使用 Aspose.Slides 生成幻灯片的缩略图，请按照以下步骤操作：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
+1. 按索引获取幻灯片引用。  
+1. 以定义的比例获取所引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```php
-  # 实例化表示演示文稿文件的 Presentation 类
-  $pres = new Presentation("ThumbnailFromSlide.pptx");
-  try {
-    # 访问第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 创建一个全尺度图像
-    $slideImage = $sld->getImage(1.0, 1.0);
-    # 将图像以 JPEG 格式保存到磁盘
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$scaleX = 1.0;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($scaleX, $scaleY);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **创建具有用户定义尺寸的缩略图**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取任何所需幻灯片的引用。
-1. 在指定的比例上获取所引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+## **使用用户定义尺寸创建幻灯片缩略图**
 
+要使用用户定义的尺寸创建幻灯片缩略图，请按照以下步骤操作：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
+1. 按索引获取幻灯片引用。  
+1. 使用定义的尺寸获取所引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```php
-  # 实例化表示演示文稿文件的 Presentation 类
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # 访问第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 用户定义的尺寸
-    $desiredX = 1200;
-    $desiredY = 800;
-    # 获取 X 和 Y 的缩放值
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    # 创建一个全尺度图像
-    $slideImage = $sld->getImage($ScaleX, $ScaleY);
-    # 将图像以 JPEG 格式保存到磁盘
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$slideSize = new Java("java.awt.Dimension", 1200, 800);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($slideSize);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **从备注幻灯片视图中的幻灯片创建缩略图**
-要使用 Aspose.Slides for PHP via Java 在备注幻灯片视图中生成任何所需幻灯片的缩略图：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-1. 通过使用其 ID 或索引获取任何所需幻灯片的引用。
-1. 在备注幻灯片视图中以指定的比例获取所引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+## **使用讲稿创建幻灯片缩略图**
 
-以下代码片段生成演示文稿第一张幻灯片在备注幻灯片视图中的缩略图。
+要使用 Aspose.Slides 生成带有讲稿的幻灯片缩略图，请按照以下步骤操作：
 
+1. 创建 [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/) 类的实例。  
+1. 使用 `RenderingOptions.setSlidesLayoutOptions` 方法设置讲稿位置。  
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
+1. 按索引获取幻灯片引用。  
+1. 使用渲染选项获取所引用幻灯片的缩略图。  
+1. 以任意所需的图像格式保存缩略图。  
 ```php
-  # 实例化表示演示文稿文件的 Presentation 类
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # 访问第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 用户定义的尺寸
-    $desiredX = 1200;
-    $desiredY = 800;
-    # 获取 X 和 Y 的缩放值
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    $opts = new RenderingOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # 创建一个全尺度图像
-    $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
-    # 将图像以 JPEG 格式保存到磁盘
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$layoutingOptions = new NotesCommentsLayoutingOptions();
+$layoutingOptions->setNotesPosition(NotesPositions::BottomTruncated);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutingOptions);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($renderingOptions);
+$image->save("output.png", ImageFormat::Png);
+$image->dispose();
+
+$presentation->dispose();
 ```
+
+
+## **实时示例**
+
+您可以尝试免费使用 [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) 应用程序，了解使用 Aspose.Slides API 可以实现的功能：
+
+![在线 PowerPoint 查看器](online-PowerPoint-viewer.png)
+
+## **常见问题**
+
+**我可以在网页应用程序中嵌入演示文稿查看器吗？**
+
+是的。您可以在服务器端使用 Aspose.Slides 将幻灯片渲染为图像或 HTML，并在浏览器中显示它们。可以使用 JavaScript 实现导航和缩放功能，以提供交互式体验。
+
+**在自定义查看器中显示幻灯片的最佳方式是什么？**
+
+推荐的做法是将每一张幻灯片渲染为图像（例如 PNG 或 SVG），或使用 Aspose.Slides 将其转换为 HTML，然后在图片框（桌面应用）或 HTML 容器（网页）中显示输出。
+
+**如何处理包含大量幻灯片的大型演示文稿？**
+
+对于大型演示文稿，建议采用懒加载或按需渲染幻灯片的方式。这意味着仅在用户导航到相应幻灯片时才生成其内容，从而降低内存占用和加载时间。

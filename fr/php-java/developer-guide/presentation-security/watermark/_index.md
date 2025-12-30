@@ -1,43 +1,55 @@
 ---
-title: Filigrane
+title: Ajouter des filigranes aux présentations en PHP
+linktitle: Filigrane
 type: docs
 weight: 40
 url: /fr/php-java/watermark/
 keywords:
 - filigrane
-- ajouter filigrane
 - filigrane texte
 - filigrane image
+- ajouter un filigrane
+- modifier le filigrane
+- supprimer le filigrane
+- effacer le filigrane
+- ajouter un filigrane à PPT
+- ajouter un filigrane à PPTX
+- ajouter un filigrane à ODP
+- supprimer le filigrane de PPT
+- supprimer le filigrane de PPTX
+- supprimer le filigrane de ODP
+- effacer le filigrane de PPT
+- effacer le filigrane de PPTX
+- effacer le filigrane de ODP
 - PowerPoint
+- OpenDocument
 - présentation
 - PHP
-- Java
-- Aspose.Slides pour PHP via Java
-description: "Ajoutez des filigranes de texte et d'image aux présentations PowerPoint en PHP"
+- Aspose.Slides
+description: "Gérez les filigranes texte et image dans les présentations PowerPoint et OpenDocument en PHP pour indiquer un brouillon, des informations confidentielles, des droits d'auteur, etc."
 ---
 
-## **À propos des Filigranes**
+## **À propos des filigranes**
 
-**Un filigrane** dans une présentation est un texte ou une image utilisée en tant que timbre sur une diapositive ou sur toutes les diapositives de la présentation. En général, un filigrane est utilisé pour indiquer que la présentation est un brouillon (par exemple, un filigrane "Brouillon"), qu'elle contient des informations confidentielles (par exemple, un filigrane "Confidentiel"), pour spécifier à quelle entreprise elle appartient (par exemple, un filigrane "Nom de l'entreprise"), identifier l'auteur de la présentation, etc. Un filigrane aide à prévenir les violations des droits d'auteur en indiquant que la présentation ne doit pas être copiée. Les filigranes sont utilisés dans les formats de présentation PowerPoint et OpenOffice. Dans Aspose.Slides, vous pouvez ajouter un filigrane aux formats de fichiers PowerPoint PPT, PPTX, et OpenOffice ODP.
+**Un filigrane** dans une présentation est un texte ou une image tampon utilisée sur une diapositive ou sur l’ensemble des diapositives d’une présentation. En général, un filigrane indique que la présentation est un brouillon (par ex. un filigrane « Brouillon »), qu’elle contient des informations confidentielles (par ex. un filigrane « Confidentiel »), à quelle entreprise elle appartient (par ex. un filigrane « Nom de l’entreprise »), qui en est l’auteur, etc. Un filigrane aide à prévenir les violations de droits d’auteur en indiquant que la présentation ne doit pas être copiée. Les filigranes sont utilisés à la fois dans les formats PowerPoint et OpenOffice. Dans Aspose.Slides, vous pouvez ajouter un filigrane aux formats de fichier PowerPoint PPT, PPTX et OpenOffice ODP.
 
-Dans [**Aspose.Slides**](https://products.aspose.com/slides/php-java/), il existe diverses façons de créer des filigranes dans des documents PowerPoint ou OpenOffice et de modifier leur conception et leur comportement. L'aspect commun est que pour ajouter des filigranes de texte, vous devez utiliser la classe [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), et pour ajouter des filigranes d'image, utilisez la classe [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) ou remplissez une forme de filigrane avec une image. `PictureFrame` implémente la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), vous permettant d'utiliser tous les réglages flexibles de l'objet forme. Étant donné que `ITextFrame` n'est pas une forme et que ses réglages sont limités, il est encapsulé dans un objet [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
+Dans [**Aspose.Slides**](https://products.aspose.com/slides/php-java/), il existe différentes manières de créer des filigranes dans des documents PowerPoint ou OpenOffice et de modifier leur conception et leur comportement. L’aspect commun est que, pour ajouter des filigranes texte, vous devez utiliser la classe [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), et pour ajouter des filigranes image, utilisez la classe [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) ou remplissez une forme de filigrane avec une image. `PictureFrame` implémente la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), ce qui vous permet d’utiliser toutes les options flexibles de l’objet forme. Comme `ITextFrame` n’est pas une forme et que ses paramètres sont limités, il est enveloppé dans un objet [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
 
-Il existe deux manières d'appliquer un filigrane : à une seule diapositive ou à toutes les diapositives de la présentation. Le Master de Diapositive est utilisé pour appliquer un filigrane à toutes les diapositives de la présentation — le filigrane est ajouté au Master de Diapositive, entièrement conçu là-bas, et appliqué à toutes les diapositives sans affecter la permission de modifier le filigrane sur les diapositives individuelles.
+Il existe deux façons d’appliquer un filigrane : à une seule diapositive ou à toutes les diapositives de la présentation. Le **Slide Master** est utilisé pour appliquer un filigrane à toutes les diapositives — le filigrane est ajouté au Slide Master, entièrement conçu là‑bas, et appliqué à toutes les diapositives sans affecter la possibilité de modifier le filigrane sur les diapositives individuelles.
 
-Un filigrane est généralement considéré comme non modifiable par d'autres utilisateurs. Pour empêcher le filigrane (ou plutôt la forme parent du filigrane) d'être modifié, Aspose.Slides fournit une fonctionnalité de verrouillage de forme. Une forme spécifique peut être verrouillée sur une diapositive normale ou sur un Master de Diapositive. Lorsque la forme de filigrane est verrouillée sur le Master de Diapositive, elle sera verrouillée sur toutes les diapositives de la présentation.
+Un filigrane est généralement considéré comme non modifiable par d’autres utilisateurs. Pour empêcher le filigrane (ou plutôt la forme parent du filigrane) d’être édité, Aspose.Slides fournit la fonctionnalité de verrouillage de forme. Une forme spécifique peut être verrouillée sur une diapositive normale ou sur un Slide Master. Lorsque la forme du filigrane est verrouillée sur le Slide Master, elle le sera sur toutes les diapositives de la présentation.
 
-Vous pouvez définir un nom pour le filigrane afin que dans le futur, si vous souhaitez le supprimer, vous puissiez le trouver dans les formes de la diapositive par son nom.
+Vous pouvez attribuer un nom au filigrane afin, à l’avenir, de le supprimer en le retrouvant parmi les formes de la diapositive par son nom.
 
-Vous pouvez concevoir le filigrane de n'importe quelle manière ; cependant, il existe généralement des caractéristiques communes dans les filigranes, telles que l'alignement central, la rotation, la position devant, etc. Nous allons considérer comment les utiliser dans les exemples ci-dessous.
+Vous pouvez concevoir le filigrane comme vous le souhaitez ; toutefois, les filigranes possèdent généralement des caractéristiques communes, telles que l’alignement centré, la rotation, la position en avant‑plan, etc. Nous verrons comment les exploiter dans les exemples ci‑dessous.
 
-## **Filigrane Texte**
+## **Filigrane de texte**
 
-### **Ajouter un Filigrane Texte à une Diapositive**
+### **Ajouter un filigrane de texte à une diapositive**
 
-Pour ajouter un filigrane texte dans PPT, PPTX, ou ODP, vous pouvez d'abord ajouter une forme à la diapositive, puis ajouter un cadre de texte à cette forme. Le cadre de texte est représenté par la classe [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Ce type n'est pas hérité de [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), qui dispose d'un large ensemble de propriétés pour positionner le filigrane de manière flexible. Ainsi, l'objet [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) est encapsulé dans un objet [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Pour ajouter du texte de filigrane à la forme, utilisez la méthode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) comme indiqué ci-dessous.
-
+Pour ajouter un filigrane de texte dans PPT, PPTX ou ODP, vous pouvez d’abord ajouter une forme à la diapositive, puis ajouter un cadre texte à cette forme. Le cadre texte est représenté par la classe [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Ce type n’est pas hérité de la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), qui offre un large ensemble de propriétés permettant de positionner le filigrane de manière flexible. Ainsi, l’objet [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) est encapsulé dans un objet [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Pour ajouter du texte de filigrane à la forme, utilisez la méthode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) comme indiqué ci‑dessous.
 ```php
-$watermarkText = "CONFIDENTIEL";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -48,16 +60,16 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Voir aussi" %}} 
 - [Comment utiliser la classe TextFrame](/slides/fr/php-java/text-formatting/)
 {{% /alert %}}
 
-### **Ajouter un Filigrane Texte à une Présentation**
+### **Ajouter un filigrane de texte à une présentation**
 
-Si vous souhaitez ajouter un filigrane texte à l'ensemble de la présentation (c'est-à-dire, toutes les diapositives à la fois), ajoutez-le au [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). Le reste de la logique est le même que lorsque vous ajoutez un filigrane à une seule diapositive — créez un objet [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) et ajoutez ensuite le filigrane en utilisant la méthode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame).
-
+Si vous souhaitez ajouter un filigrane de texte à l’ensemble de la présentation (c’est‑à‑dire à toutes les diapositives d’un coup), ajoutez‑le au [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). Le reste de la logique est identique à celle de l’ajout d’un filigrane à une seule diapositive — créez un objet [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) puis ajoutez le filigrane avec la méthode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame).
 ```php
-$watermarkText = "CONFIDENTIEL";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $masterSlide = $presentation->getMasters()->get_Item(0);
@@ -68,33 +80,33 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Master de Diapositive](/slides/fr/php-java/slide-master/)
+- [Comment utiliser le Slide Master](/slides/fr/php-java/slide-master/)
 {{% /alert %}}
 
-### **Définir la Transparence de la Forme de Filigrane**
+### **Définir la transparence de la forme du filigrane**
 
-Par défaut, la forme rectangulaire est stylisée avec des couleurs de remplissage et de ligne. Les lignes de code suivantes rendent la forme transparente.
-
+Par défaut, la forme rectangulaire possède des couleurs de remplissage et de contour. Les lignes de code suivantes rendent la forme transparente.
 ```php
 $watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
 $watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
 ```
 
-### **Définir la Police pour un Filigrane Texte**
 
-Vous pouvez changer la police du texte du filigrane comme indiqué ci-dessous.
+### **Définir la police d’un filigrane de texte**
 
+Vous pouvez modifier la police du texte du filigrane comme indiqué ci‑dessous.
 ```php
 $textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
 $textFormat->setLatinFont(new FontData("Arial"));
 $textFormat->setFontHeight(50);
 ```
 
-### **Définir la Couleur du Texte de Filigrane**
+
+### **Définir la couleur du texte du filigrane**
 
 Pour définir la couleur du texte du filigrane, utilisez ce code :
-
 ```php
 $alpha = 150;
 $red = 200;
@@ -107,10 +119,10 @@ $fillFormat->setFillType(FillType::Solid);
 $fillFormat->getSolidFillColor()->setColor($textColor);
 ```
 
-### **Centrer un Filigrane Texte**
 
-Il est possible de centrer le filigrane sur une diapositive, et pour cela, vous pouvez faire ce qui suit :
+### **Centrer un filigrane de texte**
 
+Il est possible de centrer le filigrane sur une diapositive, et pour cela vous pouvez procéder ainsi :
 ```php
 $slideSize = $presentation->getSlideSize()->getSize();
 $slideWidth = java_values($slideSize->getWidth());
@@ -127,16 +139,16 @@ $watermarkShape = $slide->getShapes()->addAutoShape(
 $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 ```
 
-L'image ci-dessous montre le résultat final.
 
-![Le filigrane texte](text_watermark.png)
+L’image ci‑dessous montre le résultat final.
 
-## **Filigrane Image**
+![The text watermark](text_watermark.png)
 
-### **Ajouter un Filigrane Image à une Présentation**
+## **Filigrane d’image**
 
-Pour ajouter un filigrane image à une diapositive de présentation, vous pouvez faire ce qui suit :
+### **Ajouter un filigrane d’image à une présentation**
 
+Pour ajouter un filigrane d’image à une diapositive de présentation, vous pouvez procéder comme suit :
 ```php
 $image = Images::fromFile("watermark.png");
 $picture = $presentation->getImages()->addImage($image);
@@ -147,12 +159,12 @@ $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage
 $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **Verrouiller un Filigrane pour Édition**
 
-S'il est nécessaire d'empêcher un filigrane d'être modifié, utilisez la méthode [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) sur la forme. Avec cette propriété, vous pouvez protéger la forme contre la sélection, le redimensionnement, le repositionnement, la mise en groupe avec d'autres éléments, verrouiller son texte contre la modification, et bien plus encore :
+### **Verrouiller un filigrane contre la modification**
 
+Si vous devez empêcher la modification d’un filigrane, utilisez la méthode [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) sur la forme. Avec cette propriété, vous pouvez protéger la forme contre la sélection, le redimensionnement, le déplacement, le groupement avec d’autres éléments, le verrouillage du texte contre la modification, et bien plus encore :
 ```php
-// Verrouiller la forme de filigrane contre modification
+// Verrouiller la forme du filigrane contre la modification
 $watermarkShape->getAutoShapeLock()->setSelectLocked(true);
 $watermarkShape->getAutoShapeLock()->setSizeLocked(true);
 $watermarkShape->getAutoShapeLock()->setTextLocked(true);
@@ -160,48 +172,69 @@ $watermarkShape->getAutoShapeLock()->setPositionLocked(true);
 $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
 ```
 
-## **Amener un Filigrane au Premier Plan**
 
-Dans Aspose.Slides, l'ordre Z des formes peut être défini via la méthode [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder). Pour ce faire, vous devez appeler cette méthode à partir de la liste des diapositives de la présentation et passer la référence de la forme ainsi que son numéro d'ordre dans la méthode. De cette manière, il est possible d'amener une forme au premier plan ou de l'envoyer à l'arrière de la diapositive. Cette fonctionnalité est particulièrement utile si vous devez placer un filigrane devant la présentation :
+### **Amener un filigrane en avant‑plan**
 
+Dans Aspose.Slides, l’ordre Z des formes peut être défini via la méthode [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder). Pour ce faire, appelez cette méthode depuis la liste des diapositives de la présentation en passant la référence de la forme et son numéro d’ordre. Ainsi, il est possible de placer une forme en avant‑plan ou de l’envoyer à l’arrière de la diapositive. Cette fonctionnalité est particulièrement utile si vous devez placer un filigrane devant le contenu de la présentation :
 ```php
 $shapeCount = java_values($slide->getShapes()->size());
 $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
 ```
 
-## **Définir la Rotation du Filigrane**
 
-Voici un exemple de code sur la façon d'ajuster la rotation du filigrane afin qu'il soit positionné en diagonale sur la diapositive :
+### **Définir la rotation du filigrane**
 
+Voici un exemple de code montrant comment ajuster la rotation du filigrane afin qu’il soit positionné en diagonale sur la diapositive :
 ```php
 $diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
 
 $watermarkShape->setRotation($diagonalAngle);
 ```
 
-## **Définir un Nom pour un Filigrane**
 
-Aspose.Slides vous permet de définir le nom d'une forme. En utilisant le nom de la forme, vous pouvez y accéder dans le futur pour la modifier ou la supprimer. Pour définir le nom de la forme de filigrane, assignez-le à la méthode [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) :
+### **Attribuer un nom à un filigrane**
 
+Aspose.Slides vous permet de définir le nom d’une forme. En utilisant le nom de la forme, vous pouvez y accéder ultérieurement pour la modifier ou la supprimer. Pour définir le nom de la forme du filigrane, affectez‑le à la méthode [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) :
 ```php
-$watermarkShape->setName("filigrane");
+$watermarkShape->setName("watermark");
 ```
 
-## **Supprimer un Filigrane**
 
-Pour supprimer la forme de filigrane, utilisez la méthode [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) pour la trouver dans les formes de la diapositive. Ensuite, passez la forme de filigrane à la méthode [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) :
+### **Supprimer un filigrane**
 
+Pour supprimer la forme du filigrane, utilisez la méthode [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) afin de la retrouver parmi les formes de la diapositive. Ensuite, transmettez la forme du filigrane à la méthode [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) :
 ```php
 $slideShapes = $slide->getShapes()->toArray();
 foreach ($slideShapes as $shape) {
-    if ($shape->getName() === "filigrane") {
+    if ($shape->getName() === "watermark") {
         $slide->getShapes()->remove($shape);
     }
 }
 ```
 
-## **Un Exemple en Direct**
 
-Vous pouvez vouloir consulter les outils en ligne **Aspose.Slides gratuits** [Ajouter Filigrane](https://products.aspose.app/slides/watermark) et [Supprimer Filigrane](https://products.aspose.app/slides/watermark/remove-watermark).
+## **FAQ**
 
-![Outils en ligne pour ajouter et supprimer des filigranes](online_tools.png)
+**Qu’est‑ce qu’un filigrane et pourquoi l’utiliser ?**
+
+Un filigrane est une superposition de texte ou d’image appliquée aux diapositives qui aide à protéger la propriété intellectuelle, à renforcer la reconnaissance de la marque ou à empêcher l’utilisation non autorisée des présentations.
+
+**Puis‑je ajouter un filigrane à toutes les diapositives d’une présentation ?**
+
+Oui, Aspose.Slides vous permet d’ajouter programmatiquement un filigrane à chaque diapositive d’une présentation. Vous pouvez parcourir toutes les diapositives et appliquer les paramètres du filigrane individuellement.
+
+**Comment ajuster la transparence du filigrane ?**
+
+Vous pouvez ajuster la transparence du filigrane en modifiant les paramètres de remplissage ([getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getfillformat/)) de la forme. Cela garantit que le filigrane reste discret et ne distraie pas le contenu de la diapositive.
+
+**Quels formats d’image sont pris en charge pour les filigranes ?**
+
+Aspose.Slides prend en charge divers formats d’image tels que PNG, JPEG, GIF, BMP, SVG, etc.
+
+**Puis‑je personnaliser la police et le style d’un filigrane de texte ?**
+
+Oui, vous pouvez choisir n’importe quelle police, taille et style pour correspondre à la conception de votre présentation et maintenir la cohérence de votre marque.
+
+**Comment modifier la position ou l’orientation d’un filigrane ?**
+
+Vous pouvez ajuster la position et l’orientation du filigrane programmatiquement en modifiant les coordonnées, la taille et les propriétés de rotation de la forme.

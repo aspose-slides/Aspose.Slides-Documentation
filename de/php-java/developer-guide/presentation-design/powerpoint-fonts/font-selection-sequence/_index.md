@@ -1,25 +1,50 @@
 ---
-title: Schriftart-Auswahlsequenz
-linktitle: Schriftart-Auswahlsequenz
+title: Schriftauswahlsequenz in Aspose.Slides für PHP
+linktitle: Schriftauswahl
 type: docs
 weight: 80
-url: /de/php-java/schriftart-auswahlsequenz/
-keywords: "Schriftart, Schriftartauswahl, Schriftartsubstitution, Schriftartersatz, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: PowerPoint Schriftart-Auswahlsequenz
+url: /de/php-java/font-selection-sequence/
+keywords:
+- Schriftauswahl
+- Schriftartsubstitution
+- Schriftersetzung
+- Ersetzungsregel
+- verfügbare Schrift
+- fehlende Schrift
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides für PHP via Java Schriften auswählt und dabei eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien gewährleistet – verbessern Sie jetzt Ihre Folien."
 ---
 
-## Schriftart-Auswahl
+## **Schriftauswahl**
 
-Bestimmte Regeln gelten für Schriftarten in einer Präsentation, wenn die Präsentation geladen, gerendert oder in ein anderes Format konvertiert wird. Zum Beispiel, wenn Sie versuchen, eine Präsentation (ihre Folien) in Bilder zu konvertieren, werden die Schriftarten der Präsentation überprüft, um zu verifizieren, dass die gewählten Schriftarten im Betriebssystem verfügbar sind. Wenn die Schriftarten als fehlend bestätigt werden, werden sie ersetzt – siehe [**Schriftartersatz**](https://docs.aspose.com/slides/php-java/font-replacement/) und [**Schriftartsubstitution**](https://docs.aspose.com/slides/php-java/font-substitution/).
+Bestimmte Regeln gelten für Schriften in einer Präsentation, wenn die Präsentation geladen, gerendert oder in ein anderes Format konvertiert wird. Beispielsweise werden beim Versuch, eine Präsentation (ihre Folien) in Bilder zu konvertieren, die Schriften der Präsentation überprüft, um sicherzustellen, dass die gewählten Schriften im Betriebssystem verfügbar sind. Wenn festgestellt wird, dass Schriften fehlen, werden sie ersetzt — siehe [**Schriftersetzung**](https://docs.aspose.com/slides/php-java/font-replacement/) und [**Schriftartsubstitution**](https://docs.aspose.com/slides/php-java/font-substitution/).
 
-Dies ist der Prozess, den Aspose.Slides beim Umgang mit Schriftarten verfolgt:
+Das ist der Prozess, dem Aspose.Slides bei der Verarbeitung von Schriften folgt:
 
-1. Aspose.Slides sucht im Betriebssystem nach Schriftarten, um die Schriftart zu finden, die der gewählten Schriftart der Präsentation entspricht.
-2. Wenn die gewählte Schriftart gefunden wird, verwendet Aspose.Slides sie. Andernfalls verwendet Aspose.Slides eine Ersatzschriftart, die so nah wie möglich an dem ist, was PowerPoint verwenden würde.
-3. Wenn Schriftartersatzregeln über [FontSubstRule](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrule/) festgelegt wurden, werden sie angewendet.
+1. Aspose.Slides sucht im Betriebssystem nach Schriften, um die Schrift zu finden, die der in der Präsentation gewählten Schrift entspricht.  
+2. Wird die gewählte Schrift gefunden, verwendet Aspose.Slides sie. Andernfalls verwendet Aspose.Slides eine Ersatzschrift, die so nah wie möglich an der von PowerPoint verwendeten liegt.  
+3. Wenn über [FontSubstRule](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrule/) Schriftersetzungsregeln festgelegt wurden, werden diese angewendet.
 
-Aspose.Slides ermöglicht es Ihnen, Schriftarten zur Aspose-Laufzeit hinzuzufügen und diese Schriftarten dann zu verwenden. Siehe [**Benutzerdefinierte Schriftarten**](https://docs.aspose.com/slides/php-java/custom-font/).
+Aspose.Slides ermöglicht es Ihnen, Schriften zur Aspose‑Laufzeit hinzuzufügen und diese anschließend zu verwenden. Siehe [**Benutzerdefinierte Schriften**](https://docs.aspose.com/slides/php-java/custom-font/).
 
-Wenn zusätzliche Schriftarten innerhalb einer Präsentation platziert werden, werden sie als [**Eingebettete Schriftarten**](https://docs.aspose.com/slides/php-java/embedded-font/) bezeichnet.
+Wenn zusätzliche Schriften in einer Präsentation eingebettet werden, werden sie als [**Eingebettete Schriften**](https://docs.aspose.com/slides/php-java/embedded-font/) bezeichnet.
 
-Aspose.Slides ermöglicht Ihnen, Schriftarten hinzuzufügen, die *nur* auf Ausgabe-Dokumente angewendet werden. Zum Beispiel, wenn eine Präsentation, die Sie in PDF konvertieren möchten, Schriftarten enthält, die auf Ihrem System fehlen, und eingebettete Schriftarten, können Sie die benötigten Schriftarten als **Externe Schriftarten** hinzufügen oder laden.
+Aspose.Slides ermöglicht es Ihnen, Schriften hinzuzufügen, die *nur* auf Ausgabedokumente angewendet werden. Beispielsweise können Sie bei einer Präsentation, die Sie in PDF konvertieren möchten und bei der Schriften fehlen, die nicht im System oder als eingebettete Schriften verfügbar sind, die benötigten Schriften als **Externe Schriften** hinzufügen oder laden.
+
+## **FAQ**
+
+**Wie kann ich bestimmen, welche Schriften in einer Präsentation vor der Konvertierung tatsächlich verwendet werden?**
+
+Aspose.Slides lässt Sie die verwendeten Schriften über den [Schriften‑Manager](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/) inspizieren, sodass Sie entscheiden können, ob Sie [einbetten](/slides/de/php-java/embedded-font/), [ersetzen](/slides/de/php-java/font-replacement/) oder [externe Quellen](/slides/de/php-java/custom-font/) hinzufügen möchten. Das hilft, ungewollte Substitutionen beim Rendern und Export zu verhindern.
+
+**Kann ich zusätzliche Schriftordner hinzufügen, ohne sie im Betriebssystem zu installieren?**
+
+Ja. Sie können [externe Schriftquellen](/slides/de/php-java/custom-font/) wie Ordner oder In‑Memory‑Streams für das Rendern und den Export registrieren. Das entfernt die Abhängigkeit von den Schriften des Host‑Systems und hält das Layout vorhersehbar.
+
+**Wie verhindere ich ein stilles Zurückfallen auf eine ungeeignete Schrift, wenn ein Glyph fehlt?**
+
+Definieren Sie im Voraus explizite [Schriftersetzungen](/slides/de/php-java/font-replacement/) und [Fallback‑Regeln](/slides/de/php-java/fallback-font/). Durch die Analyse der verwendeten Schriften und das Festlegen einer kontrollierten Priorität für Ersatzschriften stellen Sie konsistente Typografie sicher und vermeiden unerwartete Ergebnisse.

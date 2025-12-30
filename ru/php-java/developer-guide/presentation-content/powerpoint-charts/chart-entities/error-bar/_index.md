@@ -1,26 +1,34 @@
 ---
-title: Ошибка бар
+title: Настройка линий ошибок в диаграммах презентаций с использованием PHP
+linktitle: Линия ошибок
 type: docs
 url: /ru/php-java/error-bar/
+keywords:
+- линия ошибок
+- пользовательское значение
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как добавлять и настраивать линии ошибок на диаграммах с помощью Aspose.Slides for PHP via Java — оптимизируйте визуализацию данных в презентациях PowerPoint."
 ---
 
-## **Добавить Ошибка бар**
-Aspose.Slides для PHP через Java предоставляет простой API для управления значениями ошибки бар. Пример кода применяется при использовании пользовательского типа значения. Чтобы указать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection):
+## **Добавить линии ошибок**
+Aspose.Slides for PHP via Java предоставляет простой API для управления значениями линий ошибок. Пример кода применяется при использовании пользовательского типа значения. Чтобы задать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) серии:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Добавьте пузырьковую диаграмму на нужный слайд.
-1. Получите первую серию диаграммы и установите формат ошибки бар X.
-1. Получите первую серию диаграммы и установите формат ошибки бар Y.
-1. Установите значения и формат баров.
-1. Запишите измененную презентацию в файл PPTX.
-
+1. Добавьте пузырчатую диаграмму на нужный слайд.
+1. Получите первую серию диаграммы и задайте формат линии ошибок X.
+1. Получите первую серию диаграммы и задайте формат линии ошибок Y.
+1. Установите значения линий и их формат.
+1. Сохраните изменённую презентацию в файл PPTX.
 ```php
-  # Создайте экземпляр класса Presentation
+  # Создать экземпляр класса Presentation
   $pres = new Presentation();
   try {
-    # Создание пузырьковой диаграммы
+    # Создание пузырчатой диаграммы
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Добавление ошибок бар и установка его формата
+    # Добавление линий ошибок и установка их формата
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
@@ -41,24 +49,24 @@ Aspose.Slides для PHP через Java предоставляет просто
   }
 ```
 
-## **Добавить пользовательское значение ошибки бар**
-Aspose.Slides для PHP через Java предоставляет простой API для управления пользовательскими значениями ошибки бар. Пример кода применяется, когда свойство [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) равно **Custom**. Чтобы указать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection):
+
+## **Добавить пользовательские значения линии ошибок**
+Aspose.Slides for PHP via Java предоставляет простой API для управления пользовательскими значениями линий ошибок. Пример кода применяется, когда свойство [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) равно **Custom**. Чтобы задать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) серии:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Добавьте пузырьковую диаграмму на нужный слайд.
-1. Получите первую серию диаграммы и установите формат ошибки бар X.
-1. Получите первую серию диаграммы и установите формат ошибки бар Y.
-1. Получите отдельные точки данных серии диаграммы и установите значения ошибки бар для индивидуальной точки данных серии.
-1. Установите значения и формат баров.
-1. Запишите измененную презентацию в файл PPTX.
-
+1. Добавьте пузырчатую диаграмму на нужный слайд.
+1. Получите первую серию диаграммы и задайте формат линии ошибок X.
+1. Получите первую серию диаграммы и задайте формат линии ошибок Y.
+1. Получите отдельные точки данных серии диаграммы и задайте значения линии ошибок для каждой отдельной точки данных серии.
+1. Установите значения линий и их формат.
+1. Сохраните изменённую презентацию в файл PPTX.
 ```php
-  # Создайте экземпляр класса Presentation
+  # Создать экземпляр класса Presentation
   $pres = new Presentation();
   try {
-    # Создание пузырьковой диаграммы
+    # Создание пузырчатой диаграммы
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Добавление пользовательских ошибок бар и установка его формата
+    # Добавление пользовательских линий ошибок и установка их формата
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $errBarX = $series->getErrorBarsXFormat();
     $errBarY = $series->getErrorBarsYFormat();
@@ -66,14 +74,14 @@ Aspose.Slides для PHP через Java предоставляет просто
     $errBarY->isVisible();
     $errBarX->setValueType(ErrorBarValueType::Custom);
     $errBarY->setValueType(ErrorBarValueType::Custom);
-    # Доступ к точкам данных серии диаграммы и установка значений ошибок бар для
+    # Доступ к точке данных серии диаграммы и установка значений линий ошибок для
     # отдельной точки
     $points = $series->getDataPoints();
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYMinusValues(DataSourceType::DoubleLiterals);
-    # Установка ошибок бар для точек серии диаграммы
+    # Установка линий ошибок для точек серии диаграммы
     for($i = 0; $i < java_values($points->size()) ; $i++) {
       $points->get_Item($i)->getErrorBarsCustomValues()->getXMinus()->setAsLiteralDouble($i + 1);
       $points->get_Item($i)->getErrorBarsCustomValues()->getXPlus()->setAsLiteralDouble($i + 1);
@@ -88,3 +96,18 @@ Aspose.Slides для PHP через Java предоставляет просто
     }
   }
 ```
+
+
+## **FAQ**
+
+**Что происходит с линиями ошибок при экспорте презентации в PDF или изображения?**
+
+Они отрисовываются как часть диаграммы и сохраняются при конвертации вместе с остальным форматированием диаграммы, при условии совместимой версии или рендерера.
+
+**Можно ли комбинировать линии ошибок с маркерами и метками данных?**
+
+Да. Линии ошибок являются отдельным элементом и совместимы с маркерами и метками данных; если элементы перекрываются, возможно, придётся скорректировать форматирование.
+
+**Где можно найти список свойств и классов для работы с линиями ошибок в API?**
+
+В справочнике API: класс [ErrorBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/) и связанные классы [ErrorBarType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbartype/) и [ErrorBarValueType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarvaluetype/).

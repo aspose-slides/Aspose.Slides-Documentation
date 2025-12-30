@@ -1,24 +1,40 @@
 ---
-title: ثيم العرض
+title: إدارة قوالب العروض التقديمية في PHP
+linktitle: قالب العرض التقديمي
 type: docs
 weight: 10
 url: /ar/php-java/presentation-theme/
-keywords: "ثيم، ثيم PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
-description: "ثيم عرض PowerPoint"
+keywords:
+- قالب PowerPoint
+- قالب العرض التقديمي
+- قالب الشريحة
+- تعيين القالب
+- تغيير القالب
+- إدارة القالب
+- لون القالب
+- لوحة ألوان إضافية
+- خط القالب
+- نمط القالب
+- تأثير القالب
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "إدارة قوالب العروض التقديمية في Aspose.Slides للـ PHP عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على العلامة التجارية المتسقة."
 ---
 
-يحدد ثيم العرض خصائص عناصر التصميم. عند اختيار ثيم عرض، تقوم في الأساس باختيار مجموعة معينة من العناصر المرئية وخصائصها.
+قالب العرض يحدد خصائص عناصر التصميم. عندما تختار قالب عرض، فأنت في الأساس تختار مجموعة محددة من العناصر البصرية وخصائصها.
 
-في PowerPoint، يتكون الثيم من ألوان، [خطوط](/slides/ar/php-java/powerpoint-fonts/)، [أنماط خلفية](/slides/ar/php-java/presentation-background/)، وتأثيرات.
+في PowerPoint، يتكون القالب من ألوان، [الخطوط](/slides/ar/php-java/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/php-java/presentation-background/)، وتأثيرات.
 
-![مكونات الثيم](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
-## **تغيير لون الثيم**
+## **تغيير لون القالب**
 
-يستخدم ثيم PowerPoint مجموعة محددة من الألوان لعناصر مختلفة على الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها من خلال تطبيق ألوان جديدة للثيم. للسماح لك باختيار لون ثيم جديد، توفر Aspose.Slides قيمًا تحت [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor) التعداد.
+يستخدم قالب PowerPoint مجموعة محددة من الألوان لعناصر مختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها بتطبيق ألوان جديدة على القالب. للسماح لك باختيار لون قالب جديد، توفر Aspose.Slides قيمًا ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor).
 
-يوضح لك كود PHP هذا كيفية تغيير لون التأكيد لثيم:
-
+يعرض لك هذا الشيفرة PHP كيفية تغيير اللون المميز للقالب:
 ```php
   $pres = new Presentation();
   try {
@@ -32,16 +48,17 @@ description: "ثيم عرض PowerPoint"
   }
 ```
 
-يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
 
+يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
-  echo(sprintf("اللون [A=%d، R=%d، G=%d، B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
+  echo(sprintf("Color [A=%d, R=%d, G=%d, B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
+
 ```
 
-لتوضيح عملية تغيير اللون أكثر، نقوم بإنشاء عنصر آخر ونassign له لون التأكيد (من العملية الأولية). ثم نغير اللون في الثيم:
 
+لتوضيح عملية تغيير اللون أكثر، نقوم بإنشاء عنصر آخر ونعيّن له اللون المميز (من العملية الأولية). ثم نغير اللون في القالب:
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
@@ -49,52 +66,51 @@ description: "ثيم عرض PowerPoint"
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
 ```
 
+
 يتم تطبيق اللون الجديد تلقائيًا على كلا العنصرين.
 
-### **تعيين لون الثيم من لوحة إضافية**
+### **تعيين لون القالب من لوحة ألوان إضافية**
 
-عند تطبيق تحولات اللمعان على لون الثيم الرئيسي(1)، تتشكل ألوان من اللوحة الإضافية(2). يمكنك بعد ذلك تعيين تلك الألوان والحصول عليها.
+عند تطبيق تحويلات الإضاءة على اللون الرئيسي للقالب(1)، تتشكل ألوان من لوحة الألوان الإضافية(2). يمكنك بعد ذلك تعيين تلك الألوان القالبية والحصول عليها.
 
-![ألوان اللوحة الإضافية](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
-**1** - ألوان الثيم الرئيسية
+**1** - الألوان الرئيسية للقالب  
+**2** - ألوان من لوحة الألوان الإضافية.
 
-**2** - ألوان من اللوحة الإضافية.
-
-يوضح كود PHP هذا عملية حيث يتم الحصول على ألوان اللوحة الإضافية من لون الثيم الرئيسي ثم تستخدم في الأشكال:
-
+يعرض لك هذا الشيفرة PHP عملية يتم فيها الحصول على ألوان لوحة الألوان الإضافية من اللون الرئيسي للقالب ثم استخدامها في الأشكال:
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # التأكيد 4
+    # التمييز 4
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # التأكيد 4، أفتح 80%
+    # التمييز 4، أفتح بنسبة 80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # التأكيد 4، أفتح 60%
+    # التمييز 4، أفتح بنسبة 60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # التأكيد 4، أفتح 40%
+    # التمييز 4، أفتح بنسبة 40%
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    # التأكيد 4، أغمق 25%
+    # التمييز 4، أغمق بنسبة 25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # التأكيد 4، أغمق 50%
+    # التمييز 4، أغمق بنسبة 50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
@@ -107,53 +123,51 @@ description: "ثيم عرض PowerPoint"
   }
 ```
 
-## **تغيير خط الثيم**
 
-للسماح لك باختيار الخطوط للثيمات وغيرها من الأغراض، تستخدم Aspose.Slides هذه المعرفات الخاصة (المشابهة لتلك المستخدمة في PowerPoint):
+## **تغيير خط القالب**
 
-* **+mn-lt** - خط الجسم اللاتيني (خط لاتيني ثانوي)
-* **+mj-lt** - خط العنوان اللاتيني (خط لاتيني رئيسي)
-* **+mn-ea** - خط الجسم الشرقي الآسيوي (خط شرقي آسيوي ثانوي)
-* **+mj-ea** - خط عنوان الشرقي الآسيوي (خط شرقي آسيوي رئيسي)
+للسماح لك باختيار الخطوط للقوالب وأغراض أخرى، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
 
-يوضح كود PHP هذا كيفية تعيين الخط اللاتيني لعنصر ثيم:
+* **+mn-lt** - الخط الأساسي للغة اللاتينية (خط لاتيني صغير)
+* **+mj-lt** - خط العنوان للغة اللاتينية (خط لاتيني كبير)
+* **+mn-ea** - الخط الأساسي للغات شرق آسيا (خط شرق آسيوي صغير)
+* **+mj-ea** - الخط الأساسي للغات شرق آسيا (خط شرق آسيوي كبير)
 
+يعرض لك هذا الشيفرة PHP كيفية تعيين الخط اللاتيني لعنصر القالب:
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
-  $portion = new Portion("تنسيق نص الثيم");
+  $portion = new Portion("Theme text format");
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
 ```
 
-يوضح كود PHP هذا كيف يمكنك تغيير خط ثيم العرض:
 
+يعرض لك هذا الشيفرة PHP كيفية تغيير خط قالب العرض:
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
 ```
 
+
 سيتم تحديث الخط في جميع مربعات النص.
 
-{{% alert color="primary" title="نصيحة" %}} 
-
-قد ترغب في رؤية [خطوط PowerPoint](/slides/ar/php-java/powerpoint-fonts/).
-
+{{% alert color="primary" title="TIP" %}} 
+قد ترغب في الاطلاع على [خطوط PowerPoint](/slides/ar/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **تغيير نمط خلفية الثيم**
+## **تغيير نمط خلفية القالب**
 
-بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفيات محددة مسبقًا ولكن فقط 3 من تلك الخلفيات الـ 12 يتم حفظها في عرض تقديمي نموذجي.
+بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفية مُعرّفة مسبقًا لكن فقط 3 من تلك الخلفيات تُحفظ في عرض تقديمي نموذجي.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل كود PHP هذا لمعرفة عدد الخلفيات المحددة مسبقًا في العرض التقديمي:
-
+على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الشيفرة PHP لمعرفة عدد الخلفيات المُعرّفة مسبقًا في العرض:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
-    echo("عدد أنماط التعبئة الخلفية للثيم هو " . $numberOfBackgroundFills);
+    echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -161,36 +175,32 @@ description: "ثيم عرض PowerPoint"
   }
 ```
 
+
 {{% alert color="warning" %}} 
-
-باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في ثيم PowerPoint.
-
+باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme)، يمكنك إضافة أو الوصول إلى نمط الخلفية في قالب PowerPoint.
 {{% /alert %}} 
 
-يوضح كود PHP هذا كيفية تعيين الخلفية لعرض تقديمي:
-
+يعرض لك هذا الشيفرة PHP كيفية تعيين الخلفية لعرض تقديمي:
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
 ```
 
-**دليل الفهارس**: 0 يستخدم لعدم التعبئة. تبدأ الفهارس من 1.
 
-{{% alert color="primary" title="نصيحة" %}} 
+**دليل الفهرس**: يُستخدم 0 لعدم التعبئة. يبدأ الفهرس من 1.
 
-قد ترغب في رؤية [خلفية PowerPoint](/slides/ar/php-java/presentation-background/).
-
+{{% alert color="primary" title="TIP" %}} 
+قد ترغب في الاطلاع على [خلفية PowerPoint](/slides/ar/php-java/presentation-background/).
 {{% /alert %}}
 
-## **تغيير تأثير الثيم**
+## **تغيير تأثير القالب**
 
-عادة ما يحتوي ثيم PowerPoint على 3 قيم لكل مصفوفة نمط. تلك المصفوفات مدمجة في هذه التأثيرات الثلاثة: خفية، متوسطة، وشديدة. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل محدد:
+عادةً ما يحتوي قالب PowerPoint على 3 قيم لكل مصفوفة نمط. تُدمج تلك المصفوفات لتشكل هذه التأثيرات الثلاثة: خفيف، متوسط، وشديد. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل معين:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--)، [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--)، [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) يمكنك تغيير العناصر في الثيم (حتى بشكل أكثر مرونة من الخيارات المتاحة في PowerPoint).
+باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) من فئة [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) يمكنك تعديل العناصر في القالب (بمرونة أكبر من الخيارات المتوفرة في PowerPoint).
 
-يوضح كود PHP هذا كيفية تغيير تأثير الثيم من خلال تعديل أجزاء من العناصر:
-
+يعرض لك هذا الشيفرة PHPكيفية تغيير تأثير القالب عن طريق تعديل أجزاء من العناصر:
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -206,6 +216,17 @@ description: "ثيم عرض PowerPoint"
   }
 ```
 
-التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
 
+التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تطبيق قالب على شريحة واحدة دون تغيير الرئيسي؟**  
+نعم. تدعم Aspose.Slides تجاوزات القالب على مستوى الشريحة، بحيث يمكنك تطبيق قالب محلي على تلك الشريحة فقط مع الحفاظ على قالب الرئيس الأصلي (من خلال [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+
+**ما هي الطريقة الأكثر أمانًا لنقل قالب من عرض تقديمي إلى آخر؟**  
+[نسخ الشرائح](/slides/ar/php-java/clone-slides/) مع رئيسها إلى العرض الهدف. هذا يحافظ على الرئيس الأصلي، التخطيطات، والقالب المرتبط بحيث يبقى المظهر متسقًا.
+
+**كيف يمكنني رؤية القيم "الفعّالة" بعد جميع الوراثة والتجاوزات؟**  
+استخدم "العروض الفعّالة" في الـ API [/slides/php-java/shape-effective-properties/] للموضوع/اللون/الخط/التأثير. تُعيد هذه القيم الخصائص المُحَلة النهائية بعد تطبيق الرئيس وأي تجاوزات محلية.

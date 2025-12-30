@@ -3,37 +3,44 @@ title: Ошибка лицензирования
 type: docs
 weight: 95
 url: /ru/php-java/licensing-bug/
+keywords:
+- ошибка лицензирования
+- постоянная лицензия
+- PHP
+- Aspose.Slides
+description: "Узнайте, как ошибка лицензирования в Aspose.Slides for PHP via Java 23.2–23.7 влияет на постоянные ключи и как исправить её, чтобы продолжать работу с PPT, PPTX и ODP."
 ---
 
-В этой статье описывается ошибка лицензирования, с которой столкнулись пользователи Aspose.Slides для PHP через Java версии 23.2, 23.3, 23.4, 23.5, 23.6 и 23.7. Эта ошибка привела к тому, что бессрочные лицензии стали временно недействительными после истечения их подписки.
+Эта статья описывает ошибку лицензирования, обнаруженную в Aspose.Slides for PHP via Java версиях 23.2, 23.3, 23.4, 23.5, 23.6 и 23.7. Эта ошибка приводила к тому, что постоянные лицензии временно становились недоступными после окончания их подписки.
 
-## Симптомы ##
+## **Симптомы**
 
-После истечения действия вашей подписки на бессрочную лицензию Aspose.Slides для PHP через Java версии 23.2 - 23.7 могут сообщать, что лицензия истекла, переводя все функции в режим оценки. Это поведение некорректно и не касается версий до 23.2 и после 23.7.
+После истечения срока подписки на постоянную лицензию Aspose.Slides for PHP via Java версии 23.2‑23.7 может сообщать, что лицензия просрочена, переводя все функции в режим оценки.
+Это поведение неправильно и не затрагивает версии до 23.2 и после 23.7.
 
-## Решение ##
+## **Решение**
 
-Aspose.Slides для PHP через Java устранила эту проблему и выпустила обновленные версии (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) с исправлением.
+Aspose.Slides for PHP via Java исправил эту проблему и выпустил обновлённые версии (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) с исправлением.
 
-Если вы используете одну из затронутых версий Aspose.Slides для PHP через Java в вашем проекте, пожалуйста, переключитесь на использование исправленной версии.
+Если вы используете одну из затронутых версий Aspose.Slides for PHP via Java в своём проекте, пожалуйста, перейдите на исправленную версию.
 
 Список версий с исправлением:
 
-| Ссылка на репозиторий | Ссылка на примечания к выпуску |
+| Repository link | Release notes link |
 | :- | :- | 
-|[23.2.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.2.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.2.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
-|[23.3.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.3.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.3.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
-|[23.4.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.4.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.4.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
-|[23.5.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.5.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.5.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
-|[23.6.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.6.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.6.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
-|[23.7.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.7.1/) | [Примечания к выпуску Aspose.Slides для PHP через Java 23.7.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
+|[23.2.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.2.1/) | [Release notes Aspose.Slides for PHP via Java 23.2.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
+|[23.3.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.3.1/) | [Release notes Aspose.Slides for PHP via Java 23.3.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
+|[23.4.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.4.1/) | [Release notes Aspose.Slides for PHP via Java 23.4.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
+|[23.5.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.5.1/) | [Release notes Aspose.Slides for PHP via Java 23.5.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
+|[23.6.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.6.1/) | [Release notes Aspose.Slides for PHP via Java 23.6.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
+|[23.7.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.7.1/) | [Release notes Aspose.Slides for PHP via Java 23.7.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
 
-Если вы столкнулись с какими-либо проблемами с лицензией в Aspose.Slides для PHP через Java:
+Если у вас возникли проблемы с лицензированием Aspose.Slides for PHP via Java:
 
-- Проверьте версию, которую вы используете, и убедитесь, что она не затронута вышеописанной ошибкой.
-- Ознакомьтесь с [документацией Aspose](https://docs.aspose.com/slides/php-java/getting-started/) для получения рекомендаций по устранению неполадок и известным проблемам с лицензированием.
-- Свяжитесь с [поддержкой Aspose](https://forum.aspose.com/) для получения дополнительной помощи.
+- Проверьте используемую версию и убедитесь, что она не затронута описанной выше ошибкой.
+- Обратитесь к [Aspose documentation](https://docs.aspose.com/slides/php-java/getting-started/) за инструкциями по устранению неполадок и известными проблемами лицензирования.
+- Свяжитесь с [Aspose support](https://forum.aspose.com/) для получения дальнейшей помощи.
 
-## Затронутые продукты и версии ##
+## **Затронутые продукты и версии**
 
-Обратите внимание, что эта ошибка затрагивает только Aspose.Slides для PHP через Java версии с 23.2 по 23.7. **Другие продукты Aspose и другие версии Aspose.Slides не затронуты**.
+Обратите внимание, что эта ошибка влияет только на Aspose.Slides for PHP via Java версии 23.2‑23.7. **Другие продукты Aspose и другие версии Aspose.Slides не затронуты**.

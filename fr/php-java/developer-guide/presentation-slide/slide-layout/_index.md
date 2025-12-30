@@ -1,249 +1,268 @@
 ---
-title: Mise en page de diapositive
+title: Appliquer ou modifier les mises en page des diapositives en PHP
+linktitle: Mise en page des diapositives
 type: docs
 weight: 60
 url: /fr/php-java/slide-layout/
-keyword: "Définir la taille de la diapositive, définir les options de diapositive, spécifier la taille de la diapositive, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, Java, Aspose.Slides"
-description: "Définir la taille et les options des diapositives PowerPoint "
+keywords:
+- mise en page de diapositive
+- mise en page du contenu
+- espace réservé
+- conception de présentation
+- conception de diapositive
+- mise en page inutilisée
+- visibilité du pied de page
+- diapositive de titre
+- titre et contenu
+- en-tête de section
+- deux contenus
+- comparaison
+- uniquement le titre
+- mise en page vierge
+- contenu avec légende
+- image avec légende
+- titre et texte vertical
+- titre vertical et texte
+- PowerPoint
+- OpenDocument
+- présentation
+- PHP
+- Aspose.Slides
+description: "Gérez et personnalisez les mises en page des diapositives dans Aspose.Slides pour PHP via Java. Explorez les types de mise en page, le contrôle des espaces réservés et la visibilité du pied de page grâce à des exemples de code."
 ---
 
-Une mise en page de diapositive contient les zones de texte de remplacement et les informations de formatage pour tout le contenu qui apparaît sur une diapositive. La mise en page détermine les espaces réservés au contenu disponibles et leur emplacement. 
+## **Vue d'ensemble**
 
-Les mises en page de diapositives vous permettent de créer et de concevoir des présentations rapidement (qu'elles soient simples ou complexes). Voici quelques-unes des mises en page de diapositives les plus populaires utilisées dans les présentations PowerPoint : 
+Un modèle de diapositive définit l'agencement des zones réservées et le formatage du contenu sur une diapositive. Il contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les modèles de diapositive vous aident à concevoir des présentations rapidement et de manière cohérente—que vous créiez quelque chose de simple ou de plus complexe. Parmi les modèles de diapositive les plus courants dans PowerPoint, on trouve :
 
-* **Mise en page de diapositive de titre**. Cette mise en page se compose de deux espaces réservés pour le texte. Un espace réservé est pour le titre et l'autre est pour le sous-titre. 
-* **Mise en page de titre et contenu**. Cette mise en page contient un espace réservé relativement petit en haut pour le titre et un plus grand espace réservé pour le contenu principal (graphique, paragraphes, liste à puces, liste numérotée, images, etc).
-* **Mise en page vierge**. Cette mise en page ne contient pas d'espaces réservés, vous permettant ainsi de créer des éléments à partir de zéro. 
+**Modèle de diapositive Titre** – Comprend deux zones réservées de texte : une pour le titre et une pour le sous-titre.
 
-Étant donné qu'un maître de diapositive est la diapositive hiérarchique supérieure qui stocke des informations sur les mises en page de diapositives, vous pouvez utiliser la diapositive maître pour accéder aux mises en page de diapositives et y apporter des modifications. Une diapositive de mise en page peut être accessible par type ou par nom. De même, chaque diapositive a un identifiant unique qui peut être utilisé pour y accéder. 
+**Modèle Titre et Contenu** – Propose une petite zone réservée de titre en haut et une plus grande en dessous pour le contenu principal (texte, puces, graphiques, images, etc.).
 
-Alternativement, vous pouvez apporter des modifications directement à une mise en page de diapositive spécifique dans une présentation. 
+**Modèle Blanc** – Ne contient aucune zone réservée, vous donnant le contrôle total pour concevoir la diapositive à partir de zéro.
 
-* Pour vous permettre de travailler avec des mises en page de diapositives (y compris celles dans les diapositives maîtres), Aspose.Slides fournit des propriétés comme [getLayoutSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides--) et [getMasters()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters--) sous la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-* Pour effectuer des tâches connexes, Aspose.Slides fournit [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/baseslideheaderfootermanager/), et de nombreux autres types.
+Les modèles de diapositive font partie d’un masque de diapositive, qui est la diapositive de niveau supérieur définissant les styles de mise en page pour la présentation. Vous pouvez accéder aux modèles et les modifier via le masque de diapositive—par leur type, leur nom ou leur ID unique. Vous pouvez également éditer directement un modèle de diapositive spécifique dans la présentation.
+
+Pour travailler avec les modèles de diapositive dans Aspose.Slides for PHP, vous pouvez utiliser :
+
+- Des méthodes telles que [getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides) et [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+- Des types comme [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/) et [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Pour plus d'informations sur le travail avec les diapositives maîtres en particulier, voir l'article [Maitre de diapositive](https://docs.aspose.com/slides/php-java/slide-master/).
-
+Pour en savoir plus sur la manipulation des masques de diapositive, consultez l’article [Slide Master](/slides/fr/php-java/slide-master/).
 {{% /alert %}}
 
-## **Ajouter une mise en page de diapositive à la présentation**
+## **Ajouter des modèles de diapositive aux présentations**
+
+Pour personnaliser l’apparence et la structure de vos diapositives, il peut être nécessaire d’ajouter de nouveaux modèles de diapositive à une présentation. Aspose.Slides for PHP vous permet de vérifier si un modèle spécifique existe déjà, d’en ajouter un si besoin, puis de l’utiliser pour insérer des diapositives basées sur ce modèle.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Accédez à la collection [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/imasterlayoutslidecollection/).
-1. Parcourez les diapositives de mise en page existantes pour confirmer que la diapositive de mise en page requise existe déjà dans la collection de diapositives de mise en page. Sinon, ajoutez la diapositive de mise en page que vous souhaitez. 
-1. Ajoutez une diapositive vide basée sur la nouvelle diapositive de mise en page.
-1. Enregistrez la présentation. 
+1. Accédez à la [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/).
+1. Vérifiez si le modèle de diapositive souhaité existe déjà dans la collection. Sinon, ajoutez le modèle dont vous avez besoin.
+1. Ajoutez une diapositive vide basée sur le nouveau modèle.
+1. Enregistrez la présentation.
 
-Ce code PHP vous montre comment ajouter une mise en page de diapositive à une présentation PowerPoint :
-
+Le code PHP suivant montre comment ajouter un modèle de diapositive à une présentation PowerPoint :
 ```php
-  # Instancie une classe Presentation qui représente le fichier de présentation
-  $pres = new Presentation("AccessSlides.pptx");
-  try {
-    # Parcourt les types de diapositive de mise en page
-    $layoutSlides = $pres->getMasters()->get_Item(0)->getLayoutSlides();
+// Instancier la classe Presentation qui représente un fichier PowerPoint.
+$presentation = new Presentation("Sample.pptx");
+try {
+    // Parcourir les types de diapositives de mise en page pour sélectionner une diapositive de mise en page.
+    $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
     $layoutSlide = null;
     if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
     } else {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
     }
+
     if (java_is_null($layoutSlide)) {
-      # La situation où une présentation ne contient pas certains types de mise en page.
-      # Le fichier de présentation ne contient que des mises en page vides et personnalisées.
-      # Mais les diapositives de mise en page avec des types personnalisés ont des noms de diapositive différents,
-      # comme "Titre", "Titre et contenu", etc. Et il est possible d'utiliser ces
-      # noms pour la sélection de diapositives de mise en page.
-      # Vous pouvez également utiliser un ensemble de types de formes de texte de remplacement. Par exemple,
-      # La diapositive de titre ne doit avoir que le type de texte de remplacement Titre, etc.
-      foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-        if (java_values($titleAndObjectLayoutSlide->getName()) == "Titre et objet") {
-          $layoutSlide = $titleAndObjectLayoutSlide;
-          break;
+        // Une situation où la présentation ne contient pas tous les types de mise en page.
+        // Le fichier de présentation ne contient que les types de mise en page Blanc et Personnalisé.
+        // Cependant, les diapositives de mise en page avec des types personnalisés peuvent avoir des noms reconnaissables,
+        // comme "Title", "Title and Content", etc., qui peuvent être utilisés pour la sélection de la diapositive de mise en page.
+        // Vous pouvez également vous appuyer sur un ensemble de types de formes d'espace réservé.
+        // Par exemple, une diapositive Titre ne doit contenir que le type d'espace réservé Titre, etc.
+        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
+            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
+                $layoutSlide = $titleAndObjectLayoutSlide;
+                break;
+            }
         }
-      }
-      if (java_is_null($layoutSlide)) {
-        foreach($layoutSlides as $titleLayoutSlide) {
-          if (java_values($titleLayoutSlide->getName()) == "Titre") {
-            $layoutSlide = $titleLayoutSlide;
-            break;
-          }
-        }
+
         if (java_is_null($layoutSlide)) {
-          $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-          if (java_is_null($layoutSlide)) {
-            $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Titre et objet");
-          }
+            foreach($layoutSlides as $titleLayoutSlide) {
+                if (java_values($titleLayoutSlide->getName()) == "Title") {
+                    $layoutSlide = $titleLayoutSlide;
+                    break;
+                }
+            }
+
+            if (java_is_null($layoutSlide)) {
+                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
+                if (java_is_null($layoutSlide)) {
+                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
+                }
+            }
         }
-      }
     }
-    # Ajoute une diapositive vide avec la diapositive de mise en page ajoutée
-    $pres->getSlides()->insertEmptySlide(0, $layoutSlide);
-    # Enregistre la présentation sur le disque
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
 
-## **Supprimer la diapositive de mise en page inutilisée**
+    // Ajouter une diapositive vide en utilisant la diapositive de mise en page ajoutée.
+    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
 
-Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la classe [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) pour vous permettre de supprimer les diapositives de mise en page indésirables et inutilisées. Ce code PHP vous montre comment supprimer une diapositive de mise en page d'une présentation PowerPoint :
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedLayoutSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Définir la taille et le type pour une mise en page de diapositive**
-
-Pour vous permettre de définir la taille et le type pour une diapositive de mise en page spécifique, Aspose.Slides fournit les propriétés [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) et [getSize()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getSize--) (de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)). Cet exemple Java démontre l'opération :
-
-```php
-  # Instancie un objet Presentation qui représente un fichier de présentation
-  $presentation = new Presentation("demo.pptx");
-  try {
-    $auxPresentation = new Presentation();
-    try {
-      # Définit la taille de la diapositive pour la présentation générée à celle de la source
-      $auxPresentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);
-      # getType());
-      $auxPresentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);
-      # Clone la diapositive requise
-      $auxPresentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-      $auxPresentation->getSlides()->removeAt(0);
-      # Enregistre la présentation sur le disque
-      $auxPresentation->save("size.pptx", SaveFormat::Pptx);
-    } finally {
-      $auxPresentation->dispose();
-    }
-  } finally {
+    // Enregistrer la présentation sur le disque.
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Définir la visibilité du pied de page à l'intérieur de la diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-1. Obtenez la référence d'une diapositive par son index.
-1. Réglez l'espace réservé du pied de page de la diapositive sur visible. 
-1. Réglez l'espace réservé de la date-heure sur visible. 
-1. Enregistrez la présentation. 
+## **Supprimer les modèles de diapositive inutilisés**
 
-Ce code PHP vous montre comment définir la visibilité d'un pied de page de diapositive (et effectuer des tâches connexes) :
+Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) de la classe [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) pour supprimer les modèles de diapositive indésirables et non utilisés.
 
+Le code PHP suivant montre comment supprimer un modèle de diapositive d’une présentation PowerPoint :
 ```php
-  $presentation = new Presentation("presentation.ppt");
-  try {
-    $headerFooterManager = $presentation->getSlides()->get_Item(0)->getHeaderFooterManager();
-    # La méthode isFooterVisible est utilisée pour spécifier qu'un espace réservé de pied de page de diapositive est manquant
+$presentation = new Presentation("Presentation.pptx");
+try {
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **Ajouter des zones réservées aux modèles de diapositive**
+
+Aspose.Slides fournit la méthode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/#getPlaceholderManager), qui permet d’ajouter de nouvelles zones réservées à un modèle de diapositive.
+
+Ce gestionnaire contient des méthodes pour les types de zones réservées suivants :
+
+| Zone réservée PowerPoint           | Méthode [LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/) |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ![Content](content.png)            | addContentPlaceholder(float x, float y, float width, float height)                                                      |
+| ![Content (Vertical)](contentV.png)| addVerticalContentPlaceholder(float x, float y, float width, float height)                                             |
+| ![Text](text.png)                  | addTextPlaceholder(float x, float y, float width, float height)                                                         |
+| ![Text (Vertical)](textV.png)      | addVerticalTextPlaceholder(float x, float y, float width, float height)                                                |
+| ![Picture](picture.png)            | addPicturePlaceholder(float x, float y, float width, float height)                                                     |
+| ![Chart](chart.png)                | addChartPlaceholder(float x, float y, float width, float height)                                                       |
+| ![Table](table.png)                | addTablePlaceholder(float x, float y, float width, float height)                                                       |
+| ![SmartArt](smartart.png)          | addSmartArtPlaceholder(float x, float y, float width, float height)                                                    |
+| ![Media](media.png)                | addMediaPlaceholder(float x, float y, float width, float height)                                                       |
+| ![Online Image](onlineimage.png)   | addOnlineImagePlaceholder(float x, float y, float width, float height)                                                |
+
+Le code PHP suivant montre comment ajouter de nouvelles formes de zones réservées au modèle Blanc :
+```php
+$presentation = new Presentation();
+try {
+    // Obtenir la diapositive de mise en page vierge.
+    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+
+    // Obtenir le gestionnaire d'espaces réservés de la diapositive de mise en page.
+    $placeholderManager = $layout->getPlaceholderManager();
+
+    // Ajouter différents espaces réservés à la diapositive de mise en page vierge.
+    $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
+    $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
+    $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
+    $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
+
+    // Ajouter une nouvelle diapositive avec la mise en page vierge.
+    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
+
+    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+Le résultat :
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **Définir la visibilité du pied de page pour un modèle de diapositive**
+
+Dans les présentations PowerPoint, les éléments de pied de page comme la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon le modèle de diapositive. Aspose.Slides for PHP vous permet de contrôler la visibilité de ces zones réservées du pied de page. Cela est utile lorsque vous souhaitez que certains modèles affichent les informations de pied de page tandis que d’autres restent épurés.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenez une référence à un modèle de diapositive par son index.
+1. Définissez la zone réservée du pied de page comme visible.
+1. Définissez la zone réservée du numéro de diapositive comme visible.
+1. Définissez la zone réservée de la date/heure comme visible.
+1. Enregistrez la présentation.
+
+Le code PHP suivant montre comment définir la visibilité du pied de page d’une diapositive et effectuer les tâches associées :
+```php
+$presentation = new Presentation("Presentation.ppt");
+try {
+    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+
     if (!$headerFooterManager->isFooterVisible()) {
-      $headerFooterManager->setFooterVisibility(true);// La méthode setFooterVisibility est utilisée pour rendre un pied de page de diapositive visible
-
+        $headerFooterManager->setFooterVisibility(true);
     }
-    # La méthode isSlideNumberVisible est utilisée pour spécifier qu'un espace réservé de numéro de diapositive est manquant
+
     if (!$headerFooterManager->isSlideNumberVisible()) {
-      $headerFooterManager->setSlideNumberVisibility(true);// La méthode setSlideNumberVisibility est utilisée pour rendre un numéro de diapositive visible
-
+        $headerFooterManager->setSlideNumberVisibility(true);
     }
-    # La méthode isDateTimeVisible est utilisée pour spécifier qu'un espace réservé de date-heure de diapositive est manquant
+
     if (!$headerFooterManager->isDateTimeVisible()) {
-      $headerFooterManager->setDateTimeVisibility(true);// La méthode SetFooterVisibility est utilisée pour rendre un espace réservé de date-heure de diapositive visible
-
+        $headerFooterManager->setDateTimeVisibility(true);
     }
-    $headerFooterManager->setFooterText("Texte du pied de page");// La méthode SetFooterText est utilisée pour définir un texte pour un espace réservé de pied de page de diapositive.
 
-    $headerFooterManager->setDateTimeText("Texte de date et heure");// La méthode SetDateTimeText est utilisée pour définir un texte pour un espace réservé de date-heure de diapositive.
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
 
-  } finally {
+    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Définir la visibilité du pied de page enfant à l'intérieur de la diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
-1. Obtenez une référence pour la diapositive maître par son index. 
-1. Réglez la diapositive maître et tous les espaces réservés de pied de page enfant sur visible.
-1. Définissez un texte pour la diapositive maître et tous les espaces réservés de pied de page enfant. 
-1. Définissez un texte pour la diapositive maître et tous les espaces réservés de date-heure enfant. 
-1. Enregistrez la présentation. 
+## **Définir la visibilité du pied de page enfant pour une diapositive**
 
-Ce code PHP démontre l'opération :
+​Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau du masque de diapositive afin d’assurer la cohérence sur tous les modèles de diapositive. Aspose.Slides for PHP vous permet de régler la visibilité et le contenu de ces zones réservées du pied de page sur le masque de diapositive et de propager ces paramètres à toutes les diapositives modèles enfants. Cette approche garantit une information de pied de page uniforme tout au long de votre présentation.​
 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Obtenez une référence au masque de diapositive par son index.
+1. Définissez les zones réservées du pied de page du masque et de tous les modèles enfants comme visibles.
+1. Définissez les zones réservées du numéro de diapositive du masque et de tous les modèles enfants comme visibles.
+1. Définissez les zones réservées de la date/heure du masque et de tous les modèles enfants comme visibles.
+1. Enregistrez la présentation.
+
+Le code PHP suivant montre cette opération :
 ```php
-  $presentation = new Presentation("presentation.ppt");
-  try {
+$presentation = new Presentation("presentation.ppt");
+try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-    $headerFooterManager->setFooterAndChildFootersVisibility(true);// La méthode setFooterAndChildFootersVisibility est utilisée pour rendre la diapositive maître et tous les espaces réservés de pied de page enfant visibles
 
-    $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);// La méthode setSlideNumberAndChildSlideNumbersVisibility est utilisée pour rendre la diapositive maître et tous les espaces réservés de numéro de page enfant visibles
+    $headerFooterManager->setFooterAndChildFootersVisibility(true);
+    $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
 
-    $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);// La méthode setDateTimeAndChildDateTimesVisibility est utilisée pour rendre la diapositive maître et tous les espaces réservés de date-heure enfant visibles
+    $headerFooterManager->setFooterAndChildFootersText("Footer text");
+    $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $headerFooterManager->setFooterAndChildFootersText("Texte du pied de page");// La méthode setFooterAndChildFootersText est utilisée pour définir des textes pour la diapositive maître et tous les espaces réservés de pied de page enfant
-
-    $headerFooterManager->setDateTimeAndChildDateTimesText("Texte de date et heure");// La méthode setDateTimeAndChildDateTimesText est utilisée pour définir un texte pour la diapositive maître et tous les espaces réservés de date-heure enfant
-
-  } finally {
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Définir la taille de la diapositive par rapport à la mise à l'échelle du contenu**
 
-1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) et chargez la présentation contenant la diapositive dont vous souhaitez définir la taille.
-1. Créez une autre instance de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) pour générer une nouvelle présentation.
-1. Obtenez la référence de la diapositive (de la première présentation) par son index.
-1. Réglez l'espace réservé du pied de page de la diapositive sur visible. 
-1. Réglez l'espace réservé de la date-heure sur visible. 
-1. Enregistrez la présentation. 
+## **FAQ**
 
-Ce code PHP démontre l'opération :
+**Quelle est la différence entre un masque de diapositive et un modèle de diapositive ?**
 
-```php
-  # Instancie un objet Presentation qui représente un fichier de présentation
-  $presentation = new Presentation("demo.pptx");
-  try {
-    # Définit la taille de la diapositive pour les présentations générées à celle de la source
-    $presentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);// La méthode SetSize est utilisée pour définir la taille de la diapositive avec une échelle de contenu pour s'assurer qu'elle s'adapte
+Un masque de diapositive définit le thème global et le formatage par défaut, tandis que les modèles de diapositive définissent des agencements spécifiques de zones réservées pour différents types de contenu.
 
-    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);// La méthode SetSize est utilisée pour définir la taille de la diapositive avec la taille maximale du contenu
+**Puis‑je copier un modèle de diapositive d’une présentation à une autre ?**
 
-    # Enregistre la présentation sur le disque
-    $presentation->save("Set_Size&Type_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+Oui, vous pouvez cloner un modèle de diapositive à partir de la collection de modèles d’une présentation, accessible via la méthode [getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides), puis l’insérer dans une autre présentation à l’aide de la méthode `addClone`.
 
-## **Définir la taille de la page lors de la génération d'un PDF**
+**Que se passe‑t‑il si je supprime un modèle de diapositive qui est encore utilisé par une diapositive ?**
 
-Certaines présentations (comme des affiches) sont souvent converties en documents PDF. Si vous souhaitez convertir votre PowerPoint en PDF pour accéder aux meilleures options d'impression et d'accessibilité, vous voulez définir vos diapositives à des tailles qui conviennent aux documents PDF (A4, par exemple).
-
-Aspose.Slides fournit la classe [SlideSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/) pour vous permettre de spécifier vos paramètres préférés pour les diapositives. Ce code PHP vous montre comment utiliser la propriété [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) (de la classe `SlideSize`) pour définir une taille de papier spécifique pour les diapositives d'une présentation :
-
-```php
-  # Instancie un objet Presentation qui représente un fichier de présentation
-  $presentation = new Presentation();
-  try {
-    # Définit la propriété SlideSize.Type
-    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-    # Définit différentes propriétés pour les options PDF
-    $opts = new PdfOptions();
-    $opts->setSufficientResolution(600);
-    # Enregistre la présentation sur le disque
-    $presentation->save("SetPDFPageSize_out.pdf", SaveFormat::Pdf, $opts);
-  } finally {
-    $presentation->dispose();
-  }
-```
+Si vous essayez de supprimer un modèle de diapositive qui est encore référencé par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) qui supprime en toute sécurité uniquement les modèles de diapositive non utilisés.

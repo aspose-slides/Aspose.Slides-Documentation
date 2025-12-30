@@ -1,43 +1,55 @@
 ---
-title: Marca de Agua
+title: Añadir marcas de agua a presentaciones en PHP
+linktitle: Marca de agua
 type: docs
 weight: 40
 url: /es/php-java/watermark/
 keywords:
 - marca de agua
-- agregar marca de agua
 - marca de agua de texto
 - marca de agua de imagen
+- añadir marca de agua
+- cambiar marca de agua
+- eliminar marca de agua
+- borrar marca de agua
+- añadir marca de agua a PPT
+- añadir marca de agua a PPTX
+- añadir marca de agua a ODP
+- eliminar marca de agua de PPT
+- eliminar marca de agua de PPTX
+- eliminar marca de agua de ODP
+- borrar marca de agua de PPT
+- borrar marca de agua de PPTX
+- borrar marca de agua de ODP
 - PowerPoint
+- OpenDocument
 - presentación
 - PHP
-- Java
-- Aspose.Slides para PHP a través de Java
-description: "Agregue marcas de agua de texto e imagen a presentaciones de PowerPoint en PHP"
+- Aspose.Slides
+description: "Gestione marcas de agua de texto e imagen en presentaciones PowerPoint y OpenDocument en PHP para indicar un borrador, información confidencial, derechos de autor y más."
 ---
 
-## **Acerca de las Marcas de Agua**
+## **Acerca de las marcas de agua**
 
-**Una marca de agua** en una presentación es un sello de texto o imagen utilizado en una diapositiva o en todas las diapositivas de la presentación. Por lo general, se utiliza una marca de agua para indicar que la presentación es un borrador (por ejemplo, una marca de agua de "Borrador"), que contiene información confidencial (por ejemplo, una marca de agua de "Confidencial"), para especificar a qué empresa pertenece (por ejemplo, una marca de agua de "Nombre de la Empresa"), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir violaciones de derechos de autor al indicar que la presentación no debe ser copiada. Las marcas de agua se utilizan tanto en formatos de presentación de PowerPoint como de OpenOffice. En Aspose.Slides, puedes agregar una marca de agua a los formatos de archivo PowerPoint PPT, PPTX y OpenOffice ODP.
+**Una marca de agua** en una presentación es un sello de texto o imagen que se usa en una diapositiva o en todas las diapositivas de la presentación. Normalmente, una marca de agua se utiliza para indicar que la presentación es un borrador (p. ej., una marca de agua “Borrador”), que contiene información confidencial (p. ej., una marca de agua “Confidencial”), para especificar a qué empresa pertenece (p. ej., una marca de agua “Nombre de la empresa”), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir infracciones de derechos de autor al indicar que la presentación no debe copiarse. Las marcas de agua se usan tanto en formatos de presentación PowerPoint como OpenOffice. En Aspose.Slides, puedes añadir una marca de agua a los formatos de archivo PowerPoint PPT, PPTX y OpenOffice ODP.
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/php-java/), hay varias maneras de crear marcas de agua en documentos de PowerPoint u OpenOffice y modificar su diseño y comportamiento. El aspecto común es que para agregar marcas de agua de texto, debes usar la clase [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), y para agregar marcas de agua de imagen, usa la clase [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) o llena una forma de marca de agua con una imagen. `PictureFrame` implementa la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), permitiéndote usar todos los ajustes flexibles del objeto de forma. Dado que `ITextFrame` no es una forma y sus ajustes son limitados, se envuelve en un objeto [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
+En [**Aspose.Slides**](https://products.aspose.com/slides/php-java/), existen varias formas de crear marcas de agua en documentos PowerPoint u OpenOffice y de modificar su diseño y comportamiento. El aspecto común es que, para añadir marcas de agua de texto, debes usar la clase [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), y para añadir marcas de agua de imagen, usar la clase [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) o rellenar una forma de marca de agua con una imagen. `PictureFrame` implementa la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), lo que permite usar todas las configuraciones flexibles del objeto forma. Como `ITextFrame` no es una forma y sus configuraciones son limitadas, se envuelve en un objeto [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
 
-Hay dos formas en que se puede aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. El patrón de diapositivas se utiliza para aplicar una marca de agua a todas las diapositivas de la presentación: la marca de agua se agrega al patrón de la diapositiva, se diseña completamente allí y se aplica a todas las diapositivas sin afectar la permisividad de modificar la marca de agua en diapositivas individuales.
+Hay dos formas de aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. El Slide Master se usa para aplicar una marca de agua a todas las diapositivas: la marca de agua se añade al Slide Master, se diseña allí completamente y se aplica a todas las diapositivas sin afectar el permiso de modificar la marca de agua en diapositivas individuales.
 
-Se considera que una marca de agua no está disponible para su edición por otros usuarios. Para prevenir que la marca de agua (o más bien la forma que la contiene) sea editada, Aspose.Slides proporciona funcionalidad de bloqueo de formas. Una forma específica se puede bloquear en una diapositiva normal o en un patrón de diapositivas. Cuando la forma de marca de agua está bloqueada en el patrón de diapositivas, estará bloqueada en todas las diapositivas de la presentación.
+Una marca de agua suele considerarse no disponible para edición por otros usuarios. Para evitar que la marca de agua (o más concretamente la forma que la contiene) sea editada, Aspose.Slides proporciona funcionalidad de bloqueo de formas. Una forma específica puede bloquearse en una diapositiva normal o en un Slide Master. Cuando la forma de la marca de agua está bloqueada en el Slide Master, estará bloqueada en todas las diapositivas de la presentación.
 
-Puedes establecer un nombre para la marca de agua de modo que en el futuro, si deseas eliminarla, puedas encontrarla en las formas de la diapositiva por su nombre.
+Puedes asignar un nombre a la marca de agua para que, en el futuro, si deseas eliminarla, puedas encontrarla entre las formas de la diapositiva por nombre.
 
-Puedes diseñar la marca de agua de la manera que desees; sin embargo, generalmente hay características comunes en las marcas de agua, como alineación centrada, rotación, posición frontal, etc. Consideraremos cómo usar estas características en los ejemplos a continuación.
+Puedes diseñar la marca de agua de cualquier manera; sin embargo, suelen existir características comunes en las marcas de agua, como alineación centrada, rotación, posición frontal, etc. Consideraremos cómo usar estas características en los ejemplos a continuación.
 
-## **Marca de Agua de Texto**
+## **Marca de agua de texto**
 
-### **Agregar una Marca de Agua de Texto a una Diapositiva**
+### **Añadir una marca de agua de texto a una diapositiva**
 
-Para agregar una marca de agua de texto en PPT, PPTX u ODP, primero puedes agregar una forma a la diapositiva, luego agregar un marco de texto a esta forma. El marco de texto está representado por la clase [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Este tipo no se hereda de [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), que tiene un amplio conjunto de propiedades para posicionar la marca de agua de manera flexible. Por lo tanto, el objeto [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) se envuelve en un objeto [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Para agregar texto de marca de agua a la forma, utiliza el método [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) como se muestra a continuación.
-
+Para añadir una marca de agua de texto en PPT, PPTX o ODP, puedes primero añadir una forma a la diapositiva y luego agregar un marco de texto a esa forma. El marco de texto está representado por la clase [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Este tipo no hereda de [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), que posee un amplio conjunto de propiedades para posicionar la marca de agua de forma flexible. Por ello, el objeto [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) se envuelve en un objeto [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Para añadir texto de marca de agua a la forma, usa el método [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) como se muestra a continuación.
 ```php
-$watermarkText = "CONFIDENCIAL";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -48,16 +60,16 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Ver también" %}} 
 - [Cómo usar la clase TextFrame](/slides/es/php-java/text-formatting/)
 {{% /alert %}}
 
-### **Agregar una Marca de Agua de Texto a una Presentación**
+### **Añadir una marca de agua de texto a una presentación**
 
-Si deseas agregar una marca de agua de texto a toda la presentación (es decir, a todas las diapositivas a la vez), agrégala al [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). El resto de la lógica es la misma que cuando agregas una marca de agua a una sola diapositiva: crea un objeto [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) y luego agrega la marca de agua a él usando el método [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame).
-
+Si deseas añadir una marca de agua de texto a toda la presentación (es decir, a todas las diapositivas a la vez), añádela al [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). El resto de la lógica es idéntico al de añadir una marca de agua a una sola diapositiva: crea un objeto [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) y luego añade la marca de agua mediante el método [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame).
 ```php
-$watermarkText = "CONFIDENCIAL";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $masterSlide = $presentation->getMasters()->get_Item(0);
@@ -68,33 +80,33 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Patrón de Diapositivas](/slides/es/php-java/slide-master/)
+- [Cómo usar el Slide Master](/slides/es/php-java/slide-master/)
 {{% /alert %}}
 
-### **Establecer la Transparencia de la Forma de Marca de Agua**
+### **Establecer la transparencia de la forma de la marca de agua**
 
-Por defecto, la forma rectángulo tiene estilo con colores de relleno y línea. Las siguientes líneas de código hacen que la forma sea transparente.
-
+Por defecto, la forma rectangular tiene colores de relleno y de línea. Las siguientes líneas de código hacen que la forma sea transparente.
 ```php
 $watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
 $watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
 ```
 
-### **Establecer la Fuente para una Marca de Agua de Texto**
+
+### **Establecer la fuente de una marca de agua de texto**
 
 Puedes cambiar la fuente de la marca de agua de texto como se muestra a continuación.
-
 ```php
 $textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
 $textFormat->setLatinFont(new FontData("Arial"));
 $textFormat->setFontHeight(50);
 ```
 
-### **Establecer el Color del Texto de la Marca de Agua**
 
-Para establecer el color del texto de la marca de agua, utiliza este código:
+### **Establecer el color del texto de la marca de agua**
 
+Para establecer el color del texto de la marca de agua, usa este código:
 ```php
 $alpha = 150;
 $red = 200;
@@ -107,10 +119,10 @@ $fillFormat->setFillType(FillType::Solid);
 $fillFormat->getSolidFillColor()->setColor($textColor);
 ```
 
-### **Centrar una Marca de Agua de Texto**
 
-Es posible centrar la marca de agua en una diapositiva, y para eso, puedes hacer lo siguiente:
+### **Centrar una marca de agua de texto**
 
+Es posible centrar la marca de agua en una diapositiva; para ello, puedes hacer lo siguiente:
 ```php
 $slideSize = $presentation->getSlideSize()->getSize();
 $slideWidth = java_values($slideSize->getWidth());
@@ -127,16 +139,16 @@ $watermarkShape = $slide->getShapes()->addAutoShape(
 $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 ```
 
-La imagen a continuación muestra el resultado final.
 
-![La marca de agua de texto](text_watermark.png)
+La imagen siguiente muestra el resultado final.
 
-## **Marca de Agua de Imagen**
+![The text watermark](text_watermark.png)
 
-### **Agregar una Marca de Agua de Imagen a una Presentación**
+## **Marca de agua de imagen**
 
-Para agregar una marca de agua de imagen a una diapositiva de presentación, puedes hacer lo siguiente:
+### **Añadir una marca de agua de imagen a una presentación**
 
+Para añadir una marca de agua de imagen a una diapositiva de la presentación, puedes hacer lo siguiente:
 ```php
 $image = Images::fromFile("watermark.png");
 $picture = $presentation->getImages()->addImage($image);
@@ -147,12 +159,12 @@ $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage
 $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **Bloquear una Marca de Agua para Evitar Edición**
 
-Si es necesario prevenir que una marca de agua sea editada, utiliza el método [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) en la forma. Con esta propiedad, puedes proteger la forma de ser seleccionada, redimensionada, reposicionada, agrupada con otros elementos, bloquear su texto de ser editado, y mucho más:
+### **Bloquear una marca de agua para que no se edite**
 
+Si es necesario impedir que una marca de agua sea editada, usa el método [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) sobre la forma. Con esta propiedad, puedes proteger la forma contra la selección, el cambio de tamaño, el reposicionamiento, la agrupación con otros elementos, bloquear su texto de la edición y mucho más:
 ```php
-// Bloquear la forma de marca de agua para modificar
+// Bloquear la forma de la marca de agua para que no se modifique
 $watermarkShape->getAutoShapeLock()->setSelectLocked(true);
 $watermarkShape->getAutoShapeLock()->setSizeLocked(true);
 $watermarkShape->getAutoShapeLock()->setTextLocked(true);
@@ -160,48 +172,69 @@ $watermarkShape->getAutoShapeLock()->setPositionLocked(true);
 $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
 ```
 
-## **Traer una Marca de Agua al Frente**
 
-En Aspose.Slides, el orden Z de las formas se puede establecer a través del método [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder). Para hacer esto, necesitas llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta forma, es posible traer una forma al frente o enviarla al fondo de la diapositiva. Esta característica es especialmente útil si necesitas colocar una marca de agua frente a la presentación:
+### **Traer una marca de agua al frente**
 
+En Aspose.Slides, el orden Z de las formas puede establecerse mediante el método [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder). Para ello, debes invocar este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De este modo, es posible llevar una forma al frente o enviarla al fondo de la diapositiva. Esta función es especialmente útil si necesitas colocar una marca de agua delante del contenido de la presentación:
 ```php
 $shapeCount = java_values($slide->getShapes()->size());
 $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
 ```
 
-## **Establecer la Rotación de la Marca de Agua**
 
-Aquí hay un ejemplo de código sobre cómo ajustar la rotación de la marca de agua para que esté posicionada diagonalmente a través de la diapositiva:
+### **Establecer la rotación de la marca de agua**
 
+A continuación se muestra un ejemplo de código que ajusta la rotación de la marca de agua para que quede posicionada diagonalmente a través de la diapositiva:
 ```php
 $diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
 
 $watermarkShape->setRotation($diagonalAngle);
 ```
 
-## **Establecer un Nombre para una Marca de Agua**
 
-Aspose.Slides te permite establecer el nombre de una forma. Al usar el nombre de la forma, puedes acceder a ella en el futuro para modificarla o eliminarla. Para establecer el nombre de la forma de marca de agua, asígnalo al método [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName):
+### **Asignar un nombre a una marca de agua**
 
+Aspose.Slides permite establecer el nombre de una forma. Mediante el nombre de la forma, puedes acceder a ella en el futuro para modificarla o eliminarla. Para establecer el nombre de la forma de la marca de agua, asígnalo al método [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName):
 ```php
-$watermarkShape->setName("marca de agua");
+$watermarkShape->setName("watermark");
 ```
 
-## **Eliminar una Marca de Agua**
 
-Para eliminar la forma de marca de agua, utiliza el método [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) para encontrarla en las formas de la diapositiva. Luego, pasa la forma de marca de agua al método [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove):
+### **Eliminar una marca de agua**
 
+Para eliminar la forma de la marca de agua, usa el método [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) para encontrarla entre las formas de la diapositiva. Luego, pasa la forma de la marca de agua al método [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove):
 ```php
 $slideShapes = $slide->getShapes()->toArray();
 foreach ($slideShapes as $shape) {
-    if ($shape->getName() === "marca de agua") {
+    if ($shape->getName() === "watermark") {
         $slide->getShapes()->remove($shape);
     }
 }
 ```
 
-## **Un Ejemplo en Vivo**
 
-Es posible que quieras consultar los **herramientas en línea gratuitas de Aspose.Slides** [Agregar Marca de Agua](https://products.aspose.app/slides/watermark) y [Eliminar Marca de Agua](https://products.aspose.app/slides/watermark/remove-watermark).
+## **FAQ**
 
-![Herramientas en línea para agregar y eliminar marcas de agua](online_tools.png)
+**¿Qué es una marca de agua y por qué debería usarla?**
+
+Una marca de agua es una superposición de texto o imagen aplicada a las diapositivas que ayuda a proteger la propiedad intelectual, a reforzar el reconocimiento de marca o a impedir el uso no autorizado de presentaciones.
+
+**¿Puedo añadir una marca de agua a todas las diapositivas de una presentación?**
+
+Sí, Aspose.Slides permite añadir programáticamente una marca de agua a cada diapositiva de una presentación. Puedes iterar por todas las diapositivas y aplicar la configuración de la marca de agua individualmente.
+
+**¿Cómo puedo ajustar la transparencia de la marca de agua?**
+
+Puedes ajustar la transparencia de la marca de agua modificando la configuración de relleno ([getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getfillformat/)) de la forma. Esto garantiza que la marca de agua sea sutil y no distraiga del contenido de la diapositiva.
+
+**¿Qué formatos de imagen son compatibles para marcas de agua?**
+
+Aspose.Slides admite varios formatos de imagen como PNG, JPEG, GIF, BMP, SVG y otros.
+
+**¿Puedo personalizar la fuente y el estilo de una marca de agua de texto?**
+
+Sí, puedes elegir cualquier fuente, tamaño y estilo para que coincidan con el diseño de tu presentación y mantengan la coherencia de la marca.
+
+**¿Cómo cambio la posición o la orientación de una marca de agua?**
+
+Puedes ajustar la posición y la orientación de la marca de agua programáticamente modificando las coordenadas, el tamaño y las propiedades de rotación de la forma.

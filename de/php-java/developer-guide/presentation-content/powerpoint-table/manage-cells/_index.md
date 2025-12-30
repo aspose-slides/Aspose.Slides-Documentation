@@ -1,30 +1,40 @@
 ---
-title: Zellen verwalten
+title: Tabellenzellen in Präsentationen mit PHP verwalten
+linktitle: Zellen verwalten
 type: docs
 weight: 30
 url: /de/php-java/manage-cells/
-keywords: "Tabelle, zusammengeführte Zellen, geteilte Zellen, Bild in Tabellenspalte, Java, Aspose.Slides für PHP über Java"
-description: "Tabellenzellen in PowerPoint-Präsentationen "
+keywords:
+- Tabellenzelle
+- Zellen zusammenführen
+- Rand entfernen
+- Zelle teilen
+- Bild in Zelle
+- Hintergrundfarbe
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Verwalten Sie mühelos Tabellenzellen in PowerPoint mit Aspose.Slides für PHP. Beherrschen Sie das schnelle Zugreifen, Ändern und Stylen von Zellen für eine nahtlose Folienautomatisierung."
 ---
 
-## **Zusammengeführte Tabellenzelle identifizieren**
+## **Identifizieren einer zusammengeführten Tabellenzelle**
 1. Erstellen Sie eine Instanz der  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Holen Sie sich die Tabelle von der ersten Folie. 
-3. Durchlaufen Sie die Zeilen und Spalten der Tabelle, um zusammengeführte Zellen zu finden.
-4. Drucken Sie eine Nachricht, wenn zusammengeführte Zellen gefunden werden.
+2. Holen Sie die Tabelle von der ersten Folie.
+3. Iterieren Sie durch die Zeilen und Spalten der Tabelle, um zusammengeführte Zellen zu finden.
+4. Geben Sie eine Meldung aus, wenn zusammengeführte Zellen gefunden werden.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie zusammengeführte Tabellenzellen in einer Präsentation identifizieren:
-
+Dieser PHP-Code zeigt, wie man zusammengeführte Tabellenzellen in einer Präsentation identifiziert:
 ```php
   $pres = new Presentation("SomePresentationWithTable.pptx");
   try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// vorausgesetzt, dass Slide#0.Shape#0 eine Tabelle ist
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// Annahme: Slide#0.Shape#0 ist eine Tabelle
 
     for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
       for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
         $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
         if ($currentCell->isMergedCell()) {
-          echo(sprintf("Zelle %d;%d ist Teil einer zusammengeführten Zelle mit RowSpan=%d und ColSpan=%d, die von Zelle %d;%d beginnt.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
         }
       }
     }
@@ -35,19 +45,19 @@ Dieser PHP-Code zeigt Ihnen, wie Sie zusammengeführte Tabellenzellen in einer P
   }
 ```
 
-## **Tabellenzellenrand entfernen**
+
+## **Tabellenzellenränder entfernen**
 1. Erstellen Sie eine Instanz der  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Holen Sie sich eine Folienreferenz über ihren Index. 
+2. Holen Sie die Referenz einer Folie über deren Index.
 3. Definieren Sie ein Array von Spalten mit Breite.
 4. Definieren Sie ein Array von Zeilen mit Höhe.
-5. Fügen Sie der Folie über die [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) Methode eine Tabelle hinzu.
-6. Durchlaufen Sie jede Zelle, um die oberen, unteren, rechten und linken Ränder zu löschen.
+5. Fügen Sie der Folie über die Methode [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) eine Tabelle hinzu.
+6. Iterieren Sie über jede Zelle, um die oberen, unteren, rechten und linken Ränder zu entfernen.
 7. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Ränder von Tabellenzellen entfernen:
-
+Dieser PHP-Code zeigt, wie man die Ränder von Tabellenzellen entfernt:
 ```php
-  # Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
+  # Instanziert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -55,7 +65,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Ränder von Tabellenzellen entfernen:
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(50, 50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    # Fügt der Folie eine Tabellengestalt hinzu
+    # Fügt der Folie ein Tabellenshape hinzu
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     # Setzt das Randformat für jede Zelle
     foreach($tbl->getRows() as $row) {
@@ -66,7 +76,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Ränder von Tabellenzellen entfernen:
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
       }
     }
-    # Schreibt die PPTX auf die Festplatte
+    # Speichert die PPTX auf die Festplatte
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -75,11 +85,11 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Ränder von Tabellenzellen entfernen:
   }
 ```
 
-## **Nummerierung in zusammengeführten Zellen**
-Wenn wir 2 Paare von Zellen (1, 1) x (2, 1) und (1, 2) x (2, 2) zusammenführen, wird die resultierende Tabelle nummeriert. Dieser PHP-Code demonstriert den Prozess:
 
+## **Nummerierung in zusammengeführten Zellen**
+Wenn wir 2 Paare von Zellen (1, 1) x (2, 1) und (1, 2) x (2, 2) zusammenführen, wird die resultierende Tabelle nummeriert. Dieser PHP-Code demonstriert den Vorgang:
 ```php
-  # Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
+  # Instanziert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -87,7 +97,7 @@ Wenn wir 2 Paare von Zellen (1, 1) x (2, 1) und (1, 2) x (2, 2) zusammenführen,
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    # Fügt der Folie eine Tabellengestalt hinzu
+    # Fügt der Folie ein Tabellenshape hinzu
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     # Setzt das Randformat für jede Zelle
     foreach($tbl->getRows() as $row) {
@@ -106,9 +116,9 @@ Wenn wir 2 Paare von Zellen (1, 1) x (2, 1) und (1, 2) x (2, 2) zusammenführen,
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    # Führt Zellen (1, 1) x (2, 1) zusammen
+    # Fügt Zellen (1, 1) x (2, 1) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Führt Zellen (1, 2) x (2, 2) zusammen
+    # Fügt Zellen (1, 2) x (2, 2) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -118,10 +128,10 @@ Wenn wir 2 Paare von Zellen (1, 1) x (2, 1) und (1, 2) x (2, 2) zusammenführen,
   }
 ```
 
-Dann führen wir die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusammenführen. Das Ergebnis ist eine Tabelle, die eine große zusammengeführte Zelle in ihrer Mitte enthält: 
 
+Anschließend führen wir die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusammenführen. Das Ergebnis ist eine Tabelle mit einer großen zusammengeführten Zelle in ihrer Mitte:
 ```php
-  # Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
+  # Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -129,7 +139,7 @@ Dann führen wir die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusamme
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    # Fügt der Folie eine Tabellengestalt hinzu
+    # Fügt der Folie ein Tabellenshape hinzu
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     # Setzt das Randformat für jede Zelle
     foreach($tbl->getRows() as $row) {
@@ -148,11 +158,11 @@ Dann führen wir die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusamme
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    # Führt Zellen (1, 1) x (2, 1) zusammen
+    # Fügt Zellen (1, 1) x (2, 1) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Führt Zellen (1, 2) x (2, 2) zusammen
+    # Fügt Zellen (1, 2) x (2, 2) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Führt Zellen (1, 1) x (1, 2) zusammen
+    # Fügt Zellen (1, 1) x (1, 2) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
     # Schreibt die PPTX-Datei auf die Festplatte
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
@@ -163,13 +173,13 @@ Dann führen wir die Zellen weiter zusammen, indem wir (1, 1) und (1, 2) zusamme
   }
 ```
 
-## **Nummerierung in geteilten Zellen**
-In den vorherigen Beispielen, als Tabellenzellen zusammengeführt wurden, änderte sich die Numerierung oder das Zahlensystem in anderen Zellen nicht. 
 
-Dieses Mal nehmen wir eine reguläre Tabelle (eine Tabelle ohne zusammengeführte Zellen) und versuchen dann, Zelle (1,1) zu teilen, um eine spezielle Tabelle zu erhalten. Sie möchten vielleicht dieser Tabellen-Nummerierung Aufmerksamkeit schenken, die als seltsam angesehen werden könnte. Das ist jedoch die Art und Weise, wie Microsoft PowerPoint Tabellenzellen nummeriert, und Aspose.Slides tut das gleiche. 
+## **Nummerierung in einer geteilten Zelle**
+In vorherigen Beispielen, wenn Tabellenzellen zusammengeführt wurden, änderte sich die Numerierung oder das Nummerierungssystem in anderen Zellen nicht.
 
-Dieser PHP-Code demonstriert den beschriebenen Prozess:
+Diesmal nehmen wir eine reguläre Tabelle (eine Tabelle ohne zusammengeführte Zellen) und versuchen, Zelle (1,1) zu teilen, um eine spezielle Tabelle zu erhalten. Sie sollten die Nummerierung dieser Tabelle beachten, die möglicherweise ungewöhnlich erscheint. Das ist jedoch die Art und Weise, wie Microsoft PowerPoint Tabellenzellen nummeriert, und Aspose.Slides tut dasselbe.
 
+Dieser PHP-Code demonstriert den beschriebenen Vorgang:
 ```php
   # Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
   $pres = new Presentation();
@@ -179,7 +189,7 @@ Dieser PHP-Code demonstriert den beschriebenen Prozess:
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    # Fügt der Folie eine Tabellengestalt hinzu
+    # Fügt der Folie ein Tabellenshape hinzu
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     # Setzt das Randformat für jede Zelle
     foreach($tbl->getRows() as $row) {
@@ -198,11 +208,11 @@ Dieser PHP-Code demonstriert den beschriebenen Prozess:
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    # Führt Zellen (1, 1) x (2, 1) zusammen
+    # Fügt Zellen (1, 1) x (2, 1) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    # Führt Zellen (1, 2) x (2, 2) zusammen
+    # Fügt Zellen (1, 2) x (2, 2) zusammen
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    # Teilt Zelle (1, 1)
+    # Teilt die Zelle (1, 1)
     $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
     # Schreibt die PPTX-Datei auf die Festplatte
     $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
@@ -213,10 +223,9 @@ Dieser PHP-Code demonstriert den beschriebenen Prozess:
   }
 ```
 
+
 ## **Hintergrundfarbe der Tabellenzelle ändern**
-
-Dieser PHP-Code zeigt Ihnen, wie Sie die Hintergrundfarbe einer Tabellenzelle ändern:
-
+Dieser PHP-Code zeigt, wie man die Hintergrundfarbe einer Tabellenzelle ändert:
 ```php
   $presentation = new Presentation();
   try {
@@ -237,23 +246,22 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Hintergrundfarbe einer Tabellenzelle ä
   }
 ```
 
-## **Bild in eine Tabellenzelle einfügen**
 
+## **Bild in einer Tabellenzelle einfügen**
 1. Erstellen Sie eine Instanz der  [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Holen Sie sich eine Folienreferenz über ihren Index.
+2. Holen Sie die Referenz einer Folie über deren Index.
 3. Definieren Sie ein Array von Spalten mit Breite.
 4. Definieren Sie ein Array von Zeilen mit Höhe.
-5. Fügen Sie der Folie über die [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) Methode eine Tabelle hinzu.
+5. Fügen Sie der Folie über die Methode [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) eine Tabelle hinzu.
 6. Erstellen Sie ein `Images`-Objekt, um die Bilddatei zu halten.
-7. Fügen Sie das `IImage`-Bild zu `IPPImage`-Objekt hinzu.
-8. Setzen Sie das `FillFormat` für die Tabellenzelle auf `Picture`.
-9. Fügen Sie das Bild zur ersten Zelle der Tabelle hinzu.
-10. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+7. Fügen Sie das `IImage`-Bild dem Objekt `IPPImage` hinzu.
+8. Setzen Sie das `FillFormat` der Tabellenzelle auf `Picture`.
+9. Fügen Sie das Bild der ersten Zelle der Tabelle hinzu.
+10. Speichern Sie die modifizierte Präsentation als PPTX-Datei
 
-Dieser PHP-Code zeigt Ihnen, wie Sie ein Bild in eine Tabellenzelle einfügen, wenn Sie eine Tabelle erstellen:
-
+Dieser PHP-Code zeigt, wie man ein Bild in einer Tabellenzelle platziert, wenn man eine Tabelle erstellt:
 ```php
-  # Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
+  # Instanziert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -261,9 +269,9 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein Bild in eine Tabellenzelle einfügen, w
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(100, 100, 100, 100, 90 );
-    # Fügt der Folie eine Tabellengestalt hinzu
+    # Fügt der Folie ein Tabellenshape hinzu
     $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # Erstellen Sie ein IPPImage-Objekt mit der Bilddatei
+    # Erzeugt ein IPPImage-Objekt mithilfe der Bilddatei
     $picture;
     $image = Images->fromFile("image.jpg");
     try {
@@ -273,7 +281,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein Bild in eine Tabellenzelle einfügen, w
         $image->dispose();
       }
     }
-    # Fügt das Bild in die erste Tabellenzelle ein
+    # Fügt das Bild zur ersten Tabellenzelle hinzu
     $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
     $cellFormat::getFillFormat()->setFillType(FillType::Picture);
     $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
@@ -287,3 +295,22 @@ Dieser PHP-Code zeigt Ihnen, wie Sie ein Bild in eine Tabellenzelle einfügen, w
     }
   }
 ```
+
+
+## **FAQ**
+
+**Kann ich unterschiedliche Linienstärken und -stile für die verschiedenen Seiten einer einzelnen Zelle festlegen?**
+
+Ja. Die [oberen](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[unteren](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[linken](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[rechten](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) Ränder besitzen separate Eigenschaften, sodass die Dicke und der Stil jeder Seite unterschiedlich sein können. Dies folgt logisch aus der seitenspezifischen Randsteuerung für eine Zelle, die im Artikel demonstriert wird.
+
+**Was passiert mit dem Bild, wenn ich die Spalten-/Zeilengröße ändere, nachdem ich ein Bild als Hintergrund der Zelle festgelegt habe?**
+
+Das Verhalten hängt vom [Füllmodus](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile) ab. Beim Strecken passt sich das Bild der neuen Zelle an; beim Kacheln werden die Kacheln neu berechnet. Der Artikel erwähnt die Anzeige‑Modi von Bildern in einer Zelle.
+
+**Kann ich einem Hyperlink den gesamten Inhalt einer Zelle zuweisen?**
+
+[Hyperlinks](/slides/de/php-java/manage-hyperlinks/) werden auf Textebene (Portion) innerhalb des Textfelds der Zelle oder auf Ebene der gesamten Tabelle/Form festgelegt. In der Praxis weist man den Link einer Portion oder dem gesamten Text in der Zelle zu.
+
+**Kann ich unterschiedliche Schriftarten innerhalb einer einzelnen Zelle festlegen?**
+
+Ja. Das Textfeld einer Zelle unterstützt [Portionen](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (Laufabschnitte) mit unabhängiger Formatierung – Schriftfamilie, Stil, Größe und Farbe.

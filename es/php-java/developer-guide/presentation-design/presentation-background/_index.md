@@ -1,193 +1,261 @@
 ---
-title: Fondo de Presentación
+title: Gestionar fondos de presentación en PHP
+linktitle: Fondo de diapositiva
 type: docs
 weight: 20
 url: /es/php-java/presentation-background/
-keywords: "fondo de PowerPoint, establecer fondo"
-description: "Establecer fondo en la presentación de PowerPoint"
+keywords:
+- fondo de presentación
+- fondo de diapositiva
+- color sólido
+- color degradado
+- fondo de imagen
+- transparencia del fondo
+- propiedades del fondo
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprende a establecer fondos dinámicos en archivos PowerPoint y OpenDocument usando Aspose.Slides para PHP mediante Java, con consejos de código para mejorar tus presentaciones."
 ---
 
-Los colores sólidos, colores en degradado e imágenes se utilizan a menudo como imágenes de fondo para las diapositivas. Puedes establecer el fondo tanto para una **diapositiva normal** (diapositiva única) como para una **diapositiva maestra** (varias diapositivas a la vez).
+## **Visión general**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Los colores sólidos, los degradados y las imágenes se utilizan habitualmente como fondos de diapositiva. Puedes establecer el fondo para una **diapositiva normal** (una sola diapositiva) o para una **diapositiva maestra** (se aplica a varias diapositivas a la vez).
 
-## **Establecer Color Sólido como Fondo para Diapositiva Normal**
+![Fondo de PowerPoint](powerpoint-background.png)
 
-Aspose.Slides te permite establecer un color sólido como fondo para una diapositiva específica en una presentación (incluso si esa presentación contiene una diapositiva maestra). El cambio de fondo afecta solo a la diapositiva seleccionada.
+## **Establecer un fondo de color sólido para una diapositiva normal**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) para la diapositiva a `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) para el fondo de la diapositiva a `Solid`.
-4. Usa la propiedad [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) expuesta por [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para especificar un color sólido para el fondo.
+Aspose.Slides permite establecer un color sólido como fondo de una diapositiva específica en una presentación, incluso si la presentación utiliza una diapositiva maestra. El cambio se aplica únicamente a la diapositiva seleccionada.
+
+1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase.
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) del fondo de la diapositiva en `Solid`.
+4. Utiliza el método [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) en [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para especificar el color de fondo sólido.
 5. Guarda la presentación modificada.
 
-Este código PHP te muestra cómo establecer un color sólido (azul) como fondo para una diapositiva normal:
-
+El siguiente ejemplo en PHP muestra cómo establecer un color azul sólido como fondo de una diapositiva normal:
 ```php
-  # Crea una instancia de la clase Presentation
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # Establece el color de fondo para el primer ISlide a Azul
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    # Escribe la presentación en el disco
-    $pres->save("ContentBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Crear una instancia de la clase Presentation.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Establecer el color de fondo de la diapositiva a azul.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    
+    // Guardar la presentación en disco.
+    $presentation->save("SolidColorBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Establecer Color Sólido como Fondo para Diapositiva Maestra**
 
-Aspose.Slides te permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que contiene y controla los ajustes de formato para todas las diapositivas. Por lo tanto, cuando seleccionas un color sólido como fondo para la diapositiva maestra, ese nuevo fondo se utilizará para todas las diapositivas.
+## **Establecer un fondo de color sólido para una diapositiva maestra**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) para la diapositiva maestra (`Masters`) a `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) para el fondo de la diapositiva maestra a `Solid`.
-4. Usa la propiedad [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) expuesta por [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para especificar un color sólido para el fondo.
+Aspose.Slides permite establecer un color sólido como fondo de la diapositiva maestra en una presentación. La diapositiva maestra actúa como plantilla que controla el formato de todas las diapositivas, de modo que, al elegir un color sólido para el fondo de la diapositiva maestra, se aplica a cada diapositiva.
+
+1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase.
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) de la diapositiva maestra (a través de `getMasters`) en `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) del fondo de la diapositiva maestra en `Solid`.
+4. Utiliza el método [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) para especificar el color de fondo sólido.
 5. Guarda la presentación modificada.
 
-Este código PHP te muestra cómo establecer un color sólido (verde bosque) como fondo para una diapositiva maestra en una presentación:
-
+El siguiente ejemplo en PHP muestra cómo establecer un color verde sólido como fondo de una diapositiva maestra:
 ```php
-  # Crea una instancia de la clase Presentation
-  $pres = new Presentation();
-  try {
-    # Establece el color de fondo para el Master ISlide a Verde Bosque
-    $pres->getMasters()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Escribe la presentación en el disco
-    $pres->save("MasterBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Crear una instancia de la clase Presentation.
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+
+    // Establecer el color de fondo de la diapositiva maestra a verde bosque.
+    $masterSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $masterSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $masterSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+
+    // Guardar la presentación en disco.
+    $presentation->save("MasterSlideBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Establecer Color en Degradado como Fondo para Diapositiva**
 
-Un degradado es un efecto gráfico basado en un cambio gradual de color. Los colores en degradado, cuando se usan como fondos para diapositivas, hacen que las presentaciones se vean artísticas y profesionales. Aspose.Slides te permite establecer un color en degradado como fondo para las diapositivas en las presentaciones.
+## **Establecer un fondo degradado para una diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) para la diapositiva a `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) para el fondo de la diapositiva maestra a `Gradient`.
-4. Usa la propiedad [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat--) expuesta por [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para especificar tu configuración de degradado preferida.
+Un degradado es un efecto gráfico creado por un cambio gradual de color. Cuando se utiliza como fondo de diapositiva, los degradados pueden hacer que las presentaciones parezcan más artísticas y profesionales. Aspose.Slides permite establecer un color degradado como fondo de diapositivas.
+
+1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase.
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) del fondo de la diapositiva en `Gradient`.
+4. Utiliza el método [getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat) en [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para configurar los ajustes de degradado que prefieras.
 5. Guarda la presentación modificada.
 
-Este código PHP te muestra cómo establecer un color en degradado como fondo para una diapositiva:
-
+El siguiente ejemplo en PHP muestra cómo establecer un color degradado como fondo de una diapositiva:
 ```php
-  # Crea una instancia de la clase Presentation
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # Aplica efecto de degradado al fondo
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip->FlipBoth);
-    # Escribe la presentación en el disco
-    $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Crear una instancia de la clase Presentation.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Aplicar un efecto degradado al fondo.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
+    $slide->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip::FlipBoth);
+
+    // Guardar la presentación en disco.
+    $presentation->save("GradientBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Establecer Imagen como Fondo para Diapositiva**
 
-Además de colores sólidos y colores en degradado, Aspose.Slides también te permite establecer imágenes como fondo para las diapositivas en las presentaciones.
+## **Establecer una imagen como fondo de diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) para la diapositiva a `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) para el fondo de la diapositiva maestra a `Picture`.
+Además de los rellenos sólidos y degradados, Aspose.Slides permite usar imágenes como fondos de diapositiva.
+
+1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase.
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) de la diapositiva en `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) del fondo de la diapositiva en `Picture`.
 4. Carga la imagen que deseas usar como fondo de la diapositiva.
-5. Agrega la imagen a la colección de imágenes de la presentación.
-6. Usa la propiedad [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat--) expuesta por [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para establecer la imagen como fondo.
+5. Añade la imagen a la colección de imágenes de la presentación.
+6. Utiliza el método [getPictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat) en [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) para asignar la imagen como fondo.
 7. Guarda la presentación modificada.
 
-Este código PHP te muestra cómo establecer una imagen como fondo para una diapositiva:
-
+El siguiente ejemplo en PHP muestra cómo establecer una imagen como fondo de una diapositiva:
 ```php
-  # Crea una instancia de la clase Presentation
-  $pres = new Presentation();
-  try {
-    # Establece condiciones para la imagen de fondo
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Picture);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Carga la imagen
-    $imgx;
-    $image = Images->fromFile("Desert.jpg");
-    try {
-      $imgx = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Agrega imagen a la colección de imágenes de la presentación
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($imgx);
-    # Escribe la presentación en el disco
-    $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Crear una instancia de la clase Presentation.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Establecer propiedades de la imagen de fondo.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+    // Cargar la imagen.
+    $image = Images::fromFile("Tulips.jpg");
+    // Añadir la imagen a la colección de imágenes de la presentación.
+    $ppImage = $presentation->getImages()->addImage($image);
+    $image->dispose();
+
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    // Guardar la presentación en disco.
+    $presentation->save("ImageAsBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Cambiar la Transparencia de la Imagen de Fondo**
 
-Puede que desees ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva resalte. Este código PHP te muestra cómo cambiar la transparencia para una imagen de fondo de diapositiva:
-
+El siguiente fragmento de código muestra cómo establecer el tipo de relleno de fondo a una imagen en mosaico y modificar sus propiedades de teselado:
 ```php
-  $transparencyValue = 30; // por ejemplo
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
 
-  # Obtiene una colección de operaciones de transformación de imagen
-  $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  # Encuentra un efecto de transparencia con porcentaje fijo.
-  $transparencyOperation = null;
-  foreach($imageTransform as $operation) {
+    $background = $firstSlide->getBackground();
+
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Picture);
+
+    $newImage = Images::fromFile("image.png");
+    $ppImage = $presentation->getImages()->addImage($newImage);
+    $newImage->dispose();
+
+    // Establecer la imagen utilizada para el relleno de fondo.
+    $backPictureFillFormat = $background->getFillFormat()->getPictureFillFormat();
+    $backPictureFillFormat->getPicture()->setImage($ppImage);
+
+    // Establecer el modo de relleno de imagen a Mosaico y ajustar las propiedades del mosaico.
+    $backPictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
+    $backPictureFillFormat->setTileOffsetX(15);
+    $backPictureFillFormat->setTileOffsetY(15);
+    $backPictureFillFormat->setTileScaleX(46);
+    $backPictureFillFormat->setTileScaleY(87);
+    $backPictureFillFormat->setTileAlignment(RectangleAlignment::Center);
+    $backPictureFillFormat->setTileFlip(TileFlip::FlipY);
+
+    $presentation->save("TileBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+{{% alert color="primary" %}}
+
+Leer más: [**Tile Picture As Texture**](/slides/es/php-java/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
+
+### **Cambiar la transparencia de la imagen de fondo**
+
+Puede que necesites ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la misma destaque. El siguiente código PHP muestra cómo cambiar la transparencia de la imagen de fondo de una diapositiva:
+```php
+$transparencyValue = 30; // Por ejemplo.
+
+// Obtener la colección de operaciones de transformación de imagen.
+$imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
+
+// Buscar un efecto de transparencia de porcentaje fijo existente.
+$transparencyOperation = null;
+foreach($imageTransform as $operation) {
     if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $transparencyOperation = $operation;
-      break;
+        $transparencyOperation = $operation;
+        break;
     }
-  }
-  # Establece el nuevo valor de transparencia.
-  if (java_is_null($transparencyOperation)) {
+}
+
+// Establecer el nuevo valor de transparencia.
+if (java_is_null($transparencyOperation)) {
     $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
-  } else {
+} else {
     $transparencyOperation->setAmount(100 - $transparencyValue);
-  }
+}
 ```
 
-## **Obtener Valor del Fondo de Diapositiva**
 
-Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/) para permitirte obtener los valores efectivos de los fondos de diapositivas. Esta interfaz contiene información sobre el [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getFillFormat--) efectivo y el [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+## **Obtener el valor del fondo de la diapositiva**
 
-Usando la propiedad [Background](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getBackground--) de la clase [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/), puedes obtener el valor efectivo para un fondo de diapositiva.
+Aspose.Slides proporciona la clase `BackgroundEffectiveData` para recuperar los valores efectivos del fondo de una diapositiva. Esta clase expone el [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) y el [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) efectivos.
 
-Este código PHP te muestra cómo obtener el valor de fondo efectivo de una diapositiva:
+Utilizando el método `getBackground` de la clase [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/), puedes obtener el fondo efectivo de una diapositiva.
 
+El siguiente ejemplo en PHP muestra cómo obtener el valor efectivo del fondo de una diapositiva:
 ```php
-  # Crea una instancia de la clase Presentation
-  $pres = new Presentation("SamplePresentation.pptx");
-  try {
-    $effBackground = $pres->getSlides()->get_Item(0)->getBackground()->getEffective();
-    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid) {
-      echo("Color de relleno: " . $effBackground->getFillFormat()->getSolidFillColor());
-    } else {
-      echo("Tipo de relleno: " . $effBackground->getFillFormat()->getFillType());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Crear una instancia de la clase Presentation.
+$presentation = new Presentation("Sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Recuperar el fondo efectivo, teniendo en cuenta master, layout y tema.
+    $effBackground = $slide->getBackground()->getEffective();
+
+    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid)
+        echo "Fill color: " . $effBackground->getFillFormat()->getSolidFillColor() . "\n";
+    else
+        echo "Fill type: " . $effBackground->getFillFormat()->getFillType() . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **FAQ**
+
+**¿Puedo restablecer un fondo personalizado y restaurar el fondo del tema/disposición?**
+
+Sí. Elimina el relleno personalizado de la diapositiva y el fondo se heredará nuevamente de la diapositiva de [disposición](/slides/es/php-java/slide-layout/)/[maestra](/slides/es/php-java/slide-master/) correspondiente (es decir, del [fondo del tema](/slides/es/php-java/presentation-theme/)).
+
+**¿Qué ocurre con el fondo si cambio el tema de la presentación más adelante?**
+
+Si una diapositiva tiene su propio relleno, permanecerá sin cambios. Si el fondo se hereda de la [disposición](/slides/es/php-java/slide-layout/)/[maestra](/slides/es/php-java/slide-master/), se actualizará para coincidir con el [nuevo tema](/slides/es/php-java/presentation-theme/).

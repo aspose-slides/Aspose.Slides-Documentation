@@ -1,18 +1,32 @@
 ---
-title: Erstelle Fallback-Schriftartenkollektion
+title: Fallback-Schriftartkollektionen in PHP konfigurieren
+linktitle: Fallback-Schriftartsammlung
 type: docs
 weight: 20
 url: /de/php-java/create-fallback-fonts-collection/
+keywords:
+- Fallback-Schriftart
+- Fallback-Regel
+- Schriftartsammlung
+- Schriftart konfigurieren
+- Schriftart einrichten
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Richten Sie eine Fallback-Schriftartsammlung in Aspose.Slides für PHP über Java ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar zu halten."
 ---
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) Klasse können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection) Interface implementiert. Es ist möglich, Regeln von der Sammlung hinzuzufügen oder zu entfernen.
+## **Fallback-Regeln anwenden**
 
-Diese Sammlung kann dann der [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) Methode der [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/php-java/about-fontsmanager-and-fontsloader/).
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Jede [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) hat eine [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) Methode mit ihrer eigenen Instanz der [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) Klasse.
+Dann kann diese Sammlung der Methode [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) der Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) zugewiesen werden. FontsManager steuert die Schriftarten über die gesamte Präsentation. Weitere Informationen [Über FontsManager und FontsLoader](/slides/de/php-java/about-fontsmanager-and-fontsloader/).
 
-Hier ist ein Beispiel, wie man eine Fallback-Schriftartenregeln-Kollektion erstellt und sie dem [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist: 
+Jede [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) hat eine [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--)‑Methode mit ihrer eigenen Instanz der Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager).
 
+Hier ein Beispiel, wie man eine Sammlung von Fallback‑Schriftart‑Regeln erstellt und sie dem [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) einer bestimmten Präsentation zuweist:  
 ```php
   $pres = new Presentation();
   try {
@@ -27,8 +41,27 @@ Hier ist ein Beispiel, wie man eine Fallback-Schriftartenregeln-Kollektion erste
   }
 ```
 
-Nachdem der FontsManager mit der Fallback-Schriftartenkollektion initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsdarstellung angewendet.
+
+Nachdem der FontsManager mit einer Fallback‑Schriftart‑Sammlung initialisiert wurde, werden die Fallback‑Schriftarten während der Rendering‑Phase der Präsentation angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr, wie man eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/php-java/render-presentation-with-fallback-font/).
+Weitere Informationen, wie man die Präsentation mit Fallback‑Schriftart rendern kann [Präsentation mit Fallback‑Schriftart rendern](/slides/de/php-java/render-presentation-with-fallback-font/). 
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
+
+Nein. Fallback‑Regeln sind Laufzeit‑Rendering‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+
+**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+
+Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeden Text in diesen Objekten verwendet.
+
+**Stellt Aspose zusammen mit der Bibliothek Schriftarten bereit?**
+
+Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
+
+**Können Ersatz‑/Substitution für fehlende Schriftarten und Fallback für fehlende Glyphen gemeinsam verwendet werden?**
+
+Ja. Sie sind unabhängige Stufen derselben Schriftart‑Auflösungspipeline: Zuerst ermittelt die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/php-java/font-replacement/)/[substitution](/slides/de/php-java/font-substitution/)), dann füllt Fallback die Lücken für fehlende Glyphen in verfügbaren Schriftarten.
