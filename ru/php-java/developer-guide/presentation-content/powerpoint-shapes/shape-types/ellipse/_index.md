@@ -1,36 +1,47 @@
 ---
-title: Элипс
+title: Добавить эллипсы в презентации на PHP
+linktitle: Эллипс
 type: docs
 weight: 30
 url: /ru/php-java/ellipse/
+keywords:
+- эллипс
+- форма
+- добавить эллипс
+- создать эллипс
+- нарисовать эллипс
+- отформатированный эллипс
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как создавать, форматировать и управлять формами эллипсов в Aspose.Slides for PHP via Java в презентациях PPT и PPTX — примеры кода включены."
 ---
-
 
 {{% alert color="primary" %}} 
 
-В этой теме мы ознакомим разработчиков с добавлением форм эллипса на их слайды с помощью Aspose.Slides для PHP через Java. Aspose.Slides для PHP через Java предоставляет более простой набор API для рисования различных видов фигур всего за несколько строк кода.
+В этой статье мы познакомим разработчиков с добавлением эллипсов на слайды с помощью Aspose.Slides for PHP via Java. Aspose.Slides for PHP via Java предоставляет упрощённый набор API для рисования различных фигур всего в несколько строк кода.
 
 {{% /alert %}} 
 
-## **Создание Элипса**
+## **Создать эллипс**
 Чтобы добавить простой эллипс на выбранный слайд презентации, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
 - Получите ссылку на слайд, используя его индекс.
-- Добавьте AutoShape типа Элипс, используя метод [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) объекта [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- Запишите измененную презентацию как файл PPTX.
+- Добавьте AutoShape типа Ellipse с помощью метода [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) объекта [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- Сохраните изменённую презентацию в файл PPTX.
 
-В приведенном ниже примере мы добавили эллипс на первый слайд
-
+В примере ниже мы добавили эллипс на первый слайд
 ```php
-  # Создайте экземпляр класса Presentation, который представляет PPTX
+  # Создать объект класса Presentation, представляющий PPTX
   $pres = new Presentation();
   try {
-    # Получите первый слайд
+    # Получить первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Добавьте AutoShape типа эллипс
+    # Добавить AutoShape типа Ellipse
     $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
-    # Запишите файл PPTX на диск
+    # Сохранить файл PPTX на диск
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -39,36 +50,36 @@ url: /ru/php-java/ellipse/
   }
 ```
 
-## **Создание Форматированного Элипса**
-Чтобы добавить лучше форматированный эллипс на слайд, выполните следующие шаги:
+
+## **Создать отформатированный эллипс**
+Чтобы добавить более оформленный эллипс на слайд, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
 - Получите ссылку на слайд, используя его индекс.
-- Добавьте AutoShape типа Элипс, используя метод [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) объекта [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- Установите тип заливки эллипса на Сплошной.
-- Установите цвет эллипса, используя свойство SolidFillColor.Color, как это показано объектом [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IFillFormat), связанным с объектом [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape).
+- Добавьте AutoShape типа Ellipse с помощью метода [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) объекта [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- Установите тип заливки эллипса как Solid.
+- Установите цвет эллипса через свойство SolidFillColor.Color объекта [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IFillFormat), связанного с объектом [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape).
 - Установите цвет линий эллипса.
 - Установите ширину линий эллипса.
-- Запишите измененную презентацию как файл PPTX.
+- Сохраните изменённую презентацию в файл PPTX.
 
-В приведенном ниже примере мы добавили форматированный эллипс на первый слайд презентации.
-
+В примере ниже мы добавили отформатированный эллипс на первый слайд презентации.
 ```php
-  # Создайте экземпляр класса Presentation, который представляет PPTX
+  # Создать объект класса Presentation, представляющий PPTX
   $pres = new Presentation();
   try {
-    # Получите первый слайд
+    # Получить первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Добавьте AutoShape типа эллипс
+    # Добавить AutoShape типа Ellipse
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
-    # Примените некоторые настройки к фигуре эллипса
+    # Применить некоторое форматирование к фигуре эллипса
     $shp->getFillFormat()->setFillType(FillType::Solid);
     $shp->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->Chocolate));
-    # Примените некоторые настройки к линии эллипса
+    # Применить некоторое форматирование к линии эллипса
     $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
-    # Запишите файл PPTX на диск
+    # Сохранить файл PPTX на диск
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -76,3 +87,18 @@ url: /ru/php-java/ellipse/
     }
   }
 ```
+
+
+## **FAQ**
+
+**Как задать точное положение и размер эллипса относительно единиц измерения слайда?**
+
+Координаты и размеры обычно указываются **in points**. Для предсказуемых результатов рассчитывайте их исходя из размеров слайда и преобразуйте необходимые миллиметры или дюймы в пункты перед присвоением значений.
+
+**Как разместить эллипс выше или ниже других объектов (управление порядком наложения)?**
+
+Отрегулируйте порядок отрисовки объекта, переместив его на передний план или отправив назад. Это позволяет эллипсу перекрывать другие объекты или раскрывать те, что находятся под ним.
+
+**Как анимировать появление или акцентирование эллипса?**
+
+[Apply](/slides/ru/php-java/shape-animation/) входные, акцентирующие или выходные эффекты к фигуре, настройте триггеры и тайминг, чтобы определить, когда и как будет воспроизводиться анимация.

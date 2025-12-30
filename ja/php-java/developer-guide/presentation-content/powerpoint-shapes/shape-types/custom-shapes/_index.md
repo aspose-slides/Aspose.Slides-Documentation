@@ -1,113 +1,129 @@
 ---
-title: カスタムシェイプ
+title: PHP でプレゼンテーション シェイプをカスタマイズ
+linktitle: カスタムシェイプ
 type: docs
 weight: 20
 url: /ja/php-java/custom-shape/
-keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "PowerPoint プレゼンテーションにカスタムシェイプを追加"
+keywords:
+- カスタムシェイプ
+- シェイプを追加
+- シェイプを作成
+- シェイプを変更
+- シェイプジオメトリ
+- ジオメトリパス
+- パスポイント
+- 編集ポイント
+- ポイントを追加
+- ポイントを削除
+- 編集操作
+- 曲線コーナー
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Java 経由で PHP 用 Aspose.Slides を使用して、PowerPoint プレゼンテーションのシェイプを作成およびカスタマイズします：ジオメトリパス、曲線コーナー、複合シェイプ。"
 ---
 
-# 編集ポイントを使用してシェイプを変更する
-四角形を考えてみてください。PowerPoint では、**編集ポイント**を使用して、 
+## **編集ポイントを使用したシェイプの変更**
+四角形を考えてみましょう。PowerPoint で **編集ポイント** を使用すると、以下が可能です
 
-* 四角形の角を内側または外側に移動できます
-* 角またはポイントの曲率を指定できます
-* 四角形に新しいポイントを追加できます
-* 四角形のポイントを操作できます、など。 
+* 四角形の角を内側または外側に移動する
+* 角やポイントの曲率を指定する
+* 四角形に新しいポイントを追加する
+* 四角形上のポイントを操作する、など
 
-本質的に、記述されたタスクを任意のシェイプに対して実行できます。編集ポイントを使用して、既存のシェイプからシェイプを変更したり、新しいシェイプを作成したりできます。 
+本質的に、これらの操作は任意のシェイプで実行できます。編集ポイントを使用すると、シェイプを変更したり、既存のシェイプから新しいシェイプを作成したりできます。
 
 ## **シェイプ編集のヒント**
 
 ![overview_image](custom_shape_0.png)
 
-編集ポイントを介して PowerPoint シェイプの編集を開始する前に、シェイプに関して考慮すべきポイントがあります：
+PowerPoint のシェイプを編集ポイントで変更する前に、シェイプに関して次の点を考慮してください:
 
-* シェイプ（またはそのパス）は、閉じた形または開いた形のいずれかです。
-* シェイプが閉じている場合、開始点または終了点はありません。シェイプが開いている場合、始まりと終わりがあります。
-* すべてのシェイプは、少なくとも 2 つのアンカーポイントから構成され、互いに線で結ばれています。
+* シェイプ（またはそのパス）は閉じている場合と開いている場合があります。
+* シェイプが閉じている場合、開始点や終了点がありません。シェイプが開いている場合、開始点と終了点があります。
+* すべてのシェイプは、少なくとも 2 つのアンカーポイントが線で結ばれています
 * 線は直線または曲線のいずれかです。アンカーポイントが線の性質を決定します。
-* アンカーポイントは角ポイント、直線ポイント、またはスムーズポイントとして存在します：
-  * 角ポイントは、2 つの直線が角度で接続するポイントです。
-  * スムーズポイントは、2 つのハンドルが直線上に存在し、線のセグメントが滑らかな曲線で接続されるポイントです。この場合、すべてのハンドルはアンカーポイントから等距離に分離されています。
-  * 直線ポイントは、2 つのハンドルが直線上に存在し、その線の線分が滑らかな曲線で接続されるポイントです。この場合、ハンドルはアンカーポイントから等距離に分離される必要はありません。
-* アンカーポイントを移動したり編集したりすることで（これにより線の角度が変わります）、シェイプの見た目を変更できます。 
+* アンカーポイントは角点、直線点、スムーズ点として存在します:
+  * 角点は、2 本の直線が角度を持って結合する点です。
+  * スムーズ点は、2 本のハンドルが直線上にあり、線分が滑らかな曲線で結合する点です。この場合、すべてのハンドルはアンカーポイントから等距離に離れています。
+  * 直線点は、2 本のハンドルが直線上にあり、線分が滑らかな曲線で結合する点です。この場合、ハンドルはアンカーポイントから等距離である必要はありません。
+* アンカーポイントを移動または編集（線の角度が変わります）することで、シェイプの外観を変更できます。
 
-PowerPoint シェイプを編集ポイントを介して編集するために、**Aspose.Slides** は [**GeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath) インターフェースを提供します。
+PowerPoint のシェイプを編集ポイントで編集するには、**Aspose.Slides** が [**GeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath) インターフェイスを提供します。
 
-* [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) インスタンスは [IGeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape) オブジェクトの幾何学的パスを表します。
-* `IGeometryShape` インスタンスから`GeometryPath`を取得するには、[IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#getGeometryPaths--) メソッドを使用できます。
-* シェイプの `GeometryPath` を設定するには、次のメソッドを使用できます：*solid shapes* 用の [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) と *composite shapes* 用の [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath) のメソッドを使用できます。
-* [IGeometryPath.setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setStroke-boolean-) および [IGeometryPath.setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setFillMode-byte-) メソッドを使用して、幾何学的パスの外観を設定できます。
-* [IGeometryPath.getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#getPathData--) メソッドを使用して、`GeometryShape` の幾何学的パスをパスセグメントの配列として取得できます。
-* 追加のシェイプ幾何学カスタマイズオプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) を [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) に変換できます。
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) と [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) メソッド（[ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) クラスから）を使用して、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) を [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) に相互変換できます。
+* [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape) オブジェクトのジオメトリパスを表します。
+* `IGeometryShape` インスタンスから `GeometryPath` を取得するには、[IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#getGeometryPaths--) メソッドを使用できます。
+* シェイプに `GeometryPath` を設定するには、次のメソッドを使用します: *実体シェイプ* 用の [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) と *合成シェイプ* 用の [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)。
+* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath) 以下のメソッドを使用できます。
+* [IGeometryPath.setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setStroke-boolean-) と [IGeometryPath.setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setFillMode-byte-) メソッドを使用して、ジオメトリパスの外観を設定できます。
+* [IGeometryPath.getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#getPathData--) メソッドを使用すると、`GeometryShape` のジオメトリパスをパスセグメントの配列として取得できます。
+* 追加のシェイプジオメトリカスタマイズ オプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) を [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) に変換できます。
+* [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) クラスの [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) と [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) メソッドを使用して、[GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) と [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) の相互変換が可能です。
 
-## **簡単な編集操作**
+## **シンプルな編集操作**
 
-この PHP コードは、以下を示しています。
+この PHP コードは次を示します
 
-**パスの終わりに**ラインを追加：
-
+**パスの末尾に直線を追加**  
 ```php
 
 ```
-**指定された位置に**ラインを追加：
 
+**パスの指定位置に直線を追加**:  
 ```php
 
 ```
-**パスの終わりに**立方体ベジエ曲線を追加：
 
+**パスの末尾に 3 次ベジェ曲線を追加**:  
 ```php
 
 ```
-**指定された位置に**立方体ベジエ曲線を追加：
 
+**パスの指定位置に 3 次ベジェ曲線を追加**:  
 ```php
 
 ```
-**パスの終わりに**二次ベジエ曲線を追加：
 
+**パスの末尾に 2 次ベジェ曲線を追加**:  
 ```php
 
 ```
-**指定された位置に**二次ベジエ曲線を追加：
 
+**パスの指定位置に 2 次ベジェ曲線を追加**:  
 ```php
 
 ```
-**与えられた円弧を**パスに追加：
 
+**パスに円弧を追加**:  
 ```php
 
 ```
-**現在の図形を**パスで閉じる：
 
+**現在の図形を閉じる**:  
 ```php
 
 ```
-**次のポイントの位置を**設定：
 
+**次のポイントの位置を設定**:  
 ```php
 
 ```
-**指定されたインデックスの**パスセグメントを削除：
 
+**指定インデックスのパスセグメントを削除**:  
 ```php
 
 ```
+
 
 ## **シェイプにカスタムポイントを追加**
 1. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成し、[ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) タイプを設定します。
 2. シェイプから [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを取得します。
-3. パス上の2つの上部ポイントの間に新しいポイントを追加します。
-4. パス上の2つの下部ポイントの間に新しいポイントを追加します。
+3. パス上の上部 2 点の間に新しいポイントを追加します。
+4. パス上の下部 2 点の間に新しいポイントを追加します。
 5. パスをシェイプに適用します。
 
-この PHP コードは、シェイプにカスタムポイントを追加する方法を示しています。
-
+この PHP コードはシェイプにカスタムポイントを追加する方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -122,17 +138,17 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     }
   }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-##  シェイプからポイントを削除
+## **シェイプからポイントを削除**
 
 1. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成し、[ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) タイプを設定します。
 2. シェイプから [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを取得します。
 3. パスのセグメントを削除します。
 4. パスをシェイプに適用します。
 
-この PHP コードは、シェイプからポイントを削除する方法を示しています。
-
+この PHP コードはシェイプからポイントを削除する方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -146,18 +162,18 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     }
   }
 ```
+
 ![example2_image](custom_shape_2.png)
 
-##  **カスタムシェイプを作成**
+## **カスタムシェイプを作成**
 
 1. シェイプのポイントを計算します。
 2. [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを作成します。
-3. ポイントでパスを塗りつぶします。
+3. パスにポイントを設定します。
 4. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成します。
 5. パスをシェイプに適用します。
 
-この Java は、カスタムシェイプを作成する方法を示しています。
-
+この Java はカスタムシェイプの作成方法を示します:
 ```php
   $points = new Java("java.util.ArrayList");
   $R = 100;
@@ -189,18 +205,18 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     }
   }
 ```
+
 ![example3_image](custom_shape_3.png)
 
 
 ## **複合カスタムシェイプを作成**
 
-1. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成します。
-2. [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスの最初のインスタンスを作成します。
-3. 第二の [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを作成します。
-4. パスをシェイプに適用します。
+  1. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成します。
+  2. 最初の [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを作成します。
+  3. 2 番目の [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) クラスのインスタンスを作成します。
+  4. パスをシェイプに適用します。
 
-この PHP コードは、複合カスタムシェイプを作成する方法を示しています。
-
+この PHP コードは複合カスタムシェイプを作成する方法を示します:
 ```php
   $pres = new Presentation();
   try {
@@ -224,12 +240,12 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     }
   }
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **曲がった角を持つカスタムシェイプを作成**
+## **曲線コーナー付きカスタムシェイプを作成**
 
-この PHP コードは、内側に曲がった角を持つカスタムシェイプを作成する方法を示しています。
-
+この PHP コードは曲線コーナー（内側）付きカスタムシェイプの作成方法を示します;
 ```php
   $shapeX = 20.0;
   $shapeY = 20.0;
@@ -267,27 +283,54 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
   }
 ```
 
-## **GeometryPathをjava.awt.Shapeに変換**
+
+## **シェイプジオメトリが閉じているか確認する方法**
+
+閉じたシェイプは、すべての辺が接続して単一の境界を形成し、隙間がないものとして定義されます。そのようなシェイプは単純な幾何形状でも複雑なカスタムアウトラインでもかまいません。次のコード例はシェイプジオメトリが閉じているかどうかを確認する方法を示します:
+```php
+function isGeometryClosed($geometryShape)
+{
+    $isClosed = null;
+
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $dataLength = count(java_values($geometryPath->getPathData()));
+        if ($dataLength === 0) {
+            continue;
+        }
+
+        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
+        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
+
+        if ($isClosed === false) {
+            return false;
+        }
+    }
+
+    return $isClosed === true;
+}
+```
+
+
+## **GeometryPath を java.awt.Shape に変換** 
 
 1. [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) クラスのインスタンスを作成します。
 2. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) クラスのインスタンスを作成します。
-3. [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) を使って、[java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) インスタンスを [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) インスタンスに変換します。
+3. [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) を使用して、[java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) インスタンスを [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) インスタンスに変換します。
 4. パスをシェイプに適用します。
 
-この PHP コードは、上記の手順の実装であり、**GeometryPath** から **GraphicsPath** への変換プロセスを示しています。
-
+この PHP コードは上記手順の実装例で、**GeometryPath** から **GraphicsPath** への変換プロセスを示します:
 ```php
   $pres = new Presentation();
   try {
     # 新しいシェイプを作成
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # シェイプの幾何学的パスを取得
+    # シェイプのジオメトリパスを取得
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    # テキストを持つ新しいグラフィックスパスを作成
+    # テキスト付きの新しいグラフィックパスを作成
     $graphicsPath;
     $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "シェイプ内のテキスト";
+    $text = "Text in shape";
     $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
     $g2 = $img->createGraphics();
     try {
@@ -296,10 +339,10 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     } finally {
       $g2->dispose();
     }
-    # グラフィックスパスを幾何学パスに変換
+    # グラフィックパスをジオメトリパスに変換
     $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
     $textPath->setFillMode(PathFillModeType::Normal);
-    # 新しい幾何学パスとオリジナルの幾何学パスをシェイプに設定
+    # 新しいジオメトリパスと元のジオメトリパスの組み合わせをシェイプに設定
     $shape->setGeometryPaths(array($originalPath, $textPath ));
   } finally {
     if (!java_is_null($pres)) {
@@ -307,4 +350,19 @@ PowerPoint シェイプを編集ポイントを介して編集するために、
     }
   }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**ジオメトリを置き換えた後、塗りと輪郭はどうなりますか？**
+
+スタイルはシェイプに残り、輪郭だけが変更されます。塗りと輪郭は新しいジオメトリに自動的に適用されます。
+
+**ジオメトリとともにカスタムシェイプを正しく回転させる方法は？**
+
+シェイプの [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setrotation/) メソッドを使用します。ジオメトリはシェイプの座標系にバインドされているため、シェイプとともに回転します。
+
+**カスタムシェイプを画像に変換して「ロック」できますか？**
+
+はい。必要な [slide](/slides/ja/php-java/convert-powerpoint-to-png/) 領域または [shape](/slides/ja/php-java/create-shape-thumbnails/) 自体をラスタ形式でエクスポートすると、重いジオメトリの作業が簡素化されます。

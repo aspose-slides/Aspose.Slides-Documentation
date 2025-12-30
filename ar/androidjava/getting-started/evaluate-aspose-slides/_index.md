@@ -28,9 +28,11 @@ description: "تقييم Aspose.Slides لنظام Android عبر Java واستك
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 إذا كنت ترغب في اختبار Aspose.Slides دون قيود نسخة التقييم، يمكنك طلب ترخيص مؤقت لمدة 30 يومًا. يرجى الرجوع إلى [كيفية الحصول على ترخيص مؤقت؟](https://purchase.aspose.com/temporary-license)
+
+{{% /alert %}}
 
 ## **الأسئلة الشائعة**
 

@@ -1,22 +1,34 @@
 ---
-title: Zugriff auf Folie in der Präsentation
+title: Zugriff auf Präsentationsfolien in PHP
+linktitle: Folienzugriff
 type: docs
 weight: 20
 url: /de/php-java/access-slide-in-presentation/
-keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer, Index, ID, Position Java, Aspose.Slides"
-description: "Zugriff auf PowerPoint-Folie nach Index, ID oder Position. Folieneigenschaften bearbeiten"
+keywords:
+- Folienzugriff
+- Folienindex
+- Folien-ID
+- Folienposition
+- Position ändern
+- Folieneigenschaften
+- Foliennummer
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP über Java Zugriff erhalten und verwalten. Steigern Sie die Produktivität mit Code-Beispielen."
 ---
 
-Aspose.Slides ermöglicht Ihnen den Zugriff auf Folien auf zwei Arten: nach Index und nach ID.
+Aspose.Slides ermöglicht den Zugriff auf Folien auf zwei Arten: über den Index und über die ID.
 
-## **Zugriff auf Folie nach Index**
+## **Zugriff auf eine Folie per Index**
 
-Alle Folien in einer Präsentation sind numerisch basierend auf der Folienposition angeordnet, beginnend bei 0. Die erste Folie ist über den Index 0 zugänglich; die zweite Folie wird über den Index 1 aufgerufen; usw.
+Alle Folien in einer Präsentation sind numerisch nach der Folienposition angeordnet, beginnend bei 0. Die erste Folie ist über Index 0 zugänglich; die zweite Folie wird über Index 1 aufgerufen; usw.
 
-Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt alle Folien als eine [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/) Sammlung (Sammlung von [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) Objekten) bereit. Dieser PHP-Code zeigt Ihnen, wie Sie auf eine Folie über ihren Index zugreifen:
-
+Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt alle Folien als eine [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/)‑Sammlung (Sammlung von [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/)‑Objekten) bereit. Dieser PHP‑Code zeigt, wie man über den Index auf eine Folie zugreift:
 ```php
-  # Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+  # Erstellt ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("demo.pptx");
   try {
     # Greift auf eine Folie über ihren Folienindex zu
@@ -26,15 +38,15 @@ Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt all
   }
 ```
 
-## **Zugriff auf Folie nach ID**
 
-Jede Folie in einer Präsentation hat eine eindeutige ID, die ihr zugeordnet ist. Sie können die [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) Methode (die von der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse bereitgestellt wird) verwenden, um diese ID anzusprechen. Dieser PHP-Code zeigt Ihnen, wie Sie eine gültige Folien-ID angeben und auf diese Folie über die [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) Methode zugreifen:
+## **Zugriff auf eine Folie per ID**
 
+Jede Folie in einer Präsentation hat eine eindeutige ID. Sie können die Methode [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)) verwenden, um diese ID anzusprechen. Dieser PHP‑Code zeigt, wie man eine gültige Folien‑ID übergibt und die Folie mittels der Methode [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) aufruft:
 ```php
-  # Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+  # Erstellt ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("demo.pptx");
   try {
-    # Holt sich eine Folien-ID
+    # Holt die Folien-ID
     $id = $pres->getSlides()->get_Item(0)->getSlideId();
     # Greift auf die Folie über ihre ID zu
     $slide = $pres->getSlideById($id);
@@ -43,62 +55,62 @@ Jede Folie in einer Präsentation hat eine eindeutige ID, die ihr zugeordnet ist
   }
 ```
 
-## **Folie Position ändern**
 
-Aspose.Slides ermöglicht es Ihnen, die Position einer Folie zu ändern. Sie können beispielsweise angeben, dass die erste Folie zur zweiten Folie werden soll.
+## **Ändern der Folienposition**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich die Referenz der Folie (deren Position Sie ändern möchten) über ihren Index.
-3. Setzen Sie eine neue Position für die Folie über die [setSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/islide/#setSlideNumber-int-) Eigenschaft.
-4. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht das Ändern einer Folienposition. Zum Beispiel können Sie festlegen, dass die erste Folie zur zweiten Folie wird.
 
-Dieser PHP-Code demonstriert eine Operation, bei der die Folie an Position 1 auf Position 2 verschoben wird:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Holen Sie die Referenz der Folie (deren Position Sie ändern möchten) über ihren Index.
+1. Setzen Sie eine neue Position für die Folie über die Eigenschaft [setSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/islide/#setSlideNumber-int-).
+1. Speichern Sie die geänderte Präsentation.
 
+Dieser PHP‑Code demonstriert eine Operation, bei der die Folie an Position 1 nach Position 2 verschoben wird:
 ```php
-  # Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+  # Erstellt ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Holt sich die Folie, deren Position geändert werden soll
+    # Holt die Folie, deren Position geändert wird
     $sld = $pres->getSlides()->get_Item(0);
     # Setzt die neue Position für die Folie
     $sld->setSlideNumber(2);
-    # Speichert die modifizierte Präsentation
+    # Speichert die geänderte Präsentation
     $pres->save("helloworld_Pos.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden andere Folien automatisch angepasst.
 
-## **Foliennummer festlegen**
+Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden die anderen Folien automatisch angepasst.
 
-Mit der [setFirstSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#setFirstSlideNumber-int-) Eigenschaft (die von der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse bereitgestellt wird) können Sie eine neue Nummer für die erste Folie in einer Präsentation festlegen. Diese Operation führt dazu, dass andere Foliennummern neu berechnet werden.
+## **Festlegen der Foliennummer**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich die Foliennummer.
-3. Setzen Sie die Foliennummer.
-4. Speichern Sie die modifizierte Präsentation.
+Mit der Eigenschaft [setFirstSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#setFirstSlideNumber-int-) (bereitgestellt von der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)) können Sie eine neue Nummer für die erste Folie einer Präsentation festlegen. Dieser Vorgang führt dazu, dass die anderen Foliennummern neu berechnet werden.
 
-Dieser PHP-Code demonstriert eine Operation, bei der die erste Foliennummer auf 10 gesetzt wird:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Lesen Sie die Foliennummer aus.
+1. Setzen Sie die Foliennummer.
+1. Speichern Sie die geänderte Präsentation.
 
+Dieser PHP‑Code demonstriert eine Operation, bei der die erste Foliennummer auf 10 gesetzt wird:
 ```php
-  # Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+  # Erstellt ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("HelloWorld.pptx");
   try {
-    # Holt sich die Foliennummer
+    # Liest die Foliennummer
     $firstSlideNumber = $pres->getFirstSlideNumber();
     # Setzt die Foliennummer
     $pres->setFirstSlideNumber(10);
-    # Speichert die modifizierte Präsentation
+    # Speichert die geänderte Präsentation
     $pres->save("Set_Slide_Number_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung von der zweiten Folie (und die Nummerierung für die erste Folie ausblenden) so beginnen:
 
+Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung ab der zweiten Folie beginnen (und die Nummerierung der ersten Folie ausblenden) auf folgende Weise:
 ```php
   $presentation = new Presentation();
   try {
@@ -108,11 +120,11 @@ Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung vo
     $presentation->getSlides()->addEmptySlide($layoutSlide);
     # Setzt die Nummer für die erste Präsentationsfolie
     $presentation->setFirstSlideNumber(0);
-    # Zeigt die Foliennummern für alle Folien an
+    # Zeigt Foliennummern für alle Folien an
     $presentation->getHeaderFooterManager()->setAllSlideNumbersVisibility(true);
     # Blendet die Foliennummer für die erste Folie aus
     $presentation->getSlides()->get_Item(0)->getHeaderFooterManager()->setSlideNumberVisibility(false);
-    # Speichert die modifizierte Präsentation
+    # Speichert die geänderte Präsentation
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
@@ -120,3 +132,18 @@ Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung vo
     }
   }
 ```
+
+
+## **FAQ**
+
+**Entspricht die von einem Benutzer gesehenen Foliennummer dem nullbasierten Index der Sammlung?**
+
+Die auf einer Folie angezeigte Nummer kann bei einem beliebigen Wert beginnen (z. B. 10) und muss nicht mit dem Index übereinstimmen; die Beziehung wird durch die Einstellung der [first slide number](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/setfirstslidenumber/) der Präsentation gesteuert.
+
+**Beeinflussen ausgeblendete Folien die Indizierung?**
+
+Ja. Eine ausgeblendete Folie bleibt in der Sammlung und wird bei der Indizierung berücksichtigt; „ausgeblendet“ bezieht sich auf die Anzeige, nicht auf ihre Position in der Sammlung.
+
+**Ändert sich der Index einer Folie, wenn andere Folien hinzugefügt oder entfernt werden?**
+
+Ja. Indizes spiegeln stets die aktuelle Reihenfolge der Folien wider und werden bei Einfüge-, Lösch‑ und Verschiebe‑Operationen neu berechnet.

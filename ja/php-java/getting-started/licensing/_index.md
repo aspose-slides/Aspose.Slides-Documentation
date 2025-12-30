@@ -1,78 +1,84 @@
 ---
 title: ライセンス
-description: "Aspose.Slides for PHP via Javaは、購入のための異なるプランを提供するか、ライセンスおよびサブスクリプションポリシーを使用した評価のための無料トライアルと30日間の一時ライセンスを提供します。"
 type: docs
 weight: 80
 url: /ja/php-java/licensing/
+keywords:
+- ライセンス
+- 一時ライセンス
+- ライセンス設定
+- ライセンス使用
+- ライセンス検証
+- ライセンスファイル
+- 評価版
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java におけるライセンスの適用、管理、トラブルシューティングを行います。ステップバイステップのライセンスガイドで、フル機能への継続的なアクセスを確保してください。"
 ---
 
-最良の評価結果を得るためには、実践的なアプローチが必要な場合があります。このため、Aspose.Slidesは異なる購入プランを提供し、さらに無料トライアルと30日間の一時ライセンスを評価用に提供しています。
+場合によっては、最良の評価結果を得るために実際に手を動かすアプローチが必要になることがあります。そのため、Aspose.Slides はさまざまな購入プランを提供し、無料トライアルと30日間の一時ライセンスも評価用に提供しています。
 
 {{% alert color="primary" %}}
-
-評価、適切なライセンスの取得、製品の購入方法について案内する一般的なポリシーや慣行がいくつかあります。これらは["購入ポリシーとFAQ"](https://purchase.aspose.com/policies)セクションに記載されています。
-
+当社の製品を評価し、適切にライセンスを取得し、購入する方法を案内する一般的なポリシーや慣行が多数存在することに留意してください。これらは["Purchase Policies and FAQ"](https://purchase.aspose.com/policies)セクションで確認できます。
 {{% /alert %}}
 
-## **Aspose.Slidesの評価**
-Aspose.Slidesを簡単にダウンロードして評価できます。評価パッケージは、購入したパッケージと同じです。評価版は、ライセンスを適用するためのいくつかのコード行を追加した後にライセンスが適用されます。
+## **Aspose.Slides を評価する**
+簡単に Aspose.Slides をダウンロードして評価できます。評価用パッケージは購入パッケージと同一です。評価バージョンは、ライセンスを適用するコードを数行追加するだけで正式にライセンスされます。
 
 ## **評価版の制限**
-Aspose.Slidesの評価版（ライセンスが指定されていない場合）は、製品の全機能を提供しますが、ドキュメントを開いたり保存したりするとドキュメントの上部に評価用の透かしが挿入されます。また、プレゼンテーションスライドからテキストを抽出する際に1枚のスライドに制限されます。
+Aspose.Slides の評価版（ライセンスが指定されていない場合）は、製品の全機能を提供しますが、開くおよび保存時にドキュメントの上部に評価用ウォーターマークを挿入します。また、プレゼンテーションスライドからテキストを抽出する際は1枚のスライドに制限されます。
 
 {{% alert color="primary" %}} 
-
-評価版の制限なしでAspose.Slidesをテストしたい場合は、**30日間の一時ライセンス**をリクエストできます。詳細については[一時ライセンスを取得する方法？](https://purchase.aspose.com/temporary-license)を参照してください。
-
+評価版の制限なしで Aspose.Slides をテストしたい場合は、**30 Day Temporary License** をリクエストできます。詳細は[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)をご参照ください。
 {{% /alert %}} 
 
 ## **ライセンスについて**
-Aspose.Slides for PHP via Javaの評価版を[ダウンロードページ](https://packagist.org/packages/aspose/slides)から簡単にダウンロードできます。評価版は、ライセンス版と**まったく同じ機能**を提供します。さらに、ライセンスを購入し、ライセンスを適用するための数行のコードを追加することで、評価版は単にライセンスが適用されます。
+PHP 用の Aspose.Slides（Java 経由）の評価版は、[download page](https://packagist.org/packages/aspose/slides)から簡単にダウンロードできます。評価版はライセンス版と**全く同じ機能**を提供します。さらに、ライセンスを購入し、ライセンスを適用するコードを数行追加するだけで評価版は正式にライセンスされます。
 
-ライセンスは、製品名、ライセンスを取得した開発者の数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。このファイルはデジタル署名されているため、ファイルを変更しないでください。ファイルの内容に予期せぬ改行を追加すると、それが無効になります。
+ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象の開発者数、サブスクリプションの有効期限などの情報が含まれます。このファイルはデジタル署名されているため、変更しないでください。ファイルの内容に余計な改行を追加するだけでも無効になります。
 
-評価版の制限を回避するには、**Aspose.Slides**を使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとにライセンスを1回設定するだけで済みます。
+評価版に伴う制限を回避するには、**Aspose.Slides** を使用する前にライセンスを設定する必要があります。ライセンスはアプリケーションまたはプロセスごとに一度だけ設定すれば済みます。
 
-## 購入ライセンス
+{{% alert color="primary" %}}
+[Metered Licensing](https://docs.aspose.com/slides/php-java/metered-licensing/)をご覧になるとよいでしょう。
+{{% /alert %}}
 
+## **購入ライセンス**
 購入後は、ライセンスファイルまたはストリームを適用する必要があります。
 
 {{% alert color="primary" %}}
-
-ライセンスを設定する必要があります：
-* アプリケーションドメインごとに1回のみ
-* 他のAspose.Slidesクラスを使用する前に
-
+ライセンスを設定する必要があります:
+* アプリケーションドメインごとに一度だけ
+* ほかの Aspose.Slides クラスを使用する前に
 {{% /alert %}}
 
 {{% alert color="primary" %}}
-
-[“価格情報”](https://purchase.aspose.com/pricing/slides/family)ページで価格情報を確認できます。
-
+価格情報は[“Pricing Information”](https://purchase.aspose.com/pricing/slides/family)ページで確認できます。
 {{% /alert %}}
 
-### **Aspose.Slides for PHP via Javaでライセンスを設定する**
-
-ライセンスは以下の場所から適用できます：
-
+### **PHP via Java の Aspose.Slides でライセンスを設定する**
+ライセンスは次の場所から適用できます:
 * 明示的なパス
 * ストリーム
-* メータライセンスとして – 新しいライセンスメカニズム
+* Metered License として – 新しいライセンス方式
 
 {{% alert color="primary" %}}
+コンポーネントにライセンスを設定するには **setLicense** メソッドを使用します。
 
-**setLicense**メソッドを使用してコンポーネントにライセンスを設定します。
+**setLicense** を複数回呼び出しても問題はありませんが、リソース（プロセッサ）の無駄になります。
+{{% /alert %}}
 
-**setLicense**への複数回の呼び出しは害はありませんが、リソース（プロセッサ）の浪費になります。
-
+{{% alert color="warning" %}}
+新しいライセンスはバージョン 21.4 以降の Aspose.Slides のみで有効です。以前のバージョンは別のライセンスシステムを使用しており、これらのライセンスは認識されません。
 {{% /alert %}}
 
 #### **ファイルを使用してライセンスを適用する**
-
-このコードスニペットはライセンスファイルを設定するために使用されます：
+以下のコードスニペットはライセンスファイルを設定するためのものです:
 
 **PHP**
-
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
@@ -85,14 +91,11 @@ $license->setLicense("Aspose.Slides.lic");
 ?>
 ```
 
-setLicenseメソッドを呼び出すとき、ライセンス名はライセンスファイルの名前と同じである必要があります。例えば、ライセンスファイル名を"Aspose.Slides.lic.xml"に変更できます。その後、コード内で新しいライセンス名（Aspose.Slides.lic.xml）をsetLicenseメソッドに渡す必要があります。
+
+setLicense メソッドを呼び出す際は、ライセンス名をライセンスファイル名と同じにする必要があります。例えば、ライセンスファイル名を "Aspose.Slides.lic.xml" に変更できます。その場合、コード内で setLicense メソッドに新しいライセンス名 (Aspose.Slides.lic.xml) を渡す必要があります。
 
 #### **ストリームからライセンスを適用する**
-
-このコードスニペットはストリームからライセンスを適用するために使用されます：
-
-**PHP**
-
+以下のコードスニペットはストリームからライセンスを適用するためのものです:
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
@@ -105,52 +108,11 @@ $license->setLicense($stream);
 ?>
 ```
 
-#### メータライセンスを適用する
 
-Aspose.Slidesは、開発者がメータキーを適用できるようにします。これは新しいライセンスメカニズムです。
+## **よくある質問**
 
-新しいライセンスメカニズムは、既存のライセンス方式とともに使用されます。API機能の使用に基づいて請求されたい顧客は、メータライセンスを使用できます。
+**完全にオフライン環境（インターネット接続なし）でライセンスを適用できますか？**
+はい。ライセンスの検証はライセンスファイルを使用してローカルで行われるため、インターネット接続は不要です。
 
-この種のライセンスを取得するために必要な手順をすべて完了した後、ライセンスファイルではなくキーを受け取ります。このメータキーは、この目的のために特別に導入された**Metered**クラスを使用して適用できます。
-
-以下のコード例は、メータの公開キーと秘密キーを設定する方法を示しています：
-
-```php
-<?php
-require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
-
-use aspose\slides\Metered;
-use aspose\slides\Presentation;
-use aspose\slides\SaveFormat;
-
-# CAD Meteredクラスのインスタンスを作成
-$metered = new Metered();
-
-# set_metered_keyプロパティにアクセスし、公開キーと秘密キーをパラメータとして渡す
-$metered->setMeteredKey("*****", "*****");
-
-# APIを呼び出す前のメータデータ量を取得
-$amountbefore = Metered::getConsumptionQuantity();
-# 情報を表示
-echo "<script>console.log('消費量（前）: " . java_values($amountbefore) . "' );</script>";
-
-# ディスクからドキュメントを読み込みます。
-$pres = new Presentation();
-# ドキュメントのページ数を取得
-echo "<script>console.log('消費量（後）: " . java_values($pres->getSlides()->size()) . "' );</script>";
-# PDFとして保存
-$pres->save("out_pdf.pdf", SaveFormat::Pdf);
-
-# APIを呼び出した後のメータデータ量を取得
-$amountafter = Metered::getConsumptionQuantity();
-# 情報を表示
-echo "<script>console.log('消費量（後）: " . java_values($amountafter) . "' );</script>";
-?>
-```
-
-{{% alert color="primary" %}}
-
-メータライセンスを正しく使用するには安定したインターネット接続が必要です。メータメカニズムは、正確な計算のために当社のサービスとの常時の相互作用を必要とします。詳細については、[“メータライセンスFAQ”](https://purchase.aspose.com/faqs/licensing/metered)セクションを参照してください。
-
-{{% /alert %}}
+**1 年間のサブスクリプションが期限切れになった後はどうなりますか？ ライブラリは動作しなくなりますか？**
+いいえ。ライセンスは永続的です。サブスクリプション終了日以前にリリースされたバージョンは引き続き使用できますが、更新しない限り新しいリリースは利用できません。

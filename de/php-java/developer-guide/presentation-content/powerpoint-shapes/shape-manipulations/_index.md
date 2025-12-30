@@ -1,24 +1,44 @@
 ---
-title: Formmanipulationen
+title: Verwalten von Präsentationsformen in PHP
+linktitle: Formmanipulation
 type: docs
 weight: 40
-url: /de/php-java/formmanipulationen/
+url: /de/php-java/shape-manipulations/
+keywords:
+- PowerPoint-Form
+- Präsentationsform
+- Form auf Folie
+- Form finden
+- Form duplizieren
+- Form entfernen
+- Form ausblenden
+- Formreihenfolge ändern
+- Interop-Form-ID abrufen
+- Alternativtext der Form
+- Form-Layoutformate
+- Form als SVG
+- Form nach SVG
+- Form ausrichten
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für PHP via Java erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint-Präsentationen bereitstellen."
 ---
 
-## **Form in Folie finden**
-Dieses Thema beschreibt eine einfache Technik, um es Entwicklern zu erleichtern, eine bestimmte Form auf einer Folie zu finden, ohne ihre interne ID zu verwenden. Es ist wichtig zu wissen, dass PowerPoint-Präsentationsdateien keine Möglichkeit haben, Formen auf einer Folie außer einer internen eindeutigen ID zu identifizieren. Es scheint schwierig für Entwickler zu sein, eine Form anhand ihrer internen eindeutigen ID zu finden. Alle auf den Folien hinzugefügten Formen haben einen alternativen Text. Wir empfehlen Entwicklern, den alternativen Text zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint verwenden, um den alternativen Text für Objekte festzulegen, die Sie in Zukunft ändern möchten.
+## **Eine Form auf einer Folie finden**
+Dieses Thema beschreibt eine einfache Technik, die es Entwicklern erleichtert, eine bestimmte Form auf einer Folie zu finden, ohne deren interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint‑Präsentationsdateien keine Möglichkeit haben, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Es scheint für Entwickler schwierig zu sein, eine Form anhand ihrer internen eindeutigen Id zu finden. Alle Formen, die zu den Folien hinzugefügt werden, besitzen einen Alt‑Text. Wir empfehlen Entwicklern, den Alternativtext zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint verwenden, um den Alternativtext für Objekte festzulegen, die Sie in Zukunft ändern möchten.
 
-Nachdem Sie den alternativen Text einer gewünschten Form festgelegt haben, können Sie diese Präsentation mit Aspose.Slides für PHP über Java öffnen und durch alle Formen iterieren, die einer Folie hinzugefügt wurden. Während jeder Iteration können Sie den alternativen Text der Form überprüfen, und die Form mit dem übereinstimmenden alternativen Text wäre die von Ihnen benötigte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode erstellt, [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-), die das Finden einer bestimmten Form in einer Folie erleichtert und dann einfach diese Form zurückgibt.
-
+Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides für PHP via Java öffnen und durch alle Formen einer Folie iterieren. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem passenden Alternativtext ist die gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode erstellt, [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-), die das Auffinden einer bestimmten Form auf einer Folie übernimmt und dann einfach diese Form zurückgibt.
 ```php
-  # Instanziieren Sie eine Präsentation-Klasse, die die Präsentationsdatei darstellt
+  # Instanziiere eine Presentation-Klasse, die die Präsentationsdatei darstellt
   $pres = new Presentation("FindingShapeInSlide.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    # Alternativer Text der zu findenden Form
+    # Alternativtext der zu findenden Form
     $shape = findShape($slide, "Shape1");
     if (!java_is_null($shape)) {
-      echo("Formname: " . $shape->getName());
+      echo("Shape Name: " . $shape->getName());
     }
   } finally {
     if (!java_is_null($pres)) {
@@ -27,20 +47,24 @@ Nachdem Sie den alternativen Text einer gewünschten Form festgelegt haben, kön
   }
 ```
 
-## **Form klonen**
-Um eine Form in eine Folie mit Aspose.Slides für PHP über Java zu klonen:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
-1. Greifen Sie auf die Formensammlung der Quellfolie zu.
-1. Fügen Sie eine neue Folie zur Präsentation hinzu.
-1. Klonen Sie Formen aus der Formensammlung der Quellfolie in die neue Folie.
-1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
-
-Das folgende Beispiel fügt einer Folie eine Gruppierungsform hinzu.
-
 ```php
-  # Instanziieren Sie die Präsentationsklasse
+
+```
+
+
+## **Form duplizieren**
+Um eine Form auf einer Folie mit Aspose.Slides für PHP via Java zu klonen:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Holen Sie die Referenz einer Folie anhand ihres Index.
+1. Greifen Sie auf die Formensammlung der Quellfolie zu.
+1. Fügen Sie der Präsentation eine neue Folie hinzu.
+1. Klonen Sie Formen aus der Formensammlung der Quellfolie in die neue Folie.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+
+Das folgende Beispiel fügt einer Folie eine Gruppierung von Formen hinzu.
+```php
+  # Instanziiere die Presentation-Klasse
   $pres = new Presentation("Source Frame.pptx");
   try {
     $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
@@ -50,7 +74,7 @@ Das folgende Beispiel fügt einer Folie eine Gruppierungsform hinzu.
     $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
     $destShapes->addClone($sourceShapes->get_Item(2));
     $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # Schreiben Sie die PPTX-Datei auf die Festplatte
+    # Schreibe die PPTX-Datei auf die Festplatte
     $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -59,25 +83,25 @@ Das folgende Beispiel fügt einer Folie eine Gruppierungsform hinzu.
   }
 ```
 
-## **Form entfernen**
-Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form zu entfernen. Um die Form von einer Folie zu entfernen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+## **Eine Form entfernen**
+Aspose.Slides für PHP via Java ermöglicht es Entwicklern, jede Form zu entfernen. Um eine Form von einer Folie zu entfernen, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Greifen Sie auf die erste Folie zu.
-1. Finden Sie die Form mit spezifischem Alternativtext.
+1. Suchen Sie die Form mit einem bestimmten AlternativeText.
 1. Entfernen Sie die Form.
-1. Speichern Sie die Datei auf der Festplatte.
-
+1. Speichern Sie die Datei auf dem Laufwerk.
 ```php
-  # Erstellen Sie ein Präsentationsobjekt
+  # Präsentationsobjekt erstellen
   $pres = new Presentation();
   try {
-    # Holen Sie sich die erste Folie
+    # Erste Folie abrufen
     $sld = $pres->getSlides()->get_Item(0);
-    # Fügen Sie eine Autoform vom Typ Rechteck hinzu
+    # Autoshape des Typs Rechteck hinzufügen
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "Benutzerdefiniert";
+    $altText = "User Defined";
     $iCount = $sld->getShapes()->size();
     for($i = 0; $i < java_values($iCount) ; $i++) {
       $ashp = $sld->getShapes()->get_Item(0);
@@ -85,7 +109,7 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form zu entfe
         $sld->getShapes()->remove($ashp);
       }
     }
-    # Speichern Sie die Präsentation auf der Festplatte
+    # Präsentation auf die Festplatte speichern
     $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -94,25 +118,25 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form zu entfe
   }
 ```
 
-## **Form ausblenden**
-Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form auszublenden. Um die Form von einer Folie auszublenden, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+## **Eine Form ausblenden**
+Aspose.Slides für PHP via Java ermöglicht es Entwicklern, jede Form auszublenden. Um eine Form von einer Folie auszublenden, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Greifen Sie auf die erste Folie zu.
-1. Finden Sie die Form mit spezifischem Alternativtext.
+1. Suchen Sie die Form mit einem bestimmten AlternativeText.
 1. Blenden Sie die Form aus.
-1. Speichern Sie die Datei auf der Festplatte.
-
+1. Speichern Sie die Datei auf dem Laufwerk.
 ```php
-  # Instanziieren Sie die Präsentationsklasse, die die PPTX darstellt
+  # Instanziiere Presentation-Klasse, die das PPTX darstellt
   $pres = new Presentation();
   try {
-    # Holen Sie sich die erste Folie
+    # Erste Folie abrufen
     $sld = $pres->getSlides()->get_Item(0);
-    # Fügen Sie eine Autoform vom Typ Rechteck hinzu
+    # Autoshape vom Typ Rechteck hinzufügen
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "Benutzerdefiniert";
+    $alttext = "User Defined";
     $iCount = $sld->getShapes()->size();
     for($i = 0; $i < java_values($iCount) ; $i++) {
       $ashp = $sld->getShapes()->get_Item($i);
@@ -120,7 +144,7 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form auszuble
         $ashp->setHidden(true);
       }
     }
-    # Speichern Sie die Präsentation auf der Festplatte
+    # Präsentation auf die Festplatte speichern
     $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -129,17 +153,17 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, jede Form auszuble
   }
 ```
 
-## **Formenreihenfolge ändern**
-Aspose.Slides für PHP über Java ermöglicht es Entwicklern, die Formen neu anzuordnen. Das Neuordnen der Form legt fest, welche Form vorne oder hinten ist. Um die Form von einer Folie neu anzuordnen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+## **Reihenfolge von Formen ändern**
+Aspose.Slides für PHP via Java ermöglicht es Entwicklern, Formen neu anzuordnen. Das Neuanordnen legt fest, welche Form im Vordergrund und welche im Hintergrund liegt. Um die Reihenfolge von Formen auf einer Folie zu ändern, folgen Sie bitte den untenstehenden Schritten:
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie eine Form hinzu.
-1. Fügen Sie etwas Text im Textfeld der Form hinzu.
+1. Fügen Sie etwas Text in den Textrahmen der Form ein.
 1. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.
-1. Schulen Sie die Formen neu.
-1. Speichern Sie die Datei auf der Festplatte.
-
+1. Ordnen Sie die Formen neu.
+1. Speichern Sie die Datei auf dem Laufwerk.
 ```php
   $pres = new Presentation("ChangeShapeOrder.pptx");
   try {
@@ -149,7 +173,7 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, die Formen neu anz
     $shp3->addTextFrame(" ");
     $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
     $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Wasserzeichen Text Wasserzeichen Text Wasserzeichen Text");
+    $portion->setText("Watermark Text Watermark Text Watermark Text");
     $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
     $slide->getShapes()->reorder(2, $shp3);
     $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
@@ -160,13 +184,13 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, die Formen neu anz
   }
 ```
 
-## **Interop Shape ID abrufen**
-Aspose.Slides für PHP über Java ermöglicht es Entwicklern, einen eindeutigen Formidentifikator im Folienumfang im Gegensatz zur [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getUniqueId--) Methode abzurufen, die einen eindeutigen Identifikator im Präsentationsumfang ermöglicht. Die Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) wurde zu den Schnittstellen [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) und [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) hinzugefügt. Der von der Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) zurückgegebene Wert entspricht dem Wert der ID des Microsoft.Office.Interop.PowerPoint.Shape-Objekts. Im Folgenden ist ein Beispielcode gegeben.
 
+## **Interop‑Shape‑ID abrufen**
+Aspose.Slides für PHP via Java ermöglicht es Entwicklern, einen eindeutigen Shape‑Bezeichner im Folien‑Kontext zu erhalten, im Gegensatz zur Methode [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getUniqueId--) die einen eindeutigen Bezeichner im Präsentations‑Kontext liefert. Die Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) wurde den Schnittstellen [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) und der Klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) hinzugefügt. Der von [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) zurückgegebene Wert entspricht dem Id‑Wert des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Unten ist ein Beispielcode angegeben.
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Eindeutigen Formidentifikator im Folienumfang abrufen
+    # Abrufen der eindeutigen Shape-Kennung im Folienbereich
     $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
   } finally {
     if (!java_is_null($pres)) {
@@ -175,24 +199,28 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, einen eindeutigen 
   }
 ```
 
+
 ## **Alternativen Text für eine Form festlegen**
-Aspose.Slides für PHP über Java ermöglicht es Entwicklern, den Alternativtext jeder Form festzulegen. Formen in einer Präsentation können durch die [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) oder [Formname](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setName-java.lang.String-) Methode unterschieden werden. Die Methoden [setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) und [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) können mit Aspose.Slides sowie Microsoft PowerPoint gelesen oder festgelegt werden. Mit dieser Methode können Sie eine Form kennzeichnen und verschiedene Operationen ausführen, wie das Entfernen einer Form, das Ausblenden einer Form oder das Neuordnen von Formen auf einer Folie. Um den Alternativtext einer Form festzulegen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für PHP via Java ermöglicht es Entwicklern, AlternateText (Alternativtext) einer beliebigen Form festzulegen.
+Formen in einer Präsentation können über die Methoden [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) oder [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setName-java.lang.String-) unterschieden werden.
+Die Methoden [setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) und [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) können sowohl mit Aspose.Slides als auch mit Microsoft PowerPoint gelesen oder gesetzt werden.
+Durch die Verwendung dieser Methode können Sie eine Form kennzeichnen und verschiedene Vorgänge durchführen, wie das Entfernen einer Form, das Ausblenden einer Form oder das Neuordnen von Formen auf einer Folie.
+Um den AlternateText einer Form festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie eine beliebige Form zur Folie hinzu.
-1. Arbeiten Sie mit der neu hinzugefügten Form.
+1. Fügen Sie der Folie eine beliebige Form hinzu.
+1. Führen Sie einige Arbeiten mit der neu hinzugefügten Form aus.
 1. Durchlaufen Sie die Formen, um eine Form zu finden.
-1. Legen Sie den Alternativtext fest.
-1. Speichern Sie die Datei auf der Festplatte.
-
+1. Setzen Sie den AlternativeText.
+1. Speichern Sie die Datei auf dem Laufwerk.
 ```php
-  # Instanziieren Sie die Präsentationsklasse, die die PPTX darstellt
+  # Instanziiere die Presentation-Klasse, die das PPTX repräsentiert
   $pres = new Presentation();
   try {
-    # Holen Sie sich die erste Folie
+    # Erste Folie abrufen
     $sld = $pres->getSlides()->get_Item(0);
-    # Fügen Sie eine Autoform vom Typ Rechteck hinzu
+    # Autoshape des Typs Rechteck hinzufügen
     $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $shp2->getFillFormat()->setFillType(FillType::Solid);
@@ -200,10 +228,10 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, den Alternativtext
     for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
       $shape = $sld->getShapes()->get_Item($i);
       if (!java_is_null($shape)) {
-        $shape->setAlternativeText("Benutzerdefiniert");
+        $shape->setAlternativeText("User Defined");
       }
     }
-    # Speichern Sie die Präsentation auf der Festplatte
+    # Präsentation auf die Festplatte speichern
     $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -212,11 +240,11 @@ Aspose.Slides für PHP über Java ermöglicht es Entwicklern, den Alternativtext
   }
 ```
 
-## **Layoutformate für Formen abrufen**
-Aspose.Slides für PHP über Java bietet eine einfache API, um Layoutformate für eine Form abzurufen. Dieser Artikel zeigt, wie Sie auf Layoutformate zugreifen können.
 
-Nachfolgend finden Sie einen Beispielcode.
+## **Layout‑Formate für eine Form zugreifen**
+Aspose.Slides für PHP via Java bietet eine einfache API, um auf Layout‑Formate einer Form zuzugreifen. Dieser Artikel zeigt, wie Sie auf Layout‑Formate zugreifen können.
 
+Unten ist ein Beispielcode angegeben.
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -233,9 +261,9 @@ Nachfolgend finden Sie einen Beispielcode.
   }
 ```
 
-## **Formen als SVG rendern**
-Jetzt unterstützt Aspose.Slides für PHP über Java das Rendern einer Form als SVG. Die Methode [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (und ihre Überladung) wurde zur [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) Klasse und der [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) Schnittstelle hinzugefügt. Diese Methode ermöglicht es, den Inhalt der Form als SVG-Datei zu speichern. Der unten stehende Code zeigt, wie Sie die Form einer Folie in eine SVG-Datei exportieren.
 
+## **Eine Form als SVG rendern**
+Jetzt unterstützt Aspose.Slides für PHP via Java das Rendern einer Form als SVG. Die Methode [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (und ihre Überladung) wurde der Klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) und der Schnittstelle [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) hinzugefügt. Diese Methode ermöglicht das Speichern des Inhalts einer Form als SVG‑Datei. Das nachfolgende Code‑Snippet zeigt, wie man die Form einer Folie in eine SVG‑Datei exportiert.
 ```php
   $pres = new Presentation("TestExportShapeToSvg.pptx");
   try {
@@ -255,13 +283,13 @@ Jetzt unterstützt Aspose.Slides für PHP über Java das Rendern einer Form als 
   }
 ```
 
-## **Ausrichtung von Formen**
-Aspose.Slides ermöglicht es, Formen entweder relativ zu den Folienrändern oder relativ zueinander auszurichten. Zu diesem Zweck wurde die überladene Methode [SlidesUtil.alignShape()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) hinzugefügt. Die Enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/ShapesAlignmentType) definiert mögliche Ausrichtungsoptionen.
+
+## **Eine Form ausrichten**
+Aspose.Slides ermöglicht das Ausrichten von Formen entweder relativ zu den Folienrändern oder relativ zueinander. Zu diesem Zweck wurde die überladene Methode [SlidesUtil.alignShape()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) hinzugefügt. Die Aufzählung [ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/ShapesAlignmentType) definiert mögliche Ausrichtungsoptionen.
 
 **Beispiel 1**
 
-Der Quellcode unten richtet die Formen mit den Indizes 1, 2 und 4 entlang der oberen Kante der Folie aus.
-
+Der untenstehende Quellcode richtet die Formen mit den Indizes 1, 2 und 4 am oberen Rand der Folie aus.
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -269,7 +297,7 @@ Der Quellcode unten richtet die Formen mit den Indizes 1, 2 und 4 entlang der ob
     $shape1 = $slide->getShapes()->get_Item(1);
     $shape2 = $slide->getShapes()->get_Item(2);
     $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3)));
+    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -277,10 +305,10 @@ Der Quellcode unten richtet die Formen mit den Indizes 1, 2 und 4 entlang der ob
   }
 ```
 
+
 **Beispiel 2**
 
-Das folgende Beispiel zeigt, wie man die gesamte Sammlung von Formen relativ zur ganz unteren Form in der Sammlung ausrichtet.
-
+Das nachfolgende Beispiel zeigt, wie man die gesamte Sammlung von Formen relativ zur untersten Form in der Sammlung ausrichtet.
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -291,3 +319,61 @@ Das folgende Beispiel zeigt, wie man die gesamte Sammlung von Formen relativ zur
     }
   }
 ```
+
+
+## **Spiegelungseigenschaften**
+In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) Kontrolle über die horizontale und vertikale Spiegelung von Formen über die Eigenschaften `flipH` und `flipV`. Beide Eigenschaften sind vom Typ [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), wobei `True` eine Spiegelung, `False` keine Spiegelung und `NotDefined` das Standardverhalten bedeutet. Diese Werte sind über den [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) einer Form zugänglich.
+
+Um die Spiegelungseinstellungen zu ändern, wird eine neue Instanz von [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) mit der aktuellen Position und Größe der Form, den gewünschten Werten für `flipH` und `flipV` sowie dem Rotationswinkel erstellt. Durch Zuweisung dieser Instanz zum [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) der Form und dem Speichern der Präsentation werden die Spiegelungstransformationen angewendet und in die Ausgabedatei geschrieben.
+
+Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit den Standard‑Spiegelungseinstellungen enthält, wie unten gezeigt.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+Das folgende Code‑Beispiel ruft die aktuellen Spiegelungseigenschaften der Form ab und spiegelt sie sowohl horizontal als auch vertikal.
+```php
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+
+    // Die horizontale Spiegelungs‑Eigenschaft der Form abrufen.
+    $horizontalFlip = $shape->getFrame()->getFlipH();
+    echo "Horizontal flip: ", $horizontalFlip, "\n";
+
+    // Die vertikale Spiegelungs‑Eigenschaft der Form abrufen.
+    $verticalFlip = $shape->getFrame()->getFlipV();
+    echo "Vertical flip: ", $verticalFlip, "\n";
+
+    $x = $shape->getFrame()->getX();
+    $y = $shape->getFrame()->getY();
+    $width = $shape->getFrame()->getWidth();
+    $height = $shape->getFrame()->getHeight();
+    $flipH = NullableBool::True; // Horizontal spiegeln.
+    $flipV = NullableBool::True; // Horizontal spiegeln.
+    $rotation = $shape->getFrame()->getRotation();
+
+    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+![Die gespiegelte Form](flipped_shape.png)
+
+## **FAQ**
+
+**Kann ich Formen (Vereinigung/Schnitt/Unterschied) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
+
+Es gibt keine integrierte API für boolesche Operationen. Sie können dies annähern, indem Sie die gewünschte Kontur selbst erstellen – z. B. die resultierende Geometrie (über [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)) berechnen und eine neue Form mit dieser Kontur erzeugen, optional die Originalformen entfernen.
+
+**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, sodass eine Form immer „oben“ bleibt?**
+
+Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes)‑Sammlung der Folie. Für vorhersehbare Ergebnisse finalisieren Sie die Z‑Reihenfolge nach allen anderen Folienänderungen.
+
+**Kann ich eine Form „sperren“, um zu verhindern, dass Benutzer sie in PowerPoint bearbeiten?**
+
+Ja. Setzen Sie [shape-level protection flags](/slides/de/php-java/applying-protection-to-presentation/) (z. B. Auswahl, Bewegung, Größenänderung, Textbearbeitung sperren). Bei Bedarf spiegeln Sie die Einschränkungen im Master oder Layout. Beachten Sie, dass dies ein UI‑Schutz ist und keine Sicherheitsfunktion; für stärkeren Schutz kombinieren Sie ihn mit dateibezogenen Einschränkungen wie [Empfehlungen für schreibgeschützte Dateien oder Passwörter](/slides/de/php-java/password-protected-presentation/).

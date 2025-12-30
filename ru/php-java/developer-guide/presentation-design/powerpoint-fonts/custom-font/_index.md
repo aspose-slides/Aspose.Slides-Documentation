@@ -16,66 +16,54 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Настройте шрифты в слайдах PowerPoint с помощью Aspose.Slides для PHP через Java, чтобы ваши презентации оставались четкими и одинаковыми на любом устройстве."
+description: "Настраивайте шрифты в слайдах PowerPoint с помощью Aspose.Slides для PHP через Java, чтобы ваши презентации были четкими и одинаковыми на любом устройстве."
 ---
 
 {{% alert color="primary" %}} 
 
 Aspose Slides позволяет загружать эти шрифты с помощью метода [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-* TrueType (.ttf) и TrueType Collection (.ttc) шрифты. Смотрите [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf) и TrueType Collection (.ttc) шрифты. См. [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* OpenType (.otf) шрифты. Смотрите [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* OpenType (.otf) шрифты. См. [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Загрузка пользовательских шрифтов**
 
-Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в систему. Это влияет на вывод при экспорте — например, PDF, изображения и другие поддерживаемые форматы — поэтому полученные документы выглядят одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
+Aspose.Slides позволяет загружать шрифты, используемые в презентациях, без необходимости их установки. Шрифты загружаются из пользовательского каталога. 
 
-1. Укажите один или несколько каталогов, содержащих файлы шрифтов.  
-2. Вызовите статический метод [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) для загрузки шрифтов из этих каталогов.  
-3. Загрузите и отрендерите/экспортируйте презентацию.  
-4. Вызовите [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) для очистки кэша шрифтов.
+1. Создайте экземпляр класса [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) и вызовите метод [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
+2. Загрузите презентацию, которая будет отрисована.
+3. [Очистите кэш](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) в классе [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader).
 
-Следующий пример кода демонстрирует процесс загрузки шрифтов:
+Это PHP‑пример, демонстрирующий процесс загрузки шрифтов:
 ```php
-// Определите папки, содержащие пользовательские файлы шрифтов.
-$fontFolders = array($externalFontFolder1, $externalFontFolder2);
-
-// Загрузите пользовательские шрифты из указанных папок.
-FontsLoader::loadExternalFonts($fontFolders);
-
-$presentation = null;
-try {
-    $presentation = new Presentation("sample.pptx");
-    
-    // Отрендерите/экспортируйте презентацию (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
-    $presentation->save("output.pdf", SaveFormat::Pdf);
-} finally {
-    if ($presentation != null) $presentation->dispose();
-
-    // Очистите кэш шрифтов после завершения работы.
-    FontsLoader::clearCache();
-}
+  # Папки для поиска шрифтов
+  $folders = array($externalFontsDir );
+  # Загружает шрифты из пользовательского каталога шрифтов
+  FontsLoader->loadExternalFonts($folders);
+  # Выполняет некоторую работу и рендеринг презентации/слайда
+  $pres = new Presentation("DefaultFonts.pptx");
+  try {
+    $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+    # Очищает кеш шрифтов
+    FontsLoader->clearCache();
+  }
 ```
 
 
-{{% alert color="info" title="Примечание" %}}
+## **Получить папки пользовательских шрифтов**
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) добавляет дополнительные каталоги к путям поиска шрифтов, но не меняет порядок инициализации шрифтов. Шрифты инициализируются в следующем порядке:
+Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) , который позволяет находить папки шрифтов. Этот метод возвращает папки, добавленные с помощью метода `LoadExternalFonts`, а также системные папки шрифтов.
 
-1. Путь к шрифтам по умолчанию операционной системы.  
-1. Пути, загруженные через [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/).
-
-{{%/alert %}}
-
-## **Получение пользовательских каталогов шрифтов**
-Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) для поиска каталогов шрифтов. Этот метод возвращает каталоги, добавленные через метод `LoadExternalFonts`, а также системные каталоги шрифтов.
-
-Этот PHP‑код показывает, как использовать [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
+Этот PHP‑пример показывает, как использовать [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
 ```php
-  # Эта строка выводит папки, в которых ищутся файлы шрифтов.
+  # Эта строка выводит папки, где ищутся файлы шрифтов.
   # Это папки, добавленные через метод LoadExternalFonts, и системные папки шрифтов.
   $fontFolders = FontsLoader->getFontFolders();
 
@@ -83,9 +71,10 @@ Aspose.Slides предоставляет метод [getFontFolders](https://ref
 
 
 ## **Указание пользовательских шрифтов, используемых в презентации**
-Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) для указания внешних шрифтов, которые будут использоваться в презентации.
 
-Этот PHP‑код показывает, как использовать свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) , позволяющее указать внешние шрифты, которые будут использоваться в презентации.
+
+Этот PHP‑пример показывает, как использовать свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");
   $Byte = new JavaClass("java.lang.Byte");
@@ -111,7 +100,7 @@ Aspose.Slides предоставляет свойство [setDocumentLevelFontS
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
     # Работа с презентацией
-    # CustomFont1, CustomFont2 и шрифты из папок assets\fonts и global\fonts и их подпапок доступны для презентации
+    # CustomFont1, CustomFont2 и шрифты из папок assets\fonts & global\fonts и их подпапок доступны для презентации
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -120,11 +109,11 @@ Aspose.Slides предоставляет свойство [setDocumentLevelFontS
 ```
 
 
-## **Управление шрифтами извне**
+## **Управление шрифтами внешне**
 
-Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) для загрузки внешних шрифтов из бинарных данных.
+Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data), который позволяет загружать внешние шрифты из бинарных данных.
 
-Этот PHP‑код демонстрирует процесс загрузки шрифта из массива байтов:
+Этот PHP‑пример демонстрирует процесс загрузки шрифта из массива байтов:
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
@@ -158,7 +147,7 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      # внешний шрифт загружен в течение жизни презентации
+      # внешний шрифт, загруженный во время жизни презентации
     } finally {
     }
   } finally {
@@ -171,20 +160,20 @@ try {
 
 **Влияют ли пользовательские шрифты на экспорт во все форматы (PDF, PNG, SVG, HTML)?**
 
-Да. Подключённые шрифты используются рендерером во всех форматах экспорта.
+Да. Подключенные шрифты используются рендерером во всех форматах экспорта.
 
-**Встраиваются ли пользовательские шрифты автоматически в получаемый PPTX?**
+**Автоматически ли пользовательские шрифты встраиваются в полученный PPTX?**
 
-Нет. Регистрация шрифта для рендеринга не равна его встраиванию в PPTX. Если необходимо, чтобы шрифт находился внутри файла презентации, следует использовать явные функции [встраивания](/slides/ru/php-java/embedded-font/).
+Нет. Регистрация шрифта для рендеринга не является встраиванием его в PPTX. Если необходимо, чтобы шрифт был включён в файл презентации, следует использовать явные [возможности встраивания](/slides/ru/php-java/embedded-font/).
 
-**Можно ли управлять поведением резервирования, когда у пользовательского шрифта отсутствуют некоторые глифы?**
+**Можно ли контролировать поведение резервирования, если у пользовательского шрифта отсутствуют некоторые глифы?**
 
-Да. Настраивайте [замещение шрифтов](/slides/ru/php-java/font-substitution/), [правила замены](/slides/ru/php-java/font-replacement/) и [наборы резервных шрифтов](/slides/ru/php-java/fallback-font/), чтобы точно определить, какой шрифт использовать при отсутствии требуемого глифа.
+Да. Настройте [замену шрифтов](/slides/ru/php-java/font-substitution/), [правила замены](/slides/ru/php-java/font-replacement/) и [наборы резервных шрифтов](/slides/ru/php-java/fallback-font/), чтобы точно определить, какой шрифт использовать, когда запрашиваемый глиф отсутствует.
 
-**Могу ли я использовать шрифты в Linux/Docker‑контейнерах без их установки в системе?**
+**Можно ли использовать шрифты в контейнерах Linux/Docker без их системной установки?**
 
-Да. Указывайте собственные каталоги шрифтов или загружайте шрифты из массивов байтов. Это устраняет зависимость от системных каталогов шрифтов в образе контейнера.
+Да. Укажите свои папки со шрифтами или загрузите шрифты из массивов байтов. Это устраняет любую зависимость от системных директорий шрифтов в образе контейнера.
 
-**А что насчёт лицензирования — могу ли я встраивать любой пользовательский шрифт без ограничений?**
+**Что насчёт лицензирования — можно ли встраивать любой пользовательский шрифт без ограничений?**
 
-Вы отвечаете за соблюдение лицензий на шрифты. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.
+Вы несёте ответственность за соблюдение лицензий шрифтов. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте пользовательское соглашение (EULA) шрифта перед распространением результатов.

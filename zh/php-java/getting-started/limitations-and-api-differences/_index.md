@@ -1,24 +1,33 @@
 ---
-title: 限制和API差异
+title: 限制与 API 差异
 type: docs
 weight: 100
 url: /zh/php-java/limitations-and-api-differences/
+keywords:
+- 限制
+- API 差异
+- 包比较
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "比较 Aspose.Slides for PHP via Java 与 Aspose.Slides for Java 之间的限制和 API 差异。"
 ---
 
-## **公共API差异**
+## **公共 API 差异**
 
-此列表使用示例代码段演示了Aspose.Slides for Java和Aspose.Slides for PHP通过Java API之间的某些差异。
+此列表使用示例代码段，演示 Aspose.Slides for Java 与 Aspose.Slides for PHP via Java API 之间的某些差异。
 
 ### **导入库（包比较）**
 
 **Aspose.Slides for Java**
-
 ```java
 import com.aspose.slides.*;
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 require_once("Java.inc");
 require_once("lib/aspose.slides.php");
@@ -27,38 +36,38 @@ use aspose\sldes;
 use aspose\sldes\Presentation;
 ```
 
+
 ### **实例化新演示文稿**
 
 **Aspose.Slides for Java**
-
 ```java
 Presentation presentation = new Presentation();
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $presentation = new Presentation();
 ```
 
+
 ### **枚举或常量**
 
 **Aspose.Slides for Java**
-
 ```java
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 $arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
 ```
 
+
 ### **示例**
 
 **Aspose.Slides for Java**
-
 ```java
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
@@ -69,7 +78,7 @@ public class Test
 {
     public static void main(String[] args) throws Exception
     {
-        // 实例化一个表示演示文件的Presentation对象
+        // 实例化一个表示演示文稿文件的 Presentation 对象
         Presentation pres = new Presentation();
         try
         {
@@ -88,8 +97,8 @@ public class Test
 }
 ```
 
-**Aspose.Slides for PHP via Java**
 
+**Aspose.Slides for PHP via Java**
 ```php
 <?php
 require_once("Java.inc");
@@ -117,30 +126,31 @@ finally
 ?>
 ```
 
-### **与Aspose.Slides for Java API相比，Aspose.Slides for PHP via Java API的其他限制**
 
-Aspose.Slides命名空间及其使用的java类是由PhpJavaBridge在com.aspose.slides包中创建的具有相同名称的Java类的包装器。
+### **Aspose.Slides for PHP via Java API 相较于 Aspose.Slides for Java API 的其他限制**
 
-#### 1. **包装java参数和参数**
+Aspose.Slides 命名空间及其使用的 java 类是由 PhpJavaBridge 在 com.aspose.slides 包的同名 Java 类之上创建的包装器。
 
-它们返回和接受的参数和参数是对具有相同名称的Java类的包装。只有字符串和数值类型会自动转换。数组、集合、字节和布尔值不会被转换。
+#### **1. 包装 Java 参数和实参**
 
-**一个常见的错误：**
+它们返回和接受的参数与实参是基于同名 Java 类的包装器。仅字符串和数值类型会自动转换。数组、集合、字节和布尔值不会转换。
+
+**常见错误：**
 ``` php
-if ($node->isAssistant()) - 错误!
-if (java_values($node->isAssistant())) - 正确!
+if ($node->isAssistant()) - wrong!
+if (java_values($node->isAssistant())) - correct!
 ```
 
-#### 2. **扩展Java类和instanceof运算符**
 
-您不能从PHP类扩展Java类。作为替代方法，您可以在需要时实现组合。
-instanceof运算符仅适用于具体类。它不适用于类的接口或父类。
+#### **2. 扩展 Java 类和 instanceof 运算符**
+
+不能从 PHP 类扩展 Java 类。作为变通方法，可以在需要时实现组合。instanceof 运算符仅对具体类有效，对接口或父类无效。
 
 [workaround](https://stackoverflow.com/questions/36840618/php-java-bridge-usage-of-extend)
 
-#### 3. **Java数组不是PHP数组**
+#### **3. Java 数组不是 PHP 数组**
 
-在PHP中创建Java数组：
+在 PHP 中创建 Java 数组：
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Integer = new JavaClass("java.lang.Integer");
@@ -149,24 +159,26 @@ $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
 ```
 
-#### 4. **Java数组长度**
 
+#### **4. Java 数组长度**
 ``` php
-$data->length; - 不起作用
+$data->length; - does NOT work
 ```
-解决方法
+
+变通方法
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
 ```
 
-#### 5. **Java方法Files.readAllBytes**
 
+#### **5. Java 方法 Files.readAllBytes**
 ``` php
-$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - 不起作用
+$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
 ```
-解决方法
-``` php
+
+变通方法
+```php
 $file = new Java("java.io.File", "embedOle.html");
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = new JavaClass("java.lang.Byte");
@@ -179,12 +191,13 @@ try {
 }
 ```
 
-#### 6. **Java方法Files.write**
 
+#### **6. Java 方法 Files.write**
 ``` php
-Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - 不起作用
+Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
 ```
-解决方法
+
+变通方法
 ``` php
 $fstr = new Java("java.io.FileOutputStream", $path);
 $Array = new java_class("java.lang.reflect.Array");

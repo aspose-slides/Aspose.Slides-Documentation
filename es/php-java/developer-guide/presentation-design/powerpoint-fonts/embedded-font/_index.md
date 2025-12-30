@@ -1,31 +1,41 @@
 ---
-title: Fuente Embebida - API de Java para PowerPoint
-linktitle: Fuente Embebida
+title: Incorporar fuentes en presentaciones usando PHP
+linktitle: Incrustación de fuente
 type: docs
 weight: 40
 url: /es/php-java/embedded-font/
-keywords: "Fuentes, fuentes embebidas, agregar fuentes, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
-description: "Usa fuentes embebidas en la presentación de PowerPoint"
-
+keywords:
+- añadir fuente
+- incrustar fuente
+- incrustación de fuente
+- obtener fuente incrustada
+- añadir fuente incrustada
+- eliminar fuente incrustada
+- comprimir fuente incrustada
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Incruste fuentes TrueType en presentaciones PowerPoint y OpenDocument con Aspose.Slides para PHP a través de Java, garantizando una renderización precisa en todas las plataformas."
 ---
 
-**Las fuentes embebidas en PowerPoint** son útiles cuando deseas que tu presentación aparezca correctamente al abrirse en cualquier sistema o dispositivo. Si utilizaste una fuente de terceros o no estándar porque fuiste creativo con tu trabajo, entonces tienes aún más razones para embebar tu fuente. De lo contrario (sin fuentes embebidas), los textos o números en tus diapositivas, el diseño, el estilo, etc. pueden cambiar o convertirse en rectángulos confusos.
+**Fuentes incrustadas en PowerPoint** son útiles cuando quieres que tu presentación se vea correctamente al abrirse en cualquier sistema o dispositivo. Si utilizaste una fuente de terceros o no estándar porque fuiste creativo con tu trabajo, entonces tienes aún más razones para incrustar tu fuente. De lo contrario (sin fuentes incrustadas), los textos o números en tus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos. 
 
-La clase [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), la clase [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/), la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) y sus interfaces contienen la mayoría de las propiedades y métodos que necesitas para trabajar con fuentes embebidas en presentaciones de PowerPoint.
+La clase [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), la clase [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/), la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) y sus interfaces contienen la mayor parte de las propiedades y métodos que necesitas para trabajar con fuentes incrustadas en presentaciones de PowerPoint.
 
-## **Obtener o Eliminar Fuentes Embebidas de la Presentación**
+## **Obtener y eliminar fuentes incrustadas**
 
-Aspose.Slides proporciona el método [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) (expuesto por la clase [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) para permitirte obtener (o averiguar) las fuentes embebidas en una presentación. Para eliminar fuentes, se utiliza el método [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (expuesto por la misma clase).
+Aspose.Slides ofrece el método [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) (expuesto por la clase [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) para permitirte obtener (o averiguar) las fuentes incrustadas en una presentación. Para eliminar fuentes, se usa el método [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (expuesto por la misma clase).
 
-Este código PHP te muestra cómo obtener y eliminar fuentes embebidas de una presentación:
-
+Este código PHP muestra cómo obtener y eliminar fuentes incrustadas de una presentación:
 ```php
   # Instancia un objeto Presentation que representa un archivo de presentación
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
-    # Renderiza una diapositiva que contiene un marco de texto que usa "FunSized" embebido
+    # Renderiza una diapositiva que contiene un marco de texto que usa la fuente incrustada "FunSized"
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Guarda la imagen en el disco en formato JPEG
+    # Guarda la imagen en disco en formato JPEG
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -34,9 +44,9 @@ Este código PHP te muestra cómo obtener y eliminar fuentes embebidas de una pr
       }
     }
     $fontsManager = $pres->getFontsManager();
-    # Obtiene todas las fuentes embebidas
+    # Obtiene todas las fuentes incrustadas
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # Encuentra la fuente "Calibri"
+    # Busca la fuente "Calibri"
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
@@ -48,9 +58,9 @@ Este código PHP te muestra cómo obtener y eliminar fuentes embebidas de una pr
     }
     # Elimina la fuente "Calibri"
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # Renderiza la presentación; la fuente "Calibri" es reemplazada por una existente
+    # Renderiza la presentación; la fuente "Calibri" se sustituye por una existente
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Guarda la imagen en el disco en formato JPEG
+    # Guarda la imagen en disco en formato JPEG
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -58,7 +68,7 @@ Este código PHP te muestra cómo obtener y eliminar fuentes embebidas de una pr
         $slideImage->dispose();
       }
     }
-    # Guarda la presentación sin la fuente "Calibri" embebida en el disco
+    # Guarda la presentación sin la fuente "Calibri" incrustada en disco
     $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
   } finally {
     if (!java_is_null($pres)) {
@@ -67,10 +77,10 @@ Este código PHP te muestra cómo obtener y eliminar fuentes embebidas de una pr
   }
 ```
 
-## **Agregar Fuentes Embebidas a la Presentación**
 
-Usando el enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) y dos sobrecargas del método [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-), puedes seleccionar tu regla preferida (de embebido) para embebir las fuentes en una presentación. Este código PHP te muestra cómo embebir y agregar fuentes a una presentación:
+## **Agregar fuentes incrustadas**
 
+Usando el enumerado [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) y dos sobrecargas del método [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) puedes seleccionar la regla (de incrustación) que prefieras para incrustar las fuentes en una presentación. Este código PHP muestra cómo incrustar y añadir fuentes a una presentación:
 ```php
   # Carga la presentación
   $pres = new Presentation("Fonts.pptx");
@@ -91,7 +101,7 @@ Usando el enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-jav
         $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
       }
     }
-    # Guarda la presentación en el disco
+    # Guarda la presentación en disco
     $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -100,12 +110,12 @@ Usando el enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-jav
   }
 ```
 
-## **Comprimir Fuentes Embebidas**
 
-Para permitirte comprimir las fuentes embebidas en una presentación y reducir su tamaño de archivo, Aspose.Slides proporciona el método [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (expuesto por la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
+## **Comprimir fuentes incrustadas**
 
-Este código PHP te muestra cómo comprimir fuentes de PowerPoint embebidas:
+Para permitirte comprimir las fuentes incrustadas en una presentación y reducir su tamaño de archivo, Aspose.Slides ofrece el método [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (expuesto por la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
 
+Este código PHP muestra cómo comprimir fuentes incrustadas de PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -117,3 +127,14 @@ Este código PHP te muestra cómo comprimir fuentes de PowerPoint embebidas:
     }
   }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo saber si una fuente específica en la presentación seguirá siendo sustituida durante la renderización a pesar de estar incrustada?**
+
+Revisa la [información de sustitución](/slides/es/php-java/font-substitution/) en el gestor de fuentes y las [reglas de sustitución/reemplazo](/slides/es/php-java/fallback-font/): si la fuente no está disponible o está restringida, se utilizará una fuente de reemplazo.
+
+**¿Vale la pena incrustar fuentes del "sistema" como Arial/Calibri?**
+
+Normalmente no, ya que casi siempre están disponibles. Pero para una portabilidad total en entornos "delgados" (Docker, un servidor Linux sin fuentes preinstaladas), incrustar fuentes del sistema puede eliminar el riesgo de sustituciones inesperadas.

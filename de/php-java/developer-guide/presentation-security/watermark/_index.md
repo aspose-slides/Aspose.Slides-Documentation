@@ -1,43 +1,55 @@
 ---
-title: Wasserzeichen
+title: Wasserzeichen zu Präsentationen in PHP hinzufügen
+linktitle: Wasserzeichen
 type: docs
 weight: 40
 url: /de/php-java/watermark/
 keywords:
 - wasserzeichen
-- wasserzeichen hinzufügen
 - textwasserzeichen
 - bildwasserzeichen
+- wasserzeichen hinzufügen
+- wasserzeichen ändern
+- wasserzeichen entfernen
+- wasserzeichen löschen
+- wasserzeichen zu PPT hinzufügen
+- wasserzeichen zu PPTX hinzufügen
+- wasserzeichen zu ODP hinzufügen
+- wasserzeichen aus PPT entfernen
+- wasserzeichen aus PPTX entfernen
+- wasserzeichen aus ODP entfernen
+- wasserzeichen aus PPT löschen
+- wasserzeichen aus PPTX löschen
+- wasserzeichen aus ODP löschen
 - PowerPoint
+- OpenDocument
 - präsentation
 - PHP
-- Java
-- Aspose.Slides für PHP über Java
-description: "Fügen Sie Text- und Bildwasserzeichen zu PowerPoint-Präsentationen in PHP hinzu"
+- Aspose.Slides
+description: "Verwalten Sie Text‑ und Bildwasserzeichen in PowerPoint‑ und OpenDocument‑Präsentationen in PHP, um einen Entwurf, vertrauliche Informationen, Urheberrechte und mehr anzugeben."
 ---
 
 ## **Über Wasserzeichen**
 
-**Ein Wasserzeichen** in einer Präsentation ist ein Text- oder Bildstempel, der auf einer Folie oder auf allen Folien der Präsentation verwendet wird. Normalerweise wird ein Wasserzeichen verwendet, um anzuzeigen, dass die Präsentation ein Entwurf ist (z.B. ein "Entwurf"-Wasserzeichen), dass sie vertrauliche Informationen enthält (z.B. ein "Vertraulich"-Wasserzeichen), um anzugeben, zu welchem Unternehmen sie gehört (z.B. ein "Unternehmensname"-Wasserzeichen), um den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem angezeigt wird, dass die Präsentation nicht kopiert werden sollte. Wasserzeichen werden sowohl im PowerPoint- als auch im OpenOffice-Präsentationsformat verwendet. In Aspose.Slides können Sie ein Wasserzeichen zu PowerPoint-PPT-, PPTX- und OpenOffice-ODP-Dateiformaten hinzufügen.
+**Ein Wasserzeichen** in einer Präsentation ist ein Text‑ oder Bildstempel, der auf einer Folie oder in allen Folien einer Präsentation verwendet wird. Üblicherweise wird ein Wasserzeichen genutzt, um anzuzeigen, dass die Präsentation ein Entwurf ist (z. B. ein „Entwurf“-Wasserzeichen), dass vertrauliche Informationen enthalten sind (z. B. ein „Vertraulich“-Wasserzeichen), um anzugeben, zu welchem Unternehmen sie gehört (z. B. ein „Firmenname“-Wasserzeichen), den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem es anzeigt, dass die Präsentation nicht kopiert werden soll. Wasserzeichen werden sowohl im PowerPoint‑ als auch im OpenOffice‑Präsentationsformat verwendet. In Aspose.Slides können Sie einem PowerPoint‑PPT, PPTX und OpenOffice‑ODP‑Dateiformat ein Wasserzeichen hinzufügen.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint- oder OpenOffice-Dokumenten zu erstellen und deren Design und Verhalten zu ändern. Der gemeinsame Aspekt besteht darin, dass Sie zur Hinzufügung von Textwasserzeichen die [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) Klasse verwenden sollten, und um Bildwasserzeichen hinzuzufügen, verwenden Sie die [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) Klasse oder fügen Sie ein Bild zu einer Wasserzeichenform hinzu. `PictureFrame` implementiert die [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) Klasse, die Ihnen alle flexiblen Einstellungen des Formobjekts zur Verfügung stellt. Da `ITextFrame` keine Form ist und ihre Einstellungen begrenzt sind, wird sie in ein [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) Objekt eingewickelt.
+In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint‑ oder OpenOffice‑Dokumenten zu erstellen und deren Design sowie Verhalten zu ändern. Der gemeinsame Aspekt ist, dass zum Hinzufügen von Text‑Wasserzeichen die Klasse [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) verwendet werden sollte und zum Hinzufügen von Bild‑Wasserzeichen die Klasse [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) oder das Füllen einer Wasserzeichen‑Form mit einem Bild. `PictureFrame` implementiert die Klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), sodass Sie alle flexiblen Einstellungen des Shape‑Objekts nutzen können. Da `ITextFrame` kein Shape ist und seine Einstellungen begrenzt sind, wird es in ein [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑Objekt eingewickelt.
 
-Es gibt zwei Möglichkeiten, ein Wasserzeichen anzuwenden: auf eine einzelne Folie oder auf alle Präsentationsfolien. Der Folienmaster wird verwendet, um ein Wasserzeichen auf allen Folien der Präsentation anzuwenden – das Wasserzeichen wird zum Folienmaster hinzugefügt, dort vollständig gestaltet und auf alle Folien angewendet, ohne das Recht zur Bearbeitung des Wasserzeichens auf einzelnen Folien zu beeinträchtigen.
+Ein Wasserzeichen kann auf zwei Arten angewendet werden: auf einer einzelnen Folie oder auf allen Folien der Präsentation. Der Folien‑Master wird verwendet, um ein Wasserzeichen auf alle Folien anzuwenden — das Wasserzeichen wird dem Folien‑Master hinzugefügt, dort vollständig gestaltet und auf alle Folien angewendet, ohne die Möglichkeit zu beeinträchtigen, das Wasserzeichen auf einzelnen Folien zu bearbeiten.
 
-Ein Wasserzeichen wird normalerweise als nicht bearbeitbar für andere Benutzer betrachtet. Um zu verhindern, dass das Wasserzeichen (oder besser gesagt die Elternelementform des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Funktion zur Formverriegelung. Eine bestimmte Form kann auf einer normalen Folie oder auf einem Folienmaster gesperrt werden. Wenn die Wasserzeichenform auf dem Folienmaster gesperrt ist, wird sie auf allen Präsentationsfolien gesperrt.
+Ein Wasserzeichen wird in der Regel als nicht editierbar für andere Benutzer betrachtet. Um zu verhindern, dass das Wasserzeichen (bzw. das übergeordnete Shape des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Shape‑Sperrfunktion. Ein bestimmtes Shape kann auf einer normalen Folie oder auf einem Folien‑Master gesperrt werden. Wird das Wasserzeichen‑Shape auf dem Folien‑Master gesperrt, ist es auf allen Folien gesperrt.
 
-Sie können dem Wasserzeichen einen Namen geben, damit Sie es in Zukunft finden und löschen können, wenn Sie es in den Formen der Folie nach Namen suchen möchten.
+Sie können dem Wasserzeichen einen Namen zuweisen, sodass Sie es in Zukunft anhand des Namens in den Folien‑Shapes finden und ggf. löschen können.
 
-Sie können das Wasserzeichen nach Belieben gestalten; in der Regel gibt es jedoch häufige Merkmale in Wasserzeichen, wie z.B. zentrierte Ausrichtung, Drehung, Vordergrundposition usw. Im Folgenden werden wir betrachten, wie man diese in den Beispielen verwendet.
+Sie können das Wasserzeichen nach Belieben gestalten; typischerweise besitzen Wasserzeichen jedoch gemeinsame Merkmale wie zentrierte Ausrichtung, Drehung, Vordergrundposition usw. Im Folgenden betrachten wir, wie man diese Merkmale in den Beispielen verwendet.
 
-## **Textwasserzeichen**
+## **Text‑Wasserzeichen**
 
-### **Fügen Sie ein Textwasserzeichen zu einer Folie hinzu**
+### **Ein Text‑Wasserzeichen zu einer Folie hinzufügen**
 
-Um ein Textwasserzeichen in PPT, PPTX oder ODP hinzuzufügen, können Sie zuerst eine Form zur Folie hinzufügen und dann einen Textrahmen zu dieser Form hinzufügen. Der Textrahmen wird durch die [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) Klasse dargestellt. Dieser Typ erbt nicht von [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), die eine breite Palette von Eigenschaften für die flexible Positionierung des Wasserzeichens hat. Daher wird das [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) Objekt in ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) Objekt eingewickelt. Um den Wasserzeichentext zur Form hinzuzufügen, verwenden Sie die [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) Methode, wie unten gezeigt.
-
+Um ein Text‑Wasserzeichen in PPT, PPTX oder ODP hinzuzufügen, können Sie zunächst ein Shape zur Folie hinzufügen und diesem dann ein TextFrame zuweisen. Das TextFrame wird durch die Klasse [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) repräsentiert. Dieser Typ erbt nicht von [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), das über zahlreiche Eigenschaften für die flexible Positionierung des Wasserzeichens verfügt. Deshalb wird das [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)-Objekt in ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)‑Objekt eingewickelt. Um dem Shape Text‑Wasserzeichen hinzuzufügen, verwenden Sie die Methode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) wie unten gezeigt.
 ```php
-$watermarkText = "VERTRAULICH";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -48,16 +60,16 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/de/php-java/text-formatting/)
+- [Verwendung der TextFrame‑Klasse](/slides/de/php-java/text-formatting/)
 {{% /alert %}}
 
-### **Fügen Sie ein Textwasserzeichen zu einer Präsentation hinzu**
+### **Ein Text‑Wasserzeichen zur gesamten Präsentation hinzufügen**
 
-Wenn Sie ein Textwasserzeichen zur gesamten Präsentation (d.h. allen Folien gleichzeitig) hinzufügen möchten, fügen Sie es zum [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) hinzu. Die restliche Logik ist die gleiche wie beim Hinzufügen eines Wasserzeichens zu einer einzelnen Folie – erstellen Sie ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) Objekt und fügen Sie dann das Wasserzeichen mit der [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) Methode hinzu.
-
+Wenn Sie ein Text‑Wasserzeichen zur gesamten Präsentation (also zu allen Folien gleichzeitig) hinzufügen möchten, fügen Sie es dem [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) hinzu. Der Rest der Logik ist identisch zur Vorgehensweise beim Hinzufügen eines Wasserzeichens zu einer einzelnen Folie — erstellen Sie ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)‑Objekt und fügen Sie das Wasserzeichen mittels der Methode [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) hinzu.
 ```php
-$watermarkText = "VERTRAULICH";
+$watermarkText = "CONFIDENTIAL";
 
 $presentation = new Presentation();
 $masterSlide = $presentation->getMasters()->get_Item(0);
@@ -68,33 +80,33 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
+
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/de/php-java/slide-master/)
+- [Verwendung des Folien‑Masters](/slides/de/php-java/slide-master/)
 {{% /alert %}}
 
-### **Setzen Sie die Transparenz der Wasserzeichenform**
+### **Transparenz des Wasserzeichen‑Shapes festlegen**
 
-Standardmäßig ist die Rechteckform mit Füll- und Linienfarben gestaltet. Die folgenden Codezeilen machen die Form transparent.
-
+Standardmäßig ist das Rechteck‑Shape mit Füll‑ und Linienfarben formatiert. Die folgenden Codezeilen machen das Shape transparent.
 ```php
 $watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
 $watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
 ```
 
-### **Setzen Sie die Schriftart für ein Textwasserzeichen**
 
-Sie können die Schriftart des Textwasserzeichens wie unten gezeigt ändern.
+### **Schriftart für ein Text‑Wasserzeichen festlegen**
 
+Sie können die Schriftart des Text‑Wasserzeichens wie unten gezeigt ändern.
 ```php
 $textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
 $textFormat->setLatinFont(new FontData("Arial"));
 $textFormat->setFontHeight(50);
 ```
 
-### **Setzen Sie die Textfarbe des Wasserzeichens**
 
-Um die Farbe des Wasserzeichentextes festzulegen, verwenden Sie diesen Code:
+### **Farbe des Wasserzeichen‑Texts festlegen**
 
+Um die Farbe des Wasserzeichen‑Texts zu setzen, verwenden Sie diesen Code:
 ```php
 $alpha = 150;
 $red = 200;
@@ -107,10 +119,10 @@ $fillFormat->setFillType(FillType::Solid);
 $fillFormat->getSolidFillColor()->setColor($textColor);
 ```
 
-### **Zentrieren Sie ein Textwasserzeichen**
 
-Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren, und dafür können Sie Folgendes tun:
+### **Ein Text‑Wasserzeichen zentrieren**
 
+Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren; dazu können Sie Folgendes tun:
 ```php
 $slideSize = $presentation->getSlideSize()->getSize();
 $slideWidth = java_values($slideSize->getWidth());
@@ -127,16 +139,16 @@ $watermarkShape = $slide->getShapes()->addAutoShape(
 $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 ```
 
-Das Bild unten zeigt das Endergebnis.
 
-![Das Textwasserzeichen](text_watermark.png)
+Das untenstehende Bild zeigt das Endergebnis.
 
-## **Bildwasserzeichen**
+![Das Text‑Wasserzeichen](text_watermark.png)
 
-### **Fügen Sie ein Bildwasserzeichen zu einer Präsentation hinzu**
+## **Bild‑Wasserzeichen**
 
-Um ein Bildwasserzeichen zu einer Präsentationsfolie hinzuzufügen, können Sie Folgendes tun:
+### **Ein Bild‑Wasserzeichen zur Präsentation hinzufügen**
 
+Um ein Bild‑Wasserzeichen zu einer Präsentationsfolie hinzuzufügen, können Sie Folgendes tun:
 ```php
 $image = Images::fromFile("watermark.png");
 $picture = $presentation->getImages()->addImage($image);
@@ -147,12 +159,12 @@ $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage
 $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **Sperren Sie ein Wasserzeichen vor der Bearbeitung**
 
-Wenn es notwendig ist, ein Wasserzeichen vor der Bearbeitung zu schützen, verwenden Sie die [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) Methode auf der Form. Mit dieser Eigenschaft können Sie die Form vor Auswahl, Größenänderung, Neupositionierung, Gruppierung mit anderen Elementen, das Sperren ihres Textes vor der Bearbeitung und vieles mehr schützen:
+### **Ein Wasserzeichen vor Bearbeitung schützen**
 
+Falls es erforderlich ist, ein Wasserzeichen vor Bearbeitung zu schützen, verwenden Sie die Methode [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) am Shape. Mit dieser Eigenschaft können Sie das Shape davor schützen, ausgewählt, in der Größe geändert, repositioniert, mit anderen Elementen gruppiert, sein Text vor Bearbeitung gesperrt usw.:
 ```php
-// Sperren Sie die Wasserzeichenform vor Änderungen
+// Sperrt das Wasserzeichen-Shape vor Änderungen
 $watermarkShape->getAutoShapeLock()->setSelectLocked(true);
 $watermarkShape->getAutoShapeLock()->setSizeLocked(true);
 $watermarkShape->getAutoShapeLock()->setTextLocked(true);
@@ -160,48 +172,69 @@ $watermarkShape->getAutoShapeLock()->setPositionLocked(true);
 $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
 ```
 
-## **Bringen Sie ein Wasserzeichen in den Vordergrund**
 
-In Aspose.Slides kann die Z-Reihenfolge von Formen über die [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder) Methode festgelegt werden. Dazu müssen Sie diese Methode aus der Folienliste der Präsentation aufrufen und die Formreferenz und ihre Reihenfolgenummer an die Methode übergeben. Auf diese Weise ist es möglich, eine Form in den Vordergrund zu bringen oder sie an den Hintergrund der Folie zu senden. Diese Funktion ist besonders nützlich, wenn Sie ein Wasserzeichen vor der Präsentation platzieren müssen:
+### **Ein Wasserzeichen in den Vordergrund holen**
 
+In Aspose.Slides kann die Z‑Reihenfolge von Shapes über die Methode [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder) festgelegt werden. Dazu rufen Sie diese Methode aus der Liste der Präsentationsfolien auf und übergeben die Shape‑Referenz sowie deren Reihenfolge‑Nummer. Auf diese Weise lässt sich ein Shape in den Vordergrund oder in den Hintergrund der Folie verschieben. Diese Funktion ist besonders nützlich, wenn Sie ein Wasserzeichen vor die übrigen Inhalte der Präsentation stellen möchten:
 ```php
 $shapeCount = java_values($slide->getShapes()->size());
 $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
 ```
 
-## **Setzen Sie die Wasserzeichenrotation**
 
-Hier ist ein Codebeispiel, wie man die Rotation des Wasserzeichens so anpasst, dass es diagonal über die Folie positioniert wird:
+### **Wasserzeichen‑Drehung festlegen**
 
+Im Folgenden ein Code‑Beispiel, wie Sie die Drehung des Wasserzeichens anpassen können, sodass es diagonal über die Folie positioniert wird:
 ```php
 $diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
 
 $watermarkShape->setRotation($diagonalAngle);
 ```
 
-## **Setzen Sie einen Namen für ein Wasserzeichen**
 
-Aspose.Slides ermöglicht es Ihnen, den Namen einer Form festzulegen. Mit dem Formnamen können Sie in Zukunft darauf zugreifen, um es zu ändern oder zu löschen. Um den Namen der Wasserzeichenform festzulegen, weisen Sie ihn der [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) Methode zu:
+### **Einen Namen für ein Wasserzeichen festlegen**
 
+Aspose.Slides ermöglicht das Setzen eines Shape‑Namens. Durch die Verwendung des Shape‑Namens können Sie das Shape später wiederfinden, um es zu ändern oder zu löschen. Um den Namen des Wasserzeichen‑Shapes festzulegen, weisen Sie ihn der Methode [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) zu:
 ```php
-$watermarkShape->setName("wasserzeichen");
+$watermarkShape->setName("watermark");
 ```
 
-## **Entfernen Sie ein Wasserzeichen**
 
-Um die Wasserzeichenform zu entfernen, verwenden Sie die [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) Methode, um es in den Folienformen zu finden. Dann übergeben Sie die Wasserzeichenform an die [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) Methode:
+### **Ein Wasserzeichen entfernen**
 
+Um das Wasserzeichen‑Shape zu entfernen, verwenden Sie die Methode [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName), um es in den Folien‑Shapes zu finden. Anschließend übergeben Sie das Wasserzeichen‑Shape an die Methode [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove):
 ```php
 $slideShapes = $slide->getShapes()->toArray();
 foreach ($slideShapes as $shape) {
-    if ($shape->getName() === "wasserzeichen") {
+    if ($shape->getName() === "watermark") {
         $slide->getShapes()->remove($shape);
     }
 }
 ```
 
-## **Ein Live-Beispiel**
 
-Sie möchten möglicherweise die **Aspose.Slides kostenlosen** [Wasserzeichen hinzufügen](https://products.aspose.app/slides/watermark) und [Wasserzeichen entfernen](https://products.aspose.app/slides/watermark/remove-watermark) Online-Tools ausprobieren.
+## **FAQ**
 
-![Online-Tools zum Hinzufügen und Entfernen von Wasserzeichen](online_tools.png)
+**Was ist ein Wasserzeichen und warum sollte ich es verwenden?**
+
+Ein Wasserzeichen ist ein Text‑ oder Bild‑Overlay, das auf Folien angewendet wird, um geistiges Eigentum zu schützen, die Markenbekanntheit zu steigern oder die unbefugte Nutzung von Präsentationen zu verhindern.
+
+**Kann ich ein Wasserzeichen zu allen Folien einer Präsentation hinzufügen?**
+
+Ja, Aspose.Slides ermöglicht das programmgesteuerte Hinzufügen eines Wasserzeichens zu jeder Folie einer Präsentation. Sie können über alle Folien iterieren und die Wasserzeichen‑Einstellungen individuell anwenden.
+
+**Wie kann ich die Transparenz des Wasserzeichens anpassen?**
+
+Sie können die Transparenz des Wasserzeichens ändern, indem Sie die Füll‑Einstellungen ([getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getfillformat/)) des Shapes anpassen. So bleibt das Wasserzeichen dezent und lenkt nicht vom Folieninhalt ab.
+
+**Welche Bildformate werden für Wasserzeichen unterstützt?**
+
+Aspose.Slides unterstützt verschiedene Bildformate wie PNG, JPEG, GIF, BMP, SVG und weitere.
+
+**Kann ich die Schriftart und den Stil eines Text‑Wasserzeichens anpassen?**
+
+Ja, Sie können jede Schriftart, Größe und jeden Stil wählen, um das Design Ihrer Präsentation zu ergänzen und Marken‑Konsistenz zu wahren.
+
+**Wie ändere ich die Position oder Ausrichtung eines Wasserzeichens?**
+
+Sie können die Position und Ausrichtung des Wasserzeichens programmgesteuert ändern, indem Sie die Koordinaten, Größe und Drehungs‑Eigenschaften des Shapes anpassen.

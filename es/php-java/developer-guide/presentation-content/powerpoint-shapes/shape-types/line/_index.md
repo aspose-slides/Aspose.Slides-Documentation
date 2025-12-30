@@ -1,38 +1,51 @@
 ---
-title: Línea
+title: Añadir formas de línea a presentaciones en PHP
+linktitle: Línea
 type: docs
 weight: 50
-url: /es/php-java/Línea/
+url: /es/php-java/Line/
+keywords:
+- línea
+- crear línea
+- añadir línea
+- línea simple
+- configurar línea
+- personalizar línea
+- estilo de guión
+- cabeza de flecha
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprende a manipular el formato de líneas en presentaciones de PowerPoint con Aspose.Slides para PHP a través de Java. Descubre propiedades, métodos y ejemplos."
 ---
-
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides para PHP a través de Java soporta agregar diferentes tipos de formas a las diapositivas. En este tema, comenzaremos a trabajar con formas agregando líneas a las diapositivas. Usando Aspose.Slides para PHP a través de Java, los desarrolladores pueden no solo crear líneas simples, sino que también se pueden dibujar algunas líneas elegantes en las diapositivas.
+Aspose.Slides for PHP via Java admite la incorporación de diferentes tipos de formas a las diapositivas. En este tema, comenzaremos a trabajar con formas añadiendo líneas a las diapositivas. Con Aspose.Slides for PHP via Java, los desarrolladores pueden no solo crear líneas simples, sino también dibujar líneas más sofisticadas en las diapositivas.
 
 {{% /alert %}} 
 
-## **Crear Línea Simple**
+## **Crear una línea simple**
 
-Para agregar una línea simple a una diapositiva seleccionada de la presentación, siga los siguientes pasos:
+Para agregar una línea simple a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Agregue una AutoShape de tipo Línea usando el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- Escriba la presentación modificada como un archivo PPTX.
+- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+- Obtener la referencia de una diapositiva usando su índice.
+- Añadir un AutoShape de tipo Línea mediante el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- Guardar la presentación modificada como archivo PPTX.
 
-En el ejemplo que se da a continuación, hemos agregado una línea a la primera diapositiva de la presentación.
-
+En el ejemplo que se muestra a continuación, hemos añadido una línea a la primera diapositiva de la presentación.
 ```php
   # Instanciar la clase PresentationEx que representa el archivo PPTX
   $pres = new Presentation();
   try {
     # Obtener la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Agregar una AutoShape de tipo línea
+    # Añadir un AutoShape de tipo línea
     $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    # Escribir el PPTX en el disco
-    $pres->save("LíneaForma.pptx", SaveFormat::Pptx);
+    # Guardar el PPTX en disco
+    $pres->save("LineShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -40,27 +53,27 @@ En el ejemplo que se da a continuación, hemos agregado una línea a la primera 
   }
 ```
 
-## **Crear Línea en Forma de Flecha**
 
-Aspose.Slides para PHP a través de Java también permite a los desarrolladores configurar algunas propiedades de la línea para que se vea más atractiva. Intentemos configurar algunas propiedades de una línea para hacerla parecer una flecha. Siga los pasos a continuación para hacerlo:
+## **Crear una línea con forma de flecha**
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Agregue una AutoShape de tipo Línea usando el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
-- Establezca el [Estilo de Línea](https://reference.aspose.com/slides/php-java/aspose.slides/LineStyle) a uno de los estilos ofrecidos por Aspose.Slides para PHP a través de Java.
-- Establezca el ancho de la línea.
-- Establezca el [Estilo de Guion](https://reference.aspose.com/slides/php-java/aspose.slides/LineDashStyle) de la línea a uno de los estilos ofrecidos por Aspose.Slides para PHP a través de Java.
-- Establezca el [Estilo de Cabeza de Flecha](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) y [Longitud](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) del punto de inicio de la línea.
-- Establezca el [Estilo de Cabeza de Flecha](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) y [Longitud](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) del punto final de la línea.
-- Escriba la presentación modificada como un archivo PPTX.
+Aspose.Slides for PHP via Java también permite a los desarrolladores configurar algunas propiedades de la línea para que resulte más atractiva. Intentemos configurar algunas propiedades de una línea para que tenga forma de flecha. Siga los pasos a continuación para hacerlo:
 
+- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+- Obtener la referencia de una diapositiva usando su índice.
+- Añadir un AutoShape de tipo Línea mediante el método [addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) expuesto por el objeto [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+- Establecer el [Line Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineStyle) a uno de los estilos ofrecidos por Aspose.Slides for PHP via Java.
+- Establecer el Ancho de la línea.
+- Establecer el [Dash Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineDashStyle) de la línea a uno de los estilos ofrecidos por Aspose.Slides for PHP via Java.
+- Establecer el [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) y la [Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) del punto de inicio de la línea.
+- Establecer el [Arrow Head Style](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadStyle) y la [Length](https://reference.aspose.com/slides/php-java/aspose.slides/LineArrowheadLength) del punto final de la línea.
+- Guardar la presentación modificada como archivo PPTX.
 ```php
   # Instanciar la clase PresentationEx que representa el archivo PPTX
   $pres = new Presentation();
   try {
     # Obtener la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Agregar una AutoShape de tipo línea
+    # Añadir un AutoShape de tipo línea
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     # Aplicar algo de formato a la línea
     $shp->getLineFormat()->setStyle(LineStyle->ThickBetweenThin);
@@ -72,11 +85,26 @@ Aspose.Slides para PHP a través de Java también permite a los desarrolladores 
     $shp->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
     $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->Maroon));
-    # Escribir el PPTX en el disco
-    $pres->save("LíneaForma.pptx", SaveFormat::Pptx);
+    # Guardar el PPTX en disco
+    $pres->save("LineShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo convertir una línea normal en un conector para que se "ajuste" a las formas?**
+
+No. Una línea normal (un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) de tipo [Line](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/)) no se convierte automáticamente en un conector. Para que se ajuste a las formas, utilice el tipo [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) dedicado y las [APIs correspondientes](/slides/es/php-java/connector/) para conexiones.
+
+**¿Qué debo hacer si las propiedades de una línea se heredan del tema y es difícil determinar los valores finales?**
+
+[Lea las propiedades efectivas](/slides/es/php-java/shape-effective-properties/) a través de `LineFormatEffectiveData`/`LineFillFormatEffectiveData` — estos ya tienen en cuenta la herencia y los estilos del tema.
+
+**¿Puedo bloquear una línea contra la edición (movimiento, redimensionado)?**
+
+Sí. Las formas proporcionan [objetos de bloqueo](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/getautoshapelock/) que le permiten [denegar operaciones de edición](/slides/es/php-java/applying-protection-to-presentation/).

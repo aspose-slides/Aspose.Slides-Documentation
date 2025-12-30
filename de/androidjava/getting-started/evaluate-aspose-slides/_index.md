@@ -28,9 +28,11 @@ Die Evaluierungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die vo
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 Wenn Sie Aspose.Slides ohne die Einschränkungen der Evaluierungsversion testen möchten, können Sie eine 30‑tägige temporäre Lizenz anfordern. Bitte beachten Sie [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+
+{{% /alert %}}
 
 ## **FAQ**
 

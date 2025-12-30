@@ -1,56 +1,66 @@
 ---
-title: 例を実行する方法
+title: サンプルの実行方法
 type: docs
 weight: 140
 url: /ja/php-java/how-to-run-the-examples/
+keywords:
+- サンプル
+- ソフトウェア要件
+- GitHub
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java のサンプルを素早く実行するには: リポジトリをクローンし、パッケージを復元し、PPT、PPTX、ODP 用の機能をビルドしてテストします。"
 ---
 
 ## **GitHubからダウンロード**
-Aspose.Slides for PHP via Javaのすべての例は、[Github](https://github.com/aspose-slides/Aspose.Slides-for-Java)でホストされています。お好きなGithubクライアントを使用してリポジトリをクローンするか、[こちら](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master)からZIPファイルをダウンロードできます。
+Aspose.Slides for PHP via Java のすべてのサンプルは[Github](https://github.com/aspose-slides/Aspose.Slides-for-Java)にホストされています。好きな Github クライアントでリポジトリをクローンするか、[here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master)から ZIP ファイルをダウンロードできます。
 
-ZIPファイルの内容をコンピュータの任意のフォルダに抽出します。すべての例は**Examples**フォルダにあります。
+ZIP ファイルの内容をコンピュータ上の任意のフォルダーに展開してください。すべてのサンプルは **Examples** フォルダーにあります。
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **IDEに例をインポート**
-このプロジェクトはMavenビルドシステムを使用しています。ほとんどのモダンなIDEはプロジェクトとその依存関係を簡単に開くまたはインポートできます。以下に、人気のあるIDEを使用して例をビルドし、実行する方法を示します。
+## **IDEへのインポート**
+このプロジェクトは Maven ビルドシステムを使用しています。任意の最新 IDE でプロジェクトと依存関係を簡単に開くまたはインポートできます。以下では、一般的な IDE を使用してサンプルをビルドおよび実行する方法を示します。
 
 ### **IntelliJ IDEA**
-**ファイル**メニューをクリックし、**開く**を選択します。プロジェクトフォルダに移動し、**pom.xml**ファイルを選択します。
+**File** メニューをクリックし、**Open** を選択します。プロジェクトフォルダーに移動し、**pom.xml** ファイルを選択してください。
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-プロジェクトが開き、依存関係が自動的にダウンロードされます。プロジェクトタブから、**src/main/java**フォルダ内の例をブラウズします。例を実行するには、ファイルを右クリックして「実行..」を選択します。例が実行され、出力が内蔵コンソール出力ウィンドウに表示されます。
+プロジェクトが開き、依存関係が自動的にダウンロードされます。Project タブで **src/main/java** フォルダー内のサンプルを参照してください。サンプルを実行するには、ファイルを右クリックし「Run ..」を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
-**ファイル**メニューをクリックし、**インポート**を選択します。**Maven** - 既存のMavenプロジェクトを選択します。
+**File** メニューをクリックし、**Import** を選択します。**Maven** - Existing Maven Projects を選択してください。
 
 ![todo:image_alt_text](eclipse_import.png)
 
-クローンまたはGitHubからダウンロードしたフォルダに移動し、**pom.xml**ファイルを選択します。プロジェクトが開き、依存関係が自動的にダウンロードされます。パッケージエクスプローラタブから、**src/main/java**フォルダ内の例をブラウズします。例を実行するには、ファイルを右クリックして**実行 As** - **Java アプリケーション**を選択します。例が実行され、出力が内蔵コンソール出力ウィンドウに表示されます。
+GitHub からクローンまたはダウンロードしたフォルダーに移動し、**pom.xml** ファイルを選択してください。プロジェクトが開き、依存関係が自動的にダウンロードされます。Package Explorer タブで **src/main/java** フォルダー内のサンプルを参照してください。サンプルを実行するには、ファイルを右クリックし **Run As** - **Java Application** を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
-**ファイル**メニューをクリックし、**プロジェクトを開く**を選択します。クローンまたはGitHubからダウンロードしたフォルダに移動します。**Examples**フォルダのアイコンは、Mavenプロジェクトであることを示します。Examplesを選択し、開きます。
+**File** メニューをクリックし、**Open Project** を選択します。GitHub からクローンまたはダウンロードしたフォルダーに移動します。**Examples** フォルダーのアイコンが Maven プロジェクトであることを示します。Examples を選択して開いてください。
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-プロジェクトが開き、依存関係が自動的にダウンロードされます。プロジェクトタブから、**ソースパッケージ**内の例をブラウズします。例を実行するには、ファイルを右クリックして**ファイルを実行**を選択します。例が実行され、出力が内蔵コンソール出力ウィンドウに表示されます。
+プロジェクトが開き、依存関係が自動的にダウンロードされます。Projects タブで **source packages** 内のサンプルを参照してください。サンプルを実行するには、ファイルを右クリックし **Run File** を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Aspose.SlidesライブラリをMavenローカルリポジトリに追加**
-**Aspose.Slides Examples**プロジェクトをIDEにインポートすると、Mavenは自動的に[Aspose Maven Repository](https://releases.aspose.com/php-java/repo/com/aspose/)からaspose.slides JARファイルをダウンロードします。インターネットにアクセスできない場合は、手動でJARをローカルリポジトリに追加できます。
+## **Aspose.Slides ライブラリを Maven ローカルリポジトリに追加**
+IDE に **Aspose.Slides Examples** プロジェクトをインポートすると、Maven は[Aspose Maven Repository](https://releases.aspose.com/php-java/repo/com/aspose/)から aspose.slides JAR ファイルを自動的にダウンロードします。インターネットにアクセスできない場合は、ローカルリポジトリに JAR を手動で追加できます。
 
 ### **mvn install**
-[aspose.slides](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/)をダウンロードし、抽出してaspose.slides-version.jarをどこかにコピーします。例えば、Cドライブです。以下のコマンドを実行します：
-
+[aspose.slides](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/) をダウンロードし、展開して aspose.slides-version.jar を別の場所（例: C ドライブ）にコピーします。以下のコマンドを実行してください:
 ```php
 
 ```
+
 mvn install:install-file
     -Dfile=c:\aspose.slides-version.jar
     -DgroupId=com.aspose
@@ -61,11 +71,11 @@ mvn install:install-file
 
 ```
 
-これで、**aspose.slides** JARがあなたのMavenローカルリポジトリにコピーされました。
+
+これで **aspose.slides** JAR が Maven ローカルリポジトリにコピーされました。
 
 ### **pom.xml**
-インストール後、pom.xmlに**aspose.slides**の座標を宣言します。リポジトリタブに次のリポジトリを、依存関係タブに次の依存関係を追加します。
-
+インストール後、pom.xml に **aspose.slides** の座標を宣言するだけです。repositories タブに以下のリポジトリを追加し、dependencies タブに依存関係を追加してください。
 ``` xml
 <repository>
     <id>aspose-maven-repository</id>
@@ -82,10 +92,11 @@ mvn install:install-file
 
 ```
 
+
 ### **完了**
-ビルドします。これで、**aspose.slides** JARをあなたのMavenローカルリポジトリから取得できるようになります。
+ビルドすると、**aspose.slides** JAR が Maven ローカルリポジトリから取得できるようになります。
 
 ## **貢献**
-例を追加または改善したい場合は、プロジェクトへの貢献をお勧めします。このリポジトリのすべての例とショーケースプロジェクトはオープンソースであり、自分のアプリケーションで自由に使用できます。
+サンプルを追加または改善したい場合は、プロジェクトへの貢献を奨励します。このリポジトリのすべてのサンプルとショーケースプロジェクトはオープンソースであり、自由に自分のアプリケーションで使用できます。
 
-貢献するには、リポジトリをフォークし、ソースコードを編集し、プルリクエストを提出できます。変更を確認し、有用であればリポジトリに含めます。
+貢献するには、リポジトリをフォークし、ソースコードを編集してプルリクエストを送信できます。変更をレビューし、役立つと判断した場合はリポジトリに取り込みます。

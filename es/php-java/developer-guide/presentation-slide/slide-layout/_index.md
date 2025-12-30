@@ -1,249 +1,268 @@
 ---
-title: Diseño de Diapositivas
+title: Aplicar o cambiar diseños de diapositiva en PHP
+linktitle: Diseño de diapositiva
 type: docs
 weight: 60
 url: /es/php-java/slide-layout/
-keyword: "Establecer tamaño de diapositiva, establecer opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, Java, Aspose.Slides"
-description: "Configura el tamaño y las opciones de diapositivas de PowerPoint"
+keywords:
+- diseño de diapositiva
+- diseño de contenido
+- marcador de posición
+- diseño de presentación
+- diseño de diapositiva
+- diseño no utilizado
+- visibilidad del pie de página
+- diapositiva de título
+- título y contenido
+- encabezado de sección
+- dos contenidos
+- comparación
+- solo título
+- diseño en blanco
+- contenido con leyenda
+- imagen con leyenda
+- título y texto vertical
+- título vertical y texto
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Gestiona y personaliza los diseños de diapositiva en Aspose.Slides para PHP mediante Java. Explora los tipos de diseño, el control de marcadores de posición y la visibilidad del pie de página a través de ejemplos de código."
 ---
 
-Un diseño de diapositiva contiene las cajas de marcador de posición y la información de formato para todo el contenido que aparece en una diapositiva. El diseño determina los marcadores de posición de contenido disponibles y dónde se colocan.
+## **Visión general**
 
-Los diseños de diapositivas te permiten crear y diseñar presentaciones rápidamente (ya sean simples o complejas). Estos son algunos de los diseños de diapositivas más populares utilizados en presentaciones de PowerPoint:
+Un diseño de diapositiva define la disposición de los recuadros de marcadores de posición y el formato del contenido de una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones de forma rápida y coherente, ya sea que esté creando algo sencillo o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
 
-* **Diseño de Diapositiva de Título**. Este diseño consta de dos marcadores de posición de texto. Un marcador de posición es para el título y el otro es para el subtítulo.
-* **Diseño de Título y Contenido**. Este diseño contiene un marcador de posición relativamente pequeño en la parte superior para el título y un marcador de posición más grande para el contenido principal (gráfico, párrafos, lista con viñetas, lista numerada, imágenes, etc.).
-* **Diseño en Blanco**. Este diseño carece de marcadores de posición, por lo que te permite crear elementos desde cero.
+**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
 
-Dado que un máster de diapositivas es la diapositiva jerárquica principal que almacena información sobre los diseños de diapositivas, puedes usar la diapositiva maestra para acceder a los diseños de diapositivas y hacer cambios en ellos. Se puede acceder a una diapositiva de diseño por tipo o nombre. Del mismo modo, cada diapositiva tiene un identificador único, que se puede usar para acceder a ella.
+**Diseño de Título y Contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (como texto, viñetas, gráficos, imágenes y más).
 
-Alternativamente, puedes hacer cambios directamente en un diseño de diapositiva específico en una presentación.
+**Diseño en blanco** – No contiene marcadores de posición, lo que le brinda control total para diseñar la diapositiva desde cero.
 
-* Para permitirte trabajar con diseños de diapositivas (incluidos los que están en diapositivas maestras), Aspose.Slides proporciona propiedades como [getLayoutSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides--) y [getMasters()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters--) bajo la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-* Para realizar tareas relacionadas, Aspose.Slides proporciona [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/baseslideheaderfootermanager/), y muchos otros tipos.
+Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar los diseños de diapositiva a través de la diapositiva maestra, ya sea por su tipo, nombre o ID único. Alternativamente, puede editar un diseño de diapositiva específico directamente dentro de la presentación.
+
+Para trabajar con diseños de diapositiva en Aspose.Slides for PHP, puede usar:
+
+- Métodos como [getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides) y [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) bajo la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+- Tipos como [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/) y [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Para obtener más información sobre cómo trabajar con Diapositivas Maestras en particular, consulta el artículo [Diapositiva Maestra](https://docs.aspose.com/slides/php-java/slide-master/).
-
+Para obtener más información sobre el trabajo con diapositivas maestras, consulte el artículo [Diapositiva maestra](/slides/es/php-java/slide-master/).
 {{% /alert %}}
 
-## **Agregar Diseño de Diapositiva a la Presentación**
+## **Agregar diseños de diapositiva a presentaciones**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Accede a la colección [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/imasterlayoutslidecollection/).
-1. Revisa las diapositivas de diseño existentes para confirmar que el diseño de diapositiva requerido ya existe en la colección de diapositivas de diseño. De lo contrario, añade el diseño de diapositiva que deseas.
-1. Agrega una diapositiva vacía basada en la nueva diapositiva de diseño.
-1. Guarda la presentación.
+Para personalizar la apariencia y la estructura de sus diapositivas, puede necesitar agregar nuevos diseños de diapositiva a una presentación. Aspose.Slides for PHP le permite comprobar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
 
-Este código PHP te muestra cómo añadir un diseño de diapositiva a una presentación de PowerPoint:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Acceda a la [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/).
+3. Compruebe si el diseño de diapositiva deseado ya existe en la colección. Si no, añada el diseño de diapositiva que necesita.
+4. Añada una diapositiva vacía basada en el nuevo diseño de diapositiva.
+5. Guarde la presentación.
 
+El siguiente código PHP muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
 ```php
-  # Instancia una clase Presentation que representa el archivo de presentación
-  $pres = new Presentation("AccessSlides.pptx");
-  try {
-    # Revisa tipos de diapositivas de diseño
-    $layoutSlides = $pres->getMasters()->get_Item(0)->getLayoutSlides();
+// Instanciar la clase Presentation que representa un archivo PowerPoint.
+$presentation = new Presentation("Sample.pptx");
+try {
+    // Recorrer los tipos de diapositiva de diseño para seleccionar una diapositiva de diseño.
+    $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
     $layoutSlide = null;
     if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
     } else {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
     }
+
     if (java_is_null($layoutSlide)) {
-      # La situación en la que una presentación no contiene algunos tipos de diseño.
-      # El archivo de presentación solo contiene tipos de diseño en Blanco y Personalizados.
-      # Pero las diapositivas de diseño con tipos personalizados tienen nombres de diapositivas diferentes,
-      # como "Título", "Título y Contenido", etc. Y es posible usar estos
-      # nombres para la selección de diapositivas de diseño.
-      # También puedes usar un conjunto de tipos de formas de marcador de posición. Por ejemplo,
-      # la diapositiva de título debería tener solo el tipo de marcador de posición de título, etc.
-      foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-        if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-          $layoutSlide = $titleAndObjectLayoutSlide;
-          break;
+        // Una situación en la que la presentación no contiene todos los tipos de diseño.
+        // El archivo de presentación contiene solo tipos de diseño Blank y Custom.
+        // Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
+        // como "Title", "Title and Content", etc., que pueden usarse para la selección de diapositiva de diseño.
+        // También puedes basarte en un conjunto de tipos de forma de marcador de posición.
+        // Por ejemplo, una diapositiva de título debería tener solo el tipo de marcador de posición Title, y así sucesivamente.
+        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
+            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
+                $layoutSlide = $titleAndObjectLayoutSlide;
+                break;
+            }
         }
-      }
-      if (java_is_null($layoutSlide)) {
-        foreach($layoutSlides as $titleLayoutSlide) {
-          if (java_values($titleLayoutSlide->getName()) == "Title") {
-            $layoutSlide = $titleLayoutSlide;
-            break;
-          }
-        }
+
         if (java_is_null($layoutSlide)) {
-          $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-          if (java_is_null($layoutSlide)) {
-            $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-          }
+            foreach($layoutSlides as $titleLayoutSlide) {
+                if (java_values($titleLayoutSlide->getName()) == "Title") {
+                    $layoutSlide = $titleLayoutSlide;
+                    break;
+                }
+            }
+
+            if (java_is_null($layoutSlide)) {
+                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
+                if (java_is_null($layoutSlide)) {
+                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
+                }
+            }
         }
-      }
     }
-    # Agrega una diapositiva vacía con el diseño añadido
-    $pres->getSlides()->insertEmptySlide(0, $layoutSlide);
-    # Guarda la presentación en el disco
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
 
-## **Eliminar Diapositiva de Diseño No Utilizada**
+    // Añadir una diapositiva vacía usando la diapositiva de diseño añadida.
+    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
 
-Aspose.Slides proporciona el método [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) para permitirte eliminar diapositivas de diseño no deseadas y no utilizadas. Este código PHP te muestra cómo eliminar una diapositiva de diseño de una presentación de PowerPoint:
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->removeUnusedLayoutSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Establecer Tamaño y Tipo para el Diseño de Diapositiva**
-
-Para permitirte establecer el tamaño y tipo para una diapositiva de diseño específica, Aspose.Slides proporciona las propiedades [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) y [getSize()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getSize--) (de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)). Este Java demuestra la operación:
-
-```php
-  # Instancia un objeto Presentation que representa el archivo de presentación
-  $presentation = new Presentation("demo.pptx");
-  try {
-    $auxPresentation = new Presentation();
-    try {
-      # Establece el tamaño de la diapositiva para la presentación generada al de la fuente
-      $auxPresentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);
-      # getType());
-      $auxPresentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);
-      # Clona la diapositiva requerida
-      $auxPresentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-      $auxPresentation->getSlides()->removeAt(0);
-      # Guarda la presentación en el disco
-      $auxPresentation->save("size.pptx", SaveFormat::Pptx);
-    } finally {
-      $auxPresentation->dispose();
-    }
-  } finally {
+    // Guardar la presentación en disco.
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Establecer Visibilidad del Pie de Página dentro de la Diapositiva**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Obtén la referencia de una diapositiva a través de su índice.
-1. Establece el marcador de posición del pie de página de la diapositiva como visible.
-1. Establece el marcador de posición de fecha y hora como visible.
-1. Guarda la presentación.
+## **Eliminar diseños de diapositiva no utilizados**
 
-Este código PHP te muestra cómo establecer la visibilidad para un pie de página de diapositiva (y realizar tareas relacionadas):
+Aspose.Slides proporciona el método [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) de la clase [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) para permitirle eliminar diseños de diapositiva no deseados y sin uso.
 
+El siguiente código PHP muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
 ```php
-  $presentation = new Presentation("presentation.ppt");
-  try {
-    $headerFooterManager = $presentation->getSlides()->get_Item(0)->getHeaderFooterManager();
-    # El método isFooterVisible se usa para especificar que falta un marcador de posición de pie de página
+$presentation = new Presentation("Presentation.pptx");
+try {
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **Agregar marcadores de posición a los diseños de diapositiva**
+
+Aspose.Slides proporciona el método [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/#getPlaceholderManager), que le permite agregar nuevos marcadores de posición a un diseño de diapositiva.
+
+Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
+
+| Marcador de posición de PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/) Método |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+
+El siguiente código PHP muestra cómo agregar nuevas formas de marcadores de posición al diseño en blanco:
+```php
+$presentation = new Presentation();
+try {
+    // Obtén la diapositiva de diseño en blanco.
+    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+
+    // Obtén el gestor de marcadores de posición de la diapositiva de diseño.
+    $placeholderManager = $layout->getPlaceholderManager();
+
+    // Añade diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
+    $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
+    $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
+    $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
+
+    // Añade una nueva diapositiva con el diseño en blanco.
+    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
+
+    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+El resultado:
+
+![Los marcadores de posición en el diseño de diapositiva](add_placeholders.png)
+
+## **Establecer visibilidad del pie de página para un diseño de diapositiva**
+
+En las presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides for PHP le permite controlar la visibilidad de estos marcadores de posición del pie de página. Esto es útil cuando desea que ciertos diseños muestren la información del pie de página mientras que otros permanezcan limpios y minimalistas.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Obtenga una referencia al diseño de diapositiva por su índice.
+3. Establezca el marcador de posición del pie de página de la diapositiva como visible.
+4. Establezca el marcador de posición del número de diapositiva como visible.
+5. Establezca el marcador de posición de fecha y hora como visible.
+6. Guarde la presentación.
+
+El siguiente código PHP muestra cómo establecer la visibilidad del pie de página de una diapositiva y realizar tareas relacionadas:
+```php
+$presentation = new Presentation("Presentation.ppt");
+try {
+    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+
     if (!$headerFooterManager->isFooterVisible()) {
-      $headerFooterManager->setFooterVisibility(true);// El método setFooterVisibility se usa para establecer un marcador de posición de pie de página como visible
-
+        $headerFooterManager->setFooterVisibility(true);
     }
-    # El método isSlideNumberVisible se usa para especificar que falta un marcador de posición de número de diapositiva
+
     if (!$headerFooterManager->isSlideNumberVisible()) {
-      $headerFooterManager->setSlideNumberVisibility(true);// El método setSlideNumberVisibility se usa para establecer un marcador de posición de número de diapositiva como visible
-
+        $headerFooterManager->setSlideNumberVisibility(true);
     }
-    # El método isDateTimeVisible se usa para especificar que falta un marcador de posición de fecha y hora de la diapositiva
+
     if (!$headerFooterManager->isDateTimeVisible()) {
-      $headerFooterManager->setDateTimeVisibility(true);// El método SetFooterVisibility se usa para establecer un marcador de posición de fecha y hora de la diapositiva como visible
-
+        $headerFooterManager->setDateTimeVisibility(true);
     }
-    $headerFooterManager->setFooterText("Texto del pie de página");// El método SetFooterText se usa para establecer un texto para un marcador de posición de pie de página.
 
-    $headerFooterManager->setDateTimeText("Texto de fecha y hora");// El método SetDateTimeText se usa para establecer un texto para un marcador de posición de fecha y hora.
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
 
-  } finally {
+    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Establecer Visibilidad del Pie de Página Secundario dentro de la Diapositiva**
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase.
-1. Obtén una referencia para la diapositiva maestra a través de su índice.
-1. Establece la diapositiva maestra y todos los marcadores de posición de pie de página secundarios como visibles.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios.
-1. Guarda la presentación.
+## **Establecer visibilidad del pie de página hijo para una diapositiva**
 
-Este código PHP demuestra la operación:
+En las presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de diapositiva maestra para garantizar la coherencia en todas las diapositivas de diseño. Aspose.Slides for PHP le permite establecer la visibilidad y el contenido de estos marcadores de posición del pie de página en la diapositiva maestra y propagar estos ajustes a todas las diapositivas de diseño hijas. Este enfoque asegura una información de pie de página uniforme en toda la presentación.
 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Obtenga una referencia a la diapositiva maestra por su índice.
+3. Establezca los marcadores de posición del pie de página de la maestra y de todas sus hijas como visibles.
+4. Establezca los marcadores de posición del número de diapositiva de la maestra y de todas sus hijas como visibles.
+5. Establezca los marcadores de posición de fecha y hora de la maestra y de todas sus hijas como visibles.
+6. Guarde la presentación.
+
+El siguiente código PHP demuestra esta operación:
 ```php
-  $presentation = new Presentation("presentation.ppt");
-  try {
+$presentation = new Presentation("presentation.ppt");
+try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-    $headerFooterManager->setFooterAndChildFootersVisibility(true);// El método setFooterAndChildFootersVisibility se usa para establecer la diapositiva maestra y todos los marcadores de posición de pie de página secundarios como visibles
 
-    $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);// El método setSlideNumberAndChildSlideNumbersVisibility se usa para establecer la diapositiva maestra y todos los marcadores de posición de número de página secundarios como visibles
+    $headerFooterManager->setFooterAndChildFootersVisibility(true);
+    $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
 
-    $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);// El método setDateTimeAndChildDateTimesVisibility se usa para establecer una diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios como visibles
+    $headerFooterManager->setFooterAndChildFootersText("Footer text");
+    $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $headerFooterManager->setFooterAndChildFootersText("Texto del pie de página");// El método setFooterAndChildFootersText se usa para establecer textos para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios
-
-    $headerFooterManager->setDateTimeAndChildDateTimesText("Texto de fecha y hora");// El método setDateTimeAndChildDateTimesText se usa para establecer texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios
-
-  } finally {
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Establecer Tamaño de Diapositiva con Respecto al Escalado de Contenido**
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase y carga la presentación que contiene la diapositiva cuyo tamaño deseas establecer.
-1. Crea otra instancia de la [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) clase para generar una nueva presentación.
-1. Obtén la referencia de la diapositiva (de la primera presentación) a través de su índice.
-1. Establece el marcador de posición del pie de página de la diapositiva como visible.
-1. Establece el marcador de posición de fecha y hora como visible.
-1. Guarda la presentación.
+## **Preguntas frecuentes**
 
-Este código PHP demuestra la operación:
+**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
 
-```php
-  # Instancia un objeto Presentation que representa un archivo de presentación
-  $presentation = new Presentation("demo.pptx");
-  try {
-    # Establece el tamaño de la diapositiva para las presentaciones generadas al de la fuente
-    $presentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);// El método SetSize se usa para establecer el tamaño de la diapositiva con escalado de contenido para asegurar el ajuste
+Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
 
-    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);// El método SetSize se usa para establecer el tamaño de la diapositiva con el tamaño máximo del contenido
+**¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
 
-    # Guarda la presentación en el disco
-    $presentation->save("Set_Size&Type_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+Sí, puede clonar una diapositiva de diseño de la colección de diseños de una presentación, accesible mediante el método [getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides), e insertarla en otra presentación usando el método `addClone`.
 
-## **Establecer Tamaño de Página al Generar PDF**
+**¿Qué ocurre si elimino una diapositiva de diseño que aún es utilizada por una diapositiva?**
 
-Ciertas presentaciones (como carteles) a menudo se convierten en documentos PDF. Si deseas convertir tu PowerPoint a PDF para acceder a las mejores opciones de impresión y accesibilidad, quieres establecer tus diapositivas en tamaños que se adapten a documentos PDF (A4, por ejemplo).
-
-Aspose.Slides proporciona la clase [SlideSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/) para permitirte especificar tus configuraciones preferidas para las diapositivas. Este código PHP te muestra cómo usar la propiedad [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) (de la clase `SlideSize`) para establecer un tamaño de papel específico para las diapositivas en una presentación:
-
-```php
-  # Instancia un objeto Presentation que representa un archivo de presentación
-  $presentation = new Presentation();
-  try {
-    # Establece la propiedad SlideSize.Type
-    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-    # Establece diferentes propiedades para las opciones de PDF
-    $opts = new PdfOptions();
-    $opts->setSufficientResolution(600);
-    # Guarda la presentación en el disco
-    $presentation->save("SetPDFPageSize_out.pdf", SaveFormat::Pdf, $opts);
-  } finally {
-    $presentation->dispose();
-  }
-```
+Si intenta eliminar una diapositiva de diseño que todavía está referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/). Para evitarlo, use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), que elimina de forma segura solo los diseños de diapositiva que no están en uso.

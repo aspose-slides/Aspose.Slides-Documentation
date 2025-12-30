@@ -28,9 +28,11 @@ Aspose.Slides 的评估版（未指定许可证）提供完整的产品功能，
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 如果您想在不受评估版限制的情况下测试 Aspose.Slides，可以申请 30 天的临时许可证。请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)
+
+{{% /alert %}}
 
 ## **常见问题**
 

@@ -1,55 +1,69 @@
 ---
-title: VBAを使用したプレゼンテーション
+title: PHP を使用したプレゼンテーションでの VBA プロジェクトの管理
+linktitle: VBA によるプレゼンテーション
 type: docs
 weight: 250
 url: /ja/php-java/presentation-via-vba/
-keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "PowerPointプレゼンテーションのVBAマクロを追加、削除、抽出します"
+keywords:
+- マクロ
+- VBA
+- VBA マクロ
+- マクロの追加
+- マクロの削除
+- マクロの抽出
+- VBA の追加
+- VBA の削除
+- VBA の抽出
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、VBA 経由で PowerPoint および OpenDocument プレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
 ---
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-マクロを含むプレゼンテーションを異なるファイル形式（PDF、HTMLなど）に変換すると、Aspose.Slidesはすべてのマクロを無視します（マクロは結果のファイルに持ち込まれません）。
+プレゼンテーションにマクロが含まれている状態で別のファイル形式（PDF、HTML など）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは生成されたファイルに引き継がれません）。
 
-プレゼンテーションにマクロを追加したり、マクロを含むプレゼンテーションを再保存したりすると、Aspose.Slidesは単にマクロのバイトを記述します。
+プレゼンテーションにマクロを追加するか、マクロを含むプレゼンテーションを再保存すると、Aspose.Slides は単にマクロのバイト列を書き込みます。
 
-Aspose.Slidesは**決して**プレゼンテーション内のマクロを実行しません。
+Aspose.Slides はプレゼンテーション内のマクロを **決して** 実行しません。
 
 {{% /alert %}}
 
-## **VBAマクロの追加**
+## **VBA マクロの追加**
 
-Aspose.Slidesは、[VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/)クラスを提供しており、VBAプロジェクト（およびプロジェクト参照）を作成し、既存のモジュールを編集できます。[IVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/ivbaproject/)インターフェースを使用して、プレゼンテーションに埋め込まれたVBAを管理できます。
+Aspose.Slides は [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) クラスを提供し、VBA プロジェクト（およびプロジェクト参照）を作成したり既存のモジュールを編集したりできます。[IVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/ivbaproject/) インターフェイスを使用して、プレゼンテーションに埋め込まれた VBA を管理できます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject--)コンストラクターを使用して新しいVBAプロジェクトを追加します。
-1. VbaProjectにモジュールを追加します。
-1. モジュールのソースコードを設定します。
-1. <stdole>への参照を追加します。
-1. **Microsoft Office**への参照を追加します。
-1. 参照をVBAプロジェクトに関連付けます。
-1. プレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。
+2. 新しい VBA プロジェクトを追加するために [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject--) コンストラクタを使用します。
+3. VbaProject にモジュールを追加します。
+4. モジュールのソースコードを設定します。
+5. <stdole> への参照を追加します。
+6. **Microsoft Office** への参照を追加します。
+7. 参照を VBA プロジェクトに関連付けます。
+8. プレゼンテーションを保存します。
 
-このPHPコードは、プレゼンテーションにVBAマクロをゼロから追加する方法を示しています：
-
+この PHP コードは、プレゼンテーションに VBA マクロをゼロから追加する方法を示しています:
 ```php
-  # プレゼンテーションクラスのインスタンスを作成
+  # プレゼンテーション クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
-    # 新しいVBAプロジェクトを作成
+    # 新しい VBA プロジェクトを作成します
     $pres->setVbaProject(new VbaProject());
-    # VBAプロジェクトに空のモジュールを追加
+    # VBA プロジェクトに空のモジュールを追加します
     $module = $pres->getVbaProject()->getModules()->addEmptyModule("Module");
-    # モジュールのソースコードを設定
+    # モジュールのソースコードを設定します
     $module->setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
-    # <stdole>への参照を作成
+    # <stdole> への参照を作成します
     $stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-    # Officeへの参照を作成
+    # Office への参照を作成します
     $officeReference = new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-    # VBAプロジェクトに参照を追加
+    # VBA プロジェクトに参照を追加します
     $pres->getVbaProject()->getReferences()->add($stdoleReference);
     $pres->getVbaProject()->getReferences()->add($officeReference);
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存します
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
     if (!java_is_null($pres)) {
@@ -57,30 +71,30 @@ Aspose.Slidesは、[VbaProject](https://reference.aspose.com/slides/php-java/asp
     }
   }
 ```
+
 
 {{% alert color="primary" %}} 
 
-**Aspose**の[マクロ削除ツール](https://products.aspose.app/slides/remove-macros)をチェックしてみてください。これは、PowerPoint、Excel、およびWord文書からマクロを削除するために使用される無料のWebアプリです。 
+**Aspose** の [Macro Remover](https://products.aspose.app/slides/remove-macros) は、PowerPoint、Excel、Word ドキュメントからマクロを削除するための無料ウェブアプリです。 
 
 {{% /alert %}} 
 
-## **VBAマクロの削除**
+## **VBA マクロの削除**
 
-[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスの[VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject--)プロパティを使用して、VBAマクロを削除できます。
+[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスの下にある [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject--) プロパティを使用すると、VBA マクロを削除できます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-1. マクロモジュールにアクセスして削除します。
-1. 修正されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+2. マクロモジュールにアクセスし、削除します。
+3. 変更後のプレゼンテーションを保存します。
 
-このPHPコードは、VBAマクロを削除する方法を示しています：
-
+この PHP コードは、VBA マクロを削除する方法を示しています:
 ```php
-  # マクロを含むプレゼンテーションを読み込む
+  # マクロを含むプレゼンテーションを読み込みます
   $pres = new Presentation("VBA.pptm");
   try {
-    # Vbaモジュールにアクセスして削除
+    # Vba モジュールにアクセスして削除します
     $pres->getVbaProject()->getModules()->remove($pres->getVbaProject()->getModules()->get_Item(0));
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存します
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
     if (!java_is_null($pres)) {
@@ -89,19 +103,19 @@ Aspose.Slidesは、[VbaProject](https://reference.aspose.com/slides/php-java/asp
   }
 ```
 
-## **VBAマクロの抽出**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. プレゼンテーションにVBAプロジェクトが含まれているか確認します。
-3. VBAプロジェクトに含まれるすべてのモジュールをループしてマクロを表示します。
+## **VBA マクロの抽出**
 
-このPHPコードは、マクロを含むプレゼンテーションからVBAマクロを抽出する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+2. プレゼンテーションに VBA プロジェクトが含まれているか確認します。
+3. VBA プロジェクトに含まれるすべてのモジュールをループして、マクロを表示します。
 
+この PHP コードは、マクロを含むプレゼンテーションから VBA マクロを抽出する方法を示しています:
 ```php
-  # マクロを含むプレゼンテーションを読み込む
+  # マクロを含むプレゼンテーションを読み込みます
   $pres = new Presentation("VBA.pptm");
   try {
-    # プレゼンテーションがVBAプロジェクトを含むか確認
+    # プレゼンテーションに VBA プロジェクトが含まれているか確認します
     if (!java_is_null($pres->getVbaProject())) {
       foreach($pres->getVbaProject()->getModules() as $module) {
         echo($module->getName());
@@ -114,3 +128,40 @@ Aspose.Slidesは、[VbaProject](https://reference.aspose.com/slides/php-java/asp
     }
   }
 ```
+
+
+## **VBA プロジェクトがパスワードで保護されているか確認する**
+
+[VbaProject.isPasswordProtected](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#isPasswordProtected) メソッドを使用すると、プロジェクトのプロパティがパスワードで保護されているかどうかを判断できます。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+2. プレゼンテーションに [VBA project](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) が含まれているか確認します。
+3. VBA プロジェクトがパスワードで保護されているか確認し、プロパティを表示します。
+```php
+$presentation = new Presentation("VBA.pptm");
+try {
+    if ($presentation->getVbaProject() != null) { // プレゼンテーションに VBA プロジェクトが含まれているか確認します。
+        if ($presentation->getVbaProject()->isPasswordProtected()) {
+            printf("The VBA Project '%s' is protected by password to view project properties.", 
+                    $presentation->getVbaProject()->getName());
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **FAQ**
+
+**プレゼンテーションを PPTX 形式で保存した場合、マクロはどうなりますか？**
+
+PPTX は VBA をサポートしていないため、マクロは削除されます。マクロを保持したい場合は、PPTM、PPSM、または POTM を選択してください。
+
+**Aspose.Slides はプレゼンテーション内のマクロを実行してデータを更新するなどできますか？**
+
+できません。ライブラリは決して VBA コードを実行せず、実行は適切なセキュリティ設定がされた PowerPoint 内でのみ可能です。
+
+**VBA コードにリンクされた ActiveX コントロールの操作はサポートされていますか？**
+
+はい、既存の [ActiveX controls](/slides/ja/php-java/activex/) にアクセスし、プロパティを変更したり削除したりできます。これは、マクロが ActiveX と連携する場合に便利です。

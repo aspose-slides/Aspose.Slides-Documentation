@@ -1,26 +1,35 @@
 ---
-title: تأثير الشكل
+title: تطبيق تأثيرات الشكل في العروض التقديمية باستخدام PHP
+linktitle: تأثير الشكل
 type: docs
 weight: 30
-url: /ar/php-java/shape-effect
-keywords: "تأثير الشكل، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
-description: "تطبيق تأثير على شكل PowerPoint"
+url: /ar/php-java/shape-effect/
+keywords:
+- تأثير الشكل
+- تأثير الظل
+- تأثير الانعكاس
+- تأثير التوهج
+- تأثير الحواف الناعمة
+- تنسيق التأثير
+- PowerPoint
+- العرض التقديمي
+- PHP
+- Aspose.Slides
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides للـ PHP عبر Java — أنشئ شرائح جذابة ومهنية في ثوانٍ."
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/php-java/shape-formatting/#gradient-fill) أو الخطوط. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فهي تختلف عن [fills](/slides/ar/php-java/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، أو نشر توهج الشكل، إلخ.
 
-<img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
+* يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل. 
+* بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، توجد خيارات PowerPoint تحت **Preset**. تُعد خيارات Preset مزيجًا معروفًا جيد المظهر من تأثيرين أو أكثر. بهذه الطريقة، باختيار إعداد مسبق، لن تضطر إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة لطيفة.
 
-* بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، خيارات PowerPoint تحت **الإعدادات المسبقة**. خيارات الإعدادات المسبقة هي في الأساس مجموعة معروفة جيدة المظهر من تأثيرين أو أكثر. بهذه الطريقة، من خلال اختيار إعداد مسبق، لن تضطر إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة لطيفة.
+توفر Aspose.Slides خصائص وأساليب ضمن فئة [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
-توفر Aspose.Slides خصائص وأساليب تحت فئة [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
+## **Apply a Shadow Effect**
 
-## **تطبيق تأثير الظل**
-
-يعرض لك هذا الرمز بلغة PHP كيفية تطبيق تأثير الظل الخارجي ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) على مستطيل:
-
+هذا الكود PHP يوضح لك كيفية تطبيق تأثير الظل الخارجي ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) على مستطيل:
 ```php
   $pres = new Presentation();
   try {
@@ -37,10 +46,10 @@ description: "تطبيق تأثير على شكل PowerPoint"
   }
 ```
 
-## **تطبيق تأثير الانعكاس**
 
-يعرض لك هذا الرمز بلغة PHP كيفية تطبيق تأثير الانعكاس على شكل:
+## **Apply a Reflection Effect**
 
+هذا الكود PHP يوضح لك كيفية تطبيق تأثير الانعكاس على شكل:
 ```php
   $pres = new Presentation();
   try {
@@ -58,10 +67,10 @@ description: "تطبيق تأثير على شكل PowerPoint"
   }
 ```
 
-## **تطبيق تأثير التوهج**
 
-يعرض لك هذا الرمز بلغة PHP كيفية تطبيق تأثير التوهج على شكل:
+## **Apply a Glow Effect**
 
+هذا الكود PHP يوضح لك كيفية تطبيق تأثير التوهج على شكل:
 ```php
   $pres = new Presentation();
   try {
@@ -77,10 +86,10 @@ description: "تطبيق تأثير على شكل PowerPoint"
   }
 ```
 
-## **تطبيق تأثير الحواف الناعمة**
 
-يعرض لك هذا الرمز بلغة PHP كيفية تطبيق الحواف الناعمة على شكل:
+## **Apply a Soft Edges Effect**
 
+هذا الكود PHP يوضح لك كيفية تطبيق الحواف الناعمة على شكل:
 ```php
   $pres = new Presentation();
   try {
@@ -94,3 +103,18 @@ description: "تطبيق تأثير على شكل PowerPoint"
     }
   }
 ```
+
+
+## **FAQ**
+
+**Can I apply multiple effects to the same shape?**
+
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، الانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+
+**What shapes can I apply effects to?**
+
+يمكنك تطبيق التأثيرات على أشكال مختلفة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
+
+**Can I apply effects to grouped shapes?**
+
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.

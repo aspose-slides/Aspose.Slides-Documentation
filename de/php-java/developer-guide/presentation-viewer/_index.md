@@ -1,188 +1,177 @@
 ---
-title: Präsentationsviewer
+title: Erstellen Sie einen Präsentationsbetrachter in PHP
+linktitle: Präsentationsbetrachter
 type: docs
 weight: 50
 url: /de/php-java/presentation-viewer/
-keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer "
+keywords:
+- Präsentation anzeigen
+- Präsentationsbetrachter
+- Präsentationsbetrachter erstellen
+- PPT anzeigen
+- PPTX anzeigen
+- ODP anzeigen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erstellen Sie einen benutzerdefinierten Präsentationsbetrachter mit Aspose.Slides für PHP über Java. Zeigen Sie PowerPoint- und OpenDocument-Dateien einfach ohne Microsoft PowerPoint an."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides für PHP über Java wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können beispielsweise durch Öffnen der Präsentationen in Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch Folien als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder einen eigenen Präsentationsbetrachter erstellen. In solchen Fällen ermöglicht Aspose.Slides den Export einer einzelnen Folie als Bild. Dieser Artikel beschreibt, wie das funktioniert.
 
-Aspose.Slides für PHP über Java wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können durch das Öffnen von Präsentationen mit Microsoft PowerPoint angesehen werden. Manchmal müssen Entwickler jedoch Folien auch als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder ihren eigenen Präsentationsviewer erstellen. In solchen Fällen ermöglicht Aspose.Slides für PHP über Java das Exportieren einer einzelnen Folie als Bild. Dieser Artikel beschreibt, wie man das macht.
+## **Ein SVG‑Bild aus einer Folie erzeugen**
 
-{{% /alert %}} 
+Um ein SVG‑Bild aus einer Präsentationsfolie mit Aspose.Slides zu erzeugen, befolgen Sie bitte die folgenden Schritte:
 
-## **Live-Beispiel**
-Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) ausprobieren, um zu sehen, was Sie mit der Aspose.Slides API implementieren können:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **SVG-Bild aus Folie generieren**
-Um mit Aspose.Slides für PHP über Java ein SVG-Bild aus einer gewünschten Folie zu generieren, folgen Sie bitte den folgenden Schritten:
-
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-- Erhalten Sie die Referenz der gewünschten Folie, indem Sie deren ID oder Index verwenden.
-- Holen Sie das SVG-Bild in einem Speicherdatenstrom.
-- Speichern Sie den Speicherdatenstrom in einer Datei.
-
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-Klasse.  
+1. Rufen Sie die Folienreferenz über ihren Index ab.  
+1. Öffnen Sie einen Dateistream.  
+1. Speichern Sie die Folie als SVG‑Bild in den Dateistream.  
 ```php
-  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
-  $pres = new Presentation("CreateSlidesSVGImage.pptx");
-  try {
-    # Greifen Sie auf die erste Folie zu
-    $sld = $pres->getSlides()->get_Item(0);
-    # Erstellen Sie ein Speicherdatenstrom-Objekt
-    $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    # Generieren Sie das SVG-Bild der Folie und speichern Sie es im Speicherdatenstrom
-    $sld->writeAsSvg($svgStream);
-    $svgStream->close();
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream);
+$svgStream->close();
+
+$presentation->dispose();
 ```
 
-## **SVG mit benutzerdefinierten Form-IDs generieren**
-Aspose.Slides für PHP über Java kann verwendet werden, um [SVG](https://docs.fileformat.com/page-description-language/svg/) aus einer Folie mit benutzerdefinierter Form-ID zu generieren. Dazu verwenden Sie die ID-Eigenschaft von [ISvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgShape), die die benutzerdefinierte ID der Formen im generierten SVG darstellt. Der CustomSvgShapeFormattingController kann verwendet werden, um die Form-ID festzulegen.
+
+## **Ein SVG mit einer benutzerdefinierten Shape‑ID erzeugen**
+
+Aspose.Slides kann verwendet werden, um ein [SVG](https://docs.fileformat.com/page-description-language/svg/) aus einer Folie mit einer benutzerdefinierten Shape‑ID zu erzeugen. Verwenden Sie dazu die Methode `setId` von [SvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/). `CustomSvgShapeFormattingController` kann verwendet werden, um die Shape‑ID festzulegen.  
+```php
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(0), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+
+$svgOptions = new SVGOptions();
+$svgOptions->setShapeFormattingController($shapeFormattingController);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream, $svgOptions);
+$svgStream->close();
+
+$presentation->dispose();
+```
 
 ```php
-
-  class CustomSvgShapeFormattingController {
+class CustomSvgShapeFormattingController {
     private $m_shapeIndex;
 
-    function __construct() {
-      $this->m_shapeIndex = 0;
+    public function __construct($shapeStartIndex) {
+        $this->m_shapeIndex = $shapeStartIndex;
     }
 
-    function __construct($shapeStartIndex) {
-      $this->m_shapeIndex = $shapeStartIndex;
+    public function formatShape($svgShape, $shape) {
+        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
-
-    function formatShape($svgShape, $shape) {
-      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
-  }
-
-  $pres = new Presentation("pptxFileName.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    try {
-      $svgOptions = new SVGOptions();
-      $shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
-      $svgOptions->setShapeFormattingController($shapeFormattingController);
-      $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+}
 ```
 
-## **Miniaturbildbild von Folien erstellen**
-Aspose.Slides für PHP über Java hilft Ihnen, Miniaturbilder der Folien zu generieren. Um das Miniaturbild einer gewünschten Folie mit Aspose.Slides für PHP über Java zu generieren:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie deren ID oder Index verwenden.
-1. Holen Sie das Miniaturbild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Miniaturbild in einem beliebigen gewünschten Bildformat.
+## **Ein Folien‑Thumbnail‑Bild erstellen**
 
+Aspose.Slides hilft Ihnen, Thumbnail‑Bilder von Folien zu erzeugen. Um ein Thumbnail einer Folie mit Aspose.Slides zu erzeugen, befolgen Sie bitte die nachstehenden Schritte:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-Klasse.  
+1. Rufen Sie die Folienreferenz über ihren Index ab.  
+1. Rufen Sie das Thumbnail‑Bild der referenzierten Folie in einem definierten Maßstab ab.  
+1. Speichern Sie das Thumbnail‑Bild in einem gewünschten Bildformat.  
 ```php
-  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
-  $pres = new Presentation("ThumbnailFromSlide.pptx");
-  try {
-    # Greifen Sie auf die erste Folie zu
-    $sld = $pres->getSlides()->get_Item(0);
-    # Erstellen Sie ein Full-Scale-Bild
-    $slideImage = $sld->getImage(1.0, 1.0);
-    # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$scaleX = 1.0;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($scaleX, $scaleY);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **Miniaturbild mit benutzerdefinierten Abmessungen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie deren ID oder Index verwenden.
-1. Holen Sie das Miniaturbild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Miniaturbild in einem beliebigen gewünschten Bildformat.
+## **Ein Folien‑Thumbnail mit benutzerdefinierten Abmessungen erstellen**
 
+Um ein Folien‑Thumbnail‑Bild mit benutzerdefinierten Abmessungen zu erstellen, befolgen Sie bitte die nachstehenden Schritte:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-Klasse.  
+1. Rufen Sie die Folienreferenz über ihren Index ab.  
+1. Rufen Sie das Thumbnail‑Bild der referenzierten Folie mit den definierten Abmessungen ab.  
+1. Speichern Sie das Thumbnail‑Bild in einem gewünschten Bildformat.  
 ```php
-  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # Greifen Sie auf die erste Folie zu
-    $sld = $pres->getSlides()->get_Item(0);
-    # Benutzerdefinierte Dimension
-    $desiredX = 1200;
-    $desiredY = 800;
-    # Abgerufener skalierter Wert von X und Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    # Erstellen Sie ein Full-Scale-Bild
-    $slideImage = $sld->getImage($ScaleX, $ScaleY);
-    # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$slideSize = new Java("java.awt.Dimension", 1200, 800);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($slideSize);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **Miniaturbild aus Folie im Notizfolienansicht erstellen**
-Um das Miniaturbild einer gewünschten Folie in der Notizfolienansicht mit Aspose.Slides für PHP über Java zu generieren:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie deren ID oder Index verwenden.
-1. Holen Sie das Miniaturbild der referenzierten Folie in einem bestimmten Maßstab in der Notizfolienansicht.
-1. Speichern Sie das Miniaturbild in einem beliebigen gewünschten Bildformat.
+## **Ein Folien‑Thumbnail mit Moderationsnotizen erstellen**
 
-Der folgende Codeschnipsel erzeugt ein Miniaturbild der ersten Folie einer Präsentation in der Notizfolienansicht.
+Um das Thumbnail einer Folie mit Moderationsnotizen mithilfe von Aspose.Slides zu erzeugen, befolgen Sie bitte die nachstehenden Schritte:
 
+1. Erstellen Sie eine Instanz der [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/)-Klasse.  
+1. Verwenden Sie die Methode `RenderingOptions.setSlidesLayoutOptions`, um die Position der Moderationsnotizen festzulegen.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-Klasse.  
+1. Rufen Sie die Folienreferenz über ihren Index ab.  
+1. Rufen Sie das Thumbnail‑Bild der referenzierten Folie mit den Rendering‑Optionen ab.  
+1. Speichern Sie das Thumbnail‑Bild in einem gewünschten Bildformat.  
 ```php
-  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # Greifen Sie auf die erste Folie zu
-    $sld = $pres->getSlides()->get_Item(0);
-    # Benutzerdefinierte Dimension
-    $desiredX = 1200;
-    $desiredY = 800;
-    # Abgerufener skalierter Wert von X und Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    $opts = new RenderingOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # Erstellen Sie ein Full-Scale-Bild
-    $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
-    # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$layoutingOptions = new NotesCommentsLayoutingOptions();
+$layoutingOptions->setNotesPosition(NotesPositions::BottomTruncated);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutingOptions);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($renderingOptions);
+$image->save("output.png", ImageFormat::Png);
+$image->dispose();
+
+$presentation->dispose();
 ```
+
+
+## **Live‑Beispiel**
+
+Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) testen, um zu sehen, was Sie mit der Aspose.Slides‑API umsetzen können:
+
+![Online‑PowerPoint‑Viewer](online-PowerPoint-viewer.png)
+
+## **FAQ**
+
+**Kann ich einen Präsentationsbetrachter in eine Webanwendung einbetten?**
+
+Ja. Sie können Aspose.Slides auf der Serverseite verwenden, um Folien als Bilder oder HTML zu rendern und im Browser anzuzeigen. Navigations‑ und Zoom‑Funktionen können mit JavaScript für ein interaktives Erlebnis implementiert werden.
+
+**Was ist der beste Weg, Folien in einem eigenen Betrachter anzuzeigen?**
+
+Der empfohlene Ansatz ist, jede Folie als Bild (z. B. PNG oder SVG) zu rendern oder mit Aspose.Slides in HTML zu konvertieren und die Ausgabe dann in einem Bildfeld (für Desktop) oder einem HTML‑Container (für das Web) anzuzeigen.
+
+**Wie gehe ich mit großen Präsentationen mit vielen Folien um?**
+
+Bei großen Präsentationen sollten Sie Lazy‑Loading oder das Rendern von Folien bei Bedarf in Betracht ziehen. Das bedeutet, den Inhalt einer Folie erst zu erzeugen, wenn der Benutzer zu ihr navigiert, wodurch Speicher‑ und Ladezeit reduziert werden.

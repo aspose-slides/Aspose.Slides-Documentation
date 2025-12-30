@@ -1,33 +1,50 @@
 ---
-title: Zeilen und Spalten verwalten
+title: Verwalten von Zeilen und Spalten in PowerPoint-Tabellen mit PHP
+linktitle: Zeilen und Spalten
 type: docs
 weight: 20
 url: /de/php-java/manage-rows-and-columns/
-keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint-Präsentationen"
+keywords:
+- Tabellenzeile
+- Tabellenspalte
+- erste Zeile
+- Tabellenkopfzeile
+- Zeile klonen
+- Spalte klonen
+- Zeile kopieren
+- Spalte kopieren
+- Zeile entfernen
+- Spalte entfernen
+- Textformatierung der Zeile
+- Textformatierung der Spalte
+- Tabellenstil
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint mit Aspose.Slides für PHP über Java und beschleunigen Sie die Bearbeitung von Präsentationen und Datenaktualisierungen."
 ---
 
-Um Ihnen die Verwaltung der Zeilen und Spalten einer Tabelle in einer PowerPoint-Präsentation zu ermöglichen, stellt Aspose.Slides die [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) Klasse, das [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Interface und viele andere Typen bereit.
+Um Ihnen zu ermöglichen, Zeilen und Spalten einer Tabelle in einer PowerPoint‑Präsentation zu verwalten, stellt Aspose.Slides die Klasse [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) , das Interface [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) und viele weitere Typen bereit.
 
-## **Die erste Zeile als Kopfzeile festlegen**
+## **Erste Zeile als Kopfzeile festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse und laden Sie die Präsentation.
-2. Holen Sie sich eine Referenz zur Folie über ihren Index.
-3. Erstellen Sie ein [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt und setzen Sie es auf null.
-4. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) Objekte, um die relevante Tabelle zu finden.
-5. Setzen Sie die erste Zeile der Tabelle als Kopfzeile.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und laden Sie die Präsentation.  
+2. Holen Sie die Referenz einer Folie über ihren Index.  
+3. Erstellen Sie ein Objekt vom Typ [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) und setzen Sie es auf null.  
+4. Iterieren Sie über alle [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) Objekte, um die relevante Tabelle zu finden.  
+5. Setzen Sie die erste Zeile der Tabelle als Kopfzeile.  
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die erste Zeile einer Tabelle als Kopfzeile festlegen:
-
+Dieser PHP‑Code zeigt, wie Sie die erste Zeile einer Tabelle als Kopfzeile festlegen:
 ```php
   # Instanziiert die Presentation-Klasse
   $pres = new Presentation("table.pptx");
   try {
     # Greift auf die erste Folie zu
     $sld = $pres->getSlides()->get_Item(0);
-    # Initialisiert die null TableEx
+    # Initialisiert das null TableEx
     $tbl = null;
-    # Durchläuft die Shapes und setzt eine Referenz zur Tabelle
+    # Iteriert durch die Shapes und setzt eine Referenz auf die Tabelle
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
@@ -35,7 +52,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die erste Zeile einer Tabelle als Kopfzeile
         $tbl->setFirstRow(true);
       }
     }
-    # Speichert die Präsentation auf der Festplatte
+    # Speichert die Präsentation auf die Festplatte
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -45,19 +62,18 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die erste Zeile einer Tabelle als Kopfzeile
 ```
 
 
-## **Zeile oder Spalte der Tabelle klonen**
+## **Tabellenzeile oder -spalte klonen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse und laden Sie die Präsentation,
-2. Holen Sie sich eine Referenz zur Folie über ihren Index.
-3. Definieren Sie ein Array von `columnWidth`.
-4. Definieren Sie ein Array von `rowHeight`.
-5. Fügen Sie ein [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt zur Folie mit der [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) Methode hinzu.
-6. Klonen Sie die Tabellenzeile.
-7. Klonen Sie die Tabellenspalte.
-8. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und laden Sie die Präsentation,  
+2. Holen Sie die Referenz einer Folie über ihren Index.  
+3. Definieren Sie ein Array von `columnWidth`.  
+4. Definieren Sie ein Array von `rowHeight`.  
+5. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt mittels der Methode [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) hinzu.  
+6. Klonen Sie die Tabellenzeile.  
+7. Klonen Sie die Tabellenspalte.  
+8. Speichern Sie die geänderte Präsentation.  
 
-Dieser PHP-Code zeigt Ihnen, wie Sie eine Zeile oder Spalte einer PowerPoint-Tabelle klonen:
-
+Dieser PHP‑Code zeigt, wie Sie eine Zeile oder Spalte einer PowerPoint‑Tabelle klonen:
 ```php
   # Instanziiert die Presentation-Klasse
   $pres = new Presentation("Test.pptx");
@@ -67,25 +83,25 @@ Dieser PHP-Code zeigt Ihnen, wie Sie eine Zeile oder Spalte einer PowerPoint-Tab
     # Definiert Spalten mit Breiten und Zeilen mit Höhen
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    # Fügt eine Tabellenform zur Folie hinzu
+    # Fügt der Folie ein Tabellenelement hinzu
     $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Fügt etwas Text zur Zeile 1, Zelle 1 hinzu
-    $table->get_Item(0, 0)->getTextFrame()->setText("Zeile 1 Zelle 1");
-    # Fügt etwas Text zur Zeile 1, Zelle 2 hinzu
-    $table->get_Item(1, 0)->getTextFrame()->setText("Zeile 1 Zelle 2");
+    # Fügt Text zu Zeile 1 Zelle 1 hinzu
+    $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
+    # Fügt Text zu Zeile 1 Zelle 2 hinzu
+    $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
     # Klont Zeile 1 am Ende der Tabelle
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # Fügt etwas Text zur Zeile 2, Zelle 1 hinzu
-    $table->get_Item(0, 1)->getTextFrame()->setText("Zeile 2 Zelle 1");
-    # Fügt etwas Text zur Zeile 2, Zelle 2 hinzu
-    $table->get_Item(1, 1)->getTextFrame()->setText("Zeile 2 Zelle 2");
+    # Fügt Text zu Zeile 2 Zelle 1 hinzu
+    $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
+    # Fügt Text zu Zeile 2 Zelle 2 hinzu
+    $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
     # Klont Zeile 2 als 4. Zeile der Tabelle
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
     # Klont die erste Spalte am Ende
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # Klont die 2. Spalte an der 4. Spaltenposition
+    # Klont die 2. Spalte am Index 4
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    # Speichert die Präsentation auf der Festplatte
+    # Speichert die Präsentation auf die Festplatte
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -94,19 +110,19 @@ Dieser PHP-Code zeigt Ihnen, wie Sie eine Zeile oder Spalte einer PowerPoint-Tab
   }
 ```
 
-## **Zeile oder Spalte aus der Tabelle entfernen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse und laden Sie die Präsentation,
-2. Holen Sie sich eine Referenz zur Folie über ihren Index.
-3. Definieren Sie ein Array von `columnWidth`.
-4. Definieren Sie ein Array von `rowHeight`.
-5. Fügen Sie ein [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt zur Folie mit der [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) Methode hinzu.
-6. Entfernen Sie die Tabellenzeile.
-7. Entfernen Sie die Tabellenspalte.
-8. Speichern Sie die modifizierte Präsentation.
+## **Eine Zeile oder Spalte aus einer Tabelle entfernen**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie eine Zeile oder Spalte aus einer Tabelle entfernen:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und laden Sie die Präsentation,  
+2. Holen Sie die Referenz einer Folie über ihren Index.  
+3. Definieren Sie ein Array von `columnWidth`.  
+4. Definieren Sie ein Array von `rowHeight`.  
+5. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt mittels der Methode [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) hinzu.  
+6. Entfernen Sie die Tabellenzeile.  
+7. Entfernen Sie die Tabellenspalte.  
+8. Speichern Sie die geänderte Präsentation.  
 
+Dieser PHP‑Code zeigt, wie Sie eine Zeile oder Spalte aus einer Tabelle entfernen:
 ```php
   $pres = new Presentation();
   try {
@@ -124,23 +140,23 @@ Dieser PHP-Code zeigt Ihnen, wie Sie eine Zeile oder Spalte aus einer Tabelle en
   }
 ```
 
-## **Textformatierung auf Tabellenzeilenebene festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse und laden Sie die Präsentation,
-2. Holen Sie sich eine Referenz zur Folie über ihren Index.
-3. Greifen Sie auf das relevante [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt von der Folie zu.
-4. Setzen Sie die Schriftgröße der Zellen der ersten Zeile mit [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Setzen Sie die Textausrichtung und den rechten Rand der Zellen der ersten Zeile mit [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) und [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Setzen Sie den vertikalen Texttyp der Zellen der zweiten Zeile mit [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Speichern Sie die modifizierte Präsentation.
+## **Textformatierung auf Zeilenebene der Tabelle festlegen**
 
-Dieser PHP-Code demonstriert den Vorgang:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und laden Sie die Präsentation,  
+2. Holen Sie die Referenz einer Folie über ihren Index.  
+3. Greifen Sie vom Folienobjekt auf das entsprechende [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt zu.  
+4. Setzen Sie für die Zellen der ersten Zeile [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
+5. Setzen Sie für die Zellen der ersten Zeile [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) und [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).  
+6. Setzen Sie für die Zellen der zweiten Zeile [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
+7. Speichern Sie die geänderte Präsentation.  
 
+Dieser PHP‑Code demonstriert den Vorgang.
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
   $pres = new Presentation();
   try {
-    # Angenommen, dass die erste Form auf der ersten Folie eine Tabelle ist
+    # Angenommen, die erste Form auf der ersten Folie ist eine Tabelle
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     # Setzt die Schriftgröße der Zellen der ersten Zeile
     $portionFormat = new PortionFormat();
@@ -155,7 +171,7 @@ Dieser PHP-Code demonstriert den Vorgang:
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # Speichert die Präsentation auf der Festplatte
+    # Speichert die Präsentation auf die Festplatte
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -164,23 +180,23 @@ Dieser PHP-Code demonstriert den Vorgang:
   }
 ```
 
-## **Textformatierung auf Tabellen-Spaltenebene festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse und laden Sie die Präsentation,
-2. Holen Sie sich eine Referenz zur Folie über ihren Index.
-3. Greifen Sie auf das relevante [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt von der Folie zu.
-4. Setzen Sie die Schriftgröße der Zellen der ersten Spalte mit [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Setzen Sie die Textausrichtung und den rechten Rand der Zellen der ersten Spalte mit [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) und [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Setzen Sie den vertikalen Texttyp der Zellen der zweiten Spalte mit [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Speichern Sie die modifizierte Präsentation.
+## **Textformatierung auf Spaltenebene der Tabelle festlegen**
 
-Dieser PHP-Code demonstriert den Vorgang:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) und laden Sie die Präsentation,  
+2. Holen Sie die Referenz einer Folie über ihren Index.  
+3. Greifen Sie vom Folienobjekt auf das entsprechende [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) Objekt zu.  
+4. Setzen Sie für die Zellen der ersten Spalte [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
+5. Setzen Sie für die Zellen der ersten Spalte [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) und [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).  
+6. Setzen Sie für die Zellen der zweiten Spalte [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
+7. Speichern Sie die geänderte Präsentation.  
 
+Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   # Erstellt eine Instanz der Presentation-Klasse
   $pres = new Presentation();
   try {
-    # Angenommen, dass die erste Form auf der ersten Folie eine Tabelle ist
+    # Angenommen, die erste Form auf der ersten Folie ist eine Tabelle
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     # Setzt die Schriftgröße der Zellen der ersten Spalte
     $portionFormat = new PortionFormat();
@@ -203,15 +219,15 @@ Dieser PHP-Code demonstriert den Vorgang:
   }
 ```
 
-## **Tabellenstil-Eigenschaften abrufen**
 
-Aspose.Slides ermöglicht es Ihnen, die Stileigenschaften für eine Tabelle abzurufen, sodass Sie diese Details für eine andere Tabelle oder anderswo verwenden können. Dieser PHP-Code zeigt Ihnen, wie Sie die Stileigenschaften von einem vordefinierten Stil einer Tabelle abrufen:
+## **Tabellenstil‑Eigenschaften abrufen**
 
+Aspose.Slides ermöglicht das Abrufen der Stileigenschaften einer Tabelle, damit Sie diese Details für eine andere Tabelle oder an anderer Stelle verwenden können. Dieser PHP‑Code zeigt, wie Sie die Stileigenschaften aus einem vordefinierten Tabellestil erhalten:
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// Ändert das Standard-Stilvorgabethema
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// ändert das Standard-Stilvorlagen-Thema
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
@@ -220,3 +236,15 @@ Aspose.Slides ermöglicht es Ihnen, die Stileigenschaften für eine Tabelle abzu
     }
   }
 ```
+
+
+## **FAQ**
+
+**Kann ich PowerPoint‑Themen/‑Stile auf eine bereits erstellte Tabelle anwenden?**  
+Ja. Die Tabelle erbt das Thema der Folie/ des Layouts/ des Masters und Sie können dennoch Füllungen, Rahmen und Textfarben über diesem Thema überschreiben.
+
+**Kann ich Tabellenzeilen wie in Excel sortieren?**  
+Nein, Tabellen von Aspose.Slides besitzen keine integrierte Sortierung oder Filter. Sortieren Sie Ihre Daten zuerst im Speicher und füllen Sie anschließend die Tabellenzeilen in dieser Reihenfolge wieder.
+
+**Kann ich banded (gestreifte) Spalten haben und dabei benutzerdefinierte Farben für bestimmte Zellen beibehalten?**  
+Ja. Aktivieren Sie banded Spalten und überschreiben Sie dann bestimmte Zellen mit lokaler Formatierung; die Zellen‑Formatierung hat Vorrang vor dem Tabellenstil.
