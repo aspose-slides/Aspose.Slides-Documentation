@@ -29,7 +29,7 @@ Aspose Slides ermöglicht das Laden dieser Schriftarten mit der [loadExternalFon
 
 {{% /alert %}}
 
-## **Benutzerdefinierte Schriftarten laden**
+## **Load Custom Fonts**
 
 Aspose.Slides ermöglicht das Laden von Schriftarten, die in Präsentationen gerendert werden, ohne diese Schriftarten installieren zu müssen. Die Schriftarten werden aus einem benutzerdefinierten Verzeichnis geladen. 
 

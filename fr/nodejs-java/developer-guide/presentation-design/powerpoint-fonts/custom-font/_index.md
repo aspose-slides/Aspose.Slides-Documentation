@@ -1,16 +1,28 @@
 ---
-title: Police PowerPoint personnalisée en JavaScript
+title: Personnaliser les polices PowerPoint en JavaScript
 linktitle: Police personnalisée
 type: docs
 weight: 20
 url: /fr/nodejs-java/custom-font/
-keywords: "Polices, polices personnalisées, présentation PowerPoint, Java, Aspose.Slides pour Node.js via Java"
-description: "Polices personnalisées PowerPoint en JavaScript"
+keywords:
+- police
+- police personnalisée
+- police externe
+- charger police
+- gérer les polices
+- dossier de polices
+- PowerPoint
+- OpenDocument
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Personnalisez les polices des diapositives PowerPoint avec JavaScript et Aspose.Slides pour Node.js via Java afin de garder vos présentations nettes et cohérentes sur n’importe quel appareil."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose Slides vous permet de charger ces polices à l'aide de la méthode [loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) :
+Aspose Slides vous permet de charger ces polices en utilisant la méthode [loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) :
 
 * Polices TrueType (.ttf) et TrueType Collection (.ttc). Voir [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -20,39 +32,53 @@ Aspose Slides vous permet de charger ces polices à l'aide de la méthode [loadE
 
 ## **Charger des polices personnalisées**
 
-Aspose.Slides vous permet de charger des polices qui sont rendues dans les présentations sans avoir à les installer. Les polices sont chargées depuis un répertoire personnalisé. 
+Aspose.Slides vous permet de charger les polices utilisées dans une présentation sans les installer sur le système. Cela affecte la sortie d'exportation — comme le PDF, les images et d'autres formats pris en charge — de sorte que les documents résultants restent cohérents entre les environnements. Les polices sont chargées à partir de répertoires personnalisés.
 
-1. Créez une instance de la classe [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/) et appelez la méthode [loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
-2. Chargez la présentation qui sera rendue.
-3. [Videz le cache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsLoader#clearCache--) dans la classe [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsLoader).
+1. Spécifiez un ou plusieurs dossiers contenant les fichiers de polices.  
+2. Appelez la méthode statique [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) pour charger les polices à partir de ces dossiers.  
+3. Chargez et rendez/exportez la présentation.  
+4. Appelez [FontsLoader.clearCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/clearcache/) pour nettoyer le cache des polices.  
 
-Ce code JavaScript démontre le processus de chargement des polices :
-```javascript
-// Dossiers à rechercher des polices
-var folders = java.newArray("java.lang.String", [externalFontsDir]);
-// Charge les polices du répertoire de polices personnalisées
-aspose.slides.FontsLoader.loadExternalFonts(folders);
-// Effectuer du travail et rendre la présentation/diapositive
-var pres = new aspose.slides.Presentation("DefaultFonts.pptx");
+L'exemple de code suivant montre le processus de chargement des polices :
+```js
+// Définir les dossiers contenant les fichiers de polices personnalisées.
+let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
+
+// Charger les polices personnalisées depuis les dossiers spécifiés.
+aspose.slides.FontsLoader.loadExternalFonts(fontFolders);
+
+let presentation = null;
 try {
-    pres.save("NewFonts_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation = new aspose.slides.Presentation("sample.pptx");
+    
+    // Rendre/exporter la présentation (p. ex., en PDF, images ou autres formats) en utilisant les polices chargées.
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-    // Vide le cache des polices
+    if (presentation != null) presentation.dispose();
+
+    // Vider le cache des polices après la fin du travail.
     aspose.slides.FontsLoader.clearCache();
 }
 ```
 
 
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) ajoute des dossiers supplémentaires aux chemins de recherche des polices, mais ne modifie pas l'ordre d'initialisation des polices.  
+Les polices sont initialisées dans cet ordre :
+
+1. Le chemin de police par défaut du système d'exploitation.  
+1. Les chemins chargés via [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/).
+
+{{%/alert %}}
+
 ## **Obtenir le dossier des polices personnalisées**
-Aspose.Slides fournit la méthode [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) qui vous permet de trouver les dossiers de polices. Cette méthode renvoie les dossiers ajoutés via la méthode `LoadExternalFonts` ainsi que les dossiers de polices système.
+Aspose.Slides fournit la méthode [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) qui vous permet de trouver les dossiers de polices. Cette méthode renvoie les dossiers ajoutés via la méthode `LoadExternalFonts` ainsi que les dossiers de polices du système.
 
 Ce code JavaScript montre comment utiliser [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) :
 ```javascript
-// Cette ligne affiche les dossiers où les fichiers de police sont recherchés.
-// Ce sont les dossiers ajoutés via la méthode LoadExternalFonts et les dossiers de polices système.
+// Cette ligne renvoie les dossiers où les fichiers de polices sont recherchés.
+// Ce sont les dossiers ajoutés via la méthode LoadExternalFonts et les dossiers de polices du système.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
@@ -70,7 +96,7 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [ja
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
     // Travailler avec la présentation
-    // CustomFont1, CustomFont2 et les polices des dossiers assets\fonts & global\fonts ainsi que leurs sous-dossiers sont disponibles pour la présentation
+    // CustomFont1, CustomFont2, et les polices des dossiers assets\fonts & global\fonts ainsi que leurs sous-dossiers sont disponibles pour la présentation
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -79,11 +105,11 @@ try {
 ```
 
 
-## **Gérer les polices de manière externe**
+## **Gérer les polices externes**
 
 Aspose.Slides fournit la méthode [loadExternalFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) qui vous permet de charger des polices externes à partir de données binaires.
 
-Ce code JavaScript démontre le processus de chargement des polices à partir d'un tableau d'octets :
+Ce code JavaScript démontre le processus de chargement d'une police à partir d'un tableau d'octets :
 ```javascript
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
@@ -102,22 +128,22 @@ try {
 
 ## **FAQ**
 
-**Les polices personnalisées affectent-elles l'exportation vers tous les formats (PDF, PNG, SVG, HTML) ?**
+**Les polices personnalisées affectent-elles l'exportation vers tous les formats (PDF, PNG, SVG, HTML) ?**  
 
 Oui. Les polices connectées sont utilisées par le moteur de rendu pour tous les formats d'exportation.
 
-**Les polices personnalisées sont-elles automatiquement intégrées dans le PPTX résultant ?**
+**Les polices personnalisées sont-elles automatiquement intégrées dans le PPTX résultant ?**  
 
-Non. Enregistrer une police pour le rendu n’est pas équivalent à l’intégrer dans un PPTX. Si vous avez besoin que la police soit incluse dans le fichier de présentation, vous devez utiliser les [fonctions d’intégration](/slides/fr/nodejs-java/embedded-font/).
+Non. Enregistrer une police pour le rendu n'est pas la même chose que l'intégrer dans un PPTX. Si vous avez besoin que la police soit incluse dans le fichier de présentation, vous devez utiliser les [fonctions d'intégration](/slides/fr/nodejs-java/embedded-font/).
 
-**Puis-je contrôler le comportement de repli lorsqu'une police personnalisée ne possède pas certains glyphes ?**
+**Puis-je contrôler le comportement de secours lorsqu'une police personnalisée ne possède pas certains glyphes ?**  
 
-Oui. Configurez la [substitution de police](/slides/fr/nodejs-java/font-substitution/), les [règles de remplacement](/slides/fr/nodejs-java/font-replacement/) et les [ensembles de repli](/slides/fr/nodejs-java/fallback-font/) pour définir exactement quelle police est utilisée lorsque le glyphe demandé est absent.
+Oui. Configurez la [substitution de police](/slides/fr/nodejs-java/font-substitution/), les [règles de remplacement](/slides/fr/nodejs-java/font-replacement/) et les [ensembles de secours](/slides/fr/nodejs-java/fallback-font/) pour définir exactement quelle police est utilisée lorsque le glyphe demandé est manquant.
 
-**Puis-je utiliser des polices dans des conteneurs Linux/Docker sans les installer à l'échelle du système ?**
+**Puis-je utiliser des polices dans des conteneurs Linux/Docker sans les installer au niveau du système ?**  
 
-Oui. Pointez vers vos propres dossiers de polices ou chargez des polices à partir de tableaux d’octets. Cela supprime toute dépendance aux répertoires de polices système dans l’image du conteneur.
+Oui. Pointez vers vos propres dossiers de polices ou chargez les polices à partir de tableaux d'octets. Cela supprime toute dépendance aux répertoires de polices système dans l'image du conteneur.
 
-**Qu'en est-il de la licence — puis-je intégrer n'importe quelle police personnalisée sans restrictions ?**
+**Qu'en est-il de la licence —puis-je intégrer n'importe quelle police personnalisée sans restriction ?**  
 
-Vous êtes responsable du respect des licences des polices. Les conditions varient ; certaines licences interdisent l’intégration ou l’usage commercial. Consultez toujours le contrat de licence (EULA) de la police avant de distribuer les résultats.
+Vous êtes responsable du respect des licences des polices. Les conditions varient ; certaines licences interdisent l'intégration ou l'utilisation commerciale. Examinez toujours le CLUF de la police avant de distribuer les résultats.

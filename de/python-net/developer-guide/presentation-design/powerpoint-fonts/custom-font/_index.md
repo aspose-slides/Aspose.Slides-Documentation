@@ -1,78 +1,87 @@
 ---
-title: PowerPoint-Schriften in Python anpassen
-linktitle: Benutzerdefinierte Schrift
+title: PowerPoint-Schriftarten in Python anpassen
+linktitle: Benutzerdefinierte Schriftart
 type: docs
 weight: 20
 url: /de/python-net/custom-font/
 keywords:
-- Schrift
-- benutzerdefinierte Schrift
-- externe Schrift
-- Schrift laden
-- Schriften verwalten
-- Schriftordner
+- Schriftart
+- benutzerdefinierte Schriftart
+- externe Schriftart
+- Schriftart laden
+- Schriftarten verwalten
+- Schriftartenordner
 - PowerPoint
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Binden Sie benutzerdefinierte Schriften in PowerPoint-Folien mit Aspose.Slides für Python über .NET ein, um Ihre Präsentationen auf jedem Gerät scharf und konsistent zu halten."
+description: "Binden Sie benutzerdefinierte Schriftarten in PowerPoint-Folien mit Aspose.Slides für Python über .NET ein, um Ihre Präsentationen auf jedem Gerät scharf und konsistent zu halten."
 ---
 
 ## **Übersicht**
 
-Aspose.Slides for Python ermöglicht das Bereitstellen benutzerdefinierter Schriften zur Laufzeit, sodass Präsentationen korrekt gerendert werden, selbst wenn die benötigten Schriften nicht auf dem Hostsystem installiert sind. Beim Export in PDF oder Bilder können Sie Schriftordner oder im Speicher befindliche Schriftartdaten angeben, um das Textlayout, die Glyphenmetriken und die Typografie beizubehalten. Dadurch wird das serverseitige Rendering in verschiedenen Umgebungen vorhersehbar, OS‑abhängige Schriftabhängigkeiten entfallen und unerwünschte Fallbacks oder Neu­formatierungen werden verhindert. Der Artikel zeigt, wie Schriftquellen registriert werden.
+Aspose.Slides für Python ermöglicht es, benutzerdefinierte Schriftarten zur Laufzeit bereitzustellen, sodass Präsentationen korrekt gerendert werden, selbst wenn die erforderlichen Schriftarten nicht auf dem Hostsystem installiert sind. Beim Export in PDF oder Bilder können Sie Schriftartenordner oder im Speicher befindliche Schriftartdaten bereitstellen, um das Textlayout, die Glyphenmetriken und die Typografie beizubehalten. Dadurch wird das serverseitige Rendering in verschiedenen Umgebungen vorhersehbar, OS‑bezogene Schriftartabhängigkeiten werden entfernt und unerwünschte Fallbacks oder Layout‑Neuberechnungen verhindert. Der Artikel zeigt, wie Schriftquellen registriert werden.
 
-Aspose.Slides lässt Sie die folgenden Schriften mit den Methoden `load_external_font` und `load_external_fonts` der Klasse [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) laden:
+Aspose.Slides ermöglicht das Laden der folgenden Schriftarten über die Methoden `load_external_font` und `load_external_fonts` der Klasse [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/):
 
-- TrueType (.ttf)- und TrueType Collection (.ttc)-Schriften. Siehe [TrueType](https://en.wikipedia.org/wiki/TrueType).
-- OpenType (.otf)-Schriften. Siehe [OpenType](https://en.wikipedia.org/wiki/OpenType).
+- TrueType‑Schriftarten (.ttf) und TrueType‑Sammlungen (.ttc). Siehe [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- OpenType‑Schriftarten (.otf). Siehe [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-## **Benutzerdefinierte Schriften laden**
+## **Benutzerdefinierte Schriftarten laden**
 
-Aspose.Slides ermöglicht das Laden von Schriften für das Rendern von Präsentationen, ohne sie zu installieren. Die Schriften werden aus einem benutzerdefinierten Verzeichnis geladen.
+Aspose.Slides ermöglicht das Laden von in einer Präsentation verwendeten Schriftarten, ohne sie auf dem System zu installieren. Dies wirkt sich auf die Exportausgabe aus – beispielsweise PDF, Bilder und andere unterstützte Formate – sodass die resultierenden Dokumente in verschiedenen Umgebungen konsistent aussehen. Schriftarten werden aus benutzerdefinierten Verzeichnissen geladen.
 
-1. Rufen Sie die Methode `load_external_fonts` von [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) auf.
-2. Laden Sie die zu rendernde Präsentation.
-3. Leeren Sie den Cache in der Klasse [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
+1. Geben Sie einen oder mehrere Ordner an, die die Schriftdateien enthalten.
+2. Rufen Sie die statische Methode [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) auf, um Schriftarten aus diesen Ordnern zu laden.
+3. Laden und rendern/exportieren Sie die Präsentation.
+4. Rufen Sie [FontsLoader.clear_cache](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/clear_cache/) auf, um den Schriftart-Cache zu leeren.
 
-Der folgende Python‑Code demonstriert den Schrift‑Ladevorgang:
-```python
+Das folgende Codebeispiel demonstriert den Schriftarten‑Ladevorgang:
+```py
 import aspose.slides as slides
 
-# Ordner, in denen nach Schriften gesucht wird.
-font_folders = [ "C:\\MyFonts", "D:\\MyAdditionalFonts" ]
+# Ordner definieren, die benutzerdefinierte Schriftdateien enthalten.
+font_folders = [ external_font_folder1, external_font_folder2 ]
 
-# Schriften aus den benutzerdefinierten Verzeichnissen laden.
+# Benutzerdefinierte Schriften aus den angegebenen Ordnern laden.
 slides.FontsLoader.load_external_fonts(font_folders)
 
-# Präsentation rendern.
-with slides.Presentation("Fonts.pptx") as presentation:
-    presentation.save("Fonts_out.pdf", slides.export.SaveFormat.PDF)
+with slides.Presentation("sample.pptx") as presentation:
+    # Die Präsentation rendern/exportieren (z. B. als PDF, Bilder oder andere Formate) mit den geladenen Schriften.
+    presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Schrift-Cache leeren.
+# Den Schriftart-Cache leeren, nachdem die Arbeit abgeschlossen ist.
 slides.FontsLoader.clear_cache()
 ```
 
 
-## **Abrufen des Ordners für benutzerdefinierte Schriften**
+{{% alert color="info" title="Note" %}}
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) fügt zusätzliche Ordner zu den Schriftart‑Suchpfaden hinzu, ändert jedoch nicht die Initialisierungsreihenfolge der Schriftarten.
+Schriftarten werden in folgender Reihenfolge initialisiert:
 
-Aspose.Slides stellt die Methode `get_font_folders` bereit, um Schriftordner abzurufen. Sie liefert sowohl die über `load_external_fonts` hinzugefügten Ordner als auch die System‑Schriftordner.
+1. Der standardmäßige Schriftartpfad des Betriebssystems.
+1. Die über [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) geladenen Pfade.
+{{%/alert %}}
 
-Dieser Python‑Code zeigt die Verwendung von `get_font_folders`:
+## **Den benutzerdefinierten Schriftarten‑Ordner abrufen**
+
+Aspose.Slides stellt die Methode `get_font_folders` bereit, um Schriftordner abzurufen. Sie gibt sowohl die über `load_external_fonts` hinzugefügten Ordner als auch die System‑Schriftordner zurück.
+
+Dieser Python‑Code zeigt, wie `get_font_folders` verwendet wird:
 ```python
 import aspose.slides as slides
 
 # Dieser Aufruf gibt die Ordner zurück, die auf Schriftdateien geprüft werden.
-# Diese beinhalten die über die Methode load_external_fonts hinzugefügten Ordner und die System-Schriftordner.
+# Dazu gehören Ordner, die über die Methode load_external_fonts hinzugefügt wurden, sowie die System-Schriftordner.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
 
-## **Angeben benutzerdefinierter Schriften für eine Präsentation**
+## **Benutzerdefinierte Schriftarten für eine Präsentation angeben**
 
-Aspose.Slides bietet die Eigenschaft `document_level_font_sources`, mit der Sie externe Schriften für eine Präsentation festlegen können.
+Aspose.Slides stellt die Eigenschaft `document_level_font_sources` bereit, mit der Sie externe Schriftarten für eine Präsentation festlegen können.
 
-Das folgende Python‑Beispiel zeigt die Nutzung von `document_level_font_sources`:
+Das folgende Python‑Beispiel zeigt, wie `document_level_font_sources` verwendet wird:
 ```python
 import aspose.slides as slides
 
@@ -88,18 +97,18 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
-    # Arbeit mit der Präsentation.
-    # CustomFont1, CustomFont2 und Schriften aus den Ordnern assets\fonts und global\fonts (einschließlich ihrer Unterordner) stehen der Präsentation zur Verfügung.
+    # Arbeiten mit der Präsentation.
+    # CustomFont1, CustomFont2 und Schriftarten aus den Ordnern assets\fonts und global\fonts (und deren Unterordner) stehen der Präsentation zur Verfügung.
     # ...
     print(len(presentation.slides))
 ```
 
 
-## **Externe Schriften aus Binärdaten laden**
+## **Externe Schriftarten aus Binärdaten laden**
 
-Aspose.Slides stellt die Methode `load_external_font` bereit, um externe Schriften aus Binärdaten zu laden.
+Aspose.Slides stellt die Methode `load_external_font` bereit, um externe Schriftarten aus Binärdaten zu laden.
 
-Das folgende Python‑Beispiel demonstriert das Laden einer Schrift aus einem Byte‑Array:
+Das folgende Python‑Beispiel demonstriert das Laden einer Schriftart aus einem Byte‑Array:
 ```python
 import aspose.slides as slides
 
@@ -108,14 +117,14 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Externe Schriften aus Byte-Arrays laden.
+# Externe Schriftarten aus Byte-Arrays laden.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
     with slides.Presentation() as presentation:
-        # Externe Schriften stehen für die Lebensdauer dieser Präsentationsinstanz zur Verfügung.
+        # Externe Schriftarten stehen für die Lebensdauer dieser Präsentationsinstanz zur Verfügung.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
@@ -124,22 +133,22 @@ finally:
 
 ## **FAQ**
 
-**Beeinflussen benutzerdefinierte Schriften den Export in alle Formate (PDF, PNG, SVG, HTML)?**
+**Beeinflussen benutzerdefinierte Schriftarten den Export in alle Formate (PDF, PNG, SVG, HTML)?**
 
-Ja. Eingebundene Schriften werden vom Renderer in allen Exportformaten verwendet.
+Ja. Verbundene Schriftarten werden vom Renderer in allen Exportformaten verwendet.
 
-**Werden benutzerdefinierte Schriften automatisch in die resultierende PPTX eingebettet?**
+**Werden benutzerdefinierte Schriftarten automatisch in die resultierende PPTX eingebettet?**
 
-Nein. Das Registrieren einer Schrift für das Rendering ist nicht dasselbe wie das Einbetten in eine PPTX. Wenn Sie die Schrift in der Präsentationsdatei verankern müssen, verwenden Sie die expliziten [embedding features](/slides/de/python-net/embedded-font/).
+Nein. Das Registrieren einer Schriftart für das Rendering ist nicht dasselbe wie das Einbetten in eine PPTX. Wenn die Schriftart in der Präsentationsdatei enthalten sein soll, müssen Sie die expliziten [Embedding‑Funktionen](/slides/de/python-net/embedded-font/) verwenden.
 
-**Kann ich das Fallback-Verhalten steuern, wenn einer benutzerdefinierten Schrift bestimmte Glyphen fehlen?**
+**Kann ich das Fallback‑Verhalten steuern, wenn einer benutzerdefinierten Schriftart bestimmte Glyphen fehlen?**
 
-Ja. Konfigurieren Sie [font substitution](/slides/de/python-net/font-substitution/), [replacement rules](/slides/de/python-net/font-replacement/) und [fallback sets](/slides/de/python-net/fallback-font/), um genau festzulegen, welche Schrift verwendet wird, wenn die angeforderte Glyphe fehlt.
+Ja. Konfigurieren Sie [Schriftart‑Substitution](/slides/de/python-net/font-substitution/), [Ersetzungsregeln](/slides/de/python-net/font-replacement/) und [Fallback‑Sätze](/slides/de/python-net/fallback-font/), um genau festzulegen, welche Schriftart verwendet wird, wenn die angeforderte Glyphe fehlt.
 
-**Kann ich Schriften in Linux/Docker‑Containern verwenden, ohne sie systemweit zu installieren?**
+**Kann ich Schriftarten in Linux/Docker‑Containern verwenden, ohne sie systemweit zu installieren?**
 
-Ja. Verweisen Sie auf eigene Schriftordner oder laden Sie Schriften aus Byte‑Arrays. Dadurch entfallen Abhängigkeiten von System‑Schriftverzeichnissen im Container‑Image.
+Ja. Verweisen Sie auf eigene Schriftartenordner oder laden Sie Schriftarten aus Byte‑Arrays. Dadurch entfällt jede Abhängigkeit von System‑Schriftverzeichnissen im Container‑Image.
 
-**Wie steht es um die Lizenzierung – kann ich jede benutzerdefinierte Schrift ohne Einschränkungen einbetten?**
+**Wie sieht es mit Lizenzen aus – kann ich beliebige benutzerdefinierte Schriftarten ohne Einschränkungen einbetten?**
 
-Sie sind für die Einhaltung der Schrift‑Lizenzierung verantwortlich. Die Bedingungen variieren; einige Lizenzen verbieten das Einbetten oder die kommerzielle Nutzung. Prüfen Sie stets die EULA der jeweiligen Schrift, bevor Sie Ausgaben verbreiten.
+Sie sind für die Einhaltung der Schriftlizenz verantwortlich. Die Bedingungen variieren; einige Lizenzen untersagen das Einbetten oder die kommerzielle Nutzung. Überprüfen Sie stets die EULA der Schriftart, bevor Sie Ausgaben verbreiten.

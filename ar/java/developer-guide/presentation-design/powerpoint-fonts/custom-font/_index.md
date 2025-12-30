@@ -1,27 +1,27 @@
 ---
-title: تخصيص خطوط PowerPoint في Java
+title: تخصيص خطوط PowerPoint في جافا
 linktitle: خط مخصص
 type: docs
 weight: 20
 url: /ar/java/custom-font/
 keywords:
-- خط
-- خط مخصص
-- خط خارجي
-- تحميل الخط
-- إدارة الخطوط
-- مجلد الخطوط
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Java
-- Aspose.Slides
-description: "قم بتخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides for Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
+  - خط
+  - خط مخصص
+  - خط خارجي
+  - تحميل الخط
+  - إدارة الخطوط
+  - مجلد الخط
+  - PowerPoint
+  - OpenDocument
+  - عرض تقديمي
+  - Java
+  - Aspose.Slides
+description: "قم بتخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للـ Java للحفاظ على عروضك التقديمية واضحة ومتسقة عبر أي جهاز."
 ---
 
 {{% alert color="primary" %}} 
 
-يسمح Aspose Slides بتحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+تتيح لك Aspose Slides تحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
 * خطوط TrueType (.ttf) و TrueType Collection (.ttc). انظر [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -31,50 +31,60 @@ description: "قم بتخصيص الخطوط في شرائح PowerPoint باست
 
 ## **تحميل الخطوط المخصصة**
 
-Aspose.Slides يسمح لك بتحميل الخطوط التي يتم عرضها في العروض التقديمية دون الحاجة لتثبيت هذه الخطوط. يتم تحميل الخطوط من دليل مخصص.
+تتيح لك Aspose.Slides تحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. هذا يؤثر على مخرجات التصدير—مثل PDF والصور وغيرها من الصيغ المدعومة—بحيث تبدو المستندات الناتجة متسقة عبر البيئات. يتم تحميل الخطوط من أدلة مخصصة.
 
-1. إنشاء مثيل من الفئة [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) واستدعاء طريقة [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
-2. تحميل العرض التقديمي الذي سيتم عرضه.
-3. [مسح الذاكرة المؤقتة](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) في الفئة [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).
+1. حدد مجلدًا أو أكثر يحتوي على ملفات الخط.
+2. استدعِ الطريقة الثابتة [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) لتحميل الخطوط من تلك المجلدات.
+3. حمل وعرض/صدّر العرض التقديمي.
+4. استدعِ [FontsLoader.clearCache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) لمسح ذاكرة التخزين المؤقت للخطوط.
 
-هذا الكود Java يوضح عملية تحميل الخطوط:
+يوضح المثال البرمجي التالي عملية تحميل الخطوط:
 ```java
-// المجلدات للبحث عن الخطوط
-String[] folders = new String[] { externalFontsDir };
+// تعريف المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// تحميل خطوط دليل الخطوط المخصص
-FontsLoader.loadExternalFonts(folders);
+// تحميل الخطوط المخصصة من المجلدات المحددة.
+FontsLoader.loadExternalFonts(fontFolders);
 
-// تنفيذ بعض الأعمال وإجراء عرض الشرائح/العرض التقديمي
-Presentation pres = new Presentation("DefaultFonts.pptx");
+Presentation presentation = null;
 try {
-    pres.save("NewFonts_out.pptx", SaveFormat.Pptx);
+    presentation = new Presentation("sample.pptx");
+    
+    // عرض/تصدير العرض التقديمي (مثل إلى PDF أو صور أو صيغ أخرى) باستخدام الخطوط المحملة.
+    presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
-    if (pres != null) pres.dispose();
+    if (presentation != null) presentation.dispose();
 
-    // مسح ذاكرة الخط المؤقت
+    // مسح ذاكرة التخزين المؤقت للخطوط بعد الانتهاء من العمل.
     FontsLoader.clearCache();
 }
 ```
 
 
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) يضيف مجلدات إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط. يتم تهيئة الخطوط بهذا الترتيب:
+
+1. مسار الخط الافتراضي لنظام التشغيل.
+1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/).
+
+{{%/alert %}}
+
 ## **الحصول على مجلدات الخطوط المخصصة**
+Aspose.Slides توفر طريقة [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--) للسماح لك بالعثور على مجلدات الخطوط. تُعيد هذه الطريقة المجلدات المضافة عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
 
-Aspose.Slides يوفر طريقة [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--) للسماح لك بالعثور على مجلدات الخطوط. تُرجع هذه الطريقة المجلدات التي تمت إضافتها عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
-
-هذا الكود Java يوضح كيفية استخدام [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--):
+يعرض هذا الكود Java كيفية استخدام [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--):
 ```java
-// تقوم هذه السطر بإخراج المجلدات التي يتم فيها البحث عن ملفات الخطوط.
-// هذه هي المجلدات التي تم إضافتها عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
+// هذا السطر يخرج المجلدات التي يتم البحث فيها عن ملفات الخط.
+// هذه هي المجلدات التي تمت إضافتها عبر طريقة LoadExternalFonts ومجلدات خطوط النظام.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
 
-## **تحديد الخطوط المخصصة المستخدمة مع عرض تقديمي**
+## **تحديد الخطوط المخصصة المستخدمة مع العرض التقديمي**
+Aspose.Slides توفر الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) لتحديد الخطوط الخارجية التي ستُستخدم مع العرض التقديمي. 
 
-Aspose.Slides يوفر الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) للسماح لك بتحديد الخطوط الخارجية التي ستُستخدم مع العرض التقديمي.
-
-هذا الكود Java يوضح كيفية استخدام الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+يعرض هذا الكود Java كيفية استخدام الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 ```java
 byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
 byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
@@ -86,7 +96,7 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
     // العمل مع العرض التقديمي
-    // CustomFont1, CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
+    // CustomFont1 و CustomFont2 والخطوط الموجودة في مجلدات assets\fonts و global\fonts ومجلداتهما الفرعية متاحة للعرض التقديمي
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -95,9 +105,9 @@ try {
 
 ## **إدارة الخطوط خارجيًا**
 
-Aspose.Slides يوفر طريقة [loadExternalFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) للسماح لك بتحميل الخطوط الخارجية من بيانات ثنائية.
+Aspose.Slides توفر طريقة [loadExternalFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) لتحميل الخطوط الخارجية من بيانات ثنائية.
 
-هذا الكود Java يوضح عملية تحميل الخط من مصفوفة البايت:
+يعرض هذا الكود Java عملية تحميل الخطوط من مصفوفة بايت:
 ```java
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
@@ -107,7 +117,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // تم تحميل الخط الخارجي خلال عمر العرض التقديمي
+        // تم تحميل الخط الخارجي أثناء فترة عرض الشرائح
     } finally {
         
     }
@@ -121,22 +131,22 @@ finally
 
 ## **الأسئلة المتكررة**
 
-**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟**
+**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)?**
 
-نعم. يتم استخدام الخطوط المتصلة من قبل المُصَدِّر عبر جميع صيغ التصدير.
+نعم. تُستخدم الخطوط المتصلة من قبل المُعرِّض عبر جميع صيغ التصدير.
 
 **هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
 
-لا. تسجيل الخط للعرض ليس هو نفسه تضمينه في PPTX. إذا كنت تحتاج إلى حمل الخط داخل ملف العرض التقديمي، يجب عليك استخدام [ميزات التضمين](/slides/ar/java/embedded-font/).
+لا. تسجيل الخط للعرض ليس هو نفسه تضمينه في PPTX. إذا كنت تحتاج إلى أن يكون الخط مُضمّنًا داخل ملف العرض التقديمي، يجب عليك استخدام [ميزات التضمين](/slides/ar/java/embedded-font/).
 
 **هل يمكنني التحكم في سلوك الاحتياطي عندما يفتقر الخط المخصص إلى بعض الرموز؟**
 
-نعم. قم بتكوين [استبدال الخط](/slides/ar/java/font-substitution/)، [قواعد الاستبدال](/slides/ar/java/font-replacement/)، و[مجموعة الاحتياطي](/slides/ar/java/fallback-font/) لتحديد بالضبط أي خط يُستخدم عندما تكون الرموز المطلوبة غير موجودة.
+نعم. قم بتكوين [استبدال الخط](/slides/ar/java/font-substitution/)، [قواعد الاستبدال](/slides/ar/java/font-replacement/)، و[مجموعات الاحتياطي](/slides/ar/java/fallback-font/) لتحديد الخط المحدد الذي يُستخدم عندما تكون الرموز المطلوبة غير موجودة.
 
 **هل يمكنني استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على مستوى النظام؟**
 
-نعم. أشِر إلى مجلدات الخطوط الخاصة بك أو حمِّل الخطوط من مصفوفات البايت. يزيل هذا أي اعتماد على دلائل الخطوط النظامية في صورة الحاوية.
+نعم. يمكنك الإشارة إلى مجلدات الخط الخاصة بك أو تحميل الخطوط من مصفوفات بايت. هذا يزيل أي اعتماد على دلائل الخطوط النظامية في صورة الحاوية.
 
 **ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟**
 
-أنت المسؤول عن الامتثال لتراخيص الخطوط. الشروط تختلف؛ بعض الرخص تحظر التضمين أو الاستخدام التجاري. احرص دائمًا على مراجعة اتفاقية ترخيص المستخدم النهائي (EULA) للخط قبل توزيع المخرجات.
+أنت المسؤول عن الالتزام بترخيص الخطوط. الشروط تختلف؛ بعض التراخيص تحظر التضمين أو الاستخدام التجاري. عليك دائمًا مراجعة اتفاقية ترخيص المستخدم النهائي للخط قبل توزيع المخرجات.

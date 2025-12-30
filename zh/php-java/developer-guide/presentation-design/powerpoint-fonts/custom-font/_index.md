@@ -66,7 +66,6 @@ Aspose.Slides 提供 [getFontFolders](https://reference.aspose.com/slides/php-ja
   # 此行输出搜索字体文件的文件夹。
   # 这些是通过 LoadExternalFonts 方法添加的文件夹以及系统字体文件夹。
   $fontFolders = FontsLoader->getFontFolders();
-
 ```
 
 

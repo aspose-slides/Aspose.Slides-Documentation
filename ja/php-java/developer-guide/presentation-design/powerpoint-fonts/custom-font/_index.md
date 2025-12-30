@@ -29,7 +29,7 @@ Aspose Slides は、これらのフォントを [loadExternalFonts](https://refe
 
 {{% /alert %}}
 
-## **カスタムフォントの読み込み**
+## **カスタムフォントのロード**
 
 Aspose.Slides は、フォントをインストールせずにプレゼンテーションでレンダリングされるフォントを読み込むことができます。フォントはカスタムディレクトリから読み込まれます。
 
@@ -65,7 +65,6 @@ Aspose.Slides は、フォントフォルダーを検索できるように [getF
   # この行はフォントファイルが検索されるフォルダーを出力します。
   # それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
   $fontFolders = FontsLoader->getFontFolders();
-
 ```
 
 
