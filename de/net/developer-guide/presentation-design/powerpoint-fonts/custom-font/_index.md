@@ -6,11 +6,11 @@ weight: 20
 url: /de/net/custom-font/
 keywords:
 - Schriftart
-- benutzerdefinierte Schriftart
-- externe Schriftart
+- Benutzerdefinierte Schriftart
+- Externe Schriftart
 - Schriftart laden
 - Schriftarten verwalten
-- Schriftartenordner
+- Schriftordner
 - PowerPoint
 - OpenDocument
 - Präsentation
@@ -22,55 +22,64 @@ description: "Passen Sie Schriftarten in PowerPoint‑Folien mit Aspose.Slides f
 
 {{% alert color="primary" %}} 
 
-Aspose Slides ermöglicht das Laden dieser Schriftarten mit der Methode [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) :
+Aspose Slides ermöglicht das Laden dieser Schriftarten über die Methode [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) :
 
-* TrueType (.ttf) und TrueType Collection (.ttc) Schriftarten. Siehe [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf)- und TrueType Collection (.ttc)-Schriftarten. Siehe [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* OpenType (.otf) Schriftarten. Siehe [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* OpenType (.otf)-Schriftarten. Siehe [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Benutzerdefinierte Schriftarten laden**
 
-Aspose.Slides ermöglicht das Laden von Schriftarten, die in Präsentationen gerendert werden, ohne dass diese Schriftarten installiert werden müssen. Die Schriftarten werden aus einem benutzerdefinierten Verzeichnis geladen. 
+Aspose.Slides ermöglicht das Laden von in einer Präsentation verwendeten Schriftarten, ohne sie im System zu installieren. Dies wirkt sich auf die Exportausgabe aus – beispielsweise PDF, Bilder und andere unterstützte Formate – sodass die resultierenden Dokumente in verschiedenen Umgebungen konsistent aussehen. Schriftarten werden aus benutzerdefinierten Verzeichnissen geladen.
 
-1. Erstellen Sie eine Instanz der Klasse [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) und rufen Sie die Methode [LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) auf.  
-2. Laden Sie die Präsentation, die gerendert werden soll.  
-3. Leeren Sie den Cache in der Klasse [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/).  
+1. Geben Sie einen oder mehrere Ordner an, die die Schriftdateien enthalten.
+2. Rufen Sie die statische Methode [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) auf, um Schriftarten aus diesen Ordnern zu laden.
+3. Laden und rendern/exportieren Sie die Präsentation.
+4. Rufen Sie [FontsLoader.ClearCache](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/clearcache/) auf, um den Schriftart-Cache zu leeren.
 
-Dieser C#‑Code demonstriert den Schriftarten‑Ladevorgang:
-``` csharp
-// Der Pfad zum Dokumentenverzeichnis
-string dataDir = "C:\\";
+Das folgende Codebeispiel demonstriert den Schriftarten‑Ladevorgang:
+```cs
+// Definieren Sie Ordner, die benutzerdefinierte Schriftdateien enthalten.
+string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
 
-// Ordner, in denen nach Schriften gesucht wird
-String[] folders = new String[] { dataDir };
+// Laden Sie benutzerdefinierte Schriftarten aus den angegebenen Ordnern.
+FontsLoader.LoadExternalFonts(fontFolders);
 
-// Lädt die Schriften aus dem benutzerdefinierten Schriftverzeichnis
-FontsLoader.LoadExternalFonts(folders);
+using Presentation presentation = new Presentation("sample.pptx");
 
-// Führt einige Arbeiten aus und rendert die Präsentation/Folie
-using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx"))
-    presentation.Save(dataDir + "NewFonts_out.pptx", SaveFormat.Pptx);
+// Rendern/Exportieren Sie die Präsentation (z.B. nach PDF, Bildern oder anderen Formaten) mit den geladenen Schriftarten.
+presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// Löscht den Schrift-Cache
+// Löschen Sie den Schriftart-Cache, nachdem die Arbeit abgeschlossen ist.
 FontsLoader.ClearCache();
 ```
 
 
-## **Benutzerdefinierte Schriftordner abrufen**
-Aspose.Slides stellt die Methode [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) zur Verfügung, mit der Sie Schriftordner finden können. Diese Methode gibt Ordner zurück, die über die Methode `LoadExternalFonts` hinzugefügt wurden, sowie Systemschriftordner.
+{{% alert color="info" title="Note" %}}
 
-Dieser C#‑Code zeigt, wie Sie [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) verwenden:
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) fügt zusätzliche Ordner zu den Schriftart‑Suchpfaden hinzu, ändert jedoch nicht die Reihenfolge der Schriftartinitialisierung.  
+Schriftarten werden in dieser Reihenfolge initialisiert:
+
+1. Der standardmäßige Schriftartenpfad des Betriebssystems.
+1. Die über [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) geladenen Pfade.
+
+{{%/alert %}}
+
+## **Benutzerdefinierte Schriftordner abrufen**
+Aspose.Slides stellt die Methode [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) bereit, mit der Sie Schriftordner finden können. Diese Methode gibt Ordner zurück, die über die `LoadExternalFonts`‑Methode hinzugefügt wurden, sowie System‑Schriftordner.
+
+Dieser C#‑Code zeigt, wie Sie [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) verwenden können:
 ```c#
- // Diese Zeile gibt die Ordner aus, die auf Schriftdateien überprüft werden.
- // Dabei handelt es sich um Ordner, die über die Methode LoadExternalFonts hinzugefügt wurden, sowie Systemschriftordner.
- string[] fontFolders = FontsLoader.GetFontFolders();
+// Diese Zeile gibt die Ordner aus, die nach Schriftdateien durchsucht werden.
+// Das sind Ordner, die über die Methode LoadExternalFonts hinzugefügt wurden, sowie System‑Schriftordner.
+string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
 
-## **Benutzerdefinierte Schriftarten für eine Präsentation angeben**
-Aspose.Slides stellt die Eigenschaft [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) bereit, mit der Sie externe Schriftarten angeben können, die mit der Präsentation verwendet werden.
+## **Benutzerdefinierte Schriftarten für eine Präsentation festlegen**
+Aspose.Slides stellt die Eigenschaft [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) bereit, mit der Sie externe Schriftarten angeben können, die in der Präsentation verwendet werden.
 
 Dieser C#‑Code zeigt, wie Sie die Eigenschaft [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) verwenden:
 ```c#
@@ -82,7 +91,7 @@ loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
-    // Arbeiten Sie mit der Präsentation
+    // Arbeiten mit der Präsentation
     // CustomFont1, CustomFont2 und Schriftarten aus den Ordnern assets\fonts & global\fonts sowie deren Unterordnern stehen der Präsentation zur Verfügung
 }
 ```
@@ -90,9 +99,9 @@ using (IPresentation presentation = new Presentation("MyPresentation.pptx", load
 
 ## **Schriftarten extern verwalten**
 
-Aspose.Slides stellt die Methode [LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) zur Verfügung, mit der Sie externe Schriftarten aus binären Daten laden können.
+Aspose.Slides stellt die Methode [LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) bereit, mit der Sie externe Schriftarten aus Binärdaten laden können.
 
-Dieser C#‑Code demonstriert das Laden von Schriftarten aus einem Byte‑Array: 
+Dieser C#‑Code demonstriert den Ladevorgang einer Schriftart aus einem Byte‑Array: 
 ```c#
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
@@ -102,7 +111,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // Externe Schriftart, die während der Lebensdauer der Präsentation geladen wird
+        // extern geladene Schriftart während der Laufzeit der Präsentation
     }
 }
 finally
@@ -114,22 +123,22 @@ finally
 
 ## **FAQ**
 
-**Wirken sich benutzerdefinierte Schriftarten auf den Export in alle Formate (PDF, PNG, SVG, HTML) aus?**
+**Beeinflussen benutzerdefinierte Schriftarten den Export in alle Formate (PDF, PNG, SVG, HTML)?**
 
 Ja. Verbundene Schriftarten werden vom Renderer in allen Exportformaten verwendet.
 
 **Werden benutzerdefinierte Schriftarten automatisch in die resultierende PPTX eingebettet?**
 
-Nein. Das Registrieren einer Schriftart zum Rendern ist nicht dasselbe wie das Einbetten in eine PPTX. Wenn Sie die Schriftart in der Präsentationsdatei benötigen, müssen Sie die expliziten [Einbettungsfunktionen](/slides/de/net/embedded-font/) verwenden.
+Nein. Das Registrieren einer Schriftart für das Rendering ist nicht dasselbe wie das Einbetten in eine PPTX. Wenn Sie die Schriftart in der Präsentationsdatei benötigen, müssen Sie die expliziten [Einbettungs‑Features](/slides/de/net/embedded-font/) verwenden.
 
 **Kann ich das Fallback‑Verhalten steuern, wenn einer benutzerdefinierten Schriftart bestimmte Glyphen fehlen?**
 
-Ja. Konfigurieren Sie [font substitution](/slides/de/net/font-substitution/), [replacement rules](/slides/de/net/font-replacement/) und [fallback sets](/slides/de/net/fallback-font/), um genau festzulegen, welche Schriftart verwendet wird, wenn die angeforderte Glyphe fehlt.
+Ja. Konfigurieren Sie [Schriftart‑Substitution](/slides/de/net/font-substitution/), [Ersetzungsregeln](/slides/de/net/font-replacement/) und [Fallback‑Sets](/slides/de/net/fallback-font/), um genau festzulegen, welche Schriftart verwendet wird, wenn die gewünschte Glyphe fehlt.
 
 **Kann ich Schriftarten in Linux/Docker‑Containern verwenden, ohne sie systemweit zu installieren?**
 
-Ja. Verweisen Sie auf Ihre eigenen Schriftordner oder laden Sie Schriftarten aus Byte‑Arrays. Dadurch wird jede Abhängigkeit von Systemschriftverzeichnissen im Container‑Image entfernt.
+Ja. Verweisen Sie auf eigene Schriftordner oder laden Sie Schriftarten aus Byte‑Arrays. Dadurch wird jede Abhängigkeit von System‑Schriftverzeichnissen im Container‑Image eliminiert.
 
-**Wie sieht es mit der Lizenzierung aus – kann ich beliebige benutzerdefinierte Schriftarten ohne Einschränkungen einbetten?**
+**Wie sieht es mit der Lizenzierung aus – kann ich jede benutzerdefinierte Schriftart ohne Einschränkungen einbetten?**
 
-Sie sind für die Einhaltung der Schriftlizenz verantwortlich. Die Bedingungen variieren; einige Lizenzen verbieten das Einbetten oder die kommerzielle Nutzung. Überprüfen Sie stets die EULA der Schriftart, bevor Sie Ausgaben verbreiten.
+Sie sind für die Einhaltung der Schriftlizenz verantwortlich. Die Bedingungen variieren; einige Lizenzen verbieten das Einbetten oder die kommerzielle Nutzung. Überprüfen Sie stets die EULA der Schriftart, bevor Sie Ausgaben verteilen.

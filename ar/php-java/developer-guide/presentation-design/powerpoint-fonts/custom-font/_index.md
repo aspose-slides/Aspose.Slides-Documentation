@@ -1,68 +1,91 @@
 ---
-title: خط مخصص ل PowerPoint
+title: تخصيص خطوط PowerPoint في PHP
 linktitle: خط مخصص
 type: docs
 weight: 20
 url: /ar/php-java/custom-font/
-keywords: "خطوط، خطوط مخصصة، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
-description: "خطوط PowerPoint المخصصة"
+keywords:
+- خط
+- خط مخصص
+- خط خارجي
+- تحميل الخط
+- إدارة الخطوط
+- مجلد الخط
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "قُم بتخصيص الخطوط في شرائح PowerPoint باستخدام Aspose.Slides للـ PHP عبر Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
 ---
 
 {{% alert color="primary" %}} 
 
-تتيح لك Aspose Slides تحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+Aspose Slides يتيح لك تحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-* خطوط TrueType (.ttf) ومجموعة TrueType (.ttc). انظر [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* خطوط TrueType (.ttf) وTrueType Collection (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* خطوط OpenType (.otf). انظر [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* خطوط OpenType (.otf). راجع [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **تحميل خطوط مخصصة**
+## **تحميل الخطوط المخصصة**
 
-تتيح لك Aspose.Slides تحميل خطوط تظهر في العروض التقديمية دون الحاجة إلى تثبيت تلك الخطوط. يتم تحميل الخطوط من دليل مخصص. 
+Aspose.Slides يتيح لك تحميل الخطوط المستخدمة في العرض التقديمي دون تثبيتها على النظام. هذا يؤثر على مخرجات التصدير — مثل PDF، الصور، وغيرها من الصيغ المدعومة — وبالتالي تبدو المستندات الناتجة متسقة عبر البيئات. يتم تحميل الخطوط من أدلة مخصصة.
 
-1. أنشئ مثيلًا من فئة [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) واستدعِ طريقة [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
-2. قم بتحميل العرض التقديمي الذي سيتم تصوُّره.
-3. [امسح ذاكرة التخزين المؤقت](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) في فئة [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader).
+1. حدد مجلدًا أو أكثر يحتوي على ملفات الخطوط.  
+2. استدعي الطريقة الساكنة [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) لتحميل الخطوط من تلك الأدلة.  
+3. حمّل واعرض/صدّر العرض التقديمي.  
+4. استدعِ [FontsLoader::clearCache](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/clearcache/) لمسح ذاكرة الخطوط المؤقتة.
 
-يوضح هذا الكود PHP عملية تحميل الخطوط:
-
+يوضح المثال البرمجي التالي عملية تحميل الخطوط:
 ```php
-  # المجلدات للبحث عن الخطوط
-  $folders = array($externalFontsDir );
-  # تحميل خطوط الدليل المخصص
-  FontsLoader->loadExternalFonts($folders);
-  # القيام ببعض العمل وإجراء تعديل العرض/الشريحة
-  $pres = new Presentation("DefaultFonts.pptx");
-  try {
-    $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-    # مسح ذاكرة التخزين المؤقت للخطوط
-    FontsLoader->clearCache();
-  }
+// تحديد المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+$fontFolders = array($externalFontFolder1, $externalFontFolder2);
+
+// تحميل الخطوط المخصصة من المجلدات المحددة.
+FontsLoader::loadExternalFonts($fontFolders);
+
+$presentation = null;
+try {
+    $presentation = new Presentation("sample.pptx");
+    
+    // تصدير/رندر العرض التقديمي (مثل PDF أو صور أو صيغ أخرى) باستخدام الخطوط المحملة.
+    $presentation->save("output.pdf", SaveFormat::Pdf);
+} finally {
+    if ($presentation != null) $presentation->dispose();
+
+    // مسح ذاكرة الخط المؤقتة بعد الانتهاء من العمل.
+    FontsLoader::clearCache();
+}
 ```
 
-## **الحصول على مجلدات الخطوط المخصصة**
-توفر Aspose.Slides طريقة [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) للسماح لك بالعثور على مجلدات الخطوط. ترجع هذه الطريقة المجلدات المضافة من خلال طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
+
+{{% alert color="info" title="Note" %}}
+
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/loadexternalfonts/) يضيف أدلة إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط.  
+يتم تهيئة الخطوط بالترتيب التالي:
+
+1. مسار الخط الافتراضي لنظام التشغيل.  
+1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/).
+
+{{%/alert %}}
+
+## **الحصول على أدلة الخطوط المخصصة**
+Aspose.Slides توفر الطريقة [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) للعثور على أدلة الخطوط. تُعيد هذه الطريقة الأدلة التي أُضيفت عبر طريقة `LoadExternalFonts` وأدلة الخطوط النظامية.
 
 يوضح هذا الكود PHP كيفية استخدام [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
-
 ```php
-  # هذه السطر يخرج المجلدات التي يتم البحث فيها عن ملفات الخطوط.
-  # هذه هي المجلدات المضافة عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
+  # هذا السطر يطبع المجلدات التي يتم البحث فيها عن ملفات الخطوط.
+  # هذه هي المجلدات التي أضيفت عبر طريقة LoadExternalFonts ومجلدات خطوط النظام.
   $fontFolders = FontsLoader->getFontFolders();
-
 ```
 
-## **تحديد الخطوط المخصصة المستخدمة مع العرض التقديمي**
-توفر Aspose.Slides خاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) للسماح لك بتحديد الخطوط الخارجية التي سيتم استخدامها مع العرض التقديمي.
 
-يوضح هذا الكود PHP كيفية استخدام خاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+## **تحديد الخطوط المخصصة المستخدمة مع عرض تقديمي**
+Aspose.Slides توفر الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) لتحديد الخطوط الخارجية التي سيُستخدمها العرض التقديمي.
 
+هذا الكود PHP يوضح كيفية استخدام الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");
   $Byte = new JavaClass("java.lang.Byte");
@@ -88,7 +111,7 @@ description: "خطوط PowerPoint المخصصة"
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
     # العمل مع العرض التقديمي
-    # الخطوط CustomFont1 و CustomFont2 والخطوط من المجلدات assets\fonts & global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
+    # CustomFont1, CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -96,12 +119,12 @@ description: "خطوط PowerPoint المخصصة"
   }
 ```
 
-## **إدارة الخطوط خارجيًا**
 
-توفر Aspose.Slides طريقة [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) للسماح لك بتحميل خطوط خارجية من بيانات ثنائية.
+## **إدارة الخطوط خارجياً**
 
-يوضح هذا الكود PHP عملية تحميل الخطوط من مصفوفة بايت:
+Aspose.Slides توفر الطريقة [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) لتحميل الخطوط الخارجية من بيانات بايتية.
 
+هذا الكود PHP يوضح عملية تحميل الخط من مصفوفة بايت:
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
@@ -135,10 +158,33 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      # الخط الخارجي محمل خلال مدة العرض التقديمي
+      # الخط الخارجي محمَّل أثناء عمر العرض التقديمي
     } finally {
     }
   } finally {
     FontsLoader->clearCache();
   }
 ```
+
+
+## **FAQ**
+
+**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟**
+
+نعم. تُستخدم الخطوط المتصلة من قبل المحرك عبر جميع صيغ التصدير.
+
+**هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
+
+لا. تسجيل الخط للاستخدام في العرض لا يعني تضمينه داخل ملف PPTX. إذا كنت بحاجة إلى تضمين الخط داخل الملف، يجب استخدام ميزات [التضمين](/slides/ar/php-java/embedded-font/).
+
+**هل يمكن التحكم بسلوك الاستبدال عندما يفتقر الخط المخصص إلى بعض الرموز؟**
+
+نعم. يمكنك تكوين [استبدال الخطوط](/slides/ar/php-java/font-substitution/)، [قواعد الاستبدال](/slides/ar/php-java/font-replacement/)، و[مجموعات الاستبدال](/slides/ar/php-java/fallback-font/) لتحديد الخط الذي يُستخدم عندما يكون الرمز غير متوفر.
+
+**هل يمكن استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على النظام؟**
+
+نعم. يمكنك الإشارة إلى أدلة الخطوط الخاصة بك أو تحميل الخطوط من مصفوفات بايتية. هذا يلغي أي اعتماد على أدلة الخطوط النظامية داخل صورة الحاوية.
+
+**ماذا عن الترخيص — هل يمكن تضمين أي خط مخصص دون قيود؟**
+
+أنت مسؤول عن الالتزام بترخيص الخط. تختلف الشروط؛ بعض التراخيص تمنع التضمين أو الاستخدام التجاري. تأكد دائمًا من مراجعة اتفاقية الترخيص (EULA) الخاصة بالخط قبل توزيع المخرجات.
