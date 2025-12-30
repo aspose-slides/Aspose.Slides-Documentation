@@ -1,31 +1,40 @@
 ---
-title: Управление ячейками
+title: Управление ячейками таблицы в презентациях с помощью PHP
+linktitle: Управление ячейками
 type: docs
 weight: 30
 url: /ru/php-java/manage-cells/
-keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Java, Aspose.Slides для PHP через Java"
-description: "Ячейки таблиц в презентациях PowerPoint"
+keywords:
+- ячейка таблицы
+- объединение ячеек
+- удаление границы
+- разделение ячейки
+- изображение в ячейке
+- цвет фона
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Легко управляйте ячейками таблиц в PowerPoint с помощью Aspose.Slides для PHP. Освойте быстрый доступ, изменение и стилизацию ячеек для бесшовной автоматизации слайдов."
 ---
 
-
-## **Определить объединенную ячейку таблицы**
+## **Определение объединённой ячейки таблицы**
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите таблицу с первого слайда.
-3. Переберите строки и столбцы таблицы, чтобы найти объединенные ячейки.
-4. Выведите сообщение, когда найдены объединенные ячейки.
+2. Получите таблицу с первого слайда. 
+3. Пройдите по строкам и столбцам таблицы, чтобы найти объединённые ячейки.
+4. Выведите сообщение, когда найдены объединённые ячейки.
 
-Этот код PHP показывает, как определить объединенные ячейки таблицы в презентации:
-
+Этот PHP‑код показывает, как определить объединённые ячейки таблицы в презентации:
 ```php
-  $pres = new Presentation("НекотораяПрезентацияСТаблицей.pptx");
+  $pres = new Presentation("SomePresentationWithTable.pptx");
   try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// предполагается, что Slide#0.Shape#0 - это таблица
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// предполагая, что Slide#0.Shape#0 является таблицей
 
     for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
       for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
         $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
         if ($currentCell->isMergedCell()) {
-          echo(sprintf("Ячейка %d;%d является частью объединенной ячейки с RowSpan=%d и ColSpan=%d, начиная с ячейки %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
         }
       }
     }
@@ -36,29 +45,29 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-## **Удалить границу ячеек таблицы**
+
+## **Удаление границ ячеек таблицы**
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
+2. Получите ссылку на слайд по его индексу. 
 3. Определите массив столбцов с шириной.
 4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд через метод [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Переберите каждую ячейку, чтобы очистить верхнюю, нижнюю, правую и левую границы.
-7. Сохраните измененную презентацию в виде файла PPTX.
+5. Добавьте таблицу на слайд с помощью метода [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+6. Пройдите по каждой ячейке, чтобы очистить верхнюю, нижнюю, правую и левую границы.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код PHP показывает, как удалить границы из ячеек таблицы:
-
+Этот PHP‑код показывает, как удалить границы ячеек таблицы:
 ```php
-  # Создает экземпляр класса Presentation, представляющего PPTX файл
+  # Создает экземпляр класса Presentation, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с шириной и строки с высотой
+    # Определяет столбцы с ширинами и строки с высотами
     $dblCols = array(50, 50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
     # Добавляет форму таблицы на слайд
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границ для каждой ячейки
+    # Устанавливает формат границы для каждой ячейки
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
@@ -76,21 +85,21 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-## **Нумерация в объединенных ячейках**
-Если мы объединим 2 пары ячеек (1, 1) x (2, 1) и (1, 2) x (2, 2), результирующая таблица будет пронумерована. Этот код PHP демонстрирует процесс:
 
+## **Нумерация в объединённых ячейках**
+Если объединить 2 пары ячеек (1, 1) × (2, 1) и (1, 2) × (2, 2), получившаяся таблица будет пронумерована. Этот PHP‑код демонстрирует процесс:
 ```php
-  # Создает экземпляр класса Presentation, представляющего PPTX файл
+  # Создает экземпляр класса Presentation, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с шириной и строки с высотой
+    # Определяет столбцы с ширинами и строки с высотами
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Добавляет форму таблицы на слайд
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границ для каждой ячейки
+    # Устанавливает формат границы для каждой ячейки
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -119,20 +128,20 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-Затем мы объединим ячейки, объединив (1, 1) и (1, 2). Результат — таблица, содержащая одну большую объединенную ячейку в центре:
 
+Затем мы продолжаем объединять ячейки, объединяя (1, 1) и (1, 2). В результате получается таблица с большой объединённой ячейкой в центре: 
 ```php
-  # Создает экземпляр класса Presentation, представляющего PPTX файл
+  # Создает экземпляр класса Presentation, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с шириной и строки с высотой
+    # Определяет столбцы с ширинами и строки с высотами
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Добавляет форму таблицы на слайд
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границ для каждой ячейки
+    # Устанавливает формат границы для каждой ячейки
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -164,25 +173,25 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-## **Нумерация в разделенной ячейке**
-В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или числовая система в других ячейках не менялась.
 
-На этот раз мы берем обычную таблицу (таблицу без объединенных ячеек) и пытаемся разделить ячейку (1,1), чтобы получить специальную таблицу. Вам может быть интересно обратить внимание на нумерацию этой таблицы, которая может показаться странной. Тем не менее, именно так Microsoft PowerPoint нумерует ячейки таблиц, и Aspose.Slides делает то же самое.
+## **Нумерация в разделённой ячейке**
+В предыдущих примерах, когда ячейки таблицы объединялись, нумерация или система нумерации в остальных ячейках не менялась. 
 
-Этот код PHP демонстрирует описанный нами процесс:
+На этот раз мы берём обычную таблицу (таблица без объединённых ячеек) и затем пытаемся разделить ячейку (1,1), получая особую таблицу. Обратите внимание на нумерацию этой таблицы, которая может показаться странной. Однако именно так Microsoft PowerPoint нумерует ячейки таблицы, и Aspose.Slides делает то же самое. 
 
+Этот PHP‑код демонстрирует описанный процесс:
 ```php
-  # Создает экземпляр класса Presentation, представляющего PPTX файл
+  # Создает экземпляр класса Presentation, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с шириной и строки с высотой
+    # Определяет столбцы с ширинами и строки с высотами
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Добавляет форму таблицы на слайд
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Устанавливает формат границ для каждой ячейки
+    # Устанавливает формат границы для каждой ячейки
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -214,19 +223,19 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-## **Изменить цвет фона ячейки таблицы**
 
-Этот код PHP показывает, как изменить цвет фона ячейки таблицы:
+## **Изменение фонового цвета ячейки таблицы**
 
+Этот PHP‑код показывает, как изменить фоновой цвет ячейки таблицы:
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(50, 50, 50, 50, 50 );
-    # создайте новую таблицу
+    # создать новую таблицу
     $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    # установите цвет фона для ячейки
+    # установить цвет фона ячейки
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -238,28 +247,28 @@ description: "Ячейки таблиц в презентациях PowerPoint"
   }
 ```
 
-## **Добавить изображение внутри ячейки таблицы**
+
+## **Добавление изображения в ячейку таблицы**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
 3. Определите массив столбцов с шириной.
 4. Определите массив строк с высотой.
-5. Добавьте таблицу на слайд через метод [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+5. Добавьте таблицу на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
 6. Создайте объект `Images` для хранения файла изображения.
 7. Добавьте изображение `IImage` в объект `IPPImage`.
-8. Установите `FillFormat` для ячейки таблицы в `Picture`.
+8. Установите `FillFormat` для ячейки таблицы в значение `Picture`.
 9. Добавьте изображение в первую ячейку таблицы.
-10. Сохраните измененную презентацию в виде файла PPTX.
+10. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код PHP показывает, как разместить изображение внутри ячейки таблицы при создании таблицы:
-
+Этот PHP‑код показывает, как разместить изображение в ячейке таблицы при её создании:
 ```php
-  # Создает экземпляр класса Presentation, представляющего PPTX файл
+  # Создает экземпляр класса Presentation, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $islide = $pres->getSlides()->get_Item(0);
-    # Определяет столбцы с шириной и строки с высотой
+    # Определяет столбцы с ширинами и строки с высотами
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(100, 100, 100, 100, 90 );
     # Добавляет форму таблицы на слайд
@@ -288,3 +297,22 @@ description: "Ячейки таблиц в презентациях PowerPoint"
     }
   }
 ```
+
+
+## **FAQ**
+
+**Могу ли я задавать разную толщину линий и стили для разных сторон одной ячейки?**
+
+Да. Границы [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут отличаться. Это логически следует из управления границами каждой стороны ячейки, продемонстрированного в статье.
+
+**Что происходит с изображением, если я изменю размер столбца/строки после установки рисунка в качестве фона ячейки?**
+
+Поведение зависит от [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подстраивается под новую ячейку; при заполнении плиткой плитки пересчитываются. В статье упоминаются режимы отображения изображения в ячейке.
+
+**Могу ли я присвоить гиперссылку всему содержимому ячейки?**
+
+[Hyperlinks](/slides/ru/php-java/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/фигуры. На практике ссылка назначается части текста или всему тексту в ячейке.
+
+**Могу ли я задать разные шрифты внутри одной ячейки?**
+
+Да. Текстовый фрейм ячейки поддерживает [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (фрагменты) с независимым форматированием — семейство шрифта, стиль, размер и цвет.

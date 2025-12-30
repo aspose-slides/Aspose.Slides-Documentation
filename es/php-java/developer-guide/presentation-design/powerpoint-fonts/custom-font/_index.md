@@ -1,39 +1,49 @@
 ---
-title: Fuente Personalizada de PowerPoint
-linktitle: Fuente Personalizada
+title: Personalizar fuentes de PowerPoint en PHP
+linktitle: Fuente personalizada
 type: docs
 weight: 20
 url: /es/php-java/custom-font/
-keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, Java, Aspose.Slides para PHP vía Java"
-description: "Fuentes personalizadas de PowerPoint"
+keywords:
+- fuente
+- fuente personalizada
+- fuente externa
+- cargar fuente
+- gestionar fuentes
+- carpeta de fuentes
+- PowerPoint
+- OpenDocument
+- presentación
+- PHP
+- Aspose.Slides
+description: "Personaliza las fuentes en diapositivas de PowerPoint con Aspose.Slides para PHP mediante Java para que tus presentaciones se vean nítidas y coherentes en cualquier dispositivo."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose Slides permite cargar estas fuentes utilizando el método [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+Aspose Slides le permite cargar estas fuentes mediante el método [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-* Fuentes TrueType (.ttf) y TrueType Collection (.ttc). Ver [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* Fuentes TrueType (.ttf) y TrueType Collection (.ttc). Véase [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* Fuentes OpenType (.otf). Ver [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* Fuentes OpenType (.otf). Véase [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **Cargar Fuentes Personalizadas**
+## **Cargar fuentes personalizadas**
 
-Aspose.Slides permite cargar fuentes que se representan en presentaciones sin necesidad de instalar esas fuentes. Las fuentes se cargan desde un directorio personalizado. 
+Aspose.Slides le permite cargar fuentes que se renderizan en presentaciones sin necesidad de instalarlas. Las fuentes se cargan desde un directorio personalizado. 
 
-1. Crea una instancia de la clase [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) y llama al método [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
-2. Carga la presentación que se va a renderizar.
-3. [Limpia la caché](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) en la clase [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader).
+1. Crear una instancia de la clase [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) y llamar al método [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---).
+2. Cargar la presentación que se va a renderizar.
+3. [Borrar la caché](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) en la clase [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader).
 
-Este código PHP demuestra el proceso de carga de fuentes:
-
+Este código PHP muestra el proceso de carga de fuentes:
 ```php
-  # Carpetas para buscar fuentes
+  # Carpetas donde buscar fuentes
   $folders = array($externalFontsDir );
-  # Carga las fuentes del directorio de fuentes personalizadas
+  # Carga las fuentes del directorio de fuentes personalizado
   FontsLoader->loadExternalFonts($folders);
-  # Realiza algún trabajo y realiza la renderización de la presentación/diapositiva
+  # Realiza trabajo y renderiza la presentación/diapositiva
   $pres = new Presentation("DefaultFonts.pptx");
   try {
     $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
@@ -41,28 +51,30 @@ Este código PHP demuestra el proceso de carga de fuentes:
     if (!java_is_null($pres)) {
       $pres->dispose();
     }
-    # Limpia la caché de fuentes
+    # Borra la caché de fuentes
     FontsLoader->clearCache();
   }
 ```
 
-## **Obtener la Carpeta de Fuentes Personalizadas**
-Aspose.Slides proporciona el método [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) que te permite encontrar carpetas de fuentes. Este método devuelve carpetas añadidas a través del método `LoadExternalFonts` y carpetas de fuentes del sistema.
 
-Este código PHP te muestra cómo usar [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
+## **Obtener carpetas de fuentes personalizadas**
 
+Aspose.Slides proporciona el método [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) para permitirle encontrar carpetas de fuentes. Este método devuelve las carpetas añadidas mediante el método `LoadExternalFonts` y las carpetas de fuentes del sistema.
+
+Este código PHP muestra cómo usar [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
 ```php
-  # Esta línea muestra las carpetas donde se buscan los archivos de fuente.
-  # Esas son carpetas añadidas a través del método LoadExternalFonts y carpetas de fuentes del sistema.
+  # Esta línea muestra las carpetas donde se buscan los archivos de fuentes.
+  # Estas son carpetas añadidas mediante el método LoadExternalFonts y carpetas de fuentes del sistema.
   $fontFolders = FontsLoader->getFontFolders();
 
 ```
 
-## **Especificar Fuentes Personalizadas Usadas Con la Presentación**
-Aspose.Slides proporciona la propiedad [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) que te permite especificar fuentes externas que se usarán con la presentación.
 
-Este código PHP te muestra cómo usar la propiedad [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+## **Especificar fuentes personalizadas usadas con una presentación**
 
+Aspose.Slides proporciona la propiedad [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) para permitirle especificar fuentes externas que se usarán con la presentación.
+
+Este código PHP muestra cómo usar la propiedad [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");
   $Byte = new JavaClass("java.lang.Byte");
@@ -87,8 +99,8 @@ Este código PHP te muestra cómo usar la propiedad [setDocumentLevelFontSources
   $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
-    # Trabaja con la presentación
-    # CustomFont1, CustomFont2, y fuentes de las carpetas assets\fonts y global\fonts y sus subcarpetas están disponibles para la presentación
+    # Trabajar con la presentación
+    # CustomFont1, CustomFont2 y fuentes de las carpetas assets\fonts & global\fonts y sus subcarpetas están disponibles para la presentación
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -96,12 +108,12 @@ Este código PHP te muestra cómo usar la propiedad [setDocumentLevelFontSources
   }
 ```
 
-## **Gestionar Fuentes Externamente**
 
-Aspose.Slides proporciona el método [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) que te permite cargar fuentes externas desde datos binarios.
+## **Gestionar fuentes externamente**
 
-Este código PHP demuestra el proceso de carga de fuentes con un array de bytes:
+Aspose.Slides proporciona el método [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) para permitirle cargar fuentes externas a partir de datos binarios.
 
+Este código PHP muestra el proceso de carga de fuentes desde un array de bytes:
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
@@ -135,10 +147,33 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      # fuente externa cargada durante la vida de la presentación
+      # fuente externa cargada durante la duración de la presentación
     } finally {
     }
   } finally {
     FontsLoader->clearCache();
   }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Afectan las fuentes personalizadas a la exportación a todos los formatos (PDF, PNG, SVG, HTML)?**
+
+Sí. Las fuentes conectadas son utilizadas por el motor de renderizado en todos los formatos de exportación.
+
+**¿Se incrustan automáticamente las fuentes personalizadas en el PPTX resultante?**
+
+No. Registrar una fuente para renderizar no es lo mismo que incrustarla en un PPTX. Si necesita que la fuente esté incluida dentro del archivo de presentación, debe utilizar las [funciones de incrustación](/slides/es/php-java/embedded-font/).
+
+**¿Puedo controlar el comportamiento de reserva cuando una fuente personalizada carece de ciertos glifos?**
+
+Sí. Configure la [sustitución de fuentes](/slides/es/php-java/font-substitution/), las [reglas de reemplazo](/slides/es/php-java/font-replacement/) y los [conjuntos de reserva](/slides/es/php-java/fallback-font/) para definir exactamente qué fuente se utiliza cuando el glifo solicitado falta.
+
+**¿Puedo usar fuentes en contenedores Linux/Docker sin instalarlas a nivel del sistema?**
+
+Sí. Apunte a sus propias carpetas de fuentes o cargue fuentes desde arrays de bytes. Esto elimina cualquier dependencia de los directorios de fuentes del sistema en la imagen del contenedor.
+
+**¿Qué pasa con la licencia—puedo incrustar cualquier fuente personalizada sin restricciones?**
+
+Usted es responsable del cumplimiento de la licencia de la fuente. Los términos varían; algunas licencias prohiben la incrustación o el uso comercial. Siempre revise el EULA de la fuente antes de distribuir los resultados.

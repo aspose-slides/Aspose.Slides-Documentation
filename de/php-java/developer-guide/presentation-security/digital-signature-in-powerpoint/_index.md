@@ -1,35 +1,44 @@
 ---
-title: Digitale Signatur in PowerPoint
+title: Digitale Signaturen zu Präsentationen in PHP hinzufügen
+linktitle: Digitale Signatur
 type: docs
 weight: 10
 url: /de/php-java/digital-signature-in-powerpoint/
-keywords: "Digitales Signaturzertifikat, Zertifizierungsstelle"
-description: "Fügen Sie digitale Signaturzertifikate und Zertifizierungsstellen in eine PowerPoint-Präsentation mit Aspose.Slides ein."
+keywords:
+- digitale Signatur
+- digitales Zertifikat
+- Zertifizierungsstelle
+- PFX-Zertifikat
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für PHP via Java digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
 ---
 
-**Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint-Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation - einer Zertifizierungsstelle - erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation eine digitale Signatur hinzuzufügen über Datei -> Informationen -> Präsentation schützen:
+**Digital certificate** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt markiert ist. Das digitale Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation über Datei -> Info -> Präsentation schützen eine digitale Signatur hinzuzufügen:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
-Die Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die digitale Signatur zur Präsentation hinzugefügt wurde, erscheint eine spezielle Nachricht in PowerPoint:
+Eine Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die digitale Signatur zur Präsentation hinzugefügt wurde, erscheint in PowerPoint eine spezielle Meldung:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
-Um die Präsentation zu signieren oder die Echtheit der Präsentationssignaturen zu überprüfen, bietet die **Aspose.Slides API** die [**IDigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignature) Schnittstelle, die [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignatureCollection) Schnittstelle und die [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getDigitalSignatures--) Methode. Derzeit werden digitale Signaturen nur für das PPTX-Format unterstützt.
-## **Digitale Signatur aus PFX-Zertifikat hinzufügen**
-Das folgende Codebeispiel zeigt, wie man eine digitale Signatur aus einem PFX-Zertifikat hinzufügt:
+Um eine Präsentation zu signieren oder die Echtheit von Präsentationssignaturen zu prüfen, stellt die **Aspose.Slides API** die Schnittstelle [**IDigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignature), die Schnittstelle [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignatureCollection) und die Methode [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getDigitalSignatures--) bereit. Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
+## **Digitale Signatur aus einem PFX-Zertifikat hinzufügen**
+Das nachstehende Codebeispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
 
-1. Öffnen Sie die PFX-Datei und übergeben Sie das PFX-Passwort an das [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature) Objekt.
+1. Öffnen Sie die PFX‑Datei und übergeben Sie das PFX‑Passwort an das Objekt [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature).
 1. Fügen Sie die erstellte Signatur dem Präsentationsobjekt hinzu.
-
 ```php
-  # Präsentationsdatei öffnen
+  # Öffnen der Präsentationsdatei
   $pres = new Presentation();
   try {
-    # DigitalSignature Objekt mit PFX-Datei und PFX-Passwort erstellen
+    # DigitalSignature-Objekt mit PFX-Datei und PFX-Passwort erstellen
     $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # Bemerkung zur neuen digitalen Signatur
-    $signature->setComments("Aspose.Slides digitale Signaturtest.");
+    # Kommentar zur neuen digitalen Signatur
+    $signature->setComments("Aspose.Slides digital signing test.");
     # Digitale Signatur zur Präsentation hinzufügen
     $pres->getDigitalSignatures()->add($signature);
     # Präsentation speichern
@@ -39,24 +48,24 @@ Das folgende Codebeispiel zeigt, wie man eine digitale Signatur aus einem PFX-Ze
   }
 ```
 
-Jetzt ist es möglich zu überprüfen, ob die Präsentation digital signiert wurde und nicht modifiziert wurde:
 
+Jetzt ist es möglich zu prüfen, ob die Präsentation digital signiert wurde und nicht verändert wurde:
 ```php
   # Präsentation öffnen
   $pres = new Presentation("SomePresentationSigned.pptx");
   try {
     if (java_values($pres->getDigitalSignatures()->size()) > 0) {
       $allSignaturesAreValid = true;
-      echo("Verwendete Signaturen zum Signieren der Präsentation: ");
-      # Überprüfen, ob alle digitalen Signaturen gültig sind
+      echo("Signatures used to sign the presentation: ");
+      # Prüfen, ob alle digitalen Signaturen gültig sind
       foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "GÜLTIG" : "UNGÜLTIG");
+        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
         $allSignaturesAreValid &= $signature->isValid();
       }
       if ($allSignaturesAreValid) {
-        echo("Präsentation ist echt, alle Signaturen sind gültig.");
+        echo("Presentation is genuine, all signatures are valid.");
       } else {
-        echo("Präsentation wurde seit der Signatur geändert.");
+        echo("Presentation has been modified since signing.");
       }
     }
   } finally {
@@ -65,3 +74,18 @@ Jetzt ist es möglich zu überprüfen, ob die Präsentation digital signiert wur
     }
   }
 ```
+
+
+## **FAQ**
+
+**Kann ich vorhandene Signaturen aus einer Datei entfernen?**
+
+Ja. Die digitale Signatursammlung unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/removeat/) und das [vollständige Leeren](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/clear/); nach dem Speichern der Datei hat die Präsentation keine Signaturen mehr.
+
+**Wird die Datei nach dem Signieren „schreibgeschützt“?**
+
+Nein. Eine Signatur bewahrt die Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten zu beschränken, kombinieren Sie sie mit ["Read-only" or a password](/slides/de/php-java/password-protected-presentation/).
+
+**Wird die Signatur in verschiedenen PowerPoint‑Versionen korrekt angezeigt?**
+
+Die Signatur wird für den OOXML‑(PPTX‑)Container erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.

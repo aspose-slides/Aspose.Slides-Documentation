@@ -1,14 +1,26 @@
 ---
-title: فقرة
+title: الحصول على حدود الفقرة من العروض التقديمية في PHP
+linktitle: الفقرة
 type: docs
 weight: 60
 url: /ar/php-java/paragraph/
+keywords:
+- حدود الفقرة
+- حدود جزء النص
+- إحداثيات الفقرة
+- إحداثيات الجزء
+- حجم الفقرة
+- حجم جزء النص
+- إطار النص
+- PowerPoint
+- العرض التقديمي
+- PHP
+- Aspose.Slides
+description: "تعرف على كيفية استرجاع حدود الفقرة وجزء النص في Aspose.Slides لـ PHP عبر Java لتحسين تموضع النص في عروض PowerPoint التقديمية."
 ---
 
-
-## الحصول على إحداثيات الفقرات والأجزاء في إطار النص ##
-باستخدام Aspose.Slides لـ PHP عبر Java، يمكن للمطورين الآن الحصول على الإحداثيات المستطيلة لفقرات داخل مجموعة الفقرات في إطار النص. كما يسمح لك بالحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) داخل مجموعة الأجزاء لفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على الإحداثيات المستطيلة للفقرة مع موضع الجزء داخل الفقرة.
-
+## **احصل على إحداثيات الفقرة والجزء في إطار النص**
+باستخدام Aspose.Slides لـ PHP عبر Java، يمكن للمطورين الآن الحصول على إحداثيات المستطيل للفقرة داخل مجموعة الفقرات في إطار النص. كما يتيح لك الحصول على [إحداثيات الجزء](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) داخل مجموعة الأجزاء لفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على إحداثيات المستطيل للفقرة مع موقع الجزء داخل الفقرة.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -20,9 +32,8 @@ url: /ar/php-java/paragraph/
 ```
 
 
-## **الحصول على الإحداثيات المستطيلة للفقرة**
-باستخدام [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
-
+## **احصل على إحداثيات المستطيل لفقرة**
+باستخدام طريقة [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) يمكن للمطورين الحصول على مستطيل حدود الفقرة.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
@@ -37,12 +48,10 @@ url: /ar/php-java/paragraph/
   }
 ```
 
-## **الحصول على حجم الفقرة والجزء داخل إطار نص خلية الجدول** ##
 
-للحصول على [الجزء](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) أو [الفقرة](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) وحجمها وإحداثياتها داخل إطار نص خلية الجدول، يمكنك استخدام [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) و [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) الطرق.
-
-هذا الكود مثال يوضح العملية الموصوفة:
-
+## **احصل على حجم الفقرة والجزء داخل إطار نص خلية جدول**
+للحصول على حجم الـ[Portion] أو الـ[Paragraph] والإحداثيات في إطار نص خلية جدول، يمكنك استخدام طريقتي [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) و[IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
+يظهر هذا الرمز النموذجي العملية الموصوفة:
 ```php
   $pres = new Presentation("source.pptx");
   try {
@@ -73,3 +82,18 @@ url: /ar/php-java/paragraph/
     }
   }
 ```
+
+
+## **الأسئلة المتداولة**
+
+**بأي وحدات تُقاس الإحداثيات التي يتم إرجاعها للفقرة وأجزاء النص؟**  
+بالنقاط، حيث إن 1 بوصة = 72 نقطة. ينطبق هذا على جميع الإحداثيات والأبعاد في الشريحة.
+
+**هل يؤثر تغليف الكلمات على حدود الفقرة؟**  
+نعم. إذا كان [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) مفعلاً في الـ[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)، فإن النص يُقسم ليناسب عرض المنطقة، مما يغيّر الحدود الفعلية للفقرة.
+
+**هل يمكن تحويل إحداثيات الفقرة إلى بكسلات في الصورة المصدرة بشكل موثوق؟**  
+نعم. يمكن تحويل النقاط إلى بكسلات باستخدام: pixels = points × (DPI / 72). تعتمد النتيجة على قيمة DPI المختارة للتصوير/التصدير.
+
+**كيف يمكنني الحصول على معلمات تنسيق الفقرة "الفعّالة" مع مراعاة وراثة النمط؟**  
+استخدم [effective paragraph formatting data structure](/slides/ar/php-java/shape-effective-properties/); تُعيد القيم النهائية المجمّعة للمسافات البادئة، الفواصل، التغليف، الاتجاه من اليمين إلى اليسار، والمزيد.

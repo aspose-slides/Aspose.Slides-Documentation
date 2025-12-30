@@ -1,40 +1,51 @@
 ---
-title: チャート系列
+title: PHP を使用してプレゼンテーションのチャート データ シリーズを管理する
+linktitle: データシリーズ
 type: docs
 url: /ja/php-java/chart-series/
-keywords: "チャート系列, 系列の色, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "PowerPointプレゼンテーションにおけるチャート系列"
+keywords:
+- チャートシリーズ
+- シリーズのオーバーラップ
+- シリーズの色
+- カテゴリの色
+- シリーズ名
+- データポイント
+- シリーズのギャップ
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "PowerPoint（PPT/PPTX）向けに PHP でチャート データ シリーズを管理する方法を、実用的なコード例とベストプラクティスとともに学び、データプレゼンテーションを向上させましょう。"
 ---
 
-系列は、チャートにプロットされた数値の行または列です。
+シリーズは、チャートにプロットされた数値の行または列です。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **チャートシリーズのオーバーラップを設定する**
+## **Chart Series Overlap を設定する**
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) プロパティを使用すると、2D チャート上でバーや列の重なり具合を指定できます（範囲: -100 から 100）。このプロパティは親系列グループのすべての系列に適用されます: これは適切なグループプロパティの投影です。したがって、このプロパティは読み取り専用です。
+[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) プロパティを使用すると、2D チャート上で棒や列がどの程度重なるか（範囲: -100 から 100）を指定できます。このプロパティは親シリーズ グループのすべてのシリーズに適用されます。これは適切なグループ プロパティの投影です。そのため、このプロパティは読み取り専用です。
 
-`ParentSeriesGroup.Overlap` の読み書き可能プロパティを使用して、`Overlap` の好ましい値を設定します。
+`ParentSeriesGroup.Overlap` の読み書き可能なプロパティを使用して、`Overlap` の希望の値を設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. スライドにクラスタ化された縦棒グラフを追加します。
-1. 最初のチャート系列にアクセスします。
-1. チャート系列の `ParentSeriesGroup` にアクセスし、系列の好ましいオーバーラップ値を設定します。
-1. 修正したプレゼンテーションを PPTX ファイルに書き込みます。
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
+1. スライドにクラスター化された縦棒チャートを追加します。
+1. 最初のチャートシリーズにアクセスします。
+1. チャートシリーズの `ParentSeriesGroup` にアクセスし、シリーズの希望する Overlap の値を設定します。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 
-この PHP コードは、チャート系列のオーバーラップを設定する方法を示しています：
-
+この PHP コードは、チャートシリーズの Overlap を設定する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
-    # チャートを追加
+    # チャートを追加します
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # 系列のオーバーラップを設定
+      # シリーズのオーバーラップを設定します
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }
-    # プレゼンテーションファイルをディスクに書き込む
+    # プレゼンテーションファイルを書き込みます
     $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -43,17 +54,18 @@ description: "PowerPointプレゼンテーションにおけるチャート系�
   }
 ```
 
-## **系列の色を変更する**
-Aspose.Slides for PHP via Java は、次のように系列の色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+## **シリーズの色を変更する**
+
+Aspose.Slides for PHP via Java を使用すると、シリーズの色を以下のように変更できます。
+
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
 1. スライドにチャートを追加します。
-1. 色を変更したい系列にアクセスします。
-1. 好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正したプレゼンテーションを保存します。
+1. 色を変更したいシリーズにアクセスします。
+1. 希望する塗りタイプと塗りの色を設定します。
+1. 変更されたプレゼンテーションを保存します。
 
-この PHP コードは、系列の色を変更する方法を示しています：
-
+この PHP コードは、シリーズの色を変更する方法を示しています。
 ```php
   $pres = new Presentation("test.pptx");
   try {
@@ -70,17 +82,18 @@ Aspose.Slides for PHP via Java は、次のように系列の色を変更でき�
   }
 ```
 
-## **系列のカテゴリの色を変更する**
-Aspose.Slides for PHP via Java は、次のように系列のカテゴリの色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+## **シリーズカテゴリの色を変更する**
+
+Aspose.Slides for PHP via Java を使用すると、シリーズカテゴリの色を以下のように変更できます。
+
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
 1. スライドにチャートを追加します。
-1. 色を変更したい系列カテゴリにアクセスします。
-1. 好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正したプレゼンテーションを保存します。
+1. 色を変更したいシリーズカテゴリにアクセスします。
+1. 希望する塗りタイプと塗りの色を設定します。
+1. 変更されたプレゼンテーションを保存します。
 
-このコードは、系列カテゴリの色を変更する方法を示しています：
-
+このコードは、シリーズカテゴリの色を変更する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -96,25 +109,25 @@ Aspose.Slides for PHP via Java は、次のように系列のカテゴリの色�
   }
 ```
 
-## **系列の名前を変更する**
 
-デフォルトでは、チャートの凡例名は、各列または行のデータの上にあるセルの内容です。
+## **シリーズ名を変更する**
 
-私たちの例（サンプル画像）では、
+デフォルトでは、チャートの凡例名は各列または行の上にあるセルの内容です。
 
-* 列は *系列 1, 系列 2,* および *系列 3*;
-* 行は *カテゴリ 1, カテゴリ 2, カテゴリ 3,* および *カテゴリ 4*。
+例（サンプル画像）では、
 
-Aspose.Slides for PHP via Java は、チャートデータと凡例で系列名を更新または変更できます。
+* 列は *Series 1, Series 2,* と *Series 3* です；
+* 行は *Category 1, Category 2, Category 3,* と *Category 4* です。
 
-この PHP コードは、`ChartDataWorkbook` のチャートデータで系列名を変更する方法を示しています：
+Aspose.Slides for PHP via Java を使用すると、チャートデータと凡例でシリーズ名を更新または変更できます。
 
+この PHP コードは、チャートデータ `ChartDataWorkbook` 内でシリーズ名を変更する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("新しい名前");
+    $seriesCell->setValue("New name");
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -123,15 +136,15 @@ Aspose.Slides for PHP via Java は、チャートデータと凡例で系列名�
   }
 ```
 
-この PHP コードは、`Series` を通じて凡例の系列名を変更する方法を示しています：
 
+この PHP コードは、`Series` を介して凡例内のシリーズ名を変更する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("新しい名前");
+    $name->getAsCells()->get_Item(0)->setValue("New name");
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -139,28 +152,28 @@ Aspose.Slides for PHP via Java は、チャートデータと凡例で系列名�
   }
 ```
 
+
 ## **チャートシリーズの塗りつぶし色を設定する**
 
-Aspose.Slides for PHP via Java は、プロットエリア内のチャート系列の自動塗りつぶし色を次のように設定できます：
+Aspose.Slides for PHP via Java を使用すると、プロット領域内のチャートシリーズの自動塗りつぶし色を以下のように設定できます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. インデックスによってスライドの参照を取得します。
-1. 自分の好みのタイプに基づいてデフォルトデータを持つチャートを追加します（以下の例では、`ChartType::ClusteredColumn` を使用しています）。
-1. チャート系列にアクセスし、塗りつぶし色を自動に設定します。
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. 希望のタイプに基づくデフォルトデータでチャートを追加します（以下の例では `ChartType::ClusteredColumn` を使用しました）。
+1. チャートシリーズにアクセスし、塗りつぶし色を Automatic に設定します。
 1. プレゼンテーションを PPTX ファイルに保存します。
 
-この PHP コードは、チャート系列の自動塗りつぶし色を設定する方法を示しています：
-
+この PHP コードは、チャートシリーズの自動塗りつぶし色を設定する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
-    # クラスタ化された縦棒グラフを作成
+    # クラスタ化された縦棒チャートを作成します
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # 系列の塗りつぶし形式を自動に設定
+    # シリーズの塗りつぶし形式を自動に設定します
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
-    # プレゼンテーションファイルをディスクに書き込む
+    # プレゼンテーションファイルを書き込みます
     $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -169,18 +182,18 @@ Aspose.Slides for PHP via Java は、プロットエリア内のチャート系�
   }
 ```
 
-## **チャートシリーズの塗りつぶし色を反転させる**
 
-Aspose.Slides は、プロットエリア内のチャート系列の塗りつぶし色を反転する方法を次のように設定できます：
+## **チャートシリーズの反転塗りつぶし色を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. インデックスによってスライドの参照を取得します。
-1. 自分の好みのタイプに基づいてデフォルトデータを持つチャートを追加します（以下の例では、`ChartType::ClusteredColumn` を使用しています）。
-1. チャート系列にアクセスし、填立色を反転色に設定します。
+Aspose.Slides を使用すると、プロット領域内のチャートシリーズの反転塗りつぶし色を以下のように設定できます。
+
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
+1. インデックスでスライドの参照を取得します。
+1. 希望のタイプに基づくデフォルトデータでチャートを追加します（以下の例では `ChartType::ClusteredColumn` を使用しました）。
+1. チャートシリーズにアクセスし、塗りつぶし色を invert に設定します。
 1. プレゼンテーションを PPTX ファイルに保存します。
 
-この PHP コードは操作を示しています：
-
+この PHP コードは、操作を示しています。
 ```php
   $inverColor = java("java.awt.Color")->RED;
   $pres = new Presentation();
@@ -189,12 +202,12 @@ Aspose.Slides は、プロットエリア内のチャート系列の塗りつぶ
     $workBook = $chart->getChartData()->getChartDataWorkbook();
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # 新しい系列とカテゴリを追加
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "系列 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "カテゴリ 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "カテゴリ 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "カテゴリ 3"));
-    # 最初のチャート系列を取得し、その系列データを設定
+    # 新しいシリーズとカテゴリを追加します
+    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
+    # 最初のチャートシリーズを取得し、シリーズ データを設定します。
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
@@ -212,12 +225,12 @@ Aspose.Slides は、プロットエリア内のチャート系列の塗りつぶ
   }
 ```
 
-## **値が負のときに系列を反転させる**
 
-Aspose.Slides は、`IChartDataPoint.InvertIfNegative` と `ChartDataPoint.InvertIfNegative` プロパティを通じて反転を設定できます。プロパティを使用して反転が設定されると、負の値を取得したときにデータポイントはその色を反転させます。
+## **値が負の場合にシリーズを反転させる**
 
-この PHP コードは操作を示しています：
+Aspose.Slides では、`IChartDataPoint.InvertIfNegative` と `ChartDataPoint.InvertIfNegative` プロパティを使用して反転を設定できます。これらのプロパティで反転を設定すると、データポイントが負の値になると色が反転します。
 
+この PHP コードは、操作を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -239,19 +252,19 @@ Aspose.Slides は、`IChartDataPoint.InvertIfNegative` と `ChartDataPoint.Inver
   }
 ```
 
-## **特定のデータポイントのデータをクリアする**
 
-Aspose.Slides for PHP via Java は、特定のチャート系列の `DataPoints` データをクリアすることを次のように許可します：
+## **特定のポイントデータをクリアする**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスを介してスライドの参照を取得します。
-3. インデックスを介してチャートの参照を取得します。
-4. すべてのチャート `DataPoints` を繰り返し、 `XValue` と `YValue` を null に設定します。
-5. 特定のチャート系列に対してすべての `DataPoints` をクリアします。
-6. 修正したプレゼンテーションを PPTX ファイルに書き込みます。
+Aspose.Slides for PHP via Java を使用すると、特定のチャートシリーズの `DataPoints` データを以下のようにクリアできます。
 
-この PHP コードは操作を示しています：
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
+2. インデックスでスライドの参照を取得します。
+3. インデックスでチャートの参照を取得します。
+4. すべてのチャート `DataPoints` を反復処理し、`XValue` と `YValue` を null に設定します。
+5. 特定のチャートシリーズの `DataPoints` をすべてクリアします。
+6. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 
+この PHP コードは、操作を示しています。
 ```php
   $pres = new Presentation("TestChart.pptx");
   try {
@@ -270,50 +283,50 @@ Aspose.Slides for PHP via Java は、特定のチャート系列の `DataPoints`
   }
 ```
 
-## **系列のギャップ幅を設定する**
 
-Aspose.Slides for PHP via Java は、**`GapWidth`** プロパティを通じて系列のギャップ幅を設定できる方法を次のように示します：
+## **シリーズのギャップ幅を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+Aspose.Slides for PHP via Java を使用すると、**`GapWidth`** プロパティを介してシリーズのギャップ幅を以下のように設定できます。
+
+1. `[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)` クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. デフォルトデータを持つチャートを追加します。
-1. 任意のチャート系列にアクセスします。
+1. デフォルトデータでチャートを追加します。
+1. 任意のチャートシリーズにアクセスします。
 1. `GapWidth` プロパティを設定します。
-1. 修正したプレゼンテーションを PPTX ファイルに書き込みます。
+1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。
 
-このコードは、系列のギャップ幅を設定する方法を示しています：
-
+このコードは、シリーズのギャップ幅を設定する方法を示しています。
 ```php
-  # 空のプレゼンテーションを作成
+  # 空のプレゼンテーションを作成します
   $pres = new Presentation();
   try {
-    # プレゼンテーションの最初のスライドにアクセス
+    # プレゼンテーションの最初のスライドにアクセスします
     $slide = $pres->getSlides()->get_Item(0);
-    # デフォルトデータを持つチャートを追加
+    # デフォルトデータでチャートを追加します
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # チャートデータシートのインデックスを設定
+    # チャート データ シートのインデックスを設定します
     $defaultWorksheetIndex = 0;
-    # チャートデータワークシートを取得
+    # チャート データ ワークシートを取得します
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # 系列を追加
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "系列 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "系列 2"), $chart->getType());
-    # カテゴリを追加
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "カテゴリ 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "カテゴリ 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "カテゴリ 3"));
-    # 2 番目のチャート系列を取得
+    # シリーズを追加します
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
+    # カテゴリを追加します
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # 2番目のチャートシリーズを取得します
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # 系列データを設定
+    # シリーズ データを設定します
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # ギャップ幅の値を設定
+    # GapWidth の値を設定します
     $series->getParentSeriesGroup()->setGapWidth(50);
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存します
     $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -321,3 +334,15 @@ Aspose.Slides for PHP via Java は、**`GapWidth`** プロパティを通じて�
     }
   }
 ```
+
+
+
+## **FAQ**
+
+**単一のチャートが含められるシリーズの数に制限はありますか？**
+
+Aspose.Slides には、追加できるシリーズ数に固定された上限はありません。実際の上限は、チャートの可読性とアプリケーションで利用可能なメモリにより決まります。
+
+**クラスタ内の列が互いに近すぎる、または離れすぎる場合はどうすればよいですか？**
+
+`GapWidth` 設定をそのシリーズ（または親シリーズ グループ）に対して調整します。値を大きくすると列間のスペースが広がり、値を小さくすると列が近づきます。

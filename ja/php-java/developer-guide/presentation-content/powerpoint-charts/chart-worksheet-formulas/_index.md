@@ -1,31 +1,48 @@
 ---
-title: チャートワークシートの数式
+title: PHP を使用したプレゼンテーションでのチャートワークシート数式の適用
+linktitle: ワークシート数式
 type: docs
 weight: 70
 url: /ja/php-java/chart-worksheet-formulas/
-keywords: "パワーポイントの方程式, パワーポイントのスプレッドシート数式"
-description: "PowerPointの方程式とスプレッドシートの数式"
+keywords:
+- チャートスプレッドシート
+- チャートワークシート
+- チャート数式
+- ワークシート数式
+- スプレッドシート数式
+- データ ソース
+- 論理定数
+- 数値定数
+- 文字列定数
+- エラー定数
+- 算術定数
+- 比較演算子
+- A1 形式
+- R1C1 形式
+- 事前定義関数
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Java のチャートワークシートを介して PHP 用 Aspose.Slides で Excel 形式の数式を適用し、PPT および PPTX ファイル全体のレポートを自動化します。"
 ---
 
-
-## **プレゼンテーションにおけるチャートスプレッドシート数式について**
-**チャートスプレッドシート**（またはチャートワークシート）は、プレゼンテーション内のチャートのデータソースです。チャートスプレッドシートには、グラフィックな方法でチャートに表示されるデータが含まれています。PowerPointでチャートを作成すると、このチャートに関連付けられたワークシートも自動的に作成されます。チャートワークシートは、全てのタイプのチャート（線グラフ、棒グラフ、サンバーストチャート、円グラフなど）に対して作成されます。PowerPointでチャートスプレッドシートを見るには、チャートをダブルクリックしてください：
+## **プレゼンテーションのチャートスプレッドシート数式について**
+**チャートスプレッドシート**（またはチャートワークシート）は、チャートのデータソースです。チャートスプレッドシートにはデータが含まれ、チャート上にグラフィックで表現されます。PowerPoint でチャートを作成すると、このチャートに関連付けられたワークシートも自動的に作成されます。チャートワークシートは、折れ線グラフ、棒グラフ、サンバースト グラフ、円グラフなど、すべての種類のチャートに対して作成されます。PowerPoint でチャートスプレッドシートを表示するには、チャートをダブルクリックします。
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
 
-チャートスプレッドシートには、チャート要素の名前（カテゴリ名: *Category1*, シリーズ名）と、これらのカテゴリおよびシリーズに関連する数値データの表が含まれています。デフォルトでは、新しいチャートを作成すると、チャートスプレッドシートのデータはデフォルトデータに設定されます。その後、ワークシート内のスプレッドシートデータを手動で変更することができます。
+チャートスプレッドシートには、チャート要素の名前（カテゴリ名: *Category1*、系列名）と、これらのカテゴリと系列に対応する数値データの表が含まれます。デフォルトでは、新しいチャートを作成すると、チャートスプレッドシートのデータは既定のデータで設定されます。その後、ワークシート内のデータを手動で変更できます。
 
-通常、チャートは複雑なデータ（例: 財務分析官、科学分析官）を表し、他のセルの値や他の動的データから計算されたセルを持っています。セルの値を手動で計算してそのセルにハードコーディングすると、将来それを変更することが難しくなります。特定のセルの値を変更すると、それに依存するすべてのセルも更新する必要があります。さらに、表のデータは他の表のデータに依存する場合があり、簡単で柔軟な方法で更新する必要がある複雑なプレゼンテーションデータスキームを作成します。
+通常、チャートは複雑なデータ（例: 財務アナリスト、科学アナリストが使用するデータ）を表し、セルは他のセルの値や動的データから計算されます。セルの値を手動で計算してハードコードすると、将来的に変更しにくくなります。特定のセルの値を変更すると、それに依存するすべてのセルも更新が必要になります。さらに、表データが他の表のデータに依存する場合、プレゼンテーションのデータ構成は複雑になり、簡単かつ柔軟に更新できる必要があります。
 
-**プレゼンテーション内のチャートスプレッドシート数式**は、チャートスプレッドシートデータを自動的に計算し更新する表現です。スプレッドシート数式は、特定のセルまたはセルのセットのデータ計算ロジックを定義します。スプレッドシート数式は、セル参照、数学関数、論理演算子、算術演算子、変換関数、文字列定数などを使用する数学的または論理的な数式です。数式の定義はセルに書かれ、このセルには単純な値は含まれません。スプレッドシート数式は値を計算し、それを返し、その後この値がセルに割り当てられます。プレゼンテーション内のチャートスプレッドシート数式は実際にはExcelの数式と同じであり、実装には同じデフォルトの関数、演算子、および定数がサポートされています。
+**プレゼンテーションのチャートスプレッドシート数式** は、チャートスプレッドシートのデータを自動的に計算および更新する式です。数式は特定のセルまたはセルのセットのデータ計算ロジックを定義します。数式は、セル参照、数値関数、論理演算子、算術演算子、変換関数、文字列定数などを使用する数学式または論理式です。数式の定義はセルに記入され、そのセルは単純な値を保持しません。数式が値を計算して返し、その結果がセルに割り当てられます。プレゼンテーションのチャートスプレッドシート数式は実質的に Excel の数式と同じで、同じ既定の関数、演算子、定数がサポートされています。
 
-[**Aspose.Slides**](https://products.aspose.com/slides/php-java/)では、チャートスプレッドシートは
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--)メソッドを使用して
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)タイプで表されます。
-スプレッドシート数式は、
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-)メソッドで設定および変更できます。
-Aspose.Slidesでは、数式に対して以下の機能がサポートされています：
+[**Aspose.Slides**](https://products.aspose.com/slides/php-java/) のチャートスプレッドシートは、[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--) メソッドで表される
+[**IChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook) 型です。  
+数式は [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) メソッドで割り当ておよび変更できます。  
+Aspose.Slides でサポートされている数式の機能は次のとおりです。
 
 - 論理定数
 - 数値定数
@@ -33,18 +50,16 @@ Aspose.Slidesでは、数式に対して以下の機能がサポートされて�
 - エラー定数
 - 算術演算子
 - 比較演算子
-- A1スタイルのセル参照
-- R1C1スタイルのセル参照
-- 予め定義された関数
+- A1 形式のセル参照
+- R1C1 形式のセル参照
+- 事前定義関数
 
 
-通常、スプレッドシートは最後に計算された数式の値を保存します。プレゼンテーションの読み込み後にチャートデータが変更されていなければ、[**IChartDataCell.getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getValue--)メソッドは、それらの値を返します。しかし、スプレッドシートデータが変更された場合、**ChartDataCell.Value**プロパティを読むと、サポートされていない数式に対して[**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException)がスローされます。これは、数式が正常に解析されると、セルの依存関係が決定され、最後の値の正しさが判断されるためです。しかし、数式が解析できない場合、セルの値の正しさは保証されません。
+通常、スプレッドシートは最後に計算された数式の値を保持します。プレゼンテーションの読み込み後にチャートデータが変更されていない場合、[**IChartDataCell.getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getValue--) メソッドはそれらの値を返します。ただし、スプレッドシートデータが変更された場合、**ChartDataCell.Value** プロパティを読み取ると、サポートされていない数式に対して [**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException) がスローされます。これは、数式が正常に解析されるとセルの依存関係が決定され、最後の値の正確性が判断されるためです。数式が解析できない場合、セル値の正確性は保証できません。
 
 ## **プレゼンテーションにチャートスプレッドシート数式を追加する**
-まず、新しいプレゼンテーションの最初のスライドにチャートを追加します。
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-)を使用します。
-チャートのワークシートは自動的に作成され、[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--)メソッドを使用してアクセスできます：
-
+まず、[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-) を使用して新規プレゼンテーションの最初のスライドにチャートを追加します。チャートのワークシートは自動的に作成され、次のメソッドでアクセスできます。  
+[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#getChartDataWorkbook--) メソッド：
 ```php
   $pres = new Presentation();
   try {
@@ -58,23 +73,22 @@ Aspose.Slidesでは、数式に対して以下の機能がサポートされて�
   }
 ```
 
-ある値をセルに書き込むために、[**IChartDataCell.setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setValue-java.lang.Object-)プロパティを使用します。このプロパティは**Object**型で、任意の値を設定できます：
 
+次に、**Object** 型の [**IChartDataCell.setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setValue-java.lang.Object-) プロパティを使用してセルに値を書き込みます。このプロパティは任意の値を設定できることを意味します：
 ```php
   $workbook->getCell(0, "F2")->setValue(-2.5);
   $workbook->getCell(0, "G3")->setValue(6.3);
   $workbook->getCell(0, "H4")->setValue(3);
-
 ```
 
-次に、セルに数式を書き込むために、[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-)メソッドを使用できます：
 
-*注*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-)メソッドはA1スタイルのセル参照を設定するために使用されます。
+数式をセルに書き込むには、[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) メソッドを使用します。
 
-[R1C1Formula](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#getR1C1Formula--)セル参照を設定するには、[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-)メソッドを使用します：
+*Note*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setFormula-java.lang.String-) メソッドは A1 形式のセル参照を設定するために使用されます。  
 
-その後、B2およびC2のセルから値を読み取ろうとすると、それらが計算されます：
+R1C1 形式のセル参照を設定するには、[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) メソッドを使用します：
 
+その後、セル B2 と C2 の値を読み取ると計算結果が得られます：
 ```php
   $value1 = $cell1->getValue();// 7.8
 
@@ -83,122 +97,117 @@ Aspose.Slidesでは、数式に対して以下の機能がサポートされて�
 
 ```
 
-## **論理定数**
-セルの数式で*FALSE*や*TRUE*のような論理定数を使用できます：
 
+## **論理定数**
+セル数式で *FALSE* および *TRUE* などの論理定数を使用できます：
 ```php
   $workbook->getCell(0, "A2")->setValue(false);
   $cell = $workbook->getCell(0, "B2");
   $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// 値はブーリアンの"false"を含む
-
-
+  $value = $cell->getValue();// 値はブール値 "false" を含んでいます
 ```
 
-## **数値定数**
-数値は、チャートスプレッドシート数式を作成するために一般的または科学的表記で使用できます：
 
+## **数値定数**
+数式で一般的または科学的記法の数値を使用してチャートスプレッドシート数式を作成できます：
 ```php
   $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
   $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
 
 ```
 
-## **文字列定数**
-文字列（またはリテラル）定数は、特定の値であり、そのまま使用され、変更されません。文字列定数は、日付、テキスト、数値などが含まれます：
 
+## **文字列定数**
+文字列（リテラル）定数はそのまま使用され、変更されません。文字列定数には日付、テキスト、数値などがあります：
 ```php
   $workbook->getCell(0, "A2")->setFormula("\"abc\"");
   $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
 
 ```
 
+
 ## **エラー定数**
-場合によっては、数式によって結果を計算できないことがあります。その場合、セルの値の代わりにエラーコードが表示されます。各タイプのエラーには特定のコードが割り当てられています：
+数式で結果を計算できない場合、セルには値の代わりにエラーコードが表示されます。エラーの種類ごとに固有のコードがあります。
 
-- #DIV/0! - 数式がゼロで割ろうとしています。
-- #GETTING_DATA - 値がまだ計算中の場合、セルに表示されることがあります。
-- #N/A - 情報が欠落しているか、利用できません。理由としては、数式で使用されるセルが空である、余分なスペースがある、スペルミスがある、などがあります。
-- #NAME? - 特定のセルまたは他の数式オブジェクトがその名前で見つかりません。
-- #NULL! - 数式にエラーがある場合に表示されることがあります。例えば、(,)やコロン（:）の代わりにスペース文字が使用されている場合。
-- #NUM! - 数式内の数値が無効、不適切に長すぎる、または短すぎるなど。
-- #REF! - 無効なセル参照。
-- #VALUE! - 予期しない値の型。例えば、数値セルに文字列値が設定されています。
-
+- #DIV/0! - 数式がゼロ除算を試みた場合。
+- #GETTING_DATA - 値がまだ計算中のときにセルに表示されることがあります。
+- #N/A - 情報が欠落または利用できない場合。原因例: 参照セルが空、余分な空白文字、スペルミスなど。
+- #NAME? - 特定のセルや数式オブジェクトが名前で見つからない場合。
+- #NULL! - 数式に誤りがあり、例えば (,) やコロン (:) の代わりに空白文字が使用された場合に表示されます。
+- #NUM! - 数式内の数値が無効、長すぎる、あるいは小さすぎるなど。
+- #REF! - 無効なセル参照。
+- #VALUE! - 予期しない型の値。例: 文字列を数値セルに設定した場合。
 ```php
   $cell = $workbook->getCell(0, "A2");
   $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// 値は文字列"#DIV/0!"を含む
-
-
+  $value = $cell->getValue();// 値は文字列 "#DIV/0!" を含んでいます
 ```
+
 
 ## **算術演算子**
-チャートワークシート数式内で、すべての算術演算子を使用できます：
+チャートワークシート数式で使用できる算術演算子はすべて以下のとおりです。
 
-|**演算子** |**意味** |**例**|
+|**演算子**|**意味**|**例**|
 | :- | :- | :- |
-|+ (プラス記号) |加算または単項プラス|2 + 3|
-|- (マイナス記号) |減算または否定 |2 - 3<br>-3|
-|* (アスタリスク)|乗算 |2 * 3|
-|/ (スラッシュ)|除算 |2 / 3|
-|% (パーセント記号) |パーセント |30%|
-|^ (キャレット) |累乗 |2 ^ 3|
+|+ (プラス)|加算または単項プラス|2 + 3|
+|- (マイナス)|減算または単項マイナス|2 - 3<br>-3|
+|* (アスタリスク)|乗算|2 * 3|
+|/ (スラッシュ)|除算|2 / 3|
+|% (パーセント)|百分率|30%|
+|^ (キャレット)|べき乗|2 ^ 3|
 
-*注*: 評価の順序を変更するには、計算する部分をかっこで囲みます。
+*Note*: 評価順序を変更するには、先に計算したい部分を丸括弧で囲んでください。
 
 ## **比較演算子**
-比較演算子を使用してセルの値を比較できます。これらの演算子を使用して2つの値を比較すると、結果は論理値*TRUE*またはFALSEになります：
+比較演算子を使用してセルの値を比較できます。これらの演算子で比較した結果は、*TRUE* または FALSE の論理値になります。
 
-|**演算子** |**意味** |**意味** |
+|**演算子**|**意味**|**例**|
 | :- | :- | :- |
-|= (イコール記号) |等しい |A2 = 3|
-|<> (不等号) |等しくない|A2 <> 3|
-|> (大なり記号) |大きい|A2 > 3|
-|>= (大なりイコール記号)|大きいまたは等しい|A2 >= 3|
-|< (小なり記号)|小さい|A2 < 3|
-|<= (小なりイコール記号)|小さいまたは等しい|A2 <= 3|
+|= (イコール)|等しい|A2 = 3|
+|<> (不等号)|等しくない|A2 <> 3|
+|> (大なり)|より大きい|A2 > 3|
+|>= (大なりイコール)|以上|A2 >= 3|
+|< (小なり)|より小さい|A2 < 3|
+|<= (小なりイコール)|以下|A2 <= 3|
 
-## **A1スタイルのセル参照**
-**A1スタイルのセル参照**は、列が文字の識別子（例: "*A*")を持ち、行が数値の識別子（例: "*1*")を持つワークシートで使用されます。A1スタイルのセル参照は次のように使用できます：
+## **A1 形式のセル参照**
+**A1 形式のセル参照** は、列が文字（例: "*A*」）で行が数字（例: "*1*」）で表されるワークシートで使用されます。A1 形式のセル参照は次のように利用できます。
 
 |**セル参照**|**例**|||
 | :- | :- | :- | :- |
-||絶対 |相対 |混合|
-|セル |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|行 |$2:$2 |2:2 |-|
-|列 |$A:$A |A:A |-|
-|範囲 |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+||絶対参照|相対参照|混合参照|
+|セル|$A$2|A2|<p>A$2</p><p>$A2</p>|
+|行|$2:$2|2:2|-|
+|列|$A:$A|A:A|-|
+|範囲|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
 
-数式でA1スタイルのセル参照を使用する例は以下の通りです：
-
+A1 形式のセル参照を数式で使用する例：
 ```php
   $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-
 ```
 
-## **R1C1スタイルのセル参照**
-**R1C1スタイルのセル参照**は、行と列の両方が数値の識別子を持つワークシートで使用されます。R1C1スタイルのセル参照は次のように使用できます：
+
+## **R1C1 形式のセル参照**
+**R1C1 形式のセル参照** は、行も列も数値で表されるワークシートで使用されます。R1C1 形式のセル参照は次のように利用できます。
 
 |**セル参照**|**例**|||
 | :- | :- | :- | :- |
-||絶対 |相対 |混合|
-|セル |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|行 |R2|R[2]|-|
-|列 |C3|C[3]|-|
-|範囲 |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+||絶対参照|相対参照|混合参照|
+|セル|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|行|R2|R[2]|-|
+|列|C3|C[3]|-|
+|範囲|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C7<br>R[2]C3:R5C7|
 
 
-数式でR1スタイルのセル参照を使用する例は以下の通りです：
-
+A1 形式のセル参照を数式で使用する例：
 ```php
   $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-
 ```
 
-## **予め定義された関数**
-数式の実装を簡素化するために使用できる予め定義された関数があります。これらの関数は、最も一般的に使用される操作をカプセル化しています：
+
+## **事前定義関数**
+数式で使用できる事前定義関数があり、実装を簡素化できます。これらの関数は最も一般的に使用される操作をカプセル化します。例:
 
 - ABS
 - AVERAGE
@@ -206,7 +215,7 @@ Aspose.Slidesでは、数式に対して以下の機能がサポートされて�
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (1900年日付システム)
+- DATE (1900 日付システム)
 - DAYS
 - FIND
 - FINDB
@@ -217,3 +226,13 @@ Aspose.Slidesでは、数式に対して以下の機能がサポートされて�
 - MAX
 - SUM
 - VLOOKUP
+
+## **FAQ**
+
+**数式付きチャートのデータ ソースとして外部 Excel ファイルはサポートされていますか？**
+
+はい。Aspose.Slides は外部ブックを [チャートのデータ ソース](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatasourcetype/) としてサポートしており、プレゼンテーション外部の XLSX から数式を使用できます。
+
+**チャート数式は同じブック内のシート名でシートを参照できますか？**
+
+はい。数式は標準的な Excel 参照モデルに従うため、同じブック内または外部ブック内の他シートを参照できます。外部参照の場合は、Excel の構文でパスとブック名を含めてください。

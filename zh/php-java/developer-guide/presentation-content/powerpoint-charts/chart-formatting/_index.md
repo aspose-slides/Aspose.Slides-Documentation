@@ -1,45 +1,59 @@
 ---
-title: 图表格式化
+title: 在 PHP 中格式化演示文稿图表
+linktitle: 图表格式化
 type: docs
 weight: 60
 url: /zh/php-java/chart-formatting/
+keywords:
+- 格式化图表
+- 图表格式化
+- 图表实体
+- 图表属性
+- 图表设置
+- 图表选项
+- 字体属性
+- 圆角边框
+- PowerPoint
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "学习在 Aspose.Slides for PHP via Java 中的图表格式化，并通过专业且引人注目的样式提升您的 PowerPoint 演示文稿。"
 ---
 
 ## **格式化图表实体**
-Aspose.Slides for PHP via Java 允许开发者从零开始向幻灯片中添加自定义图表。本文解释了如何格式化不同的图表实体，包括图表类别和数值轴。
+Aspose.Slides for PHP via Java 让开发人员能够从头在幻灯片中添加自定义图表。本篇文章解释如何格式化不同的图表实体，包括图表的类别轴和数值轴。
 
 Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同的图表实体并使用自定义值进行格式化：
 
-1. 创建一个 [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 创建 [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
 1. 通过索引获取幻灯片的引用。
-1. 添加一个包含默认数据的图表及所需类型中的任意一个（在本例中我们将使用 ChartType::LineWithMarkers）。
-1. 访问图表的值轴并设置以下属性：
-   1. 设置值轴主网格线的 **线格式**
-   1. 设置值轴次网格线的 **线格式**
-   1. 设置值轴的 **数字格式**
-   1. 设置值轴的 **最小、最大、主和次单位**
-   1. 设置值轴数据的 **文本属性**
-   1. 设置值轴的 **标题**
-   1. 设置值轴的 **线格式**
+1. 添加一个带有默认数据的图表，并指定所需的类型（在本示例中我们使用 ChartType::LineWithMarkers）。
+1. 访问图表的数值轴并设置以下属性：
+   1. 设置 **Line format** 用于数值轴主网格线
+   1. 设置 **Line format** 用于数值轴次网格线
+   1. 设置 **Number Format** 用于数值轴
+   1. 设置 **Min, Max, Major and Minor units** 用于数值轴
+   1. 设置 **Text Properties** 用于数值轴数据
+   1. 设置 **Title** 用于数值轴
+   1. 设置 **Line Format** 用于数值轴
 1. 访问图表的类别轴并设置以下属性：
-   1. 设置类别轴主网格线的 **线格式**
-   1. 设置类别轴次网格线的 **线格式**
-   1. 设置类别轴数据的 **文本属性**
-   1. 设置类别轴的 **标题**
-   1. 设置类别轴的 **标签定位**
-   1. 设置类别轴标签的 **旋转角度**
-1. 访问图表的图例并设置其 **文本属性**
-1. 设置图表图例不重叠图表
-1. 访问图表的 **次值轴** 并设置以下属性：
-   1. 启用次 **值轴**
-   1. 设置次值轴的 **线格式**
-   1. 设置次值轴的 **数字格式**
-   1. 设置次值轴的 **最小、最大、主和次单位**
-1. 现在在次值轴上绘制第一个图表系列
-1. 设置图表后墙填充颜色
-1. 设置图表绘图区域填充颜色
-1. 将修改后的演示文稿写入 PPTX 文件
-
+   1. 设置 **Line format** 用于类别轴主网格线
+   1. 设置 **Line format** 用于类别轴次网格线
+   1. 设置 **Text Properties** 用于类别轴数据
+   1. 设置 **Title** 用于类别轴
+   1. 设置 **Label Positioning** 用于类别轴
+   1. 设置 **Rotation Angle** 用于类别轴标签
+1. 访问图表图例并为其设置 **Text Properties**。
+1. 设置显示图表图例且不与图表重叠。
+1. 访问图表的 **Secondary Value Axis** 并设置以下属性：
+   1. 启用次要 **Value Axis**
+   1. 设置 **Line Format** 用于次要数值轴
+   1. 设置 **Number Format** 用于次要数值轴
+   1. 设置 **Min, Max, Major and Minor units** 用于次要数值轴
+1. 现在在次要数值轴上绘制第一个图表系列。
+1. 设置图表背面墙的填充颜色。
+1. 设置图表绘图区域的填充颜色。
+1. 将修改后的演示文稿写入 PPTX 文件。
 ```php
   # 创建 Presentation 类的实例
   $pres = new Presentation();
@@ -52,26 +66,26 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $chart->hasTitle();
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $chartTitle->setText("示例图表");
+    $chartTitle->setText("Sample Chart");
     $chartTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $chartTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # 设置值轴的主网格线格式
+    # 为数值轴设置主网格线格式
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # 设置值轴的次网格线格式
+    # 为数值轴设置次网格线格式
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # 设置值轴数字格式
+    # 设置数值轴数字格式
     $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # 设置图表最大、最小值
+    # 设置图表的最大值、最小值
     $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
@@ -80,7 +94,7 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # 设置值轴文本属性
+    # 设置数值轴文本属性
     $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
     $txtVal->setFontBold(NullableBool::True);
     $txtVal->setFontHeight(16);
@@ -88,21 +102,21 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $txtVal->getFillFormat()->setFillType(FillType::Solid);
     $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
     $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # 设置值轴标题
+    # 设置数值轴标题
     $chart->getAxes()->getVerticalAxis()->hasTitle();
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
     $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("主轴");
+    $valtitle->setText("Primary Axis");
     $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # 设置类别轴的主网格线格式
+    # 为类别轴设置主网格线格式
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # 设置类别轴的次网格线格式
+    # 为类别轴设置次网格线格式
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
@@ -118,7 +132,7 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $chart->getAxes()->getHorizontalAxis()->hasTitle();
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
     $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("示例类别");
+    $catTitle->setText("Sample Category");
     $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $catTitle->getPortionFormat()->setFontHeight(20);
@@ -135,19 +149,19 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # 设置图表图例不重叠图表
+    # 设置显示图例且不与图表重叠
     $chart->getLegend()->setOverlay(true);
     # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # 设置次值轴
+    # 设置次要数值轴
     $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # 设置次值轴数字格式
+    # 设置次要数值轴数字格式
     $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
     $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # 设置图表最大、最小值
+    # 设置图表的最大值、最小值
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
@@ -156,7 +170,7 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # 设置图表后墙颜色
+    # 设置图表背墙颜色
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -174,16 +188,16 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理不同
   }
 ```
 
-## **设置图表字体属性**
-Aspose.Slides for PHP via Java 提供对设置图表字体相关属性的支持。请按照以下步骤设置图表的字体属性。
+
+## **为图表设置字体属性**
+Aspose.Slides for PHP via Java 提供了对图表字体相关属性的设置支持。请按照以下步骤为图表设置字体属性。
 
 - 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。
 - 在幻灯片上添加图表。
 - 设置字体高度。
 - 保存修改后的演示文稿。
 
-以下是给出的示例代码。
-
+以下示例代码。
 ```php
   # 创建 Presentation 类的实例
   $pres = new Presentation();
@@ -199,36 +213,35 @@ Aspose.Slides for PHP via Java 提供对设置图表字体相关属性的支持�
   }
 ```
 
-## **设置数字格式**
-Aspose.Slides for PHP via Java 提供一个简单的 API 来管理图表数据格式：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+## **设置数字格式**
+Aspose.Slides for PHP via Java 提供了一个简单的 API，用于管理图表数据格式：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 通过索引获取幻灯片的引用。
-1. 添加一个包含默认数据的图表及所需类型中的任意一个（本示例使用 **ChartType::ClusteredColumn**）。
+1. 添加一个带有默认数据的图表，并指定所需类型（本示例使用 **ChartType::ClusteredColumn**）。
 1. 从可能的预设值中设置预设数字格式。
-1. 遍历每个图表系列中的图表数据单元并设置图表数据数字格式。
+1. 遍历每个图表系列中的图表数据单元格并设置数字格式。
 1. 保存演示文稿。
 1. 设置自定义数字格式。
-1. 遍历每个图表系列内部的图表数据单元并设置不同的图表数据数字格式。
+1. 遍历每个图表系列中的图表数据单元格并设置不同的数字格式。
 1. 保存演示文稿。
-
 ```php
   # 创建 Presentation 类的实例
   $pres = new Presentation();
   try {
     # 访问第一张演示文稿幻灯片
     $slide = $pres->getSlides()->get_Item(0);
-    # 添加一个默认的聚类柱状图
+    # 添加默认的簇状柱形图
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
     # 访问图表系列集合
     $series = $chart->getChartData()->getSeries();
     # 遍历每个图表系列
     foreach($series as $ser) {
-      # 遍历系列中的每个数据单元
+      # 遍历系列中的每个数据单元格
       foreach($ser->getDataPoints() as $cell) {
         # 设置数字格式
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
-
       }
     }
     # 保存演示文稿
@@ -240,9 +253,10 @@ Aspose.Slides for PHP via Java 提供一个简单的 API 来管理图表数据�
   }
 ```
 
-可能的预设数字格式值及其预设索引如下：
 
-|**0**|一般|
+可能的预设数字格式值及其索引如下所示：
+
+|**0**|常规|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -281,16 +295,15 @@ Aspose.Slides for PHP via Java 提供一个简单的 API 来管理图表数据�
 |**49**|@|
 
 ## **设置图表区域圆角边框**
-Aspose.Slides for PHP via Java 提供对设置图表区域的支持。方法 [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) 和 [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean-) 已添加到 [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) 接口和 [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) 类中。
+Aspose.Slides for PHP via Java 提供了对图表区域的圆角设置支持。已在 [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) 接口和 [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) 类中添加了方法 [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) 和 [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean--)。
 
 1. 实例化 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类对象。
 1. 在幻灯片上添加图表。
-1. 设置图表的填充类型和填充颜色
-1. 将圆角属性设置为 True。
+1. 设置图表的填充类型和填充颜色。
+1. 将圆角属性设为 True。
 1. 保存修改后的演示文稿。
 
-以下是给出的示例代码。
-
+以下示例代码。  
 ```php
   # 创建 Presentation 类的实例
   $pres = new Presentation();
@@ -307,3 +320,18 @@ Aspose.Slides for PHP via Java 提供对设置图表区域的支持。方法 [**
     }
   }
 ```
+
+
+## **FAQ**
+
+**我可以在列/区域中使用半透明填充，同时保持边框不透明吗？**
+
+可以。填充透明度和轮廓是分开配置的，这对于在密集可视化中提高网格和数据的可读性非常有用。
+
+**当数据标签重叠时，我该如何处理？**
+
+可以减小字体大小，禁用非必要的标签组件（例如类别），设置标签的偏移/位置，必要时仅为选定的数据点显示标签，或改为使用 “值 + 图例” 的格式。
+
+**我可以为系列应用渐变或图案填充吗？**
+
+可以。通常同时支持纯色和渐变/图案填充。实际使用中请适度使用渐变，避免与网格和文字的对比度降低。

@@ -1,35 +1,46 @@
 ---
-title: ActiveX
+title: 使用 PHP 管理演示文稿中的 ActiveX 控件
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /zh/php-java/activex/
+keywords:
+- ActiveX
+- ActiveX 控件
+- 管理 ActiveX
+- 添加 ActiveX
+- 修改 ActiveX
+- 媒体播放器
+- PowerPoint
+- 演示文稿
+- PHP
+- Aspose.Slides
+description: "了解 Aspose.Slides for PHP via Java 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发人员提供对幻灯片的强大控制。"
 ---
-
 
 {{% alert color="primary" %}} 
 
-ActiveX 控件用于演示文稿。Aspose.Slides for PHP via Java 允许您添加和管理 ActiveX 控件，但与普通演示形状相比，它们的管理稍显复杂。我们在 Aspose.Slides 中实现了支持添加媒体播放器 Active 控件的功能。请注意，ActiveX 控件不是形状；它们不属于演示文稿的 [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IShapeCollection)。相反，它们属于单独的 [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection)。在本主题中，我们将向您展示如何使用这些控件。
+ActiveX 控件在演示文稿中使用。Aspose.Slides for PHP via Java 允许您添加和管理 ActiveX 控件，但相较于普通演示形状，它们的管理会更为复杂。我们实现了在 Aspose.Slides 中添加 Media Player Active 控件的支持。请注意，ActiveX 控件并不是形状；它们不是演示文稿的[IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IShapeCollection)的一部分，而是属于单独的[IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection)。在本主题中，我们将向您展示如何使用它们。
 
 {{% /alert %}} 
 
-## **向幻灯片添加媒体播放器 ActiveX 控件**
-要添加 ActiveX 媒体播放器控件，请执行以下操作：
+## **向幻灯片添加 Media Player ActiveX 控件**
+要添加 ActiveX Media Player 控件，请执行以下操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 类的实例并生成一个空演示实例。
-1. 访问 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 中的目标幻灯片。
-1. 使用 [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection) 提供的 [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-) 方法添加媒体播放器 ActiveX 控件。
-1. 访问媒体播放器 ActiveX 控件并使用其属性设置视频路径。
-1. 将演示文稿保存为 PPTX 文件。
+1. 创建[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)类的实例并生成一个空的演示文稿实例。  
+2. 在[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)中访问目标幻灯片。  
+3. 使用[IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection)公开的[addControl](https://reference.aspose.com/slides/php-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-)方法添加 Media Player ActiveX 控件。  
+4. 访问 Media Player ActiveX 控件并使用其属性设置视频路径。  
+5. 将演示文稿保存为 PPTX 文件。
 
-以下是基于上述步骤的示例代码，演示如何将媒体播放器 ActiveX 控件添加到幻灯片中：
-
+下面的示例代码基于上述步骤，演示了如何向幻灯片添加 Media Player ActiveX 控件：
 ```php
-  # 创建空的演示实例
+  # 创建空的演示文稿实例
   $pres = new Presentation();
   try {
-    # 添加媒体播放器 ActiveX 控件
+    # 添加 Media Player ActiveX 控件
     $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # 访问媒体播放器 ActiveX 控件并设置视频路径
+    # 访问 Media Player ActiveX 控件并设置视频路径
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     # 保存演示文稿
     $pres->save("Output.pptx", SaveFormat::Pptx);
@@ -40,40 +51,40 @@ ActiveX 控件用于演示文稿。Aspose.Slides for PHP via Java 允许您添�
   }
 ```
 
+
 ## **修改 ActiveX 控件**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java 7.1.0 以及更新版本配备了管理 ActiveX 控件的组件。您可以访问演示文稿中已添加的 ActiveX 控件，并通过其属性进行修改或删除。
+Aspose.Slides for PHP via Java 7.1.0 及更高版本配备了管理 ActiveX 控件的组件。您可以访问演示文稿中已添加的 ActiveX 控件，并通过其属性进行修改或删除。
 
 {{% /alert %}} 
 
-要管理幻灯片上的简单 ActiveX 控件，例如文本框和简单的命令按钮，请执行以下操作：
+要在幻灯片上管理文本框和简单命令按钮等简单 ActiveX 控件，请执行以下操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 类的实例并加载包含 ActiveX 控件的演示文稿。
-1. 按索引获取幻灯片引用。
-1. 通过访问 [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection) 访问幻灯片中的 ActiveX 控件。
-1. 使用 [IControl](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControl) 对象访问 TextBox1 ActiveX 控件。
-1. 修改 TextBox1 ActiveX 控件的属性，包括文本、字体、字体高度和框架位置。
-1. 访问名为 CommandButton1 的第二个控件。
-1. 修改按钮的标题、字体和位置。
-1. 移动 ActiveX 控件的框架位置。
-1. 将修改后的演示文稿写入 PPTX 文件。
+1. 创建[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)类的实例并加载其中包含 ActiveX 控件的演示文稿。  
+2. 按索引获取幻灯片引用。  
+3. 通过访问[IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection)来访问幻灯片中的 ActiveX 控件。  
+4. 使用[IControl](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControl)对象访问 TextBox1 ActiveX 控件。  
+5. 更改 TextBox1 ActiveX 控件的属性，包括文本、字体、字体高度和框架位置。  
+6. 访问第二个名为 CommandButton1 的控件。  
+7. 更改按钮的标题、字体和位置。  
+8. 调整 ActiveX 控件框架的位置。  
+9. 将修改后的演示文稿写入 PPTX 文件。
 
-以下是基于上述步骤的示例代码，演示如何管理简单的 ActiveX 控件： 
-
+下面的示例代码基于上述步骤，展示了如何管理一个简单的 ActiveX 控件： 
 ```php
   # 访问包含 ActiveX 控件的演示文稿
   $pres = new Presentation("ActiveX.pptm");
   try {
     # 访问演示文稿中的第一张幻灯片
     $slide = $pres->getSlides()->get_Item(0);
-    # 修改 TextBox 文本
+    # 更改 TextBox 文本
     $control = $slide->getControls()->get_Item(0);
     if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "更改的文本";
+      $newText = "Changed text";
       $control->getProperties()->set_Item("Value", $newText);
-      # 修改替代图像。 PowerPoint 会在 activeX 激活时替换此图像，
-      # 因此有时可以不更改图像。
+      # 更改替代图片。PowerPoint 将在 ActiveX 激活期间替换此图片，
+      # 因此有时可以保留图片不变。
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->window);
@@ -99,12 +110,12 @@ Aspose.Slides for PHP via Java 7.1.0 以及更新版本配备了管理 ActiveX �
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    # 修改按钮标题
+    # 更改按钮标题
     $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
     if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "显示消息框";
+      $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
-      # 修改替代
+      # 更改替代图片
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->control);
@@ -131,13 +142,13 @@ Aspose.Slides for PHP via Java 7.1.0 以及更新版本配备了管理 ActiveX �
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    # 向下移动 100 个点
+    # 向下移动 100 磅
     foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
       $frame = $ctl->getFrame();
       $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
     }
     $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # 移除控件
+    # 删除控件
     $pres->getSlides()->get_Item(0)->getControls()->clear();
     $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
   } catch (JavaException $e) {
@@ -147,3 +158,18 @@ Aspose.Slides for PHP via Java 7.1.0 以及更新版本配备了管理 ActiveX �
     }
   }
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides 在读取后重新保存时，如果无法在 Java 运行时执行，是否会保留 ActiveX 控件？**
+
+是的。Aspose.Slides 将它们视为演示文稿的一部分，可以读取/修改其属性和框架；不需要执行控件本身即可保留它们。
+
+**ActiveX 控件与演示文稿中的 OLE 对象有何不同？**
+
+ActiveX 控件是交互式的受管理控件（按钮、文本框、媒体播放器），而[OLE](/slides/zh/php-java/manage-ole/)指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+
+**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍能工作？**
+
+Aspose.Slides 会保留现有的标记和元数据；然而，事件和宏只能在 Windows 上的 PowerPoint 中，在安全允许的情况下运行。该库本身不会执行 VBA。

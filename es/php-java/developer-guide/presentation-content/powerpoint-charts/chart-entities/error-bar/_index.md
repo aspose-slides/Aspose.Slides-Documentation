@@ -1,26 +1,34 @@
 ---
-title: Barra de Error
+title: Personalizar barras de error en gráficos de presentación con PHP
+linktitle: Barra de error
 type: docs
 url: /es/php-java/error-bar/
+keywords:
+- barra de error
+- valor personalizado
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprenda a añadir y personalizar barras de error en gráficos con Aspose.Slides para PHP vía Java — optimice la visualización de datos en presentaciones de PowerPoint."
 ---
 
-## **Agregar Barra de Error**
-Aspose.Slides para PHP a través de Java proporciona una API simple para gestionar los valores de la barra de error. El código de muestra se aplica al usar un tipo de valor personalizado. Para especificar un valor, utiliza la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección de [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection):
+## **Añadir barras de error**
+Aspose.Slides for PHP via Java proporciona una API sencilla para gestionar los valores de las barras de error. El código de ejemplo se aplica al usar un tipo de valor personalizado. Para especificar un valor, utilice la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) de la serie:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Agrega un gráfico de burbujas en la diapositiva deseada.
-1. Accede a la primera serie del gráfico y establece el formato X de la barra de error.
-1. Accede a la primera serie del gráfico y establece el formato Y de la barra de error.
-1. Estableciendo valores y formato de las barras.
-1. Escribe la presentación modificada en un archivo PPTX.
-
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Añadir un gráfico de burbujas en la diapositiva deseada.
+1. Acceder a la primera serie del gráfico y establecer el formato de la barra de error X.
+1. Acceder a la primera serie del gráfico y establecer el formato de la barra de error Y.
+1. Establecer los valores y el formato de las barras.
+1. Guardar la presentación modificada en un archivo PPTX.
 ```php
   # Crear una instancia de la clase Presentation
   $pres = new Presentation();
   try {
-    # Creando un gráfico de burbujas
+    # Crear un gráfico de burbujas
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Agregando barras de error y estableciendo su formato
+    # Agregar barras de error y establecer su formato
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
@@ -32,7 +40,7 @@ Aspose.Slides para PHP a través de Java proporciona una API simple para gestion
     $errBarX->setType(ErrorBarType::Plus);
     $errBarY->getFormat()->getLine()->setWidth(2.0);
     $errBarX->hasEndCap();
-    # Guardando la presentación
+    # Guardar la presentación
     $pres->save("ErrorBars.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -41,24 +49,24 @@ Aspose.Slides para PHP a través de Java proporciona una API simple para gestion
   }
 ```
 
-## **Agregar Valor de Barra de Error Personalizado**
-Aspose.Slides para PHP a través de Java proporciona una API simple para gestionar valores personalizados de barra de error. El código de muestra se aplica cuando la propiedad [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) es igual a **Custom**. Para especificar un valor, utiliza la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección de [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection):
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Agrega un gráfico de burbujas en la diapositiva deseada.
-1. Accede a la primera serie del gráfico y establece el formato X de la barra de error.
-1. Accede a la primera serie del gráfico y establece el formato Y de la barra de error.
-1. Accede a los puntos de datos individuales de la serie del gráfico y establece los valores de la barra de error para el punto de datos de serie individual.
-1. Estableciendo valores y formato de las barras.
-1. Escribe la presentación modificada en un archivo PPTX.
+## **Añadir valores personalizados de barras de error**
+Aspose.Slides for PHP via Java proporciona una API sencilla para gestionar valores personalizados de barras de error. El código de ejemplo se aplica cuando la propiedad [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) es igual a **Custom**. Para especificar un valor, utilice la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) de la serie:
 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Añadir un gráfico de burbujas en la diapositiva deseada.
+1. Acceder a la primera serie del gráfico y establecer el formato de la barra de error X.
+1. Acceder a la primera serie del gráfico y establecer el formato de la barra de error Y.
+1. Acceder a los puntos de datos individuales de la serie del gráfico y establecer los valores de la barra de error para cada punto de datos de la serie.
+1. Establecer los valores y el formato de las barras.
+1. Guardar la presentación modificada en un archivo PPTX.
 ```php
   # Crear una instancia de la clase Presentation
   $pres = new Presentation();
   try {
-    # Creando un gráfico de burbujas
+    # Crear un gráfico de burbujas
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # Agregando barras de error personalizadas y estableciendo su formato
+    # Agregar barras de error personalizadas y establecer su formato
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $errBarX = $series->getErrorBarsXFormat();
     $errBarY = $series->getErrorBarsYFormat();
@@ -66,8 +74,8 @@ Aspose.Slides para PHP a través de Java proporciona una API simple para gestion
     $errBarY->isVisible();
     $errBarX->setValueType(ErrorBarValueType::Custom);
     $errBarY->setValueType(ErrorBarValueType::Custom);
-    # Accediendo a los puntos de datos de la serie del gráfico y estableciendo los valores de las barras de error para
-    # el punto individual
+    # Accediendo al punto de datos de la serie del gráfico y estableciendo los valores de las barras de error para
+    # punto individual
     $points = $series->getDataPoints();
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType::DoubleLiterals);
@@ -88,3 +96,18 @@ Aspose.Slides para PHP a través de Java proporciona una API simple para gestion
     }
   }
 ```
+
+
+## **FAQ**
+
+**¿Qué ocurre con las barras de error al exportar una presentación a PDF o imágenes?**
+
+Se renderizan como parte del gráfico y se conservan durante la conversión junto con el resto del formato del gráfico, suponiendo que se utilice una versión o motor compatible.
+
+**¿Se pueden combinar las barras de error con marcadores y etiquetas de datos?**
+
+Sí. Las barras de error son un elemento separado y son compatibles con marcadores y etiquetas de datos; si los elementos se solapan, puede ser necesario ajustar el formato.
+
+**¿Dónde puedo encontrar la lista de propiedades y clases para trabajar con barras de error en la API?**
+
+En la referencia de la API: la clase [ErrorBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/) y las clases relacionadas [ErrorBarType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbartype/) y [ErrorBarValueType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarvaluetype/).

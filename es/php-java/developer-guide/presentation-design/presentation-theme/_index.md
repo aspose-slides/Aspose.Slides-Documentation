@@ -1,24 +1,40 @@
 ---
-title: Tema de Presentación
+title: Gestionar temas de presentación en PHP
+linktitle: Tema de presentación
 type: docs
 weight: 10
 url: /es/php-java/presentation-theme/
-keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
-description: "Tema de presentación de PowerPoint"
+keywords:
+- Tema de PowerPoint
+- Tema de presentación
+- Tema de diapositiva
+- Establecer tema
+- Cambiar tema
+- Gestionar tema
+- Color del tema
+- Paleta adicional
+- Fuente del tema
+- Estilo del tema
+- Efecto del tema
+- PowerPoint
+- OpenDocument
+- Presentación
+- PHP
+- Aspose.Slides
+description: "Domina los temas de presentación en Aspose.Slides para PHP mediante Java para crear, personalizar y convertir archivos PowerPoint con una identidad corporativa coherente."
 ---
 
-Un tema de presentación define las propiedades de los elementos de diseño. Al seleccionar un tema de presentación, esencialmente estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
+Un tema de presentación define las propiedades de los elementos de diseño. Cuando seleccionas un tema de presentación, esencialmente estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
 En PowerPoint, un tema comprende colores, [fuentes](/slides/es/php-java/powerpoint-fonts/), [estilos de fondo](/slides/es/php-java/presentation-background/), y efectos.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Cambiar Color del Tema**
+## **Cambiar color del tema**
 
-Un tema de PowerPoint utiliza un conjunto específico de colores para diferentes elementos en una diapositiva. Si no te gustan los colores, puedes cambiarlos aplicando nuevos colores para el tema. Para permitirte seleccionar un nuevo color de tema, Aspose.Slides proporciona valores bajo la enumeración [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor).
+Un tema de PowerPoint utiliza un conjunto específico de colores para diferentes elementos en una diapositiva. Si no te gustan los colores, los cambias aplicando nuevos colores al tema. Para permitirte seleccionar un nuevo color de tema, Aspose.Slides proporciona valores bajo la enumeración [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor).
 
-Este código PHP te muestra cómo cambiar el color de acento para un tema:
-
+Este código PHP muestra cómo cambiar el color de acento de un tema:
 ```php
   $pres = new Presentation();
   try {
@@ -32,8 +48,8 @@ Este código PHP te muestra cómo cambiar el color de acento para un tema:
   }
 ```
 
-Puedes determinar el valor efectivo del color resultante de esta manera:
 
+Puedes determinar el valor efectivo del color resultante de esta manera:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
@@ -41,30 +57,28 @@ Puedes determinar el valor efectivo del color resultante de esta manera:
 
 ```
 
-Para demostrar aún más la operación de cambio de color, creamos otro elemento y le asignamos el color de acento (de la operación inicial). Luego cambiamos el color en el tema:
 
+Para demostrar aún más la operación de cambio de color, creamos otro elemento y le asignamos el color de acento (de la operación inicial). Luego cambiamos el color en el tema:
 ```php
   $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
   $otherShape->getFillFormat()->setFillType(FillType::Solid);
   $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
-
 ```
+
 
 El nuevo color se aplica automáticamente a ambos elementos.
 
-### **Establecer Color del Tema desde una Paleta Adicional**
+### **Establecer color del tema a partir de una paleta adicional**
 
-Al aplicar transformaciones de luminancia al color principal del tema(1), se forman colores de la paleta adicional(2). Luego puedes establecer y obtener esos colores de tema.
+Cuando aplicas transformaciones de luminancia al color principal del tema(1), se forman colores de la paleta adicional(2). Entonces puedes establecer y obtener esos colores del tema.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Colores principales del tema
-
+**1** - Colores principales del tema  
 **2** - Colores de la paleta adicional.
 
-Este código PHP demuestra una operación donde se obtienen colores de la paleta adicional a partir del color principal del tema y luego se utilizan en formas:
-
+Este código PHP demuestra una operación donde los colores de la paleta adicional se obtienen del color principal del tema y luego se usan en formas:
 ```php
   $presentation = new Presentation();
   try {
@@ -73,24 +87,30 @@ Este código PHP demuestra una operación donde se obtienen colores de la paleta
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # Acento 4, más claro 80%
+    # Acento 4, Más claro 80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # Acento 4, más claro 60%
+    # Acento 4, Más claro 60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # Acento 4, más oscuro 25%
+    # Acento 4, Más claro 40%
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
+    $shape4->getFillFormat()->setFillType(FillType::Solid);
+    $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
+    # Acento 4, Más oscuro 25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # Acento 4, más oscuro 50%
+    # Acento 4, Más oscuro 50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
@@ -103,55 +123,51 @@ Este código PHP demuestra una operación donde se obtienen colores de la paleta
   }
 ```
 
-## **Cambiar Fuente del Tema**
 
-Para permitirte seleccionar fuentes para temas y otros propósitos, Aspose.Slides utiliza estos identificadores especiales (similares a los utilizados en PowerPoint):
+## **Cambiar fuente del tema**
 
-* **+mn-lt** - Fuente del Cuerpo en Latino (Fuente Menor en Latino)
-* **+mj-lt** - Fuente de Encabezado en Latino (Fuente Mayor en Latino)
-* **+mn-ea** - Fuente del Cuerpo en Asia Oriental (Fuente Menor en Asia Oriental)
-* **+mj-ea** - Fuente de Encabezado en Asia Oriental (Fuente Mayor en Asia Oriental)
+Para permitirte seleccionar fuentes para temas y otros propósitos, Aspose.Slides usa estos identificadores especiales (similares a los usados en PowerPoint):
 
-Este código PHP te muestra cómo asignar la fuente latina a un elemento del tema:
+* **+mn-lt** - Fuente del cuerpo latín (Fuente latina menor)
+* **+mj-lt** - Fuente del encabezado latín (Fuente latina mayor)
+* **+mn-ea** - Fuente del cuerpo este‑asiático (Fuente este‑asiática menor)
+* **+mj-ea** - Fuente del cuerpo este‑asiático (Fuente este‑asiática mayor)
 
+Este código PHP muestra cómo asignar la fuente latina a un elemento del tema:
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
-  $portion = new Portion("Formato de texto del tema");
+  $portion = new Portion("Theme text format");
   $paragraph->getPortions()->add($portion);
   $shape->getTextFrame()->getParagraphs()->add($paragraph);
   $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
-
 ```
 
-Este código PHP te muestra cómo cambiar la fuente del tema de presentación:
 
+Este código PHP muestra cómo cambiar la fuente del tema de la presentación:
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
-
 ```
+
 
 La fuente en todos los cuadros de texto se actualizará.
 
-{{% alert color="primary" title="CONSEJO" %}} 
-
-Es posible que desees ver [fuentes de PowerPoint](/slides/es/php-java/powerpoint-fonts/).
-
+{{% alert color="primary" title="TIP" %}} 
+Puede que quieras ver [fuentes de PowerPoint](/slides/es/php-java/powerpoint-fonts/). 
 {{% /alert %}}
 
-## **Cambiar Estilo de Fondo del Tema**
+## **Cambiar estilo de fondo del tema**
 
-Por defecto, la aplicación de PowerPoint proporciona 12 fondos predefinidos, pero solo 3 de esos 12 fondos se guardan en una presentación típica. 
+Por defecto, la aplicación PowerPoint ofrece 12 fondos predefinidos, pero solo 3 de esos 12 fondos se guardan en una presentación típica.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Por ejemplo, después de guardar una presentación en la aplicación de PowerPoint, puedes ejecutar este código PHP para averiguar el número de fondos predefinidos en la presentación:
-
+Por ejemplo, después de guardar una presentación en la aplicación PowerPoint, puedes ejecutar este código PHP para averiguar el número de fondos predefinidos en la presentación:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
-    echo("Número de estilos de relleno de fondo para el tema es " . $numberOfBackgroundFills);
+    echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -159,37 +175,32 @@ Por ejemplo, después de guardar una presentación en la aplicación de PowerPoi
   }
 ```
 
+
 {{% alert color="warning" %}} 
-
-Usando la propiedad [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) de la clase [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme), puedes agregar o acceder al estilo de fondo en un tema de PowerPoint.
-
+Usando la propiedad [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) de la clase [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme), puedes añadir o acceder al estilo de fondo en un tema de PowerPoint. 
 {{% /alert %}} 
 
-Este código PHP te muestra cómo establecer el fondo de una presentación:
-
+Este código PHP muestra cómo establecer el fondo para una presentación:
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
-
 ```
 
-**Guía de índices**: 0 se usa para sin relleno. El índice comienza desde 1.
 
-{{% alert color="primary" title="CONSEJO" %}} 
+**Guía de índices**: 0 se usa para sin relleno. El índice comienza en 1.
 
-Es posible que desees ver [Fondo de PowerPoint](/slides/es/php-java/presentation-background/).
-
+{{% alert color="primary" title="TIP" %}} 
+Puede que quieras ver [Fondo de PowerPoint](/slides/es/php-java/presentation-background/). 
 {{% /alert %}}
 
-## **Cambiar Efecto del Tema**
+## **Cambiar efecto del tema**
 
-Un tema de PowerPoint generalmente contiene 3 valores para cada matriz de estilos. Esas matrices se combinan en estos 3 efectos: sutil, moderado e intenso. Por ejemplo, este es el resultado cuando se aplican los efectos a una forma específica:
+Un tema de PowerPoint suele contener 3 valores para cada matriz de estilo. esas matrices se combinan en estos 3 efectos: sutil, moderado e intenso. Por ejemplo, este es el resultado cuando los efectos se aplican a una forma específica:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Usando 3 propiedades ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) de la clase [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme), puedes cambiar los elementos en un tema (incluso de manera más flexible que las opciones en PowerPoint).
+Usando 3 propiedades ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) de la clase [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) puedes cambiar los elementos en un tema (incluso de forma más flexible que las opciones en PowerPoint).
 
-Este código PHP te muestra cómo cambiar un efecto del tema alterando partes de los elementos:
-
+Este código PHP muestra cómo cambiar un efecto del tema modificando partes de los elementos:
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
@@ -205,6 +216,21 @@ Este código PHP te muestra cómo cambiar un efecto del tema alterando partes de
   }
 ```
 
+
 Los cambios resultantes en el color de relleno, tipo de relleno, efecto de sombra, etc.:
 
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **FAQ**
+
+**¿Puedo aplicar un tema a una única diapositiva sin cambiar la maestra?**
+
+Sí. Aspose.Slides admite anulaciones de tema a nivel de diapositiva, por lo que puedes aplicar un tema local solo a esa diapositiva mientras mantienes intacto el tema maestro (a través del [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+
+**¿Cuál es la forma más segura de trasladar un tema de una presentación a otra?**
+
+[Clonar diapositivas](/slides/es/php-java/clone-slides/) junto con su maestro en la presentación de destino. Esto preserva el maestro original, los diseños y el tema asociado, de modo que la apariencia permanezca consistente.
+
+**¿Cómo puedo ver los valores "efectivos" después de toda la herencia y sobrescrituras?**
+
+Utiliza las vistas ["efectivas"](/slides/es/php-java/shape-effective-properties/) de la API para tema/color/fuente/efecto. Estas devuelven las propiedades finales resueltas después de aplicar el maestro más cualquier anulación local.

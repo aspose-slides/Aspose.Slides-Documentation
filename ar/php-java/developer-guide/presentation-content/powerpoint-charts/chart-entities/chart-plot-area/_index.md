@@ -1,24 +1,35 @@
 ---
-title: منطقة رسم الرسم البياني
+title: تخصيص مساحات الرسم للمخططات في العروض التقديمية بلغة PHP
+linktitle: مساحة الرسم
 type: docs
 url: /ar/php-java/chart-plot-area/
+keywords:
+- مخطط
+- مساحة الرسم
+- عرض مساحة الرسم
+- ارتفاع مساحة الرسم
+- حجم مساحة الرسم
+- وضع التخطيط
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "اكتشف كيفية تخصيص مساحات رسم المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java. حسّن مظهر شرائحك بسهولة."
 ---
 
+## **الحصول على عرض وارتفاع مساحة رسم المخطط**
+توفر Aspose.Slides لـ PHP عبر Java واجهة برمجة تطبيقات بسيطة لـ .
 
-## **الحصول على عرض وارتفاع منطقة رسم الرسم البياني**
-توفر Aspose.Slides لـ PHP عبر Java واجهة برمجة تطبيقات بسيطة لـ.
-
-1. إنشاء مثيل من فصل [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط مع بيانات افتراضية.
-1. استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) للحصول على القيم الفعلية.
-1. الحصول على الموقع الفعلي لـ X (الأيسر) لعنصر الرسم البياني بالنسبة للزاوية العلوية اليسرى للرسم البياني.
-1. الحصول على الجزء العلوي الفعلي لعنصر الرسم البياني بالنسبة للزاوية العلوية اليسرى للرسم البياني.
-1. الحصول على العرض الفعلي لعنصر الرسم البياني.
-1. الحصول على الارتفاع الفعلي لعنصر الرسم البياني.
-
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+2. الوصول إلى الشريحة الأولى.
+3. إضافة مخطط مع البيانات الافتراضية.
+4. استدعاء الطريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) قبل الحصول على القيم الفعلية.
+5. الحصول على الموقع الفعلي للمحور X (اليسار) لعنصر المخطط نسبةً إلى الزاوية اليسرى العليا للمخطط.
+6. الحصول على أعلى العنصر الفعلي للمخطط نسبةً إلى الزاوية اليسرى العليا للمخطط.
+7. الحصول على عرض العنصر الفعلي للمخطط.
+8. الحصول على ارتفاع العنصر الفعلي للمخطط.
 ```php
-  # إنشاء مثيل من فصل Presentation
+  # إنشاء نسخة من فئة Presentation
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 350);
@@ -34,16 +45,16 @@ url: /ar/php-java/chart-plot-area/
   }
 ```
 
-## **تعيين وضع التخطيط لمنطقة رسم الرسم البياني**
-توفر Aspose.Slides لـ PHP عبر Java واجهة برمجة تطبيقات بسيطة لتعيين وضع التخطيط لمنطقة رسم الرسم البياني. تم إضافة الطرق [**setLayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea#setLayoutTargetType-int-) و[**getLayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea#getLayoutTargetType--) إلى فصل [**ChartPlotArea**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea) وواجهة [**IChartPlotArea**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartPlotArea). إذا تم تعريف تخطيط منطقة الرسم يدوياً، فهذا الخصائص تحدد ما إذا كان يجب تخطيط منطقة الرسم من الداخل (لا تشمل المحاور ووسوم المحاور) أو من الخارج (تشمل المحاور ووسوم المحاور). هناك قيمتان محتملتان تم تعريفهما في تعداد [**LayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType).
 
-- [**LayoutTargetType::Inner**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType#Inner) - يحدد أن حجم منطقة الرسم يجب أن يحدد حجم منطقة الرسم، دون تضمين علامات التوقف ووسوم المحاور.
-- [**LayoutTargetType::Outer**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType#Outer) - يحدد أن حجم منطقة الرسم يجب أن يحدد حجم منطقة الرسم وعلامات التوقف ووسوم المحاور.
+## **ضبط وضع التخطيط لمساحة رسم المخطط**
+توفر Aspose.Slides لـ PHP عبر Java واجهة برمجة تطبيقات بسيطة لضبط وضع التخطيط لمساحة رسم المخطط. تم إضافة الطريقتين [**setLayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea#setLayoutTargetType-int-) و[**getLayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea#getLayoutTargetType--) إلى الفئة [**ChartPlotArea**](https://reference.aspose.com/slides/php-java/aspose.slides/ChartPlotArea) والواجهة [**IChartPlotArea**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartPlotArea). إذا تم تعريف تخطيط مساحة الرسم يدويًا، فإن هذه الخاصية تحدد ما إذا كان يجب تخطيط مساحة الرسم من داخلها (دون تضمين المحاور وعناوين المحاور) أو من خارجها (بما في ذلك المحاور وعناوين المحاور). هناك قيمتان محتملتان معرفتان في تعداد [**LayoutTargetType**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType).
+
+- [**LayoutTargetType::Inner**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType#Inner) - يحدد أن حجم مساحة الرسم يحدد حجم مساحة الرسم دون تضمين علامات التحديد وعناوين المحاور.
+- [**LayoutTargetType::Outer**](https://reference.aspose.com/slides/php-java/aspose.slides/LayoutTargetType#Outer) - يحدد أن حجم مساحة الرسم يحدد حجم مساحة الرسم، وعلامات التحديد، وعناوين المحاور.
 
 الكود النموذجي موضح أدناه.
-
 ```php
-  # إنشاء مثيل من فصل Presentation
+  # إنشاء نسخة من فئة Presentation
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -60,3 +71,22 @@ url: /ar/php-java/chart-plot-area/
     }
   }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**بأي وحدات يتم إرجاع قيم x الفعلية، y الفعلية، العرض الفعلي، والارتفاع الفعلي؟**
+
+بالنقاط؛ 1 بوصة = 72 نقطة. هذه هي وحدات إحداثيات Aspose.Slides.
+
+**كيف تختلف مساحة الرسم (Plot Area) عن مساحة المخطط (Chart Area) من حيث المحتوى؟**
+
+مساحة الرسم هي منطقة رسم البيانات (السلاسل، خطوط الشبكة، خطوط الاتجاه، إلخ)؛ مساحة المخطط تشمل العناصر المحيطة (العنوان، المفتاح، إلخ). في المخططات ثلاثية الأبعاد، تشمل مساحة الرسم أيضًا الجدران/الأرضية والمحاور.
+
+**كيف يتم تفسير قيم x و y والعرض والارتفاع لمساحة الرسم عندما يكون التخطيط يدويًا؟**
+
+هي كسور (0–1) من الحجم الكلي للمخطط؛ في هذا الوضع يتم تعطيل التوضع التلقائي وتُستَخدم الكسور التي تحددها.
+
+**لماذا تغير موقع مساحة الرسم بعد إضافة/نقل المفتاح؟**
+
+المفتاح يقع في مساحة المخطط خارج مساحة الرسم لكنه يؤثر على التخطيط والمساحة المتاحة، لذا قد تتحرك مساحة الرسم عندما يكون التوضع التلقائي مفعلاً. (هذا سلوك قياسي لمخططات PowerPoint.)

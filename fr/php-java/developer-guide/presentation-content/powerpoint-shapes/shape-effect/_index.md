@@ -1,26 +1,36 @@
 ---
-title: Effet de forme
+title: Appliquer des effets de forme dans les présentations avec PHP
+linktitle: Effet de forme
 type: docs
 weight: 30
-url: /fr/php-java/shape-effect
-keywords: "Effet de forme, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
-description: "Appliquer un effet à une forme PowerPoint"
+url: /fr/php-java/shape-effect/
+keywords:
+- effet de forme
+- effet d'ombre
+- effet de réflexion
+- effet de lueur
+- effet de bords doux
+- format d'effet
+- PowerPoint
+- présentation
+- PHP
+- Aspose.Slides
+description: "Transformez vos fichiers PPT et PPTX avec des effets de forme avancés grâce à Aspose.Slides pour PHP via Java — créez des diapositives percutantes et professionnelles en quelques secondes."
 ---
 
-Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/php-java/shape-formatting/#gradient-fill) ou des contours. En utilisant des effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre le halo d'une forme, etc.
+Alors que les effets dans PowerPoint peuvent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/php-java/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des reflets convaincants sur une forme, diffuser la lueur d’une forme, etc.
 
-<img src="shape-effect.png" alt="effet-de-forme" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint propose six effets pouvant être appliqués aux formes. Vous pouvez appliquer un ou plusieurs effets à une forme.
+* PowerPoint propose six effets qui peuvent être appliqués aux formes. Vous pouvez appliquer un ou plusieurs effets à une forme. 
 
-* Certaines combinaisons d'effets sont plus attrayantes que d'autres. Pour cette raison, PowerPoint propose des options sous **Préréglé**. Les options Préréglé sont essentiellement une combinaison connue et esthétique de deux effets ou plus. De cette manière, en sélectionnant un préréglage, vous ne perdrez pas de temps à tester ou à combiner différents effets pour trouver une belle combinaison.
+* Certaines combinaisons d'effets sont plus efficaces que d'autres. Pour cette raison, les options PowerPoint sous **Preset**. Les options Preset sont essentiellement une combinaison reconnue esthétiquement agréable de deux effets ou plus. Ainsi, en sélectionnant un preset, vous n’aurez pas à perdre du temps à tester ou combiner différents effets pour trouver une bonne combinaison.
 
-Aspose.Slides fournit des propriétés et des méthodes sous la classe [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat) qui vous permettent d'appliquer les mêmes effets aux formes dans les présentations PowerPoint.
+Aspose.Slides fournit des propriétés et des méthodes sous la classe [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat) qui vous permettent d’appliquer les mêmes effets aux formes dans les présentations PowerPoint.
 
-## **Appliquer l'effet d'ombre**
+## **Appliquer un effet d'ombre**
 
-Ce code PHP vous montre comment appliquer l'effet d'ombre extérieure ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) à un rectangle :
-
+Ce code PHP vous montre comment appliquer l’effet d’ombre extérieur ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) à un rectangle :
 ```php
   $pres = new Presentation();
   try {
@@ -37,10 +47,10 @@ Ce code PHP vous montre comment appliquer l'effet d'ombre extérieure ([OuterSha
   }
 ```
 
-## **Appliquer l'effet de réflexion**
 
-Ce code PHP vous montre comment appliquer l'effet de réflexion à une forme :
+## **Appliquer un effet de réflexion**
 
+Ce code PHP vous montre comment appliquer l’effet de réflexion à une forme :
 ```php
   $pres = new Presentation();
   try {
@@ -58,10 +68,10 @@ Ce code PHP vous montre comment appliquer l'effet de réflexion à une forme :
   }
 ```
 
-## **Appliquer l'effet de lueur**
 
-Ce code PHP vous montre comment appliquer l'effet de lueur à une forme :
+## **Appliquer un effet de lueur**
 
+Ce code PHP vous montre comment appliquer l’effet de lueur à une forme :
 ```php
   $pres = new Presentation();
   try {
@@ -77,10 +87,10 @@ Ce code PHP vous montre comment appliquer l'effet de lueur à une forme :
   }
 ```
 
-## **Appliquer l'effet de bords adoucis**
 
-Ce code PHP vous montre comment appliquer les bords adoucis à une forme :
+## **Appliquer un effet de bords doux**
 
+Ce code PHP vous montre comment appliquer les bords doux à une forme :
 ```php
   $pres = new Presentation();
   try {
@@ -94,3 +104,18 @@ Ce code PHP vous montre comment appliquer les bords adoucis à une forme :
     }
   }
 ```
+
+
+## **FAQ**
+
+**Puis-je appliquer plusieurs effets à la même forme ?**
+
+Oui, vous pouvez combiner différents effets, tels que l'ombre, la réflexion et la lueur, sur une même forme afin de créer un aspect plus dynamique.
+
+**À quelles formes puis-je appliquer des effets ?**
+
+Vous pouvez appliquer des effets à diverses formes, y compris les formes automatiques, les graphiques, les tableaux, les images, les objets SmartArt, les objets OLE, etc.
+
+**Puis-je appliquer des effets aux formes groupées ?**
+
+Oui, vous pouvez appliquer des effets aux formes groupées. L'effet sera appliqué à l'ensemble du groupe.

@@ -1,42 +1,55 @@
 ---
-title: إنشاء أو إدارة عقدة شكل سمارت آرت في باوربوينت
-linktitle: إدارة عقدة شكل سمارت آرت
+title: إدارة عقد شكل SmartArt في العروض التقديمية باستخدام PHP
+linktitle: عقدة شكل SmartArt
 type: docs
 weight: 30
 url: /ar/php-java/manage-smartart-shape-node/
-keywords: سمارت آرت باوربوينت, عقد سمارت آرت, موضع سمارت آرت, إزالة سمارت آرت, إضافة عقد سمارت آرت, عرض باوربوينت, باوربوينت جافا, واجهة برمجة تطبيقات باوربوينت جافا
-description: إدارة عقدة السمارت آرت والعقدة الفرعية في عروض باوربوينت
+keywords:
+- عقدة SmartArt
+- عقدة فرعية
+- إضافة عقدة
+- موضع العقدة
+- الوصول إلى العقدة
+- إزالة العقدة
+- موضع مخصص
+- عقدة مساعدة
+- تنسيق تعبئة
+- تصيير العقدة
+- PowerPoint
+- العرض التقديمي
+- PHP
+- Aspose.Slides
+description: "إدارة عقد شكل SmartArt في ملفات PPT و PPTX باستخدام Aspose.Slides لـ PHP عبر Java. احصل على عينات كود واضحة ونصائح لتبسيط عروضك التقديمية."
 ---
 
-## **إضافة عقدة سمارت آرت في عرض باوربوينت باستخدام PHP**
-لقد قدم Aspose.Slides لـ PHP عبر Java أبسط واجهة برمجة تطبيقات لإدارة أشكال السمارت آرت بطريقة أسهل. ستساعدك الشفرة الإرشادية التالية في إضافة عقدة وعقدة فرعية داخل شكل السمارت آرت.
+## **إضافة عقدة SmartArt**
+قدمت Aspose.Slides لـ PHP عبر Java أبسط API لإدارة أشكال SmartArt بأبسط طريقة. سيساعدك كود العينة التالي على إضافة عقدة وعقدة فرعية داخل شكل SmartArt.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بإجراء تحويل نوع للشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. [أضف عقدة جديدة](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) في شكل السمارت آرت [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) وقم بتعيين النص في TextFrame.
-1. الآن، [أضف](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) [**عقدة فرعية**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) في عقدة [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) المضافة حديثًا وقم بتعيين النص في TextFrame.
-1. احفظ العرض التقديمي.
-
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. [Add a new Node](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) في شكل SmartArt [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) وتعيين النص في TextFrame.
+1. الآن، [Add](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) a [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) في عقدة [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) التي تم إضافتها حديثًا وتعيين النص في TextFrame.
+1. حفظ العرض التقديمي.
 ```php
-  # تحميل العرض المطلوب
+  # تحميل العرض التقديمي المطلوب
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    # تجول خلال كل شكل داخل الشريحة الأولى
+    # الانتقال عبر كل شكل داخل الشريحة الأولى
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # تحقق مما إذا كان الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
-        # إضافة عقدة سمارت آرت جديدة
+        # إضافة عقدة SmartArt جديدة
         $TemNode = $smart->getAllNodes()->addNode();
         # إضافة نص
-        $TemNode->getTextFrame()->setText("اختبار");
-        # إضافة عقدة فرعية جديدة في العقدة الأم. سيتم إضافتها في نهاية المجموعة
+        $TemNode->getTextFrame()->setText("Test");
+        # إضافة عقدة فرعية جديدة في العقدة الأصلية. ستُضاف في نهاية المجموعة
         $newNode = $TemNode->getChildNodes()->addNode();
         # إضافة نص
-        $newNode->getTextFrame()->setText("تم إضافة عقدة جديدة");
+        $newNode->getTextFrame()->setText("New Node Added");
       }
     }
     # حفظ العرض التقديمي
@@ -48,31 +61,31 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **إضافة عقدة سمارت آرت في موضع محدد**
-في الشفرة الإرشادية التالية، شرحنا كيفية إضافة العقد الفرعية الخاصة بالعقد المحددة من شكل السمارت آرت في موضع معين.
 
-1. أنشئ مثيلًا من فئة Presentation.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. أضف شكل سمارت آرت من نوع [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) في الشريحة المنفتحة.
-1. الوصول إلى العقدة الأولى في شكل السمارت آرت المضاف.
-1. الآن، أضف [**عقدة فرعية**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) للعقدة المحددة [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) في الموضع 2 واضبط نصها.
-1. احفظ العرض التقديمي.
+## **إضافة عقدة SmartArt في موقع محدد**
+في كود العينة التالي نشرح كيفية إضافة العقد الفرعية التابعة للعقد المحددة في شكل SmartArt في موقع معين.
 
+1. إنشاء مثال من فئة Presentation.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. إضافة شكل [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) من نوع SmartArt في الشريحة التي تم الوصول إليها.
+1. الوصول إلى العقدة الأولى في شكل SmartArt المضاف.
+1. الآن، إضافة [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) للعقدة المحددة في الموضع 2 وتعيين نصها.
+1. حفظ العرض التقديمي.
 ```php
-  # إنشاء مثيل للعرض
+  # إنشاء مثيل للعرض التقديمي
   $pres = new Presentation();
   try {
-    # الوصول إلى شريحة العرض
+    # الوصول إلى شريحة العرض التقديمي
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة شكل سمارت آرت
+    # إضافة Smart Art IShape
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
-    # الوصول إلى عقدة السمارت آرت في الفهرس 0
+    # الوصول إلى عقدة SmartArt في الفهرس 0
     $node = $smart->getAllNodes()->get_Item(0);
-    # إضافة عقدة فرعية جديدة في الموضع 2 في العقدة الأم
+    # إضافة عقدة فرعية جديدة في الموضع 2 داخل العقدة الأصلية
     $chNode = $node->getChildNodes()->addNodeByPosition(2);
     # إضافة نص
-    $chNode->getTextFrame()->setText("نص تجريبي مضاف");
-    # حفظ العرض
+    $chNode->getTextFrame()->setText("Sample Text Added");
+    # حفظ العرض التقديمي
     $pres->save("AddSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -81,33 +94,33 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **الوصول إلى عقدة سمارت آرت في عرض باوربوينت باستخدام PHP**
-ستساعدك الشفرة الإرشادية التالية في الوصول إلى العقد داخل شكل السمارت آرت. يرجى ملاحظة أنك لا تستطيع تغيير LayoutType للسمارت آرت لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل السمارت آرت.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. تجول عبر جميع [**العقد**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) داخل شكل السمارت آرت.
-1. الوصول وعرض معلومات مثل موضع عقدة السمارت آرت ومستواها ونصها.
+## **الوصول إلى عقدة SmartArt**
+سيساعدك كود العينة التالي على الوصول إلى العقد داخل شكل SmartArt. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل SmartArt.
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. المرور عبر جميع [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) داخل شكل SmartArt.
+1. الوصول إلى معلومات مثل موضع عقدة SmartArt، المستوى والنص.
 ```php
-  # إنشاء مثيل من فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation("SmartArtShape.pptx");
   try {
-    # احصل على الشريحة الأولى
+    # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # تجول عبر كل شكل داخل الشريحة الأولى
+    # التجول عبر كل شكل داخل الشريحة الأولى
     foreach($slide->getShapes() as $shape) {
-      # تحقق من كون الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
-        # تجول عبر جميع العقد داخل السمارت آرت
+        # التجول عبر جميع العقد داخل SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
-          # الوصول إلى عقدة السمارت آرت في المؤشر i
+          # الوصول إلى عقدة SmartArt عند الفهرس i
           $node = $smart->getAllNodes()->get_Item($i);
-          # طباعة معطيات عقدة السمارت آرت
+          # طباعة معلمات عقدة SmartArt
           System->out->print($node->getTextFrame()->getText() . " " . $node->getLevel() . " " . $node->getPosition());
         }
       }
@@ -119,39 +132,39 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **الوصول إلى عقدة الطفل في سمارت آرت**
-ستساعدك الشفرة الإرشادية التالية في الوصول إلى العقد الفرعية الخاصة بالعقد المحددة من شكل السمارت آرت.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. تجول عبر جميع [**العقد**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) داخل شكل السمارت آرت.
-1. لكل شكل سمارت آرت محدد [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode)، تجول عبر جميع [**عقد الأطفال**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) داخل العقدة الخاصة.
-1. الوصول وعرض معلومات مثل موضع [**عقدة الطفل**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) ومستواها ونصها.
+## **الوصول إلى عقدة فرعية في SmartArt**
+سيساعدك كود العينة التالي على الوصول إلى العقد الفرعية التابعة للعقد المحددة في شكل SmartArt.
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. المرور عبر جميع [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) داخل شكل SmartArt.
+1. لكل عقدة [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) مختارة، المرور عبر جميع [**Child Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) داخل العقدة المحددة.
+1. الوصول إلى معلومات مثل موضع العقدة الفرعية، المستوى والنص.
 ```php
-  # إنشاء مثيل من فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation("AccessChildNodes.pptx");
   try {
-    # احصل على الشريحة الأولى
+    # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # تجول عبر كل شكل داخل الشريحة الأولى
+    # التجول عبر كل شكل داخل الشريحة الأولى
     foreach($slide->getShapes() as $shape) {
-      # تحقق من كون الشكل من نوع السمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
-        # تجول عبر جميع العقد داخل السمارت آرت
+        # التجول عبر جميع العقد داخل SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
-          # الوصول إلى عقدة السمارت آرت في الفهرس i
+          # الوصول إلى عقدة SmartArt عند الفهرس i
           $node0 = $smart->getAllNodes()->get_Item($i);
-          # التجوال عبر العقد الفرعية في عقدة السمارت آرت في الفهرس i
+          # التجول عبر العقد الفرعية في عقدة SmartArt عند الفهرس i
           for($j = 0; $j < java_values($node0->getChildNodes()->size()) ; $j++) {
-            # الوصول إلى العقدة الفرعية في عقدة السمارت آرت
+            # الوصول إلى العقدة الفرعية في عقدة SmartArt
             $node = $node0->getChildNodes()->get_Item($j);
-            # طباعة معطيات عقدة السمارت آرت الفرعية
-            System->out->print("j = " . $j . ", نص = " . $node->getTextFrame()->getText() . ",  المستوى = " . $node->getLevel() . ", الموضع = " . $node->getPosition());
+            # طباعة معلمات العقدة الفرعية لـ SmartArt
+            System->out->print("j = " . $j . ", Text = " . $node->getTextFrame()->getText() . ",  Level = " . $node->getLevel() . ", Position = " . $node->getPosition());
           }
         }
       }
@@ -163,32 +176,32 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **الوصول إلى عقدة الطفل في موضع محدد**
-في هذا المثال، سنتعلم كيفية الوصول إلى العقد الفرعية في موضع معين تتبع العقد المحددة من شكل السمارت آرت.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. أضف شكل سمارت آرت من نوع [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList).
-1. الوصول إلى شكل السمارت آرت المضاف.
-1. الوصول إلى العقدة في الفهرس 0 لشكل السمارت آرت المنفتح.
-1. الآن، الوصول إلى [**عقدة الطفل**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) في الموضع 1 للعقدة المتاحة باستخدام **get_Item()**.
-1. الوصول وعرض معلومات مثل موضع [**عقدة الطفل**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) ومستواها ونصها.
+## **الوصول إلى عقدة فرعية في SmartArt في موضع محدد**
+في هذا المثال سنتعلم كيفية الوصول إلى العقد الفرعية في مواضع معينة تابعة للعقد المحددة في شكل SmartArt.
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. إضافة شكل SmartArt من نوع [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList).
+1. الوصول إلى شكل SmartArt المضاف.
+1. الوصول إلى العقدة عند الفهرس 0 للشكل المستند إليه.
+1. الآن، الوصول إلى [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) في الموضع 1 للعقدة المستند إليها باستخدام طريقة **get_Item()**.
+1. الوصول إلى معلومات مثل موضع العقدة الفرعية، المستوى والنص.
 ```php
-  # إنشاء مثيل العرض
+  # إنشاء عرض تقديمي
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة شكل السمارت آرت في الشريحة الأولى
+    # إضافة شكل SmartArt في الشريحة الأولى
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
-    # الوصول إلى عقدة السمارت آرت في الفهرس 0
+    # الوصول إلى عقدة SmartArt في الفهرس 0
     $node = $smart->getAllNodes()->get_Item(0);
-    # الوصول إلى العقدة الفرعية في الموضع 1 في العقدة الأم
+    # الوصول إلى العقدة الفرعية في الموضع 1 داخل العقدة الأصلية
     $position = 1;
     $chNode = $node->getChildNodes()->get_Item($position);
-    # طباعة معطيات عقدة السمارت آرت الفرعية
-    System->out->print("نص = " . $chNode->getTextFrame()->getText() . ",  المستوى = " . $chNode->getLevel() . ", الموضع = " . $chNode->getPosition());
+    # طباعة معلمات العقدة الفرعية لـ SmartArt
+    System->out->print("Text = " . $chNode->getTextFrame()->getText() . ",  Level = " . $chNode->getLevel() . ", Position = " . $chNode->getPosition());
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -196,37 +209,37 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **إزالة عقدة سمارت آرت في عرض باوربوينت باستخدام PHP**
-في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل السمارت آرت.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. تحقق مما إذا كان [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) يحتوي على أكثر من 0 عقد.
-1. حدد عقدة سمارت آرت المراد حذفها.
-1. الآن، قم بإزالة العقدة المحددة باستخدام [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) method.
-1. احفظ العرض التقديمي.
+## **إزالة عقدة SmartArt**
+في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt.
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. التحقق مما إذا كان لـ SmartArt أكثر من 0 عقد.
+1. اختيار عقدة SmartArt التي سيتم حذفها.
+1. الآن، إزالة العقدة المحددة باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .
+1. حفظ العرض التقديمي.
 ```php
-  # تحميل العرض المطلوب
+  # تحميل العرض التقديمي المطلوب
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # تجول عبر كل شكل داخل الشريحة الأولى
-    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # تحقق مما إذا كان الشكل من نوع سمارت آرت
+    # الانتقال عبر كل شكل داخل الشريحة الأولى
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
         if (java_values($smart->getAllNodes()->size()) > 0) {
-          # الوصول إلى عقدة سمارت آرت في الفهرس 0
+          # الوصول إلى عقدة SmartArt عند الفهرس 0
           $node = $smart->getAllNodes()->get_Item(0);
           # إزالة العقدة المحددة
           $smart->getAllNodes()->removeNode($node);
         }
       }
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("RemoveSmartArtNode.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -235,30 +248,30 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **إزالة عقدة سمارت آرت في موضع محدد**
-في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل السمارت آرت في موضع معين.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الأولى باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. حدد شكل عقدة السمارت آرت في الفهرس 0.
-1. الآن، تحقق مما إذا كانت العقدة المحددة تحتوي على أكثر من 2 عقدة فرعية.
-1. الآن، قم بإزالة العقدة في **الموقع 1** باستخدام [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-) method.
-1. احفظ العرض التقديمي.
+## **إزالة عقدة SmartArt من موضع محدد**
+في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt في موضع معين.
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. اختيار عقدة شكل SmartArt عند الفهرس 0.
+1. الآن، التحقق مما إذا كانت العقدة المحددة لديها أكثر من عقدتين فرعيتين.
+1. الآن، إزالة العقدة في **الموضع 1** باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-) .
+1. حفظ العرض التقديمي.
 ```php
-  # تحميل العرض المطلوب
+  # تحميل العرض التقديمي المطلوب
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
-    # تجول عبر كل شكل داخل الشريحة الأولى
-    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # تحقق مما إذا كان الشكل من نوع سمارت آرت
+    # التجول عبر كل شكل داخل الشريحة الأولى
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
         if (java_values($smart->getAllNodes()->size()) > 0) {
-          # الوصول إلى عقدة سمارت آرت في الفهرس 0
+          # الوصول إلى عقدة SmartArt عند الفهرس 0
           $node = $smart->getAllNodes()->get_Item(0);
           if (java_values($node->getChildNodes()->size()) >= 2) {
             # إزالة العقدة الفرعية في الموضع 1
@@ -267,7 +280,7 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
         }
       }
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("RemoveSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -276,28 +289,28 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **تعيين موضع مخصص لعقدة الطفل في سمارت آرت**
-الآن تدعم Aspose.Slides لـ PHP عبر Java تعيين خصائص [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) و[Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-). يُظهر الجزء البرمجي أدناه كيفية تعيين موضع SmartArtShape المخصص، الحجم والدوران، ويرجى ملاحظة أن إضافة عقد جديدة تؤدي إلى إعادة حساب المواضع والأحجام لجميع العقد. أيضًا مع إعدادات الموضع المخصصة، يمكن للمستخدم تعيين العقد وفقًا لمتطلباته.
 
+## **تعيين موضع مخصص لعقدة فرعية في كائن SmartArt**
+الآن تدعم Aspose.Slides لـ PHP عبر Java إعداد خصائص [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) لـ [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) و [Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-). يوضح الجزء البرمجي أدناه كيفية تعيين موضع وش Size ودوران SmartArtShape مخصص، يرجى ملاحظة أن إضافة عقد جديدة يؤدي إلى إعادة حساب مواضع وحجم جميع العقد. كذلك مع إعدادات الموضع المخصص، يمكن للمستخدم تعيين العقد وفقًا للمتطلبات.
 ```php
-  # إنشاء مثيل فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType::OrganizationChart);
-    # نقل شكل السمارت آرت إلى موضع جديد
+    # نقل شكل SmartArt إلى موقع جديد
     $node = $smart->getAllNodes()->get_Item(1);
     $shape = $node->getShapes()->get_Item(1);
-    $shape->setX($shape->getX() + $shape->getWidth() * 2);
+    $shape->setX($shape->getX() . $shape->getWidth() * 2);
     $shape->setY($shape->getY() - $shape->getHeight() * 2);
-    # تغيير عرض أشكال السمارت آرت
+    # تغيير عرض شكل SmartArt
     $node = $smart->getAllNodes()->get_Item(2);
     $shape = $node->getShapes()->get_Item(1);
-    $shape->setWidth($shape->getWidth() + $shape->getWidth() * 2);
-    # تغيير ارتفاع أشكال السمارت آرت
+    $shape->setWidth($shape->getWidth() . $shape->getWidth() * 2);
+    # تغيير ارتفاع شكل SmartArt
     $node = $smart->getAllNodes()->get_Item(3);
     $shape = $node->getShapes()->get_Item(1);
-    $shape->setHeight($shape->getHeight() + $shape->getHeight() * 2);
-    # تغيير دوران أشكال السمارت آرت
+    $shape->setHeight($shape->getHeight() . $shape->getHeight() * 2);
+    # تغيير دوران شكل SmartArt
     $node = $smart->getAllNodes()->get_Item(4);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setRotation(90);
@@ -307,51 +320,51 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **تحقق من العقدة المساعدة**
+
+## **التحقق من عقدة مساعدة**
 {{% alert color="primary" %}} 
 
-في هذه المقالة، سنحقق المزيد من ميزات أشكال السمارت آرت المضافة في شرائح العرض برمجيًا باستخدام Aspose.Slides لـ PHP عبر Java.
+في هذه المقالة سنستكشف المزيد من ميزات أشكال SmartArt التي تم إضافتها إلى شرائح العرض التقديمي برمجيًا باستخدام Aspose.Slides لـ PHP عبر Java.
 
 {{% /alert %}} 
 
-سنستخدم شكل السمارت آرت المصدر التالي في تحقيقاتنا في أقسام مختلفة من هذه المقالة.
+سنستخدم شكل SmartArt المصدر التالي للتحقق في الأقسام المختلفة من هذه المقالة.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**الشكل: شكل سمارت آرت المصدر في الشريحة**|
+|**شكل: شكل SmartArt المصدر في الشريحة**|
 
-في الشفرة الإرشادية التالية، سنتحقق من كيفية التعرف على **العقد المساعدة** في مجموعة عقد السمارت آرت وتغييراتها.
+في كود العينة التالي سنبحث عن كيفية التعرف على **العقد المساعدة** في مجموعة عقد SmartArt وتغييرها.
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وقم بتحميل العرض مع شكل السمارت آرت.
-1. احصل على مرجع الشريحة الثانية باستخدام فهرسها.
-1. تجول عبر كل شكل داخل الشريحة الأولى.
-1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان سمارت آرت.
-1. تجول عبر جميع العقد داخل شكل السمارت آرت وتحقق مما إذا كانت [**عقد مساعدة**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--) .
-1. قم بتغيير حالة العقدة المساعدة إلى عقدة عادية.
-1. احفظ العرض.
-
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي مع شكل SmartArt.
+1. الحصول على مرجع الشريحة الثانية باستخدام الفهرس الخاص بها.
+1. المرور عبر كل شكل داخل الشريحة الأولى.
+1. تحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) وقم بتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) إذا كان SmartArt.
+1. المرور عبر جميع العقد داخل شكل SmartArt والتحقق مما إذا كانت [**Assistant Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--) .
+1. تغيير حالة عقدة المساعدة إلى عقدة عادية.
+1. حفظ العرض التقديمي.
 ```php
-  # إنشاء مثيل العرض
+  # إنشاء مثيل للعرض التقديمي
   $pres = new Presentation("AddNodes.pptx");
   try {
-    # تجول في كل شكل داخل الشريحة الأولى
-    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # تحقق مما إذا كان الشكل من نوع سمارت آرت
+    # التجول عبر كل شكل داخل الشريحة الأولى
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # تحويل الشكل إلى سمارت آرت
+        # تحويل نوع الشكل إلى SmartArt
         $smart = $shape;
-        # التجوال عبر جميع العقد في شكل السمارت آرت
+        # التجول عبر جميع العقد في شكل SmartArt
         for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           $node = $smart->getAllNodes()->get_Item($i);
-          # تحقق مما إذا كانت العقدة هي عقدة مساعدة
+          # التحقق مما إذا كانت العقدة عقدة مساعدة
           if ($node->isAssistant()) {
-            # تعيين العقدة المساعدة إلى false وجعلها عقدة عادية.
+            # تعيين عقدة المساعدة إلى false وجعلها عقدة عادية
             $node->isAssistant();
           }
         }
       }
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("ChangeAssitantNode.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -360,37 +373,37 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**الشكل: تم تغيير العقود المساعدة في شكل السمارت آرت داخل الشريحة**|
+|**شكل: تم تغيير العقد المساعدة في شكل SmartArt داخل الشريحة**|
 
-## **تعيين تنسيق التعبئة للعقدة**
-يجعل Aspose.Slides لـ PHP عبر Java من الممكن إضافة أشكال سمارت آرت مخصصة وتعيين تنسيق التعبئة الخاص بها. توضح هذه المقالة كيفية إنشاء والوصول إلى أشكال سمارت آرت وتعيين تنسيق التعبئة الخاص بها باستخدام Aspose.Slides لـ PHP عبر Java.
+## **تعيين تنسيق تعبئة للعقدة**
+تجعل Aspose.Slides لـ PHP عبر Java من الممكن إضافة أشكال SmartArt مخصصة وتعيين تنسيق التعبئة لها. يوضح هذا المقال كيفية إنشاء والوصول إلى أشكال SmartArt وتعيين تنسيق تعبئتها باستخدام Aspose.Slides لـ PHP عبر Java.
 
 يرجى اتباع الخطوات أدناه:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. احصل على مرجع شريحة باستخدام فهرسها.
-1. أضف شكل [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) من خلال تعيين [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess) الخاص به.
-1. قم بتعيين [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) لعقد شكل السمارت آرت.
-1. اكتب العرض المعدل كملف PPTX.
-
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
+1. إضافة شكل [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) عن طريق تعيين [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess) الخاص به.
+1. تعيين [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) لعقد شكل SmartArt.
+1. كتابة العرض التقديمي المعدل كملف PPTX.
 ```php
-  # إنشاء مثيل للعرض
+  # إنشاء العرض التقديمي
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة شكل سمارت آرت والعقد
+    # إضافة شكل SmartArt والعقد
     $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType::ClosedChevronProcess);
     $node = $chevron->getAllNodes()->addNode();
-    $node->getTextFrame()->setText("نص بعض النص");
-    # تعيين لون ملء العقدة
+    $node->getTextFrame()->setText("Some text");
+    # تعيين لون تعبئة العقدة
     foreach($node->getShapes() as $item) {
       $item->getFillFormat()->setFillType(FillType::Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("TestSmart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -399,24 +412,24 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
   }
 ```
 
-## **توليد صورة مصغرة لعقدة الطفل في سمارت آرت**
-يمكن للمطورين توليد صورة مصغرة لعقدة الطفل في سمارت آرت عن طريق اتباع الخطوات التالية:
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
-1. [أضف سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--).
-1. احصل على مرجع عقدة باستخدام فهرسها.
-1. احصل على صورة مصغرة.
-1. احفظ صورة المصغرة بأي تنسيق صورة مرغوب.
+## **إنشاء صورة مصغرة لعقدة فرعية في SmartArt**
+يمكن للمطورين إنشاء صورة مصغرة لعقدة فرعية في SmartArt باتباع الخطوات أدناه:
 
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
+1. [Add SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) .
+1. الحصول على مرجع عقدة باستخدام الفهرس الخاص بها.
+1. الحصول على صورة المصغرة.
+1. حفظ صورة المصغرة بأي تنسيق صورة مطلوب.
 ```php
-  # إنشاء مثيل فئة Presentation التي تمثل ملف PPTX
+  # إنشاء كائن من فئة Presentation يمثل ملف PPTX
   $pres = new Presentation();
   try {
-    # إضافة سمارت آرت
+    # إضافة SmartArt
     $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
-    # احصل على مرجع للعقدة باستخدام فهرسها
+    # الحصول على مرجع عقدة باستخدام فهرستها
     $node = $smart->getNodes()->get_Item(1);
-    # احصل على الصورة المصغرة
+    # الحصول على صورة مصغرة
     $slideImage = $node->getShapes()->get_Item(0)->getImage();
     # حفظ الصورة المصغرة
     try {
@@ -432,3 +445,22 @@ description: إدارة عقدة السمارت آرت والعقدة الفرع
     }
   }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يدعم SmartArt الرسوم المتحركة؟**
+
+نعم. يُعامل SmartArt كشكل عادي، لذا يمكنك [تطبيق الرسوم المتحركة القياسية](/slides/ar/php-java/shape-animation/) (الدخول، الخروج، التأكيد، مسارات الحركة) وضبط التوقيت. يمكنك أيضًا تحريك الأشكال داخل عقد SmartArt عند الحاجة.
+
+**كيف يمكنني تحديد موقع SmartArt معين على الشريحة إذا كان معرفه الداخلي غير معروف؟**
+
+قم بالتعيين والبحث باستخدام [النص البديل](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/). يسمح تعيين AltText مميز على SmartArt بالعثور عليه برمجيًا دون الاعتماد على المعرفات الداخلية.
+
+**هل سيتم الحفاظ على مظهر SmartArt عند تحويل العرض التقديمي إلى PDF؟**
+
+نعم. تقوم Aspose.Slides بتصدير SmartArt بدقة بصرية عالية أثناء [تصدير PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، مع الحفاظ على التخطيط والألوان والتأثيرات.
+
+**هل يمكنني استخراج صورة لكامل SmartArt (للمعاينات أو التقارير)؟**
+
+نعم. يمكنك تصيير شكل SmartArt إلى [صيغ نقطية raster formats](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) أو إلى [SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) للحصول على مخرجات متجهية قابلة للتوسع، مما يجعله مناسبًا للصور المصغرة أو التقارير أو الاستخدام على الويب.

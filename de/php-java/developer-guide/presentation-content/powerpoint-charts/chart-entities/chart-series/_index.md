@@ -1,29 +1,40 @@
 ---
-title: Diagrammreihen
+title: Diagrammdatenreihen in Präsentationen mit PHP verwalten
+linktitle: Datenreihen
 type: docs
 url: /de/php-java/chart-series/
-keywords: "Diagrammreihe, Reihenfarbe, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "Diagrammreihen in PowerPoint-Präsentationen"
+keywords:
+- Diagrammreihen
+- Reihenüberlappung
+- Reihenfarbe
+- Kategoriefarbe
+- Reihenname
+- Datenpunkt
+- Reihenlücke
+- PowerPoint
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammdatenreihen in PHP für PowerPoint (PPT/PPTX) verwalten, mit praktischen Codebeispielen und bewährten Methoden, um Ihre Datenpräsentationen zu verbessern."
 ---
 
-Eine Reihe ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt wird.
+Eine Reihe ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt werden.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Diagrammreihe Überlappung Festlegen**
+## **Diagrammreihen-Überlappung festlegen**
 
-Mit der [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) Eigenschaft können Sie angeben, wie stark Balken und Säulen in einem 2D-Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Reihen der übergeordneten Seriengruppe: Dies ist eine Projektion der entsprechenden Gruppen-Eigenschaft. Daher ist diese Eigenschaft schreibgeschützt.
+Mit der [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap)‑Eigenschaft können Sie festlegen, wie stark Balken und Säulen in einem 2‑D‑Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Reihen der übergeordneten Reihen­gruppe: Sie ist eine Projektion der entsprechenden Gruppeneigenschaft. Daher ist diese Eigenschaft schreibgeschützt.
 
-Verwenden Sie die `ParentSeriesGroup.Overlap` Lese-/Schreib-Eigenschaft, um Ihren bevorzugten Wert für `Overlap` festzulegen.
+Verwenden Sie die Lese‑/Schreib‑Eigenschaft `ParentSeriesGroup.Overlap`, um Ihren gewünschten Wert für `Overlap` festzulegen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Fügen Sie auf einer Folie ein gruppiertes Säulendiagramm hinzu.
-1. Greifen Sie auf die erste Diagrammreihe zu.
-1. Greifen Sie auf die `ParentSeriesGroup` der Diagrammreihe zu und setzen Sie Ihren bevorzugten Überlappungswert für die Reihe.
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Fügen Sie ein gruppiertes Säulendiagramm zu einer Folie hinzu.  
+1. Greifen Sie auf die erste Diagrammreihe zu.  
+1. Greifen Sie auf `ParentSeriesGroup` der Diagrammreihe zu und setzen Sie Ihren gewünschten Überlappungswert für die Reihe.  
+1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Überlappung für eine Diagrammreihe festlegen:
-
+Dieser PHP‑Code zeigt, wie Sie die Überlappung für eine Diagrammreihe festlegen:
 ```php
   $pres = new Presentation();
   try {
@@ -31,7 +42,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Überlappung für eine Diagrammreihe fe
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # Setzt die Überlappung der Reihe
+      # Setzt die Reihenüberlappung
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }
     # Schreibt die Präsentationsdatei auf die Festplatte
@@ -43,17 +54,18 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Überlappung für eine Diagrammreihe fe
   }
 ```
 
-## **Reihenfarbe Ändern**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die Farbe einer Reihe wie folgt zu ändern:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Fügen Sie ein Diagramm auf der Folie hinzu.
-1. Greifen Sie auf die Reihe zu, deren Farbe Sie ändern möchten.
-1. Setzen Sie Ihren bevorzugten Fülltyp und die Füllfarbe.
-1. Speichern Sie die modifizierte Präsentation.
+## **Reihenfarbe ändern**
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Farbe einer Reihe ändern:
+Aspose.Slides for PHP via Java ermöglicht das Ändern der Farbe einer Reihe wie folgt:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Fügen Sie ein Diagramm zur Folie hinzu.  
+1. Greifen Sie auf die Reihe zu, deren Farbe Sie ändern möchten.  
+1. Setzen Sie den gewünschten Fülltyp und die Füllfarbe.  
+1. Speichern Sie die geänderte Präsentation.  
+
+Dieser PHP‑Code zeigt, wie Sie die Farbe einer Reihe ändern:
 ```php
   $pres = new Presentation("test.pptx");
   try {
@@ -70,17 +82,18 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Farbe einer Reihe ändern:
   }
 ```
 
-## **Farbe der Reihen-Kategorie Ändern**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die Farbe einer Reihen-Kategorie wie folgt zu ändern:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Fügen Sie ein Diagramm auf der Folie hinzu.
-1. Greifen Sie auf die Reihen-Kategorie zu, deren Farbe Sie ändern möchten.
-1. Setzen Sie Ihren bevorzugten Fülltyp und die Füllfarbe.
-1. Speichern Sie die modifizierte Präsentation.
+## **Kategorienfarbe der Reihe ändern**
 
-Dieser Code zeigt Ihnen, wie Sie die Farbe einer Serien-Kategorie ändern:
+Aspose.Slides for PHP via Java ermöglicht das Ändern der Farbe einer Kategorienreihe wie folgt:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Fügen Sie ein Diagramm zur Folie hinzu.  
+1. Greifen Sie auf die Kategorienreihe zu, deren Farbe Sie ändern möchten.  
+1. Setzen Sie den gewünschten Fülltyp und die Füllfarbe.  
+1. Speichern Sie die geänderte Präsentation.  
+
+Dieser Code zeigt, wie Sie die Farbe einer Kategorienreihe ändern:
 ```php
   $pres = new Presentation();
   try {
@@ -96,25 +109,25 @@ Dieser Code zeigt Ihnen, wie Sie die Farbe einer Serien-Kategorie ändern:
   }
 ```
 
-## **Reihennamen Ändern**
 
-Standardmäßig sind die Legenden-Namen für ein Diagramm der Inhalt der Zellen über jeder Spalte oder Zeile von Daten.
+## **Reihenname ändern**
 
-In unserem Beispiel (Beispielbild),
+Standardmäßig ergeben sich die Legendennamen eines Diagramms aus den Zellen über jeder Spalte bzw. Zeile der Daten.
 
-* die Spalten sind *Reihe 1, Reihe 2,* und *Reihe 3*;
-* die Zeilen sind *Kategorie 1, Kategorie 2, Kategorie 3,* und *Kategorie 4.*
+In unserem Beispiel (Beispielabbildung):
 
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, einen Reihennamen in seinen Diagrammdaten und der Legende zu aktualisieren oder zu ändern.
+* Die Spalten heißen *Series 1, Series 2* und *Series 3*;  
+* Die Zeilen heißen *Category 1, Category 2, Category 3* und *Category 4*.  
 
-Dieser PHP-Code zeigt Ihnen, wie Sie den Namen einer Reihe in den Diagrammdaten `ChartDataWorkbook` ändern:
+Aspose.Slides for PHP via Java ermöglicht das Aktualisieren oder Ändern eines Reihen­namens in den Diagrammdaten und in der Legende.
 
+Dieser PHP‑Code zeigt, wie Sie den Namen einer Reihe in den Diagrammdaten `ChartDataWorkbook` ändern:
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("Neuer Name");
+    $seriesCell->setValue("New name");
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -123,15 +136,15 @@ Dieser PHP-Code zeigt Ihnen, wie Sie den Namen einer Reihe in den Diagrammdaten 
   }
 ```
 
-Dieser PHP-Code zeigt Ihnen, wie Sie den Namen einer Reihe in ihrer Legende über `Series` ändern:
 
+Dieser PHP‑Code zeigt, wie Sie den Namen einer Reihe in der Legende über `Series` ändern:
 ```php
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("Neuer Name");
+    $name->getAsCells()->get_Item(0)->setValue("New name");
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -139,24 +152,24 @@ Dieser PHP-Code zeigt Ihnen, wie Sie den Namen einer Reihe in ihrer Legende übe
   }
 ```
 
-## **Diagrammreihe Füllfarbe Festlegen**
 
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die automatische Füllfarbe für Diagrammreihen innerhalb eines Diagrammbereichs wie folgt festzulegen:
+## **Füllfarbe der Diagrammreihe festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Erhalten Sie eine Referenz auf die Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit standardisierten Daten basierend auf Ihrem bevorzugten Typ hinzu (im folgenden Beispiel haben wir `ChartType::ClusteredColumn` verwendet).
-4. Greifen Sie auf die Diagrammreihe zu und setzen Sie die Füllfarbe auf Automatisch.
-5. Speichern Sie die Präsentation in einer PPTX-Datei.
+Aspose.Slides for PHP via Java ermöglicht das Festlegen der automatischen Füllfarbe für Diagrammreihen im Plot‑Bereich wie folgt:
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die automatische Füllfarbe für eine Diagrammreihe festlegen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Holen Sie sich die Referenz einer Folie über deren Index.  
+1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem bevorzugten Typ hinzu (im Beispiel unten verwenden wir `ChartType::ClusteredColumn`).  
+1. Greifen Sie auf die Diagrammreihe zu und setzen Sie die Füllfarbe auf Automatic.  
+1. Speichern Sie die Präsentation in einer PPTX‑Datei.  
 
+Dieser PHP‑Code zeigt, wie Sie die automatische Füllfarbe für eine Diagrammreihe festlegen:
 ```php
   $pres = new Presentation();
   try {
     # Erstellt ein gruppiertes Säulendiagramm
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # Setzt das Füllformat der Reihe auf automatisch
+    # Setzt das Füllformat der Serie auf automatisch
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
@@ -169,17 +182,18 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die automatische Füllfarbe für eine Diagr
   }
 ```
 
-## **Diagrammreihe Umkehrfüllfarben Festlegen**
-Aspose.Slides ermöglicht es Ihnen, die Umkehrfüllfarbe für Diagrammreihen innerhalb eines Diagrammbereichs wie folgt festzulegen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Erhalten Sie eine Referenz auf die Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit standardisierten Daten basierend auf Ihrem bevorzugten Typ hinzu (im folgenden Beispiel haben wir `ChartType::ClusteredColumn` verwendet).
-4. Greifen Sie auf die Diagrammreihe zu und setzen Sie die Füllfarbe auf Umkehr.
-5. Speichern Sie die Präsentation in einer PPTX-Datei.
+## **Invertierte Füllfarbe für eine Diagrammreihe festlegen**
 
-Dieser PHP-Code demonstriert die Operation:
+Aspose.Slides ermöglicht das Festlegen einer invertierten Füllfarbe für Diagrammreihen im Plot‑Bereich wie folgt:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Holen Sie sich die Referenz einer Folie über deren Index.  
+1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem bevorzugten Typ hinzu (im Beispiel unten verwenden wir `ChartType::ClusteredColumn`).  
+1. Greifen Sie auf die Diagrammreihe zu und setzen Sie die Füllfarbe auf invert.  
+1. Speichern Sie die Präsentation in einer PPTX‑Datei.  
+
+Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   $inverColor = java("java.awt.Color")->RED;
   $pres = new Presentation();
@@ -189,11 +203,11 @@ Dieser PHP-Code demonstriert die Operation:
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Fügt neue Reihen und Kategorien hinzu
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Reihe 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Kategorie 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Kategorie 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Kategorie 3"));
-    # Nimmt die erste Diagrammreihe und befüllt deren Seriendaten.
+    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
+    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
+    # Nimmt die erste Diagrammreihe und füllt deren Daten.
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
@@ -211,11 +225,12 @@ Dieser PHP-Code demonstriert die Operation:
   }
 ```
 
-## **Reihe Auf Invertieren Setzen, Wenn Wert Negativ Ist**
-Aspose.Slides ermöglicht es Ihnen, Invertierungen über die `IChartDataPoint.InvertIfNegative` und `ChartDataPoint.InvertIfNegative` Eigenschaften zu setzen. Wenn eine Invertierung über die Eigenschaften gesetzt wird, invertiert der Datenpunkt seine Farben, wenn er einen negativen Wert erhält.
 
-Dieser PHP-Code demonstriert die Operation:
+## **Eine Reihe invertieren, wenn der Wert negativ ist**
 
+Aspose.Slides ermöglicht das Invertieren über die Eigenschaften `IChartDataPoint.InvertIfNegative` und `ChartDataPoint.InvertIfNegative`. Wenn ein Invertieren über diese Eigenschaften gesetzt wird, ändert der Datenpunkt seine Farben, sobald er einen negativen Wert erhält.
+
+Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   $pres = new Presentation();
   try {
@@ -237,18 +252,19 @@ Dieser PHP-Code demonstriert die Operation:
   }
 ```
 
-## **Daten von Bestimmten Datenpunkten Löschen**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die `DataPoints` Daten für eine bestimmte Diagrammreihe wie folgt zu löschen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Erhalten Sie die Referenz einer Folie über ihren Index.
-3. Erhalten Sie die Referenz eines Diagramms über seinen Index.
-4. Iterieren Sie durch alle Diagramm `DataPoints` und setzen Sie `XValue` und `YValue` auf null.
-5. Löschen Sie alle `DataPoints` für eine bestimmte Diagrammreihe.
-6. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
+## **Spezifische Punktdaten löschen**
 
-Dieser PHP-Code demonstriert die Operation:
+Aspose.Slides for PHP via Java ermöglicht das Löschen der `DataPoints`‑Daten für eine bestimmte Diagrammreihe wie folgt:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+2. Holen Sie sich die Referenz einer Folie über deren Index.  
+3. Holen Sie sich die Referenz eines Diagramms über dessen Index.  
+4. Durchlaufen Sie alle `DataPoints` des Diagramms und setzen Sie `XValue` und `YValue` auf null.  
+5. Löschen Sie alle `DataPoints` für die gewünschte Diagrammreihe.  
+6. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+
+Dieser PHP‑Code demonstriert den Vorgang:
 ```php
   $pres = new Presentation("TestChart.pptx");
   try {
@@ -267,18 +283,19 @@ Dieser PHP-Code demonstriert die Operation:
   }
 ```
 
-## **Reihen-Gap Width Festlegen**
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, die Gap Width einer Reihe über die **`GapWidth`** Eigenschaft wie folgt festzulegen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-4. Greifen Sie auf eine beliebige Diagrammreihe zu.
-5. Setzen Sie die `GapWidth` Eigenschaft.
-6. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
+## **Lückenbreite der Reihe festlegen**
 
-Dieser Code zeigt Ihnen, wie Sie die Gap Width einer Reihe festlegen:
+Aspose.Slides for PHP via Java ermöglicht das Festlegen der Lückenbreite einer Reihe über die **`GapWidth`**‑Eigenschaft wie folgt:
 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+1. Greifen Sie auf eine beliebige Diagrammreihe zu.  
+1. Setzen Sie die Eigenschaft `GapWidth`.  
+1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
+
+Dieser Code zeigt, wie Sie die Lückenbreite einer Reihe festlegen:
 ```php
   # Erstellt eine leere Präsentation
   $pres = new Presentation();
@@ -287,18 +304,18 @@ Dieser Code zeigt Ihnen, wie Sie die Gap Width einer Reihe festlegen:
     $slide = $pres->getSlides()->get_Item(0);
     # Fügt ein Diagramm mit Standarddaten hinzu
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # Setzt den Index des Diagramm-Datenblatts
+    # Setzt den Index des Diagrammdatenblatts
     $defaultWorksheetIndex = 0;
-    # Erhält das Diagramm-Datenarbeitsblatt
+    # Holt das Diagrammdaten-Arbeitsblatt
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Fügt Reihen hinzu
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Reihe 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Reihe 2"), $chart->getType());
+    # Fügt Serien hinzu
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
     # Fügt Kategorien hinzu
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Kategorie 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Kategorie 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Kategorie 3"));
-    # Nimmt die zweite Diagrammreihe
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # Nimmt die zweite Diagrammserie
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Befüllt die Seriendaten
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
@@ -307,7 +324,7 @@ Dieser Code zeigt Ihnen, wie Sie die Gap Width einer Reihe festlegen:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Setzt den GapWidth-Wert
+    # Setzt den Wert für GapWidth
     $series->getParentSeriesGroup()->setGapWidth(50);
     # Speichert die Präsentation auf der Festplatte
     $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
@@ -317,3 +334,14 @@ Dieser Code zeigt Ihnen, wie Sie die Gap Width einer Reihe festlegen:
     }
   }
 ```
+
+
+## **FAQ**
+
+**Gibt es eine Begrenzung, wie viele Reihen ein einzelnes Diagramm enthalten kann?**
+
+Aspose.Slides setzt keine feste Obergrenze für die Anzahl der hinzuzufügenden Reihen. Praktisch begrenzt die Lesbarkeit des Diagramms sowie der verfügbare Speicher Ihrer Anwendung.
+
+**Was tun, wenn die Säulen innerhalb eines Clusters zu nahe beieinander oder zu weit auseinander liegen?**
+
+Passen Sie die Einstellung `GapWidth` für diese Reihe (oder deren übergeordnete Reihen­gruppe) an. Ein höherer Wert vergrößert den Abstand zwischen den Säulen, ein niedrigerer Wert verringert ihn.

@@ -1,41 +1,58 @@
 ---
-title: 行と列の管理
+title: PowerPoint テーブルで PHP を使用して行と列を管理
+linktitle: 行と列
 type: docs
 weight: 20
 url: /ja/php-java/manage-rows-and-columns/
-keywords: "テーブル, テーブルの行と列, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
-description: "PowerPointプレゼンテーションのテーブルの行と列を管理する"
+keywords:
+- テーブル行
+- テーブル列
+- 最初の行
+- テーブルヘッダー
+- 行のクローン
+- 列のクローン
+- 行のコピー
+- 列のコピー
+- 行の削除
+- 列の削除
+- 行テキスト書式設定
+- 列テキスト書式設定
+- テーブルスタイル
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint のテーブル行と列を管理し、プレゼンテーションの編集とデータ更新を高速化します。"
 ---
 
-PowerPointプレゼンテーションのテーブルの行と列を管理するために、Aspose.Slidesは[Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/)クラス、[ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)インターフェース、およびその他の多くのタイプを提供します。
+PowerPoint プレゼンテーションでテーブルの行と列を管理できるように、Aspose.Slides は [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) クラス、[ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) インターフェイス、その他多数の型を提供します。
 
 ## **最初の行をヘッダーとして設定**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成し、プレゼンテーションをロードします。
-2. スライドのインデックスを通じてスライドの参照を取得します。
-3. [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)オブジェクトを作成し、nullに設定します。
-4. すべての[IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/)オブジェクトを反復処理して、関連するテーブルを見つけます。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) オブジェクトを作成し、null に設定します。
+4. すべての [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) オブジェクトを反復処理して、対象のテーブルを見つけます。
 5. テーブルの最初の行をヘッダーとして設定します。
 
-このPHPコードは、テーブルの最初の行をヘッダーとして設定する方法を示しています：
-
+この PHP コードは、テーブルの最初の行をヘッダーとして設定する方法を示します：
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成します
   $pres = new Presentation("table.pptx");
   try {
-    # 最初のスライドにアクセス
+    # 最初のスライドにアクセスします
     $sld = $pres->getSlides()->get_Item(0);
-    # null TableExを初期化
+    # null の TableEx を初期化します
     $tbl = null;
-    # 形状を反復処理し、テーブルへの参照を設定
+    # シェイプを走査し、テーブルへの参照を設定します
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        # テーブルの最初の行をヘッダーとして設定
+        # テーブルの最初の行をヘッダーとして設定します
         $tbl->setFirstRow(true);
       }
     }
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存します
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -44,45 +61,45 @@ PowerPointプレゼンテーションのテーブルの行と列を管理する�
   }
 ```
 
-## **テーブルの行または列を複製**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成し、プレゼンテーションをロードします。
-2. スライドのインデックスを通じてスライドの参照を取得します。
-3. `columnWidth`の配列を定義します。
-4. `rowHeight`の配列を定義します。
-5. [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)オブジェクトを[addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---)メソッドを通じてスライドに追加します。
-6. テーブル行を複製します。
-7. テーブル列を複製します。
-8. 修正されたプレゼンテーションを保存します。
+## **テーブルの行または列をクローン**
 
-このPHPコードは、PowerPointテーブルの行または列を複製する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. `columnWidth` の配列を定義します。
+4. `rowHeight` の配列を定義します。
+5. [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを使用して、スライドに [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) オブジェクトを追加します。
+6. テーブルの行をクローンします。
+7. テーブルの列をクローンします。
+8. 変更されたプレゼンテーションを保存します。
 
+この PHP コードは、PowerPoint テーブルの行または列をクローンする方法を示します：
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成
   $pres = new Presentation("Test.pptx");
   try {
     # 最初のスライドにアクセス
     $sld = $pres->getSlides()->get_Item(0);
-    # 幅を持つ列と高さを持つ行を定義
+    # 列幅と行高さを定義
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    # スライドにテーブル形状を追加
+    # スライドにテーブル シェイプを追加
     $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # 行1のセル1にテキストを追加
-    $table->get_Item(0, 0)->getTextFrame()->setText("行1 セル1");
-    # 行1のセル2にテキストを追加
-    $table->get_Item(1, 0)->getTextFrame()->setText("行1 セル2");
-    # テーブルの最後に行1を複製
+    # 行 1 のセル 1 にテキストを追加
+    $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
+    # 行 1 のセル 2 にテキストを追加
+    $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
+    # テーブルの末尾に行 1 をクローン
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # 行2のセル1にテキストを追加
-    $table->get_Item(0, 1)->getTextFrame()->setText("行2 セル1");
-    # 行2のセル2にテキストを追加
-    $table->get_Item(1, 1)->getTextFrame()->setText("行2 セル2");
-    # 行2をテーブルの4番目の行として複製
+    # 行 2 のセル 1 にテキストを追加
+    $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
+    # 行 2 のセル 2 にテキストを追加
+    $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
+    # 行 2 をテーブルの 4 行目としてクローン
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    # 最後に最初の列を複製
+    # 先頭列を末尾にクローン
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # 4番目の列インデックスで2番目の列を複製
+    # 2 列目を 4 列目の位置にクローン
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
     # プレゼンテーションをディスクに保存
     $pres->save("table_out.pptx", SaveFormat::Pptx);
@@ -93,19 +110,19 @@ PowerPointプレゼンテーションのテーブルの行と列を管理する�
   }
 ```
 
+
 ## **テーブルから行または列を削除**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成し、プレゼンテーションをロードします。
-2. スライドのインデックスを通じてスライドの参照を取得します。
-3. `columnWidth`の配列を定義します。
-4. `rowHeight`の配列を定義します。
-5. [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)オブジェクトを[addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---)メソッドを通じてスライドに追加します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. `columnWidth` の配列を定義します。
+4. `rowHeight` の配列を定義します。
+5. [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) メソッドを使用して、スライドに [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) オブジェクトを追加します。
 6. テーブルの行を削除します。
 7. テーブルの列を削除します。
-8. 修正されたプレゼンテーションを保存します。
+8. 変更されたプレゼンテーションを保存します。
 
-このPHPコードは、テーブルから行または列を削除する方法を示しています：
-
+この PHP コードは、テーブルから行または列を削除する方法を示します：
 ```php
   $pres = new Presentation();
   try {
@@ -123,38 +140,38 @@ PowerPointプレゼンテーションのテーブルの行と列を管理する�
   }
 ```
 
-## **テーブルの行レベルでテキストの書式設定を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成し、プレゼンテーションをロードします。
-2. スライドのインデックスを通じてスライドの参照を取得します。
-3. スライドから関連する[ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)オブジェクトにアクセスします。
-4. 最初の行のセルの[setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-)を設定します。
-5. 最初の行のセルの[setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-)と[setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-)を設定します。
-6. 二行目のセルの[setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-)を設定します。
-7. 修正されたプレゼンテーションを保存します。
+## **テーブル行レベルでテキスト書式を設定**
 
-このPHPコードは、操作を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. スライドから対象の [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) オブジェクトにアクセスします。
+4. 最初の行のセルの [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。
+5. 最初の行のセルの [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-) を設定します。
+6. 2 行目のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
+7. 変更されたプレゼンテーションを保存します。
 
+この PHP コードは操作を示します。
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成します
   $pres = new Presentation();
   try {
-    # 最初のスライドの最初の形状がテーブルであると仮定しましょう
+    # 最初のスライドの最初のシェイプがテーブルであると仮定します
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # 最初の行のセルのフォントサイズを設定
+    # 最初の行のセルのフォント高さを設定します
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    # 最初の行のセルのテキストの配置と右マージンを設定
+    # 最初の行のセルのテキスト配置と右余白を設定します
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # 二行目のセルのテキストの垂直タイプを設定
+    # 2 行目のセルのテキストの垂直タイプを設定します
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # プレゼンテーションをディスクに保存
+    # プレゼンテーションをディスクに保存します
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -163,34 +180,34 @@ PowerPointプレゼンテーションのテーブルの行と列を管理する�
   }
 ```
 
-## **テーブルの列レベルでテキストの書式設定を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)クラスのインスタンスを作成し、プレゼンテーションをロードします。
-2. スライドのインデックスを通じてスライドの参照を取得します。
-3. スライドから関連する[ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable)オブジェクトにアクセスします。
-4. 最初の列のセルの[setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-)を設定します。
-5. 最初の列のセルの[setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-)と[setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-)を設定します。
-6. 二番目の列のセルの[setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-)を設定します。
-7. 修正されたプレゼンテーションを保存します。
+## **テーブル列レベルでテキスト書式を設定**
 
-このPHPコードは、操作を示しています：
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
+2. インデックスを使用してスライドの参照を取得します。
+3. スライドから対象の [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) オブジェクトにアクセスします。
+4. 最初の列のセルの [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。
+5. 最初の列のセルの [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-) を設定します。
+6. 2 列目のセルの [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。
+7. 変更されたプレゼンテーションを保存します。
 
+この PHP コードは操作を示します：
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成
   $pres = new Presentation();
   try {
-    # 最初のスライドの最初の形状がテーブルであると仮定しましょう
+    # 最初のスライドの最初のシェイプがテーブルであると仮定します
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # 最初の列のセルのフォントサイズを設定
+    # 最初の列のセルのフォント高さを設定
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    # 最初の列のセルのテキストの配置と右マージンを1回の呼び出しで設定
+    # 最初の列のセルのテキスト配置と右余白を一度に設定
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # 二番目の列のセルのテキストの垂直タイプを設定
+    # 2 列目のセルのテキストの垂直タイプを設定
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
@@ -202,10 +219,10 @@ PowerPointプレゼンテーションのテーブルの行と列を管理する�
   }
 ```
 
-## **テーブルスタイルプロパティの取得**
 
-Aspose.Slidesを使用すると、テーブルのスタイルプロパティを取得して、それらの詳細を別のテーブルや他の場所で使用できます。このPHPコードは、テーブルのプリセットスタイルからスタイルプロパティを取得する方法を示しています：
+## **テーブルスタイルのプロパティを取得**
 
+Aspose.Slides を使用すると、テーブルのスタイルプロパティを取得でき、取得した詳細を別のテーブルや他の場所で使用できます。この PHP コードは、テーブルのプリセットスタイルからスタイルプロパティを取得する方法を示します：
 ```php
   $pres = new Presentation();
   try {
@@ -219,3 +236,18 @@ Aspose.Slidesを使用すると、テーブルのスタイルプロパティを�
     }
   }
 ```
+
+
+## **FAQ**
+
+**既に作成されたテーブルに PowerPoint のテーマ/スタイルを適用できますか？**
+
+はい。テーブルはスライド/レイアウト/マスターテーマを継承し、なお、塗りつぶし、枠線、テキストの色などをそのテーマの上で上書きすることができます。
+
+**Excel のようにテーブル行をソートできますか？**
+
+いいえ、Aspose.Slides のテーブルには組み込みのソートやフィルター機能はありません。データをメモリ上で先にソートし、その順序でテーブル行を再度設定してください。
+
+**特定のセルにカスタムカラーを保持しながら、バンド（ストライプ）列を使用できますか？**
+
+はい。バンド付き列を有効にし、特定のセルにローカルの書式設定で上書きすれば、セルレベルの書式設定がテーブルスタイルより優先されます。

@@ -1,188 +1,177 @@
 ---
-title: عارض العروض التقديمية
+title: إنشاء عارض عروض تقديمية في PHP
+linktitle: عارض العروض التقديمية
 type: docs
 weight: 50
 url: /ar/php-java/presentation-viewer/
-keywords: "عارض PPT PowerPoint"
-description: "عارض PPT PowerPoint "
+keywords:
+- عرض عرض تقديمي
+- عارض العروض التقديمية
+- إنشاء عارض عروض تقديمية
+- عرض PPT
+- عرض PPTX
+- عرض ODP
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "إنشاء عارض عروض تقديمية مخصص باستخدام Aspose.Slides لـ PHP عبر Java. عرض ملفات PowerPoint و OpenDocument بسهولة دون الحاجة إلى Microsoft PowerPoint."
 ---
 
-{{% alert color="primary" %}} 
-
-يستخدم Aspose.Slides لـ PHP عبر Java لإنشاء ملفات العروض التقديمية، مكتملة بالشرائح. يمكن عرض هذه الشرائح من خلال فتح العروض التقديمية باستخدام Microsoft PowerPoint. ولكن أحيانًا، قد يحتاج المطورون أيضًا إلى عرض الشرائح كصور في عارض الصور المفضل لديهم أو إنشاء عارض خاص بهم للعروض التقديمية. في مثل هذه الحالات، يتيح لك Aspose.Slides لـ PHP عبر Java تصدير شريحة فردية إلى صورة. يصف هذا المقال كيفية القيام بذلك.
-
-{{% /alert %}} 
-
-## **مثال حي**
-يمكنك تجربة [**عارض Aspose.Slides**](https://products.aspose.app/slides/viewer/) المجاني لرؤية ما يمكنك تنفيذه باستخدام واجهة برمجة تطبيقات Aspose.Slides:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
+يُستخدم Aspose.Slides لـ PHP عبر Java لإنشاء ملفات عروض تقديمية تحتوي على شرائح. يمكن عرض هذه الشرائح بفتح العروض في Microsoft PowerPoint، على سبيل المثال. ومع ذلك، قد يحتاج المطورون أحيانًا إلى عرض الشرائح كصور في عارض الصور المفضل لديهم أو إنشاء عارض عروض تقديمية خاص بهم. في مثل هذه الحالات، يتيح Aspose.Slides تصدير شريحة فردية كصورة. تصف هذه المقالة كيفية القيام بذلك.
 
 ## **إنشاء صورة SVG من شريحة**
-لإنشاء صورة SVG من أي شريحة مرغوبة باستخدام Aspose.Slides لـ PHP عبر Java، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-- الحصول على مرجع الشريحة المرغوبة باستخدام معرفها أو فهرسها.
-- الحصول على صورة SVG في دفق الذاكرة.
-- حفظ دفق الذاكرة إلى ملف.
+لإنشاء صورة SVG من شريحة عرض تقديمي باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
 
+1. إنشاء كائن من الفئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. احصل على مرجع الشريحة بحسب رقمها.
+1. افتح تدفق ملف.
+1. احفظ الشريحة كصورة SVG إلى تدفق الملف.
 ```php
-  # إنشاء مثيل من فئة العرض التقديمي التي تمثل ملف العرض التقديمي
-  $pres = new Presentation("CreateSlidesSVGImage.pptx");
-  try {
-    # الوصول إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # إنشاء كائن دفق ذاكرة
-    $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    # إنشاء صورة SVG للشريحة وحفظها في دفق الذاكرة
-    $sld->writeAsSvg($svgStream);
-    $svgStream->close();
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream);
+$svgStream->close();
+
+$presentation->dispose();
 ```
 
-## **إنشاء SVG مع معرفات شكل مخصصة**
-يمكن استخدام Aspose.Slides لـ PHP عبر Java لإنشاء [SVG](https://docs.fileformat.com/page-description-language/svg/) من شريحة بمعرف شكل مخصص. للقيام بذلك، استخدم خاصية ID من [ISvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgShape) ، التي تمثل معرف الشكل المخصص في SVG الناتج. يمكن استخدام CustomSvgShapeFormattingController لتعيين معرف الشكل.
+
+## **إنشاء SVG بمعرّف شكل مخصص**
+
+يمكن استخدام Aspose.Slides لإنشاء [SVG](https://docs.fileformat.com/page-description-language/svg/) من شريحة بمعرّف شكل مخصص. للقيام بذلك، استخدم الطريقة `setId` من [SvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/). يمكن استخدام `CustomSvgShapeFormattingController` لتعيين معرّف الشكل.
+```php
+$slideIndex = 0;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(0), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+
+$svgOptions = new SVGOptions();
+$svgOptions->setShapeFormattingController($shapeFormattingController);
+
+$svgStream = new Java("java.io.FileOutputStream", "output.svg");
+$slide->writeAsSvg($svgStream, $svgOptions);
+$svgStream->close();
+
+$presentation->dispose();
+```
 
 ```php
-
-  class CustomSvgShapeFormattingController {
+class CustomSvgShapeFormattingController {
     private $m_shapeIndex;
 
-    function __construct() {
-      $this->m_shapeIndex = 0;
+    public function __construct($shapeStartIndex) {
+        $this->m_shapeIndex = $shapeStartIndex;
     }
 
-    function __construct($shapeStartIndex) {
-      $this->m_shapeIndex = $shapeStartIndex;
+    public function formatShape($svgShape, $shape) {
+        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
-
-    function formatShape($svgShape, $shape) {
-      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
-  }
-
-  $pres = new Presentation("pptxFileName.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    try {
-      $svgOptions = new SVGOptions();
-      $shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
-      $svgOptions->setShapeFormattingController($shapeFormattingController);
-      $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    $pres->dispose();
-  }
+}
 ```
 
-## **إنشاء صورة مصغرة للشرائح**
-يساعدك Aspose.Slides لـ PHP عبر Java في إنشاء صور مصغرة للشرائح. لإنشاء الصورة المصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ PHP عبر Java:
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. الحصول على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على صورة مصغرة للشريحة المشار إليها بمقياس محدد.
-1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب فيه.
+## **إنشاء صورة مصغرة لشريحة**
 
+يساعدك Aspose.Slides على إنشاء صور مصغرة للشرائح. لإنشاء صورة مصغرة لشريحة باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. احصل على مرجع الشريحة بحسب رقمها.
+1. احصل على الصورة المصغرة للشريحة المرجعية بمقياس محدد.
+1. احفظ الصورة المصغرة بأي تنسيق صورة ترغب فيه.
 ```php
-  # إنشاء مثيل من فئة العرض التقديمي التي تمثل ملف العرض التقديمي
-  $pres = new Presentation("ThumbnailFromSlide.pptx");
-  try {
-    # الوصول إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # إنشاء صورة كاملة الحجم
-    $slideImage = $sld->getImage(1.0, 1.0);
-    # حفظ الصورة على القرص بتنسيق JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$scaleX = 1.0;
+$scaleY = $scaleX;
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($scaleX, $scaleY);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **إنشاء صورة مصغرة مع أبعاد محددة من قبل المستخدم**
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. الحصول على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على صورة مصغرة للشريحة المشار إليها بمقياس محدد.
-1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب فيه.
+## **إنشاء صورة مصغرة لشريحة بأبعاد يحددها المستخدم**
 
+لإنشاء صورة مصغرة لشريحة بأبعاد يحددها المستخدم، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. احصل على مرجع الشريحة بحسب رقمها.
+1. احصل على الصورة المصغرة للشريحة المرجعية بالأبعاد المحددة.
+1. احفظ الصورة المصغرة بأي تنسيق صورة ترغب فيه.
 ```php
-  # إنشاء مثيل من فئة العرض التقديمي التي تمثل ملف العرض التقديمي
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # الوصول إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # الأبعاد المحددة من قبل المستخدم
-    $desiredX = 1200;
-    $desiredY = 800;
-    # الحصول على القيمة المنسوبة لـ X و Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    # إنشاء صورة كاملة الحجم
-    $slideImage = $sld->getImage($ScaleX, $ScaleY);
-    # حفظ الصورة على القرص بتنسيق JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+$slideSize = new Java("java.awt.Dimension", 1200, 800);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($slideSize);
+$image->save("output.jpg", ImageFormat::Jpeg);
+$image->dispose();
+
+$presentation->dispose();
 ```
 
-## **إنشاء صورة مصغرة من الشريحة في عرض الشرائح الملاحظات**
-لإنشاء صورة مصغرة لأي شريحة مرغوبة في عرض الشريحة الملاحظات باستخدام Aspose.Slides لـ PHP عبر Java:
 
-1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. الحصول على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على صورة مصغرة للشريحة المشار إليها بمقياس محدد في عرض شريحة الملاحظات.
-1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب فيه.
+## **إنشاء صورة مصغرة لشريحة مع ملاحظات المتحدث**
 
-يؤدي جزء الكود أدناه إلى إنتاج صورة مصغرة للشريحة الأولى من عرض تقديمي في عرض شريحة الملاحظات.
+لإنشاء صورة مصغرة لشريحة مع ملاحظات المتحدث باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
 
+1. إنشاء كائن من الفئة [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/).
+1. استخدم الطريقة `RenderingOptions.setSlidesLayoutOptions` لتعيين موضع ملاحظات المتحدث.
+1. إنشاء كائن من الفئة [العرض التقديمي](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. احصل على مرجع الشريحة بحسب رقمها.
+1. احصل على الصورة المصغرة للشريحة المرجعية مع خيارات العرض.
+1. احفظ الصورة المصغرة بأي تنسيق صورة ترغب فيه.
 ```php
-  # إنشاء مثيل من فئة العرض التقديمي التي تمثل ملف العرض التقديمي
-  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-  try {
-    # الوصول إلى الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # الأبعاد المحددة من قبل المستخدم
-    $desiredX = 1200;
-    $desiredY = 800;
-    # الحصول على القيمة المنسوبة لـ X و Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    $opts = new RenderingOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    # إنشاء صورة كاملة الحجم
-    $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
-    # حفظ الصورة على القرص بتنسيق JPEG
-    try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-  } finally {
-    $pres->dispose();
-  }
+$slideIndex = 0;
+
+$layoutingOptions = new NotesCommentsLayoutingOptions();
+$layoutingOptions->setNotesPosition(NotesPositions::BottomTruncated);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutingOptions);
+
+$presentation = new Presentation("sample.pptx");
+$slide = $presentation->getSlides()->get_Item($slideIndex);
+
+$image = $slide->getImage($renderingOptions);
+$image->save("output.png", ImageFormat::Png);
+$image->dispose();
+
+$presentation->dispose();
 ```
+
+
+## **مثال حي**
+
+يمكنك تجربة التطبيق المجاني [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) لمعرفة ما يمكنك تنفيذه باستخدام Aspose.Slides API:
+
+![عارض PowerPoint عبر الإنترنت](online-PowerPoint-viewer.png)
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تضمين عارض عروض تقديمية في تطبيق ويب؟**
+
+نعم. يمكنك استخدام Aspose.Slides على الخادم لتوليد الشرائح كصور أو HTML وعرضها في المتصفح. يمكن تنفيذ ميزات التنقل والتكبير مع JavaScript لتجربة تفاعلية.
+
+**ما هي الطريقة الأفضل لعرض الشرائح داخل عارض مخصص؟**
+
+النهج الموصى به هو توليد كل شريحة كصورة (مثل PNG أو SVG) أو تحويلها إلى HTML باستخدام Aspose.Slides، ثم عرض الناتج داخل صندوق صورة (لسطح المكتب) أو حاوية HTML (للويب).
+
+**كيف أتعامل مع عروض تقديمية كبيرة تحتوي على العديد من الشرائح؟**
+
+للعروض الكبيرة، يُنصح بالتحميل الكسول أو توليد الشرائح عند الطلب. هذا يعني توليد محتوى الشريحة فقط عندما ينتقل المستخدم إليها، مما يقلل من استهلاك الذاكرة ووقت التحميل.

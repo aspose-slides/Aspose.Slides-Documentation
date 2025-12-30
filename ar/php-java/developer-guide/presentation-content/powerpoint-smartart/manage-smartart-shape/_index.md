@@ -1,28 +1,43 @@
 ---
-title: إدارة شكل سمارت آرت
+title: إدارة رسومات SmartArt في العروض التقديمية باستخدام PHP
+linktitle: رسومات SmartArt
 type: docs
 weight: 20
 url: /ar/php-java/manage-smartart-shape/
+keywords:
+- كائن SmartArt
+- رسم SmartArt
+- نمط SmartArt
+- لون SmartArt
+- إنشاء SmartArt
+- إضافة SmartArt
+- تحرير SmartArt
+- تغيير SmartArt
+- الوصول إلى SmartArt
+- نوع تخطيط SmartArt
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "أتمتة إنشاء وتحرير وتنسيق SmartArt في PowerPoint باستخدام PHP و Aspose.Slides، مع أمثلة شفرة مختصرة وإرشادات تركّز على الأداء."
 ---
 
+## **إنشاء شكل SmartArt**
+قدمت Aspose.Slides لـ PHP عبر Java واجهة برمجة تطبيقات لإنشاء أشكال SmartArt. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات أدناه:
 
-## **إنشاء شكل سمارت آرت**
-لقد وفرت Aspose.Slides ل PHP عبر Java واجهة برمجة تطبيقات لإنشاء أشكال سمارت آرت. لإنشاء شكل سمارت آرت في شريحة، يرجى اتباع الخطوات التالية:
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع لشريحة باستخدام فهرسها.
-1. [إضافة شكل سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيينه [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. الحصول على مرجع شريحة باستخدام فهرستها.
+1. [إضافة شكل SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) عن طريق تعيينه إلى [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType).
 1. حفظ العرض المعدل كملف PPTX.
-
 ```php
-  # إنشاء فئة العرض
+  # إنشاء كائن فئة Presentation
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة شكل سمارت آرت
+    # إضافة شكل Smart Art
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::BasicBlockList);
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("SimpleSmartArt.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -31,24 +46,24 @@ url: /ar/php-java/manage-smartart-shape/
   }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
-|**الشكل: شكل سمارت آرت المضاف إلى الشريحة**|
+|**الشكل: تم إضافة شكل SmartArt إلى الشريحة**|
 
-## **الوصول إلى شكل سمارت آرت في الشريحة**
-سيتم استخدام الكود التالي للوصول إلى أشكال سمارت آرت المضافة في شريحة العرض. في الكود المصدري، سنتنقل عبر كل شكل داخل الشريحة ونتحقق مما إذا كان شكل [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). إذا كان الشكل من نوع سمارت آرت، فسنجعل ذلك يتم ترميزًا إلى [**سمارت آرت**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
-
+## **الوصول إلى شكل SmartArt على شريحة**
+سيُستخدم الشيفرة التالية للوصول إلى أشكال SmartArt المُضافة إلى شريحة العرض. في مثال الشيفرة سنتنقل عبر كل شكل داخل الشريحة ونتحقق مما إذا كان شكلًا من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). إذا كان الشكل من نوع SmartArt فسنقوم بتحويله إلى نسخة من [**SmartArt**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
 ```php
-  # تحميل العرض المطلوب
+  # تحميل العرض التقديمي المرغوب
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
     # التنقل عبر كل شكل داخل الشريحة الأولى
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # التحقق مما إذا كان الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # ترميز الشكل إلى SmartArtEx
+        # تحويل الشكل إلى SmartArtEx
         $smart = $shape;
-        echo("اسم الشكل:" . $smart->getName());
+        echo("Shape Name:" . $smart->getName());
       }
     }
   } finally {
@@ -58,27 +73,27 @@ url: /ar/php-java/manage-smartart-shape/
   }
 ```
 
-## **الوصول إلى شكل سمارت آرت مع نوع تخطيط معين**
-ساعد الكود النموذجي التالي في الوصول إلى شكل [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) مع نوع تخطيط معين: يرجى ملاحظة أنه لا يمكنك تغيير نوع تخطيط سمارت آرت حيث إنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض بشكل سمارت آرت.
-1. الحصول على مرجع للشريحة الأولى باستخدام فهرسها.
-1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. التحقق مما إذا كان الشكل من نوع [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وترميز الشكل المحدد إلى سمارت آرت إذا كان سمارت آرت.
-1. التحقق من شكل سمارت آرت مع نوع تخطيط معين وتنفيذ ما هو مطلوب بعد ذلك.
+## **الوصول إلى شكل SmartArt بنوع تخطيط معين**
+ستساعد الشيفرة النموذجية التالية في الوصول إلى شكل [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) بنوع LayoutType معين. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType لـ SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt).
 
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض الذي يحتوي على شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+1. استعراض كل شكل داخل الشريحة الأولى.
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+1. التحقق من شكل SmartArt بنوع LayoutType معين وإجراء ما يلزم بعد ذلك.
 ```php
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
     # التنقل عبر كل شكل داخل الشريحة الأولى
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      # التحقق مما إذا كان الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # ترميز الشكل إلى SmartArtEx
+        # تحويل الشكل إلى SmartArtEx
         $smart = $shape;
-        # التحقق من تخطيط سمارت آرت
+        # التحقق من تخطيط SmartArt
         if ($smart->getLayout() == SmartArtLayoutType::BasicBlockList) {
-          echo("قم بفعل شيء هنا....");
+          echo("Do some thing here....");
         }
       }
     }
@@ -89,84 +104,107 @@ url: /ar/php-java/manage-smartart-shape/
   }
 ```
 
-## **تغيير نمط شكل سمارت آرت**
-في هذا المثال، سنتعلم كيفية تغيير النمط السريع لأي شكل سمارت آرت.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض بشكل سمارت آرت.
-1. الحصول على مرجع للشريحة الأولى باستخدام فهرسها.
-1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. التحقق مما إذا كان الشكل من نوع [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وترميز الشكل المحدد إلى سمارت آرت إذا كان سمارت آرت.
-1. العثور على شكل سمارت آرت مع نمط معين.
-1. تعيين النمط الجديد لشكل سمارت آرت.
+## **تغيير نمط شكل SmartArt**
+في هذا المثال، سنتعلم كيفية تغيير النمط السريع لأي شكل SmartArt.
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض الذي يحتوي على شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+1. استعراض كل شكل داخل الشريحة الأولى.
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+1. العثور على شكل SmartArt بنمط معين.
+1. تعيين النمط الجديد لشكل SmartArt.
 1. حفظ العرض.
-
 ```php
-  # إنشاء فئة العرض
+  # إنشاء كائن فئة Presentation
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # التنقل عبر كل شكل داخل الشريحة الأولى
+    # الانتقال عبر كل شكل داخل الشريحة الأولى
     foreach($slide->getShapes() as $shape) {
-      # التحقق مما إذا كان الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # ترميز الشكل إلى SmartArtEx
+        # تحويل الشكل إلى SmartArtEx
         $smart = $shape;
-        # التحقق من نمط سمارت آرت
+        # التحقق من نمط SmartArt
         if ($smart->getQuickStyle() == SmartArtQuickStyleType::SimpleFill) {
-          # تغيير نمط سمارت آرت
+          # تغيير نمط SmartArt
           $smart->setQuickStyle(SmartArtQuickStyleType::Cartoon);
         }
       }
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("ChangeSmartArtStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
-|**الشكل: شكل سمارت آرت مع نمط_changed**|
+|**الشكل: تم تغيير نمط شكل SmartArt**|
 
-## **تغيير نمط لون شكل سمارت آرت**
-في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل سمارت آرت. في الكود النموذجي التالي، سيتم الوصول إلى شكل سمارت آرت مع نمط لون معين وتغيير نمطه.
+## **تغيير نمط لون شكل SmartArt**
+في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. ستقوم الشيفرة النموذجية التالية بالوصول إلى شكل SmartArt بنمط لون معين وتغيير نمطه.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض بشكل سمارت آرت.
-1. الحصول على مرجع للشريحة الأولى باستخدام فهرسها.
-1. التنقل عبر كل شكل داخل الشريحة الأولى.
-1. التحقق مما إذا كان الشكل من نوع [سمارت آرت](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وترميز الشكل المحدد إلى سمارت آرت إذا كان سمارت آرت.
-1. العثور على شكل سمارت آرت مع نمط لون معين.
-1. تعيين نمط اللون الجديد لشكل سمارت آرت.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) وتحميل العرض الذي يحتوي على شكل SmartArt.
+1. الحصول على مرجع الشريحة الأولى باستخدام فهرستها.
+1. استعراض كل شكل داخل الشريحة الأولى.
+1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+1. العثور على شكل SmartArt بنمط لون معين.
+1. تعيين نمط اللون الجديد لشكل SmartArt.
 1. حفظ العرض.
-
 ```php
-  # إنشاء فئة العرض
+  # إنشاء كائن فئة Presentation
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
     # التنقل عبر كل شكل داخل الشريحة الأولى
     foreach($slide->getShapes() as $shape) {
-      # التحقق مما إذا كان الشكل من نوع سمارت آرت
+      # التحقق مما إذا كان الشكل من نوع SmartArt
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        # ترميز الشكل إلى SmartArtEx
+        # تحويل الشكل إلى SmartArtEx
         $smart = $shape;
-        # التحقق من نوع لون سمارت آرت
+        # التحقق من نوع لون SmartArt
         if ($smart->getColorStyle() == SmartArtColorType::ColoredFillAccent1) {
-          # تغيير نوع لون سمارت آرت
+          # تغيير نوع لون SmartArt
           $smart->setColorStyle(SmartArtColorType::ColorfulAccentColors);
         }
       }
     }
-    # حفظ العرض
+    # حفظ العرض التقديمي
     $pres->save("ChangeSmartArtColorStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
+
 |![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|
 | :- |
-|**الشكل: شكل سمارت آرت مع نمط لون_changed**|
+|**الشكل: تم تغيير نمط لون شكل SmartArt**|
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تحريك SmartArt ككائن واحد؟**
+
+نعم. SmartArt هو شكل، لذلك يمكنك تطبيق [حركات قياسية](/slides/ar/php-java/powerpoint-animation/) عبر واجهة برمجة تطبيقات الحركات (دخول، خروج، تأكيد، مسارات حركة) مثل باقي الأشكال.
+
+**كيف يمكنني العثور على SmartArt محدد في شريحة إذا لم أكن أعرف معرفه الداخلي؟**
+
+قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل بقيمة ذلك النص—هذه طريقة موصى بها لتحديد الشكل الهدف.
+
+**هل يمكنني تجميع SmartArt مع أشكال أخرى؟**
+
+نعم. يمكنك تجميع SmartArt مع أشكال أخرى (صور، جداول، إلخ) ثم [التعامل مع المجموعة](/slides/ar/php-java/group/).
+
+**كيف أحصل على صورة لـ SmartArt معين (مثلاً للمعاينة أو التقرير)؟**
+
+تصدير صورة مصغرة/صورة للشكل؛ المكتبة يمكنها [رسم الأشكال الفردية](/slides/ar/php-java/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
+
+**هل سيُحافظ على مظهر SmartArt عند تحويل العرض بالكامل إلى PDF؟**
+
+نعم. محرك العرض يهدف إلى أعلى دقة عند [تصدير PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.

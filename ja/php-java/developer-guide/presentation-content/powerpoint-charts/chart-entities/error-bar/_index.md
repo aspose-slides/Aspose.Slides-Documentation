@@ -1,26 +1,34 @@
 ---
-title: エラーバー
+title: PHP を使用したプレゼンテーション チャートでエラーバーをカスタマイズ
+linktitle: エラーバー
 type: docs
 url: /ja/php-java/error-bar/
+keywords:
+- エラーバー
+- カスタム値
+- PowerPoint
+- プレゼンテーション
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用してチャートにエラーバーを追加およびカスタマイズする方法を学び、PowerPoint プレゼンテーションのデータ可視化を最適化します。"
 ---
 
-## **エラーバーの追加**
-Aspose.Slides for PHP via Javaは、エラーバーの値を管理するためのシンプルなAPIを提供します。サンプルコードは、カスタム値タイプを使用する場合に適用されます。値を指定するには、シリーズの[**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection)コレクション内の特定のデータポイントの**ErrorBarCustomValues**プロパティを使用します。
+## **エラーバーを追加**
+Aspose.Slides for PHP via Java はエラーバーの値を管理するためのシンプルな API を提供します。サンプルコードはカスタム値タイプを使用する場合に適用されます。値を指定するには、シリーズの [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) コレクション内の特定のデータ ポイントの **ErrorBarCustomValues** プロパティを使用します。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. 希望のスライドにバブルチャートを追加します。
-1. 最初のチャートシリーズにアクセスし、エラーバーX形式を設定します。
-1. 最初のチャートシリーズにアクセスし、エラーバーY形式を設定します。
-1. バーの値と形式を設定します。
-1. 修正したプレゼンテーションをPPTXファイルに書き込みます。
-
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. 目的のスライドにバブル チャートを追加します。
+1. 最初のチャート系列にアクセスし、エラーバー X の書式を設定します。
+1. 最初のチャート系列にアクセスし、エラーバー Y の書式を設定します。
+1. バーの値と書式を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き出します。
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成
   $pres = new Presentation();
   try {
     # バブルチャートを作成
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # エラーバーを追加し、その形式を設定
+    # エラーバーを追加し、その書式を設定
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
@@ -41,24 +49,24 @@ Aspose.Slides for PHP via Javaは、エラーバーの値を管理するため�
   }
 ```
 
+
 ## **カスタムエラーバー値の追加**
-Aspose.Slides for PHP via Javaは、カスタムエラーバーの値を管理するためのシンプルなAPIを提供します。サンプルコードは、[**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--)プロパティが**Custom**に等しい場合に適用されます。値を指定するには、シリーズの[**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection)コレクション内の特定のデータポイントの**ErrorBarCustomValues**プロパティを使用します。
+Aspose.Slides for PHP via Java はカスタム エラーバー値を管理するためのシンプルな API を提供します。サンプルコードは [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/php-java/aspose.slides/IErrorBarsFormat#getValue--) プロパティが **Custom** に等しい場合に適用されます。値を指定するには、シリーズの [**DataPoints**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesCollection) コレクション内の特定のデータ ポイントの **ErrorBarCustomValues** プロパティを使用します。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. 希望のスライドにバブルチャートを追加します。
-1. 最初のチャートシリーズにアクセスし、エラーバーX形式を設定します。
-1. 最初のチャートシリーズにアクセスし、エラーバーY形式を設定します。
-1. チャートシリーズの個別のデータポイントにアクセスし、個別のシリーズデータポイントのエラーバー値を設定します。
-1. バーの値と形式を設定します。
-1. 修正したプレゼンテーションをPPTXファイルに書き込みます。
-
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. 目的のスライドにバブル チャートを追加します。
+1. 最初のチャート系列にアクセスし、エラーバー X の書式を設定します。
+1. 最初のチャート系列にアクセスし、エラーバー Y の書式を設定します。
+1. チャート系列の個々のデータ ポイントにアクセスし、個々の系列データ ポイントのエラーバー値を設定します。
+1. バーの値と書式を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き出します。
 ```php
-  # Presentationクラスのインスタンスを作成
+  # Presentation クラスのインスタンスを作成
   $pres = new Presentation();
   try {
     # バブルチャートを作成
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
-    # カスタムエラーバーを追加し、その形式を設定
+    # カスタム エラーバーを追加し、その書式を設定
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $errBarX = $series->getErrorBarsXFormat();
     $errBarY = $series->getErrorBarsYFormat();
@@ -66,13 +74,14 @@ Aspose.Slides for PHP via Javaは、カスタムエラーバーの値を管理�
     $errBarY->isVisible();
     $errBarX->setValueType(ErrorBarValueType::Custom);
     $errBarY->setValueType(ErrorBarValueType::Custom);
-    # チャートシリーズのデータポイントにアクセスし、エラーバーの値を設定
+    # チャート系列のデータポイントにアクセスし、エラーバーの値を設定
+    # 個々のポイント用
     $points = $series->getDataPoints();
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYPlusValues(DataSourceType::DoubleLiterals);
     $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYMinusValues(DataSourceType::DoubleLiterals);
-    # チャートシリーズのポイントに対してエラーバーを設定
+    # チャート系列ポイントのエラーバーを設定
     for($i = 0; $i < java_values($points->size()) ; $i++) {
       $points->get_Item($i)->getErrorBarsCustomValues()->getXMinus()->setAsLiteralDouble($i + 1);
       $points->get_Item($i)->getErrorBarsCustomValues()->getXPlus()->setAsLiteralDouble($i + 1);
@@ -87,3 +96,18 @@ Aspose.Slides for PHP via Javaは、カスタムエラーバーの値を管理�
     }
   }
 ```
+
+
+## **よくある質問**
+
+**プレゼンテーションを PDF や画像にエクスポートしたとき、エラーバーはどうなりますか？**
+
+エラーバーはチャートの一部としてレンダリングされ、互換性のあるバージョンまたはレンダラを使用している場合、変換中もチャートの他の書式と同様に保持されます。
+
+**エラーバーをマーカーやデータ ラベルと組み合わせることはできますか？**
+
+はい。エラーバーは別個の要素であり、マーカーやデータ ラベルと互換性があります。要素が重なる場合は、書式を調整する必要がある場合があります。
+
+**API でエラーバーを操作するためのプロパティやクラスの一覧はどこで確認できますか？**
+
+API リファレンスで確認できます。[ErrorBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarsformat/) クラスと、関連クラスの [ErrorBarType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbartype/) および [ErrorBarValueType](https://reference.aspose.com/slides/php-java/aspose.slides/errorbarvaluetype/) です。

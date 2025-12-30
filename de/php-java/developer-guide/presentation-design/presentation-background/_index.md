@@ -1,193 +1,254 @@
 ---
-title: Präsentationshintergrund
+title: Verwalten von Präsentationshintergründen in PHP
+linktitle: Folienhintergrund
 type: docs
 weight: 20
 url: /de/php-java/presentation-background/
-keywords: "PowerPoint Hintergrund, Hintergrund setzen"
-description: "Hintergrund in PowerPoint-Präsentation setzen"
+keywords:
+- Präsentationshintergrund
+- Folienhintergrund
+- Einfarbige Farbe
+- Farbverlauf
+- Bildhintergrund
+- Hintergrundtransparenz
+- Hintergrundeigenschaften
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für PHP über Java festlegen, einschließlich Code-Tipps zur Verbesserung Ihrer Präsentationen."
 ---
 
-Einfache Farben, Farbverläufe und Bilder werden oft als Hintergrundbilder für Folien verwendet. Sie können den Hintergrund entweder für eine **normale Folie** (einzelne Folie) oder eine **Masterfolie** (mehrere Folien gleichzeitig) setzen.
+## **Übersicht**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Einfarbige Farben, Verläufe und Bilder werden häufig für Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (eine einzelne Folie) oder eine **Master‑Folie** (gilt für mehrere Folien gleichzeitig) festlegen.
 
-## **Einfache Farbe als Hintergrund für normale Folie setzen**
+![PowerPoint background](powerpoint-background.png)
 
-Aspose.Slides ermöglicht es Ihnen, eine einfache Farbe als Hintergrund für eine bestimmte Folie in einer Präsentation festzulegen (auch wenn diese Präsentation eine Masterfolie enthält). Die Hintergrundänderung wirkt sich nur auf die ausgewählte Folie aus.
+## **Einfarbigen Hintergrund für eine normale Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) Enum für den Folienhintergrund auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) bereitgestellt wird, um eine einfache Farbe für den Hintergrund anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht es, für eine bestimmte Folie in einer Präsentation eine einfarbige Farbe als Hintergrund festzulegen – selbst wenn die Präsentation eine Master‑Folie verwendet. Die Änderung wirkt nur auf die ausgewählte Folie.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie eine einfache Farbe (blau) als Hintergrund für eine normale Folie setzen:
-
-```php
-  # Erstellt eine Instanz der Presentation-Klasse
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # Setzt die Hintergrundfarbe für die erste ISlide auf Blau
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    # Schreibt die Präsentation auf die Festplatte
-    $pres->save("ContentBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Einfache Farbe als Hintergrund für Masterfolie setzen**
-
-Aspose.Slides ermöglicht es Ihnen, eine einfache Farbe als Hintergrund für die Masterfolie einer Präsentation festzulegen. Die Masterfolie fungiert als Vorlage, die Formatierungseinstellungen für alle Folien enthält und steuert. Daher wird, wenn Sie eine einfache Farbe als Hintergrund für die Masterfolie auswählen, dieser neue Hintergrund für alle Folien verwendet.
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) Enum für die Masterfolie (`Masters`) auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) Enum für den Masterfolienhintergrund auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor--) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) bereitgestellt wird, um eine einfache Farbe für den Hintergrund anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
-
-Dieser PHP-Code zeigt Ihnen, wie Sie eine einfache Farbe (forest green) als Hintergrund für eine Masterfolie in einer Präsentation setzen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den Folien-[BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) auf `Solid`.
+4. Verwenden Sie die Methode [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/), um die einfarbige Hintergrundfarbe festzulegen.
+5. Speichern Sie die geänderte Präsentation.
 
 ```php
-  # Erstellt eine Instanz der Presentation-Klasse
-  $pres = new Presentation();
-  try {
-    # Setzt die Hintergrundfarbe für die Master ISlide auf Forest Green
-    $pres->getMasters()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Schreibt die Präsentation auf die Festplatte
-    $pres->save("MasterBG.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Erstellen Sie eine Instanz der Presentation-Klasse.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Setzen Sie die Hintergrundfarbe der Folie auf Blau.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    
+    // Speichern Sie die Präsentation auf dem Datenträger.
+    $presentation->save("SolidColorBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Farbverlauf als Hintergrund für Folie setzen**
 
-Ein Farbverlauf ist ein grafischer Effekt, der auf einer allmählichen Farbänderung basiert. Farbverläufe, die als Hintergründe für Folien verwendet werden, lassen Präsentationen künstlerisch und professionell aussehen. Aspose.Slides ermöglicht es Ihnen, eine Farbverlauffarbe als Hintergrund für Folien in Präsentationen festzulegen.
+## **Einfarbigen Hintergrund für eine Master‑Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) Enum für den Masterfolienhintergrund auf `Gradient`.
-4. Verwenden Sie die [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat--) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) bereitgestellt wird, um Ihre bevorzugten Verlaufseinstellungen anzugeben.
-5. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht es, für die Master‑Folie einer Präsentation eine einfarbige Farbe als Hintergrund festzulegen. Die Master‑Folie dient als Vorlage, die die Formatierung aller Folien steuert, sodass die Wahl einer einfarbigen Hintergrundfarbe für die Master‑Folie auf jede Folie angewendet wird.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie eine Farbverlauffarbe als Hintergrund für eine Folie setzen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) der Master‑Folie (über `getMasters`) auf `OwnBackground`.
+3. Setzen Sie den Hintergrund-[FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) der Master‑Folie auf `Solid`.
+4. Verwenden Sie die Methode [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), um die einfarbige Hintergrundfarbe festzulegen.
+5. Speichern Sie die geänderte Präsentation.
 
 ```php
-  # Erstellt eine Instanz der Presentation-Klasse
-  $pres = new Presentation("MasterBG.pptx");
-  try {
-    # Wendet den Verlaufseffekt auf den Hintergrund an
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip->FlipBoth);
-    # Schreibt die Präsentation auf die Festplatte
-    $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Erstellen Sie eine Instanz der Presentation-Klasse.
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+
+    // Setzen Sie die Hintergrundfarbe der Master-Folie auf Waldgrün.
+    $masterSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $masterSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $masterSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+
+    // Speichern Sie die Präsentation auf dem Datenträger.
+    $presentation->save("MasterSlideBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Bild als Hintergrund für Folie setzen**
 
-Neben einfachen Farben und Farbverläufen ermöglicht Aspose.Slides auch das Setzen von Bildern als Hintergrund für Folien in Präsentationen.
+## **Verlaufshintergrund für eine Folie festlegen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) Enum für die Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) Enum für den Masterfolienhintergrund auf `Picture`.
+Ein Verlauf ist ein grafischer Effekt, der durch eine allmähliche Farbänderung entsteht. Als Folienhintergrund verwendet, können Verläufe Präsentationen kunstvoller und professioneller wirken lassen. Aspose.Slides ermöglicht es, eine Farbverlauf als Hintergrund für Folien festzulegen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den Folien-[BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) auf `Gradient`.
+4. Verwenden Sie die Methode [getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat) von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/), um Ihre gewünschten Verlaufseinstellungen zu konfigurieren.
+5. Speichern Sie die geänderte Präsentation.
+
+```php
+// Erstellen Sie eine Instanz der Presentation-Klasse.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Einen Verlaufseffekt auf den Hintergrund anwenden.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
+    $slide->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip::FlipBoth);
+
+    // Speichern Sie die Präsentation auf dem Datenträger.
+    $presentation->save("GradientBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+## **Bild als Folienhintergrund festlegen**
+
+Zusätzlich zu einfarbigen und Verlauffüllungen ermöglicht Aspose.Slides die Verwendung von Bildern als Folienhintergrund.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.
+2. Setzen Sie den Folien-[BackgroundType](https://reference.aspose.com/slides/php-java/aspose.slides/backgroundtype/) auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) auf `Picture`.
 4. Laden Sie das Bild, das Sie als Folienhintergrund verwenden möchten.
-5. Fügen Sie das Bild zur Bildsammlung der Präsentation hinzu.
-6. Verwenden Sie die [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat--) Eigenschaft, die von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) bereitgestellt wird, um das Bild als Hintergrund zu setzen.
-7. Speichern Sie die modifizierte Präsentation.
-
-Dieser PHP-Code zeigt Ihnen, wie Sie ein Bild als Hintergrund für eine Folie setzen:
+5. Fügen Sie das Bild der Bildsammlung der Präsentation hinzu.
+6. Verwenden Sie die Methode [getPictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getPictureFillFormat) von [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/), um das Bild als Hintergrund zuzuweisen.
+7. Speichern Sie die geänderte Präsentation.
 
 ```php
-  # Erstellt eine Instanz der Presentation-Klasse
-  $pres = new Presentation();
-  try {
-    # Setzt die Bedingungen für das Hintergrundbild
-    $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Picture);
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Lädt das Bild
-    $imgx;
-    $image = Images->fromFile("Desert.jpg");
-    try {
-      $imgx = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Bild zur Bildsammlung der Präsentation hinzufügen
-    $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($imgx);
-    # Schreibt die Präsentation auf die Festplatte
-    $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Erstellen Sie eine Instanz der Presentation-Klasse.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Legen Sie die Eigenschaften des Hintergrundbildes fest.
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+    // Laden Sie das Bild.
+    $image = Images::fromFile("Tulips.jpg");
+    // Fügen Sie das Bild zur Bildsammlung der Präsentation hinzu.
+    $ppImage = $presentation->getImages()->addImage($image);
+    $image->dispose();
+
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    // Speichern Sie die Präsentation auf dem Datenträger.
+    $presentation->save("ImageAsBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+```php
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+
+    $background = $firstSlide->getBackground();
+
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Picture);
+
+    $newImage = Images::fromFile("image.png");
+    $ppImage = $presentation->getImages()->addImage($newImage);
+    $newImage->dispose();
+
+    // Legen Sie das für die Hintergrundfüllung verwendete Bild fest.
+    $backPictureFillFormat = $background->getFillFormat()->getPictureFillFormat();
+    $backPictureFillFormat->getPicture()->setImage($ppImage);
+
+    // Setzen Sie den Bildfüllmodus auf Kachel und passen Sie die Kacheleigenschaften an.
+    $backPictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
+    $backPictureFillFormat->setTileOffsetX(15);
+    $backPictureFillFormat->setTileOffsetY(15);
+    $backPictureFillFormat->setTileScaleX(46);
+    $backPictureFillFormat->setTileScaleY(87);
+    $backPictureFillFormat->setTileAlignment(RectangleAlignment::Center);
+    $backPictureFillFormat->setTileFlip(TileFlip::FlipY);
+
+    $presentation->save("TileBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+
+{{% alert color="primary" %}}
+Weiterlesen: [**Tile Picture As Texture**](/slides/de/php-java/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **Transparenz des Hintergrundbildes ändern**
 
-Möglicherweise möchten Sie die Transparenz des Hintergrundbildes einer Folie anpassen, um den Inhalt der Folie hervorzuheben. Dieser PHP-Code zeigt Ihnen, wie Sie die Transparenz für ein Folienhintergrundbild ändern:
+Möglicherweise möchten Sie die Transparenz des Hintergrundbildes einer Folie anpassen, um den Inhalt der Folie hervorzuheben. Der folgende PHP‑Code zeigt, wie Sie die Transparenz eines Folienhintergrundbildes ändern können:
 
 ```php
-  $transparencyValue = 30;// Zum Beispiel
+$transparencyValue = 30; // Zum Beispiel.
 
-  # Erlangt eine Sammlung von Bildtransformationsoperationen
-  $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  # Findet einen Transparenzeffekt mit festem Prozentsatz.
-  $transparencyOperation = null;
-  foreach($imageTransform as $operation) {
+// Get the collection of picture transform operations.
+$imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
+
+// Find an existing fixed-percentage transparency effect.
+$transparencyOperation = null;
+foreach($imageTransform as $operation) {
     if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $transparencyOperation = $operation;
-      break;
+        $transparencyOperation = $operation;
+        break;
     }
-  }
-  # Setzt den neuen Transparenzwert.
-  if (java_is_null($transparencyOperation)) {
+}
+
+// Set the new transparency value.
+if (java_is_null($transparencyOperation)) {
     $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
-  } else {
+} else {
     $transparencyOperation->setAmount(100 - $transparencyValue);
-  }
+}
 ```
 
-## **Wert des Folienhintergrunds abrufen**
 
-Aspose.Slides bietet das [IBackgroundEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/) Interface, um Ihnen zu ermöglichen, die effektiven Werte der Folienhintergründe abzurufen. Dieses Interface enthält Informationen über das effektive [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getFillFormat--) und das effektive [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+## **Den Hintergrundwert der Folie abrufen**
 
-Durch die Verwendung der [Background](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getBackground--) Eigenschaft der [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/) Klasse können Sie den effektiven Wert für einen Folienhintergrund abrufen.
+Aspose.Slides stellt die Klasse `BackgroundEffectiveData` zur Verfügung, um die effektiven Hintergrundwerte einer Folie abzurufen. Diese Klasse gibt das effektive [FillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) und [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) zurück.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie den effektiven Hintergrundwert einer Folie abrufen:
+Mit der Methode `getBackground` der Klasse [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/) können Sie den effektiven Hintergrund einer Folie erhalten.
 
 ```php
-  # Erstellt eine Instanz der Presentation-Klasse
-  $pres = new Presentation("SamplePresentation.pptx");
-  try {
-    $effBackground = $pres->getSlides()->get_Item(0)->getBackground()->getEffective();
-    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid) {
-      echo("Füllfarbe: " . $effBackground->getFillFormat()->getSolidFillColor());
-    } else {
-      echo("Fülltyp: " . $effBackground->getFillFormat()->getFillType());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Erstellen Sie eine Instanz der Presentation-Klasse.
+$presentation = new Presentation("Sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Rufen Sie den effektiven Hintergrund ab, wobei Master, Layout und Theme berücksichtigt werden.
+    $effBackground = $slide->getBackground()->getEffective();
+
+    if ($effBackground->getFillFormat()->getFillType() == FillType::Solid)
+        echo "Fill color: " . $effBackground->getFillFormat()->getSolidFillColor() . "\n";
+    else
+        echo "Fill type: " . $effBackground->getFillFormat()->getFillType() . "\n";
+} finally {
+    $presentation->dispose();
+}
 ```
+
+
+## **FAQ**
+
+**Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Theme-/Layout‑Hintergrund wiederherstellen?**
+
+Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird wieder vom entsprechenden [layout](/slides/de/php-java/slide-layout)/[master](/slides/de/php-java/slide-master)‑Folie geerbt (d.h. vom [theme background](/slides/de/php-java/presentation-theme)).
+
+**Was passiert mit dem Hintergrund, wenn ich später das Theme der Präsentation ändere?**
+
+Wenn eine Folie ihre eigene Füllung hat, bleibt diese unverändert. Wird der Hintergrund vom [layout](/slides/de/php-java/slide-layout)/[master](/slides/de/php-java/slide-master) geerbt, wird er aktualisiert, um dem [new theme](/slides/de/php-java/presentation-theme) zu entsprechen.

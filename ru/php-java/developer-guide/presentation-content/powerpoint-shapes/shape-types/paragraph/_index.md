@@ -1,13 +1,26 @@
 ---
-title: Параграф
+title: Получить границы абзаца из презентаций в PHP
+linktitle: Абзац
 type: docs
 weight: 60
 url: /ru/php-java/paragraph/
+keywords:
+- границы абзаца
+- границы текстового фрагмента
+- координата абзаца
+- координата фрагмента
+- размер абзаца
+- размер текстового фрагмента
+- текстовая рамка
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как получить границы абзаца и текстового фрагмента в Aspose.Slides for PHP via Java для оптимизации позиционирования текста в презентациях PowerPoint."
 ---
 
-## Получение координат параграфа и частей текста в TextFrame ##
-Используя Aspose.Slides для PHP через Java, разработчики теперь могут получать прямоугольные координаты для параграфов внутри коллекции параграфов TextFrame. Это также позволяет получать [координаты части текста](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) внутри коллекции частей текста параграфа. В этой теме мы собираемся продемонстрировать с помощью примера, как получить прямоугольные координаты для параграфа вместе с положением части текста внутри параграфа.
-
+## **Получить координаты абзаца и фрагмента в TextFrame**
+С помощью Aspose.Slides for PHP via Java разработчики теперь могут получить прямоугольные координаты Paragraph внутри коллекции абзацев TextFrame. Это также позволяет получить [координаты фрагмента](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) внутри коллекции фрагментов абзаца. В этой статье мы продемонстрируем на примере, как получить прямоугольные координаты абзаца вместе с положением фрагмента внутри абзаца.
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
@@ -19,16 +32,15 @@ url: /ru/php-java/paragraph/
 ```
 
 
-## **Получение прямоугольных координат параграфа**
-Используя метод [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--), разработчики могут получать прямоугольник границ параграфа.
-
+## **Получить прямоугольные координаты абзаца**
+С помощью метода [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) разработчики могут получить прямоугольник границ абзаца.
 ```php
   $pres = new Presentation("HelloWorld.pptx");
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $textFrame = $shape->getTextFrame();
     $rect = $textFrame->getParagraphs()->get_Item(0)->getRect();
-    echo("X: " . $rect->$x . " Y: " . $rect->$y . " Ширина: " . $rect->$width . " Высота: " . $rect->$height);
+    echo("X: " . $rect->$x . " Y: " . $rect->$y . " Width: " . $rect->$width . " Height: " . $rect->$height);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -36,12 +48,11 @@ url: /ru/php-java/paragraph/
   }
 ```
 
-## **Получение размера параграфа и частей текста внутри текстового поля ячейки таблицы** ##
 
-Чтобы получить размер и координаты [Части текста](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) или [Параграфа](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) в текстовом поле ячейки таблицы, вы можете использовать методы [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) и [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
+## **Получить размер абзаца и фрагмента внутри TextFrame ячейки таблицы**
+Чтобы получить размер и координаты [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) или [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) в TextFrame ячейки таблицы, можно использовать методы [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) и [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--).
 
-В этом образце кода демонстрируется описанная операция:
-
+Этот пример кода демонстрирует описанную операцию:
 ```php
   $pres = new Presentation("source.pptx");
   try {
@@ -72,3 +83,22 @@ url: /ru/php-java/paragraph/
     }
   }
 ```
+
+
+## **FAQ**
+
+**В каких единицах возвращаются координаты абзаца и текстовых фрагментов?**
+
+В пунктах, где 1 дюйм = 72 пункта. Это относится ко всем координатам и размерам на слайде.
+
+**Влияет ли перенос слов на границы абзаца?**
+
+Да. Если [wrapping](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/) включен в [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), текст переносится, чтобы соответствовать ширине области, что изменяет фактические границы абзаца.
+
+**Можно ли надежно сопоставить координаты абзаца пикселям в экспортированном изображении?**
+
+Да. Преобразуйте пункты в пиксели с помощью формулы: pixels = points × (DPI / 72). Результат зависит от выбранного DPI для рендеринга/экспорта.
+
+**Как получить «эффективные» параметры форматирования абзаца с учётом наследования стилей?**
+
+Используйте [effective paragraph formatting data structure](/slides/ru/php-java/shape-effective-properties/); он возвращает окончательные объединённые значения отступов, интервалов, переноса, RTL и др.

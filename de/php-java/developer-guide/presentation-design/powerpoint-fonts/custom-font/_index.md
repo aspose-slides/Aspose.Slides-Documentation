@@ -1,39 +1,49 @@
 ---
-title: Benutzerdefinierte PowerPoint-Schriftart
-linktitle: Benutzerdefinierte Schriftart
+title: PowerPoint-Schriften in PHP anpassen
+linktitle: Benutzerdefinierte Schrift
 type: docs
 weight: 20
 url: /de/php-java/custom-font/
-keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
-description: "PowerPoint benutzerdefinierte Schriftarten"
+keywords:
+- Schrift
+- benutzerdefinierte Schrift
+- externe Schrift
+- Schrift laden
+- Schriften verwalten
+- Schriftordner
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Passen Sie Schriften in PowerPoint-Folien mit Aspose.Slides für PHP über Java an, um Ihre Präsentationen auf jedem Gerät scharf und konsistent zu halten."
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose Slides ermöglicht es Ihnen, diese Schriftarten mit der Methode [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) zu laden:
+Aspose Slides ermöglicht das Laden dieser Schriftarten mit der [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---)‑Methode:
 
-* TrueType (.ttf) und TrueType Collection (.ttc) Schriftarten. Siehe [TrueType](https://de.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf) und TrueType Collection (.ttc) Schriftarten. Siehe [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* OpenType (.otf) Schriftarten. Siehe [OpenType](https://de.wikipedia.org/wiki/OpenType).
+* OpenType (.otf) Schriftarten. Siehe [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Benutzerdefinierte Schriftarten laden**
 
-Aspose.Slides ermöglicht es Ihnen, Schriftarten zu laden, die in Präsentationen gerendert werden, ohne dass diese Schriftarten installiert werden müssen. Die Schriftarten werden aus einem benutzerdefinierten Verzeichnis geladen.
+Aspose.Slides ermöglicht das Laden von Schriftarten, die in Präsentationen gerendert werden, ohne diese Schriftarten installieren zu müssen. Die Schriftarten werden aus einem benutzerdefinierten Verzeichnis geladen. 
 
-1. Erstellen Sie eine Instanz der Klasse [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/) und rufen Sie die Methode [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) auf.
-2. Laden Sie die Präsentation, die gerendert werden soll.
-3. [Leeren Sie den Cache](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) in der Klasse [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader).
+1. Erstellen Sie eine Instanz der [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/)‑Klasse und rufen Sie die [loadExternalFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---)‑Methode auf.
+2. Laden Sie die zu rendernde Präsentation.
+3. [Clear the cache](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader#clearCache--) in der [FontsLoader](https://reference.aspose.com/slides/php-java/aspose.slides/FontsLoader)‑Klasse.
 
-Dieser PHP-Code demonstriert den Schriftartladeprozess:
-
+Dieser PHP‑Code demonstriert den Schriftarten‑Ladevorgang:
 ```php
-  # Ordner, in denen nach Schriftarten gesucht wird
+  # Ordner, in denen nach Schriften gesucht wird
   $folders = array($externalFontsDir );
-  # Lädt die Schriftarten aus dem benutzerdefinierten Schriftartverzeichnis
+  # Lädt die Schriften aus dem benutzerdefinierten Schriftverzeichnis
   FontsLoader->loadExternalFonts($folders);
-  # Führen Sie einige Arbeiten aus und rendern Sie die Präsentation/Folien
+  # Führe einige Arbeiten aus und rendere die Präsentation/Folien
   $pres = new Presentation("DefaultFonts.pptx");
   try {
     $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
@@ -41,30 +51,27 @@ Dieser PHP-Code demonstriert den Schriftartladeprozess:
     if (!java_is_null($pres)) {
       $pres->dispose();
     }
-    # Löscht den Schriftart-Cache
+    # Leert den Schrift-Cache
     FontsLoader->clearCache();
   }
 ```
 
-## **Ordner für benutzerdefinierte Schriftarten abrufen**
 
-Aspose.Slides bietet die Methode [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) an, um Schriftartenordner zu finden. Diese Methode gibt Ordner zurück, die über die Methode `LoadExternalFonts` hinzugefügt wurden, sowie Systemschriftartenordner.
+## **Benutzerdefinierte Schriftordner abrufen**
+Aspose.Slides stellt die [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--)‑Methode bereit, mit der Sie Schriftordner finden können. Diese Methode gibt Ordner zurück, die über die `LoadExternalFonts`‑Methode sowie System‑Schriftordner hinzugefügt wurden.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) verwenden:
-
+Dieser PHP‑Code zeigt, wie Sie [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--) verwenden:
 ```php
-  # Diese Zeile gibt Ordner aus, in denen nach Schriftdateien gesucht wird.
-  # Das sind Ordner, die über die Methode LoadExternalFonts hinzugefügt wurden und Systemschriftartenordner.
+  # Diese Zeile gibt die Ordner aus, in denen nach Schriftdateien gesucht wird.
+  # Dies sind Ordner, die über die LoadExternalFonts-Methode und System-Schriftordner hinzugefügt wurden.
   $fontFolders = FontsLoader->getFontFolders();
-
 ```
 
-## **Benutzerdefinierte Schriftarten für die Präsentation festlegen**
 
-Aspose.Slides bietet die Eigenschaft [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) an, um externe Schriftarten anzugeben, die mit der Präsentation verwendet werden.
+## **Benutzerdefinierte Schriftarten für eine Präsentation festlegen**
+Aspose.Slides stellt die [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-)‑Eigenschaft zur Verfügung, mit der Sie externe Schriftarten festlegen können, die in der Präsentation verwendet werden.
 
-Dieser PHP-Code zeigt Ihnen, wie Sie die Eigenschaft [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) verwenden:
-
+Dieser PHP‑Code zeigt, wie Sie die [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-)‑Eigenschaft verwenden:
 ```php
   $Array = new JavaClass("java.lang.reflect.Array");
   $Byte = new JavaClass("java.lang.Byte");
@@ -89,8 +96,8 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Eigenschaft [setDocumentLevelFontSource
   $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
-    # Arbeiten Sie mit der Präsentation
-    # CustomFont1, CustomFont2 und Schriftarten aus den Ordnern assets\fonts & global\fonts sowie deren Unterordnern sind für die Präsentation verfügbar
+    # Arbeiten mit der Präsentation
+    # CustomFont1, CustomFont2 und Schriftarten aus den Ordnern assets\fonts & global\fonts sowie deren Unterordnern stehen der Präsentation zur Verfügung
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -98,12 +105,12 @@ Dieser PHP-Code zeigt Ihnen, wie Sie die Eigenschaft [setDocumentLevelFontSource
   }
 ```
 
+
 ## **Schriftarten extern verwalten**
 
-Aspose.Slides bietet die Methode [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) an, um externe Schriftarten aus binären Daten zu laden.
+Aspose.Slides stellt die [loadExternalFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data)‑Methode bereit, mit der Sie externe Schriftarten aus Binärdaten laden können.
 
-Dieser PHP-Code demonstriert den Schriftartladeprozess für ein Byte-Array:
-
+Dieser PHP‑Code demonstriert den Ladevorgang von Schriftarten aus einem Byte‑Array:
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
@@ -137,10 +144,33 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      # externe Schriftart während der Lebensdauer der Präsentation geladen
+      # externe Schriftart wird während der Lebensdauer der Präsentation geladen
     } finally {
     }
   } finally {
     FontsLoader->clearCache();
   }
 ```
+
+
+## **FAQ**
+
+**Beeinflussen benutzerdefinierte Schriftarten den Export in alle Formate (PDF, PNG, SVG, HTML)?**
+
+Ja. Verbundene Schriftarten werden vom Renderer in allen Exportformaten verwendet.
+
+**Werden benutzerdefinierte Schriftarten automatisch in die resultierende PPTX eingebettet?**
+
+Nein. Das Registrieren einer Schriftart zum Rendern ist nicht dasselbe wie das Einbetten in eine PPTX. Wenn die Schriftart in der Präsentationsdatei enthalten sein soll, müssen Sie die expliziten Einbettungs‑Funktionen verwenden.
+
+**Kann ich das Fallback‑Verhalten steuern, wenn einer benutzerdefinierten Schriftart bestimmte Glyphen fehlen?**
+
+Ja. Konfigurieren Sie die Schriftart‑Substitution, Ersetzungsregeln und Fallback‑Sätze, um exakt zu bestimmen, welche Schriftart verwendet wird, wenn die angeforderte Glyphe fehlt.
+
+**Kann ich Schriftarten in Linux/Docker‑Containern verwenden, ohne sie systemweit zu installieren?**
+
+Ja. Zeigen Sie auf Ihre eigenen Schriftordner oder laden Sie Schriftarten aus Byte‑Arrays. So entfällt jede Abhängigkeit von System‑Schriftverzeichnissen im Container‑Image.
+
+**Wie sieht es mit Lizenzierung aus – kann ich jede benutzerdefinierte Schriftart ohne Einschränkungen einbetten?**
+
+Sie sind für die Einhaltung der Schriftlizenz verantwortlich. Die Bedingungen variieren; einige Lizenzen verbieten das Einbetten oder die kommerzielle Nutzung. Prüfen Sie stets die EULA der Schriftart, bevor Sie Ausgaben verbreiten.
