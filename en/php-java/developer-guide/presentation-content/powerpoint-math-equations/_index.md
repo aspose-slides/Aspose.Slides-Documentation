@@ -77,17 +77,15 @@ The [**MathParagraph**](https://reference.aspose.com/slides/php-java/aspose.sli
 ```php
   $fraction = new MathematicalText("x")->divide("y");
   $mathParagraph->add(new MathBlock($fraction));
-
 ``` 
 
-Each mathematical element is represented by some class that implements the [**IMathElement**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement) interface. This interface provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
+Each mathematical element is represented by some class that implements the `MathElement` class. This class provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
 
 ```php
   $mathBlock = new MathematicalText("c")->setSuperscript("2")->join("=")->join(new MathematicalText("a")->setSuperscript("2"))->join("+")->join(new MathematicalText("b")->setSuperscript("2"));
-
 ``` 
 
-Operations of the interface [**IMathElement**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement) are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock).
+Operations of the class `MathElement` are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock).
 
 The full source code sample:
 
@@ -113,7 +111,7 @@ Mathematical expressions are formed from sequences of mathematical elements. The
 
 There are a lot of mathematical element types that can be used to construct a mathematical block. Each of these elements can be included (aggregated) in another element. That is, elements are actually containers for others, forming a tree-like structure. The simplest type of element that does not contain other elements of the mathematical text.
 
-Each type of math element implements the [**IMathElement** ](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement)interface, allowing the use of the common set of math operations on different types of math elements.
+Each type of math element implements the `MathElement` class, allowing the use of the common set of math operations on different types of math elements.
 ### **MathematicalText Class**
 The [**MathematicalText**](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText) class represents a mathematical text - the underlying element of all mathematical constructions. Mathematical text may represent operands and operators, variables, and any other linear text.
 
@@ -154,7 +152,6 @@ is created using a combination of [**MathFunction**](https://reference.aspose.co
 ```php
   $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
   $mathFunc = new MathFunction($funcName, new MathematicalText("𝑥"));
-
 ``` 
 
 
@@ -170,7 +167,7 @@ Example: 
 
 ![todo:image_alt_text](powerpoint-math-equations_9.png)
 ### **MathMatrix Class**
-[**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) class specifies the Matrix object, consisting of child elements laid out in one or more rows and columns. It is important to note that matrixes do not have built-in delimiters. To place the matrix in the brackets you should use the delimiter object - [**IMathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathDelimiter). Null arguments can be used to create gaps in matrices.
+[**MathMatrix**](https://reference.aspose.com/slides/php-java/aspose.slides/MathMatrix) class specifies the Matrix object, consisting of child elements laid out in one or more rows and columns. It is important to note that matrixes do not have built-in delimiters. To place the matrix in the brackets you should use the delimiter object - [**MathDelimiter**](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/). Null arguments can be used to create gaps in matrices.
 
 Example: 
 
@@ -182,7 +179,7 @@ Example: 
 
 ![todo:image_alt_text](powerpoint-math-equations_11.png)
 ### **Formatting Mathematical Elements**
-- [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox) class: draws a rectangular or some other border around the [**IMathElement**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement).
+- [**MathBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBorderBox) class: draws a rectangular or some other border around the `MathElement`.
   
   Example: ![todo:image_alt_text](powerpoint-math-equations_12.png)
 
@@ -205,10 +202,10 @@ Example: 
 
 
 ## **Mathematical Operations**
-Each mathematical element and mathematical expression (via [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)) implements the [**IMathElement** ](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement)interface. It allows you to use operations on the existing structure and form more complex mathematical expressions. All operations have two parameter sets: either [**IMathElement** ](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement)or string as arguments. Instances of the [**MathematicalText** ](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText)class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
+Each mathematical element and mathematical expression (via [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock)) inherits the `MathElement` class. It allows you to use operations on the existing structure and form more complex mathematical expressions. All operations have two parameter sets: either `MathElement` or string as arguments. Instances of the [**MathematicalText** ](https://reference.aspose.com/slides/php-java/aspose.slides/MathematicalText)class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
 ### **Join Method**
-- [join(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#join-java.lang.String-)
-- [join(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#join-com.aspose.slides.IMathElement-)
+- `join(String)`
+- `join(MathElement)`
 
 Joins a mathematical element and forms a mathematical block. For example:
 
@@ -216,26 +213,24 @@ Joins a mathematical element and forms a mathematical block. For example:
   $element1 = new MathematicalText("x");
   $element2 = new MathematicalText("y");
   $block = $element1->join($element2);
-
 ``` 
 
 ### **Divide Method**
-- [divide(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#divide-java.lang.String-)
-- [divide(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-)
-- [divide(String, MathFractionTypes)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#divide-java.lang.String-int-)
-- [divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#divide-com.aspose.slides.IMathElement-int-)
+- `[divide(String)`
+- `divide(MathElement)`
+- `divide(String, MathFractionTypes)`
+- `divide(MathElement, MathFractionTypes)`
 
 Creates a fraction of the specified type with this numerator and specified denominator. For example:
 
 ```php
   $numerator = new MathematicalText("x");
   $fraction = $numerator->divide("y", MathFractionTypes->Linear);
-
 ``` 
 
 ### **Enclose Method**
-- [enclose()](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#enclose--)
-- [enclose(Char, Char)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#enclose-char-char-)
+- `enclose()`
+- `enclose(Char, Char)`
 
 Encloses the element in specified characters such as parenthesis or another character as framing.
 
@@ -249,12 +244,11 @@ For example:
 ```php
   $delimiter = new MathematicalText("x")->enclose('[', ']');
   $delimiter2 = new MathematicalText("elem1")->join("elem2")->enclose();
-
 ``` 
 
 ### **Function Method**
-- [function(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#function-java.lang.String-)
-- [function(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#function-com.aspose.slides.IMathElement-)
+- `function(String)`
+- `function(MathElement)`
 
 Takes a function of an argument using the current object as the function name.
 
@@ -267,21 +261,20 @@ For example:
 
 ```php
   $func = new MathematicalText("sin")->function("x");
-
 ``` 
 
 ### **AsArgumentOfFunction Method**
-- [asArgumentOfFunction(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#asArgumentOfFunction-java.lang.String-)
-- [asArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#asArgumentOfFunction-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#asArgumentOfFunction-int-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#asArgumentOfFunction-int-com.aspose.slides.IMathElement-)
-- [asArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#asArgumentOfFunction-int-java.lang.String-)
+- `asArgumentOfFunction(String)`
+- `asArgumentOfFunction(MathElement)`
+- `asArgumentOfFunction(MathFunctionsOfOneArgument)`
+- `asArgumentOfFunction(MathFunctionsOfTwoArguments, MathElement)`
+- `asArgumentOfFunction(MathFunctionsOfTwoArguments, String)`
 
 Takes the specified function using the current instance as the argument. You can:
 
 - specify a string as the function name, for example “cos”.
 - select one of the predefined values of the enumerations [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument) or [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfTwoArguments), for example [**MathFunctionsOfOneArgument**](MathFunctionsOfOneArgument).[**ArcSin**](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunctionsOfOneArgument#ArcSin).
-- select the instance of the [**IMathElement**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement).
+- select the instance of the `MathElement`.
 
 For example:
 
@@ -291,18 +284,17 @@ For example:
   $func2 = new MathematicalText("x")->asArgumentOfFunction("sin");
   $func3 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfOneArgument->Sin);
   $func4 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfTwoArguments->Log, "3");
-
 ``` 
 
 ### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft Methods**
-- [setSubscript(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubscript-java.lang.String-)
-- [setSubscript(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubscript-com.aspose.slides.IMathElement-)
-- [setSuperscript(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSuperscript-java.lang.String-)
-- [setSuperscript(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSuperscript-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubSuperscriptOnTheRight-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubSuperscriptOnTheRight-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [setSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-java.lang.String-java.lang.String-)
-- [setSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
+- `setSubscript(String)`
+- `setSubscript(MathElement)`
+- `setSuperscript(String)`
+- `setSuperscript(MathElement)`
+- `setSubSuperscriptOnTheRight(String, String)`
+- `setSubSuperscriptOnTheRight(MathElement, MathElement)`
+- `setSubSuperscriptOnTheLeft(String, String)`
+- `setSubSuperscriptOnTheLeft(MathElement, MathElement)`
 
 Sets subscript and superscript. You can set subscript and superscript at the same time on the left or on the right side of the argument, but single subscript or superscript is supported only on the right side. The **Superscript** can also be used to set the mathematical degree of a number.
 
@@ -310,12 +302,11 @@ Example:
 
 ```php
   $script = new MathematicalText("y")->setSubSuperscriptOnTheLeft("2x", "3z");
-
 ``` 
 
 ### **Radical Method**
-- [radical(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#radical-java.lang.String-)
-- [radical(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#radical-com.aspose.slides.IMathElement-)
+- `radical(String)`
+- `radical(MathElement)`
 
 Specifies the mathematical root of the given degree from the specified argument.
 
@@ -323,14 +314,13 @@ Example:
 
 ```php
   $radical = new MathematicalText("x")->radical("3");
-
 ``` 
 
 ### **SetUpperLimit and SetLowerLimit Methods**
-- [setUpperLimit(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setUpperLimit-java.lang.String-)
-- [setUpperLimit(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setUpperLimit-com.aspose.slides.IMathElement-)
-- [setLowerLimit(String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setLowerLimit-java.lang.String-)
-- [setLowerLimit(IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#setLowerLimit-com.aspose.slides.IMathElement-)
+- `setUpperLimit(String)`
+- `setUpperLimit(MathElement)`
+- `setLowerLimit(String)`
+- `setLowerLimit(MathElement)`
 
 Takes the upper or lower limit. Here, the upper and bottom simply indicate the location of the argument relative to the base.
 
@@ -338,48 +328,45 @@ Let's consider an expression: 
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-Such expressions can be created through a combination of classes [MathFunction](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) and [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit), and operations of the [IMathElement](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement) as follows:
+Such expressions can be created through a combination of classes [MathFunction](https://reference.aspose.com/slides/php-java/aspose.slides/MathFunction) and [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/MathLimit), and operations of the `MathElement` as follows:
 
 ```php
   $mathExpression = new MathematicalText("lim")->setLowerLimit("x→∞")->function("x");
-
 ``` 
 
 ### **Nary and Integral Methods**
-- [nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#nary-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#integral-int-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
-- [integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-)
-- [integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-int-)
-- [integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#integral-int-java.lang.String-java.lang.String-int-)
+- `nary(MathNaryOperatorTypes, MathElement, MathElement`
+- `nary(MathNaryOperatorTypes, String, String)`
+- `integral(MathIntegralTypes)`
+- `integral(MathIntegralTypes, MathElement, MathElement)`
+- `integral(MathIntegralTypes, String, String)`
+- `integral(MathIntegralTypes, MathElement, MathElement, MathLimitLocations)`
+- `integral(MathIntegralTypes, String, String, MathLimitLocations)`
 
-Both **nary** and **integral** methods create and return the N-ary operator represented by the [**IMathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathNaryOperator) type. In nary method, the [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperatorTypes) enumeration specifies the type of operator: summation, union, etc., not including integrals. In Integral method, there is the specialized operation Integral with the enumeration of integral types [**MathIntegralTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathIntegralTypes). 
+Both **nary** and **integral** methods create and return the N-ary operator represented by the [**MathNaryOperator**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperator) type. In nary method, the [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathNaryOperatorTypes) enumeration specifies the type of operator: summation, union, etc., not including integrals. In Integral method, there is the specialized operation Integral with the enumeration of integral types [**MathIntegralTypes**](https://reference.aspose.com/slides/php-java/aspose.slides/MathIntegralTypes). 
 
 Example:
 
 ```php
   $baseArg = new MathematicalText("x")->join(new MathematicalText("dx")->toBox());
   $integral = $baseArg->integral(MathIntegralTypes->Simple, "0", "1");
-
 ``` 
 
 ### **ToMathArray Method**
-[**toMathArray**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#toMathArray--) puts elements in a vertical array. If this operation is called for a [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) instance, all child elements will be placed in the returned array.
+`MathElement.toMathArray` puts elements in a vertical array. If this operation is called for a [**MathBlock**](https://reference.aspose.com/slides/php-java/aspose.slides/MathBlock) instance, all child elements will be placed in the returned array.
 
 Example:
 
 ```php
   $arrayFunction = new MathematicalText("x")->join("y")->toMathArray();
-
 ``` 
 
 ### **Formatting Operations: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
-- [**accent**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#accent-char-) method sets an accent mark (a character on the top of the element).
-- [**overbar**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#overbar--) and [**underbar**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#underbar--) methods set a bar on the top or bottom.
-- [**group**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#group--) method places in a group using a grouping character such as a bottom curly bracket or another.
-- [**toBorderBox**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#toBorderBox--) method places in a border-box.
-- [**toBox**](https://reference.aspose.com/slides/php-java/aspose.slides/IMathElement#toBox--) method places in a non-visual box (logical grouping).
+- **`accent`** method sets an accent mark (a character on the top of the element).
+- **`overbar`** and **`underbar`** methods set a bar on the top or bottom.
+- **`group`** method places in a group using a grouping character such as a bottom curly bracket or another.
+- **`toBorderBox`** method places in a border-box.
+- **`toBox`** method places in a non-visual box (logical grouping).
 
 Examples:
 
