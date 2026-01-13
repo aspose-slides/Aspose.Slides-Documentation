@@ -30,7 +30,7 @@ Presentation may contain more than one digital signatures. After the digital sig
 
 
 
-To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignatureCollection) interface and [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getDigitalSignatures--) method. Currently, digital signatures are supported for PPTX format only.
+To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature) class, [**DigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignatureCollection) class and [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getDigitalSignatures) method. Currently, digital signatures are supported for PPTX format only.
 ## **Add a Digital Signature from a PFX Certificate**
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 

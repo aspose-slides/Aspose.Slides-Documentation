@@ -16,7 +16,7 @@ description: "Compare PowerPoint and OpenDocument presentations programmatically
 ---
 
 ## **Compare Two Slides**
-Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide) interface and [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
+Equals method has been added to [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
 
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 

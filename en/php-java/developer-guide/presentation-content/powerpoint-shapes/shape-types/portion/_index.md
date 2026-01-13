@@ -17,7 +17,7 @@ description: "Learn how to manage text portions in PowerPoint presentations usin
 ---
 
 ## **Get Coordinates of a Text Portion**
-[**getCoordinates()**](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IPortion) and [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion) class which allows retrieving the coordinates of the beginning of the portion.
+[**getCoordinates()**](https://reference.aspose.com/slides/php-java/aspose.slides/portion/getcoordinates/) method has been added to [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) class which allows retrieving the coordinates of the beginning of the portion.
 
 ```php
   # Instantiate Prseetation class that represents the PPTX

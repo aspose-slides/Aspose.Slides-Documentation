@@ -25,14 +25,14 @@ keywords:
 description: "Manage table rows and columns in PowerPoint with Aspose.Slides for PHP via Java and speed up presentation editing and data updates."
 ---
 
-To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) interface, and many other types.
+To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class and many other types.
 
 ## **Set the First Row as a Header**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation.
 2. Get a slide's reference through its index. 
-3. Create an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object and set it to null.
-4. Iterate through all [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) objects to find the relevant table.
+3. Create an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object and set it to null.
+4. Iterate through all [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) objects to find the relevant table.
 5. Set the table's first row as its header. 
 
 This PHP code shows you how to set a table's first row as its header:
@@ -69,7 +69,7 @@ This PHP code shows you how to set a table's first row as its header:
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
 6. Clone the table row.
 7. Clone the table column.
 8. Save the modified presentation.
@@ -118,7 +118,7 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
 6. Remove the table row.
 7. Remove the table column.
 8. Save the modified presentation. 
@@ -146,10 +146,10 @@ This PHP code shows you how to remove a row or column from a table:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object from the slide.
-4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object from the slide.
+4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight).
+5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
+6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 7. Save the modified presentation.
 
 This PHP code demonstrates the operation.
@@ -186,10 +186,10 @@ This PHP code demonstrates the operation.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object from the slide.
-4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object from the slide.
+4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight).
+5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
+6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 7. Save the modified presentation. 
 
 This PHP code demonstrates the operation:

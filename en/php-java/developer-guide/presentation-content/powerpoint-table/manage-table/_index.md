@@ -21,7 +21,7 @@ description: "Create & edit tables in PowerPoint slides with Aspose.Slides for P
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
-Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) class, [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) interface, [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) class, [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations.
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) class, [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) class, and other types to allow you to create, update, and manage tables in all kinds of presentations.
 
 ## **Create a Table from Scratch**
 
@@ -29,10 +29,10 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
-6. Iterate through each [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/) to apply formatting to the top, bottom, right, and left borders.
+5. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
+6. Iterate through each [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
 7. Merge the first two cells of the table's first row. 
-8. Access an [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+8. Access an [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 9. Add some text to the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 10. Save the modified presentation.
 
@@ -137,13 +137,13 @@ This PHP code shows you how to specify the numbering for cells in a table:
 
 2. Get a reference to the slide containing the table through its index. 
 
-3. Create an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object and set it to null.
+3. Create an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object and set it to null.
 
-4. Iterate through all [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) objects till the table is found.
+4. Iterate through all [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) objects till the table is found.
 
-   If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+   If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/).
 
-5. Use the [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to work with the table. In the example below, we added a new row to the table.
+5. Use the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object to work with the table. In the example below, we added a new row to the table.
 
 6. Save the modified presentation.
 
@@ -179,9 +179,9 @@ This PHP code shows you how to access and work with an existing table:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide.
-4. Access an [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/itextframe/) object from the table.
-5. Access the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph/).
+3. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object to the slide.
+4. Access an [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) object from the table.
+5. Access the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
 6. Align the text vertically.
 7. Save the modified presentation.
 
@@ -227,10 +227,10 @@ This PHP code shows you how to align the text in a table:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Access an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object from the Slide.
-4. Set the [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) for the text.
-5. Set the [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Set the [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object from the Slide.
+4. Set the [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) for the text.
+5. Set the [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
+6. Set the [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 7. Save the modified presentation. 
 
 This PHP code shows you how to apply your preferred formatting options to the text in a table:
@@ -282,7 +282,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 
 ## **Lock Aspect Ratio of a Table**
 
-The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the [**setAspectRatioLocked**](https://reference.aspose.com/slides/php-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-)  property to allow you to lock the aspect ratio setting for tables and other shapes.
+The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) method to allow you to lock the aspect ratio setting for tables and other shapes.
 
 This PHP code shows you how to lock the aspect ratio for a table:
 
@@ -306,7 +306,7 @@ This PHP code shows you how to lock the aspect ratio for a table:
 
 **Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
-Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/) method, and paragraphs have [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Using both ensures the correct RTL order and rendering inside cells.
+Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/) method, and paragraphs have [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Using both ensures the correct RTL order and rendering inside cells.
 
 **How can I prevent users from moving or resizing a table in the final file?**
 

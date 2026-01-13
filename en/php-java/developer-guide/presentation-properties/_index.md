@@ -58,13 +58,13 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 Working with Document Properties Using Aspose.Slides for PHP via Java
 
-As we have described earlier that Aspose.Slides for PHP via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for PHP via Java API. Aspose.Slides for PHP via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for PHP via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for PHP via Java API. Aspose.Slides for PHP via Java provides a class [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
-Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
+Developers can use **DocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
 
-These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+These properties as exposed by [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```php
   # Instantiate the Presentation class that represents the presentation
@@ -195,11 +195,11 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 
 {{% alert color="primary" %}} 
 
-New methods [ReadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
+New methods [readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), and [writeBindedPresentation](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) have been added to [PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setLastSavedTime) property setter has been changed.
 
 {{% /alert %}} 
 
-The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
+The two new methods [readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) and [updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) have been added to [PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo) class. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
