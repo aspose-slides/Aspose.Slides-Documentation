@@ -32,7 +32,7 @@ description: "Format and style text in PowerPoint and OpenDocument presentations
 
 
 ## **Highlight Text**
-Method [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) class.
+Method [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlighttext/) has been added to [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class.
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 
@@ -63,7 +63,7 @@ Aspose provides a simple, [free online PowerPoint editing service](https://produ
 
 ## **Highlight Text Using a Regular Expression**
 
-Method [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) has been added to [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) class.
+Method [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlightregex/) has been added to [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class.
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
@@ -164,10 +164,10 @@ This PHP code shows you how to set the background color for only a portion of a 
 
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for PHP via Java supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for PHP via Java:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Obtain the reference of a slide by using its Index.
-3. Access the Placeholder shapes present in the slide and typecast them as a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-4. Get the Paragraph (that needs to be aligned) from the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#getTextFrame--) exposed by [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
+3. Access the Placeholder shapes present in the slide and typecast them as a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+4. Get the Paragraph (that needs to be aligned) from the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) exposed by [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 5. Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
 6. Write the modified presentation as a PPTX file.
 
@@ -203,7 +203,7 @@ The implementation of the above steps is given below.
 ## **Set Transparency for Text**
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for PHP via Java. In order to set the transparency to text. Please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Get the reference of a slide.
 3. Set shadow color
 4. Write the presentation as a PPTX file.
@@ -250,16 +250,16 @@ This PHP code shows you how to expand the spacing for one line of text and conde
 
 Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for PHP via Java to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for PHP via Java:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by using its index.
-1. Access the Placeholder shapes in the slide and typecast them to [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-1. Get the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) from the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) exposed by [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
+1. Access the Placeholder shapes in the slide and typecast them to [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Get the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) from the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) exposed by [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 1. Justify the paragraph.
 1. Access a Paragraph's text Portion.
 1. Define the font using FontData and set the Font of the text Portion accordingly.
    1. Set the font to bold.
    1. Set the font to italic.
-1. Set the font color using the [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#getFillFormat--) exposed by the [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion) object.
+1. Set the font color using the [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) exposed by the [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) object.
 1. Write the modified presentation to a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
@@ -308,14 +308,14 @@ The implementation of the above steps is given below. It takes an unadorned pres
 ## **Manage the Font Family of Text**
 A portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for PHP via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Obtain the reference of a slide by using its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) of the type [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) to the slide.
-4. Remove the fill style associated with the [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) of the type [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) to the slide.
+4. Remove the fill style associated with the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 5. Access the AutoShape's TextFrame.
 6. Add some text to the TextFrame.
-7. Access the Portion object associated with the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-8. Define the font to be used for the [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion).
+7. Access the Portion object associated with the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+8. Define the font to be used for the [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
 9. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
 10. Write the modified presentation as a PPTX file.
 
@@ -389,13 +389,13 @@ This PHP code shows you how to set the font size for texts contained in a paragr
 
 ## **Set Text Rotation**
 
-Aspose.Slides for PHP via Java allows developers to rotate the text. Text could be set to appear as [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#MongolianVertical) or [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). To rotate the text of any TextFrame, please follow the steps below:
+Aspose.Slides for PHP via Java allows developers to rotate the text. Text could be set to appear as [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Horizontal), [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical), [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#MongolianVertical) or [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVerticalRightToLeft). To rotate the text of any TextFrame, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Access the first slide.
 3. Add any Shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Rotate the text](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
+4. Access the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Rotate the text](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 6. Save file to disk.
 
 ```php
@@ -429,11 +429,11 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
 ```
 
 ## **Set Custom Rotation Angle for a TextFrame**
-Aspose.Slides for PHP via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#getRotationAngle--) have been added to [IChartTextBlockFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IChartTextBlockFormat) and [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
+Aspose.Slides for PHP via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/) and [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/getrotationangle/) have been added to [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) class, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Add a chart on slide.
-3. [Set RotationAngle property](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-).
+3. [Set a rotation angle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/).
 4. Write the presentation as a PPTX file.
 
 In the example given below, we set the RotationAngle property.
@@ -469,7 +469,7 @@ In the example given below, we set the RotationAngle property.
 ```
 
 ## **Line Spacing of a Paragraph**
-Aspose.Slides provides properties under [`ParagraphFormat`](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraphFormat)—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
+Aspose.Slides provides properties under [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/)—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
 * To specify the line spacing for a paragraph in percentage, use a positive value. 
 * To specify the line spacing for a paragraph in points, use a negative value.
@@ -511,13 +511,13 @@ This PHP code shows you how to specify the line spacing for a paragraph:
 ```
 
 ## **Set the AutofitType Property for a TextFrame**
-In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for PHP via Java allows developers to set AutofitType property of any text frame. AutofitType could be set to [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Normal) or [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Shape). If set to [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Normal) then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Shape), then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
+In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for PHP via Java allows developers to set AutofitType property of any text frame. AutofitType could be set to [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) or [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape). If set to [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape), then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Access the first slide.
 3. Add any shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set the AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
+4. Access the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Set the autofit type](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setautofittype/) of the TextFrame.
 6. Save file to disk.
 
 ```php
@@ -551,13 +551,13 @@ In this topic, we will explore the different formatting properties of text frame
 ```
 
 ## **Set the Anchor of a TextFrame**
-Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. AnchorType could be set to [Top](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Justified) or [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Distributed). To set Anchor of any TextFrame, please follow the steps below:
+Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. AnchorType could be set to [Top](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Top), [Center](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Center), [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Bottom), [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Justified) or [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Distributed). To set Anchor of any TextFrame, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Access the first slide.
 3. Add any shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set TextAnchorType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
+4. Access the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Set the text anchor type](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setanchoringtype/) of the TextFrame.
 6. Save file to disk.
 
 ```php

@@ -185,7 +185,7 @@ Aspose.Slides for PHP via Java allows developers to reorder the shapes. Reorderi
 ```
 
 ## **Get the Interop Shape ID**
-Aspose.Slides for PHP via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
+Aspose.Slides for PHP via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getuniqueid/) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) was added to [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -201,8 +201,8 @@ Aspose.Slides for PHP via Java allows developers to get a unique shape identifie
 
 ## **Set Alternative Text for a Shape**
 Aspose.Slides for PHP via Java allows developers to set AlternateText of any shape.
-Shapes in a presentation could be distinguished by the [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setName-java.lang.String-) method.
-[setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
+Shapes in a presentation could be distinguished by the `Alternative Text` or [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) method.
+[setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) and [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
 By using this method, you can tag a shape and can perform different operations as Removing a shape,
 Hiding a shape or Reordering shapes on a slide.
 To set the AlternateText of a shape, please follow the steps below:
@@ -263,7 +263,7 @@ Below sample code is given.
 ```
 
 ## **Render a Shape as SVG**
-Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```php
   $pres = new Presentation("TestExportShapeToSvg.pptx");
@@ -285,7 +285,7 @@ Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method 
 ```
 
 ## **Align a Shape**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.alignShape()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) has been added. The [ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/ShapesAlignmentType) enumeration defines possible alignment options.
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil::alignShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/alignshapes/) has been added. The [ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/shapesalignmenttype/) enumeration defines possible alignment options.
 
 **Example 1**
 

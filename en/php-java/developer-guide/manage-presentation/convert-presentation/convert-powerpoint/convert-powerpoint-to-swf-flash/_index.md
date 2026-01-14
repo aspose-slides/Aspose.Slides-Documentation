@@ -32,7 +32,8 @@ description: "Convert PowerPoint (PPT/PPTX) to SWF Flash in PHP with Aspose.Slid
 ---
 
 ## **Convert Presentations to Flash**
-The [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**ISWFOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/ISwfOptions) class and [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/INotesCommentsLayoutingOptions) interface.
+
+The [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) method exposed by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class can be used to convert the whole presentation into an **SWF** document. The following example shows how to convert a presentation into an **SWF** document by using the options provided by the [SWFOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/) class. You can also include comments in the generated SWF by using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) class.
 
 ```php
   $pres = new Presentation("Sample.pptx");

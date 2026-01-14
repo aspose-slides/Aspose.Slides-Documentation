@@ -296,7 +296,7 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
-Aspose.Slides for PHP via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) class. 
+Aspose.Slides for PHP via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) and [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) have been added to the [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) class. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class object.
 1. Add chart on the slide.

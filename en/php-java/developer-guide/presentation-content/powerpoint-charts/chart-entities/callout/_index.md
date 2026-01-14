@@ -16,7 +16,7 @@ description: "Create and style callouts in Aspose.Slides for PHP via Java with c
 ---
 
 ## **Using Callouts**
-New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) class and [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) interface. These methods determine either specified chart's data label will be displayed as data callout or as data label.
+New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/getshowlabelasdatacallout/) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlabelasdatacallout/) have been added to [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) class. These methods determine either specified chart's data label will be displayed as data callout or as data label.
 
 ```php
   $pres = new Presentation();
