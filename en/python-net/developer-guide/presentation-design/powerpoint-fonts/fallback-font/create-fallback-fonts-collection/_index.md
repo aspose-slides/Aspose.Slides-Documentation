@@ -20,11 +20,11 @@ description: "Set up a fallback fonts collection in Aspose.Slides for Python via
 
 ## **Apply Fallback Rules**
 
-Instances of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) interface. It is possible to add or remove rules from the collection.
+Instances of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/). It is possible to add or remove rules from the collection.
 
-Then this collection may be assigned to [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)property of the [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/python-net/about-fontsmanager-and-fontsloader/).
+Then this collection may be assigned to [font_fall_back_rules_collection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_fall_back_rules_collection/) property of the [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/python-net/about-fontsmanager-and-fontsloader/).
 
-Each [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)has a [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)property with its own instance of the FontsManager class.
+Each [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) has a [fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) property with its own instance of the FontsManager class.
 
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 

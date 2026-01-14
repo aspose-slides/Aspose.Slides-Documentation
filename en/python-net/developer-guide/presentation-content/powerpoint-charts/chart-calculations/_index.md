@@ -22,7 +22,7 @@ description: "Understand chart calculations, data updates, and precision control
 ---
 
 ## **Calculate Actual Values of Chart Elements**
-Aspose.Slides for Python via .NET provides a simple API for getting these properties. This will help you to Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
+Aspose.Slides for Python via .NET provides a simple API for getting these properties. This will help you to Calculates actual values of chart elements. The actual values include position of elements that inherit [IActualLayout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/iactuallayout/) class (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 
 ```py
 import aspose.slides.charts as charts

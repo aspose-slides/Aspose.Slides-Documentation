@@ -80,7 +80,7 @@ fraction = math.MathematicalText("x").divide("y")
 math_paragraph.add(math.MathBlock(fraction))
 ``` 
 
-Each mathematical element is represented by a class that implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) interface. This interface provides numerous methods to easily create mathematical expressions, enabling you to construct fairly complex equations with just a single line of code. For example, the Pythagorean theorem would look like this:
+Each mathematical element is represented by a class that implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) class. This class provides numerous methods to easily create mathematical expressions, enabling you to construct fairly complex equations with just a single line of code. For example, the Pythagorean theorem would look like this:
 
 ```py
 math_block = (
@@ -91,7 +91,7 @@ math_block = (
         join(math.MathematicalText("b").set_superscript("2")))
 ```
 
-Operations of the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) interface are implemented in every type of element, including the [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) class.
+Operations of the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) class are implemented in every type of element, including the [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) class.
 
 Below is the full source code sample:
 
@@ -125,7 +125,7 @@ Mathematical expressions are composed of sequences of mathematical elements. A m
 
 There are many types of mathematical elements that can be used to construct a mathematical block. Each of these elements can be aggregated within another, forming a tree-like structure. The simplest type of element is one that does not contain any other mathematical text elements.
 
-Each type of math element implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) interface, allowing you to use a common set of math operations on different types of math elements.
+Each type of math element implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) class, allowing you to use a common set of math operations on different types of math elements.
 
 ### **MathematicalText class**
 
@@ -244,7 +244,7 @@ Example:
 
 ## **Mathematical Operations**
 
-Each mathematical element and each mathematical expression (via [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)) implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) interface. This allows you to perform operations on the existing structure and form more complex mathematical expressions. All operations have two sets of parameters: either [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) or string arguments. Instances of the [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
+Each mathematical element and each mathematical expression (via [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)) implements the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) class. This allows you to perform operations on the existing structure and form more complex mathematical expressions. All operations have two sets of parameters: either [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) or string arguments. Instances of the [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
 
 ### **Join method**
 
@@ -365,7 +365,7 @@ Let's consider an expression: 
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-Such expressions can be created through a combination of the [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/) and [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/) classes, along with operations of the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) interface, as follows:
+Such expressions can be created through a combination of the [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/) and [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/) classes, along with operations of the [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) class, as follows:
 
 ```py
 math_expression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")

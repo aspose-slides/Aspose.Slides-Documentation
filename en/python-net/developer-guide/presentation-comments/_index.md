@@ -32,8 +32,8 @@ You may want to use comments to provide feedback or communicate with your collea
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for Python via .NET provides
 
 * The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class , which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) property). The authors add comments to slides. 
-* The  [ICommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icommentcollection/) interface, which contains the collection of comments for individual authors. 
-* The [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The  [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) class, which contains the collection of comments for individual authors. 
+* The [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
 * The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
 ## **Add Slide Comment**
@@ -98,7 +98,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `parent_comment` property (from the [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `parent_comment` property (from the [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class), you can set or get a parent comment. 
 
 This Python code shows you how to add comments and get replies to them:
 
@@ -153,7 +153,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the `Remove` method (from the [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* When the `remove` method (from the [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class) is used to delete a comment, the replies to the comment also get deleted. 
 * If the `parent_comment` setting results in a circular reference, `PptxEditException` will be thrown.
 
 {{% /alert %}}

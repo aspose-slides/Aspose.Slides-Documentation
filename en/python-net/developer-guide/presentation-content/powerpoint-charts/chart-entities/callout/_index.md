@@ -14,7 +14,7 @@ description: "Create and style callouts in Aspose.Slides for Python .NET with co
 ---
 
 ## **Using Callouts**
-New property **ShowLabelAsDataCallout** has been added to **DataLabelFormat** class and **IDataLabelFormat** interface, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
+New property **show_label_as_data_callout** has been added to **DataLabelFormat** class, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
 
 ```py
 import aspose.slides as slides

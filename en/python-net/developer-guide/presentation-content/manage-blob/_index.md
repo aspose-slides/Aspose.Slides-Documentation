@@ -96,7 +96,7 @@ with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) interface and [**ImageCollection** ](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/)class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**ImageCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This Python code shows you how to add a large image through the BLOB process:
 

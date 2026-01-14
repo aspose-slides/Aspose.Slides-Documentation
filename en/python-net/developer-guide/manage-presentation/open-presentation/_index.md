@@ -101,7 +101,7 @@ When creating a presentation that contains large objects (video, audio, high-res
 
 ## **Control External Resources**
 
-Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following Python code shows how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) class that lets you manage external resources. The following Python code shows how to use the `IResourceLoadingCallback` class:
 
 ```python
 # [TODO[not_supported_yet]: python implementation of .NET interfaces]
