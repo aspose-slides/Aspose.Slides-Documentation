@@ -1,40 +1,71 @@
 ---
-title: Экспорт презентаций в HTML с внешне связанными изображениями
+title: Экспорт презентаций в HTML с внешними связанными изображениями на Python
+linktitle: Экспорт презентаций в HTML с внешними связанными изображениями
 type: docs
 weight: 100
 url: /ru/python-net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- экспорт PowerPoint
+- экспорт OpenDocument
+- экспорт презентации
+- экспорт слайда
+- экспорт PPT
+- экспорт PPTX
+- экспорт ODP
+- PowerPoint в HTML
+- OpenDocument в HTML
+- презентация в HTML
+- слайд в HTML
+- PPT в HTML
+- PPTX в HTML
+- ODP в HTML
+- связанное изображение
+- внешнее связанное изображение
+- Python
+- Aspose.Slides
+description: "Узнайте, как экспортировать презентации в HTML с внешними связанными изображениями в Aspose.Slides для Python через .NET, охватывая форматы PowerPoint и OpenDocument."
 ---
 
 {{% alert color="primary" %}} 
 
-В этой статье описывается продвинутая техника, которая позволяет контролировать, какие ресурсы встраиваются в результирующий HTML-файл, а какие сохраняются отдельно и ссылаются на них из HTML-файла.
+Процесс экспорта презентации в HTML позволяет указать:
+
+1. какие ресурсы встраиваются в получающийся HTML‑файл, и
+1. какие ресурсы сохраняются внешне и ссылаются из HTML‑файла.
 
 {{% /alert %}} 
-## **Предыстория**
-По умолчанию поведение экспорта в HTML заключается в встраивании любых ресурсов в HTML-файл. Такой подход приводит к созданию одного HTML-файла, который легко просматривать и распространять. Все необходимые ресурсы закодированы в base64. Но у этого подхода есть два недостатка:
 
-- Размер выходного файла значительно больше из-за кодирования в base64. *Трудно заменить изображения, содержащиеся в файле.
+## **Общие сведения**
 
-В этой статье мы увидим, как можем изменить поведение по умолчанию, используя **Aspose.Slides для Python через .NET**, чтобы связывать изображения внешне, а не встраивать их в HTML-файл. Мы будем использовать интерфейс **ILinkEmbedController**, который содержит три метода для управления процессом встраивания и сохранения ресурсов. Мы можем передать этот интерфейс в конструктор класса HtmlOptions при подготовке к экспорту.
+По умолчанию экспорт HTML встраивает все ресурсы напрямую в HTML с помощью кодирования Base64. Это создаёт один самодостаточный HTML‑файл, удобный для просмотра и распространения. Однако у этого подхода есть недостатки:
 
-Ниже представлен полный код класса **LinkController**, который реализует интерфейс **ILinkEmbedController**. Как уже упоминалось, LinkController должен реализовать интерфейс ILinkEmbedController. Этот интерфейс определяет три метода:
+* Получающийся файл значительно больше исходных ресурсов из‑за накладных расходов Base64.
+* Встроенные изображения и другие активы трудно обновлять или заменять.
 
-- **public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)** Он вызывается, когда экспортер встречает ресурс и необходимо решить, как его сохранить. Наиболее важные параметры - это ‘id’ – уникальный идентификатор ресурса для всей операции экспорта и ‘contentType’ – содержит MIME-тип ресурса. Если мы решим связать ресурс, мы должны вернуть LinkEmbedDecision.Link из этого метода. В противном случае должен быть возвращен LinkEmbedDecision.Embed для встраивания ресурса.
-- **public string GetUrl(int id, int referrer)** 
-  Он вызывается для получения URL ресурса в той форме, в какой он используется в результирующем файле, например, для тега <img src=”%method_result_here%”>. Ресурс идентифицируется по ‘id’.
-- **public void SaveExternal(int id, byte[] entityData)** 
-  Последний метод последовательности, он вызывается, когда необходимо сохранить ресурс отдельно. У нас есть идентификатор ресурса и содержимое ресурса в виде массива байтов. Что делать с предоставленными данными ресурса – решать нам.
+## **Альтернативный подход**
 
+Альтернативный подход с использованием [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) устраняет эти ограничения.
+
+Класс `LinkController` ниже реализует [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) и передаётся конструктору [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/__init__/#ilinkembedcontroller). Класс предоставляет три метода, которые управляют тем, как ресурсы встраиваются или связываются во время экспорта HTML:
+
+[get_object_storing_location(id, entity_data, semantic_name, content_type, recommended_extension)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_object_storing_location/#int-bytes-str-str-str): Вызывается, когда экспортер встречает ресурс и должен решить, где его сохранить. Наиболее важные параметры — `id` (уникальный идентификатор ресурса для данного запуска экспорта) и `content_type` (тип MIME ресурса). Возвратите [LinkEmbedDecision.LINK](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) чтобы связать ресурс, или [LinkEmbedDecision.EMBED](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) чтобы встроить его.
+
+[get_url(id, referrer)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_url/#int-int): Возвращает URL, который будет отображаться в результирующем HTML для ресурса, идентифицированного `id` (при необходимости с учётом объекта‑реферера).
+
+[save_external(id, entity_data)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/save_external/#int-bytes): Вызывается, когда ресурс, выбранный для ссылки, необходимо записать во внешнее хранилище. Поскольку идентификатор и содержимое предоставлены (в виде массива байтов), вы можете сохранять ресурс любым удобным способом.
+
+Ниже представлена реализация Python‑класса `LinkController` интерфейса [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/).
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: реализация .NET интерфейсов на python]
 ```
 
-После написания класса **LinkController** теперь мы будем использовать его с классом **HTMLOptions** для экспорта презентации в HTML с внешне связанными изображениями, используя следующий код.
 
+После реализации класса `LinkController` вы можете использовать его с классом [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/htmloptions/) для экспорта презентации в HTML с внешними ссылками на изображения, как показано ниже:
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: реализация .NET интерфейсов на python]
 ```
 
-Мы назначили **SlideImageFormat.Svg** свойству **SlideImageFormat**, что означает, что результирующий HTML-файл будет содержать данные SVG для отображения содержимого презентации.
 
-Что касается типов содержимого, это зависит от фактических данных изображений, содержащихся в презентации. Если в презентации есть растровые битмапы, тогда код класса должен быть готов обрабатывать как ‘image/jpeg’, так и ‘image/png’ типы содержимого. Фактический тип содержимого экспортируемых растровых битмапов может не совпадать с типами изображений, хранящимися в презентации. Внутренние алгоритмы Aspose.Slides производят оптимизацию размера и используют кодек JPG или PNG, в зависимости от того, какой генерирует меньший размер данных. Изображения, содержащие альфа-канал (прозрачность), всегда кодируются в PNG.
+Мы присвоили `SlideImageFormat.SVG` свойству `slide_image_format`, чтобы результирующий HTML‑файл содержал SVG‑данные для отображения содержимого презентации.
+
+Типы содержимого: если презентация содержит растровые битмапы, код класса должен быть готов обрабатывать типы содержимого `image/jpeg` и `image/png`. Содержимое экспортируемых изображений может отличаться от того, что хранится в презентации. Внутренние алгоритмы Aspose.Slides выполняют оптимизацию размеров и используют кодек JPEG или PNG (в зависимости от того, какой даёт меньший размер файла). Изображения с альфа‑каналом (прозрачность) всегда кодируются как PNG.

@@ -10,11 +10,11 @@ keywords:
 - Beschriftungsformat
 - Python
 - Aspose.Slides
-description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Python .NET mit kurzen Codebeispielen, kompatibel mit PPT, PPTX und ODP, um Präsentations‑Workflows zu automatisieren."
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Python .NET mit prägnanten Codebeispielen, kompatibel mit PPT, PPTX und ODP, um Präsentations-Workflows zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Die neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zum Interface **IDataLabelFormat** hinzugefügt. Sie bestimmt, ob das Datenbeschriftungselement eines angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird. Im nachfolgenden Beispiel haben wir die Callouts festgelegt.
+Neue Eigenschaft **show_label_as_data_callout** wurde zur Klasse **DataLabelFormat** hinzugefügt, die bestimmt, ob das Datenetikett eines angegebenen Diagramms als Daten‑Callout oder als Datenetikett angezeigt wird. Im nachstehenden Beispiel haben wir die Callouts gesetzt.
 ```py
 import aspose.slides as slides
 
@@ -27,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-
 ## **Callout für Donut‑Diagramm festlegen**
-Aspose.Slides for Python via .NET bietet Unterstützung zum Festlegen der Callout‑Form für Datenbeschriftungen von Serien in einem Donut‑Diagramm. Unten wird ein Beispiel gezeigt.
+Aspose.Slides für Python über .NET unterstützt das Festlegen der Callout‑Form für Datenetiketten einer Serie in einem Donut‑Diagramm. Im Folgenden finden Sie ein Beispiel.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -88,10 +86,10 @@ with slides.Presentation() as pres:
 
 ## **FAQ**
 
-**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
+**Werden Callouts beim Konvertieren einer Präsentation zu PDF, HTML5, SVG oder Bildern beibehalten?**
 
-Ja. Callouts sind Bestandteil der Diagrammdarstellung, sodass sie beim Export nach [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/python-net/export-to-html5/), [SVG](/slides/de/python-net/render-a-slide-as-an-svg-image/) oder [Rasterbildern](/slides/de/python-net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Exportieren zu [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/python-net/export-to-html5/), [SVG](/slides/de/python-net/render-a-slide-as-an-svg-image/), oder zu [Rasterbildern](/slides/de/python-net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
 
-**Funktionieren benutzerdefinierte Schriften in Callouts und kann ihr Aussehen beim Export beibehalten werden?**
+**Funktionieren benutzerdefinierte Schriftarten in Callouts und kann ihr Aussehen beim Export beibehalten werden?**
 
-Ja. Aspose.Slides unterstützt das [Einbetten von Schriften](/slides/de/python-net/embedded-font/) in die Präsentation und steuert das Schriftart‑Embedding bei Exporten wie [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriftarten](/slides/de/python-net/embedded-font/) in die Präsentation und steuert das Einbetten von Schriftarten während Exporte wie [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), um sicherzustellen, dass die Callouts auf verschiedenen Systemen gleich aussehen.

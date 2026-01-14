@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーションのビュー プロパティを取得および更新
+title: Python でプレゼンテーションのビュー プロパティを取得・更新
 linktitle: ビュー プロパティ
 type: docs
 weight: 80
@@ -9,26 +9,26 @@ keywords:
 - 標準ビュー
 - アウトライン コンテンツ
 - アウトライン アイコン
-- 垂直スプリッタのスナップ
+- 垂直スプリッタをスナップ
 - 単一ビュー
-- バー の状態
-- 寸法 サイズ
+- バーの状態
+- 寸法サイズ
 - 自動調整
 - デフォルト ズーム
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET のビュー プロパティを活用し、PPT、PPTX、ODP スライドの形式をカスタマイズします—レイアウト、ズームレベル、表示設定を調整できます。"
+description: "Aspose.Slides for Python via .NET のビュー プロパティを活用して、PPT、PPTX、ODP スライドの形式をカスタマイズし、レイアウト、ズーム レベル、表示設定を調整しましょう。"
 ---
 
 {{% alert color="primary" %}} 
 
-標準ビューは3つのコンテンツ領域で構成されます：スライド自体、サイドコンテンツ領域、そして下部コンテンツ領域です。各コンテンツ領域の配置に関するプロパティです。この情報により、アプリケーションはビュー状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存された時と同じ状態でビューが復元されます。
+標準ビューは、スライド自体、サイド コンテンツ領域、下部コンテンツ領域の 3 つのコンテンツ領域で構成されます。これらのコンテンツ領域の配置に関するプロパティです。この情報により、アプリケーションはビューの状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態で表示されます。
 
-プロパティ [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/iviewproperties/) が追加され、プレゼンテーションの標準ビュー プロパティへのアクセスが可能になりました。
+Property [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) が追加され、プレゼンテーションの標準ビュー プロパティにアクセスできるようになりました。
 
-[INormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/inormalviewproperties/)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/inormalviewrestoredproperties/) インターフェイスとその子孫である [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) 列挙体が追加されました。
+[NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/) クラスとその派生クラス、[SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) 列挙体が追加されました。
 
 {{% /alert %}} 
 
@@ -36,26 +36,25 @@ description: "Aspose.Slides for Python via .NET のビュー プロパティを�
 
 標準ビューのプロパティを表します。
 
-プロパティ **ShowOutlineIcons** は、標準ビュー モードの任意のコンテンツ領域でアウトライン コンテンツを表示する際に、アプリケーションがアイコンを表示すべきかどうかを指定します。
+Property **ShowOutlineIcons** は、標準ビュー モードの任意のコンテンツ領域でアウトライン コンテンツを表示する場合に、アプリケーションがアイコンを表示するかどうかを指定します。
 
-プロパティ **SnapVerticalSplitter** は、サイド領域が十分に小さい場合に、垂直スプリッタが最小化状態にスナップすべきかどうかを指定します。
+Property **SnapVerticalSplitter** は、サイド領域が十分に小さくなったときに、垂直スプリッタが最小化状態にスナップするかどうかを指定します。
 
-プロパティ **PreferSingleView** は、ユーザーが標準の3領域ビューではなく、全画面の単一コンテンツ領域を好むかどうかを指定します。有効にすると、アプリケーションはコンテンツ領域のいずれかをウィンドウ全体に表示することを選択できる場合があります。
+Property **PreferSingleView** は、ユーザーが 3 つのコンテンツ領域を持つ標準ビューではなく、ウィンドウ全体に単一のコンテンツ領域を表示するフルウィンドウ表示を好むかどうかを指定します。有効にすると、アプリケーションはコンテンツ領域のいずれかをウィンドウ全体に表示することを選択できる場合があります。
 
-プロパティ **VerticalBarState** と **HorizontalBarState** は、水平または垂直スプリッタバーが表示される状態を指定します。水平スプリッタバーはスライドとスライド下部のコンテンツ領域を分離し、垂直スプリッタバーはスライドとサイドコンテンツ領域を分離します。可能な値は **SplitterBarStateType.Minimized**、**SplitterBarStateType.Maximized**、**SplitterBarStateType.Restored** です。
+Property **VerticalBarState** と **HorizontalBarState** は、水平または垂直のスプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとスライド下部のコンテンツ領域を分離し、垂直スプリッタ バーはスライドとサイド コンテンツ領域を分離します。可能な値は **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized**, **SplitterBarStateType.Restored** です。
 
-プロパティ **RestoredLeft** と **RestoredTop** は、**VerticalBarState** と **HorizontalBarState** に **SplitterBarStateType.Restored** が適用された場合の、標準ビューにおける上部またはサイドのスライド領域のサイズを指定します。
+Property **RestoredLeft** と **RestoredTop** は、**VerticalBarState** と **HorizontalBarState** にそれぞれ **SplitterBarStateType.Restored** が適用されたときの、標準ビューにおける上部または側面スライド領域のサイズを指定します。
 
-## **INormalViewProperties の復元について** 
+## **INormalViewProperties の復元について**
 
-標準ビューにおけるスライド領域のサイズ（RestoredTop の子の場合は幅、RestoredLeft の子の場合は高さ）を、領域が可変の復元サイズ（最小化でも最大化でもない）である場合に指定します。
+領域が可変の復元サイズ（最小化でも最大化でもない）である場合の、標準ビューにおけるスライド領域（RestoredTop の子の場合は幅、RestoredLeft の子の場合は高さ）のサイズを指定します。
 
-プロパティ **DimensionSize** は、スライド領域のサイズ（restoredTop の子の場合は幅、restoredLeft の子の場合は高さ）を指定します。
+Property **DimensionSize** は、RestoredTop の子の場合は幅、RestoredLeft の子の場合は高さとして、スライド領域のサイズを指定します。
 
-プロパティ **AutoAdjust** は、アプリケーション内でビューを含むウィンドウのサイズを変更した際に、サイドコンテンツ領域のサイズが新しいサイズに合わせて補正されるべきかどうかを指定します。
+Property **AutoAdjust** は、ウィンドウのサイズを変更したときに、サイド コンテンツ領域のサイズが新しいサイズに合わせて調整されるかどうかを指定します。
 
-以下の例は、プレゼンテーションの **ViewProperties.NormalViewProperties** プロパティにアクセスする方法を示しています。
-
+以下の例では、プレゼンテーションの **ViewProperties.NormalViewProperties** プロパティにアクセスする方法を示しています。
 ```py
 import aspose.slides as slides
 
@@ -72,18 +71,17 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
 ```
 
 
-## **デフォルトのズーム値を設定** 
+## **デフォルト ズーム値の設定** 
 
-Aspose.Slides for Python via .NET は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルトのズーム値を設定する機能をサポートしました。これはプレゼンテーションの [view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) を設定することで実現できます。スライド ビュー プロパティおよび [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) もプログラムから設定可能です。このトピックでは、Aspose.Slides でプレゼンテーションのビュー プロパティを設定する例を示します。
+Aspose.Slides for Python via .NET は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルト ズーム値を設定できるようになりました。これは、プレゼンテーションの [view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) を設定することで実現できます。スライド ビュー プロパティだけでなく、[notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) もプログラムで設定可能です。このトピックでは、Aspose.Slides でプレゼンテーションのビュー プロパティを設定する例を示します。
 
 ビュー プロパティを設定するには、以下の手順に従ってください。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成する
-1. プレゼンテーションのビュー [Properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) を設定する
-1. プレゼンテーションを PPTX ファイルとして保存する
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します
+2. プレゼンテーションの [view properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) を設定します
+3. プレゼンテーションを PPTX ファイルとして保存します
 
-以下の例では、スライド ビューとノート ビューのズーム値を設定しています。
-
+以下の例では、スライド ビューとノート ビューの両方のズーム値を設定しています。
 ```py
 import aspose.slides as slides
 
@@ -98,14 +96,14 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 ## **FAQ** 
 
-**プレゼンテーションの異なるセクションに対して異なるビュー設定を設定できますか？**  
+**プレゼンテーションの異なるセクションごとに異なるビュー設定を設定できますか？**  
 
-[View settings](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) はプレゼンテーションレベルで定義されており（[Normal View](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/)）、セクション単位ではありません。そのため、開く際にはドキュメント全体に単一のパラメータセットが適用されます。
+[View settings](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) はプレゼンテーション レベル（[Normal View](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/)）で定義されており、セクションごとではありません。そのため、ドキュメント全体に対して 1 つのパラメータセットが適用され、開くときに同じ設定が使用されます。
 
-**異なるユーザー向けに異なるビュー状態を事前に定義できますか？**  
+**異なるユーザー向けに異なるビュー状態を事前定義できますか？**  
 
-いいえ。設定はファイルに保存されて共有されます。ビューアー アプリケーションはユーザーの設定を尊重することがありますが、ファイル自体は 1 つのビュー プロパティのセットしか含みません。
+できません。設定はファイルに保存され、すべてのユーザーで共有されます。ビューア アプリケーションはユーザーの好みを考慮できる場合がありますが、ファイル自体には 1 つのビュー プロパティ セットしか含まれません。
 
-**事前にビュー プロパティが設定されたテンプレートを用意すれば、新しいプレゼンテーションが同じ方式で開くようにできますか？**  
+**事前定義されたビュー プロパティを含むテンプレートを作成し、新しいプレゼンテーションを同じ設定で開くことができますか？**  
 
-はい。[view properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) はプレゼンテーションレベルで保存されるため、テンプレートに埋め込んでおけば、同じ初期ビュー構成で新しいドキュメントを作成できます。
+はい。[view properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) がプレゼンテーション レベルに保存されるため、テンプレートに埋め込んでおけば、そのテンプレートから作成した新しいドキュメントは同じ初期ビュー構成で開きます。

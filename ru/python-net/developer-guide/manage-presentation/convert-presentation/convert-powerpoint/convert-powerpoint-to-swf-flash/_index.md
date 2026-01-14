@@ -17,43 +17,43 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на Python с Aspose.Slides. Пошаговые примеры кода, быстрый качественный вывод, без автоматизации PowerPoint."
+description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на Python с помощью Aspose.Slides. Пошаговые примеры кода, быстрое качественное вывод, без автоматизации PowerPoint."
 ---
 
 ## **Конвертировать презентации в Flash**
 
-Метод [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) можно использовать для преобразования всей презентации в документ SWF. Вы также можете включать комментарии в генерируемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) и интерфейс [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/inotescommentslayoutingoptions/). Следующий пример показывает, как конвертировать презентацию в документ SWF с помощью параметров, предоставляемых классом SWFOptions.
+Метод [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) можно использовать для преобразования всей презентации в документ SWF. Вы также можете включить комментарии в генерируемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) и класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/). Следующий пример показывает, как конвертировать презентацию в документ SWF, используя параметры, предоставленные классом SWFOptions.
 ```py
 import aspose.slides as slides
 
-# Создать объект Presentation, представляющий файл презентации
+# Создать объект Presentation, который представляет файл презентации
 presentation = slides.Presentation("pres.pptx")
 
 swfOptions = slides.export.SwfOptions()
 swfOptions.viewer_included = False
 swfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-# Сохранить презентацию и страницы заметок
+# Сохранение презентации и страниц заметок
 presentation.save("SaveAsSwf_out.swf", slides.export.SaveFormat.SWF, swfOptions)
 swfOptions.viewer_included = True
 presentation.save("SaveNotes_out.swf", slides.export.SaveFormat.SWF, swfOptions)
 ```
 
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Могу ли я включить скрытые слайды в SWF?**
 
 Да. Включите параметр [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/show_hidden_slides/) в [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/). По умолчанию скрытые слайды не экспортируются.
 
-**Как я могу контролировать сжатие и конечный размер SWF?**
+**Как я могу управлять сжатием и конечным размером SWF?**
 
-Используйте флаг [compressed](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/compressed/) (по умолчанию включён) и настройте [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/jpeg_quality/), чтобы сбалансировать размер файла и качество изображения.
+Используйте флаг [compressed](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/compressed/) (включён по умолчанию) и настройте [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/jpeg_quality/), чтобы сбалансировать размер файла и качество изображения.
 
-**Для чего нужен 'viewer_included' и когда его следует отключать?**
+**Для чего предназначен 'viewer_included' и когда его следует отключить?**
 
-[viewer_included](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/viewer_included/) добавляет встроенный пользовательский интерфейс проигрывателя (элементы навигации, панели, поиск). Отключите его, если планируете использовать собственный проигрыватель или нужен чистый SWF без интерфейса.
+[viewer_included](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/viewer_included/) добавляет встроенный пользовательский интерфейс плеера (элементы навигации, панели, поиск). Отключите его, если планируете использовать собственный плеер или вам нужен чистый кадр SWF без интерфейса.
 
 **Что происходит, если исходный шрифт отсутствует на машине экспорта?**
 
-Aspose.Slides заменит шрифт, указанный через [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/default_regular_font/) в [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/), чтобы избежать нежелательного отката.
+Aspose.Slides заменит шрифт, указанный через [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/default_regular_font/) в [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/), чтобы избежать непреднамеренного fallback.

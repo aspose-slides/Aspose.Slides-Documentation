@@ -14,10 +14,10 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- & OpenDocument-Dateien mit Aspose.Slides für Python über .NET digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für Python über .NET digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
 ---
 
-**Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint-Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um über Datei -> Informationen -> Präsentation schützen eine digitale Signatur zur Präsentation hinzuzufügen:
+**Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation über Datei->Info->Präsentation schützen eine digitale Signatur hinzuzufügen:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
@@ -25,23 +25,24 @@ Eine Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die d
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
-Um eine Präsentation zu signieren oder die Authentizität von Präsentationssignaturen zu überprüfen, stellt die **Aspose.Slides API** die Schnittstelle [**IDigitalSignature**](https://reference.aspose.com/slides/python-net/aspose.slides/idigitalsignature/), die Schnittstelle [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/IDigitalSignatureCollection/) und[**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) bereit. Derzeit werden digitale Signaturen nur für das PPTX-Format unterstützt.
-## **Digitale Signatur aus PFX-Zertifikat hinzufügen**
-Das untenstehende Code‑Beispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
+Um eine Präsentation zu signieren oder die Echtheit von Präsentationssignaturen zu prüfen, stellt die **Aspose.Slides API** die Klasse [**DigitalSignature**](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignature/) bereit, die Klasse [**DigitalSignatureCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/DigitalSignatureCollection/) und die Eigenschaft [**Presentation.digital_signatures**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/digital_signatures/). Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
+
+## **Digitale Signatur aus PFX‑Zertifikat hinzufügen**
+
+Das folgende Codebeispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
 
 1. Öffnen Sie die PFX‑Datei und übergeben Sie das PFX‑Passwort an das Objekt [**DigitalSignature**](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignature/).
 2. Fügen Sie die erstellte Signatur dem Präsentationsobjekt hinzu.
 ```py
-
-#[TODO:Exception] RuntimeError: Proxy-Fehler(FileNotFoundException): Datei oder Assembly 'System.Security.Cryptography.Xml, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' konnte nicht geladen werden. Datei wurde nicht gefunden.
+#[TODO:Exception] Laufzeitfehler: Proxy-Fehler(FileNotFoundException): Datei oder Assembly 'System.Security.Cryptography.Xml, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' konnte nicht geladen werden. Datei wurde nicht gefunden.
 
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-    # DigitalSignature-Objekt mit PFX-Datei und PFX-Passwort erstellen
+    # DigitalSignature-Objekt mit PFX-Datei und PFX-Passwort erstellen 
     signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
 
-    # Kommentar zur neuen digitalen Signatur
+    # Kommentar für neue digitale Signatur
     signature.comments = "Aspose.Slides digital signing test."
 
     # Digitale Signatur zur Präsentation hinzufügen
@@ -60,7 +61,7 @@ with slides.Presentation("SomePresentationSigned.pptx") as pres:
         allSignaturesAreValid = True
 
         print("Signatures used to sign the presentation: ")
-        # Prüfen, ob alle digitalen Signaturen gültig sind
+        # Prüfe, ob alle digitalen Signaturen gültig sind
         for signature in pres.digital_signatures :
             print(signature.certificate.subject_name.name + ", "
                     + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
@@ -78,12 +79,12 @@ with slides.Presentation("SomePresentationSigned.pptx") as pres:
 
 **Kann ich vorhandene Signaturen aus einer Datei entfernen?**
 
-Ja. Die Sammlung digitaler Signaturen unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/remove_at/) und das [Komplett leeren](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/clear/); nachdem Sie die Datei gespeichert haben, enthält die Präsentation keine Signaturen mehr.
+Ja. Die Sammlung digitaler Signaturen unterstützt das [removing individual items](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/remove_at/) und das [clearing it entirely](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/clear/); nachdem Sie die Datei gespeichert haben, enthält die Präsentation keine Signaturen mehr.
 
 **Wird die Datei nach dem Signieren "schreibgeschützt"?**
 
-Nein. Eine Signatur bewahrt die Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten einzuschränken, kombinieren Sie sie mit ["Schreibgeschützt" oder einem Passwort](/slides/de/python-net/password-protected-presentation/).
+Nein. Eine Signatur bewahrt Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten einzuschränken, kombinieren Sie sie mit ["Read-only" oder einem Passwort](/slides/de/python-net/password-protected-presentation/).
 
-**Wird die Signatur in verschiedenen PowerPoint-Versionen korrekt angezeigt?**
+**Wird die Signatur in verschiedenen PowerPoint‑Versionen korrekt angezeigt?**
 
 Die Signatur wird für den OOXML‑Container (PPTX) erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.

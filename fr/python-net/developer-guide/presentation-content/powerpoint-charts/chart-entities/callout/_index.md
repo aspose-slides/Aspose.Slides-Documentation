@@ -1,20 +1,20 @@
 ---
-title: Gérer les callouts dans les graphiques de présentation avec Python
-linktitle: Appel
+title: Gérer les infobulles dans les graphiques de présentation avec Python
+linktitle: Infobulle
 type: docs
 url: /fr/python-net/callout/
 keywords:
-- callout de graphique
-- utiliser le callout
+- infobulle de graphique
+- utiliser infobulle
 - étiquette de données
 - format d'étiquette
 - Python
 - Aspose.Slides
-description: "Créer et styliser des callouts dans Aspose.Slides pour Python .NET avec des exemples de code concis, compatibles avec PPT, PPTX et ODP pour automatiser les flux de travail de présentation."
+description: "Créer et styliser les infobulles dans Aspose.Slides pour Python .NET avec des exemples de code concis, compatibles avec PPT, PPTX et ODP pour automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des callouts**
-La nouvelle propriété **ShowLabelAsDataCallout** a été ajoutée à la classe **DataLabelFormat** et à l'interface **IDataLabelFormat**, ce qui détermine si l'étiquette de données d'un graphique spécifié sera affichée comme callout ou comme étiquette de données. Dans l'exemple ci-dessous, nous avons configuré les callouts.
+## **Utilisation des infobulles**
+Nouvelle propriété **show_label_as_data_callout** a été ajoutée à la classe **DataLabelFormat**, qui détermine si l’étiquette de données du graphique spécifié sera affichée sous forme d’infobulle ou d’étiquette de données. Dans l’exemple ci‑dessous, nous avons configuré les infobulles.
 ```py
 import aspose.slides as slides
 
@@ -27,8 +27,10 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Définir le callout pour le graphique anneau**
-Aspose.Slides for Python via .NET prend en charge la définition de la forme du callout d'étiquette de données de série pour un graphique anneau. L'exemple suivant est fourni.
+
+
+## **Définir l’infobulle pour le graphique en anneau**
+Aspose.Slides for Python via .NET offre la prise en charge de la définition de la forme d’infobulle d’étiquette de données de série pour un graphique en anneau. L’exemple ci‑dessous est fourni.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -86,10 +88,10 @@ with slides.Presentation() as pres:
 
 ## **FAQ**
 
-**Les callouts sont-ils conservés lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
+**Les infobulles sont‑elles conservées lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
 
-Oui. Les callouts font partie du rendu du graphique, donc lors de l’exportation vers [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/python-net/export-to-html5/), [SVG](/slides/fr/python-net/render-a-slide-as-an-svg-image/), ou [images raster](/slides/fr/python-net/convert-powerpoint-to-png/), ils sont conservés avec le formatage de la diapositive.
+Oui. Les infobulles font partie du rendu du graphique, donc lors de l’exportation vers [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/python-net/export-to-html5/), [SVG](/slides/fr/python-net/render-a-slide-as-an-svg-image/), ou [images raster](/slides/fr/python-net/convert-powerpoint-to-png/), elles sont conservées avec le formatage de la diapositive.
 
-**Les polices personnalisées fonctionnent-elles dans les callouts, et leur apparence peut-elle être préservée à l’exportation ?**
+**Les polices personnalisées fonctionnent‑elles dans les infobulles, et leur apparence peut‑elle être conservée à l’exportation ?**
 
-Oui. Aspose.Slides prend en charge [l’incorporation de polices](/slides/fr/python-net/embedded-font/) dans la présentation et contrôle l’incorporation des polices lors des exportations telles que [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), garantissant que les callouts conservent le même aspect sur différents systèmes.
+Oui. Aspose.Slides prend en charge [l’intégration de polices](/slides/fr/python-net/embedded-font/) dans la présentation et contrôle l’intégration des polices lors des exportations comme le [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), garantissant que les infobulles conservent le même aspect sur différents systèmes.

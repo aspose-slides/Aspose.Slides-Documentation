@@ -6,7 +6,7 @@ weight: 50
 url: /ru/python-net/chart-calculations/
 keywords:
 - вычисления диаграмм
-- элементы диаграмм
+- элементы диаграммы
 - позиция элемента
 - фактическая позиция
 - дочерний элемент
@@ -22,7 +22,7 @@ description: "Поймите вычисления диаграмм, обновл
 ---
 
 ## **Вычисление фактических значений элементов диаграммы**
-Aspose.Slides for Python via .NET предоставляет простой API для получения этих свойств. Это поможет вам вычислять фактические значения элементов диаграммы. Фактические значения включают позицию элементов, реализующих интерфейс IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) и фактические значения осей (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
+Aspose.Slides for Python via .NET предоставляет простой API для получения этих свойств. Это поможет вам вычислять фактические значения элементов диаграммы. Фактические значения включают положение элементов, наследующих класс [IActualLayout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/iactuallayout/) (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) и фактические значения осей (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -36,6 +36,8 @@ with slides.Presentation("pres.pptx") as pres:
     majorUnit = chart.axes.horizontal_axis.actual_major_unit
     minorUnit = chart.axes.horizontal_axis.actual_minor_unit
 ```
+
+
 
 
 ## **Вычисление фактической позиции родительских элементов диаграммы**
@@ -55,8 +57,10 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-## **Скрыть информацию в диаграмме**
-Эта статья помогает понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Python via .NET вы можете скрыть **Заголовок, Вертикальная ось, Горизонтальная ось** и **Линии сетки** на диаграмме. Ниже приведён пример кода, показывающий, как использовать эти свойства.
+
+
+## **Скрытие информации на диаграмме**
+Эта тема поможет вам понять, как скрыть информацию на диаграмме. С помощью Aspose.Slides for Python via .NET вы можете скрыть **Заголовок, Вертикальная ось, Горизонтальная ось** и **Линии сетки** на диаграмме. Ниже приведён пример кода, показывающий, как использовать эти свойства.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -71,7 +75,7 @@ with slides.Presentation() as pres:
     # Скрытие оси значений
     chart.axes.vertical_axis.is_visible = False
 
-    # Видимость оси категорий
+    # Видимость категориальной оси
     chart.axes.horizontal_axis.is_visible = False
 
     # Скрытие легенды
@@ -101,14 +105,14 @@ with slides.Presentation() as pres:
 
 ## **FAQ**
 
-**Можно ли использовать внешние книги Excel в качестве источника данных и как это влияет на перерасчёт?**
+**Работают ли внешние книги Excel в качестве источника данных и как это влияет на пересчёт?**
 
-Да. Диаграмма может ссылаться на внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отображает изменения во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) и управлять связанными данными.
+Да. Диаграмма может ссылаться на внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отражает изменения во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) и управлять связанными данными.
 
 **Могу ли я вычислять и отображать линии тренда без самостоятельной реализации регрессии?**
 
-Да. [Линии тренда](/slides/ru/python-net/trend-line/) (линейные, экспоненциальные и другие) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются из данных сериалов, поэтому вам не нужно реализовывать собственные расчёты.
+Да. [Линии тренда](/slides/ru/python-net/trend-line/) (линейные, экспоненциальные и другие) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются на основе данных серий, поэтому вам не нужно реализовывать собственные расчёты.
 
-**Если презентация содержит несколько диаграмм с внешними ссылками, могу ли я управлять тем, какую книгу каждая диаграмма использует для вычисляемых значений?**
+**Если презентация содержит несколько диаграмм со внешними ссылками, могу ли я управлять тем, какую книгу каждая диаграмма использует для вычисляемых значений?**
 
-Да. Каждая диаграмма может указывать на свою собственную [внешнюю книгу](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), либо вы можете создать/заменить внешнюю книгу для каждой диаграммы независимо от остальных.
+Да. Каждая диаграмма может указывать на свою собственную [внешнюю книгу](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), или вы можете создавать/заменять внешнюю книгу для каждой диаграммы независимо от остальных.

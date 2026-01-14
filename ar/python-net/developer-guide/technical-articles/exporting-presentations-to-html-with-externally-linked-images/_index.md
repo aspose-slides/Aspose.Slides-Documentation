@@ -1,40 +1,64 @@
 ---
-title: تصدير العروض التقديمية إلى HTML مع الصور المرتبطة خارجيًا
+title: تصدير العروض التقديمية إلى HTML مع صور مرتبطة خارجيًا في بايثون
+linktitle: تصدير العروض التقديمية إلى HTML مع صور مرتبطة
 type: docs
 weight: 100
 url: /ar/python-net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- تصدير PowerPoint
+- تصدير OpenDocument
+- تصدير عرض تقديمي
+- تصدير شريحة
+- تصدير PPT
+- تصدير PPTX
+- تصدير ODP
+- PowerPoint إلى HTML
+- OpenDocument إلى HTML
+- عرض تقديمي إلى HTML
+- شريحة إلى HTML
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- صورة مرتبطة
+- صورة مرتبطة خارجيًا
+- Python
+- Aspose.Slides
+description: "تعرف على كيفية تصدير العروض التقديمية إلى HTML مع صور مرتبطة خارجيًا في Aspose.Slides للبايثون عبر .NET، مع تغطية صيغ PowerPoint وOpenDocument."
 ---
 
 {{% alert color="primary" %}} 
-
-تصف هذه المقالة تقنية متقدمة تتيح التحكم في الموارد التي يتم تضمينها في ملف HTML الناتج وتلك التي يتم حفظها خارجيًا والمرتبطة من ملف HTML.
-
+تتيح لك عملية تصدير العرض التقديمي إلى HTML تحديد:
+1. الموارد التي يتم تضمينها في ملف HTML الناتج، و
+1. الموارد التي يتم حفظها خارجيًا ويتم الإشارة إليها من ملف HTML.
 {{% /alert %}} 
-## **خلفية**
-السلوك الافتراضي لتصدير HTML هو تضمين أي مورد داخل ملف HTML. تؤدي هذه الطريقة إلى ملف HTML واحد يسهل مشاهدته وتوزيعه. جميع الموارد اللازمة مشفرة بتشفير base64 داخله. لكن لهذه الطريقة عيبين:
 
-- حجم المخرجات أكبر بكثير بسبب تشفير base64.* من الصعب استبدال الصور الموجودة في الملف.
+## **الخلفية**
+بشكل افتراضي، يقوم تصدير HTML بتضمين جميع الموارد مباشرةً في ملف HTML باستخدام الترميز Base64. هذا ينتج ملف HTML واحد مستقل يُسهّل عرضه وتوزيعه. مع ذلك، لهذا النهج عيوب:
+* حجم الملف الناتج أكبر بكثير من الموارد الأصلية بسبب الحمل الزائد لـ Base64.
+* من الصعب تحديث أو استبدال الصور المضمنة وغيرها من الأصول.
 
-في هذه المقالة، سنرى كيف يمكننا تغيير السلوك الافتراضي باستخدام **Aspose.Slides for Python via .NET** لربط الصور خارجيًا بدلاً من تضمينها في ملف HTML. سنستخدم واجهة **ILinkEmbedController** التي تحتوي على ثلاث طرق للتحكم في عملية تضمين وحفظ الموارد. يمكننا تمرير هذه الواجهة إلى منشئ فئة HtmlOptions عند إعداد التصدير.
+## **نهج بديل**
+نهج بديل يستخدم [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) يتجنب هذه القيود.
 
-التالي هو الكود الكامل لفئة **LinkController** التي تنفذ واجهة **ILinkEmbedController**. كما ذكرنا سابقًا، يجب على LinkController تنفيذ واجهة ILinkEmbedController. تحدد هذه الواجهة ثلاث طرق:
+الفئة `LinkController` أدناه تنفّذ [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) ويتم تمريرها إلى مُنشئ [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/__init__/#ilinkembedcontroller). تُظهر الفئة ثلاث طرق تتحكم في كيفية تضمين الموارد أو ربطها أثناء تصدير HTML:
+[get_object_storing_location(id, entity_data, semantic_name, content_type, recommended_extension)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_object_storing_location/#int-bytes-str-str-str): يتم استدعاؤه عندما يواجه المصدّر موردًا ويجب عليه تحديد مكان تخزينه. أهم المعلمات هي `id` (المعرّف الفريد للمورد في عملية التصدير هذه) و `content_type` (نوع MIME للمورد). إرجع [LinkEmbedDecision.LINK](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) لربط المورد، أو [LinkEmbedDecision.EMBED](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) لتضمينه.
 
-- **public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)** يتم استدعاؤها عندما يواجه المُصدّر موردًا ويحتاج إلى أن يقرر كيفية تخزينه. أهم المتغيرات هي ‘id’ – المعرف الفريد للمورد لعملية التصدير بالكامل و ‘contentType’ – يحتوي على نوع MIME للمورد. إذا قررنا ربط المورد، يجب أن نعيد LinkEmbedDecision.Link من هذه الطريقة. خلاف ذلك، يجب إعادة LinkEmbedDecision.Embed لتضمين المورد.
-- **public string GetUrl(int id, int referrer)** 
-  يتم استدعاؤها للحصول على URL المورد بالشكل الذي يتم استخدامه في الملف الناتج، مثل <img src=”%method_result_here%”> . يتم تعريف المورد بواسطة ‘id’.
-- **public void SaveExternal(int id, byte[] entityData)** 
-  الطريقة النهائية في التسلسل، يتم استدعاؤها عندما يتعلق الأمر بتخزين المورد خارجيًا. لدينا معرّف المورد ومحتويات المورد كمصفوفة بايت. يعود الأمر إلينا فيما يجب القيام به مع بيانات المورد المقدمة.
+[get_url(id, referrer)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_url/#int-int): يُرجع عنوان URL الذي سيظهر في ملف HTML الناتج للمورد المحدد بـ `id` (مع مراعاة كائن المرجع إذا لزم الأمر).
 
+[save_external(id, entity_data)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/save_external/#int-bytes): يتم استدعاؤه عندما يحتاج مورد مختار للربط إلى أن يُكتب خارجيًا. لأن المعرف والمحتوى مُقدَّمان (كمصفوفة بايت)، يمكنك حفظ المورد بأي طريقة تريد.
+
+الطبقة التنفيذية في Python لـ `LinkController` لـ [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) موضحة أدناه.
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: تنفيذ python لواجهات .NET]
 ```
 
-بعد كتابة فئة **LinkController**، الآن سنستخدمها مع فئة **HTMLOptions** لتصدير العرض التقديمي إلى HTML مع الصور المرتبطة خارجيًا باستخدام الكود التالي.
 
+بعد تنفيذ الفئة `LinkController`، يمكنك استخدامها مع الفئة [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/htmloptions/) لتصدير العرض التقديمي إلى HTML مع صور مرتبطة خارجيًا، كما هو موضح أدناه:
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: تنفيذ python لواجهات .NET]
 ```
 
-قمنا بتعيين **SlideImageFormat.Svg** إلى خاصية **SlideImageFormat** مما يعني أن ملف HTML الناتج سيحتوي على بيانات SVG بداخله لرسم محتويات العرض التقديمي.
 
-أما بالنسبة لأنواع المحتوى، فهي تعتمد على بيانات الصورة الفعلية الموجودة في العرض التقديمي. إذا كانت هناك صور نقطية في العرض التقديمي، يجب أن يكون كود الفئة جاهزًا لمعالجة كل من نوعي المحتوى ‘image/jpeg’ و ‘image/png’. قد لا يتطابق نوع المحتوى الفعلي للصور النقطية المصدرة مع ذلك الخاص بالصورة المخزنة في العرض التقديمي. تقوم خوارزميات Aspose.Slides الداخلية بأداء تحسين حجم البيانات وتستخدم إما ترميز JPG أو PNG أيًا كان الذي ينتج أصغر حجم بيانات. الصور التي تحتوي على قناة ألفا (شفافية) دائمًا ما يتم تشفيرها إلى PNG.
+قُمنا بتعيين `SlideImageFormat.SVG` إلى الخاصية `slide_image_format` بحيث يحتوي ملف HTML الناتج على بيانات SVG لعرض محتويات العرض التقديمي.
+
+أنواع المحتوى: إذا كان العرض التقديمي يحتوي على صور نقطية (bitmap)، يجب أن يكون كود الفئة جاهزًا لمعالجة كل من نوعي المحتوى `image/jpeg` و `image/png`. قد لا يتطابق محتوى الصور المصدرة مع ما تم تخزينه في العرض التقديمي. تقوم خوارزميات Aspose.Slides الداخلية بتحسين الحجم وتستخدم إما ترميز JPEG أو PNG (حسب أيهما ينتج ملفًا أصغر). الصور التي تحتوي على قناة ألفا (شفافية) يتم دائمًا ترميزها كـ PNG.

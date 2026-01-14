@@ -1,28 +1,28 @@
 ---
-title: تحديد الخطوط الاحتياطية للعروض التقديمية في بايثون
-linktitle: خط احتياطي
+title: تحديد خطوط التعويض للعروض التقديمية في بايثون
+linktitle: خط التعويض
 type: docs
 weight: 10
 url: /ar/python-net/create-fallback-font/
 keywords:
-- خط احتياطي
-- قاعدة احتياطية
-- تطبيق خط
-- استبدال خط
-- نطاق Unicode
-- رموز مفقودة
-- رموز صحيحة
+- خط التعويض
+- قاعدة التعويض
+- تطبيق الخط
+- استبدال الخط
+- نطاق يونيكود
+- رمز مفقود
+- رمز صحيح
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إتقان Aspose.Slides لـ Python عبر .NET لتعيين الخطوط الاحتياطية في ملفات PPT و PPTX و ODP، وضمان عرض نص متسق على أي جهاز أو نظام تشغيل."
+description: "إتقان Aspose.Slides للبايثون عبر .NET لتعيين خطوط التعويض في ملفات PPT و PPTX و ODP، مع ضمان عرض نص متسق على أي جهاز أو نظام تشغيل."
 ---
 
-## **تحديد الخطوط الاحتياطية**
+## **تحديد خطوط التعويض**
 
-يدعم Aspose.Slides واجهة [IFontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule/) و‑فئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) لتحديد القواعد التي تُطبق الخط الاحتياطي. تمثّل فئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) ارتباطًا بين نطاق Unicode المحدد، والذي يُستخدَم للبحث عن الرموز المفقودة، وقائمة من الخطوط التي قد تحتوي على الرموز المناسبة:
+يدعم Aspose.Slides الفئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) لتحديد القواعد التي تطبق خط التعويض. تمثل الفئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) ارتباطًا بين نطاق Unicode المحدد، المستخدم للبحث عن الرموز المفقودة، وقائمة من الخطوط التي قد تحتوي على الرموز الصحيحة:
 ```py
 startUnicodeIndex = 0x0B80
 endUnicodeIndex = 0x0BFF
@@ -37,34 +37,32 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 ```
 
 
+من الممكن أيضًا [remove](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/remove/) خط التعويض أو [add_fall_back_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/add_fall_back_fonts/) في كائن [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) الموجود.
 
+يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)، عندما يكون هناك حاجة لتحديد قواعد استبدال خطوط التعويض لعدة نطاقات Unicode.
 
-يمكن أيضًا [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrule/) الخط الاحتياطي أو [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) إلى كائن [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) موجود.
-
-يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) عندما تحتاج إلى تحديد قواعد استبدال الخطوط الاحتياطية لعدة نطاقات Unicode.
-
-{{% alert color="primary" title="See also" %}} 
-- [Create Fallback Fonts Collection](/slides/ar/python-net/create-fallback-fonts-collection/)
+{{% alert color="primary" title="انظر أيضًا" %}} 
+- [إنشاء مجموعة خطوط التعويض](/slides/ar/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**ما الفرق بين الخط الاحتياطي، واستبدال الخط، وتضمين الخط؟**
+**ما الفرق بين خط التعويض، واستبدال الخط، وتضمين الخط؟**
 
-يُستخدم الخط الاحتياطي فقط للأحرف المفقودة في الخط الأساسي. [استبدال الخط](/slides/ar/python-net/font-substitution/) يُستبدل الخط المحدد بالكامل بخط آخر. [تضمين الخط](/slides/ar/python-net/embedded-font/) يُضمن الخطوط داخل ملف الإخراج بحيث يمكن للمستلمين عرض النص كما هو مقصود.
+يُستخدم خط التعويض فقط للأحرف التي لا توجد في الخط الأساسي. [Font substitution](/slides/ar/python-net/font-substitution/) يستبدل الخط المحدد بالكامل بخط آخر. [Font embedding](/slides/ar/python-net/embedded-font/) يضم الخطوط داخل ملف الإخراج بحيث يتمكن المستلمون من عرض النص كما هو مقصود.
 
-**هل تُطبق الخطوط الاحتياطية أثناء التصدير مثل PDF أو PNG أو SVG، أم فقط عند العرض على الشاشة؟**
+**هل يتم تطبيق خطوط التعويض أثناء التصدير مثل PDF أو PNG أو SVG، أم فقط عند العرض على الشاشة؟**
 
-نعم. تؤثر الخطوط الاحتياطية على جميع عمليات [العرض والتصدير](/slides/ar/python-net/convert-presentation/) حيث يجب رسم الأحرف ولكنها غير موجودة في الخط الأصلي.
+نعم. يؤثر التعويض على جميع [rendering and export operations](/slides/ar/python-net/convert-presentation/) حيث يجب رسم الأحرف ولكنها غير موجودة في الخط المصدر.
 
-**هل يغيّر تكوين الخط الاحتياطي ملف العرض نفسه، وهل يبقى الإعداد محفوظًا للفتح المستقبلي؟**
+**هل يؤدي تكوين التعويض إلى تغيير ملف العرض نفسه، وهل سيستمر الإعداد للفتح المستقبلي؟**
 
-لا. قواعد الخط الاحتياطي هي إعدادات عرض زمن تشغيل في الكود الخاص بك؛ لا تُحفظ داخل ملف .pptx ولن تظهر في PowerPoint.
+لا. قواعد التعويض هي إعدادات عرض وقت التشغيل في الكود الخاص بك؛ ليست مخزنة داخل ملف .pptx ولن تظهر في PowerPoint.
 
-**هل يؤثر نظام التشغيل (Windows/Linux/macOS) ومجموعة دلائل الخطوط على اختيار الخط الاحتياطي؟**
+**هل يؤثر نظام التشغيل (Windows/Linux/macOS) ومجموعة مجلدات الخطوط على اختيار التعويض؟**
 
-نعم. المحرك يحدد الخطوط من المجلدات النظامية المتوفرة وأي [مسارات إضافية](/slides/ar/python-net/custom-font/) تقدّمها. إذا لم يكن الخط متاحًا فعليًا، لا يمكن للقاعدة التي تشير إليه أن تُفعَّل.
+نعم. تقوم الآلية بحل الخطوط من المجلدات النظامية المتاحة وأي [additional paths](/slides/ar/python-net/custom-font/) تقدمها. إذا لم يكن الخط متاحًا فعليًا، لا يمكن للقاعدة التي تشير إليه أن تُطبق.
 
-**هل يعمل الخط الاحتياطي مع WordArt وSmartArt والمخططات؟**
+**هل يعمل التعويض مع WordArt و SmartArt والرسوم البيانية؟**
 
-نعم. عند احتواء هذه الكائنات على نص، يُطبق نفس آلية استبدال الرموز لعرض الأحرف المفقودة.
+نعم. عندما تحتوي هذه الكائنات على نص، يتم تطبيق نفس آلية استبدال الرموز لتصوير الأحرف المفقودة.

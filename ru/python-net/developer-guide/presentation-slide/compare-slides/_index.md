@@ -1,24 +1,24 @@
 ---
 title: Сравнение слайдов презентации в Python
-linktitle: Сравнить слайды
+linktitle: Сравнение слайдов
 type: docs
 weight: 50
 url: /ru/python-net/compare-slides/
 keywords:
 - сравнение слайдов
-- анализ слайдов
+- сравнение слайда
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Сравнивайте презентации PowerPoint и OpenDocument программно с помощью Aspose.Slides для Python через .NET. Быстро определяйте различия между слайдами в коде."
+description: "Сравнивайте презентации PowerPoint и OpenDocument программно с помощью Aspose.Slides для Python через .NET. Быстро определяйте различия слайдов в коде."
 ---
 
 ## **Сравнение двух слайдов**
-Метод Equals был добавлен в интерфейс [IBaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) и класс [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/). Он возвращает true для слайдов/макетов и слайдов‑мастеров, которые идентичны по своей структуре и статическому содержимому.
+Метод `equals` был добавлен в класс [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/). Он возвращает true для слайдов/макетов и слайдов/мастер‑слайдов, которые идентичны по своей структуре и статическому содержимому.
 
-Два слайда считаются равными, если все формы, стили, тексты, анимация и другие настройки и т.д. Сравнение не учитывает значения уникальных идентификаторов, например SlideId, и динамического содержимого, например текущее значение даты в заполнителе даты.
+Два слайда считаются равными, если совпадают все фигуры, стили, тексты, анимация и другие настройки и т.д. При сравнении не учитываются уникальные идентификаторы, например SlideId, и динамическое содержимое, например текущее значение даты в заполнителе даты.
 ```py
 import aspose.slides as slides
 
