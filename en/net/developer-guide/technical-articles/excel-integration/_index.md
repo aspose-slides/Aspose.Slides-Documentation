@@ -31,7 +31,7 @@ Until now, implementing such features with the Aspose.Slides API required relyin
 
 ## **How It Works**
 
-To make working with Excel data easier and more streamlined, Aspose.Slides has introduced a new class for reading data from Excel workbooks. This feature opens up powerful new possibilities for API users who want to leverage Excel as a data source within their presentation workflows.
+To make working with Excel data easier and more streamlined, Aspose.Slides has introduced new classes for reading data from Excel workbooks and importing content into a presentation. This feature opens up powerful new possibilities for API users who want to leverage Excel as a data source within their presentation workflows.
 
 The new functionality is designed for general-purpose data access and is not integrated into the Presentation Document Object Model (DOM). That means *it does not allow editing or saving Excel files* — its sole purpose is to open workbooks and navigate through their content to retrieve cell data.
 
@@ -39,11 +39,15 @@ At the core of this feature is the new [ExcelDataWorkbook](https://reference.asp
 
 Each call to [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
 
+#### **Import an Excel Chart**
+
+The next step to extend functionality is the [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class. This utility class provides functionality for importing content from an Excel workbook into a presentation. It contains several overloads of the [AddChartFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) method, which help you to retrieve the selected chart from the specified Excel workbook and add it to the end of the given shape collection at the specified coordinates.
+
 In short, it's a lightweight and straightforward API for reading Excel data — exactly what many developers need without the overhead of a full spreadsheet processing library.
 
 ## **Let's Code**
 
-### **Example 1**
+### **Mail Merge Scenario Example**
 
 In the following example, we'll implement a simple Mail Merge scenario by generating multiple presentations based on data stored in an Excel workbook.
 
@@ -99,7 +103,7 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 
 ![Result](example1_image2.png)
 
-### **Example 2**
+### **Excel Table Example**
 
 In the second example, we simply copy data from an Excel table and display it on a PowerPoint slide in a more visually appealing format.
 
@@ -135,6 +139,66 @@ presentation.Save("Table.pptx", SaveFormat.Pptx);
 ```
 
 ![Result](example2_image0.png)
+
+### **Import an Excel Chart Example**
+
+In this example, we import a chart from the first worksheet of the Excel workbook used in the previous example. The chart will link to the external workbook in the resulting presentation.
+
+First, we add a Pie chart to the Excel workbook based on the employees table.
+
+![Excel Chart example](example3_image0.png)
+
+```csharp
+// Create a new PowerPoint presentation.
+using Presentation presentation = new Presentation();
+
+// Get the shapes collection of the first slide.
+IShapeCollection shapes = presentation.Slides[0].Shapes;
+
+// Import the chart named "Chart 1" from the first sheet of the workbook and add it to the shapes collection.
+ExcelWorkbookImporter.AddChartFromWorkbook(shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "Chart 1", false);
+
+// Save the resulting presentation to a file.
+presentation.Save("Chart.pptx", SaveFormat.Pptx);
+```
+![Result](example3_image1.png)
+
+### **Import All Excel Charts Example**
+
+Let's imagine you have an Excel workbook full of charts and you need to import them all into a presentation. Each chart should be placed on a new slide.
+
+The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
+
+```csharp
+// Load the Excel workbook containing the employee data.
+ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
+
+// Create a new PowerPoint presentation.
+using Presentation presentation = new Presentation();
+
+// Retrieve the blank slide layout.
+ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+// Get the names of all worksheets contained in the Excel workbook.
+IList<string> worksheetNames = workbook.GetWorksheetNames();
+foreach (var name in worksheetNames)
+{
+    // Retrieve a dictionary that maps chart indexes to chart names for the worksheet.
+    IDictionary<int, string> worksheetCharts = workbook.GetChartsFromWorksheet(name);
+    foreach (var chart in worksheetCharts)
+    {
+        // Add a new slide using the blank layout.
+        ISlide slide = presentation.Slides.AddEmptySlide(blankLayout);
+
+        // Import the specified chart from the Excel workbook into the slide's shapes collection.
+        ExcelWorkbookImporter.AddChartFromWorkbook(slide.Shapes, 10, 10, workbook, name, chart.Key, false);
+    }
+}
+
+// Save the resulting presentation to a file.
+presentation.Save("Charts.pptx", SaveFormat.Pptx);
+```
+
 
 ## **Summary**
 
