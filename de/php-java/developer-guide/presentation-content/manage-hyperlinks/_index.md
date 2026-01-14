@@ -1,5 +1,5 @@
 ---
-title: Präsentations-Hyperlinks in PHP verwalten
+title: Verwalten von Präsentationshyperlinks in PHP
 linktitle: Hyperlink verwalten
 type: docs
 weight: 20
@@ -16,31 +16,31 @@ keywords:
 - Form-Hyperlink
 - Bild-Hyperlink
 - Video-Hyperlink
-- veränderbarer Hyperlink
+- Veränderbarer Hyperlink
 - PowerPoint
 - OpenDocument
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Verwalten Sie Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mühelos mit Aspose.Slides für PHP via Java – steigern Sie Interaktivität und Arbeitsabläufe in wenigen Minuten."
+description: "Verwalten Sie Hyperlinks mühelos in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für PHP via Java — verbessern Sie Interaktivität und Arbeitsabläufe in wenigen Minuten."
 ---
 
-Ein Hyperlink ist eine Referenz auf ein Objekt, Daten oder eine Stelle in etwas. Dies sind gängige Hyperlinks in PowerPoint-Präsentationen:
+Ein Hyperlink ist ein Verweis auf ein Objekt, Daten oder einen Ort in etwas. Dies sind gängige Hyperlinks in PowerPoint‑Präsentationen:
 
-* Links zu Websites innerhalb von Texten, Formen oder Medien
+* Links zu Webseiten innerhalb von Texten, Formen oder Medien
 * Links zu Folien
 
-Aspose.Slides für PHP via Java ermöglicht das Ausführen vieler Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen.
+Aspose.Slides für PHP via Java ermöglicht es Ihnen, zahlreiche Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen durchzuführen.
 
 {{% alert color="primary" %}} 
-Vielleicht möchten Sie den einfachen, [kostenlosen Online-PowerPoint-Editor.](https://products.aspose.app/slides/editor)
+Vielleicht möchten Sie Aspose Simple, den [kostenlosen Online‑PowerPoint‑Editor](https://products.aspose.app/slides/editor) ausprobieren.
 {{% /alert %}} 
 
-## **URL-Hyperlinks hinzufügen**
+## **URL‑Hyperlinks hinzufügen**
 
-### **URL-Hyperlinks zu Text hinzufügen**
+### **URL‑Hyperlinks zu Text hinzufügen**
 
-Dieser PHP‑Code zeigt Ihnen, wie Sie einem Text einen Website‑Hyperlink hinzufügen:
+Dieser PHP‑Code zeigt, wie man einem Text einen Webseiten‑Hyperlink hinzufügt:
 ```php
   $presentation = new Presentation();
   try {
@@ -59,9 +59,9 @@ Dieser PHP‑Code zeigt Ihnen, wie Sie einem Text einen Website‑Hyperlink hinz
 ```
 
 
-### **URL-Hyperlinks zu Formen oder Rahmen hinzufügen**
+### **URL‑Hyperlinks zu Formen oder Rahmen hinzufügen**
 
-Dieses Beispielcode zeigt Ihnen, wie Sie einem Shape einen Website‑Hyperlink hinzufügen:
+Dieses Beispielcode zeigt, wie man einer Form einen Webseiten‑Hyperlink hinzufügt:
 ```php
   $pres = new Presentation();
   try {
@@ -77,15 +77,15 @@ Dieses Beispielcode zeigt Ihnen, wie Sie einem Shape einen Website‑Hyperlink h
 ```
 
 
-### **URL-Hyperlinks zu Medien hinzufügen**
+### **URL‑Hyperlinks zu Medien hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild‑, Audio‑ und Videodateien. 
+Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild-, Audio‑ und Videodateien. 
 
-Dieses Beispielcode zeigt Ihnen, wie Sie einem **Bild** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie man einem **Bild** einen Hyperlink hinzufügt:
 ```php
   $pres = new Presentation();
   try {
-    # Fügt ein Bild zur Präsentation hinzu
+    # Bild zur Präsentation hinzufügen
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -95,7 +95,7 @@ Dieses Beispielcode zeigt Ihnen, wie Sie einem **Bild** einen Hyperlink hinzufü
         $image->dispose();
       }
     }
-    # Erstellt einen Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
+    # Erstellt Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -109,7 +109,7 @@ Dieses Beispielcode zeigt Ihnen, wie Sie einem **Bild** einen Hyperlink hinzufü
 ```
 
 
-Dieses Beispielcode zeigt Ihnen, wie Sie einer **Audiodatei** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie man einer **Audiodatei** einen Hyperlink hinzufügt:
 ```php
   $pres = new Presentation();
   try {
@@ -137,7 +137,7 @@ try {
 ```
 
 
-Dieses Beispielcode zeigt Ihnen, wie Sie einem **Video** einen Hyperlink hinzufügen:
+Dieser Beispielcode zeigt, wie man einem **Video** einen Hyperlink hinzufügt:
 ```php
   $pres = new Presentation();
   try {
@@ -165,15 +165,15 @@ try {
 ```
 
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{% alert title="Tip" color="primary" %}} 
 Vielleicht möchten Sie *[OLE verwalten](/slides/de/php-java/manage-ole/)* sehen.
 {{% /alert %}}
 
-## **Hyperlinks zum Erstellen eines Inhaltsverzeichnisses verwenden**
+## **Hyperlinks zur Erstellung eines Inhaltsverzeichnisses verwenden**
 
-Da Hyperlinks Ihnen ermöglichen, Verweise auf Objekte oder Stellen hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden. 
+Da Hyperlinks es ermöglichen, Verweise auf Objekte oder Orte hinzuzufügen, können Sie sie zur Erstellung eines Inhaltsverzeichnisses verwenden. 
 
-Dieses Beispielcode zeigt Ihnen, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
+Dieser Beispielcode zeigt, wie man ein Inhaltsverzeichnis mit Hyperlinks erstellt:
 ```php
   $pres = new Presentation();
   try {
@@ -205,9 +205,9 @@ Dieses Beispielcode zeigt Ihnen, wie Sie ein Inhaltsverzeichnis mit Hyperlinks e
 
 ### **Farbe**
 
-Mit der [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-)‑Eigenschaft im [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink)‑Interface können Sie die Farbe für Hyperlinks festlegen und auch Farbinformationen von Hyperlinks abrufen. Diese Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht auf ältere PowerPoint‑Versionen angewendet werden.
+Mit der Methode [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) in der Klasse [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) können Sie die Farbe für Hyperlinks festlegen und auch Farbinformationen von Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht für ältere PowerPoint‑Versionen gelten.
 
-Dieses Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit verschiedenen Farben zur selben Folie hinzugefügt wurden:
+Dieser Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit unterschiedlichen Farben zur selben Folie hinzugefügt wurden:
 ```php
   $pres = new Presentation();
   try {
@@ -234,7 +234,7 @@ Dieses Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit verschied
 
 ### **Hyperlinks aus Text entfernen**
 
-Dieser PHP‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Text in einer Präsentationsfolie entfernen:
+Dieser PHP‑Code zeigt, wie man den Hyperlink aus einem Text in einer Präsentationsfolie entfernt:
 ```php
   $pres = new Presentation();
   try {
@@ -260,7 +260,7 @@ Dieser PHP‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Text in einer Pr�
 
 ### **Hyperlinks aus Formen oder Rahmen entfernen**
 
-Dieser PHP‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Shape in einer Präsentationsfolie entfernen:
+Dieser PHP‑Code zeigt, wie man den Hyperlink aus einer Form in einer Präsentationsfolie entfernt:
 ```php
   $pres = new Presentation();
   try {
@@ -279,15 +279,15 @@ Dieser PHP‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Shape in einer Pr
 
 ## **Veränderbarer Hyperlink**
 
-Die Klasse [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) ist veränderbar. Mit dieser Klasse können Sie die Werte für folgende Eigenschaften ändern:
+Die Klasse [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) ist veränderbar. Mit dieser Klasse können Sie die Werte der folgenden Eigenschaften ändern:
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [Hyperlink.setTargetFrame(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/)
+- [Hyperlink.setTooltip(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/)
+- [Hyperlink.setHistory(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/)
+- [Hyperlink.setHighlightClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/)
+- [Hyperlink.setStopSoundOnClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/)
 
-Das Code‑Snippet zeigt Ihnen, wie Sie einer Folie einen Hyperlink hinzufügen und dessen Tooltip später bearbeiten:
+Das Code‑Snippet zeigt, wie man einer Folie einen Hyperlink hinzufügt und dessen Tooltip später bearbeitet:
 ```php
   $pres = new Presentation();
   try {
@@ -308,29 +308,29 @@ Das Code‑Snippet zeigt Ihnen, wie Sie einer Folie einen Hyperlink hinzufügen 
 
 ## **Unterstützte Eigenschaften in IHyperlinkQueries**
 
-Sie können [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) von einer Präsentation, Folie oder einem Text aus aufrufen, für den der Hyperlink definiert ist.
+Sie können [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) von einer Präsentation, Folie oder einem Text aus aufrufen, für den der Hyperlink definiert ist.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [Presentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)
+- [BaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getHyperlinkQueries)
+- [TextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/)
 
-Die Klasse [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) unterstützt folgende Methoden und Eigenschaften:
+Die Klasse [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) unterstützt diese Methoden und Eigenschaften:
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [HyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/)
+- [HyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/)
+- [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/)
+- [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)
 
 ## **FAQ**
 
-**Wie kann ich eine interne Navigation nicht nur zu einer Folie, sondern zu einem „Abschnitt“ oder der ersten Folie eines Abschnitts erstellen?**
+**Wie kann ich eine interne Navigation nicht nur zu einer Folie, sondern zu einem "Abschnitt" oder zur ersten Folie eines Abschnitts erstellen?**
 
-Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation richtet sich technisch auf eine bestimmte Folie. Um zu einem Abschnitt zu navigieren, verlinken Sie typischerweise zu dessen erster Folie.
+Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem "Abschnitt" zu navigieren, verlinken Sie in der Regel auf dessen erste Folie.
 
-**Kann ich einen Hyperlink an Elemente der Master‑Folien anfügen, sodass er auf allen Folien wirkt?**
+**Kann ich einem Master‑Folienelement einen Hyperlink zuweisen, sodass er auf allen Folien funktioniert?**
 
-Ja. Elemente der Master‑Folien und Layouts unterstützen Hyperlinks. Diese Links erscheinen auf den Unterfolien und sind während der Vorführung anklickbar.
+Ja. Master‑Folien‑ und Layout‑Elemente unterstützen Hyperlinks. Solche Links erscheinen auf den untergeordneten Folien und sind während der Vorführung anklickbar.
 
-**Werden Hyperlinks beim Exportieren nach PDF, HTML, Bildern oder Video beibehalten?**
+**Werden Hyperlinks beim Exportieren in PDF, HTML, Bilder oder Video beibehalten?**
 
-In [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/php-java/convert-powerpoint-to-html/) ja – Links werden im Allgemeinen beibehalten. Beim Exportieren zu [Bildern](/slides/de/php-java/convert-powerpoint-to-png/) und [Video](/slides/de/php-java/convert-powerpoint-to-video/) wird die Klickbarkeit nicht übernommen, da diese Formate (Raster‑Frames/Video) keine Hyperlinks unterstützen.
+In [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/php-java/convert-powerpoint-to-html/) ja – Links werden in der Regel beibehalten. Beim Exportieren zu [Bildern](/slides/de/php-java/convert-powerpoint-to-png/) und [Video](/slides/de/php-java/convert-powerpoint-to-video/) ist die Klickbarkeit aufgrund des Charakters dieser Formate (Raster‑Frames/Video unterstützen keine Hyperlinks) nicht vorhanden.

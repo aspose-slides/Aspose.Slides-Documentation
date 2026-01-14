@@ -1,5 +1,5 @@
 ---
-title: Управление проектами VBA в презентациях с использованием PHP
+title: Управление VBA-проектами в презентациях с использованием PHP
 linktitle: Презентация через VBA
 type: docs
 weight: 250
@@ -7,7 +7,7 @@ url: /ru/php-java/presentation-via-vba/
 keywords:
 - макрос
 - VBA
-- макрос VBA
+- VBA макрос
 - добавить макрос
 - удалить макрос
 - извлечь макрос
@@ -22,30 +22,30 @@ keywords:
 description: "Узнайте, как создавать и изменять презентации PowerPoint и OpenDocument с помощью VBA, используя Aspose.Slides для PHP через Java, чтобы оптимизировать ваш рабочий процесс."
 ---
 
-{{% alert title="Примечание" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+Когда вы преобразуете презентацию, содержащую макросы, в другой формат файла (PDF, HTML, и т.д.), Aspose.Slides игнорирует все макросы (макросы не переносятся в получаемый файл).
 
-When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+Когда вы добавляете макросы в презентацию или повторно сохраняете презентацию, содержащую макросы, Aspose.Slides просто записывает байты макросов.
 
-Aspose.Slides **never** runs the macros in a presentation.
+Aspose.Slides **никогда** не запускает макросы в презентации.
 
 {{% /alert %}}
 
-## **Add VBA Macros**
+## **Добавить VBA макросы**
 
-Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/ivbaproject/) interface to manage VBA embedded in a presentation.
+Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/), позволяющий создавать VBA‑проекты (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать класс `VbaProject` для управления VBA, встроенным в презентацию.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject--) для добавления нового VBA‑проекта.
+1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject) для добавления нового VBA‑проекта.
 1. Добавьте модуль в VbaProject.
 1. Установите исходный код модуля.
 1. Добавьте ссылки на <stdole>.
 1. Добавьте ссылки на **Microsoft Office**.
-1. Свяжите ссылки с проектом VBA.
+1. Свяжите ссылки с VBA‑проектом.
 1. Сохраните презентацию.
 
-This PHP code shows you how to add a VBA macro from scratch to a presentation:
+Этот PHP‑код показывает, как добавить VBA‑макрос с нуля в презентацию:
 ```php
   # Создаёт экземпляр класса презентации
   $pres = new Presentation();
@@ -75,24 +75,24 @@ This PHP code shows you how to add a VBA macro from scratch to a presentation:
 
 {{% alert color="primary" %}} 
 
-You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
+Возможно, вам будет интересен **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), бесплатное веб‑приложение для удаления макросов из документов PowerPoint, Excel и Word. 
 
 {{% /alert %}} 
 
-## **Remove VBA Macros**
+## **Удалить VBA макросы**
 
-Using the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject--) property under the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class, you can remove a VBA macro.
+Используя свойство [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject), доступное в классе [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation), вы можете удалить VBA‑макрос.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
-1. Получите модуль Macro и удалите его.
+1. Получите доступ к модулю макроса и удалите его.
 1. Сохраните изменённую презентацию.
 
-This PHP code shows you how to remove a VBA macro:
+Этот PHP‑код показывает, как удалить VBA‑макрос:
 ```php
   # Загружает презентацию, содержащую макрос
   $pres = new Presentation("VBA.pptm");
   try {
-    # Получает модуль Vba и удаляет его
+    # Получает доступ к модулю VBA и удаляет его
     $pres->getVbaProject()->getModules()->remove($pres->getVbaProject()->getModules()->get_Item(0));
     # Сохраняет презентацию
     $pres->save("test.pptm", SaveFormat::Pptm);
@@ -104,18 +104,18 @@ This PHP code shows you how to remove a VBA macro:
 ```
 
 
-## **Extract VBA Macros**
+## **Извлечь VBA макросы**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
-2. Проверьте, содержит ли презентация проект VBA.
-3. Переберите все модули, содержащиеся в проекте VBA, чтобы просмотреть макросы.
+2. Проверьте, содержит ли презентация VBA‑проект.
+3. Переберите все модули, содержащиеся в VBA‑проекте, чтобы просмотреть макросы.
 
-This PHP code shows you how to extract VBA macros from a presentation containing macros:
+Этот PHP‑код показывает, как извлечь VBA‑макросы из презентации, содержащей макросы:
 ```php
   # Загружает презентацию, содержащую макрос
   $pres = new Presentation("VBA.pptm");
   try {
-    # Проверяет, содержит ли презентация проект VBA
+    # Проверяет, содержит ли презентация VBA-проект
     if (!java_is_null($pres->getVbaProject())) {
       foreach($pres->getVbaProject()->getModules() as $module) {
         echo($module->getName());
@@ -130,17 +130,17 @@ This PHP code shows you how to extract VBA macros from a presentation containing
 ```
 
 
-## **Check Whether a VBA Project Is Password-Protected**
+## **Проверить, защищён ли VBA‑проект паролем**
 
-Using the [VbaProject.isPasswordProtected](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#isPasswordProtected) method, you can determine whether a project’s properties are password-protected.
+С помощью метода [VbaProject::isPasswordProtected](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#isPasswordProtected) вы можете определить, защищены ли свойства проекта паролем.
 
-1. Создайте экземпляр класса [Presentation](/slides/ru/php-java/aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
-2. Проверьте, содержит ли презентация [VBA project](/slides/ru/php-java/aspose.slides/vbaproject/).
-3. Проверьте, защищён ли проект VBA паролем, чтобы просмотреть его свойства.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
+2. Проверьте, содержит ли презентация [VBA проект](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/).
+3. Проверьте, защищён ли VBA‑проект паролем, чтобы просмотреть его свойства.
 ```php
 $presentation = new Presentation("VBA.pptm");
 try {
-    if ($presentation->getVbaProject() != null) { // Проверить, содержит ли презентация проект VBA.
+    if ($presentation->getVbaProject() != null) { // Проверяет, содержит ли презентация VBA‑проект.
         if ($presentation->getVbaProject()->isPasswordProtected()) {
             printf("The VBA Project '%s' is protected by password to view project properties.", 
                     $presentation->getVbaProject()->getName());
@@ -156,11 +156,11 @@ try {
 
 **Что происходит с макросами, если я сохраняю презентацию как PPTX?**
 
-Макросы будут удалены, потому что формат PPTX не поддерживает VBA. Чтобы сохранить макросы, выберите PPTM, PPSM или POTM.
+Макросы будут удалены, поскольку формат PPTX не поддерживает VBA. Чтобы сохранить макросы, выбирайте PPTM, PPSM или POTM.
 
 **Может ли Aspose.Slides выполнять макросы внутри презентации, например, обновлять данные?**
 
-Нет. Библиотека никогда не исполняет код VBA; выполнение возможно только в PowerPoint при соответствующих настройках безопасности.
+Нет. Библиотека никогда не выполняет код VBA; выполнение возможно только в PowerPoint при соответствующих настройках безопасности.
 
 **Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?**
 

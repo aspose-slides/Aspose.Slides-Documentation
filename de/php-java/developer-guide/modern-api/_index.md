@@ -1,48 +1,48 @@
 ---
-title: Verbessern Sie die Bildverarbeitung mit der Modernen API
-linktitle: Moderne API
+title: Verbessern Sie die Bildverarbeitung mit dem Modernen API
+linktitle: Modernes API
 type: docs
 weight: 237
 url: /de/php-java/modern-api/
 keywords:
-- moderne API
+- Modernes API
 - Zeichnen
-- Folienvorschaubild
-- Folie zu Bild
-- Formvorschaubild
+- Folien-Vorschaubild
+- Folien zu Bild
+- Form-Vorschaubild
 - Form zu Bild
-- Präsentationsvorschaubild
+- Präsentations-Vorschaubild
 - Präsentation zu Bildern
 - Bild hinzufügen
 - Bild einfügen
 - PHP
 - Aspose.Slides
-description: "Modernisieren Sie die Folienbildverarbeitung, indem Sie veraltete Bild-APIs durch die PHP Moderne API ersetzen, um nahtlose PowerPoint- und OpenDocument-Automatisierung zu ermöglichen."
+description: "Modernisieren Sie die Folienbildverarbeitung, indem Sie veraltete Bild-APIs durch das PHP Modern API ersetzen, für nahtlose PowerPoint- und OpenDocument-Automatisierung."
 ---
 
-## **Einführung**
+## **Einleitung**
 
-Historisch hat Aspose Slides eine Abhängigkeit von java.awt und enthält in der öffentlichen API die folgenden Klassen davon:
+Historisch hat Aspose Slides eine Abhängigkeit von java.awt und verfügt in der öffentlichen API über die folgenden Klassen daraus:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-Ab Version 24.4 ist diese öffentliche API als veraltet gekennzeichnet.
+Ab Version 24.4 wird diese öffentliche API als veraltet deklariert.
 
-Um die Abhängigkeiten von diesen Klassen zu entfernen, haben wir die sogenannte „Modern API“ hinzugefügt – also die API, die anstelle der veralteten verwendet werden soll und deren Signaturen Abhängigkeiten von BufferedImage enthalten. Graphics2D ist als veraltet gekennzeichnet und seine Unterstützung wurde aus der öffentlichen Slides‑API entfernt.
+Um die Abhängigkeiten von diesen Klassen zu entfernen, haben wir das sogenannte „Modernes API“ hinzugefügt – also das API, das anstelle des veralteten verwendet werden sollte und dessen Signaturen keine Abhängigkeiten von BufferedImage mehr enthalten. Graphics2D ist als veraltet markiert und seine Unterstützung wurde aus der öffentlichen Slides‑API entfernt.
 
-Die Entfernung der veralteten öffentlichen API mit Abhängigkeiten von System.Drawing erfolgt in der Version 24.8.
+Die Entfernung der veralteten öffentlichen API mit Abhängigkeiten zu System.Drawing erfolgt in Release 24.8.
 
-## **Moderne API**
+## **Modernes API**
 
 Folgende Klassen und Aufzählungen wurden zur öffentlichen API hinzugefügt:
 
-- IImage – repräsentiert das Raster‑ oder Vektor‑Bild.
-- ImageFormat – repräsentiert das Dateiformat des Bildes.
-- Images – Methoden zum Instanziieren und Arbeiten mit dem IImage‑Interface.
+- IImage – stellt das Raster‑ oder Vektor‑Bild dar.
+- ImageFormat – stellt das Dateiformat des Bildes dar.
+- Images – Methoden zum Instanziieren und Arbeiten mit der IImage‑Klasse.
 
-Bitte beachten Sie, dass IImage entbehrlich ist (es implementiert das IDisposable‑Interface und seine Verwendung sollte in einem using‑Block eingeschlossen oder auf andere geeignete Weise entsorgt werden).
+Beachten Sie, dass `IImage` disposable ist (es sollte nach der Verwendung freigegeben werden).
 
-Ein typisches Anwendungsbeispiel der neuen API könnte wie folgt aussehen:
+Ein typisches Szenario für die Verwendung des neuen API könnte wie folgt aussehen:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\ShapeType;
@@ -52,21 +52,21 @@ use aspose\slides\Images;
 
 $pres = new Presentation();
 
-# Instanziiere eine verwertbare Instanz von IImage aus der Datei auf der Festplatte.
+# Instanziieren einer disposable IImage‑Instanz von der Datei auf dem Datenträger.
 $image = Images::fromFile("image.png");
 
-# Erstelle ein PowerPoint‑Bild, indem du eine IImage‑Instanz zu den Bildern der Präsentation hinzufügst.
+# Erstellen eines PowerPoint‑Bildes, indem eine IImage‑Instanz zu den Bildern der Präsentation hinzugefügt wird.
 $ppImage = $pres->getImages()->addImage($image);
 $image->dispose();
 
-# Füge ein Bildobjekt auf Folie #1 hinzu
+# Bild‑Shape auf Folie #1 hinzufügen
 $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $ppImage);
 
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 # Erhalte eine IImage‑Instanz, die Folie #1 darstellt.
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
 
-# Speichere das Bild auf der Festplatte.
+# Bild auf dem Datenträger speichern.
 $slideImage->save("slide1.jpeg", ImageFormat::Jpeg);
 $slideImage->dispose();
 
@@ -74,11 +74,11 @@ $pres->dispose();
 ```
 
 
-## **Ersetzen alten Codes durch die Moderne API**
+## **Ersetzen von altem Code durch das Moderne API**
 
 Im Allgemeinen müssen Sie den Aufruf der alten Methode, die ImageIO verwendet, durch die neue ersetzen.
 
-Alt:
+Old:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getThumbnail($dimension);
@@ -87,7 +87,7 @@ $javafile = new Java("java.io.File", "image.png");
 $imageio->write($slideImage, "PNG", $javafile);
 ```
 
-Neu:
+New:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
@@ -96,9 +96,9 @@ $slideImage->dispose();
 ```
 
 
-### **Abrufen eines Folien‑Vorschaubildes**
+### **Abrufen eines Folien‑Thumbnails**
 
-Code mit einer veralteten API:
+Code, der ein veraltetes API verwendet:
 ``` php
 use aspose\slides\Presentation;
 
@@ -115,7 +115,7 @@ $pres->dispose();
 ```
 
 
-Moderne API:
+Modernes API:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\ImageFormat;
@@ -131,9 +131,9 @@ $pres->dispose();
 ```
 
 
-### **Abrufen eines Form‑Vorschaubildes**
+### **Abrufen eines Shape‑Thumbnails**
 
-Code mit einer veralteten API:
+Code, der ein veraltetes API verwendet:
 ``` php
 use aspose\slides\Presentation;
 
@@ -150,7 +150,7 @@ $pres->dispose();
 ```
 
 
-Moderne API:
+Modernes API:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\ImageFormat;
@@ -166,9 +166,9 @@ $pres->dispose();
 ```
 
 
-### **Abrufen eines Präsentations‑Vorschaubildes**
+### **Abrufen eines Präsentations‑Thumbnails**
 
-Code mit einer veralteten API:
+Code, der ein veraltetes API verwendet:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\RenderingOptions;
@@ -192,7 +192,7 @@ $pres->dispose();
 ```
 
 
-Moderne API:
+Modernes API:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\ImageFormat;
@@ -215,9 +215,9 @@ $pres->dispose();
 ```
 
 
-### **Ein Bild zu einer Präsentation hinzufügen**
+### **Hinzufügen eines Bildes zu einer Präsentation**
 
-Code mit einer veralteten API:
+Code, der ein veraltetes API verwendet:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\ShapeType;
@@ -237,7 +237,7 @@ $pres->dispose();
 ```
 
 
-Moderne API:
+Modernes API:
 ``` php
 use aspose\slides\Presentation;
 use aspose\slides\Images;
@@ -256,7 +256,7 @@ $pres->dispose();
 ```
 
 
-## **Methoden, die entfernt werden und ihre Ersatzmethoden in der Modernen API**
+## **Methoden, die entfernt werden, und deren Ersatz im Modernen API**
 
 ### **Presentation**
 | Methodensignatur | Ersatz‑Methodensignatur |
@@ -270,13 +270,13 @@ $pres->dispose();
 
 ### **Shape**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
 ### **Slide**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -290,33 +290,33 @@ $pres->dispose();
 
 ### **Output**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|-------------------------------------------|--------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
 ### **PPImage**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|--------------------------------------|-----------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
 ### **PatternFormatEffectiveData**
 | Methodensignatur | Ersatz‑Methodensignatur |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|-----------------------------------------------|---------------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **Die Unterstützung von Graphics2D in der API wird eingestellt**
+## **API‑Unterstützung für Graphics2D wird eingestellt**
 
-Methoden mit [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sind als veraltet gekennzeichnet und ihre Unterstützung wird aus der öffentlichen API entfernt.
+Methoden mit [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) werden als veraltet deklariert und ihre Unterstützung wird aus der öffentlichen API entfernt.
 
 Der Teil der API, der es verwendet, wird entfernt:
 
@@ -330,12 +330,12 @@ Der Teil der API, der es verwendet, wird entfernt:
 
 **Warum wurde java.awt.Graphics2D entfernt?**
 
-Die Unterstützung für `Graphics2D` wird aus der öffentlichen API entfernt, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu eliminieren und zu einem plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) zu wechseln. Alle Rendering‑Methoden für `Graphics2D` werden entfernt.
+Die Unterstützung für `Graphics2D` wird aus der öffentlichen API entfernt, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, plattformspezifische Abhängigkeiten zu eliminieren und zu einem plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) zu wechseln. Alle Rendering‑Methoden zu `Graphics2D` werden entfernt.
 
 **Welchen praktischen Nutzen bietet IImage im Vergleich zu BufferedImage?**
 
-[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektor‑Bildern und vereinfacht das Speichern in verschiedenen Formaten über [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
+[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektorbildern und vereinfacht das Speichern in verschiedene Formate über [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
 
-**Wird die Moderne API die Performance bei der Erstellung von Vorschaubildern beeinflussen?**
+**Wird das Moderne API die Performance bei der Erstellung von Thumbnails beeinflussen?**
 
-Der Wechsel von `getThumbnail` zu `getImage` verschlechtert die Szenarien nicht: Die neuen Methoden bieten dieselben Möglichkeiten zur Erzeugung von Bildern mit Optionen und Größen, während sie die Unterstützung für Rendering‑Optionen beibehalten. Der konkrete Gewinn oder Verlust hängt vom Einzelfall ab, funktional sind die Ersatzmethoden jedoch äquivalent.
+Der Wechsel von `getThumbnail` zu `getImage` verschlechtert die Szenarien nicht: Die neuen Methoden bieten dieselben Möglichkeiten zur Erzeugung von Bildern mit Optionen und Größen, während sie die Unterstützung für Rendering‑Optionen beibehalten. Der konkrete Gewinn oder Verlust hängt vom jeweiligen Szenario ab, funktional sind die Ersatzmethoden jedoch äquivalent.

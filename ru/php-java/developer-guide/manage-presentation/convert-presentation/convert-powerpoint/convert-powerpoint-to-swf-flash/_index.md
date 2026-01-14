@@ -1,5 +1,5 @@
 ---
-title: Конвертировать презентации PowerPoint в SWF Flash в PHP
+title: Конвертация презентаций PowerPoint в SWF Flash на PHP
 linktitle: PowerPoint в SWF
 type: docs
 weight: 80
@@ -28,11 +28,12 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash в PHP с помощью Aspose.Slides. Пошаговые примеры кода, быстрое качественное вывод, без автоматизации PowerPoint."
+description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на PHP с Aspose.Slides. Пошаговые примеры кода, быстрый качественный вывод, без автоматизации PowerPoint."
 ---
 
-## **Конвертировать презентации в Flash**
-Метод [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) можно использовать для преобразования всей презентации в документ **SWF**. Следующий пример показывает, как конвертировать презентацию в документ **SWF**, используя параметры, предоставляемые классом [**SWFOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/SwfOptions). Вы также можете включить комментарии в создаваемый SWF, используя класс [**ISWFOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/ISwfOptions) и интерфейс [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/INotesCommentsLayoutingOptions).
+## **Конвертация презентаций в Flash**
+
+Метод [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) может использоваться для преобразования всей презентации в документ **SWF**. В следующем примере показано, как конвертировать презентацию в документ **SWF**, используя параметры, предоставленные классом [SWFOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/). Вы также можете включить комментарии в сгенерированный SWF, используя класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/).
 ```php
   $pres = new Presentation("Sample.pptx");
   try {
@@ -49,20 +50,20 @@ description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash в
 ```
 
 
-## **Вопросы и ответы**
+## **FAQ**
 
 **Могу ли я включить скрытые слайды в SWF?**
 
 Да. Включите скрытые слайды, используя метод [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setshowhiddenslides/) в классе [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/). По умолчанию скрытые слайды не экспортируются.
 
-**Как я могу контролировать сжатие и конечный размер SWF?**
+**Как можно контролировать сжатие и конечный размер SWF?**
 
-Используйте метод [setCompressed](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setcompressed/) и [регулировать качество JPEG](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setjpegquality/) для балансировки размера файла и качества изображений.
+Используйте метод [setCompressed](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setcompressed/) и [adjust JPEG quality](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setjpegquality/) для балансировки размера файла и качества изображения.
 
-**Для чего нужен 'setViewerIncluded' и когда его следует отключить?**
+**Для чего предназначен 'setViewerIncluded' и когда его следует отключать?**
 
-[setViewerIncluded](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setviewerincluded/) добавляет встроенный пользовательский интерфейс плеера (элементы навигации, панели, поиск). Отключите его, если планируете использовать собственный плеер или нужен чистый кадр SWF без UI.
+Метод [setViewerIncluded](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/setviewerincluded/) добавляет встроенный пользовательский интерфейс проигрывателя (элементы навигации, панели, поиск). Отключите его, если планируете использовать собственный проигрыватель или требуется чистый кадр SWF без UI.
 
 **Что происходит, если исходный шрифт отсутствует на машине экспорта?**
 
-Aspose.Slides заменит шрифт, указанный через [setDefaultRegularFont](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) в [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/), чтобы избежать непреднамеренного отката.
+Aspose.Slides заменит шрифт, указанный через метод [setDefaultRegularFont](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) в [SwfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/swfoptions/), чтобы избежать нежелательного fallback.

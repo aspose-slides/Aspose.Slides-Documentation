@@ -1,27 +1,27 @@
 ---
-title: تحسين حسابات المخطط للعروض التقديمية في PHP
-linktitle: حسابات المخطط
+title: "تحسين حسابات المخطط للعروض التقديمية في PHP"
+linktitle: "حسابات المخطط"
 type: docs
 weight: 50
 url: /ar/php-java/chart-calculations/
 keywords:
-- حسابات المخطط
-- عناصر المخطط
-- موضع العنصر
-- الموضع الفعلي
-- العنصر الفرعي
-- العنصر الأصلي
-- قيم المخطط
-- القيمة الفعلية
-- PowerPoint
-- عرض تقديمي
-- PHP
-- Aspose.Slides
-description: "فهم حسابات المخطط وتحديثات البيانات والتحكم في الدقة في Aspose.Slides للـ PHP عبر Java لعروض PPT و PPTX، مع أمثلة عملية على الشيفرة."
+- "حسابات المخطط"
+- "عناصر المخطط"
+- "موضع العنصر"
+- "الموضع الفعلي"
+- "العنصر الفرعي"
+- "العنصر الأصلي"
+- "قيم المخطط"
+- "القيمة الفعلية"
+- "PowerPoint"
+- "عرض تقديمي"
+- "PHP"
+- "Aspose.Slides"
+description: "افهم حسابات المخطط وتحديثات البيانات والتحكم في الدقة في Aspose.Slides لـ PHP عبر Java لملفات PPT و PPTX، مع أمثلة شفرة عملية."
 ---
 
 ## **حساب القيم الفعلية لعناصر المخطط**
-توفر Aspose.Slides للـ PHP عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص الواجهة [IAxis](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis) معلومات حول الموضع الفعلي لعنصر محور المخطط ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinorUnitScale--)). من الضروري استدعاء طريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+توفر Aspose.Slides for PHP عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر طرق الفئة [Axis](https://reference.aspose.com/slides/php-java/aspose.slides/axis/) معلومات حول الموضع الفعلي لعنصر محور المخطط ([getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/), [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/), [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/), [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/), [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/), [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/)). من الضروري استدعاء الطريقة [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```php
   $pres = new Presentation();
   try {
@@ -40,7 +40,7 @@ description: "فهم حسابات المخطط وتحديثات البيانات
 
 
 ## **حساب الموضع الفعلي لعناصر المخطط الأصلية**
-توفر Aspose.Slides للـ PHP عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص الواجهة [IActualLayout](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout) معلومات حول الموضع الفعلي لعنصر المخطط الأصل ( [IActualLayout.getActualX](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualHeight--) ). من الضروري استدعاء طريقة [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) مسبقًا لملء الخصائص بالقيم الفعلية.
+توفر Aspose.Slides for PHP عبر Java واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر طرق الفئة `ActualLayout` معلومات حول الموضع الفعلي لعنصر المخطط الأصل (`getActualX`، `getActualY`، `getActualWidth`، `getActualHeight`). من الضروري استدعاء الطريقة [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) مسبقًا لملء الخصائص بالقيم الفعلية.
 ```php
   $pres = new Presentation();
   try {
@@ -59,7 +59,7 @@ description: "فهم حسابات المخطط وتحديثات البيانات
 
 
 ## **إخفاء عناصر المخطط**
-يساعدك هذا الموضوع على فهم طريقة إخفاء المعلومات من المخطط. باستخدام Aspose.Slides للـ PHP عبر Java يمكنك إخفاء **Title**، **Vertical Axis**، **Horizontal Axis** و**Grid Lines** من المخطط. يُظهر مثال الشيفرة أدناه كيفية استخدام هذه الخصائص.
+يساعدك هذا الموضوع على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for PHP عبر Java يمكنك إخفاء **العنوان، المحور الرأسي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح مثال الشيفرة أدناه كيفية استخدام هذه الخصائص.
 ```php
   $pres = new Presentation();
   try {
@@ -69,7 +69,7 @@ description: "فهم حسابات المخطط وتحديثات البيانات
     $chart->setTitle(false);
     # /إخفاء محور القيم
     $chart->getAxes()->getVerticalAxis()->setVisible(false);
-    # إظهار محور الفئات
+    # إظهار محور الفئة
     $chart->getAxes()->getHorizontalAxis()->setVisible(false);
     # إخفاء وسيلة الإيضاح
     $chart->setLegend(false);
@@ -98,11 +98,14 @@ description: "فهم حسابات المخطط وتحديثات البيانات
 
 ## **الأسئلة المتكررة**
 
-**هل يمكن لدفاتر Excel الخارجية أن تعمل كمصدر بيانات، وكيف يؤثر ذلك على إعادة الحساب؟**  
-نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال بالمصدر الخارجي أو تحديثه، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التعديل. تتيح لك الواجهة البرمجية [specify the external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) تحديد مسار الدفتر الخارجي وإدارة البيانات المرتبطة.
+**هل تعمل دفاتر Excel الخارجية كمصدر للبيانات، وكيف يؤثر ذلك على إعادة الحساب؟**
 
-**هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ الانحدار بنفسي؟**  
-نعم. تُضاف وتُحدَّث [Trendlines](/slides/ar/php-java/trend-line/) (خطية، أسية، وغيرها) تلقائيًا بواسطة Aspose.Slides؛ تُعاد حساب معلماتها من بيانات السلاسل تلقائيًا، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
+نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال بالمصدر الخارجي أو تحديثه، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التعديل. تسمح لك الواجهة البرمجية [تحديد دفتر العمل الخارجي](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) بتحديد مسار دفتر العمل الخارجي وإدارة البيانات المرتبطة.
 
-**إذا كان العرض يحتوي على مخططات متعددة ذات روابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**  
-نعم. يمكن لكل مخطط الإشارة إلى دفتر عمل خارجي خاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.
+**هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ الانحدار بنفسي؟**
+
+نعم. [Trendlines](/slides/ar/php-java/trend-line/) (خطية، أسية، وغيرها) يتم إضافتها وتحديثها بواسطة Aspose.Slides؛ يتم إعادة حساب معلماتها تلقائيًا من بيانات السلسلة، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
+
+**إذا كان العرض التقديمي يحتوي على مخططات متعددة بروابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
+
+نعم. يمكن لكل مخطط الإشارة إلى [دفتر عمل خارجي](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) خاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.

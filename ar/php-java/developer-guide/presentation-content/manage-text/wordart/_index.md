@@ -20,31 +20,32 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides للـ PHP عبر Java. يقدِّم هذا الدليل خطوة بخطوة للمطوّرين طريقةً لتعزيز العروض التقديمية بنص احترافي."
+description: "إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides للـ PHP عبر Java. هذا الدليل خطوة بخطوة يساعد المطورين على تحسين العروض التقديمية بنصوص احترافية."
 ---
 
 ## **حول WordArt؟**
-WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك تحديد حدود النص أو ملئه بلون (أو تدرج)، وإضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. كما يمكنك أيضًا إمالة، انحناء، وتمديد شكل النص. 
+WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. باستخدام WordArt، على سبيل المثال، يمكنك وضع حد للنص أو تعبئته بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، وما إلى ذلك. يمكنك أيضًا إمالة النص، انحنائه، وتمديد شكله. 
 
 {{% alert color="primary" %}} 
-يسمح لك WordArt بمعاملة النص كما لو كان كائنًا رسوميًا. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
+
+WordArt يتيح لك التعامل مع النص كما تتعامل مع كائن رسومي. بشكل عام، يتكون WordArt من تأثيرات أو تعديلات خاصة تُطبق على النصوص لجعلها أكثر جاذبية أو وضوحًا. 
+
 {{% /alert %}} 
 
 **WordArt في Microsoft PowerPoint**
 
-لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المعرفة مسبقًا. قالب WordArt هو مجموعة من التأثيرات تُطبق على النص أو شكله. 
+لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد القوالب المعرّفة مسبقًا لـ WordArt. قالب WordArt هو مجموعة من التأثيرات التي تُطبّق على النص أو شكله. 
 
 **WordArt في Aspose.Slides**
 
-في Aspose.Slides for PHP via Java 20.10، نفّذنا دعمًا لـ WordArt وأجرينا تحسينات على الميزة في الإصدارات اللاحقة من Aspose.Slides for PHP via Java. 
-
-مع Aspose.Slides for PHP via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) وتطبيقه على النصوص. 
+في Aspose.Slides for PHP via Java 20.10، قمنا بتنفيذ دعم WordArt وأجرينا تحسينات على الميزة في الإصدارات اللاحقة من Aspose.Slides for PHP via Java.  
+مع Aspose.Slides for PHP via Java، يمكنك بسهولة إنشاء قالب WordArt الخاص بك (تأثير واحد أو مجموعة من التأثيرات) وتطبيقه على النصوص.
 
 ## **إنشاء قالب WordArt بسيط وتطبيقه على النص**
 
-**باستخدام Aspose.Slides** 
+**استخدام Aspose.Slides** 
 
-أولاً، نقوم بإنشاء نص بسيط باستخدام هذا الكود PHP:
+أولًا، نقوم بإنشاء نص بسيط باستخدام كود PHP التالي:
 ```php
   $pres = new Presentation();
   try {
@@ -60,30 +61,29 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
   }
 ```
 
-الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود:
+الآن، نقوم بضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا باستخدام هذا الكود:
 ```php
   $fontData = new FontData("Arial Black");
   $portion->getPortionFormat()->setLatinFont($fontData);
   $portion->getPortionFormat()->setFontHeight(36);
-
 ```
 
 
-**باستخدام Microsoft PowerPoint**
+**استخدام Microsoft PowerPoint**
 
 انتقل إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-من القائمة على اليمين، يمكنك اختيار تأثير WordArt معرف مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد. 
+من القائمة على اليمين، يمكنك اختيار تأثير WordArt محدد مسبقًا. من القائمة على اليسار، يمكنك تحديد الإعدادات لـ WordArt جديد. 
 
 هذه بعض المعلمات أو الخيارات المتاحة:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**باستخدام Aspose.Slides**
+**استخدام Aspose.Slides**
 
-هنا، نطبق لون نمط [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid) على النص ونضيف حدًا نصيًا أسود بسمك 1 باستخدام هذا الكود:
+هنا، نطبق لون نمط [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/patternstyle/#SmallGrid) على النص ونضيف حدًا نصيًا أسود بعرض 1 باستخدام هذا الكود:
 ```php
   $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -100,17 +100,17 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 
 ## **تطبيق تأثيرات WordArt أخرى**
 
-**باستخدام Microsoft PowerPoint**
+**استخدام Microsoft PowerPoint**
 
 من واجهة البرنامج، يمكنك تطبيق هذه التأثيرات على نص، كتلة نص، شكل، أو عنصر مشابه:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ تأثيرات التنسيق ثلاثي الأبعاد والدوران ثلاثي الأبعاد يمكن تطبيقها على كتلة النص؛ وخاصية الحواف الناعمة يمكن تطبيقها على كائن الشكل (تظل لها تأثير حتى عند عدم ضبط خاصية التنسيق ثلاثي الأبعاد). 
+على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على النص؛ ويمكن تطبيق تنسيق 3D وتدوير 3D على كتلة النص؛ ويمكن تطبيق خاصية الحواف الناعمة على كائن شكل (ما زالت لها تأثير عندما لا يتم ضبط خاصية تنسيق 3D).
 
 ### **تطبيق تأثيرات الظل**
 
-هنا نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود :
+هنا، نهدف إلى ضبط الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
@@ -125,27 +125,26 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ```
 
 
-يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow. 
+يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow و InnerShadow و PresetShadow.  
+مع PresetShadow، يمكنك تطبيق ظل على النص (باستخدام قيم مسبقة). 
 
-مع PresetShadow، يمكنك تطبيق ظل للنص (باستخدام قيم مسبقة). 
-
-**باستخدام Microsoft PowerPoint**
+**استخدام Microsoft PowerPoint**
 
 في PowerPoint، يمكنك استخدام نوع واحد من الظلال. إليك مثالًا:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**باستخدام Aspose.Slides**
+**استخدام Aspose.Slides**
 
-في الواقع يسمح Aspose.Slides لك بتطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
+في الواقع، يتيح Aspose.Slides تطبيق نوعين من الظلال في آن واحد: InnerShadow و PresetShadow.
 
 **ملاحظات:**
-- عندما يُستخدم OuterShadow و PresetShadow معًا، يُطبق فقط تأثير OuterShadow. 
-- إذا تم استخدام OuterShadow و InnerShadow معًا، فإن النتيجة أو التأثير المطبق يعتمد على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013 يتضاعف التأثير. لكن في PowerPoint 2007 يُطبق تأثير OuterShadow. 
+- عندما يتم استخدام OuterShadow و PresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط. 
+- إذا تم استخدام OuterShadow و InnerShadow في وقت واحد، فإن النتيجة أو التأثير المطبق يعتمد على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. لكن في PowerPoint 2007، يتم تطبيق تأثير OuterShadow. 
 
 ### **تطبيق تأثيرات الانعكاس على النص**
 
-نضيف العرض للنص من خلال مثال الكود التالي :
+نضيف عرضًا إلى النص عبر عينة الكود التالية :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
@@ -177,7 +176,9 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-يمكنك تغيير معلمات الظل، العرض، والتوهج. تُضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
+
+يمكنك تغيير المعلمات للظل، العرض، والتوهج. يتم ضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
+
 {{% /alert %}} 
 
 ### **استخدام التحويلات في WordArt**
@@ -185,6 +186,7 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 نستخدم خاصية Transform (الموجودة في كتلة النص بالكامل) عبر هذا الكود:
 ```php
   $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
+
 ```
 
 
@@ -193,20 +195,22 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-يقدم كل من Microsoft PowerPoint و Aspose.Slides for PHP via Java عددًا معينًا من أنواع التحويلات المعرفة مسبقًا. 
+
+يقدم كل من Microsoft PowerPoint و Aspose.Slides for PHP via Java عددًا معينًا من أنواع التحويل المعرّفة مسبقًا.
+
 {{% /alert %}} 
 
-**باستخدام PowerPoint**
+**استخدام PowerPoint**
 
-للوصول إلى أنواع التحويلات المعرفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
+للوصول إلى أنواع التحويل المعرّفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
 
-**باستخدام Aspose.Slides**
+**استخدام Aspose.Slides**
 
 لتحديد نوع التحويل، استخدم تعداد TextShapeType. 
 
-### **تطبيق تأثيرات ثلاثية الأبعاد على النص والأشكال**
+### **تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال**
 
-نضبط تأثيرًا ثلاثيًا الأبعاد على شكل نص باستخدام مثال الكود التالي:
+نقوم بتعيين تأثير ثلاثي الأبعاد إلى شكل نص باستخدام عينة الكود التالية:
 ```php
   $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
@@ -227,11 +231,11 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ```
 
 
-النص والشكل الناتج:
+النص الناتج وشكله:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-نطبق تأثيرًا ثلاثيًا الأبعاد على النص بهذا الكود PHP:
+نطبق تأثير ثلاثي الأبعاد على النص باستخدام كود PHP التالي:
 ```php
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
@@ -257,39 +261,45 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
-تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعلات التأثيرات بين بعضها البعض يعتمد على قواعد معينة. 
-ضع في الاعتبار مشهدًا للنص والشكل الذي يحتويه. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي يُوضع فيه الكائن. 
-- عندما يُحدد المشهد لكل من الشكل والنص، يحصل المشهد الخاص بالشكل على أولوية أعلى—ويُتجاهل مشهد النص. 
-- عندما لا يملك الشكل مشهدًا خاصًا لكنه يحتوي على تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
-- وإلا—عندما لا يكون للشكل تأثير ثلاثي الأبعاد أصلاً—يبقى الشكل مسطحًا وتُطبق تأثيرات ثلاثية الأبعاد فقط على النص. 
-هذه الأوصاف مرتبطة بالطرق ThreeDFormat.getLightRig() و ThreeDFormat.getCamera(). 
+
+تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعلات هذه التأثيرات تعتمد على قواعد معينة.
+
+اعتبر مشهدًا للنص والشكل الذي يحتوي على هذا النص. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي وُضع فيه الكائن.
+
+- عندما يتم تعيين المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—ويتم تجاهل مشهد النص.
+- عندما يفتقر الشكل إلى مشهد خاص به ولكنه يحتوي على تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص.
+- وإلا—عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد—يكون الشكل مسطحًا ويتم تطبيق تأثير ثلاثي الأبعاد على النص فقط.
+
+هذه الأوصاف مرتبطة بالطرق ThreeDFormat.getLightRig() و ThreeDFormat.getCamera().
+
 {{% /alert %}} 
 
-## **تطبيق تأثير الظل الخارجي على النص**
-توفر Aspose.Slides for PHP via Java الفئتين [**IOuterShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow) و [**IInnerShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow) اللتين تسمحان لك بتطبيق تأثيرات الظل على النص الموجود داخل [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame). اتبع الخطوات التالية:
+## **تطبيق تأثيرات الظل الخارجي على النص**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-2. الحصول على مرجع الشريحة باستخدام الفهرس.  
-3. إضافة AutoShape من النوع Rectangle إلى الشريحة.  
-4. الوصول إلى TextFrame المرتبط بـ AutoShape.  
-5. تعيين FillType للـ AutoShape إلى NoFill.  
-6. إنشاء كائن OuterShadow.  
-7. تعيين BlurRadius للظل.  
-8. تعيين Direction للظل.  
-9. تعيين Distance للظل.  
-10. تعيين RectanglelAlign إلى TopLeft.  
-11. تعيين PresetColor للظل إلى Black.  
-12. كتابة العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/)  
+يوفر Aspose.Slides for PHP via Java فئتي [OuterShadow](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/) و [InnerShadow](https://reference.aspose.com/slides/php-java/aspose.slides/innershadow/) اللتين تتيحان لك تطبيق تأثيرات الظل على نص محمول بواسطة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). اتبع هذه الخطوات:
 
-هذا مثال الكود —تنفيذ للخطوات أعلاه— يوضح كيفية تطبيق تأثير الظل الخارجي على النص:
+1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
+2. الحصول على مرجع شريحة باستخدام فهرسها.  
+3. إضافة AutoShape من نوع مستطيل إلى الشريحة.  
+4. الوصول إلى الـ TextFrame المرتبط بـ AutoShape.  
+5. ضبط FillType للـ AutoShape إلى NoFill.  
+6. إنشاء مثيل لفئة OuterShadow  
+7. ضبط BlurRadius للظل.  
+8. ضبط Direction للظل  
+9. ضبط Distance للظل.  
+10. ضبط RectanglelAlign إلى TopLeft.  
+11. ضبط PresetColor للظل إلى Black.  
+12. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+
+يعرض لك هذا الكود العيني —تنفيذ الخطوات السابقة— كيفية تطبيق تأثير الظل الخارجي على نص:
 ```php
   $pres = new Presentation();
   try {
-    # احصل على مرجع الشريحة
+    # الحصول على مرجع الشريحة
     $sld = $pres->getSlides()->get_Item(0);
-    # أضف AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع مستطيل
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # أضف TextFrame إلى Rectangle
+    # إضافة TextFrame إلى المستطيل
     $ashp->addTextFrame("Aspose TextBox");
     # تعطيل تعبئة الشكل في حال أردنا الحصول على ظل النص
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
@@ -301,7 +311,7 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
     $shadow->setDistance(3);
     $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
     $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    # احفظ العرض التقديمي إلى القرص
+    # كتابة العرض التقديمي إلى القرص
     $pres->save("pres_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -311,33 +321,34 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 ```
 
 
-## **تطبيق تأثير الظل الداخلي على الأشكال**
-اتبع الخطوات التالية:
+## **تطبيق تأثيرات الظل الداخلي على الأشكال**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+اتبع هذه الخطوات:
+
+1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
 2. الحصول على مرجع الشريحة.  
-3. إضافة AutoShape من النوع Rectangle.  
+3. إضافة AutoShape من نوع Rectangle.  
 4. تمكين InnerShadowEffect.  
-5. تعيين جميع المعلمات الضرورية.  
-6. تعيين ColorType إلى Scheme.  
-7. تعيين Scheme Color.  
-8. كتابة العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+5. ضبط جميع المعلمات اللازمة.  
+6. ضبط ColorType إلى Scheme.  
+7. ضبط Scheme Color.  
+8. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
-هذا مثال الكود (بناءً على الخطوات أعلاه) يوضح كيفية إضافة موصل بين شكلين :
+يوضح لك هذا الكود العيني (استنادًا إلى الخطوات أعلاه) كيفية إضافة موصل بين شكلين :
 ```php
   $pres = new Presentation();
   try {
-    # احصل على مرجع الشريحة
+    # الحصول على مرجع الشريحة
     $slide = $pres->getSlides()->get_Item(0);
-    # أضف AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع مستطيل
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # أضف TextFrame إلى المستطيل
+    # إضافة TextFrame إلى المستطيل
     $ashp->addTextFrame("Aspose TextBox");
     $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $pf = $port->getPortionFormat();
     $pf->setFontHeight(50);
-    # تفعيل InnerShadowEffect
+    # تمكين InnerShadowEffect
     $ef = $pf->getEffectFormat();
     $ef->enableInnerShadowEffect();
     # تعيين جميع المعلمات الضرورية
@@ -347,9 +358,9 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
     # تعيين ColorType كـ Scheme
     $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # تعيين لون المخطط
+    # تعيين لون Scheme
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    # احفظ العرض التقديمي
+    # حفظ العرض التقديمي
     $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -361,14 +372,18 @@ WordArt أو Word Art هي ميزة تسمح لك بتطبيق تأثيرات ع
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو أنظمة كتابة مختلفة (مثل العربية أو الصينية)؟**  
-نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والأنظمة الكتابية الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
+**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص مختلفة (مثل العربية، الصينية)؟**
 
-**هل يمكنني تطبيق تأثيرات WordArt على عناصر الشريحة الرئيسية؟**  
-نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في الشرائح الرئيسية، بما في ذلك عناصر النُسق، التذييل، أو النص الخلفي. ستنعكس التغييرات التي تُجرى على النُسق الرئيسي على جميع الشرائح المرتبطة بها.
+نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد على أي لغة، على الرغم من أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام.
 
-**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**  
-تؤثر بشكل طفيف. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئات التدرج حجم الملف قليلًا بسبب إضافة بيانات تنسيق، لكن الفرق غالبًا ما يكون ضئيلًا.
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر سلايد الماستر؟**
 
-**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**  
-نعم، يمكنك تصيير الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من واجهة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) أو [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في سلايدات الماستر، بما في ذلك عناصر العنونة، التذييلات، أو النص الخلفي. سيتم عكس التغييرات التي تجريها على تخطيط الماستر عبر جميع السلايدات المرتبطة.
+
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض التقديمي؟**
+
+قليلاً. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئات التدرج من حجم الملف بشكل طفيف بسبب إضافة بيانات تنسيق، لكن الفرق عادة ما يكون غير ملحوظ.
+
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض التقديمي؟**
+
+نعم، يمكنك تحويل السلايدات التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `getImage` من فئة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) أو [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض التقديمي بالكامل.

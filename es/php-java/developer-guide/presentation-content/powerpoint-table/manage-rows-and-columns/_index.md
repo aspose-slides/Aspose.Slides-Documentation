@@ -22,33 +22,33 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: Gestiona filas y columnas de tabla en PowerPoint con Aspose.Slides para PHP vía Java y acelera la edición de presentaciones y la actualización de datos.
+description: "Gestiona filas y columnas de tablas en PowerPoint con Aspose.Slides para PHP a través de Java y acelera la edición de presentaciones y la actualización de datos."
 ---
 
-Para permitirle gestionar las filas y columnas de una tabla en una presentación de PowerPoint, Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) , la interfaz [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) y muchos otros tipos.
+Para permitirle gestionar las filas y columnas de una tabla en una presentación de PowerPoint, Aspose.Slides ofrece la clase [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) y muchos otros tipos.
 
 ## **Establecer la primera fila como encabezado**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargar la presentación.  
-2. Obtener la referencia de una diapositiva mediante su índice.  
-3. Crear un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) y establecerlo en null.  
-4. Recorrer todos los objetos [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) para encontrar la tabla correspondiente.  
-5. Establecer la primera fila de la tabla como su encabezado.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación.  
+2. Obtenga la referencia de una diapositiva a través de su índice.  
+3. Cree un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) y establézcalo a null.  
+4. Itere a través de todos los objetos [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) para encontrar la tabla correspondiente.  
+5. Establezca la primera fila de la tabla como su encabezado.  
 
-Este código PHP le muestra cómo establecer la primera fila de una tabla como encabezado:
+Este código PHP muestra cómo establecer la primera fila de una tabla como su encabezado:
 ```php
   # Instancia la clase Presentation
   $pres = new Presentation("table.pptx");
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Inicializa la tabla nula TableEx
+    # Inicializa el TableEx nulo
     $tbl = null;
     # Recorre las formas y establece una referencia a la tabla
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        # Establece la primera fila de la tabla como su encabezado
+        # Establece la primera fila de una tabla como su encabezado
         $tbl->setFirstRow(true);
       }
     }
@@ -64,42 +64,42 @@ Este código PHP le muestra cómo establecer la primera fila de una tabla como e
 
 ## **Clonar una fila o columna de tabla**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargar la presentación,  
-2. Obtener la referencia de una diapositiva mediante su índice.  
-3. Definir una matriz de `columnWidth`.  
-4. Definir una matriz de `rowHeight`.  
-5. Añadir un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Clonar la fila de la tabla.  
-7. Clonar la columna de la tabla.  
-8. Guardar la presentación modificada.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación,  
+2. Obtenga la referencia de una diapositiva a través de su índice.  
+3. Defina una matriz de `columnWidth`.  
+4. Defina una matriz de `rowHeight`.  
+5. Añada un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).  
+6. Clone la fila de la tabla.  
+7. Clone la columna de la tabla.  
+8. Guarde la presentación modificada.  
 
-Este código PHP le muestra cómo clonar la fila o columna de una tabla de PowerPoint:
+Este código PHP muestra cómo clonar la fila o la columna de una tabla de PowerPoint:
 ```php
   # Instancia la clase Presentation
   $pres = new Presentation("Test.pptx");
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Define columnas con anchos y filas con alturas
+    # Define columnas con anchuras y filas con alturas
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
     # Añade una forma de tabla a la diapositiva
     $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Añade texto a la fila 1, celda 1
+    # Añade texto a la fila 1 celda 1
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    # Añade texto a la fila 1, celda 2
+    # Añade texto a la fila 1 celda 2
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
     # Clona la fila 1 al final de la tabla
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # Añade texto a la fila 2, celda 1
+    # Añade texto a la fila 2 celda 1
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    # Añade texto a la fila 2, celda 2
+    # Añade texto a la fila 2 celda 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
     # Clona la fila 2 como cuarta fila de la tabla
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
     # Clona la primera columna al final
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # Clona la segunda columna en la posición de la cuarta columna
+    # Clona la segunda columna en el índice de la cuarta columna
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
     # Guarda la presentación en disco
     $pres->save("table_out.pptx", SaveFormat::Pptx);
@@ -113,16 +113,16 @@ Este código PHP le muestra cómo clonar la fila o columna de una tabla de Power
 
 ## **Eliminar una fila o columna de una tabla**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargar la presentación,  
-2. Obtener la referencia de una diapositiva mediante su índice.  
-3. Definir una matriz de `columnWidth`.  
-4. Definir una matriz de `rowHeight`.  
-5. Añadir un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Eliminar la fila de la tabla.  
-7. Eliminar la columna de la tabla.  
-8. Guardar la presentación modificada.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación,  
+2. Obtenga la referencia de una diapositiva a través de su índice.  
+3. Defina una matriz de `columnWidth`.  
+4. Defina una matriz de `rowHeight`.  
+5. Añada un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).  
+6. Elimine la fila de la tabla.  
+7. Elimine la columna de la tabla.  
+8. Guarde la presentación modificada.  
 
-Este código PHP le muestra cómo eliminar una fila o columna de una tabla:
+Este código PHP muestra cómo eliminar una fila o columna de una tabla:
 ```php
   $pres = new Presentation();
   try {
@@ -141,17 +141,17 @@ Este código PHP le muestra cómo eliminar una fila o columna de una tabla:
 ```
 
 
-## **Establecer el formato de texto a nivel de fila de tabla**
+## **Aplicar formato de texto a nivel de fila de tabla**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargar la presentación,  
-2. Obtener la referencia de una diapositiva mediante su índice.  
-3. Acceder al objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) correspondiente de la diapositiva.  
-4. Establecer en las celdas de la primera fila [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Establecer en las celdas de la primera fila [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) y [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Establecer en las celdas de la segunda fila [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Guardar la presentación modificada.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación,  
+2. Obtenga la referencia de una diapositiva a través de su índice.  
+3. Acceda al objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) pertinente desde la diapositiva.  
+4. Establezca la [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) de las celdas de la primera fila.  
+5. Establezca la [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) y la [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) de las celdas de la primera fila.  
+6. Establezca la [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) de las celdas de la segunda fila.  
+7. Guarde la presentación modificada.  
 
-Este código PHP demuestra la operación.
+Este código PHP demuestra la operación:
 ```php
   # Crea una instancia de la clase Presentation
   $pres = new Presentation();
@@ -167,7 +167,7 @@ Este código PHP demuestra la operación.
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Establece el tipo de texto vertical de las celdas de la segunda fila
+    # Establece el tipo de orientación vertical del texto de las celdas de la segunda fila
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
@@ -181,15 +181,15 @@ Este código PHP demuestra la operación.
 ```
 
 
-## **Establecer el formato de texto a nivel de columna de tabla**
+## **Aplicar formato de texto a nivel de columna de tabla**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargar la presentación,  
-2. Obtener la referencia de una diapositiva mediante su índice.  
-3. Acceder al objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) correspondiente de la diapositiva.  
-4. Establecer en las celdas de la primera columna [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Establecer en las celdas de la primera columna [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) y [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Establecer en las celdas de la segunda columna [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Guardar la presentación modificada.  
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) y cargue la presentación,  
+2. Obtenga la referencia de una diapositiva a través de su índice.  
+3. Acceda al objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) pertinente desde la diapositiva.  
+4. Establezca la [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) de las celdas de la primera columna.  
+5. Establezca la [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) y la [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) de las celdas de la primera columna.  
+6. Establezca la [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) de las celdas de la segunda columna.  
+7. Guarde la presentación modificada.  
 
 Este código PHP demuestra la operación:
 ```php
@@ -207,7 +207,7 @@ Este código PHP demuestra la operación:
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Establece el tipo de texto vertical de las celdas de la segunda columna
+    # Establece el tipo de orientación vertical del texto de las celdas de la segunda columna
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
@@ -222,12 +222,12 @@ Este código PHP demuestra la operación:
 
 ## **Obtener propiedades de estilo de tabla**
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda utilizar esos detalles en otra tabla o en otro lugar. Este código PHP le muestra cómo obtener las propiedades de estilo a partir de un estilo predefinido de tabla:
+Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda reutilizarlas en otra tabla o en otro lugar. Este código PHP muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// cambia el tema predeterminado del estilo predefinido
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// cambiar el tema predeterminado del estilo preestablecido
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
@@ -240,13 +240,13 @@ Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para q
 
 ## **FAQ**
 
-**¿Puedo aplicar temas/estilos de PowerPoint a una tabla que ya está creada?**
+**¿Puedo aplicar temas/estilos de PowerPoint a una tabla ya creada?**
 
-Sí. La tabla hereda el tema de la diapositiva/disposición/maestra, y aún puede sobrescribir los rellenos, bordes y colores de texto sobre ese tema.
+Sí. La tabla hereda el tema de la diapositiva/disposición/maestra, y aún puede sobrescribir rellenos, bordes y colores de texto sobre ese tema.
 
 **¿Puedo ordenar filas de tabla como en Excel?**
 
-No, las tablas de Aspose.Slides no disponen de ordenación ni filtros incorporados. Ordene sus datos en memoria primero y luego vuelva a poblar las filas de la tabla en ese orden.
+No, las tablas de Aspose.Slides no disponen de ordenación o filtros integrados. Ordene sus datos en memoria primero y luego vuelva a cargar las filas de la tabla en ese orden.
 
 **¿Puedo tener columnas con bandas (rayas) manteniendo colores personalizados en celdas específicas?**
 

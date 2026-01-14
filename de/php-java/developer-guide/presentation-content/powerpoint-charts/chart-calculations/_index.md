@@ -1,5 +1,5 @@
 ---
-title: Diagrammberechnungen für Präsentationen in PHP optimieren
+title: Optimieren von Diagrammberechnungen für Präsentationen in PHP
 linktitle: Diagrammberechnungen
 type: docs
 weight: 50
@@ -8,20 +8,20 @@ keywords:
 - Diagrammberechnungen
 - Diagrammelemente
 - Elementposition
-- Tatsächliche Position
+- tatsächliche Position
 - Kindelement
 - Elternelement
 - Diagrammwerte
-- Tatsächlicher Wert
+- tatsächlicher Wert
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Verstehen Sie Diagrammberechnungen, Datenaktualisierungen und Präzisionssteuerung in Aspose.Slides für PHP via Java für PPT und PPTX, inklusive praktischer Codebeispiele."
+description: "Verstehen Sie Diagrammberechnungen, Datenaktualisierungen und Präzisionssteuerung in Aspose.Slides für PHP via Java für PPT und PPTX, mit praktischen Codebeispielen."
 ---
 
-## **Berechnen tatsächlicher Werte von Diagrammelementen**
-Aspose.Slides für PHP via Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Eigenschaften des [IAxis](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis)-Interface liefern Informationen über die tatsächliche Position des Achsendiagrammelements ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/IAxis#getActualMinorUnitScale--)). Es ist erforderlich, die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
+## **Tatsächliche Werte von Diagrammelementen berechnen**
+Aspose.Slides für PHP via Java stellt eine einfache API zum Abrufen dieser Eigenschaften bereit. Methoden der [Axis](https://reference.aspose.com/slides/php-java/aspose.slides/axis/) Klasse liefern Informationen über die tatsächliche Position des Achsendiagrammelements ([getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/), [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/), [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/), [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/), [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/), [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/)). Es ist erforderlich, vorher die Methode [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) aufzurufen, um die Eigenschaften mit tatsächlichen Werten zu füllen.
 ```php
   $pres = new Presentation();
   try {
@@ -39,8 +39,8 @@ Aspose.Slides für PHP via Java bietet eine einfache API zum Abrufen dieser Eige
 ```
 
 
-## **Berechnen der tatsächlichen Position von übergeordneten Diagrammelementen**
-Aspose.Slides für PHP via Java bietet eine einfache API zum Abrufen dieser Eigenschaften. Eigenschaften des [IActualLayout](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout)-Interface liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements ([IActualLayout.getActualX](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/php-java/aspose.slides/IActualLayout#getActualHeight--)). Es ist erforderlich, die Methode [IChart.validateChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#validateChartLayout--) vorher aufzurufen, um die Eigenschaften mit den tatsächlichen Werten zu füllen.
+## **Tatsächliche Position von übergeordneten Diagrammelementen berechnen**
+Aspose.Slides für PHP via Java stellt eine einfache API zum Abrufen dieser Eigenschaften bereit. Methoden der `ActualLayout`‑Klasse liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements (`getActualX`, `getActualY`, `getActualWidth`, `getActualHeight`). Es ist erforderlich, vorher die Methode [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) aufzurufen, um die Eigenschaften mit tatsächlichen Werten zu füllen.
 ```php
   $pres = new Presentation();
   try {
@@ -59,7 +59,7 @@ Aspose.Slides für PHP via Java bietet eine einfache API zum Abrufen dieser Eige
 
 
 ## **Diagrammelemente ausblenden**
-Dieses Thema hilft Ihnen zu verstehen, wie Informationen im Diagramm ausgeblendet werden können. Mit Aspose.Slides für PHP via Java können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitternetzlinien** im Diagramm ausblenden. Das nachstehende Codebeispiel zeigt, wie diese Eigenschaften verwendet werden.
+Dieses Thema unterstützt Sie dabei zu verstehen, wie Informationen im Diagramm ausgeblendet werden können. Mit Aspose.Slides für PHP via Java können Sie **Titel, vertikale Achse, horizontale Achse** und **Gitternetzlinien** im Diagramm ausblenden. Das folgende Codebeispiel zeigt, wie diese Eigenschaften verwendet werden.
 ```php
   $pres = new Presentation();
   try {
@@ -98,13 +98,13 @@ Dieses Thema hilft Ihnen zu verstehen, wie Informationen im Diagramm ausgeblende
 
 ## **FAQ**
 
-**Unterstützen externe Excel-Arbeitsmappen eine Datenquelle, und wie wirkt sich das auf die Neuberechnung aus?**
+**Funktionieren externe Excel-Arbeitsmappen als Datenquelle und wie wirkt sich das auf die Neuberechnung aus?**
 
-Ja. Ein Diagramm kann eine externe Arbeitsmappe referenzieren: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Änderungen während Öffnen/Bearbeiten wider. Die API ermöglicht es Ihnen, den Pfad der [die externe Arbeitsmappe angeben](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) anzugeben und die verknüpften Daten zu verwalten.
+Ja. Ein Diagramm kann auf eine externe Arbeitsmappe verweisen: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Änderungen während Öffnen/Bearbeiten wider. Die API ermöglicht es Ihnen, den Pfad zur [externen Arbeitsmappe](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) anzugeben und die verknüpften Daten zu verwalten.
 
 **Kann ich Trendlinien berechnen und anzeigen, ohne die Regression selbst zu implementieren?**
 
-Ja. [Trendlinien](/slides/de/php-java/trend-line/) (linear, exponentiell und weitere) werden von Aspose.Slides hinzugefügt und aktualisiert; ihre Parameter werden automatisch aus den Seriendaten neu berechnet, sodass Sie keine eigenen Berechnungen implementieren müssen.
+Ja. [Trendlines](/slides/de/php-java/trend-line/) (linear, exponentiell und andere) werden von Aspose.Slides hinzugefügt und aktualisiert; ihre Parameter werden automatisch aus den Serien‑Daten neu berechnet, sodass Sie eigene Berechnungen nicht implementieren müssen.
 
 **Wenn eine Präsentation mehrere Diagramme mit externen Verknüpfungen enthält, kann ich steuern, welche Arbeitsmappe jedes Diagramm für berechnete Werte verwendet?**
 

@@ -1,5 +1,5 @@
 ---
-title: Форматировать текст PowerPoint в PHP
+title: Форматирование текста PowerPoint в PHP
 linktitle: Форматирование текста
 type: docs
 weight: 50
@@ -14,12 +14,12 @@ keywords:
 - межсимвольный интервал
 - свойства шрифта
 - семейство шрифтов
-- вращение текста
-- угол вращения
-- текстовый фрейм
+- поворот текста
+- угол поворота
+- текстовый кадр
 - межстрочный интервал
 - свойство автоподгонки
-- привязка текстового фрейма
+- привязка текстового кадра
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
@@ -27,15 +27,15 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Форматировать и стилизовать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
+description: "Форматирование и стилизация текста в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
 ---
 
-## **Выделить текст**
-Метод [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) был добавлен в интерфейс [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) и класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame).
+## **Подсветка текста**
+Метод [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlighttext/) был добавлен в класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
-Он позволяет выделять часть текста фоном, используя образец текста, аналогично инструменту Text Highlight Color в PowerPoint 2019.
+Он позволяет подсвечивать часть текста фоновым цветом, используя образец текста, аналогично инструменту Text Highlight Color в PowerPoint 2019.
 
-Ниже приведён фрагмент кода, показывающий, как использовать эту функцию:
+Ниже приведён пример кода, показывающий, как использовать эту возможность:
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
@@ -55,20 +55,20 @@ description: "Форматировать и стилизовать текст в
 
 
 {{% alert color="primary" %}} 
-Aspose предоставляет простой, [бесплатный онлайн‑сервис редактирования PowerPoint](https://products.aspose.app/slides/editor)
+Aspose предоставляет простой, [бесплатный онлайн сервис редактирования PowerPoint](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **Выделение текста с помощью регулярного выражения**
-Метод [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) был добавлен в интерфейс [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) и класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame).
+## **Подсветка текста с использованием регулярного выражения**
+Метод [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlightregex/) был добавлен в класс [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
-Он позволяет выделять часть текста фоном, используя регулярное выражение, аналогично инструменту Text Highlight Color в PowerPoint 2019.
+Он позволяет подсвечивать часть текста фоновым цветом, используя регулярное выражение, аналогично инструменту Text Highlight Color в PowerPoint 2019.
 
-Ниже приведён фрагмент кода, показывающий, как использовать эту функцию:
+Ниже приведён пример кода, показывающий, как использовать эту возможность:
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     $options = new TextHighlightingOptions();
-    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// выделение всех слов из 10 и более символов
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// выделение всех слов длиной 10 символов и более
 
     $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
@@ -79,8 +79,8 @@ Aspose предоставляет простой, [бесплатный онла
 ```
 
 
-## **Установить цвет фона текста**
-Aspose.Slides позволяет задать предпочитаемый цвет фона для текста.
+## **Установка цвета фона текста**
+Aspose.Slides позволяет задать предпочитаемый цвет фона текста.
 
 Этот PHP‑код показывает, как установить цвет фона для всего текста:
 ```php
@@ -155,36 +155,36 @@ Aspose.Slides позволяет задать предпочитаемый цв�
 ```
 
 
-## **Выровнять абзацы текста**
-Форматирование текста – один из ключевых элементов при создании любых документов или презентаций. Мы знаем, что Aspose.Slides for PHP via Java поддерживает добавление текста на слайды, но в этой теме мы посмотрим, как управлять выравниванием абзацев текста на слайде. Пожалуйста, выполните следующие шаги для выравнивания абзацев текста с помощью Aspose.Slides for PHP via Java:
+## **Выравнивание абзацев текста**
+Форматирование текста – один из ключевых элементов при создании документов или презентаций. Мы знаем, что Aspose.Slides for PHP via Java поддерживает добавление текста в слайды, но в этой статье мы посмотрим, как управлять выравниванием абзацев текста в слайде. Пожалуйста, выполните следующие шаги для выравнивания абзацев текста с помощью Aspose.Slides for PHP via Java:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 2. Получите ссылку на слайд, используя его индекс.
-3. Получите доступ к Placeholder‑формам, присутствующим на слайде, и приведите их к типу [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-4. Получите абзац (который нужно выровнять) из [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#getTextFrame--) , предоставляемого [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-5. Выровняйте абзац. Абзац может быть выровнен по правому, левому, центру или с выравниванием по ширине.
-6. Запишите изменённую презентацию в файл PPTX.
+3. Доступ к Placeholder‑формам слайда и приведение их к типу [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+4. Получите абзац (который нужно выровнять) из [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), предоставляемого [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+5. Выровняйте абзац. Абзац может быть выровнен по правому, левому краю, по центру или по ширине.
+6. Сохраните изменённую презентацию в виде файла PPTX.
 
-Реализация указанных выше шагов приведена ниже.
+Реализация перечисленных шагов показана ниже.
 ```php
-  # Создайте объект Presentation, представляющий файл PPTX
+  # Создать объект Presentation, представляющий PPTX файл
   $pres = new Presentation("ParagraphsAlignment.pptx");
   try {
-    # Получаем первый слайд
+    # Доступ к первому слайду
     $slide = $pres->getSlides()->get_Item(0);
-    # Доступ к первому и второму заполнительному элементу на слайде и приведение их к типу AutoShape
+    # Получение первого и второго заполнителей на слайде и приведение к типу AutoShape
     $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
     $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
-    # Изменяем текст в обоих заполнителях
+    # Изменение текста в обоих заполнителях
     $tf1->setText("Center Align by Aspose");
     $tf2->setText("Center Align by Aspose");
-    # Получаем первый абзац из заполнителей
+    # Получение первого абзаца из заполнителей
     $para1 = $tf1->getParagraphs()->get_Item(0);
     $para2 = $tf2->getParagraphs()->get_Item(0);
-    # Выравниваем абзац текста по центру
+    # Выравнивание абзаца текста по центру
     $para1->getParagraphFormat()->setAlignment(TextAlignment->Center);
     $para2->getParagraphFormat()->setAlignment(TextAlignment->Center);
-    # Сохраняем презентацию в файл PPTX
+    # Сохранение презентации в файл PPTX
     $pres->save("Centeralign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -194,14 +194,15 @@ Aspose.Slides позволяет задать предпочитаемый цв�
 ```
 
 
-## **Установить прозрачность текста**
-В этой статье демонстрируется, как установить свойство прозрачности для любой текстовой формы с помощью Aspose.Slides for PHP via Java. Чтобы задать прозрачность текста, выполните следующие шаги:
+## **Установка прозрачности текста**
+В этой статье демонстрируется, как задать свойство прозрачности любой текстовой фигуры с помощью Aspose.Slides for PHP via Java. Чтобы установить прозрачность текста, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 2. Получите ссылку на слайд.
-3. Установите цвет тени.
-4. Запишите презентацию в файл PPTX.
+3. Задайте цвет тени.
+4. Сохраните презентацию в виде файла PPTX.
 
+Реализация перечисленных шагов показана ниже.
 ```php
   $pres = new Presentation("transparency.pptx");
   try {
@@ -221,10 +222,10 @@ Aspose.Slides позволяет задать предпочитаемый цв�
 ```
 
 
-## **Установить межсимвольный интервал для текста**
-Aspose.Slides позволяет задать расстояние между буквами в текстовом поле. Таким образом, вы можете регулировать визуальную плотность строки или блока текста, расширяя или сжимая интервалы между символами.
+## **Установка межсимвольного интервала текста**
+Aspose.Slides позволяет задать расстояние между символами в текстовом блоке. Таким образом, вы можете регулировать визуальную плотность строки или блока текста, расширяя или сужая интервал между символами.
 
-Этот PHP‑код показывает, как расширить интервалы для одной строки текста и сжать их для другой строки:
+Этот PHP‑код показывает, как увеличить интервал для одной строки текста и уменьшить его для другой строки:
 ```php
   $presentation = new Presentation("in.pptx");
   $textBox1 = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -238,42 +239,43 @@ Aspose.Slides позволяет задать расстояние между б
 
 
 ## **Управление свойствами шрифта абзаца**
-Презентации обычно содержат как текст, так и изображения. Текст может быть отформатирован различными способами, либо для выделения определённых разделов и слов, либо в соответствии с корпоративными стилями. Форматирование текста помогает пользователям менять внешний вид содержания презентации. Эта статья показывает, как с помощью Aspose.Slides for PHP via Java настроить свойства шрифта абзацев текста на слайдах. Чтобы управлять свойствами шрифта абзаца с помощью Aspose.Slides for PHP via Java:
+Презентации обычно содержат как текст, так и изображения. Текст может быть отформатирован различными способами — для подсветки определённых разделов и слов или в соответствии с корпоративными стилями. Форматирование текста помогает пользователям варьировать внешний вид содержимого презентации. В этой статье показано, как с помощью Aspose.Slides for PHP via Java настроить свойства шрифта абзацев текста на слайдах. Чтобы управлять свойствами шрифта абзаца:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд, используя его индекс.
-3. Получите доступ к Placeholder‑формам на слайде и приведите их к типу [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-4. Получите [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) из [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame), предоставляемого [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. Выровняйте абзац по ширине.
-6. Получите объект Portion текста абзаца.
-7. Определите шрифт с помощью FontData и соответственно установите Font у Portion текста.
-   1. Установите полужирный стиль шрифта.
-   2. Установите курсив.
-8. Установите цвет шрифта, используя [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#getFillFormat--), предоставляемый объектом [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion).
-9. Сохраните изменённую презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Получите ссылку на слайд, используя его индекс.
+1. Доступ к Placeholder‑формам слайда и приведение их к типу [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Получите объект [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) из [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), предоставляемого [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+1. Выравнивание абзаца по ширине.
+1. Доступ к Portion текста абзаца.
+1. Определите шрифт с помощью FontData и установите шрифт Portion соответственно.
+   1. Сделать шрифт жирным.
+   1. Сделать шрифт курсивом.
+1. Установите цвет шрифта через [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat), предоставляемый объектом [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
+1. Сохраните изменённую презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
+Реализация перечисленных шагов представлена ниже. Она берёт простую презентацию и форматирует шрифты на одном из слайдов.
 ```php
-  # Создайте объект Presentation, представляющий файл PPTX
+  # Создать объект Presentation, представляющий PPTX файл
   $pres = new Presentation("FontProperties.pptx");
   try {
-    # Доступ к слайду по его позиции
+    # Получить слайд по его позиции
     $slide = $pres->getSlides()->get_Item(0);
-    # Доступ к первому и второму заполнителям на слайде и приведение их к типу AutoShape
+    # Получить первый и второй заполнители на слайде и привести их к типу AutoShape
     $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
     $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
-    # Доступ к первому абзацу
+    # Получить первый абзац
     $para1 = $tf1->getParagraphs()->get_Item(0);
     $para2 = $tf2->getParagraphs()->get_Item(0);
-    # Доступ к первой части
+    # Получить первую часть текста
     $port1 = $para1->getPortions()->get_Item(0);
     $port2 = $para2->getPortions()->get_Item(0);
-    # Определите новые шрифты
+    # Определить новые шрифты
     $fd1 = new FontData("Elephant");
     $fd2 = new FontData("Castellar");
-    # Присвоить новые шрифты части
+    # Назначить новые шрифты части
     $port1->getPortionFormat()->setLatinFont($fd1);
     $port2->getPortionFormat()->setLatinFont($fd2);
-    # Установить шрифт полужирным
+    # Установить шрифт жирным
     $port1->getPortionFormat()->setFontBold(NullableBool::True);
     $port2->getPortionFormat()->setFontBold(NullableBool::True);
     # Установить шрифт курсивом
@@ -295,19 +297,20 @@ Aspose.Slides позволяет задать расстояние между б
 
 
 ## **Управление семейством шрифтов текста**
-Portion используется для хранения текста с одинаковым стилем в абзаце. Эта статья показывает, как с помощью Aspose.Slides for PHP via Java создать текстовое поле с некоторым текстом и затем задать определённый шрифт и различные свойства семейства шрифтов. Чтобы создать текстовое поле и задать свойства шрифта текста в нём:
+Portion используется для группировки текста с одинаковым стилем в абзаце. В этой статье показано, как с помощью Aspose.Slides for PHP via Java создать текстовое поле, задать определённый шрифт и другие свойства семейства шрифтов. Чтобы создать текстовое поле и задать свойства шрифта текста в нём:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) типа [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) на слайд.
-4. Удалите стиль заливки, связанный с [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. Получите TextFrame AutoShape.
+3. Добавьте [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) типа [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) на слайд.
+4. Удалите стиль заливки, связанный с [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+5. Доступ к TextFrame AutoShape.
 6. Добавьте текст в TextFrame.
-7. Получите объект Portion, связанный с [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-8. Определите шрифт, который будет использоваться для [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion).
-9. Установите другие свойства шрифта, такие как полужирный, курсив, подчёркивание, цвет и высота, используя соответствующие свойства, предоставляемые объектом Portion.
+7. Доступ к объекту Portion, связанному с [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+8. Определите шрифт, который будет использоваться для [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/).
+9. Задайте другие свойства шрифта, такие как жирный, курсив, подчёркивание, цвет и высота, используя соответствующие свойства объекта Portion.
 10. Сохраните изменённую презентацию в файл PPTX.
 
+Реализация перечисленных шагов представлена ниже.
 ```php
   # Создать объект Presentation
   $pres = new Presentation();
@@ -316,20 +319,20 @@ Portion используется для хранения текста с оди�
     $sld = $pres->getSlides()->get_Item(0);
     # Добавить AutoShape типа Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
-    # Удалить любую заливку, связанную с AutoShape
+    # Удалить любой стиль заливки, связанный с AutoShape
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Обратиться к TextFrame, связанному с AutoShape
+    # Получить TextFrame, связанный с AutoShape
     $tf = $ashp->getTextFrame();
     $tf->setText("Aspose TextBox");
-    # Обратиться к Portion, связанному с TextFrame
+    # Получить Portion, связанный с TextFrame
     $port = $tf->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    # Задать шрифт для Portion
+    # Установить шрифт для Portion
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
-    # Установить полужирный стиль шрифта
+    # Установить свойство Bold для шрифта
     $port->getPortionFormat()->setFontBold(NullableBool::True);
-    # Установить курсив шрифта
+    # Установить свойство Italic для шрифта
     $port->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Установить подчеркивание шрифта
+    # Установить свойство Underline для шрифта
     $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
     # Установить высоту шрифта
     $port->getPortionFormat()->setFontHeight(25);
@@ -346,10 +349,10 @@ Portion используется для хранения текста с оди�
 ```
 
 
-## **Установить размер шрифта для текста**
-Aspose.Slides позволяет выбрать предпочтительный размер шрифта для существующего текста в абзаце и для текста, который может быть добавлен в абзац позже.
+## **Установка размера шрифта текста**
+Aspose.Slides позволяет выбрать предпочитаемый размер шрифта для существующего текста в абзаце и для текста, который может быть добавлен позже.
 
-Этот PHP‑код показывает, как установить размер шрифта для текста, содержащегося в абзаце:
+Этот PHP‑код показывает, как установить размер шрифта для текста, находящегося в абзаце:
 ```php
   $presentation = new Presentation("example.pptx");
   try {
@@ -359,9 +362,9 @@ Aspose.Slides позволяет выбрать предпочтительный
       $autoShape = $shape;
       # Получает первый абзац, например.
       $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-      # Устанавливает размер шрифта по умолчанию 20 pt для всех текстовых частей в абзаце.
+      # Устанавливает размер шрифта по умолчанию 20 pt для всех частей текста в абзаце.
       $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
-      # Устанавливает размер шрифта 20 pt для текущих текстовых частей в абзаце.
+      # Устанавливает размер шрифта 20 pt для текущих частей текста в абзаце.
       foreach($paragraph->getPortions() as $portion) {
         $portion->getPortionFormat()->setFontHeight(20);
       }
@@ -374,16 +377,15 @@ Aspose.Slides позволяет выбрать предпочтительный
 ```
 
 
-## **Установить вращение текста**
-Aspose.Slides for PHP via Java позволяет разработчикам вращать текст. Текст может быть установлен как [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#MongolianVertical) или [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). Чтобы вращать текст любого TextFrame, выполните следующие шаги:
+## **Установка поворота текста**
+Aspose.Slides for PHP via Java позволяет разработчикам вращать текст. Текст может быть отображён как [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Horizontal), [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical), [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#MongolianVertical) или [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVerticalRightToLeft). Чтобы повернуть текст любого TextFrame, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Rotate the text](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Доступ к первому слайду.
+3. Добавьте любую фигуру на слайд.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Поверните текст](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 6. Сохраните файл на диск.
-
 ```php
   # Создать экземпляр класса Presentation
   $pres = new Presentation();
@@ -392,13 +394,13 @@ Aspose.Slides for PHP via Java позволяет разработчикам в�
     $slide = $pres->getSlides()->get_Item(0);
     # Добавить AutoShape типа Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
-    # Добавить TextFrame к Rectangle
+    # Добавить TextFrame к прямоугольнику
     $ashp->addTextFrame("");
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Доступ к TextFrame
+    # Доступ к текстовому фрейму
     $txtFrame = $ashp->getTextFrame();
     $txtFrame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
-    # Создать объект Paragraph для TextFrame
+    # Создать объект Paragraph для текстового фрейма
     $para = $txtFrame->getParagraphs()->get_Item(0);
     # Создать объект Portion для абзаца
     $portion = $para->getPortions()->get_Item(0);
@@ -415,15 +417,15 @@ Aspose.Slides for PHP via Java позволяет разработчикам в�
 ```
 
 
-## **Установить пользовательский угол вращения для TextFrame**
-Aspose.Slides for PHP via Java теперь поддерживает задавание пользовательского угла вращения для TextFrame. В этой теме мы рассмотрим пример, как установить свойство RotationAngle в Aspose.Slides. Новые методы [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-) и [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#getRotationAngle--) добавлены в интерфейсы [IChartTextBlockFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IChartTextBlockFormat) и [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) и позволяют задавать пользовательский угол вращения для TextFrame. Чтобы установить RotationAngle, выполните следующие шаги:
+## **Установка произвольного угла поворота для TextFrame**
+Aspose.Slides for PHP via Java теперь поддерживает задание произвольного угла поворота для TextFrame. В этой теме показан пример, как задать свойство RotationAngle в Aspose.Slides. Добавлены новые методы [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/) и [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/getrotationangle/) в класс [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/), позволяющие задавать произвольный угол поворота для TextFrame. Чтобы задать RotationAngle, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 2. Добавьте диаграмму на слайд.
-3. [Set RotationAngle property](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-).
-4. Запишите презентацию в файл PPTX.
+3. [Задайте угол поворота](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/).
+4. Сохраните презентацию в файл PPTX.
 
-В примере ниже мы задаём свойство RotationAngle.
+В примере ниже показано, как установить свойство RotationAngle.
 ```php
   # Создать экземпляр класса Presentation
   $pres = new Presentation();
@@ -432,15 +434,15 @@ Aspose.Slides for PHP via Java теперь поддерживает задав�
     $slide = $pres->getSlides()->get_Item(0);
     # Добавить AutoShape типа Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
-    # Добавить TextFrame к Rectangle
+    # Добавить TextFrame к прямоугольнику
     $ashp->addTextFrame("");
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Получить TextFrame
+    # Доступ к текстовому фрейму
     $txtFrame = $ashp->getTextFrame();
     $txtFrame->getTextFrameFormat()->setRotationAngle(25);
-    # Создать объект Paragraph для TextFrame
+    # Создать объект Paragraph для текстового фрейма
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Создать объект Portion для Paragraph
+    # Создать объект Portion для абзаца
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("Text rotation example.");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -456,19 +458,19 @@ Aspose.Slides for PHP via Java теперь поддерживает задав�
 
 
 ## **Межстрочный интервал абзаца**
-Aspose.Slides предоставляет свойства в [`ParagraphFormat`](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraphFormat)—`SpaceAfter`, `SpaceBefore` и `SpaceWithin`—которые позволяют управлять межстрочным интервалом абзаца. Свойства используются следующим образом:
+Aspose.Slides предоставляет свойства в [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) — `SpaceAfter`, `SpaceBefore` и `SpaceWithin` — которые позволяют управлять межстрочным интервалом абзаца. Свойства используют следующим образом:
 
-* Чтобы задать межстрочный интервал в процентах, используйте положительное значение. 
-* Чтобы задать межстрочный интервал в пунктах, используйте отрицательное значение.
+* Чтобы задать межстрочный интервал в процентах, укажите положительное значение. 
+* Чтобы задать межстрочный интервал в пунктах, укажите отрицательное значение.
 
-Например, вы можете установить интервал 16 pt, задав свойство `SpaceBefore` со значением -16.
+Например, можно установить интервал 16 pt, задав `SpaceBefore` = -16.
 
-Так задаётся межстрочный интервал для конкретного абзаца:
+Как задать межстрочный интервал для конкретного абзаца:
 
 1. Загрузите презентацию, содержащую AutoShape с текстом.
 2. Получите ссылку на слайд через его индекс.
-3. Получите доступ к TextFrame.
-4. Получите доступ к Paragraph.
+3. Доступ к TextFrame.
+4. Доступ к Paragraph.
 5. Установите свойства Paragraph.
 6. Сохраните презентацию.
 
@@ -479,11 +481,11 @@ Aspose.Slides предоставляет свойства в [`ParagraphFormat`]
   try {
     # Получить ссылку на слайд по его индексу
     $sld = $pres->getSlides()->get_Item(0);
-    # Получить доступ к TextFrame
+    # Доступ к TextFrame
     $tf1 = $sld->getShapes()->get_Item(0)->getTextFrame();
-    # Получить доступ к Paragraph
+    # Доступ к абзацу
     $para = $tf1->getParagraphs()->get_Item(0);
-    # Установить свойства Paragraph
+    # Установить свойства абзаца
     $para->getParagraphFormat()->setSpaceWithin(80);
     $para->getParagraphFormat()->setSpaceBefore(40);
     $para->getParagraphFormat()->setSpaceAfter(40);
@@ -497,16 +499,15 @@ Aspose.Slides предоставляет свойства в [`ParagraphFormat`]
 ```
 
 
-## **Установить свойство AutofitType для TextFrame**
-В этой теме мы изучим различные свойства форматирования текстовых фреймов. Статья охватывает, как задать свойство AutofitType, привязку текста и вращение текста в презентации. Aspose.Slides for PHP via Java позволяет разработчикам задавать свойство AutofitType любого текстового фрейма. AutofitType может быть установлен в [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Normal) или [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Shape). Если установить [Normal], форма останется прежней, а текст будет подстроен без изменения формы; если установить [Shape], форма будет изменена так, чтобы в ней помещался только необходимый текст. Чтобы задать свойство AutofitType текстового фрейма, выполните следующие шаги:
+## **Установка свойства AutofitType для TextFrame**
+В этой теме рассматриваются различные свойства форматирования TextFrame. Статья описывает, как задать свойство AutofitType, привязку текста и вращение текста в презентации. Aspose.Slides for PHP via Java позволяет задавать свойство AutofitType любого TextFrame. AutofitType может быть установлен в [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) или [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape). При значении [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) форма остаётся прежней, а текст подгоняется без изменения формы. При значении [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape) форма меняется так, чтобы в неё помещался только необходимый текст. Чтобы задать свойство AutofitType для TextFrame, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. Получите доступ к первому слайду.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Доступ к первому слайду.
 3. Добавьте любую форму на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set the AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAutofitType-byte-) текстового фрейма.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Задайте тип автоподгонки](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setautofittype/) для TextFrame.
 6. Сохраните файл на диск.
-
 ```php
   # Создать экземпляр класса Presentation
   $pres = new Presentation();
@@ -515,15 +516,15 @@ Aspose.Slides предоставляет свойства в [`ParagraphFormat`]
     $slide = $pres->getSlides()->get_Item(0);
     # Добавить AutoShape типа Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 150);
-    # Добавить TextFrame к Rectangle
+    # Добавить TextFrame к прямоугольнику
     $ashp->addTextFrame("");
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Доступ к TextFrame
+    # Доступ к текстовому фрейму
     $txtFrame = $ashp->getTextFrame();
     $txtFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    # Создать объект Paragraph для TextFrame
+    # Создать объект Paragraph для текстового фрейма
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Создать объект Portion для Paragraph
+    # Создать объект Portion для абзаца
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -538,16 +539,15 @@ Aspose.Slides предоставляет свойства в [`ParagraphFormat`]
 ```
 
 
-## **Установить привязку TextFrame**
-Aspose.Slides for PHP via Java позволяет разработчикам задавать привязку любого TextFrame. TextAnchorType определяет, где текст размещается в форме. Привязка может быть установлена в [Top](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Justified) или [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Distributed). Чтобы задать привязку TextFrame, выполните следующие шаги:
+## **Установка привязки текста в TextFrame**
+Aspose.Slides for PHP via Java позволяет задавать привязку текста в любом TextFrame. TextAnchorType определяет положение текста в форме. AnchorType может быть установлен в [Top](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Top), [Center](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Center), [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Bottom), [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Justified) или [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Distributed). Чтобы задать привязку текста в любой TextFrame, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите доступ к первому слайду.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Доступ к первому слайду.
 3. Добавьте любую форму на слайд.
-4. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set TextAnchorType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAnchoringType-byte-) TextFrame.
+4. Доступ к [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. [Задайте тип привязки текста](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setanchoringtype/) для TextFrame.
 6. Сохраните файл на диск.
-
 ```php
   # Создать экземпляр класса Presentation
   $pres = new Presentation();
@@ -556,15 +556,15 @@ Aspose.Slides for PHP via Java позволяет разработчикам з�
     $slide = $pres->getSlides()->get_Item(0);
     # Добавить AutoShape типа Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
-    # Добавить TextFrame к Rectangle
+    # Добавить TextFrame к прямоугольнику
     $ashp->addTextFrame("");
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Доступ к TextFrame
+    # Доступ к текстовому фрейму
     $txtFrame = $ashp->getTextFrame();
     $txtFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
-    # Создать объект Paragraph для TextFrame
+    # Создать объект Paragraph для текстового фрейма
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Создать объект Portion для Paragraph
+    # Создать объект Portion для абзаца
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -579,22 +579,21 @@ Aspose.Slides for PHP via Java позволяет разработчикам з�
 ```
 
 
-## **Табуляции и EffectiveTabs в презентации**
-Все табуляции текста задаются в пикселях.
+## **Tabs и EffectiveTabs в презентации**
+Все табуляции текста указаны в пикселях.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
 |**Рисунок: 2 явные табуляции и 2 табуляции по умолчанию**|
-
 - Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.  
 - Коллекция EffectiveTabs включает все табуляции (из коллекции Tabs и табуляции по умолчанию).  
-- EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.  
+- Свойство EffectiveTabs.ExplicitTabCount (2 в нашем случае) равно Tabs.Count.  
 - Свойство EffectiveTabs.DefaultTabSize (294) показывает расстояние между табуляциями по умолчанию (3 и 4 в нашем примере).  
-- EffectiveTabs.GetTabByIndex(index) с index = 0 вернёт первую явную табуляцию (Position = 731), index = 1 – вторую табуляцию (Position = 1241). При запросе index = 2 будет возвращена первая табуляция по умолчанию (Position = 1470) и т.д.  
-- EffectiveTabs.GetTabAfterPosition(pos) используется для получения следующей табуляции после некоторого текста. Например, у вас есть текст «Hello World!». Чтобы отобразить такой текст, нужно знать, где начинается «world!». Сначала рассчитывается длина слова «Hello» в пикселях и вызывается GetTabAfterPosition с этим значением. Вы получаете позицию следующей табуляции для отрисовки «world!».
+- EffectiveTabs.GetTabByIndex(index) с index = 0 вернёт первую явную табуляцию (Position = 731), index = 1 — вторую табуляцию (Position = 1241). При запросе index = 2 будет возвращена первая табуляция по умолчанию (Position = 1470) и т.д.  
+- EffectiveTabs.GetTabAfterPosition(pos) используется для получения следующей табуляции после некоторого текста. Например, есть текст: "Hello World!". Чтобы отобразить такой текст, необходимо знать, где начинать рисовать "world!". Сначала вычислите длину "Hello" в пикселях и вызовите GetTabAfterPosition с этим значением. Вы получите позицию следующей табуляции для рисования "world!".  
 
-## **Извлечь текст с эффектом All-Caps**
-В PowerPoint применение эффекта **All Caps** делает текст заглавными буквами на слайде, даже если он был введён строчными. При получении такого текста через Aspose.Slides библиотека возвращает его в том виде, в каком он был введён. Чтобы обработать это, проверьте [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) — если он указывает `All`, просто преобразуйте возвращённую строку в верхний регистр, чтобы вывод совпадал с тем, что видят пользователи на слайде.
+## **Извлечение текста с эффектом All‑Caps**
+В PowerPoint применение эффекта шрифта **All Caps** делает текст заглавным на слайде, даже если он был введён строчными буквами. При получении такой части текста с помощью Aspose.Slides библиотека возвращает текст в исходном виде. Чтобы обработать это, проверьте [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) — если указано `All`, просто преобразуйте полученную строку в верхний регистр, чтобы вывод совпадал с тем, что видят пользователи на слайде.
 
 Допустим, у нас есть следующий текстовый блок на первом слайде файла sample2.pptx.
 
@@ -622,6 +621,7 @@ try {
 ```
 
 
+Вывод:
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -632,8 +632,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Чтобы изменить текст в таблице на слайде, необходимо использовать класс [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Можно перебрать все ячейки таблицы и изменить текст в каждой ячейке, получив доступ к её `TextFrame` и `ParagraphFormat` внутри каждой ячейки.
+Для изменения текста в таблице на слайде необходимо использовать класс [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Можно пройтись по всем ячейкам таблицы и изменить текст в каждой ячейке, получив её `TextFrame` и свойства `ParagraphFormat`.
 
 **Как применить градиентный цвет к тексту в слайде PowerPoint?**
 
-Чтобы применить градиентный цвет к тексту, используйте метод `getFillFormat` в [BasePortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/). Установите `FillFormat` в `Gradient`, где можно задать начальный и конечный цвета градиента, а также другие свойства, такие как направление и прозрачность, для создания градиентного эффекта на тексте.
+Чтобы применить градиент к тексту, используйте метод `getFillFormat` в [BasePortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/). Установите `FilFormat` в `Gradient`, задав начальный и конечный цвета градиента, а также дополнительные свойства, такие как направление и прозрачность, для создания градиентного эффекта текста.

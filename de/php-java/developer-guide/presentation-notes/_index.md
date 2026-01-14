@@ -1,5 +1,5 @@
 ---
-title: Präsentationsnotizen verwalten in PHP
+title: Präsentationsnotizen in PHP verwalten
 linktitle: Präsentationsnotizen
 type: docs
 weight: 110
@@ -25,14 +25,13 @@ Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation
 
 {{% /alert %}} 
 
-Aspose.Slides for PHP via Java bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen und bestehenden Notizen einen Stil zuzuweisen. Entwickler können Notizen auf folgende Weise entfernen:
+Aspose.Slides für PHP via Java bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen und Stil zu bestehenden Notizen hinzuzufügen. Entwickler können Notizen auf folgende Weise entfernen:
 
 * Notizen einer bestimmten Folie einer Präsentation entfernen.
-* Notizen aller Folien einer Präsentation entfernen.
+* Notizen aller Folien einer Präsentation entfernen
 
-
-## **Notizen einer Folie entfernen**
-Notizen einer bestimmten Folie können, wie im folgenden Beispiel gezeigt, entfernt werden:
+## **Notizen von einer Folie entfernen**
+Notizen einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
 ```php
   # Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("presWithNotes.pptx");
@@ -40,7 +39,7 @@ Notizen einer bestimmten Folie können, wie im folgenden Beispiel gezeigt, entfe
     # Entfernen der Notizen der ersten Folie
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
-    # Speichern der Präsentation auf die Festplatte
+    # Speichern der Präsentation auf dem Datenträger
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -50,8 +49,8 @@ Notizen einer bestimmten Folie können, wie im folgenden Beispiel gezeigt, entfe
 ```
 
 
-## **Notizen einer Präsentation entfernen**
-Notizen aller Folien einer Präsentation können, wie im folgenden Beispiel gezeigt, entfernt werden:
+## **Notizen aus einer Präsentation entfernen**
+Notizen aller Folien einer Präsentation können wie im folgenden Beispiel entfernt werden:
 ```php
   # Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("presWithNotes.pptx");
@@ -62,7 +61,7 @@ Notizen aller Folien einer Präsentation können, wie im folgenden Beispiel geze
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }
-    # Speichern der Präsentation auf die Festplatte
+    # Speichern der Präsentation auf dem Datenträger
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -73,7 +72,7 @@ Notizen aller Folien einer Präsentation können, wie im folgenden Beispiel geze
 
 
 ## **Notizstil hinzufügen**
-[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide#getNotesStyle--)‑Methode wurde dem [IMasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide)‑Interface und der [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide)‑Klasse hinzugefügt. Diese Eigenschaft legt den Stil eines Notiztextes fest. Die Implementierung wird im folgenden Beispiel demonstriert.
+[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) Methode wurde zur Klasse [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztextes an. Die Implementierung wird im folgenden Beispiel demonstriert.
 ```php
   # Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("demo.pptx");
@@ -82,7 +81,7 @@ Notizen aller Folien einer Präsentation können, wie im folgenden Beispiel geze
     if (!java_is_null($notesMaster)) {
       # MasterNotesSlide-Textstil abrufen
       $notesStyle = $notesMaster->getNotesStyle();
-      # Symbol-Aufzählungszeichen für Absätze der ersten Ebene setzen
+      # Symbol-Aufzählungszeichen für Absätze der ersten Ebene festlegen
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -97,10 +96,10 @@ Notizen aller Folien einer Präsentation können, wie im folgenden Beispiel geze
 
 ## **FAQ**
 
-**Welches API‑Entität bietet Zugriff auf die Notizen einer bestimmten Folie?**
+**Welche API-Entität bietet Zugriff auf die Notizen einer bestimmten Folie?**
 
-Notizen werden über den Notiz‑Manager der Folie abgerufen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/), die das Notiz‑Objekt zurückgibt oder `null`, wenn keine Notizen vorhanden sind.
+Notizen werden über den Notiz‑Manager der Folie abgerufen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/), die das Notizobjekt zurückgibt, oder `null`, wenn keine Notizen vorhanden sind.
 
-**Gibt es Unterschiede im Notiz‑Support zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
+**Gibt es Unterschiede bei der Notizunterstützung zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
 
-Die Bibliothek unterstützt ein breites Spektrum von Microsoft‑PowerPoint‑Formaten (97–neuere) und ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte PowerPoint‑Kopie erforderlich ist.
+Die Bibliothek unterstützt ein breites Spektrum von Microsoft‑PowerPoint‑Formaten (97‑neuer) und ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.

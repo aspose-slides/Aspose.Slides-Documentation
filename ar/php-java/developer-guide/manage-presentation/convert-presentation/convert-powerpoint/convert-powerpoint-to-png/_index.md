@@ -6,13 +6,13 @@ weight: 30
 url: /ar/php-java/convert-powerpoint-to-png/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض التقديمي
-- تحويل الشريحة
+- تحويل عرض تقديمي
+- تحويل شريحة
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى PNG
-- العرض التقديمي إلى PNG
-- الشريحة إلى PNG
+- عرض تقديمي إلى PNG
+- شريحة إلى PNG
 - PPT إلى PNG
 - PPTX إلى PNG
 - حفظ PPT كـ PNG
@@ -21,27 +21,26 @@ keywords:
 - تصدير PPTX إلى PNG
 - PHP
 - Aspose.Slides
-description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides للـ PHP عبر Java، مما يضمن نتائج دقيقة ومؤتمتة."
+description: "قم بتحويل عروض PowerPoint التقديمية إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides للـ PHP عبر Java، مما يضمن نتائج دقيقة ومؤتمتة."
 ---
 
 ## **حول تحويل PowerPoint إلى PNG**
 
-تنسيق PNG (Portable Network Graphics) ليس شائعًا كما JPEG (Joint Photographic Experts Group)، لكنه لا يزال شائعًا جدًا. 
+تنسيق PNG (Portable Network Graphics) ليس شائعًا مثل JPEG (Joint Photographic Experts Group)، لكنه لا يزال شائعًا جدًا. 
 
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا تعتبر الحجم مشكلة، يُعد PNG تنسيق صورة أفضل من JPEG. 
+**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا تشكل الحجم مشكلة، يكون PNG تنسيق صورة أفضل من JPEG. 
 
-{{% alert title="Tip" color="primary" %}} قد ترغب في استكشاف محولات PowerPoint إلى PNG المجانية من Aspose **PowerPoint to PNG Converters**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) and [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). They are a live implementation of the process described on this page. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} قد ترغب في الاطلاع على محولات Aspose المجانية **PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تنفيذ مباشر للعملية الموضحة في هذه الصفحة. {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PNG**
 
 اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. احصل على كائن الشريحة من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) تحت الواجهة [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide).
-3. استخدم الطريقة [ISlide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم الطريقة [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) لحفظ الصورة المصغرة للشريحة بتنسيق PNG.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. احصل على كائن الشريحة من مجموعة [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) ضمن الفئة [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/).
+3. استخدم طريقة [Slide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) للحصول على الصورة المصغرة لكل شريحة.
+4. استخدم طريقة [IImage.save(String formatName, int imageFormat)](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) لحفظ الصورة المصغرة للشرائح بتنسيق PNG.
 
-يوضح لك هذا الكود PHP كيفية تحويل عرض PowerPoint إلى PNG:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -66,9 +65,9 @@ description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية
 
 ## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت تريد الحصول على ملفات PNG بحجم معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، والتي تحدد أبعاد الصورة المصغرة الناتجة. 
+إذا كنت تريد الحصول على ملفات PNG بحجم معين، يمكنك ضبط القيم `desiredX` و `desiredY`، التي تحدد أبعاد الصورة المصغرة الناتجة. 
 
-يعرض هذا الكود العملية الموصوفة:
+يعرض هذا الشيفرة العملية الموضحة:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -97,7 +96,7 @@ description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية
 
 إذا كنت تريد الحصول على ملفات PNG بحجم معين، يمكنك تمرير القيم المفضلة `width` و `height` لـ `ImageSize`. 
 
-يظهر لك هذا الكود كيفية تحويل PowerPoint إلى PNG مع تحديد الحجم للصور: 
+يعرض هذا الشيفرة كيفية تحويل PowerPoint إلى PNG مع تحديد حجم الصور: 
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -123,14 +122,14 @@ description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني تصدير شكل معين فقط (مثل مخطط أو صورة) بدلاً من الشريحة بأكملها؟**
+**كيف يمكنني تصدير شكل محدد فقط (مثل مخطط أو صورة) بدلاً من الشريحة بأكملها؟**
 
-يدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/php-java/create-shape-thumbnails/); يمكنك تحويل الشكل إلى صورة PNG.
+يدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/php-java/create-shape-thumbnails/); يمكنك تصيير الشكل إلى صورة PNG.
 
 **هل يدعم التحويل المتوازي على الخادم؟**
 
-نعم، ولكن [لا تشارك](/slides/ar/php-java/multithreading/) كائن عرض واحد عبر الخيوط. استخدم كائنًا منفصلًا لكل خيط أو عملية.
+نعم، ولكن يجب [عدم مشاركة](/slides/ar/php-java/multithreading/) كائن presentation واحد عبر الخيوط. استخدم كائنًا منفصلًا لكل خيط أو عملية.
 
 **ما هي قيود النسخة التجريبية عند التصدير إلى PNG؟**
 
-يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويفرض [قيودًا أخرى](/slides/ar/php-java/licensing/) حتى يتم تطبيق ترخيص.
+يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويطبق [قيودًا أخرى](/slides/ar/php-java/licensing/) حتى يتم تطبيق ترخيص.

@@ -13,13 +13,13 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez à gérer les portions de texte dans les présentations PowerPoint à l'aide d'Aspose.Slides pour PHP via Java, en améliorant les performances et la personnalisation."
+description: "Apprenez à gérer les portions de texte dans les présentations PowerPoint en utilisant Aspose.Slides pour PHP via Java, améliorant les performances et la personnalisation."
 ---
 
 ## **Obtenir les coordonnées d'une portion de texte**
-[**getCoordinates()**](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) a été ajoutée aux classes [IPortion](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IPortion) et [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/classes/Portion) qui permet de récupérer les coordonnées du début de la portion.
+La méthode [**getCoordinates()**](https://reference.aspose.com/slides/php-java/aspose.slides/portion/getcoordinates/) a été ajoutée à la classe [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) qui permet de récupérer les coordonnées du début de la portion.
 ```php
-  # Instanciez la classe Presentation qui représente le PPTX
+  # Instancier la classe Prseetation qui représente le PPTX
   $pres = new Presentation();
   try {
     # Remodeler le contexte de la présentation
@@ -41,18 +41,18 @@ description: "Apprenez à gérer les portions de texte dans les présentations P
 
 ## **FAQ**
 
-**Puis-je appliquer un hyperlien uniquement à une partie du texte au sein d'un même paragraphe ?**
+**Puis-je appliquer un hyperlien uniquement à une partie du texte dans un même paragraphe ?**
 
-Oui, vous pouvez [attribuer un hyperlien](/slides/fr/php-java/manage-hyperlinks/) à une portion individuelle ; seul ce fragment sera cliquable, pas le paragraphe entier.
+Oui, vous pouvez [assigner un hyperlien](/slides/fr/php-java/manage-hyperlinks/) à une portion individuelle ; seul ce fragment sera cliquable, pas le paragraphe entier.
 
-**Comment fonctionne l'héritage des styles : qu’est‑ce qu’une Portion surcharge, et qu’est‑ce qui est repris du Paragraph/TextFrame ?**
+**Comment fonctionne l’héritage de style : qu’est‑ce qu’une Portion remplace, et qu’est‑ce qui provient de Paragraph/TextFrame ?**
 
-Les propriétés au niveau de la Portion ont la priorité la plus élevée. Si une propriété n’est pas définie sur la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/), le moteur la récupère du [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/); si elle n’est pas définie non plus là, il la prend du [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) ou du style du [theme](https://reference.aspose.com/slides/php-java/aspose.slides/theme/).
+Les propriétés au niveau de la Portion ont la priorité la plus élevée. Si une propriété n’est pas définie sur la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/), le moteur la récupère du [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) ; si elle n’est pas définie non plus là, du [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) ou du [theme](https://reference.aspose.com/slides/php-java/aspose.slides/theme/) style.
 
-**Que se passe‑t‑il si la police spécifiée pour une Portion est absente sur la machine/serveur cible ?**
+**Que se passe-t-il si la police spécifiée pour une Portion est absente sur la machine/serveur cible ?**
 
-Les [règles de substitution de police](/slides/fr/php-java/font-selection-sequence/) s’appliquent. Le texte peut se réarranger : les métriques, la césure et la largeur peuvent changer, ce qui importe pour le positionnement précis.
+Les [règles de substitution de police](/slides/fr/php-java/font-selection-sequence/) s’appliquent. Le texte peut se reflower : les métriques, la césure et la largeur peuvent changer, ce qui importe pour un positionnement précis.
 
-**Puis‑je définir une transparence ou un dégradé de remplissage de texte spécifique à une Portion, indépendamment du reste du paragraphe ?**
+**Puis-je définir une transparence ou un dégradé de remplissage de texte spécifique à une Portion, indépendant du reste du paragraphe ?**
 
 Oui, la couleur du texte, le remplissage et la transparence au niveau de la [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) peuvent différer des fragments voisins.

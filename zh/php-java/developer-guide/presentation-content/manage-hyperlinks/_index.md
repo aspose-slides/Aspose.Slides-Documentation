@@ -1,46 +1,46 @@
 ---
-title: 管理 PHP 中的演示文稿超链接
+title: 在 PHP 中管理演示文稿的超链接
 linktitle: 管理超链接
 type: docs
 weight: 20
 url: /zh/php-java/manage-hyperlinks/
 keywords:
 - 添加 URL
-- 添加超链接
-- 创建超链接
-- 格式化超链接
-- 删除超链接
-- 更新超链接
-- 文本超链接
-- 幻灯片超链接
-- 形状超链接
-- 图像超链接
-- 视频超链接
-- 可变超链接
+- 添加 超链接
+- 创建 超链接
+- 格式化 超链接
+- 删除 超链接
+- 更新 超链接
+- 文本 超链接
+- 幻灯片 超链接
+- 形状 超链接
+- 图像 超链接
+- 视频 超链接
+- 可变 超链接
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java，轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流。"
+description: "轻松地使用 Aspose.Slides for PHP via Java 管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流程。"
 ---
 
-超链接是对对象、数据或某处位置的引用。这些是 PowerPoint 演示文稿中常见的超链接：
+超链接是对某个对象、数据或某处的引用。这些是在 PowerPoint 演示文稿中常见的超链接：
 
-* 在文本、形状或媒体中链接到网站
+* 链接到文本、形状或媒体中的网站
 * 链接到幻灯片
 
-Aspose.Slides for PHP via Java 允许您在演示文稿中执行许多与超链接相关的任务。
+Aspose.Slides for PHP via Java 允许您在演示文稿中执行许多涉及超链接的任务。
 
 {{% alert color="primary" %}} 
-您可能想了解 Aspose 简单的，[免费在线 PowerPoint 编辑器。](https://products.aspose.app/slides/editor)
+您可能想查看 Aspose 简易版，[免费在线PowerPoint编辑器。](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **添加 URL 超链接**
+## **Add URL Hyperlinks**
 
-### **向文本添加 URL 超链接**
+### **Add URL Hyperlinks to Text**
 
-此 PHP 代码演示了如何向文本添加网站超链接：
+此 PHP 代码演示如何将网站超链接添加到文本中：
 ```php
   $presentation = new Presentation();
   try {
@@ -61,7 +61,7 @@ Aspose.Slides for PHP via Java 允许您在演示文稿中执行许多与超链�
 
 ### **向形状或框架添加 URL 超链接**
 
-此示例代码演示了如何向形状添加网站超链接：
+此示例代码展示如何将网站超链接添加到形状中：
 ```php
   $pres = new Presentation();
   try {
@@ -79,13 +79,13 @@ Aspose.Slides for PHP via Java 允许您在演示文稿中执行许多与超链�
 
 ### **向媒体添加 URL 超链接**
 
-Aspose.Slides 允许您向图像、音频和视频文件添加超链接。 
+Aspose.Slides 允许您向图像、音频和视频文件添加超链接。
 
-此示例代码演示了如何向 **图像** 添加超链接：
+此示例代码展示如何向**图像**添加超链接：
 ```php
   $pres = new Presentation();
   try {
-    # 将图像添加到演示文稿
+    # 添加图像到演示文稿
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -95,7 +95,7 @@ Aspose.Slides 允许您向图像、音频和视频文件添加超链接。
         $image->dispose();
       }
     }
-    # 在第 1 张幻灯片上基于先前添加的图像创建图片框
+    # 在幻灯片 1 上基于先前添加的图像创建图片框
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -109,7 +109,7 @@ Aspose.Slides 允许您向图像、音频和视频文件添加超链接。
 ```
 
 
-此示例代码演示了如何向 **音频文件** 添加超链接：
+此示例代码展示如何向**音频文件**添加超链接：
 ```php
   $pres = new Presentation();
   try {
@@ -137,7 +137,7 @@ try {
 ```
 
 
-此示例代码演示了如何向 **视频** 添加超链接：
+此示例代码展示如何向**视频**添加超链接：
 ```php
   $pres = new Presentation();
   try {
@@ -171,9 +171,9 @@ try {
 
 ## **使用超链接创建目录**
 
-由于超链接允许您添加对对象或位置的引用，您可以使用它们来创建目录。 
+由于超链接允许您添加对象或位置的引用，您可以使用它们创建目录。
 
-此示例代码演示了如何使用超链接创建目录：
+此示例代码展示如何使用超链接创建目录：
 ```php
   $pres = new Presentation();
   try {
@@ -205,9 +205,9 @@ try {
 
 ### **颜色**
 
-使用 [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) 属性在 [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink) 接口中，您可以设置超链接的颜色，也可以获取超链接的颜色信息。该功能首次在 PowerPoint 2019 中引入，因此涉及该属性的更改不适用于旧版 PowerPoint。
+使用 [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) 类中的 [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) 方法，您可以设置超链接的颜色，也可以获取超链接的颜色信息。此功能首次在 PowerPoint 2019 中引入，因此对该属性的更改不适用于旧版本的 PowerPoint。
 
-此示例代码演示了在同一幻灯片上添加不同颜色超链接的操作：
+此示例代码演示了在同一幻灯片中添加不同颜色超链接的操作：
 ```php
   $pres = new Presentation();
   try {
@@ -234,7 +234,7 @@ try {
 
 ### **从文本中删除超链接**
 
-此 PHP 代码演示了如何从演示文稿幻灯片中的文本删除超链接：
+此 PHP 代码展示如何从演示文稿幻灯片中的文本删除超链接：
 ```php
   $pres = new Presentation();
   try {
@@ -260,7 +260,7 @@ try {
 
 ### **从形状或框架中删除超链接**
 
-此 PHP 代码演示了如何从演示文稿幻灯片中的形状删除超链接：
+此 PHP 代码展示如何从演示文稿幻灯片中的形状删除超链接：
 ```php
   $pres = new Presentation();
   try {
@@ -279,15 +279,15 @@ try {
 
 ## **可变超链接**
 
-[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) 类是可变的。使用此类，您可以更改以下属性的值：
+The [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) 类是可变的。使用此类，您可以更改以下属性的值：
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [Hyperlink.setTargetFrame(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/)
+- [Hyperlink.setTooltip(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/)
+- [Hyperlink.setHistory(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/)
+- [Hyperlink.setHighlightClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/)
+- [Hyperlink.setStopSoundOnClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/)
 
-此代码片段演示了如何向幻灯片添加超链接并随后编辑其工具提示：
+代码片段展示如何向幻灯片添加超链接并随后编辑其工具提示：
 ```php
   $pres = new Presentation();
   try {
@@ -306,31 +306,31 @@ try {
 ```
 
 
-## **IHyperlinkQueries 中受支持的属性**
+## **IHyperlinkQueries 中支持的属性**
 
-您可以从演示文稿、幻灯片或定义了超链接的文本中访问 [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries)。
+您可以从定义了超链接的演示文稿、幻灯片或文本中访问 [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/)。
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [Presentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)
+- [BaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getHyperlinkQueries)
+- [TextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) 类支持以下方法和属性：
+[HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) 类支持以下方法和属性：
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [HyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/)
+- [HyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/)
+- [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/)
+- [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)
 
 ## **常见问题**
 
-**如何在内部导航时不仅定位到单个幻灯片，而是定位到“章节”或章节的第一张幻灯片？**
+**如何创建不仅指向幻灯片，而是指向“节”或节的第一张幻灯片的内部导航？**
 
-PowerPoint 中的章节是幻灯片的分组；导航技术上是定位到特定幻灯片。要“导航到章节”，通常链接到该章节的第一张幻灯片。
+PowerPoint 中的节是幻灯片的分组；导航在技术上定位到特定的幻灯片。要“导航到节”，通常链接到该节的第一张幻灯片。
 
-**我可以将超链接附加到母版幻灯片元素，使其在所有幻灯片上工作吗？**
+**我可以将超链接附加到母版幻灯片元素，以便在所有幻灯片上都有效吗？**
 
-可以。母版幻灯片和布局元素支持超链接。这些链接会出现在子幻灯片上，并在放映期间可点击。
+可以。母版幻灯片和版式元素支持超链接。此类链接会出现在子幻灯片上，并在放映期间可点击。
 
 **导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
 
-在 [PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/php-java/convert-powerpoint-to-html/) 中，会保留链接——通常会保留。导出为 [图像](/slides/zh/php-java/convert-powerpoint-to-png/) 和 [视频](/slides/zh/php-java/convert-powerpoint-to-video/) 时，由于这些格式的特性（光栅帧/视频不支持超链接），点击功能将不会被保留。
+在 [PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/php-java/convert-powerpoint-to-html/) 中会保留——链接通常会被保留。导出为 [images](/slides/zh/php-java/convert-powerpoint-to-png/) 和 [video](/slides/zh/php-java/convert-powerpoint-to-video/) 时，由于这些格式的特性（光栅帧/视频不支持超链接），点击功能将不会保留。

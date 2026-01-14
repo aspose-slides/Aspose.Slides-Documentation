@@ -1,6 +1,6 @@
 ---
-title: PHPでプレゼンテーションコメントを管理
-linktitle: プレゼンテーションコメント
+title: PHPでプレゼンテーションのコメントを管理する
+linktitle: プレゼンテーション コメント
 type: docs
 weight: 100
 url: /ja/php-java/presentation-comments/
@@ -8,37 +8,37 @@ keywords:
 - コメント
 - モダンコメント
 - PowerPoint コメント
-- プレゼンテーションコメント
-- スライドコメント
-- コメント追加
-- コメント取得
-- コメント編集
-- コメント返信
-- コメント削除
-- コメント削除
+- プレゼンテーション コメント
+- スライド コメント
+- コメントを追加
+- コメントにアクセス
+- コメントを編集
+- コメントに返信
+- コメントを除去
+- コメントを削除
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Javaを使用してプレゼンテーションコメントをマスター: PowerPointファイルでコメントの追加、読み取り、編集、削除を迅速かつ簡単に行う。"
+description: "Aspose.Slides for PHP via Java を使用してプレゼンテーションのコメントをマスターし、PowerPoint ファイルのコメントをすばやく簡単に追加、読み取り、編集、削除できます。"
 ---
 
-PowerPointでは、コメントはスライド上のメモや注釈として表示されます。コメントをクリックすると、内容やメッセージが表示されます。
+PowerPoint では、コメントはスライド上のノートまたは注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
 
-## **プレゼンテーションにコメントを追加する理由は？**
+## **プレゼンテーションにコメントを追加する理由**
 
 プレゼンテーションをレビューする際に、フィードバックを提供したり同僚とコミュニケーションを取るためにコメントを使用したい場合があります。
 
-PowerPointプレゼンテーションでコメントを使用できるように、Aspose.Slides for PHP via Java は以下を提供します
+PowerPoint プレゼンテーションでコメントを使用できるように、Aspose.Slides for PHP via Java は以下を提供します
+* The [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスは、著者のコレクション（[CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) クラスから）を含みます。著者はスライドにコメントを追加します。
+* The  [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) クラスは、個々の著者のコメントコレクションを含みます。
+* The  [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) クラスは、著者とそのコメントに関する情報（コメントを追加した人、追加された時間、コメントの位置など）を含みます。
+* The [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) クラスは、個々の著者に関する情報（著者の名前、イニシャル、著者名に関連付けられたコメントなど）を含みます。
 
-* [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスは、著者のコレクション（[ICommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentAuthorCollection) インターフェイス）を含みます。著者はスライドにコメントを追加します。
-* [ICommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentCollection) インターフェイスは、個々の著者のコメントコレクションを含みます。
-* [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment) クラスは、著者とコメントに関する情報（コメントを追加したユーザー、追加日時、コメントの位置など）を含みます。
-* [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/CommentAuthor) クラスは、個々の著者に関する情報（著者名、イニシャル、著者名に関連付けられたコメントなど）を含みます。
+## **スライドにコメントを追加**
 
-## **スライドコメントの追加**
-このPHPコードは、PowerPointプレゼンテーションのスライドにコメントを追加する方法を示します。
+この PHP コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています:
 ```php
   # Presentation クラスのインスタンスを作成します
   $pres = new Presentation();
@@ -50,13 +50,13 @@ PowerPointプレゼンテーションでコメントを使用できるように�
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
     # コメントの位置を設定します
     $point = new Point2DFloat(0.2, 0.2);
-    # スライド 1 に著者のスライドコメントを追加します
+    # スライド 1 の著者用スライドコメントを追加します
     $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # スライド 2 に著者のスライドコメントを追加します
+    # スライド 2 の著者用スライドコメントを追加します
     $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    # ISlide 1 にアクセスします
+    # スライド 1 にアクセスします
     $slide = $pres->getSlides()->get_Item(0);
-    # 引数に null を渡すと、すべての著者のコメントが選択したスライドに取得されます
+    # 引数に null を渡すと、すべての著者からのコメントが選択したスライドに取得されます
     $Comments = $slide->getSlideComments($author);
     # スライド 1 のインデックス 0 のコメントにアクセスします
     $str = $Comments[0]->getText();
@@ -74,9 +74,9 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 ```
 
 
+## **スライドのコメントにアクセス**
 
-## **スライドコメントへのアクセス**
-このPHPコードは、PowerPointプレゼンテーションのスライド上にある既存のコメントにアクセスする方法を示します。
+この PHP コードは、PowerPoint プレゼンテーションのスライド上に既存のコメントにアクセスする方法を示しています:
 ```php
   # Presentation クラスのインスタンスを作成します
   $pres = new Presentation("Comments1.pptx");
@@ -96,10 +96,11 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 ```
 
 
-## **コメントへの返信**
-親コメントは、コメントや返信の階層における最上位または元のコメントです。[getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#getParentComment--) または [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) メソッド（[IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment) インターフェイス）を使用して、親コメントを取得または設定できます。
+## **コメントに返信**
 
-このPHPコードは、コメントを追加し、それらへの返信を取得する方法を示します。
+親コメントは、コメントまたは返信の階層における最上位または元のコメントです。[Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) クラスの [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) または [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) メソッドを使用して、親コメントを設定または取得できます。
+
+この PHP コードは、コメントを追加し、それらへの返信を取得する方法を示しています:
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
@@ -111,10 +112,10 @@ PowerPointプレゼンテーションでコメントを使用できるように�
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
     $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
-    # comment1 に別の返信を追加します
+    # comment1 に対する別の返信を追加します
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
-    # 既存の返信に対する返信を追加します
+    # 既存の返信に対して返信を追加します
     $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $subReply->setParentComment($reply2);
     $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
@@ -134,7 +135,7 @@ PowerPointプレゼンテーションでコメントを使用できるように�
       echo();
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # comment1 とそれに対するすべての返信を削除します
+    # comment1 とそれへのすべての返信を削除します
     $comment1->remove();
     $pres->save("remove_comment.pptx", SaveFormat::Pptx);
   } finally {
@@ -146,17 +147,17 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 
 
 {{% alert color="warning" title="Attention" %}} 
-* [Remove](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#remove--) メソッド（[IComment]インターフェイス）を使用してコメントを削除すると、そのコメントへの返信も同時に削除されます。
-* [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) の設定により循環参照が発生した場合、[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) がスローされます。
+* [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) メソッド（[Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) クラス）を使用してコメントを削除すると、そのコメントへの返信も削除されます。  
+* [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) の設定で循環参照が発生した場合、[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/) がスローされます。  
 {{% /alert %}}
 
-## **モダンコメントの追加**
+## **モダンコメントを追加**
 
-2021、Microsoft は PowerPoint に *モダンコメント* を導入しました。モダンコメント機能は、PowerPoint におけるコラボレーションを大幅に向上させます。モダンコメントにより、PowerPoint ユーザーはコメントの解決、オブジェクトやテキストへのコメントの固定、やり取りを以前より容易に行えるようになりました。
+2021 年、Microsoft は PowerPoint に *モダンコメント* を導入しました。モダンコメント機能は PowerPoint のコラボレーションを大幅に向上させます。モダンコメントを使用することで、PowerPoint ユーザーはコメントを解決したり、オブジェクトやテキストにコメントを固定したり、従来よりはるかに簡単にやり取りできるようになります。
 
-[Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) では、[ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/ModernComment) クラスを追加することでモダンコメントのサポートを実装しました。[CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection) クラスに [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) および [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) メソッドが追加されました。
+[Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) では、[ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) クラスを追加することでモダンコメントのサポートを実装しました。[CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) クラスに [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) と [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) メソッドが追加されました。
 
-このPHPコードは、PowerPointプレゼンテーションのスライドにモダンコメントを追加する方法を示します。
+この PHP コードは、PowerPoint プレゼンテーションのスライドにモダンコメントを追加する方法を示しています:
 ```php
   $pres = new Presentation();
   try {
@@ -171,10 +172,11 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 ```
 
 
-## **コメントの削除**
+## **コメントを削除**
 
-### **すべてのコメントと著者の削除**
-このPHPコードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示します。
+### **すべてのコメントと著者を削除**
+
+この PHP コードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示しています:
 ```php
   $presentation = new Presentation("example.pptx");
   try {
@@ -193,8 +195,9 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 ```
 
 
-### **特定のコメントの削除**
-このPHPコードは、スライド上の特定のコメントを削除する方法を示します。
+### **特定のコメントを削除**
+
+この PHPコードは、スライド上の特定のコメントを削除する方法を示しています:
 ```php
   $presentation = new Presentation();
   try {
@@ -203,7 +206,7 @@ PowerPointプレゼンテーションでコメントを使用できるように�
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # 「comment 1」テキストを含むすべてのコメントを削除
+    # \"comment 1\" テキストを含むすべてのコメントを削除
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {
@@ -224,16 +227,13 @@ PowerPointプレゼンテーションでコメントを使用できるように�
 ```
 
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides はモダンコメントに「解決済み」などのステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントに「解決済み」などのステータスをサポートしていますか？**  
+はい。[Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) は [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) メソッドを提供しています。コメントの状態（例: 解決済みとしてマーク）を書き込むことができ、この状態はファイルに保存され、PowerPoint で認識されます。
 
-はい。[Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) は [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) メソッドを提供しています。コメントの状態（例: 解決済みとしてマーク）を書き込むことができ、この状態はファイルに保存され、PowerPoint に認識されます。
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**  
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) を参照でき、任意の長さの返信チェーンを実現できます。API には特定のネスト深さの上限は定義されていません。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの深さに制限はありますか？**
-
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) を参照できるため、任意の深さの返信チェーンを実現できます。API では特定のネスト深度の制限は明示されていません。
-
-**スライド上のコメントマーカーの位置は、どの座標系で定義されていますか？**
-
-位置はスライドの座標系で浮動小数点のポイントとして保存されます。これにより、必要な場所にコメントマーカーを正確に配置できます。
+**スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**  
+位置はスライドの座標系における浮動小数点のポイントとして保存されます。これにより、必要な場所に正確にコメントマーカーを配置できます。

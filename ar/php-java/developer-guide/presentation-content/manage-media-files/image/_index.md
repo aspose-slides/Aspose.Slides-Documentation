@@ -25,36 +25,36 @@ keywords:
 - SVG
 - PHP
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، مع تحسين الأداء وأتمتة سير العمل الخاص بك."
+description: "تبسيط إدارة الصور في PowerPoint و OpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، وتحسين الأداء وأتمتة سير العمل."
 ---
 
-## **الصور في شرائح العرض**
+## **الصور في شرائح العروض التقديمية**
 
-تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج الصور من ملف أو من الإنترنت أو من مواقع أخرى على الشرائح. وبالمثل، يتيح لك Aspose.Slides إضافة الصور إلى شرائح في عروضك التقديمية عبر إجراءات مختلفة. 
+تجعل الصور العروض أكثر جاذبية وإثارة. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى على الشرائح. وبالمثل، يسمح لك Aspose.Slides بإضافة صور إلى الشرائح في عروضك من خلال إجراءات مختلفة. 
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="نصيحة" color="primary" %}} 
 
-توفر Aspose محولات مجانية—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تتيح للناس إنشاء عروض تقديمية بسرعة من الصور. 
-
-{{% /alert %}} 
-
-{{% alert title="Info" color="info" %}}
-
-إذا كنت ترغب في إضافة صورة ككائن إطار—وخاصة إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها، وإضافة تأثيرات، وما إلى ذلك—انظر إلى [Picture Frame](https://docs.aspose.com/slides/php-java/picture-frame/).
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تتيح للناس إنشاء عروض تقديمية بسرعة من الصور. 
 
 {{% /alert %}} 
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="معلومات" color="info" %}}
 
-يمكنك التعامل مع عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع الصفحات التالية: تحويل [image to JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); تحويل [JPG to image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); تحويل [JPG to PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), تحويل [PNG to JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); تحويل [PNG to SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), تحويل [SVG to PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
+إذا كنت ترغب في إضافة صورة ككائن إطار—خاصةً إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها، وإضافة تأثيرات، وما إلى ذلك—اطلع على [إطار الصورة](/slides/ar/php-java/picture-frame/).
+
+{{% /alert %}} 
+
+{{% alert title="ملاحظة" color="warning" %}}
+
+يمكنك معالجة عمليات الإدخال/الإخراج التي تتضمن الصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-يدعم Aspose.Slides عمليات التعامل مع الصور بهذه الصيغ الشائعة: JPEG، PNG، GIF، وغيرها. 
+يدعم Aspose.Slides عمليات التعامل مع الصور بالتنسيقات الشائعة: JPEG، PNG، GIF، وغيرها. 
 
 ## **إضافة صور مخزنة محليًا إلى الشرائح**
 
-يمكنك إضافة صورة واحدة أو عدة صور من جهازك إلى شريحة في العرض التقديمي. يوضح لك هذا المثال البرمجي كيفية إضافة صورة إلى شريحة:
+يمكنك إضافة صورة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يوضح لك هذا النموذج البرمجي كيفية إضافة صورة إلى شريحة:
 ```php
   $pres = new Presentation();
   try {
@@ -80,9 +80,9 @@ description: "تبسيط إدارة الصور في PowerPoint وOpenDocument ب
 
 ## **إضافة صور من الويب إلى الشرائح**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرة من الويب. 
+إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرةً من الويب. 
 
-يُظهر لك هذا المثال البرمجي كيفية إضافة صورة من الويب إلى شريحة :
+يوضح لك هذا النموذج البرمجي كيفية إضافة صورة من الويب إلى شريحة:
 ```php
   $pres = new Presentation();
   try {
@@ -118,11 +118,11 @@ description: "تبسيط إدارة الصور في PowerPoint وOpenDocument ب
 ```
 
 
-## **إضافة صور إلى الشريحة الرئيسية**
+## **إضافة صور إلى القوالب الرئيسية للشرائح**
 
-الشريحة الرئيسية هي الشريحة العلوية التي تخزن وتتحكم في المعلومات (السمة، التخطيط، إلخ) لجميع الشرائح التي تحتها. لذا، عندما تضيف صورة إلى الشريحة الرئيسية، تظهر تلك الصورة على كل شريحة تحتها. 
+القالب الرئيسي للشرائح هو الشريحة العليا التي تخزن وتتحكم بالمعلومات (السمة، التخطيط، إلخ) المتعلقة بكل الشرائح تحتها. لذلك، عند إضافة صورة إلى القالب الرئيسي، تظهر تلك الصورة على كل شريحة تحت هذا القالب. 
 
-يُظهر لك هذا المثال البرمجي بلغة Java كيفية إضافة صورة إلى الشريحة الرئيسية:
+يوضح لك هذا النموذج البرمجي بلغة Java كيفية إضافة صورة إلى القالب الرئيسي للشرائح:
 ```php
   $pres = new Presentation();
   try {
@@ -149,20 +149,20 @@ description: "تبسيط إدارة الصور في PowerPoint وOpenDocument ب
 
 ## **إضافة صور كخلفيات للشرائح**
 
-قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)*.
+قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على كيفية [تعيين صورة كخلفية للشريحة](/slides/ar/php-java/presentation-background/#set-an-image-as-a-slide-background).
 
 ## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي تنتمي إلى واجهة [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection).
+يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) التابعة لفئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). 
 
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك فعل ذلك بهذه الطريقة:
+لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
 
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection
-2. إنشاء كائن PPImage من ISvgImage
-3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage
+1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection  
+2. إنشاء كائن PPImage من ISvgImage  
+3. إنشاء كائن PictureFrame باستخدام فئة PPImage  
 
-يُظهر لك هذا المثال البرمجي كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
+يوضح لك هذا النموذج البرمجي كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
 ```php
-  # إنشاء فئة Presentation التي تمثل ملف PPTX
+  # إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -190,13 +190,13 @@ try {
 
 
 ## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides من SVG إلى مجموعة من الأشكال مشابه للوظيفة الموجودة في PowerPoint للتعامل مع صور SVG:
+تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة المتوفرة في PowerPoint للعمل مع صور SVG:
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-توفر هذه الميزة أحد التحميلات الزائدة لطريقة [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) في واجهة [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) التي تستقبل كائن [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage) كمعامل أول.
+توفر هذه الوظيفة أحد الأعبارات الزائدة لطريقة [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addgroupshape/) في فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) التي تقبل كائن [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) كوسيطة أولى. 
 
-يُظهر لك هذا المثال البرمجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
+يوضح لك هذا النموذج البرمجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ```php
   # إنشاء عرض تقديمي جديد
   $presentation = new Presentation();
@@ -217,7 +217,7 @@ try {
     $svgImage = new SvgImage($svgContent);
     # الحصول على حجم الشريحة
     $slideSize = $presentation->getSlideSize()->getSize();
-    # تحويل صورة SVG إلى مجموعة من الأشكال مع تحجيمها إلى حجم الشريحة
+    # تحويل صورة SVG إلى مجموعة من الأشكال مع تعديل حجمها لتتناسب مع حجم الشريحة
     $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
     # حفظ العرض التقديمي بصيغة PPTX
     $presentation->save("output.pptx", SaveFormat::Pptx);
@@ -231,9 +231,9 @@ try {
 
 
 ## **إضافة صور كـ EMF إلى الشرائح**
-يتيح لك Aspose.Slides for PHP via Java إنشاء صور EMF من جداول Excel وإضافة الصور كـ EMF في الشرائح باستخدام Aspose.Cells. 
+يسمح Aspose.Slides for PHP via Java بإنشاء صور EMF من جداول Excel وإضافة الصور كـ EMF إلى الشرائح باستخدام Aspose.Cells.  
 
-يُظهر لك هذا المثال البرمجي كيفية تنفيذ المهمة الموصوفة:
+يوضح لك هذا النموذج البرمجي كيفية تنفيذ المهمة الموصوفة:
 ```php
   $book = new Workbook("chart.xlsx");
   $sheet = $book->getWorksheets()->get(0);
@@ -241,7 +241,7 @@ try {
   $options->setHorizontalResolution(200);
   $options->setVerticalResolution(200);
   $options->setImageType(ImageType::EMF);
-  # احفظ دفتر العمل إلى التدفق
+  # احفظ المصنف إلى التدفق
   $sr = new SheetRender($sheet, $options);
   $pres = new Presentation();
   try {
@@ -274,16 +274,18 @@ try {
 
 ## **استبدال الصور في مجموعة الصور**
 
-Aspose.Slides يتيح لك استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك تلك المستخدمة بواسطة أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر الـ API طرقًا مباشرة لاستبدال صورة باستخدام بيانات بايت خام، أو مثال [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة.
+يتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر الـ API طرقًا مباشرةً لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة. 
 
-1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.
-3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.
-4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) واستبدال الصورة المستهدفة بذلك الكائن.
-5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
+اتبع الخطوات أدناه:
+
+1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
+2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.  
+3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
+4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) واستبدال الصورة المستهدفة بهذا الكائن.  
+5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.  
+6. كتابة العرض التقديمي المعدل كملف PPTX.  
 ```php
-// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 $presentation = new Presentation("sample.pptx");
 try {
     // الطريقة الأولى.
@@ -310,30 +312,30 @@ try {
 ```
 
 
-{{% alert title="Info" color="info" %}}
+{{% alert title="معلومات" color="info" %}}
 
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص، إنشاء GIFs من النصوص، إلخ. 
+باستخدام أداة Aspose FREE [نص إلى GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص وإنشاء ملفات GIF من النصوص، وغيرها. 
 
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يبقى دقة الصورة الأصلية سليمة بعد الإدراج؟**
+**هل يبقى دقة الصورة الأصلية كما هي بعد الإدراج؟**
 
-نعم. تُحفظ بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية مقاس [picture](/slides/ar/php-java/picture-frame/) على الشريحة وأي ضغط يُطبق عند الحفظ.
+نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم الـ [picture](/slides/ar/php-java/picture-frame/) على الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عشرات الشرائح دفعة واحدة؟**
+**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عشرات الشرائح مرة واحدة؟**
 
-ضع الشعار على الشريحة الرئيسية أو على أحد التخطيطات واستبدله في مجموعة صور العرض التقديمي—ستنتشر التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+ضع الشعار على الشريحة الرئيسية أو على تخطيط، واستبدله في مجموعة صور العرض التقديمي—ستنتشر التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
 
-**هل يمكن تحويل SVG المدخَل إلى أشكال قابلة للتحرير؟**
+**هل يمكن تحويل SVG المدخل إلى أشكال قابلة للتحرير؟**
 
 نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
 
 **كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
 
-[Assign the image as the background](/slides/ar/php-java/presentation-background/) على الشريحة الرئيسية أو التخطيط المعني—أي شرائح تستخدم تلك الشريحة/التخطيط ستحصل على الخلفية.
+[عيّن الصورة كخلفية](/slides/ar/php-java/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ست inherit جميع الشرائح التي تستخدم ذلك القالب/التخطيط الخلفية.
 
-**كيف أمنع انفجار حجم العرض التقديمي بسبب كثرة الصور؟**
+**كيف أمنع تضخم حجم العرض التقديمي بسبب كثرة الصور؟**
 
-أعد استخدام مصدر صورة واحد بدلًا من النسخ المتعددة، اختر دقة معقولة، طبق الضغط عند الحفظ، واحتفظ بالرسوم المتكررة على الشريحة الرئيسية حيث يناسب.
+أعد استخدام مورد صورة واحد بدلاً من تكرارها، اختر دقة معقولة، طبق الضغط عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.

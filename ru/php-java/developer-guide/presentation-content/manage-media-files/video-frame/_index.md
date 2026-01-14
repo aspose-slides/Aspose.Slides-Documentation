@@ -11,7 +11,7 @@ keywords:
 - извлечь видео
 - получить видео
 - видеокадр
-- веб‑источник
+- веб-источник
 - PowerPoint
 - OpenDocument
 - презентация
@@ -22,23 +22,24 @@ description: "Узнайте, как программно добавлять и 
 
 Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
 
-PowerPoint позволяет добавлять видео на слайд презентации двумя способами:
+PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
 
-* Добавить или внедрить локальное видео (хранящееся на вашем компьютере)
+* Добавить или встроить локальное видео (хранящееся на вашем компьютере)
 * Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы позволить вам добавлять видео (видеобъекты) в презентацию, Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/), [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) и другие соответствующие типы.
+Чтобы вы могли добавлять видео (объекты video) в презентацию, Aspose.Slides предоставляет классы [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) и [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/), а также другие соответствующие типы.
 
-## **Create Embedded Video Frames**
-Если файл видео, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы внедрить видео в презентацию. 
+## **Создать встроенные видеокадры**
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)class.  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте объект [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) и передайте путь к файлу видео для внедрения его в презентацию.  
-4. Добавьте объект [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) для создания кадра для видео.  
-5. Сохраните изменённую презентацию.  
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
 
-Этот PHP‑код показывает, как добавить локально сохранённое видео в презентацию:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте объект [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) и передайте путь к файлу видео, чтобы встроить его в презентацию.
+1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) для создания кадра видео.
+1. Сохраните изменённую презентацию. 
+
+Этот код PHP показывает, как добавить локальное видео в презентацию:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation("pres.pptx");
@@ -59,7 +60,7 @@ PowerPoint позволяет добавлять видео на слайд пр
 ```
 
 
-Кроме того, вы можете добавить видео, передав путь к файлу напрямую в метод [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-):
+Кроме того, вы можете добавить видео, передав путь к файлу напрямую в метод [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addvideoframe/):
 ```php
   $pres = new Presentation();
   try {
@@ -73,16 +74,18 @@ PowerPoint позволяет добавлять видео на слайд пр
 ```
 
 
-## **Create Video Frames with Video from Web Sources**
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео с YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)class.  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте объект [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) и передайте ссылку на видео.  
-4. Установите миниатюру для видеокадра.  
-5. Сохраните презентацию.  
+## **Создать видеокадры с видео из веб‑источников**
 
-Этот PHP‑код показывает, как добавить видео из интернета на слайд PowerPoint‑презентации:
+Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео YouTube в презентациях. Если видео, которое вы хотите использовать, доступно онлайн (например на YouTube), вы можете добавить его в презентацию через веб‑ссылку. 
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте объект [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) и передайте ссылку на видео.
+1. Установите миниатюру для видеокадра. 
+1. Сохраните презентацию. 
+
+Этот код PHP показывает, как добавить видео из веба на слайд в презентации PowerPoint:
 ```php
   # Создает объект Presentation, представляющий файл презентации
   $pres = new Presentation();
@@ -101,17 +104,18 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 ```
 
 
-## **Extract Video from Slides**
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+## **Извлечь видео со слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) для загрузки презентации, содержащей видео.  
-2. Пройдитесь по всем объектам [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/).  
-3. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) в поисках [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).  
-4. Сохраните видео на диск.  
+Кроме добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенное в презентации.
 
-Этот PHP‑код показывает, как извлечь видео со слайда презентации:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) для загрузки презентации, содержащей видео.
+2. Пройдите по всем объектам [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/).
+3. Пройдите по всем объектам [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) в поиске [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
+4. Сохраните видео на диск.
+
+Этот код PHP показывает, как извлечь видео со слайда презентации:
 ```php
-  # Создает объект Presentation, представляющий файл презентации
+  # Создаёт объект Presentation, представляющий файл презентации
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -142,14 +146,18 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 
 ## **FAQ**
 
-**Which video playback parameters can be changed for a VideoFrame?**  
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [зацикливанием](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
+**Какие параметры воспроизведения видео можно изменить для VideoFrame?**
 
-**Does adding a video affect the PPTX file size?**  
-Да. При внедрении локального видео его двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео в документ внедряются только ссылка и миниатюра, поэтому рост размера меньше.
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
-**Can I replace the video in an existing VideoFrame without changing its position and size?**  
-Да. Вы можете заменить [видео‑контент](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию формы; это распространённый сценарий обновления медиа в уже существующем макете.
+**Влияет ли добавление видео на размер файла PPTP?**
 
-**Can the content type (MIME) of an embedded video be determined?**  
-Да. Для встроенного видео доступен [тип контента](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например, при сохранении его на диск.
+Да. При встраивании локального видео двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео встраиваются только ссылка и миниатюра, поэтому рост размера меньше.
+
+**Могу ли я заменить видео в существующем VideoFrame, не изменяя его положение и размер?**
+
+Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию формы; это типичный сценарий обновления медиа в существующей разметке.
+
+**Можно ли определить тип контента (MIME) встроенного видео?**
+
+Да. Встроенное видео имеет [тип контента](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например, при сохранении на диск.

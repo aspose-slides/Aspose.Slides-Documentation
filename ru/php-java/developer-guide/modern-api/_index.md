@@ -1,6 +1,6 @@
 ---
-title: Улучшить обработку изображений с помощью Modern API
-linktitle: Современный API
+title: "Улучшить обработку изображений с помощью Modern API"
+linktitle: "Modern API"
 type: docs
 weight: 237
 url: /ru/php-java/modern-api/
@@ -17,29 +17,30 @@ keywords:
 - добавить картинку
 - PHP
 - Aspose.Slides
-description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на PHP Modern API для беспрепятственной автоматизации PowerPoint и OpenDocument."
+description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на PHP Modern API для беспроблемной автоматизации PowerPoint и OpenDocument."
 ---
 
 ## **Введение**
 
-Исторически, Aspose Slides имеет зависимость от java.awt и в публичном API содержит следующие классы из него:
+Исторически Aspose Slides имеет зависимость от java.awt и в публичном API содержит следующие классы из него:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
 Начиная с версии 24.4, этот публичный API объявлен устаревшим.
 
-Чтобы избавиться от зависимостей от этих классов, мы добавили так называемый «Modern API» — то есть API, который следует использовать вместо устаревшего, подписи которого содержат зависимости от BufferedImage. Graphics2D объявлен устаревшим, и его поддержка удалена из публичного API Slides.
+Для избавления от зависимостей от этих классов мы добавили так называемый «Modern API» — т.е. API, который следует использовать вместо устаревшего, сигнатуры которого содержат зависимости от BufferedImage. Graphics2D объявлен устаревшим, и его поддержка удалена из публичного API Slides.
 
-Удаление устаревшего публичного API с зависимостями от System.Drawing будет в выпуске 24.8.
+Удаление устаревшего публичного API с зависимостями от System.Drawing будет выполнено в выпуске 24.8.
 
-## **Современный API**
+## **Modern API**
 
 В публичный API добавлены следующие классы и перечисления:
-- IImage — представляет растр или векторное изображение.
-- ImageFormat — представляет файловый формат изображения.
-- Images — методы для создания и работы с интерфейсом IImage.
 
-Обратите внимание, что IImage является disposable (он реализует интерфейс IDisposable, и его использование должно быть обернуто в using или освобождено другим удобным способом).
+- IImage — представляет растровое или векторное изображение.  
+- ImageFormat — представляет файловый формат изображения.  
+- Images — методы для создания экземпляра и работы с классом IImage.
+
+Обратите внимание, что `IImage` реализует интерфейс IDisposable (его следует освобождать после использования).
 
 Типичный сценарий использования нового API может выглядеть следующим образом:
 ``` php
@@ -58,7 +59,7 @@ $image = Images::fromFile("image.png");
 $ppImage = $pres->getImages()->addImage($image);
 $image->dispose();
 
-# добавить рисунок-форму на слайд №1
+# добавить форму изображения на слайд №1
 $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $ppImage);
 
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
@@ -73,11 +74,11 @@ $pres->dispose();
 ```
 
 
-## **Замена старого кода на Modern API**
+## **Замена старого кода с помощью Modern API**
 
-В целом вам потребуется заменить вызов старого метода, использующего ImageIO, новым.
+В целом, вам потребуется заменить вызов старого метода, использующего ImageIO, на новый.
 
-**Старый:**
+Старый:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getThumbnail($dimension);
@@ -86,7 +87,7 @@ $javafile = new Java("java.io.File", "image.png");
 $imageio->write($slideImage, "PNG", $javafile);
 ```
 
-**Новый:**
+Новый:
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
@@ -259,7 +260,7 @@ $pres->dispose();
 
 ### **Presentation**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
@@ -269,13 +270,13 @@ $pres->dispose();
 
 ### **Shape**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
 ### **Slide**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -283,41 +284,41 @@ $pres->dispose();
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Будет полностью удалено |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Будет полностью удалено |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Будет полностью удалено |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Будет полностью удалён |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Будет полностью удалён |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Будет полностью удалён |
 
 ### **Output**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
 ### **ImageCollection**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
 ### **PPImage**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
 ### **PatternFormat**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
 ### **PatternFormatEffectiveData**
 | Подпись метода | Подпись заменяющего метода |
-|---|---|
+|----------------|----------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **Поддержка Graphics2D в API будет прекращена**
+## **Поддержка Graphics2D будет прекращена**
 
 Методы с [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) объявлены устаревшими, и их поддержка будет удалена из публичного API.
 
-Часть API, использующая его, будет удалена:
+Часть API, использующая их, будет удалена:
 
 [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
 
@@ -327,14 +328,11 @@ $pres->dispose();
 
 ## **FAQ**
 
-**Почему был удален java.awt.Graphics2D?**
+**Почему был удалён java.awt.Graphics2D?**  
+Поддержка `Graphics2D` удаляется из публичного API для унификации работы с рендерингом и изображениями, устранения привязки к платформенно-специфическим зависимостям и перехода к кроссплатформенному подходу с использованием [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Все методы рендеринга в `Graphics2D` будут удалены.
 
-Поддержка `Graphics2D` удаляется из публичного API, чтобы унифицировать работу с рендерингом и изображениями, избавиться от привязок к платформенно‑зависимым библиотекам и перейти к кроссплатформенному подходу с помощью [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Все методы рендеринга в `Graphics2D` будут удалены.
+**В чём практическая выгода IImage по сравнению с BufferedImage?**  
+[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) объединяет работу как с растровыми, так и с векторными изображениями и упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
 
-**В чем практическая выгода IImage по сравнению с BufferedImage?**
-
-[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) объединяет работу как с растром, так и с векторными изображениями и упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
-
-**Повлияет ли Modern API на производительность генерации миниатюр?**
-
-Переход от `getThumbnail` к `getImage` не ухудшает сценарии: новые методы предоставляют те же возможности по созданию изображений с параметрами и размерами, сохраняя поддержку параметров рендеринга. Конкретный выигрыш или потеря зависят от сценария, но функционально замены эквивалентны.
+**Повлияет ли Modern API на производительность генерации миниатюр?**  
+Переход от `getThumbnail` к `getImage` не ухудшает сценарии: новые методы предоставляют те же возможности по созданию изображений с опциями и размерами, сохраняя поддержку параметров рендеринга. Конкретный прирост или падение зависят от сценария, но функционально замены эквивалентны.

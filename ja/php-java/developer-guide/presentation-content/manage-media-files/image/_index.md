@@ -1,6 +1,6 @@
 ---
 title: PHP を使用したプレゼンテーションの画像管理の最適化
-linktitle: 画像を管理する
+linktitle: 画像の管理
 type: docs
 weight: 10
 url: /ja/php-java/image/
@@ -8,8 +8,8 @@ keywords:
 - 画像を追加
 - 画像を追加
 - ビットマップを追加
-- 画像を置換
-- 画像を置換
+- 画像を置き換える
+- 画像を置き換える
 - Web から
 - 背景
 - PNG を追加
@@ -25,30 +25,30 @@ keywords:
 - SVG
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を使用し、PowerPoint と OpenDocument の画像管理を効率化し、パフォーマンスを最適化してワークフローを自動化します。"
+description: "PowerPoint と OpenDocument の画像管理を Aspose.Slides for PHP via Java で効率化し、パフォーマンスを最適化し、ワークフローを自動化します。"
 ---
 
-## **プレゼンテーションスライドの画像**
+## **プレゼンテーション スライドの画像**
 
-画像はプレゼンテーションをより魅力的で興味深いものにします。Microsoft PowerPoint では、ファイルやインターネット、その他の場所から画像をスライドに挿入できます。同様に、Aspose.Slides を使用すると、さまざまな手順でプレゼンテーションのスライドに画像を追加できます。
+画像はプレゼンテーションをより魅力的で面白くします。Microsoft PowerPoint では、ファイル、インターネット、またはその他の場所から画像をスライドに挿入できます。同様に、Aspose.Slides では、さまざまな手順でプレゼンテーションのスライドに画像を追加できます。
 
 {{% alert  title="Tip" color="primary" %}} 
-Aspose は無料のコンバータ―、[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) を提供しており、画像から迅速にプレゼンテーションを作成できます。 
+Aspose は無料コンバータ―、[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) を提供しており、画像から迅速にプレゼンテーションを作成できます。 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-画像をフレームオブジェクトとして追加したい場合、特にサイズ変更や効果の追加などの標準書式設定オプションを使用する予定がある場合は、[Picture Frame](https://docs.aspose.com/slides/php-java/picture-frame/) を参照してください。
+画像をフレーム オブジェクトとして追加したい場合（特にサイズ変更やエフェクト適用など標準の書式設定オプションを使用する予定がある場合）は、[Picture Frame](/slides/ja/php-java/picture-frame/) を参照してください。 
 {{% /alert %}} 
 
 {{% alert title="Note" color="warning" %}}
-画像や PowerPoint プレゼンテーションに関わる入出力操作を操作して、画像をある形式から別の形式に変換できます。以下のページをご覧ください: convert [image to JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
+画像と PowerPoint プレゼンテーションに関わる入出力操作を操作して、画像を別の形式に変換できます。以下のページをご覧ください：画像を [JPG に変換]((https://products.aspose.com/slides/php-java/conversion/image-to-jpg/))、[JPG を画像に変換]((https://products.aspose.com/slides/php-java/conversion/jpg-to-image/))、[JPG を PNG に変換]((https://products.aspose.com/slides/php-java/conversion/jpg-to-png/))、[PNG を JPG に変換]((https://products.aspose.com/slides/php-java/conversion/png-to-jpg/))、[PNG を SVG に変換]((https://products.aspose.com/slides/php-java/conversion/png-to-svg/))、[SVG を PNG に変換]((https://products.aspose.com/slides/php-java/conversion/svg-to-png/))。 
 {{% /alert %}}
 
-Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作をサポートしています。 
+Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作をサポートします。 
 
-## **ローカルに保存された画像をスライドに追加**
+## **ローカルに保存された画像をスライドに追加する**
 
-コンピューター上の画像を 1 枚または複数枚、プレゼンテーションのスライドに追加できます。このサンプルコードは、画像をスライドに追加する方法を示しています：
+コンピューター上の画像を 1 つまたは複数、プレゼンテーションのスライドに追加できます。このサンプル コードは、画像をスライドに追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -72,11 +72,11 @@ Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作を
 ```
 
 
-## **Web から画像をスライドに追加**
+## **Web から画像をスライドに追加する**
 
-スライドに追加したい画像がコンピューターに無い場合、Web から直接画像を追加できます。 
+スライドに追加したい画像がコンピューターに存在しない場合、Web から直接画像を追加できます。
 
-このサンプルコードは、Web から画像をスライドに追加する方法を示しています：
+このサンプル コードは、Web から画像をスライドに追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -112,11 +112,11 @@ Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作を
 ```
 
 
-## **スライドマスターに画像を追加**
+## **スライド マスターに画像を追加する**
 
-スライドマスターは、下位のすべてのスライドに関する情報（テーマ、レイアウトなど）を保存・管理する最上位のスライドです。そのため、スライドマスターに画像を追加すると、その画像はそのマスター配下のすべてのスライドに表示されます。 
+スライド マスターは、下位のすべてのスライドの情報（テーマ、レイアウトなど）を保持し制御する最上位のスライドです。したがって、スライド マスターに画像を追加すると、その画像はそのマスター配下のすべてのスライドに表示されます。
 
-この Java サンプルコードは、スライドマスターに画像を追加する方法を示しています：
+この Java サンプル コードは、スライド マスターに画像を追加する方法を示しています：
 ```php
   $pres = new Presentation();
   try {
@@ -141,23 +141,23 @@ Aspose.Slides は JPEG、PNG、GIF などの一般的な形式の画像操作を
 ```
 
 
-## **スライドの背景として画像を追加**
+## **スライドの背景画像として追加する**
 
-特定のスライドまたは複数のスライドの背景として画像を使用することができます。その場合は、*[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)* を参照してください。
+特定のスライドまたは複数のスライドの背景として画像を使用することができます。その場合は、[Set an Image as a Slide Background](/slides/ja/php-java/presentation-background/#set-an-image-as-a-slide-background) の方法をご確認ください。
 
-## **プレゼンテーションに SVG を追加**
+## **SVG をプレゼンテーションに追加する**
 
-任意の画像をプレゼンテーションに追加または挿入するには、[IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) インターフェイスに属する [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) メソッドを使用できます。
+任意の画像をプレゼンテーションに追加または挿入するには、[ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスに属する [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) メソッドを使用します。
 
-SVG 画像を基に画像オブジェクトを作成する方法は次のとおりです。
+SVG 画像に基づく画像オブジェクトを作成する手順は次のとおりです：
 
-1. SvgImage オブジェクトを作成し、ImageShapeCollection に挿入する  
-2. ISvgImage から PPImage オブジェクトを作成する  
-3. IPPImage インターフェイスを使用して PictureFrame オブジェクトを作成する  
+1. SvgImage オブジェクトを作成し、ImageShapeCollection に挿入します
+2. ISvgImage から PPImage オブジェクトを作成します
+3. PPImage クラスを使用して PictureFrame オブジェクトを作成します
 
-このサンプルコードは、上記の手順を実装して SVG 画像をプレゼンテーションに追加する方法を示しています：
+このサンプル コードは、上記の手順を実装して SVG 画像をプレゼンテーションに追加する方法を示しています：
 ```php
-  # PPTX ファイルを表す Presentation クラスのインスタンスを作成します
+  # PPTX ファイルを表す Presentation クラスのインスタンスを作成
   $pres = new Presentation();
   try {
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -184,20 +184,20 @@ try {
 ```
 
 
-## **SVG を形状セットに変換**
+## **SVG を図形の集合に変換する**
 
-Aspose.Slides の SVG を形状セットに変換する機能は、SVG 画像を操作するための PowerPoint の機能と同様です：
+Aspose.Slides の SVG から図形の集合への変換は、PowerPoint の SVG 画像操作機能と同様です：
 
-![PowerPoint Popup Menu](img_01_01.png)
+![PowerPoint ポップアップ メニュー](img_01_01.png)
 
-この機能は、[IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) インターフェイスの [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) メソッドのオーバーロードの一つによって提供され、最初の引数に [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage) オブジェクトを取ります。
+この機能は、[ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスの [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addgroupshape/) メソッドのオーバーロードの 1 つで提供され、最初の引数に [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) オブジェクトを取ります。
 
-このサンプルコードは、記述されたメソッドを使用して SVG ファイルを形状セットに変換する方法を示しています：
+このサンプル コードは、記述されたメソッドを使用して SVG ファイルを図形の集合に変換する方法を示しています：
 ```php
   # 新しいプレゼンテーションを作成
   $presentation = new Presentation();
   try {
-    # SVG ファイルの内容を読み込む
+    # SVGファイルの内容を読み込む
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
@@ -209,13 +209,13 @@ try {
 }
     $svgContent = $bytes;
 
-    # SvgImage オブジェクトを作成
+    # SvgImageオブジェクトを作成
     $svgImage = new SvgImage($svgContent);
     # スライドサイズを取得
     $slideSize = $presentation->getSlideSize()->getSize();
-    # SVG 画像をスライドサイズに合わせて形状のグループに変換
+    # SVG画像をスライドサイズに合わせて図形のグループに変換する
     $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # プレゼンテーションを PPTX 形式で保存
+    # プレゼンテーションをPPTX形式で保存
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -226,11 +226,11 @@ try {
 ```
 
 
-## **画像を EMF としてスライドに追加**
+## **EMF 画像をスライドに追加する**
 
-Aspose.Slides for PHP via Java を使用すると、Excel シートから EMF 画像を生成し、Aspose.Cells と組み合わせてスライドに EMF 画像として追加できます。 
+Aspose.Slides for PHP via Java は、Excel シートから EMF 画像を生成し、Aspose.Cells と組み合わせてスライドに EMF として画像を追加できます。
 
-このサンプルコードは、上述のタスクを実行する方法を示しています：
+このサンプル コードは、記述されたタスクを実行する方法を示しています：
 ```php
   $book = new Workbook("chart.xlsx");
   $sheet = $book->getWorksheets()->get(0);
@@ -269,20 +269,20 @@ Aspose.Slides for PHP via Java を使用すると、Excel シートから EMF �
 ```
 
 
-## **画像コレクション内の画像を置換**
+## **画像コレクション内の画像を置き換える**
 
-Aspose.Slides は、プレゼンテーションの画像コレクション（スライド形状で使用されているものを含む）に保存されている画像を置換できます。このセクションでは、コレクション内の画像を更新するための複数のアプローチを示します。API は、バイト データ、[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置換するシンプルなメソッドを提供します。
+Aspose.Slides は、プレゼンテーションの画像コレクション（スライド シェイプで使用されているものを含む）に保存されている画像の置き換えを可能にします。このセクションでは、コレクション内の画像を更新する複数のアプローチを示します。API は、バイト データ、[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置き換える簡単なメソッドを提供します。
 
 以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを使用して、画像を含むプレゼンテーション ファイルをロードします。  
-2. ファイルから新しい画像をバイト配列にロードします。  
-3. バイト配列を使用して対象画像を新しい画像に置換します。  
-4. 2 番目のアプローチでは、画像を [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置換します。  
-5. 3 番目のアプローチでは、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置換します。  
-6. 変更済みのプレゼンテーションを PPTX ファイルとして書き出します。  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを使用して画像を含むプレゼンテーション ファイルをロードします
+2. ファイルから新しい画像をバイト配列にロードします
+3. バイト配列を使用して対象画像を新しい画像に置き換えます
+4. 2 番目のアプローチでは、画像を [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置き換えます
+5. 3 番目のアプローチでは、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置き換えます
+6. 変更したプレゼンテーションを PPTX ファイルとして書き出します
 ```php
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを生成します。
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
 $presentation = new Presentation("sample.pptx");
 try {
     // 最初の方法。
@@ -291,13 +291,13 @@ try {
     $oldImage = $presentation->getImages()->get_Item(0);
     $oldImage->replaceImage($imageData);
 
-    // 2 番目の方法。
+    // 二番目の方法。
     $newImage = Images::fromFile("image1.png");
     $oldImage = $presentation->getImages()->get_Item(1);
     $oldImage->replaceImage($newImage);
     $newImage->dispose();
     
-    // 3 番目の方法。
+    // 三番目の方法。
     $oldImage = $presentation->getImages()->get_Item(2);
     $oldImage->replaceImage($presentation->getImages()->get_Item(3));
     
@@ -313,24 +313,24 @@ try {
 Aspose FREE の [Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバータを使用すると、テキストを簡単にアニメーション化したり、テキストから GIF を作成したりできます。 
 {{% /alert %}}
 
-## **よくある質問**
+## **FAQ**
 
-**画像を挿入した後でも元の解像度は保持されますか？**
+**挿入後も元の画像解像度は維持されますか？**
 
-はい。元のピクセルは保持されますが、最終的な見た目はスライド上で [picture](/slides/ja/php-java/picture-frame/) がどのようにスケーリングされるか、および保存時に適用される圧縮に依存します。
+はい。元のピクセルは保持されますが、最終的な表示はスライド上で [picture](/slides/ja/php-java/picture-frame/) がどのようにスケーリングされるか、保存時に適用される圧縮に依存します。
 
-**数十枚のスライドで同じロゴを一度に置き換える最善の方法は何ですか？**
+**多数のスライドに同じロゴを一括で置き換える最適な方法は？**
 
-ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクション内で置換します。これにより、そのリソースを使用しているすべての要素に変更が反映されます。
+ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置き換えると、リソースを使用しているすべての要素に自動的に反映されます。
 
-**挿入した SVG は編集可能な形状に変換できますか？**
+**挿入した SVG を編集可能な図形に変換できますか？**
 
-はい。SVG を形状のグループに変換でき、その後、個々のパーツは標準の形状プロパティで編集可能になります。
+はい。SVG を図形のグループに変換でき、その後個々の部品は標準の図形プロパティで編集可能になります。
 
-**複数のスライドの背景として画像を一括で設定するにはどうすればよいですか？**
+**複数のスライドに同時に画像を背景として設定するには？**
 
-マスタースライドまたは該当するレイアウトで [Assign the image as the background](/slides/ja/php-java/presentation-background/) を設定します。これを使用するスライドはすべてその背景を継承します。
+マスタースライドまたは該当レイアウトで画像を背景として割り当てれば、そのマスター/レイアウトを使用しているすべてのスライドが背景を継承します。
 
-**多数の画像によりプレゼンテーションのサイズが膨張するのを防ぐにはどうすればよいですか？**
+**画像が多数あるためにプレゼンテーションのサイズが肥大化するのを防ぐには？**
 
-重複した画像の代わりに単一の画像リソースを再利用し、適切な解像度を選択し、保存時に圧縮を適用し、繰り返し使用するグラフィックは可能な限りマスターに配置してください。
+画像の重複を避けて単一リソースを再利用し、適切な解像度を選択し、保存時に圧縮を適用し、必要に応じてマスターに繰り返し使用するグラフィックを配置してください。

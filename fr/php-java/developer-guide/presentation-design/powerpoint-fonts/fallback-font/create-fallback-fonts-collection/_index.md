@@ -15,18 +15,18 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Mettez en place une collection de polices de secours dans Aspose.Slides pour PHP via Java afin de maintenir le texte cohérent et net dans les présentations PowerPoint et OpenDocument."
+description: "Configurez une collection de polices de secours dans Aspose.Slides pour PHP via Java afin de garder le texte cohérent et net dans les présentations PowerPoint et OpenDocument."
 ---
 
-## **Appliquer des règles de secours**
+## **Appliquer les règles de secours**
 
-Les instances de la classe [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) peuvent être organisées dans la [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection), qui implémente l'interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection). Il est possible d'ajouter ou de supprimer des règles de la collection.
+Les instances de la classe [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) peuvent être organisées en [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection). Il est possible d'ajouter ou de retirer des règles de la collection.
 
-Ensuite, cette collection peut être assignée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager). FontsManager contrôle les polices dans toute la présentation. En savoir plus [About FontsManager and FontsLoader](/slides/fr/php-java/about-fontsmanager-and-fontsloader/).
+Ensuite, cette collection peut être affectée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager). FontsManager contrôle les polices à travers la présentation. En savoir plus [About FontsManager and FontsLoader](/slides/fr/php-java/about-fontsmanager-and-fontsloader/).
 
-Chaque [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) possède une méthode [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) avec sa propre instance de la classe [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager).
+Chaque [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) possède une méthode [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) avec sa propre instance de la classe [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager).
 
-Voici un exemple de création d'une collection de règles de polices de secours et de son affectation au [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) d'une présentation donnée :  
+Voici un exemple de création d’une collection de règles de polices de secours et de son affectation au [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) d’une présentation donnée :
 ```php
   $pres = new Presentation();
   try {
@@ -50,18 +50,18 @@ En savoir plus sur la façon de [Render Presentation with Fallback Font](/slides
 
 ## **FAQ**
 
-**Mes règles de secours seront-elles intégrées au fichier PPTX et visibles dans PowerPoint après l'enregistrement ?**
+**Mes règles de secours seront‑elles intégrées au fichier PPTX et visibles dans PowerPoint après l’enregistrement ?**
 
-Non. Les règles de secours sont des paramètres de rendu à l'exécution ; elles ne sont pas sérialisées dans le PPTX et n'apparaîtront pas dans l'interface de PowerPoint.
+Non. Les règles de secours sont des paramètres de rendu au moment de l'exécution ; elles ne sont pas sérialisées dans le PPTX et n'apparaîtront pas dans l'interface de PowerPoint.
 
-**Le secours s'applique-t-il au texte à l'intérieur de SmartArt, WordArt, graphiques et tableaux ?**
+**Le fallback s'applique‑t‑il au texte à l'intérieur de SmartArt, WordArt, graphiques et tableaux ?**
 
 Oui. Le même mécanisme de substitution de glyphes est utilisé pour tout texte dans ces objets.
 
-**Aspose distribue-t-il des polices avec la bibliothèque ?**
+**Aspose distribue‑t‑il des polices avec la bibliothèque ?**
 
 Non. Vous ajoutez et utilisez les polices de votre côté et sous votre propre responsabilité.
 
-**Le remplacement/substitution pour les polices manquantes et le secours pour les glyphes manquants peuvent-ils être utilisés ensemble ?**
+**Le remplacement/substitution des polices manquantes et le fallback des glyphes manquants peuvent‑ils être utilisés ensemble ?**
 
-Oui. Ce sont des étapes indépendantes du même pipeline de résolution des polices : d'abord le moteur résout la disponibilité des polices ([replacement](/slides/fr/php-java/font-replacement/)/[substitution](/slides/fr/php-java/font-substitution/)), puis le secours comble les lacunes des glyphes manquants dans les polices disponibles.
+Oui. Ils sont des étapes indépendantes du même pipeline de résolution de polices : d'abord le moteur résout la disponibilité des polices ([replacement](/slides/fr/php-java/font-replacement/)/[substitution](/slides/fr/php-java/font-substitution/)), ensuite le fallback comble les lacunes des glyphes manquants dans les polices disponibles.

@@ -1,135 +1,122 @@
 ---
-title: إدارة ماسترات الشرائح في PHP
-linktitle: ماستر الشريحة
+title: إدارة شرائح الرئيس في PHP
+linktitle: شريحة الرئيس
 type: docs
 weight: 70
 url: /ar/php-java/slide-master/
 keywords:
-- ماستر الشريحة
-- شريحة ماستر
-- شريحة ماستر PPT
-- عدة شرائح ماستر
-- مقارنة شرائح ماستر
+- شريحة رئيس
+- شريحة رئيسية
+- شريحة رئيسية PPT
+- شرائح رئيسية متعددة
+- مقارنة شرائح رئيسية
 - خلفية
 - عنصر نائب
-- استنساخ شريحة ماستر
-- نسخ شريحة ماستر
-- تكرار شريحة ماستر
-- شريحة ماستر غير مستخدمة
+- استنساخ شريحة رئيسية
+- نسخ شريحة رئيسية
+- تكرار شريحة رئيسية
+- شريحة رئيسية غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة ماسترات الشرائح في Aspose.Slides للـ PHP عبر Java: إنشاء، تعديل وتطبيق القوالب والسمات والعناصر النائبة على ملفات PPT و PPTX و ODP مع أمثلة مختصرة."
+description: "إدارة شرائح الرئيس في Aspose.Slides للـ PHP عبر Java: إنشاء، تحرير وتطبيق التخطيطات، السمات والعناصر النائبة على ملفات PPT، PPTX و ODP مع أمثلة مختصرة."
 ---
 
-## **ما هو سلايد ماستر (Slide Master) في PowerPoint**
+## **ما هو شريحة الرئيس في PowerPoint**
 
-**سلايد ماستر** هو قالب شريحة يحدد التخطيط والأنماط والموضوع والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. إذا كنت تريد إنشاء عرض تقديمي (أو سلسلة عروض) بنفس النمط والقالب لشركتك، يمكنك استخدام سلايد ماستر.
+Slide Master هو قالب شريحة يحدد التخطيط والأنماط والسمة والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. إذا أردت إنشاء عرض تقديمي (أو سلسلة عروض) بنفس النمط والقالب لشركتك، يمكنك استخدام شريحة الرئيس.
 
-سلايد ماستر مفيد لأنه يتيح لك ضبط وتغيير مظهر جميع شرائح العرض مرة واحدة. تدعم Aspose.Slides آلية سلايد ماستر من PowerPoint.
+Slide Master مفيدة لأنها تسمح لك بتعيين وتغيير مظهر جميع شرائح العرض مرة واحدة. تدعم Aspose.Slides آلية شريحة الرئيس من PowerPoint.
 
-كما يتيح VBA التحكم بسلايد ماستر وتنفيذ نفس العمليات المدعومة في PowerPoint: تعديل الخلفيات، إضافة أشكال، تخصيص التخطيط، إلخ. توفر Aspose.Slides آليات مرنة تسمح لك باستخدام سلايد ماستر وأداء المهام الأساسية معه.
+كما يتيح VBA لك التعامل مع شريحة الرئيس وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة أشكال، تخصيص التخطيط، إلخ. توفر Aspose.Slides آليات مرنة لاستخدام شرائح الرئيس وأداء المهام الأساسية معها.
 
-هذه هي عمليات سلايد ماستر الأساسية:
+هذه عمليات شريحة الرئيس الأساسية:
 
-- إنشاء أو سلايد ماستر.
-- تطبيق سلايد ماستر على شرائح العرض.
-- تغيير خلفية سلايد ماستر. 
-- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى سلايد ماستر.
+- إنشاء أو حذف شريحة الرئيس.
+- تطبيق شريحة الرئيس على شرائح العرض.
+- تغيير خلفية شريحة الرئيس. 
+- إضافة صورة أو عنصر نائب أو Smart Art، إلخ إلى شريحة الرئيس.
 
-هذه هي عمليات سلايد ماستر المتقدمة:
+هذه عمليات شريحة الرئيس المتقدمة:
 
-- مقارنة سلايد ماستر.
-- دمج سلايد ماستر.
-- تطبيق عدة سلايد ماستر.
-- نسخ شريحة بسلايد ماستر إلى عرض تقديمي آخر.
-- العثور على سلايد ماستر مكررة في العروض.
-- تعيين سلايد ماستر كطريقة العرض الافتراضية للعرض.
+- مقارنة شرائح الرئيس.
+- دمج شرائح الرئيس.
+- تطبيق عدة شرائح رئيس.
+- نسخ شريحة مع شريحة الرئيس إلى عرض تقديمي آخر.
+- العثور على شرائح رئيس مكررة في العروض التقديمية.
+- تعيين شريحة الرئيس كطريقة العرض الافتراضية للعرض.
 
 {{% alert color="primary" %}} 
-
-قد ترغب في تجربة Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ مباشر لبعض العمليات الأساسية الموضحة هنا.
-
+قد ترغب في تجربة Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنه تنفيذ مباشر لبعض العمليات الأساسية الموصوفة هنا.
 {{% /alert %}} 
 
+## **كيف يتم تطبيق شريحة الرئيس**
 
-## **كيف يتم تطبيق سلايد ماستر**
+قبل العمل مع شريحة الرئيس، قد تريد فهم كيفية استخدامها في العروض التقديمية وتطبيقها على الشرائح.
 
-قبل العمل مع سلايد ماستر، قد ترغب في فهم كيفية استخدامه في العروض وتطبيقه على الشرائح. 
+* كل عرض تقديمي يحتوي على شريحة رئيس واحدة على الأقل بشكل افتراضي. 
+* يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس. يمكنك إضافة عدة شرائح رئيس واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
 
-* كل عرض تقديمي يحتوي على سلايد ماستر واحد على الأقل بشكل افتراضي. 
-* يمكن للعرض أن يحتوي على عدة سلايد ماستر. يمكنك إضافة عدة سلايد ماستر واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة. 
+في **Aspose.Slides**، تمثل شريحة الرئيس النوع [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).
 
-في **Aspose.Slides**، يُمثَّل سلايد ماستر بواسطة النوع [**IMasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/imasterslide/) .
+كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) في Aspose.Slides يحتوي على قائمة [**getMasters**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters) من النوع [**MasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/)، والتي تحتوي على جميع شرائح الرئيس المعرفة في العرض.
 
-كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) في Aspose.Slides يحتوي على قائمة [**getMasters**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters--) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/imasterslidecollection/) ، والتي تحتوي على جميع سلايد ماستر المعرفة في العرض.
+بالإضافة إلى عمليات CRUD، يحتوي الصف [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) على الطرق المفيدة: [**addClone(LayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/#addClone) و[**insertClone(int index, MasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/#insertClone). هذه الطرق موروثة من وظيفة استنساخ الشريحة الأساسية. ولكن عند التعامل مع شرائح الرئيس، تسمح لك هذه الطرق بتنفيذ إعدادات معقدة.
 
-إلى جانب عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imasterslidecollection/) على الطرق المفيدة: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/php-java/aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) و [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/php-java/aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . هذه الطرق موروثة من وظيفة استنساخ الشرائح الأساسية. لكن عند التعامل مع سلايد ماستر، تسمح لك هذه الطرق بتنفيذ إعدادات معقدة.
+عند إضافة شريحة جديدة إلى عرض تقديمي، يتم تطبيق شريحة الرئيس عليها تلقائيًا. يتم اختيار شريحة الرئيس الخاصة بالشريحة السابقة بشكل افتراضي.
 
-عند إضافة شريحة جديدة إلى عرض تقديمي، يتم تطبيق سلايد ماستر عليها تلقائيًا. يتم اختيار سلايد ماستر الشريحة السابقة بشكل افتراضي. 
+**ملاحظة**: تُخزن شرائح العرض في قائمة [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides)، ويتم إضافة كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على شريحة رئيس واحدة، يتم اختيار تلك الشريحة لجميع الشرائح الجديدة. هذا هو السبب في أنك لا تحتاج إلى تحديد شريحة الرئيس لكل شريحة جديدة تنشئها.
 
-**ملاحظة**: تُخزن شرائح العرض في قائمة [getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides--)، وتُضاف كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على سلايد ماستر واحد، يتم اختيار هذا السلايد ماستر لجميع الشرائح الجديدة. وهذا هو السبب في أنك لا تحتاج إلى تحديد سلايد ماستر لكل شريحة جديدة تنشئها.
-
-المبدأ نفسه ينطبق على PowerPoint و Aspose.Slides. على سبيل المثال، في PowerPoint، عندما تضيف شريحة جديدة، يمكنك الضغط على الخط السفلي تحت الشريحة الأخيرة وستُنشأ شريحة جديدة (مع سلايد ماستر العرض الأخير):
+المبدأ نفسه في PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عندما تضيف شريحة جديدة، يمكنك النقر على السطر الأسفل تحت الشريحة الأخيرة ثم سيتم إنشاء شريحة جديدة (مع شريحة الرئيس من العرض السابق):
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) تحت فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+في Aspose.Slides، يمكنك تنفيذ المهمة المقابلة باستخدام طريقة [addClone(Slide sourceSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) ضمن الصف [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
 
+## **شريحة الرئيس في هيكلية الشرائح**
 
-## **سلايد ماستر في هيكلية الشرائح**
+استخدام تخطيطات الشرائح مع شريحة الرئيس يتيح أقصى قدر من المرونة. تخطيط الشريحة يسمح لك بتعيين جميع الأنماط نفسها مثل شريحة الرئيس (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عندما يتم دمج عدة تخطيطات شرائح على شريحة الرئيس، يتم إنشاء نمط جديد. عندما تطبق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها عن النمط المطبق من شريحة الرئيس.
 
-استخدام تخطيطات الشرائح مع سلايد ماستر يتيح أقصى مرونة. يسمح تخطيط الشريحة لك بتعيين جميع الأنماط نفسها مثل سلايد ماستر (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عند دمج عدة تخطيطات شرائح على سلايد ماستر، يُنشأ نمط جديد. عندما تطبق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها عن النمط المطبق من سلايد ماستر.
-
-سلايد ماستر يتفوق على جميع العناصر: سلايد ماستر → تخطيط الشريحة → الشريحة:
+شريحة الرئيس تتفوق على جميع عناصر الإعداد: شريحة الرئيس → تخطيط الشريحة → الشريحة:
 
 ![todo:image_alt_text](slide-master_2)
 
-
-
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide) يحتوي على خاصية [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide#getLayoutSlides--) بقائمة تخطيطات الشرائح. نوع [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) يحتوي على خاصية [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getLayoutSlide--) التي تُشير إلى تخطيط الشريحة المطبق على الشريحة. يحدث التفاعل بين الشريحة وسلايد ماستر عبر تخطيط الشريحة.
+كل كائن [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) يحتوي على خاصية [**getLayoutSlides**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getLayoutSlides) التي تُعيد قائمة من تخطيطات الشرائح. نوع [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) يحتوي على خاصية [**getLayoutSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/Slide/#getLayoutSlide) التي تُشير إلى تخطيط الشريحة المطبق على الشريحة. يحدث التفاعل بين الشريحة وشريحة الرئيس عبر تخطيط الشريحة.
 
 {{% alert color="info" title="ملاحظة" %}}
-
-* في Aspose.Slides، جميع إعدادات الشريحة (سلايد ماستر، تخطيط الشريحة، والشريحة نفسها) هي في الواقع كائنات شريحة تنفّذ واجهة [**IBaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide).
-
-* لذلك، قد يطبق سلايد ماستر وتخطيط الشريحة نفس الخصائص وتحتاج إلى معرفة كيفية تطبيق قيمهما على كائن [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide). يُطبق سلايد ماستر أولاً على الشريحة ثم يُطبق تخطيط الشريحة. على سبيل المثال، إذا كان لكل من سلايد ماستر وتخطيط الشريحة قيمة خلفية، ستنتهي الشريحة بالخلفية من تخطيط الشريحة.
-
+* في Aspose.Slides، جميع إعدادات الشريحة (شريحة الرئيس، تخطيط الشريحة، والشريحة نفسها) هي بالفعل كائنات شريحة ترث من الصف [**BaseSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide).
+* لذلك، قد تُنفّذ شريحة الرئيس وتخطيط الشريحة نفس الخصائص وتحتاج إلى معرفة كيفية تطبيق قيمهما على كائن [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide). يتم تطبيق شريحة الرئيس أولًا على الشريحة ثم يُطبق تخطيط الشريحة. على سبيل المثال، إذا كان لكل من شريحة الرئيس وتخطيط الشريحة قيمة خلفية، فإن الشريحة ستحصل على الخلفية من تخطيط الشريحة.
 {{% /alert %}}
 
+## **ما الذي تحتويه شريحة الرئيس**
 
-## **ما يحتويه سلايد ماستر**
+لفهم كيفية تغيير شريحة الرئيس، عليك معرفة مكوناتها. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).
 
-لفهم كيفية تعديل سلايد ماستر، عليك معرفة مكوناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) :
+- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getBackground) الحصول/ضبط خلفية الشريحة.
+- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getBodyStyle) الحصول/ضبط أنماط نص جسم الشريحة.
+- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getShapes) الحصول/ضبط كافة الأشكال في شريحة الرئيس (عناصر نائبة، إطارات صور، إلخ).
+- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#getControls) الحصول/ضبط عناصر تحكم ActiveX.
+- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/#getThemeManager) الحصول على مدير السمة.
+- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getHeaderFooterManager) الحصول على مدير الترويسة والتذييل.
 
-- [getBackground](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getBackground--) الحصول/تعيين خلفية الشريحة.
-- [getBodyStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide#getBodyStyle--) الحصول/تعيين أنماط النص لجسم الشريحة.
-- [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getShapes--) الحصول/تعيين جميع أشكال سلايد ماستر (عناصر نائبة، إطارات صور، إلخ).
-- [getControls](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getControls--) الحصول/تعيين عناصر التحكم ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterThemeable#getThemeManager--) الحصول على مدير السمة.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide#getHeaderFooterManager--) الحصول على مدير الرأس والتذييل.
+طرق شريحة الرئيس:
 
-طرق سلايد ماستر:
+- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#getDependingSlides) الحصول على جميع الشرائح التي تعتمد على شريحة الرئيس.
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide/#applyExternalThemeToDependingSlides) يتيح لك إنشاء شريحة رئيس جديدة بناءً على شريحة الرئيس الحالية وسمة جديدة. ثم تُطبق شريحة الرئيس الجديدة على جميع الشرائح التابعة.
 
-- [getDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide#getDependingSlides--) الحصول على جميع الشرائح المعتمدة على سلايد ماستر.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) — يسمح لك بإنشاء سلايد ماستر جديد استنادًا إلى سلايد ماستر الحالي وموضوع جديد. ثم يُطبق سلايد ماستر الجديد على جميع الشرائح المعتمدة.
+## **الحصول على شريحة الرئيس**
 
-
-## **الحصول على سلايد ماستر**
-
-في PowerPoint، يمكن الوصول إلى سلايد ماستر عبر القائمة View → Slide Master :
+في PowerPoint، يمكن الوصول إلى شريحة الرئيس من القائمة View → Slide Master:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-
-
-باستخدام Aspose.Slides، يمكنك الوصول إلى سلايد ماستر بهذه الطريقة:
+باستخدام Aspose.Slides، يمكنك الوصول إلى شريحة الرئيس بهذه الطريقة:
 ```php
   $pres = new Presentation();
   try {
-    # يمنح الوصول إلى شريحة الماستر في العرض التقديمي
+    # يوفّر الوصول إلى شريحة الرئيس للعرض
     $masterSlide = $pres->getMasters()->get_Item(0);
   } finally {
     $pres->dispose();
@@ -137,18 +124,17 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 ```
 
 
-واجهة [IMasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide) تمثل سلايد ماستر. خاصية [Masters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getMasters--) (المرتبطة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlideCollection)) تحتوي على قائمة جميع سلايد ماستر المعرفة في العرض.
+الصف [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide) يمثل شريحة الرئيس. طريقة [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getMasters) (المرتبطة بنوع [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection)) تُعيد قائمة بجميع شرائح الرئيس المعرفة في العرض.
 
+## **إضافة صورة إلى شريحة الرئيس**
 
-## **إضافة صورة إلى سلايد ماستر**
+عند إضافة صورة إلى شريحة الرئيس، ستظهر تلك الصورة على جميع الشرائح التي تعتمد على تلك الشريحة.
 
-عند إضافة صورة إلى سلايد ماستر، ستظهر تلك الصورة على جميع الشرائح المعتمدة على ذلك السلايد ماستر.
-
-على سبيل المثال، يمكنك وضع شعار شركتك وبعض الصور على سلايد ماستر ثم العودة إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.
+على سبيل المثال، يمكنك وضع شعار شركتك وعدد قليل من الصور على شريحة الرئيس ثم العودة إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.
 
 ![todo:image_alt_text](slide-master_4.png)
 
-يمكنك إضافة صور إلى سلايد ماستر باستخدام Aspose.Slides:
+يمكنك إضافة صور إلى شريحة الرئيس باستخدام Aspose.Slides:
 ```php
   $pres = new Presentation();
   try {
@@ -173,56 +159,51 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-
 لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع مقالة [Picture Frame](/slides/ar/php-java/picture-frame/#create-picture-frame).
-
 {{% /alert %}}
 
+## **إضافة عنصر نائب إلى شريحة الرئيس**
 
-## **إضافة عنصر نائب إلى سلايد ماستر**
+هذه الحقول النصية هي عناصر نائب قياسية على شريحة الرئيس:
 
-هذه الحقول النصية هي عناصر نائب قياسية على سلايد ماستر:
-
-* انقر لتحرير نمط عنوان الماستر
-* تحرير أنماط نص الماستر
+* اضغط لتحرير نمط عنوان الرئيس
+* تحرير أنماط نص الرئيس
 * المستوى الثاني
 * المستوى الثالث
 
-تظهر أيضًا على الشرائح المستندة إلى سلايد ماستر. يمكنك تحرير تلك العناصر على سلايد ماستر وستُطبق التغييرات تلقائيًا على الشرائح.
+تظهر أيضًا على الشرائح التي تستند إلى شريحة الرئيس. يمكنك تحرير تلك العناصر على شريحة الرئيس وسيتم تطبيق التغييرات تلقائيًا على الشرائح.
 
-في PowerPoint، يمكنك إضافة عنصر نائب عبر مسار Slide Master → Insert Placeholder :
+في PowerPoint، يمكنك إضافة عنصر نائب عبر مسار Slide Master → Insert Placeholder:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-دعنا نستعرض مثالًا أكثر تعقيدًا للعناصر النائبة مع Aspose.Slides. اعتبار شريحة بها عناصر نائب مُقَيمة من سلايد ماستر:
+لنستعرض مثالًا أكثر تعقيدًا للعناصر النائبة مع Aspose.Slides. افترض وجود شريحة بعناصر نائب مكوّنة من شريحة الرئيس:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-نرغب في تغيير تنسيق العنوان والعنوان الفرعي على سلايد ماستر بهذه الطريقة:
+نريد تغيير تنسيق العنوان والعنوان الفرعي على شريحة الرئيس بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-أولًا، نسترجع محتوى عنصر العنوان النائب من كائن سلايد ماستر ثم نستخدم حقل `PlaceHolder.FillFormat` :
+أولاً، نستعيد محتوى عنصر العنوان من كائن شريحة الرئيس ثم نستخدم الحقل `PlaceHolder.FillFormat`:
+
 ```php
 
 ```
 
 
-سيتغير نمط وتنسيق العنوان لجميع الشرائح المستندة إلى سلايد ماستر:
+سيتغير نمط العنوان والتنسيق لجميع الشرائح المستندة إلى شريحة الرئيس:
 
 ![todo:image_alt_text](slide-master_8.png)
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-
 * [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/php-java/manage-placeholder/)
 * [Text Formatting](https://docs.aspose.com/slides/php-java/text-formatting/)
-
 {{% /alert %}}
 
+## **تغيير الخلفية على شريحة الرئيس**
 
-## **تغيير الخلفية على سلايد ماستر**
-
-عند تغيير لون خلفية سلايد ماستر، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يظهر الكود PHP التالي العملية:
+عند تغيير لون خلفية شريحة الرئيس، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يوضح هذا الكود PHP العملية:
 ```php
   $pres = new Presentation();
   try {
@@ -240,15 +221,13 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-
 - [Presentation Background](https://docs.aspose.com/slides/php-java/presentation-background/)
 - [Presentation Theme](https://docs.aspose.com/slides/php-java/presentation-theme/)
-
 {{% /alert %}}
 
-## **استنساخ سلايد ماستر إلى عرض تقديمي آخر**
+## **استنساخ شريحة الرئيس إلى عرض تقديمي آخر**
 
-لاستنساخ سلايد ماستر إلى عرض تقديمي آخر، استدعِ طريقة [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) من العرض الوجهة مع تمرير سلايد ماستر إليه. يُظهر الكود PHP التالي كيفية استنساخ سلايد ماستر إلى عرض تقديمي آخر:
+لاستنساخ شريحة الرئيس إلى عرض آخر، استدعِ طريقة [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) من العرض الوجهة مع تمرير شريحة الرئيس إليها. يوضح هذا الكود PHP كيفية استنساخ شريحة الرئيس إلى عرض آخر:
 ```php
   $presSource = new Presentation();
   $presTarget = new Presentation();
@@ -262,42 +241,39 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 ```
 
 
+## **إضافة عدة شرائح رئيس إلى عرض تقديمي**
 
-## **إضافة عدة سلايد ماستر إلى عرض تقديمي**
+يسمح Aspose.Slides بإضافة عدة شرائح رئيس وتخطيطات شرائح إلى أي عرض. يتيح ذلك ضبط الأنماط والتخطيطات وخيارات التنسيق للشرائح بطرق متعددة.
 
-تسمح Aspose.Slides بإضافة عدة سلايد ماستر وتخطيطات شرائح إلى أي عرض تقديمي. يتيح ذلك ضبط الأنماط والتخطيطات وخيارات التنسيق للشرائح بطرق متعددة.
-
-في PowerPoint، يمكنك إضافة سلايد ماستر وتخطيطات جديدة (من قائمة "Slide Master") بهذه الطريقة:
+في PowerPoint، يمكنك إضافة شرائح رئيس وتخطيطات جديدة (من "قائمة شريحة الرئيس") بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-باستخدام Aspose.Slides، يمكنك إضافة سلايد ماستر جديد عبر استدعاء طريقة [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) :
+باستخدام Aspose.Slides، يمكنك إضافة شريحة رئيس جديدة باستدعاء طريقة [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone):
 ```php
-  # يضيف شريحة ماستر جديدة
+  # يضيف شريحة رئيسية جديدة
   $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
 ```
 
 
+## **مقارنة شرائح الرئيس**
 
-## **مقارنة سلايد ماستر**
+تنفّذ شريحة الرئيس الصف [BaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide) الذي يحتوي على طريقة [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/BaseSlide/#equals)، والتي يمكن استخدامها لمقارنة الشرائح. تُرجع `true` عندما تكون شرائح الرئيس متطابقة في الهيكل والمحتوى الثابت.
 
-تنفذ شريحة الماستر واجهة [IBaseSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide) التي تحتوي على طريقة [**equals**](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)، والتي يمكن استخدامها لمقارنة الشرائح. تُعيد `true` عندما تكون شرائح الماستر متطابقة في البنية والمحتوى الثابت.
+تُعد شرائح الرئيس متساوية إذا كانت الأشكال والأنماط والنصوص والرسوم المتحركة والإعدادات الأخرى متطابقة. لا تُأخذ المقارنة في الاعتبار قيم المعرف الفريدة (مثل SlideId) والمحتوى الديناميكي (مثل قيمة التاريخ الحالية في عنصر نائب التاريخ).
 
-تُعد شريحتا الماستر متساويتين إذا كانت الأشكال، الأنماط، النصوص، الحركات والإعدادات الأخرى متساوية. لا تُؤخذ القيم الفريدة للمعرف (مثل SlideId) أو المحتوى الديناميكي (مثل قيمة التاريخ الحالي في عنصر التاريخ) في الاعتبار.
+## **تعيين شريحة الرئيس كطريقة عرض افتراضية للعرض**
 
+يسمح Aspose.Slides بتعيين شريحة الرئيس كطريقة العرض الافتراضية للعرض. طريقة العرض الافتراضية هي ما تراه أولًا عند فتح العرض.
 
-## **تعيين سلايد ماستر كطريقة العرض الافتراضية للعرض**
-
-تتيح Aspose.Slides تعيين سلايد ماستر كطريقة العرض الافتراضية للعرض. طريقة العرض الافتراضية هي ما تراه أولًا عند فتح العرض.
-
-يُظهر هذا الكود كيفية تعيين سلايد ماستر كطريقة عرض افتراضية للعرض:
+يعرض هذا الكود كيفية تعيين شريحة الرئيس كطريقة عرض افتراضية للعرض:
 ```php
-  # ينشئ كائن من فئة Presentation يمثل ملف العرض التقديمي
+  # ينشئ كائن من فئة Presentation التي تمثل ملف العرض
   $presentation = new Presentation();
   try {
-    # يضبط العرض الافتراضي على SlideMasterView
+    # يعيّن العرض الافتراضي إلى SlideMasterView
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # يحفظ العرض التقديمي
+    # يحفظ العرض
     $presentation->save("PresView.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
@@ -305,9 +281,9 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 ```
 
 
-## **إزالة شرائح ماستر غير المستخدمة**
+## **إزالة شرائح الرئيس غير المستخدمة**
 
-توفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من فئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) لتمكينك من حذف شرائح ماستر غير مرغوب فيها وغير مستخدمة. يُظهر هذا الكود PHP كيفية إزالة شريحة ماستر من عرض PowerPoint:
+يوفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedMasterSlides) (من الصف [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) لحذف شرائح الرئيس غير المرغوب فيها وغير المستخدمة. يوضح هذا الكود PHP كيفية إزالة شريحة رئيس من عرض PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -321,43 +297,43 @@ description: "إدارة ماسترات الشرائح في Aspose.Slides للـ
 ```
 
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**ما هو سلايد ماستر في PowerPoint؟**
+**ما هي شريحة الرئيس في PowerPoint؟**
 
-سلايد ماستر هو قالب شريحة يحدد التخطيط والأنماط والموضوعات والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. يسمح لك بضبط وتغيير مظهر جميع شرائح العرض مرة واحدة.  
+Slide Master هو قالب شريحة يحدد التخطيط والأنماط والسمة والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. يسمح لك بتعيين وتغيير مظهر جميع شرائح العرض مرة واحدة.
 
-**كيف يتم تطبيق سلايد ماستر في العرض؟**
+**كيف يتم تطبيق شريحة الرئيس في العرض؟**
 
-كل عرض يحتوي على سلايد ماستر واحد على الأقل بشكل افتراضي. عندما تُضاف شريحة جديدة، يُطبق سلايد ماستر عليها تلقائيًا، غالبًا ما يرث سلايد ماستر الشريحة السابقة. يمكن للعرض أن يحتوي على عدة سلايد ماستر لتنسيق أجزاء مختلفة بشكل فريد.  
+كل عرض يحتوي على شريحة رئيس واحدة على الأقل بشكل افتراضي. عندما تُضاف شريحة جديدة، تُطبق شريحة الرئيس عليها تلقائيًا، عادةً مُستمدّة من شريحة الرئيس للشريحة السابقة. يمكن للعرض أن يحتوي على عدة شرائح رئيس لتنسيق أقسام مختلفة بطريقة فريدة.
 
-**ما العناصر التي يمكن تخصيصها في سلايد ماستر؟**
+**ما العناصر التي يمكن تخصيصها في شريحة الرئيس؟**
 
-يتكون سلايد ماستر من عدة خصائص أساسية يمكن تخصيصها:
+تتضمن شريحة الرئيس عدة خصائص أساسية يمكن تخصيصها:
 
-- **الخلفية**: ضبط خلفية الشريحة.
+- **Background**: تحديد خلفية الشريحة.
 - **BodyStyle**: تعريف أنماط النص لجسم الشريحة.
-- **Shapes**: إدارة جميع الأشكال على سلايد ماستر، بما في ذلك العناصر النائبة وإطارات الصور.
-- **Controls**: التعامل مع عناصر التحكم ActiveX.
+- **Shapes**: إدارة جميع الأشكال على شريحة الرئيس، بما في ذلك العناصر النائبة وإطارات الصور.
+- **Controls**: معالجة عناصر تحكم ActiveX.
 - **ThemeManager**: الوصول إلى مدير السمة.
-- **HeaderFooterManager**: إدارة الرؤوس والتذييلات.  
+- **HeaderFooterManager**: إدارة الترويسات والتذييلات.
 
-**كيف يمكنني إضافة صورة إلى سلايد ماستر؟**
+**كيف يمكنني إضافة صورة إلى شريحة الرئيس؟**
 
-إضافة صورة إلى سلايد ماستر يضمن ظهورها على جميع الشرائح التي تعتمد على ذلك الماستر. على سبيل المثال، وضع شعار الشركة على سلايد ماستر سيظهر على كل شريحة في العرض.  
+إضافة صورة إلى شريحة الرئيس يضمن ظهورها على جميع الشرائح التي تعتمد على تلك الشريحة. على سبيل المثال، وضع شعار الشركة على شريحة الرئيس سيظهر على كل شريحة في العرض.
 
-**كيف يرتبط سلايد ماستر بتخطيطات الشرائح؟**
+**كيف ترتبط شرائح الرئيس بتخطيطات الشرائح؟**
 
-تعمل تخطيطات الشرائح بالتكامل مع سلايد ماستر لتوفير مرونة في تصميم الشرائح. يحدد سلايد ماستر الأنماط والموضوعات العامة، بينما تسمح تخطيطات الشرائح بتنوع في ترتيب المحتوى. الهيكلية كالتالي:
+تعمل تخطيطات الشرائح بالتعاون مع شرائح الرئيس لتوفير مرونة في تصميم الشرائح. تُحدد شريحة الرئيس الأنماط والسمات العامة، بينما تسمح تخطيطات الشرائح بتنوع ترتيب المحتوى. هيكلية العلاقة كالتالي:
 
-- **سلايد ماستر** → يحدد الأنماط العامة.
-- **تخطيط الشريحة** → يوفر ترتيبات محتوى مختلفة.
-- **الشريحة** → ترث التصميم من تخطيط الشريحة.
+- **Slide Master** → يحدد الأنماط العامة.
+- **Slide Layout** → يقدم ترتيبات محتوى مختلفة.
+- **Slide** → يرث التصميم من تخطيط الشريحة الخاص به.
 
-**هل يمكن أن يكون لدي عدة سلايد ماستر في عرض واحد؟**
+**هل يمكن أن يكون لدي عدة شرائح رئيس في عرض واحد؟**
 
-نعم، يمكن للعرض أن يحتوي على عدة سلايد ماستر. يتيح ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.  
+نعم، يمكن للعرض أن يحتوي على عدة شرائح رئيس. يتيح ذلك تنسيق أقسام مختلفة من العرض بطرق متعددة، ما يوفر مرونة في التصميم.
 
-**كيف يمكنني الوصول إلى سلايد ماستر وتعديله باستخدام Aspose.Slides؟**
+**كيف يمكنني الوصول إلى شريحة الرئيس وتعديلها باستخدام Aspose.Slides؟**
 
-في Aspose.Slides، يُمثَّل سلايد ماستر بواسطة فئة [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). يمكنك الوصول إلى سلايد ماستر باستخدام طريقة [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) لكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+في Aspose.Slides، تمثل شريحة الرئيس الصف [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). يمكنك الوصول إلى شريحة الرئيس باستخدام طريقة [getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) لكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).

@@ -1,46 +1,46 @@
 ---
-title: "إدارة عناصر التحكم ActiveX في العروض التقديمية باستخدام PHP"
-linktitle: "ActiveX"
+title: إدارة عناصر التحكم ActiveX في العروض التقديمية باستخدام PHP
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ar/php-java/activex/
 keywords:
-  - "ActiveX"
-  - "عنصر تحكم ActiveX"
-  - "إدارة ActiveX"
-  - "إضافة ActiveX"
-  - "تعديل ActiveX"
-  - "مشغل وسائط"
-  - "PowerPoint"
-  - "عرض تقديمي"
-  - "PHP"
-  - "Aspose.Slides"
-description: "تعلم كيف يستخدم Aspose.Slides لـ PHP عبر Java تقنية ActiveX لأتمتة وتحسين عروض PowerPoint التقديمية، مما يمنح المطورين تحكمًا قويًا في الشرائح."
+- ActiveX
+- تحكم ActiveX
+- إدارة ActiveX
+- إضافة ActiveX
+- تعديل ActiveX
+- مشغل وسائط
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "تعرف على كيفية استفادة Aspose.Slides لـ PHP عبر Java من ActiveX لأتمتة وتحسين عروض PowerPoint التقديمية، مما يمنح المطورين تحكمًا قويًا في الشرائح."
 ---
 
 {{% alert color="primary" %}} 
 
-تُستخدم عناصر تحكم ActiveX في العروض التقديمية. يتيح Aspose.Slides for PHP عبر Java إضافة وإدارة عناصر تحكم ActiveX، لكنها أصعب قليلًا في الإدارة مقارنةً بأشكال العرض العادية. لقد نفذنا دعمًا لإضافة عنصر تحكم Media Player النشط في Aspose.Slides. لاحظ أن عناصر تحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من عرض التقديم's [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IShapeCollection). إنها جزء من [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection) المنفصل بدلاً من ذلك. في هذا الموضوع، سنوضح لك كيفية التعامل معها.
+تُستخدم عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides لـ PHP عبر Java إضافة وإدارة عناصر التحكم ActiveX، لكنها أصعب قليلاً في الإدارة مقارنةً بأشكال العرض العادية. لقد نفّذنا دعمًا لإضافة عنصر تحكم Media Player Active في Aspose.Slides. لاحظ أن عناصر التحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). بل هي جزء من [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/) بدلاً من ذلك. في هذا الموضوع، سنُظهر لك كيفية العمل معها.
 
 {{% /alert %}} 
 
 ## **إضافة عنصر تحكم Media Player ActiveX إلى شريحة**
 لإضافة عنصر تحكم Media Player ActiveX، اتبع الخطوات التالية:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتوليد عرض تقديمي فارغ.
-2. الوصول إلى الشريحة المستهدفة في فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-3. إضافة عنصر تحكم Media Player ActiveX باستخدام طريقة [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-) التي توفرها فئة [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection).
-4. الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
-5. حفظ العرض التقديمي كملف PPTX.
+1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وأنشئ عرضًا تقديميًا فارغًا.  
+2. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+3. أضف عنصر تحكم Media Player ActiveX باستخدام الطريقة [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/addcontrol/) المعروضة من قبل [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).  
+4. الوصول إلى عنصر تحكم Media Player ActiveX وتحديد مسار الفيديو باستخدام خصائصه.  
+5. احفظ العرض التقديمي كملف PPTX.  
 
-يعرض هذا الكود النموذجي، المستند إلى الخطوات أعلاه، طريقة إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
+يُظهر رمز العينة هذا، بناءً على الخطوات السابقة، كيفية إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
 ```php
   # إنشاء مثيل عرض تقديمي فارغ
   $pres = new Presentation();
   try {
     # إضافة عنصر تحكم Media Player ActiveX
     $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو
+    # الوصول إلى عنصر تحكم Media Player ActiveX وتحديد مسار الفيديو
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     # حفظ العرض التقديمي
     $pres->save("Output.pptx", SaveFormat::Pptx);
@@ -55,23 +55,23 @@ description: "تعلم كيف يستخدم Aspose.Slides لـ PHP عبر Java ت
 ## **تعديل عنصر تحكم ActiveX**
 {{% alert color="primary" %}} 
 
-تمتلك Aspose.Slides for PHP عبر Java الإصدار 7.1.0 والإصدارات الأحدث مكونات لإدارة عناصر تحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف بالفعل في عرضك التقديمي وتعديل أو حذف ذلك عبر خصائصه.
+يتم تزويد Aspose.Slides لـ PHP عبر Java الإصدار 7.1.0 والإصدارات الأ newer بمكونات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف مسبقًا في عرضك التقديمي وتعديل أو حذف ذلك عبر خصائصه.
 
 {{% /alert %}} 
 
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة، اتبع الخطوات التالية:
+لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط في شريحة، اتبع الخطوات التالية:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على عناصر تحكم ActiveX.
-2. الحصول على مرجع الشريحة بواسطة مؤشرها.
-3. الوصول إلى عناصر تحكم ActiveX في الشريحة عبر فئة [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection).
-4. الوصول إلى عنصر تحكم TextBox1 ActiveX باستخدام كائن [IControl](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControl).
-5. تغيير خصائص عنصر تحكم TextBox1 ActiveX التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
-6. الوصول إلى التحكم الثاني المسمى CommandButton1.
-7. تغيير عنوان الزر، الخط، والموقع.
-8. تحريك موقع إطارات عناصر تحكم ActiveX.
-9. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وحمّل العرض التقديمي الذي يحتوي على عناصر التحكم ActiveX.  
+2. احصل على مرجع الشريحة باستخدام الفهرس الخاص بها.  
+3. الوصول إلى عناصر التحكم ActiveX في الشريحة عبر الوصول إلى [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).  
+4. الوصول إلى عنصر التحكم TextBox1 ActiveX باستخدام كائن [Control](https://reference.aspose.com/slides/php-java/aspose.slides/control/).  
+5. تغيير خصائص عنصر التحكم TextBox1 ActiveX التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.  
+6. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.  
+7. تغيير تسمية الزر، الخط، والموقع.  
+8. تحريك موضع إطارات عناصر التحكم ActiveX.  
+9. اكتب العرض التقديمي المعدل إلى ملف PPTX.  
 
-يعرض هذا الكود النموذجي، المستند إلى الخطوات أعلاه، طريقة إدارة عنصر تحكم ActiveX بسيط: 
+يُظهر رمز العينة هذا، بناءً على الخطوات السابقة، كيفية إدارة عنصر تحكم ActiveX بسيط: 
 ```php
   # الوصول إلى العرض التقديمي مع عناصر تحكم ActiveX
   $pres = new Presentation("ActiveX.pptm");
@@ -83,8 +83,8 @@ description: "تعلم كيف يستخدم Aspose.Slides لـ PHP عبر Java ت
     if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
       $newText = "Changed text";
       $control->getProperties()->set_Item("Value", $newText);
-      # تغيير صورة الاستبدال. PowerPoint سيستبدل هذه الصورة أثناء تفعيل ActiveX،
-      # لذلك أحيانًا لا بأس بترك الصورة دون تغيير.
+      # تغيير صورة البديل. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX،
+      # لذلك في بعض الأحيان يمكن ترك الصورة دون تعديل.
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->window);
@@ -110,12 +110,12 @@ description: "تعلم كيف يستخدم Aspose.Slides لـ PHP عبر Java ت
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    # تغيير عناوين الزر
+    # تغيير تسمية الزر
     $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
     if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
-      # تغيير الاستبدال
+      # تغيير البديل
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->control);
@@ -162,14 +162,11 @@ description: "تعلم كيف يستخدم Aspose.Slides لـ PHP عبر Java ت
 
 ## **الأسئلة الشائعة**
 
-**هل يحتفظ Aspose.Slides بعناصر تحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة Java؟**
+**هل يحتفظ Aspose.Slides بعناصر التحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل Java؟**  
+نعم. يتعامل Aspose.Slides معها كجزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها لحفظها.
 
-نعم. يتعامل Aspose.Slides معها كجزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ ليس من الضروري تنفيذ عناصر التحكم نفسها للحفاظ عليها.
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض التقديمي؟**  
+عناصر التحكم ActiveX هي عناصر تحكم تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما تشير [OLE](/slides/ar/php-java/manage-ole/) إلى كائنات تطبيق مدمجة (مثل ورقة عمل Excel). تُخزن وتُدار بشكل مختلف وتملك نماذج خصائص مختلفة.
 
-**كيف تختلف عناصر تحكم ActiveX عن كائنات OLE في العرض التقديمي؟**
-
-عناصر تحكم ActiveX هي عناصر تحكم تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما تُشير [OLE](/slides/ar/php-java/manage-ole/) إلى كائنات تطبيق مدمجة (مثلاً ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة وتملك نماذج خصائص مختلفة.
-
-**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
-
-يحافظ Aspose.Slides على العلامات والبيانات الوصفية الموجودة؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تُنفّذ VBA.
+**هل تعمل أحداث ActiveX والماكروهات VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**  
+يحافظ Aspose.Slides على العلامات الوصفية والبيانات الوصفية الحالية؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.

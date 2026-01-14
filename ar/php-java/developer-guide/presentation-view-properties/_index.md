@@ -9,53 +9,53 @@ keywords:
 - العرض العادي
 - محتوى المخطط
 - أيقونات المخطط
-- تثبيت الفاصل العمودي
-- العرض الفردي
+- تثبيت القاطع العمودي
+- عرض واحد
 - حالة الشريط
 - حجم البُعد
 - ضبط تلقائي
-- تكبير افتراضي
+- التكبير الافتراضي
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "اكتشف خصائص عرض Aspose.Slides لـ PHP عبر Java لتخصيص صيغ شرائح PPT و PPTX و ODP — ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
+description: "اكتشف خصائص العرض في Aspose.Slides للـ PHP عبر Java لتخصيص صيغ عروض PPT و PPTX و ODP — ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
 ---
 
 {{% alert color="primary" %}} 
 
-تتكون طريقة العرض العادية من ثلاث مناطق محتوى: الشريحة نفسها، ومنطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع المناطق المختلفة للمحتوى. تتيح هذه المعلومات للتطبيق حفظ حالة العرض في الملف، بحيث عند إعادة الفتح تكون طريقة العرض في نفس الحالة التي تم حفظ العرض التقديمي فيها آخر مرة.
+العرض العادي يتكوّن من ثلاث مناطق محتوى: الشريحة نفسها، ومنطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع مناطق المحتوى المختلفة. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض في الملف، بحيث عند إعادة الفتح تكون الحالة هي نفسها كما كانت عندما تم حفظ العرض التقديمي آخر مرة.
 
-تم إضافة الطريقة [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IViewProperties#getNormalViewProperties--) لتوفير الوصول إلى خصائص طريقة العرض العادية للعرض التقديمي.  
+تمت إضافة الطريقة [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.
 
-تمت إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties)، [INormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties) وفروعها، وعدد [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType) enum.  
+تمت إضافة الفئات [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties) وفروعها، وكذلك تعداد [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType) .
 
 {{% /alert %}} 
 
-## **About INormalViewProperties**
+## **حول INormalViewProperties**
 
-تمثل خصائص طريقة العرض العادية.
+يمثل خصائص العرض العادي.
 
-تشير الطرق [getShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getShowOutlineIcons--) و [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) إلى ما إذا كان ينبغي على التطبيق إظهار الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
+تحدّد الطريقتان [getShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) و[setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) ما إذا كان يجب على التطبيق إظهار الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
 
-تشير الطرق [getSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) و [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) إلى ما إذا كان ينبغي أن ينتقل الفاصل العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
+تحدّد الطريقتان [getSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) و[setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) ما إذا كان يجب أن ينتقل القاطع العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
 
-تشير الخاصية [getPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getPreferSingleView--) و [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) إلى ما إذا كان المستخدم يفضل رؤية منطقة محتوى واحدة في النافذة بالكامل بدلاً من طريقة العرض العادية القياسية التي تحتوي على ثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في كامل النافذة.
+تحدّد الخاصيتان [getPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) و[setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) ما إذا كان المستخدم يفضّل رؤية منطقة محتوى واحدة ممتدة على كامل النافذة بدلاً من العرض العادي القياسي الذي يحتوي على ثلاث مناطق محتوى. إذا تم تمكين ذلك، قد يختار التطبيق عرض إحدى مناطق المحتوى في كامل النافذة.
 
-تحدد الطرق [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getHorizontalBarState--) الحالة التي يجب عرض شريط الفاصل الأفقي أو العمودي بها. شريط الفاصل الأفقي يفصل الشريحة عن منطقة المحتوى أسفل الشريحة، وشريط الفاصل العمودي يفصل الشريحة عن المنطقة الجانبية. القيم الممكنة هي: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Minimized)، [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Maximized) و [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Restored).
+تحدّد الطريقتان [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) الحالة التي يجب أن يُظهر عليها شريط القاطع الأفقي أو العمودي. الشريط القاطع الأفقي يفصل الشريحة عن منطقة المحتوى التي تحت الشريحة، والشريط القاطع العمودي يفصل الشريحة عن المنطقة الجانبية. القيم الممكنة هي: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Minimized)، [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Maximized) و[SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Restored).
 
-تحدد الطرق [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredLeft--) و [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredTop--) حجم المنطقة العليا أو الجانبية للشريحة في طريقة العرض العادية، عندما تُطبق القيمة [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getHorizontalBarState--) وفقًا لذلك.
+تحدّد الطريقتان [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) و[getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties#getRestoredTop) حجم المنطقة العلوية أو الجانبية في العرض العادي، عندما تُطَبَّق القيمة [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) وفقًا لذلك.
 
-## **About Restoring INormalViewProperties**
+## **حول Restoring INormalViewProperties**
 
-يحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredTop--)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredLeft--)) في طريقة العرض العادية، عندما تكون المنطقة بحجم متغير مستعاد (ليس مصغرة ولا مكبرة).  
+تحدّد حجم منطقة الشريحة (العرض عندما تكون ابنًا لـ [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredTop)، الارتفاع عندما تكون ابنًا لـ [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) في العرض العادي، عندما تكون المنطقة ذات حجم متغيّر مستعاد (ليس مصغّرًا ولا مكبّرًا).
 
-تشير الطريقة [getDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties#getDimensionSize--) إلى حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ restoredTop، الارتفاع عندما تكون طفلاً لـ restoredLeft).  
+تحدّد الطريقة [getDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) حجم منطقة الشريحة (العرض عندما تكون ابنًا لـ restoredTop، الارتفاع عندما تكون ابنًا لـ restoredLeft).
 
-تشير الطريقة [getAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) إلى ما إذا كان يجب على المنطقة الجانبية تعديل حجمها لتعويض الحجم الجديد عند تغيير حجم النافذة التي تحتوي على العرض داخل التطبيق.  
+تحدّد الطريقة [getAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) ما إذا كان حجم منطقة المحتوى الجانبية يجب أن يعوّض الحجم الجديد عند إعادة تحجيم النافذة التي تحتوي على العرض داخل التطبيق.
 
-مثال أدناه يوضح كيفية الوصول إلى خصائص [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNormalViewProperties--) لعرض تقديمي.  
+يوضح المثال أدناه كيف يمكنك الوصول إلى خصائص [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) لعرض تقديمي.
 ```php
   $pres = new Presentation();
   try {
@@ -76,22 +76,22 @@ description: "اكتشف خصائص عرض Aspose.Slides لـ PHP عبر Java ل
 ## **Set the Default Zoom Value**
 {{% alert color="primary" %}} 
 
-يدعم Aspose.Slides for PHP via Java الآن تعيين قيمة التكبير الافتراضية للعرض التقديمي بحيث يتم تعيين التكبير بالفعل عند فتح العرض. يمكن تحقيق ذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) للعرض التقديمي. يمكن تعيين كل من [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) و [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) برمجياً. في هذا الموضوع، سنرى من خلال مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) للـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).  
+أصبح Aspose.Slides for PHP via Java يدعم الآن ضبط قيمة التكبير الافتراضية للعرض التقديمي بحيث تكون قيمة التكبير مُحدَّدة بالفعل عند فتح العرض. يمكن تحقيق ذلك عن طريق ضبط كائن [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) للعرض التقديمي. يمكن ضبط كل من [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) و[getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) برمجيًا. في هذا الموضوع، سنستعرض مثالًا يوضح كيفية ضبط [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).
 
 {{% /alert %}} 
 
-لتعيين خصائص العرض، يرجى اتباع الخطوات التالية:
+لضبط خصائص العرض، يرجى اتباع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. تعيين [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) للـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .  
-   في المثال المرفق أدناه، قمنا بتعيين قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.  
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. ضبط [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) للـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. حفظ العرض التقديمي كملف [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+   في المثال أدناه، قمنا بضبط قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.
 ```php
   $presentation = new Presentation();
   try {
     # ضبط خصائص العرض للعرض التقديمي
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // قيمة التكبير بالنسبة المئوية لعرض الشريحة
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // قيمة التكبير بالنسبة المئوية لعرض الملاحظات
+    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // قيمة التكبير بالنسب المئوية لعرض الشريحة
+    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // قيمة التكبير بالنسب المئوية لعرض الملاحظات
 
     $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -102,14 +102,14 @@ description: "اكتشف خصائص عرض Aspose.Slides لـ PHP عبر Java ل
 
 ## **FAQ**
 
-**هل يمكنني تعيين إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+**هل يمكنني ضبط إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
 
-يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) على مستوى العرض التقديمي ([العرض العادي](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[عرض الشريحة](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/))، وليس لكل قسم، لذلك تنطبق مجموعة واحدة من المعلمات على المستند بأكمله عند الفتح.
+يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) على مستوى العرض التقديمي ([العرض العادي](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[عرض الشريحة](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/))، وليس لكل قسم، لذا يتم تطبيق مجموعة واحدة من المعلمات على المستند بالكامل عند فتحه.
 
-**هل يمكنني تحديد حالات عرض مختلفة مسبقًا لمستخدمين مختلفين؟**
+**هل يمكنني تعريف حالات عرض مسبقة لمستخدمين مختلفين؟**
 
-لا. تُحفظ الإعدادات في الملف وتُشارك. قد تحترم تطبيقات العرض تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+لا. تُحفظ الإعدادات في الملف وتُشارك بين المستخدمين. قد تلتزم تطبيقات المشاهدة بتفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
 
-**هل يمكنني إعداد قالب يحتوي على خصائص عرض محددة مسبقًا بحيث يفتح العروض الجديدة بنفس الطريقة؟**
+**هل يمكنني إعداد قالب يحتوي على خصائص عرض معرفة مسبقًا بحيث تفتح العروض الجديدة بنفس الطريقة؟**
 
-نعم. لأن [خصائص العرض](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) تُحفظ على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الابتدائي.
+نعم. نظرًا لأن [خصائص العرض](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه مع نفس تكوين العرض الابتدائي.

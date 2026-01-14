@@ -6,61 +6,61 @@ weight: 60
 url: /ar/php-java/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخطط
-- كائن المخطط
+- تنسيق المخططات
+- كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
 - خيارات المخطط
 - خصائص الخط
 - حد مستدير
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم تنسيق المخططات في Aspose.Slides for PHP عبر Java وارتقِ بعرض PowerPoint التقديمي الخاص بك بأسلوب احترافي وجذاب."
+description: "تعلم تنسيق المخططات في Aspose.Slides لـ PHP عبر Java وارتقِ بعرض PowerPoint الخاص بك بتنسيق احترافي وجذاب."
 ---
 
-## **تنسيق كائنات المخطط**
-Aspose.Slides for PHP عبر Java يتيح للمطورين إضافة مخططات مخصصة إلى الشرائح من الصفر. يوضح هذا المقال كيفية تنسيق مختلف كائنات المخطط بما في ذلك محور الفئات ومحور القيم.
+## **تنسيق كيانات المخطط**
+Aspose.Slides for PHP عبر Java يتيح للمطورين إضافة مخططات مخصصة إلى الشرائح من الصفر. تشرح هذه المقالة كيفية تنسيق كيانات المخطط المختلفة بما في ذلك محور الفئة ومحور القيمة.
 
-Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة كائنات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
+Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة كيانات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
 
-1. إنشاء نسخة من فئة [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. الحصول على مرجع الشريحة بحسب الفهرس.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مطلوب (في هذا المثال سنستخدم ChartType::LineWithMarkers).
-1. الوصول إلى محور القيم في المخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور القيم
-   1. تعيين **Line format** لخطوط الشبكة الثانوية لمحور القيم
-   1. تعيين **Number Format** لمحور القيم
-   1. تعيين **Min, Max, Major and Minor units** لمحور القيم
-   1. تعيين **Text Properties** لبيانات محور القيم
-   1. تعيين **Title** لمحور القيم
-   1. تعيين **Line Format** لمحور القيم
-1. الوصول إلى محور الفئات في المخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور الفئات
-   1. تعيين **Line format** لخطوط الشبكة الثانوية لمحور الفئات
-   1. تعيين **Text Properties** لبيانات محور الفئات
-   1. تعيين **Title** لمحور الفئات
-   1. تعيين **Label Positioning** لمحور الفئات
-   1. تعيين **Rotation Angle** لتسميات محور الفئات
-1. الوصول إلى وسيلة إيضاح المخطط وتعيين **Text Properties** لها
-1. إظهار وسيلة إيضاح المخطط دون تداخل مع المخطط
-1. الوصول إلى **Secondary Value Axis** في المخطط وتعيين الخصائص التالية:
+1. إنشاء مثيل من الفئة [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. الحصول على إشارة الشريحة بحسب فهرسها.
+1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (في هذا المثال سنستخدم ChartType::LineWithMarkers).
+1. الوصول إلى محور القيمة للمخطط وتعيين الخصائص التالية:
+   1. ضبط **Line format** لخطوط شبكة المحور القيمة الرئيسية
+   1. ضبط **Line format** لخطوط شبكة المحور القيمة الثانوية
+   1. ضبط **Number Format** للمحور القيمة
+   1. ضبط **Min, Max, Major and Minor units** للمحور القيمة
+   1. ضبط **Text Properties** لبيانات محور القيمة
+   1. ضبط **Title** للمحور القيمة
+   1. ضبط **Line Format** للمحور القيمة
+1. الوصول إلى محور الفئة للمخطط وتعيين الخصائص التالية:
+   1. ضبط **Line format** لخطوط شبكة محور الفئة الرئيسية
+   1. ضبط **Line format** لخطوط شبكة محور الفئة الثانوية
+   1. ضبط **Text Properties** لبيانات محور الفئة
+   1. ضبط **Title** لمحور الفئة
+   1. ضبط **Label Positioning** لمحور الفئة
+   1. ضبط **Rotation Angle** لملصقات محور الفئة
+1. الوصول إلى وسيلة الإيضاح للمخطط وضبط **Text Properties** لها
+1. إظهار وسيلة الإيضاح للمخطط دون تداخل مع المخطط
+1. الوصول إلى **Secondary Value Axis** للمخطط وتعيين الخصائص التالية:
    1. تمكين **Value Axis** الثانوي
-   1. تعيين **Line Format** لمحور القيم الثانوي
-   1. تعيين **Number Format** لمحور القيم الثانوي
-   1. تعيين **Min, Max, Major and Minor units** لمحور القيم الثانوي
-1. الآن رسم سلسلة المخطط الأولى على محور القيم الثانوي
-1. تعيين لون تعبئة الجدار الخلفي للمخطط
-1. تعيين لون تعبئة منطقة رسم المخطط
+   1. ضبط **Line Format** للمحور الثانوي للقيمة
+   1. ضرب **Number Format** للمحور الثانوي للقيمة
+   1. ضبط **Min, Max, Major and Minor units** للمحور الثانوي للقيمة
+1. الآن ارسم سلسلة المخطط الأولى على محور القيمة الثانوي
+1. تعيين لون تعبئة جدار الخلفية للمخطط
+1. تعيين لون تعبئة منطقة الرسم للمخطط
 1. كتابة العرض المعدل إلى ملف PPTX
 ```php
-  # إنشاء نسخة من فئة Presentation class
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة المخطط النموذجي
+    # إضافة المخطط التجريبي
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
     # تعيين عنوان المخطط
     $chart->hasTitle();
@@ -85,7 +85,7 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
     $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # تعيين القيم القصوى والدنيا للمخطط
+    # تعيين القيم العظمى والصغرى للمخطط
     $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
@@ -112,15 +112,15 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تعيين تنسيق خطوط الشبكة الرئيسية لمحور الفئات
+    # تعيين تنسيق خطوط الشبكة الرئيسية لمحور الفئة
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # تعيين تنسيق خطوط الشبكة الثانوية لمحور الفئات
+    # تعيين تنسيق خطوط الشبكة الثانوية لمحور الفئة
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # تعيين خصائص نص محور الفئات
+    # تعيين خصائص نص محور الفئة
     $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
     $txtCat->setFontBold(NullableBool::True);
     $txtCat->setFontHeight(16);
@@ -138,18 +138,18 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
     $catTitle->getPortionFormat()->setFontHeight(20);
     $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تعيين موضع تسمية محور الفئات
+    # تعيين موضع تسمية محور الفئة
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # تعيين زاوية دوران تسمية محور الفئات
+    # تعيين زاوية دوران تسمية محور الفئة
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # تعيين خصائص نص وسيلة الإيضاح
+    # تعيين خصائص نص مفتاح الرسم البياني
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
     $txtleg->setFontBold(NullableBool::True);
     $txtleg->setFontHeight(16);
     $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # تعيين إظهار وسيلة إيضاح المخطط دون تداخل مع المخطط
+    # إظهار مفتاح الرسم البياني دون تداخل مع المخطط
     $chart->getLegend()->setOverlay(true);
     # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
@@ -157,11 +157,11 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
     $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # تعيين تنسيق أرقام محور القيم الثانوي
+    # تعيين تنسيق الأرقام لمحور القيم الثانوي
     $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
     $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # تعيين القيم القصوى والدنيا للمخطط
+    # تعيين القيم العظمى والصغرى للمخطط
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
@@ -176,7 +176,7 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
     $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # تعيين لون منطقة الرسم للمخطط
+    # تعيين لون مساحة الرسم
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
     # حفظ العرض التقديمي
@@ -189,17 +189,17 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
 ```
 
 
-## **تعيين خصائص الخط لمخطط**
-Aspose.Slides for PHP عبر Java يدعم تعيين خصائص الخط للمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
+## **تعيين خصائص الخط للمخطط**
+Aspose.Slides for PHP عبر Java يوفر دعمًا لتعيين خصائص الخط المتعلقة بالمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
 
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - إضافة مخطط إلى الشريحة.
 - تعيين ارتفاع الخط.
 - حفظ العرض المعدل.
 
-فيما يلي مثال توضيحي.
+مثال العينة التالي موضح.
 ```php
-  # إنشاء نسخة من فئة Presentation class
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
@@ -214,34 +214,35 @@ Aspose.Slides for PHP عبر Java يدعم تعيين خصائص الخط للم
 ```
 
 
-## **تعيين صيغة الأرقام**
-Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة صيغة بيانات المخطط:
+## **تعيين التنسيق الرقمي**
+Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة تنسيق بيانات المخطط:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-1. الحصول على مرجع الشريحة بحسب الفهرس.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مطلوب (هذا المثال يستخدم **ChartType::ClusteredColumn**).
-1. تعيين صيغة الرقم المسبقة من القيم المسبقة المتاحة.
-1. المرور عبر خلايا بيانات المخطط في كل سلسلة وتعيين صيغة الرقم للبيانات.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. الحصول على إشارة الشريحة بحسب فهرسها.
+1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم **ChartType::ClusteredColumn**).
+1. ضبط تنسيق الرقم المسبق من القيم المسبقة المتاحة.
+1. المرور عبر خلايا بيانات المخطط في كل سلسلة وضبط تنسيق رقم البيانات.
 1. حفظ العرض.
-1. تعيين صيغة رقم مخصصة.
-1. المرور عبر خلايا بيانات المخطط داخل كل سلسلة وتعيين صيغة رقم مختلفة للبيانات.
+1. تعيين تنسيق رقم مخصص.
+1. المرور عبر خلايا بيانات المخطط داخل كل سلسلة وضبط تنسيق رقم مختلف.
 1. حفظ العرض.
 ```php
-  # إنشاء نسخة من فئة Presentation class
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation();
   try {
-    # الوصول إلى الشريحة الأولى للعرض التقديمي
+    # الوصول إلى أول شريحة عرض تقديمي
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة مخطط عمودي متجمع افتراضي
+    # إضافة مخطط عمودي مجموعات افتراضي
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
     # الوصول إلى مجموعة سلاسل المخطط
     $series = $chart->getChartData()->getSeries();
-    # التجول في كل سلسلة مخطط
+    # التجول عبر كل سلسلة مخطط
     foreach($series as $ser) {
-      # التجول في كل خلية بيانات في السلسلة
+      # التجول عبر كل خلية بيانات في السلسلة
       foreach($ser->getDataPoints() as $cell) {
         # تعيين تنسيق الرقم
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
+
       }
     }
     # حفظ العرض التقديمي
@@ -254,7 +255,7 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
 ```
 
 
-القيم المسبقة لصيغة الرقم المتاحة مع الفهرس المسبق والتي يمكن استخدامها موضحة أدناه:
+القيم الممكنة لتنسيق الأرقام المسبق مع فهرسها التي يمكن استخدامها موضحة أدناه:
 
 |**0**|General|
 | :- | :- |
@@ -294,18 +295,17 @@ Aspose.Slides for PHP عبر Java يوفر واجهة برمجة تطبيقات 
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **تعيين حدود مستديرة لمنطقة المخطط**
-Aspose.Slides for PHP عبر Java يدعم ضبط منطقة المخطط. تم إضافة الطريقتين [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) و[**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean-) إلى واجهة [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) وفئة [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart).
+## **تعيين حدود دائرية لمنطقة المخطط**
+Aspose.Slides for PHP عبر Java يوفر دعمًا لتعيين منطقة المخطط. تم إضافة الطريقتين [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) و [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) إلى فئة [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) class.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. إضافة مخطط إلى الشريحة.
-1. تعيين نوع التعبئة ولون تعبئة المخطط
-1. تعيين خاصية الزوايا المستديرة إلى True.
+1. تعيين نوع التعبئة ولون التعبئة للمخطط
+1. تعيين خاصية الزاوية المستديرة إلى True.
 1. حفظ العرض المعدل.
 
-فيما يلي مثال توضيحي.
 ```php
-  # إنشاء نسخة من فئة Presentation class
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -324,14 +324,11 @@ Aspose.Slides for PHP عبر Java يدعم ضبط منطقة المخطط. تم 
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني ضبط تعبئة شبه شفافة للأعمدة/المساحات مع الحفاظ على الحدود غير شفافة؟**
+**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود صلبة؟**  
+نعم. شفافية التعبئة والحد الخارجي يتم تكوينهما بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصويرات المكثفة.
 
-نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+**كيف يمكنني التعامل مع ملصقات البيانات عندما تتداخل؟**  
+قلل حجم الخط، عطل المكونات غير الضرورية للملصقات (مثل الفئات)، اضبط إزاحة/موضع الملصق، اعرض الملصقات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر الصيغة إلى "القيمة + الأسطورة".
 
-**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
-
-قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط إزاحة/موضع التسمية، عرض التسميات للنقاط المحددة فقط إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + المفتاح".
-
-**هل يمكنني تطبيق تعبئة متدرجة أو نمطية للسلسلة؟**
-
-نعم. تتوفر عادةً كل من التعبئة الصلبة والمتدرجة/النمطية. في الممارسة، استخدم التدرجات بشكل مقتصد وتجنب التركيبات التي تقلل التباين مع الشبكة والنص.
+**هل يمكنني تطبيق تعبئات تدرجية أو نقشية على السلسلة؟**  
+نعم. عادةً ما تكون كل من التعبئات الصلبة وتعبئات التدرج/النقش متاحة. في الممارسة العملية، استخدم التدرجات بشكل مقتصد وتجنب التركيب الذي يقلل من التباين مع الشبكة والنص.

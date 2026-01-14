@@ -1,5 +1,5 @@
 ---
-title: Diagramme in PHP formatieren
+title: Diagramme für Präsentationen in PHP formatieren
 linktitle: Diagrammformatierung
 type: docs
 weight: 60
@@ -11,56 +11,56 @@ keywords:
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
-- Schrifteigenschaften
+- Schriftarteigenschaften
 - abgerundete Rahmen
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme mit Aspose.Slides für PHP via Java formatieren und verleihen Sie Ihrer PowerPoint-Präsentation ein professionelles, ansprechendes Design."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für PHP via Java formatieren und heben Sie Ihre PowerPoint-Präsentation mit professionellem, auffälligem Design hervor."
 ---
 
 ## **Diagramm-Entitäten formatieren**
-Aspose.Slides for PHP via Java ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Artikel erklärt, wie verschiedene Diagramm-Entitäten formatiert werden, einschließlich Diagramm‑Kategorien‑ und Werte‑Achse.
+Aspose.Slides for PHP via Java ermöglicht Entwicklern das Hinzufügen benutzerdefinierter Diagramme zu ihren Folien von Grund auf. Dieser Artikel erklärt, wie verschiedene Diagramm‑Entitäten formatiert werden, einschließlich Diagramm‑Kategorien‑ und Werte‑Achse.
 
-Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiedener Diagramm‑Entitäten und zum Formatieren mit benutzerdefinierten Werten:
+Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung verschiedener Diagramm‑Entitäten und deren Formatierung mit benutzerdefinierten Werten:
 
-1. Erstellen Sie eine Instanz der [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Holen Sie sich eine Folien‑Referenz anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten sowie dem gewünschten Typ hinzu (in diesem Beispiel verwenden wir ChartType::LineWithMarkers).
+1. Erstellen Sie eine Instanz der [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
+1. Holen Sie sich die Referenz einer Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu, wobei Sie einen gewünschten Typ auswählen (in diesem Beispiel verwenden wir ChartType::LineWithMarkers).
 1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. **Linienformat** für Hauptgitternetzlinien der Werte‑Achse festlegen
-   1. **Linienformat** für Neben­gitternetzlinien der Werte‑Achse festlegen
-   1. **Zahlenformat** für die Werte‑Achse festlegen
-   1. **Min‑, Max‑, Haupt‑ und Neben‑Einheiten** für die Werte‑Achse festlegen
-   1. **Texteigenschaften** für Werte‑Achsen‑Daten festlegen
-   1. **Titel** für die Werte‑Achse festlegen
-   1. **Linienformat** für die Werte‑Achse festlegen
+   1. Festlegen des **Line format** für Hauptgitterlinien der Werte‑Achse
+   1. Festlegen des **Line format** für Neben­gitterlinien der Werte‑Achse
+   1. Festlegen des **Number Format** für die Werte‑Achse
+   1. Festlegen von **Min, Max, Major and Minor units** für die Werte‑Achse
+   1. Festlegen der **Text Properties** für die Werte‑Achsendaten
+   1. Festlegen des **Title** für die Werte‑Achse
+   1. Festlegen des **Line Format** für die Werte‑Achse
 1. Greifen Sie auf die Kategorien‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. **Linienformat** für Hauptgitternetzlinien der Kategorien‑Achse festlegen
-   1. **Linienformat** für Neben­gitternetzlinien der Kategorien‑Achse festlegen
-   1. **Texteigenschaften** für Kategorien‑Achsen‑Daten festlegen
-   1. **Titel** für die Kategorien‑Achse festlegen
-   1. **Beschriftungsposition** für die Kategorien‑Achse festlegen
-   1. **Drehwinkel** für Kategorien‑Achsen‑Beschriftungen festlegen
-1. Greifen Sie auf die Legende des Diagramms zu und setzen Sie die **Texteigenschaften** dafür
-1. Legende so anzeigen, dass sie das Diagramm nicht überlappt
-1. Greifen Sie auf die **sekundäre Werte‑Achse** des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Die sekundäre **Werte‑Achse** aktivieren
-   1. **Linienformat** für die sekundäre Werte‑Achse festlegen
-   1. **Zahlenformat** für die sekundäre Werte‑Achse festlegen
-   1. **Min‑, Max‑, Haupt‑ und Neben‑Einheiten** für die sekundäre Werte‑Achse festlegen
-1. Plotten Sie nun die erste Diagramm‑Serie auf der sekundären Werte‑Achse
-1. Hintergrundfarbe der Rückwand des Diagramms festlegen
-1. Füllfarbe des Plot‑Bereichs des Diagramms festlegen
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei
+   1. Festlegen des **Line format** für Hauptgitterlinien der Kategorien‑Achse
+   1. Festlegen des **Line format** für Neben­gitterlinien der Kategorien‑Achse
+   1. Festlegen der **Text Properties** für die Kategorien‑Achsendaten
+   1. Festlegen des **Title** für die Kategorien‑Achse
+   1. Festlegen der **Label Positioning** für die Kategorien‑Achse
+   1. Festlegen des **Rotation Angle** für die Kategorien‑Achsenbeschriftungen
+1. Greifen Sie auf die Diagramm‑Legende zu und setzen Sie die **Text Properties** dafür
+1. Legenden anzeigen, ohne dass sie das Diagramm überlappen
+1. Greifen Sie auf die **Secondary Value Axis** des Diagramms zu und setzen Sie die folgenden Eigenschaften:
+   1. Aktivieren Sie die sekundäre **Value Axis**
+   1. Festlegen des **Line Format** für die sekundäre Werte‑Achse
+   1. Festlegen des **Number Format** für die sekundäre Werte‑Achse
+   1. Festlegen von **Min, Max, Major and Minor units** für die sekundäre Werte‑Achse
+1. Plotten Sie die erste Diagramm‑Serie auf der sekundären Werte‑Achse
+1. Setzen Sie die Füllfarbe der Hintergrundwand des Diagramms
+1. Setzen Sie die Füllfarbe des Diagramm‑Plot‑Bereichs
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei
 ```php
-  # Erstelle eine Instanz der Presentation-Klasse
+  # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
   try {
     # Zugriff auf die erste Folie
     $slide = $pres->getSlides()->get_Item(0);
-    # Beispiel-Diagramm hinzufügen
+    # Hinzufügen des Beispiel-Diagramms
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
     # Diagrammtitel festlegen
     $chart->hasTitle();
@@ -72,16 +72,16 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Format der Hauptgitternetzlinien für die Werte-Achse festlegen
+    # Format der Hauptgitterlinien für die Werteachse festlegen
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Format der Nebengitternetzlinien für die Werte-Achse festlegen
+    # Format der Nebengitterlinien für die Werteachse festlegen
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Zahlenformat der Werte-Achse festlegen
+    # Zahlenformat der Werteachse festlegen
     $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
@@ -94,7 +94,7 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # Text-Eigenschaften der Werte-Achse festlegen
+    # Texteigenschaften der Werteachse festlegen
     $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
     $txtVal->setFontBold(NullableBool::True);
     $txtVal->setFontHeight(16);
@@ -102,7 +102,7 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $txtVal->getFillFormat()->setFillType(FillType::Solid);
     $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
     $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # Titel der Werte-Achse festlegen
+    # Titel der Werteachse festlegen
     $chart->getAxes()->getVerticalAxis()->hasTitle();
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
     $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -112,15 +112,15 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Format der Hauptgitternetzlinien für die Kategorien-Achse festlegen
+    # Format der Hauptgitterlinien für die Kategorienachse festlegen
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Format der Nebengitternetzlinien für die Kategorien-Achse festlegen
+    # Format der Nebengitterlinien für die Kategorienachse festlegen
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Text-Eigenschaften der Kategorien-Achse festlegen
+    # Texteigenschaften der Kategorienachse festlegen
     $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
     $txtCat->setFontBold(NullableBool::True);
     $txtCat->setFontHeight(16);
@@ -128,7 +128,7 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $txtCat->getFillFormat()->setFillType(FillType::Solid);
     $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $txtCat->setLatinFont(new FontData("Arial"));
-    # Titel der Kategorien-Achse festlegen
+    # Titel der Kategorienachse festlegen
     $chart->getAxes()->getHorizontalAxis()->hasTitle();
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
     $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -138,11 +138,11 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $catTitle->getPortionFormat()->setFontHeight(20);
     $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Position der Kategorien-Achsen-Beschriftung festlegen
+    # Position der Beschriftungen der Kategorienachse festlegen
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Rotationswinkel der Kategorien-Achsen-Beschriftung festlegen
+    # Drehwinkel der Beschriftungen der Kategorienachse festlegen
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # Text-Eigenschaften der Legenden festlegen
+    # Texteigenschaften der Legenden festlegen
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
     $txtleg->setFontBold(NullableBool::True);
     $txtleg->setFontHeight(16);
@@ -153,11 +153,11 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $chart->getLegend()->setOverlay(true);
     # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # Sekundäre Werte-Achse festlegen
+    # Sekundäre Werteachse festlegen
     $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # Zahlenformat der sekundären Werte-Achse festlegen
+    # Zahlenformat der sekundären Werteachse festlegen
     $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
     $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
@@ -170,13 +170,13 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # Farbe der Hintergrundwand des Diagramms festlegen
+    # Hintergrundwandfarbe des Diagramms festlegen
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Farbe des Diagramm-Plot-Bereichs festlegen
+    # Farbe des Diagrammbereichs festlegen
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
     # Präsentation speichern
@@ -189,17 +189,17 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten verschiede
 ```
 
 
-## **Schrifteigenschaften für ein Diagramm festlegen**
-Aspose.Slides for PHP via Java unterstützt das Festlegen von schriftspezifischen Eigenschaften für das Diagramm. Bitte folgen Sie den nachstehenden Schritten, um die Schrifteigenschaften für ein Diagramm zu setzen.
+## **Schriftart‑Eigenschaften für ein Diagramm festlegen**
+Aspose.Slides for PHP via Java bietet Unterstützung für das Festlegen von Schriftart‑bezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den nachstehenden Schritten, um die Schriftart‑Eigenschaften für ein Diagramm festzulegen.
 
-- Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klassenobjekt.
-- Fügen Sie ein Diagramm zur Folie hinzu.
-- Schriftgröße festlegen.
-- Modifizierte Präsentation speichern.
+- Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klassenobjekt.
+- Fügen Sie dem Folie ein Diagramm hinzu.
+- Setzen Sie die Schriftgröße.
+- Speichern Sie die modifizierte Präsentation.
 
-Nachfolgend ein Beispiel.
+Im Folgenden wird ein Beispiel gegeben.
 ```php
-  # Erstelle eine Instanz der Presentation-Klasse
+  # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
@@ -215,34 +215,33 @@ Nachfolgend ein Beispiel.
 
 
 ## **Numerisches Format festlegen**
-Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten des Diagramm‑Datenformats:
+Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung des Diagramm‑Datenformats:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Holen Sie sich eine Folien‑Referenz anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten sowie dem gewünschten Typ hinzu (dieses Beispiel verwendet **ChartType::ClusteredColumn**).
-1. Setzen Sie das voreingestellte Zahlenformat aus den möglichen Vorgabewerten.
-1. Durchlaufen Sie jede Datenzelle jeder Diagramm‑Serie und setzen Sie das Zahlenformat der Diagrammdaten.
-1. Präsentation speichern.
-1. Benutzerdefiniertes Zahlenformat festlegen.
-1. Durchlaufen Sie die Datenzellen jeder Diagramm‑Serie und setzen Sie unterschiedliche Zahlenformate.
-1. Präsentation speichern.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klasse.
+1. Holen Sie sich die Referenz einer Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und wählen Sie einen gewünschten Typ (dieses Beispiel verwendet **ChartType::ClusteredColumn**).
+1. Legen Sie das voreingestellte Zahlenformat aus den möglichen Vorgabewerten fest.
+1. Durchlaufen Sie die Diagrammdatenzellen jeder Diagrammserie und setzen Sie das Zahlenformat.
+1. Speichern Sie die Präsentation.
+1. Legen Sie das benutzerdefinierte Zahlenformat fest.
+1. Durchlaufen Sie die Diagrammdatenzellen jeder Diagrammserie und setzen Sie ein unterschiedliches Zahlenformat.
+1. Speichern Sie die Präsentation.
 ```php
-  # Erstelle eine Instanz der Presentation-Klasse
+  # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
   try {
-    # Greife auf die erste Präsentationsfolie zu
+    # Zugriff auf die erste Folie der Präsentation
     $slide = $pres->getSlides()->get_Item(0);
-    # Ein Standard-Clustered-Column-Diagramm hinzufügen
+    # Hinzufügen eines Standard-Clustered-Column-Diagramms
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # Greife auf die Diagramm-Serien-Sammlung zu
+    # Zugriff auf die Diagramm-Seriensammlung
     $series = $chart->getChartData()->getSeries();
-    # Durchlaufe jede Diagrammserie
+    # Durchlaufen jeder Diagrammserie
     foreach($series as $ser) {
-      # Durchlaufe jede Datenzelle in der Serie
+      # Durchlaufen jeder Datenzelle in der Serie
       foreach($ser->getDataPoints() as $cell) {
-        # Nummernformat festlegen
+        # Festlegen des Zahlenformats
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
-
       }
     }
     # Präsentation speichern
@@ -255,9 +254,9 @@ Aspose.Slides for PHP via Java bietet eine einfache API zum Verwalten des Diagra
 ```
 
 
-Die möglichen voreingestellten Zahlenformat‑Werte zusammen mit ihrem Index, die verwendet werden können, sind unten aufgeführt:
+Die möglichen voreingestellten Zahlenformatwerte zusammen mit ihrem Index, die verwendet werden können, sind unten aufgeführt:
 
-|**0**|Allgemein|
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -295,18 +294,18 @@ Die möglichen voreingestellten Zahlenformat‑Werte zusammen mit ihrem Index, d
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Abgerundete Rahmen für Diagrammbereich festlegen**
-Aspose.Slides for PHP via Java bietet Unterstützung für das Festlegen des Diagrammbereichs. Die Methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) und [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean-) wurden dem Interface [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) und der Klasse [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) hinzugefügt.
+## **Abgerundete Ränder des Diagrammbereichs festlegen**
+Aspose.Slides for PHP via Java bietet Unterstützung für das Festlegen des Diagrammbereichs. Die Methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) und [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) wurden zur [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart)‑Klasse hinzugefügt.
 
-1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klassenobjekt.
-1. Fügen Sie ein Diagramm zur Folie hinzu.
-1. Fülltyp und Füllfarbe des Diagramms festlegen
-1. Eigenschaft für abgerundete Ecken auf **True** setzen.
-1. Modifizierte Präsentation speichern.
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)‑Klassenobjekt.
+1. Fügen Sie dem Folie ein Diagramm hinzu.
+1. Setzen Sie den Fülltyp und die Füllfarbe des Diagramms
+1. Setzen Sie die Eigenschaft für abgerundete Ecken auf True.
+1. Speichern Sie die modifizierte Präsentation.
 
-Nachfolgend ein Beispiel.
+Im Folgenden wird ein Beispiel gegeben. 
 ```php
-  # Erstelle eine Instanz der Presentation-Klasse
+  # Instanz der Presentation-Klasse erstellen
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -325,14 +324,14 @@ Nachfolgend ein Beispiel.
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Spalten/Flächen setzen und dabei den Rand undurchsichtig lassen?**
+**Kann ich halbtransparente Füllungen für Säulen/Bereiche festlegen, während die Umrandung undurchsichtig bleibt?**
 
-Ja. Transparenz der Füllung und Umriss werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Rasters und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Die Fülltransparenz und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
 
-**Wie gehe ich mit Datenbeschriftungen um, wenn sie sich überlappen?**
+**Wie kann ich mit überlappenden Datenbeschriftungen umgehen?**
 
-Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie den Beschriftungs‑Offset/‑Position an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie das Format zu „Wert + Legende“.
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), setzen Sie den Beschriftungs‑Offset/‑Position, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie das Format zu „Wert + Legende“.
 
 **Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Sowohl einfarbige als auch Verlauf‑/Muster‑Füllungen stehen in der Regel zur Verfügung. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Raster und Text reduzieren.
+Ja. Sowohl einfarbige als auch Farbverlaufs‑/Musterfüllungen sind in der Regel verfügbar. Verwenden Sie Farbverläufe sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitternetz und zum Text verringern.
