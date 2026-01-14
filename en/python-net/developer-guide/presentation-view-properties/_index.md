@@ -26,9 +26,9 @@ description: "Discover Aspose.Slides for Python via .NET view properties to cust
 
 The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
 
-Property [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/iviewproperties/) has been added to provide access to normal view properties of presentation. 
+Property [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) has been added to provide access to normal view properties of presentation. 
 
-[INormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/inormalviewrestoredproperties/) interfaces and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) enum have been added.
+[NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/) classes and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) enum have been added.
 
 {{% /alert %}} 
 
@@ -73,12 +73,12 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
 
 ## **Set Default Zoom Value**
 
-Aspose.Slides for Python via .NET now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) of a presentation. Slide View Properties as well as [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in Aspose.Slides.
+Aspose.Slides for Python via .NET now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) of a presentation. Slide View Properties as well as [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in Aspose.Slides.
 
 In order to set the view properties. Please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
-1. Set View [Properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) of Presentation
+1. Set [view properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/) of the presentation
 1. Write the presentation as a PPTX file
 
 In the example given below, we have set the zoom value for slide view as well as notes view.

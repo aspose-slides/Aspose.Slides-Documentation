@@ -161,7 +161,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 
 ## **Clone at the End in a Specified Section**
 
-With Aspose.Slides for Python via .NET, you can clone a slide from one section of a presentation and insert it into another section within the same presentation. To do this, use the `add_clone(Slide, Section)` method of the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) interface.
+With Aspose.Slides for Python via .NET, you can clone a slide from one section of a presentation and insert it into another section within the same presentation. To do this, use the `add_clone(Slide, Section)` method of the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) class.
 
 The following Python example shows how to clone a slide and insert the clone into a specified section:
 

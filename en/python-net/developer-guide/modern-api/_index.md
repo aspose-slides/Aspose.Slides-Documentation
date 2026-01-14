@@ -62,7 +62,7 @@ with slides.Presentation() as presentation:
 
 ## **Replace Old Code with the Modern API**
 
-For an easier transition, the new `IImage` interface mirrors the separate APIs of the `Image` and `Bitmap` classes. In most cases, you only need to replace calls to methods that use `aspose.pydrawing` with their Modern API equivalents.
+For an easier transition, the new `IImage` class mirrors the separate APIs of the `Image` and `Bitmap` classes. In most cases, you only need to replace calls to methods that use `aspose.pydrawing` with their Modern API equivalents.
 
 ### **Get a Slide Thumbnail**
 

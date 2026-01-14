@@ -22,7 +22,7 @@ description: "Master Aspose.Slides for Python via .NET to set fallback fonts in 
 
 ## **Specify Fallback Fonts**
 
-Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule/) interface and [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
+Aspose.Slides supports [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
 
 ```py
 startUnicodeIndex = 0x0B80
@@ -39,7 +39,7 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 
 
 
-It is also possible to [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrule/) fallback font or [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) into existing [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) object.
+It is also possible to [remove](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/remove/) fallback font or [add_fall_back_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/add_fall_back_fonts/) into existing [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) object.
 
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) can be used to organize a list of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
 

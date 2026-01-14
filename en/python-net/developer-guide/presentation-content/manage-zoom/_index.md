@@ -35,7 +35,7 @@ Slide zooms help you drill into multiple pieces of information while you feel li
 
 ![slidezoomsel](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) interface, and some methods in the [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) enumeration, the [ZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) class, and some methods in the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
 ### **Creating Zoom Frames**
 You can add a zoom frame on a slide this way:
@@ -86,7 +86,7 @@ With Aspose.Slides for Python via .NET, you can create a zoom frame with an imag
 1.	Create an instance of the `Presentation` class.
 2.	Create a new slide to which you intend to link. 
 3.	Add an identification text and background to created slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+4.  Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
 5.  Add zoom frames (containing the reference to created slide) into the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -128,7 +128,7 @@ You can control the formatting of a zoom frame in a slide this way:
 2.	Create new slides to link to.
 3.	Add identification text and background to created slides.
 4.  Add zoom frames (containing the references to created slides) into the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+5.  Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
 6.  Set a custom image for the first zoom frame object.
 7.  Change the line format for the second zoom frame object.
 8.  Remove the background from an image of the second zoom frame object.
@@ -191,7 +191,7 @@ A section zoom is a link to a section in your presentation. You can use section 
 
 ![seczoomsel](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) interface.
+For section zoom objects, Aspose.Slides provides the [SectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) class and some methods under the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
 ### **Creating Section Zoom Frames**
 
@@ -237,7 +237,7 @@ Using Aspose.Slides for Python, you can create a section zoom frame with a diffe
 2.	Create a new slide.
 3.	Add an identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
-5.	Create an `IPPImage` object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+5.	Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
 6.	Add a section zoom frame (containing a reference to the created section) to the first slide.
 7.	Write the modified presentation as a PPTX file.
 
@@ -281,7 +281,7 @@ You can control a section zoom frame's formatting on a slide this way:
 4.	Create a new section to which you intend to link the zoom frame. 
 5.	Add a section zoom frame (containing references to created section) to the first slide.
 6.	Change the size and position for the created section zoom object.
-7.	Create an `IPPImage` object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+7.	Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
 8.	Set a custom image for the created section zoom frame object.
 9.	Set the *return to the original slide from the linked section* ability. 
 10.	Remove the background from an image of the section zoom frame object.
@@ -338,7 +338,7 @@ A summary zoom is like a landing page where all the pieces of your presentation 
 
 ![overview_image](summaryzoom.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) interface.
+For summary zoom objects, Aspose.Slides provides the [SummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/), and [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) class and some methods under the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
 ### **Creating Summary Zoom**
 
@@ -385,7 +385,7 @@ with slides.Presentation() as pres:
 
 ### **Adding and Removing Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) interface this way:
+All sections in a summary zoom frame are represented by [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/) objects, which are stored in the [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) object. You can add or remove a summary zoom section object through the [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) class this way:
 
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2.	Create new slides with identification background and new sections for created slides.
@@ -452,8 +452,8 @@ You can control the formatting for a summary zoom section object in a summary zo
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.	Add a summary zoom frame to the first slide.
-4.	Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-5.	Create an `IPPImage` object by adding an image to the images collection associated with the  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+4.	Get a summary zoom section object for the first object from the `SummaryZoomSectionCollection`.
+5.	Create a `PPImage` object by adding an image to the images collection associated with the  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
 6.	Set a custom image for the created section zoom frame object.
 7.	Set the *return to the original slide from the linked section* ability. 
 8.	Change the line format for the second zoom frame object.

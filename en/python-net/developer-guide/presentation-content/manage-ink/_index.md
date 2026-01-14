@@ -20,7 +20,7 @@ description: "Manage PowerPoint ink objects—create, edit & style digital ink w
 
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 
 
-Aspose.Slides provides the [Aspose.Slides.Ink](https://reference.aspose.com/slides/python-net/aspose.slides.ink/) interface, which contains the types you need to create and manage ink objects. 
+Aspose.Slides provides the [aspose.slides.ink](https://reference.aspose.com/slides/python-net/aspose.slides.ink/) namespace, which contains the types you need to create and manage ink objects. 
 
 ## **Differences between Regular Object and Ink Objects**
 
@@ -40,7 +40,7 @@ The simplest form of encoding specifies the X and Y coordinates of each sample p
 
 ## Brush Properties For Drawing 
 
-You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.Color` and `Brush.Size` properties. 
+You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.color` and `Brush.size` properties. 
 
 ### **Set Ink Brush Color**
 

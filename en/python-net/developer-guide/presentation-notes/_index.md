@@ -58,7 +58,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 
 ## **Add NotesStyle**
-NotesStyle property has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasternotesslide/) interface and [MasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslide/) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
+The [notes_style](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslide/notes_style/) property has been added to the [MasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslide/) class. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```py
 import aspose.slides as slides
