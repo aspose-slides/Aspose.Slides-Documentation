@@ -1,22 +1,22 @@
 ---
-title: إدارة الملاحظات الجانبية في مخططات العرض التقديمي باستخدام PHP
-linktitle: ملاحظة جانبية
+title: إدارة الملاحق في مخططات العرض التقديمي باستخدام PHP
+linktitle: ملاحقة
 type: docs
 url: /ar/php-java/callout/
 keywords:
-- ملاحظة جانبية للمخطط
-- استخدام ملاحظة جانبية
+- ملاحظة مخطط
+- استخدام الملاحقة
 - تسمية البيانات
 - تنسيق التسمية
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتنسيق الملاحظات الجانبية في Aspose.Slides لل PHP عبر Java مع أمثلة شفرة مختصرة، متوافقة مع PPT و PPTX لأتمتة سير عمل العروض التقديمية."
+description: "أنشئ وقم بتنسيق الملاحق في Aspose.Slides لـ PHP عبر Java باستخدام أمثلة شفرة مختصرة، متوافقة مع PPT و PPTX لأتمتة سير عمل العروض التقديمية."
 ---
 
-## **استخدام الملاحظات الجانبية**
-تمت إضافة طريقتين جديدتين [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) إلى الفئة [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) والواجهة [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat). تحدد هذه الطرق ما إذا كانت تسمية البيانات للمخطط المحدد ستُعرض كـ callout للبيانات أو كتسمية بيانات.
+## **استخدام الملاحق**
+تم إضافة طرق جديدة [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/getshowlabelasdatacallout/) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlabelasdatacallout/) إلى الفئة [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat). تحدد هذه الطرق ما إذا كان ملصق البيانات للمخطط المحدد سيُعرض كملاحظة بيانات أو كملصق بيانات.
 ```php
   $pres = new Presentation();
   try {
@@ -33,8 +33,8 @@ description: "إنشاء وتنسيق الملاحظات الجانبية في A
 ```
 
 
-## **تعيين ملاحظة جانبية لمخطط الدونات**
-توفر مكتبة Aspose.Slides لـ PHP عبر Java دعمًا لتعيين شكل ملاحظة جانبية لتسمية بيانات السلسلة لمخطط الدونات. المثال التالي موضح أدناه.
+## **تعيين ملاحظة لمخطط الدونات**
+توفر Aspose.Slides لـ PHP عبر Java دعمًا لتعيين شكل ملاحظة ملصق بيانات السلسلة لمخطط الدونات. المثال التالي موضح أدناه.
 ```php
   $pres = new Presentation();
   try {
@@ -98,10 +98,10 @@ description: "إنشاء وتنسيق الملاحظات الجانبية في A
 
 ## **الأسئلة المتكررة**
 
-**هل يتم الحفاظ على الملاحظات الجانبية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+**هل يتم الاحتفاظ بالملاحق عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
 
-نعم. الملاحظات الجانبية هي جزء من عرض المخطط، لذلك عند تصدير إلى [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/php-java/export-to-html5/)، [SVG](/slides/ar/php-java/render-a-slide-as-an-svg-image/)، أو [صور نقطية](/slides/ar/php-java/convert-powerpoint-to-png/)، يتم الحفاظ عليها مع تنسيق الشريحة.
+نعم. الملاحق هي جزء من عرض المخطط، لذا عند تصدير إلى [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/php-java/export-to-html5/)، [SVG](/slides/ar/php-java/render-a-slide-as-an-svg-image/)، أو [الصور النقطية](/slides/ar/php-java/convert-powerpoint-to-png/)، يتم الاحتفاظ بها مع تنسيق الشريحة.
 
-**هل تعمل الخطوط المخصصة في الملاحظات الجانبية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
+**هل تعمل الخطوط المخصصة في الملاحق، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
 
-نعم. تدعم Aspose.Slides [تضمين الخطوط](/slides/ar/php-java/embedded-font/) في العرض التقديمي وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو الملاحظات الجانبية متطابقة عبر الأنظمة المختلفة.
+نعم. تدعم Aspose.Slides [تضمين الخطوط](/slides/ar/php-java/embedded-font/) في العرض التقديمي وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو الملاحق متطابقة عبر الأنظمة المختلفة.

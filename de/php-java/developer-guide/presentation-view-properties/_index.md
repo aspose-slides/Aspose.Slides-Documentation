@@ -1,5 +1,5 @@
 ---
-title: Abrufen und Aktualisieren von Präsentations-Ansichtseigenschaften in PHP
+title: Abrufen und Aktualisieren von Präsentationsansichtseigenschaften in PHP
 linktitle: Ansichtseigenschaften
 type: docs
 weight: 80
@@ -8,11 +8,11 @@ keywords:
 - Ansichtseigenschaften
 - Normalansicht
 - Gliederungsinhalt
-- Gliederungssymbole
+- Gliederungsicons
 - Vertikalen Trenner einrasten
 - Einzelansicht
 - Leistenstatus
-- Abmessungsgröße
+- Dimensionsgröße
 - automatische Anpassung
 - Standardzoom
 - PowerPoint
@@ -20,42 +20,42 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Entdecken Sie die Ansichtseigenschaften von Aspose.Slides für PHP via Java, um PPT-, PPTX- und ODP-Folienformate anzupassen – Layouts, Zoomstufen und Anzeigeeinstellungen zu verändern."
+description: "Entdecken Sie Aspose.Slides für PHP über Java Ansichtseigenschaften, um PPT-, PPTX- und ODP‑Folienformate anzupassen – Layouts, Zoomstufen und Anzeigeeinstellungen zu verändern."
 ---
 
 {{% alert color="primary" %}} 
 
-Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, ihren Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht denselben Zustand wie beim letzten Speichern der Präsentation hat.
+Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, den Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht im gleichen Zustand ist wie beim letzten Speichern der Präsentation.
 
-Methode [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IViewProperties#getNormalViewProperties--) wurde hinzugefügt, um Zugriff auf die Normalansichtseigenschaften einer Präsentation zu ermöglichen.  
+Methode [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) wurde hinzugefügt, um Zugriff auf die Normalansichts‑Eigenschaften einer Präsentation zu ermöglichen.
 
-[INormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties) Schnittstellen und deren Nachfolger sowie das [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType) Enum wurden hinzugefügt.
+Die Klassen [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties) und deren Ableitungen sowie das Aufzählungselement [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType) wurden hinzugefügt.
 
 {{% /alert %}} 
 
 ## **Über INormalViewProperties**
 
-Stellt Normalansicht‑Eigenschaften dar.
+Representiert Normalansichts‑Eigenschaften.
 
-Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getShowOutlineIcons--) und [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) geben an, ob die Anwendung Symbole anzeigen soll, wenn Outline‑Inhalte in einem der Inhaltsbereiche des Normalansichtsmodus dargestellt werden.
+Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) und [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) geben an, ob die Anwendung Symbole anzeigen soll, wenn Gliederungs‑Inhalt in einem der Inhaltsbereiche des Normalansichtsmodus angezeigt wird.
 
-Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) geben an, ob der vertikale Trenner in einen minimierten Zustand springen soll, wenn der Seitenbereich ausreichend klein ist.
+Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) geben an, ob der vertikale Teiler in einen minimierten Zustand einrasten soll, wenn der Seitenbereich ausreichend klein ist.
 
-Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getPreferSingleView--) und [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) gibt an, ob der Benutzer es bevorzugt, einen einzigen Inhaltsbereich über das gesamte Fenster zu sehen, anstatt der normalen Ansicht mit drei Inhaltsbereichen. Ist diese Option aktiviert, kann die Anwendung einen der Inhaltsbereiche im gesamten Fenster darstellen.
+Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) und [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) geben an, ob der Benutzer eine Vollfenster‑Einzel‑Inhaltsregion gegenüber der Standard‑Normalansicht mit drei Inhaltsbereichen bevorzugt. Ist sie aktiviert, kann die Anwendung wählen, einen der Inhaltsbereiche im gesamten Fenster anzuzeigen.
 
-Methoden [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getHorizontalBarState--) geben an, in welchem Zustand die horizontale bzw. vertikale Trennerleiste angezeigt werden soll. Eine horizontale Trennerleiste trennt die Folie vom Inhaltsbereich unterhalb der Folie, eine vertikale Trennerleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Maximized) und [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Restored).
+Methoden [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) und [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) geben den Zustand an, in dem die horizontale bzw. vertikale Trennleiste angezeigt werden soll. Eine horizontale Trennleiste trennt die Folie vom Inhaltsbereich unterhalb der Folie, eine vertikale Trennleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Maximized) und [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Restored).
 
-Methoden [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredLeft--) und [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredTop--) geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getHorizontalBarState--) der Wert [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType#Restored) verwendet wird.
+Methoden [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) und [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties#getRestoredTop) geben die Größe des oberen oder seitlichen Folienbereichs der Normalansicht an, wenn der Wert [SplitterBarStateType::Restored](https://reference.aspose.com/slides/php-java/aspose.slides/SplitterBarStateType/#Restored) für [getVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) und [getHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) entsprechend angewendet wird.
 
 ## **Über das Wiederherstellen von INormalViewProperties**
 
-Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredTop--), Höhe, wenn ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewProperties#getRestoredLeft--)) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe (weder minimiert noch maximiert) hat.  
+Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), Höhe, wenn ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert).
 
-Methode [getDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties#getDimensionSize--) gibt die Größe des Folienbereichs an (Breite bei restoredTop, Höhe bei restoredLeft).  
+Methode [getDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) gibt die Größe des Folienbereichs an (Breite, wenn ein Kind von restoredTop, Höhe, wenn ein Kind von restoredLeft).
 
-Methode [getAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) gibt an, ob die Größe des seitlichen Inhaltsbereichs die neue Größe ausgleichen soll, wenn das Fenster, das die Ansicht in der Anwendung enthält, neu skaliert wird.  
+Methode [getAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) gibt an, ob die Größe des seitlichen Inhaltsbereichs die neue Größe ausgleichen soll, wenn das Fenster, das die Ansicht enthält, in der Anwendung geändert wird.
 
-Ein unten stehendes Beispiel zeigt, wie Sie auf die Eigenschaften [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNormalViewProperties--) einer Präsentation zugreifen können.  
+Ein Beispiel unten zeigt, wie Sie auf die Eigenschaften [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) einer Präsentation zugreifen können.
 ```php
   $pres = new Presentation();
   try {
@@ -73,19 +73,19 @@ Ein unten stehendes Beispiel zeigt, wie Sie auf die Eigenschaften [ViewPropertie
 ```
 
 
-## **Standard‑Zoom‑Wert festlegen**
+## **Standard-Zoomwert festlegen**
 {{% alert color="primary" %}} 
 
-Aspose.Slides für PHP via Java unterstützt jetzt das Festlegen des Standard‑Zoom‑Werts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann über die [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) einer Präsentation geschehen. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert gesetzt werden. In diesem Thema sehen wir anhand eines Beispiels, wie die [View‑Eigenschaften](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in [Aspose.Slides](/slides/de/) gesetzt werden.
+Aspose.Slides für PHP über Java unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits gesetzt ist. Dies kann erreicht werden, indem die [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) einer Präsentation gesetzt werden. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) sowie [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) können programmgesteuert gesetzt werden. In diesem Thema sehen wir anhand eines Beispiels, wie die [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in [Aspose.Slides](/slides/de/) gesetzt werden.
 
 {{% /alert %}} 
 
-Um die Ansichtseigenschaften festzulegen, führen Sie bitte die folgenden Schritte aus:
+Um die Ansichtseigenschaften zu setzen, befolgen Sie bitte die folgenden Schritte:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-1. Setzen Sie die [View‑Eigenschaften](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. Setzen Sie die [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
 1. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.  
-   Im unten stehenden Beispiel haben wir den Zoom‑Wert sowohl für die Folienansicht als auch für die Notizansicht festgelegt.  
+   Im unten gezeigten Beispiel haben wir den Zoomwert für die Folienansicht sowie die Notizansicht gesetzt.
 ```php
   $presentation = new Presentation();
   try {
@@ -104,12 +104,12 @@ Um die Ansichtseigenschaften festzulegen, führen Sie bitte die folgenden Schrit
 
 **Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**
 
-[Ansichtseinstellungen](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz beim Öffnen des Dokuments für das gesamte Dokument gilt.
+[View settings](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz für das gesamte Dokument gilt, wenn es geöffnet wird.
 
 **Kann ich vordefinierte Ansichtszustände für verschiedene Benutzer festlegen?**
 
-Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam genutzt. Viewer‑Anwendungen können Benutzerpräferenzen berücksichtigen, aber die Datei selbst enthält nur einen Satz von Ansichtseigenschaften.
+Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam genutzt. Anzeige‑Anwendungen können Benutzereinstellungen berücksichtigen, aber die Datei selbst enthält nur einen Satz Ansichtseigenschaften.
 
-**Kann ich eine Vorlage mit vordefinierten View‑Properties erstellen, sodass neue Präsentationen gleich geöffnet werden?**
+**Kann ich eine Vorlage mit vordefinierten Ansichtseigenschaften erstellen, damit neue Präsentationen gleich geöffnet werden?**
 
-Ja. Da [View‑Properties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und daraus neue Dokumente mit derselben anfänglichen Ansichtskonfiguration erstellen.
+Ja. Da [view properties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und neue Dokumente daraus erzeugen, die dieselbe anfängliche Ansichtskonfiguration besitzen.

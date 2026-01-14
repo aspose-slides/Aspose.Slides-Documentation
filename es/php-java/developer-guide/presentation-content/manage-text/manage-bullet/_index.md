@@ -1,6 +1,6 @@
 ---
-title: Administrar listas con viñetas y numeradas en presentaciones usando PHP
-linktitle: Administrar listas
+title: Gestionar listas con viñetas y numeradas en presentaciones usando PHP
+linktitle: Gestionar listas
 type: docs
 weight: 60
 url: /es/php-java/manage-bullet/
@@ -20,70 +20,69 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda cómo administrar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para PHP a través de Java. Guía paso a paso."
+description: "Aprenda cómo gestionar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para PHP a través de Java. Guía paso a paso."
 ---
 
-En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas del mismo modo que lo haces en Word y otros editores de texto. **Aspose.Slides for PHP via Java** también permite usar viñetas y números en las diapositivas de tus presentaciones.
+En **Microsoft PowerPoint**, puedes crear listas de viñetas y numeradas de la misma forma que lo haces en Word y otros editores de texto. **Aspose.Slides for PHP via Java** también permite usar viñetas y números en las diapositivas de tus presentaciones.
 
-## **¿Por qué usar listas con viñetas?**
+## **¿Por qué usar listas de viñetas?**
 
-Las listas con viñetas te ayudan a organizar y presentar la información de forma rápida y eficaz. 
+Las listas de viñetas te ayudan a organizar y presentar información de forma rápida y eficiente. 
 
-**Ejemplo de lista con viñetas**
+**Ejemplo de lista de viñetas**
 
-En la mayoría de los casos, una lista con viñetas cumple estas tres funciones principales:
+En la mayoría de los casos, una lista de viñetas cumple estas tres funciones principales:
 
-- llama la atención de tus lectores o espectadores a información importante
-- permite que tus lectores o espectadores escaneen fácilmente los puntos clave
-- comunica y entrega detalles importantes de manera eficiente.
+- atrae la atención de tus lectores o espectadores a la información importante
+- permite a tus lectores o espectadores escanear fácilmente los puntos clave
+- comunica y entrega los detalles importantes de manera eficiente.
 
 ## **¿Por qué usar listas numeradas?**
 
-Las listas numeradas también ayudan a organizar y presentar la información. Idealmente, deberías usar números (en lugar de viñetas) cuando el orden de las entradas (por ejemplo, *paso 1, paso 2*, etc.) es importante o cuando una entrada debe ser referenciada (por ejemplo, *ver paso 3*).
+Las listas numeradas también ayudan a organizar y presentar información. Idealmente, deberías usar números (en lugar de viñetas) cuando el orden de los elementos (por ejemplo, *paso 1, paso 2*, etc.) sea importante o cuando un elemento deba ser referenciado (por ejemplo, *ver paso 3*).
 
 **Ejemplo de lista numerada**
 
-Este es un resumen de los pasos (del paso 1 al paso 15) en el procedimiento **Creating Bullets** a continuación:
+Este es un resumen de los pasos (del paso 1 al paso 15) en el procedimiento **Crear viñetas** a continuación:
 
-1. Crea una instancia de la clase de presentación. 
-2. Realiza varias tareas (del paso 3 al paso 14).
-3. Guarda la presentación. 
+1. Crear una instancia de la clase Presentation. 
+2. Ejecutar varias tareas (del paso 3 al paso 14).
+3. Guardar la presentación. 
 
 ## **Crear viñetas**
-Este tema también forma parte de la serie de temas sobre la gestión de párrafos de texto. Esta página ilustrará cómo gestionar las viñetas de los párrafos. Las viñetas son más útiles cuando algo debe describirse en pasos. Además, el texto se ve bien organizado con el uso de viñetas. Los párrafos con viñetas siempre son más fáciles de leer y comprender. Veremos cómo los desarrolladores pueden usar esta característica pequeña pero poderosa de Aspose.Slides for PHP via Java. Sigue los pasos a continuación para gestionar las viñetas de los párrafos usando Aspose.Slides for PHP via Java:
+Este tema también forma parte de la serie de temas sobre la gestión de párrafos de texto. Esta página ilustrará cómo podemos gestionar viñetas de párrafo. Las viñetas son más útiles cuando algo debe describirse en pasos. Además, el texto parece bien organizado con el uso de viñetas. Los párrafos con viñetas siempre son más fáciles de leer y entender. Veremos cómo los desarrolladores pueden usar esta característica pequeña pero potente de Aspose.Slides for PHP via Java. Por favor, sigue los pasos a continuación para gestionar las viñetas de párrafo usando Aspose.Slides for PHP via Java:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide).
-1. Añade un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationText) en la diapositiva seleccionada.
-1. Accede al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) de la forma añadida.
-1. Elimina el párrafo predeterminado en el TextFrame.
-1. Crea la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph).
-1. Establece el tipo de viñeta del párrafo.
-1. Establece el tipo de viñeta a [Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/BulletType#Symbol) y define el carácter de la viñeta.
-1. Establece el texto del párrafo.
-1. Establece la sangría del párrafo para definir la viñeta.
-1. Define el color de la viñeta.
-1. Define la altura de las viñetas.
-1. Añade el párrafo creado a la colección de párrafos del TextFrame.
-1. Añade el segundo párrafo y repite el proceso indicado en los pasos **7 a 13**.
-1. Guarda la presentación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). 
+1. Añadir un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) en la diapositiva seleccionada. 
+1. Acceder al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la forma añadida. 
+1. Eliminar el párrafo predeterminado en el TextFrame. 
+1. Crear la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). 
+1. Establecer el tipo de viñeta del párrafo. 
+1. Establecer el tipo de viñeta a [Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Symbol) y establecer el carácter de viñeta. 
+1. Establecer el texto del párrafo. 
+1. Establecer la sangría del párrafo para definir la viñeta. 
+1. Establecer el color de la viñeta. 
+1. Establecer la altura de las viñetas. 
+1. Añadir el párrafo creado a la colección de párrafos del TextFrame. 
+1. Añadir el segundo párrafo y repetir el proceso indicado en los pasos **7 a 13**. 
+1. Guardar la presentación. 
 
-Este fragmento de código —una implementación de los pasos anteriores— muestra cómo crear una lista con viñetas en una diapositiva:
 ```php
   # Instanciar una clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accediendo a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadiendo y accediendo al AutoShape
+    # Añadiendo y accediendo al Autoshape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accediendo al marco de texto del AutoShape creado
+    # Accediendo al marco de texto del autoshape creado
     $txtFrm = $aShp->getTextFrame();
     # Eliminando el párrafo predeterminado existente
     $txtFrm->getParagraphs()->removeAt(0);
     # Creando un párrafo
     $para = new Paragraph();
-    # Estableciendo el estilo y símbolo de viñeta del párrafo
+    # Estableciendo el estilo de viñeta del párrafo y el símbolo
     $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
     # Estableciendo el texto del párrafo
@@ -93,7 +92,7 @@ Este fragmento de código —una implementación de los pasos anteriores— mues
     # Estableciendo el color de la viñeta
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    # Establecer IsBulletHardColor a true para usar un color de viñeta propio
+    # Establecer IsBulletHardColor a true para usar un color propio de la viñeta
     $para->getParagraphFormat()->getBullet()->isBulletHardColor();
     # Estableciendo la altura de la viñeta
     $para->getParagraphFormat()->getBullet()->setHeight(100);
@@ -107,37 +106,36 @@ Este fragmento de código —una implementación de los pasos anteriores— mues
 ```
 
 
-## **Crear viñetas con imagen**
+## **Crear viñetas con imágenes**
 
-Aspose.Slides for PHP via Java te permite cambiar las viñetas en listas con viñetas. Puedes reemplazar las viñetas con símbolos o imágenes personalizadas. Si deseas añadir interés visual a una lista o llamar aún más la atención a las entradas, puedes usar tu propia imagen como viñeta.
+Aspose.Slides for PHP via Java permite cambiar las viñetas en las listas de viñetas. Puedes sustituir las viñetas por símbolos o imágenes personalizados. Si deseas añadir interés visual a una lista o atraer aún más la atención a los elementos de una lista, puedes usar tu propia imagen como viñeta.
 
 {{% alert color="primary" %}} 
 
-Idealmente, si pretendes reemplazar el símbolo de viñeta regular por una imagen, deberías seleccionar un gráfico simple con fondo transparente. Estas imágenes funcionan mejor como símbolos de viñeta personalizados. 
+Idealmente, si tienes la intención de reemplazar el símbolo de viñeta normal por una imagen, deberías seleccionar una imagen gráfica simple con fondo transparente. Este tipo de imágenes funciona mejor como símbolos de viñeta personalizados. 
 
-En cualquier caso, la imagen que elijas será reducida a un tamaño muy pequeño, por lo que recomendamos encarecidamente que selecciones una imagen que se vea bien (como reemplazo del símbolo de viñeta) en una lista. 
+En cualquier caso, la imagen que elijas se reducirá a un tamaño muy pequeño, por lo que recomendamos encarecidamente que selecciones una imagen que se vea bien (como sustituto del símbolo de viñeta) en una lista. 
 
 {{% /alert %}} 
 
 Para crear una viñeta con imagen, sigue estos pasos:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)
-1. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide)
-1. Añade un autoshape en la diapositiva seleccionada
-1. Accede al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe) de la forma añadida
-1. Elimina el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe)
-1. Crea la primera instancia de párrafo usando la clase Paragraph
-1. Carga la imagen desde el disco en [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IPPImage)
-1. Establece el tipo de viñeta a Picture y define la imagen
-1. Establece el texto del párrafo
-1. Establece la sangría del párrafo para definir la viñeta
-1. Define el color de la viñeta
-1. Define la altura de las viñetas
-1. Añade el párrafo creado al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe) colección de párrafos
-1. Añade el segundo párrafo y repite el proceso indicado en los pasos anteriores
-1. Guarda la presentación
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 
+1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) 
+1. Añadir un autoshape en la diapositiva seleccionada 
+1. Acceder al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la forma añadida 
+1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe) 
+1. Crear la primera instancia de párrafo usando la clase Paragraph 
+1. Cargar la imagen desde disco en [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 
+1. Establecer el tipo de viñeta a Picture y asignar la imagen 
+1. Establecer el texto del párrafo 
+1. Establecer la sangría del párrafo para definir la viñeta 
+1. Establecer el color de la viñeta 
+1. Establecer la altura de las viñetas 
+1. Añadir el párrafo creado a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) 
+1. Añadir el segundo párrafo y repetir el proceso indicado en los pasos anteriores 
+1. Guardar la presentación 
 
-Este código PHP muestra cómo crear una viñeta con imagen en una diapositiva:
 ```php
   $pres = new Presentation();
   try {
@@ -153,13 +151,13 @@ Este código PHP muestra cómo crear una viñeta con imagen en una diapositiva:
         $image->dispose();
       }
     }
-    # Añadiendo y accediendo al AutoShape
+    # Añadiendo y accediendo al Autoshape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accediendo al marco de texto del AutoShape creado
+    # Accediendo al marco de texto del autoshape creado
     $txtFrm = $aShp->getTextFrame();
     # Eliminando el párrafo predeterminado existente
     $txtFrm->getParagraphs()->removeAt(0);
-    # Creando un nuevo párrafo
+    # Creando nuevo párrafo
     $para = new Paragraph();
     $para->setText("Welcome to Aspose.Slides");
     # Configurando el estilo de viñeta del párrafo y la imagen
@@ -169,7 +167,7 @@ Este código PHP muestra cómo crear una viñeta con imagen en una diapositiva:
     $para->getParagraphFormat()->getBullet()->setHeight(100);
     # Añadiendo el párrafo al marco de texto
     $txtFrm->getParagraphs()->add($para);
-    # Guardando la presentación como un archivo PPTX
+    # Guardando la presentación como archivo PPTX
     $pres->save("Bullet.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -182,30 +180,29 @@ Este código PHP muestra cómo crear una viñeta con imagen en una diapositiva:
 
 ## **Crear viñetas multinivel**
 
-Para crear una lista con viñetas que contenga elementos en diferentes niveles —listas adicionales bajo la lista principal— sigue estos pasos:
+Para crear una lista de viñetas que contenga elementos en diferentes niveles — listas adicionales bajo la lista principal de viñetas — sigue estos pasos:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide).
-1. Añade un autoshape en la diapositiva seleccionada.
-1. Accede al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe) de la forma añadida.
-1. Elimina el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe).
-1. Crea la primera instancia de párrafo usando la clase Paragraph y con profundidad establecida a 0.
-1. Crea la segunda instancia de párrafo usando la clase Paragraph y con profundidad establecida a 1.
-1. Crea la tercera instancia de párrafo usando la clase Paragraph y con profundidad establecida a 2.
-1. Crea la cuarta instancia de párrafo usando la clase Paragraph y con profundidad establecida a 3.
-1. Añade los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe).
-1. Guarda la presentación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). 
+1. Añadir un autoshape en la diapositiva seleccionada. 
+1. Acceder al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la forma añadida. 
+1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). 
+1. Crear la primera instancia de párrafo usando la clase Paragraph y con profundidad establecida en 0. 
+1. Crear la segunda instancia de párrafo usando la clase Paragraph y con profundidad establecida en 1. 
+1. Crear la tercera instancia de párrafo usando la clase Paragraph y con profundidad establecida en 2. 
+1. Crear la cuarta instancia de párrafo usando la clase Paragraph y con profundidad establecida en 3. 
+1. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). 
+1. Guardar la presentación. 
 
-Este código, que implementa los pasos anteriores, muestra cómo crear una lista con viñetas multinivel:
 ```php
   # Instanciar una clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accediendo a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadiendo y accediendo al AutoShape
+    # Añadiendo y accediendo al Autoshape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accediendo al marco de texto del AutoShape creado
+    # Accediendo al marco de texto del autoshape creado
     $txtFrm = $aShp->addTextFrame("");
     # Eliminando el párrafo predeterminado existente
     $txtFrm->getParagraphs()->clear();
@@ -254,7 +251,7 @@ Este código, que implementa los pasos anteriores, muestra cómo crear una lista
     $txtFrm->getParagraphs()->add($para2);
     $txtFrm->getParagraphs()->add($para3);
     $txtFrm->getParagraphs()->add($para4);
-    # guardando la presentación como un archivo PPTX
+    # guardando la presentación como archivo PPTX
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -265,29 +262,28 @@ Este código, que implementa los pasos anteriores, muestra cómo crear una lista
 
 
 ## **Crear listas numeradas personalizadas**
-Aspose.Slides for PHP via Java ofrece una API sencilla para gestionar párrafos con formato de números personalizado. Para añadir una lista numerada personalizada en un párrafo, sigue los pasos a continuación:
+Aspose.Slides for PHP via Java proporciona una API sencilla para gestionar párrafos con formato de numeración personalizado. Para añadir una lista numerada personalizada en un párrafo, sigue los pasos a continuación:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Accede a la diapositiva deseada en la colección de diapositivas usando el objeto [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide).
-1. Añade un autoshape en la diapositiva seleccionada.
-1. Accede al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe) de la forma añadida.
-1. Elimina el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe).
-1. Crea la primera instancia de párrafo usando la clase Paragraph y establece **NumberedBulletStartWith** a 2
-1. Crea la segunda instancia de párrafo usando la clase Paragraph y establece **NumberedBulletStartWith** a 3
-1. Crea la tercera instancia de párrafo usando la clase Paragraph y establece **NumberedBulletStartWith** a 7
-1. Añade los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe).
-1. Guarda la presentación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). 
+1. Acceder a la diapositiva deseada en la colección de diapositivas usando el objeto [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). 
+1. Añadir un autoshape en la diapositiva seleccionada. 
+1. Acceder al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la forma añadida. 
+1. Eliminar el párrafo predeterminado en el [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). 
+1. Crear la primera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 2 
+1. Crear la segunda instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 3 
+1. Crear la tercera instancia de párrafo usando la clase Paragraph y establecer **NumberedBulletStartWith** a 7 
+1. Añadir los párrafos creados a la colección de párrafos del [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). 
+1. Guardar la presentación. 
 
-Este código PHP muestra cómo crear una lista numerada en una diapositiva:
 ```php
   # Instanciar una clase Presentation que representa un archivo PPTX
   $pres = new Presentation();
   try {
     # Accediendo a la primera diapositiva
     $slide = $pres->getSlides()->get_Item(0);
-    # Añadiendo y accediendo al AutoShape
+    # Añadiendo y accediendo al Autoshape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accediendo al marco de texto del AutoShape creado
+    # Accediendo al marco de texto del autoshape creado
     $txtFrm = $aShp->addTextFrame("");
     # Eliminando el párrafo predeterminado existente
     $txtFrm->getParagraphs()->clear();
@@ -324,12 +320,12 @@ Este código PHP muestra cómo crear una lista numerada en una diapositiva:
 
 **¿Pueden exportarse las listas con viñetas y numeradas creadas con Aspose.Slides a otros formatos como PDF o imágenes?**
 
-Sí, Aspose.Slides conserva totalmente el formato y la estructura de las listas con viñetas y numeradas cuando las presentaciones se exportan a formatos como PDF, imágenes y otros, garantizando resultados consistentes.
+Sí, Aspose.Slides preserva completamente el formato y la estructura de las listas con viñetas y numeradas cuando las presentaciones se exportan a formatos como PDF, imágenes y otros, garantizando resultados consistentes.
 
 **¿Es posible importar listas con viñetas o numeradas desde presentaciones existentes?**
 
-Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes mientras se preserva su formato y apariencia originales.
+Sí, Aspose.Slides permite importar y editar listas con viñetas o numeradas de presentaciones existentes, preservando su formato y apariencia originales.
 
 **¿Aspose.Slides admite listas con viñetas y numeradas en presentaciones creadas en varios idiomas?**
 
-Sí, Aspose.Slides soporta plenamente presentaciones multilingües, permitiendo crear listas con viñetas y numeradas en cualquier idioma, incluido el uso de caracteres especiales o no latinos.
+Sí, Aspose.Slides admite totalmente presentaciones multilingües, permitiendo crear listas con viñetas y numeradas en cualquier idioma, incluido el uso de caracteres especiales o no latinos.

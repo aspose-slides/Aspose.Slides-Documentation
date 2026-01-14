@@ -6,35 +6,35 @@ weight: 40
 url: /fr/php-java/merge-presentation/
 keywords:
 - fusionner PowerPoint
-- fusionner des présentations
-- fusionner des diapositives
+- fusionner présentations
+- fusionner diapositives
 - fusionner PPT
 - fusionner PPTX
 - fusionner ODP
 - combiner PowerPoint
-- combiner des présentations
-- combiner des diapositives
+- combiner présentations
+- combiner diapositives
 - combiner PPT
 - combiner PPTX
 - combiner ODP
 - PHP
 - Aspose.Slides
-description: "Fusionnez facilement des présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides pour PHP via Java, en simplifiant votre flux de travail."
+description: "Fusionnez sans effort les présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides pour PHP via Java, simplifiant votre flux de travail."
 ---
 
 ## **Fusion de présentations**
 
-Lorsque vous fusionnez une présentation avec une autre, vous combinez effectivement leurs diapositives dans une seule présentation pour obtenir un fichier. 
+Lorsque vous fusionnez une présentation avec une autre, vous combinez effectivement leurs diapositives dans une seule présentation pour obtenir un seul fichier. 
 
 {{% alert title="Info" color="info" %}}
 
 La plupart des programmes de présentation (PowerPoint ou OpenOffice) ne disposent pas de fonctions permettant aux utilisateurs de combiner des présentations de cette manière. 
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), cependant, vous permet de fusionner des présentations de différentes manières. Vous pouvez fusionner des présentations avec toutes leurs formes, styles, textes, mises en forme, commentaires, animations, etc., sans vous soucier de la perte de qualité ou de données.
+[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), cependant, vous permet de fusionner des présentations de différentes manières. Vous pouvez fusionner des présentations avec toutes leurs formes, styles, textes, formats, commentaires, animations, etc., sans vous soucier d'une perte de qualité ou de données.
 
 **Voir aussi**
 
-[Cloner les diapositives](https://docs.aspose.com/slides/php-java/clone-slides/).
+[Cloner les diapositives](/slides/fr/php-java/clone-slides/).
 
 {{% /alert %}}
 
@@ -42,17 +42,17 @@ La plupart des programmes de présentation (PowerPoint ou OpenOffice) ne dispose
 
 Avec Aspose.Slides, vous pouvez fusionner 
 
-* des présentations entières. Toutes les diapositives des présentations se retrouvent dans une seule présentation
-* des diapositives spécifiques. Les diapositives sélectionnées se retrouvent dans une seule présentation
-* des présentations dans un même format (PPT en PPT, PPTX en PPTX, etc.) et dans des formats différents (PPT en PPTX, PPTX en ODP, etc.) les unes avec les autres. 
+* des présentations complètes. Toutes les diapositives des présentations se retrouvent dans une présentation unique
+* des diapositives spécifiques. Les diapositives sélectionnées se retrouvent dans une présentation unique
+* des présentations dans un même format (PPT vers PPT, PPTX vers PPTX, etc.) et dans des formats différents (PPT vers PPTX, PPTX vers ODP, etc.) les unes vers les autres. 
 
 {{% alert title="Note" color="warning" %}} 
 
 En plus des présentations, Aspose.Slides vous permet de fusionner d'autres fichiers :
 
-* **Images**, comme [JPG en JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) ou [PNG en PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
-* **Documents**, comme [PDF en PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) ou [HTML en HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
-* Et deux fichiers différents tels que [image en PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/), [JPG en PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) ou [TIFF en PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
+* [Images](https://products.aspose.com/slides/php-java/merger/image-to-image/), telles que [JPG vers JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) ou [PNG vers PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
+* Documents, tels que [PDF vers PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) ou [HTML vers HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
+* Et deux fichiers différents tels que [image vers PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/), [JPG vers PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) ou [TIFF vers PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
@@ -60,16 +60,16 @@ En plus des présentations, Aspose.Slides vous permet de fusionner d'autres fich
 
 Vous pouvez appliquer des options qui déterminent si
 
-* chaque diapositive de la présentation résultante conserve un style unique
-* un style spécifique est utilisé pour toutes les diapositives de la présentation résultante. 
+* chaque diapositive de la présentation de sortie conserve un style unique
+* un style spécifique est utilisé pour toutes les diapositives de la présentation de sortie. 
 
-Pour fusionner des présentations, Aspose.Slides fournit les méthodes [AddClone](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (de l’interface [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection)). Il existe plusieurs implémentations des méthodes `AddClone` qui définissent les paramètres du processus de fusion. Chaque objet Presentation possède une collection [Slides](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) ; vous pouvez donc appeler une méthode `AddClone` depuis la présentation dans laquelle vous souhaitez fusionner des diapositives.
+Pour fusionner des présentations, Aspose.Slides fournit les méthodes [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) (de la classe [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) ). Il existe plusieurs implémentations des méthodes `addClone` qui définissent les paramètres du processus de fusion de présentations. Chaque objet Presentation possède une collection de [diapositive](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) ; vous pouvez donc appeler une méthode `addClone` depuis la présentation dans laquelle vous souhaitez fusionner les diapositives.
 
-La méthode `AddClone` renvoie un objet `ISlide`, qui est un clone de la diapositive source. Les diapositives de la présentation résultante sont simplement une copie des diapositives de la source. Ainsi, vous pouvez modifier les diapositives obtenues (par exemple, appliquer des styles, des options de mise en forme ou des mises en page) sans craindre d’affecter les présentations sources. 
+La méthode `addClone` renvoie un objet `Slide`, qui est un clone de la diapositive source. Les diapositives d’une présentation de sortie sont simplement une copie des diapositives de la source. Par conséquent, vous pouvez modifier les diapositives résultantes (par exemple, appliquer des styles, des options de formatage ou des mises en page) sans vous soucier d’impact sur les présentations source.
 
 ## **Fusionner des présentations** 
 
-Aspose.Slides fournit la méthode [**AddClone(ISlide)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) qui vous permet de combiner des diapositives tout en conservant leurs mises en page et leurs styles (paramètres par défaut).
+Aspose.Slides fournit la méthode [addClone(Slide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) qui vous permet de combiner des diapositives tout en conservant leurs mises en page et styles (paramètres par défaut).
 
 Ce code PHP vous montre comment fusionner des présentations :
 ```php
@@ -96,9 +96,9 @@ Ce code PHP vous montre comment fusionner des présentations :
 
 ## **Fusionner des présentations avec un masque de diapositive** 
 
-Aspose.Slides fournit la méthode [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) qui vous permet de combiner des diapositives tout en appliquant un modèle de masque de diapositive. Ainsi, si nécessaire, vous pouvez modifier le style des diapositives dans la présentation résultante.
+Aspose.Slides fournit la méthode [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) qui vous permet de combiner des diapositives tout en appliquant un modèle de masque de diapositive. Ainsi, si nécessaire, vous pouvez modifier le style des diapositives de la présentation de sortie.
 
-Ce code montre l’opération décrite :
+Ce code démontre l’opération décrite :
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -123,17 +123,17 @@ Ce code montre l’opération décrite :
 
 {{% alert title="Note" color="warning" %}} 
 
-La mise en page de la diapositive du masque est déterminée automatiquement. Lorsqu’aucune mise en page appropriée ne peut être déterminée, si le paramètre booléen `allowCloneMissingLayout` de la méthode `AddClone` est à true, la mise en page de la diapositive source est utilisée. Sinon, une [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) sera levée.
+La mise en page de la diapositive pour le masque est déterminée automatiquement. Lorsqu’aucune mise en page appropriée ne peut être déterminée, si le paramètre booléen `allowCloneMissingLayout` de la méthode `addClone` est fixé à true, la mise en page de la diapositive source est utilisée. Sinon, [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) sera levée.
 
 {{% /alert %}}
 
-Si vous souhaitez que les diapositives de la présentation résultante aient une mise en page différente, utilisez plutôt la méthode [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) lors de la fusion.
+Si vous voulez que les diapositives de la présentation de sortie utilisent une mise en page différente, utilisez plutôt la méthode [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) lors de la fusion.
 
-## **Fusionner des diapositives spécifiques à partir de présentations** 
+## **Fusionner des diapositives spécifiques de présentations** 
 
-Fusionner des diapositives spécifiques provenant de plusieurs présentations est utile pour créer des jeux de diapositives personnalisés. Aspose.Slides for PHP via Java vous permet de sélectionner et d’importer uniquement les diapositives dont vous avez besoin. L’API préserve la mise en forme, la disposition et le design des diapositives d’origine.
+Fusionner des diapositives spécifiques provenant de plusieurs présentations est utile pour créer des jeux de diapositives personnalisés. Aspose.Slides for PHP via Java vous permet de sélectionner et d’importer uniquement les diapositives dont vous avez besoin. L’API conserve le formatage, la mise en page et le design des diapositives originales.
 
-Le code PHP suivant crée une nouvelle présentation, ajoute des diapositives de titre provenant de deux autres présentations, puis enregistre le résultat dans un fichier :
+Le code PHP suivant crée une nouvelle présentation, ajoute des diapositives titres provenant de deux autres présentations et enregistre le résultat dans un fichier :
 ```php
 function getTitleSlide(Presentation $presentation) {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
@@ -174,7 +174,7 @@ try {
 
 ## **Fusionner des présentations avec une mise en page de diapositive** 
 
-Ce code PHP vous montre comment combiner des diapositives de présentations tout en appliquant votre mise en page de diapositive préférée afin d’obtenir une présentation de sortie unique :
+Ce code PHP montre comment combiner des diapositives de présentations tout en appliquant votre mise en page de diapositive préférée afin d’obtenir une présentation de sortie unique :
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -197,7 +197,7 @@ Ce code PHP vous montre comment combiner des diapositives de présentations tout
 ```
 
 
-## **Fusionner des présentations avec différentes tailles de diapositive** 
+## **Fusionner des présentations avec des tailles de diapositive différentes** 
 
 {{% alert title="Note" color="warning" %}} 
 
@@ -205,7 +205,7 @@ Vous ne pouvez pas fusionner des présentations avec des tailles de diapositive 
 
 {{% /alert %}}
 
-Pour fusionner deux présentations dont les tailles de diapositive diffèrent, vous devez redimensionner l’une des présentations afin que sa taille corresponde à celle de l’autre.
+Pour fusionner 2 présentations dont les tailles de diapositives diffèrent, vous devez redimensionner l’une des présentations afin qu’elle corresponde à la taille de l’autre.
 
 Ce code d’exemple montre l’opération décrite :
 ```php
@@ -233,7 +233,7 @@ Ce code d’exemple montre l’opération décrite :
 
 ## **Fusionner des diapositives dans une section de présentation** 
 
-Ce code PHP vous montre comment fusionner une diapositive spécifique dans une section d’une présentation :
+Ce code PHP montre comment fusionner une diapositive spécifique dans une section d’une présentation :
 ```php
   $pres1 = new Presentation("pres1.pptx");
   try {
@@ -258,25 +258,24 @@ Ce code PHP vous montre comment fusionner une diapositive spécifique dans une s
 
 La diapositive est ajoutée à la fin de la section. 
 
-## **Voir aussi**
+## **Voir aussi** 
 
+Aspose propose un [Créateur de collage en ligne GRATUIT](https://products.aspose.app/slides/collage). En utilisant ce service en ligne, vous pouvez fusionner des images [JPG vers JPG](https://products.aspose.app/slides/collage/jpg) ou [PNG vers PNG](https://products.aspose.app/slides/collage/png), créer des [grilles de photos](https://products.aspose.app/slides/collage/photo-grid) et bien plus encore.
 
-Aspose propose un [FREE Online Collage Maker](https://products.aspose.app/slides/collage). Avec ce service en ligne, vous pouvez fusionner des images [JPG en JPG](https://products.aspose.app/slides/collage/jpg) ou PNG en PNG, créer des [grilles de photos](https://products.aspose.app/slides/collage/photo-grid) et bien plus encore.
+Découvrez le [Aspose MERGEUR EN LIGNE GRATUIT](https://products.aspose.app/slides/merger). Il vous permet de fusionner des présentations PowerPoint dans le même format (par ex., PPT vers PPT, PPTX vers PPTX) ou entre différents formats (par ex., PPT vers PPTX, PPTX vers ODP).
 
-Découvrez le [Aspose FREE Online Merger](https://products.aspose.app/slides/merger). Il vous permet de fusionner des présentations PowerPoint dans le même format (par ex., PPT en PPT, PPTX en PPTX) ou entre différents formats (par ex., PPT en PPTX, PPTX en ODP).
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+[![Aspose MERGEUR EN LIGNE GRATUIT](slides-merger.png)](https://products.aspose.app/slides/merger)
 
 ## **FAQ**
 
-**Existe‑t‑il des limitations concernant le nombre de diapositives lors de la fusion de présentations ?**
+**Existe-t-il des limitations quant au nombre de diapositives lors de la fusion de présentations ?**
 
-Aucune limitation stricte. Aspose.Slides peut gérer de gros fichiers, mais les performances dépendent de la taille du fichier et des ressources système. Pour des présentations très volumineuses, il est recommandé d’utiliser une JVM 64 bits et d’allouer suffisamment de mémoire heap.
+Aucune limitation stricte. Aspose.Slides peut gérer de gros fichiers, mais les performances dépendent de la taille et des ressources système. Pour des présentations très volumineuses, il est recommandé d’utiliser une JVM 64 bits et d’allouer suffisamment de mémoire heap.
 
-**Puis‑je fusionner des présentations contenant des vidéos ou des audios intégrés ?**
+**Puis-je fusionner des présentations contenant des vidéos ou de l’audio intégrés ?**
 
-Oui, Aspose.Slides préserve le contenu multimédia intégré aux diapositives, mais la présentation finale peut devenir sensiblement plus grande.
+Oui, Aspose.Slides conserve le contenu multimédia intégré aux diapositives, mais la présentation finale peut devenir nettement plus volumineuse.
 
-**Les polices seront‑elles préservées lors de la fusion de présentations ?**
+**Les polices seront‑elles conservées lors de la fusion de présentations ?**
 
-Oui. Les polices utilisées dans les présentations sources sont conservées dans le fichier de sortie, à condition qu’elles soient installées sur le système ou [intégrées](/slides/fr/php-java/embedded-font/).
+Oui. Les polices utilisées dans les présentations sources sont conservées dans le fichier de sortie, à condition qu’elles soient installées sur le système ou [intégré](/slides/fr/php-java/embedded-font/).

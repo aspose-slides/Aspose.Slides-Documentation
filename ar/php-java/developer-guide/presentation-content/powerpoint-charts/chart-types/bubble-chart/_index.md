@@ -5,7 +5,7 @@ type: docs
 url: /ar/php-java/bubble-chart/
 keywords:
 - مخطط الفقاعات
-- حجم الفقاعة
+- حجم الفقاعات
 - تحجيم الحجم
 - تمثيل الحجم
 - PowerPoint
@@ -16,7 +16,7 @@ description: "إنشاء وتخصيص مخططات فقاعات قوية في Po
 ---
 
 ## **تحجيم حجم مخطط الفقاعات**
-توفر Aspose.Slides for PHP عبر Java دعمًا لتحجيم حجم مخطط الفقاعات. في Aspose.Slides for PHP عبر Java تم إضافة الطرق [**IChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeries#getBubbleSizeScale--)، [**IChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#getBubbleSizeScale--) و[**IChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#setBubbleSizeScale-int-) . تم إعطاء مثال توضيحي أدناه.
+توفر Aspose.Slides for PHP عبر Java دعمًا لتحجيم حجم مخطط الفقاعات. تمّت إضافة الطرق [**ChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbubblesizescale/)، [**ChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getbubblesizescale/) و[**ChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setbubblesizescale/) في Aspose.Slides for PHP عبر Java. المثال العملي التالي مقدم.
 ```php
   $pres = new Presentation();
   try {
@@ -32,7 +32,7 @@ description: "إنشاء وتخصيص مخططات فقاعات قوية في Po
 
 
 ## **تمثيل البيانات كأحجام مخطط الفقاعات**
-تم إضافة الطرق [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#setBubbleSizeRepresentation-int-) و[**getBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#getBubbleSizeRepresentation--) إلى واجهتي [IChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeries) و[IChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup) والفئات ذات الصلة. **BubbleSizeRepresentation** يحدد كيف يتم تمثيل قيم حجم الفقاعات في مخطط الفقاعات. القيم الممكنة هي: [**BubbleSizeRepresentationType::Area**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Area) و[**BubbleSizeRepresentationType::Width**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Width). بناءً على ذلك، تمت إضافة تعداد [**BubbleSizeRepresentationType**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType) لتحديد الطرق الممكنة لتمثيل البيانات كأحجام مخطط الفقاعات. مثال على الشيفرة موضح أدناه.
+تمت إضافة الطرق [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setbubblesizerepresentation/) و[**getBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getbubblesizerepresentation/) إلى الفئات [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/)، [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) والفئات المرتبطة. **BubbleSizeRepresentation** يحدد كيفية تمثيل قيم حجم الفقعات في المخطط. القيم الممكنة هي: [**BubbleSizeRepresentationType::Area**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Area) و[**BubbleSizeRepresentationType::Width**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Width). بناءً على ذلك، تم إضافة تعداد [**BubbleSizeRepresentationType**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType) لتحديد الطرق الممكنة لتمثيل البيانات كأحجام مخطط الفقاعات. تم تقديم شفرة العينة أدناه.
 ```php
   $pres = new Presentation();
   try {
@@ -49,11 +49,14 @@ description: "إنشاء وتخصيص مخططات فقاعات قوية في Po
 
 ## **الأسئلة الشائعة**
 
-**هل يتم دعم "مخطط الفقاعات مع تأثير ثلاثي الأبعاد"، وكيف يختلف عن المخطط العادي؟**
-نعم. يوجد نوع مخطط منفصل، "Bubble with 3-D". يطبق نمطًا ثلاثي الأبعاد على الفقاعات ولكنه لا يضيف محورًا إضافيًا؛ تظل البيانات X-Y-S (الحجم). النوع متاح في فئة [chart type](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+**هل يتم دعم "مخطط فقاعات مع تأثير ثلاثي الأبعاد"، وكيف يختلف عن المخطط العادي؟**
+
+نعم. يوجد نوع مخطط منفصل يُدعى "Bubble with 3-D". يطبق تنسيقًا ثلاثي الأبعاد على الفقاعات لكنه لا يضيف محورًا إضافيًا؛ تظل البيانات X-Y-S (الحجم). يتوفر هذا النوع في فئة [chart type](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) .
 
 **هل هناك حد لعدد السلاسل والنقاط في مخطط الفقاعات؟**
-لا يوجد حد ثابت على مستوى API؛ يتم تحديد القيود بناءً على الأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط معقولًا لتسهيل القراءة وسرعة التجسيد.
 
-**كيف سيؤثر التصدير على مظهر مخطط الفقاعات (PDF، صور)؟**
-يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم التجسيد عبر محرك Aspose.Slides. بالنسبة لصيغ الرسومات النقطية/المتجهة، تُطبق قواعد التجسيد العامة (الدقة، إزالة التسنن)، لذا يُفضَّل اختيار DPI كافٍ للطباعة.
+ليس هناك حد ثابت على مستوى API؛ يتم تحديد القيود بناءً على الأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط معقولًا لتحسين قابلية القراءة وسرعة العرض.
+
+**كيف سيؤثر التصدير على مظهر مخطط الفقاعات (PDF، الصور)؟**
+
+يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم تنفيذ عملية الرسم بواسطة محرك Aspose.Slides. بالنسبة للصيغ النقطية/المتجهة، تُطبق قواعد الرسم العامة للرسوم البيانية (الدقة، مكافحة تموّج الحواف)، لذا يُنصح باختيار DPI كافٍ للطباعة.

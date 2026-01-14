@@ -8,39 +8,39 @@ keywords:
 - ActiveX
 - control ActiveX
 - gestionar ActiveX
-- agregar ActiveX
+- añadir ActiveX
 - modificar ActiveX
 - reproductor multimedia
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda cómo Aspose.Slides for PHP via Java aprovecha ActiveX para automatizar y mejorar presentaciones de PowerPoint, proporcionando a los desarrolladores un control potente sobre las diapositivas."
+description: "Aprenda cómo Aspose.Slides para PHP mediante Java aprovecha ActiveX para automatizar y mejorar presentaciones de PowerPoint, ofreciendo a los desarrolladores un control potente sobre las diapositivas."
 ---
 
 {{% alert color="primary" %}} 
 
-Los controles ActiveX se utilizan en las presentaciones. Aspose.Slides for PHP via Java le permite agregar y administrar controles ActiveX, pero son un poco más complejos de manejar en comparación con las formas normales de la presentación. Hemos implementado soporte para agregar el control activo Media Player en Aspose.Slides. Tenga en cuenta que los controles ActiveX no son formas; no forman parte de la [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IShapeCollection) de la presentación. En su lugar forman parte de la [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection) separada. En este tema, le mostraremos cómo trabajar con ellos.
+Los controles ActiveX se usan en presentaciones. Aspose.Slides para PHP mediante Java le permite añadir y gestionar controles ActiveX, pero son un poco más difíciles de manejar en comparación con las formas normales de la presentación. Hemos implementado soporte para añadir el control Active Media Player en Aspose.Slides. Tenga en cuenta que los controles ActiveX no son formas; no forman parte de la [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). En su lugar forman parte de la [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/) separada. En este tema, le mostraremos cómo trabajar con ellos.
 
 {{% /alert %}} 
 
 ## **Agregar un control ActiveX Media Player a una diapositiva**
-Para agregar un control ActiveX Media Player, haga lo siguiente:
+Para añadir un control ActiveX Media Player, haga lo siguiente:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y genere una instancia de presentación vacía.
-1. Acceda a la diapositiva de destino en [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Agregue el control ActiveX Media Player usando el método [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-) expuesto por [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection).
+1. Acceda a la diapositiva objetivo en [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
+1. Añada el control ActiveX Media Player utilizando el método [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/addcontrol/) que expone [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).
 1. Acceda al control ActiveX Media Player y establezca la ruta del video mediante sus propiedades.
 1. Guarde la presentación como un archivo PPTX.
 
-Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra cómo agregar el control ActiveX Media Player a una diapositiva:
+Este código de ejemplo, basado en los pasos anteriores, muestra cómo añadir el control ActiveX Media Player a una diapositiva:
 ```php
-  # Crear instancia de presentación vacía
+  # Crear una instancia de presentación vacía
   $pres = new Presentation();
   try {
     # Añadiendo el control ActiveX Media Player
     $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # Acceder al control ActiveX Media Player y establecer la ruta del video
+    # Acceder al control ActiveX Media Player y establecer la ruta del vídeo
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     # Guardar la presentación
     $pres->save("Output.pptx", SaveFormat::Pptx);
@@ -55,23 +55,23 @@ Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra c�
 ## **Modificar un control ActiveX**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java 7.1.0 y versiones posteriores están equipados con componentes para gestionar controles ActiveX. Puede acceder al control ActiveX ya añadido en su presentación y modificarlo o eliminarlo a través de sus propiedades.
+Aspose.Slides para PHP mediante Java 7.1.0 y versiones posteriores están equipados con componentes para gestionar controles ActiveX. Puede acceder al control ActiveX ya añadido en su presentación y modificarlo o eliminarlo a través de sus propiedades.
 
 {{% /alert %}} 
 
-Para gestionar un control ActiveX sencillo, como un cuadro de texto y un botón de comando simple en una diapositiva, haga lo siguiente:
+Para gestionar un control ActiveX simple, como un cuadro de texto y un botón de comando sencillo en una diapositiva, siga estos pasos:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y cargue la presentación que contiene controles ActiveX.
 1. Obtenga una referencia a la diapositiva mediante su índice.
-1. Acceda a los controles ActiveX en la diapositiva accediendo a la [IControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControlCollection).
-1. Acceda al control ActiveX TextBox1 utilizando el objeto [IControl](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IControl).
-1. Cambie las propiedades del control ActiveX TextBox1 que incluyen texto, fuente, altura de fuente y posición del marco.
-1. Acceda al segundo control de acceso llamado CommandButton1.
-1. Cambie el título del botón, la fuente y la posición.
+1. Acceda a los controles ActiveX en la diapositiva accediendo a la [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).
+1. Acceda al control ActiveX TextBox1 utilizando el objeto [Control](https://reference.aspose.com/slides/php-java/aspose.slides/control/).
+1. Modifique las propiedades del control ActiveX TextBox1 que incluyen el texto, la fuente, la altura de la fuente y la posición del marco.
+1. Acceda al segundo control llamado CommandButton1.
+1. Cambie el texto del botón, la fuente y la posición.
 1. Desplace la posición de los marcos de los controles ActiveX.
-1. Guarde la presentación modificada en un archivo PPTX.
+1. Escriba la presentación modificada en un archivo PPTX.
 
-Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra cómo gestionar un control ActiveX sencillo: 
+Este código de ejemplo, basado en los pasos anteriores, muestra cómo gestionar un control ActiveX sencillo: 
 ```php
   # Accediendo a la presentación con controles ActiveX
   $pres = new Presentation("ActiveX.pptm");
@@ -83,8 +83,8 @@ Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra c�
     if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
       $newText = "Changed text";
       $control->getProperties()->set_Item("Value", $newText);
-      # Cambiando la imagen sustituta. PowerPoint reemplazará esta imagen durante la activación de ActiveX,
-      # así que a veces está bien dejar la imagen sin cambios.
+      # Cambiando la imagen de sustitución. PowerPoint reemplazará esta imagen durante la activación del ActiveX,
+      # por lo que a veces está bien dejar la imagen sin cambios.
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->window);
@@ -110,12 +110,12 @@ Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra c�
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    # Cambiando el título del botón
+    # Cambiando el texto del botón
     $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
     if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
-      # Cambiando sustituto
+      # Cambiando la sustitución
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->control);
@@ -160,15 +160,15 @@ Este fragmento de código de ejemplo, basado en los pasos anteriores, muestra c�
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Aspose.Slides conserva los controles ActiveX al leer y volver a guardar si no pueden ejecutarse en el tiempo de ejecución de Java?**
 
-Sí. Aspose.Slides los trata como parte de la presentación y puede leer/modificar sus propiedades y marcos; no es necesario ejecutar los propios controles para conservarlos.
+Sí. Aspose.Slides los trata como parte de la presentación y puede leer/modificar sus propiedades y marcos; no es necesario ejecutar los propios controles para preservarlos.
 
 **¿En qué se diferencian los controles ActiveX de los objetos OLE en una presentación?**
 
-Los controles ActiveX son controles interactivos gestionados (botones, cuadros de texto, reproductor multimedia), mientras que [OLE](/slides/es/php-java/manage-ole/) se refiere a objetos de aplicación incrustados (por ejemplo, una hoja de cálculo de Excel). Se almacenan y manejan de forma diferente y tienen modelos de propiedades distintos.
+Los controles ActiveX son controles interactivos gestionados (botones, cuadros de texto, reproductor multimedia), mientras que [OLE](/slides/es/php-java/manage-ole/) se refiere a objetos de aplicación incrustados (por ejemplo, una hoja de cálculo de Excel). Se almacenan y manejan de forma distinta y poseen modelos de propiedades diferentes.
 
 **¿Los eventos ActiveX y las macros VBA funcionan si el archivo ha sido modificado por Aspose.Slides?**
 

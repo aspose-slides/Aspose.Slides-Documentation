@@ -8,9 +8,9 @@ keywords:
 - macro
 - VBA
 - macro VBA
-- ajouter macro
-- supprimer macro
-- extraire macro
+- ajouter une macro
+- supprimer une macro
+- extraire une macro
 - ajouter VBA
 - supprimer VBA
 - extraire VBA
@@ -19,25 +19,25 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Découvrez comment générer et manipuler des présentations PowerPoint et OpenDocument via VBA avec Aspose.Slides pour PHP via Java afin d'optimiser votre flux de travail."
+description: "Découvrez comment générer et manipuler des présentations PowerPoint et OpenDocument via VBA avec Aspose.Slides pour PHP via Java afin d’optimiser votre flux de travail."
 ---
 
 {{% alert title="Note" color="warning" %}} 
 
-Lorsque vous convertissez une présentation contenant des macros vers un autre format de fichier (PDF, HTML, etc.), Aspose.Slides ignore toutes les macros (les macros ne sont pas transférées dans le fichier résultant).
+Lorsque vous convertissez une présentation contenant des macros vers un format de fichier différent (PDF, HTML, etc.), Aspose.Slides ignore toutes les macros (les macros ne sont pas transférées dans le fichier résultant).
 
-Lorsque vous ajoutez des macros à une présentation ou que vous réenregistrez une présentation contenant des macros, Aspose.Slides écrit simplement les octets des macros.
+Lorsque vous ajoutez des macros à une présentation ou que vous réenregistrez une présentation contenant des macros, Aspose.Slides se contente d’écrire les octets des macros.
 
-Aspose.Slides **ne** exécute **jamais** les macros dans une présentation.
+Aspose.Slides **n’exécute jamais** les macros d’une présentation.
 
 {{% /alert %}}
 
 ## **Ajouter des macros VBA**
 
-Aspose.Slides fournit la classe [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) pour vous permettre de créer des projets VBA (et des références de projet) et de modifier les modules existants. Vous pouvez utiliser l’interface [IVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/ivbaproject/) pour gérer le VBA intégré dans une présentation.
+Aspose.Slides fournit la classe [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) pour vous permettre de créer des projets VBA (et des références de projet) et de modifier les modules existants. Vous pouvez utiliser la classe `VbaProject` pour gérer le VBA intégré à une présentation.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-1. Utilisez le constructeur [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject--) pour ajouter un nouveau projet VBA.
+1. Utilisez le constructeur [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject) pour ajouter un nouveau projet VBA.
 1. Ajoutez un module au VbaProject.
 1. Définissez le code source du module.
 1. Ajoutez des références à <stdole>.
@@ -45,9 +45,9 @@ Aspose.Slides fournit la classe [VbaProject](https://reference.aspose.com/slides
 1. Associez les références au projet VBA.
 1. Enregistrez la présentation.
 
-Ce code PHP montre comment ajouter une macro VBA depuis le début à une présentation :
+Ce code PHP vous montre comment ajouter une macro VBA depuis zéro à une présentation :
 ```php
-  # Crée une instance de la classe de présentation
+  # Crée une instance de la classe presentation
   $pres = new Presentation();
   try {
     # Crée un nouveau projet VBA
@@ -75,13 +75,13 @@ Ce code PHP montre comment ajouter une macro VBA depuis le début à une présen
 
 {{% alert color="primary" %}} 
 
-Vous voudrez peut‑être consulter **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), qui est une application Web gratuite utilisée pour supprimer les macros des documents PowerPoint, Excel et Word. 
+Vous souhaiterez peut‑être consulter **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), une application Web gratuite utilisée pour supprimer les macros de documents PowerPoint, Excel et Word. 
 
 {{% /alert %}} 
 
 ## **Supprimer les macros VBA**
 
-En utilisant la propriété [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject--) de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation), vous pouvez supprimer une macro VBA.
+En utilisant la propriété [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject) de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation), vous pouvez supprimer une macro VBA.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et chargez la présentation contenant la macro.
 1. Accédez au module Macro et supprimez‑le.
@@ -108,7 +108,7 @@ Ce code PHP montre comment supprimer une macro VBA :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et chargez la présentation contenant la macro.
 2. Vérifiez si la présentation contient un projet VBA.
-3. Parcourez tous les modules du projet VBA pour visualiser les macros.
+3. Parcourez tous les modules du projet VBA pour afficher les macros.
 
 Ce code PHP montre comment extraire les macros VBA d’une présentation contenant des macros :
 ```php
@@ -132,15 +132,15 @@ Ce code PHP montre comment extraire les macros VBA d’une présentation contena
 
 ## **Vérifier si un projet VBA est protégé par mot de passe**
 
-En utilisant la méthode [VbaProject.isPasswordProtected](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#isPasswordProtected), vous pouvez déterminer si les propriétés d’un projet sont protégées par mot de passe.
+En utilisant la méthode [VbaProject::isPasswordProtected](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#isPasswordProtected), vous pouvez déterminer si les propriétés d’un projet sont protégées par un mot de passe.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) et chargez une présentation contenant une macro.
 2. Vérifiez si la présentation contient un [VBA project](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/).
-3. Vérifiez si le projet VBA est protégé par mot de passe pour afficher ses propriétés.
+3. Vérifiez si le projet VBA est protégé par mot de passe pour en afficher les propriétés.
 ```php
 $presentation = new Presentation("VBA.pptm");
 try {
-    if ($presentation->getVbaProject() != null) { // Vérifier si la présentation contient un projet VBA.
+    if ($presentation->getVbaProject() != null) { // Vérifie si la présentation contient un projet VBA.
         if ($presentation->getVbaProject()->isPasswordProtected()) {
             printf("The VBA Project '%s' is protected by password to view project properties.", 
                     $presentation->getVbaProject()->getName());
@@ -154,14 +154,14 @@ try {
 
 ## **FAQ**
 
-**Que se passe-t-il avec les macros si j’enregistre la présentation au format PPTX ?**
+**Que se passe‑t‑il des macros si j’enregistre la présentation au format PPTX ?**
 
-Les macros seront supprimées car le format PPTX ne prend pas en charge VBA. Pour conserver les macros, choisissez PPTM, PPSM ou POTM.
+Les macros sont supprimées car le format PPTX ne prend pas en charge VBA. Pour conserver les macros, choisissez PPTM, PPSM ou POTM.
 
-**Aspose.Slides peut‑il exécuter des macros à l’intérieur d’une présentation, par exemple pour actualiser des données ?**
+**Aspose.Slides peut‑il exécuter des macros dans une présentation, par exemple pour actualiser des données ?**
 
-Non. La bibliothèque n’exécute jamais de code VBA ; l’exécution n’est possible que dans PowerPoint avec les paramètres de sécurité appropriés.
+Non. La bibliothèque n’exécute jamais le code VBA ; l’exécution n’est possible que dans PowerPoint avec les paramètres de sécurité appropriés.
 
-**La manipulation des contrôles ActiveX liés à du code VBA est‑elle supportée ?**
+**La prise en charge des contrôles ActiveX liés au code VBA est‑elle disponible ?**
 
-Oui, vous pouvez accéder aux [ActiveX controls](/slides/fr/php-java/activex/), modifier leurs propriétés et les supprimer. Ceci est utile lorsque les macros interagissent avec ActiveX.
+Oui, vous pouvez accéder aux [contrôles ActiveX](/slides/fr/php-java/activex/), modifier leurs propriétés et les supprimer. Cela est utile lorsque les macros interagissent avec des contrôles ActiveX.

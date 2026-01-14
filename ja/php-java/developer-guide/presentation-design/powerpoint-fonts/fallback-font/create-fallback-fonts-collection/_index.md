@@ -1,6 +1,6 @@
 ---
-title: PHPでフォールバックフォントコレクションを構成する
-linktitle: フォールバックフォントコレクション
+title: PHP でフォールバックフォントコレクションを構成する
+linktitle: フォールバックフォント コレクション
 type: docs
 weight: 20
 url: /ja/php-java/create-fallback-fonts-collection/
@@ -8,25 +8,26 @@ keywords:
 - フォールバックフォント
 - フォールバックルール
 - フォントコレクション
-- フォントを構成する
-- フォントを設定する
+- フォントの構成
+- フォントの設定
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java を介して PHP 用 Aspose.Slides でフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument プレゼンテーションでテキストを一貫して鮮明に保ちます。"
+description: "Aspose.Slides for PHP を Java 経由で使用してフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument プレゼンテーションでテキストを一貫して鮮明に保ちます。"
 ---
 
-## **フォールバック ルールを適用**
+## **フォールバック ルールの適用**
 
-[FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) に整理でき、[IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection) インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。
+FontFallBackRule クラスのインスタンスは [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) に編成できます。コレクションからルールを追加または削除することが可能です。
 
-その後、このコレクションは [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。 詳細は [About FontsManager and FontsLoader](/slides/ja/php-java/about-fontsmanager-and-fontsloader/) をご覧ください。
+このコレクションは [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) クラスの [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。詳細は [FontsManager と FontsLoader について](/slides/ja/php-java/about-fontsmanager-and-fontsloader/) をご覧ください。
 
-各 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) には、独自の [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) クラスのインスタンスを持つ [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) メソッドがあります。
+各 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) は、独自の [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) クラスインスタンスを持つ [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) メソッドを備えています。
 
-以下は、特定のプレゼンテーションの [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) にフォールバックフォントルールコレクションを作成して割り当てる例です:  ```php
+以下は、特定のプレゼンテーションの [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager) にフォールバックフォントルールコレクションを作成して割り当てる例です:  
+```php
   $pres = new Presentation();
   try {
     $userRulesList = new FontFallBackRulesCollection();
@@ -44,10 +45,10 @@ description: "Java を介して PHP 用 Aspose.Slides でフォールバック�
 FontsManager がフォールバックフォントコレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバックフォントが適用されます。
 
 {{% alert color="primary" %}} 
-詳細は、[Render Presentation with Fallback Font](/slides/ja/php-java/render-presentation-with-fallback-font/) をご覧ください。
+[Render Presentation with Fallback Font](/slides/ja/php-java/render-presentation-with-fallback-font/) の詳細をご覧ください。
 {{% /alert %}}
 
-## **よくある質問**
+## **FAQ**
 
 **フォールバック ルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
 
@@ -55,12 +56,12 @@ FontsManager がフォールバックフォントコレクションで初期化�
 
 **フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
 
-はい。これらのオブジェクト内のテキストすべてに同じグリフ置換メカニズムが使用されます。
+はい。これらのオブジェクト内のすべてのテキストに同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリと共にフォントを配布していますか？**
+**Aspose はライブラリにフォントを同梱していますか？**
 
-いいえ。フォントはご自身で追加・使用し、その責任はユーザーにあります。
+いいえ。フォントはご自身で追加・使用し、自己責任で管理してください。
 
-**不足しているフォントの置換/サブスティテューションと、欠損グリフのフォールバックは一緒に使用できますか？**
+**不足しているフォントの置換/サブスティテューションと欠損グリフのフォールバックを同時に使用できますか？**
 
-はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可否を解決します（[replacement](/slides/ja/php-java/font-replacement/)/[substitution](/slides/ja/php-java/font-substitution/)）。その後、フォールバックが利用可能なフォント内の欠損グリフのギャップを埋めます。
+はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの可用性を解決し（[replacement](/slides/ja/php-java/font-replacement/)/[substitution](/slides/ja/php-java/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠損グリフのギャップを埋めます。

@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationszoom in PHP
+title: Präsentationszoom in PHP verwalten
 linktitle: Zoom verwalten
 type: docs
 weight: 60
@@ -15,11 +15,11 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen und anpassen von Zoom mit Aspose.Slides für PHP via Java — springen Sie zwischen Abschnitten, fügen Sie Miniaturbilder und Übergänge in PPT-, PPTX- und ODP-Präsentationen hinzu."
+description: "Erstellen und anpassen von Zoom mit Aspose.Slides für PHP via Java — zwischen Abschnitten springen, Miniaturansichten und Übergänge in PPT-, PPTX- und ODP-Präsentationen hinzufügen."
 ---
 
-## **Übersicht**
-Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und Teilen einer Präsentation zu springen und von diesen zurückzukehren. Beim Vorführen kann diese Fähigkeit, schnell durch Inhalte zu navigieren, sehr nützlich sein. 
+## **Überblick**
+Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und Bereichen einer Präsentation zu springen und von dort zurückzukehren. Wenn Sie präsentieren, kann diese Möglichkeit, schnell durch Inhalte zu navigieren, sehr nützlich sein. 
 
 ![overview_image](overview.png)
 
@@ -28,25 +28,25 @@ Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und
 * Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Abschnittszoom](#Section-Zoom).
 
 ## **Folienzoom**
-Ein Folienzoom kann Ihre Präsentation dynamischer machen, indem Sie frei zwischen Folien in beliebiger Reihenfolge navigieren können, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms eignen sich gut für kurze Präsentationen ohne viele Abschnitte, können jedoch auch in anderen Präsentationsszenarien eingesetzt werden.
+Ein Folienzoom kann Ihre Präsentation dynamischer machen, indem er Ihnen erlaubt, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms eignen sich gut für kurze Präsentationen ohne viele Abschnitte, können aber auch in anderen Präsentationsszenarien verwendet werden.
 
-Folienzooms helfen Ihnen, mehrere Informationen zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
+Folienzooms helfen Ihnen, in mehrere Informationsstücke zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
 
 ![overview_image](slidezoomsel.png)
 
-Für Folienzoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/ZoomImageType), das Interface [IZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IZoomFrame) und einige Methoden des Interfaces [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) bereit.
+Für Folienzoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/), die Klasse [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) und einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) bereit.
 
 ### **Zoom‑Frames erstellen**
 
-Sie können einem Folienzoom‑Frame wie folgt einen Zoom‑Frame hinzufügen:
+Sie können einem Folien‑Zoom‑Frame wie folgt Folien hinzufügen:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
-3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Blatt Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
+3. Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
+4.  Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweisen auf die erstellten Folien) Zoom‑Frames hinzu.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
+Dieser PHP‑Code zeigt, wie ein Zoom‑Frame auf einer Folie erstellt wird:
 ```php
   $pres = new Presentation();
   try {
@@ -81,14 +81,14 @@ Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
 
 ### **Zoom‑Frames mit benutzerdefinierten Bildern erstellen**
 Mit Aspose.Slides für PHP via Java können Sie einen Zoom‑Frame mit einem anderen Folien‑Vorschaubild wie folgt erstellen:
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
-3.	Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
-4.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Objekts hinzufügen, das den Rahmen füllen soll.
-5.	Fügen Sie dem ersten Blatt Zoom‑Frames (die den Verweis auf die erstellte Folie enthalten) hinzu.
-6.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
+4.  Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)-Objekt, indem Sie ein Bild zur Images‑Sammlung des mit der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Objekt verknüpften Präsentationsobjekts hinzufügen, das zum Befüllen des Frames verwendet wird.
+5.  Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweis auf die erstellte Folie) Zoom‑Frames hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
+Dieser PHP‑Code zeigt, wie ein Zoom‑Frame mit einem anderen Bild erstellt wird:
 ```php
   $pres = new Presentation();
   try {
@@ -124,21 +124,21 @@ Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erste
 ```
 
 ### **Zoom‑Frames formatieren**
-In den vorherigen Abschnitten haben wir gezeigt, wie einfache Zoom‑Frames erstellt werden. Für komplexere Zoom‑Frames müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
+In den vorherigen Abschnitten haben wir gezeigt, wie einfache Zoom‑Frames erstellt werden. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
 
 Sie können die Formatierung eines Zoom‑Frames auf einer Folie wie folgt steuern:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie neue Folien, zu denen Sie den Zoom‑Frame verlinken möchten. 
-3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Blatt Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Objekts hinzufügen, das den Rahmen füllen soll.
-6.	Setzen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt.
-7.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-8.	Entfernen Sie den Hintergrund eines Bildes des zweiten Zoom‑Frame‑Objekts.
-5.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie neue Folien, zu denen Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie den erstellten Folien etwas Identifikationstext und einen Hintergrund hinzu.
+4.  Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweisen auf die erstellten Folien) Zoom‑Frames hinzu.
+5.  Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)-Objekt, indem Sie ein Bild zur Images‑Sammlung des mit der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Objekt verknüpften Präsentationsobjekts hinzufügen, das zum Befüllen des Frames verwendet wird.
+6.  Setzen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt.
+7.  Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+8.  Entfernen Sie den Hintergrund eines Bildes des zweiten Zoom‑Frame‑Objekts.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zoom‑Frames auf einer Folie ändern:
+Dieser PHP‑Code zeigt, wie die Formatierung eines Zoom‑Frames auf einer Folie geändert wird:
 ```php
   $pres = new Presentation();
   try {
@@ -179,7 +179,7 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zoom‑Frames auf einer 
     $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
     $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Einstellung zum Nicht-Anzeigen des Hintergrunds für das zoomFrame2-Objekt
+    # Einstellung zum Ausblenden des Hintergrunds für das zoomFrame2-Objekt
     $zoomFrame2->setShowBackground(false);
     # Speichert die Präsentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -194,24 +194,24 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zoom‑Frames auf einer 
 
 ## **Abschnittszoom**
 
-Ein Abschnittszoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnittszooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders betonen möchten. Oder Sie nutzen sie, um hervorzuheben, wie verschiedene Teile Ihrer Präsentation miteinander verknüpft sind. 
+Ein Abschnittszoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnittszooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders betonen möchten. Oder Sie nutzen sie, um zu verdeutlichen, wie bestimmte Teile Ihrer Präsentation miteinander verbunden sind. 
 
 ![overview_image](seczoomsel.png)
 
-Für Abschnittszoom‑Objekte stellt Aspose.Slides das Interface [ISectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionZoomFrame) und einige Methoden des Interfaces [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) bereit.
+Für Abschnittszoom‑Objekte stellt Aspose.Slides die Klasse [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) und einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) bereit.
 
 ### **Abschnittszoom‑Frames erstellen**
 
-Sie können einem Folienblatt einen Abschnittszoom‑Frame wie folgt hinzufügen:
+Sie können einem Abschnittszoom‑Frame auf einer Folie wie folgt hinzufügen:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie ein neues Blatt. 
-3.	Fügen Sie dem erstellten Blatt einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Blatt einen Abschnittszoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie eine neue Folie. 
+3. Fügen Sie der erstellten Folie einen Identifikationshintergrund hinzu.
+4.  Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5.  Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweisen auf den erstellten Abschnitt) einen Abschnittszoom‑Frame hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
+Dieser PHP‑Code zeigt, wie ein Zoom‑Frame auf einer Folie erstellt wird:
 ```php
   $pres = new Presentation();
   try {
@@ -237,19 +237,19 @@ Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
 
 Mit Aspose.Slides für PHP via Java können Sie einen Abschnittszoom‑Frame mit einem anderen Folien‑Vorschaubild wie folgt erstellen:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie ein neues Blatt.
-3.	Fügen Sie dem erstellten Blatt einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Objekts hinzufügen, das den Rahmen füllen soll.
-5.	Fügen Sie dem ersten Blatt einen Abschnittszoom‑Frame (der den Verweis auf den erstellten Abschnitt enthält) hinzu.
-6.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie eine neue Folie.
+3. Fügen Sie der erstellten Folie einen Identifikationshintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5.  Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)-Objekt, indem Sie ein Bild zur Images‑Sammlung des mit der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Objekt verknüpften Präsentationsobjekts hinzufügen, das zum Befüllen des Frames verwendet wird.
+5.  Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweis auf den erstellten Abschnitt) einen Abschnittszoom‑Frame hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
+Dieser PHP‑Code zeigt, wie ein Zoom‑Frame mit einem anderen Bild erstellt wird:
 ```php
   $pres = new Presentation();
   try {
-    # Fügt neue Folie zur Präsentation hinzu
+    # Fügt eine neue Folie zur Präsentation hinzu
     $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
@@ -266,7 +266,7 @@ Dieser PHP‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erste
         $image->dispose();
       }
     }
-    # Fügt SectionZoomFrame-Objekt hinzu
+    # Fügt ein SectionZoomFrame-Objekt hinzu
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
     # Speichert die Präsentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
@@ -284,21 +284,21 @@ Um komplexere Abschnittszoom‑Frames zu erstellen, müssen Sie die Formatierung
 
 Sie können die Formatierung eines Abschnittszoom‑Frames auf einer Folie wie folgt steuern:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie ein neues Blatt.
-3.	Fügen Sie dem Blatt einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Blatt einen Abschnittszoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Ändern Sie Größe und Position des erstellten Abschnittszoom‑Objekts.
-7.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Objekts hinzufügen, das den Rahmen füllen soll.
-8.	Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoom‑Frame‑Objekt.
-9.	Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verlinkten Abschnitt*-Funktion. 
-10.	Entfernen Sie den Hintergrund eines Bildes des Abschnittszoom‑Frames.
-11.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-12.	Ändern Sie die Übergangsdauer.
-13.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie eine neue Folie.
+3. Fügen Sie der erstellten Folie einen Identifikationshintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Fügen Sie dem ersten Folien‑Zoom‑Frame (mit Verweisen auf den erstellten Abschnitt) einen Abschnittszoom‑Frame hinzu.
+6. Ändern Sie Größe und Position des erstellten Abschnittszoom‑Objekts.
+7. Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)-Objekt, indem Sie ein Bild zur Images‑Sammlung des mit der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Objekt verknüpften Präsentationsobjekts hinzufügen, das zum Befüllen des Frames verwendet wird.
+8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoom‑Frame‑Objekt.
+9. Aktivieren Sie die *Rückkehr zur Ausgangs‑Folie aus dem verlinkten Abschnitt*‑Funktion. 
+10. Entfernen Sie den Hintergrund eines Bildes des Abschnittszoom‑Frame‑Objekts.
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+12. Ändern Sie die Übergangsdauer.
+13. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Abschnittszoom‑Frames ändern:
+Dieser PHP‑Code zeigt, wie die Formatierung eines Abschnittszoom‑Frames geändert wird:
 ```php
   $pres = new Presentation();
   try {
@@ -309,7 +309,7 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Abschnittszoom‑Frames 
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
     $pres->getSections()->addSection("Section 1", $slide);
-    # Fügt SectionZoomFrame-Objekt hinzu
+    # Fügt ein SectionZoomFrame-Objekt hinzu
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     # Formatierung für SectionZoomFrame
     $sectionZoomFrame->setX(100);
@@ -347,22 +347,22 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Abschnittszoom‑Frames 
 
 ## **Zusammenfassungszoom**
 
-Ein Zusammenfassungszoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Beim Vorführen können Sie den Zoom nutzen, um von einer Stelle der Präsentation zu einer anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, vorspringen oder Teile Ihrer Vorführung erneut ansehen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
+Ein Zusammenfassungszoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Beim Präsentieren können Sie den Zoom verwenden, um von einer Stelle Ihrer Präsentation zu einer anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, voraus springen oder Teile Ihrer Bilderschau erneut besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
 
 ![overview_image](sumzoomsel.png)
 
-Für Zusammenfassungszoom‑Objekte stellt Aspose.Slides die Interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) sowie einige Methoden des Interfaces [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) bereit.
+Für Zusammenfassungszoom‑Objekte stellt Aspose.Slides die Klassen [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) und [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) sowie einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) bereit.
 
-### **Ein Zusammenfassungszoom erstellen**
+### **Einen Zusammenfassungszoom erstellen**
 
-Sie können einem Folienblatt einen Zusammenfassungszoom‑Frame wie folgt hinzufügen:
+Sie können einen Zusammenfassungszoom‑Frame auf einer Folie wie folgt hinzufügen:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Blatt den Zusammenfassungszoom‑Frame hinzu.
-4.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
+3.  Fügen Sie dem ersten Folien‑Zoom‑Frame den Zusammenfassungszoom‑Frame hinzu.
+4. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie einen Zusammenfassungszoom‑Frame auf einer Folie erstellen:
+Dieser PHP‑Code zeigt, wie ein Zusammenfassungszoom‑Frame auf einer Folie erstellt wird:
 ```php
   $pres = new Presentation();
   try {
@@ -406,77 +406,77 @@ Dieser PHP‑Code zeigt, wie Sie einen Zusammenfassungszoom‑Frame auf einer Fo
 ```
 
 
-### **Ein Zusammenfassungszoom‑Abschnitt hinzufügen und entfernen**
+### **Eine Zusammenfassungszoom‑Section hinzufügen und entfernen**
 
-Alle Abschnitte in einem Zusammenfassungszoom‑Frame werden durch [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSection)-Objekte repräsentiert, die im [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection)-Objekt gespeichert sind. Sie können über das Interface [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ISummaryZoomSectionCollection) Abschnitte hinzufügen oder entfernen:
+Alle Sections in einem Zusammenfassungszoom‑Frame werden durch [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/)-Objekte repräsentiert, die im [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/)-Objekt gespeichert sind. Sie können über die Klasse [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) ein SummaryZoomSection‑Objekt hinzufügen oder entfernen:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Blatt einen Zusammenfassungszoom‑Frame hinzu.
-4.	Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
-5.	Fügen Sie den erstellten Abschnitt dem Zusammenfassungszoom‑Frame hinzu.
-6.	Entfernen Sie den ersten Abschnitt aus dem Zusammenfassungszoom‑Frame.
-7.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
+3.  Fügen Sie dem ersten Folien‑Zoom‑Frame den Zusammenfassungszoom‑Frame hinzu.
+4.  Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
+5.  Fügen Sie den erstellten Abschnitt zum Zusammenfassungszoom‑Frame hinzu.
+6.  Entfernen Sie die erste Section aus dem Zusammenfassungszoom‑Frame.
+7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie Abschnitte in einem Zusammenfassungszoom‑Frame hinzufügen und entfernen:
+Dieser PHP‑Code zeigt, wie Sections in einem Zusammenfassungszoom‑Frame hinzugefügt und entfernt werden:
 ```php
-    $pres = new Presentation();
-    try {
-        # Fügt eine neue Folie zur Präsentation hinzu
-        $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-        $slide->getBackground()->setType(BackgroundType::OwnBackground);
-        # Fügt einen neuen Abschnitt zur Präsentation hinzu
-        $pres->getSections()->addSection("Section 1", $slide);
-        # Fügt eine neue Folie zur Präsentation hinzu
-        $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-        $slide->getBackground()->setType(BackgroundType::OwnBackground);
-        # Fügt einen neuen Abschnitt zur Präsentation hinzu
-        $pres->getSections()->addSection("Section 2", $slide);
-        # Fügt ein SummaryZoomFrame-Objekt hinzu
-        $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-        # Fügt eine neue Folie zur Präsentation hinzu
-        $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
-        $slide->getBackground()->setType(BackgroundType::OwnBackground);
-        # Fügt einen neuen Abschnitt zur Präsentation hinzu
-        $section3 = $pres->getSections()->addSection("Section 3", $slide);
-        # Fügt einen Abschnitt zum Summary Zoom hinzu
-        $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-        # Entfernt Abschnitt aus dem Summary Zoom
-        $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-        # Speichert die Präsentation
-        $pres->save("presentation.pptx", SaveFormat::Pptx);
-    } finally {
-        if (!java_is_null($pres)) {
-            $pres->dispose();
-        }
+  $pres = new Presentation();
+  try {
+    # Fügt eine neue Folie zur Präsentation hinzu
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    # Fügt einen neuen Abschnitt zur Präsentation hinzu
+    $pres->getSections()->addSection("Section 1", $slide);
+    # Fügt eine neue Folie zur Präsentation hinzu
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    # Fügt einen neuen Abschnitt zur Präsentation hinzu
+    $pres->getSections()->addSection("Section 2", $slide);
+    # Fügt ein SummaryZoomFrame-Objekt hinzu
+    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+    # Fügt eine neue Folie zur Präsentation hinzu
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    # Fügt einen neuen Abschnitt zur Präsentation hinzu
+    $section3 = $pres->getSections()->addSection("Section 3", $slide);
+    # Fügt einen Abschnitt zum Summary Zoom hinzu
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
+    # Entfernt einen Abschnitt aus dem Summary Zoom
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
+    # Speichert die Präsentation
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
     }
+  }
 ```
 
 
-### **Zusammenfassungszoom‑Abschnitte formatieren**
+### **Zusammenfassungszoom‑Sections formatieren**
 
-Um komplexere Zusammenfassungszoom‑Abschnittsobjekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Zusammenfassungszoom‑Abschnittsobjekt anwenden können. 
+Um komplexere Zusammenfassungszoom‑Section‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Zusammenfassungszoom‑Section‑Objekt anwenden können. 
 
-Sie können die Formatierung eines Zusammenfassungszoom‑Abschnittsobjekts in einem Zusammenfassungszoom‑Frame wie folgt steuern:
+Sie können die Formatierung eines Zusammenfassungszoom‑Section‑Objekts in einem Zusammenfassungszoom‑Frame wie folgt steuern:
 
-1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Blatt einen Zusammenfassungszoom‑Frame hinzu.
-4.	Holen Sie ein Zusammenfassungszoom‑Abschnittsobjekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
-7.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/php-java/aspose.slides/IPPImage)-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Objekts hinzufügen, das den Rahmen füllen soll.
-8.	Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoom‑Frame‑Objekt.
-9.	Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verlinkten Abschnitt*-Funktion. 
-11.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-12.	Ändern Sie die Übergangsdauer.
-13.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse.
+2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
+3.  Fügen Sie dem ersten Folien‑Zoom‑Frame den Zusammenfassungszoom‑Frame hinzu.
+4.  Rufen Sie ein SummaryZoomSection‑Objekt für das erste Objekt aus der `SummaryZoomSectionCollection` ab.
+7.  Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)-Objekt, indem Sie ein Bild zur Images‑Sammlung des mit der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Objekt verknüpften Präsentationsobjekts hinzufügen, das zum Befüllen des Frames verwendet wird.
+8.  Setzen Sie ein benutzerdefiniertes Bild für das erstellte Section‑Zoom‑Frame‑Objekt.
+9.  Aktivieren Sie die *Rückkehr zur Ausgangs‑Folie aus dem verlinkten Abschnitt*‑Funktion. 
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+12. Ändern Sie die Übergangsdauer.
+13. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zusammenfassungszoom‑Abschnittsobjekts ändern:
+Dieser PHP‑Code zeigt, wie die Formatierung eines SummaryZoomSection‑Objekts geändert wird:
 ```php
   $pres = new Presentation();
   try {
@@ -498,7 +498,7 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zusammenfassungszoom‑A
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     # Holt das erste SummaryZoomSection-Objekt
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # Formatierung für das SummaryZoomSection-Objekt
+    # Formatierung für SummaryZoomSection-Objekt
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -528,14 +528,14 @@ Dieser PHP‑Code zeigt, wie Sie die Formatierung eines Zusammenfassungszoom‑A
 
 ## **FAQ**
 
-**Kann ich die Rückkehr zur „Eltern‑“Folie nach der Anzeige des Ziels steuern?**
+**Kann ich die Rückkehr zur „Eltern‑“Folie nach Anzeige des Ziels steuern?**
 
-Ja. Der [Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) oder das [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) hat ein `ReturnToParent`‑Verhalten, das bei Aktivierung die Betrachter nach dem Besuch des Zielinhalts zur Ausgangs‑Fol ie zurückschickt.
+Ja. Der [Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) bzw. das [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) verfügt über das Verhalten `ReturnToParent`, das, wenn aktiviert, die Betrachter nach dem Besuch des Zielinhalts zurück zur Ausgangsfolie sendet.
 
-**Kann ich die „Geschwindigkeit“ bzw. Dauer des Zoom‑Übergangs anpassen?**
+**Kann ich die „Geschwindigkeit“ bzw. Dauer der Zoom‑Übergänge anpassen?**
 
 Ja. Zoom unterstützt das Festlegen einer `TransitionDuration`, sodass Sie die Dauer der Sprunganimation steuern können.
 
-**Gibt es Beschränkungen, wie viele Zoom‑Objekte eine Präsentation enthalten kann?**
+**Gibt es Begrenzungen, wie viele Zoom‑Objekte eine Präsentation enthalten kann?**
 
-Es gibt kein fest kodiertes API‑Limit. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistungsfähigkeit des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Render‑zeit berücksichtigen.
+Es gibt keine hartcodierte API‑Grenze laut Dokumentation. Praktische Beschränkungen hängen von der Gesamtkomplexität der Präsentation und der Leistung des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.

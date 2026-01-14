@@ -1,6 +1,6 @@
 ---
-title: استخراج النص المتقدم من العروض التقديمية في PHP
-linktitle: استخراج النص
+title: "استخراج النص المتقدم من العروض التقديمية في PHP"
+linktitle: "استخراج النص"
 type: docs
 weight: 90
 url: /ar/php-java/extract-text-from-presentation/
@@ -13,14 +13,14 @@ keywords:
 - استخراج النص من PPT
 - استخراج النص من PPTX
 - استخراج النص من ODP
-- استرجاع النص
-- استرجاع النص من الشريحة
-- استرجاع النص من العرض التقديمي
-- استرجاع النص من PowerPoint
-- استرجاع النص من OpenDocument
-- استرجاع النص من PPT
-- استرجاع النص من PPTX
-- استرجاع النص من ODP
+- استرداد النص
+- استرداد النص من الشريحة
+- استرداد النص من العرض التقديمي
+- استرداد النص من PowerPoint
+- استرداد النص من OpenDocument
+- استرداد النص من PPT
+- استرداد النص من PPTX
+- استرداد النص من ODP
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
@@ -30,26 +30,24 @@ description: "استخراج النص بسرعة من عروض PowerPoint و Ope
 ---
 
 {{% alert color="primary" %}} 
-
-ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، يجب استخراج النص من جميع الأشكال الموجودة في جميع الشرائح داخل العرض التقديمي. توضح هذه المقالة كيفية استخراج النص من عروض PowerPoint PPTX باستخدام Aspose.Slides. 
-
+ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، عليك استخراج النص من جميع الأشكال على جميع الشرائح في العرض التقديمي. تشرح هذه المقالة كيفية استخراج النص من عروض PowerPoint PPTX باستخدام Aspose.Slides. 
 {{% /alert %}} 
 ## **استخراج النص من الشرائح**
-توفر Aspose.Slides for PHP via Java الفئة [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil). تكشف هذه الفئة عن عدد من الأساليب الساكنة المتعددة التحميل لاستخراج النص الكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX، استخدم الأسلوب الساكن المتعدد التحميل [getAllTextBoxes](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) المعرّف في الفئة [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil). يقبل هذا الأسلوب كائن Slide كمعامل.
-عند التنفيذ، يقوم أسلوب Slide بمسح النص بالكامل من الشريحة الممرَّرة كمعامل ويعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame). هذا يعني أن أي تنسيق نصي مرتبط بالنص متاح. الجزء التالي من الشيفرة يستخرج كل النص في الشريحة الأولى من العرض التقديمي:
+توفر Aspose.Slides for PHP عبر Java فئة [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/). تُظهر هذه الفئة عددًا من الأساليب الثابتة المتعددة التحميل لاستخراج النص الكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX، استخدم الأسلوب الثابت المتعدد التحميل [getAllTextBoxes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/getalltextboxes/) الذي توفره فئة [SlideUtil](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/). يقبل هذا الأسلوب كائن Slide كمعامل.  
+عند التنفيذ، يقوم أسلوب Slide بمسح النص الكامل من الشريحة التي تم تمريرها كمعامل ويعيد مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). هذا يعني أن أي تنسيق نصي مرتبط بالنص متاح. الجزء التالي من الشيفرة يستخرج جميع النصوص على الشريحة الأولى من العرض التقديمي:
 ```php
-  # إنشاء كائن Presentation الذي يمثل ملف PPTX
+  # إنشاء كائن Presentation يمثل ملف PPTX
   $pres = new Presentation("demo.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
     foreach($pres->getSlides() as $slide) {
       # الحصول على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
       $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
-      # التجول عبر مصفوفة TextFrames
+      # المرور عبر مصفوفة TextFrames
       for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-        # التجول عبر الفقرات في ITextFrame الحالي
+        # المرور عبر الفقرات في ITextFrame الحالي
         foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-          # التجول عبر الأقسام في IParagraph الحالي
+          # المرور عبر الأجزاء في IParagraph الحالي
           foreach($para->getPortions() as $port) {
             # عرض النص في الجزء الحالي
             echo($port->getText());
@@ -70,23 +68,23 @@ description: "استخراج النص بسرعة من عروض PowerPoint و Ope
 
 
 ## **استخراج النص من العروض التقديمية**
-لمسح النص من العرض التقديمي بالكامل، استخدم الأسلوب الساكن [getAllTextFrames](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) المعرّف في فئة SlideUtil. يأخذ هذا الأسلوب معاملين:
+لمسح النص من كامل العرض التقديمي، استخدم الأسلوب الثابت [getAllTextFrames](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/getalltextframes/) الذي توفره فئة SlideUtil. يأخذ هذا الأسلوب معاملين:
 
-1. أولاً، كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/TextExtractionArrangingMode#Unarranged) يمثل العرض التقديمي الذي يُستخرج منه النص.
-2. ثانيًا، قيمة منطقية تحدد ما إذا كان يجب تضمين الشريحة الرئيسة عند مسح النص من العرض التقديمي.
-   يعيد الأسلوب مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) مع معلومات تنسيق النص. الشيفرة أدناه تمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسة.
+1. أولًا، كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) يمثل العرض التقديمي الذي يتم استخراج النص منه.
+1. ثانيًا، قيمة منطقية تحدد ما إذا كان يجب تضمين الشريحة الرئيسية عند مسح النص من العرض التقديمي.
+   يعيد الأسلوب مصفوفة من كائنات [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)، مع معلومات تنسيق النص. الشيفرة أدناه تمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسية.
 ```php
-  # إنشاء كائن Presentation الذي يمثل ملف PPTX
+  # إنشاء كائن Presentation يمثل ملف PPTX
   $pres = new Presentation("demo.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
     # الحصول على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
     $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
-    # التجول عبر مصفوفة TextFrames
+    # التكرار عبر مصفوفة TextFrames
     for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-      # التجول عبر الفقرات في ITextFrame الحالي
+      # التكرار عبر الفقرات في ITextFrame الحالي
       foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-        # التجول عبر الأجزاء في IParagraph الحالي
+        # التكرار عبر الأجزاء في IParagraph الحالي
         foreach($para->getPortions() as $port) {
           # عرض النص في الجزء الحالي
           echo($port->getText());
@@ -105,23 +103,44 @@ description: "استخراج النص بسرعة من عروض PowerPoint و Ope
 ```
 
 
-## **استخراج النص المصنف والسريع**
-تم إضافة الأسلوب الساكن الجديد getPresentationText إلى فئة Presentation. هناك ثلاث عمليات تحميل لهذا الأسلوب:
+## **استخراج النص المصنّف والسريع**
+تم إضافة الأسلوب الثابت الجديد getPresentationText إلى فئة Presentation. هناك ثلاث تحميلات متعددة لهذا الأسلوب:
 ```php
+
+``` 
+
+The [TextExtractionArrangingMode](https://reference.aspose.com/slides/php-java/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode to organize the output of text result and can be set to the following values:
+- [Unarranged](https://reference.aspose.com/slides/php-java/aspose.slides/textextractionarrangingmode/#Unarranged) - The raw text with no respect to position on the slide
+- [Arranged](https://reference.aspose.com/slides/php-java/aspose.slides/textextractionarrangingmode/#Arranged) - The text is positioned in the same order as on the slide
+
+**Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
+
+[PresentationText](https://reference.aspose.com/slides/php-java/aspose.slides/presentationtext/) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/php-java/aspose.slides/presentationtext/getslidestext/) method which returns an array of `SlideText` objects. Every object represent the text on the corresponding slide. `SlideText` object have the following methods:
+
+- `SlideText.getText` - The text on the slide's shapes
+- `SlideText.getMasterText` - The text on the master page's shapes for this slide
+- `SlideText.getLayoutText` - The text on the layout page's shapes for this slide
+- `SlideText.getNotesText` - The text on the notes page's shapes for this slide
+
+The new API can be used like this:
+
+```php
+  $text1 = PresentationFactory->getInstance()->getPresentationText("presentation.pptx", TextExtractionArrangingMode->Unarranged);
+  echo($text1->getSlidesText()[0]->getText());
+  echo($text1->getSlidesText()[0]->getLayoutText());
+  echo($text1->getSlidesText()[0]->getMasterText());
+  echo($text1->getSlidesText()[0]->getNotesText());
 
 ```
 
 
 ## **الأسئلة المتكررة**
 
-**ما مدى سرعة معالجة Aspose.Slides للعروض التقديمية الكبيرة أثناء استخراج النص؟**
+**ما مدى سرعة معالجة Aspose.Slides للعروض التقديمية الكبيرة أثناء استخراج النص؟**  
+تم تحسين Aspose.Slides للأداء العالي ويعالج بفاعلية حتى [العروض التقديمية الكبيرة](/slides/ar/php-java/open-presentation/)، مما يجعله مناسبًا للسيناريوهات الوقت الحقيقي أو المعالجة بالجملة.
 
-تم تحسين Aspose.Slides لأداء عالي وتقوم بمعالجة العروض التقديمية [الكبيرة](/slides/ar/php-java/open-presentation/) بكفاءة، مما يجعلها مناسبة لسيناريوهات المعالجة الفورية أو الضخمة.
+**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض التقديمية؟**  
+نعم، يدعم Aspose.Slides استخراج النص من الجداول والرسوم البيانية والعناصر المعقدة الأخرى في الشرائح، مما يتيح لك الوصول إلى جميع المحتويات النصية وتحليلها بسهولة.
 
-**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض التقديمية؟**
-
-نعم، يدعم Aspose.Slides بالكامل استخراج النص من الجداول والرسوم البيانية والعناصر المعقدة الأخرى في الشرائح، مما يتيح لك الوصول إلى جميع المحتويات النصية وتحليلها بسهولة.
-
-**هل أحتاج إلى ترخيص خاص لـ Aspose.Slides لاستخراج النص من العروض التقديمية؟**
-
-يمكنك استخراج النص باستخدام نسخة التجربة المجانية من Aspose.Slides، رغم أن لديها بعض القيود، مثل معالجة عدد محدود من الشرائح فقط. للحصول على استخدام غير مقيد وللتعامل مع عروض تقديمية أكبر، يُنصح بشراء ترخيص كامل.
+**هل أحتاج إلى ترخيص خاص لـ Aspose.Slides لاستخراج النص من العروض التقديمية؟**  
+يمكنك استخراج النص باستخدام النسخة التجريبية المجانية من Aspose.Slides، على الرغم من وجود بعض القيود مثل معالجة عدد محدود من الشرائح فقط. لاستخدام غير محدود وللتعامل مع عروض تقديمية أكبر، يُنصح بشراء ترخيص كامل.

@@ -1,50 +1,52 @@
 ---
-title: "Erstellen und Anwenden von WordArt‑Effekten in PHP"
-linktitle: "WordArt"
+title: WordArt-Effekte in PHP erstellen und anwenden
+linktitle: WordArt
 type: docs
 weight: 110
 url: /de/php-java/wordart/
 keywords:
 - WordArt
 - WordArt erstellen
-- WordArt‑Vorlage
-- WordArt‑Effekt
+- WordArt-Vorlage
+- WordArt-Effekt
 - Schatteneffekt
 - Anzeigeeffekt
 - Leuchteffekt
-- WordArt‑Transformation
-- 3D‑Effekt
-- Außenschatten‑Effekt
-- Innenschatten‑Effekt
+- WordArt-Transformation
+- 3D-Effekt
+- äußerer Schatteneffekt
+- innerer Schatteneffekt
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen und Anpassen von WordArt‑Effekten in Aspose.Slides für PHP via Java. Diese Schritt-für-Schritt-Anleitung hilft Entwicklern, Präsentationen mit professionellem Text zu verbessern."
+description: "Erstellen und Anpassen von WordArt-Effekten in Aspose.Slides für PHP via Java. Diese schrittweise Anleitung hilft Entwicklern, Präsentationen mit professionellem Text zu verbessern."
 ---
 
 ## **Über WordArt?**
-WordArt bzw. Word Art ist ein Feature, das es Ihnen ermöglicht, Texte mit Effekten zu versehen, damit sie hervorstechen. Mit WordArt können Sie beispielsweise einen Text umranden oder mit einer Farbe (oder einem Farbverlauf) füllen, 3D‑Effekte hinzufügen usw. Außerdem können Sie die Form eines Textes verzerren, biegen und strecken. 
+WordArt oder Word Art ist ein Feature, das es Ihnen ermöglicht, Texteffekte anzuwenden, damit sie hervorstechen. Mit WordArt können Sie beispielsweise einen Text umranden oder mit einer Farbe (oder einem Farbverlauf) füllen, 3D‑Effekte hinzufügen usw. Außerdem können Sie die Form eines Textes schräg stellen, biegen und strecken. 
 
 {{% alert color="primary" %}} 
-WordArt behandelt einen Text wie ein grafisches Objekt. Im Allgemeinen besteht WordArt aus Effekten oder Sondermodifikationen, die an Texten vorgenommen werden, um sie ansprechender oder auffälliger zu machen. 
+
+WordArt ermöglicht es Ihnen, einen Text wie ein grafisches Objekt zu behandeln. Im Allgemeinen besteht WordArt aus Effekten oder speziellen Modifikationen, die an Texten vorgenommen werden, um sie attraktiver oder auffälliger zu machen. 
+
 {{% /alert %}} 
 
 **WordArt in Microsoft PowerPoint**
 
-Um WordArt in Microsoft PowerPoint zu verwenden, müssen Sie eine der vordefinierten WordArt‑Vorlagen auswählen. Eine WordArt‑Vorlage ist ein Satz von Effekten, die auf einen Text oder dessen Form angewendet werden. 
+Um WordArt in Microsoft PowerPoint zu verwenden, müssen Sie eine der vordefinierten WordArt‑Vorlagen auswählen. Eine WordArt‑Vorlage ist ein Satz von Effekten, die auf einen Text oder seine Form angewendet werden. 
 
 **WordArt in Aspose.Slides**
 
-In Aspose.Slides für PHP via Java 20.10 haben wir die Unterstützung für WordArt implementiert und das Feature in nachfolgenden Aspose.Slides‑Releases für PHP via Java verbessert.
+In Aspose.Slides für PHP via Java 20.10 haben wir die Unterstützung für WordArt implementiert und die Funktion in nachfolgenden Aspose.Slides‑Releases für PHP via Java verbessert.
 
-Mit Aspose.Slides für PHP via Java können Sie ganz einfach Ihre eigene WordArt‑Vorlage (ein einzelner Effekt oder eine Kombination von Effekten) erstellen und auf Texte anwenden.
+Mit Aspose.Slides für PHP via Java können Sie ganz einfach Ihre eigene WordArt‑Vorlage (ein einzelner Effekt oder eine Kombination von Effekten) erstellen und sie auf Texte anwenden.
 
-## **Erstellen einer einfachen WordArt‑Vorlage und Anwenden auf Text**
+## **Erstellen Sie eine einfache WordArt‑Vorlage und wenden Sie sie auf Text an**
 
-**Verwendung von Aspose.Slides** 
+**Using Aspose.Slides** 
 
-Zunächst erzeugen wir einen einfachen Text mit diesem PHP‑Code:
+Zuerst erstellen wir mit folgendem PHP‑Code einen einfachen Text:
 ```php
   $pres = new Presentation();
   try {
@@ -60,7 +62,7 @@ Zunächst erzeugen wir einen einfachen Text mit diesem PHP‑Code:
   }
 ```
 
-Jetzt setzen wir die Schriftgröße des Textes auf einen höheren Wert, um den Effekt deutlicher zu machen, mittels dieses Codes:
+Jetzt setzen wir die Schriftgröße des Textes auf einen größeren Wert, damit der Effekt deutlicher wird, mit folgendem Code:
 ```php
   $fontData = new FontData("Arial Black");
   $portion->getPortionFormat()->setLatinFont($fontData);
@@ -69,9 +71,9 @@ Jetzt setzen wir die Schriftgröße des Textes auf einen höheren Wert, um den E
 ```
 
 
-**Verwendung von Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
-Öffnen Sie das WordArt‑Effekte‑Menü in Microsoft PowerPoint:
+Gehen Sie zum WordArt‑Effekte‑Menü in Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
@@ -81,9 +83,9 @@ Dies sind einige der verfügbaren Parameter oder Optionen:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Verwendung von Aspose.Slides**
+**Using Aspose.Slides**
 
-Hier wenden wir das Muster **[SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid)** auf den Text an und fügen mit diesem Code einen 1‑Pixel‑breiten schwarzen Textrahmen hinzu:
+Hier wenden wir die Musterfarbe [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/patternstyle/#SmallGrid) auf den Text an und fügen mit folgendem Code einen 1‑Pixel breiten schwarzen Textrahmen hinzu:
 ```php
   $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -100,17 +102,17 @@ Der resultierende Text:
 
 ## **Weitere WordArt‑Effekte anwenden**
 
-**Verwendung von Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
 Über die Benutzeroberfläche des Programms können Sie diese Effekte auf einen Text, Textblock, eine Form oder ein ähnliches Element anwenden:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Beispielsweise können Schatten‑, Reflexions‑ und Leuchteffekte auf einen Text angewendet werden; 3D‑Format‑ und 3D‑Drehungs‑Effekte können auf einen Textblock angewendet werden; die Eigenschaft „Weiche Kanten“ kann auf ein Formobjekt angewendet werden (sie wirkt weiterhin, wenn keine 3D‑Format‑Eigenschaft gesetzt ist). 
+Beispielsweise können Shadow, Reflection und Glow auf einen Text angewendet werden; 3D‑Format und 3D‑Rotation auf einen Textblock; die Eigenschaft Soft Edges kann auf ein Shape‑Objekt angewendet werden (sie hat weiterhin Wirkung, wenn keine 3D‑Format‑Eigenschaft gesetzt ist). 
 
-### **Schatteneﬀekte anwenden**
+### **Schatteneffekte anwenden**
 
-Hier wollen wir ausschließlich die Eigenschaften eines Textes festlegen. Wir wenden den Schatteneffekt auf einen Text mit diesem Code an:
+Hier wollen wir nur Eigenschaften für einen Text festlegen. Wir wenden den Schatteneffekt mit folgendem Code an :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
@@ -125,28 +127,28 @@ Hier wollen wir ausschließlich die Eigenschaften eines Textes festlegen. Wir we
 ```
 
 
-Die Aspose.Slides‑API unterstützt drei Schattenarten: **OuterShadow**, **InnerShadow** und **PresetShadow**. 
+Die Aspose.Slides‑API unterstützt drei Schattenarten: OuterShadow, InnerShadow und PresetShadow. 
 
-Mit **PresetShadow** können Sie einen vordefinierten Schatten für einen Text anwenden. 
+Mit PresetShadow können Sie einen Schatten für einen Text anwenden (unter Verwendung voreingestellter Werte). 
 
-**Verwendung von Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
-In PowerPoint können Sie nur einen Schattentyp verwenden. Hier ein Beispiel:
+In PowerPoint können Sie einen Schattentyp verwenden. Hier ein Beispiel:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Verwendung von Aspose.Slides**
+**Using Aspose.Slides**
 
-Aspose.Slides ermöglicht tatsächlich das gleichzeitige Anwenden von zwei Schattenarten: **InnerShadow** und **PresetShadow**.
+Aspose.Slides erlaubt tatsächlich, zwei Schattenarten gleichzeitig anzuwenden: InnerShadow und PresetShadow.
 
-**Hinweise:**
+**Notes:**
 
-- Wenn **OuterShadow** und **PresetShadow** zusammen verwendet werden, wird nur der **OuterShadow**‑Effekt angewendet. 
-- Werden **OuterShadow** und **InnerShadow** gleichzeitig eingesetzt, hängt der resultierende Effekt von der PowerPoint‑Version ab. In PowerPoint 2013 wird der Effekt verdoppelt, in PowerPoint 2007 wird nur **OuterShadow** angewendet. 
+- Wenn OuterShadow und PresetShadow zusammen verwendet werden, wird nur der OuterShadow‑Effekt angewendet. 
+- Wenn OuterShadow und InnerShadow gleichzeitig verwendet werden, hängt der resultierende bzw. angewendete Effekt von der PowerPoint‑Version ab. In PowerPoint 2013 wird der Effekt verdoppelt, in PowerPoint 2007 wird der OuterShadow‑Effekt angewendet. 
 
 ### **Reflexionseffekte auf Text anwenden**
 
-Wir fügen dem Text über dieses Codebeispiel ein Reflexionseffekt hinzu:
+Wir fügen dem Text eine Reflexion hinzu mit folgendem Code‑Beispiel :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
@@ -162,9 +164,9 @@ Wir fügen dem Text über dieses Codebeispiel ein Reflexionseffekt hinzu:
 ```
 
 
-### **Leuchteffekte auf Text anwenden**
+### **Leuchteeffekte auf Text anwenden**
 
-Wir wenden den Leuchteffekt auf den Text an, um ihn zum Glänzen zu bringen, mit diesem Code:
+Wir wenden den Leuchteffekt auf den Text an, damit er strahlt oder hervorsticht, mit folgendem Code:
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
@@ -173,17 +175,19 @@ Wir wenden den Leuchteffekt auf den Text an, um ihn zum Glänzen zu bringen, mit
 ```
 
 
-Das Ergebnis:
+Das Ergebnis der Operation:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
+
 Sie können die Parameter für Schatten, Reflexion und Leuchten ändern. Die Eigenschaften der Effekte werden für jeden Textabschnitt separat gesetzt. 
+
 {{% /alert %}} 
 
 ### **Transformationen in WordArt verwenden**
 
-Wir verwenden die Eigenschaft **Transform** (gilt für den gesamten Textblock) mit diesem Code:
+Wir verwenden die Transform‑Eigenschaft (die für den gesamten Textblock gilt) mit folgendem Code:
 ```php
   $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
 ```
@@ -194,20 +198,22 @@ Das Ergebnis:
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-Sowohl Microsoft PowerPoint als auch Aspose.Slides für PHP via Java bieten eine Reihe vordefinierter Transformationsarten. 
+
+Sowohl Microsoft PowerPoint als auch Aspose.Slides für PHP via Java bieten eine bestimmte Anzahl vordefinierter Transformationstypen. 
+
 {{% /alert %}} 
 
-**Verwendung von PowerPoint**
+**Using PowerPoint**
 
-Um vordefinierte Transformationsarten zu erreichen, navigieren Sie zu: **Format** → **TextEffect** → **Transform**
+Um auf vordefinierte Transformationstypen zuzugreifen, gehen Sie über: **Format** -> **TextEffect** -> **Transform**
 
-**Verwendung von Aspose.Slides**
+**Using Aspose.Slides**
 
-Zur Auswahl einer Transformationsart verwenden Sie das **TextShapeType**‑Enum. 
+Um einen Transformationstyp auszuwählen, verwenden Sie das Enum TextShapeType. 
 
 ### **3D‑Effekte auf Text und Formen anwenden**
 
-Wir setzen einen 3D‑Effekt auf eine Textform mit diesem Beispielcode:
+Wir setzen einen 3D‑Effekt auf eine Textform mit folgendem Beispielcode:
 ```php
   $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
@@ -253,39 +259,41 @@ Wir wenden einen 3D‑Effekt auf den Text mit diesem PHP‑Code an:
 ```
 
 
-Das Ergebnis:
+Das Ergebnis der Operation:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
-Die Anwendung von 3D‑Effekten auf Texte bzw. deren Formen und die Wechselwirkungen zwischen Effekten folgen bestimmten Regeln. 
 
-Betrachten Sie eine Szene für einen Text und die Form, die diesen Text enthält. Der 3D‑Effekt umfasst die 3D‑Objektdarstellung und die Szene, in der das Objekt platziert ist. 
+Die Anwendung von 3D‑Effekten auf Texte oder deren Formen und die Wechselwirkungen zwischen Effekten basieren auf bestimmten Regeln. 
+
+Betrachten Sie eine Szene für einen Text und die Form, die diesen Text enthält. Der 3D‑Effekt enthält die 3D‑Objektrepräsentation und die Szene, auf der das Objekt platziert wurde. 
 
 - Wenn die Szene sowohl für die Figur als auch für den Text gesetzt ist, hat die Figurenszene höhere Priorität – die Textszene wird ignoriert. 
-- Fehlt der Figur eine eigene Szene, aber sie besitzt eine 3D‑Darstellung, wird die Textszene verwendet. 
-- Andernfalls – wenn die Form ursprünglich keinen 3D‑Effekt hat – bleibt die Form flach und der 3D‑Effekt wird nur auf den Text angewendet. 
+- Wenn die Figur keine eigene Szene hat, aber eine 3D‑Repräsentation besitzt, wird die Textszene verwendet. 
+- Andernfalls – wenn die Form ursprünglich keinen 3D‑Effekt hat – ist die Form flach und der 3D‑Effekt wird nur auf den Text angewendet. 
 
-Diese Beschreibungen beziehen sich auf die Methoden **ThreeDFormat.getLightRig()** und **ThreeDFormat.getCamera()**. 
+Diese Beschreibungen stehen im Zusammenhang mit den Methoden ThreeDFormat.getLightRig() und ThreeDFormat.getCamera(). 
+
 {{% /alert %}} 
 
-## **Außenschatte‑Effekte auf Text anwenden**
-Aspose.Slides für PHP via Java stellt die Klassen **[IOuterShadow](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow)** und **[IInnerShadow](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow)** bereit, die das Anwenden von Schatteneffekten auf einen Text ermöglichen, der von **[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame)** getragen wird. Vorgehensweise:
+## **Äußere Schatteneffekte auf Text anwenden**
+Aspose.Slides für PHP via Java stellt die Klassen [OuterShadow](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/) und [InnerShadow](https://reference.aspose.com/slides/php-java/aspose.slides/innershadow/) bereit, die das Anwenden von Schatteneffekten auf einen Text ermöglichen, der von [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) getragen wird. Gehen Sie die folgenden Schritte durch:
 
-1. Erstellen Sie eine Instanz der **[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)**‑Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie der Folie eine AutoShape vom Typ Rechteck hinzu.  
-4. Greifen Sie auf das **TextFrame** der AutoShape zu.  
-5. Setzen Sie den **FillType** der AutoShape auf **NoFill**.  
-6. Instanziieren Sie die **OuterShadow**‑Klasse.  
-7. Legen Sie den **BlurRadius** des Schattens fest.  
-8. Bestimmen Sie die **Direction** des Schattens.  
-9. Setzen Sie die **Distance** des Schattens.  
-10. Setzen Sie **RectanglelAlign** auf **TopLeft**.  
-11. Setzen Sie **PresetColor** des Schattens auf **Black**.  
-12. Schreiben Sie die Präsentation als **[PPTX](https://docs.fileformat.com/presentation/pptx/)**‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.  
+2. Rufen Sie die Referenz einer Folie über deren Index ab.  
+3. Fügen Sie der Folie eine AutoShape vom Typ Rectangle hinzu.  
+4. Greifen Sie auf das TextFrame zu, das mit der AutoShape verknüpft ist.  
+5. Setzen Sie den FillType der AutoShape auf NoFill.  
+6. Instanziieren Sie die Klasse OuterShadow.  
+7. Setzen Sie den BlurRadius des Schattens.  
+8. Setzen Sie die Direction des Schattens.  
+9. Setzen Sie den Distance des Schattens.  
+10. Setzen Sie das RectanglelAlign auf TopLeft.  
+11. Setzen Sie das PresetColor des Schattens auf Black.  
+12. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
 
-Dieses Beispiel‑Code‑Snippet – eine Umsetzung der obigen Schritte – zeigt, wie Sie den Außenschatten‑Effekt auf einen Text anwenden:
+Dieser Beispielcode — eine Umsetzung der oben genannten Schritte — zeigt, wie Sie den äußeren Schatteneffekt auf einen Text anwenden:
 ```php
   $pres = new Presentation();
   try {
@@ -297,7 +305,7 @@ Dieses Beispiel‑Code‑Snippet – eine Umsetzung der obigen Schritte – zeig
     $ashp->addTextFrame("Aspose TextBox");
     # Formfüllung deaktivieren, falls wir den Schatten des Textes erhalten wollen
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    # Außenschatten hinzufügen und alle erforderlichen Parameter festlegen
+    # Äußeren Schatten hinzufügen und alle erforderlichen Parameter festlegen
     $ashp->getEffectFormat()->enableOuterShadowEffect();
     $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
     $shadow->setBlurRadius(4.0);
@@ -315,23 +323,23 @@ Dieses Beispiel‑Code‑Snippet – eine Umsetzung der obigen Schritte – zeig
 ```
 
 
-## **Innenschatten‑Effekte auf Formen anwenden**
-Vorgehensweise:
+## **Innere Schatteneffekte auf Formen anwenden**
+Gehen Sie die folgenden Schritte durch:
 
-1. Erstellen Sie eine Instanz der **[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)**‑Klasse.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse.  
 2. Holen Sie sich die Referenz der Folie.  
-3. Fügen Sie eine AutoShape vom Typ Rechteck hinzu.  
-4. Aktivieren Sie **InnerShadowEffect**.  
+3. Fügen Sie eine AutoShape vom Typ Rectangle hinzu.  
+4. Aktivieren Sie InnerShadowEffect.  
 5. Setzen Sie alle notwendigen Parameter.  
-6. Setzen Sie **ColorType** auf **Scheme**.  
-7. Legen Sie die **Scheme Color** fest.  
-8. Schreiben Sie die Präsentation als **[PPTX](https://docs.fileformat.com/presentation/pptx/)**‑Datei.
+6. Setzen Sie den ColorType auf Scheme.  
+7. Setzen Sie die Scheme‑Farbe.  
+8. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
 
-Dieses Beispiel‑Code‑Snippet (basierend auf den obigen Schritten) zeigt, wie Sie einen Connector zwischen zwei Formen hinzufügen:
+Dieses Beispielcode (basierend auf den obigen Schritten) zeigt, wie man einen Verbinder zwischen zwei Formen hinzufügt :
 ```php
   $pres = new Presentation();
   try {
-    # Referenz der Folie abrufen
+    # Referenz der Folie erhalten
     $slide = $pres->getSlides()->get_Item(0);
     # AutoShape vom Typ Rechteck hinzufügen
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
@@ -349,9 +357,9 @@ Dieses Beispiel‑Code‑Snippet (basierend auf den obigen Schritten) zeigt, wie
     $ef->getInnerShadowEffect()->setDirection(90.0);
     $ef->getInnerShadowEffect()->setDistance(6.0);
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # ColorType auf Scheme setzen
+    # ColorType als Scheme festlegen
     $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    # Scheme-Farbe setzen
+    # Scheme-Farbe festlegen
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
     # Präsentation speichern
     $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
@@ -365,18 +373,18 @@ Dieses Beispiel‑Code‑Snippet (basierend auf den obigen Schritten) zeigt, wie
 
 ## **FAQ**
 
-**Kann ich WordArt‑Effekte mit verschiedenen Schriften oder Skripten (z. B. Arabisch, Chinesisch) verwenden?**
+**Kann ich WordArt‑Effekte mit verschiedenen Schriftarten oder Schriftsystemen (z. B. Arabisch, Chinesisch) verwenden?**
 
-Ja, Aspose.Slides unterstützt Unicode und funktioniert mit allen gängigen Schriften und Skripten. WordArt‑Effekte wie Schatten, Füllung und Kontur können unabhängig von der Sprache angewendet werden, wobei die Verfügbarkeit und Darstellung von Schriften vom System abhängen.
+Ja, Aspose.Slides unterstützt Unicode und arbeitet mit allen gängigen Schriftarten und Schriftsystemen. WordArt‑Effekte wie Schatten, Füllung und Kontur können unabhängig von der Sprache angewendet werden, wobei die Verfügbarkeit und Darstellung von Schriftarten vom System abhängen kann.
 
-**Kann ich WordArt‑Effekte auf Elemente der Folienmaster anwenden?**
+**Kann ich WordArt‑Effekte auf Elemente des Folienmasters anwenden?**
 
-Ja, Sie können WordArt‑Effekte auf Formen in Master‑Folien anwenden, einschließlich Titelplatzhaltern, Fußzeilen oder Hintergrundtext. Änderungen am Master‑Layout werden in allen zugehörigen Folien übernommen.
+Ja, Sie können WordArt‑Effekte auf Formen in Master‑Folien anwenden, einschließlich Titel‑Platzhaltern, Fußzeilen oder Hintergrund‑Texten. Änderungen am Master‑Layout werden auf alle zugehörigen Folien übertragen.
 
 **Beeinflussen WordArt‑Effekte die Dateigröße der Präsentation?**
 
-Leicht. Schatten, Leuchten und Farbverlauf‑Füllungen können die Dateigröße minimal erhöhen, da zusätzliche Formatierungs‑Metadaten hinzugefügt werden, der Unterschied ist jedoch in der Regel vernachlässigbar.
+Leicht. WordArt‑Effekte wie Schatten, Leuchten und Farbverläufe können die Dateigröße geringfügig erhöhen, da zusätzliche Formatierungs‑Metadaten hinzugefügt werden, aber der Unterschied ist in der Regel vernachlässigbar.
 
-**Kann ich das Ergebnis von WordArt‑Effekten ansehen, ohne die Präsentation zu speichern?**
+**Kann ich das Ergebnis von WordArt‑Effekten anzeigen, ohne die Präsentation zu speichern?**
 
-Ja, Sie können Folien, die WordArt enthalten, in Bilder (z. B. PNG, JPEG) rendern, indem Sie die `getImage`‑Methode der **[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)**‑ oder **[Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/)**‑Schnittstelle verwenden. Damit können Sie das Ergebnis im Speicher oder auf dem Bildschirm prüfen, bevor Sie die gesamte Präsentation speichern oder exportieren.
+Ja, Sie können Folien, die WordArt enthalten, in Bilder (z. B. PNG, JPEG) rendern, indem Sie die `getImage`‑Methode der [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑ oder [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/)‑Klassen verwenden. So können Sie das Ergebnis im Speicher oder auf dem Bildschirm ansehen, bevor Sie die komplette Präsentation speichern oder exportieren.

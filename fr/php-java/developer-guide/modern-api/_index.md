@@ -5,42 +5,42 @@ type: docs
 weight: 237
 url: /fr/php-java/modern-api/
 keywords:
-- "API Moderne"
+- "API moderne"
 - "dessin"
-- "miniature de diapositive"
+- "vignette de diapositive"
 - "diapositive en image"
-- "miniature de forme"
+- "vignette de forme"
 - "forme en image"
-- "miniature de présentation"
+- "vignette de présentation"
 - "présentation en images"
-- "ajouter une image"
-- "ajouter une image"
-- PHP
-- Aspose.Slides
-description: "Modernisez le traitement des images de diapositive en remplaçant les API d'imagerie obsolètes par l'API Moderne PHP pour une automatisation fluide de PowerPoint et OpenDocument."
+- "ajouter image"
+- "ajouter image"
+- "PHP"
+- "Aspose.Slides"
+description: "Moderniser le traitement d'images des diapositives en remplaçant les API d'imagerie obsolètes par l'API Moderne PHP pour une automatisation fluide de PowerPoint et OpenDocument."
 ---
 
 ## **Introduction**
 
-Historiquement, Aspose Slides dépend de java.awt et expose dans son API publique les classes suivantes provenant de ce package :
+Historiquement, Aspose Slides dépend de java.awt et possède dans l'API publique les classes suivantes provenant de celui‑ci :
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-Depuis la version 24.4, cette API publique est déclarée obsolète.
+À partir de la version 24.4, cette API publique est déclarée obsolète.
 
-Afin d’éliminer les dépendances à ces classes, nous avons ajouté ce que l’on appelle l’« API Moderne » – c’est‑à‑dire l’API qui doit être utilisée à la place de celle déclarée obsolète, dont les signatures contiennent des dépendances à BufferedImage. Graphics2D est déclaré obsolète et son support est retiré de l’API publique Slides.
+Afin de se débarrasser des dépendances à ces classes, nous avons ajouté la dite « Modern API » — c’est‑à‑dire l’API qui doit être utilisée à la place de celle marquée obsolète, dont les signatures contiennent des dépendances à BufferedImage. Graphics2D est déclaré obsolète et son support est supprimé de l'API publique Slides.
 
-La suppression de l’API publique obsolète contenant des dépendances à System.Drawing sera réalisée dans la version 24.8.
+La suppression de l’API publique obsolète avec dépendances à System.Drawing sera prévue pour la version 24.8.
 
 ## **Modern API**
 
-Ajout des classes et énumérations suivantes à l’API publique :
+Ajout des classes et énumérations suivantes à l'API publique :
 
-- IImage – représente l’image raster ou vectorielle.
-- ImageFormat – représente le format de fichier de l’image.
-- Images – méthodes pour instancier et travailler avec l’interface IImage.
+- IImage - représente l’image raster ou vectorielle.
+- ImageFormat - représente le format de fichier de l’image.
+- Images - méthodes pour créer et manipuler la classe IImage.
 
-Veuillez noter que IImage est jetable (elle implémente l’interface IDisposable et son utilisation doit être encapsulée dans un using ou être disposée d’une autre manière pratique).
+Notez que `IImage` est jetable (il doit être libéré après utilisation).
 
 Un scénario typique d’utilisation de la nouvelle API peut ressembler à :
 ``` php
@@ -49,21 +49,20 @@ use aspose\slides\ShapeType;
 use aspose\slides\ImageFormat;
 use aspose\slides\Images;
 
-
 $pres = new Presentation();
 
-# instancier une instance jetable de IImage à partir du fichier sur le disque.
+# instancier une instance jetable d'IImage depuis le fichier sur le disque.
 $image = Images::fromFile("image.png");
 
-# créer une image PowerPoint en ajoutant une instance de IImage aux images de la présentation.
+# créer une image PowerPoint en ajoutant une instance d'IImage aux images de la présentation.
 $ppImage = $pres->getImages()->addImage($image);
 $image->dispose();
 
-# ajouter une forme d'image sur la diapositive #1
+# ajouter une forme image sur la diapositive #1
 $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $ppImage);
 
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
-# obtenir une instance de IImage représentant la diapositive #1.
+# obtenir une instance d'IImage représentant la diapositive #1.
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
 
 # enregistrer l'image sur le disque.
@@ -74,11 +73,11 @@ $pres->dispose();
 ```
 
 
-## **Replacing Old Code with Modern API**
+## **Remplacement du code ancien par l'API moderne**
 
-En général, vous devrez remplacer l’appel à l’ancienne méthode utilisant ImageIO par la nouvelle.
+En général, vous devrez remplacer l’appel à l’ancienne méthode utilisant ImageIO par le nouveau.
 
-Old:
+Ancien :
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getThumbnail($dimension);
@@ -87,7 +86,7 @@ $javafile = new Java("java.io.File", "image.png");
 $imageio->write($slideImage, "PNG", $javafile);
 ```
 
-New:
+Nouveau :
 ``` php
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
@@ -96,7 +95,7 @@ $slideImage->dispose();
 ```
 
 
-### **Obtention d’une miniature de diapositive**
+### **Obtention d’une vignette de diapositive**
 
 Code utilisant une API obsolète :
 ``` php
@@ -131,7 +130,7 @@ $pres->dispose();
 ```
 
 
-### **Obtention d’une miniature de forme**
+### **Obtention d’une vignette de forme**
 
 Code utilisant une API obsolète :
 ``` php
@@ -166,7 +165,7 @@ $pres->dispose();
 ```
 
 
-### **Obtention d’une miniature de présentation**
+### **Obtention d’une vignette de présentation**
 
 Code utilisant une API obsolète :
 ``` php
@@ -202,7 +201,7 @@ use aspose\slides\RenderingOptions;
 $pres = new Presentation("pres.pptx");
 
 $renderingOptions = new RenderingOptions();
-$dimension = new Java("java.awt.Dimension", 1920, 1080);
+$dimension = new Java("java.awt.Dimension", 1920, 1080");
 
 $images = $pres->getImages($renderingOptions, $dimension);
 for ($i = 0; $i < count(java_values($images)); $i++)
@@ -256,7 +255,7 @@ $pres->dispose();
 ```
 
 
-## **Methods to Be Removed and Their Replacement in Modern API**
+## **Méthodes à supprimer et leurs remplacements dans l'API moderne**
 
 ### **Presentation**
 | Signature de la méthode | Signature de la méthode de remplacement |
@@ -314,11 +313,11 @@ $pres->dispose();
 |--------------------------|------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
-## **API Support for Graphics2D Will Be Discontinued**
+## **Le support de Graphics2D sera interrompu**
 
-Les méthodes utilisant [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sont déclarées obsolètes et leur support sera retiré de l’API publique.
+Les méthodes utilisant [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sont déclarées obsolètes et leur support sera supprimé de l'API publique.
 
-La partie de l’API qui l’utilise sera supprimée :
+La partie de l'API qui l’utilise sera retirée :
 
 [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
 
@@ -328,14 +327,14 @@ La partie de l’API qui l’utilise sera supprimée :
 
 ## **FAQ**
 
-**Pourquoi java.awt.Graphics2D a-t-il été supprimé ?**
+**Pourquoi java.awt.Graphics2D a‑t‑il été supprimé ?**
 
-Le support de `Graphics2D` est retiré de l’API publique afin d’unifier le travail de rendu et d’image, d’éliminer les dépendances propres à la plateforme et de passer à une approche multiplateforme avec [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Toutes les méthodes de rendu vers `Graphics2D` seront supprimées.
+Le support de `Graphics2D` est retiré de l'API publique afin d’unifier le rendu et la gestion des images, d’éliminer les dépendances spécifiques à une plateforme et de passer à une approche multiplateforme avec [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Toutes les méthodes de rendu vers `Graphics2D` seront supprimées.
 
 **Quel est l’avantage pratique d’IImage par rapport à BufferedImage ?**
 
-[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) unifie la gestion des images raster et vectorielles et simplifie l’enregistrement dans différents formats via [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
+[IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) unifie la manipulation des images raster et vectorielles et simplifie l’enregistrement dans différents formats via [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/).
 
-**L’API moderne affectera-t-elle les performances de génération des miniatures ?**
+**L’API moderne affectera‑t‑elle les performances de génération de vignettes ?**
 
-Passer de `getThumbnail` à `getImage` ne détériore pas les scénarios : les nouvelles méthodes offrent les mêmes capacités de production d’images avec options et tailles, tout en conservant la prise en charge des options de rendu. Le gain ou la perte spécifiques dépendent du scénario, mais fonctionnellement les remplacements sont équivalents.
+Passer de `getThumbnail` à `getImage` n’altère pas les scénarios : les nouvelles méthodes offrent les mêmes capacités de production d’images avec options et tailles, tout en conservant le support des options de rendu. Le gain ou la perte spécifiques dépendent du scénario, mais fonctionnellement les remplacements sont équivalents.

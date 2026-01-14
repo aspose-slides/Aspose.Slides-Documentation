@@ -14,10 +14,10 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für PHP via Java digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für PHP via Java digital signieren. Sichern Sie Ihre Folien in Sekundenschnelle mit klaren Codebeispielen."
 ---
 
-**Digital certificate** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt markiert ist. Das digitale Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation über Datei -> Info -> Präsentation schützen eine digitale Signatur hinzuzufügen:
+**Digital certificate** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Das digitale Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhältlich werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation über Datei → Info → Präsentation schützen eine digitale Signatur hinzuzufügen:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
@@ -25,9 +25,9 @@ Eine Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die d
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
-Um eine Präsentation zu signieren oder die Echtheit von Präsentationssignaturen zu prüfen, stellt die **Aspose.Slides API** die Schnittstelle [**IDigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignature), die Schnittstelle [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignatureCollection) und die Methode [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getDigitalSignatures--) bereit. Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
-## **Digitale Signatur aus einem PFX-Zertifikat hinzufügen**
-Das nachstehende Codebeispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
+Um eine Präsentation zu signieren oder die Authentizität von Präsentationssignaturen zu überprüfen, stellt die **Aspose.Slides API** die Klassen [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature), die Klasse [**DigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignatureCollection) und die Methode [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getDigitalSignatures) bereit. Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
+## **Digitale Signatur aus einem PFX‑Zertifikat hinzufügen**
+Das folgende Codebeispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
 
 1. Öffnen Sie die PFX‑Datei und übergeben Sie das PFX‑Passwort an das Objekt [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature).
 1. Fügen Sie die erstellte Signatur dem Präsentationsobjekt hinzu.
@@ -49,7 +49,7 @@ Das nachstehende Codebeispiel zeigt, wie eine digitale Signatur aus einem PFX‑
 ```
 
 
-Jetzt ist es möglich zu prüfen, ob die Präsentation digital signiert wurde und nicht verändert wurde:
+Nun ist es möglich zu prüfen, ob die Präsentation digital signiert wurde und nicht verändert wurde:
 ```php
   # Präsentation öffnen
   $pres = new Presentation("SomePresentationSigned.pptx");
@@ -80,12 +80,12 @@ Jetzt ist es möglich zu prüfen, ob die Präsentation digital signiert wurde un
 
 **Kann ich vorhandene Signaturen aus einer Datei entfernen?**
 
-Ja. Die digitale Signatursammlung unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/removeat/) und das [vollständige Leeren](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/clear/); nach dem Speichern der Datei hat die Präsentation keine Signaturen mehr.
+Ja. Die Sammlung digitaler Signaturen unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/removeat/) und das [vollständige Leeren](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/clear/); nachdem Sie die Datei gespeichert haben, enthält die Präsentation keine Signaturen mehr.
 
-**Wird die Datei nach dem Signieren „schreibgeschützt“?**
+**Wird die Datei nach dem Signieren schreibgeschützt?**
 
-Nein. Eine Signatur bewahrt die Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten zu beschränken, kombinieren Sie sie mit ["Read-only" or a password](/slides/de/php-java/password-protected-presentation/).
+Nein. Eine Signatur bewahrt die Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten einzuschränken, kombinieren Sie sie mit ["Schreibgeschützt" oder ein Passwort](/slides/de/php-java/password-protected-presentation/).
 
 **Wird die Signatur in verschiedenen PowerPoint‑Versionen korrekt angezeigt?**
 
-Die Signatur wird für den OOXML‑(PPTX‑)Container erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.
+Die Signatur wird für den OOXML (PPTX)‑Container erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.

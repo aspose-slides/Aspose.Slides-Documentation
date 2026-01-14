@@ -14,7 +14,7 @@ keywords:
 - 隐藏形状
 - 更改形状顺序
 - 获取 Interop 形状 ID
-- 形状替代文本
+- 形状备用文本
 - 形状布局格式
 - 形状为 SVG
 - 形状转 SVG
@@ -23,19 +23,19 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解如何在 Aspose.Slides for PHP via Java 中创建、编辑和优化形状，并实现高性能的 PowerPoint 演示文稿。"
+description: "学习在 Aspose.Slides for PHP via Java 中创建、编辑和优化形状，并交付高性能的 PowerPoint 演示文稿。"
 ---
 
 ## **在幻灯片上查找形状**
-本文将介绍一种简便技术，帮助开发人员在不使用内部 Id 的情况下在幻灯片上查找特定形状。需要了解的是，PowerPoint 演示文稿文件只能通过内部唯一 Id 来标识幻灯片上的形状，除此之外没有其他方式。开发人员使用内部唯一 Id 来查找形状往往比较困难。所有添加到幻灯片的形状都可以设置替代文本（Alt Text）。我们建议开发人员使用替代文本来查找特定形状。您可以在 Microsoft PowerPoint 中为以后可能更改的对象定义替代文本。
+本主题将介绍一种简便技术，帮助开发者在不使用内部 Id 的情况下更容易在幻灯片上找到特定形状。需要了解的是，PowerPoint 演示文稿文件除内部唯一 Id 外，无法以其他方式标识幻灯片上的形状。开发者仅凭内部唯一 Id 查找形状往往比较困难。所有添加到幻灯片的形状都有 Alt Text（备用文本）。我们建议开发者使用备用文本来查找特定形状。您可以使用 MS PowerPoint 为计划以后更改的对象定义备用文本。
 
-在为所需形状设置替代文本后，您可以使用 Aspose.Slides for PHP via Java 打开该演示文稿，并遍历幻灯片中所有形状。在每次遍历时检查形状的替代文本，匹配的形状即为您需要的形状。为更好地演示此技术，我们创建了一个方法[findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)，它可以在幻灯片中查找特定形状并返回该形状。
+在为任意所需形状设置了备用文本后，您可以使用 Aspose.Slides for PHP via Java 打开该演示文稿，并遍历幻灯片中添加的所有形状。每次遍历时，都可以检查形状的备用文本，匹配的备用文本即为您需要的形状。为了更直观地展示此技术，我们创建了一个方法 [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) 来实现查找幻灯片中特定形状的功能，并直接返回该形状。
 ```php
   # 实例化一个表示演示文稿文件的 Presentation 类
   $pres = new Presentation("FindingShapeInSlide.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    # 要查找的形状的替代文本
+    # 要查找的形状的备用文本
     $shape = findShape($slide, "Shape1");
     if (!java_is_null($shape)) {
       echo("Shape Name: " . $shape->getName());
@@ -53,16 +53,16 @@ description: "了解如何在 Aspose.Slides for PHP via Java 中创建、编辑�
 
 
 ## **克隆形状**
-要使用 Aspose.Slides for PHP via Java 将形状克隆到幻灯片：
+使用 Aspose.Slides for PHP via Java 将形状克隆到幻灯片的步骤：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 通过索引获取幻灯片的引用。
 1. 访问源幻灯片的形状集合。
-1. 向演示文稿添加新幻灯片。
+1. 向演示文稿中添加新幻灯片。
 1. 将源幻灯片形状集合中的形状克隆到新幻灯片。
 1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下示例向幻灯片添加了一个组合形状。
+下面的示例向幻灯片中添加了一个组合形状。
 ```php
   # 实例化 Presentation 类
   $pres = new Presentation("Source Frame.pptx");
@@ -85,9 +85,9 @@ description: "了解如何在 Aspose.Slides for PHP via Java 中创建、编辑�
 
 
 ## **删除形状**
-Aspose.Slides for PHP via Java 允许开发人员删除任意形状。要从幻灯片中删除形状，请按以下步骤操作：
+Aspose.Slides for PHP via Java 允许开发者删除任意形状。要从任意幻灯片中删除形状，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 查找具有特定 AlternativeText 的形状。
 1. 删除该形状。
@@ -120,9 +120,9 @@ Aspose.Slides for PHP via Java 允许开发人员删除任意形状。要从幻�
 
 
 ## **隐藏形状**
-Aspose.Slides for PHP via Java 允许开发人员隐藏任意形状。要隐藏幻灯片中的形状，请按以下步骤操作：
+Aspose.Slides for PHP via Java 允许开发者隐藏任意形状。要隐藏幻灯片中的形状，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 查找具有特定 AlternativeText 的形状。
 1. 隐藏该形状。
@@ -155,14 +155,14 @@ Aspose.Slides for PHP via Java 允许开发人员隐藏任意形状。要隐藏�
 
 
 ## **更改形状顺序**
-Aspose.Slides for PHP via Java 允许开发人员重新排列形状。重新排列决定了形状的前后层级。要在幻灯片中重新排列形状，请按以下步骤操作：
+Aspose.Slides for PHP via Java 允许开发者重新排列形状的顺序。重新排列形状可决定哪个形状在前、哪个形状在后。要在任意幻灯片上重新排序形状，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 添加一个形状。
-1. 在形状的文本框中添加一些文本。
-1. 再添加一个坐标相同的形状。
-1. 重新排列形状。
+1. 在形状的文本框中添加一些文字。
+1. 再添加一个具有相同坐标的形状。
+1. 重新排列这些形状。
 1. 将文件保存到磁盘。
 ```php
   $pres = new Presentation("ChangeShapeOrder.pptx");
@@ -186,11 +186,11 @@ Aspose.Slides for PHP via Java 允许开发人员重新排列形状。重新排�
 
 
 ## **获取 Interop Shape ID**
-Aspose.Slides for PHP via Java 允许开发人员获取幻灯片范围内的唯一形状标识符，这与 [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getUniqueId--) 方法（获取演示文稿范围内的唯一标识符）形成对比。已在 [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) 接口和 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) 类中添加了方法 [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getOfficeInteropShapeId--)。该方法返回的值对应 Microsoft.Office.Interop.PowerPoint.Shape 对象的 Id。下面给出示例代码。
+Aspose.Slides for PHP via Java 允许开发者获取幻灯片范围内的唯一形状标识符，这与 [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getuniqueid/) 方法（获取演示文稿范围内的唯一标识符）不同。已在 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 类中添加了方法 [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/)。[getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) 方法返回的值对应 Microsoft.Office.Interop.PowerPoint.Shape 对象的 Id。下面给出了示例代码。
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # 获取幻灯片范围内的唯一形状标识符
+    # 获取幻灯片范围内唯一的形状标识符
     $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
   } finally {
     if (!java_is_null($pres)) {
@@ -200,10 +200,12 @@ Aspose.Slides for PHP via Java 允许开发人员获取幻灯片范围内的唯�
 ```
 
 
-## **为形状设置替代文本**
-Aspose.Slides for PHP via Java 允许开发人员为任意形状设置 AlternateText。演示文稿中的形状可以通过 [AlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) 或 [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setName-java.lang.String-) 方法来区分。[setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) 和 [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getAlternativeText--) 方法既可以使用 Aspose.Slides 也可以使用 Microsoft PowerPoint 进行读取或设置。使用此方法，您可以为形状打标签，并可执行删除形状、隐藏形状或在幻灯片上重新排序形状等操作。要为形状设置 AlternateText，请按以下步骤操作：
+## **为形状设置备用文本**
+Aspose.Slides for PHP via Java 允许开发者为任意形状设置 AlternateText（备用文本）。演示文稿中的形状可以通过 `Alternative Text` 或 [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) 方法进行区分。可以使用 Aspose.Slides 以及 Microsoft PowerPoint 读取或设置 [setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) 和 [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) 方法。通过此方法，您可以为形状标记，并执行删除形状、隐藏形状或在幻灯片上重新排序形状等不同操作。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
+设置形状的 AlternateText，请按以下步骤操作：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
 1. 访问第一张幻灯片。
 1. 向幻灯片添加任意形状。
 1. 对新添加的形状进行一些操作。
@@ -238,9 +240,9 @@ Aspose.Slides for PHP via Java 允许开发人员为任意形状设置 Alternate
 
 
 ## **访问形状的布局格式**
-Aspose.Slides for PHP via Java 提供了一个简单的 API 来访问形状的布局格式。本文演示如何访问布局格式。
+Aspose.Slides for PHP via Java 提供了简洁的 API 来访问形状的布局格式。本文展示了如何访问布局格式。
 
-下面给出示例代码。
+下面给出了示例代码。
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -259,7 +261,7 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API 来访问形状的�
 
 
 ## **将形状渲染为 SVG**
-现在 Aspose.Slides for PHP via Java 支持将形状渲染为 SVG。已在 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/Shape) 类和 [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) 接口中添加了方法 [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-)，用于将形状内容保存为 SVG 文件。下面的代码片段展示如何将幻灯片的形状导出为 SVG 文件。
+现在 Aspose.Slides for PHP via Java 支持将形状渲染为 SVG。已在 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 类中添加了方法 [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/)（及其重载），该方法可以将形状内容保存为 SVG 文件。下面的代码片段展示了如何将幻灯片的形状导出为 SVG 文件。
 ```php
   $pres = new Presentation("TestExportShapeToSvg.pptx");
   try {
@@ -281,11 +283,11 @@ Aspose.Slides for PHP via Java 提供了一个简单的 API 来访问形状的�
 
 
 ## **对齐形状**
-Aspose.Slides 允许将形状相对于幻灯片边距或相互之间对齐。为此已添加了重载方法 [SlidesUtil.alignShape()](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)。[ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/ShapesAlignmentType) 枚举定义了可能的对齐选项。
+Aspose.Slides 允许将形状相对于幻灯片边距或相互之间对齐。为此，已添加了重载方法 [SlidesUtil::alignShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/alignshapes/)。[ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/shapesalignmenttype/) 枚举定义了可能的对齐选项。
 
-**Example 1**
+**示例 1**
 
-下面的源代码将索引为 1、2 和 4 的形状对齐到幻灯片的顶部边缘。
+下面的源代码将索引为 1、2 和 4 的形状对齐到幻灯片的顶部边框。
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -302,9 +304,9 @@ Aspose.Slides 允许将形状相对于幻灯片边距或相互之间对齐。为
 ```
 
 
-**Example 2**
+**示例 2**
 
-下面的示例展示如何将整个形状集合相对于集合中最底部的形状进行对齐。
+下面的示例展示了如何将整个形状集合相对于集合中最底部的形状进行对齐。
 ```php
   $pres = new Presentation("example.pptx");
   try {
@@ -318,15 +320,16 @@ Aspose.Slides 允许将形状相对于幻灯片边距或相互之间对齐。为
 
 
 ## **翻转属性**
-在 Aspose.Slides 中，[ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) 类通过其 `flipH` 和 `flipV` 属性提供对形状水平和垂直镜像的控制。这两个属性的类型为 [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/)，`True` 表示翻转，`False` 表示不翻转，`NotDefined` 则使用默认行为。这些值可通过形状的 [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) 访问。
 
-要修改翻转设置，可构造一个新的 [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) 实例，传入形状当前的位置、大小、期望的 `flipH`、`flipV` 值以及旋转角度。将该实例赋给形状的 [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) 并保存演示文稿，即可应用镜像变换并写入输出文件。
+在 Aspose.Slides 中，[ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) 类通过其 `flipH` 和 `flipV` 属性提供对形状水平和垂直镜像的控制。这两个属性的类型为 [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/)，可取值 `True` 表示翻转，`False` 表示不翻转，`NotDefined` 表示使用默认行为。可以通过形状的 [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) 访问这些值。
 
-假设我们有一个 sample.pptx 文件，其中第一页包含一个默认翻转设置的单一形状，如下所示。
+要修改翻转设置，需使用形状当前的位置和尺寸、期望的 `flipH`、`flipV` 值以及旋转角度构造一个新的 [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) 实例。将该实例赋给形状的 [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) 并保存演示文稿，即可应用镜像变换并写入输出文件。
+
+假设我们有一个 sample.pptx 文件，其中第一张幻灯片包含一个默认翻转设置的单个形状，如下所示。
 
 ![要翻转的形状](shape_to_be_flipped.png)
 
-以下代码示例获取形状当前的翻转属性，并同时对其进行水平和垂直翻转。
+下面的代码示例获取形状当前的翻转属性，并同时在水平和垂直方向翻转它。
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
@@ -362,16 +365,16 @@ try {
 
 ![已翻转的形状](flipped_shape.png)
 
-## **常见问题**
+## **常见问答**
 
-**可以像桌面编辑器那样在幻灯片上对形状进行合并（联合/相交/相减）吗？**
+**我能像桌面编辑器一样在幻灯片上对形状进行合并（联合/交集/相减）吗？**
 
-目前没有内置的布尔运算 API。您可以通过自行构建所需轮廓来近似实现，例如计算结果几何（通过 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)），然后使用该轮廓创建新形状，并可选择删除原始形状。
+目前没有内置的布尔运算 API。您可以通过自行构造所需轮廓来近似实现，例如使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 计算结果几何体，并创建具有该轮廓的新形状，必要时删除原始形状。
 
-**如何控制堆叠顺序（z‑order），使某个形状始终保持在最上层？**
+**如何控制堆叠顺序（z 顺序），使形状始终置于“顶部”？**
 
-在幻灯片的 [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) 集合中更改插入/移动顺序即可。为获得可预测的结果，请在完成所有其他幻灯片修改后再最终确定 z‑order。
+在幻灯片的 [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) 集合中更改插入/移动顺序。为了得到可预测的结果，请在完成所有其他幻灯片修改后最终确定 z 顺序。
 
-**可以“锁定”形状，以防止用户在 PowerPoint 中编辑它吗？**
+**我能“锁定”形状，以防止用户在 PowerPoint 中编辑它吗？**
 
-可以。设置 [形状级别的保护标志](/slides/zh/php-java/applying-protection-to-presentation/)（例如锁定选择、移动、大小调整、文本编辑）。如有需要，可在母版或布局上同步限制。需注意这只是 UI 层面的保护，而非安全特性；若需更强的保护，可结合文件级别的只读建议或密码等措施 [/slides/php-java/password-protected-presentation/]。
+可以。设置 [shape-level protection flags](/slides/zh/php-java/applying-protection-to-presentation/)（例如锁定选择、移动、大小调整、文本编辑）。如有需要，也可在母版或版式上镜像这些限制。请注意，这属于 UI 级别的保护，而非安全特性；如需更强的保护，可结合文件级限制，如 [只读推荐或密码](/slides/zh/php-java/password-protected-presentation/)。

@@ -7,7 +7,7 @@ url: /es/php-java/manage-table/
 keywords:
 - añadir tabla
 - crear tabla
-- acceder tabla
+- acceder a tabla
 - relación de aspecto
 - alinear texto
 - formato de texto
@@ -19,20 +19,20 @@ keywords:
 description: "Crear y editar tablas en diapositivas de PowerPoint con Aspose.Slides para PHP a través de Java. Descubre ejemplos de código simples para optimizar tu flujo de trabajo con tablas."
 ---
 
-Una tabla en PowerPoint es una forma eficaz de mostrar y representar información. La información en una cuadrícula de celdas (disponibles en filas y columnas) es directa y fácil de comprender.
+Una tabla en PowerPoint es una forma eficaz de mostrar y representar información. La información en una cuadrícula de celdas (distribuidas en filas y columnas) es directa y fácil de entender.
 
-Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table), la interfaz [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable), la clase [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/), la interfaz [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/) y otros tipos que le permiten crear, actualizar y gestionar tablas en todo tipo de presentaciones.
+Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table), la clase [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) y otros tipos para permitir crear, actualizar y gestionar tablas en todo tipo de presentaciones.
 
 ## **Crear una tabla desde cero**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
+2. Obtenga una referencia a la diapositiva mediante su índice. 
 3. Defina una matriz de `columnWidth`.
 4. Defina una matriz de `rowHeight`.
-5. Añada un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Itere a través de cada [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/) para aplicar formato a los bordes superior, inferior, derecho e izquierdo.
+5. Añada un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+6. Itere a través de cada [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) para aplicar formato a los bordes superior, inferior, derecho e izquierdo.
 7. Combine las dos primeras celdas de la primera fila de la tabla. 
-8. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de un [ICell](https://reference.aspose.com/slides/php-java/aspose.slides/icell/).
+8. Acceda al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de una [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/).
 9. Añada texto al [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 10. Guarde la presentación modificada.
 
@@ -48,7 +48,7 @@ Este código PHP muestra cómo crear una tabla en una presentación:
     $dblRows = array(50, 30, 30, 30, 30 );
     # Añade una forma de tabla a la diapositiva
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Establece el formato del borde para cada celda
+    # Establece el formato de borde para cada celda
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
@@ -82,7 +82,7 @@ Este código PHP muestra cómo crear una tabla en una presentación:
 
 ## **Numeración en una tabla estándar**
 
-En una tabla estándar, la numeración de celdas es directa y comienza en cero. La primera celda de una tabla tiene el índice 0,0 (columna 0, fila 0). 
+En una tabla estándar, la numeración de las celdas es directa y comienza en cero. La primera celda de una tabla tiene el índice 0,0 (columna 0, fila 0). 
 
 Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de la siguiente manera:
 
@@ -134,13 +134,17 @@ Este código PHP muestra cómo especificar la numeración de las celdas en una t
 ## **Acceder a una tabla existente**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+
 2. Obtenga una referencia a la diapositiva que contiene la tabla mediante su índice. 
-3. Cree un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) y establézcalo a null.
-4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) hasta que se encuentre la tabla.
 
-   Si sospecha que la diapositiva con la que está trabajando contiene una única tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como una tabla, puede convertirla a un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table). Pero si la diapositiva contiene varias tablas, es mejor buscar la tabla que necesita mediante su [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+3. Cree un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) y asígnele null.
 
-5. Utilice el objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) para trabajar con la tabla. En el ejemplo siguiente, añadimos una nueva fila a la tabla.
+4. Itere a través de todos los objetos [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) hasta que se encuentre la tabla.
+
+   Si sospecha que la diapositiva con la que está trabajando contiene una única tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como una tabla, puede convertirla a un objeto [Table]. Pero si la diapositiva contiene varias tablas, será más adecuado buscar la tabla que necesita mediante su [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/).
+
+5. Utilice el objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) para trabajar con la tabla. En el ejemplo siguiente, añadimos una nueva fila a la tabla.
+
 6. Guarde la presentación modificada.
 
 Este código PHP muestra cómo acceder y trabajar con una tabla existente:
@@ -150,13 +154,13 @@ Este código PHP muestra cómo acceder y trabajar con una tabla existente:
   try {
     # Accede a la primera diapositiva
     $sld = $pres->getSlides()->get_Item(0);
-    # Inicializa la tabla TableEx nula
+    # Inicializa TableEx nulo
     $tbl = null;
-    # Recorre las formas y establece una referencia a la tabla encontrada
+    # Itera a través de las formas y establece una referencia a la tabla encontrada
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        # Establece el texto para la primera columna de la segunda fila
+        # Establece el texto de la primera columna de la segunda fila
         $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
       }
     }
@@ -173,10 +177,10 @@ Este código PHP muestra cómo acceder y trabajar con una tabla existente:
 ## **Alinear texto en una tabla**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Añada un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) a la diapositiva.
-4. Acceda a un objeto [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/itextframe/) de la tabla.
-5. Acceda al [IParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph/) del [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/itextframe/).
+2. Obtenga una referencia a la diapositiva mediante su índice. 
+3. Añada un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) a la diapositiva.
+4. Acceda a un objeto [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) de la tabla.
+5. Acceda al [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
 6. Alinee el texto verticalmente.
 7. Guarde la presentación modificada.
 
@@ -218,17 +222,17 @@ Este código PHP muestra cómo alinear el texto en una tabla:
 ```
 
 
-## **Establecer el formato de texto a nivel de tabla**
+## **Establecer formato de texto a nivel de tabla**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Acceda a un objeto [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) de la diapositiva.
-4. Establezca el [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) para el texto.
-5. Establezca el [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) y el [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Establezca el [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
+2. Obtenga una referencia a la diapositiva mediante su índice. 
+3. Acceda a un objeto [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) de la diapositiva.
+4. Establezca el [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) para el texto.
+5. Establezca el [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) y el [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
+6. Establezca el [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
 7. Guarde la presentación modificada. 
 
-Este código PHP muestra cómo aplicar sus opciones de formato preferidas al texto en una tabla:
+Este código PHP muestra cómo aplicar sus opciones de formato preferidas al texto de una tabla:
 ```php
   # Crea una instancia de la clase Presentation
   $pres = new Presentation("simpletable.pptx");
@@ -244,7 +248,7 @@ Este código PHP muestra cómo aplicar sus opciones de formato preferidas al tex
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->setTextFormat($paragraphFormat);
-    # Establece el tipo de orientación vertical del texto de las celdas de la tabla
+    # Establece el tipo vertical del texto de las celdas de la tabla
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);
@@ -259,13 +263,12 @@ Este código PHP muestra cómo aplicar sus opciones de formato preferidas al tex
 
 ## **Obtener propiedades de estilo de tabla**
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda utilizar esos detalles en otra tabla o en otro lugar. Este código PHP muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
+Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda usar esos detalles en otra tabla o en otro lugar. Este código PHP muestra cómo obtener las propiedades de estilo a partir de un estilo predefinido de tabla:
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// cambia el tema predeterminado del estilo preestablecido
-
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// cambiar el tema del estilo predefinido
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -275,17 +278,17 @@ Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para q
 ```
 
 
-## **Bloquear la relación de aspecto de una tabla**
+## **Bloquear relación de aspecto de una tabla**
 
-La relación de aspecto de una forma geométrica es la proporción de sus tamaños en diferentes dimensiones. Aspose.Slides proporciona la propiedad [**setAspectRatioLocked**](https://reference.aspose.com/slides/php-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) para permitirle bloquear la configuración de la relación de aspecto de tablas y otras formas.
+La relación de aspecto de una forma geométrica es la proporción de sus tamaños en diferentes dimensiones. Aspose.Slides proporciona el método [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) para permitir bloquear la configuración de la relación de aspecto en tablas y otras formas.
 
-Este código PHP muestra cómo bloquear la relación de aspecto para una tabla:
+Este código PHP muestra cómo bloquear la relación de aspecto de una tabla:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invertir
 
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
@@ -301,11 +304,11 @@ Este código PHP muestra cómo bloquear la relación de aspecto para una tabla:
 
 **¿Puedo habilitar la dirección de lectura de derecha a izquierda (RTL) para una tabla completa y el texto en sus celdas?**
 
-Sí. La tabla expone un método [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/), y los párrafos tienen [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Usar ambos garantiza el orden RTL correcto y la renderización dentro de las celdas.
+Sí. La tabla expone un método [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/), y los párrafos tienen [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Usar ambos garantiza el orden y la representación correctos RTL dentro de las celdas.
 
 **¿Cómo puedo evitar que los usuarios muevan o cambien el tamaño de una tabla en el archivo final?**
 
-Utilice [bloqueos de forma](/slides/es/php-java/applying-protection-to-presentation/) para desactivar mover, cambiar el tamaño, selección, etc. Estos bloqueos también se aplican a las tablas.
+Utilice [bloqueos de forma](/slides/es/php-java/applying-protection-to-presentation/) para desactivar el movimiento, el cambio de tamaño, la selección, etc. Estos bloqueos también se aplican a las tablas.
 
 **¿Se admite insertar una imagen dentro de una celda como fondo?**
 

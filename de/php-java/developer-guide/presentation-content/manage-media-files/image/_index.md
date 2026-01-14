@@ -6,10 +6,10 @@ weight: 10
 url: /de/php-java/image/
 keywords:
 - Bild hinzufügen
-- Grafik hinzufügen
+- Bild einfügen
 - Bitmap hinzufügen
 - Bild ersetzen
-- Grafik ersetzen
+- Bild ersetzen
 - aus dem Web
 - Hintergrund
 - PNG hinzufügen
@@ -25,34 +25,34 @@ keywords:
 - SVG
 - PHP
 - Aspose.Slides
-description: "Optimieren Sie die Bildverwaltung in PowerPoint und OpenDocument mit Aspose.Slides für PHP via Java, um die Leistung zu steigern und Ihren Arbeitsablauf zu automatisieren."
+description: "Vereinfachen Sie die Bildverwaltung in PowerPoint und OpenDocument mit Aspose.Slides für PHP via Java, optimieren Sie die Leistung und automatisieren Sie Ihren Arbeitsablauf."
 ---
 
 ## **Bilder in Präsentationsfolien**
 
-Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Quellen in Folien einfügen. Ebenso ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien in Ihren Präsentationen über verschiedene Verfahren. 
+Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Quellen auf Folien einfügen. Ebenso ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien in Ihren Präsentationen über verschiedene Verfahren.
 
-{{% alert title="Tipp" color="primary" %}} 
+{{% alert  title="Tip" color="primary" %}} 
 
-Aspose bietet kostenlose Konverter—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—mit denen Benutzer schnell Präsentationen aus Bildern erstellen können. 
+Aspose bietet kostenlose Konverter—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—die es ermöglichen, schnell Präsentationen aus Bildern zu erstellen. 
 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
 
-Wenn Sie ein Bild als Bildrahmen‑Objekt hinzufügen möchten – insbesondere, wenn Sie standardmäßige Formatierungsoptionen nutzen wollen, um Größe, Effekte usw. zu ändern – sehen Sie sich [Bildrahmen](https://docs.aspose.com/slides/php-java/picture-frame/) an.
+Wenn Sie ein Bild als Frame‑Objekt hinzufügen möchten – insbesondere, wenn Sie beabsichtigen, die standardmäßigen Formatierungsoptionen zu verwenden, um seine Größe zu ändern, Effekte hinzuzufügen usw. – siehe [Picture Frame](/slides/de/php-java/picture-frame/).
 
 {{% /alert %}} 
 
-{{% alert title="Hinweis" color="warning" %}}
+{{% alert title="Note" color="warning" %}}
 
-Sie können Ein‑ und Ausgabevorgänge mit Bildern und PowerPoint‑Präsentationen manipulieren, um ein Bild von einem Format in ein anderes zu konvertieren. Siehe diese Seiten: konvertieren Sie [Bild zu JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); konvertieren Sie [JPG zu Bild](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); konvertieren Sie [JPG zu PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), konvertieren Sie [PNG zu JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); konvertieren Sie [PNG zu SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), konvertieren Sie [SVG zu PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
+Sie können Eingabe‑/Ausgabe‑Operationen mit Bildern und PowerPoint‑Präsentationen manipulieren, um ein Bild von einem Format in ein anderes zu konvertieren. Siehe diese Seiten: konvertieren [image to JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); konvertieren [JPG to image](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); konvertieren [JPG to PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/), konvertieren [PNG to JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); konvertieren [PNG to SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/), konvertieren [SVG to PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
 Aspose.Slides unterstützt Operationen mit Bildern in diesen gängigen Formaten: JPEG, PNG, GIF und anderen. 
 
-## **Lokale Bilder zu Folien hinzufügen**
+## **Bilder lokal zu Folien hinzufügen**
 
 Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie in einer Präsentation hinzufügen. Dieser Beispielcode zeigt, wie Sie ein Bild zu einer Folie hinzufügen:
 ```php
@@ -80,7 +80,7 @@ Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie in einer P
 
 ## **Bilder aus dem Web zu Folien hinzufügen**
 
-Wenn das Bild, das Sie zu einer Folie hinzufügen möchten, nicht auf Ihrem Computer verfügbar ist, können Sie das Bild direkt aus dem Web einfügen. 
+Wenn das Bild, das Sie zu einer Folie hinzufügen möchten, nicht auf Ihrem Computer verfügbar ist, können Sie das Bild direkt aus dem Web hinzufügen. 
 
 Dieser Beispielcode zeigt, wie Sie ein Bild aus dem Web zu einer Folie hinzufügen:
 ```php
@@ -120,7 +120,7 @@ Dieser Beispielcode zeigt, wie Sie ein Bild aus dem Web zu einer Folie hinzufüg
 
 ## **Bilder zu Folienmaster hinzufügen**
 
-Ein Folienmaster ist die oberste Folie, die Informationen (Design, Layout usw.) über alle darunter liegenden Folien speichert und steuert. Wenn Sie also ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesen Folienmaster verwendet. 
+Ein Folienmaster ist die übergeordnete Folie, die Informationen (Design, Layout usw.) über alle darunter liegenden Folien speichert und steuert. Wenn Sie also ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesen Folienmaster verwendet. 
 
 Dieser Java‑Beispielcode zeigt, wie Sie ein Bild zu einem Folienmaster hinzufügen:
 ```php
@@ -149,20 +149,20 @@ Dieser Java‑Beispielcode zeigt, wie Sie ein Bild zu einem Folienmaster hinzuf�
 
 ## **Bilder als Folienhintergrund hinzufügen**
 
-Sie können ein Bild als Hintergrund für eine bestimmte Folie oder mehrere Folien verwenden. In diesem Fall sollten Sie *[Bilder als Hintergrund für Folien festlegen](https://docs.aspose.com/slides/php-java/presentation-background/#setting-images-as-background-for-slides)* lesen.
+Möglicherweise möchten Sie ein Bild als Hintergrund für eine bestimmte Folie oder mehrere Folien verwenden. In diesem Fall sollten Sie sehen, wie Sie [Set an Image as a Slide Background](/slides/de/php-java/presentation-background/#set-an-image-as-a-slide-background) einsetzen.
 
 ## **SVG zu Präsentationen hinzufügen**
-Sie können jedes Bild in eine Präsentation einfügen, indem Sie die Methode [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) verwenden, die zur Schnittstelle [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) gehört.
+Sie können jedes Bild in eine Präsentation einfügen, indem Sie die Methode [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) der Klasse [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) verwenden.
 
-Um ein Bildobjekt auf Basis einer SVG‑Grafik zu erstellen, gehen Sie folgendermaßen vor:
+Um ein Bildobjekt auf Basis einer SVG‑Datei zu erstellen, gehen Sie folgendermaßen vor:
 
-1. Erzeugen Sie ein SvgImage‑Objekt, um es in die ImageShapeCollection einzufügen.  
-2. Erzeugen Sie ein PPImage‑Objekt aus ISvgImage.  
-3. Erzeugen Sie ein PictureFrame‑Objekt mithilfe der IPPImage‑Schnittstelle.
+1. Erzeugen Sie ein SvgImage‑Objekt, um es in die ImageShapeCollection einzufügen
+2. Erzeugen Sie ein PPImage‑Objekt aus ISvgImage
+3. Erzeugen Sie ein PictureFrame‑Objekt mithilfe der PPImage‑Klasse
 
-Dieser Beispielcode zeigt, wie Sie die oben genannten Schritte umsetzen, um ein SVG‑Bild in eine Präsentation einzufügen:
+Dieser Beispielcode zeigt, wie Sie die oben genannten Schritte implementieren, um ein SVG‑Bild in eine Präsentation einzufügen:
 ```php
-  # Instanziiere die Presentation-Klasse, die eine PPTX-Datei darstellt
+  # Instanziiere die Presentation-Klasse, die die PPTX-Datei repräsentiert
   $pres = new Presentation();
   try {
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -190,11 +190,11 @@ try {
 
 
 ## **SVG in eine Menge von Formen konvertieren**
-Die SVG‑zu‑Form‑Konvertierung von Aspose.Slides ähnelt der PowerPoint‑Funktionalität zum Arbeiten mit SVG‑Grafiken:
+Die SVG‑Konvertierung von Aspose.Slides in eine Menge von Formen entspricht der PowerPoint‑Funktionalität zur Verarbeitung von SVG‑Bildern:
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Die Funktion wird über eine der Überladungen der Methode [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) der Schnittstelle [IShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection) bereitgestellt, die ein [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgImage)‑Objekt als ersten Parameter erhält.
+Die Funktion wird über eine der Überladungen der Methode [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addgroupshape/) der Klasse [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) bereitgestellt, die ein [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/)‑Objekt als erstes Argument akzeptiert.
 
 Dieser Beispielcode zeigt, wie Sie die beschriebene Methode verwenden, um eine SVG‑Datei in eine Menge von Formen zu konvertieren:
 ```php
@@ -215,9 +215,9 @@ try {
 
     # SvgImage-Objekt erstellen
     $svgImage = new SvgImage($svgContent);
-    # Foliengröße abrufen
+    # Foliengröße ermitteln
     $slideSize = $presentation->getSlideSize()->getSize();
-    # SVG-Bild in Gruppe von Formen konvertieren und auf Foliengröße skalieren
+    # SVG-Bild in Gruppe von Formen konvertieren und an Foliengröße skalieren
     $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
     # Präsentation im PPTX-Format speichern
     $presentation->save("output.pptx", SaveFormat::Pptx);
@@ -231,7 +231,7 @@ try {
 
 
 ## **Bilder als EMF zu Folien hinzufügen**
-Aspose.Slides für PHP über Java ermöglicht das Erzeugen von EMF‑Bildern aus Excel‑Tabellen und das Hinzufügen dieser Bilder als EMF in Folien mit Aspose.Cells.  
+Aspose.Slides für PHP via Java ermöglicht das Erzeugen von EMF‑Bildern aus Excel‑Tabellen und das Hinzufügen dieser Bilder als EMF in Folien mit Aspose.Cells. 
 
 Dieser Beispielcode zeigt, wie Sie die beschriebene Aufgabe ausführen:
 ```php
@@ -241,7 +241,7 @@ Dieser Beispielcode zeigt, wie Sie die beschriebene Aufgabe ausführen:
   $options->setHorizontalResolution(200);
   $options->setVerticalResolution(200);
   $options->setImageType(ImageType::EMF);
-  # Arbeitsmappe in einen Stream speichern
+  # Arbeitsmappe in Stream speichern
   $sr = new SheetRender($sheet, $options);
   $pres = new Presentation();
   try {
@@ -274,38 +274,37 @@ Dieser Beispielcode zeigt, wie Sie die beschriebene Aufgabe ausführen:
 
 ## **Bilder in der Bildsammlung ersetzen**
 
-Aspose.Slides ermöglicht das Ersetzen von Bildern, die in der Bildsammlung einer Präsentation gespeichert sind (einschließlich der von Folienformen verwendeten Bilder). Dieser Abschnitt zeigt mehrere Vorgehensweisen zum Aktualisieren von Bildern in der Sammlung. Die API stellt einfache Methoden zum Ersetzen eines Bildes mittels roher Byte‑Daten, einer [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)-Instanz oder eines anderen bereits in der Sammlung vorhandenen Bildes bereit.
+Aspose.Slides ermöglicht das Ersetzen von Bildern, die in der Bildsammlung einer Präsentation gespeichert sind (einschließlich der von Folienformen verwendeten Bilder). Dieser Abschnitt zeigt mehrere Ansätze zum Aktualisieren von Bildern in der Sammlung. Die API bietet einfache Methoden zum Ersetzen eines Bildes mithilfe von Roh‑Byte‑Daten, einer [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)-Instanz oder einem anderen bereits in der Sammlung vorhandenen Bild.
 
-Gehen Sie folgendermaßen vor:
+Befolgen Sie die folgenden Schritte:
 
-1. Laden Sie die Präsentationsdatei, die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .  
-2. Laden Sie ein neues Bild aus einer Datei in ein Byte‑Array.  
-3. Ersetzen Sie das Zielbild durch das neue Bild mittels des Byte‑Arrays.  
-4. Im zweiten Ansatz laden Sie das Bild in ein [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)-Objekt und ersetzen das Zielbild durch dieses Objekt.  
-5. Im dritten Ansatz ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildsammlung der Präsentation existiert.  
-6. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
-
+1. Laden Sie die Präsentationsdatei, die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+1. Laden Sie ein neues Bild aus einer Datei in ein Byte‑Array.
+1. Ersetzen Sie das Zielbild durch das neue Bild mithilfe des Byte‑Arrays.
+1. Im zweiten Ansatz laden Sie das Bild in ein [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)-Objekt und ersetzen das Zielbild durch dieses Objekt.
+1. Im dritten Ansatz ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildsammlung der Präsentation vorhanden ist.
+1. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 ```php
-// Instanziiere die Presentation-Klasse, die eine Präsentationsdatei darstellt.
+// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei repräsentiert.
 $presentation = new Presentation("sample.pptx");
 try {
-    // Der erste Weg.
+    // Die erste Methode.
     $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
     $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
     $oldImage = $presentation->getImages()->get_Item(0);
     $oldImage->replaceImage($imageData);
 
-    // Der zweite Weg.
+    // Die zweite Methode.
     $newImage = Images::fromFile("image1.png");
     $oldImage = $presentation->getImages()->get_Item(1);
     $oldImage->replaceImage($newImage);
     $newImage->dispose();
     
-    // Der dritte Weg.
+    // Die dritte Methode.
     $oldImage = $presentation->getImages()->get_Item(2);
     $oldImage->replaceImage($presentation->getImages()->get_Item(3));
     
-    // Speichere die Präsentation in einer Datei.
+    // Speichern Sie die Präsentation in einer Datei.
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -315,7 +314,7 @@ try {
 
 {{% alert title="Info" color="info" %}}
 
-Mit dem kostenlosen Aspose FREE‑Konverter [Text to GIF](https://products.aspose.app/slides/text-to-gif) können Sie Texte leicht animieren, GIFs aus Texten erstellen usw. 
+Mit dem kostenlosen Aspose‑Converter [Text to GIF](https://products.aspose.app/slides/text-to-gif) können Sie Texte leicht animieren, GIFs aus Texten erstellen usw. 
 
 {{% /alert %}}
 
@@ -323,20 +322,20 @@ Mit dem kostenlosen Aspose FREE‑Konverter [Text to GIF](https://products.aspos
 
 **Bleibt die ursprüngliche Bildauflösung nach dem Einfügen erhalten?**
 
-Ja. Die Quellpixel bleiben erhalten, aber das endgültige Aussehen hängt davon ab, wie das [picture](/slides/de/php-java/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
+Ja. Die Quellpixel bleiben erhalten, aber das endgültige Erscheinungsbild hängt davon ab, wie das [picture](/slides/de/php-java/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
 
-**Wie ersetze ich das gleiche Logo gleichzeitig auf Dutzenden von Folien?**
+**Wie kann man das gleiche Logo auf Dutzenden von Folien gleichzeitig ersetzen?**
 
-Platzieren Sie das Logo auf dem Master‑Slide oder einem Layout und ersetzen Sie es in der Bildsammlung der Präsentation – die Änderungen werden automatisch auf alle Elemente übertragen, die diese Ressource verwenden.
+Platzieren Sie das Logo auf dem Master‑Slide oder einem Layout und ersetzen Sie es in der Bildsammlung der Präsentation – die Änderungen werden zu allen Elementen propagiert, die diese Ressource verwenden.
 
-**Kann ein eingefügtes SVG in bearbeitbare Formen umgewandelt werden?**
+**Kann ein eingefügtes SVG in editierbare Formen umgewandelt werden?**
 
-Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren; danach können einzelne Teile mit den üblichen Form‑Eigenschaften bearbeitet werden.
+Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren; danach werden einzelne Teile mit den üblichen Form‑Eigenschaften editierbar.
 
 **Wie setze ich ein Bild als Hintergrund für mehrere Folien gleichzeitig?**
 
-[Weisen Sie das Bild als Hintergrund](/slides/de/php-java/presentation-background/) dem Master‑Slide oder dem entsprechenden Layout zu – alle Folien, die diesen Master/Layout nutzen, übernehmen den Hintergrund.
+[Weisen Sie das Bild als Hintergrund](/slides/de/php-java/presentation-background/) dem Master‑Slide oder dem entsprechenden Layout zu – alle Folien, die diesen Master/Layout verwenden, erben den Hintergrund.
 
-**Wie verhindere ich, dass die Präsentation durch zu viele Bilder „aufbläht“?**
+**Wie verhindere ich, dass die Präsentation durch viele Bilder stark an Größe zunimmt?**
 
-Verwenden Sie ein einzelnes Bild‑Ressourcenelement statt mehrfacher Duplikate, wählen Sie vernünftige Auflösungen, aktivieren Sie Kompression beim Speichern und halten Sie wiederholte Grafiken nach Möglichkeit im Master.
+Verwenden Sie eine einzelne Bildressource statt Duplikaten, wählen Sie angemessene Auflösungen, wenden Sie Kompression beim Speichern an und platzieren Sie wiederkehrende Grafiken nach Möglichkeit im Master.

@@ -6,7 +6,7 @@ weight: 50
 url: /ar/php-java/text-formatting/
 keywords:
 - تمييز النص
-- تعبير نمطي
+- تعبير منتظم
 - محاذاة الفقرة
 - نمط النص
 - خلفية النص
@@ -14,12 +14,12 @@ keywords:
 - تباعد الأحرف
 - خصائص الخط
 - عائلة الخط
-- تدوير النص
+- دوران النص
 - زاوية الدوران
 - إطار النص
-- تباعد السطور
-- خاصية Autofit
-- تثبيت إطار النص
+- تباعد الأسطر
+- خاصية الملاءمة التلقائية
+- مرساة إطار النص
 - تبويب النص
 - اللغة الافتراضية
 - PowerPoint
@@ -27,23 +27,23 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في العروض التقديمية PowerPoint و OpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. تخصيص الخطوط والألوان والمحاذاة والمزيد."
+description: "تنسيق وتزيين النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. تخصيص الخطوط والألوان والمحاذاة والمزيد."
 ---
 
-## **تمييز النص**
-تم إضافة الطريقة [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) إلى واجهة [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) وفئة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame).
+## **تسليط الضوء على النص**
+تمت إضافة طريقة [highlightText](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlighttext/) إلى فئة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
 
-يسمح بتمييز جزء من النص بلون الخلفية باستخدام عينة نصية، مشابه لأداة تمييز النص بلون الخلفية في PowerPoint 2019.
+تتيح لك تسليط الضوء على جزء من النص بلون الخلفية باستخدام عينة نصية، مشابهة لأداة تلوين النص في PowerPoint 2019.
 
-المقتطف البرمجي أدناه يوضح كيفية استخدام هذه الميزة:
+يُظهر مقتطف الشيفرة أدناه كيفية استخدام هذه الميزة:
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     $textHighlightingOptions = new TextHighlightingOptions();
     $textHighlightingOptions->setWholeWordsOnly(true);
-    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("title", java("java.awt.Color")->BLUE);// تظليل جميع الكلمات 'important'
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("title", java("java.awt.Color")->BLUE);// تسليط الضوء على جميع الكلمات 'important'
 
-    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("to", java("java.awt.Color")->MAGENTA, $textHighlightingOptions);// تظليل جميع تكرارات 'the' المنفصلة
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("to", java("java.awt.Color")->MAGENTA, $textHighlightingOptions);// تسليط الضوء على جميع تكرارات 'the' المنفصلة
 
     $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
@@ -55,20 +55,20 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 {{% alert color="primary" %}} 
-توفر Aspose خدمة بسيطة، [خدمة تحرير PowerPoint مجانية على الإنترنت](https://products.aspose.app/slides/editor)
+توفر Aspose خدمة تحرير PowerPoint مجانية عبر الإنترنت بسيطة، [free online PowerPoint editing service](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **تمييز النص باستخدام تعبير نمطي**
-تم إضافة الطريقة [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) إلى واجهة [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) وفئة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame).
+## **تسليط الضوء على النص باستخدام تعبير عادي**
+تمت إضافة طريقة [highlightRegex](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/highlightregex/) إلى فئة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
 
-يسمح بتمييز جزء من النص بلون الخلفية باستخدام تعبير نمطي، مشابه لأداة تمييز النص بلون الخلفية في PowerPoint 2019.
+تتيح لك تسليط الضوء على جزء من النص بلون الخلفية باستخدام تعبير عادي، مشابهة لأداة تلوين النص في PowerPoint 2019.
 
-المقتطف البرمجي أدناه يوضح كيفية استخدام هذه الميزة:
+يُظهر مقتطف الشيفرة أدناه كيفية استخدام هذه الميزة:
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     $options = new TextHighlightingOptions();
-    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// تظليل جميع الكلمات التي طولها 10 رموز أو أكثر
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// تسليط الضوء على جميع الكلمات التي تحتوي على 10 رموز أو أكثر
 
     $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
@@ -80,9 +80,9 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **تعيين لون خلفية النص**
-تتيح Aspose.Slides لك تحديد اللون المفضل لخلفية النص.
+تسمح لك Aspose.Slides بتحديد اللون المفضل لخلفية النص.
 
-يعرض هذا الكود PHP كيف تُعيّن لون الخلفية لنص كامل:
+تُظهر لك شيفرة PHP هذه كيفية تعيين لون الخلفية لكامل النص:
 ```php
   $pres = new Presentation();
   try {
@@ -117,7 +117,7 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-يعرض هذا الكود PHP كيف تُعيّن لون الخلفية لجزء فقط من النص:
+تُظهر لك شيفرة PHP هذه كيفية تعيين لون الخلفية لجزء فقط من النص:
 ```php
   $pres = new Presentation();
   try {
@@ -156,16 +156,16 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **محاذاة فقرات النص**
-تنسيق النص يُعد أحد العناصر الأساسية عند إنشاء أي مستند أو عرض تقديمي. نعلم أن Aspose.Slides لـ PHP عبر Java يدعم إضافة النص إلى الشرائح، وفي هذا الموضوع سنوضح كيفية التحكم في محاذاة فقرات النص داخل شريحة. يرجى اتباع الخطوات أدناه لمحاذاة فقرات النص باستخدام Aspose.Slides لـ PHP عبر Java:
+تنسيق النص هو أحد العناصر الأساسية عند إنشاء المستندات أو العروض التقديمية. نعلم أن Aspose.Slides for PHP via Java يدعم إضافة النص إلى الشرائح، وفي هذا الموضوع سنرى كيفية التحكم في محاذاة فقرات النص داخل الشريحة. يرجى اتباع الخطوات التالية لمحاذاة فقرات النص باستخدام Aspose.Slides for PHP via Java:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع شريحة باستخدام فهرستها.
-3. الوصول إلى الأشكال النائبة الموجودة في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-4. الحصول على الفقرة (التي تحتاج إلى محاذاة) من [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#getTextFrame--) المعروضة بواسطة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape).
-5. محاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين أو اليسار أو الوسط أو ضبطها.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
+3. الوصول إلى الأشكال النائبة (Placeholder) الموجودة في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) .
+4. الحصول على الفقرة (التي تحتاج إلى محاذاة) من الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) التي يعرضها الـ [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) .
+5. محاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين أو اليسار أو الوسط أو ضبطها بالتساوي.
+6. كتابة العرض المعدل كملف PPTX.
 
-التنفيذ للخطوات السابقة موضح أدناه.
+التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```php
   # إنشاء كائن Presentation يمثل ملف PPTX
   $pres = new Presentation("ParagraphsAlignment.pptx");
@@ -175,10 +175,10 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
     # الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويلهما إلى AutoShape
     $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
     $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
-    # تغيير النص في كلا العنصريّن النائبين
+    # تعديل النص في كلا العنصرين النائبين
     $tf1->setText("Center Align by Aspose");
     $tf2->setText("Center Align by Aspose");
-    # الحصول على الفقرة الأولى من العناصر النائبية
+    # الحصول على الفقرة الأولى من العناصر النائبة
     $para1 = $tf1->getParagraphs()->get_Item(0);
     $para2 = $tf2->getParagraphs()->get_Item(0);
     # محاذاة فقرة النص إلى الوسط
@@ -195,14 +195,14 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **تعيين الشفافية للنص**
-يوضح هذا المقال كيفية تعيين خاصية الشفافية لأي شكل نص باستخدام Aspose.Slides لـ PHP عبر Java. لتعيين الشفافية للنص، يرجى اتباع الخطوات أدناه:
+يوضح هذا المقال كيفية تعيين خاصية الشفافية لأي شكل نصي باستخدام Aspose.Slides for PHP via Java. لتعيين الشفافية للنص، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع شريحة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة.
 3. تعيين لون الظل.
-4. كتابة العرض التقديمي كملف PPTX.
+4. كتابة العرض كملف PPTX.
 
-التنفيذ للخطوات السابقة موضح أدناه.
+التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```php
   $pres = new Presentation("transparency.pptx");
   try {
@@ -211,7 +211,7 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
     $outerShadowEffect = $effects->getOuterShadowEffect();
     $shadowColor = $outerShadowEffect->getShadowColor()->getColor();
     echo($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
-    # ضبط الشفافية إلى صفر بالمائة
+    # تعيين الشفافية إلى صفر بالمئة
     $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
     $pres->save("transparency-2.pptx", SaveFormat::Pptx);
   } finally {
@@ -222,43 +222,43 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-## **تعيين التباعد بين الأحرف للنص**
-تتيح Aspose.Slides لك ضبط المسافة بين الأحرف داخل صندوق النص. بهذه الطريقة يمكنك تعديل الكثافة البصرية لسطر أو كتلة نصية عن طريق توسيع أو تقليص التباعد بين الأحرف.
+## **تعيين التباعد بين الحروف للنص**
+تسمح لك Aspose.Slides بتعيين المسافة بين الأحرف داخل مربع النص. بهذه الطريقة يمكنك تعديل الكثافة البصرية لسطر أو كتلة نصية بزيادة أو تقليل التباعد بين الحروف.
 
-يعرض هذا الكود PHP كيفية توسيع التباعد لسطر نص واحد وتقليصه لسطر آخر:
+تُظهر لك شيفرة PHP هذه كيفية توسيع التباعد لسطر نص واحد وتقليصه لسطر آخر:
 ```php
   $presentation = new Presentation("in.pptx");
   $textBox1 = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textBox2 = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(1);
   $textBox1->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(20);// توسيع
 
-  $textBox2->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(-2);// تكثيف
+  $textBox2->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(-2);// تصغير
 
   $presentation->save("out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **إدارة خصائص الخط للفقرة**
-عادةً ما تحتوي العروض التقديمية على كل من النصوص والصور. يمكن تنسيق النص بطرق مختلفة إما لتسليط الضوء على أقسام وكلمات معينة، أو للامتثال لأساليب الشركة. يساعد تنسيق النص المستخدمين على تنويع مظهر المحتوى. يوضح هذا المقال كيفية استخدام Aspose.Slides لـ PHP عبر Java لتكوين خصائص الخط للفقرات النصية على الشرائح. لإدارة خصائص الخط لفقرة باستخدام Aspose.Slides لـ PHP عبر Java:
+## **إدارة خصائص الخط لفقرة**
+عادةً ما تحتوي العروض التقديمية على كل من النصوص والصور. يمكن تنسيق النص بطرق متعددة، إما لتسليط الضوء على أقسام أو كلمات معينة، أو للامتثال لأنماط الشركة. يساعد تنسيق النص المستخدمين على تنويع مظهر محتوى العرض. يوضح هذا المقال كيفية استخدام Aspose.Slides for PHP via Java لتكوين خصائص الخط للفقرات النصية على الشرائح. لإدارة خصائص خط الفقرة باستخدام Aspose.Slides for PHP via Java:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع شريحة باستخدام فهرستها.
-1. الوصول إلى الأشكال النائبة في الشريحة وتحويلها إلى [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-1. الحصول على [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) من [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame) المعروضة بواسطة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-1. ضبط الفقرة لتكون مبررة.
-1. الوصول إلى جزء النص داخل الفقرة.
-1. تعريف الخط باستخدام FontData وتعيين خط الجزء وفقًا لذلك.
-   1. جعل الخط عريض.
-   1. جعل الخط مائل.
-1. تعيين لون الخط باستخدام [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IBasePortionFormat#getFillFormat--) المعرض من كائن [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion).
-1. كتابة العرض التقديمي المعدل إلى ملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+1. الحصول على مرجع الشريحة باستخدام فهرسها.
+1. الوصول إلى الأشكال النائبة في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) .
+1. الحصول على الـ [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) من الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) الذي يعرضه الـ [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) .
+1. ضبط محاذاة الفقرة.
+1. الوصول إلى جزء النص (Portion) في الفقرة.
+1. تعريف الخط باستخدام FontData وتعيين الخط للجزء وفقًا لذلك.
+   1. تعيين الخط إلى عريض.
+   1. تعيين الخط إلى مائل.
+1. تعيين لون الخط باستخدام الـ [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) المعروض من كائن الـ [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) .
+1. كتابة العرض المعدل إلى ملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
 
-التنفيذ للخطوات السابقة موضح أدناه. يأخذ عرضًا تقديميًا غير مزين ويقوم بتنسيق الخطوط على إحدى الشرائح.
+التنفيذ العملي للخطوات أعلاه موضح أدناه. يأخذ عرضًا غير مزخرف ويقوم بتنسيق الخطوط على إحدى الشرائح.
 ```php
   # إنشاء كائن Presentation يمثل ملف PPTX
   $pres = new Presentation("FontProperties.pptx");
   try {
-    # الوصول إلى شريحة باستخدام موضعها
+    # الوصول إلى شريحة باستخدام موضع الشريحة
     $slide = $pres->getSlides()->get_Item(0);
     # الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويلهما إلى AutoShape
     $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
@@ -272,7 +272,7 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
     # تعريف خطوط جديدة
     $fd1 = new FontData("Elephant");
     $fd2 = new FontData("Castellar");
-    # تعيين الخطوط الجديدة للجزء
+    # تعيين خطوط جديدة إلى الجزء
     $port1->getPortionFormat()->setLatinFont($fd1);
     $port2->getPortionFormat()->setLatinFont($fd2);
     # تعيين الخط إلى عريض
@@ -297,27 +297,27 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **إدارة عائلة الخط للنص**
-يُستخدم الجزء (Portion) لحفظ نص بتنسيق موحد داخل الفقرة. يوضح هذا المقال كيفية استخدام Aspose.Slides لـ PHP عبر Java لإنشاء صندوق نص يحتوي على بعض النص ثم تعريف خط معين، بالإضافة إلى خصائص أخرى لعائلة الخط. لإنشاء صندوق نص وتعيين خصائص الخط للنص داخله:
+يُستخدم الجزء (Portion) للاحتفاظ بنص له نمط تنسيق موحد داخل الفقرة. يوضح هذا المقال كيفية استخدام Aspose.Slides for PHP via Java لإنشاء مربع نص يحتوي على بعض النصوص ثم تعريف خط معين، بالإضافة إلى خصائص أخرى لفئة عائلة الخط. لإنشاء مربع نص وتعيين خصائص الخط للنص بداخله:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع شريحة باستخدام فهرستها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) من النوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType#Rectangle) إلى الشريحة.
-4. إزالة نمط التعبئة المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. الوصول إلى TextFrame الخاص بـ AutoShape.
-6. إضافة بعض النص إلى TextFrame.
-7. الوصول إلى كائن Portion المرتبط بـ [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-8. تعريف الخط لاستخدامه في [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion).
-9. تعيين خصائص الخط الأخرى مثل العريض، المائل، التسطير، اللون والارتفاع باستخدام الخصائص ذات الصلة المعروضة من كائن Portion.
-10. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة باستخدام فهرسها.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) من النوع [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) إلى الشريحة.
+4. إزالة نمط التعبئة المرتبط بالـ [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) .
+5. الوصول إلى TextFrame الخاص بالـ AutoShape.
+6. إضافة بعض النص إلى الـ TextFrame.
+7. الوصول إلى كائن الـ Portion المرتبط بالـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
+8. تعريف الخط المستخدم للـ [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) .
+9. تعيين خصائص خط أخرى مثل العريض، المائل، تحت الخط، اللون والارتفاع باستخدام الخصائص المعروضة من كائن الـ Portion.
+10. كتابة العرض المعدل كملف PPTX.
 
-التنفيذ للخطوات السابقة موضح أدناه.
+التنفيذ العملي للخطوات أعلاه موضح أدناه.
 ```php
   # إنشاء كائن Presentation
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
     # إزالة أي نمط تعبئة مرتبط بـ AutoShape
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
@@ -328,11 +328,11 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
     $port = $tf->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     # تعيين الخط للجزء
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
-    # تعيين خاصية الخط العريض
+    # تعيين خاصية العريض للخط
     $port->getPortionFormat()->setFontBold(NullableBool::True);
-    # تعيين خاصية الخط المائل
+    # تعيين خاصية المائل للخط
     $port->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تعيين خاصية تسطير الخط
+    # تعيين خاصية التسطير للخط
     $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
     # تعيين ارتفاع الخط
     $port->getPortionFormat()->setFontHeight(25);
@@ -350,9 +350,9 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **تعيين حجم الخط للنص**
-تتيح Aspose.Slides لك اختيار حجم الخط المفضل للنص الموجود في الفقرة وأي نص قد يضاف لاحقًا إلى الفقرة.
+تسمح لك Aspose.Slides باختيار حجم الخط المفضل للنص الموجود في الفقرة والنصوص التي قد تُضاف إلى الفقرة لاحقًا.
 
-يعرض هذا الكود PHP كيفية تعيين حجم الخط للنصوص داخل فقرة:
+تُظهر لك شيفرة PHP هذه كيفية تعيين حجم الخط للنصوص الموجودة في الفقرة:
 ```php
   $presentation = new Presentation("example.pptx");
   try {
@@ -362,9 +362,9 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
       $autoShape = $shape;
       # يحصل على الفقرة الأولى، على سبيل المثال.
       $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-      # يضبط حجم الخط الافتراضي إلى 20 نقطة لجميع أجزاء النص في الفقرة.
+      # يحدد حجم الخط الافتراضي إلى 20 نقطة لجميع أجزاء النص في الفقرة.
       $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
-      # يضبط حجم الخط إلى 20 نقطة لأجزاء النص الحالية في الفقرة.
+      # يحدد حجم الخط إلى 20 نقطة لأجزاء النص الحالية في الفقرة.
       foreach($paragraph->getPortions() as $portion) {
         $portion->getPortionFormat()->setFontHeight(20);
       }
@@ -378,21 +378,22 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **تعيين دوران النص**
-يسمح Aspose.Slides لـ PHP عبر Java للمطورين بتدوير النص. يمكن ضبط النص ليظهر كـ [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Horizontal)، [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical)، [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#Vertical270)، [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVertical)، [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#EastAsianVertical)، [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#MongolianVertical) أو [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). لتدوير نص أي TextFrame، يرجى اتباع الخطوات أدناه:
+يسمح Aspose.Slides for PHP via Java للمطورين بتدوير النص. يمكن ضبط النص ليظهر كـ [Horizontal](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Horizontal)، [Vertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical)، [Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#Vertical270)، [WordArtVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVertical)، [EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical)، [MongolianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#MongolianVertical) أو [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#WordArtVerticalRightToLeft). لتدوير نص أي TextFrame، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. الوصول إلى الشريحة الأولى.
 3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Rotate the text](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
+4. الوصول إلى الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
+5. [Rotate the text](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) .
 6. حفظ الملف إلى القرص.
+
 ```php
-  # إنشاء كائن من فئة Presentation
+  # إنشاء مثال من فئة Presentation
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     # إضافة TextFrame إلى الشكل المستطيل
     $ashp->addTextFrame("");
@@ -418,21 +419,21 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 
 
 ## **تعيين زاوية دوران مخصصة لـ TextFrame**
-يدعم Aspose.Slides لـ PHP عبر Java الآن تعيين زاوية دوران مخصصة لإطار النص. في هذا الموضوع، سنوضح بالمثال كيفية تعيين خاصية RotationAngle في Aspose.Slides. تمت إضافة الطرق الجديدة [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-) و [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#getRotationAngle--) إلى واجهات [IChartTextBlockFormat](https://reference.aspose.com/slides/php-java/aspose.slides/IChartTextBlockFormat) و [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat)، مما يسمح بتعيين زاوية دوران مخصصة لإطار النص. لتعيين RotationAngle، يرجى اتباع الخطوات أدناه:
+يدعم Aspose.Slides for PHP via Java الآن تعيين زاوية دوران مخصصة لإطار النص. في هذا الموضوع سنرى مثالًا يوضح كيفية تعيين الخاصية RotationAngle في Aspose.Slides. تمت إضافة الطريقتين الجددتين [setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/) و [getRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/getrotationangle/) إلى فئة [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) ، مما يسمح بتعيين زاوية دوران مخصصة لإطار النص. لتعيين RotationAngle، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. إضافة مخطط إلى الشريحة.
-3. [Set RotationAngle property](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-).
-4. كتابة العرض التقديمي كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
+2. إضافة مخطط بياني إلى الشريحة.
+3. [Set a rotation angle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setrotationangle/) .
+4. كتابة العرض كملف PPTX.
 
 في المثال أدناه، نقوم بتعيين خاصية RotationAngle.
 ```php
-  # إنشاء نسخة من فئة Presentation
+  # إنشاء كائن من فئة Presentation
   $pres = new Presentation();
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     # إضافة TextFrame إلى المستطيل
     $ashp->addTextFrame("");
@@ -457,35 +458,35 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-## **تباعد السطور للفقرة**
-توفر Aspose.Slides خصائص تحت [`ParagraphFormat`](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraphFormat)—`SpaceAfter`، `SpaceBefore` و `SpaceWithin`—تسمح لك بإدارة تباعد السطر للفقرة. تُستخدم الخصائص الثلاث بهذه الطريقة:
+## **تباعد الأسطر لفقرة**
+توفر Aspose.Slides خصائص تحت [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) — `SpaceAfter`، `SpaceBefore` و `SpaceWithin` — تتيح لك إدارة تباعد الأسطر لفقرة. تُستخدم الخصائص الثلاث بهذه الطريقة:
 
-* لتحديد تباعد السطر للفقرة بالنسبة المئوية، استخدم قيمة موجبة.
+* لتحديد تباعد السطر للفقرة بالنسبة المئوية، استخدم قيمة موجبة. 
 * لتحديد تباعد السطر للفقرة بالنقاط، استخدم قيمة سالبة.
 
-على سبيل المثال، يمكنك تطبيق تباعد سطر 16pt للفقرة بتعيين خاصية `SpaceBefore` إلى -16.
+على سبيل المثال، يمكنك تطبيق تباعد سطر 16pt لفقرة بتعيين خاصية `SpaceBefore` إلى -16.
 
-هذا هو طريقة تحديد تباعد السطر لفقرة معينة:
+إليك كيفية تحديد تباعد السطر لفقرة معينة:
 
-1. تحميل عرض تقديمي يحتوي على AutoShape به بعض النص.
-2. الحصول على مرجع شريحة عبر فهرستها.
+1. تحميل عرض يحتوي على AutoShape به بعض النص.
+2. الحصول على مرجع الشريحة عبر فهرستها.
 3. الوصول إلى TextFrame.
 4. الوصول إلى Paragraph.
 5. تعيين خصائص الفقرة.
-6. حفظ العرض التقديمي.
+6. حفظ العرض.
 
-يعرض هذا الكود PHP كيفية تحديد تباعد السطر لفقرة:
+تُظهر لك شيفرة PHP هذه كيفية تحديد تباعد السطر لفقرة:
 ```php
-  # إنشاء نسخة من فئة Presentation
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation("Fonts.pptx");
   try {
-    # الحصول على مرجع الشريحة بواسطة فهرستها
+    # الحصول على مرجع الشريحة حسب الفهرس
     $sld = $pres->getSlides()->get_Item(0);
     # الوصول إلى TextFrame
     $tf1 = $sld->getShapes()->get_Item(0)->getTextFrame();
     # الوصول إلى الفقرة
     $para = $tf1->getParagraphs()->get_Item(0);
-    # تعيين خصائص الفقرة
+    # ضبط خصائص الفقرة
     $para->getParagraphFormat()->setSpaceWithin(80);
     $para->getParagraphFormat()->setSpaceBefore(40);
     $para->getParagraphFormat()->setSpaceAfter(40);
@@ -499,22 +500,22 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-## **تعيين خاصية AutofitType لإطار النص**
-في هذا الموضوع، سنستكشف خصائص تنسيق مختلفة لإطار النص. يغطي هذا المقال كيفية تعيين خاصية AutofitType لإطار النص، وتثبيت النص وتدويره في العرض التقديمي. يسمح Aspose.Slides لـ PHP عبر Java للمطورين بتعيين خاصية AutofitType لأي إطار نص. يمكن تعيين AutofitType إلى [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Normal) أو [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Shape). إذا تم تعيينه إلى [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Normal) فإن الشكل سيبقى كما هو بينما يتم تعديل النص دون تعديل الشكل. أما إذا تم تعيينه إلى [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/TextAutofitType#Shape) فسيتم تعديل الشكل بحيث يحتوي فقط على النص المطلوب. لتعيين خاصية AutofitType لإطار النص، يرجى اتباع الخطوات أدناه:
+## **تعيين خاصية AutofitType لـ TextFrame**
+في هذا الموضوع، نستعرض خصائص تنسيق مختلفة لإطار النص. يغطي المقال كيفية تعيين خاصية AutofitType لإطار النص، وثبيت النص وتدويره في العرض. يسمح Aspose.Slides for PHP via Java للمطورين بتعيين خاصية AutofitType لأي إطار نص. يمكن تعيين AutofitType إلى [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) أو [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape). إذا تم تعيينه إلى [Normal](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Normal) سيبقى الشكل كما هو بينما يتم تعديل النص دون تغيير الشكل، أما إذا تم تعيينه إلى [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/#Shape) فسيتم تعديل الشكل لاحتواء النص المطلوب فقط. لتعيين خاصية AutofitType لإطار نص، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)class.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. الوصول إلى الشريحة الأولى.
 3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set the AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAutofitType-byte-) لإطار النص.
+4. الوصول إلى الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
+5. [Set the autofit type](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setautofittype/) للـ TextFrame.
 6. حفظ الملف إلى القرص.
 ```php
-  # إنشاء كائن من فئة Presentation
+  # إنشاء مثيل من فئة Presentation
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 150);
     # إضافة TextFrame إلى المستطيل
     $ashp->addTextFrame("");
@@ -539,14 +540,14 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-## **تعيين تثبيت النص لإطار النص**
-يسمح Aspose.Slides لـ PHP عبر Java للمطورين بتثبيت أي TextFrame. يحدد TextAnchorType موضع النص داخل الشكل. يمكن تعيين AnchorType إلى [Top](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Top)، [Center](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Center)، [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Bottom)، [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Justified) أو [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/TextAnchorType#Distributed). لتعيين تثبيت أي TextFrame، يرجى اتباع الخطوات أدناه:
+## **تعيين موضع تثبيت (Anchor) لإطار النص**
+يسمح Aspose.Slides for PHP via Java للمطورين بتعيين موضع تثبيت (Anchor) لأي TextFrame. يحدد TextAnchorType موضع النص داخل الشكل. يمكن تعيين AnchorType إلى [Top](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Top)، [Center](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Center)، [Bottom](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Bottom)، [Justified](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Justified) أو [Distributed](https://reference.aspose.com/slides/php-java/aspose.slides/textanchortype/#Distributed). لتعيين موضع تثبيت أي TextFrame، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) .
 2. الوصول إلى الشريحة الأولى.
 3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape).
-5. [Set TextAnchorType](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setAnchoringType-byte-) لإطار النص.
+4. الوصول إلى الـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) .
+5. [Set the text anchor type](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setanchoringtype/) للـ TextFrame.
 6. حفظ الملف إلى القرص.
 ```php
   # إنشاء كائن من فئة Presentation
@@ -554,7 +555,7 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
   try {
     # الحصول على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape من النوع Rectangle
+    # إضافة AutoShape من نوع Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     # إضافة TextFrame إلى المستطيل
     $ashp->addTextFrame("");
@@ -579,27 +580,28 @@ description: "تنسيق وتنسيق النص في العروض التقديم�
 ```
 
 
-## **العلامات (Tabs) و EffectiveTabs في عرض تقديمي**
-جميع المسافات بين العلامات تُعطى بالبيكسل.
+## **المسافات البادئة (Tabs) و EffectiveTabs في العرض**
+جميع مسافات التبويب للنص تُعطى بالبكسل.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
-|**الشكل: 2 علامة صريحة و2 علامات افتراضية**|
-- خاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
-- مجموعة EffectiveTabs تشمل جميع العلامات (من مجموعة Tabs والعلامات الافتراضية).
-- خاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
-- خاصية EffectiveTabs.DefaultTabSize (294) تُظهر المسافة بين العلامات الافتراضية (3 و4 في مثالنا).
-- EffectiveTabs.GetTabByIndex(index) مع index = 0 سيعيد العلامة الصريحة الأولى (Position = 731)، index = 1 – العلامة الثانية (Position = 1241). إذا حاولت الحصول على العلامة التالية مع index = 2 سيعيد أول علامة افتراضية (Position = 1470) وهكذا.
-- EffectiveTabs.GetTabAfterPosition(pos) يُستخدم للحصول على العلامة التالية بعد بعض النص. على سبيل المثال لديك النص: "Hello World!". لتخطيط هذا النص تحتاج إلى معرفة مكان بدء رسم "world!". أولاً، احسب طول "Hello" بالبيكسل واستدعِ GetTabAfterPosition بهذه القيمة. ستحصل على موقع العلامة التالية لرسم "world!".
+|**الشكل: 2 علامات تبويب صريحة و2 علامات تبويب افتراضية**|
+
+- الخاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
+- مجموعة EffectiveTabs تشمل جميع علامات التبويب (من مجموعة Tabs وعلامات التبويب الافتراضية).
+- الخاصية EffectiveTabs.ExplicitTabCount (2 في حالتنا) تساوي Tabs.Count.
+- الخاصية EffectiveTabs.DefaultTabSize (294) تُظهر المسافة بين علامات التبويب الافتراضية (3 و4 في مثالنا).
+- الدالة EffectiveTabs.GetTabByIndex(index) مع index = 0 تُعيد أول علامة تبويب صريحة (Position = 731)، index = 1 تُعيد الثانية (Position = 1241). إذا حاولت الحصول على علامة تبويب تالية مع index = 2 ستُعيد أول علامة تبويب افتراضية (Position = 1470) وهكذا.
+- الدالة EffectiveTabs.GetTabAfterPosition(pos) تُستخدم للحصول على علامة تبويب تالية بعد نص معين. على سبيل المثال لديك النص: "Hello World!". لتصيير هذا النص تحتاج معرفة من أين تبدأ رسم كلمة "world!". أولًا تحسب طول كلمة "Hello" بالبكسل ثم تستدعي GetTabAfterPosition بهذه القيمة. ستحصل على موقع علامة التبويب التالية لرسم "world!".
 
 ## **استخراج النص مع تأثير الأحرف الكبيرة (All-Caps)**
-في PowerPoint، تطبيق تأثير الخط **All Caps** يجعل النص يظهر بأحرف كبيرة على الشريحة حتى لو كتب أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمعالجة ذلك، تحقق من [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/)—إذا أشار إلى `All`، حوّل السلسلة المسترجعة إلى أحرف كبيرة حتى يتطابق المخرَج مع ما يراه المستخدمون على الشريحة.
+في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرداد جزء نصي بهذا الشكل باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمعالجة ذلك، تحقق من [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/)— إذا أشار إلى `All`، قم ببساطة بتحويل السلسلة المسترجعة إلى أحرف كبيرة حتى يتطابق الإخراج مع ما يراه المستخدمون على الشريحة.
 
-لنفترض أن لدينا صندوق النص التالي على الشريحة الأولى من الملف sample2.pptx.
+لنفترض أن لدينا صندوق نص following على الشريحة الأولى من ملف sample2.pptx.
 
 ![The All Caps effect](all_caps_effect.png)
 
-يوضح المثال البرمجي أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+تُظهر الشيفرة أدناه كيفية استخراج النص مع تأثير **All Caps** المطبق:
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
@@ -628,12 +630,12 @@ All-Caps effect: HELLO, ASPOSE!
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يتم تعديل النص في جدول على شريحة؟**
+**كيف يمكن تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، تحتاج إلى استخدام فئة [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). يمكنك遍历所有单元格并通过访问每个单元格的 `TextFrame` 和 `ParagraphFormat` 属性来更改其中的文本。
+لتعديل النص في جدول على شريحة، تحتاج إلى استخدام فئة [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). يمكنك التنقل عبر جميع الخلايا في الجدول وتغيير النص في كل خلية بالوصول إلى خصائص `TextFrame` و `ParagraphFormat` الخاصة بها داخل كل خلية.
 
-**كيف يتم تطبيق تدرج لوني على نص في شريحة PowerPoint؟**
+**كيف يمكن تطبيق لون تدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق تدرج لوني على النص، استخدم طريقة `getFillFormat` في [BasePortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/). عيّن `FilFormat` إلى `Gradient`، حيث يمكنك تعريف ألوان البداية والنهاية للتدرج، بالإضافة إلى خصائص أخرى مثل الاتجاه والشفافية لإنشاء تأثير التدرج على النص.
+لتطبيق لون تدرج على النص، استخدم طريقة `getFillFormat` في [BasePortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/). عيّن `FilFormat` إلى `Gradient`، حيث يمكنك تحديد ألوان البداية والنهاية للتدرج، بالإضافة إلى خصائص أخرى مثل الاتجاه والشفافية لإنشاء تأثير التدرج على النص.

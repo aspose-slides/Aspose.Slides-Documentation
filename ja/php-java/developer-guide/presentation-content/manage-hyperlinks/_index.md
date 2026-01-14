@@ -16,31 +16,31 @@ keywords:
 - 図形ハイパーリンク
 - 画像ハイパーリンク
 - ビデオハイパーリンク
-- 可変ハイパーリンク
+- 変更可能なハイパーリンク
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument のプレゼンテーションのハイパーリンクを手軽に管理し、数分でインタラクティブ性とワークフローを向上させます。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument のプレゼンテーションでハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
 
-ハイパーリンクは、オブジェクトやデータ、または何かの場所への参照です。これらは PowerPoint プレゼンテーションで一般的なハイパーリンクです：
+ハイパーリンクは、対象やデータ、または何かの場所への参照です。これらは PowerPoint プレゼンテーションで一般的なハイパーリンクです:
 
 * テキスト、図形、またはメディア内のウェブサイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for PHP via Java を使用すると、プレゼンテーション内のハイパーリンクに関連するさまざまな操作を実行できます。
+Aspose.Slides for PHP via Java を使用すると、プレゼンテーション内のハイパーリンクに関するさまざまな操作を実行できます。
 
 {{% alert color="primary" %}} 
-Aspose のシンプルな、[無料オンライン PowerPoint エディタ](https://products.aspose.app/slides/editor)をご確認ください。
+Aspose のシンプルな、[無料のオンライン PowerPoint エディター](https://products.aspose.app/slides/editor)をご覧ください。
 {{% /alert %}} 
 
 ## **URL ハイパーリンクの追加**
 
 ### **テキストへの URL ハイパーリンクの追加**
 
-この PHP コードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています：
+この PHP コードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています。
 ```php
   $presentation = new Presentation();
   try {
@@ -61,7 +61,7 @@ Aspose のシンプルな、[無料オンライン PowerPoint エディタ](http
 
 ### **図形またはフレームへの URL ハイパーリンクの追加**
 
-このサンプルコードは、図形にウェブサイトのハイパーリンクを追加する方法を示しています：
+このサンプルコードは、図形にウェブサイトのハイパーリンクを追加する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -79,13 +79,13 @@ Aspose のシンプルな、[無料オンライン PowerPoint エディタ](http
 
 ### **メディアへの URL ハイパーリンクの追加**
 
-Aspose.Slides を使用すると、画像、オーディオ、ビデオ ファイルにハイパーリンクを追加できます。 
+Aspose.Slides を使用すると、画像、音声、およびビデオ ファイルにハイパーリンクを追加できます。
 
-このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
-    # プレゼンテーションに画像を追加
+    # 画像をプレゼンテーションに追加
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -95,7 +95,7 @@ Aspose.Slides を使用すると、画像、オーディオ、ビデオ ファ�
         $image->dispose();
       }
     }
-    # 以前に追加された画像に基づいてスライド1に画像フレームを作成
+    # スライド1に、以前追加した画像を使用して画像フレームを作成
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -109,7 +109,7 @@ Aspose.Slides を使用すると、画像、オーディオ、ビデオ ファ�
 ```
 
 
-このサンプルコードは、**オーディオ ファイル**にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -137,7 +137,7 @@ try {
 ```
 
 
-このサンプルコードは、**ビデオ**にハイパーリンクを追加する方法を示しています：
+このサンプルコードは、**ビデオ**にハイパーリンクを追加する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -166,14 +166,14 @@ try {
 
 
 {{%  alert  title="Tip"  color="primary"  %}} 
-ご覧ください *[管理 OLE](/slides/ja/php-java/manage-ole/)*。
+次をご覧ください *[Manage OLE](/slides/ja/php-java/manage-ole/)*。
 {{% /alert %}}
 
-## **ハイパーリンクを使用した目次の作成**
+## **ハイパーリンクを使用して目次を作成する**
 
-ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次を作成するために使用できます。 
+ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次を作成するのに利用できます。
 
-このサンプルコードは、ハイパーリンクを使用した目次の作成方法を示しています：
+このサンプルコードは、ハイパーリンクを使用して目次を作成する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -205,9 +205,9 @@ try {
 
 ### **色**
 
-[IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink) インターフェイスの [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は古いバージョンの PowerPoint には適用されません。
+[setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) メソッドを使用すると、[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) クラスでハイパーリンクの色を設定したり、色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は古い PowerPoint バージョンには適用されません。
 
-このサンプルコードは、異なる色のハイパーリンクを同じスライドに追加する操作を示しています：
+このサンプルコードは、異なる色のハイパーリンクを同じスライドに追加する操作を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -234,7 +234,7 @@ try {
 
 ### **テキストからハイパーリンクを削除する**
 
-この PHP コードは、プレゼンテーション スライドのテキストからハイパーリンクを削除する方法を示しています：
+この PHP コードは、プレゼンテーションのスライド内のテキストからハイパーリンクを削除する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -260,7 +260,7 @@ try {
 
 ### **図形またはフレームからハイパーリンクを削除する**
 
-この PHP コードは、プレゼンテーション スライドの図形からハイパーリンクを削除する方法を示しています：
+この PHP コードは、プレゼンテーションのスライド内の図形からハイパーリンクを削除する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -277,17 +277,17 @@ try {
 ```
 
 
-## **可変ハイパーリンク**
+## **変更可能なハイパーリンク**
 
-[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます：
+[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) クラスは変更可能です。このクラスを使用すると、次のプロパティの値を変更できます。
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [Hyperlink.setTargetFrame(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/)
+- [Hyperlink.setTooltip(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/)
+- [Hyperlink.setHistory(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/)
+- [Hyperlink.setHighlightClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/)
+- [Hyperlink.setStopSoundOnClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/)
 
-このコード スニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています：
+このコード スニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています。
 ```php
   $pres = new Presentation();
   try {
@@ -308,26 +308,29 @@ try {
 
 ## **IHyperlinkQueries でサポートされているプロパティ**
 
-ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストから IHyperlinkQueries にアクセスできます。
+ハイパーリンクが定義されているプレゼンテーション、スライド、テキストから [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) にアクセスできます。
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [Presentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)
+- [BaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getHyperlinkQueries)
+- [TextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) クラスは次のメソッドとプロパティをサポートしています：
+[HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) クラスは、これらのメソッドとプロパティをサポートしています。
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [HyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/)
+- [HyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/)
+- [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/)
+- [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)
 
-## **よくある質問**
+## **FAQ**
 
-**スライドだけでなく「セクション」やセクションの最初のスライドへ内部ナビゲーションを作成するにはどうすればよいですか？**  
-PowerPoint のセクションはスライドのグループ化です。ナビゲーションは技術的に特定のスライドを対象とします。セクションへ「移動」するには、通常そのセクションの最初のスライドにリンクします。
+**スライドだけでなく、セクションやセクションの最初のスライドへの内部ナビゲーションを作成するにはどうすればよいですか？**
 
-**マスタースライド要素にハイパーリンクを付与してすべてのスライドで機能させることはできますか？**  
-はい。マスタースライドやレイアウト要素はハイパーリンクをサポートします。そのリンクは子スライド上に表示され、スライドショー中にクリック可能です。
+PowerPoint のセクションはスライドのグループです。ナビゲーションは技術的に特定のスライドを対象とします。セクションへ「移動」するには、通常、その最初のスライドへのリンクを作成します。
 
-**ハイパーリンクは PDF、HTML、画像、またはビデオにエクスポートしたときに保持されますか？**  
-[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/php-java/convert-powerpoint-to-html/) では、リンクは通常保持されます。画像 [PNG](/slides/ja/php-java/convert-powerpoint-to-png/) やビデオ [MP4](/slides/ja/php-java/convert-powerpoint-to-video/) へのエクスポートでは、ラスターフレームやビデオはハイパーリンクをサポートしないため、クリック可能性は引き継がれません。
+**マスタースライドの要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
+
+はい。マスタースライドおよびレイアウト要素はハイパーリンクをサポートしています。そのようなリンクは子スライドに表示され、スライドショー中にクリック可能です。
+
+**ハイパーリンクは PDF、HTML、画像、またはビデオにエクスポートしたときに保持されますか？**
+
+[PDF](/slides/ja/php-java/convert-powerpoint-to-pdf/) および [HTML](/slides/ja/php-java/convert-powerpoint-to-html/) では、リンクは一般的に保持されます。[画像](/slides/ja/php-java/convert-powerpoint-to-png/) および [ビデオ](/slides/ja/php-java/convert-powerpoint-to-video/) にエクスポートする場合、これらのフォーマットはラスターフレーム／ビデオでありハイパーリンクをサポートしないため、クリック可能性は引き継がれません。

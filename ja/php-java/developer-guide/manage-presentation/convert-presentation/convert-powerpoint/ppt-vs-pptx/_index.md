@@ -7,38 +7,38 @@ url: /ja/php-java/ppt-vs-pptx/
 keywords:
 - "PPT と PPTX"
 - "PPT または PPTX"
-- "レガシーフォーマット"
-- "最新フォーマット"
-- "バイナリフォーマット"
+- "レガシー形式"
+- "モダン形式"
+- "バイナリ形式"
 - "最新標準"
 - "PowerPoint"
 - "プレゼンテーション"
 - "PHP"
 - "Aspose.Slides"
-description: "Java 経由で PHP 用 Aspose.Slides を使用し、PowerPoint の PPT と PPTX を比較し、フォーマットの違い、利点、互換性、変換のヒントを探ります。"
+description: "Java 経由で PHP 用 Aspose.Slides を使用し、PowerPoint の PPT と PPTX を比較し、形式の違い、メリット、互換性、変換のヒントを探ります。"
 ---
 
 ## **PPT とは何ですか？**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) はバイナリファイル形式であり、特別なツールがない限り内容を表示することはできません。最初の PowerPoint 97‑2003 バージョンは PPT ファイル形式を使用していましたが、拡張性は制限されています。
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) はバイナリファイル形式であり、特別なツールなしでは内容を表示することはできません。最初の PowerPoint 97‑2003 バージョンは PPT ファイル形式で動作しましたが、その拡張性は制限されています。
 
 ## **PPTX とは何ですか？**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) は Office Open XML (ISO 29500:2008-2016, ECMA-376) 標準に基づく新しいプレゼンテーション ファイル形式です。PPTX は XML とメディア ファイルのアーカイブされたセットです。PPTX 形式は容易に拡張可能で、たとえば新しいチャート タイプやシェイプ タイプへの対応を、毎回 PowerPoint の新バージョンで PPTX 形式を変更せずに追加できます。PPTX 形式は PowerPoint 2007 以降で使用されます。
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) は Office Open XML (ISO 29500:2008-2016, ECMA-376) 標準に基づく新しいプレゼンテーションファイル形式です。PPTX は XML とメディアファイルのアーカイブされたセットです。PPTX 形式は容易に拡張できます。たとえば、新しいチャートタイプやシェイプタイプのサポートを追加するのが簡単で、毎回新しい PowerPoint バージョンで PPTX 形式を変更する必要はありません。PPTX 形式は PowerPoint 2007 以降で使用されています。
 
-## **PPT と PPTX の比較**
-PPTX ははるかに多機能ですが、PPT も依然として非常に人気があります。PPT から PPTX への変換、またはその逆の変換が求められるケースは多くあります。
+## **PPT と PPTX**
+PPTX ははるかに広範な機能を提供しますが、PPT は依然としてかなり人気があります。PPT から PPTX への、またはその逆への変換の必要性は非常に高いです。
 
-しかし、古い PPT と新しい PPTX 形式間の変換は、他の Microsoft Office 形式と比べても最も複雑な課題です。PPT 形式の仕様は公開されていますが、実際に扱うのは難しいです。PowerPoint は PPT ファイル内に特殊な部分 (MetroBlob) を作成して、PPTX が持つが PPT ではサポートされない情報を保存できます。この情報は、最新の PowerPoint バージョンで PPT ファイルを読み込むか PPTX 形式に変換したときに復元されます。
+しかし、古い PPT と新しい PPTX 形式間の変換は、他の Microsoft Office 形式の中で最も複雑な課題です。PPT 形式の仕様は公開されていますが、取り扱いは困難です。PowerPoint は PPT ファイル内に特別なパート (MetroBlob) を作成して、PPTX でサポートされているが PPT 形式ではサポートされず古い PowerPoint バージョンで表示できない情報を格納します。この情報は、最新の PowerPoint バージョンで PPT ファイルが読み込まれるか、PPTX 形式に変換されたときに復元できます。
 
-Aspose.Slides はすべてのプレゼンテーション形式を扱う共通インターフェイスを提供します。PPT から PPTX、PPTX から PPT への変換を非常にシンプルに行えます。Aspose.Slides は PPT から PPTX への変換を完全にサポートし、PPTX から PPT への変換も一定の制限のもとでサポートしています。可能な限り PPTX 形式の使用を推奨します。
+Aspose.Slides はすべてのプレゼンテーション形式で動作する共通 API を提供します。非常にシンプルな方法で PPT から PPTX、PPTX から PPT への変換が可能です。Aspose.Slides は PPT から PPTX への変換を完全にサポートし、いくつかの制限はありますが PPTX から PPT への変換もサポートします。可能な限り PPTX 形式の使用を推奨します。
 
 {{% alert color="primary" %}} 
-PPT から PPTX、そして PPTX から PPT への変換品質を、オンラインの[**Aspose.Slides Conversion app**](https://products.aspose.app/slides/conversion/)で確認してください。
+オンラインの [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/conversion/) で PPT から PPTX、および PPTX から PPT への変換品質を確認してください。
 {{% /alert %}} 
 ```php
-  # PPT ファイルを表す Presentation オブジェクトをインスタンス化します
+  # PPT ファイルを表す Presentation オブジェクトをインスタンス化する
   $pres = new Presentation("PPTtoPPTX.ppt");
   try {
-    # PPT プレゼンテーションを PPTX 形式で保存します
+    # PPT プレゼンテーションを PPTX 形式で保存する
     $pres->save("PPTtoPPTX_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -49,19 +49,23 @@ PPT から PPTX、そして PPTX から PPT への変換品質を、オンライ
 
 
 {{% alert color="primary" %}} 
-さらに詳しくは[**プレゼンテーション PPT を PPTX に変換する方法**.](/slides/ja/php-java/convert-ppt-to-pptx/)
+詳しくは [**プレゼンテーション PPT を PPTX に変換する方法**](/slides/ja/php-java/convert-ppt-to-pptx/) をご覧ください。
 {{% /alert %}} 
 
-## **よくある質問**
+## **FAQ**
 
-**古いプレゼンテーションをエラーなく開くことができるなら、PPT のままで保持する意味はありますか？**  
-プレゼンテーションが確実に開き、共同作業や新機能が不要であれば PPT のままでも構いません。しかし、将来の互換性と拡張性を考えると、[PPTX に変換する](/slides/ja/php-java/convert-ppt-to-pptx/)ことをお勧めします。PPTX はオープンな OOXML 標準に基づいており、最新ツールでのサポートが容易です。
+**エラーなく開くことができる古いプレゼンテーションを PPT のまま残す意味はありますか？**
 
-**どのファイルを優先的に PPTX に変換すべきか、判断する基準はありますか？**  
-まず、複数のユーザーが編集しているプレゼンテーション、複雑な[チャート](/slides/ja/php-java/create-chart/)/[シェイプ](/slides/ja/php-java/shape-manipulations/)を含むもの、外部コミュニケーションで使用されるもの、または[開く](/slides/ja/php-java/open-presentation/)際に警告が出るものを優先的に変換してください。
+プレゼンテーションが確実に開き、共同作業や新機能を必要としない場合は、PPT のまま残すことができます。しかし、将来の互換性と拡張性を考慮すると、[convert to PPTX](/slides/ja/php-java/convert-ppt-to-pptx/) の方が望ましいです：この形式はオープンな OOXML 標準に基づいており、最新のツールでより容易にサポートされます。
 
-**PPT から PPTX、そして再度 PPT に戻す際にパスワード保護は保持されますか？**  
-パスワードは正しい変換と暗号化サポートがあるツールでのみ引き継がれます。一般的には、[保護を解除](/slides/ja/php-java/password-protected-presentation/)し、[変換](/slides/ja/php-java/convert-ppt-to-pptx/)した後、セキュリティポリシーに従って再度保護を設定する方が確実です。
+**どのファイルを優先的に PPTX に変換すべきか、どのように判断すればよいですか？**
 
-**PPTX を PPT に戻すと、一部のエフェクトが消えたり簡略化されたりするのはなぜですか？**  
-PPT は新しいオブジェクトやプロパティをサポートしていないためです。PowerPoint やツールはこの情報を特殊ブロックに「痕跡」として保存できますが、古いバージョンの PowerPoint ではそれらを描画できません。
+最初に変換すべきプレゼンテーションは、次の条件を満たすものです：複数のユーザーが編集している、複雑な[charts](/slides/ja/php-java/create-chart/)や[shapes](/slides/ja/php-java/shape-manipulations/)を含む、外部コミュニケーションで使用されている、または[opened](/slides/ja/php-java/open-presentation/)際に警告が出るものです。
+
+**PPT から PPTX、そして再び PPT に変換した際にパスワード保護は保持されますか？**
+
+パスワードの有無は、使用するツールが正しい変換と暗号化をサポートしている場合にのみ引き継がれます。より確実なのは、[remove protection](/slides/ja/php-java/password-protected-presentation/) で保護を解除し、[convert](/slides/ja/php-java/convert-ppt-to-pptx/) してから、セキュリティポリシーに従って再度保護を適用することです。
+
+**PPTX を PPT に戻すと、一部のエフェクトが消えたり簡略化されたりするのはなぜですか？**
+
+PPT は一部の新しいオブジェクトやプロパティをサポートしていないためです。PowerPoint やツールは、この情報の「トレース」を特別なブロックに保存して後で復元できるようにしますが、古いバージョンの PowerPoint ではそれらを表示できません。

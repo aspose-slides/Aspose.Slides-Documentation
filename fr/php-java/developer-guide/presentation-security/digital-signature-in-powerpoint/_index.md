@@ -14,23 +14,23 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez à signer numériquement les fichiers PowerPoint et OpenDocument avec Aspose.Slides pour PHP via Java. Sécurisez vos diapositives en quelques secondes grâce à des exemples de code clairs."
+description: "Apprenez comment signer numériquement des fichiers PowerPoint et OpenDocument avec Aspose.Slides pour PHP via Java. Sécurisez vos diapositives en quelques secondes avec des exemples de code clairs."
 ---
 
-**Certificat numérique** est utilisé pour créer une présentation PowerPoint protégée par mot de passe, indiquée comme créée par une organisation ou une personne particulière. Le certificat numérique peut être obtenu en contactant une organisation autorisée – une autorité de certification. Après avoir installé le certificat numérique dans le système, il peut être utilisé pour ajouter une signature numérique à la présentation via Fichier -> Infos -> Protéger la présentation :
+**Certificat numérique** est utilisé pour créer une présentation PowerPoint protégée par mot de passe, indiquée comme créée par une organisation ou une personne particulière. Le certificat numérique peut être obtenu en contactant une organisation autorisée – une autorité de certification. Après avoir installé le certificat numérique dans le système, il peut être utilisé pour ajouter une signature numérique à la présentation via Fichier -> Info -> Protéger la présentation:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
-La présentation peut contenir plusieurs signatures numériques. Après l’ajout de la signature numérique à la présentation, un message spécial apparaît dans PowerPoint :
+Une présentation peut contenir plusieurs signatures numériques. Après qu’une signature numérique a été ajoutée à la présentation, un message spécial apparaîtra dans PowerPoint:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
-Pour signer une présentation ou vérifier l’authenticité des signatures de la présentation, **Aspose.Slides API** fournit l’interface [**IDigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignature), l’interface [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/IDigitalSignatureCollection) et la méthode [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getDigitalSignatures--). Actuellement, les signatures numériques sont prises en charge uniquement pour le format PPTX.
-## **Ajouter une signature numérique à partir d’un certificat PFX**
-L’exemple de code ci‑dessous montre comment ajouter une signature numérique à partir d’un certificat PFX :
+Pour signer une présentation ou vérifier l'authenticité des signatures de la présentation, **Aspose.Slides API** fournit la classe [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature), la classe [**DigitalSignatureCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignatureCollection) et la méthode [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getDigitalSignatures). Actuellement, les signatures numériques sont prises en charge uniquement pour le format PPTX.
+## **Ajouter une signature numérique à partir d'un certificat PFX**
+Le fragment de code ci‑dessous montre comment ajouter une signature numérique à partir d'un certificat PFX :
 
-1. Ouvrir le fichier PFX et transmettre le mot de passe PFX à l’objet [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature).
-1. Ajouter la signature créée à l’objet présentation.
+1. Ouvrez le fichier PFX et transmettez le mot de passe PFX à l'objet [**DigitalSignature**](https://reference.aspose.com/slides/php-java/aspose.slides/DigitalSignature).
+2. Ajoutez la signature créée à l'objet présentation.
 ```php
   # Ouverture du fichier de présentation
   $pres = new Presentation();
@@ -49,7 +49,7 @@ L’exemple de code ci‑dessous montre comment ajouter une signature numérique
 ```
 
 
-Il est maintenant possible de vérifier si la présentation a été signée numériquement et n’a pas été modifiée :
+Il est maintenant possible de vérifier si la présentation a été signée numériquement et n'a pas été modifiée :
 ```php
   # Ouvrir la présentation
   $pres = new Presentation("SomePresentationSigned.pptx");
@@ -78,14 +78,14 @@ Il est maintenant possible de vérifier si la présentation a été signée num�
 
 ## **FAQ**
 
-**Puis‑je supprimer les signatures existantes d’un fichier ?**
+**Puis-je supprimer les signatures existantes d'un fichier ?**
 
-Oui. La collection de signatures numériques prend en charge [la suppression d’éléments individuels](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/removeat/) et [la suppression complète](https://reference.aspose.com/slides/php-java/aspose.slides/digitalsignaturecollection/clear/); après avoir enregistré le fichier, la présentation n’aura plus de signatures.
+Oui. La collection de signatures numériques prend en charge la suppression d'éléments individuels et son effacement complet ; après avoir enregistré le fichier, la présentation n'aura aucune signature.
 
-**Le fichier devient‑il « lecture seule » après la signature ?**
+**Le fichier devient‑t‑il « lecture‑seule » après la signature ?**
 
-Non. Une signature préserve l’intégrité et l’auteur mais ne bloque pas les modifications. Pour restreindre l’édition, combinez‑la avec ["Read-only" ou un mot de passe](/slides/fr/php-java/password-protected-presentation/).
+Non. Une signature préserve l'intégrité et la paternité mais ne bloque pas les modifications. Pour restreindre l'édition, combinez‑la avec ["Lecture‑seule" ou un mot de passe](/slides/fr/php-java/password-protected-presentation/).
 
-**La signature s’affichera‑t‑elle correctement dans différentes versions de PowerPoint ?**
+**La signature s'affichera‑t‑elle correctement dans différentes versions de PowerPoint ?**
 
-La signature est créée pour le conteneur OOXML (PPTX). Les versions modernes de PowerPoint qui prennent en charge les signatures OOXML affichent correctement l’état de ces signatures.
+La signature est créée pour le conteneur OOXML (PPTX). Les versions récentes de PowerPoint qui prennent en charge les signatures OOXML affichent correctement l'état de ces signatures.

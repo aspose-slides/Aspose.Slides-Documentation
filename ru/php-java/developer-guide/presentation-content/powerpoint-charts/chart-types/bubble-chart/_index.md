@@ -12,11 +12,11 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Создавайте и настраивайте мощные пузырьковые диаграммы в PowerPoint с помощью Aspose.Slides для PHP через Java, чтобы легко улучшать визуализацию ваших данных."
+description: "Создавайте и настраивайте мощные пузырьковые диаграммы в PowerPoint с помощью Aspose.Slides для PHP через Java, чтобы легко улучшить визуализацию данных."
 ---
 
 ## **Масштабирование размеров пузырьковой диаграммы**
-Aspose.Slides for PHP via Java предоставляет поддержку масштабирования размеров пузырьковой диаграммы. В Aspose.Slides for PHP via Java [**IChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeries#getBubbleSizeScale--), [**IChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#getBubbleSizeScale--) и [**IChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#setBubbleSizeScale-int-) добавлены методы. Ниже приведён пример.
+Aspose.Slides for PHP via Java предоставляет поддержку масштабирования размеров пузырьковой диаграммы. В Aspose.Slides for PHP via Java добавлены методы [**ChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbubblesizescale/), [**ChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getbubblesizescale/) и [**ChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setbubblesizescale/) . Ниже приведён пример. 
 ```php
   $pres = new Presentation();
   try {
@@ -31,8 +31,8 @@ Aspose.Slides for PHP via Java предоставляет поддержку м�
 ```
 
 
-## **Представление данных как размеров пузырьковой диаграммы**
-Методы [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#setBubbleSizeRepresentation-int-) и [**getBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup#getBubbleSizeRepresentation--) добавлены в интерфейсы [IChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeries), [IChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/IChartSeriesGroup) и связанные классы. **BubbleSizeRepresentation** определяет, как значения размеров пузырей представлены на пузырьковой диаграмме. Возможные значения: [**BubbleSizeRepresentationType::Area**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Area) и [**BubbleSizeRepresentationType::Width**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Width). Соответственно, перечисление [**BubbleSizeRepresentationType**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType) было добавлено для указания возможных способов представления данных как размеров пузырьковой диаграммы. Ниже приведён пример кода.
+## **Представление данных в виде размеров пузырьковой диаграммы**
+В классы [**ChartSeries**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/), [**ChartSeriesGroup**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) и связанные классы добавлены методы [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setbubblesizerepresentation/) и [**getBubbleSizeRepresentation**](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getbubblesizerepresentation/) . **BubbleSizeRepresentation** указывает, как значения размеров пузырей представлены в пузырьковой диаграмме. Возможные значения: [**BubbleSizeRepresentationType::Area**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Area) и [**BubbleSizeRepresentationType::Width**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType#Width) . Соответственно, добавлен перечисление [**BubbleSizeRepresentationType**](https://reference.aspose.com/slides/php-java/aspose.slides/BubbleSizeRepresentationType) для указания возможных способов представления данных в виде размеров пузырьковой диаграммы. Ниже приведён пример кода. 
 ```php
   $pres = new Presentation();
   try {
@@ -49,13 +49,13 @@ Aspose.Slides for PHP via Java предоставляет поддержку м�
 
 ## **FAQ**
 
-**Поддерживается ли «пузырьковая диаграмма с 3-D эффектом», и чем она отличается от обычной?**
+**Поддерживается ли «пузырьковая диаграмма с 3‑D‑эффектом» и чем она отличается от обычной?**
 
-Да. Существует отдельный тип диаграммы «Bubble with 3-D». Он применяет 3-D стилизацию к пузырькам, но не добавляет дополнительную ось; данные остаются X-Y-S (размер). Тип доступен в классе [chart type](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+Да. Существует отдельный тип диаграммы «Bubble with 3-D». Он применяет 3‑D‑оформление к пузырям, но не добавляет дополнительную ось; данные остаются X‑Y‑S (размер). Этот тип доступен в классе [chart type](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) .  
 
-**Есть ли ограничение на количество серий и точек в пузырьковой диаграмме?**
+**Есть ли ограничение на количество рядов и точек в пузырьковой диаграмме?**
 
-На уровне API жёсткого ограничения нет; ограничения определяются производительностью и целевой версией PowerPoint. Рекомендуется держать количество точек разумным для читаемости и скорости рендеринга.
+На уровне API жёсткого ограничения нет; ограничения определяются производительностью и версией целевого PowerPoint. Рекомендуется держать количество точек в разумных пределах для читаемости и скорости отрисовки.  
 
 **Как экспорт влияет на внешний вид пузырьковой диаграммы (PDF, изображения)?**
 

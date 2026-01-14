@@ -1,14 +1,14 @@
 ---
-title: Obtenir les propriétés effectives des formes à partir des présentations en PHP
+title: Obtenir les propriétés effectives de forme à partir des présentations en PHP
 linktitle: Propriétés effectives
 type: docs
 weight: 50
 url: /fr/php-java/shape-effective-properties/
 keywords:
 - propriétés de forme
-- propriétés de caméra
-- système d'éclairage
-- forme à biseau
+- propriétés de la caméra
+- systeme d'eclairage
+- forme biseau
 - cadre de texte
 - style de texte
 - hauteur de police
@@ -17,18 +17,18 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Découvrez comment Aspose.Slides for PHP via Java calcule et applique les propriétés effectives des formes pour un rendu précis de PowerPoint."
+description: "Découvrez comment Aspose.Slides for PHP via Java calcule et applique les propriétés effectives des formes pour un rendu PowerPoint précis."
 ---
 
-Dans ce sujet, nous aborderons les propriétés **effectives** et **locales**. Lorsque nous définissons des valeurs directement à ces niveaux
+Dans ce sujet, nous allons discuter des propriétés **effectives** et **locales**. Lorsque nous définissons des valeurs directement à ces niveaux
 
-1. Dans les propriétés de la portion sur la diapositive de la portion;
-1. Dans le style de texte de forme prototype sur la diapositive de mise en page ou maître (si la forme du cadre de texte de la portion en possède une);
-1. Dans les paramètres de texte globaux de la présentation;
+1. Dans les propriétés de portion sur la diapositive de la portion ;
+1. Dans le style de texte de la forme prototype sur la diapositive de mise en page ou maîtresse (si la forme du cadre de texte de la portion en possède une) ;
+1. Dans les paramètres de texte globaux de la présentation ;
 
-ces valeurs sont appelées valeurs **locales**. À n’importe quel niveau, les valeurs **locales** peuvent être définies ou omises. Mais lorsqu’une application doit savoir à quoi la portion doit ressembler, elle utilise les valeurs **effectives**. Vous pouvez obtenir les valeurs effectives en utilisant la méthode **getEffective()** du format local.
+Ces valeurs sont appelées valeurs **locales**. À n’importe quel niveau, les valeurs **locales** peuvent être définies ou omises. Mais lorsqu’une application doit savoir à quoi la portion doit ressembler, elle utilise les valeurs **effectives**. Vous pouvez obtenir les valeurs effectives en utilisant la méthode **getEffective()** du format local.
 
-Ce code d’exemple montre comment obtenir les valeurs effectives :
+Ce code d’exemple vous montre comment obtenir des valeurs effectives :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -45,10 +45,10 @@ Ce code d’exemple montre comment obtenir les valeurs effectives :
 ```
 
 
-## **Obtenir les propriétés effectives d’une caméra**
-Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives de la caméra. À cet effet, l’interface [**ICameraEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ICameraEffectiveData) a été ajoutée à Aspose.Slides. L’interface [ICameraEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/ICameraEffectiveData) représente un objet immutable contenant les propriétés effectives de la caméra. Une instance de l’interface [**ICameraEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ICameraEffectiveData) est utilisée dans le cadre de l’interface [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/IThreeDFormatEffectiveData), qui est une paire de [valeurs effectives](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getEffective--) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat).
+## **Obtenir les propriétés effectives d'une caméra**
+Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives de la caméra. À cet effet, la classe `ICameraEffectiveData` a été ajoutée à Aspose.Slides. La classe `ICameraEffectiveData` représente un objet immuable qui contient les propriétés effectives de la caméra. Une instance de la classe `ICameraEffectiveData` est utilisée dans la classe `IThreeDFormatEffectiveData`, qui constitue une paire de [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
-Ce code d’exemple montre comment obtenir les propriétés effectives pour la caméra :
+Ce code d’exemple vous montre comment obtenir les propriétés effectives de la caméra :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -65,10 +65,10 @@ Ce code d’exemple montre comment obtenir les propriétés effectives pour la c
 ```
 
 
-## **Obtenir les propriétés effectives d’un Light Rig**
-Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives du Light Rig. À cet effet, l’interface [**ILightRigEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ILightRigEffectiveData) a été ajoutée à Aspose.Slides. L’interface [ILightRigEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/ILightRigEffectiveData) représente un objet immutable contenant les propriétés effectives du Light Rig. Une instance de l’interface [**ILightRigEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ILightRigEffectiveData) est utilisée dans le cadre de l’interface [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/IThreeDFormatEffectiveData), qui est une paire de [valeurs effectives](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getEffective--) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat).
+## **Obtenir les propriétés effectives d'un Light Rig**
+Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives du Light Rig. À cet effet, la classe `ILightRigEffectiveData` a été ajoutée à Aspose.Slides. La classe `ILightRigEffectiveData` représente un objet immuable qui contient les propriétés effectives du Light Rig. Une instance de la classe `ILightRigEffectiveData` est utilisée dans la classe `IThreeDFormatEffectiveData`, qui constitue une paire de [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
-Ce code d’exemple montre comment obtenir les propriétés effectives du Light Rig :
+Ce code d’exemple vous montre comment obtenir les propriétés effectives du Light Rig :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -84,10 +84,10 @@ Ce code d’exemple montre comment obtenir les propriétés effectives du Light 
 ```
 
 
-## **Obtenir les propriétés effectives d’une forme à biseau**
-Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives de la forme à biseau. À cet effet, l’interface [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeBevelEffectiveData) a été ajoutée à Aspose.Slides. L’interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeBevelEffectiveData) représente un objet immutable contenant les propriétés de relief de la face de la forme. Une instance de l’interface [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeBevelEffectiveData) est utilisée dans le cadre de l’interface [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeBevelEffectiveData)), qui est une paire de [valeurs effectives](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getEffective--) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat).
+## **Obtenir les propriétés effectives d'une Bevel Shape**
+Aspose.Slides for PHP via Java permet aux développeurs d’obtenir les propriétés effectives d’une Bevel Shape. À cet effet, la classe `IShapeBevelEffectiveData` a été ajoutée à Aspose.Slides. La classe `IShapeBevelEffectiveData` représente un objet immuable qui contient les propriétés de relief de face de la forme. Une instance de la classe `IShapeBevelEffectiveData` est utilisée dans la classe `IThreeDFormatEffectiveData`, qui constitue une paire de [effective values](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/geteffective/) pour la classe [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
 
-Ce code d’exemple montre comment obtenir les propriétés effectives pour la forme à biseau :
+Ce code d’exemple vous montre comment obtenir les propriétés effectives de la Bevel Shape :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -104,10 +104,10 @@ Ce code d’exemple montre comment obtenir les propriétés effectives pour la f
 ```
 
 
-## **Obtenir les propriétés effectives d’un cadre de texte**
-En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives d’un cadre de texte. À cet effet, l’interface [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormatEffectiveData) a été ajoutée à Aspose.Slides. Elle contient les propriétés de formatage effectif du cadre de texte.
+## **Obtenir les propriétés effectives d'un Text Frame**
+En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives d’un Text Frame. À cet effet, la classe `ITextFrameFormatEffectiveData` a été ajoutée à Aspose.Slides. Elle contient les propriétés effectives de mise en forme du cadre de texte.
 
-Ce code d’exemple montre comment obtenir les propriétés de formatage effectif du cadre de texte :
+Ce code d’exemple vous montre comment obtenir les propriétés effectives de mise en forme du cadre de texte :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -129,10 +129,10 @@ Ce code d’exemple montre comment obtenir les propriétés de formatage effecti
 ```
 
 
-## **Obtenir les propriétés effectives d’un style de texte**
-En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives du style de texte. À cet effet, l’interface [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ITextStyleEffectiveData) a été ajoutée à Aspose.Slides. Elle contient les propriétés de style de texte effectives.
+## **Obtenir les propriétés effectives d'un Text Style**
+En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives d’un Text Style. À cet effet, la classe `ITextStyleEffectiveData` a été ajoutée à Aspose.Slides. Elle contient les propriétés effectives du style de texte.
 
-Ce code d’exemple montre comment obtenir les propriétés de style de texte effectives :
+Ce code d’exemple vous montre comment obtenir les propriétés effectives du style de texte :
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -154,8 +154,8 @@ Ce code d’exemple montre comment obtenir les propriétés de style de texte ef
 ```
 
 
-## **Obtenir la valeur de hauteur de police effective**
-En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives de la hauteur de police. Ici, nous présentons un code qui montre la valeur de hauteur de police effective d’une portion qui change après que des valeurs locales de hauteur de police aient été définies à différents niveaux de la structure de la présentation :
+## **Obtenir la valeur effective de la hauteur de police**
+En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriétés effectives de la hauteur de police. Ici, nous fournissons un code qui montre la valeur effective de la hauteur de police d’une portion changer après que des valeurs locales de hauteur de police aient été définies à différents niveaux de la structure de la présentation :
 ```php
   $pres = new Presentation();
   try {
@@ -194,8 +194,8 @@ En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir les propriété
 ```
 
 
-## **Obtenir le format de remplissage effectif pour un tableau**
-En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir le format de remplissage effectif pour différentes parties logiques d’un tableau. À cet effet, l’interface [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/php-java/aspose.slides/ICellFormatEffectiveData) a été ajoutée à Aspose.Slides. Elle contient les propriétés de format de remplissage effectif. Veuillez noter ceci : le format de cellule a toujours la priorité sur le format de ligne ; la ligne a la priorité sur la colonne ; et la colonne a la priorité sur le tableau entier.
+## **Obtenir le format de remplissage effectif d’un tableau**
+En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir le format de remplissage effectif pour différentes parties logiques d’un tableau. À cet effet, la classe `ICellFormatEffectiveData` a été ajoutée à Aspose.Slides. Elle contient les propriétés effectives du format de remplissage. Veuillez noter : le format de cellule a toujours la priorité sur le format de ligne ; la ligne a la priorité sur la colonne ; et la colonne a la priorité sur l’ensemble du tableau.
 ```php
   $pres = new Presentation("Presentation1.pptx");
   try {
@@ -218,30 +218,23 @@ En utilisant Aspose.Slides for PHP via Java, vous pouvez obtenir le format de re
 
 ## **FAQ**
 
-**Comment puis‑je savoir que j’ai obtenu un « instantané » plutôt qu’un « objet vivant », et quand devrais‑je relire les propriétés effectives ?**
+**Comment savoir si j’ai obtenu un « instantané » plutôt qu’un « objet vivant », et quand devrais‑je relire les propriétés effectives ?**  
+Les objets EffectiveData sont des instantanés immuables des valeurs calculées au moment de l’appel. Si vous modifiez les paramètres locaux ou hérités de la forme, récupérez à nouveau les données effectives pour obtenir les valeurs mises à jour.
 
-Les objets EffectiveData sont des instantanés immutables des valeurs calculées au moment de l’appel. Si vous modifiez les paramètres locaux ou hérités de la forme, récupérez à nouveau les données effectives pour obtenir les valeurs mises à jour.
+**La modification de la diapositive de mise en page/maîtresse affecte‑t‑elle les propriétés effectives déjà récupérées ?**  
+Oui, mais uniquement après les avoir relues. Un objet EffectiveData déjà obtenu ne se met pas à jour automatiquement — il faut le demander à nouveau après avoir modifié la mise en page ou le maître.
 
-**La modification de la diapositive de mise en page/maître affecte‑t‑elle les propriétés effectives déjà récupérées ?**
+**Puis‑je modifier des valeurs via EffectiveData ?**  
+Non. EffectiveData est en lecture seule. Apportez les modifications dans les objets de formatage locaux (forme/texte/3D, etc.), puis récupérez à nouveau les valeurs effectives.
 
-Oui, mais uniquement après les avoir relues. Un objet EffectiveData déjà obtenu ne se met pas à jour ; il faut le demander à nouveau après avoir changé la mise en page ou le maître.
+**Que se passe‑t‑il si une propriété n’est définie ni au niveau de la forme, ni dans la mise en page/maîtresse, ni dans les paramètres globaux ?**  
+La valeur effective est déterminée par le mécanisme par défaut (les valeurs par défaut de PowerPoint/Aspose.Slides). Cette valeur résolue devient partie de l’instantané EffectiveData.
 
-**Puis‑je modifier les valeurs via EffectiveData ?**
+**À partir d’une valeur de police effective, puis‑je déterminer quel niveau a fourni la taille ou la police ?**  
+Pas directement. EffectiveData renvoie la valeur finale. Pour identifier la source, examinez les valeurs locales au niveau de la portion/du paragraphe/du cadre de texte et les styles de texte au niveau de la mise en page/du maître/de la présentation pour voir où apparaît la première définition explicite.
 
-Non. EffectiveData est en lecture seule. Apportez les modifications dans les objets de formatage locaux (forme/texte/3D, etc.), puis récupérez à nouveau les valeurs effectives si nécessaire.
+**Pourquoi les valeurs EffectiveData sont parfois identiques aux valeurs locales ?**  
+Parce que la valeur locale s’est avérée finale (aucune héritage de niveau supérieur n’était nécessaire). Dans ces cas, la valeur effective correspond à la valeur locale.
 
-**Que se passe‑t‑il si une propriété n’est définie ni au niveau de la forme, ni dans la mise en page/maître, ni dans les paramètres globaux ?**
-
-La valeur effective est déterminée par le mécanisme par défaut (valeurs par défaut de PowerPoint/Aspose.Slides). Cette valeur résolue fait partie de l’instantané EffectiveData.
-
-**À partir d’une valeur de police effective, puis‑je savoir quel niveau a fourni la taille ou la police ?**
-
-Pas directement. EffectiveData renvoie la valeur finale. Pour en connaître la source, examinez les valeurs locales au niveau de la portion/paragraph/texte et les styles de texte au niveau de la mise en page/maître/présentation afin de voir où apparaît la première définition explicite.
-
-**Pourquoi les valeurs EffectiveData sont‑elles parfois identiques aux valeurs locales ?**
-
-Parce que la valeur locale s’est avérée finale (aucune héritage de niveau supérieur n’a été nécessaire). Dans ce cas, la valeur effective correspond à la valeur locale.
-
-**Quand devrais‑je utiliser les propriétés effectives, et quand travailler uniquement avec les propriétés locales ?**
-
-Utilisez EffectiveData lorsque vous avez besoin du résultat « tel qu’il sera rendu » après toutes les héritages (par ex. pour aligner les couleurs, retraits ou tailles). Si vous devez modifier le formatage à un niveau spécifique, modifiez les propriétés locales puis, si besoin, relisez EffectiveData pour vérifier le résultat.
+**Quand devrais‑je utiliser les propriétés effectives, et quand travailler uniquement avec les propriétés locales ?**  
+Utilisez EffectiveData lorsque vous avez besoin du résultat « tel qu’il est rendu » après l’application de tous les héritages (par ex., pour aligner les couleurs, les retraits ou les tailles). Si vous devez modifier le formatage à un niveau spécifique, modifiez les propriétés locales et, si nécessaire, relisez EffectiveData pour vérifier le résultat.

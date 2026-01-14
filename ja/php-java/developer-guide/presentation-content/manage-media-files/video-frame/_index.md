@@ -1,55 +1,56 @@
 ---
-title: PHP を使用してプレゼンテーション内のビデオフレームを管理
+title: PHP を使用してプレゼンテーションのビデオフレームを管理する
 linktitle: ビデオフレーム
 type: docs
 weight: 10
 url: /ja/php-java/video-frame/
 keywords:
-- ビデオの追加
-- ビデオの作成
-- ビデオの埋め込み
-- ビデオの抽出
-- ビデオの取得
+- ビデオを追加
+- ビデオを作成
+- ビデオを埋め込み
+- ビデオを抽出
+- ビデオを取得
 - ビデオフレーム
-- ウェブソース
+- Web ソース
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を使用して、PowerPoint および OpenDocument のスライドにビデオフレームをプログラムで追加および抽出する方法を学びます。すばやいハウツーガイド。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument スライドにビデオフレームをプログラムで追加および抽出する方法を学びます。高速ハウツーガイド。"
 ---
 
-プレゼンテーションに適切に配置されたビデオは、メッセージをより説得力のあるものにし、観客とのエンゲージメントレベルを向上させます。
 
-PowerPoint では、プレゼンテーションのスライドにビデオを追加する方法が 2 つあります。
+プレゼンテーションで適切に配置されたビデオは、メッセージをより魅力的にし、オーディエンスとのエンゲージメントレベルを高めることができます。
 
-* ローカルビデオを追加または埋め込み（マシンに保存されているもの）
-* オンラインビデオを追加（YouTube などのウェブソースから）。
+PowerPoint では、プレゼンテーションのスライドにビデオを追加する方法が2つあります。
 
-プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slides は [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) インターフェイス、その他の関連型を提供します。
+* ローカルビデオを追加または埋め込む（コンピュータに保存されているもの）
+* オンラインビデオを追加する（YouTube などのウェブソースから）
+
+プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slides は [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) クラス、[VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) クラス、その他の関連タイプを提供します。
 
 ## **埋め込みビデオフレームの作成**
 
 スライドに追加したいビデオファイルがローカルに保存されている場合、ビデオフレームを作成してプレゼンテーションにビデオを埋め込むことができます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) オブジェクトを追加し、ビデオファイルのパスを渡してプレゼンテーションにビデオを埋め込みます。
-1. [IVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/ivideoframe/) オブジェクトを追加してビデオのフレームを作成します。
-1. 変更されたプレゼンテーションを保存します。
+1. [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) オブジェクトを追加し、ビデオファイルのパスを渡してプレゼンテーションにビデオを埋め込みます。
+1. [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) オブジェクトを追加してビデオのフレームを作成します。
+1. 変更したプレゼンテーションを保存します。
 
 この PHP コードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています。
 ```php
-  # Presentation クラスのインスタンスを作成します
+  # Presentation クラスのインスタンスを作成
   $pres = new Presentation("pres.pptx");
   try {
-    # ビデオをロードします
+    # ビデオをロード
     $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # 最初のスライドを取得し、ビデオフレームを追加します
+    # 最初のスライドを取得し、ビデオフレームを追加
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # プレゼンテーションをディスクに保存します
+    # プレゼンテーションをディスクに保存
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -60,7 +61,7 @@ PowerPoint では、プレゼンテーションのスライドにビデオを追
 ```
 
 
-または、ファイルパスを直接 [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) メソッドに渡すことでビデオを追加できます。
+あるいは、[addVideoFrame(float x,float y,float width,float height,Video video)](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addvideoframe/) メソッドにファイルパスを直接渡すことでビデオを追加することもできます。
 ```php
   $pres = new Presentation();
   try {
@@ -74,13 +75,13 @@ PowerPoint では、プレゼンテーションのスライドにビデオを追
 ```
 
 
-## **Web ソースからのビデオでビデオフレームを作成**
+## **Web ソースからのビデオでビデオフレームを作成する**
 
-Microsoft の [PowerPoint 2013 以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) は、プレゼンテーションで YouTube ビデオをサポートしています。使用したいビデオがオンライン（例: YouTube）で利用可能な場合、そのウェブリンクを通じてプレゼンテーションに追加できます。
+Microsoft の [PowerPoint 2013 以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) はプレゼンテーションで YouTube ビデオをサポートしています。使用したいビデオがオンライン（例: YouTube）に存在する場合、そのウェブリンクを通じてプレゼンテーションに追加できます。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/php-java/aspose.slides/ivideo/) オブジェクトを追加し、ビデオへのリンクを渡します。
+1. [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) オブジェクトを追加し、ビデオへのリンクを渡します。
 1. ビデオフレームのサムネイルを設定します。
 1. プレゼンテーションを保存します。
 
@@ -103,13 +104,13 @@ Microsoft の [PowerPoint 2013 以降](https://support.microsoft.com/en-us/offic
 ```
 
 
-## **スライドからビデオを抽出**
+## **スライドからビデオを抽出する**
 
-スライドにビデオを追加するだけでなく、Aspose.Slides ではプレゼンテーションに埋め込まれたビデオを抽出することもできます。
+スライドにビデオを追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) クラスのインスタンスを作成し、ビデオが含まれるプレゼンテーションをロードします。
-2. すべての [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) オブジェクトを反復処理します。
-3. すべての [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) オブジェクトを反復処理して、[VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) を見つけます。
+1. ビデオを含むプレゼンテーションを読み込むために、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. すべての [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) オブジェクトを反復処理します。
+3. すべての [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) オブジェクトを反復処理し、[VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) を見つけます。
 4. ビデオをディスクに保存します。
 
 この PHP コードは、プレゼンテーションのスライドからビデオを抽出する方法を示しています。
@@ -145,18 +146,18 @@ Microsoft の [PowerPoint 2013 以降](https://support.microsoft.com/en-us/offic
 
 ## **FAQ**
 
-**VideoFrame の再生パラメータで変更できるものは何ですか？**
+**VideoFrame で変更できるビデオ再生パラメータは何ですか？**
 
-再生モード（自動またはクリック時）とループ設定[https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/)（auto or on click）および[https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/)（looping）を制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) オブジェクトのプロパティを通じて利用可能です。
+[playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/)（自動またはクリック時）と [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/) を制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) オブジェクトのプロパティで利用できます。
 
-**ビデオを追加すると PPTX ファイルのサイズに影響しますか？**
+**ビデオを追加すると PPTX ファイルサイズに影響がありますか？**
 
-はい。ローカルビデオを埋め込むと、バイナリデータがドキュメントに含まれるため、プレゼンテーションのサイズはファイルサイズに比例して増加します。オンラインビデオを追加すると、リンクとサムネイルが埋め込まれるだけなので、サイズ増加は小さくなります。
+はい。ローカルビデオを埋め込むと、バイナリ データがドキュメントに含まれるため、プレゼンテーションのサイズはファイルサイズに比例して増加します。オンラインビデオを追加する場合は、リンクとサムネイルが埋め込まれるだけなので、サイズの増加は小さくなります。
 
-**既存の VideoFrame 内のビデオを、位置やサイズを変更せずに置き換えることはできますか？**
+**既存の VideoFrame のビデオを位置やサイズを変更せずに置き換えることはできますか？**
 
-はい。フレーム内の [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) を入れ替えても、シェイプのジオメトリは保持されます。これは既存レイアウトのメディアを更新する一般的なシナリオです。
+はい。フレーム内の [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) を入れ替えても、シェイプの形状は保持されます。これは既存のレイアウトでメディアを更新する一般的なシナリオです。
 
-**埋め込まれたビデオのコンテンツタイプ（MIME）を判別できますか？**
+**埋め込みビデオのコンテンツタイプ（MIME）を取得できますか？**
 
-はい。埋め込まれたビデオには [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/) があり、読み取って使用できます。例えばディスクに保存する際などです。
+はい。埋め込みビデオには取得できる [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/) があり、例えばディスクに保存する際に利用できます。

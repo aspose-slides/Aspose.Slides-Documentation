@@ -1,41 +1,41 @@
 ---
-title: تضمين الخطوط في العروض التقديمية باستخدام PHP
-linktitle: تضمين الخط
+title: دمج الخطوط في العروض التقديمية باستخدام PHP
+linktitle: دمج الخط
 type: docs
 weight: 40
 url: /ar/php-java/embedded-font/
 keywords:
 - إضافة خط
-- تضمين خط
-- تضمين الخط
-- الحصول على الخط المضمّن
-- إضافة خط مضمّن
-- إزالة الخط المضمّن
-- ضغط الخط المضمّن
+- دمج خط
+- دمج الخط
+- الحصول على الخط المدمج
+- إضافة خط مدمج
+- إزالة الخط المدمج
+- ضغط الخط المدمج
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocument مع Aspose.Slides لـ PHP عبر Java، لضمان عرض دقيق على جميع المنصات."
+description: "دمج خطوط TrueType في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، مع ضمان عرض دقيق على جميع المنصات."
 ---
 
-**الخطوط المضمَّنة في PowerPoint** مفيدة عندما تريد أن يظهر العرض التقديمي بشكل صحيح عند فتحه على أي نظام أو جهاز. إذا استخدمت خطًا من طرف ثالث أو غير قياسي لأنك أبدعت في عملك، فستكون لديك أسباب إضافية لتضمين الخط. خلاف ذلك (بدون خطوط مضمنة)، قد يتغير النص أو الأرقام على شرائحك، أو التخطيط، أو التنسيق، إلخ، وقد تتحول إلى مستطيلات مربكة.
+**الخطوط المدمجة في PowerPoint** مفيدة عندما تريد أن تظهر عرضك التقديمي بشكل صحيح عند فتحه على أي نظام أو جهاز. إذا كنت قد استخدمت خطًا من طرف ثالث أو غير قياسي لأنك أبدعت في عملك، فستكون لديك أسباب إضافية لدمج الخط. وإلا (دون الخطوط المدمجة)، قد تتغير النصوص أو الأرقام في الشرائح، وتُغيّر التخطيطات والتنسيقات، أو تتحول إلى مستطيلات مربكة. 
 
-تحتوي فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) وفئة [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) وفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) وواجهاتهم على معظم الخصائص والأساليب التي تحتاجها للعمل مع الخطوط المضمَّنة في عروض PowerPoint التقديمية.
+فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)، فئة [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) وفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) تحتوي على معظم الطرق التي تحتاجها للعمل مع الخطوط المدمجة في عروض PowerPoint.
 
-## **الحصول على الخطوط المضمَّنة وإزالتها**
+## **الحصول على الخطوط المدمجة وإزالتها**
 
-توفر Aspose.Slides طريقة [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) (المعروضة بواسطة فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) لتتيح لك الحصول على (أو اكتشاف) الخطوط المضمَّنة في عرض تقديمي. لإزالة الخطوط، تُستخدم طريقة [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (المعروضة بواسطة نفس الفئة).
+توفر Aspose.Slides الطريقة [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) (المعروضة بواسطة فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) لتمكينك من الحصول (أو معرفة) الخطوط المدمجة في عرض تقديمي. لإزالة الخطوط، تُستخدم الطريقة [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) (المعروضة بواسطة نفس الفئة).
 
-هذا الكود PHP يوضح لك كيفية الحصول على الخطوط المضمَّنة وإزالتها من عرض تقديمي:
+يعرض هذا الشيفرة PHP كيفية الحصول على الخطوط المدمجة وإزالتها من عرض تقديمي:
 ```php
-  # ينشئ كائن Presentation يمثل ملف عرض تقديمي
+  # يقوم بإنشاء كائن Presentation يمثل ملف عرض تقديمي
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
-    # يُظهر شريحة تحتوي على إطار نصي يستخدم الخط المضمن "FunSized"
+    # يعرض شريحة تحتوي على إطار نصي يستخدم الخط المدمج "FunSized"
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # احفظ الصورة على القرص بتنسيق JPEG
+    # يحفظ الصورة على القرص بصيغة JPEG
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -44,9 +44,9 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
       }
     }
     $fontsManager = $pres->getFontsManager();
-    # يحصل على جميع الخطوط المضمنة
+    # يحصل على جميع الخطوط المدمجة
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # يبحث عن الخط "Calibri"
+    # يبحث عن خط "Calibri"
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
@@ -56,11 +56,11 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
         break;
       }
     }
-    # يزيل الخط "Calibri"
+    # يزيل خط "Calibri"
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # يُظهر العرض التقديمي؛ يتم استبدال خط "Calibri" بخط موجود
+    # يعرض العرض التقديمي؛ يتم استبدال خط "Calibri" بخط متوفر
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # احفظ الصورة على القرص بتنسيق JPEG
+    # يحفظ الصورة على القرص بصيغة JPEG
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -68,7 +68,7 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
         $slideImage->dispose();
       }
     }
-    # يحفظ العرض التقديمي بدون الخط المضمن "Calibri" على القرص
+    # يحفظ العرض التقديمي دون خط "Calibri" المدمج على القرص
     $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
   } finally {
     if (!java_is_null($pres)) {
@@ -78,11 +78,12 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
 ```
 
 
-## **إضافة الخطوط المضمَّنة**
 
-باستخدام تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) واثنين من التحميل المفرط لطريقة [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-)، يمكنك اختيار قاعدة التضمين المفضلة لديك لتضمين الخطوط في عرض تقديمي. هذا الكود PHP يوضح لك كيفية تضمين وإضافة الخطوط إلى عرض تقديمي:
+## **إضافة خطوط مدمجة**
+
+باستخدام الفئة [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) واثنين من التحميلات الزائدة للطريقة [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont)، يمكنك اختيار القاعدة (الدمج) المفضلة لدمج الخطوط في عرض تقديمي. يعرض هذا الشيفرة PHP كيفية دمج وإضافة خطوط إلى عرض تقديمي:
 ```php
-  # يحمّل العرض التقديمي
+  # تحميل العرض التقديمي
   $pres = new Presentation("Fonts.pptx");
   try {
     $allFonts = $pres->getFontsManager()->getFonts();
@@ -101,7 +102,7 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
         $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
       }
     }
-    # يحفظ العرض التقديمي إلى القرص
+    # حفظ العرض التقديمي على القرص
     $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -111,11 +112,11 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
 ```
 
 
-## **ضغط الخطوط المضمَّنة**
+## **ضغط الخطوط المدمجة**
 
-لتتيح لك ضغط الخطوط المضمَّنة في عرض تقديمي وتقليل حجمه، توفر Aspose.Slides طريقة [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (المعروضة بواسطة فئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
+لتمكينك من ضغط الخطوط المدمجة في عرض تقديمي وتقليل حجمه، توفر Aspose.Slides الطريقة [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts) (المعروضة بواسطة فئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
 
-هذا الكود PHP يوضح لك كيفية ضغط الخطوط المضمَّنة في PowerPoint:
+يعرض هذا الشيفرة PHP كيفية ضغط خطوط PowerPoint المدمجة:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -129,10 +130,12 @@ description: "تضمين خطوط TrueType في عروض PowerPoint وOpenDocume
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
-**كيف يمكنني معرفة أن خطًا معينًا في العرض سيظل يُستبدل أثناء العرض بالرغم من تضمينه؟**  
-تحقق من [معلومات الاستبدال](/slides/ar/php-java/font-substitution/) في مدير الخطوط و[قواعد الاحتياطي/الاستبدال](/slides/ar/php-java/fallback-font/): إذا كان الخط غير متوفر أو مقيد، سيتم استخدام احتياطي.
+**كيف يمكنني معرفة أن خطًا معينًا في العرض سيستمر في الاستبدال أثناء العرض بالرغم من دمجه؟**
 
-**هل يستحق تضمين الخطوط "النظامية" مثل Arial/Calibri؟**  
-عادةً لا—فهذه الخطوط متاحة تقريبًا دائمًا. ولكن لضمان قابلية النقل الكاملة في البيئات "الخفيفة" (Docker، خادم Linux بدون خطوط مثبتة مسبقًا)، يمكن لتضمين الخطوط النظامية أن يقضي على خطر الاستبدالات غير المتوقعة.
+تحقق من [معلومات الاستبدال](/slides/ar/php-java/font-substitution/) في مدير الخطوط و[قواعد الاحتياطي/الاستبدال](/slides/ar/php-java/fallback-font/): إذا كان الخط غير متاح أو مقيد، سيتم استخدام احتياطي.
+
+**هل من المجدي دمج خطوط "النظام" مثل Arial/Calibri؟**
+
+عادة لا—فهي متوفرة تقريبًا دائمًا. لكن لضمان قابلية النقل الكاملة في بيئات "نحيفة" (Docker، خادم Linux بدون خطوط مثبتة مسبقًا)، قد يزيل دمج خطوط النظام خطر الاستبدالات غير المتوقعة.

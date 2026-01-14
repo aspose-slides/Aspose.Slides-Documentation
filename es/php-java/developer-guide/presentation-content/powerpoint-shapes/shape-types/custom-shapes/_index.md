@@ -21,75 +21,76 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Crea y personaliza formas en presentaciones de PowerPoint con Aspose.Slides para PHP mediante Java: rutas de geometría, esquinas curvas, formas compuestas."
+description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para PHP vía Java: rutas de geometría, esquinas curvas, formas compuestas."
 ---
 
 ## **Cambiar una forma usando puntos de edición**
-Considera un cuadrado. En PowerPoint, usando **puntos de edición**, puedes 
+Considere un cuadrado. En PowerPoint, usando **puntos de edición**, puede
 
 * mover la esquina del cuadrado hacia dentro o fuera
 * especificar la curvatura de una esquina o punto
 * añadir nuevos puntos al cuadrado
 * manipular los puntos del cuadrado, etc. 
 
-Esencialmente, puedes realizar las tareas descritas en cualquier forma. Usando puntos de edición, puedes cambiar una forma o crear una nueva forma a partir de una forma existente. 
+En esencia, puede realizar las tareas descritas en cualquier forma. Usando puntos de edición, puede cambiar una forma o crear una nueva forma a partir de una forma existente. 
 
 ## **Consejos para editar formas**
 
-![imagen_resumen](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Antes de comenzar a editar formas de PowerPoint mediante puntos de edición, puede que quieras considerar estos aspectos sobre las formas:
+Antes de comenzar a editar formas de PowerPoint mediante puntos de edición, quizás desee considerar los siguientes aspectos sobre las formas:
 
-* Una forma (o su ruta) puede estar cerrada o abierta.
-* Cuando una forma está cerrada, no tiene punto de inicio ni de fin. Cuando una forma está abierta, tiene un inicio y un final. 
+* Una forma (o su ruta) puede ser cerrada o abierta.
+* Cuando una forma está cerrada, carece de punto de inicio o fin. Cuando una forma está abierta, tiene un comienzo y un final. 
 * Todas las formas constan de al menos 2 puntos de anclaje vinculados entre sí por líneas
 * Una línea es recta o curva. Los puntos de anclaje determinan la naturaleza de la línea. 
-* Los puntos de anclaje pueden ser puntos de esquina, puntos rectos o puntos suaves:
+* Los puntos de anclaje existen como puntos de esquina, puntos rectos o puntos suaves:
   * Un punto de esquina es un punto donde se unen 2 líneas rectas formando un ángulo. 
-  * Un punto suave es un punto donde existen 2 manejadores en una línea recta y los segmentos de la línea se unen en una curva suave. En este caso, todos los manejadores están separados del punto de anclaje a una distancia igual. 
-  * Un punto recto es un punto donde existen 2 manejadores en una línea recta y los segmentos de esa línea se unen en una curva suave. En este caso, los manejadores no tienen que estar separados del punto de anclaje a una distancia igual. 
-* Al mover o editar los puntos de anclaje (lo que cambia el ángulo de las líneas), puedes modificar la apariencia de una forma. 
+  * Un punto suave es un punto donde existen 2 manipuladores en una línea recta y los segmentos de la línea se unen en una curva suave. En este caso, todos los manipuladores están separados del punto de anclaje por una distancia igual. 
+  * Un punto recto es un punto donde existen 2 manipuladores en una línea recta y los segmentos de esa línea se unen en una curva suave. En este caso, los manipuladores no tienen que estar separados del punto de anclaje por una distancia igual. 
+* Al mover o editar los puntos de anclaje (lo que cambia el ángulo de las líneas), puede modificar la apariencia de una forma. 
 
-Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [**GeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) y la interfaz [**IGeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath).
+Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [**GeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
 
-* Una instancia de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) representa una ruta geométrica del objeto [IGeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape).
-* Para recuperar el`GeometryPath` de la instancia `IGeometryShape`, puedes usar el método [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#getGeometryPaths--).
-* Para establecer el `GeometryPath` de una forma, puedes usar estos métodos: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) para *formas sólidas* y [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) para *formas compuestas*.
-* Para añadir segmentos, puedes usar los métodos de [IGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath).
-* Usando los métodos [IGeometryPath.setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setStroke-boolean-) y [IGeometryPath.setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#setFillMode-byte-), puedes establecer la apariencia de una ruta geométrica.
-* Con el método [IGeometryPath.getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryPath#getPathData--) puedes obtener la ruta geométrica de un `GeometryShape` como una matriz de segmentos de ruta.
-* Para acceder a opciones adicionales de personalización de la geometría de la forma, puedes convertir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)
-* Utiliza los métodos [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) y [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (de la clase [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil)) para convertir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) y viceversa.
+* Una instancia de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) representa una ruta geométrica del objeto [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Para obtener el `GeometryPath` de la instancia `GeometryShape`, puede usar el método [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Para establecer el `GeometryPath` de una forma, puede usar estos métodos: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) para *formas sólidas* y [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) para *formas compuestas*.
+* Para añadir segmentos, puede usar los métodos bajo [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Usando los métodos [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/setstroke/) y [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/setfillmode/) puede establecer la apariencia de una ruta geométrica.
+* Usando el método [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/getpathdata/) puede obtener la ruta geométrica de un `GeometryShape` como una matriz de segmentos de ruta.
+* Para acceder a opciones adicionales de personalización de geometría de forma, puede convertir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)
+* Utilice los métodos [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) y [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) (de la clase [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil)) para convertir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) y viceversa.
 
 ## **Operaciones de edición simples**
 
-Este código PHP muestra cómo
+Este código PHP le muestra cómo
 
-**Añadir una línea** al final de una ruta
+**Agregar una línea** al final de una ruta
 ```php
 
 ```
 
-**Añadir una línea** a una posición especificada en una ruta:
+**Agregar una línea** a una posición especificada en una ruta:
 ```php
 
 ```
 
-**Añadir una curva Bézier cúbica** al final de una ruta:
+**Agregar una curva Bézier cúbica** al final de una ruta:
 ```php
 
 ```
 
-**Añadir una curva Bézier cúbica** a la posición especificada en una ruta:
-```php
-```
-
-**Añadir una curva Bézier cuadrática** al final de una ruta:
+**Agregar una curva Bézier cúbica** a la posición especificada en una ruta:
 ```php
 
 ```
 
-**Añadir una curva Bézier cuadrática** a la posición especificada en una ruta:
+**Agregar una curva Bézier cuadrática** al final de una ruta:
+```php
+
+```
+
+**Agregar una curva Bézier cuadrática** a una posición especificada en una ruta:
 ```php
 
 ```
@@ -115,14 +116,14 @@ Este código PHP muestra cómo
 ```
 
 
-## **Añadir puntos personalizados a una forma**
-1. Crea una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) y establece el tipo [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType).
-2. Obtén una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a partir de la forma.
-3. Añade un nuevo punto entre los dos puntos superiores de la ruta.
-4. Añade un nuevo punto entre los dos puntos inferiores de la ruta.
-5. Aplica la ruta a la forma.
+## **Agregar puntos personalizados a una forma**
+1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) y establezca el tipo [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType).
+2. Obtenga una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a partir de la forma.
+3. Añada un nuevo punto entre los dos puntos superiores de la ruta.
+4. Añada un nuevo punto entre los dos puntos inferiores de la ruta.
+5. Aplique la ruta a la forma.
 
-Este código PHP muestra cómo añadir puntos personalizados a una forma:
+Este código PHP le muestra cómo agregar puntos personalizados a una forma:
 ```php
   $pres = new Presentation();
   try {
@@ -138,16 +139,16 @@ Este código PHP muestra cómo añadir puntos personalizados a una forma:
   }
 ```
 
-![ejemplo1_imagen](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **Eliminar puntos de una forma**
 
-1. Crea una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) y establece el tipo [ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType).
-2. Obtén una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a partir de la forma.
-3. Elimina el segmento de la ruta.
-4. Aplica la ruta a la forma.
+1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) y establezca el tipo [ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType).
+2. Obtenga una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) a partir de la forma.
+3. Elimine el segmento de la ruta.
+4. Aplique la ruta a la forma.
 
-Este código PHP muestra cómo eliminar puntos de una forma:
+Este código PHP le muestra cómo eliminar puntos de una forma:
 ```php
   $pres = new Presentation();
   try {
@@ -162,17 +163,17 @@ Este código PHP muestra cómo eliminar puntos de una forma:
   }
 ```
 
-![ejemplo2_imagen](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **Crear una forma personalizada**
 
-1. Calcula los puntos para la forma.
-2. Crea una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
-3. Rellena la ruta con los puntos.
-4. Crea una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
-5. Aplica la ruta a la forma.
+1. Calcule los puntos para la forma.
+2. Cree una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
+3. Rellene la ruta con los puntos.
+4. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
+5. Aplique la ruta a la forma.
 
-Este código Java muestra cómo crear una forma personalizada:
+Este código Java le muestra cómo crear una forma personalizada:
 ```php
   $points = new Java("java.util.ArrayList");
   $R = 100;
@@ -205,17 +206,17 @@ Este código Java muestra cómo crear una forma personalizada:
   }
 ```
 
-![ejemplo3_imagen](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
 
 ## **Crear una forma personalizada compuesta**
 
-1. Crea una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
-2. Crea una primera instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
-3. Crea una segunda instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
-4. Aplica las rutas a la forma.
+1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
+2. Cree una primera instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
+3. Cree una segunda instancia de la clase [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
+4. Aplique las rutas a la forma.
 
-Este código PHP muestra cómo crear una forma personalizada compuesta:
+Este código PHP le muestra cómo crear una forma personalizada compuesta:
 ```php
   $pres = new Presentation();
   try {
@@ -240,11 +241,11 @@ Este código PHP muestra cómo crear una forma personalizada compuesta:
   }
 ```
 
-![ejemplo4_imagen](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **Crear una forma personalizada con esquinas curvas**
 
-Este código PHP muestra cómo crear una forma personalizada con esquinas curvas (hacia adentro);
+Este código PHP le muestra cómo crear una forma personalizada con esquinas curvas (hacia dentro);
 ```php
   $shapeX = 20.0;
   $shapeY = 20.0;
@@ -285,7 +286,7 @@ Este código PHP muestra cómo crear una forma personalizada con esquinas curvas
 
 ## **Descubrir si la geometría de una forma está cerrada**
 
-Una forma cerrada se define como aquella en la que todos sus lados se conectan, formando un único contorno sin huecos. Esa forma puede ser una forma geométrica simple o un contorno personalizado complejo. El siguiente ejemplo de código muestra cómo comprobar si la geometría de una forma está cerrada:
+Una forma cerrada se define como aquella en la que todos sus bordes se conectan, formando un contorno único sin huecos. Esta forma puede ser una forma geométrica simple o un contorno personalizado complejo. El siguiente ejemplo de código muestra cómo comprobar si la geometría de una forma está cerrada:
 ```php
 function isGeometryClosed($geometryShape)
 {
@@ -312,10 +313,10 @@ function isGeometryClosed($geometryShape)
 
 ## **Convertir GeometryPath a java.awt.Shape** 
 
-1. Crea una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
-2. Crea una instancia de la clase [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html).
-3. Convierte la instancia de [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) a la instancia de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) utilizando [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil).
-4. Aplica las rutas a la forma.
+1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape).
+2. Cree una instancia de la clase [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html).
+3. Convierta la instancia de [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) a la instancia de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) usando [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil).
+4. Aplique las rutas a la forma.
 
 Este código PHP—una implementación de los pasos anteriores—demuestra el proceso de conversión de **GeometryPath** a **GraphicsPath**:
 ```php
@@ -323,7 +324,7 @@ Este código PHP—una implementación de los pasos anteriores—demuestra el pr
   try {
     # Crear nueva forma
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # Obtener la ruta de geometría de la forma
+    # Obtener la ruta geométrica de la forma
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
     # Crear nueva ruta gráfica con texto
@@ -338,10 +339,10 @@ Este código PHP—una implementación de los pasos anteriores—demuestra el pr
     } finally {
       $g2->dispose();
     }
-    # Convertir la ruta gráfica a ruta de geometría
+    # Convertir ruta gráfica a ruta geométrica
     $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
     $textPath->setFillMode(PathFillModeType::Normal);
-    # Establecer la combinación de la nueva ruta de geometría y la ruta de geometría original en la forma
+    # Establecer la combinación de la nueva ruta geométrica y la ruta original en la forma
     $shape->setGeometryPaths(array($originalPath, $textPath ));
   } finally {
     if (!java_is_null($pres)) {
@@ -350,9 +351,9 @@ Este código PHP—una implementación de los pasos anteriores—demuestra el pr
   }
 ```
 
-![ejemplo5_imagen](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Qué ocurrirá con el relleno y el contorno después de reemplazar la geometría?**
 
@@ -360,8 +361,8 @@ El estilo permanece con la forma; solo cambia el contorno. El relleno y el conto
 
 **¿Cómo rotar correctamente una forma personalizada junto con su geometría?**
 
-Utiliza el método [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setrotation/) de la forma; la geometría rota con la forma porque está vinculada al propio sistema de coordenadas de la forma.
+Utilice el método [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setrotation/) de la forma; la geometría rota con la forma porque está vinculada al propio sistema de coordenadas de la forma.
 
-**¿Puedo convertir una forma personalizada a una imagen para "bloquear" el resultado?**
+**¿Puedo convertir una forma personalizada en una imagen para "bloquear" el resultado?**
 
-Sí. Exporta el área de la [diapositiva](/slides/es/php-java/convert-powerpoint-to-png/) requerida o la propia [forma](/slides/es/php-java/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.
+Sí. Exporte la [diapositiva](/slides/es/php-java/convert-powerpoint-to-png/) requerida o la propia [forma](/slides/es/php-java/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.

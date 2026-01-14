@@ -1,6 +1,6 @@
 ---
-title: Управление комментариями к презентациям в PHP
-linktitle: Комментарии к презентациям
+title: Управление комментариями презентаций в PHP
+linktitle: Комментарии к презентации
 type: docs
 weight: 100
 url: /ru/php-java/presentation-comments/
@@ -9,11 +9,11 @@ keywords:
 - современный комментарий
 - комментарии PowerPoint
 - комментарии к презентации
-- комментарии к слайдам
+- комментарии слайда
 - добавить комментарий
-- доступ к комментарию
+- доступ к комментариям
 - редактировать комментарий
-- ответить на комментарий
+- ответ на комментарий
 - удалить комментарий
 - удалить комментарий
 - PowerPoint
@@ -21,24 +21,24 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Эффективно управляйте комментариями к презентациям с помощью Aspose.Slides for PHP via Java: добавляйте, читайте, редактируйте и удаляйте комментарии в файлах PowerPoint быстро и просто."
+description: "Эффективно управляйте комментариями презентаций с Aspose.Slides for PHP via Java: добавляйте, читайте, редактируйте и удаляйте комментарии в файлах PowerPoint быстро и легко."
 ---
 
-В PowerPoint комментарий отображается как заметка или аннотация на слайде. При щелчке по комментарию его содержимое или сообщения раскрываются. 
+В PowerPoint комментарий отображается как заметка или аннотация на слайде. При щелчке по комментарию его содержимое или сообщения отображаются. 
 
 ## **Зачем добавлять комментарии в презентации?**
 
-Вы можете использовать комментарии для предоставления обратной связи или общения с коллегами при проверке презентаций.
+Вы можете захотеть использовать комментарии для предоставления отзывов или общения с коллегами при просмотре презентаций.
 
 Чтобы вы могли использовать комментарии в презентациях PowerPoint, Aspose.Slides for PHP via Java предоставляет
 
-* Класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) содержит коллекцию авторов (из интерфейса [ICommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentAuthorCollection)). Авторы добавляют комментарии к слайдам.
-* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentCollection) содержит коллекцию комментариев для отдельных авторов.
-* Класс [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment) содержит информацию об авторах и их комментариях: кто добавил комментарий, время добавления, позицию комментария и т.д.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/CommentAuthor) содержит информацию об отдельных авторах: имя автора, его инициалы, комментарии, связанные с именем автора, и т.д.
+* Класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) содержит коллекции авторов (из класса [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) ). Авторы добавляют комментарии к слайдам.
+* Класс [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) содержит коллекцию комментариев для отдельных авторов.
+* Класс [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) содержит информацию об авторах и их комментариях: кто добавил комментарий, время добавления, позицию комментария и т.д.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) содержит информацию об отдельных авторах: имя автора, его инициалы, комментарии, связанные с именем автора, и т.д.
 
-## **Добавление комментариев к слайдам**
-Этот PHP‑код показывает, как добавить комментарий к слайду в презентации PowerPoint:
+## **Добавить комментарии к слайду**
+Этот PHP-код показывает, как добавить комментарий к слайду в презентации PowerPoint:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation();
@@ -50,13 +50,13 @@ description: "Эффективно управляйте комментариям
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
     # Устанавливает позицию для комментариев
     $point = new Point2DFloat(0.2, 0.2);
-    # Добавляет комментарий к слайду для автора на слайде 1
+    # Добавляет комментарий к слайду от автора на слайде 1
     $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # Добавляет комментарий к слайду для автора на слайде 2
+    # Добавляет комментарий к слайду от автора на слайде 2
     $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
     # Получает ISlide 1
     $slide = $pres->getSlides()->get_Item(0);
-    # Когда в качестве аргумента передается null, комментарии всех авторов выводятся на выбранный слайд
+    # При передаче null в качестве аргумента, комментарии всех авторов берутся для выбранного слайда
     $Comments = $slide->getSlideComments($author);
     # Получает комментарий с индексом 0 для слайда 1
     $str = $Comments[0]->getText();
@@ -74,8 +74,8 @@ description: "Эффективно управляйте комментариям
 ```
 
 
-## **Получение комментариев со слайда**
-Этот PHP‑код показывает, как получить существующий комментарий со слайда в презентации PowerPoint:
+## **Получить комментарии со слайда**
+Этот PHP-код показывает, как получить существующий комментарий на слайде в презентации PowerPoint:
 ```php
   # Создает экземпляр класса Presentation
   $pres = new Presentation("Comments1.pptx");
@@ -96,9 +96,9 @@ description: "Эффективно управляйте комментариям
 
 
 ## **Ответы на комментарии**
-Родительским комментарием является верхний или оригинальный комментарий в иерархии комментариев или ответов. С помощью методов [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#getParentComment--) или [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (из интерфейса [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment)) можно установить или получить родительский комментарий.
+Родительский комментарий — это основной или оригинальный комментарий в иерархии комментариев или ответов. С помощью методов [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) или [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (из класса [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)) вы можете установить или получить родительский комментарий.
 
-Этот PHP‑код показывает, как добавлять комментарии и получать ответы на них:
+Этот PHP-код показывает, как добавить комментарии и получить к ним ответы:
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
@@ -110,17 +110,17 @@ description: "Эффективно управляйте комментариям
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
     $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
-    # Добавляет еще один ответ к comment1
+    # Добавляет ещё один ответ к comment1
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
-    # Добавляет ответ к существующему ответу
+    # Добавляет ответ на существующий ответ
     $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $subReply->setParentComment($reply2);
     $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3->setParentComment($comment3);
-    # Выводит иерархию комментариев в консоль
+    # Отображает иерархию комментариев в консоли
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
     for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
@@ -133,7 +133,7 @@ description: "Эффективно управляйте комментариям
       echo();
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # Удаляет comment1 и все ответы к нему
+    # Удаляет comment1 и все ответы на него
     $comment1->remove();
     $pres->save("remove_comment.pptx", SaveFormat::Pptx);
   } finally {
@@ -146,18 +146,18 @@ description: "Эффективно управляйте комментариям
 
 {{% alert color="warning" title="Attention" %}} 
 
-* При использовании метода [Remove](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#remove--) (из интерфейса [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment)) для удаления комментария также удаляются ответы на этот комментарий.
-* Если настройка [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) приводит к круговой ссылке, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException).
+* При использовании метода [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) (из класса [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/)) для удаления комментария, также удаляются ответы на этот комментарий.
+* Если установка [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) приводит к циклической ссылке, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
 
 {{% /alert %}}
 
-## **Добавление современных комментариев**
+## **Добавить современные комментарии**
 
-В 2021 году Microsoft представила *современные комментарии* в PowerPoint. Функция современных комментариев значительно улучшает совместную работу в PowerPoint. С помощью современных комментариев пользователи PowerPoint могут решать комментарии, привязывать их к объектам и текстам и взаимодействовать гораздо проще, чем ранее. 
+В 2021 году Microsoft представила *современные комментарии* в PowerPoint. Функция современных комментариев значительно улучшает совместную работу в PowerPoint. Благодаря современным комментариям пользователи PowerPoint могут отмечать комментарии как решённые, привязывать комментарии к объектам и текстам и взаимодействовать гораздо удобнее, чем раньше. 
 
-В [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) мы реализовали поддержку современных комментариев, добавив класс [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/ModernComment). Методы [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) и [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) были добавлены в класс [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection).
+В [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) мы реализовали поддержку современных комментариев, добавив класс [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/). В класс [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) были добавлены методы [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) и [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/).
 
-Этот PHP‑код показывает, как добавить современный комментарий к слайду в презентации PowerPoint:
+Этот PHP-код показывает, как добавить современный комментарий к слайду в презентации PowerPoint:
 ```php
   $pres = new Presentation();
   try {
@@ -172,10 +172,11 @@ description: "Эффективно управляйте комментариям
 ```
 
 
-## **Удаление комментариев**
+## **Удалить комментарии**
 
 ### **Удалить все комментарии и авторов**
-Этот PHP‑код показывает, как удалить все комментарии и авторов в презентации:
+
+Этот PHP-код показывает, как удалить все комментарии и авторов в презентации:
 ```php
   $presentation = new Presentation("example.pptx");
   try {
@@ -194,13 +195,14 @@ description: "Эффективно управляйте комментариям
 ```
 
 
-### **Удалить конкретные комментарии**
-Этот PHP‑код показывает, как удалить конкретные комментарии со слайда:
+### **Удалить определённые комментарии**
+
+Этот PHP‑код показывает, как удалить определённые комментарии на слайде:
 ```php
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # добавить комментарии...
+    # добавляем комментарии...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
@@ -225,13 +227,16 @@ description: "Эффективно управляйте комментариям
 ```
 
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус, например «решено», для современных комментариев?**  
-Да. [Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) предоставляют метод [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/); вы можете задать [состояние комментария](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) (например, отметить его как решённое), и это состояние сохраняется в файле и распознаётся PowerPoint.
+**Поддерживает ли Aspose.Slides статус, например 'решено', для современных комментариев?**
 
-**Поддерживаются ли ветвленные обсуждения (цепочки ответов) и существует ли ограничение вложенности?**  
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), позволяя создавать произвольные цепочки ответов. API не объявляет конкретного предела вложенности.
+Да. [Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) предоставляют метод [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/); вы можете задать [comment’s state](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) (например, отметить его как решённый), и это состояние сохраняется в файле и распознаётся PowerPoint.
 
-**В какой системе координат определяется позиция маркера комментария на слайде?**  
-Позиция хранится как точка с плавающей запятой в системе координат слайда. Это позволяет разместить маркер комментария точно там, где это необходимо.
+**Поддерживаются ли дискуссии в виде цепочек ответов и существует ли ограничение вложенности?**
+
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), что позволяет создавать произвольные цепочки ответов. API не объявляет конкретного ограничения глубины вложенности.
+
+**В какой системе координат определяется позиция маркера комментария на слайде?**
+
+Позиция хранится как точка с плавающей запятой в системе координат слайда. Это позволяет точно разместить маркер комментария в нужном месте.

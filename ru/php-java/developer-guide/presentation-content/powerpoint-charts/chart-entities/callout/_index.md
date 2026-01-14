@@ -1,22 +1,22 @@
 ---
-title: Управление подсказками в диаграммах презентаций с использованием PHP
-linktitle: Подсказка
+title: Управление выносами в диаграммах презентаций с использованием PHP
+linktitle: Вынос
 type: docs
 url: /ru/php-java/callout/
 keywords:
-- подсказка диаграммы
-- использовать подсказку
-- подпись данных
-- формат подписи
+- вынос диаграммы
+- использовать вынос
+- метка данных
+- формат метки
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Создавайте и оформляйте подсказки в Aspose.Slides для PHP через Java с лаконичными примерами кода, совместимыми с PPT и PPTX, чтобы автоматизировать рабочие процессы презентаций."
+description: "Создавайте и оформляйте выносы в Aspose.Slides for PHP via Java с помощью лаконичных примеров кода, совместимых с PPT и PPTX, чтобы автоматизировать рабочие процессы презентаций."
 ---
 
-## **Использование подсказок**
-New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) class and [IDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/idatalabelformat) interface. These methods determine either specified chart's data label will be displayed as data callout or as data label.
+## **Использование выносов**
+В класс [DataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat) добавлены новые методы [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/getshowlabelasdatacallout/) и [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlabelasdatacallout/). Эти методы определяют, будет ли метка данных указанной диаграммы отображаться как вынос данных или как метка данных.
 ```php
   $pres = new Presentation();
   try {
@@ -33,8 +33,8 @@ New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slide
 ```
 
 
-## **Установить подсказку для кольцевой диаграммы**
-Aspose.Slides for PHP via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given.
+## **Установка выноса для кольцевой диаграммы**
+Aspose.Slides for PHP via Java предоставляет поддержку установки формы выноса метки данных серии для кольцевой диаграммы. Ниже приведён пример.
 ```php
   $pres = new Presentation();
   try {
@@ -96,12 +96,12 @@ Aspose.Slides for PHP via Java provides support for setting series data label ca
 ```
 
 
-## **Часто задаваемые вопросы**
+## **Вопросы и ответы**
 
-**Сохраняются ли подсказки при конвертации презентации в PDF, HTML5, SVG или изображения?**
+**Сохраняются ли выносы при конвертации презентации в PDF, HTML5, SVG или изображения?**
 
-Да. Подсказки являются частью отрисовки диаграммы, поэтому при экспорте в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/php-java/export-to-html5/), [SVG](/slides/ru/php-java/render-a-slide-as-an-svg-image/), или [растровые изображения](/slides/ru/php-java/convert-powerpoint-to-png/), они сохраняются вместе с форматированием слайда.
+Да. Выносы являются частью рендеринга диаграммы, поэтому при экспорте в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/php-java/export-to-html5/), [SVG](/slides/ru/php-java/render-a-slide-as-an-svg-image/) или [растровые изображения](/slides/ru/php-java/convert-powerpoint-to-png/), они сохраняются вместе с форматированием слайда.
 
-**Работают ли пользовательские шрифты в подсказках, и можно ли сохранить их внешний вид при экспорте?**
+**Работают ли пользовательские шрифты в выносах, и можно ли сохранить их внешний вид при экспорте?**
 
-Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/php-java/embedded-font/) в презентацию и контролирует встраивание шрифтов при экспорте, например в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид подсказок на разных системах.
+Да. Aspose.Slides поддерживает [внедрение шрифтов](/slides/ru/php-java/embedded-font/) в презентацию и управляет внедрением шрифтов при экспорте, например в [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/), обеспечивая одинаковый вид выносов на разных системах.

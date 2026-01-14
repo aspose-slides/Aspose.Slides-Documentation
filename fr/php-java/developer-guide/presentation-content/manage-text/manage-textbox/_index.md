@@ -1,46 +1,46 @@
 ---
-title: Gérer les zones de texte dans les présentations avec PHP
+title: Gérer les zones de texte dans les présentations à l'aide de PHP
 linktitle: Gérer la zone de texte
 type: docs
 weight: 20
 url: /fr/php-java/manage-textbox/
 keywords:
-  - zone de texte
-  - cadre de texte
-  - ajouter du texte
-  - mettre à jour le texte
-  - créer une zone de texte
-  - vérifier la zone de texte
-  - ajouter une colonne de texte
-  - ajouter un hyperlien
-  - PowerPoint
-  - présentation
-  - PHP
-  - Aspose.Slides
-description: "Aspose.Slides for PHP facilite la création, la modification et la duplication des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant ainsi l'automatisation de vos présentations."
+- zone de texte
+- cadre de texte
+- ajouter du texte
+- mettre à jour le texte
+- créer une zone de texte
+- vérifier la zone de texte
+- ajouter une colonne de texte
+- ajouter un hyperlien
+- PowerPoint
+- présentation
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides pour PHP facilite la création, la modification et le clonage des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant l'automatisation de vos présentations."
 ---
 
-Les textes sur les diapositives se trouvent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter du texte à une diapositive, vous devez ajouter une zone de texte puis placer du texte à l'intérieur de la zone de texte. Aspose.Slides for PHP via Java fournit l'interface [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) qui vous permet d'ajouter une forme contenant du texte.
+Les textes sur les diapositives existent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter du texte à une diapositive, vous devez ajouter une zone de texte puis y placer du texte. Aspose.Slides for PHP via Java fournit la classe [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) qui vous permet d’ajouter une forme contenant du texte.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides fournit également l'interface [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) qui vous permet d'ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l'interface `IShape` ne peuvent pas contenir du texte. En revanche, les formes ajoutées via l'interface [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) peuvent contenir du texte.
+Aspose.Slides fournit également la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) qui vous permet d’ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via la classe `Shape` ne peuvent pas contenir du texte. En revanche, les formes ajoutées via la classe [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) peuvent contenir du texte.
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-Par conséquent, lorsque vous travaillez avec une forme à laquelle vous souhaitez ajouter du texte, vous devez vérifier et confirmer qu'elle a été castée via l'interface `IAutoShape`. Ce n'est qu'alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame), qui est une propriété de `IAutoShape`. Consultez la section [Update Text](https://docs.aspose.com/slides/php-java/manage-textbox/#update-text) sur cette page.
+Par conséquent, lorsqu’il s’agit d’une forme à laquelle vous souhaitez ajouter du texte, vous pouvez vérifier et confirmer qu’elle a été convertie via la classe `AutoShape`. Ce n’est qu’alors que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/), qui est une propriété de `AutoShape`. Consultez la section [Update Text](/slides/fr/php-java/manage-textbox/#update-text) de cette page.
 {{% /alert %}}
 
 ## **Créer une zone de texte sur une diapositive**
 
-Pour créer une zone de texte sur une diapositive, suivez les étapes suivantes :
+Pour créer une zone de texte sur une diapositive, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtenez une référence à la première diapositive de la présentation nouvellement créée. 
-3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) avec [ShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/IGeometryShape#setShapeType-int-) défini sur `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l'objet `IAutoShape` nouvellement ajouté.
-4. Ajoutez la propriété `TextFrame` à l'objet `IAutoShape` qui contiendra du texte. Dans l'exemple ci‑dessus, nous avons ajouté ce texte : *Aspose TextBox*
-5. Enfin, écrivez le fichier PPTX via l'objet `Presentation`. 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Obtenez une référence pour la première diapositive de la présentation nouvellement créée. 
+3. Ajoutez un objet [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) avec le type de forme défini comme [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) à une position spécifiée sur la diapositive et obtenez la référence de l’objet `AutoShape` nouvellement ajouté.
+4. Ajoutez un `TextFrame` à l’objet `AutoShape` qui contiendra du texte. Dans l’exemple ci-dessous, nous avons ajouté ce texte : *Aspose TextBox*
+5. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
 
-Ce code PHP — une implémentation des étapes ci‑dessus — vous montre comment ajouter du texte à une diapositive :
+Ce code PHP — une implémentation des étapes ci‑dessus — montre comment ajouter du texte à une diapositive :
 ```php
   # Instancie la présentation
   $pres = new Presentation();
@@ -49,7 +49,7 @@ Ce code PHP — une implémentation des étapes ci‑dessus — vous montre comm
     $sld = $pres->getSlides()->get_Item(0);
     # Ajoute une AutoShape avec le type défini comme Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Ajoute un TextFrame au Rectangle
+    # Ajoute un TextFrame au rectangle
     $ashp->addTextFrame(" ");
     # Accède au cadre de texte
     $txtFrame = $ashp->getTextFrame();
@@ -69,13 +69,13 @@ Ce code PHP — une implémentation des étapes ci‑dessus — vous montre comm
 ```
 
 
-## **Vérifier une forme de zone de texte**
+## **Vérifier la présence d’une forme de zone de texte**
 
-Aspose.Slides fournit la méthode [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--) de la classe [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), vous permettant d'examiner les formes et d'identifier les zones de texte.
+Aspose.Slides fournit la méthode [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/istextbox/) de la classe [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), vous permettant d’examiner les formes et d’identifier les zones de texte.
 
 ![Text box and shape](istextbox.png)
 
-Ce code PHP vous montre comment vérifier si une forme a été créée en tant que zone de texte :
+Ce code PHP montre comment vérifier si une forme a été créée en tant que zone de texte :
 ```php
 class ShapeCallback {
     function invoke($shape, $slide, $index) {
@@ -96,7 +96,7 @@ try {
 ```
 
 
-Notez que si vous ajoutez simplement une autoshape en utilisant la méthode `addAutoShape` de la classe [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/), la méthode `isTextBox` de l'autoshape renverra `false`. Cependant, après avoir ajouté du texte à l'autoshape avec la méthode `addTextFrame` ou la méthode `setText`, la propriété `isTextBox` renvoie `true`.
+Notez que si vous ajoutez simplement une autoshape à l’aide de la méthode `addAutoShape` de la classe [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/), la méthode `isTextBox` de l’autoshape renverra `false`. En revanche, après avoir ajouté du texte à l’autoshape à l’aide de la méthode `addTextFrame` ou de la méthode `setText`, la propriété `isTextBox` renvoie `true`.
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -125,9 +125,9 @@ $shape4->getTextFrame()->setText("");
 
 ## **Ajouter des colonnes à une zone de texte**
 
-Aspose.Slides fournit les propriétés [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) et [ColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (issues de l'interface [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat) et de la classe [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat)) qui vous permettent d'ajouter des colonnes aux zones de texte. Vous pouvez spécifier le nombre de colonnes dans une zone de texte et définir l'espacement en points entre les colonnes.
+Aspose.Slides fournit les méthodes [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) et [setColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumnspacing/) de la classe [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/), qui permettent d’ajouter des colonnes aux zones de texte. Vous pouvez spécifier le nombre de colonnes dans une zone de texte et définir l’espacement en points entre les colonnes.
 
-Ce code démontre l'opération décrite :
+Ce code démontre l’opération décrite :
 ```php
   $pres = new Presentation();
   try {
@@ -154,9 +154,10 @@ Ce code démontre l'opération décrite :
 
 
 ## **Ajouter des colonnes à un cadre de texte**
-Aspose.Slides for PHP via Java fournit la propriété [ColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) (de l'interface [ITextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrameFormat)) qui vous permet d'ajouter des colonnes dans les cadres de texte. Grâce à cette propriété, vous pouvez spécifier le nombre de colonnes souhaité dans un cadre de texte.
 
-Ce code PHP vous montre comment ajouter une colonne à l'intérieur d'un cadre de texte :
+Aspose.Slides for PHP via Java fournit la méthode [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) de la classe [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) qui permet d’ajouter des colonnes dans les cadres de texte. Grâce à cette propriété, vous pouvez spécifier le nombre de colonnes souhaité dans un cadre de texte.
+
+Ce code PHP montre comment ajouter une colonne à l’intérieur d’un cadre de texte :
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
   $pres = new Presentation();
@@ -211,9 +212,9 @@ Ce code PHP vous montre comment ajouter une colonne à l'intérieur d'un cadre d
 
 ## **Mettre à jour le texte**
 
-Aspose.Slides vous permet de modifier ou de mettre à jour le texte contenu dans une zone de texte ou tous les textes d'une présentation. 
+Aspose.Slides vous permet de modifier ou mettre à jour le texte contenu dans une zone de texte ou tous les textes d’une présentation.
 
-Ce code PHP montre une opération où tous les textes d'une présentation sont mis à jour ou modifiés :
+Ce code PHP montre une opération où tous les textes d’une présentation sont mis à jour ou modifiés :
 ```php
   $pres = new Presentation("text.pptx");
   try {
@@ -245,47 +246,40 @@ Ce code PHP montre une opération où tous les textes d'une présentation sont m
 ```
 
 
-## **Ajouter une zone de texte avec un hyperlien** 
+## **Ajouter une zone de texte avec un hyperlien**
 
-Vous pouvez insérer un lien à l'intérieur d'une zone de texte. Lorsque la zone de texte est cliquée, les utilisateurs sont dirigés vers le lien. 
+Vous pouvez insérer un lien dans une zone de texte. Lorsque la zone de texte est cliquée, les utilisateurs sont dirigés vers le lien.
 
 Pour ajouter une zone de texte contenant un lien, suivez ces étapes :
 
 1. Créez une instance de la classe `Presentation`. 
-2. Obtenez une référence à la première diapositive de la présentation nouvellement créée. 
-3. Ajoutez un objet `AutoShape` avec `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l'objet AutoShape nouvellement ajouté.
-4. Ajoutez un `TextFrame` à l'objet `AutoShape` contenant *Aspose TextBox* comme texte par défaut. 
-5. Instanciez la classe `IHyperlinkManager`. 
-6. Assignez l'objet `IHyperlinkManager` à la propriété [HyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getHyperlinkClick--) associée à la portion souhaitée de votre `TextFrame`.
-7. Enfin, écrivez le fichier PPTX via l'objet `Presentation`. 
+2. Obtenez une référence pour la première diapositive de la présentation nouvellement créée. 
+3. Ajoutez un objet `AutoShape` avec `ShapeType` défini sur `Rectangle` à une position spécifiée sur la diapositive et obtenez une référence de l’objet AutoShape nouvellement ajouté.
+4. Ajoutez un `TextFrame` à l’objet `AutoShape` contenant *Aspose TextBox* comme texte par défaut. 
+5. Instanciez la classe `HyperlinkManager`. 
+6. Attribuez un hyperlien à l’aide de la méthode [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) associée à la portion souhaitée du `TextFrame`.
+7. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
 
-Ce code PHP — une implémentation des étapes ci‑dessus — vous montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
+Ce code PHP — une implémentation des étapes ci‑dessus — montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
 ```php
   # Instancie une classe Presentation qui représente un PPTX
-  # Obtient la première diapositive de la présentation
-  # Ajoute un objet AutoShape avec le type défini comme Rectangle
-  # Convertit la forme en AutoShape
-  # Accède à la propriété ITextFrame associée à l'AutoShape
-  # Ajoute du texte au cadre
-  # Définit le lien hypertexte pour le texte de la portion
-  # Enregistre la présentation PPTX
   $pres = new Presentation();
   try {
-    # Gets the first slide in the presentation
+    # Obtient la première diapositive de la présentation
     $slide = $pres->getSlides()->get_Item(0);
-    # Adds an AutoShape object with type set as Rectangle
+    # Ajoute un objet AutoShape avec le type défini comme Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Casts the shape to AutoShape
+    # Convertit la forme en AutoShape
     $pptxAutoShape = $shape;
-    # Accesses the ITextFrame property associated with the AutoShape
+    # Accède à la propriété ITextFrame associée à l'AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # Adds some text to the frame
+    # Ajoute du texte au cadre
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Sets the Hyperlink for the portion text
+    # Définit le lien hypertexte pour le texte de la portion
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # Saves the PPTX Presentation
+    # Enregistre la présentation PPTX
     $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -299,8 +293,8 @@ Ce code PHP — une implémentation des étapes ci‑dessus — vous montre comm
 
 **Quelle est la différence entre une zone de texte et un espace réservé de texte lorsqu’on travaille avec les diapositives maîtres ?**
 
-Un [placeholder](/slides/fr/php-java/manage-placeholder/) hérite du style/position du [master](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/), tandis qu'une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
+Un [placeholder](/slides/fr/php-java/manage-placeholder/) hérite du style/position du [master](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/), en revanche, une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
 
-**Comment effectuer un remplacement de texte en masse dans la présentation sans toucher le texte à l'intérieur des graphiques, tableaux et SmartArt ?**
+**Comment effectuer un remplacement massif de texte dans toute la présentation sans toucher le texte à l’intérieur des graphiques, tableaux et SmartArt ?**
 
-Limitez votre itération aux auto‑shapes qui possèdent des cadres de texte et excluez les objets incorporés ([charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) en parcourant leurs collections séparément ou en ignorant ces types d'objets.
+Limitez votre itération aux auto‑shapes contenant des cadres de texte et excluez les objets incorporés ([charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) en parcourant leurs collections séparément ou en sautant ces types d’objets.

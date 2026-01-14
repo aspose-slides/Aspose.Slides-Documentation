@@ -25,22 +25,22 @@ keywords:
 - exportar ODP a XAML
 - PHP
 - Aspose.Slides
-description: "Convertir diapositivas PowerPoint y OpenDocument a XAML usando Aspose.Slides para PHP vía Java — solución rápida, sin Office, que mantiene intacto el diseño."
+description: "Convierte diapositivas de PowerPoint y OpenDocument a XAML mediante Aspose.Slides para PHP a través de Java — solución rápida y sin Office que mantiene intacto el diseño."
 ---
 
 ## **Exportar presentaciones a XAML**
 
 {{% alert color="primary" %}} 
 
-En [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/), implementamos soporte para la exportación a XAML. Ahora puedes exportar tus presentaciones a XAML.
+En [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/), implementamos la compatibilidad con la exportación a XAML. Ahora puedes exportar tus presentaciones a XAML.
 
 {{% /alert %}} 
 
 ## **Acerca de XAML**
 
-XAML es un lenguaje de programación descriptivo que permite crear o escribir interfaces de usuario para aplicaciones, especialmente aquellas que usan WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) y Xamarin forms.  
+XAML es un lenguaje de programación descriptivo que permite crear o escribir interfaces de usuario para aplicaciones, especialmente aquellas que usan WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) y Xamarin Forms.  
 
-XAML, que es un lenguaje basado en XML, es la variante de Microsoft para describir una interfaz gráfica. Es probable que uses un diseñador para trabajar con archivos XAML la mayor parte del tiempo, pero aún puedes escribir y editar tu GUI. 
+XAML, que es un lenguaje basado en XML, es la variante de Microsoft para describir una GUI. Lo más probable es que uses un diseñador para trabajar con archivos XAML la mayor parte del tiempo, pero aún puedes escribir y editar tu GUI. 
 
 ## **Exportar presentaciones a XAML con opciones predeterminadas**
 
@@ -59,9 +59,9 @@ Este código PHP muestra cómo exportar una presentación a XAML con la configur
 
 ## **Exportar presentaciones a XAML con opciones personalizadas**
 
-Puedes seleccionar opciones de la interfaz [IXamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions) que controlan el proceso de exportación y determinan cómo Aspose.Slides exporta tu presentación a XAML.
+Puedes seleccionar opciones de la clase [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) que controlan el proceso de exportación y determinan cómo Aspose.Slides exporta tu presentación a XAML.
 
-Por ejemplo, si deseas que Aspose.Slides añada diapositivas ocultas de tu presentación al exportarla a XAML, puedes establecer la propiedad [ExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) en true. Consulta este código PHP de ejemplo:
+Por ejemplo, si deseas que Aspose.Slides añada diapositivas ocultas de tu presentación al exportarla a XAML, puedes usar el método [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) con el valor `true`. Consulta este código de muestra en PHP:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -76,15 +76,15 @@ Por ejemplo, si deseas que Aspose.Slides añada diapositivas ocultas de tu prese
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cómo puedo garantizar fuentes predecibles si la fuente original no está disponible en la máquina?**
 
-Establece [una fuente regular predeterminada](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) en [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — se utiliza como fuente de respaldo cuando la original falta. Esto ayuda a evitar sustituciones inesperadas.
+Establece [una fuente regular predeterminada](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) en [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — se utiliza como fuente de reserva cuando falta la original. Esto ayuda a evitar sustituciones inesperadas.
 
-**¿El XAML exportado está destinado sólo a WPF, o puede usarse también en otras pilas XAML?**
+**¿El XAML exportado está destinado solo a WPF, o puede usarse también en otras pilas XAML?**
 
-XAML es un lenguaje de marcado de UI general utilizado en WPF, UWP y Xamarin.Forms. La exportación apunta a la compatibilidad con las pilas XAML de Microsoft; el comportamiento exacto y el soporte de constructos específicos dependen de la plataforma de destino. Prueba el marcado en tu entorno.
+XAML es un lenguaje de marcado UI general utilizado en WPF, UWP y Xamarin.Forms. La exportación apunta a la compatibilidad con las pilas XAML de Microsoft; el comportamiento exacto y el soporte de construcciones específicas dependen de la plataforma de destino. Prueba el marcado en tu entorno.
 
 **¿Se admiten diapositivas ocultas y cómo puedo evitar que se exporten por defecto?**
 

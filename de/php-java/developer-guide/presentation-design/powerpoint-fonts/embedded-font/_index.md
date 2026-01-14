@@ -1,5 +1,5 @@
 ---
-title: Schriften in Präsentationen mit PHP einbetten
+title: Embed Fonts in Presentations Using PHP
 linktitle: Schrift einbetten
 type: docs
 weight: 40
@@ -8,34 +8,34 @@ keywords:
 - Schrift hinzufügen
 - Schrift einbetten
 - Schrifteinbettung
-- Eingebettete Schrift abrufen
-- Eingebettete Schrift hinzufügen
-- Eingebettete Schrift entfernen
-- Eingebettete Schrift komprimieren
+- eingebettete Schrift abrufen
+- eingebettete Schrift hinzufügen
+- eingebettete Schrift entfernen
+- eingebettete Schrift komprimieren
 - PowerPoint
 - OpenDocument
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Einbetten von TrueType-Schriften in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP via Java, um eine genaue Darstellung auf allen Plattformen zu gewährleisten."
+description: "TrueType-Schriften in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP über Java einbetten, um eine genaue Wiedergabe auf allen Plattformen zu gewährleisten."
 ---
 
-**Eingebettete Schriften in PowerPoint** sind nützlich, wenn Sie möchten, dass Ihre Präsentation auf jedem System oder Gerät korrekt angezeigt wird. Wenn Sie eine Drittanbieter‑ oder nicht‑standardmäßige Schrift verwendet haben, weil Sie kreativ waren, haben Sie noch mehr Gründe, Ihre Schrift einzubetten. Andernfalls (ohne eingebettete Schriften) können sich Texte oder Zahlen auf Ihren Folien, das Layout, das Styling usw. ändern oder in verwirrende Rechtecke verwandeln. 
+**Eingebettete Schriften in PowerPoint** sind nützlich, wenn Sie möchten, dass Ihre Präsentation auf jedem System oder Gerät korrekt angezeigt wird. Wenn Sie aufgrund kreativer Gestaltung eine Drittanbieter‑ oder nicht standardmäßige Schriftart verwendet haben, haben Sie noch mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriften) können sich Texte oder Zahlen auf Ihren Folien, das Layout, die Formatierung usw. ändern oder in unleserliche Rechtecke verwandeln.  
 
-Die Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), die Klasse [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/), die Klasse [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) und ihre Schnittstellen enthalten die meisten Eigenschaften und Methoden, die Sie benötigen, um mit eingebetteten Schriften in PowerPoint‑Präsentationen zu arbeiten.
+Die Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), die Klasse [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) und die Klasse [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) enthalten die meisten Methoden, die Sie benötigen, um mit eingebetteten Schriften in PowerPoint‑Präsentationen zu arbeiten.
 
 ## **Eingebettete Schriften abrufen und entfernen**
 
-Aspose.Slides stellt die Methode [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) (bereitgestellt von der Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) zur Verfügung, mit der Sie die in einer Präsentation eingebetteten Schriften abrufen (oder herausfinden) können. Um Schriften zu entfernen, wird die Methode [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (ebenfalls von derselben Klasse) verwendet.
+Aspose.Slides stellt die Methode [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) (bereitgestellt von der Klasse [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) zur Verfügung, mit der Sie die in einer Präsentation eingebetteten Schriften abrufen (oder herausfinden) können. Um Schriften zu entfernen, wird die Methode [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) (ebenfalls von derselben Klasse bereitgestellt) verwendet.
 
-Dieser PHP‑Code zeigt, wie man eingebettete Schriften aus einer Präsentation abruft und entfernt:
+Dieser PHP‑Code zeigt Ihnen, wie Sie eingebettete Schriften aus einer Präsentation abrufen und entfernen:
 ```php
-  # Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+  # Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
-    # Rendert eine Folie, die einen Textframe enthält, der die eingebettete Schrift "FunSized" verwendet
+    # Rendert eine Folie, die einen Textframe enthält, der die eingebettete "FunSized"-Schrift verwendet
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Speichert das Bild im JPEG-Format auf die Festplatte
+    # Speichert das Bild auf der Festplatte im JPEG-Format
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -44,9 +44,9 @@ Dieser PHP‑Code zeigt, wie man eingebettete Schriften aus einer Präsentation 
       }
     }
     $fontsManager = $pres->getFontsManager();
-    # Erhält alle eingebetteten Schriften
+    # Lädt alle eingebetteten Schriften
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # Findet die Schrift "Calibri"
+    # Findet die "Calibri"-Schrift
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
@@ -56,11 +56,11 @@ Dieser PHP‑Code zeigt, wie man eingebettete Schriften aus einer Präsentation 
         break;
       }
     }
-    # Entfernt die Schrift "Calibri"
+    # Entfernt die "Calibri"-Schrift
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # Rendert die Präsentation; die Schrift "Calibri" wird durch eine vorhandene ersetzt
+    # Rendert die Präsentation; "Calibri"-Schrift wird durch eine vorhandene ersetzt
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Speichert das Bild im JPEG-Format auf die Festplatte
+    # Speichert das Bild auf der Festplatte im JPEG-Format
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -68,7 +68,7 @@ Dieser PHP‑Code zeigt, wie man eingebettete Schriften aus einer Präsentation 
         $slideImage->dispose();
       }
     }
-    # Speichert die Präsentation ohne die eingebettete Schrift "Calibri" auf die Festplatte
+    # Speichert die Präsentation ohne die eingebettete "Calibri"-Schrift auf der Festplatte
     $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
   } finally {
     if (!java_is_null($pres)) {
@@ -80,7 +80,7 @@ Dieser PHP‑Code zeigt, wie man eingebettete Schriften aus einer Präsentation 
 
 ## **Eingebettete Schriften hinzufügen**
 
-Mit dem Enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) und zwei Überladungen der Methode [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) können Sie die gewünschte (Einbettungs‑)Regel auswählen, um die Schriften in einer Präsentation einzubetten. Dieser PHP‑Code zeigt, wie man Schriften in eine Präsentation einbettet und hinzufügt:
+Durch die Verwendung der Klasse [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) und zweier Überladungen der Methode [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) können Sie die gewünschte Einbettungsregel auswählen, um Schriften in eine Präsentation einzubetten. Dieser PHP‑Code zeigt Ihnen, wie Sie Schriften in einer Präsentation einbetten und hinzufügen:
 ```php
   # Lädt die Präsentation
   $pres = new Presentation("Fonts.pptx");
@@ -101,7 +101,7 @@ Mit dem Enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/
         $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
       }
     }
-    # Speichert die Präsentation auf die Festplatte
+    # Speichert die Präsentation auf der Festplatte
     $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -113,9 +113,9 @@ Mit dem Enum [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/
 
 ## **Eingebettete Schriften komprimieren**
 
-Um Ihnen das Komprimieren der in einer Präsentation eingebetteten Schriften und die Reduzierung der Dateigröße zu ermöglichen, stellt Aspose.Slides die Methode [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (bereitgestellt von der Klasse [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) zur Verfügung.
+Um Ihnen zu ermöglichen, die in einer Präsentation eingebetteten Schriften zu komprimieren und die Dateigröße zu reduzieren, bietet Aspose.Slides die Methode [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts) (bereitgestellt von der Klasse [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)) an.
 
-Dieser PHP‑Code zeigt, wie man eingebettete PowerPoint‑Schriften komprimiert:
+Dieser PHP‑Code zeigt Ihnen, wie Sie eingebettete PowerPoint‑Schriften komprimieren:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -131,10 +131,10 @@ Dieser PHP‑Code zeigt, wie man eingebettete PowerPoint‑Schriften komprimiert
 
 ## **FAQ**
 
-**Wie kann ich erkennen, dass eine bestimmte Schrift in der Präsentation trotz Einbettung beim Rendern trotzdem substituiert wird?**
+**Wie kann ich erkennen, dass eine bestimmte Schrift in der Präsentation trotz Einbettung beim Rendern noch ersetzt wird?**
 
-Prüfen Sie die [Substitutionsinformationen](/slides/de/php-java/font-substitution/) im Font‑Manager und die [Fallback‑/Substitutionsregeln](/slides/de/php-java/fallback-font/): Wenn die Schrift nicht verfügbar oder eingeschränkt ist, wird eine Ersatzschrift verwendet.
+Überprüfen Sie die [substitution information](/slides/de/php-java/font-substitution/) im Font‑Manager und die [fallback/substitution rules](/slides/de/php-java/fallback-font/): Wenn die Schrift nicht verfügbar oder eingeschränkt ist, wird ein Fallback verwendet.
 
-**Lohnt es sich, Systemschriften wie Arial/Calibri einzubetten?**
+**Lohnt es sich, "System"-Schriften wie Arial/Calibri einzubetten?**
 
-In der Regel nein – sie sind fast immer verfügbar. Für volle Portabilität in „dünnen“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriften) kann das Einbetten von Systemschriften jedoch das Risiko unerwarteter Substitutionen ausschalten.
+In der Regel nein – sie sind fast immer verfügbar. Aber für maximale Portabilität in „schlanken“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriften) kann das Einbetten von Systemschriften das Risiko unerwarteter Ersetzungen eliminieren.

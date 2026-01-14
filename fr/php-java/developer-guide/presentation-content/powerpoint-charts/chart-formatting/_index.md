@@ -1,59 +1,59 @@
 ---
-title: Formatage des graphiques de présentation en PHP
-linktitle: Formatage de graphique
+title: Formater les graphiques de présentation en PHP
+linktitle: Mise en forme des graphiques
 type: docs
 weight: 60
 url: /fr/php-java/chart-formatting/
 keywords:
 - format de graphique
-- formatage de graphique
+- mise en forme de graphique
 - entité de graphique
-- propriétés du graphique
-- paramètres du graphique
-- options du graphique
+- propriétés de graphique
+- paramètres de graphique
+- options de graphique
 - propriétés de police
 - bordure arrondie
 - PowerPoint
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez le formatage des graphiques dans Aspose.Slides pour PHP via Java et améliorez votre présentation PowerPoint avec un style professionnel et accrocheur."
+description: "Apprenez à mettre en forme les graphiques avec Aspose.Slides pour PHP via Java et améliorez votre présentation PowerPoint avec un style professionnel et attrayant."
 ---
 
-## **Formater les entités du graphique**
-Aspose.Slides for PHP via Java permet aux développeurs d’ajouter des graphiques personnalisés à leurs diapositives depuis le départ. Cet article explique comment formater différentes entités de graphique, y compris les axes de catégorie et de valeur.
+## **Format des entités de graphique**
+Aspose.Slides for PHP via Java permet aux développeurs d'ajouter des graphiques personnalisés à leurs diapositives à partir de zéro. Cet article explique comment formater différentes entités de graphique, y compris les axes de catégorie et de valeur.
 
-Aspose.Slides for PHP via Java fournit une API simple pour gérer les différentes entités de graphique et les formater à l’aide de valeurs personnalisées :
+Aspose.Slides for PHP via Java fournit une API simple pour gérer différentes entités de graphique et les formater à l'aide de valeurs personnalisées :
 
 1. Créez une instance de la classe [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtenez la référence d’une diapositive par son index.
+1. Obtenez une référence à la diapositive par son indice.
 1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (dans cet exemple nous utiliserons ChartType::LineWithMarkers).
-1. Accédez à l’Axe des valeurs du graphique et définissez les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes de grille majeures de l’Axe des valeurs
-   1. Définir le **format de ligne** pour les lignes de grille mineures de l’Axe des valeurs
-   1. Définir le **format numérique** pour l’Axe des valeurs
-   1. Définir les **unités Min, Max, Majeures et Mineures** pour l’Axe des valeurs
-   1. Définir les **propriétés de texte** pour les données de l’Axe des valeurs
-   1. Définir le **titre** pour l’Axe des valeurs
-   1. Définir le **format de ligne** pour l’Axe des valeurs
-1. Accédez à l’Axe des catégories du graphique et définissez les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes de grille majeures de l’Axe des catégories
-   1. Définir le **format de ligne** pour les lignes de grille mineures de l’Axe des catégories
-   1. Définir les **propriétés de texte** pour les données de l’Axe des catégories
-   1. Définir le **titre** pour l’Axe des catégories
-   1. Définir le **positionnement des libellés** pour l’Axe des catégories
-   1. Définir l’**angle de rotation** des libellés de l’Axe des catégories
-1. Accédez à la légende du graphique et définissez les **propriétés de texte** correspondantes.
-1. Affichez les légendes du graphique sans chevaucher le graphique.
-1. Accédez à l’**Axe des valeurs secondaire** du graphique et définissez les propriétés suivantes :
-   1. Activer l’**Axe des valeurs secondaire**
-   1. Définir le **format de ligne** pour l’Axe des valeurs secondaire
-   1. Définir le **format numérique** pour l’Axe des valeurs secondaire
-   1. Définir les **unités Min, Max, Majeures et Mineures** pour l’Axe des valeurs secondaire
-1. Tracez maintenant la première série du graphique sur l’Axe des valeurs secondaire.
-1. Définissez la couleur de remplissage du mur arrière du graphique.
-1. Définissez la couleur de remplissage de la zone de tracé du graphique.
-1. Enregistrez la présentation modifiée dans un fichier PPTX.
+1. Accédez à l'axe des valeurs du graphique et définissez les propriétés suivantes :
+   1. Définir le **Line format** pour les lignes de la grille principale de l'axe des valeurs
+   1. Définir le **Line format** pour les lignes de la grille secondaire de l'axe des valeurs
+   1. Définir le **Number Format** pour l'axe des valeurs
+   1. Définir les **Min, Max, Major and Minor units** pour l'axe des valeurs
+   1. Définir les **Text Properties** pour les données de l'axe des valeurs
+   1. Définir le **Title** pour l'axe des valeurs
+   1. Définir le **Line Format** pour l'axe des valeurs
+1. Accédez à l'axe des catégories du graphique et définissez les propriétés suivantes :
+   1. Définir le **Line format** pour les lignes de la grille principale de l'axe des catégories
+   1. Définir le **Line format** pour les lignes de la grille secondaire de l'axe des catégories
+   1. Définir les **Text Properties** pour les données de l'axe des catégories
+   1. Définir le **Title** pour l'axe des catégories
+   1. Définir le **Label Positioning** pour l'axe des catégories
+   1. Définir l'**Rotation Angle** pour les étiquettes de l'axe des catégories
+1. Accédez à la légende du graphique et définissez les **Text Properties** pour celle‑ci
+1. Configurez l'affichage des légendes du graphique sans chevauchement
+1. Accédez à l'**Secondary Value Axis** du graphique et définissez les propriétés suivantes :
+   1. Activez l'**Value Axis** secondaire
+   1. Définir le **Line Format** pour l'axe des valeurs secondaire
+   1. Définir le **Number Format** pour l'axe des valeurs secondaire
+   1. Définir les **Min, Max, Major and Minor units** pour l'axe des valeurs secondaire
+1. Tracez maintenant la première série du graphique sur l'axe des valeurs secondaire
+1. Définissez la couleur de remplissage du mur arrière du graphique
+1. Définissez la couleur de remplissage de la zone de tracé du graphique
+1. Enregistrez la présentation modifiée dans un fichier PPTX
 ```php
   # Créer une instance de la classe Presentation
   $pres = new Presentation();
@@ -72,12 +72,12 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Définir le format des lignes de grille majeures pour l'axe des valeurs
+    # Définir le format des lignes de grille principales pour l'axe des valeurs
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Définir le format des lignes de grille mineures pour l'axe des valeurs
+    # Définir le format des lignes de grille secondaires pour l'axe des valeurs
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
@@ -112,11 +112,11 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Définir le format des lignes de grille majeures pour l'axe des catégories
+    # Définir le format des lignes de grille principales pour l'axe des catégories
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Définir le format des lignes de grille mineures pour l'axe des catégories
+    # Définir le format des lignes de grille secondaires pour l'axe des catégories
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
@@ -138,9 +138,9 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
     $catTitle->getPortionFormat()->setFontHeight(20);
     $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Définir la position des libellés de l'axe des catégories
+    # Définir la position des étiquettes de l'axe des catégories
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Définir l'angle de rotation des libellés de l'axe des catégories
+    # Définir l'angle de rotation des étiquettes de l'axe des catégories
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
     # Définir les propriétés de texte des légendes
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
@@ -149,7 +149,7 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
     $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # Afficher les légendes du graphique sans chevaucher le graphique
+    # Définir l'affichage des légendes du graphique sans chevauchement
     $chart->getLegend()->setOverlay(true);
     # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
@@ -176,7 +176,7 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
     $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Définir la couleur de la zone du graphique
+    # Définir la couleur de la zone de tracé
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
     # Enregistrer la présentation
@@ -189,15 +189,15 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer les différent
 ```
 
 
-## **Définir les propriétés de police d’un graphique**
-Aspose.Slides for PHP via Java prend en charge la définition des propriétés liées à la police pour le graphique. Veuillez suivre les étapes ci‑dessous pour définir les propriétés de police d’un graphique.
+## **Définir les propriétés de police pour un graphique**
+Aspose.Slides for PHP via Java prend en charge la définition des propriétés liées à la police pour le graphique. Veuillez suivre les étapes ci‑dessous pour définir les propriétés de police du graphique.
 
-- Instanciez un objet de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Instanciez l'objet de classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 - Ajoutez un graphique sur la diapositive.
 - Définissez la hauteur de la police.
 - Enregistrez la présentation modifiée.
 
-Exemple d’utilisation ci‑dessous.
+L'exemple d'échantillon ci‑dessous est fourni.
 ```php
   # Créer une instance de la classe Presentation
   $pres = new Presentation();
@@ -218,12 +218,12 @@ Exemple d’utilisation ci‑dessous.
 Aspose.Slides for PHP via Java fournit une API simple pour gérer le format des données de graphique :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. Obtenez la référence d’une diapositive par son index.
+1. Obtenez une référence à la diapositive par son indice.
 1. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (cet exemple utilise **ChartType::ClusteredColumn**).
-1. Appliquez le format numérique prédéfini parmi les valeurs prédéfinies disponibles.
-1. Parcourez chaque cellule de données du graphique dans chaque série et définissez le format numérique des données.
+1. Définissez le format numérique prédéfini parmi les valeurs prédéfinies possibles.
+1. Parcourez chaque cellule de données du graphique dans chaque série et définissez le format numérique des données du graphique.
 1. Enregistrez la présentation.
-1. Appliquez un format numérique personnalisé.
+1. Définissez le format numérique personnalisé.
 1. Parcourez chaque cellule de données du graphique dans chaque série et définissez un format numérique différent.
 1. Enregistrez la présentation.
 ```php
@@ -238,10 +238,11 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer le format des 
     $series = $chart->getChartData()->getSeries();
     # Parcourir chaque série du graphique
     foreach($series as $ser) {
-      # Parcourir chaque cellule de données de la série
+      # Parcourir chaque cellule de données dans la série
       foreach($ser->getDataPoints() as $cell) {
         # Définir le format numérique
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
+
       }
     }
     # Enregistrer la présentation
@@ -254,9 +255,9 @@ Aspose.Slides for PHP via Java fournit une API simple pour gérer le format des 
 ```
 
 
-Les valeurs de format numérique prédéfini possibles, ainsi que leur indice, qui peuvent être utilisées, sont indiquées ci‑dessous :
+Les valeurs possibles de format numérique prédéfini, ainsi que leurs index, qui peuvent être utilisées, sont indiquées ci‑dessous :
 
-|**0**|General|
+|**0**|Général|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -294,16 +295,16 @@ Les valeurs de format numérique prédéfini possibles, ainsi que leur indice, q
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Définir les coins arrondis de la zone du graphique**
-Aspose.Slides for PHP via Java prend en charge la configuration de la zone du graphique. Les méthodes [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#hasRoundedCorners--) et [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/IChart#setRoundedCorners-boolean-) ont été ajoutées à l’interface [IChart](https://reference.aspose.com/slides/php-java/aspose.slides/IChart) et à la classe [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart).
+## **Définir les bordures arrondies de la zone du graphique**
+Aspose.Slides for PHP via Java prend en charge la définition de la zone du graphique. Les méthodes [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) et [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) ont été ajoutées à la classe [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart).
 
-1. Instanciez un objet de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+1. Instanciez l'objet de classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Ajoutez un graphique sur la diapositive.
-1. Définissez le type de remplissage et la couleur de remplissage du graphique.
-1. Définissez la propriété de coins arrondis à True.
+1. Définissez le type de remplissage et la couleur de remplissage du graphique
+1. Définissez la propriété de coins arrondis sur True.
 1. Enregistrez la présentation modifiée.
 
-Exemple d’utilisation ci‑dessous. 
+L'exemple d'échantillon ci‑dessous est fourni.
 ```php
   # Créer une instance de la classe Presentation
   $pres = new Presentation();
@@ -324,14 +325,11 @@ Exemple d’utilisation ci‑dessous.
 
 ## **FAQ**
 
-**Puis‑je appliquer des remplissages semi‑transparents aux colonnes/aires tout en conservant le contour opaque ?**
+**Puis‑je définir des remplissages semi‑transparents pour les colonnes/zones tout en gardant la bordure opaque ?**  
+Oui. La transparence du remplissage et le contour sont configurés séparément. Cela est utile pour améliorer la lisibilité de la grille et des données dans des visualisations denses.
 
-Oui. La transparence du remplissage et le contour sont configurés séparément. Cela facilite la lecture de la grille et des données dans des visualisations denses.
+**Comment gérer les étiquettes de données lorsqu'elles se chevauchent ?**  
+Réduisez la taille de la police, désactivez les composants d'étiquette non essentiels (par exemple, les catégories), définissez le décalage/la position de l'étiquette, n'affichez les étiquettes que pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
 
-**Comment gérer les libellés de données lorsqu’ils se chevauchent ?**
-
-Réduisez la taille de la police, désactivez les composants de libellé non essentiels (par exemple, les catégories), ajustez le décalage/position du libellé, affichez les libellés uniquement pour les points sélectionnés si nécessaire, ou changez le format en « valeur + légende ».
-
-**Puis‑je appliquer des remplissages dégradés ou à motif aux séries ?**
-
-Oui. Les remplissages pleins, dégradés ou à motif sont généralement disponibles. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.
+**Puis‑je appliquer des remplissages dégradés ou à motifs aux séries ?**  
+Oui. Les remplissages plein et dégradé/motif sont généralement disponibles. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.

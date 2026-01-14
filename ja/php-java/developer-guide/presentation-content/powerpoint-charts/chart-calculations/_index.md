@@ -1,5 +1,5 @@
 ---
-title: PHP プレゼンテーション向けのチャート計算を最適化する
+title: PHPでのプレゼンテーション向けチャート計算の最適化
 linktitle: チャート計算
 type: docs
 weight: 50
@@ -11,17 +11,17 @@ keywords:
 - 実際の位置
 - 子要素
 - 親要素
-- チャートの値
+- チャート値
 - 実際の値
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java における PPT および PPTX のチャート計算、データ更新、精度制御を実用的なコード例と共に理解する"
+description: "Aspose.Slides for PHP via Java を使用した PPT および PPTX のチャート計算、データ更新、精度制御を理解し、実用的なコード例で学びます。"
 ---
 
 ## **チャート要素の実際の値を計算する**
-Aspose.Slides for PHP via Java は、これらのプロパティを取得するためのシンプルな API を提供します。[IAxis] インターフェイスのプロパティは、軸チャート要素の実際の位置に関する情報を提供します（[IAxis.getActualMaxValue]、[IAxis.getActualMinValue]、[IAxis.getActualMajorUnit]、[IAxis.getActualMinorUnit]、[IAxis.getActualMajorUnitScale]、[IAxis.getActualMinorUnitScale]）。実際の値でプロパティを埋めるには、事前に[IChart.validateChartLayout()] メソッドを呼び出す必要があります。
+Aspose.Slides for PHP via Java は、これらのプロパティを取得するためのシンプルな API を提供します。[Axis](https://reference.aspose.com/slides/php-java/aspose.slides/axis/) クラスのメソッドは、軸チャート要素の実際の位置に関する情報を提供します（[getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/)、[getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/)、[getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/)、[getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/)、[getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/)、[getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/))。実際の値でプロパティを埋めるには、事前に[Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/)メソッドを呼び出す必要があります。
 ```php
   $pres = new Presentation();
   try {
@@ -40,7 +40,7 @@ Aspose.Slides for PHP via Java は、これらのプロパティを取得する�
 
 
 ## **親チャート要素の実際の位置を計算する**
-Aspose.Slides for PHP via Java は、これらのプロパティを取得するためのシンプルな API を提供します。[IActualLayout] インターフェイスのプロパティは、親チャート要素の実際の位置に関する情報を提供します（[IActualLayout.getActualX]、[IActualLayout.getActualY]、[IActualLayout.getActualWidth]、[IActualLayout.getActualHeight]）。実際の値でプロパティを埋めるには、事前に[IChart.validateChartLayout()] メソッドを呼び出す必要があります。
+Aspose.Slides for PHP via Java は、これらのプロパティを取得するためのシンプルな API を提供します。`ActualLayout` クラスのメソッドは、親チャート要素の実際の位置に関する情報を提供します（`getActualX`、`getActualY`、`getActualWidth`、`getActualHeight`）。実際の値でプロパティを埋めるには、事前に[Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/)メソッドを呼び出す必要があります。
 ```php
   $pres = new Presentation();
   try {
@@ -59,7 +59,7 @@ Aspose.Slides for PHP via Java は、これらのプロパティを取得する�
 
 
 ## **チャート要素を非表示にする**
-このトピックでは、チャートから情報を非表示にする方法を説明します。Aspose.Slides for PHP via Java を使用すると、チャートから **タイトル、垂直軸、水平軸** および **グリッド線** を非表示にできます。以下のコード例は、これらのプロパティの使用方法を示しています。
+このトピックでは、チャートから情報を非表示にする方法について説明します。Aspose.Slides for PHP via Java を使用すると、**タイトル、垂直軸、水平軸** および **グリッド線** をチャートから非表示にできます。以下のコード例では、これらのプロパティの使用方法を示します。
 ```php
   $pres = new Presentation();
   try {
@@ -67,13 +67,13 @@ Aspose.Slides for PHP via Java は、これらのプロパティを取得する�
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 140, 118, 320, 370);
     # チャートのタイトルを非表示にする
     $chart->setTitle(false);
-    # /Values 軸を非表示にする
+    # 軸の値を非表示にする
     $chart->getAxes()->getVerticalAxis()->setVisible(false);
     # カテゴリ軸の表示
     $chart->getAxes()->getHorizontalAxis()->setVisible(false);
     # 凡例を非表示にする
     $chart->setLegend(false);
-    # 主要グリッドラインを非表示にする
+    # 主要グリッド線を非表示にする
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->removeAt($i);
@@ -83,7 +83,7 @@ Aspose.Slides for PHP via Java は、これらのプロパティを取得する�
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition->Top);
     $series->getMarker()->setSize(15);
-    # 系列の線の色を設定する
+    # 系列の線色を設定する
     $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $series->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Solid);
@@ -96,16 +96,16 @@ Aspose.Slides for PHP via Java は、これらのプロパティを取得する�
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**外部の Excel ワークブックはデータ ソースとして機能しますか？また、再計算にはどのように影響しますか？**
+**外部の Excel ワークブックをデータ ソースとして使用できますか？また、再計算にどのような影響がありますか？**
 
-はい。チャートは外部のワークブックを参照できます。外部ソースに接続またはリフレッシュすると、数式や値はそのワークブックから取得され、チャートは開く/編集する際に更新を反映します。API を使用すると、外部ワークブックのパスを[specify the external workbook]で指定し、リンクされたデータを管理できます。
+はい。チャートは外部のワークブックを参照できます。外部ソースに接続または更新すると、数式と値がそのワークブックから取得され、チャートは開く/編集する操作中に更新を反映します。API を使用して、外部ワークブックのパスを[外部ワークブックを指定する](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/)で指定し、リンクされたデータを管理できます。
 
-**回帰を自分で実装せずにトレンドラインを計算および表示できますか？**
+**自分で回帰分析を実装せずにトレンドラインを計算・表示できますか？**
 
-はい。[Trendlines]（線形、指数、その他）は Aspose.Slides によって追加および更新され、パラメータはシリーズデータから自動的に再計算されますので、独自の計算を実装する必要はありません。
+はい。[トレンドライン](/slides/ja/php-java/trend-line/)（線形、指数、その他）は Aspose.Slides によって追加および更新され、パラメータはシリーズ データから自動的に再計算されるため、独自の計算を実装する必要はありません。
 
-**プレゼンテーションに外部リンクを持つ複数のチャートがある場合、各チャートが計算値に使用するワークブックを制御できますか？**
+**プレゼンテーションに外部リンク付きの複数のチャートがある場合、各チャートが使用するワークブックを個別に制御できますか？**
 
-はい。各チャートはそれぞれの[external workbook]を指すことができ、または他のチャートとは独立してチャートごとに外部ワークブックを作成/置換できます。
+はい。各チャートはそれぞれの[外部ワークブック](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/)を指すことができ、または他のチャートとは独立して外部ワークブックを作成/置換することも可能です。

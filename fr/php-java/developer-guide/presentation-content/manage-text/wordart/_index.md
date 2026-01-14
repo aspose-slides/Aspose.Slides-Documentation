@@ -6,7 +6,7 @@ weight: 110
 url: /fr/php-java/wordart/
 keywords:
 - WordArt
-- créer WordArt
+- créer du WordArt
 - modèle WordArt
 - effet WordArt
 - effet d'ombre
@@ -20,33 +20,33 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Créer et personnaliser des effets WordArt dans Aspose.Slides pour PHP via Java. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte professionnel."
+description: "Créer et personnaliser des effets WordArt dans Aspose.Slides for PHP via Java. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte professionnel."
 ---
 
 ## **À propos de WordArt ?**
-WordArt ou Word Art est une fonctionnalité qui vous permet d’appliquer des effets au texte pour le faire ressortir. Avec WordArt, par exemple, vous pouvez tracer le contour d’un texte ou le remplir d’une couleur (ou d’un dégradé), ajouter des effets 3D, etc. Vous pouvez également incliner, plier et étirer la forme d’un texte.  
+WordArt ou Word Art est une fonctionnalité qui permet d’appliquer des effets au texte pour le faire ressortir. Avec WordArt, par exemple, vous pouvez tracer le contour d’un texte ou le remplir d’une couleur (ou d’un dégradé), ajouter des effets 3D, etc. Vous pouvez également incliner, courber et étirer la forme d’un texte. 
 
-{{% alert color="primary" %}}  
+{{% alert color="primary" %}} 
 
-WordArt vous permet de traiter un texte comme un objet graphique. En général, WordArt se compose d’effets ou de modifications spéciales appliquées aux textes pour les rendre plus attractifs ou remarquables.  
+WordArt vous permet de traiter un texte comme vous le feriez avec un objet graphique. En général, WordArt consiste en des effets ou des modifications spéciales appliqués aux textes pour les rendre plus attrayants ou plus visibles. 
 
-{{% /alert %}}  
+{{% /alert %}} 
 
 **WordArt dans Microsoft PowerPoint**
 
-Pour utiliser WordArt dans Microsoft PowerPoint, vous devez choisir l’un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d’effets qui s’applique à un texte ou à sa forme.  
+Pour utiliser WordArt dans Microsoft PowerPoint, vous devez sélectionner l’un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d’effets qui s’applique à un texte ou à sa forme. 
 
 **WordArt dans Aspose.Slides**
 
-Dans Aspose.Slides pour PHP via Java 20.10, nous avons implémenté la prise en charge de WordArt et amélioré la fonctionnalité dans les versions ultérieures d’Aspose.Slides pour PHP via Java.  
+Dans Aspose.Slides for PHP via Java 20.10, nous avons implémenté la prise en charge de WordArt et apporté des améliorations à cette fonctionnalité dans les versions suivantes d’Aspose.Slides for PHP via Java.
 
-Avec Aspose.Slides pour PHP via Java, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d’effets) et l’appliquer aux textes.  
+Avec Aspose.Slides for PHP via Java, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d’effets) et l’appliquer aux textes.
 
-## **Créer un modèle WordArt simple et l’appliquer à du texte**
+## **Créer un modèle WordArt simple et l’appliquer au texte**
 
-**Utilisation d’Aspose.Slides**  
+**Utilisation d’Aspose.Slides** 
 
-Tout d’abord, nous créons un texte simple avec ce code PHP :  
+Tout d’abord, nous créons un texte simple avec ce code PHP :
 ```php
   $pres = new Presentation();
   try {
@@ -61,31 +61,31 @@ Tout d’abord, nous créons un texte simple avec ce code PHP :
     }
   }
 ```
-  
-Ensuite, nous augmentons la hauteur de police du texte afin que l’effet soit plus visible grâce à ce code :  
+
+Ensuite, nous augmentons la hauteur de police du texte pour rendre l’effet plus visible grâce à ce code :
 ```php
   $fontData = new FontData("Arial Black");
   $portion->getPortionFormat()->setLatinFont($fontData);
   $portion->getPortionFormat()->setFontHeight(36);
 
 ```
-  
 
-**Utilisation de Microsoft PowerPoint**  
 
-Accédez au menu des effets WordArt dans Microsoft PowerPoint :  
+**Utilisation de Microsoft PowerPoint**
 
-![todo:image_alt_text](image-20200930113926-1.png)  
+Accédez au menu des effets WordArt dans Microsoft PowerPoint :
 
-Dans le panneau de droite, vous pouvez choisir un effet WordArt prédéfini. Dans le panneau de gauche, vous pouvez spécifier les paramètres d’un nouveau WordArt.  
+![todo:image_alt_text](image-20200930113926-1.png)
 
-Voici quelques paramètres ou options disponibles :  
+Dans le volet de droite, vous pouvez choisir un effet WordArt prédéfini. Dans le volet de gauche, vous pouvez spécifier les paramètres d’un nouveau WordArt. 
 
-![todo:image_alt_text](image-20200930114015-3.png)  
+Voici quelques paramètres ou options disponibles :
 
-**Utilisation d’Aspose.Slides**  
+![todo:image_alt_text](image-20200930114015-3.png)
 
-Ici, nous appliquons la couleur de motif [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid) au texte et ajoutons une bordure noire d’une largeur de 1 grâce à ce code :  
+**Utilisation d’Aspose.Slides**
+
+Ici, nous appliquons le motif de couleur [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/patternstyle/#SmallGrid) au texte et ajoutons une bordure noire de largeur 1 en utilisant ce code :
 ```php
   $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -94,25 +94,25 @@ Ici, nous appliquons la couleur de motif [SmallGrid](https://reference.aspose.co
   $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
   $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 ```
-  
 
-Le texte résultant :  
 
-![todo:image_alt_text](image-20200930114108-4.png)  
+Le texte résultant :
+
+![todo:image_alt_text](image-20200930114108-4.png)
 
 ## **Appliquer d’autres effets WordArt**
 
-**Utilisation de Microsoft PowerPoint**  
+**Utilisation de Microsoft PowerPoint**
 
-Depuis l’interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire :  
+Depuis l’interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire :
 
-![todo:image_alt_text](image-20200930114129-5.png)  
+![todo:image_alt_text](image-20200930114129-5.png)
 
-Par exemple, les effets Ombre, Réflexion et Lueur peuvent être appliqués à un texte ; les effets Format 3D et Rotation 3D à un bloc de texte ; la propriété Bords doux peut être appliquée à un objet forme (elle reste effective même sans propriété Format 3D).  
+Par exemple, les effets Ombre, Réflexion et Lueur peuvent être appliqués à un texte ; les effets Format 3D et Rotation 3D peuvent être appliqués à un bloc de texte ; la propriété Bords doux peut être appliquée à un objet Forme (elle reste efficace même lorsqu’aucune propriété Format 3D n’est définie). 
 
-### **Appliquer des effets d’Ombre**
+### **Appliquer des effets d’ombre**
 
-Ici, nous ne visons que les propriétés liées à un texte. Nous appliquons l’effet d’ombre à un texte avec ce code :  
+Ici, nous souhaitons définir les propriétés relatives uniquement à un texte. Nous appliquons l’effet d’ombre à un texte avec ce code :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->BLACK);
@@ -125,30 +125,30 @@ Ici, nous ne visons que les propriétés liées à un texte. Nous appliquons l�
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->setSkewVertical(0);
   $portion->getPortionFormat()->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.32);
 ```
-  
 
-L’API Aspose.Slides prend en charge trois types d’ombres : OuterShadow, InnerShadow et PresetShadow.  
 
-Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs prédéfinies).  
+L’API Aspose.Slides prend en charge trois types d’ombres : OuterShadow, InnerShadow et PresetShadow. 
 
-**Utilisation de Microsoft PowerPoint**  
+Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs pré‑définies). 
 
-Dans PowerPoint, vous ne pouvez utiliser qu’un type d’ombre. Voici un exemple :  
+**Utilisation de Microsoft PowerPoint**
 
-![todo:image_alt_text](image-20200930114225-6.png)  
+Dans PowerPoint, vous ne pouvez utiliser qu’un type d’ombre. Voici un exemple :
 
-**Utilisation d’Aspose.Slides**  
+![todo:image_alt_text](image-20200930114225-6.png)
 
-Aspose.Slides vous permet réellement d’appliquer simultanément deux types d’ombres : InnerShadow et PresetShadow.  
+**Utilisation d’Aspose.Slides**
 
-**Remarques :**  
+Aspose.Slides permet en fait d’appliquer deux types d’ombres simultanément : InnerShadow et PresetShadow.
 
-- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l’effet OuterShadow est appliqué.  
-- Si OuterShadow et InnerShadow sont utilisés simultanément, l’effet résultant dépend de la version de PowerPoint. Par exemple, sous PowerPoint 2013, l’effet est doublé ; sous PowerPoint 2007, l’effet OuterShadow est appliqué.  
+**Remarques :**
 
-### **Appliquer des effets de Réflexion au texte**
+- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l’effet OuterShadow est appliqué. 
+- Si OuterShadow et InnerShadow sont utilisés simultanément, l’effet résultant dépend de la version de PowerPoint. Par exemple, sous PowerPoint 2013, l’effet est doublé. Mais sous PowerPoint 2007, l’effet OuterShadow est appliqué. 
 
-Nous ajoutons la réflexion au texte avec cet extrait de code :  
+### **Appliquer des effets de réflexion au texte**
+
+Nous ajoutons une réflexion au texte avec cet exemple de code :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setBlurRadius(0.5);
@@ -162,58 +162,58 @@ Nous ajoutons la réflexion au texte avec cet extrait de code :
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setEndReflectionOpacity(0.9);
   $portion->getPortionFormat()->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->BottomLeft);
 ```
-  
 
-### **Appliquer des effets de Lueur au texte**
 
-Nous appliquons l’effet de lueur au texte pour le faire briller ou ressortir avec ce code :  
+### **Appliquer des effets de lueur au texte**
+
+Nous appliquons l’effet de lueur au texte pour le faire briller avec ce code :
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableGlowEffect();
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->setR(255);
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->getColor()->getColorTransform()->add(ColorTransformOperation->SetAlpha, 0.54);
   $portion->getPortionFormat()->getEffectFormat()->getGlowEffect()->setRadius(7);
 ```
-  
 
-Résultat de l’opération :  
 
-![todo:image_alt_text](image-20200930114621-7.png)  
+Le résultat de l’opération :
 
-{{% alert color="primary" %}}  
+![todo:image_alt_text](image-20200930114621-7.png)
 
-Vous pouvez modifier les paramètres d’ombre, de réflexion et de lueur. Les propriétés des effets sont définies séparément pour chaque portion du texte.  
+{{% alert color="primary" %}} 
 
-{{% /alert %}}  
+Vous pouvez modifier les paramètres d’ombre, de réflexion et de lueur. Les propriétés des effets sont définies séparément pour chaque portion du texte. 
+
+{{% /alert %}} 
 
 ### **Utiliser les transformations dans WordArt**
 
-Nous utilisons la propriété Transform (héritée par l’ensemble du bloc de texte) avec ce code :  
+Nous utilisons la propriété Transform (appliquée à l’ensemble du bloc de texte) avec ce code :
 ```php
   $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
 ```
-  
 
-Résultat :  
 
-![todo:image_alt_text](image-20200930114712-8.png)  
+Le résultat :
 
-{{% alert color="primary" %}}  
+![todo:image_alt_text](image-20200930114712-8.png)
 
-PowerPoint et Aspose.Slides pour PHP via Java offrent un certain nombre de types de transformation prédéfinis.  
+{{% alert color="primary" %}} 
 
-{{% /alert %}}  
+Microsoft PowerPoint et Aspose.Slides for PHP via Java proposent tous deux un certain nombre de types de transformation prédéfinis.
 
-**Utilisation de PowerPoint**  
+{{% /alert %}} 
 
-Pour accéder aux types de transformation prédéfinis, suivez : **Format** → **TextEffect** → **Transform**  
+**Utilisation de PowerPoint**
 
-**Utilisation d’Aspose.Slides**  
+Pour accéder aux types de transformation prédéfinis, suivez : **Format** → **TextEffect** → **Transform**
 
-Pour sélectionner un type de transformation, utilisez l’énumération TextShapeType.  
+**Utilisation d’Aspose.Slides**
+
+Pour sélectionner un type de transformation, utilisez l’énumération TextShapeType. 
 
 ### **Appliquer des effets 3D au texte et aux formes**
 
-Nous appliquons un effet 3D à une forme de texte avec ce code d’exemple :  
+Nous appliquons un effet 3D à une forme de texte avec ce code d’exemple :
 ```php
   $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
@@ -232,13 +232,13 @@ Nous appliquons un effet 3D à une forme de texte avec ce code d’exemple :
   $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
   $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
-  
 
-Le texte et sa forme résultants :  
 
-![todo:image_alt_text](image-20200930114816-9.png)  
+Le texte et sa forme résultants :
 
-Nous appliquons un effet 3D au texte avec ce code PHP :  
+![todo:image_alt_text](image-20200930114816-9.png)
+
+Nous appliquons un effet 3D au texte avec ce code PHP :
 ```php
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
@@ -257,31 +257,31 @@ Nous appliquons un effet 3D au texte avec ce code PHP :
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
-  
 
-Résultat de l’opération :  
 
-![todo:image_alt_text](image-20200930114905-10.png)  
+Le résultat de l’opération :
 
-{{% alert color="primary" %}}  
+![todo:image_alt_text](image-20200930114905-10.png)
 
-L’application d’effets 3D aux textes ou à leurs formes ainsi que les interactions entre effets sont régies par certaines règles.  
+{{% alert color="primary" %}} 
 
-Considérez une scène pour un texte et la forme contenant ce texte. L’effet 3D comprend la représentation de l’objet 3D et la scène sur laquelle l’objet est placé.  
+L’application d’effets 3D aux textes ou à leurs formes et les interactions entre les effets sont régies par certaines règles. 
 
-- Si la scène est définie à la fois pour la forme et pour le texte, la scène de la forme a la priorité ; la scène du texte est ignorée.  
-- Si la forme ne possède pas de scène propre mais possède une représentation 3D, la scène du texte est utilisée.  
-- Sinon—si la forme n’a initialement aucun effet 3D—la forme reste plate et l’effet 3D ne s’applique qu’au texte.  
+Considérez une scène pour un texte et la forme contenant ce texte. L’effet 3D comprend la représentation de l’objet 3D et la scène sur laquelle l’objet est placé. 
 
-Ces descriptions sont liées aux méthodes ThreeDFormat.getLightRig() et ThreeDFormat.getCamera().  
+- Lorsque la scène est définie à la fois pour la forme et pour le texte, la scène de la forme a la priorité — la scène du texte est ignorée. 
+- Lorsque la forme ne possède pas de scène propre mais possède une représentation 3D, la scène du texte est utilisée. 
+- Sinon — si la forme n’a initialement aucun effet 3D — la forme reste plate et l’effet 3D ne s’applique qu’au texte. 
 
-{{% /alert %}}  
+Ces descriptions sont reliées aux méthodes ThreeDFormat.getLightRig() et ThreeDFormat.getCamera(). 
 
-## **Appliquer des effets d’Ombre externe au texte**  
-Aspose.Slides pour PHP via Java propose les classes [**IOuterShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow) et [**IInnerShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow) qui permettent d’appliquer des effets d’ombre à un texte contenu dans un [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame). Suivez ces étapes :
+{{% /alert %}} 
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-2. Obtenez la référence d’une diapositive en utilisant son indice.  
+## **Appliquer des effets d’ombre externe au texte**
+Aspose.Slides for PHP via Java fournit les classes [OuterShadow](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/) et [InnerShadow](https://reference.aspose.com/slides/php-java/aspose.slides/innershadow/) qui permettent d’appliquer des effets d’ombre à un texte contenu dans un [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/). Suivez les étapes suivantes :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
+2. Obtenez la référence d’une diapositive en utilisant son index.  
 3. Ajoutez une AutoShape de type Rectangle à la diapositive.  
 4. Accédez au TextFrame associé à l’AutoShape.  
 5. Définissez le FillType de l’AutoShape sur NoFill.  
@@ -293,7 +293,7 @@ Aspose.Slides pour PHP via Java propose les classes [**IOuterShadow**](https://r
 11. Définissez le PresetColor de l’ombre sur Black.  
 12. Enregistrez la présentation au format [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
-Ce code d’exemple —mise en œuvre des étapes ci‑dessus— montre comment appliquer l’effet d’ombre externe à un texte :  
+Ce code d’exemple —une implémentation des étapes ci‑dessus— montre comment appliquer l’effet d’ombre externe à un texte :
 ```php
   $pres = new Presentation();
   try {
@@ -321,12 +321,12 @@ Ce code d’exemple —mise en œuvre des étapes ci‑dessus— montre comment 
     }
   }
 ```
-  
 
-## **Appliquer des effets d’Ombre interne aux formes**  
-Suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
+## **Appliquer des effets d’ombre interne aux formes**
+Suivez les étapes suivantes :
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
 2. Obtenez la référence de la diapositive.  
 3. Ajoutez une AutoShape de type Rectangle.  
 4. Activez InnerShadowEffect.  
@@ -335,7 +335,7 @@ Suivez ces étapes :
 7. Définissez la couleur du schéma.  
 8. Enregistrez la présentation au format [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
-Ce code d’exemple (basé sur les étapes ci‑dessus) montre comment ajouter un connecteur entre deux formes :  
+Ce code d’exemple (basé sur les étapes ci‑dessus) montre comment ajouter un connecteur entre deux formes :
 ```php
   $pres = new Presentation();
   try {
@@ -349,7 +349,7 @@ Ce code d’exemple (basé sur les étapes ci‑dessus) montre comment ajouter u
     $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $pf = $port->getPortionFormat();
     $pf->setFontHeight(50);
-    # Activer InnerShadowEffect
+    # Activer l'effet d'ombre interne
     $ef = $pf->getEffectFormat();
     $ef->enableInnerShadowEffect();
     # Définir tous les paramètres nécessaires
@@ -357,7 +357,7 @@ Ce code d’exemple (basé sur les étapes ci‑dessus) montre comment ajouter u
     $ef->getInnerShadowEffect()->setDirection(90.0);
     $ef->getInnerShadowEffect()->setDistance(6.0);
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    # Définir ColorType comme Scheme
+    # Définir le type de couleur comme Schéma
     $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
     # Définir la couleur du schéma
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
@@ -369,22 +369,22 @@ Ce code d’exemple (basé sur les étapes ci‑dessus) montre comment ajouter u
     }
   }
 ```
-  
+
 
 ## **FAQ**
 
-**Puis‑je utiliser les effets WordArt avec différentes polices ou scripts (par ex. arabe, chinois) ?**  
+**Puis‑je utiliser les effets WordArt avec différentes polices ou scripts (par exemple, arabe, chinois) ?**
 
-Oui, Aspose.Slides prend en charge Unicode et fonctionne avec toutes les principales polices et scripts. Les effets WordArt tels que l’ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices système.
+Oui, Aspose.Slides prend en charge Unicode et fonctionne avec toutes les principales polices et scripts. Les effets WordArt tels que l’ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices installées sur le système.
 
-**Puis‑je appliquer les effets WordArt aux éléments du masque des diapositives ?**  
+**Puis‑je appliquer les effets WordArt aux éléments du masque de diapositive ?**
 
-Oui, vous pouvez appliquer des effets WordArt aux formes des masques maîtres, y compris les espaces réservés au titre, les pieds de page ou le texte d’arrière‑plan. Les modifications apportées au masque se répercutent sur toutes les diapositives associées.
+Oui, vous pouvez appliquer les effets WordArt aux formes des masques maîtres, y compris les espaces réservés de titre, les pieds de page ou le texte d’arrière‑plan. Les modifications apportées au masque seront répercutées sur toutes les diapositives associées.
 
-**Les effets WordArt influent‑ils sur la taille du fichier de présentation ?**  
+**Les effets WordArt influent‑ils sur la taille du fichier de présentation ?**
 
-Légèrement. Les effets WordArt comme les ombres, les lueurs et les remplissages en dégradé peuvent augmenter modestement la taille du fichier en raison des métadonnées de formatage supplémentaires, mais la différence est généralement négligeable.
+Légèrement. Les effets WordArt comme les ombres, les lueurs et les remplissages en dégradé peuvent augmenter légèrement la taille du fichier en raison des métadonnées de formatage additionnelles, mais la différence est généralement négligeable.
 
-**Puis‑je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?**  
+**Puis‑je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?**
 
-Oui, vous pouvez rendre les diapositives contenant du WordArt en images (PNG, JPEG, etc.) en utilisant la méthode `getImage` des interfaces [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) ou [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). Cela vous permet de prévisualiser le rendu en mémoire ou à l’écran avant d’enregistrer ou d’exporter la présentation complète.
+Oui, vous pouvez rendre les diapositives contenant du WordArt en images (par exemple PNG, JPEG) à l’aide de la méthode `getImage` des classes [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) ou [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/). Cela vous permet de prévisualiser le résultat en mémoire ou à l’écran avant d’enregistrer ou d’exporter la présentation complète.

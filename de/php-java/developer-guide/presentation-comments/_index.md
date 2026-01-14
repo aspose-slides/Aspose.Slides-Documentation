@@ -1,14 +1,14 @@
 ---
-title: Präsentationskommentare in PHP verwalten
-linktitle: Präsentationskommentare
+title: "Verwalten von Präsentationskommentaren in PHP"
+linktitle: "Präsentationskommentare"
 type: docs
 weight: 100
 url: /de/php-java/presentation-comments/
 keywords:
-- kommentar
-- moderner kommentar
+- Kommentar
+- moderner Kommentar
 - PowerPoint-Kommentare
-- präsentationskommentare
+- Präsentationskommentare
 - Folienkommentare
 - Kommentar hinzufügen
 - Kommentar abrufen
@@ -24,23 +24,21 @@ keywords:
 description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für PHP via Java: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen."
 ---
 
-In PowerPoint erscheint ein Kommentar als Hinweis oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalte oder Nachrichten angezeigt. 
+In PowerPoint erscheint ein Kommentar als Hinweis oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt oder Nachrichten angezeigt. 
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie möchten Kommentare möglicherweise nutzen, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
+Möglicherweise möchten Sie Kommentare verwenden, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
 
-Um Ihnen die Verwendung von Kommentaren in PowerPoint‑Präsentationen zu ermöglichen, bietet Aspose.Slides für PHP via Java
-
-* Die Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), die die Sammlungen von Autoren enthält (aus dem Interface [ICommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentAuthorCollection)). Die Autoren fügen Kommentare zu Folien hinzu.
-* Das Interface [ICommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/ICommentCollection), das die Sammlung von Kommentaren für einzelne Autoren enthält.
-* Die Klasse [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment), die Informationen über Autoren und deren Kommentare enthält: wer den Kommentar hinzugefügt hat, die Zeit, zu der der Kommentar hinzugefügt wurde, die Position des Kommentars usw.
-* Die Klasse [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/CommentAuthor), die Informationen über einzelne Autoren enthält: den Namen des Autors, seine Initialen, mit dem Namen des Autors verbundene Kommentare usw.
+* Die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) Klasse, die die Sammlungen von Autoren enthält (aus der [CommentAuthorCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/) Klasse). Die Autoren fügen Folien Kommentare hinzu.
+* Die [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) Klasse, die die Sammlung von Kommentaren für einzelne Autoren enthält.
+* Die [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) Klasse, die Informationen zu Autoren und deren Kommentaren enthält: wer den Kommentar hinzugefügt hat, wann er hinzugefügt wurde, die Position des Kommentars usw.
+* Die [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) Klasse, die Informationen zu einzelnen Autoren enthält: der Name des Autors, seine Initialen, mit dem Namen des Autors verbundene Kommentare usw.
 
 ## **Folienkommentare hinzufügen**
-Dieser PHP-Code zeigt Ihnen, wie Sie einen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
+Dieser PHP-Code zeigt Ihnen, wie Sie einen Kommentar zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
 ```php
-  # Instanziert die Presentation-Klasse
+  # Instanziiert die Presentation-Klasse
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
@@ -62,7 +60,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie einen Kommentar zu einer Folie in einer Pow
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
     if (java_values($Array->getLength($Comments)) > 0) {
-      # Selektiert die Kommentarsammlung des Autors an Index 0
+      # Wählt die Kommentar‑Sammlung des Autors an Index 0 aus
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();
     }
@@ -74,8 +72,8 @@ Dieser PHP-Code zeigt Ihnen, wie Sie einen Kommentar zu einer Folie in einer Pow
 ```
 
 
-## **Zugriff auf Folienkommentare**
-Dieser PHP-Code zeigt Ihnen, wie Sie einen bestehenden Kommentar auf einer Folie in einer PowerPoint‑Präsentation abrufen:
+## **Folienkommentare abrufen**
+Dieser PHP-Code zeigt Ihnen, wie Sie auf einen vorhandenen Kommentar einer Folie in einer PowerPoint-Präsentation zugreifen:
 ```php
   # Instanziert die Presentation-Klasse
   $pres = new Presentation("Comments1.pptx");
@@ -95,8 +93,8 @@ Dieser PHP-Code zeigt Ihnen, wie Sie einen bestehenden Kommentar auf einer Folie
 ```
 
 
-## **Antwortkommentare**
-Ein übergeordneter Kommentar ist der oberste bzw. ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit den Methoden [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#getParentComment--) oder [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (aus dem Interface [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment)) können Sie einen übergeordneten Kommentar festlegen oder abrufen.
+## **Kommentare beantworten**
+Ein übergeordneter Kommentar ist der oberste bzw. ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit den Methoden [getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) oder [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) (aus der [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) Klasse) können Sie einen übergeordneten Kommentar festlegen oder abrufen.
 
 Dieser PHP-Code zeigt Ihnen, wie Sie Kommentare hinzufügen und Antworten darauf erhalten:
 ```php
@@ -113,7 +111,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie Kommentare hinzufügen und Antworten darauf
     # Fügt eine weitere Antwort zu comment1 hinzu
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
-    # Fügt eine Antwort auf eine vorhandene Antwort hinzu
+    # Fügt eine Antwort zu einer bestehenden Antwort hinzu
     $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $subReply->setParentComment($reply2);
     $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
@@ -146,16 +144,16 @@ Dieser PHP-Code zeigt Ihnen, wie Sie Kommentare hinzufügen und Antworten darauf
 
 {{% alert color="warning" title="Attention" %}} 
 
-* Wenn die Methode [Remove](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#remove--) (aus dem Interface [IComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment)) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf den Kommentar gelöscht.
-* Wenn die Einstellung [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) zu einer zirkulären Referenz führt, wird eine [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) ausgelöst.
+* Wenn die [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) Methode (aus der [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) Klasse) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf den Kommentar gelöscht.
+* Wenn die Einstellung [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) zu einem zirkulären Verweis führt, wird eine [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/) ausgelöst.
 
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion moderne Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare auflösen, Kommentare an Objekten und Texten verankern und viel einfacher interagieren als zuvor. 
+Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion für moderne Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare lösen, Kommentare an Objekten und Texten verankern und viel einfacher interagieren als zuvor. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die Klasse [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/ModernComment) hinzugefügt haben. Die Methoden [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) und [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2DFloat-java.util.Date-) wurden zur Klasse [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/CommentCollection) hinzugefügt.
+In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) Klasse hinzugefügt haben. Die Methoden [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) und [insertModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/insertmoderncomment/) wurden zur [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) Klasse hinzugefügt.
 
 Dieser PHP-Code zeigt Ihnen, wie Sie einen modernen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```php
@@ -175,7 +173,6 @@ Dieser PHP-Code zeigt Ihnen, wie Sie einen modernen Kommentar zu einer Folie in 
 ## **Kommentare entfernen**
 
 ### **Alle Kommentare und Autoren löschen**
-
 Dieser PHP-Code zeigt Ihnen, wie Sie alle Kommentare und Autoren in einer Präsentation entfernen:
 ```php
   $presentation = new Presentation("example.pptx");
@@ -195,9 +192,8 @@ Dieser PHP-Code zeigt Ihnen, wie Sie alle Kommentare und Autoren in einer Präse
 ```
 
 
-### **Spezifische Kommentare löschen**
-
-Dieser PHP-Code zeigt Ihnen, wie Sie spezifische Kommentare auf einer Folie löschen:
+### **Bestimmte Kommentare löschen**
+Dieser PHP-Code zeigt Ihnen, wie Sie bestimmte Kommentare auf einer Folie löschen:
 ```php
   $presentation = new Presentation();
   try {
@@ -206,7 +202,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie spezifische Kommentare auf einer Folie lös
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # Entfernt alle Kommentare, die den Text "comment 1" enthalten
+    # entfernt alle Kommentare, die den Text "comment 1" enthalten
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {
@@ -231,12 +227,12 @@ Dieser PHP-Code zeigt Ihnen, wie Sie spezifische Kommentare auf einer Folie lös
 
 **Unterstützt Aspose.Slides einen Status wie 'gelöst' für moderne Kommentare?**
 
-Ja. [Moderne Kommentare](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) bieten eine Methode [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/); Sie können den [Status eines Kommentars](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) festlegen (z. B. ihn als gelöst markieren), und dieser Status wird in der Datei gespeichert und von PowerPoint erkannt.
+Ja. [Modern comments](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) stellen eine [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) Methode bereit; Sie können den [Zustand eines Kommentars](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) festlegen (z. B. ihn als gelöst markieren), und dieser Zustand wird in der Datei gespeichert und von PowerPoint erkannt.
 
-**Werden Thread‑Diskussionen (Antwortketten) unterstützt und gibt es ein Begrenzung für die Verschachtelung?**
+**Werden Threaded Discussions (Antwortketten) unterstützt und gibt es eine Nesting‑Grenze?**
 
-Ja. Jeder Kommentar kann seinen [übergeordneten Kommentar](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) referenzieren, wodurch beliebige Antwortketten ermöglicht werden. Die API gibt keine spezifische Begrenzung für die Verschachtelungstiefe vor.
+Ja. Jeder Kommentar kann seinen [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) referenzieren, wodurch beliebige Antwortketten ermöglicht werden. Die API legt keine spezifische Begrenzung der Verschachtelungstiefe fest.
 
 **In welchem Koordinatensystem ist die Position eines Kommentarmarkers auf einer Folie definiert?**
 
-Die Position wird als Gleitkommapunkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentarmarker genau an der gewünschten Stelle platzieren.
+Die Position wird als Gleitkommapunkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentarmarker exakt dort platzieren, wo Sie ihn benötigen.

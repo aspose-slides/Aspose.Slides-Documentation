@@ -7,13 +7,13 @@ url: /ar/php-java/export-to-xaml/
 keywords:
 - تصدير PowerPoint
 - تصدير OpenDocument
-- تصدير العرض التقديمي
+- تصدير عرض تقديمي
 - تحويل PowerPoint
 - تحويل OpenDocument
-- تحويل العرض التقديمي
+- تحويل عرض تقديمي
 - PowerPoint إلى XAML
 - OpenDocument إلى XAML
-- العرض التقديمي إلى XAML
+- عرض تقديمي إلى XAML
 - PPT إلى XAML
 - PPTX إلى XAML
 - ODP إلى XAML
@@ -25,26 +25,24 @@ keywords:
 - تصدير ODP إلى XAML
 - PHP
 - Aspose.Slides
-description: "تحويل شرائح PowerPoint و OpenDocument إلى XAML باستخدام Aspose.Slides لـ PHP عبر Java — حل سريع وخالي من Office يحافظ على تنسيقك سليمًا."
+description: "تحويل شرائح PowerPoint و OpenDocument إلى XAML باستخدام Aspose.Slides للـ PHP عبر Java — حل سريع خالٍ من Office يحافظ على تخطيطك دون تغيير."
 ---
 
 ## **تصدير العروض التقديمية إلى XAML**
 
 {{% alert color="primary" %}} 
-
-في [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/)، قمنا بإضافة دعم لتصدير XAML. يمكنك الآن تصدير عروضك التقديمية إلى XAML.
-
+في Aspose.Slides 21.6، قمنا بتنفيذ دعم تصدير XAML. يمكنك الآن تصدير عروضك التقديمية إلى XAML.
 {{% /alert %}} 
 
 ## **حول XAML**
 
-XAML هي لغة برمجة وصفية تتيح لك بناء أو كتابة واجهات المستخدم للتطبيقات، وخاصة تلك التي تستخدم WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin Forms.  
+XAML هي لغة برمجة وصفية تسمح لك بإنشاء أو كتابة واجهات المستخدم للتطبيقات، خاصةً تلك التي تستخدم WPF (Windows Presentation Foundation)، UWP (Universal Windows Platform)، ونماذج Xamarin.  
 
-XAML، وهي لغة تعتمد على XML، هي نسخة مايكروسوفت لوصف واجهة المستخدم الرسومية. من المحتمل أن تستخدم المصمم للعمل على ملفات XAML معظم الوقت، لكن لا يزال بإمكانك كتابة وتحرير واجهة المستخدم الرسومية الخاصة بك. 
+XAML، وهي لغة تعتمد على XML، هي النسخة الخاصة بمايكروسفت لوصف واجهة المستخدم الرسومية. من المحتمل أن تستخدم المصمم للعمل على ملفات XAML معظم الوقت، ولكن لا يزال بإمكانك كتابة وتحرير واجهة المستخدم الخاصة بك. 
 
-## **تصدير العروض التقديمية إلى XAML باستخدام الإعدادات الافتراضية**
+## **تصدير العروض التقديمية إلى XAML باستخدام الخيارات الافتراضية**
 
-هذا الكود PHP يوضح لك كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
+يظهر لك هذا الكود PHP كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -57,11 +55,11 @@ XAML، وهي لغة تعتمد على XML، هي نسخة مايكروسوفت 
 ```
 
 
-## **تصدير العروض التقديمية إلى XAML باستخدام خيارات مخصصة**
+## **تصدير العروض التقديمية إلى XAML باستخدام الخيارات المخصصة**
 
-يمكنك اختيار الخيارات من واجهة [IXamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions) التي تتحكم في عملية التصدير وتحدد كيف تقوم Aspose.Slides بتصدير عرضك التقديمي إلى XAML.
+يمكنك اختيار الخيارات من فئة [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) التي تتحكم في عملية التصدير وتحدد كيفية تصدير Aspose.Slides لعرضك التقديمي إلى XAML.
 
-على سبيل المثال، إذا كنت تريد أن تقوم Aspose.Slides بإضافة الشرائح المخفية من عرضك التقديمي عند تصديره إلى XAML، يمكنك ضبط الخاصية [ExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) إلى true. راجع هذا عينة كود PHP:
+على سبيل المثال، إذا كنت تريد أن يضيف Aspose.Slides الشرائح المخفية من عرضك التقديمي عند تصديره إلى XAML، يمكنك استخدام طريقة [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) بالقيمة `true`. راجع هذا مثال الكود PHP التالي:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -78,14 +76,14 @@ XAML، وهي لغة تعتمد على XML، هي نسخة مايكروسوفت 
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني ضمان خطوط متوقعة إذا لم يكن الخط الأصلي متوفرًا على الجهاز؟**
+**كيف يمكنني ضمان خطوط متوقعة إذا لم يتوفر الخط الأصلي على الجهاز؟**
 
-قم بتعيين [خط افتراضي عادي](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) في [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — يُستخدم كخط احتياطي عندما يكون الخط الأصلي مفقودًا. هذا يساعد على تجنب الاستبدالات غير المتوقعة.
+قم بتعيين [خط عادي افتراضي](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setDefaultRegularFont) في [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — يُستخدم كخط احتياطي عندما يكون الخط الأصلي مفقودًا. يساعد ذلك في تجنّب الاستبدالات غير المتوقعة.
 
-**هل XAML المُصدَّر مخصص فقط لـ WPF، أم يمكن استخدامه في أطر XAML أخرى أيضًا؟**
+**هل يُقصد من XAML المصدّر أن يستخدم فقط لـ WPF، أم يمكن استخدامه في أكوام XAML الأخرى أيضًا؟**
 
-XAML هي لغة توصيف واجهة المستخدم العامة المستخدمة في WPF وUWP وXamarin.Forms. تستهدف عملية التصدير التوافق مع أطر Microsoft XAML؛ السلوك الدقيق والدعم للبنود المحددة يعتمد على منصة الهدف. اختبر العلامات في بيئتك.
+XAML هي لغة توصيف عامة لواجهة المستخدم تُستخدم في WPF وUWP وXamarin.Forms. تستهدف عملية التصدير التوافق مع أكوام XAML الخاصة بمايكروسفت؛ السلوك الدقيق والدعم للبنَى المحددة يعتمد على منصة الهدف. اختبر العلامات في بيئتك.
 
-**هل يتم دعم الشرائح المخفية، وكيف يمكنني منع تصديرها بشكل افتراضي؟**
+**هل تدعم الشرائح المخفية، وكيف يمكنني منع تصديرها افتراضيًا؟**
 
-بشكل افتراضي، لا تُضمّن الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) في [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — أبقِها معطلة إذا لم تحتاج إلى تصديرها.
+بشكل افتراضي، لا يتم تضمين الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [setExportHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/setexporthiddenslides/) في [XamlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/xamloptions/) — احفظه معطلًا إذا لم تكن بحاجة لتصديرها.

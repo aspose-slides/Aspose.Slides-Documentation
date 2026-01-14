@@ -1,47 +1,47 @@
 ---
-title: Преобразование слайдов PowerPoint в PNG на PHP
+title: Конвертировать слайды PowerPoint в PNG в PHP
 linktitle: PowerPoint в PNG
 type: docs
 weight: 30
 url: /ru/php-java/convert-powerpoint-to-png/
 keywords:
-- конвертация PowerPoint
-- конвертация презентации
-- конвертация слайда
-- конвертация PPT
-- конвертация PPTX
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
 - PowerPoint в PNG
-- презентация в PNG
+- презентацию в PNG
 - слайд в PNG
 - PPT в PNG
 - PPTX в PNG
 - сохранить PPT как PNG
 - сохранить PPTX как PNG
-- экспорт PPT в PNG
-- экспорт PPTX в PNG
+- экспортировать PPT в PNG
+- экспортировать PPTX в PNG
 - PHP
 - Aspose.Slides
-description: "Быстро конвертируйте презентации PowerPoint в высококачественные PNG‑изображения с помощью Aspose.Slides для PHP через Java, обеспечивая точные и автоматические результаты."
+description: "Конвертируйте презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для PHP через Java, обеспечивая точные, автоматизированные результаты."
 ---
 
-## **О преобразовании PowerPoint в PNG**
+## **О конвертации PowerPoint в PNG**
 
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но всё равно очень популярен. 
+Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но он всё ещё очень популярен. 
 
-**Случай использования:** Когда у вас сложное изображение и размер не имеет значения, PNG — лучшее изображение, чем JPEG. 
+**Случай использования:** Если у вас сложное изображение и размер не имеет значения, PNG — лучший формат изображения, чем JPEG. 
 
-{{% alert title="Tip" color="primary" %}} Возможно, вам стоит ознакомиться с бесплатными конвертерами Aspose **PowerPoint в PNG**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Они являются живой реализацией процесса, описанного на этой странице. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Вы можете ознакомиться с бесплатными **конвертерами PowerPoint в PNG** от Aspose: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это живой пример процесса, описанного на этой странице. {{% /alert %}}
 
-## **Преобразовать PowerPoint в PNG**
+## **Конвертация PowerPoint в PNG**
 
 Выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Получите объект слайда из коллекции [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) под интерфейсом [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide).
-3. Используйте метод [ISlide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) чтобы получить миниатюру для каждого слайда.
-4. Вызовите метод [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) чтобы сохранить миниатюру слайда в формате PNG.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Получите объект слайда из коллекции [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) класса [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/).
+3. Вызовите метод [Slide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), чтобы получить миниатюру каждого слайда.
+4. Используйте метод [IImage.save(String formatName, int imageFormat)](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) для сохранения миниатюры слайда в формате PNG.
 
-Этот код PHP показывает, как преобразовать презентацию PowerPoint в PNG:
+Этот PHP‑код демонстрирует, как преобразовать презентацию PowerPoint в PNG:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -64,9 +64,9 @@ description: "Быстро конвертируйте презентации Pow
 ```
 
 
-## **Преобразовать PowerPoint в PNG с пользовательскими размерами**
+## **Конвертация PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить PNG‑файлы определённого масштаба, можете задать значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры. 
+Если вы хотите получить PNG‑файлы определённого масштаба, можете установить значения `desiredX` и `desiredY`, которые определяют размеры получаемой миниатюры. 
 
 Этот код демонстрирует описанную операцию:
 ```php
@@ -93,11 +93,11 @@ description: "Быстро конвертируйте презентации Pow
 ```
 
 
-## **Преобразовать PowerPoint в PNG с пользовательским размером**
+## **Конвертация PowerPoint в PNG с пользовательским размером**
 
 Если вы хотите получить PNG‑файлы определённого размера, можете передать желаемые параметры `width` и `height` для `ImageSize`. 
 
-Этот код показывает, как преобразовать PowerPoint в PNG, задав размер изображений: 
+Этот код показывает, как конвертировать PowerPoint в PNG, задав размер изображений: 
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -121,16 +121,13 @@ description: "Быстро конвертируйте презентации Pow
 ```
 
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Как я могу экспортировать только конкретную форму (например, диаграмму или изображение), а не весь слайд?**
+**Как экспортировать только определённую форму (например, диаграмму или изображение), а не весь слайд?**  
+Aspose.Slides поддерживает [создание миниатюр отдельных фигур](/slides/ru/php-java/create-shape-thumbnails/); вы можете отрисовать форму в PNG‑изображение.
 
-Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/php-java/create-shape-thumbnails/); вы можете отрисовать форму в PNG‑изображение.
+**Поддерживается ли параллельная конвертация на сервере?**  
+Да, но [не следует делить](/slides/ru/php-java/multithreading/) один экземпляр презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
 
-**Поддерживается ли параллельное преобразование на сервере?**
-
-Да, но [не делитесь](/slides/ru/php-java/multithreading/) одним экземпляром презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
-
-**Каковы ограничения пробной версии при экспорте в PNG?**
-
-Режим оценки добавляет водяной знак к создаваемым изображениями и накладывает [прочие ограничения](/slides/ru/php-java/licensing/), пока не будет применена лицензия.
+**Каковы ограничения пробной версии при экспорте в PNG?**  
+В режиме оценки к выходным изображениям добавляется водяной знак и применяются [другие ограничения](/slides/ru/php-java/licensing/), пока не будет применена лицензия.

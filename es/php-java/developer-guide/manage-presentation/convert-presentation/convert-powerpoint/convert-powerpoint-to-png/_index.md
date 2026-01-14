@@ -21,25 +21,25 @@ keywords:
 - exportar PPTX a PNG
 - PHP
 - Aspose.Slides
-description: "Convierta presentaciones de PowerPoint a imágenes PNG de alta calidad rápidamente con Aspose.Slides para PHP a través de Java, garantizando resultados precisos y automatizados."
+description: "Convierte presentaciones de PowerPoint a imágenes PNG de alta calidad rápidamente con Aspose.Slides para PHP mediante Java, garantizando resultados precisos y automáticos."
 ---
 
 ## **Acerca de la conversión de PowerPoint a PNG**
 
-El formato PNG (Portable Network Graphics) no es tan popular como JPEG (Joint Photographic Experts Group), pero sigue siendo muy popular. 
+El formato PNG (Portable Network Graphics) no es tan popular como JPEG (Joint Photographic Experts Group), pero sigue siendo muy usado.  
 
-**Caso de uso:** Cuando tienes una imagen compleja y el tamaño no es un problema, PNG es un formato de imagen mejor que JPEG. 
+**Caso de uso:** Cuando tienes una imagen compleja y el tamaño no es un problema, PNG es un formato de imagen mejor que JPEG.  
 
-{{% alert title="Tip" color="primary" %}} Puede que quieras consultar los convertidores gratuitos de **PowerPoint a PNG** de Aspose: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
+{{% alert title="Consejo" color="primary" %}} Es posible que quieras probar los convertidores gratuitos de Aspose **PowerPoint a PNG**: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
 
 ## **Convertir PowerPoint a PNG**
 
 Sigue estos pasos:
 
-1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. Obtener el objeto diapositiva de la colección [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getSlides--) bajo la interfaz [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide).
-3. Utilizar el método [ISlide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide) para obtener la miniatura de cada diapositiva.
-4. Utilizar el método [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) para guardar la miniatura de la diapositiva en formato PNG.
+1. Instancia la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Obtén el objeto diapositiva de la colección [Presentation.getSlides()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) bajo la clase [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/).
+3. Usa el método [Slide.getImage()](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) para obtener la miniatura de cada diapositiva.
+4. Utiliza el método [IImage.save(String formatName, int imageFormat)](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) para guardar la miniatura de la diapositiva en formato PNG.
 
 Este código PHP muestra cómo convertir una presentación PowerPoint a PNG:
 ```php
@@ -66,7 +66,7 @@ Este código PHP muestra cómo convertir una presentación PowerPoint a PNG:
 
 ## **Convertir PowerPoint a PNG con dimensiones personalizadas**
 
-Si deseas obtener archivos PNG con una cierta escala, puedes establecer los valores de `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante. 
+Si deseas obtener archivos PNG con una escala determinada, puedes establecer los valores de `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante.  
 
 Este código demuestra la operación descrita:
 ```php
@@ -95,7 +95,7 @@ Este código demuestra la operación descrita:
 
 ## **Convertir PowerPoint a PNG con tamaño personalizado**
 
-Si deseas obtener archivos PNG con un cierto tamaño, puedes pasar tus argumentos preferidos `width` y `height` para `ImageSize`. 
+Si deseas obtener archivos PNG con un tamaño concreto, puedes pasar los argumentos `width` y `height` que prefieras para `ImageSize`.  
 
 Este código muestra cómo convertir un PowerPoint a PNG especificando el tamaño de las imágenes: 
 ```php
@@ -123,9 +123,9 @@ Este código muestra cómo convertir un PowerPoint a PNG especificando el tamañ
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo exportar solo una forma específica (p. ej., gráfico o imagen) en lugar de toda la diapositiva?**
+**¿Cómo puedo exportar solo una forma específica (p. ej., un gráfico o una imagen) en lugar de toda la diapositiva?**
 
-Aspose.Slides soporta [la generación de miniaturas para formas individuales](/slides/es/php-java/create-shape-thumbnails/); puedes renderizar una forma a una imagen PNG.
+Aspose.Slides admite [generar miniaturas para formas individuales](/slides/es/php-java/create-shape-thumbnails/); puedes renderizar una forma a una imagen PNG.
 
 **¿Se admite la conversión paralela en un servidor?**
 
@@ -133,4 +133,4 @@ Sí, pero [no compartas](/slides/es/php-java/multithreading/) una única instanc
 
 **¿Cuáles son las limitaciones de la versión de prueba al exportar a PNG?**
 
-El modo de evaluación agrega una marca de agua a las imágenes de salida y aplica [otras restricciones](/slides/es/php-java/licensing/) hasta que se aplique una licencia.
+El modo de evaluación añade una marca de agua a las imágenes de salida y aplica [otras restricciones](/slides/es/php-java/licensing/) hasta que se aplique una licencia.

@@ -7,7 +7,7 @@ url: /ru/php-java/embedded-font/
 keywords:
 - добавить шрифт
 - встроить шрифт
-- встраивание шрифтов
+- встраивание шрифта
 - получить встроенный шрифт
 - добавить встроенный шрифт
 - удалить встроенный шрифт
@@ -17,22 +17,23 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Встраивание шрифтов TrueType в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java, обеспечивая точный рендеринг на всех платформах."
+description: "Встраивание TrueType шрифтов в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java, обеспечивая точный рендеринг на всех платформах."
 ---
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась правильно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в работе, то у вас есть еще больше причин встроить шрифт. В противном случае (без встроенных шрифтов) текст или цифры на слайдах, макет, стиль и т. д. могут измениться или превратиться в непонятные прямоугольники. 
+**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась правильно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в работе, то у вас есть еще больше причин встраивать шрифт. В противном случае (без встроенных шрифтов) текст или цифры на слайдах, макет, стили и т.д. могут измениться или превратиться в непонятные прямоугольники. 
 
-Классы [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) и [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) , а также их интерфейсы содержат большинство свойств и методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint.
+Класс [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) , класс [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) и класс [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) содержат большинство методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint.
 
 ## **Получить и удалить встроенные шрифты**
 
-Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) (доступный через класс [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)), позволяющий получить (или узнать) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (доступный тем же классом).
+Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) (доступный через класс [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) ), позволяющий получить (или узнать) шрифты, встроенные в презентацию. Чтобы удалить шрифты, используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) (доступный через тот же класс).
 
+Этот PHP‑код показывает, как получить и удалить встроенные шрифты из презентации:
 ```php
   # Создает объект Presentation, представляющий файл презентации
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
-    # Отрисовывает слайд, содержащий текстовый фрейм, использующий встроенный "FunSized"
+    # Рендерит слайд, содержащий текстовый фрейм, использующий встроенный "FunSized"
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     # Сохраняет изображение на диск в формате JPEG
     try {
@@ -45,7 +46,7 @@ Aspose.Slides предоставляет метод [getEmbeddedFonts](https://r
     $fontsManager = $pres->getFontsManager();
     # Получает все встроенные шрифты
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # Ищет шрифт "Calibri"
+    # Находит шрифт "Calibri"
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
@@ -57,7 +58,7 @@ Aspose.Slides предоставляет метод [getEmbeddedFonts](https://r
     }
     # Удаляет шрифт "Calibri"
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # Отрисовывает презентацию; шрифт "Calibri" заменяется существующим
+    # Рендерит презентацию; шрифт "Calibri" заменяется существующим
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     # Сохраняет изображение на диск в формате JPEG
     try {
@@ -79,8 +80,7 @@ Aspose.Slides предоставляет метод [getEmbeddedFonts](https://r
 
 ## **Добавить встроенные шрифты**
 
-С помощью перечисления [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) вы можете выбрать предпочтительное правило встраивания шрифтов в презентацию. Этот PHP‑код показывает, как встраивать и добавлять шрифты в презентацию:
-
+С помощью класса [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) вы можете выбрать предпочтительное правило (встраивания) для включения шрифтов в презентацию. Этот PHP‑код показывает, как встроить и добавить шрифты в презентацию:
 ```php
   # Загружает презентацию
   $pres = new Presentation("Fonts.pptx");
@@ -113,8 +113,9 @@ Aspose.Slides предоставляет метод [getEmbeddedFonts](https://r
 
 ## **Сжать встроенные шрифты**
 
-Чтобы вы могли сжать встроенные в презентацию шрифты и уменьшить размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (доступный через класс [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
+Чтобы вы могли сжать встроенные в презентацию шрифты и уменьшить размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts) (доступный через класс [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) ).
 
+Этот PHP‑код показывает, как сжать встроенные шрифты PowerPoint:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
@@ -132,8 +133,8 @@ Aspose.Slides предоставляет метод [getEmbeddedFonts](https://r
 
 **Как определить, что конкретный шрифт в презентации всё равно будет заменён при рендеринге, несмотря на встраивание?**
 
-Проверьте [substitution information](/slides/ru/php-java/font-substitution/) в менеджере шрифтов и [fallback/substitution rules](/slides/ru/php-java/fallback-font/): если шрифт недоступен или ограничен, будет использован резервный шрифт.
+Проверьте [информацию о замене](/slides/ru/php-java/font-substitution/) в менеджере шрифтов и [правила резервных/заменяющих шрифтов](/slides/ru/php-java/fallback-font/): если шрифт недоступен или ограничен, будет использован резервный шрифт.
 
 **Стоит ли встраивать «системные» шрифты, такие как Arial/Calibri?**
 
-Обычно нет — они почти всегда доступны. Однако для полной переносимости в «тонких» средах (Docker, Linux‑сервер без предустановленных шрифтов) встраивание системных шрифтов может устранить риск неожиданных замен.
+Обычно нет — они почти всегда доступны. Но для полной переносимости в «тонких» окружениях (Docker, Linux‑сервер без предустановленных шрифтов) встраивание системных шрифтов может исключить риск неожиданных замен.

@@ -1,6 +1,6 @@
 ---
-title: Управление гиперссылками презентаций в PHP
-linktitle: Управление гиперссылкой
+title: Управление гиперссылками презентации в PHP
+linktitle: Управление гиперсылкой
 type: docs
 weight: 20
 url: /ru/php-java/manage-hyperlinks/
@@ -13,7 +13,7 @@ keywords:
 - обновить гиперссылку
 - гиперссылка в тексте
 - гиперссылка на слайд
-- гиперссылка на форму
+- гиперссылка на фигуру
 - гиперссылка на изображение
 - гиперссылка на видео
 - изменяемая гиперссылка
@@ -22,10 +22,10 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java — повышайте интерактивность и эффективность работы за считанные минуты."
+description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java — повышайте интерактивность и эффективность за считанные минуты."
 ---
 
-Гиперссылка — это ссылка на объект, данные или место в чем‑то. Ниже перечислены типичные гиперссылки в презентациях PowerPoint:
+Гиперссылка — это ссылка на объект, данные или место в документе. Ниже приведены распространённые гиперссылки в презентациях PowerPoint:
 
 * Ссылки на веб‑сайты внутри текста, фигур или мультимедиа
 * Ссылки на слайды
@@ -33,16 +33,14 @@ description: "Легко управляйте гиперссылками в пр
 Aspose.Slides for PHP via Java позволяет выполнять множество задач, связанных с гиперссылками в презентациях.
 
 {{% alert color="primary" %}} 
-
-Возможно, вам стоит посмотреть простой бесплатный онлайн‑редактор PowerPoint от Aspose: [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/editor)
-
+Возможно, вам будет интересно ознакомиться с простым, [бесплатным онлайн‑редактором PowerPoint.](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
 ## **Добавить URL‑гиперссылки**
 
-### **Добавить URL‑гиперссылки в текст**
+### **Добавить URL‑гиперссылки к тексту**
 
-Этот PHP‑код демонстрирует, как добавить гиперссылку на веб‑сайт в текст:
+Этот код PHP показывает, как добавить веб‑сайт в виде гиперссылки к тексту:
 ```php
   $presentation = new Presentation();
   try {
@@ -61,9 +59,9 @@ Aspose.Slides for PHP via Java позволяет выполнять множе�
 ```
 
 
-### **Добавить URL‑гиперссылки в фигуры или кадры**
+### **Добавить URL‑гиперссылки к фигурам или кадрам**
 
-Этот пример кода показывает, как добавить гиперссылку на веб‑сайт в фигуру:
+Этот пример кода показывает, как добавить веб‑сайт в виде гиперссылки к фигуре:
 ```php
   $pres = new Presentation();
   try {
@@ -81,7 +79,7 @@ Aspose.Slides for PHP via Java позволяет выполнять множе�
 
 ### **Добавить URL‑гиперссылки к медиа**
 
-Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио‑ и видео‑файлам. 
+Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио‑ и видеофайлам.
 
 Этот пример кода показывает, как добавить гиперссылку к **изображению**:
 ```php
@@ -97,7 +95,7 @@ Aspose.Slides позволяет добавлять гиперссылки к и
         $image->dispose();
       }
     }
-    # Создаёт рамку для изображения на слайде 1 на основе ранее добавленного изображения
+    # Создает рамку изображения на слайде 1 на основе ранее добавленного изображения
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -168,9 +166,7 @@ try {
 
 
 {{%  alert  title="Tip"  color="primary"  %}} 
-
-Вам может быть интересно посмотреть *[Управление OLE](/slides/ru/php-java/manage-ole/)*.
-
+Возможно, вам будет интересно посмотреть *[Управление OLE](/slides/ru/php-java/manage-ole/)*.
 {{% /alert %}}
 
 ## **Использовать гиперссылки для создания оглавления**
@@ -209,9 +205,9 @@ try {
 
 ### **Цвет**
 
-С помощью свойства [ColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink#setColorSource-int-) в интерфейсе [IHyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink) вы можете задавать цвет гиперссылок и также получать информацию о цвете из гиперссылок. Эта функция была впервые представлена в PowerPoint 2019, поэтому изменения, связанные со свойством, не применяются к более старым версиям PowerPoint.
+С помощью метода [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) в классе [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) вы можете задавать цвет гиперссылок и также получать информацию о цвете гиперссылок. Эта возможность впервые была представлена в PowerPoint 2019, поэтому изменения свойства не применяются к более старым версиям PowerPoint.
 
-Этот пример кода демонстрирует операцию, при которой гиперссылки с разными цветами были добавлены на один слайд:
+Этот пример кода демонстрирует операцию, при которой гиперссылки разных цветов были добавлены на один слайд:
 ```php
   $pres = new Presentation();
   try {
@@ -238,7 +234,7 @@ try {
 
 ### **Удалить гиперссылки из текста**
 
-Этот PHP‑код показывает, как удалить гиперссылку из текста на слайде презентации:
+Этот код PHP показывает, как удалить гиперссылку из текста на слайде презентации:
 ```php
   $pres = new Presentation();
   try {
@@ -264,7 +260,7 @@ try {
 
 ### **Удалить гиперссылки из фигур или кадров**
 
-Этот PHP‑код показывает, как удалить гиперссылку из фигуры на слайде презентации:
+Этот код PHP показывает, как удалить гиперссылку из фигуры на слайде презентации:
 ```php
   $pres = new Presentation();
   try {
@@ -283,13 +279,13 @@ try {
 
 ## **Изменяемая гиперссылка**
 
-Класс [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/Hyperlink) изменяемый. С его помощью можно изменить значения следующих свойств:
+Класс [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) изменяемый. С помощью этого класса можно изменить значения следующих свойств:
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [Hyperlink.setTargetFrame(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/)
+- [Hyperlink.setTooltip(String)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/)
+- [Hyperlink.setHistory(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/)
+- [Hyperlink.setHighlightClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/)
+- [Hyperlink.setStopSoundOnClick(boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/)
 
 Этот фрагмент кода показывает, как добавить гиперссылку на слайд и позже изменить её всплывающую подсказку:
 ```php
@@ -312,29 +308,26 @@ try {
 
 ## **Поддерживаемые свойства в IHyperlinkQueries**
 
-Вы можете получить доступ к [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) из презентации, слайда или текста, для которых определена гиперссылка.
+Вы можете получить доступ к [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) из презентации, слайда или текста, для которого определена гиперссылка.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [Presentation.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)
+- [BaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getHyperlinkQueries)
+- [TextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/)
 
-Класс [IHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries) поддерживает эти методы и свойства:
+Класс [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) поддерживает следующие методы и свойства:
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [HyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/)
+- [HyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/)
+- [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/)
+- [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)
 
 ## **FAQ**
 
-**Как я могу создать внутреннюю навигацию не только к слайду, но и к "разделу" или к первому слайду раздела?**
+**Как создать внутреннюю навигацию не только к слайду, но и к «разделу» или первому слайду раздела?**  
+Разделы в PowerPoint — это группы слайдов; навигация технически указывает на конкретный слайд. Чтобы «перейти к разделу», обычно делается ссылка на его первый слайд.
 
-Разделы в PowerPoint представляют собой группы слайдов; навигация технически ориентирована на конкретный слайд. Чтобы «перейти к разделу», обычно создают ссылку на его первый слайд.
+**Можно ли привязать гиперссылку к элементам master‑слайда, чтобы она работала на всех слайдах?**  
+Да. Элементы master‑слайда и шаблона поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время показа.
 
-**Можно ли привязать гиперссылку к элементам шаблона слайда, чтобы она работала на всех слайдах?**
-
-Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время показа.
-
-**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
-
-В [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/php-java/convert-powerpoint-to-html/) — да, ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/php-java/convert-powerpoint-to-png/) и [видео](/slides/ru/php-java/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за характера этих форматов (растровые кадры/видео не поддерживают гиперссылки).
+**Сохранится ли гиперссылка при экспорте в PDF, HTML, изображения или видео?**  
+В [PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/php-java/convert-powerpoint-to-html/) — да, ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/php-java/convert-powerpoint-to-png/) и [видео](/slides/ru/php-java/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за особенностей этих форматов (растровые кадры/видео не поддерживают гиперссылки).
