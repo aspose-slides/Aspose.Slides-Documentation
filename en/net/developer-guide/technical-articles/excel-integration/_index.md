@@ -31,7 +31,7 @@ Until now, implementing such features with the Aspose.Slides API required relyin
 
 ## **How It Works**
 
-To make working with Excel data easier and more streamlined, Aspose.Slides has introduced the new classes for reading data from Excel workbooks and importing content into a presentation. This feature opens up powerful new possibilities for API users who want to leverage Excel as a data source within their presentation workflows.
+To make working with Excel data easier and more streamlined, Aspose.Slides has introduced new classes for reading data from Excel workbooks and importing content into a presentation. This feature opens up powerful new possibilities for API users who want to leverage Excel as a data source within their presentation workflows
 
 The new functionality is designed for general-purpose data access and is not integrated into the Presentation Document Object Model (DOM). That means *it does not allow editing or saving Excel files* — its sole purpose is to open workbooks and navigate through their content to retrieve cell data.
 
@@ -39,7 +39,7 @@ At the core of this feature is the new [ExcelDataWorkbook](https://reference.asp
 
 Each call to [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
 
-#### **Import Excel Chart**
+#### **Import an Excel Chart**
 
 The next step to extend functionality is the [ExcelWorkbookImporter](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/) class. This utility class provides functionality for importing content from an Excel workbook into a presentation. It contains several overloads of the [AddChartFromWorkbook](https://reference.aspose.com/slides/net/aspose.slides.import/excelworkbookimporter/addchartfromworkbook/) method, which help you to retrieve the selected chart from the specified Excel workbook and add it to the end of the given shape collection at the specified coordinates.
 
@@ -47,7 +47,7 @@ In short, it's a lightweight and straightforward API for reading Excel data — 
 
 ## **Let's Code**
 
-### **Mail Merge scenario Example**
+### **Mail Merge Scenario Example**
 
 In the following example, we'll implement a simple Mail Merge scenario by generating multiple presentations based on data stored in an Excel workbook.
 
@@ -140,7 +140,7 @@ presentation.Save("Table.pptx", SaveFormat.Pptx);
 
 ![Result](example2_image0.png)
 
-### **Import Excel Chart Example**
+### **Import an Excel Chart Example**
 
 In this example, we import a chart from the first worksheet of the Excel workbook used in the previous example. The chart will link to the external workbook in the resulting presentation.
 
