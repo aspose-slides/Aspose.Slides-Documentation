@@ -181,7 +181,7 @@ This PHP code shows you how to access and work with an existing table:
 2. Get a slide's reference through its index. 
 3. Add an [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) object to the slide.
 4. Access an [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) object from the table.
-5. Access the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
+5. Access the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
 6. Align the text vertically.
 7. Save the modified presentation.
 

@@ -40,7 +40,7 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
 ```
 
 ## **Calculate Actual Position of Parent Chart Elements**
-Aspose.Slides for PHP via Java provides a simple API for getting these properties.Methods of the `ActualLayout` class provide information about actual position of parent chart element (`getActualX`, `getActualY`, `getActualWidth`, `getActualHeight`). It is necessary to call method [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) previously to fill properties with actual values.
+Aspose.Slides for PHP via Java provides a simple API for getting these properties. Methods of the `ActualLayout` class provide information about actual position of parent chart element (`getActualX`, `getActualY`, `getActualWidth`, `getActualHeight`). It is necessary to call method [Chart.validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) previously to fill properties with actual values.
 
 ```php
   $pres = new Presentation();

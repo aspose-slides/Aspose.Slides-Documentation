@@ -201,7 +201,7 @@ Aspose.Slides for PHP via Java allows developers to get a unique shape identifie
 
 ## **Set Alternative Text for a Shape**
 Aspose.Slides for PHP via Java allows developers to set AlternateText of any shape.
-Shapes in a presentation could be distinguished by the Alternative Text or [shape name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) method.
+Shapes in a presentation could be distinguished by the `Alternative Text` or [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/) method.
 [setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) and [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
 By using this method, you can tag a shape and can perform different operations as Removing a shape,
 Hiding a shape or Reordering shapes on a slide.
