@@ -17,7 +17,7 @@ keywords:
 - 添加图片
 - Python
 - Aspose.Slides
-description: "通过使用 Python 现代 API 替换已弃用的图像 API，实现幻灯片图像处理的现代化，从而实现无缝的 PowerPoint 和 OpenDocument 自动化。"
+description: "通过使用 Python 现代 API 替换已弃用的成像 API，实现幻灯片图像处理的现代化，以实现无缝的 PowerPoint 和 OpenDocument 自动化。"
 ---
 
 ## **介绍**
@@ -28,17 +28,17 @@ Aspose.Slides for Python 公共 API 当前依赖以下 `aspose.pydrawing` 类型
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-从 24.4 版本开始，由于 [更改](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) ，此公共 API 已 **不推荐使用**。
+从 24.4 版起，此公共 API 因在 Aspose.Slides for Python 公共 API 中的[更改](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api)而 **已弃用**。
 
-为消除公共 API 中的 `aspose.pydrawing`，我们引入了 **现代 API**。使用 `aspose.pydrawing.Image` 和 `aspose.pydrawing.Bitmap` 的方法已不推荐使用，并将被其现代 API 等价方法取代。使用 `aspose.pydrawing.Graphics` 的方法已不推荐使用，对它们的支持将从公共 API 中移除。
+为了从公共 API 中移除 `aspose.pydrawing`，我们引入了 **现代 API**。使用 `aspose.pydrawing.Image` 和 `aspose.pydrawing.Bitmap` 的方法已弃用，且将被其现代 API 等价方法取代。使用 `aspose.pydrawing.Graphics` 的方法已弃用，这些方法的支持将从公共 API 中删除。
 
-计划在 **24.8** 版本中删除依赖 `aspose.pydrawing` 的不推荐 API。
+依赖 `aspose.pydrawing` 的已弃用 API 的删除计划在 **24.8** 版发布。
 
 ## **现代 API**
 
-已向公共 API 添加以下类和枚举：
+以下类和枚举已添加到公共 API：
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — 表示光栅或矢量图像。
+- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — 表示栅格或矢量图像。
 - [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — 表示图像文件格式。
 - [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — 提供创建和使用 `IImage` 的方法。
 
@@ -60,13 +60,13 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **将旧代码替换为现代 API**
+## **用现代 API 替换旧代码**
 
-为方便迁移，新的 `IImage` 接口镜像了 `Image` 和 `Bitmap` 类的独立 API。在大多数情况下，您只需将使用 `aspose.pydrawing` 的方法调用替换为其现代 API 等价方法。
+为了更容易的迁移，新的 `IImage` 类镜像了 `Image` 和 `Bitmap` 类的独立 API。大多数情况下，您只需将使用 `aspose.pydrawing` 的方法调用替换为其现代 API 等价方法。
 
 ### **获取幻灯片缩略图**
 
-**不推荐的 API：**
+**已弃用的 API：**
 ```python
 import aspose.slides as slides
 
@@ -91,7 +91,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **获取形状缩略图**
 
-**不推荐的 API：**
+**已弃用的 API：**
 ```python
 import aspose.slides as slides
 
@@ -116,7 +116,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **获取演示文稿缩略图**
 
-**不推荐的 API：**
+**已弃用的 API：**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -144,7 +144,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **向演示文稿添加图片**
 
-**不推荐的 API：**
+**已弃用的 API：**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -172,7 +172,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **将被删除的方法和属性以及它们的现代替代品**
+## **将被删除的方法和属性及其现代替代方案**
 
 ### **Presentation 类**
 
@@ -184,12 +184,12 @@ with slides.Presentation() as presentation:
 |get_thumbnails(options, slides, scale_x, scale_y)|[get_images(options, slides, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-float-float)|
 |get_thumbnails(options, image_size)|[get_images(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
 |get_thumbnails(options, slides, image_size)|[get_images(options, slides, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-asposepydrawingsize)|
-|save(fname, format, response, show_inline)|将被完全删除|
-|save(fname, format, options, response, show_inline)|将被完全删除|
-|print()|将被完全删除|
-|print(printer_settings)|将被完全删除|
-|print(printer_name)|将被完全删除|
-|print(printer_settings, pres_name)|将被完全删除|
+|save(fname, format, response, show_inline)|Will be deleted completely|
+|save(fname, format, options, response, show_inline)|Will be deleted completely|
+|print()|Will be deleted completely|
+|print(printer_settings)|Will be deleted completely|
+|print(printer_name)|Will be deleted completely|
+|print(printer_settings, pres_name)|Will be deleted completely|
 
 ### **Slide 类**
 
@@ -202,9 +202,9 @@ with slides.Presentation() as presentation:
 |get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
 |get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
 |get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
-|render_to_graphics(options, graphics)|将被完全删除|
-|render_to_graphics(options, graphics, scale_x, scale_y)|将被完全删除|
-|render_to_graphics(options, graphics, rendering_size)|将被完全删除|
+|render_to_graphics(options, graphics)|Will be deleted completely|
+|render_to_graphics(options, graphics, scale_x, scale_y)|Will be deleted completely|
+|render_to_graphics(options, graphics, rendering_size)|Will be deleted completely|
 
 ### **Shape 类**
 
@@ -251,25 +251,25 @@ with slides.Presentation() as presentation:
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **对 aspose.pydrawing.Graphics 的 API 支持将停止**
+## **aspose.pydrawing.Graphics 的 API 支持将被停止**
 
-使用 `aspose.pydrawing.Graphics` 的方法已不推荐使用；对它们的支持将从公共 API 中移除。
+使用 `aspose.pydrawing.Graphics` 的方法已弃用；对它们的支持将从公共 API 中移除。
 
-将被删除的、依赖 `aspose.pydrawing.Graphics` 的 API 成员包括：
+依赖 `aspose.pydrawing.Graphics` 且将被删除的 API 成员包括：
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
 
 # **常见问题**
 
-**为什么删除了 aspose.pydrawing.Graphics？**
+**为什么弃用 aspose.pydrawing.Graphics？**
 
-正在从公共 API 中移除对 Graphics 的支持，以统一渲染和图像的工作方式，消除对平台特定依赖的束缚，并通过 [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 采用跨平台方式。所有渲染至 Graphics 的方法都将被删除。
+从公共 API 中移除 Graphics 支持是为了统一渲染和图像的工作、消除对平台特定依赖的关联，并转向使用跨平台的[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 方法。所有渲染到 Graphics 的方法都将被删除。
 
-**IImage 相比 Image/Bitmap 的实际好处是什么？**
+**IImage 相对于 Image/Bitmap 的实际好处是什么？**
 
-[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 统一了对光栅和矢量图像的处理，配合 [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) 简化了各种格式的保存，降低了对 pydrawing 的依赖，使代码在不同环境之间更具可移植性。
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 统一了栅格和矢量图像的处理，通过[ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) 简化了保存为各种格式的过程，降低了对 pydrawing 的依赖，并使代码在不同环境之间更加可移植。
 
 **现代 API 会影响生成缩略图的性能吗？**
 
-从 `get_thumbnail` 切换到 `get_image` 不会导致性能下降：新方法在提供相同的选项和尺寸生成功能的同时，仍保留对渲染选项的支持。具体的提升或下降取决于使用场景，但功能上两者是等价的。
+从 `get_thumbnail` 切换到 `get_image` 并不会导致性能下降：新方法在提供相同的选项和尺寸生成图像的能力的同时，仍然支持渲染选项。具体的提升或下降取决于使用场景，但在功能上替代是等价的。

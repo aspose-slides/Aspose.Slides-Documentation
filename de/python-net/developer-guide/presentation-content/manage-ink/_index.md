@@ -1,40 +1,50 @@
 ---
-title: Tinte verwalten
+title: Verwalten von Ink-Objekten in Präsentationen mit Python
+linktitle: Ink verwalten
 type: docs
 weight: 95
 url: /de/python-net/manage-ink/
-keywords: "Tinte in PowerPoint, Tintentools, Python Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Verwenden Sie Tintentools, um Objekte in PowerPoint Python zu zeichnen"
+keywords:
+- Tinte
+- Ink-Objekt
+- Ink-Spur
+- Ink verwalten
+- Ink zeichnen
+- Zeichnung
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Verwalten Sie PowerPoint-Ink-Objekte - erstellen, bearbeiten & stylen digitale Tinte mit Aspose.Slides für Python via .NET. Erhalten Sie Codebeispiele für Spuren, Pinsel-Farbe & Größe."
 ---
 
-PowerPoint bietet die Tintenfunktion, um nicht-standardisierte Figuren zu zeichnen, die verwendet werden können, um andere Objekte hervorzuheben, Verbindungen und Prozesse darzustellen und auf bestimmte Elemente auf einer Folie aufmerksam zu machen.
+PowerPoint stellt die Ink-Funktion bereit, mit der Sie nicht-standardisierte Figuren zeichnen können, die zum Hervorheben anderer Objekte, zum Anzeigen von Verbindungen und Prozessen sowie zum Aufmerksam-machen auf bestimmte Elemente einer Folie verwendet werden können. 
 
-Aspose.Slides bietet das [Aspose.Slides.Ink](https://reference.aspose.com/slides/python-net/aspose.slides.ink/) Interface, das die Typen enthält, die Sie benötigen, um Tintenobjekte zu erstellen und zu verwalten.
+Aspose.Slides stellt den Namespace [aspose.slides.ink](https://reference.aspose.com/slides/python-net/aspose.slides.ink/) bereit, der die Typen enthält, die Sie zum Erstellen und Verwalten von Ink-Objekten benötigen. 
 
-## **Unterschiede zwischen regulären Objekten und Tintenobjekten**
+## **Unterschiede zwischen regulären Objekten und Ink-Objekten**
 
-Objekte auf einer PowerPoint-Folie werden typischerweise durch Formobjekte dargestellt. Ein Formobjekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) sowie dessen Eigenschaften definiert. Letztere umfassen die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie im Abschnitt [Form Layout Format](https://docs.aspose.com/slides/python-net/shape-manipulations/#access-layout-formats-for-shape).
+Objekte auf einer PowerPoint-Folien werden typischerweise durch Shape-Objekte dargestellt. Ein Shape-Objekt ist in seiner einfachsten Form ein Container, der den Bereich des Objekts selbst (seinen Rahmen) zusammen mit seinen Eigenschaften definiert. Letztere umfassen die Größe des Containerbereichs, die Form des Containers, den Hintergrund des Containers usw. Weitere Informationen finden Sie unter [Shape Layout Format](https://docs.aspose.com/slides/python-net/shape-manipulations/#access-layout-formats-for-shape).
 
-Wenn PowerPoint jedoch mit einem Tintenobjekt arbeitet, ignoriert es alle Eigenschaften des Objektrahmens (Containers) außer seiner Größe. Die Größe des Containerbereichs wird durch die standardmäßigen `width` und `height` Werte bestimmt:
+Wenn PowerPoint jedoch mit einem Ink-Objekt arbeitet, ignoriert es alle Eigenschaften des Objekt-Frames (Containers) außer seiner Größe. Die Größe des Container-Bereichs wird durch die Standardwerte `width` und `height` bestimmt:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Tintenform Spuren**
+## **Inkshape-Spuren**
 
-Eine Spur ist ein grundlegendes Element oder Standard, der verwendet wird, um die Trajektorie eines Stifts aufzuzeichnen, während ein Benutzer digitale Tinte schreibt. Spuren sind Aufzeichnungen, die Sequenzen von verbundenen Punkten beschreiben.
+Eine Spur ist ein Basiselement oder ein Standard, der verwendet wird, um die Bahn eines Stifts aufzuzeichnen, während ein Benutzer digitale Tinte schreibt. Spuren sind Aufnahmen, die Sequenzen verbundener Punkte beschreiben. 
 
-Die einfachste Form der Kodierung gibt die X- und Y-Koordinaten jedes Stichpunkts an. Wenn alle verbundenen Punkte gerendert werden, erzeugen sie ein Bild wie dieses:
+Die einfachste Form der Kodierung gibt die X- und Y-Koordinaten jedes Stichprobenpunkts an. Wenn alle verbundenen Punkte gerendert werden, entsteht ein Bild wie dieses:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Pinsel Eigenschaften zum Zeichnen
+## Pinsel-Eigenschaften zum Zeichnen 
 
-Sie können einen Pinsel verwenden, um Linien zu ziehen, die die Punkte von Spurenelementen verbinden. Der Pinsel hat seine eigene Farbe und Größe, die den Eigenschaften `Brush.Color` und `Brush.Size` entsprechen.
+Sie können einen Pinsel verwenden, um Linien zu zeichnen, die die Punkte von Spur-Elementen verbinden. Der Pinsel besitzt seine eigene Farbe und Größe, die den Eigenschaften `Brush.color` und `Brush.size` entsprechen. 
 
-### **Tintenpinsel Farbe festlegen**
+### **Ink-Pinselfarbe festlegen**
 
 Dieser Python-Code zeigt, wie Sie die Farbe für einen Pinsel festlegen:
-
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -47,10 +57,10 @@ with slides.Presentation("pres.pptx") as pres:
     brush.color = draw.Color.red
 ```
 
-### **Tintenpinsel Größe festlegen**
+
+### **Ink-Pinselgröße festlegen** 
 
 Dieser Python-Code zeigt, wie Sie die Größe für einen Pinsel festlegen:
-
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -63,25 +73,26 @@ with slides.Presentation("pres.pptx") as pres:
     brush.size = draw.SizeF(5.0, 10.0)
 ```
 
-Im Allgemeinen stimmen die Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist grau hinterlegt). Wenn jedoch die Breite und Höhe des Pinsels übereinstimmen, zeigt PowerPoint die Größe auf diese Weise an:
+
+In der Regel stimmen Breite und Höhe eines Pinsels nicht überein, sodass PowerPoint die Pinselgröße nicht anzeigt (der Datenbereich ist ausgegraut). Stimmen Breite und Höhe des Pinsels jedoch überein, zeigt PowerPoint die Größe wie folgt an:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-Um die Dinge zu verdeutlichen, lassen Sie uns die Höhe des Tintenobjekts erhöhen und die wichtigen Dimensionen überprüfen:
+Zur Veranschaulichung erhöhen wir die Höhe des Ink-Objekts und betrachten die wichtigen Abmessungen: 
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-Der Container (Rahmen) berücksichtigt nicht die Größe der Pinsel – er geht immer davon aus, dass die Dicke der Linie null ist (siehe das letzte Bild).
+Der Container (Frame) berücksichtigt die Größe der Pinsel nicht - er geht stets davon aus, dass die Linienstärke null ist (siehe das letzte Bild). 
 
-Daher müssen wir zur Bestimmung des sichtbaren Bereichs des gesamten Tintenobjekts die Pinselgröße der Spurobjekte berücksichtigen. Hier wurde das Zielobjekt (das handschriftliche Textspurobjekt) auf die Größe des Containers (Rahmen) skaliert. Wenn sich die Größe des Containers (Rahmen) ändert, bleibt die Pinselgröße konstant und umgekehrt.
+Daher müssen wir, um den sichtbaren Bereich des gesamten Ink-Objekts zu bestimmen, die Pinselgröße der Spur-Objekte berücksichtigen. Hier wurde das Zielobjekt (das Spur-Objekt für handgeschriebenen Text) auf die Größe des Containers (Frames) skaliert. Ändert sich die Größe des Containers (Frames), bleibt die Pinselgröße konstant und umgekehrt. 
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint zeigt dasselbe Verhalten bei der Verarbeitung von Texten:
+PowerPoint zeigt das gleiche Verhalten bei Texten:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**Weiterführende Informationen**
+**Weitere Informationen**
 
-* Um mehr über Formen im Allgemeinen zu erfahren, siehe den Abschnitt [PowerPoint Formen](https://docs.aspose.com/slides/python-net/powerpoint-shapes/).
-* Für weitere Informationen zu effektiven Werten siehe [Form Effektive Eigenschaften](https://docs.aspose.com/slides/python-net/shape-effective-properties/#get-effective-font-height-value).
+* Um allgemeine Informationen zu Shapes zu erhalten, siehe den Abschnitt [PowerPoint Shapes](https://docs.aspose.com/slides/python-net/powerpoint-shapes/). 
+* Weitere Informationen zu effektiven Werten finden Sie unter [Shape Effective Properties](https://docs.aspose.com/slides/python-net/shape-effective-properties/#get-effective-font-height-value).

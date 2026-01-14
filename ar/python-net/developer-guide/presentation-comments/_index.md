@@ -1,5 +1,5 @@
 ---
-title: إدارة تعليقات العروض التقديمية في بايثون
+title: إدارة تعليقات العرض التقديمي في Python
 linktitle: تعليقات العرض التقديمي
 type: docs
 weight: 100
@@ -11,38 +11,38 @@ keywords:
 - تعليقات العرض التقديمي
 - تعليقات الشريحة
 - إضافة تعليق
-- الوصول إلى التعليق
-- تحرير التعليق
+- الوصول إلى تعليق
+- تحرير تعليق
 - الرد على التعليق
-- إزالة التعليق
-- حذف التعليق
+- إزالة تعليق
+- حذف تعليق
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تحكم الكامل في تعليقات العروض التقديمية باستخدام Aspose.Slides لبايثون عبر .NET: إضافة، قراءة، تحرير، وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
+description: "تحكم في تعليقات العرض التقديمي باستخدام Aspose.Slides لبايثون عبر .NET: إضافة، قراءة، تحرير، وحذف التعليقات في ملفات PowerPoint بسرعة وسهولة."
 ---
 
-في PowerPoint، يظهر التعليق كملاحظة أو توضيح على الشريحة. عند النقر على التعليق، يتم إظهار محتوياته أو رسائله. 
+في PowerPoint، يظهر التعليق كملاحظة أو توضيح على الشريحة. عند النقر على التعليق، يتم الكشف عن محتوياته أو رسائله.
 
 ## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
 
-قد ترغب في استخدام التعليقات لتقديم الملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
+قد ترغب في استخدام التعليقات لتقديم ملاحظات أو التواصل مع زملائك عند مراجعة العروض التقديمية.
 
-للسماح لك باستخدام التعليقات في عروض PowerPoint التقديمية، توفر Aspose.Slides for Python عبر .NET
-* فئة [Presentation]، التي تحتوي على مجموعات المؤلفين (من خاصية [CommentAuthorCollection]). يضيف المؤلفون تعليقات إلى الشرائح. 
-* الواجهة [ICommentCollection]، التي تحتوي على مجموعة التعليقات للمؤلفين الفرديين. 
-* الفئة [IComment]، التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موقع التعليق، إلخ. 
-* الفئة [CommentAuthor]، التي تحتوي على معلومات حول كل مؤلف: اسم المؤلف، الأحرف الأولى له، التعليقات المرتبطة باسم المؤلف، إلخ. 
+لتمكينك من استخدام التعليقات في عروض PowerPoint التقديمية، توفر Aspose.Slides لـ Python عبر .NET
+* فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على مجموعات المؤلفين (من خاصية [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) ). يقوم المؤلفون بإضافة تعليقات إلى الشرائح. 
+* فئة [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) التي تحتوي على مجموعة التعليقات للمؤلفين الفرديين. 
+* فئة [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) التي تحتوي على معلومات حول المؤلفين وتعليقاتهم: من أضاف التعليق، وقت إضافة التعليق، موضع التعليق، إلخ. 
+* فئة [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) التي تحتوي على معلومات حول كل مؤلف: اسم المؤلف، أحرفه الأولى، التعليقات المرتبطة باسم المؤلف، إلخ. 
 
-## **إضافة تعليق إلى الشريحة**
-يوضح لك هذا الكود بلغة Python كيفية إضافة تعليق إلى شريحة في عرض PowerPoint التقديمي:
+## **إضافة تعليق إلى شريحة**
+هذا الكود بلغة Python يوضح لك كيفية إضافة تعليق إلى شريحة في عرض PowerPoint تقديمي:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import datetime
 
-# ينشئ كائن فئة Presentation
+# ينشئ كائن من الفئة Presentation
 with slides.Presentation() as presentation:
     # يضيف شريحة فارغة
     presentation.slides.add_empty_slide(presentation.layout_slides[0])
@@ -50,7 +50,7 @@ with slides.Presentation() as presentation:
     # يضيف مؤلفًا
     author = presentation.comment_authors.add_author("Jawad", "MF")
 
-    # يضبط الموضع للتعليقات
+    # يحدد موضع التعليقات
     point = draw.PointF(0.2, 0.2)
 
     # يضيف تعليق شريحة لمؤلف على الشريحة 1
@@ -62,10 +62,10 @@ with slides.Presentation() as presentation:
     # الوصول إلى ISlide 1
     slide = presentation.slides[0]
 
-    # عند تمرير قيمة null كمعامل، يتم جلب التعليقات من جميع المؤلفين إلى الشريحة المحددة
+    # عند تمرير قيمة null كوسيط، تُجلب التعليقات من جميع المؤلفين إلى الشريحة المحددة
     comments = slide.get_slide_comments(author)
 
-    # يصل إلى التعليق في الفهرس 0 للشريحة 1
+    # يحصل على التعليق في الفهرس 0 للشريحة 1
     str = comments[0].text
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
@@ -78,11 +78,11 @@ with slides.Presentation() as presentation:
 
 
 ## **الوصول إلى تعليقات الشريحة**
-يوضح لك هذا الكود بلغة Python كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint التقديمي:
+هذا الكود بلغة Python يوضح لك كيفية الوصول إلى تعليق موجود على شريحة في عرض PowerPoint تقديمي:
 ```python
 import aspose.slides as slides
 
-# يُنشئ كائن فئة Presentation
+# ينشئ كائن من الفئة Presentation
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
@@ -94,9 +94,9 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **الرد على التعليقات**
-التعليق الأب هو التعليق الأصلي أو الأعلى في هيكلية التعليقات أو الردود. باستخدام خاصية `parent_comment` (من الواجهة [IComment])، يمكنك تعيين أو الحصول على التعليق الأب. 
+التعليق الأساسي هو التعليق العلوي أو الأصلي في تسلسل التعليقات أو الردود. باستخدام خاصية `parent_comment` (من فئة [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)) يمكنك تعيين أو الحصول على التعليق الأساسي. 
 
-يوضح لك هذا الكود بلغة Python كيفية إضافة تعليقات والحصول على الردود عليها:
+هذا الكود بلغة Python يوضح لك كيفية إضافة تعليقات والحصول على الردود عليها:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -107,12 +107,12 @@ with slides.Presentation() as pres:
     author1 = pres.comment_authors.add_author("Author_1", "A.A.")
     comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
 
-    # يضيف ردًا على التعليق 1
+    # يضيف ردًا على comment1
     author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
     reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply1.parent_comment = comment1
 
-    # يضيف ردًا آخر على التعليق 1
+    # يضيف ردًا آخر على comment1
     reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply2.parent_comment = comment1
 
@@ -126,7 +126,7 @@ with slides.Presentation() as pres:
     reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply3.parent_comment = comment3
 
-    # يعرض تسلسل التعليقات على وحدة التحكم
+    # يعرض تسلسل التعليقات في وحدة التحكم
     slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
     for i in range(comments.length):
@@ -140,7 +140,7 @@ with slides.Presentation() as pres:
 
     pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # يزيل التعليق 1 وجميع الردود عليه
+    # يزيل comment1 وجميع الردود عليه
     comment1.remove()
 
     pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
@@ -148,19 +148,17 @@ with slides.Presentation() as pres:
 
 
 {{% alert color="warning" title="Attention" %}} 
-
-* عند استخدام طريقة `Remove` (من الواجهة [IComment]) لحذف تعليق، يتم حذف الردود على التعليق أيضًا. 
-* إذا نتج عن إعداد `parent_comment` إشارة دائرية، سيتم طرح استثناء `PptxEditException`.
-
+* عند استخدام طريقة `remove` (من فئة [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)) لحذف تعليق، يتم حذف الردود على التعليق أيضًا. 
+* إذا أدى ضبط `parent_comment` إلى إشارة دائرية، سيتم إطلاق استثناء `PptxEditException`.
 {{% /alert %}}
 
 ## **إضافة تعليق حديث**
 
-في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. تحسن ميزة التعليقات الحديثة بشكل كبير التعاون في PowerPoint. من خلال التعليقات الحديثة، يمكن لمستخدمي PowerPoint حل التعليقات، ربط التعليقات بالكائنات والنصوص، والتفاعل بسهولة أكبر مما كان سابقًا. 
+في عام 2021، قدمت Microsoft *التعليقات الحديثة* في PowerPoint. تحسن ميزة التعليقات الحديثة التعاون في PowerPoint بشكل كبير. من خلال التعليقات الحديثة، يحصل مستخدمو PowerPoint على إمكانية حل التعليقات، ربط التعليقات بالكائنات والنصوص، والتفاعل بسهولة أكبر مقارنةً بالسابق. 
 
-قمنا بتنفيذ دعم التعليقات الحديثة بإضافة الفئة [ModernComment]. تم إضافة الطريقتين `add_modern_comment` و `insert_modern_comment` إلى الفئة [CommentCollection]. 
+قمنا بتنفيذ دعم التعليقات الحديثة بإضافة فئة [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/). تمت إضافة الطريقتين `add_modern_comment` و `insert_modern_comment` إلى فئة [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/). 
 
-يوضح لك هذا الكود بلغة Python كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint التقديمي:
+هذا الكود بلغة Python يوضح لك كيفية إضافة تعليق حديث إلى شريحة في عرض PowerPoint تقديمي:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -177,17 +175,16 @@ with slides.Presentation() as pres:
 ## **إزالة التعليق**
 
 ### **حذف جميع التعليقات والمؤلفين**
-
-يوضح لك هذا الكود بلغة Python كيفية إزالة جميع التعليقات والمؤلفين في عرض تقديمي:
+هذا الكود بلغة Python يوضح لك كيفية حذف جميع التعليقات والمؤلفين في عرض تقديمي:
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("example.pptx") as presentation:
-    # حذف جميع التعليقات من العرض التقديمي
+    # يحذف جميع التعليقات من العرض التقديمي
     for author in presentation.comment_authors:
         author.comments.clear()
 
-    # حذف جميع المؤلفين
+    # يحذف جميع المؤلفين
     presentation.comment_authors.clear()
 
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
@@ -195,8 +192,7 @@ with slides.Presentation("example.pptx") as presentation:
 
 
 ### **حذف تعليقات محددة**
-
-يوضح لك هذا الكود بلغة Python كيفية حذف تعليقات محددة على شريحة:
+هذا الكود بلغة Python يوضح لك كيفية حذف تعليقات محددة على شريحة:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -224,16 +220,16 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**هل يدعم Aspose.Slides حالة مثل "تم الحل" للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة مثل 'تم الحل' للتعليقات الحديثة؟**
 
-نعم. تُظهر [Modern comments] خاصية [status]؛ يمكنك قراءة وضبط [comment’s state] (على سبيل المثال، وضع علامة تم الحل)، ويتم حفظ هذه الحالة في الملف وتُعترف بها من قبل PowerPoint.
+نعم. تُظهر [التعليقات الحديثة](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) خاصية [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/); يمكنك قراءة وتعيين حالة [التعليق](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) (على سبيل المثال، وضع علامة تم الحل)، ويتم حفظ هذه الحالة في الملف ويُعترف بها من قبل PowerPoint.
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعمق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [parent comment] الخاص به، مما يتيح سلاسل ردود غير محدودة. لا تُعلن الـ API عن حد معين لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/)، مما يتيح سلاسل ردود غير محدودة. لا تحدد الـ API حدًا معينًا لعمق التداخل.
 
-**في أي نظام إحداثي يُعرف موقع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يُخزن الموقع كنقطة ذات قيمة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في المكان الذي تحتاجه.
+يتم تخزين الموضع كنقطة ذات نقطة عائمة في نظام إحداثيات الشريحة. يتيح لك ذلك وضع علامة التعليق بدقة في الموقع الذي تحتاجه.

@@ -1,5 +1,5 @@
 ---
-title: У管理 презентации comment в Python
+title: Управление комментариями презентации в Python
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -8,42 +8,42 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии к презентации
-- комментарии к слайдам
+- комментарии презентации
+- комментарии слайдов
 - добавить комментарий
-- доступ к комментариям
+- доступ к комментарию
 - редактировать комментарий
 - ответить на комментарий
 - удалить комментарий
-- удалить комментарий
+- удаление комментария
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Освойте работу с комментариями презентаций с помощью Aspose.Slides for Python via .NET: быстро и легко добавляйте, читаете, редактируйте и удаляйте комментарии в файлах PowerPoint."
+description: "Освойте работу с комментариями презентаций с помощью Aspose.Slides for Python via .NET: быстро и легко добавляйте, просматривайте, редактируйте и удаляйте комментарии в файлах PowerPoint."
 ---
 
-В PowerPoint комментарий отображается как заметка или аннотация на слайде. При нажатии на комментарий его содержимое или сообщения раскрываются. 
+В PowerPoint комментарий отображается как заметка или аннотация на слайде. При щелчке по комментарию его содержимое или сообщения отображаются. 
 
-## **Почему добавлять комментарии к презентациям?**
+## **Зачем добавлять комментарии к презентациям?**
 
-Возможно, вы захотите использовать комментарии для предоставления отзывов или общения с коллегами при проверке презентаций.
+Вы можете использовать комментарии для предоставления обратной связи или общения с коллегами при просмотре презентаций.
 
 Чтобы вы могли использовать комментарии в презентациях PowerPoint, Aspose.Slides for Python via .NET предоставляет
 
-* Класс [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) , который содержит коллекцию авторов (из свойства [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/)). Авторы добавляют комментарии к слайдам. 
-* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icommentcollection/) , который содержит коллекцию комментариев для отдельных авторов. 
-* Класс [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) , который содержит информацию об авторах и их комментариях: кто добавил комментарий, время его добавления, позицию комментария и т.д. 
+* Класс [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) , который содержит коллекции авторов (из свойства [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/)). Авторы добавляют комментарии к слайдам. 
+* Класс [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) , который содержит коллекцию комментариев для отдельных авторов. 
+* Класс [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) , который содержит информацию об авторах и их комментариях: кто добавил комментарий, время его добавления, позицию комментария и т.д. 
 * Класс [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) , который содержит информацию об отдельных авторах: имя автора, его инициалы, комментарии, связанные с именем автора, и т.д. 
 
 ## **Добавить комментарий к слайду**
-Этот пример кода на Python показывает, как добавить комментарий к слайду в презентации PowerPoint:
+Этот код на Python показывает, как добавить комментарий к слайду в презентации PowerPoint:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import datetime
 
-# Создаёт экземпляр класса Presentation
+# Создает экземпляр класса Presentation
 with slides.Presentation() as presentation:
     # Добавляет пустой слайд
     presentation.slides.add_empty_slide(presentation.layout_slides[0])
@@ -60,10 +60,10 @@ with slides.Presentation() as presentation:
     # Добавляет комментарий к слайду для автора на слайде 2
     author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
 
-    # Доступ к ISlide 1
+    # Получение ISlide 1
     slide = presentation.slides[0]
 
-    # Когда в качестве аргумента передаётся null, комментарии всех авторов выводятся для выбранного слайда
+    # Когда в качестве аргумента передается null, комментарии всех авторов добавляются к выбранному слайду
     comments = slide.get_slide_comments(author)
 
     # Получает комментарий с индексом 0 для слайда 1
@@ -78,12 +78,14 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Получить комментарии слайда**
-Этот пример кода на Python показывает, как получить существующий комментарий на слайде в презентации PowerPoint:
+
+
+## **Доступ к комментариям слайда**
+Этот код на Python показывает, как получить доступ к существующему комментарию на слайде в презентации PowerPoint:
 ```python
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
+# Создает экземпляр класса Presentation
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
@@ -94,10 +96,11 @@ with slides.Presentation("Comments1.pptx") as presentation:
 ```
 
 
-## **Ответы на комментарии**
-Родительский комментарий — это верхний или оригинальный комментарий в иерархии комментариев или ответов. С помощью свойства `parent_comment` (из интерфейса [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/)) вы можете установить или получить родительский комментарий. 
 
-Этот пример кода на Python показывает, как добавлять комментарии и получать ответы на них:
+## **Ответы на комментарии**
+Родительский комментарий — это верхний или исходный комментарий в иерархии комментариев или ответов. С помощью свойства `parent_comment` (из класса [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)) вы можете установить или получить родительский комментарий. 
+
+Этот код на Python показывает, как добавить комментарии и получить ответы на них:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -113,7 +116,7 @@ with slides.Presentation() as pres:
     reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply1.parent_comment = comment1
 
-    # Добавляет еще один ответ к comment1
+    # Добавляет ещё один ответ к comment1
     reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply2.parent_comment = comment1
 
@@ -127,7 +130,7 @@ with slides.Presentation() as pres:
     reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply3.parent_comment = comment3
 
-    # Выводит иерархию комментариев в консоль
+    # Отображает иерархию комментариев в консоли
     slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
     for i in range(comments.length):
@@ -150,18 +153,18 @@ with slides.Presentation() as pres:
 
 {{% alert color="warning" title="Attention" %}} 
 
-* При использовании метода `Remove` (из интерфейса [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/)) для удаления комментария также удаляются ответы на этот комментарий. 
+* При использовании метода `remove` (из класса [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)) для удаления комментария также удаляются ответы на этот комментарий. 
 * Если настройка `parent_comment` приводит к кольцевой ссылке, будет выброшено исключение `PptxEditException`.
 
 {{% /alert %}}
 
 ## **Добавить современный комментарий**
 
-В 2021 году Microsoft внедрила *современные комментарии* в PowerPoint. Функция современных комментариев значительно улучшает совместную работу в PowerPoint. С помощью современных комментариев пользователи PowerPoint могут решать комментарии, привязывать их к объектам и тексту и взаимодействовать намного проще, чем раньше. 
+В 2021 году Microsoft представила *современные комментарии* в PowerPoint. Функция современных комментариев значительно улучшает совместную работу в PowerPoint. С помощью современных комментариев пользователи PowerPoint могут решать (разрешать) комментарии, закреплять их за объектами и текстом и взаимодействовать гораздо проще, чем ранее. 
 
 Мы реализовали поддержку современных комментариев, добавив класс [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/). Методы `add_modern_comment` и `insert_modern_comment` были добавлены в класс [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/). 
 
-Этот пример кода на Python показывает, как добавить современный комментарий к слайду в презентации PowerPoint:
+Этот код на Python показывает, как добавить современный комментарий к слайду в презентации PowerPoint:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -179,7 +182,7 @@ with slides.Presentation() as pres:
 
 ### **Удалить все комментарии и авторов**
 
-Этот пример кода на Python показывает, как удалить все комментарии и авторов в презентации:
+Этот код на Python показывает, как удалить все комментарии и авторов в презентации:
 ```python
 import aspose.slides as slides
 
@@ -197,7 +200,7 @@ with slides.Presentation("example.pptx") as presentation:
 
 ### **Удалить конкретные комментарии**
 
-Этот пример кода на Python показывает, как удалить конкретные комментарии на слайде:
+Этот код на Python показывает, как удалить конкретные комментарии на слайде:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -227,14 +230,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус, например, 'решено', для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус, например 'решено', для современных комментариев?**
 
-Да. [Современные комментарии](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) предоставляют свойство [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/); вы можете читать и задавать [состояние комментария](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) (например, пометить его как решённое), и это состояние сохраняется в файле и распознаётся PowerPoint.
+Да. [Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) раскрывают свойство [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/); вы можете читать и задавать [состояние комментария](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) (например, пометить его как решённое), и это состояние сохраняется в файле и распознаётся PowerPoint.
 
-**Поддерживаются ли обсуждения в виде цепочек ответов, и существует ли ограничение вложенности?**
+**Поддерживаются ли дискуссии в виде потоков (цепочки ответов) и существует ли ограничение вложенности?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/), что позволяет создавать произвольные цепочки ответов. API не объявляет конкретного предела глубины вложенности.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/), позволяя создавать произвольные цепочки ответов. API не объявляет конкретного ограничения глубины вложенности.
 
-**В какой системе координат определяется позиция маркера комментария на слайде?**
+**В какой системе координат задаётся позиция маркера комментария на слайде?**
 
-Позиция хранится как точка с плавающей запятой в системе координат слайда. Это позволяет разместить маркер комментария точно там, где это необходимо.
+Позиция хранится как точка с плавающей точкой в системе координат слайда. Это позволяет точно разместить маркер комментария там, где это необходимо.

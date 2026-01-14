@@ -9,25 +9,24 @@ keywords:
 - regla de sustitución
 - colección de fuentes
 - configurar fuente
-- instalar fuente
+- establecer fuente
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Configure una colección de fuentes de sustitución en Aspose.Slides para Python a través de .NET para mantener el texto consistente y nítido en presentaciones de PowerPoint y OpenDocument."
+description: "Configure una colección de fuentes de sustitución en Aspose.Slides para Python mediante .NET para mantener el texto coherente y nítido en presentaciones de PowerPoint y OpenDocument."
 ---
 
 ## **Aplicar reglas de sustitución**
 
-Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) pueden organizarse en la [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), que implementa la interfaz [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/). Es posible agregar o eliminar reglas de la colección.
+Las instancias de la clase [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) pueden organizarse en [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/). Es posible añadir o eliminar reglas de la colección.
 
-Luego esta colección puede asignarse a la propiedad [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) de la clase [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). FontsManager controla fuentes en toda la presentación. Lea más [Acerca de FontsManager y FontsLoader](/slides/es/python-net/about-fontsmanager-and-fontsloader/).
+Luego, esta colección puede asignarse a la propiedad [font_fall_back_rules_collection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_fall_back_rules_collection/) de la clase [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). FontsManager controla las fuentes en toda la presentación. Lee más [Acerca de FontsManager y FontsLoader](/slides/es/python-net/about-fontsmanager-and-fontsloader/).
 
-Cada [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) tiene una propiedad [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) con su propia instancia de la clase FontsManager.
+Cada [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) tiene una propiedad [fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) con su propia instancia de la clase FontsManager.
 
-Aquí hay un ejemplo de cómo crear una colección de reglas de fuentes de reserva y asignarla al FontsManager de una presentación determinada:  
-```py
+A continuación se muestra un ejemplo de cómo crear una colección de reglas de sustitución de fuentes y asignarla al FontsManager de una presentación concreta:   ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -40,10 +39,10 @@ with slides.Presentation() as presentation:
 ```
 
 
-Después de que FontsManager se inicializa con la colección de fuentes de reserva, las fuentes de reserva se aplican durante la renderización de la presentación.
+Una vez que FontsManager se inicializa con la colección de fuentes de sustitución, las fuentes de sustitución se aplican durante la renderización de la presentación.
 
 {{% alert color="primary" %}} 
-Lea más sobre cómo [Render Presentation with Fallback Font](/slides/es/python-net/render-presentation-with-fallback-font/).
+Lee más sobre cómo [Renderizar presentación con fuente de sustitución](/slides/es/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
@@ -52,14 +51,14 @@ Lea más sobre cómo [Render Presentation with Fallback Font](/slides/es/python-
 
 No. Las reglas de sustitución son configuraciones de renderizado en tiempo de ejecución; no se serializan en el PPTX y no aparecerán en la interfaz de PowerPoint.
 
-**¿Se aplica la sustitución al texto dentro de SmartArt, WordArt, gráficos y tablas?**
+**¿Se aplican las reglas de sustitución al texto dentro de SmartArt, WordArt, gráficos y tablas?**
 
-Sí. Se utiliza el mismo mecanismo de sustitución de glifos para cualquier texto en estos objetos.
+Sí. El mismo mecanismo de sustitución de glifos se utiliza para cualquier texto en estos objetos.
 
-**¿Aspose distribuye alguna fuente con la biblioteca?**
+**¿Aspose distribuye fuentes con la biblioteca?**
 
-No. Usted agrega y usa fuentes por su cuenta y bajo su propia responsabilidad.
+No. Usted añade y utiliza fuentes por su cuenta y bajo su propia responsabilidad.
 
-**¿Se pueden usar juntos el reemplazo/sustitución de fuentes faltantes y la sustitución para glifos faltantes?**
+**¿Se pueden usar conjuntamente el reemplazo/sustitución de fuentes faltantes y la sustitución para glifos faltantes?**
 
-Sí. Son etapas independientes del mismo pipeline de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([replacement](/slides/es/python-net/font-replacement/)/[substitution](/slides/es/python-net/font-substitution/)), luego la sustitución rellena los vacíos de glifos faltantes en las fuentes disponibles.
+Sí. Son etapas independientes del mismo pipeline de resolución de fuentes: primero el motor resuelve la disponibilidad de fuentes ([replacement](/slides/es/python-net/font-replacement/)/[substitution](/slides/es/python-net/font-substitution/)), luego la sustitución rellena los huecos de glifos faltantes en las fuentes disponibles.

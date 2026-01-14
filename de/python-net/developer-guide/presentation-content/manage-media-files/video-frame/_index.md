@@ -20,26 +20,26 @@ keywords:
 description: "Lernen Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Python via .NET hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 
-Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und das Engagement Ihrer Zuschauer steigern.  
+Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und die Engagement‑Werte bei Ihrem Publikum erhöhen. 
 
 PowerPoint ermöglicht das Hinzufügen von Videos zu einer Folie in einer Präsentation auf zwei Arten:
 
-* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Computer gespeichert)
-* Ein Online‑Video hinzufügen (von einer Webquelle wie YouTube).
+* Video lokal hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
+* Online‑Video hinzufügen (von einer Web‑Quelle wie YouTube).
 
-Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides das Interface [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/) und das Interface [IVideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ivideoframe/) sowie weitere relevante Typen bereit.  
+Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides die Klasse [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) , die Klasse [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) und weitere relevante Typen bereit. 
 
 ## **Einbetten eines Video‑Frames erstellen**
 
-Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten.  
+Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten. 
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
 1. Holen Sie die Referenz einer Folie über deren Index. 
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten. 
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ivideoframe/)‑Objekt hinzu, um einen Frame für das Video zu erstellen.  
-1. Speichern Sie die geänderte Präsentation. 
+1. Fügen Sie ein [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/)-Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten. 
+1. Fügen Sie ein [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Objekt hinzu, um einen Rahmen für das Video zu erstellen.  
+1. Speichern Sie die modifizierte Präsentation. 
 
-Dieser Python‑Code zeigt, wie ein lokal gespeichertes Video zu einer Präsentation hinzugefügt wird:
+Dieser Python‑Code zeigt, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
 ```python
 import aspose.slides as slides
 
@@ -50,7 +50,7 @@ with slides.Presentation(path + "pres.pptx") as pres:
         # Holt die erste Folie und fügt einen Video-Frame hinzu
         pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
 
-        # Speichert die Präsentation auf der Festplatte
+        # Speichert die Präsentation auf dem Datenträger
         pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -65,17 +65,18 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Video‑Frame mit Video aus Webquelle erstellen**
 
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das gewünschte Video online verfügbar ist (z. B. auf YouTube), können Sie es über dessen Weblink zur Präsentation hinzufügen.  
+## **Video‑Frame mit Video aus Web‑Quelle erstellen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 
+Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über dessen Web‑Link zu Ihrer Präsentation hinzufügen. 
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
 1. Holen Sie die Referenz einer Folie über deren Index. 
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Link zum Video. 
-1. Legen Sie ein Thumbnail für den Video‑Frame fest. 
+1. Fügen Sie ein [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/)-Objekt hinzu und übergeben Sie den Link zum Video.
+1. Legen Sie ein Miniaturbild für den Video‑Frame fest. 
 1. Speichern Sie die Präsentation. 
 
-Dieser Python‑Code zeigt, wie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzugefügt wird:
+Dieser Python‑Code zeigt, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```python
 import aspose.slides as slides
 from urllib.request import urlopen
@@ -102,15 +103,15 @@ with slides.Presentation() as pres:
 Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) , um die Präsentation zu laden, die das Video enthält. 
-2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/)‑Objekte. 
-3. Durchsuchen Sie alle [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/)‑Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) zu finden. 
-4. Speichern Sie das Video auf der Festplatte. 
+2. Iterieren Sie über alle [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/)-Objekte.
+3. Iterieren Sie über alle [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)-Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) zu finden. 
+4. Speichern Sie das Video auf dem Datenträger.
 
-Dieser Python‑Code zeigt, wie das Video einer Präsentationsfolie extrahiert wird:
+Dieser Python‑Code zeigt, wie Sie das Video auf einer Präsentationsfolie extrahieren:
 ```python
 import aspose.slides as slides
 
-# Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
 with slides.Presentation(path + "Video.pptx") as presentation:
     for shape in presentation.slides[0].shapes:
         if type(shape) is slides.VideoFrame:
@@ -123,18 +124,18 @@ with slides.Presentation(path + "Video.pptx") as presentation:
 
 ## **FAQ**
 
-**Welche Wiedergabeparameter können für einen VideoFrame geändert werden?**
+**Welche Wiedergabe‑Parameter können für einen VideoFrame geändert werden?**
 
-Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (automatisch oder bei Klick) und das [Looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Objekts zur Verfügung.
+Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (automatisch oder bei Klick) und das [Schleifen](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Objekts zur Verfügung.
 
-**Beeinflusst das Hinzufügen eines Videos die Dateigröße der PPTX?**
+**Beeinflusst das Hinzufügen eines Videos die Größe der PPTX‑Datei?**
 
-Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße zunimmt. Beim Hinzufügen eines Online‑Videos werden nur ein Link und ein Thumbnail eingebettet, wodurch die Größenvergrößerung geringer ausfällt.
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie ein Online‑Video hinzufügen, werden nur ein Link und ein Miniaturbild eingebettet, sodass die Größenzunahme geringer ist.
 
-**Kann das Video in einem bestehenden VideoFrame ersetzt werden, ohne Position und Größe zu ändern?**
+**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
 
-Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) innerhalb des Frames austauschen und dabei die Geometrie der Form beibehalten; dies ist ein gängiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) im Frame austauschen, während Sie die Geometrie der Form beibehalten; dies ist ein übliches Szenario zum Aktualisieren von Medien in einem vorhandenen Layout.
 
-**Kann der MIME‑Typ eines eingebetteten Videos ermittelt werden?**
+**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
 
-Ja. Ein eingebettetes Video besitzt einen [Content‑Type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/), den Sie auslesen und zum Beispiel beim Speichern auf die Festplatte verwenden können.
+Ja. Ein eingebettetes Video hat einen [Inhaltstyp](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/), den Sie auslesen und verwenden können, zum Beispiel beim Speichern auf dem Datenträger.

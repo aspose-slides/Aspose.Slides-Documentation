@@ -4,17 +4,17 @@ linktitle: 标注
 type: docs
 url: /zh/python-net/callout/
 keywords:
-- 图表 标注
-- 使用 标注
-- 数据 标签
-- 标签 格式
+- 图表标注
+- 使用标注
+- 数据标签
+- 标签格式
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python .NET 创建和样式化标注，提供简洁的代码示例，兼容 PPT、PPTX 和 ODP，自动化演示工作流。"
+description: "使用简洁的代码示例在 Aspose.Slides for Python .NET 中创建和样式化标注，兼容 PPT、PPTX 和 ODP，以自动化演示文稿工作流程。"
 ---
 
 ## **使用标注**
-已向 **DataLabelFormat** 类和 **IDataLabelFormat** 接口添加了新属性 **ShowLabelAsDataCallout**，该属性决定指定图表的数据标签是显示为数据标注还是显示为数据标签。在下面的示例中，我们已设置标注。
+已向 **DataLabelFormat** 类添加了新属性 **show_label_as_data_callout**，该属性决定指定图表的数据标签是显示为数据标注还是作为普通数据标签。 在下面的示例中，我们已设置标注。
 ```py
 import aspose.slides as slides
 
@@ -27,8 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **为环形图设置标注**
-Aspose.Slides for Python via .NET 提供了为环形图设置系列数据标签标注形状的支持。下面给出示例。
+## **设置环形图的标注**
+Aspose.Slides for Python via .NET 提供了对环形图的系列数据标签标注形状的设置支持。以下示例展示了该用法。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -86,10 +86,8 @@ with slides.Presentation() as pres:
 
 ## **常见问题**
 
-**将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注会被保留吗？**
+**在将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注会被保留吗？**
+是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/python-net/export-to-html5/)、[SVG](/slides/zh/python-net/render-a-slide-as-an-svg-image/) 或 [raster images](/slides/zh/python-net/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
 
-是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/python-net/export-to-html5/)、[SVG](/slides/zh/python-net/render-a-slide-as-an-svg-image/) 或 [光栅图像](/slides/zh/python-net/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
-
-**自定义字体在标注中能使用吗？导出时能保留其外观吗？**
-
-是的。Aspose.Slides 支持将 [嵌入字体](/slides/zh/python-net/embedded-font/)嵌入到演示文稿中，并在导出（如 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)）时控制字体嵌入，确保标注在不同系统上保持相同的外观。
+**自定义字体在标注中是否有效，且在导出时其外观能否被保留？**
+是的。Aspose.Slides 支持将 [嵌入字体](/slides/zh/python-net/embedded-font/) 嵌入到演示文稿中，并在诸如 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/) 等导出过程中控制字体嵌入，从而确保标注在不同系统上保持相同的外观。

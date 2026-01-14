@@ -1,20 +1,20 @@
 ---
-title: Administrar Callouts en Gráficos de Presentación con Python
-linktitle: Callout
+title: Gestionar Comentarios emergentes en Gráficos de Presentación con Python
+linktitle: Comentario emergente
 type: docs
 url: /es/python-net/callout/
 keywords:
-- callout de gráfico
-- usar callout
+- comentario emergente de gráfico
+- usar comentario emergente
 - etiqueta de datos
 - formato de etiqueta
 - Python
 - Aspose.Slides
-description: "Cree y diseñe callouts en Aspose.Slides para Python .NET con ejemplos de código concisos, compatibles con PPT, PPTX y ODP para automatizar flujos de trabajo de presentaciones."
+description: "Crear y dar estilo a los comentarios emergentes en Aspose.Slides para Python .NET con ejemplos de código concisos, compatibles con PPT, PPTX y ODP para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Uso de Callouts**
-Se ha añadido la nueva propiedad **ShowLabelAsDataCallout** a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, que determina si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado los Callouts.
+## **Uso de Comentarios emergentes**
+Se ha añadido la nueva propiedad **show_label_as_data_callout** a la clase **DataLabelFormat**, la cual determina si la etiqueta de datos de un gráfico se mostrará como comentario emergente o como etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado los Comentarios emergentes.
 ```py
 import aspose.slides as slides
 
@@ -27,8 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Configurar Callout para Gráfico de Rosquilla**
-Aspose.Slides for Python via .NET ofrece soporte para establecer la forma de llamada de etiqueta de datos de series para un gráfico de rosquilla. A continuación se muestra un ejemplo de código.
+## **Establecer Comentario emergente para gráfico de anillo**
+Aspose.Slides for Python a través de .NET ofrece soporte para establecer la forma del comentario emergente de la etiqueta de datos de una serie en un gráfico de anillo. A continuación se muestra un ejemplo.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -84,12 +84,12 @@ with slides.Presentation() as pres:
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Se conservan los callouts al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+**¿Se conservan los comentarios emergentes al convertir una presentación a PDF, HTML5, SVG o imágenes?**
 
-Sí. Los callouts forman parte de la representación del gráfico, por lo que al exportar a [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/python-net/export-to-html5/), [SVG](/slides/es/python-net/render-a-slide-as-an-svg-image/) o [imágenes raster](/slides/es/python-net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+Sí. Los comentarios emergentes forman parte de la representación del gráfico, por lo que al exportar a [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/python-net/export-to-html5/), [SVG](/slides/es/python-net/render-a-slide-as-an-svg-image/), o [imágenes rasterizadas](/slides/es/python-net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
 
-**¿Las fuentes personalizadas funcionan en los callouts y se puede preservar su apariencia al exportar?**
+**¿Funcionan las fuentes personalizadas en los comentarios emergentes y se puede conservar su apariencia al exportar?**
 
-Sí. Aspose.Slides admite [incrustar fuentes](/slides/es/python-net/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), garantizando que los callouts se vean iguales en diferentes sistemas.
+Sí. Aspose.Slides soporta la [inclusión de fuentes](/slides/es/python-net/embedded-font/) en la presentación y controla la inclusión de fuentes durante exportaciones como [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), garantizando que los comentarios emergentes tengan el mismo aspecto en diferentes sistemas.

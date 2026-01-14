@@ -1,20 +1,20 @@
 ---
-title: Python を使用したプレゼンテーションチャートの呼び出し線の管理
-linktitle: 呼び出し線
+title: Python を使用したプレゼンテーション チャートのコールアウトの管理
+linktitle: コールアウト
 type: docs
 url: /ja/python-net/callout/
 keywords:
-- チャート呼び出し線
-- 呼び出し線の使用
+- チャート コールアウト
+- コールアウトの使用
 - データ ラベル
-- ラベル形式
+- ラベル フォーマット
 - Python
 - Aspose.Slides
-description: "簡潔なコード例で Aspose.Slides for Python .NET の呼び出し線を作成およびスタイル設定し、PPT、PPTX、ODP に対応してプレゼンテーションワークフローを自動化します。"
+description: "Aspose.Slides for Python .NET でコールアウトを作成・スタイル設定し、簡潔なコード例を提供します。PPT、PPTX、ODP に対応し、プレゼンテーション ワークフローを自動化します。"
 ---
 
-## **呼び出し線の使用**
-**ShowLabelAsDataCallout** という新しいプロパティが **DataLabelFormat** クラスと **IDataLabelFormat** インターフェイスに追加されました。このプロパティは、指定されたチャートのデータラベルをデータ呼び出し線として表示するか、データラベルとして表示するかを決定します。以下の例では、呼び出し線を設定しています。
+## **コールアウトの使用**
+新しいプロパティ **show_label_as_data_callout** が **DataLabelFormat** クラスに追加されました。このプロパティは、指定したチャートのデータラベルをデータコールアウトとして表示するかデータラベルとして表示するかを決定します。以下の例では、コールアウトを設定しています。
 ```py
 import aspose.slides as slides
 
@@ -27,8 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **ドーナツ チャートの呼び出し線の設定**
-Aspose.Slides for Python via .NET は、ドーナツチャートのシリーズ データラベル呼び出し線の形状を設定する機能を提供します。以下にサンプル例を示します。
+## **ドーナツチャートのコールアウトを設定**
+Aspose.Slides for Python via .NET は、ドーナツチャートのシリーズ データラベル コールアウト シェイプを設定する機能を提供します。以下にサンプル例が示されています。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -86,10 +86,10 @@ with slides.Presentation() as pres:
 
 ## **FAQ**
 
-**プレゼンテーションを PDF、HTML5、SVG、または画像に変換するときに呼び出し線は保持されますか？**
+**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
 
-はい。呼び出し線はチャートのレンダリングの一部であるため、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/python-net/export-to-html5/)、[SVG](/slides/ja/python-net/render-a-slide-as-an-svg-image/)、または[ラスタ画像](/slides/ja/python-net/convert-powerpoint-to-png/)へエクスポートする際に、スライドの書式設定とともに保持されます。
+はい。コールアウトはチャートのレンダリングの一部であるため、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/python-net/export-to-html5/)、[SVG](/slides/ja/python-net/render-a-slide-as-an-svg-image/)、または[ラスタ画像](/slides/ja/python-net/convert-powerpoint-to-png/)にエクスポートする際にも、スライドの書式設定と共に保持されます。
 
-**カスタムフォントは呼び出し線で使用でき、エクスポート時に外観が保持されますか？**
+**Do custom fonts work in callouts, and can their appearance be preserved on export?**
 
-はい。Aspose.Slides はプレゼンテーションへの[フォント埋め込み](/slides/ja/python-net/embedded-font/)をサポートしており、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御し、異なるシステムでも呼び出し線の外観が同じになるようにします。
+はい。Aspose.Slides は、プレゼンテーションに[フォントを埋め込む](/slides/ja/python-net/embedded-font/)ことをサポートし、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御します。これにより、コールアウトは異なるシステム間で同じ外観を保ちます。

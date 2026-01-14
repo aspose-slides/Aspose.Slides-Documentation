@@ -1,5 +1,5 @@
 ---
-title: モダン API で画像処理を強化
+title: モダン API を使用した画像処理の強化
 linktitle: モダン API
 type: docs
 weight: 280
@@ -7,40 +7,40 @@ url: /ja/python-net/modern-api/
 keywords:
 - モダン API
 - 描画
-- スライド サムネイル
+- スライドサムネイル
 - スライドから画像へ
-- シェイプ サムネイル
+- シェイプサムネイル
 - シェイプから画像へ
-- プレゼンテーション サムネイル
+- プレゼンテーションサムネイル
 - プレゼンテーションから画像へ
 - 画像を追加
 - 画像を挿入
 - Python
 - Aspose.Slides
-description: "モダン API を使用して、非推奨の画像処理 API を置き換え、PowerPoint および OpenDocument の自動化をシームレスに行えるようにスライド画像処理を近代化します。"
+description: "レガシーな画像処理 API を Python のモダン API に置き換えて、PowerPoint および OpenDocument の自動化をシームレスに行えるように、スライド画像処理を近代化します。"
 ---
 
 ## **はじめに**
 
-Aspose.Slides for Python のパブリック API は現在、以下の `aspose.pydrawing` 型に依存しています:
+現在、Aspose.Slides for Python のパブリック API は以下の `aspose.pydrawing` タイプに依存しています:
 - `aspose.pydrawing.Graphics`
 - `aspose.pydrawing.Image`
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-バージョン 24.4 以降、このパブリック API は Aspose.Slides for Python のパブリック API の [変更](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) により **非推奨** となっています。
+バージョン 24.4 以降、このパブリック API は [変更](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) により **非推奨** となりました。
 
-`aspose.pydrawing` をパブリック API から除去するため、**モダン API** を導入しました。`aspose.pydrawing.Image` と `aspose.pydrawing.Bitmap` を使用するメソッドは非推奨となり、モダン API の同等メソッドに置き換えられます。`aspose.pydrawing.Graphics` を使用するメソッドも非推奨であり、サポートはパブリック API から削除されます。
+`aspose.pydrawing` をパブリック API から排除するために、**Modern API** を導入しました。`aspose.pydrawing.Image` と `aspose.pydrawing.Bitmap` を使用するメソッドは非推奨となり、Modern API の同等機能に置き換えられます。`aspose.pydrawing.Graphics` を使用するメソッドは非推奨であり、サポートはパブリック API から削除されます。
 
-`aspose.pydrawing` に依存する非推奨 API の削除は **24.8** リリースで予定されています。
+非推奨 API（`aspose.pydrawing` に依存）の削除は **24.8** リリースで予定されています。
 
 ## **モダン API**
 
-以下のクラスと列挙体がパブリック API に追加されました:
+パブリック API に次のクラスと列挙型が追加されました:
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — ラスタまたはベクター画像を表します。
+- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — ラスターまたはベクター画像を表します。
 - [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — 画像ファイル形式を表します。
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — `IImage` の作成と操作のメソッドを提供します。
+- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — `IImage` の作成と操作のためのメソッドを提供します。
 
 新しい API の典型的な使用シナリオは次のとおりです:
 ```python
@@ -62,7 +62,7 @@ with slides.Presentation() as presentation:
 
 ## **古いコードをモダン API に置き換える**
 
-移行を容易にするために、新しい `IImage` インターフェイスは `Image` と `Bitmap` クラスの個別 API を鏡像化しています。ほとんどの場合、`aspose.pydrawing` を使用するメソッド呼び出しをモダン API の同等メソッドに置き換えるだけで済みます。
+移行を容易にするために、新しい `IImage` クラスは `Image` と `Bitmap` クラスの個別 API を鏡のように提供します。ほとんどの場合、`aspose.pydrawing` を使用するメソッド呼び出しをモダン API の同等機能に置き換えるだけで済みます。
 
 ### **スライドのサムネイルを取得**
 
@@ -172,11 +172,11 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **削除されるメンバーとモダン API での置換**
+## **削除されるメソッドとプロパティおよびそのモダン置換**
 
 ### **Presentation クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |get_thumbnails(options)|[get_images(options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions)|
 |get_thumbnails(options, slides)|[get_images(options, slides)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint)|
@@ -193,7 +193,7 @@ with slides.Presentation() as presentation:
 
 ### **Slide クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#)|
 |get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float)|
@@ -208,68 +208,68 @@ with slides.Presentation() as presentation:
 
 ### **Shape クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#)|
 |get_thumbnail(bounds, scale_x, scale_y)|[get_image(bounds, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#shapethumbnailbounds-float-float)|
 
 ### **ImageCollection クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |add_image(image: aspose.pydrawing.Image)|[add_image(image)](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/#iimage)|
 
 ### **PPImage クラス**
 
-|メソッド/プロパティ署名|置換メソッド/プロパティ署名|
+|メソッド/プロパティ シグネチャ|置換 メソッド/プロパティ シグネチャ|
 | :- | :- |
 |replace_image(new_image: aspose.pydrawing.Image)|[replace_image(new_image)](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/replace_image/#iimage)|
 |system_image|[image](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/image/)|
 
 ### **ImageWrapperFactory クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |create_image_wrapper(image: aspose.pydrawing.Image)|[create_image_wrapper(image)](https://reference.aspose.com/slides/python-net/aspose.slides/iimagewrapperfactory/create_image_wrapper/#iimage)|
 
 ### **PatternFormat クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor-asposepydrawingcolor)|
 |get_tile_image(style_color)|[get_tile(style_color)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor)|
 
 ### **IPatternFormatEffectiveData クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile_i_image(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/ipatternformateffectivedata/get_tile_i_image/#asposepydrawingcolor-asposepydrawingcolor)|
 
 ### **Output クラス**
 
-|メソッド署名|置換メソッド署名|
+|メソッドシグネチャ|置換メソッドシグネチャ|
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **aspose.pydrawing.Graphics の API サポートは廃止されます**
+## **aspose.pydrawing.Graphics の API サポートは終了します**
 
 `aspose.pydrawing.Graphics` を使用するメソッドは非推奨であり、サポートはパブリック API から削除されます。
 
-`aspose.pydrawing.Graphics` に依存する削除対象メンバー:
+`aspose.pydrawing.Graphics` に依存し、削除対象となる API メンバーは次のとおりです:
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
 
-# **よくある質問**
+# **FAQ**
 
-**なぜ aspose.pydrawing.Graphics が廃止されたのですか？**
+**なぜ aspose.pydrawing.Graphics が削除されたのですか？**
 
-Graphics のサポートは、レンダリングと画像の作業を統一し、プラットフォーム固有の依存関係を排除し、[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) によるクロスプラットフォーム アプローチに切り替えるために削除されます。Graphics 用のすべてのレンダリング メソッドは削除されます。
+Graphics のサポートは、レンダリングと画像処理を統一し、プラットフォーム固有の依存関係を排除し、[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) によるクロスプラットフォーム アプローチに切り替えるために削除されます。Graphics 用のすべてのレンダリングメソッドは削除されます。
 
-**IImage は Image/Bitmap と比べて実際にどんな利点がありますか？**
+**IImage は Image/Bitmap と比べて実用的にどんなメリットがありますか？**
 
-[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) はラスタ画像とベクター画像の両方を統一的に扱い、[ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) によりさまざまな形式への保存を簡素化し、pydrawing への依存を減らし、環境間でのコードの可搬性を高めます。
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) はラスタとベクタの両方の画像操作を統一し、[ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) を通じてさまざまな形式への保存を簡素化し、pydrawing への依存を減らし、環境間でのコード移植性を高めます。
 
 **モダン API はサムネイル生成のパフォーマンスに影響しますか？**
 
-`get_thumbnail` から `get_image` への切り替えはシナリオを悪化させません。新しいメソッドはオプションやサイズ指定で画像を生成する同等の機能を提供し、レンダリング オプションのサポートも保持します。具体的な性能向上または低下はシナリオ次第ですが、機能的には置換は等価です。
+`get_thumbnail` から `get_image` への切り替えでパフォーマンスが低下することはありません。新しいメソッドはオプションやサイズ指定で同等の画像生成機能を提供し、レンダリングオプションも引き続きサポートします。具体的な性能向上または低下はシナリオ次第ですが、機能的には置換は同等です。

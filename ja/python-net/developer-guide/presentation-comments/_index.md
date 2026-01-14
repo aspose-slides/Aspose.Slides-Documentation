@@ -1,50 +1,49 @@
 ---
-title: Pythonでプレゼンテーションコメントを管理
-linktitle: プレゼンテーション コメント
+title: Pythonでプレゼンテーションコメントを管理する
+linktitle: プレゼンテーションコメント
 type: docs
 weight: 100
 url: /ja/python-net/presentation-comments/
 keywords:
 - コメント
 - モダンコメント
-- PowerPointコメント
+- PowerPoint コメント
 - プレゼンテーションコメント
 - スライドコメント
-- コメント追加
-- コメント取得
-- コメント編集
-- コメント返信
-- コメント削除
-- コメント除去
+- コメントの追加
+- コメントへのアクセス
+- コメントの編集
+- コメントへの返信
+- コメントの削除
+- コメントを削除
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用してプレゼンテーションコメントをマスター: PowerPoint ファイルのコメントを迅速かつ簡単に追加、読み取り、編集、削除できます。"
+description: "Aspose.Slides for Python via .NET を使用してプレゼンテーションのコメントをマスターし、PowerPoint ファイルのコメントを素早く簡単に追加、読み取り、編集、削除できます。"
 ---
 
-PowerPoint では、コメントはスライド上のメモまたは注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
+PowerPointでは、コメントはスライド上のノートや注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
 
 ## **プレゼンテーションにコメントを追加する理由**
 
-プレゼンテーションをレビューする際に、フィードバックを提供したり同僚とやり取りしたりするためにコメントを使用したい場合があります。
+プレゼンテーションをレビューする際に、フィードバックを提供したり同僚とコミュニケーションを取るためにコメントを使用したい場合があります。
 
-To allow you to use comments in PowerPoint presentations, Aspose.Slides for Python via .NET provides
+PowerPointプレゼンテーションでコメントを使用できるように、Aspose.Slides for Python via .NETは以下を提供します
 
-* The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスは、著者のコレクション（[CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) プロパティ）を含みます。著者はスライドにコメントを追加します。 
-* The  [ICommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icommentcollection/) インターフェイスは、個々の著者向けのコメントコレクションを含みます。 
-* The [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) クラスは、著者とそのコメントに関する情報（コメントを追加したユーザー、追加された日時、コメントの位置など）を保持します。 
-* The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) クラスは、個々の著者に関する情報（著者名、イニシャル、著者名に関連付けられたコメントなど）を保持します。 
+* The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスは、著者のコレクション（[CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) プロパティから）を含みます。著者はスライドにコメントを追加します。 
+* The [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) クラスは、個々の著者のコメントコレクションを含みます。 
+* The [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) クラスは、著者とそのコメントに関する情報（コメントを追加した人、追加された時間、コメントの位置など）を含みます。 
+* The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) クラスは、個々の著者に関する情報（著者の名前、イニシャル、著者名に関連付けられたコメントなど）を含みます。 
 
-## **スライドにコメントを追加**
-
-この Python コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示します：
+## **スライドコメントの追加**
+このPythonコードは、PowerPointプレゼンテーションのスライドにコメントを追加する方法を示します：
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import datetime
 
-# Presentation クラスのインスタンスを作成
+# Presentation クラスのインスタンス化
 with slides.Presentation() as presentation:
     # 空のスライドを追加
     presentation.slides.add_empty_slide(presentation.layout_slides[0])
@@ -55,16 +54,16 @@ with slides.Presentation() as presentation:
     # コメントの位置を設定
     point = draw.PointF(0.2, 0.2)
 
-    # スライド 1 の作者にスライドコメントを追加
+    # スライド 1 の作者向けスライドコメントを追加
     author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
 
-    # スライド 2 の作者にスライドコメントを追加
+    # スライド 2 の作者向けスライドコメントを追加
     author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
 
     # ISlide 1 にアクセス
     slide = presentation.slides[0]
 
-    # null を引数として渡すと、すべての作者のコメントが選択したスライドに取得される
+    # 引数に null を渡すと、すべての作者のコメントが選択されたスライドに取得される
     comments = slide.get_slide_comments(author)
 
     # スライド 1 のインデックス 0 のコメントにアクセス
@@ -79,15 +78,12 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-
-## **スライドのコメントにアクセス**
-
-この Python コードは、PowerPoint プレゼンテーションのスライド上の既存のコメントにアクセスする方法を示します：
+## **スライドコメントへのアクセス**
+このPythonコードは、PowerPointプレゼンテーションのスライド上にある既存のコメントにアクセスする方法を示します：
 ```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成
+# Presentation クラスのインスタンス化
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
@@ -98,12 +94,10 @@ with slides.Presentation("Comments1.pptx") as presentation:
 ```
 
 
+## **コメントへの返信**
+親コメントは、コメントや返信の階層における最上位または元のコメントです。[Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) クラスの `parent_comment` プロパティを使用すると、親コメントを設定または取得できます。
 
-## **コメントに返信**
-
-親コメントは、コメントや返信の階層における最上位または元となるコメントです。[IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) インターフェイスの `parent_comment` プロパティを使用して、親コメントを設定または取得できます。 
-
-この Python コードは、コメントを追加し、それらへの返信を取得する方法を示します：
+このPythonコードは、コメントを追加し、それらへの返信を取得する方法を示します：
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -119,7 +113,7 @@ with slides.Presentation() as pres:
     reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply1.parent_comment = comment1
 
-    # comment1 に別の返信を追加
+    # comment1 に対する別の返信を追加
     reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply2.parent_comment = comment1
 
@@ -155,19 +149,17 @@ with slides.Presentation() as pres:
 
 
 {{% alert color="warning" title="Attention" %}} 
-
-* `Remove` メソッド（[IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) インターフェイス）を使用してコメントを削除すると、そのコメントへの返信も同時に削除されます。 
-* `parent_comment` の設定が循環参照になると、`PptxEditException` がスローされます。
-
+* `remove` メソッド（[Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) クラス）を使用してコメントを削除すると、そのコメントへの返信も削除されます。 
+* `parent_comment` の設定が循環参照になると、`PptxEditException` がスローされます。 
 {{% /alert %}}
 
-## **モダンコメントを追加**
+## **モダンコメントの追加**
 
-2021 年に Microsoft は PowerPoint に *モダンコメント* を導入しました。モダンコメント機能は PowerPoint におけるコラボレーションを大幅に向上させます。モダンコメントを利用することで、ユーザーはコメントを解決したり、オブジェクトやテキストにコメントを固定したり、以前よりもはるかに簡単にやり取りできるようになります。 
+2021年に、MicrosoftはPowerPointに*モダンコメント*を導入しました。モダンコメント機能はPowerPointのコラボレーションを大幅に向上させます。モダンコメントにより、PowerPointユーザーはコメントを解決したり、オブジェクトやテキストにコメントを固定したり、以前よりもはるかに簡単にやり取りできるようになります。
 
-We implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) class. The `add_modern_comment` and `insert_modern_comment` methods were added to the [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) class. 
+私たちは [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) クラスを追加することでモダンコメントのサポートを実装しました。また、`add_modern_comment` および `insert_modern_comment` メソッドを [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) クラスに追加しました。
 
-この Python コードは、PowerPoint プレゼンテーションのスライドにモダンコメントを追加する方法を示します：
+このPythonコードは、PowerPointプレゼンテーションのスライドにモダンコメントを追加する方法を示します：
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -181,29 +173,29 @@ with slides.Presentation() as pres:
 ```
 
 
-## **コメントを削除**
+## **コメントの削除**
 
-### **すべてのコメントと著者を削除**
+### **すべてのコメントと著者の削除**
 
-この Python コードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示します：
+このPythonコードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示します：
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("example.pptx") as presentation:
-    # プレゼンテーションのすべてのコメントを削除
+    # プレゼンテーションからすべてのコメントを削除します
     for author in presentation.comment_authors:
         author.comments.clear()
 
-    # すべての作者を削除
+    # すべての作者を削除します
     presentation.comment_authors.clear()
 
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **特定のコメントを削除**
+### **特定のコメントの削除**
 
-この Python コードは、スライド上の特定のコメントを削除する方法を示します：
+このPythonコードは、スライド上の特定のコメントを削除する方法を示します：
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -217,7 +209,7 @@ with slides.Presentation() as presentation:
     author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
     author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
     
-    # "comment 1" というテキストを含むすべてのコメントを削除
+    # "comment 1" テキストを含むすべてのコメントを削除
     for commentAuthor in presentation.comment_authors:
         toRemove = []
         for comment in slide.get_slide_comments(commentAuthor):
@@ -231,16 +223,16 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**Aspose.Slides はモダンコメントに「解決済み」などのステータスをサポートしていますか？**
+**Aspose.Slidesはモダンコメントに対して「解決済み」などのステータスをサポートしていますか？**
 
-はい。 [Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) は [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) プロパティを公開しています。コメントの状態（例: 解決済みとしてマーク）を取得および設定でき、この状態はファイルに保存され、PowerPoint に認識されます。
+はい。[Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) は [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) プロパティを提供します。このプロパティでコメントの状態（例: 解決済みとしてマーク）を取得・設定でき、状態はファイルに保存されPowerPointで認識されます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の上限はありますか？**
+**スレッド形式のディスカッション（返信チェーン）はサポートされていますか？ネストの上限はありますか？**
 
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/) を参照できるため、任意の長さの返信チェーンを構築できます。API では特定の入れ子深さの上限は宣言されていません。
+はい。各コメントはその [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/) を参照できるため、任意の深さの返信チェーンを構成できます。API には具体的なネスト深度の上限は明示されていません。
 
-**コメントマーカーの位置はスライドのどの座標系で定義されていますか？**
+**スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
 
-位置はスライドの座標系における浮動小数点数のポイントとして保存されます。このため、コメントマーカーを必要な場所に正確に配置できます。
+位置はスライドの座標系での浮動小数点数のポイントとして保存されます。これにより、コメントマーカーを必要な場所に正確に配置できます。

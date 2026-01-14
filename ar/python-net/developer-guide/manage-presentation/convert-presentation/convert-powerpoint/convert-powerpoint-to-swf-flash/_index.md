@@ -1,6 +1,6 @@
 ---
-title: تحويل عروض PowerPoint إلى SWF Flash في Python
-linktitle: PowerPoint إلى SWF Flash
+title: تحويل عروض PowerPoint إلى فلاش SWF في Python
+linktitle: PowerPoint إلى فلاش SWF
 type: docs
 weight: 80
 url: /ar/python-net/convert-powerpoint-to-swf-flash/
@@ -17,16 +17,16 @@ keywords:
 - العرض التقديمي
 - Python
 - Aspose.Slides
-description: "تحويل PowerPoint (PPT/PPTX) إلى SWF Flash في Python باستخدام Aspose.Slides. أمثلة شفرة خطوة بخطوة، مخرجات سريعة وعالية الجودة، دون الحاجة إلى أتمتة PowerPoint."
+description: "تحويل PowerPoint (PPT/PPTX) إلى فلاش SWF في Python باستخدام Aspose.Slides. أمثلة شفرة خطوة بخطوة، إخراج سريع عالي الجودة، دون أتمتة PowerPoint."
 ---
 
-## **Convert Presentations to Flash**
+## **تحويل العروض التقديمية إلى فلاش**
 
-يمكن استخدام طريقة Save المعروضة في الفئة Presentation لتحويل العرض التقديمي بالكامل إلى مستند SWF. يمكنك أيضًا تضمين التعليقات في ملف SWF المُولد باستخدام الفئة SWFOptions والواجهة INotesCommentsLayoutingOptions. يظهر المثال التالي كيفية تحويل عرض تقديمي إلى مستند SWF باستخدام الخيارات التي توفرها الفئة SWFOptions.
+يمكن استخدام طريقة [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) التي يوفرها صف [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتحويل العرض التقديمي بالكامل إلى مستند SWF. يمكنك أيضًا تضمين التعليقات في ملف SWF المُنشأ باستخدام صف [SWFOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) وصف [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/). يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند SWF باستخدام الخيارات المتاحة في صف SWFOptions.
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن Presentation يمثل ملف عرض تقديمي
+# إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي
 presentation = slides.Presentation("pres.pptx")
 
 swfOptions = slides.export.SwfOptions()
@@ -40,20 +40,20 @@ presentation.save("SaveNotes_out.swf", slides.export.SaveFormat.SWF, swfOptions)
 ```
 
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**Can I include hidden slides in the SWF?**
+**هل يمكنني تضمين الشرائح المخفية في ملف SWF؟**
 
-نعم. قم بتمكين الخيار [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/show_hidden_slides/) في الفئة [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/). بشكل افتراضي، لا يتم تصدير الشرائح المخفية.
+نعم. فعّل الخيار [show_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/show_hidden_slides/) في صف [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/). بشكل افتراضي، لا يتم تصدير الشرائح المخفية.
 
-**How can I control compression and the final SWF size?**
+**كيف يمكنني التحكم في الضغط وحجم ملف SWF النهائي؟**
 
-استخدم علامة [compressed](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/compressed/) (مفعلة بشكل افتراضي) وقم بضبط [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/jpeg_quality/) لتحقيق التوازن بين حجم الملف ودقة الصورة.
+استخدم علامة [compressed](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/compressed/) (مفعلة افتراضيًا) وقم بضبط [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/jpeg_quality/) لتحقيق التوازن بين حجم الملف وجودة الصورة.
 
-**What is 'viewer_included' for, and when should I disable it?**
+**ما الغرض من 'viewer_included' ومتى يجب إيقافه؟**
 
-[viewer_included](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/viewer_included/) يضيف واجهة مستخدم مشغل مدمجة (عناصر تحكم التنقل، اللوحات، البحث). عطلها إذا كنت تنوي استخدام مشغل خاص بك أو تحتاج إلى إطار SWF بسيط بدون واجهة مستخدم.
+يضيف [viewer_included](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/viewer_included/) واجهة مشغل مدمجة (عناصر تحكم التنقل، الألواح، البحث). قم بإيقافه إذا كنت تخطط لاستخدام مشغل خاص بك أو إذا كنت بحاجة إلى إطار SWF بسيط بدون واجهة.
 
-**What happens if a source font is missing on the export machine?**
+**ماذا يحدث إذا كان خط المصدر مفقودًا على جهاز التصدير؟**
 
-ستقوم Aspose.Slides باستبدال الخط الذي تحدده عبر [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/default_regular_font/) في الفئة [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) لتجنب الانتقال إلى خط بديل غير مقصود.
+ستقوم Aspose.Slides باستبدال الخط الذي تحدده عبر [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/default_regular_font/) في صف [SwfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) لتجنب الانتقال غير المقصود إلى خط بديل.

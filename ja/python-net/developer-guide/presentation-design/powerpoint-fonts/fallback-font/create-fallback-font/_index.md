@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーション用フォールバックフォントを指定する
+title: Pythonでプレゼンテーション向けフォールバックフォントを指定する
 linktitle: フォールバックフォント
 type: docs
 weight: 10
@@ -10,19 +10,19 @@ keywords:
 - フォントの適用
 - フォントの置換
 - Unicode 範囲
-- 欠落グリフ
+- 欠損グリフ
 - 適切なグリフ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を .NET 経由でマスターし、PPT、PPTX、ODP ファイルのフォールバックフォントを設定して、あらゆるデバイスや OS でテキスト表示が一貫するように保護します。"
+description: "Aspose.Slides for Python via .NET をマスターし、PPT、PPTX、ODP ファイルでフォールバックフォントを設定して、あらゆるデバイスや OS でテキスト表示が一貫するように保護します。"
 ---
 
-## **フォールバックフォントの指定**
+## **フォールバック フォントの指定**
 
-Aspose.Slides は [IFontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule/) インターフェイスと [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) クラスをサポートし、フォールバックフォントを適用するルールを指定できます。[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) クラスは、見つからなかったグリフを検索するために使用される Unicode 範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連を表します:
+Aspose.Slides は [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) クラスをサポートしており、フォールバック フォントを適用するルールを指定できます。[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) クラスは、検索対象となる Unicode 範囲と、適切なグリフを含む可能性のあるフォントの一覧との関連付けを表します。
 ```py
 startUnicodeIndex = 0x0B80
 endUnicodeIndex = 0x0BFF
@@ -30,41 +30,39 @@ endUnicodeIndex = 0x0BFF
 firstRule = slides.FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya")
 secondRule = slides.FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic")
 
-#複数の方法でフォントリストを追加できます:
+#さまざまな方法でフォントリストを追加できます:
 fontNames =  ["Segoe UI Emoji, Segoe UI Symbol", "Arial" ]
 
 thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 ```
 
 
+既存の [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) オブジェクトからフォールバック フォントを [remove](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/remove/) したり、[add_fall_back_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/add_fall_back_fonts/) で追加したりすることも可能です。
 
-
-既存の [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) オブジェクトに対して、フォールバックフォントを [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrule/) で削除したり、[AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) で追加したりすることも可能です。
-
-複数の Unicode 範囲に対してフォールバックフォント置換ルールを指定する必要がある場合は、[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) を使用して [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) オブジェクトのリストを整理できます。
+複数の Unicode 範囲に対してフォールバック フォント置換ルールを指定する必要がある場合は、[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) を使用して [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) オブジェクトの一覧を整理できます。
 
 {{% alert color="primary" title="See also" %}} 
-- [フォールバックフォント コレクションの作成](/slides/ja/python-net/create-fallback-fonts-collection/)
+- [フォールバック フォント コレクションの作成](/slides/ja/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**フォールバックフォント、フォント置換、フォント埋め込みの違いは何ですか？**
+**フォールバック フォント、フォント置換、およびフォント埋め込みの違いは何ですか？**
 
-フォールバックフォントは、プライマリフォントに文字が欠けている場合にのみ使用されます。[フォント置換](/slides/ja/python-net/font-substitution/) は、指定されたフォント全体を別のフォントに置き換えます。[フォント埋め込み](/slides/ja/python-net/embedded-font/) は、フォントを出力ファイルにパッケージ化し、受信者が意図した通りにテキストを表示できるようにします。
+フォールバック フォントは、プライマリ フォントに存在しない文字に対してのみ使用されます。[フォント置換](/slides/ja/python-net/font-substitution/) は、指定されたフォント全体を別のフォントに置き換えます。[フォント埋め込み](/slides/ja/python-net/embedded-font/) は、フォントを出力ファイルにパッケージ化し、受信者が意図した通りにテキストを表示できるようにします。
 
-**PDF、PNG、SVG などへのエクスポート時にもフォールバックフォントは適用されますか、それとも画面表示時だけですか？**
+**フォールバックは PDF、PNG、SVG などへのエクスポート時にも適用されますか？それとも画面表示時のみですか？**
 
-はい。フォールバックは、文字を描画する必要があるすべての [レンダリングおよびエクスポート操作](/slides/ja/python-net/convert-presentation/) に影響します。
+はい。フォールバックは、文字が描画される必要があるが元のフォントに存在しないすべての [レンダリングおよびエクスポート操作](/slides/ja/python-net/convert-presentation/) に影響します。
 
-**フォールバックの設定はプレゼンテーションファイル自体を変更しますか？ 将来開くときに設定は保持されますか？**
+**フォールバックの設定はプレゼンテーション ファイル自体を変更しますか？また、設定は将来の開く際にも保持されますか？**
 
-いいえ。フォールバックルールはコード内の実行時レンダリング設定であり、.pptx ファイルに保存されず、PowerPoint では表示されません。
+いいえ。フォールバック ルールはコード内の実行時レンダリング設定であり、.pptx に保存されず、PowerPoint には表示されません。
 
-**オペレーティングシステム（Windows/Linux/macOS）やフォントディレクトリの設定はフォールバック選択に影響しますか？**
+**オペレーティング システム（Windows/Linux/macOS）やフォント ディレクトリのセットは、フォールバックの選択に影響しますか？**
 
-はい。エンジンは利用可能なシステムフォルダや、指定した [追加パス](/slides/ja/python-net/custom-font/) からフォントを解決します。フォントが実際に存在しない場合、そのフォントを参照するルールは効果を発揮できません。
+はい。エンジンは利用可能なシステム フォルダーと、指定した [追加パス](/slides/ja/python-net/custom-font/) からフォントを解決します。フォントが実際に存在しない場合、そのフォントを参照するルールは機能しません。
 
 **フォールバックは WordArt、SmartArt、チャートでも機能しますか？**
 
-はい。これらのオブジェクトにテキストが含まれる場合、同じグリフ置換メカニズムが適用され、欠落文字がレンダリングされます。
+はい。これらのオブジェクトにテキストが含まれる場合、同じグリフ置換メカニズムが適用され、欠落した文字が描画されます。

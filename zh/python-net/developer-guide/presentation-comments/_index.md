@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中管理演示文稿批注
+title: 管理 Python 中的演示文稿批注
 linktitle: 演示文稿批注
 type: docs
 weight: 100
@@ -14,30 +14,30 @@ keywords:
 - 访问批注
 - 编辑批注
 - 回复批注
-- 移除批注
+- 删除批注
 - 删除批注
 - PowerPoint
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 精通演示文稿批注：在 PowerPoint 文件中快速轻松地添加、读取、编辑和删除批注。"
+description: "使用 Aspose.Slides for Python via .NET 掌握演示文稿批注：在 PowerPoint 文件中快速轻松地添加、读取、编辑和删除批注。"
 ---
 
-在 PowerPoint 中，批注显示为幻灯片上的注释或标注。点击批注时，会显示其内容或信息。
+在 PowerPoint 中，批注显示为幻灯片上的注释或标注。单击批注时，它的内容或信息将会显示。 
 
 ## **为什么要在演示文稿中添加批注？**
 
 在审阅演示文稿时，您可能希望使用批注来提供反馈或与同事进行沟通。
 
-为使您能够在 PowerPoint 演示文稿中使用批注，Aspose.Slides for Python via .NET 提供了
+为了让您在 PowerPoint 演示文稿中使用批注，Aspose.Slides for Python via .NET 提供了
 
-* [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类，包含作者集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) 属性）。作者向幻灯片添加批注。  
-* [ICommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icommentcollection/) 接口，包含针对各个作者的批注集合。  
-* [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) 类，包含关于作者及其批注的信息：谁添加了批注、批注添加时间、批注的位置等。  
-* [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) 类，包含关于单个作者的信息：作者姓名、缩写、与作者姓名关联的批注等。  
+* The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class，包含作者集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) 属性）。作者向幻灯片添加批注。 
+* The [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) class，包含每个作者的批注集合。 
+* The [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class，包含有关作者及其批注的信息：批注的添加者、添加时间、批注的位置等。 
+* The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) class，包含单个作者的信息：作者姓名、其缩写、与作者姓名关联的批注等。 
 
 ## **添加幻灯片批注**
-下面的 Python 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+下面的 Python 代码展示了如何在 PowerPoint 演示文稿的幻灯片中添加批注：
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -54,32 +54,34 @@ with slides.Presentation() as presentation:
     # 设置批注位置
     point = draw.PointF(0.2, 0.2)
 
-    # 为作者在幻灯片 1 上添加幻灯片批注
+    # 为作者在第 1 张幻灯片添加幻灯片批注
     author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
 
-    # 为作者在幻灯片 2 上添加幻灯片批注
+    # 为作者在第 2 张幻灯片添加幻灯片批注
     author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
 
     # 访问 ISlide 1
     slide = presentation.slides[0]
 
-    # 当将 null 作为参数传递时，会将所有作者的批注带到选定的幻灯片
+    # 当参数为 null 时，将所有作者的批注带到选定的幻灯片
     comments = slide.get_slide_comments(author)
 
-    # 访问幻灯片 1 索引 0 的批注
+    # 访问第 1 张幻灯片的索引 0 处的批注
     str = comments[0].text
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 
     if comments.length > 0:
-        # 选择作者的批注集合索引 0
+        # 选择索引 0 处的作者批注集合
         commentCollection = comments[0].author.comments
         print(commentCollection[0].text)
 ```
 
 
+
+
 ## **访问幻灯片批注**
-下面的 Python 代码演示如何访问 PowerPoint 演示文稿中幻灯片上的现有批注：
+下面的 Python 代码展示了如何访问 PowerPoint 演示文稿中幻灯片的现有批注：
 ```python
 import aspose.slides as slides
 
@@ -94,10 +96,11 @@ with slides.Presentation("Comments1.pptx") as presentation:
 ```
 
 
-## **回复批注**
-父批注是批注或回复层级中的顶层或原始批注。使用 `parent_comment` 属性（来自 [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) 接口），您可以设置或获取父批注。
 
-下面的 Python 代码演示如何添加批注并获取其回复：
+## **回复批注**
+父批注是批注或回复层次结构中的顶部或原始批注。使用 `parent_comment` 属性（来自 [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) 类），您可以设置或获取父批注。 
+
+下面的 Python 代码展示了如何添加批注以及获取其回复：
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -117,7 +120,7 @@ with slides.Presentation() as pres:
     reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply2.parent_comment = comment1
 
-    # 为已有的回复添加回复
+    # 为已有回复添加回复
     subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     subReply.parent_comment = reply2
 
@@ -141,7 +144,7 @@ with slides.Presentation() as pres:
 
     pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # 删除 comment1 及其所有回复
+    # 删除 comment1 以及其所有回复
     comment1.remove()
 
     pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
@@ -149,16 +152,19 @@ with slides.Presentation() as pres:
 
 
 {{% alert color="warning" title="Attention" %}} 
-* 当使用 `Remove` 方法（来自 [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) 接口）删除批注时，该批注的回复也会被删除。  
-* 如果 `parent_comment` 设置导致循环引用，将抛出 `PptxEditException`。 
+
+* 当使用 `remove` 方法（来自 [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) 类）删除批注时，该批注的回复也会被删除。 
+* 如果 `parent_comment` 设置导致循环引用，将抛出 `PptxEditException`。
+
 {{% /alert %}}
 
 ## **添加现代批注**
-2021 年，Microsoft 在 PowerPoint 中引入了 *现代批注*。现代批注功能显著提升了 PowerPoint 的协作能力。通过现代批注，PowerPoint 用户可以解决批注、将批注锚定到对象和文本，并且能够更轻松地进行交互。
 
-我们通过添加 [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) 类实现了对现代批注的支持。在 [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) 类中添加了 `add_modern_comment` 和 `insert_modern_comment` 方法。
+2021 年，Microsoft 在 PowerPoint 中引入了*现代批注*。现代批注功能显著提升了 PowerPoint 的协作能力。通过现代批注，PowerPoint 用户可以更轻松地解决批注、将批注锚定到对象和文本，并进行交互。 
 
-下面的 Python 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加现代批注：
+我们通过添加 [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) 类来实现对现代批注的支持。`add_modern_comment` 和 `insert_modern_comment` 方法已添加到 [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) 类中。 
+
+下面的 Python 代码展示了如何在 PowerPoint 演示文稿的幻灯片中添加现代批注：
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -175,7 +181,8 @@ with slides.Presentation() as pres:
 ## **删除批注**
 
 ### **删除所有批注和作者**
-下面的 Python 代码演示如何在演示文稿中删除所有批注和作者：
+
+下面的 Python 代码展示了如何在演示文稿中删除所有批注和作者：
 ```python
 import aspose.slides as slides
 
@@ -192,7 +199,8 @@ with slides.Presentation("example.pptx") as presentation:
 
 
 ### **删除特定批注**
-下面的 Python 代码演示如何删除幻灯片上的特定批注：
+
+下面的 Python 代码展示了如何删除幻灯片上的特定批注：
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -206,7 +214,7 @@ with slides.Presentation() as presentation:
     author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
     author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
     
-    # 删除所有包含 "comment 1" 文本的批注
+    # 删除包含 "comment 1" 文本的所有批注
     for commentAuthor in presentation.comment_authors:
         toRemove = []
         for comment in slide.get_slide_comments(commentAuthor):
@@ -222,11 +230,14 @@ with slides.Presentation() as presentation:
 
 ## **常见问题**
 
-**Aspose.Slides 是否支持现代批注的“已解决”等状态？**  
-是的。[Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) 公开了一个 [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) 属性；您可以读取和设置 [comment’s state](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/)（例如，将其标记为已解决），该状态会保存在文件中，并被 PowerPoint 识别。
+**Aspose.Slides 是否支持现代批注的 ‘已解决’ 状态？**
 
-**是否支持线程式讨论（回复链），以及是否有限制嵌套深度？**  
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/)，从而实现任意的回复链。API 并未声明具体的嵌套深度限制。
+是的。 [Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) 提供了一个 [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) 属性；您可以读取和设置 [comment’s state](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/)（例如，将其标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。 
 
-**批注标记在幻灯片上的位置是基于什么坐标系定义的？**  
-位置以浮点坐标点存储在幻灯片的坐标系中。这使您能够将批注标记精确放置在所需位置。
+**是否支持线程式讨论（回复链），以及是否有嵌套深度限制？**
+
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/) ，从而实现任意的回复链。API 并未声明具体的嵌套深度限制。 
+
+**批注标记的位置在幻灯片上使用何种坐标系统定义？**
+
+位置以浮点坐标点的形式存储在幻灯片的坐标系统中。这使您能够精确地将批注标记放置在所需位置。

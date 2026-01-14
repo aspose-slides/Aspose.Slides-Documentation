@@ -16,9 +16,9 @@ description: "Comparez les présentations PowerPoint et OpenDocument de manière
 ---
 
 ## **Comparer deux diapositives**
-La méthode Equals a été ajoutée à l'interface [IBaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) et à la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/). Elle renvoie true pour les diapositives/layout et les diapositives master qui sont identiques par leur structure et leur contenu statique.
+La méthode `equals` a été ajoutée à la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/). Elle renvoie true pour les diapositives/layouts et les diapositives maîtres qui sont identiques par leur structure et leur contenu statique.
 
-Deux diapositives sont égales si toutes les formes, styles, textes, animations et autres paramètres, etc. La comparaison ne prend pas en compte les valeurs d'identifiants uniques, par exemple SlideId, et le contenu dynamique, par exemple la valeur de la date actuelle dans le contrôle de texte Date.
+Deux diapositives sont égales si toutes les formes, styles, textes, animations et autres paramètres, etc. La comparaison ne tient pas compte des valeurs d’identificateur uniques, par ex. SlideId, ni du contenu dynamique, par ex. la valeur de date actuelle dans le texte de remplacement de date.
 ```py
 import aspose.slides as slides
 
@@ -33,14 +33,14 @@ with slides.Presentation(path + "AccessSlides.pptx") as p1:
 
 ## **FAQ**
 
-**Le fait qu'une diapositive soit masquée affecte-t-il la comparaison des diapositives elles‑mêmes ?**
+**Le fait qu’une diapositive soit masquée affecte-t-il la comparaison des diapositives elles‑mêmes ?**
 
-[Hidden status](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) est une propriété au niveau de la présentation/playback, pas un contenu visuel. L'égalité de deux diapositives spécifiques est déterminée par leur structure et leur contenu statique ; le simple fait qu'une diapositive soit masquée ne rend pas les diapositives différentes.
+[Statut masqué](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) est une propriété au niveau de la présentation/lecture, pas du contenu visuel. L’égalité de deux diapositives spécifiques est déterminée par leur structure et leur contenu statique ; le simple fait qu’une diapositive soit masquée ne rend pas les diapositives différentes.
 
 **Les hyperliens et leurs paramètres sont-ils pris en compte ?**
 
-Oui. Les liens font partie du contenu statique d'une diapositive. Si l'URL ou l'action de l'hyperlien diffèrent, cela est généralement considéré comme une différence dans le contenu statique.
+Oui. Les liens font partie du contenu statique d’une diapositive. Si l’URL ou l’action du lien hypertexte diffèrent, cela est généralement considéré comme une différence de contenu statique.
 
-**Si un graphique fait référence à un fichier Excel externe, le contenu de ce fichier sera-t-il pris en compte ?**
+**Si un graphique fait référence à un fichier Excel externe, le contenu de ce fichier sera‑t‑il pris en compte ?**
 
-Non. La comparaison est effectuée en se basant sur les diapositives elles‑elles. Les sources de données externes ne sont généralement pas lues lors de la comparaison ; seul ce qui est présent dans la structure et l'etat statique de la diapositive est pris en compte.
+Non. La comparaison s’effectue sur les diapositives elles‑mêmes. Les sources de données externes ne sont généralement pas lues au moment de la comparaison ; seules les informations présentes dans la structure et l’état statique de la diapositive sont prises en compte.

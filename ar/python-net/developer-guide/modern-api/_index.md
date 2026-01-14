@@ -1,48 +1,48 @@
 ---
-title: تحسين معالجة الصور باستخدام واجهة برمجة التطبيقات الحديثة
-linktitle: واجهة برمجة التطبيقات الحديثة
+title: تحسين معالجة الصور باستخدام API الحديث
+linktitle: API الحديث
 type: docs
 weight: 280
 url: /ar/python-net/modern-api/
 keywords:
-- واجهة برمجة التطبيقات الحديثة
-- رسم
-- صورة مصغرة للشرائح
+- API الحديث
+- الرسم
+- صورة مصغرة للشريحة
 - تحويل الشريحة إلى صورة
 - صورة مصغرة للشكل
 - تحويل الشكل إلى صورة
 - صورة مصغرة للعرض التقديمي
-- تحويل العرض إلى صور
+- تحويل العرض التقديمي إلى صور
 - إضافة صورة
 - إضافة صورة
 - Python
 - Aspose.Slides
-description: "قم بتحديث معالجة صور الشرائح عن طريق استبدال واجهات برمجة التطبيقات المتقادمة للصور بواجهة برمجة التطبيقات الحديثة للبايثون لتحقيق أتمتة سلسة لعروض PowerPoint ومستندات OpenDocument."
+description: "قم بتحديث معالجة صور الشرائح عن طريق استبدال واجهات برمجة التطبيقات للصور المهملة بواجهة API الحديثة للبايثون لتحقيق أتمتة سلسة لبرنامج PowerPoint ومستندات OpenDocument."
 ---
 
 ## **المقدمة**
 
-يعتمد Aspose.Slides for Python API العام حاليًا على الأنواع التالية من `aspose.pydrawing`:
+يعتمد API العام لـ Aspose.Slides for Python حاليًا على الأنواع التالية من `aspose.pydrawing`:
 - `aspose.pydrawing.Graphics`
 - `aspose.pydrawing.Image`
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-اعتبارًا من الإصدار 24.4، تم **إهمال** هذا API العام بسبب [التغييرات](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) في Aspose.Slides for Python API العام.
+اعتبارًا من الإصدار 24.4، تم **إهمال** هذا API العام بسبب [التغييرات](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) في API العام لـ Aspose.Slides for Python.
 
-لإزالة `aspose.pydrawing` من الـ API العام، قدمنا **الـ API الحديث**. الأساليب التي تستخدم `aspose.pydrawing.Image` و`aspose.pydrawing.Bitmap` قد تم إهمالها وسيتم استبدالها بنظيراتها في الـ API الحديث. الأساليب التي تستخدم `aspose.pydrawing.Graphics` قد تم إهمالها، وسيُزال الدعم لها من الـ API العام.
+لإزالة `aspose.pydrawing` من API العام، قدمنا **API الحديث**. الطرق التي تستخدم `aspose.pydrawing.Image` و `aspose.pydrawing.Bitmap` تم إهمالها وسيتم استبدالها بنظيراتها في API الحديث. الطرق التي تستخدم `aspose.pydrawing.Graphics` تم إهمالها، وسيتم إزالة الدعم لها من API العام.
 
-من المخطط إزالة الـ API المُهمَل الذي يعتمد على `aspose.pydrawing` في الإصدار **24.8**.
+من المخطط إزالة API المُهمل الذي يعتمد على `aspose.pydrawing` في الإصدار **24.8**.
 
-## **الـ API الحديث**
+## **API الحديث**
 
-تمت إضافة الفئات والعدادات التالية إلى الـ API العام:
+تمت إضافة الفئات والعدادات (enums) التالية إلى API العام:
 
 - [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — تمثّل صورة نقطية أو متجهة.
-- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — تمثّل صيغة ملف الصورة.
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — توفر أساليب لإنشاء والعمل مع `IImage`.
+- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — تمثّل تنسيق ملف الصورة.
+- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — توفر طرقًا لإنشاء والعمل مع `IImage`.
 
-سيناريو الاستخدام النموذجي للـ API الجديد هو كما يلي:
+سيناريو الاستخدام النموذجي للـ API الجديد يبدو هكذا:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -60,13 +60,13 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **استبدال الكود القديم بالـ API الحديث**
+## **استبدال الكود القديم بـ API الحديث**
 
-للتسهيل في الانتقال، يطابق واجهة `IImage` الجديدة الـ API المنفصل للفئات `Image` و`Bitmap`. في معظم الحالات، كل ما عليك هو استبدال الاستدعاءات التي تستخدم `aspose.pydrawing` بنظيراتها في الـ API الحديث.
+لتسهيل الانتقال، فئة `IImage` الجديدة تعكس واجهات `Image` و `Bitmap` المنفصلة. في معظم الحالات، تحتاج فقط إلى استبدال استدعاءات الطرق التي تستخدم `aspose.pydrawing` بنظيراتها في API الحديث.
 
 ### **الحصول على صورة مصغرة للشريحة**
 
-**الـ API المُهمَل:**
+**API المُهمل:**
 ```python
 import aspose.slides as slides
 
@@ -77,7 +77,7 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 
-**الـ API الحديث:**
+**API الحديث:**
 ```python
 import aspose.slides as slides
 
@@ -91,7 +91,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **الحصول على صورة مصغرة للشكل**
 
-**الـ API المُهمَل:**
+**API المُهمل:**
 ```python
 import aspose.slides as slides
 
@@ -102,7 +102,7 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 
-**الـ API الحديث:**
+**API الحديث:**
 ```python
 import aspose.slides as slides
 
@@ -114,9 +114,9 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 
-### **الحصول على صورة مصغرة للعرض التقديمي**
+### **الحصول على صورة مصغرة للعرض**
 
-**الـ API المُهمَل:**
+**API المُهمل:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -129,7 +129,7 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 
-**الـ API الحديث:**
+**API الحديث:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -144,7 +144,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **إضافة صورة إلى عرض تقديمي**
 
-**الـ API المُهمَل:**
+**API المُهمل:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
@@ -158,7 +158,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-**الـ API الحديث:**
+**API الحديث:**
 ```python
 import aspose.slides as slides
 
@@ -172,7 +172,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **الطرق والخصائص التي سيتم إزالتها واستبدالاتها في الـ API الحديث**
+## **الطرق والخصائص التي ستُحذف وتبديلاتها الحديثة**
 
 ### **فئة Presentation**
 
@@ -184,12 +184,12 @@ with slides.Presentation() as presentation:
 |get_thumbnails(options, slides, scale_x, scale_y)|[get_images(options, slides, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-float-float)|
 |get_thumbnails(options, image_size)|[get_images(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
 |get_thumbnails(options, slides, image_size)|[get_images(options, slides, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint-asposepydrawingsize)|
-|save(fname, format, response, show_inline)|سيتم حذفها تمامًا|
-|save(fname, format, options, response, show_inline)|سيتم حذفها تمامًا|
-|print()|سيتم حذفها تمامًا|
-|print(printer_settings)|سيتم حذفها تمامًا|
-|print(printer_name)|سيتم حذفها تمامًا|
-|print(printer_settings, pres_name)|سيتم حذفها تمامًا|
+|save(fname, format, response, show_inline)|Will be deleted completely|
+|save(fname, format, options, response, show_inline)|Will be deleted completely|
+|print()|Will be deleted completely|
+|print(printer_settings)|Will be deleted completely|
+|print(printer_name)|Will be deleted completely|
+|print(printer_settings, pres_name)|Will be deleted completely|
 
 ### **فئة Slide**
 
@@ -201,10 +201,10 @@ with slides.Presentation() as presentation:
 |get_thumbnail(options)|[get_image(options: ITiffOotions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
 |get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
 |get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
-|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
-|render_to_graphics(options, graphics)|سيتم حذفها تمامًا|
-|render_to_graphics(options, graphics, scale_x, scale_y)|سيتم حذفها تمامًا|
-|render_to_graphics(options, graphics, rendering_size)|سيتم حذفها تمامًا|
+|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingssize)|
+|render_to_graphics(options, graphics)|Will be deleted completely|
+|render_to_graphics(options, graphics, scale_x, scale_y)|Will be deleted completely|
+|render_to_graphics(options, graphics, rendering_size)|Will be deleted completely|
 
 ### **فئة Shape**
 
@@ -251,25 +251,25 @@ with slides.Presentation() as presentation:
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **ستتوقف دعم الـ API لـ aspose.pydrawing.Graphics**
+## **ستتوقف دعم `aspose.pydrawing.Graphics` في API**
 
-الأساليب التي تستخدم `aspose.pydrawing.Graphics` قد تم إهمالها؛ سيتم إزالة الدعم لها من الـ API العام.
+الطرق التي تستخدم `aspose.pydrawing.Graphics` تم إهمالها؛ سيتم إزالة الدعم لها من API العام.
 
-الأعضاء الذين يعتمدون على `aspose.pydrawing.Graphics` وسيتم إزالتهم يشملون:
+الأعضاء الذين يعتمدون على `aspose.pydrawing.Graphics` وسيتم إزالتهم هم:
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
 
-# **الأسئلة الشائعة**
+# **FAQ**
 
 **لماذا تم إلغاء `aspose.pydrawing.Graphics`؟**
 
-يتم إزالة دعم Graphics من الـ API العام لتوحيد العمل مع التصيير والصور، وإلغاء الاعتماد على مكونات خاصة بالمنصة، والانتقال إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). سيتم حذف جميع الأساليب التي تُصوّر إلى Graphics.
+يتم إزالة الدعم لـ Graphics من API العام لتوحيد العمل مع التصيير والصور، وإلغاء الارتباط بالاعتمادات الخاصة بالمنصات، والتحول إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). سيتم إلغاء جميع طرق التصيير إلى Graphics.
 
 **ما الفائدة العملية من IImage مقارنةً بـ Image/Bitmap؟**
 
-[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) يوحّد العمل مع الصور النقطية والمتجهة، يبسط حفظ الصور بصيغ متعددة عبر [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/)، يقلل الاعتماد على pydrawing، ويجعل الكود أكثر قابلية للنقل بين البيئات.
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) يوحّد التعامل مع الصور النقطية والمتجهة، يبسط الحفظ إلى صيغ مختلفة عبر [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/)، يقلل الاعتماد على pydrawing، ويجعل الشيفرة أكثر قابلية للنقل بين البيئات.
 
-**هل سيؤثر الـ API الحديث على أداء إنشاء الصور المصغرة؟**
+**هل سيؤثر API الحديث على أداء توليد الصور المصغرة؟**
 
-التحول من `get_thumbnail` إلى `get_image` لا يفاقم السيناريوهات: توفر الأساليب الجديدة نفس الإمكانيات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات التصيير. الكسب أو الفقدان المحدد يعتمد على السيناريو، لكن وظائفياً التعويضات متكافئة.
+التحول من `get_thumbnail` إلى `get_image` لا يُضعف السيناريوهات: الطرق الجديدة توفر نفس القدرات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات التصيير. الفائدة أو الخسارة المحددة تعتمد على السيناريو، لكن وظيفيًا البدائل متكافئة.
