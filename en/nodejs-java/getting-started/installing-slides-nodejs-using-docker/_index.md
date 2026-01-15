@@ -41,7 +41,7 @@ description: "Run Aspose.Slides in Docker containers: configure images, dependen
       rm -rf /var/lib/apt/lists/*
 
    # Install Node.js version 18.x from Nodesource repository
-   RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+   RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
       apt-get install -y nodejs && \
       rm -rf /var/lib/apt/lists/*
 
@@ -75,7 +75,7 @@ description: "Run Aspose.Slides in Docker containers: configure images, dependen
       "start": "node index.js"\n\
      },\n\
      "dependencies": {\n\
-      "aspose.slides.via.java": "^25.1.0"\n\
+      "aspose.slides.via.java": "^25.12.0"\n\
      }\n\
    }' > package.json
 
