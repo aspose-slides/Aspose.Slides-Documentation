@@ -181,6 +181,7 @@ ILayoutSlide blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.B
 
 // Get the names of all worksheets contained in the Excel workbook.
 IList<string> worksheetNames = workbook.GetWorksheetNames();
+
 foreach (var name in worksheetNames)
 {
     // Retrieve a dictionary that maps chart indexes to chart names for the worksheet.
