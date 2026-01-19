@@ -8,58 +8,58 @@ keywords:
 - Diagramm formatieren
 - Diagrammformatierung
 - Diagramm-Entität
-- Diagrammeigenschaften
-- Diagrammeeinstellungen
-- Diagrammoptionen
+- Diagramm-Eigenschaften
+- Diagramm-Einstellungen
+- Diagramm-Optionen
 - Schrifteigenschaften
-- Abgerundete Ränder
+- Abgerundete Rahmen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für Python über .NET formatieren und verleihen Sie Ihrer PowerPoint- oder OpenDocument-Präsentation ein professionelles, auffälliges Design."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für Python über .NET formatieren und verleihen Sie Ihrer PowerPoint- oder OpenDocument-Präsentation ein professionelles, ansprechendes Design."
 ---
 
 ## **Übersicht**
 
-Dieser Leitfaden zeigt, wie PowerPoint‑Diagramme mit Aspose.Slides für Python formatiert werden. Er führt durch die Anpassung von Kerndiagramm‑Entitäten – wie Kategorie‑ und Werte‑Achsen, Gitternetzlinien, Beschriftungen, Titeln, Legenden und Sekundärachsen – und demonstriert, wie Schriftarten, Zahlenformate, Füllungen, Konturen, Plot‑Bereich‑ und Hintergrundwand‑Farben sowie abgerundete Diagrammecken mit kompakten, ausführbaren Code‑Beispielen gesteuert werden. Durch die schrittweisen Beispiele erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), fügen ein Diagramm hinzu und konfigurieren es und speichern das Ergebnis als PPTX, wobei präzise visuelle und typografische Einstellungen angewendet werden.
+Dieser Leitfaden zeigt, wie Diagramme in PowerPoint mit Aspose.Slides für Python formatiert werden. Er führt durch die Anpassung von Kern-Diagrammelementen – wie Kategorien‑ und Werte‑Achsen, Gitternetzlinien, Beschriftungen, Titeln, Legenden und sekundären Achsen – und demonstriert, wie Schriftarten, Zahlenformate, Füllungen, Konturen, Plot‑Bereichs‑ und Hintergrundwand‑Farben sowie abgerundete Diagrammecken mit knappen, ausführbaren Code‑Beispielen gesteuert werden. Durch die schrittweise Vorgehensweise erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), fügen ein Diagramm hinzu und konfigurieren es und speichern das Ergebnis als PPTX, wobei präzise visuelle und typografische Einstellungen angewendet werden.
 
 ## **Diagrammelemente formatieren**
 
-Aspose.Slides für Python ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Abschnitt erklärt, wie verschiedene Diagrammelemente formatiert werden, einschließlich der Kategorie‑ und Werte‑Achsen.
+Aspose.Slides für Python ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Abschnitt erklärt, wie verschiedene Diagrammelemente formatiert werden, einschließlich der Kategorien‑ und Werte‑Achsen.
 
-Aspose.Slides stellt eine einfache API zum Verwalten von Diagrammelementen und zum Anwenden benutzerdefinierter Formatierungen bereit:
+Aspose.Slides bietet eine einfache API zum Verwalten von Diagrammelementen und zum Anwenden benutzerdefinierter Formatierungen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-1. Holen Sie sich einen Verweis auf die Folie über ihren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten des gewünschten Typs hinzu (in diesem Beispiel `ChartType.LINE_WITH_MARKERS`).  
-1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie Folgendes:  
-   1. Setzen Sie das **Linienformat** für die Hauptgitternetzlinien der Werte‑Achse.  
-   1. Setzen Sie das **Linienformat** für die Hilfsgitternetzlinien der Werte‑Achse.  
-   1. Setzen Sie das **Zahlenformat** für die Werte‑Achse.  
-   1. Setzen Sie die **Minimum‑, Maximum‑, Haupt‑ und Hilfs‑Einheiten** für die Werte‑Achse.  
-   1. Setzen Sie die **Text‑Eigenschaften** für die Beschriftungen der Werte‑Achse.  
-   1. Setzen Sie den **Titel** für die Werte‑Achse.  
-   1. Setzen Sie das **Linienformat** für die Werte‑Achse.  
-1. Greifen Sie auf die Kategorie‑Achse des Diagramms zu und setzen Sie Folgendes:  
-   1. Setzen Sie das **Linienformat** für die Hauptgitternetzlinien der Kategorie‑Achse.  
-   1. Setzen Sie das **Linienformat** für die Hilfsgitternetzlinien der Kategorie‑Achse.  
-   1. Setzen Sie die **Text‑Eigenschaften** für die Beschriftungen der Kategorie‑Achse.  
-   1. Setzen Sie den **Titel** für die Kategorie‑Achse.  
-   1. Setzen Sie die **Beschriftungsposition** für die Kategorie‑Achse.  
-   1. Setzen Sie den **Drehwinkel** für die Beschriftungen der Kategorie‑Achse.  
-1. Greifen Sie auf die Diagramm‑Legende zu und setzen Sie deren **Text‑Eigenschaften**.  
-1. Zeigen Sie die Legende an, ohne das Diagramm zu überlappen.  
-1. Greifen Sie auf die **sekundäre Werte‑Achse** des Diagramms zu und setzen Sie Folgendes:  
-   1. Aktivieren Sie die sekundäre **Werte‑Achse**.  
-   1. Setzen Sie das **Linienformat** für die sekundäre Werte‑Achse.  
-   1. Setzen Sie das **Zahlenformat** für die sekundäre Werte‑Achse.  
-   1. Setzen Sie die **Minimum‑, Maximum‑, Haupt‑ und Hilfs‑Einheiten** für die sekundäre Werte‑Achse.  
-1. Plotten Sie die erste Diagramm‑Serie auf der sekundären Werte‑Achse.  
-1. Setzen Sie die Füllfarbe der Hintergrundwand des Diagramms.  
-1. Setzen Sie die Füllfarbe des Plot‑Bereichs des Diagramms.  
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.  
+1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten des gewünschten Typs hinzu (in diesem Beispiel `ChartType.LINE_WITH_MARKERS`).
+1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie Folgendes:
+   1. Setzen Sie das **Linienformat** für die Hauptgitternetzlinien der Werte‑Achse.
+   1. Setzen Sie das **Linienformat** für die Hilfsgitternetzlinien der Werte‑Achse.
+   1. Setzen Sie das **Zahlenformat** für die Werte‑Achse.
+   1. Setzen Sie die **Min‑, Max‑, Haupt‑ und Hilfs‑Einheiten** für die Werte‑Achse.
+   1. Setzen Sie die **Texteigenschaften** für die Werte‑Achsen‑Beschriftungen.
+   1. Setzen Sie den **Titel** für die Werte‑Achse.
+   1. Setzen Sie das **Linienformat** für die Werte‑Achse.
+1. Greifen Sie auf die Kategorien‑Achse des Diagramms zu und setzen Sie Folgendes:
+   1. Setzen Sie das **Linienformat** für die Hauptgitternetzlinien der Kategorien‑Achse.
+   1. Setzen Sie das **Linienformat** für die Hilfsgitternetzlinien der Kategorien‑Achse.
+   1. Setzen Sie die **Texteigenschaften** für die Kategorien‑Achsen‑Beschriftungen.
+   1. Setzen Sie den **Titel** für die Kategorien‑Achse.
+   1. Setzen Sie die **Beschriftungsposition** für die Kategorien‑Achse.
+   1. Setzen Sie den **Rotationswinkel** für die Kategorien‑Achsen‑Beschriftungen.
+1. Greifen Sie auf die Diagramm‑Legende zu und setzen Sie deren **Texteigenschaften**.
+1. Zeigen Sie die Diagramm‑Legende an, ohne das Diagramm zu überlappen.
+1. Greifen Sie auf die **sekundäre Werte‑Achse** des Diagramms zu und setzen Sie Folgendes:
+   1. Aktivieren Sie die sekundäre **Werte‑Achse**.
+   1. Setzen Sie das **Linienformat** für die sekundäre Werte‑Achse.
+   1. Setzen Sie das **Zahlenformat** für die sekundäre Werte‑Achse.
+   1. Setzen Sie die **Min‑, Max‑, Haupt‑ und Hilfs‑Einheiten** für die sekundäre Werte‑Achse.
+1. Plotten Sie die erste Diagramm‑Serie auf der sekundären Werte‑Achse.
+1. Setzen Sie die Füllfarbe der Hintergrundwand des Diagramms.
+1. Setzen Sie die Füllfarbe des Plot‑Bereichs des Diagramms.
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -85,13 +85,13 @@ with slides.Presentation() as presentation:
     chart_title.portion_format.font_bold = 1
     chart_title.portion_format.font_italic = 1
 
-    # Setzen Sie das Format der Hauptgitternetzlinien für die Werteachse.
+    # Setzen Sie das Hauptgitterlinienformat für die Werteachse.
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.blue
     chart.axes.vertical_axis.major_grid_lines_format.line.width = 5
     chart.axes.vertical_axis.major_grid_lines_format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # Setzen Sie das Format der Hilfsgitternetzlinien für die Werteachse.
+    # Setzen Sie das Hilfsgitterlinienformat für die Werteachse.
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.red
     chart.axes.vertical_axis.minor_grid_lines_format.line.width = 3
@@ -101,7 +101,7 @@ with slides.Presentation() as presentation:
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # Setzen Sie das Maximum, Minimum, die Haupteinheit und die Hilfseinheit der Werteachse.
+    # Setzen Sie den Maximalwert, Minimalwert, Haupteinheit und Hilfseinheit der Werteachse.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -132,12 +132,12 @@ with slides.Presentation() as presentation:
     vertical_axis_title.portion_format.font_bold = 1
     vertical_axis_title.portion_format.font_italic = 1
 
-    # Setzen Sie das Format der Hauptgitternetzlinien für die Kategorienachse.
+    # Setzen Sie das Hauptgitterlinienformat für die Kategorienachse.
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.green
     chart.axes.horizontal_axis.major_grid_lines_format.line.width = 5
 
-    # Setzen Sie das Format der Hilfsgitternetzlinien für die Kategorienachse.
+    # Setzen Sie das Hilfsgitterlinienformat für die Kategorienachse.
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.yellow
     chart.axes.horizontal_axis.minor_grid_lines_format.line.width = 3
@@ -180,7 +180,7 @@ with slides.Presentation() as presentation:
     # Zeigen Sie die Diagrammlegende überlappend zum Diagramm an.
     chart.legend.overlay = True
                 
-    # Setzen Sie die Hintergrundwandfarbe des Diagramms.
+    # Setzen Sie die Farbe der Hintergrundwand des Diagramms.
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
     chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
@@ -197,16 +197,16 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Diagramm‑Schriftart‑Eigenschaften festlegen**
+## **Diagramm‑Schrifteigenschaften festlegen**
 
-Aspose.Slides für Python unterstützt das Festlegen von schriftbezogenen Eigenschaften für Diagramme. Befolgen Sie die nachstehenden Schritte, um Diagramm‑Schriftart‑Eigenschaften zu konfigurieren:
+Aspose.Slides für Python unterstützt das Festlegen von schriftbezogenen Eigenschaften für Diagramme. Befolgen Sie die nachstehenden Schritte, um Diagramm‑Schrifteigenschaften zu konfigurieren:
 
-1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.  
-1. Fügen Sie der Folie ein Diagramm hinzu.  
-1. Setzen Sie die Schriftgröße.  
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.
+1. Fügen Sie ein Diagramm zur Folie hinzu.
+1. Setzen Sie die Schriftgröße.
 1. Speichern Sie die modifizierte Präsentation.
 
-Ein Beispielcode wird unten bereitgestellt.  
+Ein Beispielcode wird unten bereitgestellt.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -222,19 +222,19 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Zahlenformat festlegen**
+## **Numerisches Format festlegen**
 
-Aspose.Slides für Python bietet eine einfache API zum Verwalten von Diagramm‑Datenformaten:
+Aspose.Slides für Python bietet eine einfache API zum Verwalten von Diagrammdatenformaten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-1. Holen Sie sich einen Verweis auf die Folie über ihren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten eines beliebigen gewünschten Typs hinzu.  
-1. Setzen Sie ein voreingestelltes Zahlenformat aus den verfügbaren Vorgabewerten.  
-1. Durchlaufen Sie die Diagrammdatenzellen jeder Serie und setzen Sie das Zahlenformat.  
-1. Speichern Sie die Präsentation.  
-1. Setzen Sie ein benutzerdefiniertes Zahlenformat.  
-1. Durchlaufen Sie die Diagrammdatenzellen jeder Serie und setzen Sie ein anderes Zahlenformat.  
-1. Speichern Sie die Präsentation.  
+1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten eines beliebigen gewünschten Typs hinzu.
+1. Wählen Sie ein vordefiniertes Zahlenformat aus den verfügbaren Vorgabewerten.
+1. Durchlaufen Sie die Diagrammdatenzellen jeder Serie und setzen Sie das Zahlenformat.
+1. Speichern Sie die Präsentation.
+1. Setzen Sie ein benutzerdefiniertes Zahlenformat.
+1. Durchlaufen Sie die Diagrammdatenzellen jeder Serie und setzen Sie ein anderes Zahlenformat.
+1. Speichern Sie die Präsentation.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -244,15 +244,15 @@ with slides.Presentation() as presentation:
     # Greifen Sie auf die erste Folie zu.
     slide = presentation.slides[0]
 
-    # Fügen Sie ein Standard-Clustered-Column-Diagramm hinzu.
+    # Fügen Sie ein standardmäßiges gruppiertes Säulendiagramm hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
 
-    # Legen Sie das voreingestellte Zahlenformat fest.
+    # Setzen Sie das vordefinierte Zahlenformat.
     # Durchlaufen Sie jede Diagrammserie.
     for series in chart.chart_data.series:
         # Durchlaufen Sie jeden Datenpunkt in der Serie.
         for cell in series.data_points:
-            # Legen Sie das Zahlenformat fest.
+            # Setzen Sie das Zahlenformat.
             cell.value.as_cell.preset_number_format = 10  # 0.00%
 
     # Speichern Sie die Präsentation.
@@ -260,7 +260,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-Die verfügbaren voreingestellten Zahlenformate und ihre entsprechenden Indizes sind nachfolgend aufgeführt.
+Die verfügbaren vordefinierten Zahlenformate und ihre jeweiligen Indizes sind unten aufgelistet.
 
 |**0**|Allgemein|
 | :- | :- |
@@ -295,8 +295,8 @@ Die verfügbaren voreingestellten Zahlenformate und ihre entsprechenden Indizes 
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
@@ -304,13 +304,13 @@ Die verfügbaren voreingestellten Zahlenformate und ihre entsprechenden Indizes 
 
 Aspose.Slides für Python unterstützt die Konfiguration des Diagrammbereichs über die Eigenschaft `Chart.has_rounded_corners`.
 
-1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.  
-2. Fügen Sie der Folie ein Diagramm hinzu.  
-3. Setzen Sie den Fülltyp und die Füllfarbe des Diagramms.  
-4. Setzen Sie die Eigenschaft für abgerundete Ecken auf `True`.  
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.
+2. Fügen Sie ein Diagramm zur Folie hinzu.
+3. Setzen Sie den Fülltyp und die Füllfarbe des Diagramms.
+4. Setzen Sie die Eigenschaft für abgerundete Ecken auf `True`.
 5. Speichern Sie die modifizierte Präsentation.
 
-Ein Beispiel wird unten bereitgestellt.  
+Ein Beispiel wird unten bereitgestellt.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -329,14 +329,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen und dabei die Kontur undurchsichtig lassen?**
+**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen, während die Kontur undurchsichtig bleibt?**
 
-Ja. Fülltransparenz und Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit von Gittern und Daten in dichten Visualisierungen zu verbessern.
+Ja. Transparenz der Füllung und die Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit von Gittern und Daten in dicht besetzten Visualisierungen zu verbessern.
 
 **Wie gehe ich mit Datenbeschriftungen um, wenn sie sich überschneiden?**
 
 Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungselemente (z. B. Kategorien), setzen Sie den Beschriftungs‑Offset/‑Position, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie zum Format „Wert + Legende“.
 
-**Kann ich Verlauf‑ oder Muster‑Füllungen auf Serien anwenden?**
+**Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Sowohl einfarbige als auch Verlauf‑/Muster‑Füllungen sind in der Regel verfügbar. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zu Gittern und Text verringern.
+Ja. Sowohl einfarbige als auch Verlauf‑/Musterfüllungen sind in der Regel verfügbar. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zu Gittern und Text verringern.

@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中转换 OpenDocument 演示文稿
+title: 转换 Python 中的 OpenDocument 演示文稿
 linktitle: 转换 OpenDocument
 type: docs
 weight: 10
@@ -18,7 +18,7 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "在 Python 中使用 Aspose.Slides 将 OpenDocument ODP 转换为 PDF、PPT、PPTX、XPS、HTML、TIFF 或 SWF：代码示例、高保真、批量转换和自定义。"
+description: "使用 Aspose.Slides 在 Python 中将 OpenDocument ODP 转换为 PDF、PPT、PPTX、XPS、HTML、TIFF 或 SWF：代码示例、高保真、批量转换和自定义。"
 ---
 
 ## **转换 ODP 文件**
@@ -27,13 +27,13 @@ description: "在 Python 中使用 Aspose.Slides 将 OpenDocument ODP 转换为 
 
 以下示例演示了如何将 ODP 文档转换为其他格式（只需更改源 ODP 文件）：
 
-- [将 ODP 转换为 HTML](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-html/)
+- [将 ODP 转换为 HTML](/slides/zh/python-net/convert-powerpoint-to-html/)
 - [将 ODP 转换为 PDF](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)
 - [将 ODP 转换为 TIFF](/slides/zh/python-net/convert-powerpoint-to-tiff/)
-- [将 ODP 转换为 SWF Flash](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [将 ODP 转换为 XPS](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [将 ODP 转换为带备注的 PDF](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [将 ODP 转换为带备注的 TIFF](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+- [将 ODP 转换为 SWF Flash](/slides/zh/python-net/convert-powerpoint-to-swf-flash/)
+- [将 ODP 转换为 XPS](/slides/zh/python-net/convert-powerpoint-to-xps/)
+- [将 ODP 转换为带注释的 PDF](/slides/zh/python-net/convert-powerpoint-to-pdf-with-notes/)
+- [将 ODP 转换为带注释的 TIFF](/slides/zh/python-net/convert-powerpoint-to-tiff-with-notes/)
 
 例如，如果您需要将 ODP 演示文稿转换为 PDF，可以按以下方式进行：
 ```py
@@ -52,12 +52,12 @@ pres.save("pres.pdf", slides.export.SaveFormat.PDF)
 
 **Aspose.Slides 能打开和保存受密码保护的 ODP/OTP 文件吗？**
 
-是的。当您提供密码时，它可以[加载加密的演示文稿](/slides/zh/python-net/password-protected-presentation/)，也可以保存带有加密和保护设置的演示文稿。
+是的。提供密码后，它可以[加载加密的演示文稿](/slides/zh/python-net/password-protected-presentation/)，并且还可以使用加密和保护设置保存演示文稿。
 
 **我可以在转换 ODP 之前提取其中嵌入的媒体文件（音频/视频）吗？**
 
-是的。Aspose.Slides 允许您访问并提取演示文稿中嵌入的[音频](/slides/zh/python-net/audio-frame/)和[视频](/slides/zh/python-net/video-frame/)，这对于转换前的处理或单独重用非常有帮助。
+是的。Aspose.Slides 允许您访问并提取演示文稿中嵌入的[音频](/slides/zh/python-net/audio-frame/)和[视频](/slides/zh/python-net/video-frame/)，这对于转换前的处理或单独重用很有帮助。
 
 **我可以将转换后的 ODP 保存为 Strict Office Open XML 吗？**
 
-是的。保存为 PPTX 时，您可以通过[保存选项](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)启用 Strict OOXML，以满足更严格的合规性要求。
+是的。将其保存为 PPTX 时，您可以通过[保存选项](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)启用 Strict OOXML，以满足更严格的合规要求。

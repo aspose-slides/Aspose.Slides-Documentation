@@ -1,6 +1,6 @@
 ---
-title: دمج العروض التقديمية بكفاءة باستخدام Python
-linktitle: دمج العروض التقديمية
+title: دمج العروض التقديمية بفعالية باستخدام بايثون
+linktitle: دمج العروض
 type: docs
 weight: 40
 url: /ar/python-net/merge-presentation/
@@ -17,60 +17,51 @@ keywords:
 - دمج PPT
 - دمج PPTX
 - دمج ODP
-- Python
+- بايثون
 - Aspose.Slides
-description: "قم بدمج عروض PowerPoint (PPT, PPTX) و OpenDocument (ODP) بسهولة باستخدام Aspose.Slides للبايثون عبر .NET، مما يُبسّط سير عملك."
+description: "دمج عروض PowerPoint (PPT، PPTX) وعروض OpenDocument (ODP) بسهولة مع Aspose.Slides للبايثون عبر .NET، مما يُسهل سير عملك."
 ---
 
 ## **تحسين دمج العروض التقديمية**
 
-مع [Aspose.Slides للبايثون](https://products.aspose.com/slides/python-net/)، يمكنك دمج عروض PowerPoint بسلاسة مع الحفاظ على الأنماط والتخطيطات وجميع العناصر. على عكس الأدوات الأخرى، يدمج Aspose.Slides العروض دون التضحية بالجودة أو فقدان البيانات. دمج مجموعات كاملة، شرائح محددة، أو حتى صيغ ملفات مختلفة (مثل PPT إلى PPTX).
+مع [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/)، يمكنك دمج عروض PowerPoint بسلاسة مع الحفاظ على الأنماط والتخطيط وجميع العناصر. على عكس الأدوات الأخرى، يقوم Aspose.Slides بدمج العروض دون التضحية بالجودة أو فقدان البيانات. ادمج مجموعات كاملة، شرائح محددة، أو حتى صيغ ملفات مختلفة (مثل PPT إلى PPTX).
 
 ### **ميزات الدمج**
 
-- **دمج كامل للعرض:** تجميع جميع الشرائح في ملف واحد.
-- **دمج شرائح محددة:** اختيار ودمج الشرائح المختارة.
-- **دمج عبر الصيغ:** دمج عروض بصيغ مختلفة مع الحفاظ على سلامتها.
+- **Full Presentation Merge:** تجميع جميع الشرائح في ملف واحد.  
+- **Specific Slide Merge:** اختيار ودمج الشرائح المحددة.  
+- **Cross-Format Merge:** دمج العروض بأشكال مختلفة مع الحفاظ على السلامة.
 
 ## **دمج العروض التقديمية**
 
-عند دمج عرض توضيحي في آخر، تقوم فعليًا بدمج الشرائح في عرض واحد لتنتج ملفًا موحدًا. معظم برامج العروض—مثل PowerPoint أو OpenOffice—لا توفر ميزات تسمح بدمج العروض بهذه الطريقة.
+عند دمج عرض تقديمي مع آخر، تقوم فعليًا بدمج شرائحه في عرض تقديمي واحد لإنتاج ملف واحد. معظم برامج العروض التقديمية — مثل PowerPoint أو OpenOffice — لا توفر ميزات تسمح بدمج العروض بهذه الطريقة.
 
-ومع ذلك، يتيح لك [Aspose.Slides للبايثون](https://products.aspose.com/slides/python-net/) دمج العروض بطرق متعددة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنصوص والتنسيقات والتعليقات والرسوم المتحركة، دون أي فقدان للجودة أو البيانات.
+ومع ذلك، يتيح [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/) دمج العروض بطرق متعددة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنص والتنسيق والتعليقات والرسوم المتحركة، دون أي فقدان في الجودة أو البيانات.
 
-**انظر أيضًا**
+**انظر أيضًا**  
+[استنساخ شرائح PowerPoint في Python](/slides/ar/python-net/clone-slides/)
 
-[استنساخ شرائح PowerPoint في بايثون](/slides/ar/python-net/clone-slides/)
-
-### **ما يمكن دمجه**
+### **ما الذي يمكن دمجه**
 
 مع Aspose.Slides، يمكنك دمج:
 
-- العروض الكاملة: جميع الشرائح من مجموعة المصدر تُدمج في عرض واحد.
-- الشرائح المحددة: تُدمج الشرائح المختارة فقط في عرض واحد.
-- العروض ذات الصيغة نفسها (مثل PPT→PPT، PPTX→PPTX) أو عبر صيغ مختلفة (مثل PPT→PPTX، PPTX→ODP).
-
-{{% alert title="Note" color="info" %}}
-إلى جانب العروض، يتيح Aspose.Slides أيضًا دمج ملفات أخرى:
-
-- [الصور](https://products.aspose.com/slides/python-net/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/python-net/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/python-net/merger/png-to-png/).
-- المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/python-net/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/python-net/merger/html-to-html/).
-- نوعين مختلفين من الملفات، مثل [صورة إلى PDF](https://products.aspose.com/slides/python-net/merger/image-to-pdf/)، [JPG إلى PDF](https://products.aspose.com/slides/python-net/merger/jpg-to-pdf/)، أو [TIFF إلى PDF](https://products.aspose.com/slides/python-net/merger/tiff-to-pdf/).
-{{% /alert %}}
+- العروض الكاملة: جميع الشرائح من مجموعة المصادر تُدمج في عرض تقديمي واحد.  
+- شرائح محددة: فقط الشرائح المختارة تُدمج في عرض تقديمي واحد.  
+- العروض بنفس الصيغة (مثل PPT→PPT، PPTX→PPTX) أو عبر صيغ مختلفة (مثل PPT→PPTX، PPTX→ODP).
 
 ### **خيارات الدمج**
 
-يمكنك التحكم فيما إذا:
-- احتفظ كل شريحة في العرض الناتج بنمطها الأصلي، أو
-- يتم تطبيق نمط واحد على جميع الشرائح في العرض الناتج.
+يمكنك التحكم فيما إذا كان:
+- كل شريحة في العرض الناتج تحتفظ بالنمط الأصلي لها، أو
+- يُطبق نمط موحد على جميع الشرائح في العرض الناتج.
 
-لدمج العروض، توفر Aspose.Slides طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) على فئة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/). تُعرِّف هذه التحميلات طريقة تنفيذ الدمج. كل كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يحتوي على مجموعة [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)، لذا تستدعي `add_clone` على مجموعة شرائح العرض الوجهة.
+لدمج العروض، يوفر Aspose.Slides طرق [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) على فئة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/). تُحدد هذه التحميلات الزائدة كيفية تنفيذ الدمج. كل كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يعرض مجموعة [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)، لذا تقوم باستدعاء `add_clone` على مجموعة شرائح العرض الهدف.
 
-ترجع طريقة `add_clone` كائن `Slide`—نسخة متماثلة من الشريحة الأصلية. الشرائح في العرض الناتج هي نسخ من الأصل، وبالتالي يمكنك تعديل الشرائح الناتجة (مثلاً، تطبيق الأنماط أو التنسيقات أو التخطيطات) دون التأثير على العروض المصدر.
+طريقة `add_clone` تُعيد كائن `Slide` — نسخة من الشريحة المصدر. الشرائح في العرض الناتج هي نسخ من الأصل، لذا يمكنك تعديل الشرائح الناتجة (مثلاً، تطبيق الأنماط أو التنسيق أو التخطيطات) دون التأثير على العروض المصدر.
 
 ## **دمج العروض**
 
-توفر Aspose.Slides طريقة [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) التي تسمح بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها (باستخدام المعلمات الافتراضية).
+يوفر Aspose.Slides طريقة [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) التي تسمح بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها (باستخدام المعلمات الافتراضية).
 
 يُظهر المثال التالي بلغة Python كيفية دمج العروض:
 ```py
@@ -84,11 +75,11 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 ```
 
 
-## **دمج العروض مع القالب الرئيسي للشرائح**
+## **دمج العروض باستخدام رئيس شرائح**
 
-توفر Aspose.Slides طريقة [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) التي تسمح بدمج الشرائح مع تطبيق قالب رئيسي من نموذج. بهذه الطريقة، يمكنك تعديل نمط الشرائح في العرض الناتج حسب الحاجة.
+يوفر Aspose.Slides طريقة [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) التي تسمح بدمج الشرائح مع تطبيق رئيس شريحة من نموذج. بهذه الطريقة، عند الحاجة، يمكنك إعادة تنسيق الشرائح في العرض الناتج.
 
-يوضح المثال التالي بلغة Python هذه العملية:
+يُظهر المثال التالي بلغة Python هذه العملية:
 ```py
 import aspose.slides as slides
 
@@ -101,16 +92,16 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 
 
 {{% alert title="Note" color="warning" %}}
-يُحدد التخطيط المناسب تحت القالب الرئيسي المحدد تلقائيًا. إذا تعذر العثور على تخطيط مناسب وتم تعيين المتغيّر البولياني `allow_clone_missing_layout` في طريقة `add_clone` إلى `True`، يُستخدم تخطيط الشريحة المصدر بدلًا من ذلك. وإلا، يُطلق استثناء [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/).
+يتم تحديد التخطيط المناسب تحت رئيس الشريحة المحدد تلقائيًا. إذا تعذر العثور على تخطيط مناسب وتم تعيين معلمة `allow_clone_missing_layout` البوليانية في طريقة `add_clone` إلى `True`، يتم استخدام تخطيط الشريحة المصدر بدلاً من ذلك. وإلا، يتم إطلاق استثناء [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/).  
 {{% /alert %}}
 
 لتطبيق تخطيط شريحة مختلف على الشرائح في العرض الناتج، استخدم طريقة [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) عند الدمج.
 
 ## **دمج شرائح محددة من العروض**
 
-يعد دمج شرائح محددة من عروض متعددة مفيدًا عند إنشاء مجموعات شرائح مخصصة. يتيح لك Aspose.Slides اختيار واستيراد الشرائح التي تحتاجها فقط، مع الحفاظ على تنسيق وتصميم وتخطيط الشرائح الأصلية.
+يعد دمج شرائح محددة من عدة عروض مفيدًا عند إنشاء مجموعات شرائح مخصصة. يتيح لك Aspose.Slides اختيار واستيراد الشرائح التي تحتاجها فقط، مع الحفاظ على تنسيق وتخطيط وتصميم الشرائح الأصلية.
 
-ينشئ المثال التالي بلغة Python عرضًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
+يُظهر المثال التالي بلغة Python إنشاء عرض تقديمي جديد، إضافة شرائح عنوان من عرضين آخرين، وحفظ النتيجة في ملف:
 ```py
 def get_title_slide(pres):
     for slide in pres.slides:
@@ -136,9 +127,9 @@ with slides.Presentation() as presentation, \
 ```
 
 
-## **دمج العروض مع تخطيط شريحة**
+## **دمج العروض باستخدام تخطيط شريحة**
 
-يوضح المثال التالي بلغة Python كيفية دمج شرائح من عروض متعددة مع تطبيق تخطيط شريحة محدد لإنتاج عرض واحد موحد:
+يُظهر المثال التالي بلغة Python كيفية دمج الشرائح من عدة عروض مع تطبيق تخطيط شريحة محدد لإنتاج عرض تقديمي واحد ناتج:
 ```py
 import aspose.slides as slides
 
@@ -153,12 +144,12 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 ## **دمج العروض بأحجام شرائح مختلفة**
 
 {{% alert title="Note" color="warning" %}}
-لا يمكنك دمج العروض التي تحتوي على أحجام شرائح مختلفة مباشرة.
+لا يمكنك دمج العروض التي لها أحجام شرائح مختلفة مباشرة.  
 {{% /alert %}}
 
-لدمج عرضين بأحجام شرائح مختلفة، قم أولًا بتغيير حجم أحد العروض بحيث يتطابق حجم شريحته مع الآخر.
+لدمج عرضين بأحجام شرائح مختلفة، يجب أولاً تعديل حجم أحد العروض بحيث يتطابق حجم شريحته مع الآخر.
 
-يوضح الكود التالي هذه العملية:
+يُظهر الكود التالي هذه العملية:
 ```py
 import aspose.slides as slides
 
@@ -172,9 +163,9 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 ```
 
 
-## **دمج شرائح في قسم من العرض**
+## **دمج الشرائح في قسم من العرض**
 
-يوضح المثال التالي بلغة Python كيفية دمج شريحة محددة في قسم من العرض:
+يُظهر المثال التالي بلغة Python كيفية دمج شريحة محددة في قسم من عرض تقديمي:
 ```py
 import aspose.slides as slides
 
@@ -186,38 +177,34 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 ```
 
 
-تُضاف الشريحة في نهاية القسم.
+تُضاف الشريحة في نهاية القسم.  
 
 {{% alert title="Tip" color="primary" %}}
-هل تبحث عن أداة **مجانية على الإنترنت** لدمج عروض PowerPoint؟ جرّب [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).
+هل تبحث عن أداة سريعة **مجانية عبر الإنترنت** ل**دمج عروض PowerPoint**؟ جرّب [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).
 
-- **دمج ملفات PowerPoint بسهولة**: دمج عروض **PPT، PPTX، ODP** متعددة في ملف واحد.  
-- **دعم صيغ مختلفة**: دمج **PPT إلى PPTX**، **PPTX إلى ODP**، وأكثر.  
-- **بدون تثبيت**: يعمل مباشرة في المتصفح، سريع وآمن.  
+- **دمج ملفات PowerPoint بسهولة**: دمج عدة عروض **PPT, PPTX, ODP** في ملف واحد.  
+- **يدعم صيغًا مختلفة**: دمج **PPT إلى PPTX**، **PPTX إلى ODP**، وأكثر.  
+- **لا يلزم تثبيت**: يعمل مباشرة في المتصفح، سريع وآمن.  
 
-[![دمج ملفات PowerPoint على الإنترنت](slides-merger.png)](https://products.aspose.app/slides/merger)  
+[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
 
-ابدأ دمج ملفات PowerPoint باستخدام أداة Aspose المجانية على الإنترنت اليوم!  
+ابدأ دمج ملفات PowerPoint باستخدام **أداة Aspose المجانية عبر الإنترنت** اليوم!  
 {{% /alert %}}
 
 {{% alert title="Tip" color="primary" %}}
-توفر Aspose تطبيقًا ويب **مجانيًا** لإنشاء كولاج [هنا](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid) وغيرها. 
+تقدم Aspose تطبيق [Collage ويب FREE](https://products.aspose.app/slides/collage) مجانًا. باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك.  
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل تُحفظ ملاحظات المتحدثين أثناء الدمج؟**
+**هل يتم حفظ ملاحظات المتحدث أثناء الدمج؟**  
+نعم. عند استنساخ الشرائح، يقوم Aspose.Slides بنقل جميع عناصر الشريحة، بما في ذلك الملاحظات والتنسيق والرسوم المتحركة.
 
-نعم. عند استنساخ الشرائح، تنقل Aspose.Slides جميع عناصر الشريحة، بما في ذلك الملاحظات، والتنسيقات، والرسوم المتحركة.
+**هل يتم نقل التعليقات ومؤلفوها؟**  
+التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ على تسميات مؤلفي التعليقات ككائنات تعليق في العرض الناتج.
 
-**هل تُنقل التعليقات ومؤلفوها؟**
+**ماذا لو كان العرض المصدر محميًا بكلمة مرور؟**  
+يجب [فتحها باستخدام كلمة المرور](/slides/ar/python-net/password-protected-presentation/) عبر [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي أيضًا).
 
-تُنسخ التعليقات كجزء من محتوى الشريحة وتُحافظ على تسميات مؤلفي التعليق ككائنات تعليق في العرض الناتج.
-
-**ماذا لو كان العرض المصدر محميًا بكلمة مرور؟**
-
-يجب [فتح العرض باستخدام كلمة المرور](/slides/ar/python-net/password-protected-presentation/) عبر [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/). بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي أيضًا).
-
-**ما مدى أمان العملية من حيث تعدد الخيوط؟**
-
-لا تستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/python-net/multithreading/). القاعدة الموصى بها هي "وثيقة واحدة — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
+**ما مدى أمان الخيوط لعملية الدمج؟**  
+لا تُستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/python-net/multithreading/). القاعدة الموصى بها هي "مستند واحد — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.

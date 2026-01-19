@@ -1,67 +1,65 @@
 ---
-title: Переобразование презентаций PowerPoint в видео с помощью Python
+title: Конвертировать презентации PowerPoint в видео на Python
 linktitle: PowerPoint в видео
 type: docs
 weight: 130
 url: /ru/python-net/convert-powerpoint-to-video/
 keywords:
 - PowerPoint в видео
-- преобразовать PowerPoint в видео
+- конвертировать PowerPoint в видео
 - презентация в видео
-- преобразовать презентацию в видео
+- конвертировать презентацию в видео
 - PPT в видео
-- преобразовать PPT в видео
+- конвертировать PPT в видео
 - PPTX в видео
-- преобразовать PPTX в видео
+- конвертировать PPTX в видео
 - ODP в видео
-- преобразовать ODP в видео
+- конвертировать ODP в видео
 - PowerPoint в MP4
-- преобразовать PowerPoint в MP4
+- конвертировать PowerPoint в MP4
 - презентация в MP4
-- преобразовать презентацию в MP4
+- конвертировать презентацию в MP4
 - PPT в MP4
-- преобразовать PPT в MP4
+- конвертировать PPT в MP4
 - PPTX в MP4
-- преобразовать PPTX в MP4
-- Преобразование PowerPoint в видео
-- Преобразование презентации в видео
-- Преобразование PPT в видео
-- Преобразование PPTX в видео
-- Преобразование ODP в видео
-- Преобразование видео с помощью Python
+- конвертировать PPTX в MP4
+- конвертация PowerPoint в видео
+- конвертация презентации в видео
+- конвертация PPT в видео
+- конвертация PPTX в видео
+- конвертация ODP в видео
+- конвертация видео на Python
 - PowerPoint
 - Python
 - Aspose.Slides
-description: "Узнайте, как преобразовать презентации PowerPoint и OpenDocument в видео с помощью Python. Откройте примеры кода и техники автоматизации для оптимизации рабочего процесса."
+description: "Узнайте, как конвертировать презентации PowerPoint и OpenDocument в видео с помощью Python. Откройте примеры кода и методы автоматизации, чтобы оптимизировать ваш рабочий процесс."
 ---
 
 ## **Обзор**
 
 Преобразовав вашу презентацию PowerPoint или OpenDocument в видео, вы получаете:
 
-**Повышенная доступность:** Все устройства, независимо от платформы, по умолчанию оснащены видеоплеерами, что упрощает пользователям открытие или воспроизведение видео по сравнению с традиционными приложениями для презентаций.
+**Повышенная доступность:** Все устройства, независимо от платформы, по умолчанию оснащены видеоплеерами, что упрощает открытие и воспроизведение видео по сравнению с традиционными приложениями для презентаций.
 
-**Широкий охват:** Видео позволяют достичь более широкой аудитории и представить информацию в более увлекательном формате. Опросы и статистика показывают, что люди предпочитают просматривать и потреблять видеоконтент по сравнению с другими формами, делая ваше сообщение более воздействующим.
+**Более широкая аудитория:** Видео позволяют охватить большую аудиторию и представить информацию в более увлекательном формате. Опросы и статистика показывают, что люди предпочитают смотреть и потреблять видеоконтент другим формам, делая ваше сообщение более впечатляющим.
 
 {{% alert color="primary" %}} 
-
-Ознакомьтесь с нашим [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/video), потому что он предлагает живую и эффективную реализацию процесса, описанного здесь.
-
+Посмотрите наш [**Онлайн‑конвертер PowerPoint в Видео**](https://products.aspose.app/slides/video), который предлагает живую и эффективную реализацию процесса, описанного здесь.
 {{% /alert %}} 
 
-В [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/) мы реализовали поддержку преобразования презентаций в видео.
+В [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/) мы реализовали поддержку конвертации презентаций в видео.
 
 * Используйте Aspose.Slides for Python для генерации кадров из слайдов презентации с заданной частотой кадров (FPS).
-* Затем используйте стороннюю утилиту, например ffmpeg, для объединения этих кадров в видео.
+* Затем используйте стороннюю утилиту, такую как ffmpeg, для сборки этих кадров в видео.
 
-## **Преобразование презентации PowerPoint в видео**
+## **Конвертировать презентацию PowerPoint в видео**
 
-1. Используйте команду pip install, чтобы добавить Aspose.Slides for Python в ваш проект: `pip install aspose-slides==24.4.0`
-2. Скачайте ffmpeg с [здесь](https://ffmpeg.org/download.html) или установите его через менеджер пакетов.
-3. Убедитесь, что ffmpeg находится в переменной `PATH`. В противном случае запускайте ffmpeg, указав полный путь к исполняемому файлу (например, `C:\ffmpeg\ffmpeg.exe` в Windows или `/opt/ffmpeg/ffmpeg` в Linux).
-4. Запустите код преобразования PowerPoint в видео.
+1. Добавьте Aspose.Slides for Python в проект с помощью команды pip install: `pip install aspose-slides==24.4.0`
+2. Скачайте ffmpeg [здесь](https://ffmpeg.org/download.html) или установите его через менеджер пакетов.
+3. Убедитесь, что ffmpeg находится в `PATH`. В противном случае запускайте ffmpeg, указав полный путь к бинарному файлу (например, `C:\ffmpeg\ffmpeg.exe` в Windows или `/opt/ffmpeg/ffmpeg` в Linux).
+4. Запустите код конвертации PowerPoint в видео.
 
-Этот код на Python демонстрирует, как преобразовать презентацию (содержащую фигуру и два эффекта анимации) в видео:
+Этот Python‑код демонстрирует, как преобразовать презентацию (с фигурой и двумя эффектами анимации) в видео:
 ```python
 import aspose.slides as slides
 import subprocess
@@ -100,22 +98,20 @@ with slides.Presentation() as presentation:
 
 ## **Эффекты видео**
 
-При преобразовании презентации PowerPoint в видео с помощью Aspose.Slides for Python вы можете применять различные видеoeффекты для улучшения визуального качества результата. Эти эффекты позволяют контролировать отображение слайдов в конечном видео, добавляя плавные переходы, анимацию и другие визуальные элементы. В этом разделе описаны доступные варианты видеoeффектов и показано, как их применять.
+При конвертации презентации PowerPoint в видео с помощью Aspose.Slides for Python вы можете применять различные видеоеффекты, повышающие визуальное качество результата. Эти эффекты позволяют управлять внешним видом слайдов в финальном видео, добавляя плавные переходы, анимацию и другие визуальные элементы. В этом разделе описаны доступные варианты видеоеффектов и показано, как их применять.
 
 {{% alert color="primary" %}} 
-
-Смотрите [PowerPoint Animation](https://docs.aspose.com/slides/python-net/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/python-net/shape-animation/), и [Shape Effect](https://docs.aspose.com/slides/python-net/shape-effect/).
-
+Смотрите [Анимацию PowerPoint](https://docs.aspose.com/slides/python-net/powerpoint-animation/), [Анимацию фигур](https://docs.aspose.com/slides/python-net/shape-animation/) и [Эффекты фигур](https://docs.aspose.com/slides/python-net/shape-effect/).
 {{% /alert %}} 
 
-Анимации и переходы делают слайдшоу более увлекательными и интересными — и то же самое происходит с видео. Добавим еще один слайд и переход в коде для предыдущей презентации:
+Анимации и переходы делают слайд‑шоу более захватывающим и интересным — и то же самое происходит с видео. Добавим еще один слайд и переход в код предыдущей презентации:
 ```python
 import aspose.pydrawing as drawing
 
-# Добавьте форму улыбки и анимируйте её.
+# Добавить форму смайла и анимировать её.
 # ...
 
-# Добавьте новый слайд и анимированный переход.
+# Добавить новый слайд и анимированный переход.
 new_slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
 new_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 new_slide.background.fill_format.fill_type = slides.FillType.SOLID
@@ -124,7 +120,7 @@ new_slide.slide_show_transition.type = slides.TransitionType.PUSH
 ```
 
 
-Aspose.Slides for Python также поддерживает текстовые анимации. В этом примере мы анимируем абзацы на объектах так, чтобы они появлялись последовательно с односекундной задержкой между ними:
+Aspose.Slides for Python также поддерживает анимацию текста. В этом примере мы анимируем абзацы объектов так, чтобы они появлялись последовательно с односекундной задержкой между ними:
 ```python
 import aspose.slides as slides
 import subprocess
@@ -132,7 +128,7 @@ import subprocess
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Добавьте текст и анимацию.
+    # Добавить текст и анимации.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 210, 120, 300, 300)
     para1 = slides.Paragraph()
     para1.portions.add(slides.Portion("Aspose.Slides for Python"))
@@ -175,7 +171,7 @@ with slides.Presentation() as presentation:
     effect3.timing.trigger_delay_time = 1
     effect4.timing.trigger_delay_time = 1
 
-    # Преобразуйте кадры в видео.
+    # Преобразовать кадры в видео.
     fps = 33
     with slides.export.PresentationEnumerableFramesGenerator(presentation, fps) as frames_stream:
         for frame_args in frames_stream.enumerate_frames(presentation.slides):
@@ -187,13 +183,13 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Классы преобразования видео**
+## **Классы конвертации видео**
 
-Для выполнения задач преобразования PowerPoint в видео Aspose.Slides for Python предоставляет [PresentationEnumerableAnimationsGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableanimationsgenerator/).
+Для выполнения задач конвертации PowerPoint в видео Aspose.Slides for Python предоставляет [PresentationEnumerableFramesGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableframesgenerator/).
 
-`PresentationEnumerableAnimationsGenerator` позволяет задать размер кадра для будущего видео и значение FPS (кадров в секунду) через его конструктор. Если передать экземпляр презентации, будет использовано её `Presentation.SlideSize`.
+`PresentationEnumerableFramesGenerator` позволяет задать размер кадра для будущего видео и значение FPS (кадров в секунду) через конструктор. Если передать экземпляр презентации, будет использовано её `Presentation.SlideSize`.
 
-Чтобы все анимации в презентации воспроизводились одновременно, используйте метод `PresentationEnumerableAnimationsGenerator.enumerate_frames`. Этот метод принимает коллекцию слайдов и последовательно возвращает [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Затем используйте `EnumerableFrameArgs.get_frame()` для получения каждого кадра видео.
+Чтобы все анимации в презентации воспроизводились одновременно, используйте метод `PresentationEnumerableFramesGenerator.enumerate_frames`. Этот метод принимает коллекцию слайдов и последовательно возвращает [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Затем вызывайте `EnumerableFrameArgs.get_frame()` для получения каждого видеокадра.
 ```python
 import aspose.slides as slides
 
@@ -205,153 +201,153 @@ with slides.Presentation("animated.pptx") as presentation:
 ```
 
 
-Затем полученные кадры могут быть объединены в видео. Подробности см. в разделе [Convert PowerPoint to Video](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Сгенерированные кадры затем можно собрать в видео. Подробнее см. раздел [Конвертировать PowerPoint в Видео](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Поддерживаемые анимации и эффекты**
 
-При преобразовании презентации PowerPoint в видео с помощью Aspose.Slides for Python важно понимать, какие анимации и эффекты поддерживаются в выходном файле. Aspose.Slides поддерживает широкий спектр обычных входных, выходных и акцентных эффектов, таких как затухание, вылет, масштабирование и вращение. Однако некоторые сложные или пользовательские анимации могут не полностью сохраняться или отображаться иначе в финальном видео. Этот раздел описывает поддерживаемые анимации и эффекты.
+При конвертации презентации PowerPoint в видео с помощью Aspose.Slides for Python важно знать, какие анимации и эффекты сохраняются в выходном файле. Aspose.Slides поддерживает широкий набор стандартных эффектов появления, исчезновения и акцента, таких как затухание, вылет, увеличение и вращение. Однако некоторые сложные или пользовательские анимации могут быть частично потеряны или выглядеть иначе в конечном видео. Ниже перечислены поддерживаемые анимации и эффекты.
 
-**Входные**:
-
-| Тип анимации | Aspose.Slides | PowerPoint |
-|---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
-
-**Акцентные**:
+**Появление**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Appear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Fly In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Float In** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Wheel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Grow & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
 
-**Выходные**:
-
-| Тип анимации | Aspose.Slides | PowerPoint |
-|---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
-
-**Пути движения**:
+**Акцент**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Color Pulse** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Teeter** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Spin** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Grow/Shrink** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Desaturate** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Darken** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Lighten** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Transparency** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Object Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Complementary Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Line Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fill Color** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+
+**Исчезновение**:
+
+| Тип анимации | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Disappear** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Fly Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Float Out** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Shape** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Shrink & Turn** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Swivel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Bounce** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+
+**Траектории движения**:
+
+| Тип анимации | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Lines** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Arcs** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Turns** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Shapes** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Loops** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Custom Path** | ![поддерживается](v.png) | ![поддерживается](v.png) |
 
 ## **Поддерживаемые эффекты переходов слайдов**
 
-Эффекты переходов слайдов играют важную роль в создании плавных и визуально привлекательных смен между слайдами в видео. Aspose.Slides for Python поддерживает разнообразные часто используемые эффекты переходов, помогая сохранить поток и стиль оригинальной презентации. Ниже перечислены поддерживаемые эффекты переходов.
+Эффекты переходов между слайдами играют важную роль в создании плавных и визуально привлекательных смен в видео. Aspose.Slides for Python поддерживает множество распространенных эффектов переходов, помогая сохранить поток и стиль оригинальной презентации. Ниже перечислены поддерживаемые эффекты переходов.
 
 **Тонкие**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Morph** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Push** | ![supported](v.png) | ![supported](v.png) |
-| **Pull** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![not supported](x.png) | ![supported](v.png) |
-| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
-| **Cover** | ![supported](v.png) | ![supported](v.png) |
-| **Flash** | ![supported](v.png) | ![supported](v.png) |
-| **Strips** | ![supported](v.png) | ![supported](v.png) |
+| **Morph** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fade** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Push** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Pull** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Wipe** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Split** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Reveal** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Random Bars** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Shape** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Uncover** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Cover** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Flash** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Strips** | ![поддерживается](v.png) | ![поддерживается](v.png) |
 
 **Энергичные**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
-| **Drape** | ![not supported](x.png) | ![supported](v.png) |
-| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
-| **Wind** | ![not supported](x.png) | ![supported](v.png) |
-| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
-| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
-| **Crush** | ![not supported](x.png) | ![supported](v.png) |
-| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
-| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
-| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
-| **Origami** | ![not supported](x.png) | ![supported](v.png) |
-| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
-| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
-| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
-| **Clock** | ![supported](v.png) | ![supported](v.png) |
-| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
-| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
-| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
-| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
-| **Shred** | ![not supported](x.png) | ![supported](v.png) |
-| **Switch** | ![not supported](x.png) | ![supported](v.png) |
-| **Flip** | ![not supported](x.png) | ![supported](v.png) |
-| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
-| **Cube** | ![not supported](x.png) | ![supported](v.png) |
-| **Doors** | ![not supported](x.png) | ![supported](v.png) |
-| **Box** | ![not supported](x.png) | ![supported](v.png) |
-| **Comb** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Random** | ![not supported](x.png) | ![supported](v.png) |
+| **Fall Over** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Drape** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Curtains** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Wind** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Prestige** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fracture** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Crush** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Peel Off** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Page Curl** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Airplane** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Origami** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Dissolve** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Checkerboard** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Blinds** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Clock** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Ripple** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Honeycomb** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Glitter** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Vortex** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Shred** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Switch** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Flip** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Gallery** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Cube** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Doors** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Box** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Comb** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Zoom** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Random** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
 
 **Динамический контент**:
 
 | Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pan** | ![not supported](x.png) | ![supported](v.png) |
-| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
-| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
-| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
-| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
+| **Pan** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Ferris Wheel** | ![поддерживается](v.png) | ![поддерживается](v.png) |
+| **Conveyor** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Rotate** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Orbit** | ![не поддерживается](x.png) | ![поддерживается](v.png) |
+| **Fly Through** | ![поддерживается](v.png) | ![поддерживается](v.png) |
 
-## **Часто задаваемые вопросы**
+## **Вопросы и ответы**
 
 **Можно ли конвертировать презентации, защищённые паролем?**
 
-Да, Aspose.Slides for Python позволяет работать с презентациями, защищёнными паролем. При обработке таких файлов необходимо указать правильный пароль, чтобы библиотека смогла получить доступ к содержимому презентации.
+Да, Aspose.Slides for Python поддерживает работу с презентациями, защищёнными паролем. При обработке таких файлов необходимо указать правильный пароль, чтобы библиотека могла получить доступ к содержимому презентации.
 
 **Поддерживает ли Aspose.Slides for Python использование в облачных решениях?**
 
-Да, Aspose.Slides for Python может быть интегрирован в облачные приложения и сервисы. Библиотека спроектирована для работы в серверных средах, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
+Да, Aspose.Slides for Python можно интегрировать в облачные приложения и сервисы. Библиотека разработана для работы в серверных средах, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
 
-**Есть ли ограничения по размеру презентаций при конвертации?**
+**Существуют ли ограничения по размеру презентаций при конвертации?**
 
-Aspose.Slides for Python способен обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.
+Aspose.Slides for Python способна обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.
