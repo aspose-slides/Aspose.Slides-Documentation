@@ -1,5 +1,5 @@
 ---
-title: Получить названия всех слайдов
+title: Получить заголовки всех слайдов
 type: docs
 weight: 120
 url: /ru/net/get-the-titles-of-all-the-slides/
@@ -10,7 +10,7 @@ url: /ru/net/get-the-titles-of-all-the-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получить названия всех слайдов.pptx";
+string FileName = FilePath + "Get the titles of all the slides.pptx";
 
 foreach (string s in GetSlideTitles(FileName))
 
@@ -18,7 +18,7 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Получить список названий всех слайдов в презентации.
+// Получить список заголовков всех слайдов в презентации.
 
 public static IList<string> GetSlideTitles(string presentationFile)
 
@@ -38,7 +38,7 @@ public static IList<string> GetSlideTitles(string presentationFile)
 
 }
 
-// Получить список названий всех слайдов в презентации.
+// Получить список заголовков всех слайдов в презентации.
 
 public static IList<string> GetSlideTitles(PresentationDocument presentationDocument)
 
@@ -72,7 +72,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
             List<string> titlesList = new List<string>();
 
-            // Получить название каждого слайда в порядке слайдов.
+            // Получить заголовок каждого слайда в порядке следования слайдов.
 
             foreach (var slideId in presentation.SlideIdList.Elements<SlideId>())
 
@@ -84,7 +84,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
                 string title = GetSlideTitle(slidePart);
 
-                // Пустое название также может быть добавлено.
+                // Пустой заголовок также может быть добавлен.
 
                 titlesList.Add(title);
 
@@ -114,7 +114,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     }
 
-    // Объявить разделитель абзаца.
+    // Объявить разделитель абзацев.
 
     string paragraphSeparator = null;
 
@@ -122,7 +122,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     {
 
-        // Найти все формы заголовков.
+        // Найти все формы заголовка.
 
         var shapes = from shape in slidePart.Slide.Descendants<Shape>()
 
@@ -136,13 +136,13 @@ public static string GetSlideTitle(SlidePart slidePart)
 
         {
 
-            // Получить текст в каждом абзаце этой формы.
+            // Получить текст каждого абзаца в этой форме.
 
             foreach (var paragraph in shape.TextBody.Descendants<D.Paragraph>())
 
             {
 
-                // Добавить перевод строки.
+                // Добавить разрыв строки.
 
                 paragraphText.Append(paragraphSeparator);
 
@@ -168,7 +168,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
 }
 
-// Определяет, является ли форма заголовком.
+// Определяет, является ли форма заголовочной.
 
 private static bool IsTitleShape(Shape shape)
 
@@ -212,11 +212,11 @@ private static bool IsTitleShape(Shape shape)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получить весь текст на слайде.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Количество слайдов = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -226,7 +226,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("Слайд #{0} содержит: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -252,13 +252,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Подсчитать слайды в презентации.
+// Подсчитать количество слайдов в презентации.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Проверка на наличие объекта документа.
+    // Проверка на null объект документа.
 
     if (presentationDocument == null)
 
@@ -333,8 +333,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 }
 
 ``` 
-## **Скачайте образец кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Скачать пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20the%20titles%20of%20all%20the%20slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides/)

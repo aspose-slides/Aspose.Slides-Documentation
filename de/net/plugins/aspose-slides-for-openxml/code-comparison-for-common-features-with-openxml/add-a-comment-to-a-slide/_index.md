@@ -247,9 +247,9 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-In **Aspose.Slides** für .NET ist die PPT‑Folienkommentar‑Sammlung in jeder **Slide**‑Klasse enthalten. Die Klasse **CommentCollection** wird verwendet, um die Kommentare einer Folie zu speichern. Die Klasse **Comment** enthält Informationen wie den Autor, der den Folienkommentar hinzugefügt hat, dessen Initialen, den Erstellungszeitpunkt, die Position des Folienkommentars auf der Folie und den Kommentartext. Die Klasse **CommentAuthor** wird verwendet, um die Autoren von Folienkommentaren auf Präsentationsebene hinzuzufügen. Die Klasse **Presentation** hält die Sammlung der Autoren für die Präsentation in der Klasse **CommentAuthors**.
+In **Aspose.Slides** für .NET ist die PPT‑Folienkommentarsammlung in jeder **Slide**‑Klasse enthalten. Die **CommentCollection**‑Klasse wird verwendet, um die jeweiligen Folienkommentare zu halten. Die **Comment**‑Klasse enthält Informationen wie den Autor, der den Folienkommentar hinzugefügt hat, seine Initialen, den Erstellungszeitpunkt, die Position des Folienkommentars auf der Folie und den Kommentartext. Die **CommentAuthor**‑Klasse wird verwendet, um die Autoren für Folienkommentare auf Präsentationsebene hinzuzufügen. Die **Presentation**‑Klasse hält die Sammlung von Autoren für die Präsentation in der **CommentAuthors**‑Klasse.
 
-Im folgenden Beispiel haben wir den Code‑Abschnitt zum Hinzufügen von Folienkommentaren eingefügt.
+Im folgenden Beispiel wurde der Code‑Abschnitt zum Hinzufügen von Folienkommentaren eingefügt.
 
 ``` csharp
 
@@ -288,5 +288,5 @@ using (Presentation pres = new Presentation())
 ``` 
 ## **Beispielcode herunterladen**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide/)

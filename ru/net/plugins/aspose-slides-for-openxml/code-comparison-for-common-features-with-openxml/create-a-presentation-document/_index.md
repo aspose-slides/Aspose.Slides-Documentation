@@ -7,10 +7,9 @@ url: /ru/net/create-a-presentation-document/
 
 ## **OpenXML SDK**
 ``` csharp
+ string FilePath = @"..\..\..\..\Sample Files\";
 
- string FilePath = @"..\..\..\..\Примеры файлов\";
-
-string FileName = FilePath + "Создать документ презентации.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -18,18 +17,14 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    // Создать презентацию по указанному пути. Тип документа презентации по умолчанию - pptx.
-
+    // Создать презентацию по указанному пути к файлу. Тип документа презентации по умолчанию – pptx.
     PresentationDocument presentationDoc = PresentationDocument.Create(filepath, PresentationDocumentType.Presentation);
-
     PresentationPart presentationPart = presentationDoc.AddPresentationPart();
-
     presentationPart.Presentation = new Presentation();
 
     CreatePresentationParts(presentationPart);
 
-    //Закрыть дескриптор презентации
-
+    // Закрыть дескриптор презентации
     presentationDoc.Close();
 
 }
@@ -101,11 +96,11 @@ private static SlidePart CreateSlidePart(PresentationPart presentationPart)
 
                         new P.NonVisualShapeProperties(
 
-                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Заголовок 1" },
+                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title 1" },
 
                             new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
                         new P.ShapeProperties(),
 
@@ -151,7 +146,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
       new P.ShapeProperties(),
 
@@ -161,7 +156,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new ListStyle(),
 
-        new Paragraph(new EndParagraphRunProperties()))))), 
+        new Paragraph(new EndParagraphRunProperties()))))),
 
     new ColorMapOverride(new MasterColorMapping()));
 
@@ -195,11 +190,11 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
       new P.NonVisualShapeProperties(
 
-        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Заполнитель заголовка 1" },
+        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title Placeholder 1" },
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })),
 
       new P.ShapeProperties(),
 
@@ -209,7 +204,7 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
         new ListStyle(),
 
-        new Paragraph())))), 
+        new Paragraph())))),
 
     new P.ColorMap() { Background1 = D.ColorSchemeIndexValues.Light1, Text1 = D.ColorSchemeIndexValues.Dark1, Background2 = D.ColorSchemeIndexValues.Light2, Text2 = D.ColorSchemeIndexValues.Dark2, Accent1 = D.ColorSchemeIndexValues.Accent1, Accent2 = D.ColorSchemeIndexValues.Accent2, Accent3 = D.ColorSchemeIndexValues.Accent3, Accent4 = D.ColorSchemeIndexValues.Accent4, Accent5 = D.ColorSchemeIndexValues.Accent5, Accent6 = D.ColorSchemeIndexValues.Accent6, Hyperlink = D.ColorSchemeIndexValues.Hyperlink, FollowedHyperlink = D.ColorSchemeIndexValues.FollowedHyperlink },
 
@@ -229,7 +224,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
     ThemePart themePart1 = slideMasterPart1.AddNewPart<ThemePart>("rId5");
 
-    D.Theme theme1 = new D.Theme() { Name = "Офисная тема" };
+    D.Theme theme1 = new D.Theme() { Name = "Office Theme" };
 
     D.ThemeElements themeElements1 = new D.ThemeElements(
 
@@ -257,7 +252,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.Hyperlink(new D.RgbColorModelHex() { Val = "0000FF" }),
 
-      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "Офис" },
+      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "Office" },
 
       new D.FontScheme(
 
@@ -275,7 +270,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.EastAsianFont() { Typeface = "" },
 
-      new D.ComplexScriptFont() { Typeface = "" })) { Name = "Офис" },
+      new D.ComplexScriptFont() { Typeface = "" })) { Name = "Office" },
 
       new D.FormatScheme(
 
@@ -357,7 +352,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           Alignment = D.PenAlignmentValues.Center
 
-      ),
+      },
 
       new D.Outline(
 
@@ -393,7 +388,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -403,7 +398,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -413,7 +408,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))),
 
       new D.BackgroundFillStyleList(
 
@@ -459,7 +454,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
             new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }),
 
-        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "Офис" });
+        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "Office" });
 
     theme1.Append(themeElements1);
 
@@ -476,10 +471,9 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+ string FilePath = @"..\..\..\..\Sample Files\";
 
- string FilePath = @"..\..\..\..\Примеры файлов\";
-
-string FileName = FilePath + "Создать документ презентации.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -487,31 +481,22 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    //Создать объект Presentation, представляющий файл PPT
-
+    // Создать объект Presentation, представляющий PPT‑файл
     using (Presentation pres = new Presentation())
-
     {
-
-        //Создать объект SlideExCollection
-
+        // Создать коллекцию ISlideCollection
         ISlideCollection slds = pres.Slides;
 
-        //Добавить пустой слайд в коллекцию SlidesEx
-
+        // Добавить пустой слайд в коллекцию SlidesEx
         slds.AddEmptySlide(pres.LayoutSlides[0]);
 
-        //Сохранить вашу презентацию в файл
-
+        // Сохранить презентацию в файл
         pres.Save(filepath,Aspose.Slides.Export.SaveFormat.Pptx);
-
     }
 
 }
-
 ``` 
-## **Скачать образец кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Скачать пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Создать%20документ%20презентации%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Создать%20документ%20презентации%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document/)

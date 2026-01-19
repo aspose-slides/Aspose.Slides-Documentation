@@ -1,17 +1,18 @@
 ---
-title: إضافة نص ديناميكي
+title: إضافة نص ديناميكياً
 type: docs
 weight: 40
 url: /ar/net/adding-text-dynamically/
 ---
 
-تتبع كلا الطريقتين هذه الخطوات:
+كلا الطريقتين تتبعان الخطوات التالية:
 
 - إنشاء عرض تقديمي.
 - إضافة شريحة فارغة.
-- إضافة مربع نص.
+- إضافة صندوق نص.
 - تعيين بعض النص.
 - كتابة العرض التقديمي.
+
 ## **VSTO**
 ``` csharp
 
@@ -19,33 +20,33 @@ url: /ar/net/adding-text-dynamically/
 
 {
 
-	//إنشاء عرض تقديمي
+	//Create a presentation
 
 	PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 		.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-	//الحصول على تخطيط الشريحة الفارغة
+	//Get the blank slide layout
 
 	PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 		CustomLayouts[7];
 
-	//إضافة شريحة فارغة
+	//Add a blank slide
 
 	PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-	//إضافة نص
+	//Add a text
 
 	PowerPoint.Shape shp =sld.Shapes.AddTextbox
 
 	(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal,150, 100, 400, 100);
 
-	//تعيين نص
+	//Set a text
 
 	PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
-	txtRange.Text = "تم إضافة النص ديناميكيًا";
+	txtRange.Text = "Text added dynamically";
 
 	txtRange.Font.Name = "Arial";
 
@@ -53,7 +54,7 @@ url: /ar/net/adding-text-dynamically/
 
 	txtRange.Font.Size = 32;
 
-	//كتابة الناتج إلى القرص
+	//Write the output to disk
 
 	pres.SaveAs("outVSTOAddingText.ppt",
 
@@ -71,43 +72,43 @@ url: /ar/net/adding-text-dynamically/
 
 {
 
-	//إنشاء عرض تقديمي
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//يتم إضافة شريحة فارغة افتراضيًا عند إنشاء
+	//Blank slide is added by default, when you create
 
-	//عرض تقديمي من الباني الافتراضي
+	//presentation from default constructor
 
-	//لذا، لا نحتاج إلى إضافة أي شريحة فارغة
+	//So, we don't need to add any blank slide
 
 	Slide sld = pres.GetSlideByPosition(1);
 
-	//الحصول على فهرس الخط لـ Arial
+	//Get the font index for Arial
 
-	//دائمًا يكون 0 إذا أنشأت عرضًا تقديميًا من
+	//It is always 0 if you create presentation from
 
-	//الباني الافتراضي
+	//default constructor
 
 	int arialFontIndex = 0;
 
-	//إضافة مربع نص
+	//Add a textbox
 
-	//لإضافته، سنقوم أولاً بإضافة مستطيل
+	//To add it, we will first add a rectangle
 
 	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
 
-	//إخفاء حدوده
+	//Hide its line
 
 	shp.LineFormat.ShowLines = false;
 
-	//ثم إضافة إطار نص داخله
+	//Then add a textframe inside it
 
 	TextFrame tf = shp.AddTextFrame("");
 
-	//تعيين نص
+	//Set a text
 
-	tf.Text = "تم إضافة النص ديناميكيًا";
+	tf.Text = "Text added dynamically";
 
 	Portion port = tf.Paragraphs[0].Portions[0];
 
@@ -117,15 +118,14 @@ url: /ar/net/adding-text-dynamically/
 
 	port.FontHeight = 32;
 
-	//كتابة الناتج إلى القرص
+	//Write the output to disk
 
 	pres.Write("outAspose.ppt");
 
 }
 
 ``` 
-## **تنزيل الكود التجريبي**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20using%20VSTO%20and%20Aspose.Slides/)

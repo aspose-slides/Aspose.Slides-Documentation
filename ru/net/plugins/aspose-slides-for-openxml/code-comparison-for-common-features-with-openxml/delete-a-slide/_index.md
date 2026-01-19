@@ -10,23 +10,23 @@ url: /ru/net/delete-a-slide/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Удалить слайд.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
-// Получите объект презентации и передайте его следующему методу DeleteSlide.
+// Get the presentation object and pass it to the next DeleteSlide method.
 
 public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    // Откройте исходный документ для чтения/записи.
+    // Open the source document as read/write.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, true))
 
     {
 
-        // Передайте исходный документ и индекс слайда, который следует удалить, следующему методу DeleteSlide.
+        // Pass the source document and the index of the slide to be deleted to the next DeleteSlide method.
 
         DeleteSlide(presentationDocument, slideIndex);
 
@@ -34,7 +34,7 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 }
 
-// Удалите указанный слайд из презентации.
+// Delete the specified slide from the presentation.
 
 public static void DeleteSlide(PresentationDocument presentationDocument, int slideIndex)
 
@@ -48,7 +48,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Используйте пример CountSlides, чтобы получить количество слайдов в презентации.
+    // Use the CountSlides sample to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
@@ -60,39 +60,39 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Получите часть презентации из документа презентации. 
+    // Get the presentation part from the presentation document. 
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получите презентацию из части презентации.
+    // Get the presentation from the presentation part.
 
     Presentation presentation = presentationPart.Presentation;
 
-    // Получите список идентификаторов слайдов в презентации.
+    // Get the list of slide IDs in the presentation.
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // Получите идентификатор слайда указанного слайда
+    // Get the slide ID of the specified slide
 
     SlideId slideId = slideIdList.ChildElements[slideIndex] as SlideId;
 
-    // Получите идентификатор отношения слайда.
+    // Get the relationship ID of the slide.
 
     string slideRelId = slideId.RelationshipId;
 
-    // Удалите слайд из списка слайдов.
+    // Remove the slide from the slide list.
 
     slideIdList.RemoveChild(slideId);
 
     //
 
-    // Удалите ссылки на слайд из всех пользовательских показов.
+    // Remove references to the slide from all custom shows.
 
     if (presentation.CustomShowList != null)
 
     {
 
-        // Перебор списка пользовательских показов.
+        // Iterate through the list of custom shows.
 
         foreach (var customShow in presentation.CustomShowList.Elements<CustomShow>())
 
@@ -102,7 +102,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
             {
 
-                // Объявите связный список записей списка слайдов.
+                // Declare a link list of slide list entries.
 
                 LinkedList<SlideListEntry> slideListEntries = new LinkedList<SlideListEntry>();
 
@@ -110,7 +110,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 {
 
-                    // Найдите ссылку на слайд, которую нужно удалить из пользовательского показа.
+                    // Find the slide reference to remove from the custom show.
 
                     if (slideListEntry.Id != null && slideListEntry.Id == slideRelId)
 
@@ -122,7 +122,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 }
 
-                // Удалите все ссылки на слайд из пользовательского показа.
+                // Remove all references to the slide from the custom show.
 
                 foreach (SlideListEntry slideListEntry in slideListEntries)
 
@@ -138,35 +138,35 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Сохраните измененную презентацию.
+    // Save the modified presentation.
 
     presentation.Save();
 
-    // Получите часть слайда для указанного слайда.
+    // Get the slide part for the specified slide.
 
     SlidePart slidePart = presentationPart.GetPartById(slideRelId) as SlidePart;
 
-    // Удалите часть слайда.
+    // Remove the slide part.
 
     presentationPart.DeletePart(slidePart);
 
 }
 
-// Получите объект презентации и передайте его следующему методу CountSlides.
+// Get the presentation object and pass it to the next CountSlides method.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Откройте презентацию только для чтения.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Передайте презентацию следующему методу CountSlide
+        // Pass the presentation to the next CountSlide method
 
-        // и верните количество слайдов.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -174,13 +174,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Подсчитайте количество слайдов в презентации.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Проверьте объект документа на null.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -192,11 +192,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Получите часть презентации документа.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получите количество слайдов из SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -206,7 +206,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Верните количество слайдов в предыдущий метод.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -218,7 +218,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Удалить слайд.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
@@ -226,23 +226,23 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    //Создайте объект PresentationEx, представляющий файл PPTX
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        //Доступ к слайду по его индексу в коллекции слайдов
+        //Accessing a slide using its index in the slides collection
 
         ISlide slide = pres.Slides[slideIndex];
 
 
-        //Удаление слайда по его ссылке
+        //Removing a slide using its reference
 
         pres.Slides.Remove(slide);
 
 
-        //Запись презентации как файла PPTX
+        //Writing the presentation as a PPTX file
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -252,7 +252,6 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 ``` 
 ## **Скачать пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Удалить%20слайд%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Удалить%20слайд%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide/)

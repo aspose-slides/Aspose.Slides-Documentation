@@ -1,92 +1,91 @@
----  
-title: VSTOとAspose.Slidesでアニメーション付きの画像フレームを追加する  
-type: docs  
-weight: 20  
-url: /ja/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/  
----  
+---
+title: VSTO および Aspose.Slides でアニメーション付き画像フレームの追加
+type: docs
+weight: 20
+url: /ja/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+---
 
-以下のコードサンプルは、スライドを持つプレゼンテーションを作成し、画像を画像フレームとともに追加し、それにアニメーションを適用します。  
-## **VSTO**  
-VSTOを使用して、次の手順を実行します：  
+以下のコードサンプルは、スライドを含むプレゼンテーションを作成し、画像をピクチャーフレームで追加し、アニメーションを適用します。
+## **VSTO**
+VSTO を使用して、次の手順を実行します。
 
 1. プレゼンテーションを作成します。  
-1. 空のスライドを追加します。  
-1. スライドに画像シェイプを追加します。  
-1. 画像にアニメーションを適用します。  
-1. プレゼンテーションをディスクに書き込みます。  
+2. 空のスライドを追加します。  
+3. スライドに画像シェイプを追加します。  
+4. 画像にアニメーションを適用します。  
+5. プレゼンテーションをディスクに保存します。
 
 ``` csharp
 
- //空のプレゼンテーションを作成  
+ //Creating empty presentation
 
-PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);  
+PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//空のスライドを追加  
+//Add a blank slide
 
-PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);  
+PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//画像フレームを追加  
+//Add Picture Frame
 
-PowerPoint.Shape PicFrame = sld.Shapes.AddPicture("pic.jpeg",  
+PowerPoint.Shape PicFrame = sld.Shapes.AddPicture("pic.jpeg",
 
-Microsoft.Office.Core.MsoTriState.msoTriStateMixed,  
+Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 
-Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);  
+Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//画像フレームにアニメーションを適用  
+//Applying animation on picture frame
 
-PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;  
+PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
-//プレゼンテーションを保存  
+//Saving Presentation
 
-pres.SaveAs("VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,  
+pres.SaveAs("VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 
-Microsoft.Office.Core.MsoTriState.msoFalse);  
+Microsoft.Office.Core.MsoTriState.msoFalse);
 
-```  
-## **Aspose.Slides**  
-.NET用のAspose.Slidesを使用して、次の手順を実行します：  
+``` 
+## **Aspose.Slides**
+Aspose.Slides for .NET を使用して、次の手順を実行します。
 
 1. プレゼンテーションを作成します。  
-1. 最初のスライドにアクセスします。  
-1. 画像を画像コレクションに追加します。  
-1. スライドに画像シェイプを追加します。  
-1. 画像にアニメーションを適用します。  
-1. プレゼンテーションをディスクに書き込みます。  
+2. 最初のスライドにアクセスします。  
+3. 画像を画像コレクションに追加します。  
+4. スライドに画像シェイプを追加します。  
+5. 画像にアニメーションを適用します。  
+6. プレゼンテーションをディスクに保存します。
 
 ``` csharp
 
- //空のプレゼンテーションを作成  
+ //Creating empty presentation
 
-Presentation pres = new Presentation();  
+Presentation pres = new Presentation();
 
-//最初のスライドにアクセス  
+//Accessing the First slide
 
-Slide slide = pres.GetSlideByPosition(1);  
+Slide slide = pres.GetSlideByPosition(1);
 
-//プレゼンテーションの画像コレクションに画像オブジェクトを追加  
+//Adding the picture object to pictures collection of the presentation
 
-Picture pic = new Picture(pres, "pic.jpeg");  
+Picture pic = new Picture(pres, "pic.jpeg");
 
-//画像オブジェクトが追加されると、画像にユニークな画像IDが付与されます  
+//After the picture object is added, the picture is given a uniqe picture Id
 
-int picId = pres.Pictures.Add(pic);  
+int picId = pres.Pictures.Add(pic);
 
-//画像フレームを追加  
+//Adding Picture Frame
 
-Shape PicFrame = slide.Shapes.AddPictureFrame(picId, 1450, 1100, 2500, 2200);  
+Shape PicFrame = slide.Shapes.AddPictureFrame(picId, 1450, 1100, 2500, 2200);
 
-//画像フレームにアニメーションを適用  
+//Applying animation on picture frame
 
-PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;  
+PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
 
-//プレゼンテーションを保存  
+//Saving Presentation
 
-pres.Write("AsposeAnim.ppt");  
+pres.Write("AsposeAnim.ppt");
 
-```  
-## **サンプルコードのダウンロード**  
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772946)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Picture.Frame.with.Animation.Aspose.Slides.zip)  
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Picture%20Frame%20with%20Animation%20\(Aspose.Slides\).zip/download)  
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Picture%20Frame%20with%20Animation%20\(Aspose.Slides\).zip)  
+``` 
+## **Download Sample Code**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Picture.Frame.with.Animation.Aspose.Slides.zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Picture%20Frame%20with%20Animation%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Picture%20Frame%20with%20Animation/)

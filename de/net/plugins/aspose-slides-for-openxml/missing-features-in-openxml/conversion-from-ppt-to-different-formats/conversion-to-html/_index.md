@@ -5,7 +5,7 @@ weight: 20
 url: /de/net/conversion-to-html/
 ---
 
-**HTML** ist eines von mehreren weitverbreiteten Formaten zum Austausch von Daten. **Aspose.Slides für .NET** bietet Unterstützung für die Konvertierung einer Präsentation in HTML. Unten finden Sie einen Codeausschnitt, der zeigt, wie es geht.
+**HTML** ist eines der mehreren weit verbreiteten Formate zum Austausch von Daten. **Aspose.Slides for .NET** bietet Unterstützung für die Konvertierung einer Präsentation in HTML. Unten ist ein Code‑Snippet, das zeigt, wie es funktioniert.
 
 ``` csharp
 
@@ -15,7 +15,7 @@ string srcFileName = FilePath + "Conversion.pptx";
 
 string destFileName = FilePath + "Converting to HTML.html";
 
-//Instantiieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation(srcFileName);
 
@@ -23,13 +23,11 @@ HtmlOptions htmlOpt = new HtmlOptions();
 
 htmlOpt.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter("", false);
 
-//Speichern der Präsentation als HTML
+//Saving the presentation to HTML
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 ``` 
-## **Download Beispielcode**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+## **Beispielcode herunterladen**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20HTML%20%28Aspose.Slides%29.zip)

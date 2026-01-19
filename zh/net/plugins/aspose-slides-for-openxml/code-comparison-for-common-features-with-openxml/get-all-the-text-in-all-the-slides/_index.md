@@ -1,5 +1,5 @@
 ---
-title: 获取所有幻灯片中的所有文本
+title: 获取所有幻灯片中的全部文本
 type: docs
 weight: 100
 url: /zh/net/get-all-the-text-in-all-the-slides/
@@ -7,14 +7,13 @@ url: /zh/net/get-all-the-text-in-all-the-slides/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取幻灯片中的所有文本.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("幻灯片数量 = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -24,7 +23,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("幻灯片 #{0} 包含: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -34,15 +33,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // 以只读方式打开演示文稿。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // 将演示文稿传递到下一个 CountSlides 方法
+        // Pass the presentation to the next CountSlides method
 
-        // 并返回幻灯片数量。
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -50,13 +49,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// 计算演示文稿中的幻灯片。
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // 检查文档对象是否为 null。
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -68,11 +67,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // 获取文档的演示部分。
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 从 SlideParts 获取幻灯片数量。
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -82,7 +81,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // 返回幻灯片数量给上一个方法。
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -96,7 +95,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // 获取第一张幻灯片的关系 ID。
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -104,15 +103,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // 根据关系 ID 获取幻灯片部分。
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // 创建一个 StringBuilder 对象。
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // 获取幻灯片的内部文本：
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -129,18 +128,16 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
     }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取幻灯片中的所有文本.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("幻灯片数量 = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -150,7 +147,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 slideText = GetSlideText(FileName, i);
 
-System.Console.WriteLine("幻灯片 #{0} 包含: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -160,7 +157,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // 实例化 PresentationEx 类，该类代表 PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
@@ -178,17 +175,17 @@ public static string GetSlideText(string docName, int index)
 
     string sldText = "";
 
-    // 实例化 PresentationEx 类，该类代表 PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(docName))
 
     {
 
-        // 访问幻灯片
+        //Access the slide
 
         ISlide sld = pres.Slides[index];
 
-        // 遍历形状以寻找占位符
+        //Iterate through shapes to find the placeholder
 
         foreach (Shape shp in sld.Shapes)
 
@@ -196,7 +193,7 @@ public static string GetSlideText(string docName, int index)
 
             {
 
-                // 获取每个占位符的文本
+                //get the text of each placeholder
 
                 sldText += ((AutoShape)shp).TextFrame.Text;
 
@@ -207,10 +204,8 @@ public static string GetSlideText(string docName, int index)
     return sldText;
 
 }
-
 ``` 
 ## **下载示例代码**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides/)

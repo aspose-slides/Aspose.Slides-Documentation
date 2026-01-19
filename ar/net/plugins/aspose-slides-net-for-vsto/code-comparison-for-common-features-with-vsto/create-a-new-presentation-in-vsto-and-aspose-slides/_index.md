@@ -5,35 +5,37 @@ weight: 80
 url: /ar/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
-تتضمن الأمثلة التالية كودين يوضحان كيف يمكن استخدام VSTO و Aspose.Slides لـ .NET لتحقيق نفس الهدف.
+فيما يلي مثالان على الكود يوضحان كيف يمكن استخدام VSTO و Aspose.Slides لـ .NET لتحقيق نفس الهدف.
 ## **VSTO**
-```csharp
+``` csharp
+
  private void CreatePresentation()
 
 {
+
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//الحصول على تخطيط شريحة العنوان
+//Get the title slide layout
 
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//إضافة شريحة عنوان.
+//Add a title slide.
 
 PowerPoint.Slide slide=pres.Slides.AddSlide(1, layout);
 
-//تعيين نص العنوان
+//Set the title text
 
-slide.Shapes.Title.TextFrame.TextRange.Text = "عنوان الشريحة";
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//تعيين نص العنوان الفرعي
+//Set the sub title text
 
-slide.Shapes[2].TextFrame.TextRange.Text = "العنوان الفرعي للشريحة";
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//كتابة الإخراج إلى القرص
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -45,36 +47,36 @@ pres.SaveAs("outVSTO.ppt",
 
 ``` 
 ## **Aspose.Slides**
-```csharp
+``` csharp
+
  private static void CreatePresentation()
 
 {
 
-	//إنشاء عرض تقديمي
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//إضافة شريحة العنوان
+	//Add the title slide
 
 	Slide slide = pres.AddTitleSlide();
 
-	//تعيين نص العنوان
+	//Set the title text
 
-	((TextHolder)slide.Placeholders[0]).Text = "عنوان الشريحة";
+	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
 
-	//تعيين نص العنوان الفرعي
+	//Set the sub title text
 
-	((TextHolder)slide.Placeholders[1]).Text = "العنوان الفرعي للشريحة";
+	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
 
-	//كتابة الإخراج إلى القرص
+	//Write output to disk
 
 	pres.Write("outAsposeSlides.ppt");
 
 }
 
 ``` 
-## **تحميل رمز العينة**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip)
+## **تنزيل عينة الكود**
+- [جيتهاب](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
+- [سورسفورج](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20%28Aspose.Slides%29.zip/download)
+- [بيت باكت](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation/)

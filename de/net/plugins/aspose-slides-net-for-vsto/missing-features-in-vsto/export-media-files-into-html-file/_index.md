@@ -1,57 +1,53 @@
----  
-title: Medien Dateien in HTML-Datei exportieren  
-type: docs  
-weight: 80  
-url: /de/net/export-media-files-into-html-file/  
----  
+---
+title: Mediendateien in HTML-Datei exportieren
+type: docs
+weight: 80
+url: /de/net/export-media-files-into-html-file/
+---
 
-Um Medien Dateien in HTML zu exportieren, folgen Sie bitte den folgenden Schritten:  
+Um Mediendateien nach HTML zu exportieren, befolgen Sie bitte die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse  
-- Holen Sie sich eine Referenz auf die Folie  
-- Einstellen des Übergangseffekts  
-- Schreiben Sie die Präsentation als PPTX-Datei  
+- Erstellen Sie eine Instanz der Klasse Presentation
+- Holen Sie sich eine Referenz auf die Folie
+- Legen Sie den Übergangseffekt fest
+- Speichern Sie die Präsentation als PPTX-Datei
 
-Im folgenden Beispiel haben wir die Mediendateien in HTML exportiert.  
-## **Beispiel**  
-```  
+Im nachstehenden Beispiel haben wir die Mediendateien nach HTML exportiert.
+## **Beispiel**
+``` 
 
- //Laden einer Präsentation  
+ //Loading a presentation
 
-using (Presentation pres = new Presentation("example.pptx"))  
+using (Presentation pres = new Presentation("example.pptx"))
 
-{  
+{
 
-   const string path = "path";  
+   const string path = "path";
 
-   const string fileName = "video.html";  
+   const string fileName = "video.html";
 
-   const string baseUri = "http://www.example.com/";  
+   const string baseUri = "http://www.example.com/";
 
-   VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: path, fileName: fileName, baseUri: baseUri);  
+   VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: path, fileName: fileName, baseUri: baseUri);
 
-   //Einstellen der HTML-Optionen  
+   //Setting HTML options
 
-   HtmlOptions htmlOptions = new HtmlOptions(controller);  
+   HtmlOptions htmlOptions = new HtmlOptions(controller);
 
-   SVGOptions svgOptions = new SVGOptions(controller);  
+   SVGOptions svgOptions = new SVGOptions(controller);
 
-   htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);  
+   htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
 
-   htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);  
+   htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-   //Speichern der Datei  
+   //Saving the file
 
-   pres.Save(path + fileName, SaveFormat.Html, htmlOptions);  
+   pres.Save(path + fileName, SaveFormat.Html, htmlOptions);
 
-}  
+}
 
-```  
-## **Beispiel herunterladen**  
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Export media files into html/)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Export%20media%20files%20into%20html)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)  
-## **Beispielcode herunterladen**  
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)  
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)  
+``` 
+## **Laufendes Beispiel herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Export%20media%20files%20into%20html)
+## **Beispielcode herunterladen**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)

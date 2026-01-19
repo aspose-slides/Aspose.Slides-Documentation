@@ -1,5 +1,5 @@
 ---
-title: 著者によるすべてのコメントを削除する
+title: 著者によるコメントをすべて削除
 type: docs
 weight: 70
 url: /ja/net/delete-all-the-comments-by-an-author/
@@ -10,13 +10,13 @@ url: /ja/net/delete-all-the-comments-by-an-author/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "著者によるすべてのコメントを削除する.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "Zeeshan Shafqat";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// 指定された著者によるスライド内のすべてのコメントを削除します。
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -24,13 +24,13 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-    throw new ArgumentNullException("ファイル名または著者名がNULLです！");
+    throw new ArgumentNullException("File name or author name is NULL!");
 
 using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
 {
 
-    // 指定されたコメントの著者を取得します。
+    // Get the specifed comment author.
 
     IEnumerable<CommentAuthor> commentAuthors =
 
@@ -38,7 +38,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         .Where(e => e.Name.Value.Equals(author));
 
-    // 一致するすべての著者を反復処理します。
+    // Iterate through all the matching authors.
 
     foreach (CommentAuthor commentAuthor in commentAuthors)
 
@@ -46,7 +46,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         UInt32Value authorId = commentAuthor.Id;
 
-        // すべてのスライドを反復処理し、スライド部分を取得します。
+        // Iterate through all the slides and get the slide parts.
 
         foreach (SlidePart slide in doc.PresentationPart.SlideParts)
 
@@ -54,7 +54,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
             SlideCommentsPart slideCommentsPart = slide.SlideCommentsPart;
 
-            // コメントのリストを取得します。
+            // Get the list of comments.
 
             if (slideCommentsPart != null && slide.SlideCommentsPart.CommentList != null)
 
@@ -72,17 +72,17 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
                 {
 
-                    // 指定された著者によるすべてのコメントを削除します。
+                    // Delete all the comments by the specified author.
 
                     slideCommentsPart.CommentList.RemoveChild<Comment>(comm);
 
                 }
 
-                // コメントPartに既存のコメントがない場合。
+                // If the commentPart has no existing comment.
 
                 if (slideCommentsPart.CommentList.ChildElements.Count == 0)
 
-                    // この部分を削除します。
+                    // Delete this part.
 
                     slide.DeletePart(slideCommentsPart);
 
@@ -90,7 +90,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         }
 
-        // コメント著者をコメント著者部分から削除します。
+        // Delete the comment author from the comment authors part.
 
         doc.PresentationPart.CommentAuthorsPart.CommentAuthorList.RemoveChild<CommentAuthor>(commentAuthor);
 
@@ -106,13 +106,13 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "著者によるすべてのコメントを削除する.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "MZ";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// 指定された著者によるスライド内のすべてのコメントを削除します。
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -120,9 +120,9 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
     if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-        throw new ArgumentNullException("ファイル名または著者名がNULLです！");
+        throw new ArgumentNullException("File name or author name is NULL!");
 
-    //PPTXファイルを表すPresentationExオブジェクトをインスタンス化します。
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(fileName))
 
@@ -147,8 +147,7 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 }    
 
 ``` 
-## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **サンプルコードをダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Delete%20all%20the%20comments%20by%20an%20author%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author/)

@@ -1,22 +1,22 @@
 ---
-title: عرض الشريحة كصور مصغرة بصيغة JPEG وفقًا لقيم يحددها المستخدم
+title: عرض الشريحة كصورة مصغرة بصيغة JPEG باستخدام قيم محددة من المستخدم
 type: docs
 weight: 70
 url: /ar/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
-لتوليد الصورة المصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ .NET:
+لإنشاء مصغّر لأي شريحة مرغوبة باستخدام Aspose.Slides for .NET:
 
-1. إنشاء مثيل من فئة **Presentation**.
-1. الحصول على مرجع لأي شريحة مرغوبة باستخدام معرّفها أو فهرسها.
-1. الحصول على عوامل قياس X و Y بناءً على الأبعاد المحددة من قبل المستخدم.
-1. الحصول على صورة مصغرة للشريحة المرجعية على مقياس محدد.
-1. حفظ الصورة المصغرة بأي صيغة صورة مرغوبة.
+1. إنشاء كائن من الفئة **Presentation**.
+1. الحصول على مرجع أي شريحة مرغوبة باستخدام معرفها أو فهرستها.
+1. الحصول على عوامل مقياس X و Y بناءً على الأبعاد X و Y المحددة من قبل المستخدم.
+1. الحصول على صورة المصغّر للشريحة المرجعية بمقياس محدد.
+1. حفظ صورة المصغّر بأي تنسيق صورة مرغوب.
 
 ``` csharp
 string filePath = @"..\..\..\Sample Files\";
-string srcFileName = filePath + "صورة مصغرة محددة من قبل المستخدم.pptx";
-string destFileName = filePath + "صورة مصغرة محددة من قبل المستخدم.jpg";
+string srcFileName = filePath + "User Defined Thumbnail.pptx";
+string destFileName = filePath + "User Defined Thumbnail.jpg";
 
 //Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation(srcFileName))
@@ -40,8 +40,6 @@ using (Presentation pres = new Presentation(srcFileName))
     }
 }
 ``` 
-## **تحميل مثال الكود**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+## **تنزيل شفرة العينة**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/User%20Defined%20Thumbnail%20%28Aspose.Slides%29.zip)

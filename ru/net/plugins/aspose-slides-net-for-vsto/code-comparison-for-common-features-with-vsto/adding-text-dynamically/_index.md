@@ -5,13 +5,13 @@ weight: 40
 url: /ru/net/adding-text-dynamically/
 ---
 
-Оба метода следуют следующим шагам:
+Оба метода следуют этим шагам:
 
 - Создайте презентацию.
 - Добавьте пустой слайд.
 - Добавьте текстовое поле.
 - Установите некоторый текст.
-- Запишите презентацию.
+- Сохраните презентацию.
 ## **VSTO**
 ``` csharp
 
@@ -19,33 +19,33 @@ url: /ru/net/adding-text-dynamically/
 
 {
 
-	//Создайте презентацию
+	//Create a presentation
 
 	PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 		.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-	//Получите макет пустого слайда
+	//Get the blank slide layout
 
 	PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 		CustomLayouts[7];
 
-	//Добавьте пустой слайд
+	//Add a blank slide
 
 	PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-	//Добавьте текст
+	//Add a text
 
 	PowerPoint.Shape shp =sld.Shapes.AddTextbox
 
 	(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal,150, 100, 400, 100);
 
-	//Установите текст
+	//Set a text
 
 	PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
-	txtRange.Text = "Текст добавлен динамически";
+	txtRange.Text = "Text added dynamically";
 
 	txtRange.Font.Name = "Arial";
 
@@ -53,7 +53,7 @@ url: /ru/net/adding-text-dynamically/
 
 	txtRange.Font.Size = 32;
 
-	//Запишите результат на диск
+	//Write the output to disk
 
 	pres.SaveAs("outVSTOAddingText.ppt",
 
@@ -71,43 +71,43 @@ url: /ru/net/adding-text-dynamically/
 
 {
 
-	//Создайте презентацию
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//Пустой слайд добавляется по умолчанию, когда вы создаете
+	//Blank slide is added by default, when you create
 
-	//презентацию из конструктора по умолчанию
+	//presentation from default constructor
 
-	//Поэтому нам не нужно добавлять никакой пустой слайд
+	//So, we don't need to add any blank slide
 
 	Slide sld = pres.GetSlideByPosition(1);
 
-	//Получите индекс шрифта для Arial
+	//Get the font index for Arial
 
-	//Он всегда равен 0, если вы создаете презентацию из
+	//It is always 0 if you create presentation from
 
-	//конструктора по умолчанию
+	//default constructor
 
 	int arialFontIndex = 0;
 
-	//Добавьте текстовое поле
+	//Add a textbox
 
-	//Для этого мы сначала добавим прямоугольник
+	//To add it, we will first add a rectangle
 
 	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
 
-	//Скрыть его линию
+	//Hide its line
 
 	shp.LineFormat.ShowLines = false;
 
-	//Затем добавьте текстовый фрейм внутри него
+	//Then add a textframe inside it
 
 	TextFrame tf = shp.AddTextFrame("");
 
-	//Установите текст
+	//Set a text
 
-	tf.Text = "Текст добавлен динамически";
+	tf.Text = "Text added dynamically";
 
 	Portion port = tf.Paragraphs[0].Portions[0];
 
@@ -117,7 +117,7 @@ url: /ru/net/adding-text-dynamically/
 
 	port.FontHeight = 32;
 
-	//Запишите результат на диск
+	//Write the output to disk
 
 	pres.Write("outAspose.ppt");
 
@@ -125,7 +125,6 @@ url: /ru/net/adding-text-dynamically/
 
 ``` 
 ## **Скачать пример кода**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20using%20VSTO%20and%20Aspose.Slides/)

@@ -10,13 +10,13 @@ url: /ru/net/get-the-file-format-of-presentation/
 - Создайте экземпляр класса **IPresentationInfo**
 - Получите информацию о презентации
 
-В приведенном ниже примере мы получили формат файла.
+В приведённом ниже примере мы получаем формат файла.
 ## **Пример**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получение формата файла.pptx";
+string FileName = FilePath + "Getting the format of a file.pptx";
 
 IPresentationInfo info;
 
@@ -46,11 +46,7 @@ switch (info.LoadFormat)
 }
 
 ``` 
-## **Скачать образец кода**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+## **Скачать пример кода**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Скачать работающий пример**
-- [Codeplex](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

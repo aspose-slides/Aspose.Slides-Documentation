@@ -1,138 +1,139 @@
----  
-title: Создание таблицы на слайде PowerPoint в VSTO и Aspose.Slides  
-type: docs  
-weight: 90  
-url: /ru/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/  
----  
+---
+title: Создание таблицы на слайде PowerPoint в VSTO и Aspose.Slides
+type: docs
+weight: 90
+url: /ru/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+---
 
-Следующие шаги добавляют таблицу на слайд Microsoft PowerPoint с использованием VSTO:
+Следующие шаги добавляют таблицу в слайд Microsoft PowerPoint с использованием VSTO:
 
-- Создайте презентацию.
-- Добавьте пустой слайд в презентацию.
-- Добавьте таблицу 15 x 15 на слайд.
-- Добавьте текст в каждую ячейку таблицы размером шрифта 10.
-- Сохраните презентацию на диск.  
-## **VSTO**  
-``` csharp  
+- Создать презентацию.
+- Добавить пустой слайд к презентации.
+- Добавить таблицу 15 × 15 на слайд.
+- Добавить текст в каждую ячейку таблицы размером шрифта 10.
+- Сохранить презентацию на диск.
 
-//Создать презентацию  
+## **VSTO**
+``` csharp
 
-PowerPoint.Presentation pres = Globals.ThisAddIn.Application  
+ //Создать презентацию
 
-			  .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);  
+PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
-//Добавить пустой слайд  
+			  .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);  
+//Добавить пустой слайд
 
-//Добавить таблицу 15 x 15  
+PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);  
+//Добавить таблицу 15 × 15
 
-PowerPoint.Table tbl = shp.Table;  
+PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 
-int i = -1;  
+PowerPoint.Table tbl = shp.Table;
 
-int j = -1;  
+int i = -1;
 
-//Цикл по всем строкам  
+int j = -1;
 
-foreach (PowerPoint.Row row in tbl.Rows)  
+//Перебор всех строк
 
-{  
+foreach (PowerPoint.Row row in tbl.Rows)
 
-	i = i + 1;  
+{
 
-	j = -1;  
+	i = i + 1;
 
-	//Цикл по всем ячейкам в строке  
+	j = -1;
 
-	foreach (PowerPoint.Cell cell in row.Cells)  
+	//Перебор всех ячеек в строке
 
-	{  
+	foreach (PowerPoint.Cell cell in row.Cells)
 
-		j = j + 1;  
+	{
 
-		//Получить текстовое поле каждой ячейки  
+		j = j + 1;
 
-		PowerPoint.TextFrame tf = cell.Shape.TextFrame;  
+		//Получить текстовый кадр каждой ячейки
 
-		//Добавить текст  
+		PowerPoint.TextFrame tf = cell.Shape.TextFrame;
 
-		tf.TextRange.Text = "T" + i.ToString() + j.ToString();  
+		//Добавить текст
 
-		//Установить размер шрифта текста равным 10  
+		tf.TextRange.Text = "T" + i.ToString() + j.ToString();
 
-		tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;  
+		//Установить размер шрифта текста равным 10
 
-	}  
+		tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
 
-}  
+	}
 
-//Сохранить презентацию на диск  
+}
 
-pres.SaveAs("tblVSTO.ppt",  
+//Сохранить презентацию на диск
 
-	  PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,  
+pres.SaveAs("tblVSTO.ppt",
 
-	  Microsoft.Office.Core.MsoTriState.msoFalse);  
+	  PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 
-```  
+	  Microsoft.Office.Core.MsoTriState.msoFalse);
 
-Следующие шаги добавляют таблицу на слайд Microsoft PowerPoint с использованием Aspose.Slides:
+``` 
 
-- Создайте презентацию.
-- Добавьте таблицу 15 x 15 на первый слайд.
-- Добавьте текст в каждую ячейку таблицы размером шрифта 10.
-- Запишите презентацию на диск.  
-## **Aspose.Slides**  
-``` csharp  
+Следующие шаги добавляют таблицу в слайд Microsoft PowerPoint с использованием Aspose.Slides:
 
-//Создать презентацию  
+- Создать презентацию.
+- Добавить таблицу 15 × 15 на первый слайд.
+- Добавить текст в каждую ячейку таблицы размером шрифта 10.
+- Записать презентацию на диск.
 
-Presentation pres = new Presentation();  
+## **Aspose.Slides**
+``` csharp
 
-//Доступ к первому слайду  
+ //Создать презентацию
 
-Slide sld = pres.GetSlideByPosition(1);  
+Presentation pres = new Presentation();
 
-//Добавить таблицу  
+//Получить первый слайд
 
-Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);  
+Slide sld = pres.GetSlideByPosition(1);
 
-//Цикл по строкам  
+//Добавить таблицу
 
-for (int i = 0; i < tbl.RowsNumber; i++)  
+Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);
 
-	//Цикл по ячейкам  
+//Перебор строк
 
-	for (int j = 0; j < tbl.ColumnsNumber; j++)  
+for (int i = 0; i < tbl.RowsNumber; i++)
 
-	{  
+	//Перебор ячеек
 
-		//Получить текстовое поле каждой ячейки  
+	for (int j = 0; j < tbl.ColumnsNumber; j++)
 
-		TextFrame tf = tbl.GetCell(j, i).TextFrame;  
+	{
 
-		//Добавить текст  
+		//Получить текстовый кадр каждой ячейки
 
-		tf.Text = "T" + i.ToString() + j.ToString();  
+		TextFrame tf = tbl.GetCell(j, i).TextFrame;
 
-		//Установить размер шрифта 10  
+		//Добавить текст
 
-		tf.Paragraphs[0].Portions[0].FontHeight = 10;  
+		tf.Text = "T" + i.ToString() + j.ToString();
 
-		tf.Paragraphs[0].HasBullet = false;  
+		//Установить размер шрифта 10
 
-	}  
+		tf.Paragraphs[0].Portions[0].FontHeight = 10;
 
-//Записать презентацию на диск  
+		tf.Paragraphs[0].HasBullet = false;
 
-pres.Write("tblSLD.ppt");  
+	}
 
-```  
-## **Скачать пример кода**  
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772951)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)  
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip/download)  
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip)  
+//Записать презентацию на диск
+
+pres.Write("tblSLD.ppt");
+
+``` 
+## **Скачать пример кода**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide/)

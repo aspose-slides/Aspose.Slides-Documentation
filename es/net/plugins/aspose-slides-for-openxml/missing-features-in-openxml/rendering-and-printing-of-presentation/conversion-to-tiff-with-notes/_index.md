@@ -1,33 +1,31 @@
 ---
-title: Conversión a Tiff con Notas
+title: Conversión a Tiff con notas
 type: docs
 weight: 10
 url: /es/net/conversion-to-tiff-with-notes/
 ---
 
-TIFF es uno de varios formatos de imagen ampliamente utilizados que Aspose.Slides para .NET soporta para convertir una presentación con notas a imágenes. También puedes generar miniaturas de diapositivas en la vista de Diapositivas de Notas. A continuación se presentan dos fragmentos de código que muestran cómo generar imágenes TIFF de una presentación en la vista de Diapositivas de Notas.
+TIFF es uno de varios formatos de imagen ampliamente utilizados que Aspose.Slides para .NET admite para convertir una presentación con notas a imágenes. También puede generar miniaturas de diapositivas en la vista de diapositiva de notas. A continuación se muestran dos fragmentos de código que demuestran cómo generar imágenes TIFF de una presentación en la vista de diapositiva de notas.
 
-El método **Save** expuesto por la clase **Presentation** se puede utilizar para convertir toda la presentación en la vista de Diapositivas de Notas a TIFF. También puedes generar una miniatura de diapositiva en la vista de Diapositivas de Notas para diapositivas individuales.
+El método **Save** expuesto por la clase **Presentation** se puede utilizar para convertir toda la presentación en la vista de diapositiva de notas a TIFF. También puede generar una miniatura de diapositiva en la vista de diapositiva de notas para diapositivas individuales.
 
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string srcFileName = FilePath + "Conversión a Tiff con nota.pptx";
+string srcFileName = FilePath + "Tiff conversion with note.pptx";
 
-string destFileName = FilePath + "Conversión a Tiff con nota.tiff";
+string destFileName = FilePath + "Tiff conversion with note.tiff";
 
-//Instanciar un objeto Presentation que representa un archivo de presentación
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation(srcFileName);
 
-//Guardar la presentación a TIFF notas
+//Saving the presentation to TIFF notes
 
 pres.Save(destFileName, SaveFormat.TiffNotes);
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+## **Descargar código de ejemplo**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Tiff%20conversion%20with%20note%20%28Aspose.Slides%29.zip)

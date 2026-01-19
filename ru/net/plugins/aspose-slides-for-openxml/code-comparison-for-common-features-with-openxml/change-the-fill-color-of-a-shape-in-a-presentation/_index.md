@@ -1,22 +1,22 @@
 ---
-title: Изменить цвет заливки фигуры в презентации
+title: Изменение цвета заливки фигуры в презентации
 type: docs
 weight: 40
 url: /ru/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
-## **OpenXML Презентация**
+## **OpenXML Presentation**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Цвет заливки фигуры.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
 SetPPTShapeColor(FileName);
 
-// Изменить цвет заливки фигуры.
+// Change the fill color of a shape.
 
-// Тестовый файл должен содержать заполненную фигуру как первую фигуру на первом слайде.
+// The test file must have a filled shape as the first shape on the first slide.
 
 public static void SetPPTShapeColor(string docName)
 
@@ -26,7 +26,7 @@ public static void SetPPTShapeColor(string docName)
 
     {
 
-        // Получить ID связи первого слайда.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -34,7 +34,7 @@ public static void SetPPTShapeColor(string docName)
 
         string relId = (slideIds[0] as SlideId).RelationshipId;
 
-        // Получить часть слайда по ID связи.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
@@ -42,11 +42,11 @@ public static void SetPPTShapeColor(string docName)
 
         {
 
-            // Получить дерево фигур, содержащее изменяемую фигуру.
+            // Get the shape tree that contains the shape to change.
 
             ShapeTree tree = slide.Slide.CommonSlideData.ShapeTree;
 
-            // Получить первую фигуру в дереве фигур.
+            // Get the first shape in the shape tree.
 
             Shape shape = tree.GetFirstChild<Shape>();
 
@@ -54,21 +54,21 @@ public static void SetPPTShapeColor(string docName)
 
             {
 
-                // Получить стиль фигуры.
+                // Get the style of the shape.
 
                 ShapeStyle style = shape.ShapeStyle;
 
-                // Получить ссылку на заливку.
+                // Get the fill reference.
 
                 Drawing.FillReference fillRef = style.FillReference;
 
-                // Установить цвет заливки на SchemeColor Accent 6;
+                // Set the fill color to SchemeColor Accent 6;
 
                 fillRef.SchemeColor = new Drawing.SchemeColor();
 
                 fillRef.SchemeColor.Val = Drawing.SchemeColorValues.Accent6;
 
-                // Сохранить измененный слайд.
+                // Save the modified slide.
 
                 slide.Slide.Save();
 
@@ -82,53 +82,51 @@ public static void SetPPTShapeColor(string docName)
 
 ``` 
 ## **Aspose.Slides**
-Нам необходимо выполнить следующие шаги, чтобы заполнить фигуры в презентации:
+Для заполнения фигур в презентации необходимо выполнить следующие шаги:
 
 - Создать экземпляр класса Presentation.
 - Получить ссылку на слайд, используя его индекс.
 - Добавить IShape на слайд.
-- Установить тип заливки фигуры на Solid.
-- Установить цвет фигуры.
-- Записать измененную презентацию как файл PPTX.
+- Установить тип заливки Shape в Solid.
+- Установить цвет Shape.
+- Сохранить изменённую презентацию в файл PPTX.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Цвет заливки фигуры.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
-//Создать экземпляр класса PresentationEx, который представляет PPTX 
+//Instantiate PrseetationEx class that represents the PPTX 
 
 using (Presentation pres = new Presentation())
 
 {
 
-    //Получить первый слайд
+    //Get the first slide
 
     ISlide sld = pres.Slides[0];
 
-    //Добавить автофигуру типа прямоугольник
+    //Add autoshape of rectangle type
 
     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
 
-    //Установить тип заливки на Solid
+    //Set the fill type to Solid
 
     shp.FillFormat.FillType = FillType.Solid;
 
-    //Установить цвет прямоугольника
+    //Set the color of the rectangle
 
     shp.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    //Записать файл PPTX на диск
+    //Write the PPTX file to disk
 
     pres.Save(FileName, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Скачать пример работающего кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Download Running Code Example**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **Пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Применить тему к презентации/)
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Цвет%20заливки%20фигуры)
+## **Sample Code**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Fill%20Color%20of%20a%20Shape)

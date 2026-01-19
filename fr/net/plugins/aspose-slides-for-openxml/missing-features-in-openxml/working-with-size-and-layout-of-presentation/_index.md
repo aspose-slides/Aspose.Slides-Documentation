@@ -1,11 +1,12 @@
 ---
-title: Travailler avec la Taille et la Mise en Page de la Présentation
+title: Travailler avec la taille et la mise en page de la présentation
 type: docs
 weight: 90
 url: /fr/net/working-with-size-and-layout-of-presentation/
 ---
 
-**SlideSize.Type** et **SlideSize.Size** sont les propriétés de la classe présentation qui peuvent être définies ou récupérées comme montré ci-dessous dans l'exemple.
+**SlideSize.Type** et **SlideSize.Size** sont les propriétés de la classe Presentation qui peuvent être définies ou récupérées comme montré ci‑dessous dans l’exemple.
+
 ## **Exemple**
 ``` csharp
 
@@ -13,7 +14,7 @@ url: /fr/net/working-with-size-and-layout-of-presentation/
 
 string FileName = FilePath + "Working With Size and Layout.pptx";
 
-//Instancier un objet Presentation qui représente un fichier de présentation 
+//Instantiate a Presentation object that represents a presentation file 
 
 Presentation presentation = new Presentation(FileName);
 
@@ -21,7 +22,7 @@ Presentation auxPresentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
 
-//Définir la taille de la diapositive des présentations générées à celle de la source
+//Set the slide size of generated presentations to that of source
 
 auxPresentation.SlideSize.Type = presentation.SlideSize.Type;
 
@@ -31,22 +32,18 @@ auxPresentation.Slides.InsertClone(0, slide);
 
 auxPresentation.Slides.RemoveAt(0);
 
-//Sauvegarder la présentation sur le disque
+//Save Presentation to disk
 
 auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
-## **Télécharger le Code Exemple**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Télécharger le code d'exemple**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-## **Télécharger l'Exemple Exécutable**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Working With Size and Layout/)
+## **Télécharger l'exemple en cours d'exécution**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Working%20With%20Size%20and%20Layout)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Travailler Avec la Taille et la Mise en Page de la Diapositive](/slides/fr/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Pour plus de détails, consultez [Modifier la taille des diapositives de la présentation dans .NET](/slides/fr/net/slide-size/).
 
 {{% /alert %}}

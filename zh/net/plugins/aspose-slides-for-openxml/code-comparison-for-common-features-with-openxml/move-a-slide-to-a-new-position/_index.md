@@ -1,5 +1,5 @@
 ---
-title: 移动幻灯片到新位置
+title: 将幻灯片移动到新位置
 type: docs
 weight: 140
 url: /zh/net/move-a-slide-to-a-new-position/
@@ -14,21 +14,21 @@ string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// 计算演示文稿中的幻灯片数量。
+// Counting the slides in the presentation.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // 以只读方式打开演示文稿。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // 将演示文稿传递给下一个 CountSlides 方法
+        // Pass the presentation to the next CountSlides method
 
-        // 并返回幻灯片数量。
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -36,13 +36,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// 计算演示文稿中的幻灯片。
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // 检查文档对象是否为空。
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -54,11 +54,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // 获取文档的演示文稿部分。
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 从 SlideParts 中获取幻灯片数量。
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -68,13 +68,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // 返回幻灯片数量给上一个方法。
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
 }
 
-// 将幻灯片移动到演示文稿中幻灯片顺序的不同位置。
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +90,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// 将幻灯片移动到演示文稿中幻灯片顺序的不同位置。
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -104,11 +104,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // 调用 CountSlides 方法以获取演示文稿中的幻灯片数量。
+    // Call the CountSlides method to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // 验证 from 和 to 位置均在范围内且不相同。
+    // Verify that both from and to positions are within range and different from one another.
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,23 +126,23 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // 从演示文稿文档中获取演示文稿部分。
+    // Get the presentation part from the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 幻灯片数量不为零，因此演示文稿必须包含幻灯片。            	
+    // The slide count is not zero, so the presentation must contain slides.            
 
     Presentation presentation = presentationPart.Presentation;
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // 获取源幻灯片的幻灯片 ID。
+    // Get the slide ID of the source slide.
 
     SlideId sourceSlide = slideIdList.ChildElements[from] as SlideId;
 
     SlideId targetSlide = null;
 
-    // 确定移动源幻灯片后目标幻灯片的位置。
+    // Identify the position of the target slide after which to move the source slide.
 
     if (to == 0)
 
@@ -168,21 +168,21 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // 从当前 position 中移除源幻灯片。
+    // Remove the source slide from its current position.
 
     sourceSlide.Remove();
 
-    // 在目标幻灯片之后插入源幻灯片到新位置。
+    // Insert the source slide at its new position after the target slide.
 
     slideIdList.InsertAfter(sourceSlide, targetSlide);
 
-    // 保存修改后的演示文稿。
+    // Save the modified presentation.
 
     presentation.Save();
 
 } 
 
-``` 
+```
 ## **Aspose.Slides**
 ``` csharp
 
@@ -192,31 +192,31 @@ string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// 将幻灯片移动到演示文稿中幻灯片顺序的不同位置。
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
 {
 
-    //实例化 PresentationEx 类以加载源 PPTX 文件
+    //Instantiate PresentationEx class to load the source PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        // 获取要更改位置的幻灯片
+        //Get the slide whose position is to be changed
 
         ISlide sld = pres.Slides[from];
 
         ISlide sld2 = pres.Slides[to];
 
-        // 设置幻灯片的新位置
+        //Set the new position for the slide
 
         sld2.SlideNumber = from;
 
         sld.SlideNumber = to;
 
-        // 将 PPTX 写入磁盘
+        //Write the PPTX to disk
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -226,7 +226,6 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 ``` 
 ## **下载示例代码**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Move%20a%20slide%20to%20a%20new%20position%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

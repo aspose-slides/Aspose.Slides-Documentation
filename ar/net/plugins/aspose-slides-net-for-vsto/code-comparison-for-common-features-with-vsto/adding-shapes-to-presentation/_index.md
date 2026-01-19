@@ -6,7 +6,7 @@ url: /ar/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**
-فيما يلي شفرة لإضافة شكل خط:
+فيما يلي مقتطف الشيفرة لإضافة شكل خط:
 
 ``` csharp
 
@@ -16,18 +16,18 @@ url: /ar/net/adding-shapes-to-presentation/
 
 ``` 
 ## **Aspose.Slides**
-لإضافة خط بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
+لإضافة خط بسيط إلى شريحة محددة في العرض التقديمي، يرجى اتباع الخطوات التالية:
 
 - إنشاء مثيل من فئة Presentation
-- الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها
-- إضافة AutoShape من نوع خط باستخدام طريقة AddAutoShape المعروضة بواسطة كائن Shapes
+- الحصول على مرجع الشريحة باستخدام فهرستها
+- إضافة AutoShape من نوع خط باستخدام الطريقة AddAutoShape المتوفرة في كائن Shapes
 - كتابة العرض التقديمي المعدل كملف PPTX
 
-في المثال المعطى أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
+في المثال الموضح أدناه، قمنا بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
 
 ``` csharp
 
-   //Instantiate Presentation class that represents the PPTX
+   //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
@@ -40,9 +40,7 @@ url: /ar/net/adding-shapes-to-presentation/
   slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
 ``` 
-## **تحميل الكود العامل**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **تحميل عينة الكود**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding Shape to Presentation/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20Shape%20to%20Presentation)
+## **تنزيل الكود القائم**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
+## **تنزيل عينة الكود**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20Shape%20to%20Presentation)

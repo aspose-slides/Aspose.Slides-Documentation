@@ -1,12 +1,12 @@
 ---
-title: Ajouter des formes à la présentation
+title: Ajout de formes à la présentation
 type: docs
 weight: 30
 url: /fr/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**
-Voici le fragment de code pour ajouter une forme de ligne :
+Voici l'extrait de code pour ajouter une forme de ligne :
 
 ``` csharp
 
@@ -16,33 +16,31 @@ Voici le fragment de code pour ajouter une forme de ligne :
 
 ``` 
 ## **Aspose.Slides**
-Pour ajouter une simple ligne à une diapositive sélectionnée de la présentation, veuillez suivre les étapes ci-dessous :
+Pour ajouter une simple ligne droite à une diapositive sélectionnée de la présentation, veuillez suivre les étapes ci-dessous :
 
-- Créez une instance de la classe Presentation
-- Obtenez la référence d'une diapositive en utilisant son index
-- Ajoutez une forme automatique de type ligne en utilisant la méthode AddAutoShape exposée par l'objet Shapes
-- Écrivez la présentation modifiée en tant que fichier PPTX
+- Créer une instance de la classe Presentation
+- Obtenir la référence d'une diapositive en utilisant son Index
+- Ajouter une AutoShape de type Line en utilisant la méthode AddAutoShape exposée par l'objet Shapes
+- Enregistrer la présentation modifiée sous forme de fichier PPTX
 
 Dans l'exemple ci-dessous, nous avons ajouté une ligne à la première diapositive de la présentation.
 
 ``` csharp
 
-   //Instancier la classe Presentation qui représente le PPTX
+   //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
-  //Obtenez la première diapositive
+  //Get the first slide
 
   ISlide slide = pres.Slides[0];
 
-  //Ajouter une forme automatique de type ligne
+  //Add an autoshape of type line
 
   slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
 ``` 
 ## **Télécharger le code en cours d'exécution**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
 ## **Télécharger le code d'exemple**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding Shape to Presentation/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20Shape%20to%20Presentation)

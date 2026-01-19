@@ -1,11 +1,11 @@
 ---
-title: Crear una Nueva Presentación en VSTO y Aspose.Slides
+title: Crear una nueva presentación en VSTO y Aspose.Slides
 type: docs
 weight: 80
 url: /es/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
-A continuación se presentan dos ejemplos de código que ilustran cómo se pueden utilizar VSTO y Aspose.Slides para .NET para lograr el mismo objetivo.
+A continuación se presentan dos ejemplos de código que ilustran cómo VSTO y Aspose.Slides para .NET pueden usarse para lograr el mismo objetivo.
 ## **VSTO**
 ``` csharp
 
@@ -17,25 +17,25 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Obtener el diseño de la diapositiva de título
+//Get the title slide layout
 
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Agregar una diapositiva de título.
+//Add a title slide.
 
 PowerPoint.Slide slide=pres.Slides.AddSlide(1, layout);
 
-//Establecer el texto del título
+//Set the title text
 
-slide.Shapes.Title.TextFrame.TextRange.Text = "Título de la Diapositiva";
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Establecer el texto del subtítulo
+//Set the sub title text
 
-slide.Shapes[2].TextFrame.TextRange.Text = "Subtítulo de la Diapositiva";
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Escribir la salida en el disco
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -53,31 +53,30 @@ pres.SaveAs("outVSTO.ppt",
 
 {
 
-	//Crear una presentación
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//Agregar la diapositiva de título
+	//Add the title slide
 
 	Slide slide = pres.AddTitleSlide();
 
-	//Establecer el texto del título
+	//Set the title text
 
-	((TextHolder)slide.Placeholders[0]).Text = "Título de la Diapositiva";
+	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
 
-	//Establecer el texto del subtítulo
+	//Set the sub title text
 
-	((TextHolder)slide.Placeholders[1]).Text = "Subtítulo de la Diapositiva";
+	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
 
-	//Escribir salida en el disco
+	//Write output to disk
 
 	pres.Write("outAsposeSlides.ppt");
 
 }
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
+## **Descargar código de ejemplo**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation/)

@@ -4,8 +4,7 @@ type: docs
 url: /es/net/print-the-presentation/
 ---
 
-Aspose.Slides for .NET proporciona cuatro métodos sobrecargados para imprimir presentaciones. Estos métodos son lo suficientemente flexibles como para imprimir la presentación en la impresora predeterminada o en cualquiera de las impresoras disponibles con configuraciones personalizadas. Solo necesita seleccionar el método de impresión apropiado según el requisito.
-
+Aspose.Slides for .NET proporciona cuatro sobrecargas de métodos para la impresión de presentaciones. Estos métodos son lo suficientemente flexibles como para imprimir la presentación en la impresora predeterminada o en cualquiera de las impresoras disponibles con configuraciones personalizadas. Sólo necesita seleccionar el método de impresión adecuado según el requisito.
 ## **Imprimir en la impresora predeterminada**
 Imprimir la presentación en la impresora predeterminada es bastante sencillo en Aspose.Slides for .NET. Realice los siguientes pasos para imprimir la presentación en la impresora predeterminada:
 
@@ -30,7 +29,7 @@ public static void PrintByDefaultPrinter()
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //Llamar al método de impresión para imprimir toda la presentación en la impresora predeterminada
+    //Llamar al método Print para imprimir toda la presentación en la impresora predeterminada
 
     asposePresentation.Print();
 
@@ -46,7 +45,7 @@ public static void PrintBySpecificPrinter()
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //Llamar al método de impresión para imprimir toda la presentación en la impresora deseada
+    //Llamar al método Print para imprimir toda la presentación en la impresora deseada
 
     asposePresentation.Print("LaserJet1100");
 
@@ -70,7 +69,7 @@ Imprimir la presentación en una impresora específica requiere el nombre de la 
 
     Presentation asposePresentation = new Presentation(MyDir + "Print.pptx");
 
-    //Llamar al método de impresión para imprimir toda la presentación en la impresora deseada
+    //Llamar al método Print para imprimir toda la presentación en la impresora deseada
 
     asposePresentation.Print("LaserJet1100");
 
@@ -78,7 +77,5 @@ Imprimir la presentación en una impresora específica requiere el nombre de la 
 
 ``` 
 ## **Descargar código de ejemplo**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Print%20Presentation%20%28Aspose.Slides%29.zip)

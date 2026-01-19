@@ -1,5 +1,5 @@
 ---
-title: Obtenez les titres de toutes les diapositives
+title: Obtenir les titres de toutes les diapositives
 type: docs
 weight: 120
 url: /fr/net/get-the-titles-of-all-the-slides/
@@ -8,9 +8,9 @@ url: /fr/net/get-the-titles-of-all-the-slides/
 ## **OpenXML SDK**
 ``` csharp
 
- string FilePath = @"..\..\..\..\Fichiers Exemples\";
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Obtenez les titres de toutes les diapositives.pptx";
+string FileName = FilePath + "Obtenir les titres de toutes les diapositives.pptx";
 
 foreach (string s in GetSlideTitles(FileName))
 
@@ -18,13 +18,13 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Obtenez une liste des titres de toutes les diapositives dans la présentation.
+// Obtient une liste des titres de toutes les diapositives de la présentation.
 
 public static IList<string> GetSlideTitles(string presentationFile)
 
 {
 
-    // Ouvrir la présentation en lecture seule.
+    // Ouvre la présentation en lecture seule.
 
     using (PresentationDocument presentationDocument =
 
@@ -38,7 +38,7 @@ public static IList<string> GetSlideTitles(string presentationFile)
 
 }
 
-// Obtenez une liste des titres de toutes les diapositives dans la présentation.
+// Obtient une liste des titres de toutes les diapositives de la présentation.
 
 public static IList<string> GetSlideTitles(PresentationDocument presentationDocument)
 
@@ -52,7 +52,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     }
 
-    // Obtenez un objet PresentationPart à partir de l'objet PresentationDocument.
+    // Obtient un objet PresentationPart à partir de l'objet PresentationDocument.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
@@ -62,7 +62,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     {
 
-        // Obtenez un objet Presentation à partir de l'objet PresentationPart.
+        // Obtient un objet Presentation à partir de l'objet PresentationPart.
 
         Presentation presentation = presentationPart.Presentation;
 
@@ -72,7 +72,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
             List<string> titlesList = new List<string>();
 
-            // Obtenez le titre de chaque diapositive dans l'ordre des diapositives.
+            // Obtient le titre de chaque diapositive dans l'ordre des diapositives.
 
             foreach (var slideId in presentation.SlideIdList.Elements<SlideId>())
 
@@ -80,7 +80,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
                 SlidePart slidePart = presentationPart.GetPartById(slideId.RelationshipId) as SlidePart;
 
-                // Obtenez le titre de la diapositive.
+                // Obtient le titre de la diapositive.
 
                 string title = GetSlideTitle(slidePart);
 
@@ -100,7 +100,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
 }
 
-// Obtenez la chaîne de titre de la diapositive.
+// Obtient la chaîne de titre de la diapositive.
 
 public static string GetSlideTitle(SlidePart slidePart)
 
@@ -114,7 +114,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     }
 
-    // Déclarez un séparateur de paragraphes.
+    // Déclare un séparateur de paragraphe.
 
     string paragraphSeparator = null;
 
@@ -122,7 +122,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     {
 
-        // Trouvez toutes les formes de titre.
+        // Recherche toutes les formes de titre.
 
         var shapes = from shape in slidePart.Slide.Descendants<Shape>()
 
@@ -136,13 +136,13 @@ public static string GetSlideTitle(SlidePart slidePart)
 
         {
 
-            // Obtenez le texte dans chaque paragraphe de cette forme.
+            // Obtient le texte de chaque paragraphe dans cette forme.
 
             foreach (var paragraph in shape.TextBody.Descendants<D.Paragraph>())
 
             {
 
-                // Ajoutez un saut de ligne.
+                // Ajoute un saut de ligne.
 
                 paragraphText.Append(paragraphSeparator);
 
@@ -210,9 +210,9 @@ private static bool IsTitleShape(Shape shape)
 ## **Aspose.Slides**
 ``` csharp
 
- string FilePath = @"..\..\..\..\Fichiers Exemples\";
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Obtenez tout le texte dans une diapositive.pptx";
+string FileName = FilePath + "Obtenir tout le texte d'une diapositive.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
@@ -236,15 +236,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // Ouvrir la présentation en lecture seule.
+    // Ouvre la présentation en lecture seule.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Passez la présentation à la méthode CountSlides suivante
+        // Passe la présentation à la méthode CountSlides suivante
 
-        // et renvoyez le nombre de diapositives.
+        // et renvoie le nombre de diapositives.
 
         return CountSlides(presentationDocument);
 
@@ -252,13 +252,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Comptez les diapositives dans la présentation.
+// Compte le nombre de diapositives dans la présentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Vérifiez qu'il n'y a pas d'objet document nul.
+    // Vérifie si l'objet document est nul.
 
     if (presentationDocument == null)
 
@@ -270,11 +270,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Obtenez la partie de présentation du document.
+    // Obtient la partie présentation du document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtenez le nombre de diapositives à partir des SlideParts.
+    // Obtient le nombre de diapositives à partir des SlideParts.
 
     if (presentationPart != null)
 
@@ -284,7 +284,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Retournez le nombre de diapositives à la méthode précédente.
+    // Renvoie le nombre de diapositives à la méthode précédente.
 
     return slidesCount;
 
@@ -298,7 +298,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // Obtenez l'ID de relation de la première diapositive.
+        // Obtient l'ID de relation de la première diapositive.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -306,15 +306,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // Obtenez la partie diapositive à partir de l'ID de relation.
+        // Obtient la partie diapositive à partir de l'ID de relation.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // Construisez un objet StringBuilder.
+        // Crée un objet StringBuilder.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // Obtenez le texte intérieur de la diapositive :
+        // Obtient le texte interne de la diapositive :
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -334,7 +334,6 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
 ``` 
 ## **Télécharger le code d'exemple**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Obtenez%20les%20titres%20de%20toutes%20les%20diapositives%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Obtenez%20les%20titres%20de%20toutes%20les%20diapositives%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides/)

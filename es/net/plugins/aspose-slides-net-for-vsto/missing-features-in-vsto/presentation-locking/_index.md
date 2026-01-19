@@ -1,38 +1,38 @@
 ---
-title: Bloqueo de Presentación
+title: Bloqueo de presentaciones
 type: docs
 weight: 110
 url: /es/net/presentation-locking/
 ---
 
-## **Bloqueo de Presentación**
-Un uso común de **Aspose.Slides** es crear, actualizar y guardar presentaciones Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que utiliza Aspose.Slides de esta manera obtienen acceso a las presentaciones de salida. Protegerlas contra la edición es una preocupación frecuente. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido originales.
+## **Bloqueo de Presentaciones**
+Un uso frecuente de **Aspose.Slides** es crear, actualizar y guardar presentaciones de Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que emplea Aspose.Slides de esta forma acceden a las presentaciones generadas. Protegerlas contra la edición es una preocupación habitual. Es importante que las presentaciones generadas automáticamente conserven su formato y contenido originales.
 
-Esto explica cómo se construyen las presentaciones y diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a una presentación y luego eliminarla. Esta característica es única de Aspose.Slides y, al momento de escribir, no está disponible en Microsoft PowerPoint. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
+Esto explica cómo se construyen las presentaciones y diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a una presentación y, posteriormente, eliminarla. Esta característica es exclusiva de Aspose.Slides y, al momento de escribir, no está disponible en Microsoft PowerPoint. Ofrece a los desarrolladores una forma de controlar el uso de las presentaciones creadas por sus aplicaciones.
 ## **Composición de una Diapositiva**
-Una diapositiva PPTX se compone de varios componentes como formas automáticas, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de video, conectores y los diversos demás elementos disponibles para construir una presentación.
+Una diapositiva PPTX se compone de varios componentes como formas automáticas, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de vídeo, conectores y los diversos elementos disponibles para construir una presentación.
 
-En Aspose.Slides para .NET, cada elemento de una diapositiva se convierte en un objeto Shape. En otras palabras, cada elemento de la diapositiva es un objeto Shape o un objeto derivado del objeto Shape.
+En Aspose.Slides para .NET, cada elemento de una diapositiva se convierte en un objeto Shape. En otras palabras, cada elemento de la diapositiva es un objeto Shape o un objeto derivado de Shape.
 
-La estructura de PPTX es compleja, por lo que a diferencia de PPT, donde se puede usar un bloqueo genérico para todo tipo de formas, existen diferentes tipos de bloqueos para cada tipo de forma. La clase BaseShapeLock es la clase genérica de bloqueo PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX.
+La estructura de PPTX es compleja, por lo que, a diferencia de PPT, donde se puede usar un bloqueo genérico para todo tipo de formas, existen diferentes tipos de bloqueos para cada tipo de forma. La clase BaseShapeLock es la clase genérica de bloqueo PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX.
 
 - AutoShapeLock bloquea formas automáticas.
-- ConnectorLock bloquea formas de conector.
+- ConnectorLock bloquea formas conectoras.
 - GraphicalObjectLock bloquea objetos gráficos.
-- GroupshapeLock bloquea formas agrupadas.
+- GroupshapeLock bloquea grupos de formas.
 - PictureFrameLock bloquea marcos de imagen.
 
 Cualquier acción realizada sobre todos los objetos Shape en un objeto Presentation se aplica a toda la presentación.
 ## **Aplicar y Eliminar Protección**
 Aplicar protección garantiza que una presentación no pueda ser editada. Es una técnica útil para proteger el contenido de una presentación.
 
-**Aplicar protección a formas PPTX**
+**Aplicar Protección a Formas PPTX**
 
-Aspose.Slides para .NET proporciona la clase Shape para manejar una forma en la diapositiva.
+Aspose.Slides para .NET proporciona la clase Shape para gestionar una forma en la diapositiva.
 
-Como se mencionó antes, cada clase de forma tiene una clase de bloqueo de forma asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que las formas no puedan ser seleccionadas (mediante clics del ratón u otros métodos de selección), y que no puedan moverse ni redimensionarse.
+Como se mencionó antes, cada clase de forma tiene una clase de bloqueo de forma asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que las formas no puedan ser seleccionadas (mediante clics del ratón u otros métodos de selección) y que no puedan moverse ni redimensionarse.
 
-Los fragmentos de código a continuación aplican protección a todos los tipos de forma en una presentación.
+Los ejemplos de código que siguen aplican protección a todos los tipos de forma en una presentación.
 
 ``` csharp
 
@@ -167,7 +167,7 @@ pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 **Eliminar Protección**
 
-La protección aplicada con Aspose.Slides para .NET solo puede eliminarse con Aspose.Slides para .NET. Para desbloquear una forma, establezca el valor del bloqueo aplicado a false. El fragmento de código a continuación muestra cómo desbloquear formas en una presentación bloqueada.
+La protección aplicada con Aspose.Slides para .NET solo puede eliminarse con Aspose.Slides para .NET. Para desbloquear una forma, establezca el valor del bloqueo aplicado a false. El ejemplo de código que sigue muestra cómo desbloquear formas en una presentación protegida.
 
 ``` csharp
 
@@ -298,6 +298,5 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
-## **Descargar código de ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812535)
+## **Descargar Código de Ejemplo**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

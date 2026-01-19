@@ -18,9 +18,9 @@ AddCommentToPresentation(FileName,
 
 "This is my programmatically added comment.");
 
-// Adds a comment to the first slide of the presentation document.
+// يضيف تعليقًا إلى الشريحة الأولى في مستند العرض التقديمي.
 
-// The presentation document must contain at least one slide.
+// يجب أن يحتوي مستند العرض التقديمي على شريحة واحدة على الأقل.
 
 private static void AddCommentToPresentation(string file, string initials, string name, string text)
 
@@ -30,17 +30,17 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 {
 
-    // Declare a CommentAuthorsPart object.
+    // إعلان كائن CommentAuthorsPart.
 
     CommentAuthorsPart authorsPart;
 
-    // Verify that there is an existing comment authors part.
+    // التحقق من وجود جزء مؤلفي التعليقات الحالي.
 
     if (doc.PresentationPart.CommentAuthorsPart == null)
 
     {
 
-        // If not, add a new one.
+        // إذا لم يكن موجودًا، أضف جزءًا جديدًا.
 
         authorsPart = doc.PresentationPart.AddNewPart<CommentAuthorsPart>();
 
@@ -54,41 +54,41 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // Verify that there is a comment author list in the comment authors part.
+    // التحقق من وجود قائمة مؤلفي التعليقات في جزء مؤلفي التعليقات.
 
     if (authorsPart.CommentAuthorList == null)
 
     {
 
-        // If not, add a new one.
+        // إذا لم تكن موجودة، أضف قائمة جديدة.
 
         authorsPart.CommentAuthorList = new CommentAuthorList();
 
     }
 
-    // Declare a new author ID.
+    // إعلان معرف مؤلف جديد.
 
     uint authorId = 0;
 
     CommentAuthor author = null;
 
-    // If there are existing child elements in the comment authors list...
+    // إذا كان هناك عناصر فرعية موجودة في قائمة مؤلفي التعليقات...
 
     if (authorsPart.CommentAuthorList.HasChildren)
 
     {
 
-        // Verify that the author passed in is on the list.
+        // التحقق من أن المؤلف المدخل موجود في القائمة.
 
         var authors = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Where(a => a.Name == name && a.Initials == initials);
 
-        // If so...
+        // إذا كان موجودًا...
 
         if (authors.Any())
 
         {
 
-            // Assign the new comment author the existing author ID.
+            // إسناد معرف المؤلف الموجود إلى التعليق الجديد.
 
             author = authors.First();
 
@@ -96,13 +96,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         }
 
-        // If not...
+        // إذا لم يكن موجودًا...
 
         if (author == null)
 
         {
 
-            // Assign the author passed in a new ID
+            // إسناد معرف جديد للمؤلف المدخل
 
             authorId = authorsPart.CommentAuthorList.Elements<CommentAuthor>().Select(a => a.Id.Value).Max();
 
@@ -110,7 +110,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // If there are no existing child elements in the comment authors list.
+    // إذا لم توجد عناصر فرعية في قائمة مؤلفي التعليقات.
 
     if (author == null)
 
@@ -118,7 +118,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
         authorId++;
 
-        // Add a new child element(comment author) to the comment author list.
+        // إضافة عنصر فرعي جديد (مؤلف تعليق) إلى قائمة مؤلفي التعليقات.
 
         author = authorsPart.CommentAuthorList.AppendChild<CommentAuthor>
 
@@ -138,21 +138,21 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     }
 
-    // Get the first slide, using the GetFirstSlide method.
+    // الحصول على الشريحة الأولى باستخدام طريقة GetFirstSlide.
 
     SlidePart slidePart1 = GetFirstSlide(doc);
 
-    // Declare a comments part.
+    // إعلان جزء التعليقات.
 
     SlideCommentsPart commentsPart;
 
-    // Verify that there is a comments part in the first slide part.
+    // التحقق من وجود جزء تعليقات في الشريحة الأولى.
 
     if (slidePart1.GetPartsOfType<SlideCommentsPart>().Count() == 0)
 
     {
 
-        // If not, add a new comments part.
+        // إذا لم يكن موجودًا، أضف جزءًا جديدًا للتعليقات.
 
         commentsPart = slidePart1.AddNewPart<SlideCommentsPart>();
 
@@ -162,31 +162,31 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     {
 
-        // Else, use the first comments part in the slide part.
+        // وإلا، استخدم أول جزء تعليقات في الشريحة.
 
         commentsPart = slidePart1.GetPartsOfType<SlideCommentsPart>().First();
 
     }
 
-    // If the comment list does not exist.
+    // إذا لم توجد قائمة تعليقات.
 
     if (commentsPart.CommentList == null)
 
     {
 
-        // Add a new comments list.
+        // إضافة قائمة تعليقات جديدة.
 
         commentsPart.CommentList = new CommentList();
 
     }
 
-    // Get the new comment ID.
+    // الحصول على معرف التعليق الجديد.
 
     uint commentIdx = author.LastIndex == null ? 1 : author.LastIndex + 1;
 
     author.LastIndex = commentIdx;
 
-    // Add a new comment.
+    // إضافة تعليق جديد.
 
     Comment comment = commentsPart.CommentList.AppendChild<Comment>(
 
@@ -202,7 +202,7 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     });
 
-    // Add the position child node to the comment element.
+    // إضافة عقدة الموقع كطفل إلى عنصر التعليق.
 
     comment.Append(
 
@@ -210,11 +210,11 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
     new Text() { Text = text });
 
-    // Save the comment authors part.
+    // حفظ جزء مؤلفي التعليقات.
 
     authorsPart.CommentAuthorList.Save();
 
-    // Save the comments part.
+    // حفظ جزء التعليقات.
 
     commentsPart.CommentList.Save();
 
@@ -222,13 +222,13 @@ using (PresentationDocument doc = PresentationDocument.Open(file, true))
 
 }
 
-// Get the slide part of the first slide in the presentation document.
+// الحصول على جزء الشريحة الأولى في مستند العرض التقديمي.
 
 private static SlidePart GetFirstSlide(PresentationDocument presentationDocument)
 
 {
 
-// Get relationship ID of the first slide
+// الحصول على معرف العلاقة للشريحة الأولى
 
 PresentationPart part = presentationDocument.PresentationPart;
 
@@ -236,7 +236,7 @@ SlideId slideId = part.Presentation.SlideIdList.GetFirstChild<SlideId>();
 
 string relId = slideId.RelationshipId;
 
-// Get the slide part by the relationship ID.
+// الحصول على جزء الشريحة بواسطة معرف العلاقة.
 
 SlidePart slidePart = (SlidePart)part.GetPartById(relId);
 
@@ -247,7 +247,7 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-في **Aspose.Slides** لـ .NET، يتم تضمين مجموعة تعليقات الشرائح PPT في كل فئة **Slide**. يُستخدم الفئة **CommentCollection** لتخزين تعليقات الشرائح المحددة. تحتوي الفئة **Comment** على معلومات مثل المؤلف الذي أضاف التعليق، الأحرف الأولى له، وقت الإنشاء، موضع التعليق على الشريحة ونص التعليق. يُستخدم الفئة **CommentAuthor** لإضافة المؤلفين لتعليقات الشرائح على مستوى العرض التقديمي. تحفظ الفئة **Presentation** مجموعة المؤلفين للعرض التقديمي في الفئة **CommentAuthors**.
+في **Aspose.Slides** لمنصة .NET، يتم تضمين مجموعة تعليقات شرائح PPT في كل فئة **Slide**. تُستخدم فئة **CommentCollection** للاحتفاظ بتعليقات الشريحة المحددة. تتضمن فئة **Comment** معلومات مثل المؤلف الذي أضاف التعليق، الأحرف الأولى له، وقت الإنشاء، موقع التعليق على الشريحة ونص التعليق. تُستخدم فئة **CommentAuthor** لإضافة مؤلفين لتعليقات الشرائح على مستوى العرض التقديمي. تحتفظ فئة **Presentation** بمجموعة المؤلفين للعرض التقديمي في فئة **CommentAuthors**.
 
 في المثال التالي، أضفنا مقتطف الشيفرة لإضافة تعليقات الشرائح.
 
@@ -261,15 +261,15 @@ using (Presentation pres = new Presentation())
 
 {
 
-    //Adding Empty slide
+    //إضافة شريحة فارغة
 
     pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-    //Adding Autthor
+    //إضافة مؤلف
 
     ICommentAuthor author = pres.CommentAuthors.AddAuthor("Zeeshan", "MZ");
 
-    //Position of comments
+    //موضع التعليقات
 
     PointF point = new PointF();
 
@@ -277,7 +277,7 @@ using (Presentation pres = new Presentation())
 
     point.Y = 1;
 
-    //Adding slide comment for an author on slide
+    //إضافة تعليق شريحة لمؤلف على الشريحة
 
     author.Comments.AddComment("Hello Zeeshan, this is slide comment", pres.Slides[0], point, DateTime.Now);
 
@@ -286,7 +286,7 @@ using (Presentation pres = new Presentation())
 }
 
 ``` 
-## **تنزيل كود العينة**
+## **تنزيل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide/)

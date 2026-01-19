@@ -21,36 +21,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Запуск Aspose.Slides в Docker-контейнерах: настройка образов, зависимостей, шрифтов и лицензирования для создания масштабируемых сервисов, обрабатывающих PowerPoint и OpenDocument."
+description: "Запустите Aspose.Slides в Docker‑контейнерах: настройте образы, зависимости, шрифты и лицензирование для создания масштабируемых сервисов, обрабатывающих PowerPoint и OpenDocument."
 ---
 
 ## **Поддерживаемые ОС**
-Aspose.Slides может работать внутри docker‑контейнеров, используя платформу .NET Core. В целом, Aspose.Slides поддерживает все типы контейнеров (ОС), которые поддерживает платформа .NET Core. Однако GDI или [libgdiplus](https://github.com/mono/libgdiplus) должны быть доступны и правильно настроены в используемых контейнерах.
+Aspose.Slides может работать внутри Docker‑контейнеров, используя платформу .NET Core. Как правило, Aspose.Slides поддерживает все типы контейнеров (ОС), которые поддерживает платформа .NET Core. Однако GDI или [libgdiplus](https://github.com/mono/libgdiplus) должны быть доступны и правильно настроены в используемых контейнерах.
 
-Чтобы использовать Docker, сначала необходимо установить его на вашу систему. Чтобы узнать, как установить Docker на Windows или Mac, используйте следующие ссылки:
+Чтобы использовать Docker, сначала необходимо установить его в вашей системе. Чтобы узнать, как установить Docker на Windows или Mac, используйте следующие ссылки:
 
-- [Install Docker on Windows](https://docs.docker.com/docker-for-windows/install/)
-- [Install Docker on Mac](https://docs.docker.com/docker-for-mac/install/)
+- [Установить Docker на Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Установить Docker на Mac](https://docs.docker.com/docker-for-mac/install/)
 
 Вы также можете запускать Docker на Linux и Windows Server, следуя инструкциям на этих страницах:
 
-- [Install and configure Docker on Linux (apt-get libgdiplus) ](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
+- [Установить и настроить Docker на Linux (apt-get libgdiplus)](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
+- [Установить и настроить Docker на Linux (make install libgdiplus)](#install-and-configure-docker-on-linux-make-install-libgdiplus)
+- [Установить и настроить Docker на Windows Server Core](#install-and-configure-docker-on-windows-server-core)
 
-- [Install and configure Docker on Linux (make install libgdiplus)   ](#install-and-configure-docker-on-linux-make-install-libgdiplus) 
+Установка и настройка Docker на Windows Server Nano не поддерживается. К сожалению, в Windows Server Nano нет графической подсистемы. В нем отсутствует gdiplus.dll, который требуется библиотеке System.Drawing.Common, и его нельзя использовать с библиотекой Aspose.Slides.
 
-- [Install and configure Docker on Windows Server Core ](#install-and-configure-docker-on-windows-server-core)   
-
-Установка и конфигурация Docker на Windows Server Nano не поддерживается. К сожалению, в Windows Server Nano нет графической подсистемы. В нём отсутствует gdiplus.dll, необходимый библиотеке System.Drawing.Common, поэтому он не может использоваться с библиотекой Aspose.Slides.
-
-Хотя запуск Linux‑контейнеров в Windows возможен, мы рекомендуем запускать их нативно на Linux (даже на Linux, установленном вручную в виртуальной машине с помощью VirtualBox).
+Хотя возможно запускать Linux‑контейнеры в Windows, мы рекомендуем запускать их нативно на Linux (даже на Linux, установленном вручную в виртуальной машине с использованием VirtualBox).
 
 ## **Установить и настроить Docker на Linux (apt-get libgdiplus)**
 - ОС: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_apt_get_libgdiplus
 
-Этот docker‑файл содержит инструкции для создания образа контейнера с установленным пакетом libgdiplus из официальных репозиториев Ubuntu.
+Этот Docker‑file содержит инструкции по созданию образа контейнера с установленным пакетом libgdiplus из официальных репозиториев пакетов Ubuntu.
 
-Вот содержимое docker‑файла:
+Содержимое Docker‑file:
 ``` csharp
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
@@ -74,17 +72,16 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-Давайте разберём, что означает каждая строка кода в docker‑файле:
+Разберём, что означает каждая строка кода в Docker‑file:
 
-1. Образ контейнера основан на образе microsoft/dotnet:2.1-sdk-bionic (образ уже построен Microsoft и опубликован в [public hub](https://hub.docker.com/r/microsoft/dotnet/)). Этот образ содержит уже установленный dotnet 2.1 SDK. Суффикс bionic означает, что в качестве ОС контейнера будет использована Ubuntu 18.04 (кодовое имя bionic). Изменяя суффикс, можно менять базовую ОС (например: stretch — Debian 9, alpine — Alpine Linux). В этом случае потребуется модификация содержимого docker‑файла (например, замена 'apt-get' на 'yum').
+1. Образ контейнера основан на образе microsoft/dotnet:2.1-sdk-bionic (образ, уже построенный Microsoft и опубликованный в [public hub](https://hub.docker.com/r/microsoft/dotnet/) Docker). Этот образ содержит уже установленный dotnet 2.1 SDK. Суффикс bionic означает, что в качестве ОС контейнера будет использоваться Ubuntu 18.04 (кодовое имя bionic). Изменяя суффикс, можно сменить базовую ОС (например: stretch — Debian 9, alpine — Alpine Linux). В таком случае потребуется изменить содержимое Docker‑file (например, заменить 'apt-get' на 'yum').
 ``` csharp
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build:
-
 ```
 
 
-2. Обновляет базу данных доступных пакетов и устанавливает пакет apt-utils.
+1. Обновляет базу данных доступных пакетов и устанавливает пакет apt-utils.
 ``` csharp
 
  RUN apt-get update -y && apt-get install -y apt-utils
@@ -92,7 +89,7 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-3. Устанавливает пакеты 'libgdiplus' и 'libc6-dev', необходимые библиотеке System.Drawing.Common.
+1. Устанавливает пакеты 'libgdiplus' и 'libc6-dev', необходимые библиотеке System.Drawing.Common.
 ``` csharp
 
  RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
@@ -100,7 +97,7 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-4. Объявляет папку /slides-src точкой монтирования, которую будем использовать для доступа к каталогам исходных файлов slide‑net на хост‑машине.
+1. Объявляет папку /slides-src точкой монтирования, которая будет использована для доступа к исходникам slide-net на хост‑машине.
 ``` csharp
 
  VOLUME /slides-src
@@ -108,7 +105,7 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-5. Устанавливает slides-src рабочим каталогом внутри контейнера.
+1. Устанавливает slides-src в качестве рабочей директории внутри контейнера.
 ``` csharp
 
  WORKDIR /slides-src
@@ -116,7 +113,7 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-6. Объявляет команду по умолчанию, которая будет выполнена при запуске контейнера, если явно не указана другая команда.
+1. Объявляет команду по умолчанию, которая будет выполнена при запуске контейнера, если явно не указана другая команда.
 ``` csharp
 
  CMD ./build/netcore.linux.tests.sh
@@ -124,9 +121,9 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-Согласно инструкциям в docker‑файле, полученный образ контейнера будет содержать ОС Ubuntu 18.04, dotnet‑sdk, пакеты libgdiplus и libc6‑dev уже установленные. Кроме того, в этом образе будет предопределённая точка монтирования и предопределённая команда при запуске.
+Согласно инструкциям в Docker‑file, полученный образ контейнера будет содержать ОС Ubuntu 18.04, dotnet‑sdk, пакеты libgdiplus и libc6‑dev уже установленные. Кроме того, у этого образа будет предопределённая точка монтирования и команда по умолчанию при запуске.
 
-Чтобы собрать образ с помощью этого docker‑файла, перейдите в папку slides‑netuil docker и выполните:
+Чтобы собрать образ с использованием этого Docker‑file, перейдите в папку slides-netuil docker и выполните:
 ``` csharp
 
  $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
@@ -134,11 +131,11 @@ CMD ./build/netcore.linux.tests.sh
 ```
 
 
-*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* — параметр, указывающий, какой docker‑файл использовать.  
+*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* — опция указывает, какой Docker‑file использовать.  
 *-t ubuntu18_04_apt_get_libgdiplus* — задаёт тег (имя) для получаемого образа.  
-*'.'* — задаёт контекст для docker. В нашем случае контекстом является текущий каталог, который пуст — поскольку мы выбираем предоставить исходники slides‑net в качестве точки монтирования (это позволяет не перестраивать образ docker при каждом изменении исходников).
+*'.'* — задаёт контекст для Docker. В нашем случае контекстом является текущая папка, и она пуста — поскольку мы выбираем предоставление исходников slides-net в виде точки монтирования (это позволяет не пересобирать образ Docker при каждом изменении исходников).
 
-Результат выполнения должен выглядеть так:
+Результат выполнения должен выглядеть следующим образом:
 ``` csharp
 
  Successfully built 62dd34ddc142
@@ -162,7 +159,7 @@ ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minut
 ```
 
 
-После того как образ готов, можно запустить его этой командой:
+После того как образ готов, его можно запустить с помощью следующей команды:
 ``` csharp
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
@@ -170,10 +167,10 @@ ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minut
 ```
 
 
-*-it* — указывает, что команда должна запускаться интерактивно, позволяя видеть вывод и вводить данные.  
-*-v `pwd`/../../:/slides-src* — задаёт папку для предопределённой точки монтирования, так как текущий рабочий каталог — slides‑netuildocker, папка slides‑src в контейнере будет указывать на папку slides‑net на хосте. `pwd` используется для указания относительного пути.  
+*-it* — указывает, что команда должна выполняться интерактивно, позволяя видеть вывод и вводить данные.  
+*-v `pwd`/../../:/slides-src* — задаёт папку для предопределённой точки монтирования — так как текущая рабочая директория это slides-netuil/docker, папка slides-src в контейнере будет указывать на папку slides-net на хосте. `pwd` используется для указания относительного пути.  
 *--add-host dev.slides.external.tool.server:192.168.1.48* — изменяет файл hosts контейнера, чтобы разрешать URL dev.slides.external.tool.server.  
-*ubuntu1804aptgetlibgdiplus:latest* — указывает образ, из которого будет запущен контейнер.
+*ubuntu1804aptgetlibgdiplus:latest* — указывает образ, из которого запускать контейнер.
 
 Результатом вышеуказанной команды будет вывод netcore.linux.tests.sh (поскольку она определена как команда по умолчанию для контейнера):
 ``` csharp
@@ -203,9 +200,9 @@ Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
 ```
 
 
-По результату видно, что файлы журналов тестов Func и Regr были помещены в каталог /build-out/netstandard20/test-results/main/. Кроме того, в общей сложности около 200 тестов завершились неудачно — все они связаны с проблемами рендеринга из‑за отсутствия требуемых шрифтов в контейнере.
+Из результата ясно, что файлы журналов тестов Func и Regr были помещены в каталог /build-out/netstandard20/test-results/main/. Также в общей сложности около 200 тестов завершилось с ошибкой — все они связаны с проблемами рендеринга из‑за отсутствия требуемых шрифтов в контейнере.
 
-Чтобы переопределить команду по умолчанию контейнера при запуске, можно воспользоваться этой командой:
+Чтобы переопределить команду по умолчанию контейнера при запуске, можно использовать следующую команду:
 ``` csharp
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
@@ -213,18 +210,17 @@ Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
 ```
 
 
-Таким образом, вместо netcore.linux.tests.sh будет выполнен /bin/bash, предоставляющий активную терминальную сессию контейнера, из которой можно запустить (./build/netcore.linux.tests.sh). Такой подход может быть полезен в сценариях отладки.
+Таким образом, вместо netcore.linux.tests.sh будет выполнен /bin/bash, предоставляющий активный терминал контейнера, из которого можно запустить (./build/netcore.linux.tests.sh). Такой подход может быть полезен при отладке.
 
 ## **Установить и настроить Docker на Linux (make install libgdiplus)**
 - ОС: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_make_libgdiplus
 
-В настоящее время Ubuntu содержит только версию 4.2 libgdiplus, тогда как версия 5.6 уже доступна на [официальном сайте](https://github.com/mono/libgdiplus/releases) продукта. Чтобы протестировать последнюю версию libgdiplus, необходимо подготовить образ с libgdiplus, собранный из исходников.
+В данный момент Ubuntu содержит лишь версию 4.2 libgdiplus, тогда как версия 5.6 уже доступна на [официальном сайте](https://github.com/mono/libgdiplus/releases) продукта. Чтобы протестировать последнюю версию libgdiplus, необходимо подготовить образ с libgdiplus, построенным из исходников.
 
-Давайте рассмотрим содержимое docker‑файла:
+Разберём содержимое Docker‑file:
 ``` csharp
-
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
+FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
 \# собрать последнюю стабильную libgdiplus
 
@@ -253,13 +249,12 @@ VOLUME /slides-src
 WORKDIR /slides-src
 
 CMD ./build/netcore.linux.tests.sh
-
 ```
 
 
-Единственное отличие — секция *build latest stable libgdiplus*. Эта секция устанавливает все необходимые инструменты для сборки libgdiplus, клонирует исходники, затем собирает их и устанавливает в нужное место. Всё остальное идентично [Install and configure Docker on Linux (apt-get libgdiplus)](/slides/ru/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
+Единственное отличие — раздел *build latest stable libgdiplus*. Этот раздел устанавливает все необходимые инструменты для сборки libgdiplus, клонирует исходники, затем собирает их и устанавливает в нужное место. Всё остальное аналогично [Установить и настроить Docker на Linux (apt-get libgdiplus)](/slides/ru/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
 
-**Примечание**: Не забывайте использовать разные теги (имена) образов для получаемого образа в командах docker build и docker run:
+**Примечание**: Не забудьте использовать разные теги образов (имена) для получаемого образа в командах docker build и docker run:
 ``` csharp
 
  $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
@@ -275,105 +270,59 @@ $ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.too
 
 **Примечание**: Для запуска Windows‑контейнеров требуется Windows 10 Pro или Windows Server 2016.
 
-К сожалению, Microsoft не предоставляет образ Windows Server Core с предустановленным dotnet SDK, поэтому его необходимо установить вручную:
+К сожалению, Microsoft не предоставляет образ Windows Server Core с установленным dotnet SDK, поэтому его необходимо установить вручную:
 ``` csharp
-# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
+\# escape=
 
 #set powershell default executor
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+# установить PowerShell в качестве исполнителя по умолчанию
 
 \# escape=
 
-FROM microsoft/windowsservercore:1803 AS installer-env
-
 #set powershell default executor
+# установить PowerShell в качестве исполнителя по умолчанию
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+# Retrieve .NET Core SDK
+# Получить .NET Core SDK
 
-\# Получить .NET Core SDK
+#return cmd as default executor
+# вернуть cmd в качестве исполнителя по умолчанию
 
-ENV DOTNET_SDK_VERSION 2.1.301
+# In order to set system PATH, ContainerAdministrator must be used
+# Чтобы установить системный PATH, необходимо использовать ContainerAdministrator
 
-ENV DOTNET_PATH "c:/Program Files/dotnet"
+# create mount points
+# создать точки монтирования
 
-RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$Env:DOTNET_SDK_VERSION/dotnet-sdk-$Env:DOTNET_SDK_VERSION-win-x64.zip; 
-
-    $dotnet_sha512 = 'f2f6cc020f89dc4d4f8064cc914cffabde0ce422715138778a6bcbbb6803ca66d6fd967097a0209c47c89b85dd9e93db48486ac86999bd3a533e45b789fcea89'; 
-
-    if ((Get-FileHash dotnet.zip -Algorithm sha512).Hash -ne $dotnet_sha512) { 
-
-        Write-Host 'CHECKSUM VERIFICATION FAILED!'; 
-
-        exit 1; 
-
-    }; 
-
-    
-
-    Expand-Archive dotnet.zip -DestinationPath $Env:DOTNET_PATH;
-
-#return cmd как исполнитель по умолчанию
-
-SHELL ["cmd", "/S", "/C"]
-
-\# Чтобы установить системный PATH, необходимо использовать ContainerAdministrator
-
-USER ContainerAdministrator
-
-RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
-
-USER ContainerUser
-
-\# создать точки монтирования
-
-VOLUME c:/slides-src
-
-#build и test Aspose.Slides при запуске
-
-WORKDIR c:/slides-src
-
-CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -D:obfuscate_eaz_use_mock=true -D:slidesnet.run.func.tests=true -D:slidesnet.run.regr.tests=true
+#build and test Aspose.Slides on start
+# собрать и протестировать Aspose.Slides при запуске
 ```
 
 
-Полученный образ будет построен поверх образа microsoft/windowsservercore:1803, предоставленного Microsoft на [docker hub](https://hub.docker.com/r/microsoft/windowsservercore/). Dotnet‑sdk указанной версии будет загружен и распакован; переменная PATH системы будет обновлена, чтобы включать путь к исполняемому файлу dotnet. Последняя строка определяет команду, которая выполняет тесты func и regr в контейнере с использованием nant.exe в качестве действия по умолчанию при запуске контейнера.
+Полученный образ будет построен на базе образа microsoft/windowsservercore:1803, предоставленного Microsoft на [docker hub](https://hub.docker.com/u/microsoft). Dotnet‑sdk указанной версии будет загружен и распакован; переменная PATH системы будет обновлена, чтобы включать путь к исполняемому файлу dotnet. Последняя строка определяет команду, которая запускает тесты func и regr в контейнере с использованием nant.exe в качестве действия по умолчанию при запуске контейнера.
 
 Команда для сборки образа:
 ``` csharp
-
- docker build -f Dockerfile_WinServerCore -t winservercore_slides .
-
+docker build -f Dockerfile_WinServerCore -t winservercore_slides .
 ```
 
 
 Команда для запуска образа:
 ``` csharp
-
- docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
-
+docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
 ```
 
 
 **Примечание**: Команда для Windows‑контейнера использует 2 дополнительных аргумента:
+*-cpu-count 3* — задаёт количество ядер.  
+*-memory 8589934592* — задаёт объём памяти.  
+Эти параметры задают количество ядер и объём памяти, доступных контейнеру. По умолчанию для Windows‑контейнера доступно только 1 ядро и 1 ГБ ОЗУ (у Linux‑контейнеров ограничений по умолчанию нет).
 
-*-cpu-count 3*
+Также в этом случае отсутствует один аргумент по сравнению с той же командой, которую мы использовали для запуска Linux‑контейнера:
+*-add-host dev.slides.external.tool.server:192.168.1.48* — поскольку контейнер на Windows не требует external.tool.server.
 
-*-memory 8589934592*
-
-Они задают количество ядер и объём памяти, доступных контейнеру. По умолчанию для Windows‑контейнера доступно только 1 ядро и 1 ГБ ОЗУ (у Linux‑контейнеров по умолчанию нет ограничений).
-
-Кроме того, в команде отсутствует один аргумент по сравнению с командой, используемой для Linux‑контейнера:
-
-*-add-host dev.slides.external.tool.server:192.168.1.48*
-
-Поскольку контейнер, работающий в Windows, не требует external.tool.server.
-
-Результат вышеуказанной команды должен выглядеть так:
+Результат выполнения вышеуказанной команды должен выглядеть следующим образом:
 ``` csharp
-
  NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
 
 Copyright (C) 2001-2012 Gerry Shaw

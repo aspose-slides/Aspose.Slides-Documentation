@@ -16,18 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中设置回退字体集合，以确保 PowerPoint 和 OpenDocument 演示文稿中的文字保持一致且清晰。"
+description: "在 Aspose.Slides for .NET 中设置回退字体集合，以在 PowerPoint 和 OpenDocument 演示文稿中保持文本一致且清晰。"
 ---
 
 ## **应用回退规则**
 
-FontFallBackRule 类的实例可以组织到[FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)中，该集合实现[IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection)接口。可以向集合中添加或删除规则。
+可以将 [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) 类的实例组织到 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) 中，该集合实现了 [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) 接口。可以向集合中添加或删除规则。
 
-然后可以将此集合分配给[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager)类的[FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)属性。FontsManager 控制整个演示文稿中的字体。进一步了解[关于 FontsManager 和 FontsLoader](/slides/zh/net/about-fontsmanager-and-fontsloader/)。
+然后可以将此集合分配给 [FontFallBackRulesCollection ](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)属性，位于 [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) 类中。FontsManager 控制整个演示文稿中的字体。
 
-每个[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)都有一个[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)属性，其中包含自己的 FontsManager 类实例。
+每个 [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)都有一个 [FontsManager ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)属性，其中包含自己的 FontsManager 类实例。
 
-以下示例演示如何创建回退字体规则集合并将其分配到特定演示文稿的 FontsManager：
+下面是创建回退字体规则集合并将其分配到特定演示文稿的 FontsManager 的示例：
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -44,23 +44,23 @@ using (Presentation presentation = new Presentation())
 在使用回退字体集合初始化 FontsManager 后，回退字体将在演示文稿渲染期间应用。
 
 {{% alert color="primary" %}} 
-了解更多关于如何[使用回退字体渲染演示文稿](/slides/zh/net/render-presentation-with-fallback-font/)。
+了解更多关于[Render Presentation with Fallback Font](/slides/zh/net/render-presentation-with-fallback-font/)的内容。
 {{% /alert %}}
 
 ## **常见问题**
 
 **我的回退规则会嵌入到 PPTX 文件中并在保存后在 PowerPoint 中可见吗？**
 
-不会。回退规则是运行时渲染设置；它们不会序列化到 PPTX 中，也不会出现在 PowerPoint 的用户界面中。
+否。回退规则是运行时渲染设置；它们不会序列化到 PPTX 中，也不会出现在 PowerPoint 的用户界面中。
 
 **回退是否适用于 SmartArt、WordArt、图表和表格中的文本？**
 
-是的。这些对象中的所有文本都使用相同的字形替换机制。
+是的。这些对象中的所有文本均使用相同的字形替换机制。
 
 **Aspose 是否随库分发任何字体？**
 
-不会。您需要自行添加和使用字体，责任由您自行承担。
+否。您需要自行添加和使用字体，承担相应的责任。
 
-**缺失字体的替换/替代与缺失字形的回退可以一起使用吗？**
+**缺失字体的替换/子替换和缺失字形的回退可以一起使用吗？**
 
-可以。它们是同一字体解析管道的独立阶段：首先引擎解析字体可用性（[replacement](/slides/zh/net/font-replacement/)/[substitution](/slides/zh/net/font-substitution/)），然后回退为可用字体中缺失的字形填补空缺。
+是的。它们是同一字体解析流水线的独立阶段：首先引擎解析字体可用性（[replacement](/slides/zh/net/font-replacement/)/[substitution](/slides/zh/net/font-substitution/)），然后回退为可用字体中缺失的字形填补空缺。

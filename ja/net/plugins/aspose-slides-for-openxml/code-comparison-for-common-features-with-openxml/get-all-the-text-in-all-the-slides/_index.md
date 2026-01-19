@@ -1,19 +1,20 @@
 ---
-title: すべてのスライドのすべてのテキストを取得する
+title: 全スライドのテキストをすべて取得
 type: docs
 weight: 100
 url: /ja/net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**
-```csharp
+``` csharp
+
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("スライドの数 = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -23,7 +24,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("スライド #{0} には次が含まれます: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -33,15 +34,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // プレゼンテーションを読み取り専用で開きます。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // プレゼンテーションを次の CountSlides メソッドに渡し
+        // Pass the presentation to the next CountSlides method
 
-        // スライドの数を返します。
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -49,13 +50,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// プレゼンテーション内のスライドをカウントします。
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // null ドキュメントオブジェクトをチェックします。
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -67,11 +68,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // ドキュメントのプレゼンテーションパートを取得します。
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // SlideParts からスライドの数を取得します。
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -81,7 +82,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // スライドの数を前のメソッドに戻します。
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -95,7 +96,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // 最初のスライドのリレーションシップIDを取得します。
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -103,15 +104,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // リレーションシップIDからスライドパートを取得します。
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // StringBuilder オブジェクトを構築します。
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // スライドの内部テキストを取得します：
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -131,14 +132,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
 ``` 
 ## **Aspose.Slides**
-```csharp
+``` csharp
+
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("スライドの数 = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -148,7 +150,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 slideText = GetSlideText(FileName, i);
 
-System.Console.WriteLine("スライド #{0} には次が含まれます: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -158,7 +160,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    //PresentationEx クラスのインスタンスを生成し、PPTX を表します
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
@@ -176,17 +178,17 @@ public static string GetSlideText(string docName, int index)
 
     string sldText = "";
 
-    //PresentationEx クラスのインスタンスを生成し、PPTX を表します
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(docName))
 
     {
 
-        // スライドにアクセスします
+        //Access the slide
 
         ISlide sld = pres.Slides[index];
 
-        // プレースホルダーを見つけるために形状を反復します
+        //Iterate through shapes to find the placeholder
 
         foreach (Shape shp in sld.Shapes)
 
@@ -194,7 +196,7 @@ public static string GetSlideText(string docName, int index)
 
             {
 
-                // 各プレースホルダーのテキストを取得します
+                //get the text of each placeholder
 
                 sldText += ((AutoShape)shp).TextFrame.Text;
 
@@ -208,7 +210,6 @@ public static string GetSlideText(string docName, int index)
 
 ``` 
 ## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides/)

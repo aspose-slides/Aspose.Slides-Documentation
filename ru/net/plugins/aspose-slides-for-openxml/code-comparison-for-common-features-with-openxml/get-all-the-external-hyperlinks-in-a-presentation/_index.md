@@ -1,109 +1,108 @@
----  
-title: Получить все внешние гиперссылки в презентации  
-type: docs  
-weight: 90  
-url: /ru/net/get-all-the-external-hyperlinks-in-a-presentation/  
----  
+---
+title: Получить все внешние гиперссылки в презентации
+type: docs
+weight: 90
+url: /ru/net/get-all-the-external-hyperlinks-in-a-presentation/
+---
 
-## **OpenXML Презентация**  
-``` csharp  
+## **OpenXML Презентация**
+``` csharp
 
- string FilePath = @"..\..\..\..\Sample Files\";  
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получить все внешние гиперссылки.pptx";  
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
-foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))  
+foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))
 
-Console.WriteLine(s);  
+Console.WriteLine(s);
 
-// Возвращает все внешние гиперссылки на слайдах презентации.  
+// Returns all the external hyperlinks in the slides of a presentation.
 
-public static IEnumerable<String> GetAllExternalHyperlinksInPresentation(string fileName)  
+public static IEnumerable<String> GetAllExternalHyperlinksInPresentation(string fileName)
 
-{  
+{
 
-// Объявляем список строк.  
+// Declare a list of strings.
 
-List<string> ret = new List<string>();  
+List<string> ret = new List<string>();
 
-// Открываем файл презентации только для чтения.  
+// Open the presentation file as read-only.
 
-using (PresentationDocument document = PresentationDocument.Open(fileName, false))  
+using (PresentationDocument document = PresentationDocument.Open(fileName, false))
 
-{  
+{
 
-    // Итерируемся по всем частям слайдов в части презентации.  
+    // Iterate through all the slide parts in the presentation part.
 
-    foreach (SlidePart slidePart in document.PresentationPart.SlideParts)  
+    foreach (SlidePart slidePart in document.PresentationPart.SlideParts)
 
-    {  
+    {
 
-        IEnumerable<Drawing.HyperlinkType> links = slidePart.Slide.Descendants<Drawing.HyperlinkType>();  
+        IEnumerable<Drawing.HyperlinkType> links = slidePart.Slide.Descendants<Drawing.HyperlinkType>();
 
-        // Итерируемся по всем гиперссылкам в части слайда.  
+        // Iterate through all the links in the slide part.
 
-        foreach (Drawing.HyperlinkType link in links)  
+        foreach (Drawing.HyperlinkType link in links)
 
-        {  
+        {
 
-            // Итерируемся по всем внешним отношениям в части слайда.  
+            // Iterate through all the external relationships in the slide part. 
 
-            foreach (HyperlinkRelationship relation in slidePart.HyperlinkRelationships)  
+            foreach (HyperlinkRelationship relation in slidePart.HyperlinkRelationships)
 
-            {  
+            {
 
-                // Если ID отношения совпадает с ID гиперссылки...  
+                // If the relationship ID matches the link ID...
 
-                if (relation.Id.Equals(link.Id))  
+                if (relation.Id.Equals(link.Id))
 
-                {  
+                {
 
-                    // Добавляем URI внешнего отношения в список строк.  
+                    // Add the URI of the external relationship to the list of strings.
 
-                    ret.Add(relation.Uri.AbsoluteUri);  
+                    ret.Add(relation.Uri.AbsoluteUri);
 
-                }  
+                }
 
-            }  
+            }
 
-        }  
+        }
 
-    }  
+    }
 
-}  
+}
 
-// Возвращаем список строк.  
+// Return the list of strings.
 
-return ret;  
+return ret;
 
-}  
+}
 
-```  
-## **Aspose.Slides**  
-Aspose.Slides для .NET позволяет разработчикам управлять гиперссылками в презентации на уровне презентации, слайда и текстового фрейма. Класс **IHyperlinkQueries** помогает управлять гиперссылками в презентации.  
 
-``` csharp  
+``` 
+## **Aspose.Slides**
+Aspose.Slides для .NET позволяет разработчикам управлять гиперссылками в презентации на уровне презентации, слайда и текстового фрейма. Класс **IHyperlinkQueries** помогает управлять гиперссылками в презентации.
 
- string FilePath = @"..\..\..\..\Sample Files\";  
+``` csharp
 
-string FileName = FilePath + "Получить все внешние гиперссылки.pptx";  
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-//Создаем объект Presentation, представляющий файл PPTX  
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
-Presentation pres = new Presentation(FileName);  
+//Instantiate a Presentation object that represents a PPTX file
 
-//Получаем гиперссылки из презентации  
+Presentation pres = new Presentation(FileName);
 
-IList<IHyperlinkContainer> links = pres.HyperlinkQueries.GetAnyHyperlinks();  
+//Get the hyperlinks from presentation
 
-foreach (IHyperlinkContainer link in links)  
+IList<IHyperlinkContainer> links = pres.HyperlinkQueries.GetAnyHyperlinks();
 
-    Console.WriteLine(link.HyperlinkClick.ExternalUrl);  
+foreach (IHyperlinkContainer link in links)
 
-```  
-## **Скачать рабочий пример кода**  
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)  
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)  
-## **Пример кода**  
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Получить все внешние гиперссылки/)  
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Получить%20все%20внешние%20гиперссылки)  
+    Console.WriteLine(link.HyperlinkClick.ExternalUrl);
+
+``` 
+## **Скачать работающий пример кода**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
+## **Пример кода**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Get%20all%20the%20External%20Hyperlinks)

@@ -1,607 +1,607 @@
----  
-title: إنشاء ودمج مخطط Excel ككائن OLE  
-type: docs  
-weight: 70  
-url: /ar/net/create-and-embed-an-excel-chart-as-an-ole-object/  
----  
-  
-أمثلة الكود أدناه طويلة ومفصلة لأن المهمة التي تصفها معقدة. تقوم بإنشاء مصنف Microsoft Excel، وإنشاء مخطط، ثم إنشاء عرض تقديمي في Microsoft PowerPoint الذي ستدمج فيه المخطط. تحتوي كائنات OLE على روابط إلى المستند الأصلي بحيث يقوم المستخدم الذي ينقر نقرًا مزدوجًا على الملف المدمج بتشغيل الملف وتطبيقه.  
-## **VSTO**  
-باستخدام VSTO، يتم تنفيذ الخطوات التالية:  
-  
-1. إنشاء نسخة من كائن Microsoft Excel ApplicationClass.  
-1. إنشاء مصنف جديد يحتوي على ورقة واحدة.  
-1. إضافة المخطط إلى الورقة.  
-1. حفظ المصنف.  
-1. فتح مصنف Excel الذي يحتوي على ورقة العمل مع بيانات المخطط.  
-1. الحصول على مجموعة ChartObjects للورقة.  
-1. الحصول على المخطط للنسخ.  
-1. إنشاء عرض تقديمي في Microsoft PowerPoint.  
-1. إضافة شريحة فارغة إلى العرض التقديمي.  
-1. نسخ المخطط من ورقة عمل Excel إلى الحافظة.  
-1. لصق المخطط في عرض PowerPoint التقديمي.  
-1. وضع المخطط على الشريحة.  
-1. حفظ العرض التقديمي.  
-  
-``` csharp  
+---
+title: إنشاء وتضمين مخطط Excel ككائن OLE
+type: docs
+weight: 70
+url: /ar/net/create-and-embed-an-excel-chart-as-an-ole-object/
+---
 
- public void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)  
+المثالان البرمجيان أدناه طويلان ومفصّلان لأن المهمة التي يصفانها معقدة. تقوم بإنشاء مصنف Microsoft Excel، ثم إنشاء مخطط، ثم إنشاء عرض تقديمي Microsoft PowerPoint ستضمّن المخطط فيه. كائنات OLE تحتوي على روابط إلى المستند الأصلي، لذلك عندما ينقر المستخدم مرتين على الملف المضمّن سيفتح الملف وتطبيقه.
 
-{  
+## **VSTO**
+باستخدام VSTO، يتم تنفيذ الخطوات التالية:
 
-	targetSheet.get_Range(Cell, Cell).set_Value(xlNS.XlRangeValueDataType.xlRangeValueDefault, Value);  
+1. إنشاء نسخة من كائن Microsoft Excel ApplicationClass.
+2. إنشاء مصنف جديد يحتوي على ورقة واحدة.
+3. إضافة مخطط إلى الورقة.
+4. حفظ المصنف.
+5. فتح مصنف Excel الذي يحتوي على ورقة العمل التي تتضمن بيانات المخطط.
+6. الحصول على مجموعة ChartObjects للورقة.
+7. الحصول على المخطط للنسخ.
+8. إنشاء عرض تقديمي Microsoft PowerPoint.
+9. إضافة شريحة فارغة إلى العرض التقديمي.
+10. نسخ المخطط من ورقة عمل Excel إلى الحافظة.
+11. لصق المخطط داخل عرض PowerPoint التقديمي.
+12. تحديد موضع المخطط على الشريحة.
+13. حفظ العرض التقديمي.
 
-}  
+``` csharp
 
-public void CreateNewChartInExcel()  
+ public void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 
-{  
+{
 
-	// Declare a variable for the Excel ApplicationClass instance.  
+	targetSheet.get_Range(Cell, Cell).set_Value(xlNS.XlRangeValueDataType.xlRangeValueDefault, Value);
 
-	Microsoft.Office.Interop.Excel.Application excelApplication = new xlNS.Application() ;//new Microsoft.Office.Interop.Excel.ApplicationClass();  
+}
 
-	// Declare variables for the Workbooks.Open method parameters.  
+public void CreateNewChartInExcel()
 
-	string paramWorkbookPath = System.Windows.Forms.Application.StartupPath+@"\ChartData.xlsx";  
+{
 
-	object paramMissing = Type.Missing;  
+	// Declare a variable for the Excel ApplicationClass instance.
 
-	// Declare variables for the Chart.ChartWizard method.  
+	Microsoft.Office.Interop.Excel.Application excelApplication = new xlNS.Application() ;//new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-	object paramChartFormat = 1;  
+	// Declare variables for the Workbooks.Open method parameters.
 
-	object paramCategoryLabels = 0;  
+	string paramWorkbookPath = System.Windows.Forms.Application.StartupPath+@"\ChartData.xlsx";
 
-	object paramSeriesLabels = 0;  
+	object paramMissing = Type.Missing;
 
-	bool paramHasLegend = true;  
+	// Declare variables for the Chart.ChartWizard method.
 
-	object paramTitle = "المبيعات حسب الربع";  
+	object paramChartFormat = 1;
 
-	object paramCategoryTitle = "الربع المالي";  
+	object paramCategoryLabels = 0;
 
-	object paramValueTitle = "مليارات";  
+	object paramSeriesLabels = 0;
 
-	try  
+	bool paramHasLegend = true;
 
-	{  
+	object paramTitle = "Sales by Quarter";
 
-		// Create an instance of the Excel ApplicationClass object.  
+	object paramCategoryTitle = "Fiscal Quarter";
 
-	   // excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();  
+	object paramValueTitle = "Billions";
 
-		// Create a new workbook with 1 sheet in it.  
+	try
 
-		xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);  
+	{
 
-		// Change the name of the sheet.  
+		// Create an instance of the Excel ApplicationClass object.
 
-		xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);  
+	   // excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-		targetSheet.Name = "المبيعات الربع سنوية";  
+		// Create a new workbook with 1 sheet in it.
 
-		// Insert some data for the chart into the sheet.  
+		xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-		//              A       B       C       D       E  
+		// Change the name of the sheet.
 
-		//     1                Q1      Q2      Q3      Q4  
+		xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
 
-		//     2    N. America  1.5     2       1.5     2.5  
+		targetSheet.Name = "Quarterly Sales";
 
-		//     3    S. America  2       1.75    2       2  
+		// Insert some data for the chart into the sheet.
 
-		//     4    Europe      2.25    2       2.5     2  
+		//              A       B       C       D       E
 
-		//     5    Asia        2.5     2.5     2       2.75  
+		//     1                Q1      Q2      Q3      Q4
 
-		SetCellValue(targetSheet, "A2", "N. America");  
+		//     2    N. America  1.5     2       1.5     2.5
 
-		SetCellValue(targetSheet, "A3", "S. America");  
+		//     3    S. America  2       1.75    2       2
 
-		SetCellValue(targetSheet, "A4", "Europe");  
+		//     4    Europe      2.25    2       2.5     2
 
-		SetCellValue(targetSheet, "A5", "Asia");  
+		//     5    Asia        2.5     2.5     2       2.75
 
-		SetCellValue(targetSheet, "B1", "Q1");  
+		SetCellValue(targetSheet, "A2", "N. America");
 
-		SetCellValue(targetSheet, "B2", 1.5);  
+		SetCellValue(targetSheet, "A3", "S. America");
 
-		SetCellValue(targetSheet, "B3", 2);  
+		SetCellValue(targetSheet, "A4", "Europe");
 
-		SetCellValue(targetSheet, "B4", 2.25);  
+		SetCellValue(targetSheet, "A5", "Asia");
 
-		SetCellValue(targetSheet, "B5", 2.5);  
+		SetCellValue(targetSheet, "B1", "Q1");
 
-		SetCellValue(targetSheet, "C1", "Q2");  
+		SetCellValue(targetSheet, "B2", 1.5);
 
-		SetCellValue(targetSheet, "C2", 2);  
+		SetCellValue(targetSheet, "B3", 2);
 
-		SetCellValue(targetSheet, "C3", 1.75);  
+		SetCellValue(targetSheet, "B4", 2.25);
 
-		SetCellValue(targetSheet, "C4", 2);  
+		SetCellValue(targetSheet, "B5", 2.5);
 
-		SetCellValue(targetSheet, "C5", 2.5);  
+		SetCellValue(targetSheet, "C1", "Q2");
 
-		SetCellValue(targetSheet, "D1", "Q3");  
+		SetCellValue(targetSheet, "C2", 2);
 
-		SetCellValue(targetSheet, "D2", 1.5);  
+		SetCellValue(targetSheet, "C3", 1.75);
 
-		SetCellValue(targetSheet, "D3", 2);  
+		SetCellValue(targetSheet, "C4", 2);
 
-		SetCellValue(targetSheet, "D4", 2.5);  
+		SetCellValue(targetSheet, "C5", 2.5);
 
-		SetCellValue(targetSheet, "D5", 2);  
+		SetCellValue(targetSheet, "D1", "Q3");
 
-		SetCellValue(targetSheet, "E1", "Q4");  
+		SetCellValue(targetSheet, "D2", 1.5);
 
-		SetCellValue(targetSheet, "E2", 2.5);  
+		SetCellValue(targetSheet, "D3", 2);
 
-		SetCellValue(targetSheet, "E3", 2);  
+		SetCellValue(targetSheet, "D4", 2.5);
 
-		SetCellValue(targetSheet, "E4", 2);  
+		SetCellValue(targetSheet, "D5", 2);
 
-		SetCellValue(targetSheet, "E5", 2.75);  
+		SetCellValue(targetSheet, "E1", "Q4");
 
-		// Get the range holding the chart data.  
+		SetCellValue(targetSheet, "E2", 2.5);
 
-		xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");  
+		SetCellValue(targetSheet, "E3", 2);
 
-		// Get the ChartObjects collection for the sheet.  
+		SetCellValue(targetSheet, "E4", 2);
 
-		xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));  
+		SetCellValue(targetSheet, "E5", 2.75);
 
-		// Add a Chart to the collection.  
+		// Get the range holding the chart data.
 
-		xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);  
+		xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-		newChartObject.Name = "مخطط المبيعات";  
+		// Get the ChartObjects collection for the sheet.
 
-		// Create a new chart of the data.  
+		xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-		newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,  
+		// Add a Chart to the collection.
 
-			paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);  
+		xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
 
-		// Save the workbook.  
+		newChartObject.Name = "Sales Chart";
 
-		newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,  
+		// Create a new chart of the data.
 
-			paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);  
+		newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
 
-	}  
+			paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-	catch (Exception ex)  
+		// Save the workbook.
 
-	{  
+		newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
 
-		Console.WriteLine(ex.Message);  
+			paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
 
-	}  
+	}
 
-	finally  
+	catch (Exception ex)
 
-	{  
+	{
 
-		if (excelApplication != null)  
+		Console.WriteLine(ex.Message);
 
-		{  
+	}
 
-			// Close Excel.  
+	finally
 
-			excelApplication.Quit();  
+	{
 
-		}  
+		if (excelApplication != null)
 
-	}  
+		{
 
-}  
+			// Close Excel.
 
-public void UseCopyPaste()  
+			excelApplication.Quit();
 
-{  
+		}
 
-	// Declare variables to hold references to PowerPoint objects.  
+	}
 
-	pptNS.Application powerpointApplication = null;  
+}
 
-	pptNS.Presentation pptPresentation = null;  
+public void UseCopyPaste()
 
-	pptNS.Slide pptSlide = null;  
+{
 
-	pptNS.ShapeRange shapeRange = null;  
+	// Declare variables to hold references to PowerPoint objects.
 
-	// Declare variables to hold references to Excel objects.  
+	pptNS.Application powerpointApplication = null;
 
-	xlNS.Application excelApplication = null;  
+	pptNS.Presentation pptPresentation = null;
 
-	xlNS.Workbook excelWorkBook = null;  
+	pptNS.Slide pptSlide = null;
 
-	xlNS.Worksheet targetSheet = null;  
+	pptNS.ShapeRange shapeRange = null;
 
-	xlNS.ChartObjects chartObjects = null;  
+	// Declare variables to hold references to Excel objects.
 
-	xlNS.ChartObject existingChartObject = null;  
+	xlNS.Application excelApplication = null;
 
-	string paramPresentationPath = System.Windows.Forms.Application.StartupPath + @"\ChartTest.pptx";  
+	xlNS.Workbook excelWorkBook = null;
 
-	string paramWorkbookPath = System.Windows.Forms.Application.StartupPath + @"\ChartData.xlsx";  
+	xlNS.Worksheet targetSheet = null;
 
-	object paramMissing = Type.Missing;  
+	xlNS.ChartObjects chartObjects = null;
 
-	try  
+	xlNS.ChartObject existingChartObject = null;
 
-	{  
+	string paramPresentationPath = System.Windows.Forms.Application.StartupPath + @"\ChartTest.pptx";
 
-		// Create an instance of PowerPoint.  
+	string paramWorkbookPath = System.Windows.Forms.Application.StartupPath + @"\ChartData.xlsx";
 
-		powerpointApplication =new pptNS.Application();  
+	object paramMissing = Type.Missing;
 
-		// Create an instance Excel.  
+	try
 
-		excelApplication = new xlNS.Application();  
+	{
 
-		// Open the Excel workbook containing the worksheet with the chart data.  
+		// Create an instance of PowerPoint.
 
-		excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,  
+		powerpointApplication =new pptNS.Application();
 
-			paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,  
+		// Create an instance Excel.
 
-			paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,  
+		excelApplication = new xlNS.Application();
 
-			paramMissing, paramMissing, paramMissing, paramMissing);  
+		// Open the Excel workbook containing the worksheet with the chart data.
 
-		// Get the worksheet that contains the chart.  
+		excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
 
-		targetSheet =  
+			paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
 
-			(xlNS.Worksheet)(excelWorkBook.Worksheets["المبيعات الربع سنوية"]);  
+			paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
 
-		// Get the ChartObjects collection for the sheet.  
+			paramMissing, paramMissing, paramMissing, paramMissing);
 
-		chartObjects =  
+		// Get the worksheet that contains the chart.
 
-			(xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));  
+		targetSheet =
 
-		// Get the chart to copy.  
+			(xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-		existingChartObject =  
+		// Get the ChartObjects collection for the sheet.
 
-			(xlNS.ChartObject)(chartObjects.Item("مخطط المبيعات"));  
+		chartObjects =
 
-		// Create a PowerPoint presentation.  
+			(xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-		pptPresentation =  
+		// Get the chart to copy.
 
-			powerpointApplication.Presentations.Add(  
+		existingChartObject =
 
-			Microsoft.Office.Core.MsoTriState.msoTrue);  
+			(xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-		// Add a blank slide to the presentation.  
+		// Create a PowerPoint presentation.
 
-		pptSlide =  
+		pptPresentation =
 
-			pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);  
+			powerpointApplication.Presentations.Add(
 
-		// Copy the chart from the Excel worksheet to the clipboard.  
+			Microsoft.Office.Core.MsoTriState.msoTrue);
 
-		existingChartObject.Copy();  
+		// Add a blank slide to the presentation.
 
-		// Paste the chart into the PowerPoint presentation.  
+		pptSlide =
 
-		shapeRange = pptSlide.Shapes.Paste();  
+			pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-		// Position the chart on the slide.  
+		// Copy the chart from the Excel worksheet to the clipboard.
 
-		shapeRange.Left = 60;  
+		existingChartObject.Copy();
 
-		shapeRange.Top = 100;  
+		// Paste the chart into the PowerPoint presentation.
 
-		// Save the presentation.  
+		shapeRange = pptSlide.Shapes.Paste();
 
-		pptPresentation.SaveAs(paramPresentationPath, pptNS.PpSaveAsFileType.ppSaveAsOpenXMLPresentation, Microsoft.Office.Core.MsoTriState.msoTrue);  
+		// Position the chart on the slide.
 
-	}  
+		shapeRange.Left = 60;
 
-	catch (Exception ex)  
+		shapeRange.Top = 100;
 
-	{  
+		// Save the presentation.
 
-		Console.WriteLine(ex.Message);  
+		pptPresentation.SaveAs(paramPresentationPath, pptNS.PpSaveAsFileType.ppSaveAsOpenXMLPresentation, Microsoft.Office.Core.MsoTriState.msoTrue);
 
-	}  
+	}
 
-	finally  
+	catch (Exception ex)
 
-	{  
+	{
 
-		// Release the PowerPoint slide object.  
+		Console.WriteLine(ex.Message);
 
-		shapeRange = null;  
+	}
 
-		pptSlide = null;  
+	finally
 
-		// Close and release the Presentation object.  
+	{
 
-		if (pptPresentation != null)  
+		// Release the PowerPoint slide object.
 
-		{  
+		shapeRange = null;
 
-			pptPresentation.Close();  
+		pptSlide = null;
 
-			pptPresentation = null;  
+		// Close and release the Presentation object.
 
-		}  
+		if (pptPresentation != null)
 
-		// Quit PowerPoint and release the ApplicationClass object.  
+		{
 
-		if (powerpointApplication != null)  
+			pptPresentation.Close();
 
-		{  
+			pptPresentation = null;
 
-			powerpointApplication.Quit();  
+		}
 
-			powerpointApplication = null;  
+		// Quit PowerPoint and release the ApplicationClass object.
 
-		}  
+		if (powerpointApplication != null)
 
-		// Release the Excel objects.  
+		{
 
-		targetSheet = null;  
+			powerpointApplication.Quit();
 
-		chartObjects = null;  
+			powerpointApplication = null;
 
-		existingChartObject = null;  
+		}
 
-		// Close and release the Excel Workbook object.  
+		// Release the Excel objects.
 
-		if (excelWorkBook != null)  
+		targetSheet = null;
 
-		{  
+		chartObjects = null;
 
-			excelWorkBook.Close(false, paramMissing, paramMissing);  
+		existingChartObject = null;
 
-			excelWorkBook = null;  
+		// Close and release the Excel Workbook object.
 
-		}  
+		if (excelWorkBook != null)
 
-		// Quit Excel and release the ApplicationClass object.  
+		{
 
-		if (excelApplication != null)  
+			excelWorkBook.Close(false, paramMissing, paramMissing);
 
-		{  
+			excelWorkBook = null;
 
-			excelApplication.Quit();  
+		}
 
-			excelApplication = null;  
+		// Quit Excel and release the ApplicationClass object.
 
-		}  
+		if (excelApplication != null)
 
-		GC.Collect();  
+		{
 
-		GC.WaitForPendingFinalizers();  
+			excelApplication.Quit();
 
-		GC.Collect();  
+			excelApplication = null;
 
-		GC.WaitForPendingFinalizers();  
+		}
 
-	}  
+		GC.Collect();
 
-}  
+		GC.WaitForPendingFinalizers();
 
-private void ThisAddIn_Startup(object sender, System.EventArgs e)  
+		GC.Collect();
 
-{  
+		GC.WaitForPendingFinalizers();
 
-	CreateNewChartInExcel();  
+	}
 
-	UseCopyPaste();  
+}
 
-}  
+private void ThisAddIn_Startup(object sender, System.EventArgs e)
 
-```  
-## **Aspose.Slides**  
-باستخدام Aspose.Slides لـ .NET، يتم تنفيذ الخطوات التالية:  
-  
-1. إنشاء مصنف باستخدام Aspose.Cells ل .NET.  
-1. إنشاء مخطط Microsoft Excel.  
-1. تعيين حجم OLE لمخطط Excel.  
-1. الحصول على صورة من المخطط.  
-1. تضمين مخطط Excel ككائن OLE داخل عرض تقديمي PPTX باستخدام Aspose.Slides لـ .NET.  
-1. استبدال صورة الكائن التي تم تغييرها بالصورة التي تم الحصول عليها في الخطوة 3 لمعالجة مشكلة تغيير الكائن.  
-1. كتابة العرض التقديمي الناتج إلى القرص في تنسيق PPTX.  
-  
-``` csharp  
+{
 
- static void Main(string[] args)  
+	CreateNewChartInExcel();
 
-{  
+	UseCopyPaste();
 
-	//Create a workbook  
+}
 
-	Workbook wb = new Workbook();  
+``` 
+## **Aspose.Slides**
+باستخدام Aspose.Slides for .NET، يتم تنفيذ الخطوات التالية:
 
-	//Add an excel chart  
+1. إنشاء مصنف باستخدام Aspose.Cells for .NET.
+2. إنشاء مخطط Microsoft Excel.
+3. تحديد حجم OLE لمخطط Excel.
+4. الحصول على صورة للمخطط.
+5. تضمين مخطط Excel ككائن OLE داخل عرض PPTX باستخدام Aspose.Slides for .NET.
+6. استبدال صورة الكائن المتغيّر بالصورة التي تم الحصول عليها في الخطوة 3 لمعالجة مشكلة تغيير الكائن.
+7. كتابة العرض التقديمي الناتج إلى القرص بصيغة PPTX.
 
-	int chartSheetIndex = AddExcelChartInWorkbook(wb);  
+``` csharp
 
-	wb.Worksheets.SetOleSize(0, 5, 0, 5);  
+ static void Main(string[] args)
 
-	Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();  
+{
 
-	//Save the workbook to stream  
+	//Create a workbook
 
-	MemoryStream wbStream = wb.SaveToStream();  
+	Workbook wb = new Workbook();
 
-	//Create a presentation  
+	//Add an excel chart
 
-	PresentationEx pres = new PresentationEx();  
+	int chartSheetIndex = AddExcelChartInWorkbook(wb);
 
-	SlideEx sld = pres.Slides[0];  
+	wb.Worksheets.SetOleSize(0, 5, 0, 5);
 
-	//Add the workbook on slide  
+	Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
 
-	AddExcelChartInPresentation(pres, sld, wbStream, imgChart);  
+	//Save the workbook to stream
 
-	//Write the output presentation on disk  
+	MemoryStream wbStream = wb.SaveToStream();
 
-	pres.Write("chart.pptx");  
+	//Create a presentation
 
-}  
+	PresentationEx pres = new PresentationEx();
 
-static int AddExcelChartInWorkbook(Workbook wb)  
+	SlideEx sld = pres.Slides[0];
 
-{  
+	//Add the workbook on slide
 
-	//Add a new worksheet to populate cells with data  
+	AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
 
-	int dataSheetIdx = wb.Worksheets.Add();  
+	//Write the output presentation on disk
 
-	Worksheet dataSheet = wb.Worksheets[dataSheetIdx];  
+	pres.Write("chart.pptx");
 
-	string sheetName = "ورقة البيانات";  
+}
 
-	dataSheet.Name = sheetName;  
+static int AddExcelChartInWorkbook(Workbook wb)
 
-	//Populate DataSheet with data  
+{
 
-	dataSheet.Cells["A2"].PutValue("N. America");  
+	//Add a new worksheet to populate cells with data
 
-	dataSheet.Cells["A3"].PutValue("S. America");  
+	int dataSheetIdx = wb.Worksheets.Add();
 
-	dataSheet.Cells["A4"].PutValue("Europe");  
+	Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
 
-	dataSheet.Cells["A5"].PutValue("Asia");  
+	string sheetName = "DataSheet";
 
-	dataSheet.Cells["B1"].PutValue("Q1");  
+	dataSheet.Name = sheetName;
 
-	dataSheet.Cells["B2"].PutValue(1.5);  
+	//Populate DataSheet with data
 
-	dataSheet.Cells["B3"].PutValue(2);  
+	dataSheet.Cells["A2"].PutValue("N. America");
 
-	dataSheet.Cells["B4"].PutValue(2.25);  
+	dataSheet.Cells["A3"].PutValue("S. America");
 
-	dataSheet.Cells["B5"].PutValue(2.5);  
+	dataSheet.Cells["A4"].PutValue("Europe");
 
-	dataSheet.Cells["C1"].PutValue("Q2");  
+	dataSheet.Cells["A5"].PutValue("Asia");
 
-	dataSheet.Cells["C2"].PutValue(2);  
+	dataSheet.Cells["B1"].PutValue("Q1");
 
-	dataSheet.Cells["C3"].PutValue(1.75);  
+	dataSheet.Cells["B2"].PutValue(1.5);
 
-	dataSheet.Cells["C4"].PutValue(2);  
+	dataSheet.Cells["B3"].PutValue(2);
 
-	dataSheet.Cells["C5"].PutValue(2.5);  
+	dataSheet.Cells["B4"].PutValue(2.25);
 
-	dataSheet.Cells["D1"].PutValue("Q3");  
+	dataSheet.Cells["B5"].PutValue(2.5);
 
-	dataSheet.Cells["D2"].PutValue(1.5);  
+	dataSheet.Cells["C1"].PutValue("Q2");
 
-	dataSheet.Cells["D3"].PutValue(2);  
+	dataSheet.Cells["C2"].PutValue(2);
 
-	dataSheet.Cells["D4"].PutValue(2.5);  
+	dataSheet.Cells["C3"].PutValue(1.75);
 
-	dataSheet.Cells["D5"].PutValue(2);  
+	dataSheet.Cells["C4"].PutValue(2);
 
-	dataSheet.Cells["E1"].PutValue("Q4");  
+	dataSheet.Cells["C5"].PutValue(2.5);
 
-	dataSheet.Cells["E2"].PutValue(2.5);  
+	dataSheet.Cells["D1"].PutValue("Q3");
 
-	dataSheet.Cells["E3"].PutValue(2);  
+	dataSheet.Cells["D2"].PutValue(1.5);
 
-	dataSheet.Cells["E4"].PutValue(2);  
+	dataSheet.Cells["D3"].PutValue(2);
 
-	dataSheet.Cells["E5"].PutValue(2.75);  
+	dataSheet.Cells["D4"].PutValue(2.5);
 
-	//Add a chart sheet  
+	dataSheet.Cells["D5"].PutValue(2);
 
-	int chartSheetIdx = wb.Worksheets.Add(SheetType.Chart);  
+	dataSheet.Cells["E1"].PutValue("Q4");
 
-	Worksheet chartSheet = wb.Worksheets[chartSheetIdx];  
+	dataSheet.Cells["E2"].PutValue(2.5);
 
-	chartSheet.Name = "ورقة المخطط";  
+	dataSheet.Cells["E3"].PutValue(2);
 
-	//Add a chart in ChartSheet with data series from DataSheet  
+	dataSheet.Cells["E4"].PutValue(2);
 
-	int chartIdx = chartSheet.Charts.Add(ChartType.Column3DClustered, 0, 5, 0, 5);  
+	dataSheet.Cells["E5"].PutValue(2.75);
 
-	Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];  
+	//Add a chart sheet
 
-	chart.NSeries.Add(sheetName + "!A1:E5", false);  
+	int chartSheetIdx = wb.Worksheets.Add(SheetType.Chart);
 
-	//Setting Chart's Title  
+	Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
 
-	chart.Title.Text = "المبيعات حسب الربع";  
+	chartSheet.Name = "ChartSheet";
 
-	//Setting the foreground color of the plot area  
+	//Add a chart in ChartSheet with data series from DataSheet
 
-	chart.PlotArea.Area.ForegroundColor = Color.White;  
+	int chartIdx = chartSheet.Charts.Add(ChartType.Column3DClustered, 0, 5, 0, 5);
 
-	//Setting the background color of the plot area  
+	Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
 
-	chart.PlotArea.Area.BackgroundColor = Color.White;  
+	chart.NSeries.Add(sheetName + "!A1:E5", false);
 
-	//Setting the foreground color of the chart area  
+	//Setting Chart's Title
 
-	chart.ChartArea.Area.BackgroundColor = Color.White;  
+	chart.Title.Text = "Sales by Quarter";
 
-	chart.Title.TextFont.Size = 16;  
+	//Setting the foreground color of the plot area
 
-	//Setting the title of category axis of the chart  
+	chart.PlotArea.Area.ForegroundColor = Color.White;
 
-	chart.CategoryAxis.Title.Text = "الربع المالي";  
+	//Setting the background color of the plot area
 
-	//Setting the title of value axis of the chart  
+	chart.PlotArea.Area.BackgroundColor = Color.White;
 
-	chart.ValueAxis.Title.Text = "مليارات";  
+	//Setting the foreground color of the chart area
 
-	//Set ChartSheet an active sheet  
+	chart.ChartArea.Area.BackgroundColor = Color.White;
 
-	wb.Worksheets.ActiveSheetIndex = chartSheetIdx;  
+	chart.Title.TextFont.Size = 16;
 
-	return chartSheetIdx;  
+	//Setting the title of category axis of the chart
 
-}  
+	chart.CategoryAxis.Title.Text = "Fiscal Quarter";
 
-private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld, Stream wbStream, Bitmap imgChart)  
+	//Setting the title of value axis of the chart
 
-{  
+	chart.ValueAxis.Title.Text = "Billions";
 
-	float oleWidth = pres.SlideSize.Size.Width;  
+	//Set ChartSheet an active sheet
 
-	float oleHeight = pres.SlideSize.Size.Height;  
+	wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
 
-	int x = 0;  
+	return chartSheetIdx;
 
-	byte[] chartOleData = new byte[wbStream.Length];  
+}
 
-	wbStream.Position = 0;  
+private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld, Stream wbStream, Bitmap imgChart)
 
-	wbStream.Read(chartOleData, 0, chartOleData.Length);  
+{
 
-	OleObjectFrameEx oof = null;  
+	float oleWidth = pres.SlideSize.Size.Width;
 
-	oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, "Excel.Sheet.8", chartOleData);  
+	float oleHeight = pres.SlideSize.Size.Height;
 
-    using (MemoryStream imageStream = new MemoryStream())  
+	int x = 0;
 
-    {  
+	byte[] chartOleData = new byte[wbStream.Length];
 
-        imgChart.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);  
+	wbStream.Position = 0;
 
-        imageStream.Position = 0;  
+	wbStream.Read(chartOleData, 0, chartOleData.Length);
 
-        IPPImage ppImage = pres.Images.AddImage(imageStream);  
+	OleObjectFrameEx oof = null;
 
-        oof.SubstitutePictureFormat.Picture.Image = ppImage;  
+	oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, "Excel.Sheet.8", chartOleData);
 
-    }  
+    using (MemoryStream imageStream = new MemoryStream())
 
-}  
+    {
 
-```  
-## **تنزيل نموذج الكود**  
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772950)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.and.Embed.an.Excel.Chart.as.an.OLE.Object.Aspose.Slides.zip)  
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20and%20Embed%20an%20Excel%20Chart%20as%20an%20OLE%20Object%20\(Aspose.Slides\).zip/download)  
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20and%20Embed%20an%20Excel%20Chart%20as%20an%20OLE%20Object%20\(Aspose.Slides\).zip)  
+        imgChart.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+
+        imageStream.Position = 0;
+
+        IPPImage ppImage = pres.Images.AddImage(imageStream);
+
+        oof.SubstitutePictureFormat.Picture.Image = ppImage;
+
+    }
+
+}
+
+``` 
+## **Download Sample Code**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.and.Embed.an.Excel.Chart.as.an.OLE.Object.Aspose.Slides.zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20and%20Embed%20an%20Excel%20Chart%20as%20an%20OLE%20Object%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20and%20Embed%20an%20Excel%20Chart%20as%20an%20OLE%20Object/)

@@ -1,5 +1,5 @@
 ---
-title: Trouver et Remplacer dans une Présentation
+title: Recherche et remplacement dans une présentation
 type: docs
 weight: 20
 url: /fr/net/find-and-replace-in-presentation/
@@ -16,11 +16,11 @@ Voici les étapes à suivre :
 
  string FilePath = @"..\..\..\Sample Files\";
 
-//Ouvrir la présentation
+//Open the presentation
 
 Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//Obtenir toutes les zones de texte dans la présentation
+//Get all text boxes in the presentation
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //Trouver le texte à remplacer
+        //Find text to be replaced
 
         if (port.Text.Contains(strToFind))
 
-        //Remplacer le texte existant par le nouveau texte
+        //Replace exisitng text with the new text
 
         {
 
@@ -54,8 +54,6 @@ pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Ppt
 
 
 ``` 
-## **Télécharger le Code Exemple**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Télécharger le code d'exemple**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

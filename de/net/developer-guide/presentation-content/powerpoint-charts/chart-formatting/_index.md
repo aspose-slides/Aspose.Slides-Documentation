@@ -1,6 +1,6 @@
 ---
-title: Diagramme in .NET formatieren
-linktitle: Diagrammformatierung
+title: Diagramme für Präsentationen in .NET formatieren
+linktitle: Diagramm-Formatierung
 type: docs
 weight: 60
 url: /de/net/chart-formatting/
@@ -11,60 +11,61 @@ keywords:
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
-- Schriftarteigenschaften
-- abgerundeter Rand
+- Schrifteigenschaften
+- Abgerundete Rahmen
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für .NET formatieren und heben Sie Ihre PowerPoint-Präsentation mit professionellem, auffälligem Styling hervor."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für .NET formatieren und Ihre PowerPoint-Präsentation mit professionellem, auffälligem Design aufwerten."
 ---
 
 ## **Diagramm-Entitäten formatieren**
-Aspose.Slides for .NET ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Artikel erklärt, wie verschiedene Diagramm-Entitäten einschließlich Diagramm‑Kategorien‑ und Werte‑Achsen formatiert werden.
+Aspose.Slides for .NET ermöglicht Entwicklern das Hinzufügen benutzerdefinierter Diagramme zu ihren Folien von Grund auf. Dieser Artikel erklärt, wie verschiedene Diagramm‑Entitäten einschließlich Diagrammkategorie‑ und Werteachse formatiert werden.
 
-Aspose.Slides for .NET provides a simple API for managing different chart entities and formatting them using custom values:
-
-1. Erstellen Sie eine Instanz der **Presentation**‑Klasse.  
-1. Erhalten Sie den Verweis auf eine Folie über ihren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten und einem gewünschten Diagrammtyp hinzu (in diesem Beispiel verwenden wir ChartType.LineWithMarkers).  
-1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:  
-   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Werte‑Achse  
-   1. Festlegen des **Line format** für die Neben‑Gitternetzlinien der Werte‑Achse  
-   1. Festlegen des **Number Format** für die Werte‑Achse  
-   1. Festlegen von **Min, Max, Major and Minor units** für die Werte‑Achse  
-   1. Festlegen der **Text Properties** für die Werte‑Achsendaten  
-   1. Festlegen des **Title** für die Werte‑Achse  
-   1. Festlegen des **Line Format** für die Werte‑Achse  
-1. Greifen Sie auf die Kategorien‑Achse des Diagramms zu und setzen Sie die folgenden Eigenschaften:  
-   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Kategorien‑Achse  
-   1. Festlegen des **Line format** für die Neben‑Gitternetzlinien der Kategorien‑Achse  
-   1. Festlegen der **Text Properties** für die Kategorien‑Achsendaten  
-   1. Festlegen des **Title** für die Kategorien‑Achse  
-   1. Festlegen der **Label Positioning** für die Kategorien‑Achse  
-   1. Festlegen des **Rotation Angle** für die Kategorien‑Achsenbeschriftungen  
-1. Greifen Sie auf die Legende des Diagramms zu und setzen Sie die **Text Properties** dafür  
-1. Diagramm‑Legenden anzeigen, ohne das Diagramm zu überlappen  
-1. Greifen Sie auf die sekundäre **Value Axis** des Diagramms zu und setzen Sie die folgenden Eigenschaften:  
-   1. Aktivieren Sie die sekundäre **Value Axis**  
-   1. Festlegen des **Line Format** für die sekundäre Werte‑Achse  
-   1. Festlegen des **Number Format** für die sekundäre Werte‑Achse  
-   1. Festlegen von **Min, Max, Major and Minor units** für die sekundäre Werte‑Achse  
-1. Plotte nun die erste Diagrammreihe auf der sekundären Werte‑Achse  
-1. Legen Sie die Füllfarbe der Rückwand des Diagramms fest  
-1. Legen Sie die Füllfarbe des Diagrammbereichs fest  
-1. Speichern Sie die geänderte Präsentation in einer PPTX‑Datei  
+1. Eine Instanz der **Presentation**‑Klasse erstellen.
+1. Eine Folienreferenz über deren Index abrufen.
+1. Ein Diagramm mit Standarddaten hinzufügen, wobei der gewünschte Typ verwendet wird (in diesem Beispiel verwenden wir ChartType.LineWithMarkers).
+1. Auf die Werteachse des Diagramms zugreifen und die folgenden Eigenschaften festlegen:
+   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Werteachse
+   1. Festlegen des **Line format** für die Hilfsgitternetzlinien der Werteachse
+   1. Festlegen des **Number Format** für die Werteachse
+   1. Festlegen von **Min, Max, Major und Minor units** für die Werteachse
+   1. Festlegen der **Text Properties** für die Werteachsen‑Daten
+   1. Festlegen des **Title** für die Werteachse
+   1. Festlegen des **Line Format** für die Werteachse
+1. Auf die Kategorieachse des Diagramms zugreifen und die folgenden Eigenschaften festlegen:
+   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Kategorieachse
+   1. Festlegen des **Line format** für die Hilfsgitternetzlinien der Kategorieachse
+   1. Festlegen der **Text Properties** für die Daten der Kategorieachse
+   1. Festlegen des **Title** für die Kategorieachse
+   1. Festlegen der **Label Positioning** für die Kategorieachse
+   1. Festlegen des **Rotation Angle** für die Beschriftungen der Kategorieachse
+1. Auf die Legende des Diagramms zugreifen und die **Text Properties** dafür festlegen
+1. Diagrammlegenden anzeigen, ohne das Diagramm zu überlappen
+1. Auf die **Secondary Value Axis** des Diagramms zugreifen und die folgenden Eigenschaften festlegen:
+   1. Die sekundäre **Value Axis** aktivieren
+   1. Festlegen des **Line Format** für die sekundäre Werteachse
+   1. Festlegen des **Number Format** für die sekundäre Werteachse
+   1. Festlegen von **Min, Max, Major und Minor units** für die sekundäre Werteachse
+1. Jetzt die erste Diagramm‑Serie auf der sekundären Werteachse plotten
+1. Die Füllfarbe der Rückwand des Diagramms festlegen
+1. Die Füllfarbe des Diagramm‑Plot‑Bereichs festlegen
+1. Die modifizierte Präsentation in eine PPTX‑Datei schreiben
 ```c#
 // Instanziieren der Präsentation// Instanziieren der Präsentation
 Presentation pres = new Presentation();
 
+// Accessing the first slide
 // Zugriff auf die erste Folie
 ISlide slide = pres.Slides[0];
 
+// Adding the sample chart
 // Hinzufügen des Beispieldiagramms
 IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
+// Setting Chart Titile
 // Festlegen des Diagrammtitels
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
@@ -76,22 +77,26 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Festlegen des Formats für Hauptgitternetzlinien der Werteachse
+// Setting Major grid lines format for value axis
+// Festlegen des Formats der Hauptgitternetzlinien für die Werteachse
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Festlegen des Formats für Nebengitternetzlinien der Werteachse
+// Setting Minor grid lines format for value axis
+// Festlegen des Formats der Hilfsgitternetzlinien für die Werteachse
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
+// Setting value axis number format
 // Festlegen des Zahlenformats der Werteachse
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
+// Setting chart maximum, minimum values
 // Festlegen der maximalen und minimalen Werte des Diagramms
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
@@ -103,7 +108,8 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Festlegen der Texteigenschaften der Werteachse
+// Setting Value Axis Text Properties
+// Festlegen der Text-Eigenschaften der Werteachse
 IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
 txtVal.FontBold = NullableBool.True;
 txtVal.FontHeight = 16;
@@ -112,6 +118,7 @@ txtVal.FillFormat.FillType = FillType.Solid; ;
 txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
 txtVal.LatinFont = new FontData("Times New Roman");
 
+// Setting value axis title
 // Festlegen des Titels der Werteachse
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
@@ -123,22 +130,26 @@ valtitle.PortionFormat.FontHeight = 20;
 valtitle.PortionFormat.FontBold = NullableBool.True;
 valtitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Festlegen des Linienformats der Werteachse: jetzt veraltet
+// Setting value axis line format : Now Obselete
+// Festlegen des Linienformats der Werteachse: Jetzt veraltet
 // chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
 // chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
 // Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Festlegen des Formats für Hauptgitternetzlinien der Kategorienachse
+// Setting Major grid lines format for Category axis
+// Festlegen des Formats der Hauptgitternetzlinien für die Kategorieachse
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Festlegen des Formats für Nebengitternetzlinien der Kategorienachse
+// Setting Minor grid lines format for Category axis
+// Festlegen des Formats der Hilfsgitternetzlinien für die Kategorieachse
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Festlegen der Texteigenschaften der Kategorienachse
+// Setting Category Axis Text Properties
+// Festlegen der Text-Eigenschaften der Kategorieachse
 IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
 txtCat.FontBold = NullableBool.True;
 txtCat.FontHeight = 16;
@@ -147,7 +158,8 @@ txtCat.FillFormat.FillType = FillType.Solid; ;
 txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
 txtCat.LatinFont = new FontData("Arial");
 
-// Festlegen des Kategorienachsentitels
+// Setting Category Titile
+// Festlegen des Kategorie-Titels
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
@@ -159,13 +171,16 @@ catTitle.PortionFormat.FontHeight = 20;
 catTitle.PortionFormat.FontBold = NullableBool.True;
 catTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Festlegen der Beschriftungsposition der Kategorienachse
+// Setting category axis lable position
+// Festlegen der Beschriftungsposition der Kategorieachse
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
 
-// Festlegen des Rotationswinkels der Kategorienachsenbeschriftungen
+// Setting category axis lable rotation angle
+// Festlegen des Rotationswinkels der Beschriftungen der Kategorieachse
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Festlegen der Texteigenschaften der Legenden
+// Setting Legends Text Properties
+// Festlegen der Text-Eigenschaften der Legenden
 IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
 txtleg.FontBold = NullableBool.True;
 txtleg.FontHeight = 16;
@@ -173,13 +188,15 @@ txtleg.FontItalic = NullableBool.True;
 txtleg.FillFormat.FillType = FillType.Solid; ;
 txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
+// Set show chart legends without overlapping chart
 // Legenden anzeigen, ohne das Diagramm zu überlappen
-
 chart.Legend.Overlay = true;
             
+// Ploting first series on secondary value axis
 // Plotten der ersten Serie auf der sekundären Werteachse
 // Chart.ChartData.Series[0].PlotOnSecondAxis = true;
 
+// Setting chart back wall color
 // Festlegen der Hintergrundwandfarbe des Diagramms
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
@@ -187,23 +204,24 @@ chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
+// Setting Plot area color
 // Festlegen der Farbe des Plotbereichs
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
 // Save Presentation
+// Präsentation speichern
 pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Schriftart‑Eigenschaften für ein Diagramm festlegen**
-Aspose.Slides for .NET bietet Unterstützung zum Festlegen der schriftbezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den nachstehenden Schritten, um die Schriftart‑Eigenschaften für das Diagramm zu setzen.
+## **Schrifteigenschaften für ein Diagramm festlegen**
+Aspose.Slides for .NET unterstützt das Festlegen der schriftbezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den untenstehenden Schritten, um die Schrifteigenschaften für das Diagramm festzulegen.
 
-- Instanziieren Sie ein **Presentation**‑Klassenobjekt.  
-- Fügen Sie dem Folie ein Diagramm hinzu.  
-- Legen Sie die Schrifthöhe fest.  
-- Speichern Sie die geänderte Präsentation.  
-
+- Eine Instanz der **Presentation**‑Klasse erzeugen.
+- Ein Diagramm auf der Folie hinzufügen.
+- Schriftgröße festlegen.
+- Die modifizierte Präsentation speichern.
 ```c#
 using (Presentation pres = new Presentation())
 {               
@@ -215,32 +233,32 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Numerisches Format festlegen**
-Aspose.Slides for .NET provides a simple API for managing chart data format:
+## **Das numerische Format festlegen**
+Aspose.Slides for .NET bietet eine einfache API zur Verwaltung des Diagrammdatenformats:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.  
-1. Obtain a slide's reference by its index.  
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).  
-1. Legen Sie das vordefinierte Zahlenformat aus den möglichen Vorgabewerten fest.  
-1. Durchlaufen Sie die Datenzelle jedes Diagramm‑Serien und setzen Sie das Zahlenformat der Diagrammdaten.  
-1. Save the presentation.  
-1. Legen Sie das benutzerdefinierte Zahlenformat fest.  
-1. Durchlaufen Sie die Datenzelle in jeder Diagramm‑Serie und setzen Sie ein anderes Zahlenformat für die Diagrammdaten.  
-1. Save the presentation.  
+1. Eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse erstellen.
+1. Eine Folienreferenz über deren Index abrufen.
+1. Ein Diagramm mit Standarddaten hinzufügen, wobei ein gewünschter Typ verwendet wird (dieses Beispiel verwendet **ChartType.ClusteredColumn**).
+1. Das voreingestellte Zahlenformat aus den möglichen Voreinstellungen festlegen.
+1. Durch die Datenzellen jedes Diagrammsereien iterieren und das Zahlenformat der Diagrammdaten festlegen.
+1. Die Präsentation speichern.
+1. Ein benutzerdefiniertes Zahlenformat festlegen.
+1. Durch die Datenzellen jeder Diagrammsserie iterieren und ein unterschiedliches Zahlenformat festlegen.
+1. Die Präsentation speichern.
 ```c#
-// Präsentation instanziieren// Präsentation instanziieren
+// Instanzieren der Präsentation// Instanzieren der Präsentation
 Presentation pres = new Presentation();
 
-// Auf die erste Präsentationsfolie zugreifen
+// Zugriff auf die erste Folie der Präsentation
 ISlide slide = pres.Slides[0];
 
-// Hinzufügen eines standardmäßigen gruppierten Säulendiagramms
+// Hinzufügen eines Standard-Clustered-Column-Diagramms
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-// Zugriff auf die Diagramm‑Serien‑Sammlung
+// Zugriff auf die Diagramm-Serien-Sammlung
 IChartSeriesCollection series = chart.ChartData.Series;
 
-// Festlegen des vordefinierten Zahlenformats
+// Festlegen des voreingestellten Zahlenformats
 // Durchlaufen aller Diagrammserien
 foreach (ChartSeries ser in series)
 {
@@ -248,7 +266,7 @@ foreach (ChartSeries ser in series)
     foreach (IChartDataPoint cell in ser.DataPoints)
     {
         // Festlegen des Zahlenformats
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        cell.Value.AsCell.PresetNumberFormat = 10; //0,00%
     }
 }
 
@@ -257,7 +275,7 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
 
-Die möglichen vordefinierten Zahlenformatwerte zusammen mit ihrem Index sind unten angegeben:
+Die möglichen voreingestellten Zahlenformatwerte zusammen mit ihrem Index, die verwendet werden können, sind unten aufgeführt:
 
 |**0**|Allgemein|
 | :- | :- |
@@ -292,20 +310,19 @@ Die möglichen vordefinierten Zahlenformatwerte zusammen mit ihrem Index sind un
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **Abgerundete Randlinien für Diagrammbereich festlegen**
-Aspose.Slides for .NET provides support for setting chart area. **IChart.HasRoundedCorners** and **Chart.HasRoundedCorners** properties have been added in Aspose.Slides. 
+## **Abgerundete Ränder für den Diagrammbereich festlegen**
+Aspose.Slides for .NET unterstützt das Festlegen des Diagrammbereichs. Die Eigenschaften **IChart.HasRoundedCorners** und **Chart.HasRoundedCorners** wurden in Aspose.Slides hinzugefügt.
 
-1. Instanziieren Sie ein `Presentation`‑Klassenobjekt.  
-1. Fügen Sie dem Folie ein Diagramm hinzu.  
-1. Legen Sie den Fülltyp und die Füllfarbe des Diagramms fest.  
-1. Setzen Sie die Eigenschaft für abgerundete Ecken auf **True**.  
-1. Speichern Sie die geänderte Präsentation.  
-
+1. Eine Instanz der `Presentation`‑Klasse erzeugen.
+2. Ein Diagramm auf der Folie hinzufügen.
+3. Fülltyp und Füllfarbe des Diagramms festlegen
+4. Die Eigenschaft für abgerundete Ecken auf True setzen.
+5. Die modifizierte Präsentation speichern.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -322,14 +339,14 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Säulen/Flächen festlegen und gleichzeitig die Kontur undurchsichtig lassen?**
+**Kann ich halbtransparente Füllungen für Spalten/Bereiche setzen, während die Rahmen undurchsichtig bleiben?**
 
-Ja. Die Fülltransparenz und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Die Transparenz der Füllung und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitters und der Daten in dichten Visualisierungen zu verbessern.
 
-**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie sich überschneiden?**
+**Wie kann ich mit überlappenden Datenbeschriftungen umgehen?**
 
-Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), stellen Sie den Beschriftungsversatz/-position ein, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie zum Format „Wert + Legende“.
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), setzen Sie den Beschriftungsversatz/-position, zeigen Sie Beschriftungen bei Bedarf nur für ausgewählte Punkte an oder wechseln Sie das Format zu "Wert + Legende".
 
 **Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Sowohl einfarbige als auch Farbverlauf‑/Musterfüllungen stehen in der Regel zur Verfügung. Verwenden Sie Farbverläufe sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitternetz und zum Text verringern.
+Ja. Sowohl einfarbige als auch Farbverlauf‑/Musterfüllungen sind in der Regel verfügbar. In der Praxis sollten Sie Farbverläufe sparsam einsetzen und Kombinationen vermeiden, die den Kontrast zum Gitter und zum Text verringern.

@@ -1,5 +1,5 @@
 ---
-title: Agregar Texto Dinámicamente
+title: Agregar texto dinámicamente
 type: docs
 weight: 40
 url: /es/net/adding-text-dynamically/
@@ -8,10 +8,10 @@ url: /es/net/adding-text-dynamically/
 Ambos métodos siguen estos pasos:
 
 - Crear una presentación.
-- Agregar una diapositiva en blanco.
-- Agregar un cuadro de texto.
+- Añadir una diapositiva en blanco.
+- Añadir un cuadro de texto.
 - Establecer algún texto.
-- Escribir la presentación.
+- Guardar la presentación.
 ## **VSTO**
 ``` csharp
 
@@ -19,33 +19,33 @@ Ambos métodos siguen estos pasos:
 
 {
 
-	//Crear una presentación
+	//Create a presentation
 
 	PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 		.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-	//Obtener el diseño de diapositiva en blanco
+	//Get the blank slide layout
 
 	PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 		CustomLayouts[7];
 
-	//Agregar una diapositiva en blanco
+	//Add a blank slide
 
 	PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-	//Agregar un texto
+	//Add a text
 
 	PowerPoint.Shape shp =sld.Shapes.AddTextbox
 
 	(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal,150, 100, 400, 100);
 
-	//Establecer un texto
+	//Set a text
 
 	PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
-	txtRange.Text = "Texto agregado dinámicamente";
+	txtRange.Text = "Text added dynamically";
 
 	txtRange.Font.Name = "Arial";
 
@@ -53,7 +53,7 @@ Ambos métodos siguen estos pasos:
 
 	txtRange.Font.Size = 32;
 
-	//Escribir la salida en el disco
+	//Write the output to disk
 
 	pres.SaveAs("outVSTOAddingText.ppt",
 
@@ -71,43 +71,43 @@ Ambos métodos siguen estos pasos:
 
 {
 
-	//Crear una presentación
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//La diapositiva en blanco se agrega por defecto, cuando creas
+	//Blank slide is added by default, when you create
 
-	//la presentación desde el constructor por defecto
+	//presentation from default constructor
 
-	//Así que no necesitamos agregar ninguna diapositiva en blanco
+	//So, we don't need to add any blank slide
 
 	Slide sld = pres.GetSlideByPosition(1);
 
-	//Obtener el índice de fuente para Arial
+	//Get the font index for Arial
 
-	//Siempre es 0 si creas la presentación desde
+	//It is always 0 if you create presentation from
 
-	//el constructor por defecto
+	//default constructor
 
 	int arialFontIndex = 0;
 
-	//Agregar un cuadro de texto
+	//Add a textbox
 
-	//Para agregarlo, primero agregaremos un rectángulo
+	//To add it, we will first add a rectangle
 
 	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
 
-	//Ocultar su línea
+	//Hide its line
 
 	shp.LineFormat.ShowLines = false;
 
-	//Luego agregar un marco de texto dentro de él
+	//Then add a textframe inside it
 
 	TextFrame tf = shp.AddTextFrame("");
 
-	//Establecer un texto
+	//Set a text
 
-	tf.Text = "Texto agregado dinámicamente";
+	tf.Text = "Text added dynamically";
 
 	Portion port = tf.Paragraphs[0].Portions[0];
 
@@ -117,15 +117,14 @@ Ambos métodos siguen estos pasos:
 
 	port.FontHeight = 32;
 
-	//Escribir la salida en el disco
+	//Write the output to disk
 
 	pres.Write("outAspose.ppt");
 
 }
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
+## **Descargar código de muestra**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20using%20VSTO%20and%20Aspose.Slides/)

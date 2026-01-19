@@ -1,5 +1,5 @@
 ---
-title: تعيين لون الخلفية للشريحة الرئيسية
+title: تعيين لون الخلفية لشريحة الماستر
 type: docs
 weight: 140
 url: /ar/net/setting-background-color-of-master-slide/
@@ -10,7 +10,7 @@ url: /ar/net/setting-background-color-of-master-slide/
 
  PowerPoint.Presentation presentation =
 
-                Globals.ThisAddIn.Application.Presentations.Open("تعيين لون الخلفية للشريحة الرئيسية.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
+                Globals.ThisAddIn.Application.Presentations.Open("Setting Background Color of Master Slide.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
 
             presentation.SlideMaster.Background.Fill.ForeColor.RGB = -654262273;
 
@@ -18,13 +18,13 @@ url: /ar/net/setting-background-color-of-master-slide/
 ## **Aspose.Slides**
 ``` csharp
 
- //إنشاء كائن لفئة Presentation الذي يمثل ملف العرض التقديمي
+ //Instantiate the Presentation class that represents the presentation file
 
 using (PresentationEx pres = new PresentationEx())
 
 {
 
-	//تعيين لون الخلفية للشريحة الرئيسية ISlide إلى الأخضر الغابي
+	//Set the background color of the Master ISlide to Forest Green
 
 	pres.Masters[0].Background.Type = BackgroundTypeEx.OwnBackground;
 
@@ -32,12 +32,11 @@ using (PresentationEx pres = new PresentationEx())
 
 	pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-	//كتابة العرض التقديمي إلى القرص
+	//Write the presentation to disk
 
-	pres.Save("تعيين لون الخلفية للشريحة الرئيسية.pptx", SaveFormat.Pptx);
+	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
 
 ``` 
-## **تحميل رمز العينة**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/787342)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Setting%20Background%20color%20of%20Master%20Slide%20\(Asose.Slides\).zip)
+## **تنزيل عينة الشيفرة**
+- [جيتهاب](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)
+- [بيت باكت](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Setting%20Background%20color%20of%20Master%20Slide/)

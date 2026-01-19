@@ -1,5 +1,5 @@
 ---
-title: Renderizar formas en la diapositiva como imágenes
+title: Representar formas en la diapositiva como imágenes
 type: docs
 weight: 120
 url: /es/net/rendering-shapes-on-slide-as-images/
@@ -7,12 +7,12 @@ url: /es/net/rendering-shapes-on-slide-as-images/
 
 Esto cubre dos funciones principales:
 
-- Extraer una Imagen de una Forma a un archivo.
-- Extraer Formas como archivo de imagen.
-## **Extraer una Imagen de una Forma a un Archivo**
-Las imágenes se añaden en el fondo de la diapositiva y en las formas. A veces, es necesario extraer las imágenes añadidas en las formas de la presentación.
+- Extraer una imagen de una forma a un archivo.
+- Extraer formas como archivo de imagen.
+## **Extraer una imagen de una forma a un archivo**
+Las imágenes se añaden al fondo de la diapositiva y a las formas. A veces, es necesario extraer las imágenes añadidas a las formas de la presentación.
 
-En **Aspose.Slides for .NET**, las imágenes pueden añadirse a la forma de la diapositiva y al fondo de la diapositiva. Las imágenes se añaden en **ImageCollectionEx** de la presentación. En este ejemplo recorreremos cada forma dentro de cada diapositiva de la presentación y veremos si hay alguna imagen añadida en la forma de la diapositiva. Si se encuentra una imagen para alguna forma, la extraeremos y la guardaremos en un archivo. El siguiente fragmento de código servirá para ello.
+En **Aspose.Slides for .NET**, se pueden añadir imágenes a la forma de la diapositiva y al fondo de la diapositiva. Las imágenes se añaden en **ImageCollectionEx** de la presentación. En este ejemplo recorreremos cada forma dentro de cada diapositiva de la presentación y verificaremos si hay alguna imagen añadida a la forma de la diapositiva. Si se encuentra una imagen para alguna forma, la extraeremos y la guardaremos en un archivo. El siguiente fragmento de código sirve para este propósito.
 ``` csharp
 
  //Accediendo a la presentación
@@ -43,7 +43,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	{
 
-		// Accediendo a la forma con picture
+		// Accediendo a la forma con imagen
 
 		ShapeEx sh = sl.Shapes[j];
 
@@ -152,7 +152,6 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
@@ -176,7 +175,6 @@ for (int i = 0; i < slide.Shapes.Count; i++)
 ```
 
 
-*Nota:* La extracción de forma es actualmente compatible en archivos .ppt.
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
+*Nota:* La extracción de forma actualmente solo se admite en archivos .ppt.
+## **Descargar código de ejemplo**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

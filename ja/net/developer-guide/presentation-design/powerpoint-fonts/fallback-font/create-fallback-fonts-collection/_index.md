@@ -1,33 +1,33 @@
 ---
-title: ".NET でフォールバック フォント コレクションを構成する"
-linktitle: "フォールバック フォント コレクション"
+title: .NET でフォールバックフォントコレクションを構成する
+linktitle: フォールバックフォントコレクション
 type: docs
 weight: 20
 url: /ja/net/create-fallback-fonts-collection/
 keywords:
-- フォールバック フォント
-- フォールバック ルール
-- フォント コレクション
-- フォント の構成
-- フォント の設定
+- フォールバックフォント
+- フォールバックルール
+- フォントコレクション
+- フォントの構成
+- フォントの設定
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET でフォールバック フォント コレクションを設定し、PowerPoint および OpenDocument のプレゼンテーションでテキストを一貫して鮮明に保ちます。"
+description: ".NET 用 Aspose.Slides でフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument プレゼンテーションでテキストを一貫性があり鮮明に保ちます。"
 ---
 
 ## **フォールバック ルールの適用**
 
-[FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) に整理でき、[IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) インターフェイスを実装しています。コレクションからルールを追加または削除できます。
+FontFallBackRule クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) に整理できます。このコレクションは[IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。
 
-このコレクションは、[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)プロパティに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。詳しくは[About FontsManager and FontsLoader](/slides/ja/net/about-fontsmanager-and-fontsloader/)をご覧ください。
+次に、このコレクションを[FontFallBackRulesCollection ](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) プロパティに、[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) クラスのインスタンスとして割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。
 
-各[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)には、独自の FontsManager クラスのインスタンスを持つ[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)プロパティがあります。
+各[Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) には、[FontsManager ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) プロパティがあり、FontsManager クラスの独自インスタンスが保持されます。
 
-以下は、特定のプレゼンテーションの FontsManager にフォールバック フォント ルールコレクションを作成して割り当てる例です：
+以下は、フォールバック フォント ルール コレクションを作成し、特定のプレゼンテーションの FontsManager に割り当てる例です:  
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -44,23 +44,23 @@ using (Presentation presentation = new Presentation())
 FontsManager がフォールバック フォント コレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバック フォントが適用されます。
 
 {{% alert color="primary" %}} 
-詳細は [Render Presentation with Fallback Font](/slides/ja/net/render-presentation-with-fallback-font/) をご覧ください。
+フォールバック フォントでプレゼンテーションをレンダリングする方法の詳細は、[フォールバック フォントでプレゼンテーションをレンダリング](/slides/ja/net/render-presentation-with-fallback-font/) をご覧ください。 
 {{% /alert %}}
 
 ## **よくある質問**
 
 **私のフォールバック ルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
 
-いいえ。フォールバック ルールは実行時のレンダリング設定であり、PPTX にシリアライズされず、PowerPoint の UI には表示されません。
+いいえ。フォールバック ルールは実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
 
 **フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
 
-はい。これらのオブジェクト内のテキストにも同じ字形置換メカニズムが使用されます。
+はい。これらのオブジェクト内のテキストすべてに同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリにフォントを同梱していますか？**
+**Aspose はライブラリと共にフォントを配布していますか？**
 
-いいえ。フォントはご自身で追加・使用していただき、自己責任で管理してください。
+いいえ。フォントはご自身で追加・使用していただき、すべてご自身の責任で管理してください。
 
-**欠損フォントの置換/サブスティテューションと欠損字形のフォールバックは併用できますか？**
+**欠落したフォントの置換/サブスティテューションと、欠落したグリフのフォールバックを併用できますか？**
 
-はい。これらは同じフォント解決パイプラインの独立した段階であり、まずエンジンがフォントの有無を解決（[replacement](/slides/ja/net/font-replacement/)/[substitution](/slides/ja/net/font-substitution/)）し、次にフォールバックが利用可能なフォント内の欠損字形を補填します。
+はい。これらは同じフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可能性を解決し（[replacement](/slides/ja/net/font-replacement/)/[substitution](/slides/ja/net/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落したグリフのギャップを埋めます。

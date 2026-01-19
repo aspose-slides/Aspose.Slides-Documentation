@@ -7,28 +7,27 @@ url: /es/net/move-a-slide-to-a-new-position/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Mover una diapositiva a una nueva posición.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Contando las diapositivas en la presentación.
+// Counting the slides in the presentation.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Abrir la presentación en modo de solo lectura.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Pasar la presentación al siguiente método CountSlides
+        // Pass the presentation to the next CountSlides method
 
-        // y devolver el conteo de diapositivas.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -36,13 +35,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Contar las diapositivas en la presentación.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Verificar si el objeto de documento es nulo.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -54,11 +53,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Obtener la parte de presentación del documento.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtener el conteo de diapositivas de las SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -68,13 +67,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Devolver el conteo de diapositivas al método anterior.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
 }
 
-// Mover una diapositiva a una posición diferente en el orden de las diapositivas en la presentación.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +89,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// Mover una diapositiva a una posición diferente en el orden de las diapositivas en la presentación.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -104,11 +103,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Llamar al método CountSlides para obtener el número de diapositivas en la presentación.
+    // Call the CountSlides method to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // Verificar que ambas posiciones from y to estén dentro del rango y sean diferentes.
+    // Verify that both from and to positions are within range and different from one another.
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,23 +125,23 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Obtener la parte de presentación del documento de presentación.
+    // Get the presentation part from the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // El conteo de diapositivas no es cero, así que la presentación debe contener diapositivas.
+    // The slide count is not zero, so the presentation must contain slides.            
 
     Presentation presentation = presentationPart.Presentation;
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // Obtener el ID de la diapositiva fuente.
+    // Get the slide ID of the source slide.
 
     SlideId sourceSlide = slideIdList.ChildElements[from] as SlideId;
 
     SlideId targetSlide = null;
 
-    // Identificar la posición de la diapositiva objetivo después de la cual mover la diapositiva fuente.
+    // Identify the position of the target slide after which to move the source slide.
 
     if (to == 0)
 
@@ -168,55 +167,53 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Eliminar la diapositiva fuente de su posición actual.
+    // Remove the source slide from its current position.
 
     sourceSlide.Remove();
 
-    // Insertar la diapositiva fuente en su nueva posición después de la diapositiva objetivo.
+    // Insert the source slide at its new position after the target slide.
 
     slideIdList.InsertAfter(sourceSlide, targetSlide);
 
-    // Guardar la presentación modificada.
+    // Save the modified presentation.
 
     presentation.Save();
 
 } 
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Mover una diapositiva a una nueva posición.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Mover una diapositiva a una posición diferente en el orden de las diapositivas en la presentación.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
 {
 
-    //Instanciar la clase PresentationEx para cargar el archivo PPTX fuente
+    //Instantiate PresentationEx class to load the source PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        //Obtener la diapositiva cuya posición debe ser cambiada
+        //Get the slide whose position is to be changed
 
         ISlide sld = pres.Slides[from];
 
         ISlide sld2 = pres.Slides[to];
 
-        //Establecer la nueva posición para la diapositiva
+        //Set the new position for the slide
 
         sld2.SlideNumber = from;
 
         sld.SlideNumber = to;
 
-        //Guardar el PPTX en disco
+        //Write the PPTX to disk
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -225,8 +222,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 }
 
 ``` 
-## **Descargar Código de Muestra**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Descargar código de ejemplo**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Mover%20una%20diapositiva%20a%20una%20nueva%20posición%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Mover%20una%20diapositiva%20a%20una%20nueva%20posición%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

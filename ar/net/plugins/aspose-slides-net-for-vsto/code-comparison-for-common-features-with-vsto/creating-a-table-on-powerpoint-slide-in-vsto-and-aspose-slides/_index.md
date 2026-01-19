@@ -5,27 +5,28 @@ weight: 90
 url: /ar/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
-تضيف الخطوات التالية جدولاً إلى شريحة Microsoft PowerPoint باستخدام VSTO:
+الخطوات التالية تقوم بإضافة جدول إلى شريحة Microsoft PowerPoint باستخدام VSTO:
 
 - إنشاء عرض تقديمي.
-- إضافة شريحة فارغة إلى العرض التقديمي.
+- يتم إضافة شريحة فارغة إلى العرض التقديمي.
 - إضافة جدول 15 × 15 إلى الشريحة.
 - إضافة نص إلى كل خلية في الجدول بحجم خط 10.
-- حفظ العرض التقديمي على القرص.
+- حفظ العرض التقديمي إلى القرص.
+
 ## **VSTO**
 ``` csharp
 
- //إنشاء عرض تقديمي
+ //Create a presentation
 
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 			  .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//إضافة شريحة فارغة
+//Add a blank slide
 
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//إضافة جدول 15 × 15
+//Add a 15 x 15 table
 
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 
@@ -35,7 +36,7 @@ int i = -1;
 
 int j = -1;
 
-//تكرار عبر جميع الصفوف
+//Loop through all the rows
 
 foreach (PowerPoint.Row row in tbl.Rows)
 
@@ -45,7 +46,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 	j = -1;
 
-	//تكرار عبر جميع الخلايا في الصف
+	//Loop through all the cells in the row
 
 	foreach (PowerPoint.Cell cell in row.Cells)
 
@@ -53,15 +54,15 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 		j = j + 1;
 
-		//الحصول على إطار النص لكل خلية
+		//Get text frame of each cell
 
 		PowerPoint.TextFrame tf = cell.Shape.TextFrame;
 
-		//إضافة بعض النصوص
+		//Add some text
 
 		tf.TextRange.Text = "T" + i.ToString() + j.ToString();
 
-		//تعيين حجم الخط للنص إلى 10
+		//Set font size of the text as 10
 
 		tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
 
@@ -69,7 +70,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 }
 
-//حفظ العرض التقديمي على القرص
+//Save the presentation to disk
 
 pres.SaveAs("tblVSTO.ppt",
 
@@ -79,46 +80,47 @@ pres.SaveAs("tblVSTO.ppt",
 
 ``` 
 
-تضيف الخطوات التالية جدولاً إلى شريحة Microsoft PowerPoint باستخدام Aspose.Slides:
+الخطوات التالية تقوم بإضافة جدول إلى شريحة Microsoft PowerPoint باستخدام Aspose.Slides:
 
 - إنشاء عرض تقديمي.
 - إضافة جدول 15 × 15 إلى الشريحة الأولى.
 - إضافة نص إلى كل خلية في الجدول بحجم خط 10.
-- كتابة العرض التقديمي على القرص.
+- كتابة العرض التقديمي إلى القرص.
+
 ## **Aspose.Slides**
 ``` csharp
 
- //إنشاء عرض تقديمي
+ //Create a presentation
 
 Presentation pres = new Presentation();
 
-//الوصول إلى الشريحة الأولى
+//Access first slide
 
 Slide sld = pres.GetSlideByPosition(1);
 
-//إضافة جدول
+//Add a table
 
 Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);
 
-//تكرار عبر الصفوف
+//Loop through rows
 
 for (int i = 0; i < tbl.RowsNumber; i++)
 
-	//تكرار عبر الخلايا
+	//Loop through cells
 
 	for (int j = 0; j < tbl.ColumnsNumber; j++)
 
 	{
 
-		//الحصول على إطار النص لكل خلية
+		//Get text frame of each cell
 
 		TextFrame tf = tbl.GetCell(j, i).TextFrame;
 
-		//إضافة بعض النصوص
+		//Add some text
 
 		tf.Text = "T" + i.ToString() + j.ToString();
 
-		//تعيين حجم الخط إلى 10
+		//Set font size of 10
 
 		tf.Paragraphs[0].Portions[0].FontHeight = 10;
 
@@ -126,13 +128,12 @@ for (int i = 0; i < tbl.RowsNumber; i++)
 
 	}
 
-//كتابة العرض التقديمي على القرص
+//Write the presentation to the disk
 
 pres.Write("tblSLD.ppt");
 
 ``` 
-## **تنزيل نموذج التعليمات البرمجية**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772951)
+## **تنزيل نموذج الكود**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide/)

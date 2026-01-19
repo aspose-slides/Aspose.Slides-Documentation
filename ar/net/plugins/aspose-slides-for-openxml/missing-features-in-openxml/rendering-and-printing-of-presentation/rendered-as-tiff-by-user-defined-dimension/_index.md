@@ -1,11 +1,11 @@
 ---
-title: تم تحويله إلى TIFF بواسطة أبعاد محددة من قبل المستخدم
+title: تم عرضه كـ Tiff بأبعاد معرفة من قبل المستخدم
 type: docs
 weight: 40
 url: /ar/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
-يوضح المثال التالي كيفية تحويل عرض تقديمي إلى وثيقة TIFF بحجم صورة مخصص باستخدام فئة **TiffOptions**.
+يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند TIFF مع حجم صورة مخصص باستخدام الفئة **TiffOptions**.
 
 ``` csharp
 
@@ -15,23 +15,23 @@ string srcFileName = FilePath + "Conversion.pptx";
 
 string destFileName = FilePath + "Converting to Tiff as defined format.tiff";
 
-//إنشاء كائن Presentation يمثل ملف عرض تقديمي
+//Instantiate a Presentation object that represents a Presentation file
 
 Presentation pres = new Presentation(srcFileName);
 
-//إنشاء فئة TiffOptions
+//Instantiate the TiffOptions class
 
 Aspose.Slides.Export.TiffOptions opts = new Aspose.Slides.Export.TiffOptions();
 
-//تعيين نوع الضغط
+//Setting compression type
 
 opts.CompressionType = TiffCompressionTypes.Default;
 
-//أنواع الضغط
+//Compression Types
 
-//Default - يحدد مخطط الضغط الافتراضي (LZW).
+//Default - Specifies the default compression scheme (LZW).
 
-//None - يحدد عدم وجود ضغط.
+//None - Specifies no compression.
 
 //CCITT3
 
@@ -41,27 +41,25 @@ opts.CompressionType = TiffCompressionTypes.Default;
 
 //RLE
 
-//Depth - يعتمد على نوع الضغط ولا يمكن تعيينه يدويًا.
+//Depth - depends on the compression type and cannot be set manually.
 
-//وحدة الدقة - تساوي دائمًا "2" (نقاط لكل بوصة)
+//Resolution unit - is always equal to "2" (dots per inch)
 
-//تعيين DPI للصورة
+//Setting image DPI
 
 opts.DpiX = 200;
 
 opts.DpiY = 100;
 
-//تعيين حجم الصورة
+//Set Image Size
 
 opts.ImageSize = new Size(1728, 1078);
 
-//حفظ العرض التقديمي بتنسيق TIFF مع حجم الصورة المحدد
+//Save the presentation to TIFF with specified image size
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Tiff, opts);
 
 ``` 
-## **تحميل رمز المثال**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **تنزيل كود العينة**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20Tiff%20as%20defined%20format%20%28Aspose.Slides%29.zip)

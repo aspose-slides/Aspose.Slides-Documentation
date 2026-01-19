@@ -5,7 +5,7 @@ weight: 80
 url: /ru/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
-Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для .NET могут быть использованы для достижения одной и той же цели.
+Ниже приведены два примера кода, демонстрирующие, как VSTO и Aspose.Slides для .NET можно использовать для достижения одной и той же цели.
 ## **VSTO**
 ``` csharp
 
@@ -17,25 +17,25 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Получить макет титульного слайда
+//Get the title slide layout
 
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Добавить титульный слайд.
+//Add a title slide.
 
 PowerPoint.Slide slide=pres.Slides.AddSlide(1, layout);
 
-//Установить текст заголовка
+//Set the title text
 
-slide.Shapes.Title.TextFrame.TextRange.Text = "Заголовок слайда";
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Установить текст подзаголовка
+//Set the sub title text
 
-slide.Shapes[2].TextFrame.TextRange.Text = "Подзаголовок слайда";
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Сохранить результат на диск
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -53,31 +53,30 @@ pres.SaveAs("outVSTO.ppt",
 
 {
 
-	//Создать презентацию
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//Добавить титульный слайд
+	//Add the title slide
 
 	Slide slide = pres.AddTitleSlide();
 
-	//Установить текст заголовка
+	//Set the title text
 
-	((TextHolder)slide.Placeholders[0]).Text = "Заголовок слайда";
+	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
 
-	//Установить текст подзаголовка
+	//Set the sub title text
 
-	((TextHolder)slide.Placeholders[1]).Text = "Подзаголовок слайда";
+	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
 
-	//Сохранить результат на диск
+	//Write output to disk
 
 	pres.Write("outAsposeSlides.ppt");
 
 }
 
 ``` 
-## **Скачать образец кода**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
+## **Скачать пример кода**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation/)

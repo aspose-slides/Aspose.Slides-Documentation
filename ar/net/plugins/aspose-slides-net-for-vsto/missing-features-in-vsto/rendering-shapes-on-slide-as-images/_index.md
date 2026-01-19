@@ -1,18 +1,18 @@
 ---
-title: عرض الأشكال على الشريحة كصور
+title: تصيير الأشكال على الشريحة كصور
 type: docs
 weight: 120
 url: /ar/net/rendering-shapes-on-slide-as-images/
 ---
 
-هذا يغطي وظيفتين رئيسيتين:
+يغطي هذا وظيفتين رئيسيتين:
 
 - استخراج صورة من الشكل إلى ملف.
 - استخراج الأشكال كملف صورة.
-## **استخراج صورة من شكل إلى ملف**
-يتم إضافة الصور في خلفية الشريحة والأشكال. في بعض الأحيان، يلزم استخراج الصور المضافة في أشكال العرض التقديمي.
+## **استخراج صورة من الشكل إلى ملف**
+يتم إضافة الصور في خلفية الشريحة والأشكال. في بعض الأحيان، يُستدعى استخراج الصور المضافة في أشكال العرض التقديمي.
 
-في **Aspose.Slides for .NET**، يمكن إضافة الصور إلى شكل الشريحة وخلفية الشريحة. يتم إضافة الصور في **ImageCollectionEx** الخاصة بالعرض التقديمي. في هذا المثال، سنستعرض كل شكل داخل كل شريحة من العرض التقديمي ونرى ما إذا كان هناك أي صورة مضافة إلى شكل الشريحة. إذا تم العثور على صورة لأي شكل، سنستخرجها ونحفظها في ملف. مقتطف الشيفرة التالي سيؤدي الغرض.
+في **Aspose.Slides for .NET**، يمكن إضافة الصور إلى شكل الشريحة وخلفية الشريحة. تُضاف الصور في **ImageCollectionEx** للعرض التقديمي. في هذا المثال سوف نتنقل عبر كل شكل داخل كل شريحة من العرض التقديمي ونرى ما إذا كان هناك أي صورة مضافة إلى شكل الشريحة. إذا تم العثور على صورة لأي شكل، سنقوم باستخراجها وحفظها في ملف. المقتطف البرمجي التالي سيؤدي الغرض.
 ``` csharp
 
  //الوصول إلى العرض التقديمي
@@ -94,7 +94,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		//
 
-		//تحديد تنسيق الصورة المطلوب
+		//تعيين تنسيق الصورة المطلوب
 
 		if (ifImageFound)
 
@@ -152,14 +152,13 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
 //إنشاء كائن Presentation الذي يمثل ملف PPT
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
-//Accessing a slide using its slide position
+//الوصول إلى شريحة باستخدام موضعها
 ISlide slide = pres.Slides[2];
 
 for (int i = 0; i < slide.Shapes.Count; i++)
@@ -169,14 +168,13 @@ for (int i = 0; i < slide.Shapes.Count; i++)
     //الحصول على صورة المصغرة للشكل
     using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
     {
-        //حفظ صورة المصغرة بصيغة gif
+        //حفظ صورة المصغرة بتنسيق gif
         image.Save(i + ".gif", ImageFormat.Gif);
     }
 }
 ```
 
 
-*ملاحظة:* استخراج الشكل مدعوم حالياً في ملف .ppt.
-## **تحميل مثال الشيفرة**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
+*ملاحظة:* استخراج الشكل مدعوم حاليًا في ملف .ppt
+## **تنزيل كود العينة**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

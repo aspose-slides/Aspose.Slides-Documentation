@@ -1,48 +1,46 @@
----  
-title: Formen zur Präsentation hinzufügen  
-type: docs  
-weight: 30  
-url: /de/net/adding-shapes-to-presentation/  
----  
+---
+title: Hinzufügen von Formen zur Präsentation
+type: docs
+weight: 30
+url: /de/net/adding-shapes-to-presentation/
+---
 
-## **VSTO**  
-Unten finden Sie den Code-Snippet zum Hinzufügen einer Linienform:  
+## **VSTO**
+Nachfolgend finden Sie das Code-Snippet zum Hinzufügen einer Linienform:
 
-``` csharp  
+``` csharp
 
-   Slide slide = Application.ActivePresentation.Slides[1];  
+   Slide slide = Application.ActivePresentation.Slides[1];
 
-  slide.Shapes.AddLine(10, 10, 100, 10);  
+  slide.Shapes.AddLine(10, 10, 100, 10);
 
-```  
-## **Aspose.Slides**  
-Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:  
+``` 
+## **Aspose.Slides**
+Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der Klasse Presentation  
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden  
-- Fügen Sie eine AutoForm vom Typ Linie mit der Methode AddAutoShape hinzu, die vom Shapes-Objekt bereitgestellt wird  
-- Schreiben Sie die modifizierte Präsentation als PPTX-Datei  
+- Instanz der Klasse Presentation erstellen
+- Referenz einer Folie über deren Index abrufen
+- AutoShape vom Typ Line mit der AddAutoShape‑Methode des Shapes‑Objekts hinzufügen
+- Die geänderte Präsentation als PPTX‑Datei speichern
 
-Im folgenden Beispiel haben wir eine Linie zur ersten Folie der Präsentation hinzugefügt.  
+Im nachstehenden Beispiel haben wir eine Linie zur ersten Folie der Präsentation hinzugefügt.
 
-``` csharp  
+``` csharp
 
-   //Instanziieren der Klasse Presentation, die die PPTX repräsentiert  
+   //Instantiate Prseetation class that represents the PPTX
 
-  Presentation pres = new Presentation();  
+  Presentation pres = new Presentation();
 
-  //Holen Sie sich die erste Folie  
+  //Get the first slide
 
-  ISlide slide = pres.Slides[0];  
+  ISlide slide = pres.Slides[0];
 
-  //Fügen Sie eine Autoform vom Typ Linie hinzu  
+  //Add an autoshape of type line
 
-  slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);  
+  slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-```  
-## **Download Ausführbaren Code**  
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)  
-## **Download Beispielcode**  
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding Shape to Presentation/)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20Shape%20to%20Presentation)  
+``` 
+## **Laufenden Code herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
+## **Beispielcode herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20Shape%20to%20Presentation)

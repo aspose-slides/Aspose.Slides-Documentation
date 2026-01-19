@@ -1,52 +1,46 @@
 ---
-title: Génération d'une miniature à partir d'une diapositive avec des dimensions définies par l'utilisateur
+title: Générer une vignette à partir d'une diapositive avec des dimensions définies par l'utilisateur
 type: docs
 weight: 100
 url: /fr/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
-Pour générer la miniature de n'importe quelle diapositive souhaitée à l'aide d'Aspose.Slides pour .NET :
+Pour générer la vignette de n'importe quelle diapositive souhaitée à l'aide d'Aspose.Slides for .NET :
 
 - Créez une instance de la classe Presentation.
 - Obtenez la référence de la diapositive souhaitée en utilisant son ID ou son index.
-- Obtenez les facteurs d'échelle X et Y en fonction des dimensions X et Y définies par l'utilisateur.
-- Obtenez l'image miniature de la diapositive référencée à une échelle spécifiée.
-- Enregistrez l'image miniature dans n'importe quel format d'image souhaité.
+- Récupérez les facteurs d'échelle X et Y en fonction des dimensions X et Y définies par l'utilisateur.
+- Obtenez l'image vignette de la diapositive référencée à une échelle spécifiée.
+- Enregistrez l'image vignette dans le format d'image souhaité.
 ## **Exemple**
 ```cs
-//Instancier la classe Presentation qui représente le fichier de présentation
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("TestPresentation.pptx"))
 {
-    //Accéder à la première diapositive
+    //Access the first slide
     ISlide sld = pres.Slides[0];
 
-    //Dimension définie par l'utilisateur
+    //User defined dimension
     int desiredX = 1200;
     int desiredY = 800;
 
-    //Obtention de la valeur mise à l'échelle de X et Y
+    //Getting scaled value  of X and Y
     float scaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
     float scaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
 
-    //Créer une image à pleine échelle
+    //Create a full scale image
     using (IImage image = sld.GetImage(scaleX, scaleY))
     {
-        //Enregistrer l'image sur le disque au format JPEG
+        //Save the image to disk in JPEG format
         image.Save("Thumbnail2.jpg", ImageFormat.Jpeg);
     }
 }
 ``` 
-## **Télécharger un exemple fonctionnel**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/User Defined Thumbnail/)
+## **Télécharger l'exemple en cours d'exécution**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/User%20Defined%20Thumbnail)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **Télécharger un code exemple**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **Télécharger le code d'exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
-
-Pour plus de détails, visitez [Création de l'image miniature des diapositives](/slides/fr/net/presentation-viewer/#creating-slides-thumbnail-image).
-
+Pour plus de détails, consultez [Convertir la diapositive](/slides/fr/net/convert-slide/).
 {{% /alert %}}

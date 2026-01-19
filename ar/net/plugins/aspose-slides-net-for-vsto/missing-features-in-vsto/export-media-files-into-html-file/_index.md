@@ -5,18 +5,18 @@ weight: 80
 url: /ar/net/export-media-files-into-html-file/
 ---
 
-لتصدير ملفات الوسائط إلى HTML. يرجى اتباع الخطوات أدناه:
+لتصدير ملفات الوسائط إلى HTML. يرجى اتباع الخطوات التالية:
 
-- إنشاء مثيل من فئة Presentation
+- إنشاء كائن من فئة Presentation
 - الحصول على مرجع الشريحة
-- إعداد تأثير الانتقال
+- تعيين تأثير الانتقال
 - كتابة العرض التقديمي كملف PPTX
 
 في المثال المعطى أدناه، قمنا بتصدير ملفات الوسائط إلى HTML.
 ## **مثال**
 ``` 
 
- //تحميل عرض تقديمي
+ //Loading a presentation
 
 using (Presentation pres = new Presentation("example.pptx"))
 
@@ -30,7 +30,7 @@ using (Presentation pres = new Presentation("example.pptx"))
 
    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: path, fileName: fileName, baseUri: baseUri);
 
-   //إعداد خيارات HTML
+   //Setting HTML options
 
    HtmlOptions htmlOptions = new HtmlOptions(controller);
 
@@ -40,18 +40,14 @@ using (Presentation pres = new Presentation("example.pptx"))
 
    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-   //حفظ الملف
+   //Saving the file
 
    pres.Save(path + fileName, SaveFormat.Html, htmlOptions);
 
 }
 
 ``` 
-## **تحميل مثال قيد التشغيل**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Export media files into html/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Export%20media%20files%20into%20html)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **تحميل نموذج الكود**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
+## **تحميل مثال تشغيل**
+- [جيتهاب](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Export%20media%20files%20into%20html)
+## **تحميل الكود النموذجي**
+- [جيتهاب](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)

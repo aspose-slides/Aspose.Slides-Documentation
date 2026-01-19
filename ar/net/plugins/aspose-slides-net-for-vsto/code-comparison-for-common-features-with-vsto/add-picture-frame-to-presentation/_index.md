@@ -6,7 +6,7 @@ url: /ar/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**
-فيما يلي الكود لإضافة صورة في عرض VSTO:
+فيما يلي الكود لإضافة صورة في عرض تقديمي باستخدام VSTO:
 
 ``` csharp
 
@@ -22,42 +22,40 @@ url: /ar/net/add-picture-frame-to-presentation/
 ## **Aspose.Slides**
 لإضافة إطار صورة بسيط إلى الشريحة الخاصة بك، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء مثيل من فئة Presentation.
-1. الحصول على مرجع لشريحة باستخدام فهرسها.
-1. إنشاء كائن صورة عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن العرض التقديمي الذي سيتم استخدامه لملء الشكل.
+1. إنشاء مثيل لفئة Presentation.
+1. الحصول على مرجع الشريحة باستخدام فهرستها.
+1. إنشاء كائن Image عن طريق إضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لملء الشكل.
 1. حساب عرض وارتفاع الصورة.
-1. إنشاء PictureFrame وفقًا لعرض وارتفاع الصورة باستخدام طريقة AddPictureFrame المعروضة بواسطة كائن الأشكال المرتبط بالشريحة المرجعية.
+1. إنشاء PictureFrame وفقًا للعرض والارتفاع باستخدام الطريقة AddPictureFrame التي يوفرها كائن Shapes المرتبط بالشريحة المرجعية.
 1. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
 1. كتابة العرض التقديمي المعدل كملف PPTX.
 
-يتم تنفيذ الخطوات أعلاه في المثال المعطى أدناه.
+يتم تنفيذ الخطوات السابقة في المثال المعطى أدناه.
 
 ``` csharp
 
    string ImageFilePath = "AddPicture.jpg";
 
-  //إنشاء مثيل لفئة Prseetation التي تمثل PPTX
+  //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
-  //الحصول على الشريحة الأولى
+  //Get the first slide
 
   ISlide sld = pres.Slides[0];
 
-  //إنشاء مثيل لفئة ImageEx
+  //Instantiate the ImageEx class
 
   using IImage img = Images.FromFile(ImageFilePath);
 
   IPPImage imgx = pres.Images.AddImage(img);
 
-  //إضافة إطار صورة بارتفاع وعرض مكافئين للصورة
+  //Add Picture Frame with height and width equivalent of Picture
 
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
 ``` 
-## **تحميل الكود القابل للتنفيذ**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **تحميل نموذج الكود**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Add Picture Frame/)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)

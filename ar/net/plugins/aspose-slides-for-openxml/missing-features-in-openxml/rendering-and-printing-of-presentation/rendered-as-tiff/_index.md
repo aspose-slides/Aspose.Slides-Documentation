@@ -1,17 +1,17 @@
 ---
-title: تم تقديمه كـ Tiff
+title: معروض كـ Tiff
 type: docs
 weight: 30
 url: /ar/net/rendered-as-tiff/
 ---
 
-تنسيق TIFF معروف بمرونته لاستيعاب الصور المتعددة الصفحات والبيانات. مع الأخذ في الاعتبار أهمية وشعبية تنسيق TIFF، توفر Aspose.Slides لـ .NET دعمًا لتحويل العروض التقديمية إلى مستند TIFF.
-تتناول هذه المقالة كيفية تصدير tiff مع خيارات مختلفة:
+معروف عن تنسيق TIFF مرونته في استيعاب الصور المتعددة الصفحات والبيانات. بالنظر إلى أهمية وشعبية تنسيق TIFF، تقدم Aspose.Slides for .NET الدعم لتحويل العروض التقديمية إلى مستند TIFF.
+توضح هذه المقالة خيارات تصدير TIFF المختلفة:
 
 - تحويل العرض التقديمي إلى TIFF بالحجم الافتراضي.
 - تحويل العرض التقديمي إلى TIFF بحجم مخصص.
 
-يمكن للمطورين استدعاء طريقة **Save** التي تعرضها فئة **Presentation** لتحويل العرض التقديمي بالكامل إلى مستند **TIFF**. علاوة على ذلك، تعرض فئة TiffOptions خاصية ImageSize التي تمكن المطور من تحديد حجم الصورة إذا لزم الأمر.
+يمكن للمطورين استدعاء طريقة **Save** التي توفرها فئة **Presentation** لتحويل العرض التقديمي بالكامل إلى مستند **TIFF**. بالإضافة إلى ذلك، تكشف فئة TiffOptions عن خاصية ImageSize التي تمكن المطور من تحديد حجم الصورة إذا لزم الأمر.
 
 ``` csharp
 
@@ -21,21 +21,19 @@ string srcFileName = FilePath + "Conversion.pptx";
 
 string destFileName = FilePath + "Conversion to Tiff.tiff";
 
-//إنشاء كائن Presentation يمثل ملف عرض تقديمي
+//Instantiate a Presentation object that represents a presentation file
 
 using (Presentation pres = new Presentation(srcFileName))
 
 {
 
-    //حفظ العرض التقديمي في مستند TIFF
+    //Saving the presentation to TIFF document
 
     pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Tiff);
 
 }
 
 ``` 
-## **تنزيل رمز العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Conversion%20to%20Tiff%20%28Aspose.Slides%29.zip)

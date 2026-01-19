@@ -1,51 +1,50 @@
 ---
-title: Konvertierung von PPT in PPTX-Format
+title: Konvertierung von PPT zu PPTX-Format
 type: docs
 weight: 20
 url: /de/net/conversion-from-ppt-to-pptx-format/
 ---
 
-Aspose.Slides ist ein einzigartiges Merkmal, das Flexibilität bei Versionen bietet, ohne die Arbeit zu beeinträchtigen. 
-SaveFormat ist eine Enumeration, die Dokumente in den untenstehenden Erweiterungen konvertieren kann.
+Einzigartige Funktion von Aspose.Slides, die Flexibilität bei Versionskonvertierungen bietet, ohne die Arbeit zu beeinträchtigen.
+SaveFormat ist eine Aufzählung, die Dokumente in die unten in der Tabelle angegebenen Erweiterungen konvertieren kann.
 
-|**Mitgliedsname**|**Wert**|**Beschreibung**|
+|**Membername**|**Wert**|**Beschreibung**|
 | :- | :- | :- |
-|HTML|13| |
-|ODP|6| |
-|PDF|1| |
-|PDF-Notizen|12| |
-|POTM|11| |
-|POTX|10| |
-|PPS|0| |
-|PPSM|9| |
-|PPSX|4| |
-|PPT|0| |
-|PPTM|7| |
-|PPTX|3| |
-|TIFF|5| |
-|TiffNotizen|14| |
-|XPS|2| |
-Unten finden Sie ein Codebeispiel, das die Konvertierung von PPT in PPTX zeigt; Sie können es auch umgekehrt tun.
+|HTML|13| |
+|ODP|6| |
+|PDF|1| |
+|PDF Notes|12| |
+|POTM|11| |
+|POTX|10| |
+|PPS|0| |
+|PPSM|9| |
+|PPSX|4| |
+|PPT|0| |
+|PPTM|7| |
+|PPTX|3| |
+|TIFF|5| |
+|TiffNotes|14| |
+|XPS|2| |
+
+Unten finden Sie ein Code‑Snippet, das die Konvertierung von PPT zu PPTX zeigt; Sie können dies auch umgekehrt ausführen.
 
 ``` csharp
 
- string FilePath = @"..\..\..\Beispieldateien\";
+ string FilePath = @"..\..\..\Sample Files\";
 
-string srcFileName = FilePath + "Konvertierung PPT zu PPTX.ppt";
+string srcFileName = FilePath + "Conversion PPT to PPTX.ppt";
 
-string destFileName = FilePath + "Konvertierung PPT zu PPTX.pptx";
+string destFileName = FilePath + "Conversion PPT to PPTX.pptx";
 
-//Erstellen Sie ein Präsentationsobjekt, das eine PPTX-Datei darstellt
+//Instantiate a Presentation object that represents a PPTX file
 
 Presentation pres = new Presentation(srcFileName);
 
-//Speichern der PPTX-Präsentation im PPTX-Format
+//Saving the PPTX presentation to PPTX format
 
 pres.Save(destFileName, SaveFormat.Pptx);
 
 ``` 
 ## **Beispielcode herunterladen**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Conversion%20between%20different%20presentation%20version%20%28Aspose.Slides%29.zip)

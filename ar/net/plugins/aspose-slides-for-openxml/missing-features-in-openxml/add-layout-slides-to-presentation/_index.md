@@ -5,20 +5,20 @@ weight: 20
 url: /ar/net/add-layout-slides-to-presentation/
 ---
 
-يسمح Aspose.Slides لـ .NET للمطورين بإضافة شرائح تخطيط جديدة في العرض التقديمي. لإضافة شريحة تخطيط، يرجى اتباع الخطوات أدناه:
+يتيح Aspose.Slides for .NET للمطورين إضافة شرائح تخطيط جديدة في العرض التقديمي. لإضافة شريحة تخطيط، يرجى اتباع الخطوات التالية:
 
 - إنشاء مثيل من فئة Presentation
-- الوصول إلى مجموعة الشريحة الرئيسية
-- حاول العثور على شرائح التخطيط الموجودة لمعرفة ما إذا كانت الشريحة المطلوبة متاحة بالفعل في مجموعة شرائح التخطيط أم لا
-- إضافة شريحة تخطيط جديدة إذا كانت التخطيط المطلوب غير متوفرة
-- إضافة شريحة فارغة مع شريحة التخطيط المضافة حديثًا
-- أخيرًا، قم بكتابة ملف العرض التقديمي باستخدام كائن Presentation
+- الوصول إلى مجموعة الشرائح الرئيسية Master Slide
+- محاولة العثور على شرائح تخطيط موجودة للتحقق مما إذا كانت الشريحة المطلوبة متوفرة بالفعل في مجموعة شرائح التخطيط أم لا
+- إضافة شريحة تخطيط جديدة إذا لم يتوفر التخطيط المطلوب
+- إضافة شريحة فارغة باستخدام شريحة التخطيط التي تم إضافتها حديثًا
+- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن Presentation
 ## **مثال**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string FileName = FilePath + "إضافة شرائح التخطيط.pptx";
+string FileName = FilePath + "Adding Layout Slides.pptx";
 
 //Instantiate Presentation class that represents the presentation file
 
@@ -26,7 +26,7 @@ using (Presentation p = new Presentation(FileName))
 
 {
 
-    // حاول البحث عن نوع شريحة التخطيط
+    // Try to search by layout slide type
 
     IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -40,25 +40,25 @@ using (Presentation p = new Presentation(FileName))
 
     {
 
-        // الحالة عندما لا يحتوي العرض التقديمي على بعض أنواع التخطيطات.
+        // The situation when a presentation doesn't contain some type of layouts.
 
-        // تحتوي عرض Technographics.pptx فقط على أنواع تخطيط فارغ ومخصص.
+        // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-        // لكن تحتوي شرائح التخطيط بأنواع مخصصة على أسماء شرائح مختلفة،
+        // But layout slides with Custom types has different slide names,
 
-        // مثل "العنوان"، "العنوان والمحتوى"، وما إلى ذلك. ومن الممكن استخدام هذه
+        // like "Title", "Title and Content", etc. And it is possible to use these
 
-        // الأسماء لاختيار شريحة التخطيط.
+        // names for layout slide selection.
 
-        // أيضاً من الممكن استخدام مجموعة من أنواع أشكال القوائم النائبة. على سبيل المثال،
+        // Also it is possible to use the set of placeholder shape types. For example,
 
-        // يجب أن تحتوي شريحة العنوان على نوع واحد فقط من قوائم العنوان، وهكذا.
+        // Title slide should have only Title pleceholder type, etc.
 
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
         {
 
-            if (titleAndObjectLayoutSlide.Name == "العنوان والمحتوى")
+            if (titleAndObjectLayoutSlide.Name == "Title and Object")
 
             {
 
@@ -78,7 +78,7 @@ using (Presentation p = new Presentation(FileName))
 
             {
 
-                if (titleLayoutSlide.Name == "العنوان")
+                if (titleLayoutSlide.Name == "Title")
 
                 {
 
@@ -100,7 +100,7 @@ using (Presentation p = new Presentation(FileName))
 
                 {
 
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "العنوان والمحتوى");
+                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
 
                 }
 
@@ -110,24 +110,22 @@ using (Presentation p = new Presentation(FileName))
 
     }
 
-    //إضافة شريحة فارغة مع شريحة التخطيط المضافة
+    //Adding empty slide with added layout slide 
 
     p.Slides.InsertEmptySlide(0, layoutSlide);
 
-    //حفظ العرض التقديمي    
+    //Save presentation    
 
     p.Save(FileName, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **تحميل رمز المثال**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-## **تحميل مثال يعمل**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
+## **تنزيل عينة الكود**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+## **تنزيل المثال التشغيلي**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
 
 {{% alert color="primary" %}} 
-
-للحصول على مزيد من التفاصيل، تفضل بزيارة [إضافة شرائح التخطيط إلى العرض التقديمي](/slides/ar/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
-
+لمزيد من التفاصيل، زر [تطبيق أو تغيير تخطيطات الشرائح في .NET](/slides/ar/net/slide-layout/).
 {{% /alert %}}

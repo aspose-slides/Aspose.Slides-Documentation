@@ -1,18 +1,19 @@
 ---
-title: 将布局幻灯片添加到演示文稿
+title: 向演示文稿中添加布局幻灯片
 type: docs
 weight: 20
 url: /zh/net/add-layout-slides-to-presentation/
 ---
 
-Aspose.Slides for .NET 允许开发人员在演示文稿中添加新的布局幻灯片。要添加布局幻灯片，请按照以下步骤操作：
+Aspose.Slides for .NET 允许开发人员在演示文稿中添加新的布局幻灯片。要添加布局幻灯片，请按以下步骤操作：
 
-- 创建一个 Presentation 类的实例
-- 访问主幻灯片集合
-- 尝试查找现有的布局幻灯片，以查看所需的布局滑块是否已经在布局幻灯片集合中
-- 如果所需的布局不可用，请添加新的布局幻灯片
-- 使用新添加的布局幻灯片添加空幻灯片
+- 创建 Presentation 类的实例
+- 访问母版幻灯片集合
+- 查找现有的布局幻灯片，以确定所需的布局是否已经在布局幻灯片集合中
+- 如果所需布局不存在，则添加新的布局幻灯片
+- 使用新添加的布局幻灯片添加空白幻灯片
 - 最后，使用 Presentation 对象写入演示文稿文件
+
 ## **示例**
 ``` csharp
 
@@ -20,13 +21,13 @@ Aspose.Slides for .NET 允许开发人员在演示文稿中添加新的布局幻
 
 string FileName = FilePath + "Adding Layout Slides.pptx";
 
-//实例化表示演示文稿文件的 Presentation 类
+//Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation(FileName))
 
 {
 
-    // 尝试按布局幻灯片类型进行搜索
+    // Try to search by layout slide type
 
     IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -40,19 +41,19 @@ using (Presentation p = new Presentation(FileName))
 
     {
 
-        // 演示文稿不包含某种布局的情况。
+        // The situation when a presentation doesn't contain some type of layouts.
 
-        // Technographics.pptx 演示文稿仅包含空白和自定义布局类型。
+        // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-        // 但是具有自定义类型的布局幻灯片具有不同的幻灯片名称，
+        // But layout slides with Custom types has different slide names,
 
-        // 如“标题”，“标题和内容”等。可以使用这些
+        // like "Title", "Title and Content", etc. And it is possible to use these
 
-        // 名称进行布局幻灯片选择。
+        // names for layout slide selection.
 
-        // 还可以使用一组占位符形状类型。例如，
+        // Also it is possible to use the set of placeholder shape types. For example,
 
-        // 标题幻灯片仅应具有标题占位符类型，等等。
+        // Title slide should have only Title pleceholder type, etc.
 
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
@@ -110,11 +111,11 @@ using (Presentation p = new Presentation(FileName))
 
     }
 
-    //添加带有添加的布局幻灯片的空幻灯片 
+    //Adding empty slide with added layout slide 
 
     p.Slides.InsertEmptySlide(0, layoutSlide);
 
-    //保存演示文稿    
+    //Save presentation    
 
     p.Save(FileName, SaveFormat.Pptx);
 
@@ -128,6 +129,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [将布局幻灯片添加到演示文稿](/slides/zh/net/adding-and-editing-slides/#working-with-slide-size-and-layout)。
+欲获取更多详情，请访问[在 .NET 中应用或更改幻灯片布局](/slides/zh/net/slide-layout/)。
 
 {{% /alert %}}

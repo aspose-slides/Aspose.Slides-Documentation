@@ -5,12 +5,12 @@ weight: 50
 url: /ja/net/get-the-file-format-of-presentation/
 ---
 
-ファイル形式を取得するには、以下の手順に従ってください：
+ファイル形式を取得するには、以下の手順に従ってください。
 
-- **IPresentationInfo** クラスのインスタンスを作成します
-- プレゼンテーションに関する情報を取得します
+- **IPresentationInfo** クラスのインスタンスを作成する
+- プレゼンテーションに関する情報を取得する
 
-以下の例では、ファイル形式を取得しました。
+以下の例では、ファイル形式を取得しています。
 ## **例**
 ``` csharp
 
@@ -47,10 +47,6 @@ switch (info.LoadFormat)
 
 ``` 
 ## **サンプルコードのダウンロード**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 ## **実行例のダウンロード**
-- [Codeplex](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)

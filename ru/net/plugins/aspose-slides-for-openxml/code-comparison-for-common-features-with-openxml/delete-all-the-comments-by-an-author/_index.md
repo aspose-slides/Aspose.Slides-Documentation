@@ -1,5 +1,5 @@
 ---
-title: Удалить все комментарии автора
+title: Удалить все комментарии, оставленные автором
 type: docs
 weight: 70
 url: /ru/net/delete-all-the-comments-by-an-author/
@@ -7,16 +7,15 @@ url: /ru/net/delete-all-the-comments-by-an-author/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Удалить все комментарии автора.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "Zeeshan Shafqat";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// Удалить все комментарии на слайдах определенного автора.
+// Удалить все комментарии в слайдах, оставленные определённым автором.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -24,7 +23,7 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-    throw new ArgumentNullException("Имя файла или имя автора NULL!");
+    throw new ArgumentNullException("File name or author name is NULL!");
 
 using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
@@ -38,7 +37,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         .Where(e => e.Name.Value.Equals(author));
 
-    // Перебрать всех соответствующих авторов.
+    // Перебрать всех совпадающих авторов.
 
     foreach (CommentAuthor commentAuthor in commentAuthors)
 
@@ -46,7 +45,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         UInt32Value authorId = commentAuthor.Id;
 
-        // Перебрать все слайды и получить части слайдов.
+        // Перебрать все слайды и получить их части.
 
         foreach (SlidePart slide in doc.PresentationPart.SlideParts)
 
@@ -78,7 +77,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
                 }
 
-                // Если в part комментариев нет существующих комментариев.
+                // Если в commentPart нет существующих комментариев.
 
                 if (slideCommentsPart.CommentList.ChildElements.Count == 0)
 
@@ -99,20 +98,18 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Удалить все комментарии автора.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "MZ";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// Удалить все комментарии на слайдах определенного автора.
+// Удалить все комментарии в слайдах, оставленные определённым автором.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -120,9 +117,9 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
     if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-        throw new ArgumentNullException("Имя файла или имя автора NULL!");
+        throw new ArgumentNullException("File name or author name is NULL!");
 
-    //Создать объект PresentationEx, представляющий файл PPTX
+    // Создать объект PresentationEx, представляющий файл PPTX
 
     using (Presentation pres = new Presentation(fileName))
 
@@ -145,10 +142,8 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
     }
 
 }    
-
 ``` 
-## **Скачать пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Удалить%20все%20комментарии%20автора%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Удалить%20все%20комментарии%20автора%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author/)

@@ -1,13 +1,13 @@
 ---
-title: التحويل إلى XPS
+title: تحويل إلى XPS
 type: docs
 weight: 40
 url: /ar/net/conversion-to-xps/
 ---
 
-**تنسيق XPS** يُستخدم أيضًا على نطاق واسع لتبادل البيانات. تُدير Aspose.Slides لـ .NET أهميته وتوفر الدعم المدمج لتحويل العرض التقديمي إلى مستند XPS.
+**XPS** تنسيق يُستخدم على نطاق واسع لتبادل البيانات. Aspose.Slides for .NET يولي اهتمامًا بأهميته ويوفر الدعم المدمج لتحويل عرض تقديمي إلى مستند XPS.
 
-يمكن استخدام طريقة **Save** المعروضة من قِبَل فئة Presentation لتحويل العرض التقديمي بالكامل إلى مستند **XPS**. علاوة على ذلك، تعرض فئة **XpsOptions** خاصية **SaveMetafileAsPng** التي يمكن تعيينها إلى true أو false حسب المتطلبات.
+يمكن استخدام الطريقة **Save** التي توفرها فئة Presentation لتحويل العرض التقديمي بالكامل إلى مستند **XPS**. بالإضافة إلى ذلك، تُظهر فئة **XpsOptions** الخاصية **SaveMetafileAsPng** التي يمكن تعيينها إلى true أو false حسب المتطلبات.
 
 ``` csharp
 
@@ -26,8 +26,6 @@ Presentation pres = new Presentation(srcFileName);
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Xps);
 
 ``` 
-## **تحميل كود العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **تنزيل الشيفرة النموذجية**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20XPS%20%28Aspose.Slides%29.zip)

@@ -14,19 +14,19 @@ string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// プレゼンテーション内のスライド数をカウントする。
+// プレゼンテーション内のスライド数をカウントします。
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // プレゼンテーションを読み取り専用で開く。
+    // プレゼンテーションを読み取り専用で開きます。
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // プレゼンテーションを次のCountSlidesメソッドに渡し、
+        // 次の CountSlides メソッドにプレゼンテーションを渡し
 
         // スライド数を返します。
 
@@ -36,13 +36,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// プレゼンテーション内のスライドをカウントする。
+// プレゼンテーション内のスライド数をカウントします。
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // ドキュメントオブジェクトがnullでないかを確認します。
+    // null のドキュメント オブジェクトをチェックします。
 
     if (presentationDocument == null)
 
@@ -54,11 +54,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // ドキュメントのプレゼンテーション部分を取得します。
+    // ドキュメントのプレゼンテーション パートを取得します。
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // SlidePartsからスライド数を取得します。
+    // SlideParts からスライド数を取得します。
 
     if (presentationPart != null)
 
@@ -68,13 +68,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // スライド数を前のメソッドに返します。
+    // 前のメソッドにスライド数を返します。
 
     return slidesCount;
 
 }
 
-// プレゼンテーション内のスライドの順序でスライドを別の位置に移動します。
+// プレゼンテーション内のスライド順序でスライドを別の位置に移動します。
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +90,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// プレゼンテーション内のスライドの順序でスライドを別の位置に移動します。
+// プレゼンテーション内のスライド順序でスライドを別の位置に移動します。
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -104,11 +104,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // CountSlidesメソッドを呼び出してプレゼンテーション内のスライド数を取得します。
+    // CountSlides メソッドを呼び出してプレゼンテーションのスライド数を取得します。
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // fromとtoの両方の位置が範囲内であり、異なっていることを確認します。
+    // from と to の両方の位置が範囲内であり、互いに異なることを確認します。
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,23 +126,23 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // プレゼンテーションドキュメントからプレゼンテーション部分を取得します。
+    // プレゼンテーション ドキュメントからプレゼンテーション パートを取得します。
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // スライド数はゼロではないため、プレゼンテーションにはスライドが含まれている必要があります。            
+    // スライド数がゼロでないので、プレゼンテーションにはスライドが含まれています。            
 
     Presentation presentation = presentationPart.Presentation;
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // ソーススライドのスライドIDを取得します。
+    // ソース スライドのスライド ID を取得します。
 
     SlideId sourceSlide = slideIdList.ChildElements[from] as SlideId;
 
     SlideId targetSlide = null;
 
-    // ソーススライドを移動するターゲットスライドの位置を特定します。
+    // ソース スライドを移動する対象スライドの位置を特定します。
 
     if (to == 0)
 
@@ -168,21 +168,21 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // ソーススライドを現在の位置から削除します。
+    // ソース スライドを現在の位置から削除します。
 
     sourceSlide.Remove();
 
-    // ソーススライドをターゲットスライドの後の新しい位置に挿入します。
+    // ターゲット スライドの後にソース スライドを新しい位置に挿入します。
 
     slideIdList.InsertAfter(sourceSlide, targetSlide);
 
-    // 修正したプレゼンテーションを保存します。
+    // 変更されたプレゼンテーションを保存します。
 
     presentation.Save();
 
 } 
 
-```
+``` 
 ## **Aspose.Slides**
 ``` csharp
 
@@ -192,31 +192,31 @@ string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// プレゼンテーション内のスライドの順序でスライドを別の位置に移動します。
+// プレゼンテーション内のスライド順序でスライドを別の位置に移動します。
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
 {
 
-    // プレゼンテーションExクラスをインスタンス化してソースPPTXファイルをロードします。
+    // PresentationEx クラスをインスタンス化してソース PPTX ファイルを読み込みます
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        // 位置を変更するスライドを取得します。
+        // 位置を変更するスライドを取得します
 
         ISlide sld = pres.Slides[from];
 
         ISlide sld2 = pres.Slides[to];
 
-        // スライドの新しい位置を設定します。
+        // スライドの新しい位置を設定します
 
         sld2.SlideNumber = from;
 
         sld.SlideNumber = to;
 
-        // PPTXをディスクに書き込みます。
+        // PPTX をディスクに書き込みます
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -226,7 +226,6 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 ``` 
 ## **サンプルコードをダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Move%20a%20slide%20to%20a%20new%20position%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

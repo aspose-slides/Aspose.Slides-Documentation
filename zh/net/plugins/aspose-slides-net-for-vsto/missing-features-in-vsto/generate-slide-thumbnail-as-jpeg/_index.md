@@ -1,43 +1,39 @@
 ---
-title: 生成幻灯片缩略图作为JPEG
+title: 生成幻灯片缩略图为 JPEG
 type: docs
 weight: 90
 url: /zh/net/generate-slide-thumbnail-as-jpeg/
 ---
 
-要使用Aspose.Slides for .NET生成所需幻灯片的缩略图：
+使用 Aspose.Slides for .NET 生成任意所需幻灯片的缩略图：
 
-- 创建Presentation类的实例。
-- 通过使用其ID或索引获取所需幻灯片的引用。
-- 在指定的缩放比例下获取所引用幻灯片的缩略图像。
-- 以任何所需的图像格式保存缩略图像。
+- 创建 Presentation 类的实例。
+- 通过使用幻灯片的 ID 或索引获取所需幻灯片的引用。
+- 在指定比例下获取引用幻灯片的缩略图。
+- 将缩略图以任意所需的图像格式保存。
 ## **示例**
 ```cs
-//实例化Presentation类，该类代表演示文稿文件
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 {
-    //访问第一张幻灯片
+    //Access the first slide
     ISlide sld = pres.Slides[0];
 
-    //创建全尺寸图像
+    //Create a full scale image
     using (IImage image = sld.GetImage(1f, 1f))
     {
-        //将图像以JPEG格式保存到磁盘
+        //Save the image to disk in JPEG format
         image.Save("Test Thumbnail.jpg", ImageFormat.Jpeg);
     }
 }
 ``` 
 ## **下载运行示例**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Slide Thumbnail to JPEG/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Slide%20Thumbnail%20to%20JPEG)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **下载示例代码**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-欲了解更多详细信息，请访问 [创建幻灯片缩略图像](/slides/zh/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage)。
+如需了解更多信息，请访问[在 .NET 中将 PPT 和 PPTX 转换为 JPG](/slides/zh/net/convert-powerpoint-to-jpg/)。
 
 {{% /alert %}}

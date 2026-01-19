@@ -1,5 +1,5 @@
 ---
-title: スライド内のすべてのテキストを取得する
+title: スライド内のテキストをすべて取得
 type: docs
 weight: 110
 url: /ja/net/get-all-the-text-in-a-slide/
@@ -7,10 +7,9 @@ url: /ja/net/get-all-the-text-in-a-slide/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "スライド内のすべてのテキストを取得する.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -18,23 +17,23 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// スライド内のすべてのテキストを取得する。
+// Get all the text in a slide.
 
 public static string[] GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-    // プレゼンテーションを読み取り専用で開く。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // プレゼンテーションとスライドインデックスを
+        // Pass the presentation and the slide index
 
-        // 次のGetAllTextInSlideメソッドに渡し、
+        // to the next GetAllTextInSlide method, and
 
-        // それが返す文字列の配列を返す。
+        // then return the array of strings it returns. 
 
         return GetAllTextInSlide(presentationDocument, slideIndex);
 
@@ -46,7 +45,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
 {
 
-    // プレゼンテーションドキュメントが存在することを確認する。
+    // Verify that the presentation document exists.
 
     if (presentationDocument == null)
 
@@ -56,7 +55,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // スライドインデックスが範囲外でないことを確認する。
+    // Verify that the slide index is not out of range.
 
     if (slideIndex < 0)
 
@@ -66,53 +65,53 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // プレゼンテーションドキュメントのプレゼンテーションパートを取得する。
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // プレゼンテーションパートとプレゼンテーションが存在することを確認する。
+    // Verify that the presentation part and presentation exist.
 
     if (presentationPart != null && presentationPart.Presentation != null)
 
     {
 
-        // プレゼンテーションパートからプレゼンテーションオブジェクトを取得する。
+        // Get the Presentation object from the presentation part.
 
         Presentation presentation = presentationPart.Presentation;
 
-        // スライドIDリストが存在することを確認する。
+        // Verify that the slide ID list exists.
 
         if (presentation.SlideIdList != null)
 
         {
 
-            // スライドIDリストからスライドIDのコレクションを取得する。
+            // Get the collection of slide IDs from the slide ID list.
 
             DocumentFormat.OpenXml.OpenXmlElementList slideIds =
 
                 presentation.SlideIdList.ChildElements;
 
-            // スライドIDが範囲内の場合...
+            // If the slide ID is in range...
 
             if (slideIndex < slideIds.Count)
 
             {
 
-                // スライドのリレーションシップIDを取得する。
+                // Get the relationship ID of the slide.
 
                 string slidePartRelationshipId = (slideIds[slideIndex] as SlideId).RelationshipId;
 
-                // 指定されたスライドパートをリレーションシップIDから取得する。
+                // Get the specified slide part from the relationship ID.
 
                 SlidePart slidePart =
 
                     (SlidePart)presentationPart.GetPartById(slidePartRelationshipId);
 
-                // スライドパートを次のメソッドに渡し、
+                // Pass the slide part to the next method, and
 
-                // そのメソッドが返す文字列の配列を
+                // then return the array of strings that method
 
-                // 前のメソッドに返す。
+                // returns to the previous method.
 
                 return GetAllTextInSlide(slidePart);
 
@@ -122,7 +121,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // それ以外の場合は、nullを返す。
+    // Else, return null.
 
     return null;
 
@@ -132,7 +131,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 {
 
-    // スライドパートが存在することを確認する。
+    // Verify that the slide part exists.
 
     if (slidePart == null)
 
@@ -142,17 +141,17 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     }
 
-    // 新しい文字列のリンクリストを作成する。
+    // Create a new linked list of strings.
 
     LinkedList<string> texts = new LinkedList<string>();
 
-    // スライドが存在する場合...
+    // If the slide exists...
 
     if (slidePart.Slide != null)
 
     {
 
-        // スライド内のすべての段落を繰り返す。
+        // Iterate through all the paragraphs in the slide.
 
         foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in
 
@@ -160,11 +159,11 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
         {
 
-            // 新しいStringBuilderを作成する。                    
+            // Create a new string builder.                    
 
             StringBuilder paragraphText = new StringBuilder();
 
-            // 段落の行を繰り返す。
+            // Iterate through the lines of the paragraph.
 
             foreach (DocumentFormat.OpenXml.Drawing.Text text in
 
@@ -172,7 +171,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // 各行を前の行に追加する。
+                // Append each line to the previous lines.
 
                 paragraphText.Append(text.Text);
 
@@ -182,7 +181,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // 各段落をリンクリストに追加する。
+                // Add each paragraph to the linked list.
 
                 texts.AddLast(paragraphText.ToString());
 
@@ -196,7 +195,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     {
 
-        // 文字列の配列を返す。
+        // Return an array of strings.
 
         return texts.ToArray();
 
@@ -211,14 +210,12 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
     }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "スライド内のすべてのテキストを取得する.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -226,27 +223,27 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// スライド内のすべてのテキストを取得する。
+// Get all the text in a slide.
 
 public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-// 新しい文字列のリンクリストを作成する。
+// Create a new linked list of strings.
 
 List<string> texts = new List<string>();
 
-//PresentationExクラスをインスタンス化し、PPTXを表現する
+//Instantiate PresentationEx class that represents PPTX
 
 using (Presentation pres = new Presentation(presentationFile))
 
 {
 
-    // スライドにアクセスする
+    //Access the slide
 
     ISlide sld = pres.Slides[slideIndex];
 
-    // プレースホルダを見つけるためにシェイプを繰り返す
+    //Iterate through shapes to find the placeholder
 
     foreach (Shape shp in sld.Shapes)
 
@@ -254,7 +251,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
         {
 
-            // 各プレースホルダのテキストを取得する
+            //get the text of each placeholder
 
             texts.Add(((AutoShape)shp).TextFrame.Text);
 
@@ -262,15 +259,13 @@ using (Presentation pres = new Presentation(presentationFile))
 
 }
 
-// 文字列の配列を返す。
+// Return an array of strings.
 
 return texts;
 
 }
-
 ``` 
 ## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide/)

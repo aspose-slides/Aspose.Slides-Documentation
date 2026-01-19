@@ -1,17 +1,17 @@
 ---
-title: Ajouter du texte dynamiquement
+title: Ajout de texte dynamique
 type: docs
 weight: 40
 url: /fr/net/adding-text-dynamically/
 ---
 
-Les deux méthodes suivent ces étapes :
+Les deux méthodes suivent les étapes suivantes :
 
 - Créer une présentation.
 - Ajouter une diapositive vierge.
 - Ajouter une zone de texte.
-- Définir un texte.
-- Écrire la présentation.
+- Définir du texte.
+- Enregistrer la présentation.
 ## **VSTO**
 ``` csharp
 
@@ -25,7 +25,7 @@ Les deux méthodes suivent ces étapes :
 
 		.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-	//Obtenir la mise en page de la diapositive vierge
+	//Obtenir la disposition de diapositive vierge
 
 	PowerPoint.CustomLayout layout = pres.SlideMaster.
 
@@ -35,17 +35,17 @@ Les deux méthodes suivent ces étapes :
 
 	PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-	//Ajouter un texte
+	//Ajouter une zone de texte
 
 	PowerPoint.Shape shp =sld.Shapes.AddTextbox
 
 	(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal,150, 100, 400, 100);
 
-	//Définir un texte
+	//Définir le texte
 
 	PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
-	txtRange.Text = "Texte ajouté dynamiquement";
+	txtRange.Text = "Text added dynamically";
 
 	txtRange.Font.Name = "Arial";
 
@@ -53,7 +53,7 @@ Les deux méthodes suivent ces étapes :
 
 	txtRange.Font.Size = 32;
 
-	//Écrire la sortie sur le disque
+	//Enregistrer le fichier sur le disque
 
 	pres.SaveAs("outVSTOAddingText.ppt",
 
@@ -85,19 +85,19 @@ Les deux méthodes suivent ces étapes :
 
 	//Obtenir l'index de police pour Arial
 
-	//Il est toujours 0 si vous créez une présentation à partir
+	//Il est toujours 0 si vous créez une présentation à partir du
 
-	//du constructeur par défaut
+	//constructeur par défaut
 
 	int arialFontIndex = 0;
 
 	//Ajouter une zone de texte
 
-	//Pour l'ajouter, nous ajouterons d'abord un rectangle
+	//Pour l'ajouter, nous allons d'abord ajouter un rectangle
 
 	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
 
-	//Cacher sa ligne
+	//Masquer sa ligne
 
 	shp.LineFormat.ShowLines = false;
 
@@ -105,9 +105,9 @@ Les deux méthodes suivent ces étapes :
 
 	TextFrame tf = shp.AddTextFrame("");
 
-	//Définir un texte
+	//Définir le texte
 
-	tf.Text = "Texte ajouté dynamiquement";
+	tf.Text = "Text added dynamically";
 
 	Portion port = tf.Paragraphs[0].Portions[0];
 
@@ -117,7 +117,7 @@ Les deux méthodes suivent ces étapes :
 
 	port.FontHeight = 32;
 
-	//Écrire la sortie sur le disque
+	//Enregistrer le fichier sur le disque
 
 	pres.Write("outAspose.ppt");
 
@@ -125,7 +125,6 @@ Les deux méthodes suivent ces étapes :
 
 ``` 
 ## **Télécharger le code d'exemple**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20using%20VSTO%20and%20Aspose.Slides/)

@@ -1,26 +1,26 @@
 ---
-title: البحث والاستبدال في العرض التقديمي
+title: العثور على النص واستبداله في العرض التقديمي
 type: docs
 weight: 20
 url: /ar/net/find-and-replace-in-presentation/
 ---
 
-فيما يلي الخطوات التي يجب اتباعها:
+الخطوات التالية التي يجب اتباعها:
 
-1. افتح عرضًا تقديميًا.
-1. ابحث عن النص.
-1. استبدل النص.
-1. احفظ العرض التقديمي.
+1. فتح عرض تقديمي.
+1. بحث النص.
+1. استبدال النص.
+1. كتابة العرض التقديمي.
 
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-//افتح العرض التقديمي
+//Open the presentation
 
 Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//احصل على جميع صناديق النص في العرض التقديمي
+//Get all text boxes in the presentation
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //ابحث عن النص المراد استبداله
+        //Find text to be replaced
 
         if (port.Text.Contains(strToFind))
 
-        //استبدل النص الحالي بالنص الجديد
+        //Replace exisitng text with the new text
 
         {
 
@@ -54,8 +54,6 @@ pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Ppt
 
 
 ``` 
-## **تحميل كود العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **تنزيل عينة الكود**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

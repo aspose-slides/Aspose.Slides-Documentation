@@ -1,5 +1,5 @@
 ---
-title: Créer une nouvelle présentation dans VSTO et Aspose.Slides
+title: Créer une nouvelle présentation avec VSTO et Aspose.Slides
 type: docs
 weight: 80
 url: /fr/net/create-a-new-presentation-in-vsto-and-aspose-slides/
@@ -17,25 +17,25 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Obtenir la mise en page du diapositive de titre
+//Get the title slide layout
 
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Ajouter une diapositive de titre.
+//Add a title slide.
 
 PowerPoint.Slide slide=pres.Slides.AddSlide(1, layout);
 
-//Définir le texte du titre
+//Set the title text
 
-slide.Shapes.Title.TextFrame.TextRange.Text = "Titre de la diapositive";
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Définir le texte du sous-titre
+//Set the sub title text
 
-slide.Shapes[2].TextFrame.TextRange.Text = "Sous-titre de la diapositive";
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Écrire la sortie sur le disque
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -53,23 +53,23 @@ pres.SaveAs("outVSTO.ppt",
 
 {
 
-	//Créer une présentation
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//Ajouter la diapositive de titre
+	//Add the title slide
 
 	Slide slide = pres.AddTitleSlide();
 
-	//Définir le texte du titre
+	//Set the title text
 
-	((TextHolder)slide.Placeholders[0]).Text = "Titre de la diapositive";
+	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
 
-	//Définir le texte du sous-titre
+	//Set the sub title text
 
-	((TextHolder)slide.Placeholders[1]).Text = "Sous-titre de la diapositive";
+	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
 
-	//Écrire la sortie sur le disque
+	//Write output to disk
 
 	pres.Write("outAsposeSlides.ppt");
 
@@ -77,7 +77,6 @@ pres.SaveAs("outVSTO.ppt",
 
 ``` 
 ## **Télécharger le code d'exemple**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation/)

@@ -5,28 +5,29 @@ weight: 20
 url: /de/net/add-layout-slides-to-presentation/
 ---
 
-Aspose.Slides für .NET ermöglicht Entwicklern, neue Layout-Folien in einer Präsentation hinzuzufügen. Befolgen Sie die folgenden Schritte, um eine Layout-Folie hinzuzufügen:
+Aspose.Slides für .NET ermöglicht Entwicklern das Hinzufügen neuer Layout‑Folien zu einer Präsentation. Um eine Layout‑Folien hinzuzufügen, befolgen Sie bitte die nachstehenden Schritte:
 
-- Erstellen Sie eine Instanz der Klasse Präsentation
-- Greifen Sie auf die Master-Folien-Kollektion zu
-- Versuchen Sie, vorhandene Layout-Folien zu finden, um festzustellen, ob die benötigte bereits in der Layout-Folien-Kollektion verfügbar ist oder nicht
-- Fügen Sie eine neue Layout-Folie hinzu, wenn das gewünschte Layout nicht vorhanden ist
-- Fügen Sie eine leere Folie mit der neu hinzugefügten Layout-Folie hinzu
-- Schließlich speichern Sie die Präsentationsdatei mit dem Präsentationsobjekt
-## **Beispiel**
+- Erstellen Sie eine Instanz der Klasse Presentation
+- Greifen Sie auf die Master‑Folien‑Sammlung zu
+- Versuchen Sie, vorhandene Layout‑Folien zu finden, um zu prüfen, ob die benötigte bereits in der Layout‑Folien‑Sammlung verfügbar ist
+- Fügen Sie eine neue Layout‑Folien hinzu, wenn das gewünschte Layout nicht verfügbar ist
+- Fügen Sie eine leere Folie mit der neu hinzugefügten Layout‑Folien ein
+- Speichern Sie schließlich die Präsentationsdatei mithilfe des Presentation‑Objekts
+
+## **Example**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string FileName = FilePath + "Hinzufügen von Layout-Folien.pptx";
+string FileName = FilePath + "Adding Layout Slides.pptx";
 
-//Erstellen Sie eine Instanz der Klasse Präsentation, die die Präsentationsdatei darstellt
+//Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation(FileName))
 
 {
 
-    // Versuchen Sie, nach Layoutfolientyp zu suchen
+    // Try to search by layout slide type
 
     IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -40,25 +41,25 @@ using (Presentation p = new Presentation(FileName))
 
     {
 
-        // Die Situation, in der eine Präsentation nicht über einige Layouttypen verfügt.
+        // The situation when a presentation doesn't contain some type of layouts.
 
-        // Die Präsentation Technographics.pptx enthält nur leere und benutzerdefinierte Layouttypen.
+        // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-        // Aber Layout-Folien mit benutzerdefinierten Typen haben unterschiedliche Foliennamen,
+        // But layout slides with Custom types has different slide names,
 
-        // wie "Titel", "Titel und Inhalt" usw. Und es ist möglich, diese
+        // like "Title", "Title and Content", etc. And it is possible to use these
 
-        // Namen zur Auswahl von Layout-Folien zu verwenden.
+        // names for layout slide selection.
 
-        // Es ist auch möglich, die Sammlung von Platzhalterformtypen zu verwenden. Zum Beispiel,
+        // Also it is possible to use the set of placeholder shape types. For example,
 
-        // sollte die Titelfolie nur den Platzhaltertyp "Titel" haben, usw.
+        // Title slide should have only Title pleceholder type, etc.
 
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
         {
 
-            if (titleAndObjectLayoutSlide.Name == "Titel und Objekt")
+            if (titleAndObjectLayoutSlide.Name == "Title and Object")
 
             {
 
@@ -78,7 +79,7 @@ using (Presentation p = new Presentation(FileName))
 
             {
 
-                if (titleLayoutSlide.Name == "Titel")
+                if (titleLayoutSlide.Name == "Title")
 
                 {
 
@@ -100,7 +101,7 @@ using (Presentation p = new Presentation(FileName))
 
                 {
 
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Titel und Objekt");
+                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
 
                 }
 
@@ -110,11 +111,11 @@ using (Presentation p = new Presentation(FileName))
 
     }
 
-    //Leere Folie mit hinzugefügter Layoutfolie hinzufügen
+    //Adding empty slide with added layout slide 
 
     p.Slides.InsertEmptySlide(0, layoutSlide);
 
-    //Präsentation speichern 
+    //Save presentation    
 
     p.Save(FileName, SaveFormat.Pptx);
 
@@ -122,12 +123,12 @@ using (Presentation p = new Presentation(FileName))
 
 ``` 
 ## **Beispielcode herunterladen**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Laufendes Beispiel herunterladen**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Layout-Folien zur Präsentation hinzufügen](/slides/de/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Für weitere Details besuchen Sie [Anwenden oder Ändern von Folienlayouts in .NET](/slides/de/net/slide-layout/).
 
 {{% /alert %}}

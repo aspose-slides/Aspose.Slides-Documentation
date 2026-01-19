@@ -1,5 +1,5 @@
 ---
-title: Text suchen und ersetzen ohne Formatierung in der Präsentation zu verlieren
+title: Text finden und ersetzen, ohne das Format in der Präsentation zu verlieren
 type: docs
 weight: 100
 url: /de/net/find-and-replace-text-without-losing-format-in-presentation/
@@ -7,10 +7,10 @@ url: /de/net/find-and-replace-text-without-losing-format-in-presentation/
 
 Beide Methoden folgen diesen Schritten:
 
-- Öffnen Sie eine Präsentation.
-- Suchen Sie den Text.
-- Ersetzen Sie den Text.
-- Speichern Sie die Präsentation.
+- Präsentation öffnen.
+- Text suchen.
+- Text ersetzen.
+- Präsentation speichern.
 ## **VSTO**
 ``` csharp
 
@@ -18,7 +18,7 @@ Beide Methoden folgen diesen Schritten:
 
 {
 
-//Präsentation öffnen
+//Open the presentation
 
 PowerPoint.Presentation pres = null;
 
@@ -30,25 +30,25 @@ pres = Globals.ThisAddIn.Application.Presentations.Open("mytextone.ppt",
 
 						  Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Durchlaufen Sie die Folien
+//Loop through slides
 
 foreach (PowerPoint.Slide sld in pres.Slides)
 
-	//Durchlaufen Sie alle Formen in der Folie
+	//Loop through all shapes in slide
 
 	foreach (PowerPoint.Shape shp in sld.Shapes)
 
 	{
 
-		//Zugriff auf den Text in der Form
+		//Access text in the shape
 
 		string str = shp.TextFrame.TextRange.Text;
 
-		//Text finden, der ersetzt werden soll
+		//Find text to replace
 
 		if (str.Contains(strToFind))
 
-		//Vorhandenen Text mit dem neuen Text ersetzen
+		//Replace exisitng text with the new text
 
 		{
 
@@ -78,11 +78,11 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 
 {
 
-	//Präsentation öffnen
+	//Open the presentation
 
 	Presentation pres = new Presentation("mytextone.ppt");
 
-	//Alle Textfelder in der Präsentation abrufen
+	//Get all text boxes in the presentation
 
 	ITextBox[] tb = PresentationScanner.GetAllTextBoxes(pres, false);
 
@@ -92,11 +92,11 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 
 			foreach (Portion port in para.Portions)
 
-				//Text finden, der ersetzt werden soll
+				//Find text to be replaced
 
 				if (port.Text.Contains(strToFind))
 
-				//Vorhandenen Text mit dem neuen Text ersetzen
+				//Replace exisitng text with the new text
 
 				{
 
@@ -118,7 +118,6 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 
 ``` 
 ## **Beispielcode herunterladen**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772952)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Find.and.Replace.Text.without.Losing.Format.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Find%20and%20Replace%20Text%20without%20Losing%20Format%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Find%20and%20Replace%20Text%20without%20Losing%20Format%20\(Aspose.Slides\).zip)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Find.and.Replace.Text.without.Losing.Format.Aspose.Slides.zip)
+- [SourceForge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Find%20and%20Replace%20Text%20without%20Losing%20Format%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Find%20and%20Replace%20Text%20without%20Losing%20Format/)

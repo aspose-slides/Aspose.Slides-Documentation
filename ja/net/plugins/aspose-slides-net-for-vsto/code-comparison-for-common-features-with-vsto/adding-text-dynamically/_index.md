@@ -1,17 +1,18 @@
 ---
-title: 動的にテキストを追加する
+title: テキストを動的に追加
 type: docs
 weight: 40
 url: /ja/net/adding-text-dynamically/
 ---
 
-両方の方法は次のステップに従います：
+両方のメソッドは以下の手順に従います：
 
 - プレゼンテーションを作成します。
-- 空のスライドを追加します。
+- 空白のスライドを追加します。
 - テキストボックスを追加します。
 - テキストを設定します。
 - プレゼンテーションを書き出します。
+
 ## **VSTO**
 ``` csharp
 
@@ -19,33 +20,33 @@ url: /ja/net/adding-text-dynamically/
 
 {
 
-	//プレゼンテーションを作成します
+	// プレゼンテーションを作成
 
 	PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 		.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-	//空白スライドのレイアウトを取得します
+	// 空白のスライドレイアウトを取得
 
 	PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 		CustomLayouts[7];
 
-	//空のスライドを追加します
+	// 空白のスライドを追加
 
 	PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-	//テキストを追加します
+	// テキストボックスを追加
 
 	PowerPoint.Shape shp =sld.Shapes.AddTextbox
 
 	(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal,150, 100, 400, 100);
 
-	//テキストを設定します
+	// テキストを設定
 
 	PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
-	txtRange.Text = "動的に追加されたテキスト";
+	txtRange.Text = "Text added dynamically";
 
 	txtRange.Font.Name = "Arial";
 
@@ -53,7 +54,7 @@ url: /ja/net/adding-text-dynamically/
 
 	txtRange.Font.Size = 32;
 
-	//出力をディスクに書き込みます
+	// 出力をディスクに保存
 
 	pres.SaveAs("outVSTOAddingText.ppt",
 
@@ -71,41 +72,39 @@ url: /ja/net/adding-text-dynamically/
 
 {
 
-	//プレゼンテーションを作成します
+	// プレゼンテーションを作成
 
 	Presentation pres = new Presentation();
 
-	//デフォルトコンストラクタからプレゼンテーションを作成すると
+	// デフォルトコンストラクタで作成した場合、空白スライドはデフォルトで追加されます
 
-	//空白スライドがデフォルトで追加されます
-
-	//したがって、空のスライドを追加する必要はありません
+	// したがって、空白スライドを追加する必要はありません
 
 	Slide sld = pres.GetSlideByPosition(1);
 
-	//Arialフォントのインデックスを取得します
+	// Arial のフォントインデックスを取得
 
-	//デフォルトコンストラクタからプレゼンテーションを作成すると常に0です
+	// デフォルトコンストラクタで作成した場合は常に 0 です
 
 	int arialFontIndex = 0;
 
-	//テキストボックスを追加します
+	// テキストボックスを追加
 
-	//追加するには、最初に長方形を追加します
+	// まず矩形を追加します
 
 	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
 
-	//その線を隠します
+	// 線を非表示にする
 
 	shp.LineFormat.ShowLines = false;
 
-	//次に、その中にテキストフレームを追加します
+	// その中にテキストフレームを追加
 
 	TextFrame tf = shp.AddTextFrame("");
 
-	//テキストを設定します
+	// テキストを設定
 
-	tf.Text = "動的に追加されたテキスト";
+	tf.Text = "Text added dynamically";
 
 	Portion port = tf.Paragraphs[0].Portions[0];
 
@@ -115,15 +114,14 @@ url: /ja/net/adding-text-dynamically/
 
 	port.FontHeight = 32;
 
-	//出力をディスクに書き込みます
+	// 出力をディスクに保存
 
 	pres.Write("outAspose.ppt");
 
 }
 
 ``` 
-## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
+## **サンプルコードをダウンロード**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Adding%20Text%20Dynamically%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Adding%20Text%20Dynamically%20using%20VSTO%20and%20Aspose.Slides/)

@@ -5,24 +5,24 @@ weight: 10
 url: /fr/net/add-layout-slide-to-presentation/
 ---
 
-Aspose.Slides pour .NET permet aux développeurs d'ajouter de nouvelles diapositives de mise en page dans une présentation. Pour ajouter une diapositive de mise en page, veuillez suivre les étapes ci-dessous :
+Aspose.Slides for .NET permet aux développeurs d’ajouter de nouvelles diapositives de mise en page dans une présentation. Pour ajouter une diapositive de mise en page, suivez les étapes ci-dessous :
 
-- Créez une instance de la classe Presentation
-- Accédez à la collection de Master Slides
-- Essayez de trouver des diapositives de mise en page existantes pour voir si celle requise est déjà disponible dans la collection de diapositives de mise en page ou non
-- Ajoutez une nouvelle diapositive de mise en page si la mise en page souhaitée n'est pas disponible
-- Ajoutez une diapositive vide avec la diapositive de mise en page nouvellement ajoutée
-- Enfin, écrivez le fichier de présentation en utilisant l'objet Presentation.
+- Créer une instance de la classe Presentation
+- Accéder à la collection des diapositives maître
+- Essayer de trouver des diapositives de mise en page existantes pour voir si celle requise est déjà disponible dans la collection de diapositives de mise en page ou non
+- Ajouter une nouvelle diapositive de mise en page si la mise en page souhaitée n’est pas disponible
+- Ajouter une diapositive vide avec la nouvelle diapositive de mise en page ajoutée
+- Enfin, écrire le fichier de présentation à l’aide de l’objet Presentation.
 ## **Exemple**
 ``` csharp
 
- //Instancier la classe Presentation qui représente le fichier de présentation
+ //Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation("Test.pptx"))
 
 {
 
-   // Essayer de rechercher par type de diapositive de mise en page
+   // Try to search by layout slide type
 
    IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -36,25 +36,25 @@ using (Presentation p = new Presentation("Test.pptx"))
 
    {
 
-     // La situation où une présentation ne contient pas certains types de mises en page.
+     // The situation when a presentation doesn't contain some type of layouts.
 
-     // La présentation Technographics.pptx ne contient que des types de mise en page Vides et Personnalisés.
+     // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-     // Mais les diapositives de mise en page avec des types Personnalisés ont des noms de diapositive différents,
+     // But layout slides with Custom types has different slide names,
 
-     // comme "Titre", "Titre et Contenu", etc. Et il est possible d'utiliser ces
+     // like "Title", "Title and Content", etc. And it is possible to use these
 
-     // noms pour la sélection de la diapositive de mise en page.
+     // names for layout slide selection.
 
-     // Il est également possible d'utiliser l'ensemble des types de formes de zones réservées. Par exemple,
+     // Also it is possible to use the set of placeholder shape types. For example,
 
-     // La diapositive de titre ne doit avoir que le type de zone réservée Titre, etc.
+     // Title slide should have only Title pleceholder type, etc.
 
      foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
      {
 
-       if (titleAndObjectLayoutSlide.Name == "Titre et Objet")
+       if (titleAndObjectLayoutSlide.Name == "Title and Object")
 
        {
 
@@ -74,7 +74,7 @@ using (Presentation p = new Presentation("Test.pptx"))
 
          {
 
-            if (titleLayoutSlide.Name == "Titre")
+            if (titleLayoutSlide.Name == "Title")
 
             {
 
@@ -96,7 +96,7 @@ using (Presentation p = new Presentation("Test.pptx"))
 
              {
 
-                  layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Titre et Objet");
+                  layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
 
              }
 
@@ -106,11 +106,11 @@ using (Presentation p = new Presentation("Test.pptx"))
 
   }
 
-  //Ajout d'une diapositive vide avec la diapositive de mise en page ajoutée
+  //Adding empty slide with added layout slide
 
   p.Slides.InsertEmptySlide(0, layoutSlide);
 
-  //Enregistrer la présentation
+  //Save presentation
 
   p.Save("Output.pptx", SaveFormat.Pptx);
 
@@ -118,17 +118,13 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 
 ``` 
-## **Télécharger un exemple fonctionnel**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Adding Layout Slides/)
+## **Télécharger l'exemple en cours d'exécution**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Adding%20Layout%20Slides)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode#content)
-## **Télécharger un code d'exemple**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **Télécharger le code d'exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Ajouter une diapositive de mise en page à la présentation](/slides/fr/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Pour plus de détails, consultez [Appliquer ou modifier les mises en page des diapositives dans .NET](/slides/fr/net/slide-layout/).
 
 {{% /alert %}}

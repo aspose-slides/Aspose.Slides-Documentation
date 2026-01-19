@@ -1,13 +1,13 @@
 ---
-title: تحويل إلى TIFF مع الملاحظات
+title: تحويل إلى Tiff مع الملاحظات
 type: docs
 weight: 10
 url: /ar/net/conversion-to-tiff-with-notes/
 ---
 
-TIFF هو واحد من عدة تنسيقات صور مستخدمة على نطاق واسع التي تدعمها Aspose.Slides لـ .NET لتحويل عرض تقديمي مع ملاحظات إلى صور. يمكنك أيضًا إنشاء مصغرات الشرائح في عرض ملاحظات الشرائح. أدناه، يوجد مقطعي كود يوضحان كيفية إنشاء صور TIFF لعرض تقديمي في عرض ملاحظات الشرائح.
+TIFF هو أحد تنسيقات الصور المستخدمة على نطاق واسع التي يدعمها Aspose.Slides for .NET لتحويل عرض تقديمي يحتوي على ملاحظات إلى صور. يمكنك أيضًا إنشاء صور مصغرة للشرائح في عرض ملاحظات الشريحة. أدناه مثالان للشفرة يوضحان كيفية إنشاء صور TIFF لعرض تقديمي في عرض ملاحظات الشريحة.
 
-يمكن استخدام طريقة **Save** المعروضة بواسطة فئة **Presentation** لتحويل العرض التقديمي الكامل في عرض ملاحظات الشرائح إلى TIFF. يمكنك أيضًا إنشاء مصغرة شريحة في عرض ملاحظات الشرائح للشرائح الفردية.
+طريقة **Save** التي تعرضها فئة **Presentation** يمكن استخدامها لتحويل العرض التقديمي بالكامل في عرض ملاحظات الشريحة إلى TIFF. يمكنك أيضًا إنشاء صورة مصغرة لشريحة في عرض ملاحظات الشريحة لشريحة فردية.
 
 ``` csharp
 
@@ -26,8 +26,6 @@ Presentation pres = new Presentation(srcFileName);
 pres.Save(destFileName, SaveFormat.TiffNotes);
 
 ``` 
-## **تحميل كود العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **تنزيل عينة الكود**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Tiff%20conversion%20with%20note%20%28Aspose.Slides%29.zip)

@@ -10,7 +10,7 @@ url: /zh/net/get-the-titles-of-all-the-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取所有幻灯片的标题.pptx";
+string FileName = FilePath + "Get the titles of all the slides.pptx";
 
 foreach (string s in GetSlideTitles(FileName))
 
@@ -18,13 +18,13 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// 获取演示文稿中所有幻灯片的标题列表。
+// Get a list of the titles of all the slides in the presentation.
 
 public static IList<string> GetSlideTitles(string presentationFile)
 
 {
 
-    // 以只读方式打开演示文稿。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument =
 
@@ -38,7 +38,7 @@ public static IList<string> GetSlideTitles(string presentationFile)
 
 }
 
-// 获取演示文稿中所有幻灯片的标题列表。
+// Get a list of the titles of all the slides in the presentation.
 
 public static IList<string> GetSlideTitles(PresentationDocument presentationDocument)
 
@@ -52,7 +52,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     }
 
-    // 从PresentationDocument对象获取PresentationPart对象。
+    // Get a PresentationPart object from the PresentationDocument object.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
@@ -62,7 +62,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     {
 
-        // 从PresentationPart对象获取Presentation对象。
+        // Get a Presentation object from the PresentationPart object.
 
         Presentation presentation = presentationPart.Presentation;
 
@@ -72,7 +72,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
             List<string> titlesList = new List<string>();
 
-            // 按幻灯片顺序获取每个幻灯片的标题。
+            // Get the title of each slide in the slide order.
 
             foreach (var slideId in presentation.SlideIdList.Elements<SlideId>())
 
@@ -80,11 +80,11 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
                 SlidePart slidePart = presentationPart.GetPartById(slideId.RelationshipId) as SlidePart;
 
-                // 获取幻灯片标题。
+                // Get the slide title.
 
                 string title = GetSlideTitle(slidePart);
 
-                // 也可以添加一个空标题。
+                // An empty title can also be added.
 
                 titlesList.Add(title);
 
@@ -100,7 +100,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
 }
 
-// 获取幻灯片的标题字符串。
+// Get the title string of the slide.
 
 public static string GetSlideTitle(SlidePart slidePart)
 
@@ -114,7 +114,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     }
 
-    // 声明一个段落分隔符。
+    // Declare a paragraph separator.
 
     string paragraphSeparator = null;
 
@@ -122,7 +122,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     {
 
-        // 查找所有标题形状。
+        // Find all the title shapes.
 
         var shapes = from shape in slidePart.Slide.Descendants<Shape>()
 
@@ -136,13 +136,13 @@ public static string GetSlideTitle(SlidePart slidePart)
 
         {
 
-            // 获取此形状每个段落中的文本。
+            // Get the text in each paragraph in this shape.
 
             foreach (var paragraph in shape.TextBody.Descendants<D.Paragraph>())
 
             {
 
-                // 添加换行符。
+                // Add a line break.
 
                 paragraphText.Append(paragraphSeparator);
 
@@ -168,7 +168,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
 }
 
-// 确定形状是否为标题形状。
+// Determines whether the shape is a title shape.
 
 private static bool IsTitleShape(Shape shape)
 
@@ -184,11 +184,11 @@ private static bool IsTitleShape(Shape shape)
 
         {
 
-            // 任何标题形状。
+            // Any title shape.
 
             case PlaceholderValues.Title:
 
-            // 居中标题。
+            // A centered title.
 
             case PlaceholderValues.CenteredTitle:
 
@@ -212,11 +212,11 @@ private static bool IsTitleShape(Shape shape)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取幻灯片中的所有文本.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("幻灯片数量 = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -226,7 +226,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("幻灯片 #{0} 包含: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -236,15 +236,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // 以只读方式打开演示文稿。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // 将演示文稿传递给下一个CountSlides方法
+        // Pass the presentation to the next CountSlides method
 
-        // 并返回幻灯片计数。
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -252,13 +252,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// 计算演示文稿中的幻灯片。
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // 检查文档对象是否为null。
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -270,11 +270,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // 获取文档的演示文稿部分。
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 从SlideParts中获取幻灯片数量。
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -284,7 +284,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // 将幻灯片数量返回给上一个方法。
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -298,7 +298,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // 获取第一张幻灯片的关系ID。
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -306,15 +306,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // 根据关系ID获取幻灯片部分。
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // 构建一个StringBuilder对象。
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // 获取幻灯片的内部文本：
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -334,7 +334,6 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
 ``` 
 ## **下载示例代码**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/获取所有幻灯片的标题%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/获取所有幻灯片的标题%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides/)

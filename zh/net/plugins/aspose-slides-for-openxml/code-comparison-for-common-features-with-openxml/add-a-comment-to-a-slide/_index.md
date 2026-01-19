@@ -1,5 +1,5 @@
 ---
-title: 在幻灯片上添加注释
+title: 向幻灯片添加注释
 type: docs
 weight: 10
 url: /zh/net/add-a-comment-to-a-slide/
@@ -247,10 +247,9 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-在 **Aspose.Slides** for .NET 中，PPT 幻灯片注释集合包含在每个 **Slide** 类中。**CommentCollection** 类用于保存特定幻灯片的注释。**Comment** 类包括添加注释的作者、作者缩写、创建时间、注释在幻灯片上的位置以及注释文本等信息。**CommentAuthor** 类用于在演示文稿级别为幻灯片注释添加作者。**Presentation** 类在 **CommentAuthors** 类中保存演示文稿的作者集合。
+在 **Aspose.Slides** for .NET 中，PPT 幻灯片注释集合包含在每个 **Slide** 类中。**CommentCollection** 类用于保存特定幻灯片的注释。**Comment** 类包括添加幻灯片注释的作者、其缩写、创建时间、注释在幻灯片上的位置以及注释文本等信息。**CommentAuthor** 类用于在演示文稿层面为幻灯片注释添加作者。**Presentation** 类在 **CommentAuthors** 类中保存演示文稿的作者集合。
 
-下面的示例演示了添加幻灯片注释的代码片段。
-
+下面的示例中，我们添加了用于添加幻灯片注释的代码片段。
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
@@ -288,5 +287,5 @@ using (Presentation pres = new Presentation())
 ``` 
 ## **下载示例代码**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide/)

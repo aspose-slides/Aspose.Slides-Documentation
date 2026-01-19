@@ -1,71 +1,71 @@
 ---
-title: .NET でプレゼンテーションチャートをフォーマット
+title: .NET でプレゼンテーションチャートの書式設定
 linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/net/chart-formatting/
 keywords:
-- チャートのフォーマット
+- チャートの書式設定
 - チャートの書式設定
 - チャートエンティティ
-- チャートプロパティ
+- チャート プロパティ
 - チャート設定
 - チャートオプション
-- フォントプロパティ
-- 角丸境界
+- フォント プロパティ
+- 角丸境界線
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET におけるチャートの書式設定を学び、プロフェッショナルで目を引くスタイリングでPowerPointプレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for .NET でのチャート書式設定を学び、プロフェッショナルで目を引くスタイリングで PowerPoint プレゼンテーションを向上させましょう。"
 ---
 
 ## **チャートエンティティの書式設定**
-Aspose.Slides for .NET は、開発者がスライドにゼロからカスタムチャートを追加できるようにします。この記事では、チャートのカテゴリ軸や値軸を含むさまざまなチャートエンティティの書式設定方法を説明します。
+Aspose.Slides for .NET は、開発者がスライドにカスタムチャートをゼロから追加できるようにします。この記事では、チャートのカテゴリ軸や値軸を含むさまざまなチャートエンティティの書式設定方法を説明します。
 
 Aspose.Slides for .NET は、さまざまなチャートエンティティを管理し、カスタム値で書式設定するためのシンプルな API を提供します。
 
 1. **Presentation** クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. デフォルトデータを持つチャートを追加し、任意のタイプを指定します（この例では ChartType.LineWithMarkers を使用します）。
-1. チャートの値軸にアクセスし、以下のプロパティを設定します。
-   1. 値軸の主目盛り線の **Line format** を設定します。
-   1. 値軸の補助目盛り線の **Line format** を設定します。
+1. デフォルトデータと任意のタイプのチャートを追加します（この例では ChartType.LineWithMarkers を使用します）。
+1. チャートの値軸にアクセスし、次のプロパティを設定します：
+   1. 値軸の主要グリッド線の **Line format** を設定します。
+   1. 値軸の副次グリッド線の **Line format** を設定します。
    1. 値軸の **Number Format** を設定します。
    1. 値軸の **Min, Max, Major and Minor units** を設定します。
    1. 値軸データの **Text Properties** を設定します。
    1. 値軸の **Title** を設定します。
    1. 値軸の **Line Format** を設定します。
-1. チャートのカテゴリ軸にアクセスし、以下のプロパティを設定します。
-   1. カテゴリ軸の主目盛り線の **Line format** を設定します。
-   1. カテゴリ軸の補助目盛り線の **Line format** を設定します。
+1. チャートのカテゴリ軸にアクセスし、次のプロパティを設定します：
+   1. カテゴリ軸の主要グリッド線の **Line format** を設定します。
+   1. カテゴリ軸の副次グリッド線の **Line format** を設定します。
    1. カテゴリ軸データの **Text Properties** を設定します。
    1. カテゴリ軸の **Title** を設定します。
    1. カテゴリ軸の **Label Positioning** を設定します。
    1. カテゴリ軸ラベルの **Rotation Angle** を設定します。
 1. チャートの凡例にアクセスし、**Text Properties** を設定します。
-1. チャートが重ならないように凡例を表示します。
-1. チャートの **Secondary Value Axis** にアクセスし、以下のプロパティを設定します。
-   1. セカンダリ **Value Axis** を有効にします。
-   1. セカンダリ値軸の **Line Format** を設定します。
-   1. セカンダリ値軸の **Number Format** を設定します。
-   1. セカンダリ値軸の **Min, Max, Major and Minor units** を設定します。
-1. セカンダリ値軸に最初のチャート系列をプロットします。
+1. チャートと重ならないように凡例を表示設定します。
+1. チャートの **Secondary Value Axis** にアクセスし、次のプロパティを設定します：
+   1. 副次 **Value Axis** を有効にします。
+   1. 副次値軸の **Line Format** を設定します。
+   1. 副次値軸の **Number Format** を設定します。
+   1. 副次値軸の **Min, Max, Major and Minor units** を設定します。
+1. それから、最初のチャート系列を副次値軸に描画します。
 1. チャートの背面壁の塗りつぶし色を設定します。
 1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更されたプレゼンテーションを書き込み、PPTX ファイルとして保存します
+1. 変更されたプレゼンテーションを書き出して PPTX ファイルに保存します。
 ```c#
-// プレゼンテーションのインスタンス化// プレゼンテーションのインスタンス化
+// プレゼンテーションのインスタンス化
 Presentation pres = new Presentation();
 
-// Accessing the first slide
+// 最初のスライドにアクセス
 ISlide slide = pres.Slides[0];
 
-// Adding the sample chart
+// サンプルチャートを追加
 IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Setting Chart Titile
+// チャートタイトルの設定
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
 IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
@@ -76,23 +76,23 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting Major grid lines format for value axis
+// 値軸の主要グリッド線の書式設定
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Setting Minor grid lines format for value axis
+// 値軸の副次グリッド線の書式設定
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Setting value axis number format
+// 値軸の数値書式設定
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Setting chart maximum, minimum values
+// チャートの最大・最小値の設定
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -103,7 +103,7 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Setting Value Axis Text Properties
+// 値軸のテキストプロパティ設定
 IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
 txtVal.FontBold = NullableBool.True;
 txtVal.FontHeight = 16;
@@ -112,7 +112,7 @@ txtVal.FillFormat.FillType = FillType.Solid; ;
 txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
 txtVal.LatinFont = new FontData("Times New Roman");
 
-// Setting value axis title
+// 値軸のタイトル設定
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
 IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
@@ -123,22 +123,22 @@ valtitle.PortionFormat.FontHeight = 20;
 valtitle.PortionFormat.FontBold = NullableBool.True;
 valtitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting value axis line format : Now Obselete
+// 値軸のライン書式設定 : 現在は廃止
 // chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
 // chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
 // Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Setting Major grid lines format for Category axis
+// カテゴリ軸の主要グリッド線の書式設定
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Setting Minor grid lines format for Category axis
+// カテゴリ軸の副次グリッド線の書式設定
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Setting Category Axis Text Properties
+// カテゴリ軸のテキストプロパティ設定
 IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
 txtCat.FontBold = NullableBool.True;
 txtCat.FontHeight = 16;
@@ -147,7 +147,7 @@ txtCat.FillFormat.FillType = FillType.Solid; ;
 txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
 txtCat.LatinFont = new FontData("Arial");
 
-// Setting Category Titile
+// カテゴリタイトルの設定
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
@@ -159,13 +159,13 @@ catTitle.PortionFormat.FontHeight = 20;
 catTitle.PortionFormat.FontBold = NullableBool.True;
 catTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting category axis lable position
+// カテゴリ軸ラベル位置の設定
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
 
-// Setting category axis lable rotation angle
+// カテゴリ軸ラベルの回転角度設定
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Setting Legends Text Properties
+// 凡例のテキストプロパティ設定
 IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
 txtleg.FontBold = NullableBool.True;
 txtleg.FontHeight = 16;
@@ -173,33 +173,33 @@ txtleg.FontItalic = NullableBool.True;
 txtleg.FillFormat.FillType = FillType.Solid; ;
 txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Set show chart legends without overlapping chart
+// 凡例がチャートと重ならないように表示設定
 
 chart.Legend.Overlay = true;
             
-// Ploting first series on secondary value axis
+// 二次値軸に最初の系列をプロット
 // Chart.ChartData.Series[0].PlotOnSecondAxis = true;
 
-// Setting chart back wall color
+// チャートのバックウォール色の設定
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Setting Plot area color
+// プロット領域の色の設定
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Save Presentation
+// プレゼンテーションを保存
 pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **チャートのフォントプロパティの設定**
-Aspose.Slides for .NET は、チャートのフォント関連プロパティの設定をサポートします。以下の手順に従ってチャートのフォントプロパティを設定してください。
+Aspose.Slides for .NET は、チャートのフォント関連プロパティの設定をサポートしています。以下の手順に従ってチャートのフォントプロパティを設定してください。
 
-- **Presentation** クラスのオブジェクトをインスタンス化します。
+- **Presentation** クラスオブジェクトをインスタンス化します。
 - スライドにチャートを追加します。
 - フォントの高さを設定します。
 - 変更されたプレゼンテーションを保存します。
@@ -221,12 +221,12 @@ Aspose.Slides for .NET は、チャートデータ形式を管理するための
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 1. インデックスでスライドの参照を取得します。
-1. デフォルトデータを持つチャートを追加し、任意のタイプを指定します（この例では **ChartType.ClusteredColumn** を使用します）。
-1. 可能なプリセット値からプリセット数値形式を設定します。
+1. デフォルトデータと任意のタイプのチャートを追加します（この例では **ChartType.ClusteredColumn** を使用します）。
+1. 可能なプリセット値から事前設定された数値形式を設定します。
 1. 各チャート系列のチャートデータセルを走査し、チャートデータの数値形式を設定します。
 1. プレゼンテーションを保存します。
 1. カスタム数値形式を設定します。
-1. 各チャート系列内のチャートデータセルを走査し、異なるチャートデータ数値形式を設定します。
+1. 各チャート系列のチャートデータセルを走査し、異なる数値形式を設定します。
 1. プレゼンテーションを保存します。
 ```c#
 // プレゼンテーションをインスタンス化// プレゼンテーションをインスタンス化
@@ -235,20 +235,20 @@ Presentation pres = new Presentation();
 // 最初のプレゼンテーションスライドにアクセス
 ISlide slide = pres.Slides[0];
 
-// デフォルトのクラスター化列チャートを追加
+// デフォルトのクラスター化された棒グラフを追加
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-// チャートシリーズコレクションにアクセス
+// チャートのシリーズコレクションにアクセス
 IChartSeriesCollection series = chart.ChartData.Series;
 
-// プリセット番号形式を設定
+// プリセットの数値形式を設定
 // すべてのチャートシリーズを走査
 foreach (ChartSeries ser in series)
 {
     // シリーズ内のすべてのデータセルを走査
     foreach (IChartDataPoint cell in ser.DataPoints)
     {
-        // 番号形式を設定
+        // 数値形式を設定
         cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
@@ -258,7 +258,7 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
 
-使用可能なプリセット数値形式の値とそのインデックスは以下の通りです。
+使用できる事前設定数値形式とそのインデックスは以下のとおりです：
 
 |**0**|一般|
 | :- | :- |
@@ -293,15 +293,15 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **チャート領域の角丸境界の設定**
-Aspose.Slides for .NET はチャート領域の設定をサポートします。**IChart.HasRoundedCorners** と **Chart.HasRoundedCorners** プロパティが Aspose.Slides に追加されました。
+## **チャート領域の角丸境界線の設定**
+Aspose.Slides for .NET は、チャート領域の設定をサポートしています。**IChart.HasRoundedCorners** および **Chart.HasRoundedCorners** プロパティが Aspose.Slides に追加されました。
 
-1. `Presentation` クラスのオブジェクトをインスタンス化します。
+1. `Presentation` クラスオブジェクトをインスタンス化します。
 1. スライドにチャートを追加します。
 1. チャートの塗りつぶしタイプと塗りつぶし色を設定します。
 1. 角丸プロパティを True に設定します。
@@ -324,14 +324,14 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**列/領域の半透明の塗りつぶしを設定しつつ、枠線を不透明に保つことはできますか？**
+**列/エリアの半透明塗りつぶしを設定し、枠線を不透明のままにできますか？**
 
-はい。塗りつぶしの透明度と輪郭は別々に構成できます。これにより、グリッドやデータが密集した可視化での可読性が向上します。
+はい。塗りつぶしの透明度と輪郭は個別に設定できます。これにより、密集したビジュアライゼーションでのグリッドやデータの可読性が向上します。
 
-**ラベルが重なったとき、データラベルをどのように処理できますか？**
+**ラベルが重なった場合、どう対処すればよいですか？**
 
-フォントサイズを小さくする、不要なラベル要素（例えばカテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択したポイントだけラベルを表示する、または形式を「値＋凡例」に切り替えるなどの方法があります。
+フォントサイズを小さくする、不要なラベル要素（例えばカテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択されたポイントのみラベルを表示する、または形式を「値＋凡例」に切り替えるなどの方法があります。
 
 **系列に対してグラデーションやパターンの塗りつぶしを適用できますか？**
 
-はい。単色塗りつぶしと同様に、グラデーションやパターン塗りつぶしも通常利用可能です。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。通常、単色とグラデーション/パターンの塗りつぶしの両方が利用可能です。実務では、グラデーションは控えめに使用し、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。

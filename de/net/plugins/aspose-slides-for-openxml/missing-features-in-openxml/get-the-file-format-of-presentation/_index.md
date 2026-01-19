@@ -1,22 +1,22 @@
 ---
-title: Ermitteln des Dateiformats der Präsentation
+title: Dateiformat der Präsentation abrufen
 type: docs
 weight: 50
 url: /de/net/get-the-file-format-of-presentation/
 ---
 
-Um das Dateiformat zu ermitteln, folgen Sie bitte den unten stehenden Schritten:
+Um das Dateiformat zu erhalten, folgen Sie bitte den untenstehenden Schritten:
 
 - Erstellen Sie eine Instanz der Klasse **IPresentationInfo**
-- Holen Sie Informationen über die Präsentation
+- Rufen Sie Informationen zur Präsentation ab
 
-Im folgenden Beispiel haben wir das Dateiformat ermittelt.
+Im nachstehenden Beispiel haben wir das Dateiformat ermittelt.
 ## **Beispiel**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string FileName = FilePath + "Ermitteln des Formats einer Datei.pptx";
+string FileName = FilePath + "Getting the format of a file.pptx";
 
 IPresentationInfo info;
 
@@ -47,10 +47,6 @@ switch (info.LoadFormat)
 
 ``` 
 ## **Beispielcode herunterladen**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Laufendes Beispiel herunterladen**
-- [Codeplex](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

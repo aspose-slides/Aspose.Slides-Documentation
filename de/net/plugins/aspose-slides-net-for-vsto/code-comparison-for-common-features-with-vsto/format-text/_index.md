@@ -7,19 +7,19 @@ url: /de/net/format-text/
 
 Sowohl die VSTO- als auch die Aspose.Slides-Methoden führen die folgenden Schritte aus:
 
-- Öffnen der Quellpräsentation.
-- Zugriff auf die erste Folie.
-- Zugriff auf das dritte Textfeld.
-- Ändern der Formatierung des Textes im dritten Textfeld.
-- Speichern der Präsentation auf der Festplatte.
+- Öffnen Sie die Quellpräsentation.
+- Greifen Sie auf die erste Folie zu.
+- Greifen Sie auf das dritte Textfeld zu.
+- Ändern Sie die Formatierung des Textes im dritten Textfeld.
+- Speichern Sie die Präsentation auf dem Datenträger.
 ## **VSTO**
 ``` csharp
 
- //Präsentation öffnen
+ //Open the presentation
 
 Presentation pres = new Presentation("source.ppt");
 
-//Verdana-Schriftart hinzufügen
+//Add Verdana font
 
 FontEntity font = pres.Fonts[0];
 
@@ -29,15 +29,15 @@ verdanaFont.FontName = "Verdana";
 
 int verdanaFontIndex = pres.Fonts.Add(verdanaFont);
 
-//Zugriff auf die erste Folie
+//Access the first slide
 
 Slide slide = pres.GetSlideByPosition(1);
 
-//Zugriff auf die dritte Form
+//Access the third shape
 
 Shape shp = slide.Shapes[2];
 
-//Ändern der Schriftart des Textes in Verdana und Höhe auf 32
+//Change its text's font to Verdana and height to 32
 
 TextFrame tf = shp.TextFrame;
 
@@ -49,25 +49,25 @@ port.FontIndex = verdanaFontIndex;
 
 port.FontHeight = 32;
 
-//Fett formatieren
+//Bolden it
 
 port.FontBold = true;
 
-//Kursiv formatieren
+//Italicize it
 
 port.FontItalic = true;
 
-//Textfarbe ändern
+//Change text color
 
 port.FontColor = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//Hintergrundfarbe der Form ändern
+//Change shape background color
 
 shp.FillFormat.Type = FillType.Solid;
 
 shp.FillFormat.ForeColor = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Ausgabe auf die Festplatte schreiben
+//Write the output to disk
 
 pres.Write("outAspose.ppt");
 
@@ -77,7 +77,7 @@ pres.Write("outAspose.ppt");
 
  PowerPoint.Presentation pres = null;
 
-//Präsentation öffnen
+//Open the presentation
 
 pres = Globals.ThisAddIn.Application.Presentations.Open("source.ppt",
 
@@ -87,15 +87,15 @@ pres = Globals.ThisAddIn.Application.Presentations.Open("source.ppt",
 
 	Microsoft.Office.Core.MsoTriState.msoTrue);
 
-//Zugriff auf die erste Folie
+//Access the first slide
 
 PowerPoint.Slide slide = pres.Slides[1];
 
-//Zugriff auf die dritte Form
+//Access the third shape
 
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//Ändern der Schriftart des Textes in Verdana und Höhe auf 32
+//Change its text's font to Verdana and height to 32
 
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
@@ -103,27 +103,27 @@ txtRange.Font.Name = "Verdana";
 
 txtRange.Font.Size = 32;
 
-//Fett formatieren
+//Bolden it
 
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Kursiv formatieren
+//Italicize it
 
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Textfarbe ändern
+//Change text color
 
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//Hintergrundfarbe der Form ändern
+//Change shape background color
 
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//Horizontal verschieben
+//Reposition it horizontally
 
 shp.Left -= 70;
 
-//Ausgabe auf die Festplatte schreiben
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -133,7 +133,6 @@ pres.SaveAs("outVSTO.ppt",
 
 ``` 
 ## **Beispielcode herunterladen**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772953)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Format.Text.using.VSTO.and.Aspose.Slides.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides/)

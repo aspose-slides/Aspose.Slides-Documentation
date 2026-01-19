@@ -5,17 +5,17 @@ weight: 20
 url: /de/net/missing-features-in-vsto/
 ---
 
-Dieser Abschnitt umfasst die folgenden Themen
+Dieser Abschnitt enthält die folgenden Themen
 
-- [Layoutfolie zur Präsentation hinzufügen](/slides/de/net/add-layout-slide-to-presentation/)
-- [Konvertierung von PPT in PPTX-Format](/slides/de/net/conversion-from-ppt-to-pptx-format/)
-- [Konvertierung eines OpenOffice-Dokuments](/slides/de/net/conversion-of-openoffice-document/)
-- [Präsentation in HTML konvertieren](/slides/de/net/convert-presentation-to/)
-- [Präsentation in TIFF mit Notizen konvertieren](/slides/de/net/convert-presentation-to-tiff-with-notes/)
-- [Präsentation in XPS konvertieren](/slides/de/net/convert-presentation-to-xps/)
+- [Layout-Folie zur Präsentation hinzufügen](/slides/de/net/add-layout-slide-to-presentation/)
+- [Konvertierung von PPT nach PPTX-Format](/slides/de/net/conversion-from-ppt-to-pptx-format/)
+- [Konvertierung von OpenOffice-Dokument](/slides/de/net/conversion-of-openoffice-document/)
+- [Präsentation nach HTML konvertieren](/slides/de/net/export-media-files-into-html-file/)
+- [Präsentation mit Notizen in TIFF konvertieren](/slides/de/net/convert-presentation-to-tiff-with-notes/)
+- [Präsentation nach XPS konvertieren](/slides/de/net/convert-presentation-to-xps/)
 - [Folie als SVG-Bild erstellen](/slides/de/net/create-slide-as-svg-image/)
-- [Medienfiles in HTML-Datei exportieren](/slides/de/net/export-media-files-into-file/)
-- [Folie als Miniaturansicht im JPEG-Format generieren](/slides/de/net/generate-slide-thumbnail-as-jpeg/)
-- [Generierung einer Miniaturansicht von einer Folie mit benutzerdefinierten Abmessungen](/slides/de/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
-- [Präsentation sperren](/slides/de/net/presentation-locking/)
-- [Formen auf der Folie als Bilder rendern](/slides/de/net/rendering-shapes-on-slide-as-images/)
+- [Mediendateien in HTML-Datei exportieren](/slides/de/net/export-media-files-into-html-file/)
+- [Folie-Thumbnail als JPEG erzeugen](/slides/de/net/generate-slide-thumbnail-as-jpeg/)
+- [Erstellung eines Thumbnails einer Folie mit benutzerdefinierten Abmessungen](/slides/de/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
+- [Sperren der Präsentation](/slides/de/net/presentation-locking/)
+- [Darstellung von Formen auf Folien als Bilder](/slides/de/net/rendering-shapes-on-slide-as-images/)

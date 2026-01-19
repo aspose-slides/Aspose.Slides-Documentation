@@ -5,33 +5,27 @@ weight: 60
 url: /fr/net/convert-presentation-to-xps/
 ---
 
-Le format **XPS** est également largement utilisé pour l'échange de données. Aspose.Slides pour .NET prend en compte son importance et offre un support intégré pour convertir une présentation en document **XPS**.
+**XPS** format est également très utilisé pour l'échange de données. Aspose.Slides pour .NET prend en compte son importance et fournit la prise en charge intégrée de la conversion d'une présentation en document XPS.
 
-La méthode **Save** exposée par la classe Presentation peut être utilisée pour convertir l'ensemble de la présentation en document **XPS**. De plus, la classe **XpsOptions** expose la propriété **SaveMetafileAsPng** qui peut être définie sur vrai ou faux selon les besoins.
-## **Exemple**
+La méthode **Save** exposée par la classe Presentation peut être utilisée pour convertir l'intégralité de la présentation en document **XPS**. De plus, la classe **XpsOptions** expose la propriété **SaveMetafileAsPng** qui peut être définie sur true ou false selon les besoins.
+## **Example**
 
 ``` 
 
- //Instancier un objet Presentation qui représente un fichier de présentation
+ //Instancie un objet Presentation qui représente un fichier de présentation
 
 Presentation pres = new Presentation("Conversion.ppt");
 
-//Sauvegarder la présentation en document TIFF
+//Enregistrement de la présentation dans un document XPS
 
 pres.Save("converted.xps", Aspose.Slides.Export.SaveFormat.Xps);
 
 ``` 
-## **Télécharger l'exemple en cours d'exécution**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Converting to XPS/)
+## **Exemple en cours d'exécution**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Converting%20to%20XPS)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **Télécharger le code d'exemple**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
-
-Pour plus de détails, visitez [Conversion en XPS](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
-
+Pour plus de détails, consultez [Convert PowerPoint Presentations to XPS in .NET](/slides/fr/net/convert-powerpoint-to-xps/).
 {{% /alert %}}

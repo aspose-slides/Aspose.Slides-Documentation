@@ -6,13 +6,13 @@ url: /fr/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**
-Voici le code pour ajouter une image dans une cellule de tableau :
+Ci‑dessous le code pour ajouter une image dans une cellule de tableau :
 
 ``` csharp
 
-    //Ouvrir la classe Présentation qui contient le tableau
+    //Ouvrir la classe Presentation qui contient le tableau
 
-   string FileName = "Ajouter une image dans une cellule de tableau.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
    string ImageFile = "AsposeLogo.jpg";
 
@@ -41,48 +41,48 @@ Voici le code pour ajouter une image dans une cellule de tableau :
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides pour .NET a fourni la plus simple API pour créer des tableaux de la manière la plus facile. Pour ajouter une image dans une cellule de tableau lors de la création d'un nouveau tableau, veuillez suivre les étapes ci-dessous :
+Aspose.Slides for .NET fournit l’API la plus simple pour créer des tableaux de la manière la plus facile. Pour ajouter une image dans une cellule de tableau lors de la création d’un nouveau tableau, veuillez suivre les étapes ci‑dessous :
 
-- Créer une instance de la classe Présentation
-- Obtenir la référence d'une diapositive en utilisant son index
-- Définir un tableau de colonnes avec largeur
-- Définir un tableau de lignes avec hauteur
-- Ajouter un tableau à la diapositive en utilisant la méthode AddTable exposée par l'objet IShapes
+- Créer une instance de la classe Presentation
+- Obtenir la référence d’une diapositive en utilisant son index
+- Définir un tableau de colonnes avec la largeur
+- Définir un tableau de lignes avec la hauteur
+- Ajouter un tableau à la diapositive en utilisant la méthode AddTable exposée par l’objet IShapes
 - Créer un objet Bitmap pour contenir le fichier image
-- Ajouter l'image Bitmap à l'objet IPPImage
+- Ajouter l’image Bitmap à l’objet IPPImage
 - Définir le format de remplissage de la cellule du tableau comme image
-- Ajouter l'image à la première cellule du tableau
+- Ajouter l’image à la première cellule du tableau
 - Enregistrer la présentation modifiée en tant que fichier PPTX
 
 ``` csharp
 
-   string FileName = "Ajouter une image dans une cellule de tableau.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
-   string ImageFile = "AsposeLogo.jpg";
+  string ImageFile = "AsposeLogo.jpg";
 
-   Presentation MyPresentation = new Presentation(FileName);
+  Presentation MyPresentation = new Presentation(FileName);
 
-   //Obtenir la première diapositive
+  //Obtenir la première diapositive
 
-   ISlide sld = MyPresentation.Slides[0];
+  ISlide sld = MyPresentation.Slides[0];
 
-   //Créer un objet d'image Bitmap pour contenir le fichier image
+  //Créer un objet Image Bitmap pour contenir le fichier image
 
-   using IImage image = Images.FromFile(ImageFile);
+  using IImage image = Images.FromFile(ImageFile);
 
-   //Créer un objet IPPImage en utilisant l'objet bitmap
+  //Créer un objet IPPImage à partir de l’objet bitmap
 
-   IPPImage imgx1 = MyPresentation.Images.AddImage(image);
+  IPPImage imgx1 = MyPresentation.Images.AddImage(image);
 
-   foreach (IShape shp in sld.Shapes)
+  foreach (IShape shp in sld.Shapes)
 
-   if (shp is ITable)
+  if (shp is ITable)
 
-   {
+  {
 
      ITable tbl = (ITable)shp;
 
-     //Ajouter l'image à la première cellule du tableau
+     //Ajouter l’image à la première cellule du tableau
 
      tbl[0, 0].FillFormat.FillType = FillType.Picture;
 
@@ -92,15 +92,13 @@ Aspose.Slides pour .NET a fourni la plus simple API pour créer des tableaux de 
 
    }
 
-  //Sauvegarder le PPTX sur le disque
+  //Enregistrer le PPTX sur le disque
 
   MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
 
 
 ``` 
-## **Télécharger le code en cours d'exécution**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **Télécharger le code exemple**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Ajouter une image dans une cellule de tableau/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Comparison%20de%20code%20des%20fonctions%20communes/Ajouter%20une%20image%20dans%20une%20cellule%20de%20tableau)
+## **Download Sample Code**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)

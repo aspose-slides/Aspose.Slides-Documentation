@@ -1,12 +1,12 @@
 ---
-title: プレゼンテーションに画像枠を追加する
+title: プレゼンテーションに画像フレームを追加
 type: docs
 weight: 50
 url: /ja/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**
-以下は、VSTOプレゼンテーションに画像を追加するためのコードです：
+以下は VSTO プレゼンテーションに画像を追加するコードです：
 
 ``` csharp
 
@@ -20,15 +20,15 @@ url: /ja/net/add-picture-frame-to-presentation/
 
 ``` 
 ## **Aspose.Slides**
-スライドにシンプルな画像枠を追加するには、以下の手順に従ってください：
+スライドにシンプルな画像フレームを追加するには、以下の手順に従ってください：
 
-1. Presentationクラスのインスタンスを作成します。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. Presentationオブジェクトに関連付けられたImagesコレクションに画像を追加してImageオブジェクトを作成します。このオブジェクトはShapeを填充するために使用されます。
+1. Shape を塗りつぶすために使用する、Presentation オブジェクトに関連付けられた Images コレクションに画像を追加して Image オブジェクトを作成します。
 1. 画像の幅と高さを計算します。
-1. 参照されたスライドに関連付けられたShapesオブジェクトによって公開されたAddPictureFrameメソッドを使用して、画像の幅と高さに従ってPictureFrameを作成します。
-1. スライドに画像を含む画像枠を追加します。
-1. 修正されたプレゼンテーションをPPTXファイルとして書き込みます。
+1. 参照されたスライドに関連付けられた Shapes オブジェクトが提供する AddPictureFrame メソッドを使用して、画像の幅と高さに合わせた PictureFrame を作成します。
+1. 画像を含む PictureFrame をスライドに追加します。
+1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。
 
 上記の手順は、以下の例で実装されています。
 
@@ -36,28 +36,26 @@ url: /ja/net/add-picture-frame-to-presentation/
 
    string ImageFilePath = "AddPicture.jpg";
 
-  //PPTXを表すPresentationクラスをインスタンス化
+  //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
-  //最初のスライドを取得
+  //Get the first slide
 
   ISlide sld = pres.Slides[0];
 
-  //ImageExクラスをインスタンス化
+  //Instantiate the ImageEx class
 
   using IImage img = Images.FromFile(ImageFilePath);
 
   IPPImage imgx = pres.Images.AddImage(img);
 
-  //画像と同じ高さと幅の画像枠を追加
+  //Add Picture Frame with height and width equivalent of Picture
 
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
 ``` 
-## **ダウンロード実行コード**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **実行コードのダウンロード**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **ダウンロードサンプルコード**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Add Picture Frame/)
+## **サンプルコードのダウンロード**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)

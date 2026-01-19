@@ -247,10 +247,9 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-**Aspose.Slides** for .NET では、PPT スライドコメントコレクションがすべての **Slide** クラスに含まれています。**CommentCollection** クラスは特定のスライドコメントを保持するために使用されます。**Comment** クラスは、スライドコメントを追加した作者、イニシャル、作成時刻、スライド上のコメント位置、およびコメントテキストといった情報を含みます。**CommentAuthor** クラスは、プレゼンテーションレベルでスライドコメントの作者を追加するために使用されます。**Presentation** クラスは **CommentAuthors** クラス内にプレゼンテーションの作者コレクションを保持します。
+.NET 用 **Aspose.Slides** では、PPT スライドコメントコレクションがすべての **Slide** クラスに含まれています。**CommentCollection** クラスは特定のスライドコメントを保持するために使用されます。**Comment** クラスは、スライドコメントを追加した作者、イニシャル、作成時刻、スライド上のコメント位置、コメントテキストなどの情報を含みます。**CommentAuthor** クラスは、プレゼンテーションレベルでスライドコメントの作者を追加するために使用されます。**Presentation** クラスは、**CommentAuthors** クラス内でプレゼンテーションの作者コレクションを保持します。
 
 以下の例では、スライドコメントを追加するコードスニペットを示しています。
-
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
@@ -288,5 +287,5 @@ using (Presentation pres = new Presentation())
 ``` 
 ## **サンプルコードのダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide/)

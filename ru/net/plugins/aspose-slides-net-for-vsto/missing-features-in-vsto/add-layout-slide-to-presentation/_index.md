@@ -5,24 +5,24 @@ weight: 10
 url: /ru/net/add-layout-slide-to-presentation/
 ---
 
-Aspose.Slides для .NET позволяет разработчикам добавлять новые слайды макетов в презентацию. Для добавления слайда макета выполните следующие шаги:
+Aspose.Slides for .NET позволяет разработчикам добавлять новые слайды макета в презентацию. Чтобы добавить слайд макета, пожалуйста, следуйте инструкциям ниже:
 
 - Создайте экземпляр класса Presentation
-- Получите коллекцию основных слайдов
-- Попробуйте найти существующие слайды макетов, чтобы узнать, доступен ли нужный в коллекции слайдов макетов
-- Добавьте новый слайд макета, если желаемый макет недоступен
-- Добавьте пустой слайд с вновь добавленным слайдом макета
+- Получите доступ к коллекции Master Slide
+- Попробуйте найти существующие слайды макета, чтобы проверить, доступен ли требуемый в коллекции Layout Slide
+- Добавьте новый слайд макета, если нужный макет недоступен
+- Добавьте пустой слайд с только что добавленным слайдом макета
 - Наконец, запишите файл презентации, используя объект Presentation.
 ## **Пример**
 ``` csharp
 
- //Создайте экземпляр класса Presentation, который представляет файл презентации
+ //Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation("Test.pptx"))
 
 {
 
-   // Попробуйте найти по типу слайда макета
+   // Try to search by layout slide type
 
    IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -36,25 +36,25 @@ using (Presentation p = new Presentation("Test.pptx"))
 
    {
 
-     // Ситуация, когда презентация не содержит некоторые типы макетов.
+     // The situation when a presentation doesn't contain some type of layouts.
 
-     // Презентация Technographics.pptx содержит только пустые и пользовательские типы макетов.
+     // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-     // Но слайды макетов с пользовательскими типами имеют разные названия слайдов,
+     // But layout slides with Custom types has different slide names,
 
-     // такие как "Заголовок", "Заголовок и содержимое" и т. д. И возможно использовать эти
+     // like "Title", "Title and Content", etc. And it is possible to use these
 
-     // названия для выбора слайда макета.
+     // names for layout slide selection.
 
-     // Также возможно использовать набор типов форм для заполнительных областей. Например,
+     // Also it is possible to use the set of placeholder shape types. For example,
 
-     // Слайд заголовка должен содержать только тип заполнителя заголовка и т. д.
+     // Title slide should have only Title pleceholder type, etc.
 
      foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
      {
 
-       if (titleAndObjectLayoutSlide.Name == "Заголовок и объект")
+       if (titleAndObjectLayoutSlide.Name == "Title and Object")
 
        {
 
@@ -74,7 +74,7 @@ using (Presentation p = new Presentation("Test.pptx"))
 
          {
 
-            if (titleLayoutSlide.Name == "Заголовок")
+            if (titleLayoutSlide.Name == "Title")
 
             {
 
@@ -96,7 +96,7 @@ using (Presentation p = new Presentation("Test.pptx"))
 
              {
 
-                  layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Заголовок и объект");
+                  layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
 
              }
 
@@ -106,11 +106,11 @@ using (Presentation p = new Presentation("Test.pptx"))
 
   }
 
-  //Добавление пустого слайда с добавленным слайдом макета
+  //Adding empty slide with added layout slide
 
   p.Slides.InsertEmptySlide(0, layoutSlide);
 
-  //Сохранить презентацию
+  //Save presentation
 
   p.Save("Output.pptx", SaveFormat.Pptx);
 
@@ -119,16 +119,10 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 ``` 
 ## **Скачать работающий пример**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Adding Layout Slides/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Adding%20Layout%20Slides)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode#content)
 ## **Скачать пример кода**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
-
-Для получения дополнительной информации перейдите на страницу [Добавление слайда макета в презентацию](/slides/ru/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
-
+Для получения дополнительной информации посетите [Применение или изменение макетов слайдов в .NET](/slides/ru/net/slide-layout/).
 {{% /alert %}}
