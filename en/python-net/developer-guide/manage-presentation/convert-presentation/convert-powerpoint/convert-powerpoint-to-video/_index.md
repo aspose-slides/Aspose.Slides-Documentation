@@ -189,11 +189,11 @@ with slides.Presentation() as presentation:
 
 ## **Video Conversion Classes**
 
-To enable PowerPoint to video conversion tasks, Aspose.Slides for Python provides the [PresentationEnumerableAnimationsGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableanimationsgenerator/).
+To enable PowerPoint to video conversion tasks, Aspose.Slides for Python provides the [PresentationEnumerableFramesGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableframesgenerator/).
 
-`PresentationEnumerableAnimationsGenerator` allows you to set the frame size for the video (which will be created later) and the FPS (frames per second) value through its constructor. If you pass an instance of a presentation, its `Presentation.SlideSize` will be used.
+`PresentationEnumerableFramesGenerator` allows you to set the frame size for the video (which will be created later) and the FPS (frames per second) value through its constructor. If you pass an instance of a presentation, its `Presentation.SlideSize` will be used.
 
-To make all animations in a presentation play at once, use the `PresentationEnumerableAnimationsGenerator.enumerate_frames` method. This method takes a collection of slides and sequentially returns [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Then, use `EnumerableFrameArgs.get_frame()` to obtain each video frame.
+To make all animations in a presentation play at once, use the `PresentationEnumerableFramesGenerator.enumerate_frames` method. This method takes a collection of slides and sequentially returns [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Then, use `EnumerableFrameArgs.get_frame()` to obtain each video frame.
 
 ```python
 import aspose.slides as slides

@@ -24,12 +24,6 @@ description: "Convert PowerPoint and OpenDocument slides to XAML in Python using
 
 ## **Overview**
 
-{{% alert title="Info" color="info" %}} 
-
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML. 
-
-{{% /alert %}} 
-
 XAML is a descriptive programming language that allows you to build or write user interfaces for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.  
 
 XAML, which is an XML-based language, is Microsoft’s variant for describing a GUI. You are likely to use a designer to work on XAML files most of the time, but you can still write and edit your GUI. 

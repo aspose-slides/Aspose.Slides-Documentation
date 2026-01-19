@@ -55,5 +55,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/python-net/creating-saving-and-converting-a-presentation/).
+Read more about how to [Convert PowerPoint Slides to PNG in Python](/slides/python-net/convert-powerpoint-to-png/).
 {{% /alert %}}

@@ -60,7 +60,7 @@ The Python `LinkController` implementation of [ILinkEmbedController](https://ref
 # [TODO[not_supported_yet]: python implementation of .NET interfaces]
 ```
 
-After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/htmloptions/) class to export the presentation to HTML with externally linked images, as shown below:
+After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) class to export the presentation to HTML with externally linked images, as shown below:
 
 ```py
 # [TODO[not_supported_yet]: python implementation of .NET interfaces]
