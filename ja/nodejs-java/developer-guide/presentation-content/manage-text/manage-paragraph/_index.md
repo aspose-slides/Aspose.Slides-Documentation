@@ -5,29 +5,29 @@ type: docs
 weight: 40
 url: /ja/nodejs-java/manage-paragraph/
 keywords:
-- テキストを追加
-- 段落を追加
-- テキストを管理
-- 段落を管理
-- 箇条書きを管理
-- 段落インデント
-- ハンギングインデント
-- 段落箇条書き
-- 番号付きリスト
-- 箇条書きリスト
-- 段落プロパティ
-- HTML のインポート
-- テキストを HTML に変換
-- 段落を HTML に変換
-- 段落を画像に変換
-- テキストを画像に変換
-- 段落をエクスポート
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- Node.js
-- JavaScript
-- Aspose.Slides
+  - テキストを追加
+  - 段落を追加
+  - テキストを管理
+  - 段落を管理
+  - 箇条書きを管理
+  - 段落インデント
+  - ハンギングインデント
+  - 段落箇条書き
+  - 番号付きリスト
+  - 箇条書きリスト
+  - 段落プロパティ
+  - HTML のインポート
+  - テキストを HTML に変換
+  - 段落を HTML に変換
+  - 段落を画像に変換
+  - テキストを画像に変換
+  - 段落をエクスポート
+  - PowerPoint
+  - OpenDocument
+  - プレゼンテーション
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
 description: "Aspose.Slides for Node.js を Java 経由で使用し、PPT、PPTX、ODP プレゼンテーションの段落書式設定をマスターし、配置、間隔、スタイルを最適化する。"
 ---
 
