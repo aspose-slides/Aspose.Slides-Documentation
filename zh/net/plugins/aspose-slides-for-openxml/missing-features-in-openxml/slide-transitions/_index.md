@@ -1,15 +1,16 @@
 ---
-title: 幻灯片过渡
+title: 幻灯片切换
 type: docs
 weight: 80
 url: /zh/net/slide-transitions/
 ---
 
-为了让您更容易理解，我们演示了如何使用 Aspose.Slides for .NET 来管理简单的幻灯片过渡。开发人员不仅可以在幻灯片上应用不同的幻灯片过渡效果，还可以自定义这些过渡效果的行为。要创建简单的幻灯片过渡效果，请遵循以下步骤：
+为了更容易理解，我们演示了使用 Aspose.Slides for .NET 来管理简单的幻灯片切换。开发人员不仅可以在幻灯片上应用不同的切换效果，还可以自定义这些切换效果的行为。要创建一个简单的幻灯片切换效果，请按照以下步骤操作：
 
-- 创建一个 Presentation 类的实例
-- 从 Aspose.Slides for .NET 提供的过渡效果中应用一种幻灯片过渡类型，通过 **TransitionType** 枚举
-- 写入修改后的演示文件。
+- 创建 Presentation 类的实例
+- 通过 **TransitionType** 枚举，从 Aspose.Slides for .NET 提供的切换效果中为幻灯片应用 Slide Transition Type
+- 写入修改后的演示文稿文件。
+
 ## **示例**
 ``` csharp
 
@@ -17,25 +18,25 @@ url: /zh/net/slide-transitions/
 
 string FileName = FilePath + "Managing Slides Transitions.pptx";
 
-//实例化表示演示文件的 Presentation 类
+//Instantiate Presentation class that represents a presentation file
 
 using (Presentation pres = new Presentation(FileName))
 
 {
 
-    //在幻灯片 1 上应用圆形类型过渡
+    //Apply circle type transition on slide 1
 
     pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    //在幻灯片 2 上应用组合型过渡
+    //Apply comb type transition on slide 2
 
     pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    //在幻灯片 3 上应用缩放型过渡
+    //Apply zoom type transition on slide 3
 
     pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
 
-    //将演示文稿写入磁盘
+    //Write the presentation to disk
 
     pres.Save(FileName, SaveFormat.Pptx);
 
@@ -43,16 +44,12 @@ using (Presentation pres = new Presentation(FileName))
 
 ``` 
 ## **下载示例代码**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 ## **下载运行示例**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Managing Slides Transitions/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Managing%20Slides%20Transitions)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [Managing Slides Transitions](/slides/zh/net/slide-transition/)。
+欲了解更多详情，请访问 [Managing Slides Transitions](/slides/zh/net/slide-transition/).
 
 {{% /alert %}}

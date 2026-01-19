@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中格式化演示文稿图表
+title: .NET 中的演示文稿图表格式化
 linktitle: 图表格式化
 type: docs
 weight: 60
@@ -21,38 +21,38 @@ keywords:
 description: "了解 Aspose.Slides for .NET 中的图表格式化，并通过专业、引人注目的样式提升您的 PowerPoint 演示文稿。"
 ---
 
-## **格式图表实体**
-Aspose.Slides for .NET 让开发人员从头开始向幻灯片添加自定义图表。本文说明了如何格式化不同的图表实体，包括图表类别轴和数值轴。
+## **格式化图表实体**
+Aspose.Slides for .NET 让开发人员从头开始向幻灯片添加自定义图表。本文说明如何格式化不同的图表实体，包括图表类别轴和数值轴。
 
-Aspose.Slides for .NET 提供了简单的 API 来管理各种图表实体并使用自定义值进行格式化：
+Aspose.Slides for .NET 提供了一个简洁的 API，用于管理不同的图表实体并使用自定义值进行格式化：
 
 1. 创建 **Presentation** 类的实例。  
 1. 通过索引获取幻灯片的引用。  
-1. 添加具有默认数据的图表，并指定所需类型（本例中使用 ChartType.LineWithMarkers）。  
+1. 添加带有默认数据的图表，并指定所需类型（本例中使用 ChartType.LineWithMarkers）。  
 1. 访问图表的数值轴并设置以下属性：  
-   1. 为数值轴主网格线设置**Line format**  
-   1. 为数值轴次网格线设置**Line format**  
-   1. 为数值轴设置**Number Format**  
-   1. 为数值轴设置**Min, Max, Major and Minor units**  
-   1. 为数值轴数据设置**Text Properties**  
-   1. 为数值轴设置**Title**  
-   1. 为数值轴设置**Line Format**  
+   1. 设置 **线条格式** 用于数值轴主网格线  
+   1. 设置 **线条格式** 用于数值轴次网格线  
+   1. 设置 **数字格式** 用于数值轴  
+   1. 设置 **最小值、最大值、主单位和次单位** 用于数值轴  
+   1. 设置 **文本属性** 用于数值轴数据  
+   1. 设置 **标题** 用于数值轴  
+   1. 设置 **线条格式** 用于数值轴  
 1. 访问图表的类别轴并设置以下属性：  
-   1. 为类别轴主网格线设置**Line format**  
-   1. 为类别轴次网格线设置**Line format**  
-   1. 为类别轴数据设置**Text Properties**  
-   1. 为类别轴设置**Title**  
-   1. 为类别轴设置**Label Positioning**  
-   1. 为类别轴标签设置**Rotation Angle**  
-1. 访问图表图例并为其设置**Text Properties**  
-1. 设置显示图例且不与图表重叠  
-1. 访问图表的**Secondary Value Axis** 并设置以下属性：  
-   1. 启用次要**Value Axis**  
-   1. 为次要数值轴设置**Line Format**  
-   1. 为次要数值轴设置**Number Format**  
-   1. 为次要数值轴设置**Min, Max, Major and Minor units**  
-1. 现在在次要数值轴上绘制第一条系列数据  
-1. 设置图表背墙填充颜色  
+   1. 设置 **线条格式** 用于类别轴主网格线  
+   1. 设置 **线条格式** 用于类别轴次网格线  
+   1. 设置 **文本属性** 用于类别轴数据  
+   1. 设置 **标题** 用于类别轴  
+   1. 设置 **标签定位** 用于类别轴  
+   1. 设置 **旋转角度** 用于类别轴标签  
+1. 访问图表图例并为其设置 **文本属性**  
+1. 设置显示图例而不与图表重叠  
+1. 访问图表的 **次要数值轴** 并设置以下属性：  
+   1. 启用次要 **数值轴**  
+   1. 设置 **线条格式** 用于次要数值轴  
+   1. 设置 **数字格式** 用于次要数值轴  
+   1. 设置 **最小值、最大值、主单位和次单位** 用于次要数值轴  
+1. 现在在次要数值轴上绘制第一条图表系列  
+1. 设置图表后壁填充颜色  
 1. 设置图表绘图区填充颜色  
 1. 将修改后的演示文稿写入 PPTX 文件  
 ```c#
@@ -123,7 +123,7 @@ valtitle.PortionFormat.FontHeight = 20;
 valtitle.PortionFormat.FontBold = NullableBool.True;
 valtitle.PortionFormat.FontItalic = NullableBool.True;
 
-// 设置数值轴线格式: 已废弃
+// 设置数值轴线格式：已过时
 // chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
 // chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
 // Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
@@ -173,13 +173,14 @@ txtleg.FontItalic = NullableBool.True;
 txtleg.FillFormat.FillType = FillType.Solid; ;
 txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// 设置显示图例且不与图表重叠
+// 设置显示图例而不与图表重叠
+
 chart.Legend.Overlay = true;
             
 // 在次要数值轴上绘制第一系列
 // Chart.ChartData.Series[0].PlotOnSecondAxis = true;
 
-// 设置图表背墙颜色
+// 设置图表后壁颜色
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
@@ -190,13 +191,13 @@ chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// 保存演示文稿
+// Save Presentation
 pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **设置图表的字体属性**
-Aspose.Slides for .NET 提供了设置图表字体相关属性的支持。请按照以下步骤为图表设置字体属性。
+## **为图表设置字体属性**
+Aspose.Slides for .NET 支持为图表设置字体相关属性。请按以下步骤为图表设置字体属性。
 
 - 实例化 **Presentation** 类对象。  
 - 在幻灯片上添加图表。  
@@ -216,22 +217,22 @@ using (Presentation pres = new Presentation())
 
 
 ## **设置数字格式**
-Aspose.Slides for .NET 提供了管理图表数据格式的简单 API：
+Aspose.Slides for .NET 提供了一个简洁的 API，用于管理图表数据格式：
 
 1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。  
 1. 通过索引获取幻灯片的引用。  
-1. 添加具有默认数据的图表，并指定所需类型（本例使用 **ChartType.ClusteredColumn**）。  
+1. 添加带有默认数据的图表，并指定所需类型（本例使用 **ChartType.ClusteredColumn**）。  
 1. 从可能的预设值中设置预设数字格式。  
-1. 遍历每个系列的图表数据单元格并设置图表数据数字格式。  
+1. 遍历每个图表系列中的图表数据单元格并设置数字格式。  
 1. 保存演示文稿。  
 1. 设置自定义数字格式。  
-1. 在每个系列的图表数据单元格中设置不同的数字格式。  
+1. 再次遍历每个图表系列中的图表数据单元格并为其设置不同的数字格式。  
 1. 保存演示文稿。  
 ```c#
 // 实例化演示文稿// 实例化演示文稿
 Presentation pres = new Presentation();
 
-// 访问第一张演示文稿幻灯片
+// 访问第一个演示文稿幻灯片
 ISlide slide = pres.Slides[0];
 
 // 添加默认的簇状柱形图
@@ -257,9 +258,9 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
 
-下面给出可能的预设数字格式值及其对应的预设索引：
+以下是可以使用的预设数字格式值及其索引：
 
-|**0**|General|
+|**0**|常规|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -292,13 +293,13 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
 ## **设置图表区域圆角边框**
-Aspose.Slides for .NET 提供了设置图表区域圆角的支持。已在 Aspose.Slides 中添加了 **IChart.HasRoundedCorners** 和 **Chart.HasRoundedCorners** 属性。
+Aspose.Slides for .NET 支持设置图表区域。已在 Aspose.Slides 中添加了 **IChart.HasRoundedCorners** 和 **Chart.HasRoundedCorners** 属性。
 
 1. 实例化 `Presentation` 类对象。  
 1. 在幻灯片上添加图表。  
@@ -321,13 +322,16 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **FAQ**
+## **常见问题解答**
 
-**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**  
-是的。填充透明度和轮廓是分开配置的。这对于在密集可视化中提高网格和数据的可读性非常有用。
+**我可以为柱形/区域图设置半透明填充，同时保持边框不透明吗？**
 
-**How can I deal with data labels when they overlap?**  
-减小字体大小，禁用非必需的标签组件（例如类别），设置标签偏移/位置，必要时仅为选定点显示标签，或将格式切换为 “值 + 图例”。
+可以。填充透明度和轮廓是分别配置的，这有助于在密集可视化中提升网格和数据的可读性。
 
-**Can I apply gradient or pattern fills to series?**  
-可以。通常同时提供实色和渐变/图案填充。实际使用时请适度使用渐变，并避免与网格和文字的对比度降低的组合。
+**当数据标签重叠时该怎么办？**
+
+可以减小字体大小，禁用非必要的标签组件（例如类别），设置标签偏移/位置，必要时仅为选定数据点显示标签，或切换为 “值 + 图例” 格式。
+
+**我可以为系列应用渐变或图案填充吗？**
+
+可以。通常同时支持纯色和渐变/图案填充。实际使用时请适度使用渐变，并避免与网格和文本的对比度下降的组合。

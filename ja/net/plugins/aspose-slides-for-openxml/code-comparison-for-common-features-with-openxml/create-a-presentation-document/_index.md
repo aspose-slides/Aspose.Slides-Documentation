@@ -1,5 +1,5 @@
 ---
-title: プレゼンテーション文書の作成
+title: プレゼンテーション ドキュメントの作成
 type: docs
 weight: 60
 url: /ja/net/create-a-presentation-document/
@@ -7,10 +7,9 @@ url: /ja/net/create-a-presentation-document/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "プレゼンテーション文書を作成.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -18,7 +17,7 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    // 指定されたファイルパスにプレゼンテーションを作成します。デフォルトでは、プレゼンテーション文書の種類はpptxです。
+    // Create a presentation at a specified file path. The presentation document type is pptx, by default.
 
     PresentationDocument presentationDoc = PresentationDocument.Create(filepath, PresentationDocumentType.Presentation);
 
@@ -28,7 +27,7 @@ public static void CreatePresentation(string filepath)
 
     CreatePresentationParts(presentationPart);
 
-    //プレゼンテーションハンドルを閉じる
+    //Close the presentation handle
 
     presentationDoc.Close();
 
@@ -101,11 +100,11 @@ private static SlidePart CreateSlidePart(PresentationPart presentationPart)
 
                         new P.NonVisualShapeProperties(
 
-                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "タイトル 1" },
+                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title 1" },
 
                             new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
                         new P.ShapeProperties(),
 
@@ -115,7 +114,7 @@ private static SlidePart CreateSlidePart(PresentationPart presentationPart)
 
                             new ListStyle(),
 
-                            new Paragraph(new EndParagraphRunProperties() { Language = "en-US" }))))), 
+                            new Paragraph(new EndParagraphRunProperties() { Language = "en-US" }))))),
 
             new ColorMapOverride(new MasterColorMapping()));
 
@@ -151,7 +150,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
       new P.ShapeProperties(),
 
@@ -161,7 +160,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new ListStyle(),
 
-        new Paragraph(new EndParagraphRunProperties()))))), 
+        new Paragraph(new EndParagraphRunProperties()))))),
 
     new ColorMapOverride(new MasterColorMapping()));
 
@@ -195,11 +194,11 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
       new P.NonVisualShapeProperties(
 
-        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "タイトル プレースホルダー 1" },
+        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title Placeholder 1" },
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })),
 
       new P.ShapeProperties(),
 
@@ -209,7 +208,7 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
         new ListStyle(),
 
-        new Paragraph())))), 
+        new Paragraph())))),
 
     new P.ColorMap() { Background1 = D.ColorSchemeIndexValues.Light1, Text1 = D.ColorSchemeIndexValues.Dark1, Background2 = D.ColorSchemeIndexValues.Light2, Text2 = D.ColorSchemeIndexValues.Dark2, Accent1 = D.ColorSchemeIndexValues.Accent1, Accent2 = D.ColorSchemeIndexValues.Accent2, Accent3 = D.ColorSchemeIndexValues.Accent3, Accent4 = D.ColorSchemeIndexValues.Accent4, Accent5 = D.ColorSchemeIndexValues.Accent5, Accent6 = D.ColorSchemeIndexValues.Accent6, Hyperlink = D.ColorSchemeIndexValues.Hyperlink, FollowedHyperlink = D.ColorSchemeIndexValues.FollowedHyperlink },
 
@@ -229,7 +228,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
     ThemePart themePart1 = slideMasterPart1.AddNewPart<ThemePart>("rId5");
 
-    D.Theme theme1 = new D.Theme() { Name = "オフィステーマ" };
+    D.Theme theme1 = new D.Theme() { Name = "Office Theme" };
 
     D.ThemeElements themeElements1 = new D.ThemeElements(
 
@@ -257,7 +256,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.Hyperlink(new D.RgbColorModelHex() { Val = "0000FF" }),
 
-      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "オフィス" },
+      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "Office" },
 
       new D.FontScheme(
 
@@ -275,7 +274,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.EastAsianFont() { Typeface = "" },
 
-      new D.ComplexScriptFont() { Typeface = "" })) { Name = "オフィス" },
+      new D.ComplexScriptFont() { Typeface = "" })) { Name = "Office" },
 
       new D.FormatScheme(
 
@@ -319,7 +318,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.Shade() { Val = 95000 },
 
-          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }), 
+          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }),
 
         new D.PresetDash() { Val = D.PresetLineDashValues.Solid })
 
@@ -343,7 +342,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.Shade() { Val = 95000 },
 
-          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }), 
+          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }),
 
         new D.PresetDash() { Val = D.PresetLineDashValues.Solid })
 
@@ -367,7 +366,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.Shade() { Val = 95000 },
 
-          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }), 
+          new D.SaturationModulation() { Val = 105000 }) { Val = D.SchemeColorValues.PhColor }),
 
         new D.PresetDash() { Val = D.PresetLineDashValues.Solid })
 
@@ -393,7 +392,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -403,7 +402,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -413,7 +412,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))),
 
       new D.BackgroundFillStyleList(
 
@@ -439,9 +438,9 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.SchemeColor(new D.Tint() { Val = 50000 },
 
-            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }), 
+            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }),
 
-        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }), 
+        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }),
 
       new D.GradientFill(
 
@@ -457,9 +456,9 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.SchemeColor(new D.Tint() { Val = 50000 },
 
-            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }), 
+            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }),
 
-        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "オフィス" });
+        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "Office" });
 
     theme1.Append(themeElements1);
 
@@ -472,14 +471,12 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
     return themePart1;
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "プレゼンテーション文書を作成.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -487,31 +484,29 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    //PPTファイルを表すPresentationオブジェクトをインスタンス化します
+    //Instantiate a Presentation object that represents a PPT file
 
     using (Presentation pres = new Presentation())
 
     {
 
-        //SlideExCollectionクラスをインスタンス化します
+        //Instantiate SlideExCollection calss
 
         ISlideCollection slds = pres.Slides;
 
-        //SlidesExコレクションに空のスライドを追加します
+        //Add an empty slide to the SlidesEx collection
 
         slds.AddEmptySlide(pres.LayoutSlides[0]);
 
-        //プレゼンテーションをファイルに保存します
+        //Save your presentation to a file
 
         pres.Save(filepath,Aspose.Slides.Export.SaveFormat.Pptx);
 
     }
 
 }
-
 ``` 
-## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **サンプルコードをダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Create%20a%20presentation%20document%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document/)

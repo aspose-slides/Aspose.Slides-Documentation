@@ -1,5 +1,5 @@
 ---
-title: Перемещение слайда на новую позицию
+title: Переместить слайд в новое положение
 type: docs
 weight: 140
 url: /ru/net/move-a-slide-to-a-new-position/
@@ -7,28 +7,27 @@ url: /ru/net/move-a-slide-to-a-new-position/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Перемещение слайда на новую позицию.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Подсчет слайдов в презентации.
+// Подсчёт слайдов в презентации.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Открываем презентацию только для чтения.
+    // Открыть презентацию только для чтения.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Передаем презентацию в следующий метод CountSlides
+        // Передать презентацию в следующий метод CountSlides
 
-        // и возвращаем количество слайдов.
+        // и вернуть количество слайдов.
 
         return CountSlides(presentationDocument);
 
@@ -36,13 +35,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Подсчет слайдов в презентации.
+// Подсчёт слайдов в презентации.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Проверяем объект документа на null.
+    // Проверка на объект null.
 
     if (presentationDocument == null)
 
@@ -54,11 +53,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Получаем часть презентации документа.
+    // Получить часть презентации из документа.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получаем количество слайдов из SlideParts.
+    // Получить количество слайдов из SlideParts.
 
     if (presentationPart != null)
 
@@ -68,13 +67,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Возвращаем количество слайдов в предыдущий метод.
+    // Вернуть количество слайдов вызывающему методу.
 
     return slidesCount;
 
 }
 
-// Перемещение слайда на другую позицию в порядке слайдов в презентации.
+// Переместить слайд в новое положение в порядке слайдов презентации.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +89,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// Перемещение слайда на другую позицию в порядке слайдов в презентации.
+// Переместить слайд в новое положение в порядке слайдов презентации.
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -104,11 +103,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Вызываем метод CountSlides, чтобы получить количество слайдов в презентации.
+    // Вызвать метод CountSlides, чтобы получить количество слайдов в презентации.
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // Проверяем, чтобы позиции from и to находились в пределах диапазона и были различными.
+    // Проверить, что оба положения находятся в диапазоне и различаются.
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,23 +125,23 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Получаем часть презентации из документа презентации.
+    // Получить часть презентации из документа.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Количество слайдов не равно нулю, следовательно, презентация должна содержать слайды.            
+    // Количество слайдов не равно нулю, значит презентация содержит слайды.
 
     Presentation presentation = presentationPart.Presentation;
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // Получаем ID слайда исходного слайда.
+    // Получить идентификатор исходного слайда.
 
     SlideId sourceSlide = slideIdList.ChildElements[from] as SlideId;
 
     SlideId targetSlide = null;
 
-    // Определяем позицию целевого слайда, после которой нужно переместить исходный слайд.
+    // Определить позицию целевого слайда, после которой будет вставлен исходный слайд.
 
     if (to == 0)
 
@@ -168,65 +167,61 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Удаляем исходный слайд из его текущей позиции.
+    // Удалить исходный слайд из текущей позиции.
 
     sourceSlide.Remove();
 
-    // Вставляем исходный слайд на его новую позицию после целевого слайда.
+    // Вставить исходный слайд в новую позицию после целевого слайда.
 
     slideIdList.InsertAfter(sourceSlide, targetSlide);
 
-    // Сохраняем измененную презентацию.
+    // Сохранить изменённую презентацию.
 
     presentation.Save();
 
-} 
-
+}
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Перемещение слайда на новую позицию.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Перемещение слайда на другую позицию в порядке слайдов в презентации.
+// Переместить слайд в новое положение в порядке слайдов презентации.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
 {
 
-    //Создаем экземпляр класса PresentationEx для загрузки исходного файла PPTX
+    // Инстанциировать класс PresentationEx для загрузки исходного файла PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        // Получаем слайд, позиция которого будет изменена
+        // Получить слайд, позицию которого нужно изменить
 
         ISlide sld = pres.Slides[from];
 
         ISlide sld2 = pres.Slides[to];
 
-        // Устанавливаем новую позицию для слайда
+        // Установить новую позицию для слайда
 
         sld2.SlideNumber = from;
 
         sld.SlideNumber = to;
 
-        // Сохраняем PPTX на диск
+        // Записать PPTX на диск
 
-        pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
+        pres.Save(presentationFile, Aspose.Slides.Export.SaveFormat.Pptx);
 
     }
 
 }
-
 ``` 
 ## **Скачать пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Перемещение%20слайда%20на%20новую%20позицию%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Перемещение%20слайда%20на%20новую%20позицию%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

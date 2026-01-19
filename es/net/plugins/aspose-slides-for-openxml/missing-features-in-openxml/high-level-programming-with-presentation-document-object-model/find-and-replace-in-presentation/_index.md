@@ -1,26 +1,26 @@
 ---
-title: Buscar y Reemplazar en Presentación
+title: Buscar y reemplazar en la presentación
 type: docs
 weight: 20
 url: /es/net/find-and-replace-in-presentation/
 ---
 
-Los siguientes son los pasos a seguir:
+A continuación se presentan los pasos a seguir:
 
-1. Abre una presentación.
-1. Busca el texto.
-1. Reemplaza el texto.
-1. Escribe la presentación.
+1. Abrir una presentación.
+1. Buscar el texto.
+1. Reemplazar el texto.
+1. Guardar la presentación.
 
 ``` csharp
 
- string FilePath = @"..\..\..\Archivos de muestra\";
+ string FilePath = @"..\..\..\Sample Files\";
 
-//Abre la presentación
+//Open the presentation
 
-Presentation pres = new Presentation(FilePath + "Buscar y Reemplazar.pptx");
+Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//Obtén todos los cuadros de texto en la presentación
+//Get all text boxes in the presentation
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //Encuentra el texto que debe ser reemplazado
+        //Find text to be replaced
 
         if (port.Text.Contains(strToFind))
 
-        //Reemplaza el texto existente con el nuevo texto
+        //Replace exisitng text with the new text
 
         {
 
@@ -50,12 +50,10 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
         }
 
-pres.Save(FilePath + "Buscar y Reemplazar.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Descargar código de ejemplo**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Buscar%20y%20Reemplazar%20%28Aspose.Slides%29.zip)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

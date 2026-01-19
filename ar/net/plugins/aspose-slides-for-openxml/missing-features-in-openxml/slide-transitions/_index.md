@@ -1,15 +1,18 @@
 ---
-title: تأثيرات انتقال الشريحة
+title: انتقالات الشرائح
 type: docs
 weight: 80
 url: /ar/net/slide-transitions/
 ---
 
-لتسهيل الفهم، قمنا بعرض استخدام Aspose.Slides لـ .NET لإدارة تأثيرات انتقال الشريحة البسيطة. يمكن للمطورين تطبيق تأثيرات انتقال مختلفة على الشرائح، بالإضافة إلى تخصيص سلوك هذه التأثيرات الانتقالية. لإنشاء تأثير انتقال بسيط للشريحة، اتبع الخطوات أدناه:
+لتسهيل الفهم، قمنا بتوضيح كيفية استخدام Aspose.Slides for .NET لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق تأثيرات انتقال مختلفة على الشرائح، بل أيضًا تخصيص سلوك هذه التأثيرات.
 
-- إنشاء مثيل من فئة Presentation
-- تطبيق نوع تأثير انتقال الشريحة على الشريحة من بين تأثيرات الانتقال التي تقدمها Aspose.Slides لـ .NET من خلال **TransitionType** enum
+لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات التالية:
+
+- إنشاء كائن من فئة Presentation
+- تطبيق نوع انتقال الشريحة من أحد تأثيرات الانتقال المتوفرة في Aspose.Slides for .NET عبر عدد **TransitionType**
 - كتابة ملف العرض المعدل.
+
 ## **مثال**
 ``` csharp
 
@@ -17,25 +20,25 @@ url: /ar/net/slide-transitions/
 
 string FileName = FilePath + "Managing Slides Transitions.pptx";
 
-//إنشاء مثيل لفئة Presentation تمثل ملف عرض تقديمي
+//Instantiate Presentation class that represents a presentation file
 
 using (Presentation pres = new Presentation(FileName))
 
 {
 
-    //تطبيق تأثير انتقال دائري على الشريحة 1
+    //Apply circle type transition on slide 1
 
     pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    //تطبيق تأثير انتقال مجمع على الشريحة 2
+    //Apply comb type transition on slide 2
 
     pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    //تطبيق تأثير انتقال زووم على الشريحة 3
+    //Apply zoom type transition on slide 3
 
     pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
 
-    //حفظ العرض التقديمي على القرص
+    //Write the presentation to disk
 
     pres.Save(FileName, SaveFormat.Pptx);
 
@@ -43,16 +46,13 @@ using (Presentation pres = new Presentation(FileName))
 
 ``` 
 ## **تنزيل كود العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-## **تنزيل المثال القابل للتشغيل**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Managing Slides Transitions/)
+
+## **تنزيل المثال التشغيلي**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Managing%20Slides%20Transitions)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
 {{% alert color="primary" %}} 
 
-للحصول على مزيد من التفاصيل، قم بزيارة [إدارة تأثيرات انتقال الشرائح](/slides/ar/net/slide-transition/).
+لمزيد من التفاصيل، زر [إدارة انتقالات الشرائح](/slides/ar/net/slide-transition/).
 
 {{% /alert %}}

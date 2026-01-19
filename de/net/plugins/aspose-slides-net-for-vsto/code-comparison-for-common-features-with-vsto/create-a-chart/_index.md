@@ -1,32 +1,32 @@
 ---
-title: Erstellt ein Diagramm
+title: Diagramm erstellen
 type: docs
 weight: 60
 url: /de/net/create-a-chart/
 ---
 
-Die folgenden Codebeispiele beschreiben den Prozess, ein einfaches 3D gruppiertes Säulendiagramm mit VSTO hinzuzufügen. Sie erstellen eine Präsentationsinstanz, fügen ein Standarddiagramm hinzu. Dann verwenden Sie die Microsoft Excel-Arbeitsmappe, um auf die Diagrammdaten zuzugreifen und diese zu ändern sowie die Diagrammeigenschaften festzulegen. Schließlich speichern Sie die Präsentation.
+Die nachstehenden Code‑Beispiele beschreiben den Vorgang, ein einfaches 3D‑Clustered‑Column‑Diagramm mit VSTO hinzuzufügen. Sie erstellen eine PowerPoint‑Präsentation, fügen ein Standarddiagramm hinzu und verwenden anschließend ein Microsoft‑Excel‑Arbeitsbuch, um die Diagrammdaten zu bearbeiten und Diagrammeigenschaften zu setzen. Abschließend wird die Präsentation gespeichert.
 ## **VSTO**
-Mit VSTO werden die folgenden Schritte ausgeführt:
+Bei Verwendung von VSTO werden die folgenden Schritte ausgeführt:
 
-1. Erstellen Sie eine Instanz einer Microsoft PowerPoint-Präsentation.
-1. Fügen Sie eine leere Folie zur Präsentation hinzu.
-1. Fügen Sie ein 3D gruppiertes Säulendiagramm hinzu und greifen Sie darauf zu.
-1. Erstellen Sie eine neue Microsoft Excel-Arbeitsmappeninstanz und laden Sie die Diagrammdaten.
-1. Greifen Sie auf das Diagrammdatenarbeitsblatt über die Microsoft Excel-Arbeitsmappeninstanz zu.
-1. Legen Sie den Diagrammbereich im Arbeitsblatt fest und entfernen Sie die Serien 2 und 3 aus dem Diagramm.
-1. Ändern Sie die Kategoriedaten des Diagramms im Diagrammdatenarbeitsblatt.
-1. Ändern Sie die Daten der Diagrammserie 1 im Diagrammdatenarbeitsblatt.
-1. Greifen Sie nun auf den Diagrammtitel zu und legen Sie die Schriftart-bezogenen Eigenschaften fest.
-1. Greifen Sie auf die Wertachse des Diagramms zu und legen Sie die Haupt- und Nebenwerte, den Maximal- und Minimalwert fest.
-1. Greifen Sie auf die Tiefen- oder Serienachse des Diagramms zu und entfernen Sie diese, da in diesem Beispiel nur eine Serie verwendet wird.
-1. Legen Sie nun die Rotationswinkel des Diagramms in X- und Y-Richtung fest.
-1. Speichern Sie die Präsentation.
-1. Schließen Sie die Instanzen von Microsoft Excel und PowerPoint.
+1. Erstellen einer Instanz einer Microsoft‑PowerPoint‑Präsentation.
+1. Hinzufügen einer leeren Folie zur Präsentation.
+1. Hinzufügen eines 3D‑Clustered‑Column‑Diagramms und darauf zugreifen.
+1. Instanziieren eines neuen Microsoft‑Excel‑Arbeitsbuchs und Laden der Diagrammdaten.
+1. Zugriff auf das Arbeitsblatt mit den Diagrammdaten über das Excel‑Arbeitsbuch.
+1. Festlegen des Diagrammbereichs im Arbeitsblatt und Entfernen der Serien 2 und 3 aus dem Diagramm.
+1. Ändern der Kategoriedaten im Diagramm‑Datenarbeitsblatt.
+1. Ändern der Daten der Serie 1 im Diagramm‑Datenarbeitsblatt.
+1. Zugriff auf den Diagrammtitel und Festlegen der zugehörigen Schriftarteigenschaften.
+1. Zugriff auf die Werte‑Achse des Diagramms und Festlegen der Haupt‑ und Nebeneinheiten sowie von Max‑ und Min‑Werten.
+1. Zugriff auf die Tiefen‑ bzw. Serien‑Achse und Entfernen dieser, da in diesem Beispiel nur eine Serie verwendet wird.
+1. Festlegen der Rotationswinkel des Diagramms in X‑ und Y‑Richtung.
+1. Speichern der Präsentation.
+1. Schließen der Instanzen von Microsoft Excel und PowerPoint.
 
 ``` csharp
 
- //Globale Variablen
+ //Global Variables
 
 public static Microsoft.Office.Interop.PowerPoint.Application objPPT;
 
@@ -47,59 +47,59 @@ public static void GEN_VSTO_Chart()
 
 	EnsurePowerPointIsRunning(true, true);
 
-	//Instanziiere das Folienobjekt
+	//Instantiate slide object
 
 	Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-	//Greifen Sie auf die erste Folie der Präsentation zu
+	//Access the first slide of presentation
 
 	objSlide = objPres.Slides[1];
 
-	//Wählen Sie die erste Folie aus und legen Sie ihr Layout fest
+	//Select firs slide and set its layout
 
 	objSlide.Select();
 
 	objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-	//Fügen Sie ein Standarddiagramm in die Folie ein
+	//Add a default chart in slide
 
 	objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
 
-	//Greifen Sie auf das hinzugefügte Diagramm zu
+	//Access the added chart
 
 	Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-	//Greifen Sie auf die Diagrammdaten zu
+	//Access the chart data
 
 	Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-	//Erstellen Sie eine Instanz der Excel-Arbeitsmappe, um mit den Diagrammdaten zu arbeiten
+	//Create instance to Excel workbook to work with chart data
 
 	Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-	//Zugriff auf das Datenarbeitsblatt für das Diagramm
+	//Accessing the data worksheet for chart
 
 	Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-	//Festlegen des Bereichs des Diagramms
+	//Setting the range of chart
 
 	Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-	//Anwenden des festgelegten Bereichs auf die Diagrammdaten
+	//Applying the set range on chart data table
 
 	Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 
 	tbl1.Resize(tRange);
 
-	//Festlegen der Werte für Kategorien und entsprechende Seriendaten
+	//Setting values for categories and respective series data
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Fahrräder";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Zubehör";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Reparaturen";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Kleidung";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 
@@ -109,11 +109,11 @@ public static void GEN_VSTO_Chart()
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-	//Festlegen des Diagrammtitels
+	//Setting chart title
 
 	ppChart.ChartTitle.Font.Italic = true;
 
-	ppChart.ChartTitle.Text = "Verkäufe 2007";
+	ppChart.ChartTitle.Text = "2007 Sales";
 
 	ppChart.ChartTitle.Font.Size = 18;
 
@@ -123,11 +123,11 @@ public static void GEN_VSTO_Chart()
 
 	ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-	//Zugriff auf die Wertachse des Diagramms
+	//Accessing Chart value axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-	//Festlegen der Werte für die Achsen
+	//Setting values axis units
 
 	valaxis.MajorUnit = 2000.0F;
 
@@ -137,25 +137,25 @@ public static void GEN_VSTO_Chart()
 
 	valaxis.MaximumScale = 4000.0F;
 
-	//Zugriff auf die Tiefenachse des Diagramms
+	//Accessing Chart Depth axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
 	Depthaxis.Delete();
 
-	//Festlegen der Diagrammrotation
+	//Setting chart rotation
 
-	ppChart.Rotation = 20; //Y-Wert
+	ppChart.Rotation = 20; //Y-Value
 
-	ppChart.Elevation = 15; //X-Wert
+	ppChart.Elevation = 15; //X-Value
 
 	ppChart.RightAngleAxes = false;
 
-	// Speichern Sie die Präsentation als PPTX
+	// Save the presentation as a PPTX
 
 	objPres.SaveAs("VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-	//Schließen Sie die Arbeitsmappe und die Präsentation
+	//Close Workbook and presentation
 
 	dataWorkbook.Application.Quit();
 
@@ -163,7 +163,7 @@ public static void GEN_VSTO_Chart()
 
 }
 
-//Zusätzliche Methoden
+//Supplementary methods
 
 public static void StartPowerPoint()
 
@@ -201,9 +201,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//Versuchen Sie, auf die Namenseigenschaft zuzugreifen. Wenn dies eine Ausnahme verursacht,
+	//Try accessing the name property. If it causes an exception then
 
-	//starten Sie eine neue Instanz von PowerPoint
+	//start a new instance of PowerPoint
 
 	try
 
@@ -223,7 +223,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//blnAddPresentation wird verwendet, um sicherzustellen, dass eine Präsentation geladen ist
+	//blnAddPresentation is used to ensure there is a presentation loaded
 
 	if (blnAddPresentation == true)
 
@@ -249,9 +249,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//BlnAddSlide wird verwendet, um sicherzustellen, dass sich mindestens eine Folie in der
+	//BlnAddSlide is used to ensure there is at least one slide in the
 
-	//Präsentation befindet
+	//presentation
 
 	if (blnAddSlide)
 
@@ -287,21 +287,23 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	}
 
+}
+
 ``` 
 ## **Aspose.Slides**
-Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
+Bei Verwendung von Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 
-1. Erstellen Sie eine Instanz einer Microsoft PowerPoint-Präsentation.
-1. Fügen Sie eine leere Folie zur Präsentation hinzu.
-1. Fügen Sie ein 3D gruppiertes Säulendiagramm hinzu und greifen Sie darauf zu.
-1. Greifen Sie auf das Diagrammdatenarbeitsblatt über eine Microsoft Excel-Arbeitsmappeninstanz zu.
-1. Entfernen Sie die ungenutzten Serien 2 und 3.
-1. Greifen Sie auf die Diagrammkategorien zu und ändern Sie die Beschriftungen.
-1. Greifen Sie auf die Serie 1 zu und ändern Sie die Serienwerte.
-1. Greifen Sie nun auf den Diagrammtitel zu und legen Sie die Schriftarteigenschaften fest.
-1. Greifen Sie auf die Wertachse des Diagramms zu und legen Sie die Haupt- und Nebenwerte, den Maximal- und Minimalwert fest.
-1. Legen Sie nun die Rotationswinkel des Diagramms in X- und Y-Richtung fest.
-1. Speichern Sie die Präsentation im PPTX-Format.
+1. Erstellen einer Instanz einer Microsoft‑PowerPoint‑Präsentation.
+1. Hinzufügen einer leeren Folie zur Präsentation.
+1. Hinzufügen eines 3D‑Clustered‑Column‑Diagramms und darauf zugreifen.
+1. Zugriff auf das Diagramm‑Datenarbeitsblatt mithilfe einer Microsoft‑Excel‑Arbeitsbuch‑Instanz.
+1. Entfernen der nicht genutzten Serien 2 und 3.
+1. Zugriff auf Diagrammkategorien und Ändern der Beschriftungen.
+1. Zugriff auf Serie 1 und Ändern der Serienwerte.
+1. Zugriff auf den Diagrammtitel und Festlegen der Schriftarteigenschaften.
+1. Zugriff auf die Werte‑Achse des Diagramms und Festlegen der Haupt‑ und Nebeneinheiten sowie von Max‑ und Min‑Werten.
+1. Festlegen der Rotationswinkel des Diagramms in X‑ und Y‑Richtung.
+1. Speichern der Präsentation im PPTX‑Format.
 
 ``` csharp
 
@@ -309,41 +311,41 @@ Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 
 {
 
-	//Erstellen Sie eine leere Präsentation
+	//Create empty presentation
 
 	using (PresentationEx pres = new PresentationEx())
 
 	{
 
-		//Zugriff auf die erste Folie
+		//Accessing first slide
 
 		SlideEx slide = pres.Slides[0];
 
-		//Hinzufügen des Standarddiagramms
+		//Addding default chart
 
 		ChartEx ppChart = slide.Shapes.AddChart(ChartTypeEx.ClusteredColumn3D, 20F, 30F, 400F, 300F);
 
-		//Diagrammdaten abrufen
+		//Getting Chart data
 
 		ChartDataEx chartData = ppChart.ChartData;
 
-		//Entfernen zusätzlicher Standardserien
+		//Removing Extra default series
 
 		chartData.Series.RemoveAt(1);
 
 		chartData.Series.RemoveAt(1);
 
-		//Ändern der Namen der Diagrammkategorien
+		//Modifying chart categories names
 
-		chartData.Categories[0].ChartDataCell.Value = "Fahrräder";
+		chartData.Categories[0].ChartDataCell.Value = "Bikes";
 
-		chartData.Categories[1].ChartDataCell.Value = "Zubehör";
+		chartData.Categories[1].ChartDataCell.Value = "Accessories";
 
-		chartData.Categories[2].ChartDataCell.Value = "Reparaturen";
+		chartData.Categories[2].ChartDataCell.Value = "Repairs";
 
-		chartData.Categories[3].ChartDataCell.Value = "Kleidung";
+		chartData.Categories[3].ChartDataCell.Value = "Clothing";
 
-		//Ändern der Diagrammserienwerte für die erste Kategorie
+		//Modifying chart series values for first category
 
 		chartData.Series[0].Values[0].Value = 1000;
 
@@ -353,11 +355,11 @@ Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 
 		chartData.Series[0].Values[3].Value = 3000;
 
-		//Festlegen des Diagrammtitels
+		//Setting Chart title
 
 		ppChart.HasTitle = true;
 
-		ppChart.ChartTitle.Text.Text = "Verkäufe 2007";
+		ppChart.ChartTitle.Text.Text = "2007 Sales";
 
 		PortionFormatEx format = ppChart.ChartTitle.Text.Paragraphs[0].Portions[0].PortionFormat;
 
@@ -370,7 +372,7 @@ Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 		format.FillFormat.SolidFillColor.Color = Color.Black;
 
 
-		//Festlegen der Achswerte
+		//Setting Axis values
 
 		ppChart.ValueAxis.IsAutomaticMaxValue = false;
 
@@ -390,21 +392,19 @@ Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 
 		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-		//Festlegen der Diagrammrotation
+		//Setting Chart rotation
 
 		ppChart.Rotation3D.RotationX = 15;
 
 		ppChart.Rotation3D.RotationY = 20;
 
-		//Speichern der Präsentation
+		//Saving Presentation
 
 		pres.Write("AsposeSampleChart.pptx");
 
 	}
 
 ``` 
-## **Beispielcode herunterladen**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772948)
-- [Github](https://github.com/asposemarketplace/Aspose_for_VSTO/releases/download/3/Create.a.Chart.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20Chart%20\(Aspose.Slides\).zip)
+## **Download Sample Code**
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart/)

@@ -6,19 +6,19 @@ url: /ja/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**
-以下は、テーブルセルに画像を追加するためのコードです：
+以下はテーブルセルに画像を追加するコードです:
 
 ``` csharp
 
-    //テーブルを含むプレゼンテーションクラスを開く
+    //Open Prsentation class that contains the table
 
-   string FileName = "テーブルセルに画像を追加.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
    string ImageFile = "AsposeLogo.jpg";
 
    Presentation pres = Application.Presentations.Open(FileName);
 
-   //最初のスライドを取得
+   //Get the first slide
 
    Slide sld = pres.Slides[1];
 
@@ -41,36 +41,36 @@ url: /ja/net/add-image-in-table-cell/
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NETは、非常に簡単な方法でテーブルを作成するための最も簡単なAPIを提供しています。新しいテーブルを作成しながらテーブルセルに画像を追加するには、以下の手順に従ってください：
+Aspose.Slides for .NET は、テーブルを最も簡単な方法で作成できる API を提供しています。新しいテーブルを作成しながらテーブルセルに画像を追加するには、以下の手順に従ってください。
 
-- Presentationクラスのインスタンスを作成します
-- インデックスを使用してスライドの参照を取得します
-- 幅を持つ列の配列を定義します
-- 高さを持つ行の配列を定義します
-- IShapesオブジェクトによって公開されているAddTableメソッドを使用してスライドにテーブルを追加します
-- 画像ファイルを保持するBitmapオブジェクトを作成します
-- Bitmap画像をIPPImageオブジェクトに追加します
-- テーブルセルの塗りつぶし形式を画像として設定します
-- テーブルの最初のセルに画像を追加します
-- 修正されたプレゼンテーションをPPTXファイルとして保存します
+- Presentation クラスのインスタンスを作成する
+- インデックスを使用してスライドの参照を取得する
+- 幅を指定した列の配列を定義する
+- 高さを指定した行の配列を定義する
+- IShapes オブジェクトが公開する AddTable メソッドを使用してスライドにテーブルを追加する
+- 画像ファイルを保持する Bitmap オブジェクトを作成する
+- Bitmap 画像を IPPImage オブジェクトに追加する
+- テーブルセルの塗りつぶし形式を画像に設定する
+- 画像をテーブルの最初のセルに追加する
+- 変更したプレゼンテーションを PPTX ファイルとして保存する
 
 ``` csharp
 
-   string FileName = "テーブルセルに画像を追加.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
   string ImageFile = "AsposeLogo.jpg";
 
   Presentation MyPresentation = new Presentation(FileName);
 
-  //最初のスライドを取得
+  //Get First Slide
 
   ISlide sld = MyPresentation.Slides[0];
 
-  //画像ファイルを保持するBitmap Imageオブジェクトを作成
+  //Creating a Bitmap Image object to hold the image file
 
   using IImage image = Images.FromFile(ImageFile);
 
-  //ビットマップオブジェクトを使用してIPPImageオブジェクトを作成
+  //Create an IPPImage object using the bitmap object
 
   IPPImage imgx1 = MyPresentation.Images.AddImage(image);
 
@@ -82,7 +82,7 @@ Aspose.Slides for .NETは、非常に簡単な方法でテーブルを作成す�
 
      ITable tbl = (ITable)shp;
 
-     //最初のテーブルセルに画像を追加
+     //Add image to first table cell
 
      tbl[0, 0].FillFormat.FillType = FillType.Picture;
 
@@ -92,15 +92,13 @@ Aspose.Slides for .NETは、非常に簡単な方法でテーブルを作成す�
 
    }
 
-  //PPTXをディスクに保存
+  //Save PPTX to Disk
 
   MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
 
 
 ``` 
-## **実行コードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding image in table cell/)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)

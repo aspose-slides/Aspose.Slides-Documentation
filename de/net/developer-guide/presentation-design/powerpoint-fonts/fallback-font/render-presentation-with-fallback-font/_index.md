@@ -15,29 +15,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Rendern von Präsentationen mit Fallback-Schriftarten in Aspose.Slides für .NET – gewährleisten einer konsistenten Textdarstellung in PPT, PPTX und ODP mit schrittweisen C#-Beispielen."
+description: "Präsentationen mit Fallback-Schriftarten in Aspose.Slides für .NET rendern – Text über PPT, PPTX und ODP hinweg konsistent halten mit Schritt-für-Schritt C# Code-Beispielen."
 ---
 
 Das folgende Beispiel enthält diese Schritte:
 
-1. Wir [erstellen die Fallback-Schriftart-Regelsammlung](/slides/de/net/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) eine Fallback-Schriftart-Regel und [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) zu einer anderen Regel.
-1. Setzen Sie die Regelsammlung auf die [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) Eigenschaft.
-1. Mit der [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) Methode können wir die Präsentation im selben Format speichern oder in ein anderes Format konvertieren. Nachdem die Fallback-Schriftart-Regelsammlung dem FontsManager zugewiesen wurde, werden diese Regeln bei allen Vorgängen mit der Präsentation angewendet: Speichern, Rendern, Konvertieren usw.
+1. Wir [erstellen eine Sammlung von Fallback‑Schriftartenregeln](/slides/de/net/create-fallback-fonts-collection/).
+1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) einer Fallback‑Schriftartregel und [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) zu einer anderen Regel.
+1. Setzen Sie die Regelsammlung auf die Eigenschaft [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
+1. Mit [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) können wir die Präsentation im selben Format speichern oder in einem anderen Format. Nachdem die Fallback‑Schriftartenregelsammlung auf FontsManager gesetzt wurde, werden diese Regeln bei allen Vorgängen mit der Präsentation angewendet: speichern, rendern, konvertieren usw.
 ```c#
 // Neue Instanz einer Regelsammlung erstellen
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// Eine Anzahl von Regeln erstellen
+// Erstelle eine Anzahl von Regeln
 rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
 foreach (IFontFallBackRule fallBackRule in rulesList)
 {
-	// Versuchen, die Fallback-Schriftart "Tahoma" aus den geladenen Regeln zu entfernen
+	// Versucht die Fallback-Schriftart "Tahoma" aus geladenen Regeln zu entfernen
 	fallBackRule.Remove("Tahoma");
 
-	// Und die Regeln für den angegebenen Bereich aktualisieren
+	// Und die Regeln für den angegebenen Bereich zu aktualisieren
 	if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
 		fallBackRule.AddFallBackFonts("Verdana");
 }
@@ -51,7 +51,7 @@ using (Presentation pres = new Presentation("input.pptx"))
     // Zuweisen einer vorbereiteten Regelliste zur Verwendung
     pres.FontsManager.FontFallBackRulesCollection = rulesList;
 
-    // Rendern einer Miniatur mit der initialisierten Regelsammlung und Speichern als PNG
+    // Rendern eines Thumbnails unter Verwendung der initialisierten Regelsammlung und Speicherung als PNG
     using (IImage image = pres.Slides[0].GetImage(1f, 1f))
     {
         image.Save("Slide_0.png", ImageFormat.Png);
@@ -60,7 +60,6 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 
-
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Presentation](/slides/de/net/creating-saving-and-converting-a-presentation/).
+Lesen Sie mehr über [Speichern und Konvertierung in Präsentation](/slides/de/net/convert-powerpoint-to-png/).
 {{% /alert %}}

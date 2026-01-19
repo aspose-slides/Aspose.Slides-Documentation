@@ -1,40 +1,41 @@
 ---
-title: SVG画像としてスライドを作成
+title: スライドを SVG 画像として作成
 type: docs
 weight: 70
 url: /ja/net/create-slide-as-svg-image/
 ---
 
-Aspose.Slides.Pptx for .NETを使用して任意のスライドからSVG画像を生成するには、以下の手順に従ってください:
+任意のスライドから SVG 画像を生成するには、Aspose.Slides.Pptx for .NET を使用して、以下の手順に従ってください。
 
-- Presentationクラスのインスタンスを作成します。
-- IDまたはインデックスを使用して、目的のスライドの参照を取得します。
-- メモリストリームを使ってSVG画像を取得します。
+- Presentation クラスのインスタンスを作成します。
+- ID またはインデックスを使用して目的のスライドの参照を取得します。
+- メモリストリームで SVG 画像を取得します。
 - メモリストリームをファイルに保存します。
-## **例**
+## **Example**
 
 ```
-//プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
+
+ //Instantiate a Presentation class that represents the presentation file
 
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {
 
-   //2番目のスライドにアクセス
+   //Access the second slide
 
    ISlide sld = pres.Slides[1];
 
-   //メモリストリームオブジェクトを作成
+   //Create a memory stream object
 
    MemoryStream SvgStream = new MemoryStream();
 
-   //スライドのSVG画像を生成し、メモリストリームに保存
+   //Generate SVG image of slide and save in memory stream
 
    sld.WriteAsSvg(SvgStream);
 
    SvgStream.Position = 0;
 
-   //メモリストリームをファイルに保存
+   //Save memory stream to file
 
    using (Stream fileStream = System.IO.File.OpenWrite("PresentatoinTemplate.svg"))
 
@@ -57,17 +58,13 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 SvgStream.Close();
 
 ``` 
-## **実行例のダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Creating Slide SVG Image/)
+## **Download Running Example**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Creating%20Slide%20SVG%20Image)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-詳細については、[スライドSVG画像の作成](/slides/ja/net/presentation-viewer/)をご覧ください。
+詳細については、[Render Presentation Slides as SVG Images in .NET](/slides/ja/net/render-a-slide-as-an-svg-image/) をご覧ください。
 
 {{% /alert %}}

@@ -10,7 +10,7 @@ url: /ar/net/create-a-presentation-document/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "إنشاء مستند عرض تقديمي.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -18,7 +18,7 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    // إنشاء عرض تقديمي في مسار ملف محدد. نوع مستند العرض هو pptx، بشكل افتراضي.
+    // Create a presentation at a specified file path. The presentation document type is pptx, by default.
 
     PresentationDocument presentationDoc = PresentationDocument.Create(filepath, PresentationDocumentType.Presentation);
 
@@ -28,7 +28,7 @@ public static void CreatePresentation(string filepath)
 
     CreatePresentationParts(presentationPart);
 
-    // إغلاق معالجة العرض التقديمي
+    //Close the presentation handle
 
     presentationDoc.Close();
 
@@ -101,11 +101,11 @@ private static SlidePart CreateSlidePart(PresentationPart presentationPart)
 
                         new P.NonVisualShapeProperties(
 
-                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "العنوان 1" },
+                            new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title 1" },
 
                             new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+                            new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
                         new P.ShapeProperties(),
 
@@ -151,7 +151,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape())),
 
       new P.ShapeProperties(),
 
@@ -161,7 +161,7 @@ private static SlideLayoutPart CreateSlideLayoutPart(SlidePart slidePart1)
 
         new ListStyle(),
 
-        new Paragraph(new EndParagraphRunProperties()))))), 
+        new Paragraph(new EndParagraphRunProperties()))))),
 
     new ColorMapOverride(new MasterColorMapping()));
 
@@ -195,11 +195,11 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
       new P.NonVisualShapeProperties(
 
-        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "نموذج العنوان 1" },
+        new P.NonVisualDrawingProperties() { Id = (UInt32Value)2U, Name = "Title Placeholder 1" },
 
         new P.NonVisualShapeDrawingProperties(new ShapeLocks() { NoGrouping = true }),
 
-        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })), 
+        new ApplicationNonVisualDrawingProperties(new PlaceholderShape() { Type = PlaceholderValues.Title })),
 
       new P.ShapeProperties(),
 
@@ -209,7 +209,7 @@ private static SlideMasterPart CreateSlideMasterPart(SlideLayoutPart slideLayout
 
         new ListStyle(),
 
-        new Paragraph())))), 
+        new Paragraph())))),
 
     new P.ColorMap() { Background1 = D.ColorSchemeIndexValues.Light1, Text1 = D.ColorSchemeIndexValues.Dark1, Background2 = D.ColorSchemeIndexValues.Light2, Text2 = D.ColorSchemeIndexValues.Dark2, Accent1 = D.ColorSchemeIndexValues.Accent1, Accent2 = D.ColorSchemeIndexValues.Accent2, Accent3 = D.ColorSchemeIndexValues.Accent3, Accent4 = D.ColorSchemeIndexValues.Accent4, Accent5 = D.ColorSchemeIndexValues.Accent5, Accent6 = D.ColorSchemeIndexValues.Accent6, Hyperlink = D.ColorSchemeIndexValues.Hyperlink, FollowedHyperlink = D.ColorSchemeIndexValues.FollowedHyperlink },
 
@@ -229,7 +229,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
     ThemePart themePart1 = slideMasterPart1.AddNewPart<ThemePart>("rId5");
 
-    D.Theme theme1 = new D.Theme() { Name = "ثيم المكتب" };
+    D.Theme theme1 = new D.Theme() { Name = "Office Theme" };
 
     D.ThemeElements themeElements1 = new D.ThemeElements(
 
@@ -257,7 +257,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.Hyperlink(new D.RgbColorModelHex() { Val = "0000FF" }),
 
-      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "المكتب" },
+      new D.FollowedHyperlinkColor(new D.RgbColorModelHex() { Val = "800080" })) { Name = "Office" },
 
       new D.FontScheme(
 
@@ -275,7 +275,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
       new D.EastAsianFont() { Typeface = "" },
 
-      new D.ComplexScriptFont() { Typeface = "" })) { Name = "المكتب" },
+      new D.ComplexScriptFont() { Typeface = "" })) { Name = "Office" },
 
       new D.FormatScheme(
 
@@ -393,7 +393,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -403,7 +403,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false })),
 
       new D.EffectStyle(
 
@@ -413,7 +413,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.RgbColorModelHex(
 
-          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))), 
+          new D.Alpha() { Val = 38000 }) { Val = "000000" }) { BlurRadius = 40000L, Distance = 20000L, Direction = 5400000, RotateWithShape = false }))),
 
       new D.BackgroundFillStyleList(
 
@@ -439,9 +439,9 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.SchemeColor(new D.Tint() { Val = 50000 },
 
-            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }), 
+            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }),
 
-        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }), 
+        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }),
 
       new D.GradientFill(
 
@@ -457,9 +457,9 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
           new D.SchemeColor(new D.Tint() { Val = 50000 },
 
-            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }), 
+            new D.SaturationModulation() { Val = 300000 }) { Val = D.SchemeColorValues.PhColor }) { Position = 0 }),
 
-        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "المكتب" });
+        new D.LinearGradientFill() { Angle = 16200000, Scaled = true }))) { Name = "Office" });
 
     theme1.Append(themeElements1);
 
@@ -479,7 +479,7 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "إنشاء مستند عرض تقديمي.pptx";
+string FileName = FilePath + "Create a presentation document.pptx";
 
 CreatePresentation(FileName);
 
@@ -487,21 +487,21 @@ public static void CreatePresentation(string filepath)
 
 {
 
-    // إنشاء كائن Presentation يمثل ملف PPT
+    //Instantiate a Presentation object that represents a PPT file
 
     using (Presentation pres = new Presentation())
 
     {
 
-        // إنشاء فئة SlideExCollection
+        //Instantiate SlideExCollection calss
 
         ISlideCollection slds = pres.Slides;
 
-        // إضافة شريحة فارغة إلى مجموعة SlidesEx
+        //Add an empty slide to the SlidesEx collection
 
         slds.AddEmptySlide(pres.LayoutSlides[0]);
 
-        // حفظ العرض التقديمي الخاص بك في ملف
+        //Save your presentation to a file
 
         pres.Save(filepath,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -510,8 +510,7 @@ public static void CreatePresentation(string filepath)
 }
 
 ``` 
-## **تنزيل كود العينة**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Create%20a%20presentation%20document%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Create%20a%20presentation%20document/)

@@ -1,5 +1,5 @@
 ---
-title: Obtener todo el texto en una diapositiva
+title: Obtener todo el texto de una diapositiva
 type: docs
 weight: 110
 url: /es/net/get-all-the-text-in-a-slide/
@@ -7,10 +7,9 @@ url: /es/net/get-all-the-text-in-a-slide/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Obtener todo el texto en una diapositiva.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -18,23 +17,23 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Obtener todo el texto en una diapositiva.
+// Get all the text in a slide.
 
 public static string[] GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-    // Abrir la presentación como solo lectura.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Pasar la presentación y el índice de la diapositiva
+        // Pass the presentation and the slide index
 
-        // al siguiente método GetAllTextInSlide, y
+        // to the next GetAllTextInSlide method, and
 
-        // luego devolver el array de cadenas que devuelve. 
+        // then return the array of strings it returns. 
 
         return GetAllTextInSlide(presentationDocument, slideIndex);
 
@@ -46,7 +45,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
 {
 
-    // Verificar que el documento de presentación exista.
+    // Verify that the presentation document exists.
 
     if (presentationDocument == null)
 
@@ -56,7 +55,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // Verificar que el índice de la diapositiva no esté fuera de rango.
+    // Verify that the slide index is not out of range.
 
     if (slideIndex < 0)
 
@@ -66,53 +65,53 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // Obtener la parte de presentación del documento de presentación.
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Verificar que la parte de presentación y la presentación existan.
+    // Verify that the presentation part and presentation exist.
 
     if (presentationPart != null && presentationPart.Presentation != null)
 
     {
 
-        // Obtener el objeto Presentation de la parte de presentación.
+        // Get the Presentation object from the presentation part.
 
         Presentation presentation = presentationPart.Presentation;
 
-        // Verificar que la lista de ID de diapositivas exista.
+        // Verify that the slide ID list exists.
 
         if (presentation.SlideIdList != null)
 
         {
 
-            // Obtener la colección de IDs de diapositivas de la lista de ID de diapositivas.
+            // Get the collection of slide IDs from the slide ID list.
 
             DocumentFormat.OpenXml.OpenXmlElementList slideIds =
 
                 presentation.SlideIdList.ChildElements;
 
-            // Si el ID de la diapositiva está en rango...
+            // If the slide ID is in range...
 
             if (slideIndex < slideIds.Count)
 
             {
 
-                // Obtener el ID de relación de la diapositiva.
+                // Get the relationship ID of the slide.
 
                 string slidePartRelationshipId = (slideIds[slideIndex] as SlideId).RelationshipId;
 
-                // Obtener la parte de diapositiva especificada del ID de relación.
+                // Get the specified slide part from the relationship ID.
 
                 SlidePart slidePart =
 
                     (SlidePart)presentationPart.GetPartById(slidePartRelationshipId);
 
-                // Pasar la parte de la diapositiva al siguiente método, y
+                // Pass the slide part to the next method, and
 
-                // luego devolver el array de cadenas que ese método
+                // then return the array of strings that method
 
-                // devuelve al método anterior.
+                // returns to the previous method.
 
                 return GetAllTextInSlide(slidePart);
 
@@ -122,7 +121,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // Si no, devolver null.
+    // Else, return null.
 
     return null;
 
@@ -132,7 +131,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 {
 
-    // Verificar que la parte de la diapositiva exista.
+    // Verify that the slide part exists.
 
     if (slidePart == null)
 
@@ -142,17 +141,17 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     }
 
-    // Crear una nueva lista enlazada de cadenas.
+    // Create a new linked list of strings.
 
     LinkedList<string> texts = new LinkedList<string>();
 
-    // Si la diapositiva existe...
+    // If the slide exists...
 
     if (slidePart.Slide != null)
 
     {
 
-        // Iterar a través de todos los párrafos en la diapositiva.
+        // Iterate through all the paragraphs in the slide.
 
         foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in
 
@@ -160,11 +159,11 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
         {
 
-            // Crear un nuevo StringBuilder.                    
+            // Create a new string builder.                    
 
             StringBuilder paragraphText = new StringBuilder();
 
-            // Iterar a través de las líneas del párrafo.
+            // Iterate through the lines of the paragraph.
 
             foreach (DocumentFormat.OpenXml.Drawing.Text text in
 
@@ -172,7 +171,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // Adjuntar cada línea a las líneas anteriores.
+                // Append each line to the previous lines.
 
                 paragraphText.Append(text.Text);
 
@@ -182,7 +181,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // Agregar cada párrafo a la lista enlazada.
+                // Add each paragraph to the linked list.
 
                 texts.AddLast(paragraphText.ToString());
 
@@ -196,7 +195,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     {
 
-        // Devolver un array de cadenas.
+        // Return an array of strings.
 
         return texts.ToArray();
 
@@ -211,14 +210,12 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
     }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Obtener todo el texto en una diapositiva.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -226,27 +223,27 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Obtener todo el texto en una diapositiva.
+// Get all the text in a slide.
 
 public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-// Crear una nueva lista enlazada de cadenas.
+// Create a new linked list of strings.
 
 List<string> texts = new List<string>();
 
-//Instanciar la clase PresentationEx que representa PPTX
+//Instantiate PresentationEx class that represents PPTX
 
 using (Presentation pres = new Presentation(presentationFile))
 
 {
 
-    //Acceder a la diapositiva
+    //Access the slide
 
     ISlide sld = pres.Slides[slideIndex];
 
-    //Iterar a través de las formas para encontrar el marcador de posición
+    //Iterate through shapes to find the placeholder
 
     foreach (Shape shp in sld.Shapes)
 
@@ -254,7 +251,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
         {
 
-            //obtener el texto de cada marcador de posición
+            //get the text of each placeholder
 
             texts.Add(((AutoShape)shp).TextFrame.Text);
 
@@ -262,15 +259,13 @@ using (Presentation pres = new Presentation(presentationFile))
 
 }
 
-// Devolver un array de cadenas.
+// Return an array of strings.
 
 return texts;
 
 }
-
 ``` 
-## **Descargar Código de Ejemplo**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Descargar código de ejemplo**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Obtener%20todo%20el%20texto%20en%20una%20diapositiva%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Obtener%20todo%20el%20texto%20en%20una%20diapositiva%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide/)

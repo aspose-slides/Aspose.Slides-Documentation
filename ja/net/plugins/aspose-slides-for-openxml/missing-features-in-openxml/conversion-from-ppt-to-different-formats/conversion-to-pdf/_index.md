@@ -5,9 +5,9 @@ weight: 30
 url: /ja/net/conversion-to-pdf/
 ---
 
-PDF 文書は、組織、政府部門、個人間で文書を交換するための標準形式として広く使用されています。これは人気のある形式であり、開発者はしばしば Microsoft PowerPoint プレゼンテーションファイルを PDF 文書に変換するよう求められます。このような要件を実現するために、Aspose.Slides for .NET は、他のコンポーネントを使用することなくプレゼンテーションを PDF 文書に変換することをサポートしています。
+PDF ドキュメントは、組織、政府部門、個人間で文書を交換する標準フォーマットとして広く使用されています。人気のあるフォーマットであるため、開発者は Microsoft PowerPoint のプレゼンテーション ファイルを PDF ドキュメントに変換するよう依頼されることがよくあります。このような要件を想定し、Aspose.Slides for .NET は他のコンポーネントを使用せずにプレゼンテーションを PDF ドキュメントに変換することをサポートしています。
 
-**Aspose.Slides for .NET** は、プレゼンテーションファイルを表す Presentation クラスを提供しています。**Presentation** クラスは、全体のプレゼンテーションを **PDF** 文書に変換するために呼び出すことができる Save メソッドを公開しています。**PdfOptions** クラスは、JpegQuality、TextCompression、Compliance など、**PDF** を作成するためのオプションを提供します。これらのオプションを使用することで、所望の PDF 基準を得ることができます。
+**Aspose.Slides for .NET** は、プレゼンテーション ファイルを表す Presentation クラスを提供します。**Presentation** クラスは、プレゼンテーション全体を **PDF** ドキュメントに変換できる Save メソッドを公開しています。**PdfOptions** クラスは、JpegQuality、TextCompression、Compliance など、**PDF** 作成のためのオプションを提供します。これらのオプションを使用して、目的とする PDF の標準を実現できます。
 
 ``` csharp
 
@@ -15,19 +15,17 @@ PDF 文書は、組織、政府部門、個人間で文書を交換するため�
 
 string srcFileName = FilePath + "Conversion.pptx";
 
-string destFileName = FilePath + "PDF への変換.pdf";
+string destFileName = FilePath + "Converting to PDF.pdf";
 
-//プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation(srcFileName);
 
-//デフォルトオプションでプレゼンテーションを PDF に保存
+//Save the presentation to PDF with default options
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Pdf);
 
 ``` 
 ## **サンプルコードのダウンロード**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20PDF%20%28Aspose.Slides%29.zip)

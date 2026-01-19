@@ -1,16 +1,16 @@
 ---
-title: الحصول على تنسيق الملف للعروض التقديمية
+title: الحصول على تنسيق ملف العرض التقديمي
 type: docs
 weight: 50
 url: /ar/net/get-the-file-format-of-presentation/
 ---
 
-للحصول على تنسيق الملف. يرجى اتباع الخطوات أدناه:
+لكي تحصل على تنسيق الملف. يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة **IPresentationInfo**
+- إنشاء مثيل من الفئة **IPresentationInfo**
 - الحصول على معلومات حول العرض التقديمي
 
-في المثال الموضح أدناه، حصلنا على تنسيق الملف.
+في المثال المعطى أدناه، حصلنا على تنسيق الملف.
 ## **مثال**
 ``` csharp
 
@@ -46,11 +46,7 @@ switch (info.LoadFormat)
 }
 
 ``` 
-## **تحميل الكود المصدري**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **تنزيل الكود النموذجي**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-## **تحميل المثال القابل للتشغيل**
-- [Codeplex](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
+## **تنزيل المثال التشغيلي**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)

@@ -1,42 +1,48 @@
 ---
-title: Conversion de Document OpenOffice
+title: Conversion de document OpenOffice
 type: docs
 weight: 30
 url: /fr/net/conversion-of-openoffice-document/
 ---
 
-Aspose.Slides pour .NET propose la classe **Presentation** qui représente un fichier de présentation. La classe **Presentation** peut maintenant également accéder à **ODP** via le constructeur Presentation lors de l'instantiation de l'objet.
+Aspose.Slides for .NET propose la classe **Presentation** qui représente un fichier de présentation. La classe **Presentation** peut désormais également accéder à **ODP** via le constructeur Presentation lorsque l'objet est instancié.
 
-Voici un exemple de conversion d'ODP vers PPT/PPTX.
+Voici un exemple de conversion d'ODP en PPT/PPTX.
 ## **Exemple**
 ```
-//Instancier un objet Presentation qui représente un fichier de présentation
+
+ //Instantiate a Presentation object that represents a presentation file
 
 using(PresentationEx pres = new PresentationEx("OpenOfficePresentation.odp"))
+
 {
-   //Sauvegarder la présentation PPTX au format PPTX
+
+   //Saving the PPTX presentation to PPTX format
 
    pres.Save("ConvertedFromOdp",Aspose.Slides.Export.SaveFormat.Pptx);
+
 }
+
 ``` 
 
-Voici un exemple de conversion de PPT/PPTX vers ODP.
+Voici un exemple de conversion de PPT/PPTX en ODP.
 ## **Exemple**
-```
-//Instancier un objet Presentation qui représente un fichier de présentation
+``` 
+
+ //Instantiate a Presentation object that represents a presentation file
 
 using (PresentationEx pres = new PresentationEx("ConversionFromPresentation.pptx"))
+
 {
-   //Sauvegarder la présentation PPTX au format ODP
+
+   //Saving the PPTX presentation to PPTX format
 
    pres.Save("ConvertedToOdp", Aspose.Slides.Export.SaveFormat.Odp);
+
 }
+
 ``` 
-## **Télécharger l'Exemple Fonctionnel**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Conversion from ODP to PPTX/Converting From and To ODP/)
+## **Télécharger l'exemple d'exécution**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Conversion%20from%20ODP%20to%20PPTX)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **Télécharger le Code Exemple**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **Télécharger le code d'exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)

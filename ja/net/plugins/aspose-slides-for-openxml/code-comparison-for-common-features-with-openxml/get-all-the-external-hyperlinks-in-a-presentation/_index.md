@@ -1,5 +1,5 @@
 ---
-title: プレゼンテーション内のすべての外部ハイパーリンクを取得する
+title: プレゼンテーション内のすべての外部ハイパーリンクを取得
 type: docs
 weight: 90
 url: /ja/net/get-all-the-external-hyperlinks-in-a-presentation/
@@ -16,23 +16,23 @@ foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))
 
 Console.WriteLine(s);
 
-// プレゼンテーションのスライド内のすべての外部ハイパーリンクを返します。
+// Returns all the external hyperlinks in the slides of a presentation.
 
 public static IEnumerable<String> GetAllExternalHyperlinksInPresentation(string fileName)
 
 {
 
-// 文字列のリストを宣言します。
+// Declare a list of strings.
 
 List<string> ret = new List<string>();
 
-// プレゼンテーションファイルを読み取り専用として開きます。
+// Open the presentation file as read-only.
 
 using (PresentationDocument document = PresentationDocument.Open(fileName, false))
 
 {
 
-    // プレゼンテーションパート内のすべてのスライドパートを繰り返します。
+    // Iterate through all the slide parts in the presentation part.
 
     foreach (SlidePart slidePart in document.PresentationPart.SlideParts)
 
@@ -40,25 +40,25 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
         IEnumerable<Drawing.HyperlinkType> links = slidePart.Slide.Descendants<Drawing.HyperlinkType>();
 
-        // スライドパート内のすべてのリンクを繰り返します。
+        // Iterate through all the links in the slide part.
 
         foreach (Drawing.HyperlinkType link in links)
 
         {
 
-            // スライドパート内のすべての外部関係を繰り返します。 
+            // Iterate through all the external relationships in the slide part. 
 
             foreach (HyperlinkRelationship relation in slidePart.HyperlinkRelationships)
 
             {
 
-                // 関係のIDがリンクのIDと一致する場合...
+                // If the relationship ID matches the link ID...
 
                 if (relation.Id.Equals(link.Id))
 
                 {
 
-                    // 外部関係のURIを文字列のリストに追加します。
+                    // Add the URI of the external relationship to the list of strings.
 
                     ret.Add(relation.Uri.AbsoluteUri);
 
@@ -72,7 +72,7 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
 }
 
-// 文字列のリストを返します。
+// Return the list of strings.
 
 return ret;
 
@@ -81,7 +81,7 @@ return ret;
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NET は、プレゼンテーション、スライド、およびテキストフレームレベルでハイパーリンクを管理する開発者をサポートします。**IHyperlinkQueries** クラスは、プレゼンテーション内のハイパーリンクを管理するのに役立ちます。
+Aspose.Slides for .NET は、プレゼンテーション、スライド、テキスト フレーム レベルでハイパーリンクを管理できるように開発者に提供します。**IHyperlinkQueries** クラスは、プレゼンテーション内のハイパーリンクを管理するのに役立ちます。
 
 ``` csharp
 
@@ -89,11 +89,11 @@ Aspose.Slides for .NET は、プレゼンテーション、スライド、およ
 
 string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
-// PPTXファイルを表すプレゼンテーションオブジェクトをインスタンス化します。
+//Instantiate a Presentation object that represents a PPTX file
 
 Presentation pres = new Presentation(FileName);
 
-// プレゼンテーションからハイパーリンクを取得します。
+//Get the hyperlinks from presentation
 
 IList<IHyperlinkContainer> links = pres.HyperlinkQueries.GetAnyHyperlinks();
 
@@ -102,9 +102,7 @@ foreach (IHyperlinkContainer link in links)
     Console.WriteLine(link.HyperlinkClick.ExternalUrl);
 
 ``` 
-## **動作コード例のダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **コード例のダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **サンプルコード**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Get all the External Hyperlinks/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Get%20all%20the%20External%20Hyperlinks)

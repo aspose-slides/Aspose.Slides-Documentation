@@ -5,16 +5,16 @@ weight: 10
 url: /es/net/assemble-slides/
 ---
 
-## **Agregar una diapositiva a una presentación**
-Antes de hablar sobre agregar diapositivas a los archivos de presentación, discutamos algunos datos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva Maestra / de Diseño y otras diapositivas Normales. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides para .NET. Cada diapositiva tiene un Id único y todas las diapositivas Normales se organizan en un orden especificado por el índice basado en cero.
+## **Añadir una diapositiva a una presentación**
+Antes de hablar de añadir diapositivas a los archivos de presentación, analicemos algunos datos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva Maestra / Diseño y otras diapositivas normales. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides for .NET. Cada diapositiva tiene un Id único y todas las diapositivas normales se organizan en un orden especificado por un índice basado en cero.
 
-Aspose.Slides para .NET permite a los desarrolladores agregar diapositivas vacías a su presentación. Para agregar una diapositiva vacía en la presentación, siga los pasos a continuación:
+Aspose.Slides for .NET permite a los desarrolladores añadir diapositivas vacías a su presentación. Para añadir una diapositiva vacía en la presentación, siga los pasos a continuación:
 
-- Cree una instancia de la clase **Presentation**
-- Instancie la clase **SlideCollection** estableciendo una referencia a la propiedad Slides (colección de objetos Slide de contenido) expuesta por el objeto Presentation.
-- Agregue una diapositiva vacía a la presentación al final de la colección de diapositivas de contenido llamando a los métodos **AddEmptySlide** expuestos por el objeto **SlideCollection**.
-- Realice alguna operación con la diapositiva vacía recién agregada.
-- Finalmente, escriba el archivo de presentación usando el objeto **Presentation**
+- Crear una instancia de la clase **Presentation**
+- Instanciar la clase **SlideCollection** estableciendo una referencia a la propiedad Slides (colección de objetos Slide de contenido) expuesta por el objeto Presentation.
+- Añadir una diapositiva vacía a la presentación al final de la colección de diapositivas de contenido llamando a los métodos **AddEmptySlide** expuestos por el objeto **SlideCollection**
+- Realizar alguna operación con la diapositiva vacía recién añadida
+- Finalmente, escribir el archivo de presentación usando el objeto **Presentation**
 
 ``` csharp
 
@@ -39,12 +39,12 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 pres.Write("EmptySlide.pptx");
 
 ``` 
-## **Acceder a diapositivas de una presentación**
-Aspose.Slides para .NET proporciona la clase Presentation que puede usarse para encontrar y acceder a cualquier diapositiva deseada presente en la presentación.
+## **Acceder a las diapositivas de una presentación**
+Aspose.Slides for .NET proporciona la clase Presentation que puede usarse para encontrar y acceder a cualquier diapositiva deseada presente en la presentación.
 
-**Usando la colección Slides**
+**Usando la colección de diapositivas**
 
-La clase **Presentation** representa un archivo de presentación y expone todas sus diapositivas como una colección **SlideCollection** (que es una colección de objetos **Slide**). Todas estas diapositivas pueden accederse desde esta colección **Slides** usando un índice de diapositiva.
+La clase **Presentation** representa un archivo de presentación y expone todas sus diapositivas como una colección **SlideCollection** (es decir, una colección de objetos **Slide**). Todas estas diapositivas pueden accederse desde esta colección **Slides** usando un índice de diapositiva.
 
 ``` csharp
 
@@ -58,7 +58,7 @@ SlideEx slide = pres.Slides[0];
 
 ``` 
 ## **Eliminar diapositivas**
-Sabemos que la clase Presentation en **Aspose.Slides para .NET** representa un archivo de presentación. La clase Presentation encapsula una **SlideCollection** que actúa como un repositorio de todas las diapositivas que forman parte de la presentación. Los desarrolladores pueden eliminar una diapositiva de esta colección Slides de dos maneras:
+Sabemos que la clase Presentation en **Aspose.Slides for .NET** representa un archivo de presentación. La clase Presentation encapsula una **SlideCollection** que actúa como repositorio de todas las diapositivas que forman parte de la presentación. Los desarrolladores pueden eliminar una diapositiva de esta colección Slides de dos maneras:
 
 - Usando referencia de diapositiva
 - Usando índice de diapositiva
@@ -67,10 +67,10 @@ Sabemos que la clase Presentation en **Aspose.Slides para .NET** representa un a
 
 Para eliminar una diapositiva usando su referencia, siga los pasos a continuación:
 
-- Cree una instancia de la clase Presentation
-- Obtenga la referencia de una diapositiva usando su Id o Índice
-- Elimine la diapositiva referenciada de la presentación
-- Escriba el archivo de presentación modificado
+- Crear una instancia de la clase Presentation
+- Obtener la referencia de una diapositiva usando su Id o Índice
+- Eliminar la diapositiva referenciada de la presentación
+- Escribir el archivo de presentación modificado
 
 ``` csharp
 
@@ -94,12 +94,12 @@ pres.Write("modified.pptx");
 ## **Cambiar la posición de una diapositiva**
 Es muy sencillo cambiar la posición de una diapositiva en la presentación. Simplemente siga los pasos a continuación:
 
-- Cree una instancia de la clase Presentation
-- Obtenga la referencia de una diapositiva usando su Índice
-- Cambie el SlideNumber de la diapositiva referenciada
-- Escriba el archivo de presentación modificado
+- Crear una instancia de la clase Presentation
+- Obtener la referencia de una diapositiva usando su Índice
+- Cambiar el SlideNumber de la diapositiva referenciada
+- Escribir el archivo de presentación modificado
 
-En el ejemplo a continuación, hemos cambiado la posición de una diapositiva (ubicada en la posición de índice cero 1) de la presentación a índice 1 (Posición 2).
+En el ejemplo siguiente, hemos cambiado la posición de una diapositiva (situada en la posición de índice cero 1) de la presentación a la posición de índice 1 (Posición 2).
 
 ``` csharp
 
@@ -209,7 +209,5 @@ Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
 ``` 
 ## **Descargar código de ejemplo**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Assemble%20Slides%20%28Aspose.Slides%29.zip)

@@ -1,5 +1,5 @@
 ---
-title: Holen Sie sich den gesamten Text in allen Folien
+title: Den gesamten Text aus allen Folien abrufen
 type: docs
 weight: 100
 url: /de/net/get-all-the-text-in-all-the-slides/
@@ -10,11 +10,11 @@ url: /de/net/get-all-the-text-in-all-the-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Holen Sie sich den gesamten Text in einer Folie.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Anzahl der Folien = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -24,7 +24,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("Folie #{0} enthält: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -34,15 +34,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // Öffnen Sie die Präsentation als schreibgeschützt.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Geben Sie die Präsentation an die nächste CountSlides-Methode weiter
+        // Pass the presentation to the next CountSlides method
 
-        // und geben Sie die Folienanzahl zurück.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -50,13 +50,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Zählen Sie die Folien in der Präsentation.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Prüfen Sie auf ein null-Dokumentobjekt.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -68,11 +68,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Holen Sie sich den Präsentationsteil des Dokuments.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Holen Sie sich die Folienanzahl aus den SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -82,7 +82,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Geben Sie die Folienanzahl an die vorherige Methode zurück.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -96,7 +96,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // Holen Sie sich die Beziehungs-ID der ersten Folie.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -104,15 +104,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // Holen Sie sich den Folienteil aus der Beziehungs-ID.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // Erstellen Sie ein StringBuilder-Objekt.
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // Holen Sie sich den inneren Text der Folie:
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -136,11 +136,11 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Holen Sie sich den gesamten Text in einer Folie.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Anzahl der Folien = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -150,7 +150,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 slideText = GetSlideText(FileName, i);
 
-System.Console.WriteLine("Folie #{0} enthält: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -160,7 +160,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    //Instanziieren Sie die PresentationEx-Klasse, die PPTX darstellt
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
@@ -178,17 +178,17 @@ public static string GetSlideText(string docName, int index)
 
     string sldText = "";
 
-    //Instanziieren Sie die PresentationEx-Klasse, die PPTX darstellt
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(docName))
 
     {
 
-        //Zugriff auf die Folie
+        //Access the slide
 
         ISlide sld = pres.Slides[index];
 
-        //Iterieren Sie durch Formen, um den Platzhalter zu finden
+        //Iterate through shapes to find the placeholder
 
         foreach (Shape shp in sld.Shapes)
 
@@ -196,7 +196,7 @@ public static string GetSlideText(string docName, int index)
 
             {
 
-                //Holen Sie sich den Text jedes Platzhalters
+                //get the text of each placeholder
 
                 sldText += ((AutoShape)shp).TextFrame.Text;
 
@@ -210,7 +210,6 @@ public static string GetSlideText(string docName, int index)
 
 ``` 
 ## **Beispielcode herunterladen**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Holen%20Sie%20sich%20den%20gesamten%20Text%20in%20allen%20Folien%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Holen%20Sie%20sich%20den%20gesamten%20Text%20in%20allen%20Folien%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides/)

@@ -1,11 +1,11 @@
 ---
-title: プレゼンテーション内の図形の塗りつぶし色を変更する
+title: プレゼンテーションの図形の塗りつぶし色を変更する
 type: docs
 weight: 40
 url: /ja/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
-## **OpenXMLプレゼンテーション**
+## **OpenXML プレゼンテーション**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
@@ -14,9 +14,9 @@ string FileName = FilePath + "Fill color of a shape.pptx";
 
 SetPPTShapeColor(FileName);
 
-// 図形の塗りつぶし色を変更します。
+// Change the fill color of a shape.
 
-// テストファイルには、最初のスライドの最初の図形として塗りつぶされた図形が必要です。
+// The test file must have a filled shape as the first shape on the first slide.
 
 public static void SetPPTShapeColor(string docName)
 
@@ -26,7 +26,7 @@ public static void SetPPTShapeColor(string docName)
 
     {
 
-        // 最初のスライドのリレーションシップIDを取得します。
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -34,7 +34,7 @@ public static void SetPPTShapeColor(string docName)
 
         string relId = (slideIds[0] as SlideId).RelationshipId;
 
-        // リレーションシップIDからスライドパートを取得します。
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
@@ -42,11 +42,11 @@ public static void SetPPTShapeColor(string docName)
 
         {
 
-            // 変更する図形を含む図形ツリーを取得します。
+            // Get the shape tree that contains the shape to change.
 
             ShapeTree tree = slide.Slide.CommonSlideData.ShapeTree;
 
-            // 図形ツリー内の最初の図形を取得します。
+            // Get the first shape in the shape tree.
 
             Shape shape = tree.GetFirstChild<Shape>();
 
@@ -54,21 +54,21 @@ public static void SetPPTShapeColor(string docName)
 
             {
 
-                // 図形のスタイルを取得します。
+                // Get the style of the shape.
 
                 ShapeStyle style = shape.ShapeStyle;
 
-                // 塗りつぶしリファレンスを取得します。
+                // Get the fill reference.
 
                 Drawing.FillReference fillRef = style.FillReference;
 
-                // 塗りつぶし色をSchemeColor Accent 6に設定します。
+                // Set the fill color to SchemeColor Accent 6;
 
                 fillRef.SchemeColor = new Drawing.SchemeColor();
 
                 fillRef.SchemeColor.Val = Drawing.SchemeColorValues.Accent6;
 
-                // 修正されたスライドを保存します。
+                // Save the modified slide.
 
                 slide.Slide.Save();
 
@@ -82,14 +82,14 @@ public static void SetPPTShapeColor(string docName)
 
 ``` 
 ## **Aspose.Slides**
-プレゼンテーション内の図形を塗りつぶすには、以下の手順に従う必要があります：
+プレゼンテーションの図形を塗りつぶすには、以下の手順に従う必要があります。
 
-- Presentationクラスのインスタンスを作成します。
-- インデックスを使用してスライドのリファレンスを取得します。
-- スライドにIShapeを追加します。
-- 図形の塗りつぶしタイプをSolidに設定します。
+- Presentation クラスのインスタンスを作成します。
+- インデックスを使用してスライドの参照を取得します。
+- スライドに IShape を追加します。
+- 図形の塗りつぶしタイプを Solid に設定します。
 - 図形の色を設定します。
-- 修正されたプレゼンテーションをPPTXファイルとして保存します。
+- 変更されたプレゼンテーションを PPTX ファイルとして書き出します。
 
 ``` csharp
 
@@ -97,38 +97,36 @@ public static void SetPPTShapeColor(string docName)
 
 string FileName = FilePath + "Fill color of a shape.pptx";
 
-//PPTXを表すPresentationExクラスをインスタンス化します。
+//Instantiate PrseetationEx class that represents the PPTX 
 
 using (Presentation pres = new Presentation())
 
 {
 
-    //最初のスライドを取得します
+    //Get the first slide
 
     ISlide sld = pres.Slides[0];
 
-    //長方形タイプのオートシェイプを追加します
+    //Add autoshape of rectangle type
 
     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
 
-    //塗りつぶしタイプをSolidに設定します
+    //Set the fill type to Solid
 
     shp.FillFormat.FillType = FillType.Solid;
 
-    //長方形の色を設定します
+    //Set the color of the rectangle
 
     shp.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    //PPTXファイルをディスクに書き込みます
+    //Write the PPTX file to disk
 
     pres.Save(FileName, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **コード例をダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **実行コード例のダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **サンプルコード**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Apply Theme to Presentation/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Fill%20Color%20of%20a%20Shape)

@@ -1,16 +1,16 @@
 ---
-title: Formatear gráficos de presentación en .NET
-linktitle: Formato de gráfico
+title: Formato de gráficos de presentación en .NET
+linktitle: Formato de gráficos
 type: docs
 weight: 60
 url: /es/net/chart-formatting/
 keywords:
+- formatear gráfico
 - formato de gráfico
-- formateo de gráfico
 - entidad de gráfico
-- propiedades de gráfico
-- configuración de gráfico
-- opciones de gráfico
+- propiedades del gráfico
+- configuración del gráfico
+- opciones del gráfico
 - propiedades de fuente
 - borde redondeado
 - PowerPoint
@@ -18,53 +18,56 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a formatear gráficos en Aspose.Slides para .NET y mejore su presentación de PowerPoint con un estilo profesional y llamativo."
+description: "Aprenda a formatear gráficos en Aspose.Slides para .NET y mejore su presentación de PowerPoint con un estilo profesional y atractivo."
 ---
 
-## **Formato de entidades de gráfico**
-Aspose.Slides for .NET permite a los desarrolladores agregar gráficos personalizados a sus diapositivas desde cero. Este artículo explica cómo dar formato a diferentes entidades de gráfico, incluidas la categoría del gráfico y el eje de valores.
+## **Entidades de formato de gráfico**
+Aspose.Slides for .NET permite a los desarrolladores añadir gráficos personalizados a sus diapositivas desde cero. Este artículo explica cómo dar formato a diferentes entidades de gráficos, incluidas las categorías y los ejes de valores.
 
-Aspose.Slides for .NET proporciona una API sencilla para gestionar diferentes entidades de gráfico y darles formato utilizando valores personalizados:
+Aspose.Slides for .NET proporciona una API simple para gestionar diferentes entidades de gráficos y darles formato mediante valores personalizados:
 
 1. Cree una instancia de la clase **Presentation**.
-1. Obtenga la referencia de una diapositiva por su índice.
-1. Agregue un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (en este ejemplo utilizaremos ChartType.LineWithMarkers).
-1. Acceda al eje de valores del gráfico y configure las siguientes propiedades:
-   1. Configurar **Line format** para las líneas principales de la cuadrícula del eje de valores
-   1. Configurar **Line format** para las líneas menores de la cuadrícula del eje de valores
-   1. Configurar **Number Format** para el eje de valores
-   1. Configurar **Min, Max, Major and Minor units** para el eje de valores
-   1. Configurar **Text Properties** para los datos del eje de valores
-   1. Configurar **Title** para el eje de valores
-   1. Configurar **Line Format** para el eje de valores
-1. Acceda al eje de categorías del gráfico y configure las siguientes propiedades:
-   1. Configurar **Line format** para las líneas principales de la cuadrícula del eje de categorías
-   1. Configurar **Line format** para las líneas menores de la cuadrícula del eje de categorías
-   1. Configurar **Text Properties** para los datos del eje de categorías
-   1. Configurar **Title** para el eje de categorías
-   1. Configurar **Label Positioning** para el eje de categorías
-   1. Configurar **Rotation Angle** para las etiquetas del eje de categorías
-1. Acceda a la leyenda del gráfico y configure las **Text Properties** para ella
-1. Configure la visualización de leyendas del gráfico sin superponerse al gráfico
-1. Acceda al **Secondary Value Axis** del gráfico y configure las siguientes propiedades:
-   1. Habilite el **Value Axis** secundario
-   1. Configurar **Line Format** para el eje de valores secundario
-   1. Configurar **Number Format** para el eje de valores secundario
-   1. Configurar **Min, Max, Major and Minor units** para el eje de valores secundario
-1. Ahora trace la primera serie del gráfico en el eje de valores secundario
-1. Establezca el color de relleno del fondo del gráfico
-1. Establezca el color de relleno del área de trazado del gráfico
-1. Guarde la presentación modificada en un archivo PPTX
+1. Obtenga una referencia a la diapositiva mediante su índice.
+1. Añada un gráfico con datos predeterminados del tipo que desee (en este ejemplo utilizaremos ChartType.LineWithMarkers).
+1. Acceda al eje de valores del gráfico y establezca las siguientes propiedades:
+   1. Establecer **Line format** para las líneas de cuadrícula mayor del eje de valores.
+   1. Establecer **Line format** para las líneas de cuadrícula menor del eje de valores.
+   1. Establecer **Number Format** para el eje de valores.
+   1. Establecer **Min, Max, Major and Minor units** para el eje de valores.
+   1. Establecer **Text Properties** para los datos del eje de valores.
+   1. Establecer **Title** para el eje de valores.
+   1. Establecer **Line Format** para el eje de valores.
+1. Acceda al eje de categorías del gráfico y establezca las siguientes propiedades:
+   1. Establecer **Line format** para las líneas de cuadrícula mayor del eje de categorías.
+   1. Establecer **Line format** para las líneas de cuadrícula menor del eje de categorías.
+   1. Establecer **Text Properties** para los datos del eje de categorías.
+   1. Establecer **Title** para el eje de categorías.
+   1. Establecer **Label Positioning** para el eje de categorías.
+   1. Establecer **Rotation Angle** para las etiquetas del eje de categorías.
+1. Acceda a la leyenda del gráfico y establezca las **Text Properties** para ella.
+1. Configure la visualización de las leyendas del gráfico sin que se superpongan al gráfico.
+1. Acceda al **Secondary Value Axis** del gráfico y establezca las siguientes propiedades:
+   1. Habilite el **Value Axis** secundario.
+   1. Establecer **Line Format** para el eje de valores secundario.
+   1. Establecer **Number Format** para el eje de valores secundario.
+   1. Establecer **Min, Max, Major and Minor units** para el eje de valores secundario.
+1. Ahora represente la primera serie del gráfico en el eje de valores secundario.
+1. Establezca el color de relleno del fondo del gráfico.
+1. Establezca el color de relleno del área de trazado del gráfico.
+1. Guarde la presentación modificada en un archivo PPTX.
 ```c#
-// Instanciando presentación// Instanciando presentación
+// Instanciando la presentación// Instanciando la presentación
 Presentation pres = new Presentation();
 
+// Accessing the first slide
 // Accediendo a la primera diapositiva
 ISlide slide = pres.Slides[0];
 
+// Adding the sample chart
 // Añadiendo el gráfico de ejemplo
 IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
+// Setting Chart Titile
 // Estableciendo el título del gráfico
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
@@ -76,23 +79,27 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Estableciendo formato de líneas de cuadrícula principales para el eje de valores
+// Setting Major grid lines format for value axis
+// Estableciendo el formato de líneas de cuadrícula mayores del eje de valores
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Estableciendo formato de líneas de cuadrícula menores para el eje de valores
+// Setting Minor grid lines format for value axis
+// Estableciendo el formato de líneas de cuadrícula menores del eje de valores
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Estableciendo formato numérico del eje de valores
+// Setting value axis number format
+// Estableciendo el formato numérico del eje de valores
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Estableciendo valores máximo y mínimo del gráfico
+// Setting chart maximum, minimum values
+// Estableciendo los valores máximo y mínimo del gráfico
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -103,7 +110,8 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Estableciendo propiedades de texto del eje de valores
+// Setting Value Axis Text Properties
+// Estableciendo las propiedades de texto del eje de valores
 IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
 txtVal.FontBold = NullableBool.True;
 txtVal.FontHeight = 16;
@@ -112,7 +120,8 @@ txtVal.FillFormat.FillType = FillType.Solid; ;
 txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
 txtVal.LatinFont = new FontData("Times New Roman");
 
-// Estableciendo título del eje de valores
+// Setting value axis title
+// Estableciendo el título del eje de valores
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
 IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
@@ -123,22 +132,26 @@ valtitle.PortionFormat.FontHeight = 20;
 valtitle.PortionFormat.FontBold = NullableBool.True;
 valtitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Estableciendo formato de línea del eje de valores : ahora obsoleto
+// Setting Value Axis line format : Now Obselete
+// Estableciendo el formato de línea del eje de valores: ahora obsoleto
 // chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
 // chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
 // Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Estableciendo formato de líneas de cuadrícula principales para el eje de categorías
+// Setting Major grid lines format for Category axis
+// Estableciendo el formato de líneas de cuadrícula mayores del eje de categoría
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Estableciendo formato de líneas de cuadrícula menores para el eje de categorías
+// Setting Minor grid lines format for Category axis
+// Estableciendo el formato de líneas de cuadrícula menores del eje de categoría
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Estableciendo propiedades de texto del eje de categorías
+// Setting Category Axis Text Properties
+// Estableciendo las propiedades de texto del eje de categoría
 IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
 txtCat.FontBold = NullableBool.True;
 txtCat.FontHeight = 16;
@@ -147,7 +160,8 @@ txtCat.FillFormat.FillType = FillType.Solid; ;
 txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
 txtCat.LatinFont = new FontData("Arial");
 
-// Estableciendo título de la categoría
+// Setting Category Titile
+// Estableciendo el título de la categoría
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
@@ -159,13 +173,16 @@ catTitle.PortionFormat.FontHeight = 20;
 catTitle.PortionFormat.FontBold = NullableBool.True;
 catTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Estableciendo posición de etiquetas del eje de categorías
+// Setting category axis lable position
+// Estableciendo la posición de la etiqueta del eje de categoría
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
 
-// Estableciendo ángulo de rotación de etiquetas del eje de categorías
+// Setting category axis lable rotation angle
+// Estableciendo el ángulo de rotación de la etiqueta del eje de categoría
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Estableciendo propiedades de texto de la leyenda
+// Setting Legends Text Properties
+// Estableciendo las propiedades de texto de la leyenda
 IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
 txtleg.FontBold = NullableBool.True;
 txtleg.FontHeight = 16;
@@ -173,36 +190,41 @@ txtleg.FontItalic = NullableBool.True;
 txtleg.FillFormat.FillType = FillType.Solid; ;
 txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Configurar la visualización de leyendas del gráfico sin superponer el gráfico
+// Set show chart legends without overlapping chart
+// Establecer mostrar leyendas del gráfico sin superponer el gráfico
 
 chart.Legend.Overlay = true;
             
-// Trazando la primera serie en el eje de valores secundario
+// Ploting first series on secondary value axis
+// Dibujando la primera serie en el eje de valores secundario
 // Chart.ChartData.Series[0].PlotOnSecondAxis = true;
 
-// Estableciendo color de la pared trasera del gráfico
+// Setting chart back wall color
+// Estableciendo el color de la pared trasera del gráfico
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Estableciendo color del área de trazado
+// Setting Plot area color
+// Estableciendo el color del área de trazado
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Guardar presentación
+// Save Presentation
+// Guardar la presentación
 pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **Establecer propiedades de fuente para un gráfico**
-Aspose.Slides for .NET ofrece soporte para establecer las propiedades relacionadas con la fuente para el gráfico. Siga los pasos a continuación para establecer las propiedades de fuente del gráfico.
+Aspose.Slides for .NET ofrece soporte para establecer las propiedades relacionadas con la fuente del gráfico. Siga los pasos a continuación para establecer las propiedades de fuente del gráfico.
 
-- Instancie un objeto de la clase Presentation.
-- Agregue un gráfico a la diapositiva.
-- Establezca la altura de la fuente.
-- Guarde la presentación modificada.
+- Instanciar un objeto de la clase Presentation.
+- Añadir un gráfico en la diapositiva.
+- Establecer la altura de la fuente.
+- Guardar la presentación modificada.
 
 A continuación se muestra un ejemplo de muestra.
 ```c#
@@ -217,11 +239,11 @@ using (Presentation pres = new Presentation())
 
 
 ## **Establecer el formato numérico**
-Aspose.Slides for .NET proporciona una API sencilla para gestionar el formato de datos de los gráficos:
+Aspose.Slides for .NET proporciona una API simple para gestionar el formato de datos del gráfico:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtenga la referencia de una diapositiva por su índice.
-1. Agregue un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (este ejemplo usa **ChartType.ClusteredColumn**).
+1. Obtenga una referencia a la diapositiva mediante su índice.
+1. Añada un gráfico con datos predeterminados del tipo que desee (este ejemplo utiliza **ChartType.ClusteredColumn**).
 1. Establezca el formato numérico predefinido a partir de los valores predefinidos posibles.
 1. Recorra la celda de datos del gráfico en cada serie y establezca el formato numérico de los datos del gráfico.
 1. Guarde la presentación.
@@ -235,17 +257,17 @@ Presentation pres = new Presentation();
 // Acceder a la primera diapositiva de la presentación
 ISlide slide = pres.Slides[0];
 
-// Agregar un gráfico de columnas agrupadas predeterminado
+// Añadiendo un gráfico de columnas agrupadas por defecto
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
 // Accediendo a la colección de series del gráfico
 IChartSeriesCollection series = chart.ChartData.Series;
 
 // Estableciendo el formato numérico predefinido
-// Recorriendo cada serie del gráfico
+// Recorrer cada serie del gráfico
 foreach (ChartSeries ser in series)
 {
-    // Recorriendo cada celda de datos en la serie
+    // Recorrer cada celda de datos en la serie
     foreach (IChartDataPoint cell in ser.DataPoints)
     {
         // Estableciendo el formato numérico
@@ -258,7 +280,7 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
 
-Los posibles valores de formato numérico predefinidos, junto con su índice predefinido y que pueden usarse, se presentan a continuación:
+Los valores de formato numérico predefinidos posibles, junto con su índice predefinido y que pueden usarse, se presentan a continuación:
 
 |**0**|General|
 | :- | :- |
@@ -293,19 +315,19 @@ Los posibles valores de formato numérico predefinidos, junto con su índice pre
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
 ## **Establecer bordes redondeados del área del gráfico**
 Aspose.Slides for .NET ofrece soporte para establecer el área del gráfico. Se han añadido las propiedades **IChart.HasRoundedCorners** y **Chart.HasRoundedCorners** en Aspose.Slides.
 
-1. Instancie un objeto de la clase `Presentation`.
-1. Agregue un gráfico a la diapositiva.
-1. Establezca el tipo de relleno y el color de relleno del gráfico
-1. Establezca la propiedad de esquina redondeada en True.
-1. Guarde la presentación modificada.
+1. Instanciar un objeto de la clase `Presentation`.
+1. Añadir un gráfico en la diapositiva.
+1. Establecer el tipo de relleno y el color de relleno del gráfico.
+1. Establecer la propiedad de esquina redondeada en True.
+1. Guardar la presentación modificada.
 
 A continuación se muestra un ejemplo de muestra.
 ```c#
@@ -324,14 +346,14 @@ using (Presentation presentation = new Presentation())
 
 ## **Preguntas frecuentes**
 
-**¿Puedo establecer rellenos semitransparentes para columnas/áreas manteniendo el borde opaco?**
+**¿Puedo establecer rellenos semitransparentes para columnas/áreas manteniendo el contorno opaco?**
 
 Sí. La transparencia del relleno y el contorno se configuran por separado. Esto es útil para mejorar la legibilidad de la cuadrícula y los datos en visualizaciones densas.
 
-**¿Cómo puedo manejar las etiquetas de datos cuando se superponen?**
+**¿Cómo puedo gestionar las etiquetas de datos cuando se solapan?**
 
-Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), establezca el desplazamiento/posición de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "value + legend".
+Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste la posición/desplazamiento de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
 
-**¿Puedo aplicar rellenos degradados o con patrón a las series?**
+**¿Puedo aplicar rellenos de degradado o patrón a las series?**
 
-Sí. Tanto los rellenos sólidos como los degradados/patrón están típicamente disponibles. En la práctica, use los degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.
+Sí. Normalmente están disponibles tanto rellenos sólidos como de degradado/patrón. En la práctica, utilice los degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.

@@ -1,12 +1,12 @@
 ---
-title: VSTOとAspose.Slidesでプレゼンテーションを開く
+title: VSTO と Aspose.Slides でプレゼンテーションを開く
 type: docs
 weight: 120
 url: /ja/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**
-プレゼンテーションを開くためのコードスニペットは以下の通りです：
+以下はプレゼンテーションを開くためのコードスニペットです:
 
 ``` csharp
 
@@ -17,7 +17,7 @@ url: /ja/net/opening-a-presentation-in-vsto-and-aspose-slides/
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NETは、既存のプレゼンテーションを開くために使用される**Presentation**クラスを提供します。このクラスにはいくつかのオーバーロードされたコンストラクタがあり、既存のプレゼンテーションに基づいて**Presentation**クラスの適切なコンストラクタの1つを使用してそのオブジェクトを作成することができます。以下に示す例では、プレゼンテーションファイル（開くべき）の名前をPresentationクラスのコンストラクタに渡しています。ファイルが開かれると、プレゼンテーションに存在するスライドの総数を取得し、画面に印刷します。
+Aspose.Slides for .NET は、既存のプレゼンテーションを開くために使用される **Presentation** クラスを提供します。いくつかのオーバーロードされたコンストラクターがあり、既存のプレゼンテーションに基づいてオブジェクトを作成するために **Presentation** クラスの適切なコンストラクターのうちの 1 つを使用できます。以下の例では、プレゼンテーションファイル（開くファイル）の名前を Presentation クラスのコンストラクターに渡しています。ファイルが開かれた後、プレゼンテーションに含まれるスライドの総数を取得し、画面に表示します。
 
 ``` csharp
 
@@ -26,9 +26,7 @@ Aspose.Slides for .NETは、既存のプレゼンテーションを開くため�
  Presentation MyPresentation = new Presentation(FileName);
 
 ``` 
-## **ダウンロード実行コード**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Opening a Presentation/)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Opening%20a%20Presentation)

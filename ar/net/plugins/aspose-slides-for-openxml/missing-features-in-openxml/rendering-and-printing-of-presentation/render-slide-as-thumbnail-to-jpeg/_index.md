@@ -1,18 +1,18 @@
 ---
-title: عرض الشريحة كصورة مصغرة بصيغة JPEG
+title: عرض الشريحة كصورة مصغرة إلى JPEG
 type: docs
 weight: 60
 url: /ar/net/render-slide-as-thumbnail-to-jpeg/
 ---
 
-**Aspose.Slides لـ .NET** تُستخدم لإنشاء ملفات العروض التقديمية التي تحتوي على الشرائح. يمكن عرض هذه الشرائح من خلال فتح ملفات العروض التقديمية باستخدام Microsoft PowerPoint. ولكن في بعض الأحيان، قد يحتاج المطورون إلى عرض الشرائح كصور باستخدام عارض الصور المفضل لديهم. في مثل هذه الحالات، تساعدك Aspose.Slides لـ .NET في إنشاء صور مصغرة للشرائح.
+**Aspose.Slides for .NET** يُستخدم لإنشاء ملفات عروض تقديمية تحتوي على شرائح. يمكن عرض هذه الشرائح بفتح ملفات العرض باستخدام Microsoft PowerPoint. ولكن أحيانًا قد يحتاج المطورون إلى عرض الشرائح كصور باستخدام عارض الصور المفضل لديهم. في مثل هذه الحالات، تساعدك Aspose.Slides for .NET على إنشاء صور مصغرة للشرائح.
 
-لإنشاء صورة مصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ .NET:
+لإنشاء صورة مصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides for .NET:
 
-1. أنشئ مثيلًا من فئة **Presentation**.
-1. احصل على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على صورة المصغرة للشريحة المرجعية على مقياس محدد.
-1. احفظ صورة المصغرة بأي صيغة صورة مرغوبة.
+1. إنشاء كائن من الفئة **Presentation**.
+1. الحصول على مرجع أي شريحة مرغوبة باستخدام معرّفها أو فهرستها.
+1. الحصول على صورة مصغرة للشريحة المشار إليها بمقياس محدد.
+1. حفظ صورة المصغرة بأي تنسيق صورة مرغوب.
 
 ``` csharp
 string filePath = @"..\..\..\Sample Files\";
@@ -35,7 +35,5 @@ using (Presentation pres = new Presentation(srcFileName))
 ``` 
 
 ## **تنزيل كود العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Slide%20Thumbnail%20to%20JPEG%20%28Aspose.Slides%29.zip)

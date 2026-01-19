@@ -1,5 +1,5 @@
 ---
-title: Rendu des formes sur la diapositive en tant qu'images
+title: Rendu des formes sur la diapositive en images
 type: docs
 weight: 120
 url: /fr/net/rendering-shapes-on-slide-as-images/
@@ -7,12 +7,12 @@ url: /fr/net/rendering-shapes-on-slide-as-images/
 
 Cela couvre deux fonctions principales :
 
-- Extraction d’une image à partir d’une forme vers un fichier.
+- Extraction d’une image depuis une forme vers un fichier.
 - Extraction de formes en tant que fichier image.
 ## **Extraire une image d’une forme vers un fichier**
-Les images sont ajoutées en arrière-plan de la diapositive et aux formes. Parfois, il est nécessaire d’extraire les images ajoutées aux formes de la présentation.
+Les images sont ajoutées dans l’arrière‑plan des diapositives et les formes. Parfois, il est nécessaire d’extraire les images ajoutées aux formes de la présentation.
 
-Dans **Aspose.Slides for .NET**, les images peuvent être ajoutées à une forme de diapositive et à l’arrière-plan de la diapositive. Les images sont ajoutées dans **ImageCollectionEx** de la présentation. Dans cet exemple, nous parcourrons chaque forme dans chaque diapositive de la présentation et vérifierons s’il existe une image ajoutée à la forme de la diapositive. Si une image est trouvée pour une forme, nous l’extrayons et l’enregistrons dans un fichier. Le fragment de code suivant remplira cet objectif.
+Dans **Aspose.Slides for .NET**, les images peuvent être ajoutées à une forme de diapositive et à l’arrière‑plan de la diapositive. Les images sont ajoutées dans **ImageCollectionEx** de la présentation. Dans cet exemple, nous parcourrons chaque forme à l’intérieur de chaque diapositive de la présentation et vérifierons s’il y a une image ajoutée à la forme de la diapositive. Si une image est trouvée pour une forme, nous l’extrairons et l’enregistrerons dans un fichier. Le fragment de code suivant remplira ce rôle.
 ``` csharp
 
  //Accès à la présentation
@@ -150,11 +150,9 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		ifImageFound = false;
 
+}
 ```
-## **Download Sample Code**
-- [Codeplex](http://goo.gl/G3JI6p)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
-## **Extract Shapes as Image Files**
+
 ```cs
 //Instancier l'objet Presentation qui représente un fichier PPT
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
@@ -176,7 +174,6 @@ for (int i = 0; i < slide.Shapes.Count; i++)
 ```
 
 
-*Note :* L’extraction de forme est actuellement prise en charge dans les fichiers .ppt.
+*Note:* L’extraction de formes est actuellement prise en charge dans les fichiers .ppt.
 ## **Télécharger le code d’exemple**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

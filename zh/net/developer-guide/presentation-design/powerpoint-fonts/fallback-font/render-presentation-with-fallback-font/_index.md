@@ -1,11 +1,11 @@
 ---
-title: 用回退字体在 .NET 中呈现演示文稿
+title: 使用后备字体在 .NET 中渲染演示文稿
 linktitle: 渲染演示文稿
 type: docs
 weight: 30
 url: /zh/net/render-presentation-with-fallback-font/
 keywords:
-- 回退字体
+- 后备字体
 - 渲染 PowerPoint
 - 渲染演示文稿
 - 渲染幻灯片
@@ -15,26 +15,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中使用回退字体渲染演示文稿 – 通过逐步 C# 代码示例保持 PPT、PPTX 和 ODP 中的文本一致。"
+description: "在 Aspose.Slides for .NET 中使用后备字体渲染演示文稿 — 通过一步一步的 C# 代码示例，保持 PPT、PPTX 和 ODP 文本的一致性。"
 ---
 
-以下示例包含以下步骤：
+下面的示例包括以下步骤：
 
-1. 我们 [创建回退字体规则集合](/slides/zh/net/create-fallback-fonts-collection/)。
-1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) 删除回退字体规则并将 [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) 添加到另一个规则。
-1. 将规则集合设置为 [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) 属性。
-1. 使用 [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) 方法我们可以以相同的格式保存演示文稿，或保存为其他格式。将回退字体规则集合设置到 FontsManager 后，这些规则会在对演示文稿的任何操作期间生效：保存、渲染、转换等。
+1. 我们[创建后备字体规则集合](/slides/zh/net/create-fallback-fonts-collection/)。
+1. 使用[Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove)移除后备字体规则，并使用[AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts)添加到另一个规则。
+1. 将规则集合设置为[FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)属性。
+1. 使用[Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4)方法，我们可以将演示文稿保存为相同的格式，或保存为其他格式。在将后备字体规则集合设置到FontsManager后，这些规则会在对演示文稿的任何操作中生效：保存、渲染、转换等。
 ```c#
 // 创建规则集合的新实例
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// 创建多个规则
+// create a number of rules
 rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
 foreach (IFontFallBackRule fallBackRule in rulesList)
 {
-	// 尝试从已加载的规则中移除回退字体 "Tahoma"
+	// 尝试从已加载的规则中移除后备字体 "Tahoma"
 	fallBackRule.Remove("Tahoma");
 
 	// 并为指定范围更新规则
@@ -42,7 +42,7 @@ foreach (IFontFallBackRule fallBackRule in rulesList)
 		fallBackRule.AddFallBackFonts("Verdana");
 }
 
-// 也可以从列表中移除任何现有的规则
+// 我们也可以从列表中移除任何现有规则
 if (rulesList.Count > 0)
 	rulesList.Remove(rulesList[0]);
 
@@ -61,5 +61,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 
 
 {{% alert color="primary" %}} 
-了解更多关于[演示文稿的保存和转换](/slides/zh/net/creating-saving-and-converting-a-presentation/)。
+阅读更多关于[演示文稿的保存和转换](/slides/zh/net/convert-powerpoint-to-png/)的信息。
 {{% /alert %}}

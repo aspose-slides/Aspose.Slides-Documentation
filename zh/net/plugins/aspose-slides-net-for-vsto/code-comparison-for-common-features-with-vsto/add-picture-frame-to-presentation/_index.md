@@ -1,12 +1,12 @@
 ---
-title: 添加图片框到演示文稿
+title: 将图片框添加到演示文稿
 type: docs
 weight: 50
 url: /zh/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**
-下面是将图片添加到VSTO演示文稿的代码：
+以下是向 VSTO 演示文稿添加图片的代码：
 
 ``` csharp
 
@@ -20,44 +20,42 @@ url: /zh/net/add-picture-frame-to-presentation/
 
 ``` 
 ## **Aspose.Slides**
-要在您的幻灯片上添加简单的图片框，请按照以下步骤操作：
+要向幻灯片添加简单的图片框，请按照以下步骤操作：
 
-1. 创建一个Presentation类的实例。
-1. 通过使用索引获取幻灯片的引用。
-1. 通过将图像添加到与Presentation对象相关联的Images集合中来创建一个Image对象，该图像将用于填充形状。
-1. 计算图像的宽度和高度。
-1. 根据图像的宽度和高度，使用与引用幻灯片关联的Shapes对象所公开的AddPictureFrame方法创建一个PictureFrame。
-1. 将图片框（包含图片）添加到幻灯片。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 创建 Presentation 类的实例。  
+2. 使用索引获取幻灯片的引用。  
+3. 通过向与 Presentation 对象关联的 Images 集合中添加图像来创建 Image 对象，以填充 Shape。  
+4. 计算图像的宽度和高度。  
+5. 使用引用幻灯片的 Shapes 对象提供的 AddPictureFrame 方法，根据图像的宽度和高度创建 PictureFrame。  
+6. 将包含图片的图片框添加到幻灯片。  
+7. 将修改后的演示文稿写入 PPTX 文件。  
 
-上述步骤在下面的示例中实现。
+以下示例实现了上述步骤。
 
 ``` csharp
 
    string ImageFilePath = "AddPicture.jpg";
 
-  //实例化表示PPTX的Presentation类
+  //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
-  //获取第一张幻灯片
+  //Get the first slide
 
   ISlide sld = pres.Slides[0];
 
-  //实例化ImageEx类
+  //Instantiate the ImageEx class
 
   using IImage img = Images.FromFile(ImageFilePath);
 
   IPPImage imgx = pres.Images.AddImage(img);
 
-  //添加具有相应高度和宽度的图片框
+  //Add Picture Frame with height and width equivalent of Picture
 
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
 ``` 
-## **下载运行代码**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **下载示例代码**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Add Picture Frame/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)
+## **Download Running Code**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
+## **Download Sample Code**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)

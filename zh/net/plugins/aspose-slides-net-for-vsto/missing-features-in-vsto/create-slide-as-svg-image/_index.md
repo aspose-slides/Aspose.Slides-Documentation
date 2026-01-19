@@ -1,41 +1,41 @@
 ---
-title: 创建SVG图像的幻灯片
+title: 将幻灯片创建为 SVG 图像
 type: docs
 weight: 70
 url: /zh/net/create-slide-as-svg-image/
 ---
 
-要使用Aspose.Slides.Pptx for .NET从任何想要的幻灯片生成SVG图像，请按照以下步骤操作：
+要使用 Aspose.Slides.Pptx for .NET 从任意所需幻灯片生成 SVG 图像，请按以下步骤操作：
 
-- 创建Presentation类的实例。
-- 通过使用幻灯片的ID或索引获取所需幻灯片的引用。
-- 在内存流中获取SVG图像。
+- 创建 Presentation 类的实例。
+- 使用幻灯片的 ID 或索引获取所需幻灯片的引用。
+- 在内存流中获取 SVG 图像。
 - 将内存流保存为文件。
 ## **示例**
 
 ```
 
- //实例化一个表示演示文稿文件的Presentation类
+ //Instantiate a Presentation class that represents the presentation file
 
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {
 
-   //访问第二张幻灯片
+   //Access the second slide
 
    ISlide sld = pres.Slides[1];
 
-   //创建一个内存流对象
+   //Create a memory stream object
 
    MemoryStream SvgStream = new MemoryStream();
 
-   //生成幻灯片的SVG图像并保存在内存流中
+   //Generate SVG image of slide and save in memory stream
 
    sld.WriteAsSvg(SvgStream);
 
    SvgStream.Position = 0;
 
-   //将内存流保存到文件中
+   //Save memory stream to file
 
    using (Stream fileStream = System.IO.File.OpenWrite("PresentatoinTemplate.svg"))
 
@@ -59,16 +59,12 @@ SvgStream.Close();
 
 ``` 
 ## **下载运行示例**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Creating Slide SVG Image/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Creating%20Slide%20SVG%20Image)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **下载示例代码**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问[创建SVG幻灯片图像](/slides/zh/net/presentation-viewer/)。
+欲了解更多信息，请访问[在 .NET 中将演示文稿幻灯片呈现为 SVG 图像](/slides/zh/net/render-a-slide-as-an-svg-image/).
 
 {{% /alert %}}

@@ -5,14 +5,14 @@ weight: 130
 url: /ar/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
-## **OpenXML Presentation**
+## **عرض OpenXML**
 ``` csharp
 
   string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "نقل فقرة من عرض تقديمي إلى آخر 1.pptx";
+string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
 
-string DestFileName = FilePath + "نقل فقرة من عرض تقديمي إلى آخر 2.pptx";
+string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
 
 MoveParagraphToPresentation(FileName, DestFileName);
 
@@ -48,7 +48,7 @@ using (PresentationDocument sourceDoc = PresentationDocument.Open(sourceFile, tr
 
         // Get the first paragraph in the TextBody shape.
 
-        // Note: "Drawing" هو اسم مستعار من مساحة الاسم DocumentFormat.OpenXml.Drawing
+        // Note: "Drawing" is the alias of namespace DocumentFormat.OpenXml.Drawing
 
         Drawing.Paragraph p1 = textBody1.Elements<Drawing.Paragraph>().First();
 
@@ -60,7 +60,7 @@ using (PresentationDocument sourceDoc = PresentationDocument.Open(sourceFile, tr
 
         TextBody textBody2 = slide2.Slide.Descendants<TextBody>().First();
 
-        // Clone the source paragraph and insert the cloned paragraph into the target TextBody shape.
+        // Clone the source paragraph and insert the cloned. paragraph into the target TextBody shape.
 
         // Passing "true" creates a deep clone, which creates a copy of the 
 
@@ -115,15 +115,14 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-ليس من الغريب أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال في جميع الشرائح في العرض التقديمي. تشرح هذه المقالة كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. سواء كان استخراج النص من شريحة واحدة أو من عرض تقديمي كامل، يستخدم Aspose.Slides فئة PresentationScanner والأساليب الثابتة التي تكشف عنها. جميعها موجودة تحت مساحة الاسم [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil).
-
+ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال في جميع الشرائح في العرض. توضح هذه المقالة كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. سواءً كنت تستخرج النص من شريحة واحدة أو من عرض تقديمي بالكامل، يستخدم Aspose.Slides فئة PresentationScanner والطرق الثابتة التي توفرها. جميعها موجودة في الفضاء الاسمي [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil).
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "نقل فقرة من عرض تقديمي إلى آخر 1.pptx";
+string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
 
-string DestFileName = FilePath + "نقل فقرة من عرض تقديمي إلى آخر 2.pptx";
+string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
 
 MoveParagraphToPresentation(FileName, DestFileName);
 
@@ -182,9 +181,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 }   
 
 ``` 
-## **Download Running Code Example**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل مثال الشيفرة القابلة للتنفيذ**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **Sample Code**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Move a Paragraph/)
+## **عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Move%20a%20Paragraph)

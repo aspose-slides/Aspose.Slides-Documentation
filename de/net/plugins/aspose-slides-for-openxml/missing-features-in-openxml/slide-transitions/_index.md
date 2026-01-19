@@ -1,58 +1,55 @@
----  
-title: Folienübergänge  
-type: docs  
-weight: 80  
-url: /de/net/slide-transitions/  
----  
+---
+title: Folienübergänge
+type: docs
+weight: 80
+url: /de/net/slide-transitions/
+---
 
-Um es einfacher zu verstehen, haben wir die Verwendung von Aspose.Slides für .NET zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf den Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen. Um einen einfachen Folienübergangseffekt zu erstellen, folgen Sie den folgenden Schritten:
+Um das Verständnis zu erleichtern, haben wir die Verwendung von Aspose.Slides für .NET zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf die Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen. Um einen einfachen Folienübergangseffekt zu erstellen, folgen Sie den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der Presentation-Klasse
-- Wenden Sie einen Folienübergangstyp auf die Folie aus einem der von Aspose.Slides für .NET angebotenen Übergangseffekte über das **TransitionType**-Enum an
-- Schreiben Sie die modifizierte Präsentationsdatei.  
-## **Beispiel**  
-``` csharp  
+- Erstellen Sie eine Instanz der Presentation‑Klasse
+- Wenden Sie einen Folienübergangstyp auf die Folie an, indem Sie einen der von Aspose.Slides für .NET angebotenen Übergangseffekte über das **TransitionType**‑Enum auswählen
+- Schreiben Sie die geänderte Präsentationsdatei.
 
- string FilePath = @"..\..\..\Sample Files\";  
+## **Beispiel**
+``` csharp
 
-string FileName = FilePath + "Managing Slides Transitions.pptx";  
+ string FilePath = @"..\..\..\Sample Files\";
 
-//Instanz der Presentation-Klasse, die eine Präsentationsdatei darstellt  
+string FileName = FilePath + "Managing Slides Transitions.pptx";
 
-using (Presentation pres = new Presentation(FileName))  
+//Instantiate Presentation class that represents a presentation file
 
-{  
+using (Presentation pres = new Presentation(FileName))
 
-    //Wenden Sie den Übergangstyp "Kreis" auf Folie 1 an  
+{
 
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;  
+    //Apply circle type transition on slide 1
 
-    //Wenden Sie den Übergangstyp "Kamm" auf Folie 2 an  
+    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;  
+    //Apply comb type transition on slide 2
 
-    //Wenden Sie den Übergangstyp "Zoom" auf Folie 3 an  
+    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;  
+    //Apply zoom type transition on slide 3
 
-    //Speichern Sie die Präsentation auf der Festplatte  
+    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
 
-    pres.Save(FileName, SaveFormat.Pptx);  
+    //Write the presentation to disk
 
-}  
+    pres.Save(FileName, SaveFormat.Pptx);
 
-```  
-## **Beispielcode herunterladen**  
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)  
-## **Laufendes Beispiel herunterladen**  
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Managing Slides Transitions/)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Managing%20Slides%20Transitions)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)  
+}
 
-{{% alert color="primary" %}}  
+``` 
+## **Beispielcode herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+## **Ausführbares Beispiel herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Managing%20Slides%20Transitions)
 
-Für weitere Details besuchen Sie [Managing Slides Transitions](/slides/de/net/slide-transition/).  
+{{% alert color="primary" %}} 
 
-{{% /alert %}}  
+Für weitere Details besuchen Sie [Managing Slides Transitions](/slides/de/net/slide-transition/).
+
+{{% /alert %}}

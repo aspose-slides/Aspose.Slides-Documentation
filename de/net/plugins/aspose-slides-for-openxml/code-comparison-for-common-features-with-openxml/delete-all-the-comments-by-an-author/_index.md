@@ -10,13 +10,13 @@ url: /de/net/delete-all-the-comments-by-an-author/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Alle Kommentare eines Autors löschen.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "Zeeshan Shafqat";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// Alle Kommentare in den Folien eines bestimmten Autors entfernen.
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -24,13 +24,13 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-    throw new ArgumentNullException("Dateiname oder Autorenname ist NULL!");
+    throw new ArgumentNullException("File name or author name is NULL!");
 
 using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
 {
 
-    // Den angegebenen Kommentarautor abrufen.
+    // Get the specifed comment author.
 
     IEnumerable<CommentAuthor> commentAuthors =
 
@@ -38,7 +38,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         .Where(e => e.Name.Value.Equals(author));
 
-    // Durch alle übereinstimmenden Autoren iterieren.
+    // Iterate through all the matching authors.
 
     foreach (CommentAuthor commentAuthor in commentAuthors)
 
@@ -46,7 +46,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         UInt32Value authorId = commentAuthor.Id;
 
-        // Durch alle Folien iterieren und die Folienteile abrufen.
+        // Iterate through all the slides and get the slide parts.
 
         foreach (SlidePart slide in doc.PresentationPart.SlideParts)
 
@@ -54,7 +54,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
             SlideCommentsPart slideCommentsPart = slide.SlideCommentsPart;
 
-            // Die Liste der Kommentare abrufen.
+            // Get the list of comments.
 
             if (slideCommentsPart != null && slide.SlideCommentsPart.CommentList != null)
 
@@ -72,17 +72,17 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
                 {
 
-                    // Alle Kommentare des angegebenen Autors löschen.
+                    // Delete all the comments by the specified author.
 
                     slideCommentsPart.CommentList.RemoveChild<Comment>(comm);
 
                 }
 
-                // Wenn die commentPart keine bestehenden Kommentare hat.
+                // If the commentPart has no existing comment.
 
                 if (slideCommentsPart.CommentList.ChildElements.Count == 0)
 
-                    // Dieses Teil löschen.
+                    // Delete this part.
 
                     slide.DeletePart(slideCommentsPart);
 
@@ -90,7 +90,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         }
 
-        // Den Kommentarautor aus dem Kommentarauszug löschen.
+        // Delete the comment author from the comment authors part.
 
         doc.PresentationPart.CommentAuthorsPart.CommentAuthorList.RemoveChild<CommentAuthor>(commentAuthor);
 
@@ -106,13 +106,13 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Alle Kommentare eines Autors löschen.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "MZ";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// Alle Kommentare in den Folien eines bestimmten Autors entfernen.
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -120,9 +120,9 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
     if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-        throw new ArgumentNullException("Dateiname oder Autorenname ist NULL!");
+        throw new ArgumentNullException("File name or author name is NULL!");
 
-    //Ein PresentationEx-Objekt instanziieren, das eine PPTX-Datei darstellt
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(fileName))
 
@@ -148,7 +148,6 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 ``` 
 ## **Beispielcode herunterladen**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20alle%20Kommentare%20eines%20Autors%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Alle%20Kommentare%20eines%20Autors%20löschen%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author/)

@@ -1,19 +1,18 @@
 ---
-title: 将形状渲染为幻灯片图像
+title: 在幻灯片上将形状渲染为图像
 type: docs
 weight: 120
 url: /zh/net/rendering-shapes-on-slide-as-images/
 ---
 
-这包括两个主要功能：
+这涵盖了两个主要功能：
 
-- 从形状提取图像到文件。
+- 从形状中提取图像到文件。
 - 将形状提取为图像文件。
+## **从形状中提取图像到文件**
+图像可以添加到幻灯片背景和形状中。有时需要提取幻灯片形状中添加的图像。
 
-## **从形状提取图像到文件**
-图像可以添加到幻灯片的背景和形状中。有时需要提取幻灯片形状中添加的图像。
-
-在 **Aspose.Slides for .NET** 中，图像可以添加到幻灯片形状和幻灯片背景。图像存放在演示文稿的 **ImageCollectionEx** 中。在本例中，我们将遍历演示文稿每个幻灯片中的每个形状，检查是否有图像添加到形状中。如果在任何形状中找到图像，我们将提取该图像并保存为文件。下面的代码片段即可实现此目的。
+在 **Aspose.Slides for .NET** 中，图像可以添加到幻灯片形状和幻灯片背景。图像被添加到演示文稿的 **ImageCollectionEx** 中。在本示例中，我们将遍历演示文稿中每张幻灯片的每个形状，检查是否有图像被添加到形状中。如果在任何形状中找到图像，我们将提取该图像并保存到文件中。下面的代码片段将实现此目的。
 ``` csharp
 
  //访问演示文稿
@@ -152,9 +151,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 		ifImageFound = false;
 
 ``` 
-
 ## **Download Sample Code**
-- [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
@@ -168,18 +165,16 @@ for (int i = 0; i < slide.Shapes.Count; i++)
 {
     IShape shape = slide.Shapes[i];
 
-    //获取形状的缩略图像
+    //获取形状的缩略图
     using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
     {
-        //以 gif 格式保存缩略图像
+        //以 gif 格式保存缩略图
         image.Save(i + ".gif", ImageFormat.Gif);
     }
 }
 ```
 
 
-*注意:* 当前仅在 .ppt 文件中支持形状提取。
-
+*注意:* 目前仅支持在 .ppt 文件中提取形状。
 ## **下载示例代码**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

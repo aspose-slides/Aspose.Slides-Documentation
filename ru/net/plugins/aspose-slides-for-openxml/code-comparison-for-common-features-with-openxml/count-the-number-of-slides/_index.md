@@ -1,5 +1,5 @@
 ---
-title: Подсчет количества слайдов
+title: Подсчёт количества слайдов
 type: docs
 weight: 50
 url: /ru/net/count-the-number-of-slides/
@@ -10,29 +10,29 @@ url: /ru/net/count-the-number-of-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Подсчет количества слайдов.pptx";
+string FileName = FilePath + "Count the number of slides.pptx";
 
-Console.WriteLine("Количество слайдов = {0}",
+Console.WriteLine("Number of slides = {0}",
 
 CountSlides(FileName));
 
 Console.ReadKey();
 
-// Получите объект презентации и передайте его в следующий метод CountSlides.
+// Получить объект презентации и передать его следующему методу CountSlides.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Откройте презентацию только для чтения.
+    // Открыть презентацию в режиме только для чтения.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Передайте презентацию в следующий метод CountSlide
+        // Передать презентацию следующему методу CountSlides
 
-        // и верните количество слайдов.
+        // и вернуть количество слайдов.
 
         return CountSlides(presentationDocument);
 
@@ -40,13 +40,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Подсчет слайдов в презентации.
+// Подсчитать количество слайдов в презентации.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Проверьте объект документа на null.
+    // Проверить объект документа на null.
 
     if (presentationDocument == null)
 
@@ -58,11 +58,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Получите часть презентации документа.
+    // Получить часть презентации из документа.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получите количество слайдов из SlideParts.
+    // Получить количество слайдов из SlideParts.
 
     if (presentationPart != null)
 
@@ -72,7 +72,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Верните количество слайдов в предыдущий метод.
+    // Вернуть количество слайдов в предыдущий метод.
 
     return slidesCount;
 
@@ -84,9 +84,9 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Подсчет количества слайдов.pptx";
+string FileName = FilePath + "Count the number of slides.pptx";
 
-Console.WriteLine("Количество слайдов = {0}",
+Console.WriteLine("Number of slides = {0}",
 
 CountSlides(FileName));
 
@@ -110,7 +110,6 @@ public static int CountSlides(string presentationFile)
 
 ``` 
 ## **Скачать пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Count%20the%20number%20of%20Slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides/)

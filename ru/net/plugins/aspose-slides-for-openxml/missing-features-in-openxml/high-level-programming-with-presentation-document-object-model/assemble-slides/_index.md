@@ -1,215 +1,155 @@
 ---
-title: Собрать слайды
+title: Сборка слайдов
 type: docs
 weight: 10
 url: /ru/net/assemble-slides/
 ---
 
-## **Add a Slide to a Presentation**
-Before talking about adding slides to the presentation files, let us discuss some facts about the slides. Each PowerPoint presentation file contains Master / Layout slide and other Normal slides. It means that a presentation file contains at least one or more slides. It is important to know that presentation files without slides are not supported by Aspose.Slides for .NET. Each slide has unique Id and all the Normal Slides are arranged in an order specified by the zero based index.
+## **Добавить слайд в презентацию**
+Пока мы обсуждаем добавление слайдов в файлы презентаций, давайте рассмотрим некоторые факты о слайдах. Каждый файл презентации PowerPoint содержит мастер/макетный слайд и другие обычные слайды. Это означает, что файл презентации содержит как минимум один или более слайдов. Важно знать, что файлы презентаций без слайдов не поддерживаются Aspose.Slides for .NET. Каждый слайд имеет уникальный Id, а все обычные слайды упорядочены в порядке, указанном нулевым индексом.
 
-Aspose.Slides for .NET allows developers to add empty slides to their presentation. To add an empty slide in the presentation, please follow the steps below:
+Aspose.Slides for .NET позволяет разработчикам добавлять пустые слайды в их презентацию. Чтобы добавить пустой слайд в презентацию, выполните следующие шаги:
 
-- Create an instance of **Presentation** class
-- Instantiate **SlideCollection** class by setting a reference to the Slides (collection of content Slide objects) property exposed by the Presentation object.
-- Add an empty slide to the presentation at the end of the content slides collection by calling the **AddEmptySlide** methods exposed by **SlideCollection** object
-- Do some work with the newly added empty slide
-- Finally, write the presentation file using the **Presentation** object
+- Создайте экземпляр класса **Presentation**
+- Создайте экземпляр класса **SlideCollection**, установив ссылку на свойство Slides (коллекция объектов Slide), предоставляемое объектом Presentation
+- Добавьте пустой слайд в презентацию в конце коллекции слайдов контента, вызвав методы **AddEmptySlide**, предоставляемые объектом **SlideCollection**
+- Выполните необходимые операции с только что добавленным пустым слайдом
+- Наконец запишите файл презентации, используя объект **Presentation**
 
 ``` csharp
-
  PresentationEx pres = new PresentationEx();
 
-//Instantiate SlideCollection class
+ //Создать экземпляр класса SlideCollection
+ SlideExCollection slds = pres.Slides;
 
-SlideExCollection slds = pres.Slides;
+ for (int i = 0; i < pres.LayoutSlides.Count; i++)
+ {
+     //Добавить пустой слайд в коллекцию Slides
+     slds.AddEmptySlide(pres.LayoutSlides[i]);
+ }
 
-for (int i = 0; i < pres.LayoutSlides.Count; i++)
-
-{
-
-	//Add an empty slide to the Slides collection
-
-	slds.AddEmptySlide(pres.LayoutSlides[i]);
-
-}
-
-//Save the PPTX file to the Disk
-
-pres.Write("EmptySlide.pptx");
-
+ //Сохранить файл PPTX на диск
+ pres.Write("EmptySlide.pptx");
 ``` 
-## **Access Slides of a Presentation**
-Aspose.Slides for .NET provides Presentation class that can be used to find and access any desired slide present in the presentation.
+## **Доступ к слайдам презентации**
+Aspose.Slides for .NET предоставляет класс Presentation, который можно использовать для поиска и доступа к любому нужному слайду в презентации.
 
-**Using Slides Collection**
+**Использование коллекции Slides**
 
-**Presentation** class represents a presentation file and exposes all slides in it as a **SlideCollection** collection (that is a collection of **Slide** objects). All of these slides can be accessed from this **Slides** collection using a slide index.
+Класс **Presentation** представляет файл презентации и раскрывает все слайды в нём как коллекцию **SlideCollection** (это коллекция объектов **Slide**). Все эти слайды могут быть получены из этой коллекции **Slides** с использованием индекса слайда.
 
 ``` csharp
+ //Создать объект Presentation, представляющий файл презентации
+ PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
- //Instantiate a Presentation object that represents a presentation file
-
-PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
-
-//Accessing a slide using its slide index
-
-SlideEx slide = pres.Slides[0];
-
+ //Получить слайд по его индексу
+ SlideEx slide = pres.Slides[0];
 ``` 
-## **Remove Slides**
-We know that Presentation class in **Aspose.Slides for .NET** represents a presentation file. Presentation class encapsulates a **SlideCollection** that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
+## **Удалить слайды**
+Мы знаем, что класс Presentation в **Aspose.Slides for .NET** представляет файл презентации. Класс Presentation инкапсулирует **SlideCollection**, который выступает в роли хранилища всех слайдов, входящих в презентацию. Разработчики могут удалить слайд из этой коллекции Slides двумя способами:
 
-- Using Slide Reference
-- Using Slide Index
+- Использование ссылки на слайд
+- Использование индекса слайда
 
-**Using Slide Reference**
+**Использование ссылки на слайд**
 
-To remove a slide using its reference, please follow the steps below:
+Чтобы удалить слайд, используя его ссылку, выполните следующие шаги:
 
-- Create an instance of Presentation class
-- Obtain the reference of a slide by using its Id or Index
-- Remove the referenced slide from the presentation
-- Write the modified presentation file
+- Создайте экземпляр класса Presentation
+- Получите ссылку на слайд, используя его Id или Index
+- Удалите ссылочный слайд из презентации
+- Запишите изменённый файл презентации
 
 ``` csharp
+ //Создать объект Presentation, представляющий файл презентации
+ PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
- //Instantiate a Presentation object that represents a presentation file
+ //Получить слайд по его индексу в коллекции слайдов
+ SlideEx slide = pres.Slides[0];
 
-PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
+ //Удалить слайд, используя его ссылку
+ pres.Slides.Remove(slide);
 
-//Accessing a slide using its index in the slides collection
-
-SlideEx slide = pres.Slides[0];
-
-//Removing a slide using its reference
-
-pres.Slides.Remove(slide);
-
-//Writing the presentation file
-
-pres.Write("modified.pptx");
-
+ //Записать файл презентации
+ pres.Write("modified.pptx");
 ``` 
-## **Change the Position of a Slide**
-It's very simple to change the position of a slide in the presentation. Just follow the steps below:
+## **Изменить позицию слайда**
+Очень просто изменить позицию слайда в презентации. Просто выполните следующие шаги:
 
-- Create an instance of Presentation class
-- Obtain the reference of a slide by using its Index
-- Change the SlideNumber of the referenced slide
-- Write the modified presentation file
+- Создайте экземпляр класса Presentation
+- Получите ссылку на слайд, используя его Index
+- Измените свойство SlideNumber у выбранного слайда
+- Запишите изменённый файл презентации
 
-In the example given below, we have changed the position of a slide (lying at the zero index position 1) of the presentation) to index 1 (Position 2).
+В приведённом ниже примере мы изменили позицию слайда (расположенного в позиции с нулевым индексом 1) презентации на индекс 1 (позиция 2).
 
 ``` csharp
-
  private static string MyDir = @"..\..\..\Sample Files\";
-
 static void Main(string[] args)
-
 {
-
-AddingSlidetoPresentation();
-
-AccessingSlidesOfPresentation();
-
-RemovingSlides();
-
-ChangingPositionOfSlide();
-
+    AddingSlidetoPresentation();
+    AccessingSlidesOfPresentation();
+    RemovingSlides();
+    ChangingPositionOfSlide();
 }
 
 public static void AddingSlidetoPresentation()
-
 {
+    Presentation pres = new Presentation();
 
-Presentation pres = new Presentation();
+    //Создать экземпляр класса SlideCollection
+    ISlideCollection slds = pres.Slides;
 
-//Instantiate SlideCollection class
+    for (int i = 0; i < pres.LayoutSlides.Count; i++)
+    {
+        //Добавить пустой слайд в коллекцию Slides
+        slds.AddEmptySlide(pres.LayoutSlides[i]);
+    }
 
-ISlideCollection slds = pres.Slides;
-
-for (int i = 0; i < pres.LayoutSlides.Count; i++)
-
-{
-
-    //Add an empty slide to the Slides collection
-
-    slds.AddEmptySlide(pres.LayoutSlides[i]);
-
-}
-
-//Save the PPTX file to the Disk
-
-pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
-
+    //Сохранить файл PPTX на диск
+    pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 }
 
 public static void AccessingSlidesOfPresentation()
-
 {
+    //Создать объект Presentation, представляющий файл презентации
+    Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//Instantiate a Presentation object that represents a presentation file
-
-Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
-
-//Accessing a slide using its slide index
-
-ISlide slide = pres.Slides[0];
-
+    //Получить слайд по его индексу
+    ISlide slide = pres.Slides[0];
 }
 
 public static void RemovingSlides()
-
 {
+    //Создать объект Presentation, представляющий файл презентации
+    Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//Instantiate a Presentation object that represents a presentation file
+    //Получить слайд по его индексу в коллекции слайдов
+    ISlide slide = pres.Slides[0];
 
-Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
+    //Удалить слайд, используя его ссылку
+    pres.Slides.Remove(slide);
 
-//Accessing a slide using its index in the slides collection
-
-ISlide slide = pres.Slides[0];
-
-//Removing a slide using its reference
-
-pres.Slides.Remove(slide);
-
-//Writing the presentation file
-
-pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
-
+    //Сохранить файл презентации
+    pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 }
 
 public static void ChangingPositionOfSlide()
-
 {
+    //Создать объект Presentation для загрузки исходного файла презентации
+    Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
+    {
+        //Получить слайд, позицию которого нужно изменить
+        ISlide sld = pres.Slides[0];
 
-//Instantiate Presentation class to load the source presentation file
+        //Установить новую позицию для слайда
+        sld.SlideNumber = 2;
 
-Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
-
-{
-
-    //Get the slide whose position is to be changed
-
-    ISlide sld = pres.Slides[0];
-
-    //Set the new position for the slide
-
-    sld.SlideNumber = 2;
-
-    //Write the presentation to disk
-
-    pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
-
+        //Сохранить презентацию на диск
+        pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
+    }
 }
-
-}
-
 ``` 
-## **Download Sample Code**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Скачать пример кода**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Assemble%20Slides%20%28Aspose.Slides%29.zip)

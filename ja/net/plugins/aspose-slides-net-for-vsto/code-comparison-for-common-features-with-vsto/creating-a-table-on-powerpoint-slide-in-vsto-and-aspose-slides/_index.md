@@ -1,31 +1,32 @@
 ---
-title: VSTOとAspose.Slidesを使用してPowerPointスライドにテーブルを作成する
+title: VSTO と Aspose.Slides を使用した PowerPoint スライドへのテーブル作成
 type: docs
 weight: 90
 url: /ja/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
-以下の手順で、VSTOを使用してMicrosoft PowerPointスライドにテーブルを追加します。
+次の手順で VSTO を使用して Microsoft PowerPoint スライドに表を追加します:
 
 - プレゼンテーションを作成します。
-- 空のスライドをプレゼンテーションに追加します。
-- スライドに15 x 15のテーブルを追加します。
-- テーブルの各セルにフォントサイズ10のテキストを追加します。
+- プレゼンテーションに空のスライドを追加します。
+- スライドに 15×15 の表を追加します。
+- 表の各セルにフォントサイズ 10 のテキストを追加します。
 - プレゼンテーションをディスクに保存します。
+
 ## **VSTO**
 ``` csharp
 
- //プレゼンテーションを作成
+ //Create a presentation
 
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 			  .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//空白のスライドを追加
+//Add a blank slide
 
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//15 x 15のテーブルを追加
+//Add a 15 x 15 table
 
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 
@@ -35,7 +36,7 @@ int i = -1;
 
 int j = -1;
 
-//すべての行をループ
+//Loop through all the rows
 
 foreach (PowerPoint.Row row in tbl.Rows)
 
@@ -45,7 +46,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 	j = -1;
 
-	//行内のすべてのセルをループ
+	//Loop through all the cells in the row
 
 	foreach (PowerPoint.Cell cell in row.Cells)
 
@@ -53,15 +54,15 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 		j = j + 1;
 
-		//各セルのテキストフレームを取得
+		//Get text frame of each cell
 
-		PowerPoint.TextFrame tf = cell.Shape.TextFrame;
+	PowerPoint.TextFrame tf = cell.Shape.TextFrame;
 
-		//テキストを追加
+		//Add some text
 
 		tf.TextRange.Text = "T" + i.ToString() + j.ToString();
 
-		//テキストのフォントサイズを10に設定
+		//Set font size of the text as 10
 
 		tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
 
@@ -69,7 +70,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 }
 
-//プレゼンテーションをディスクに保存
+//Save the presentation to disk
 
 pres.SaveAs("tblVSTO.ppt",
 
@@ -79,46 +80,47 @@ pres.SaveAs("tblVSTO.ppt",
 
 ``` 
 
-以下の手順で、Aspose.Slidesを使用してMicrosoft PowerPointスライドにテーブルを追加します。
+次の手順で Aspose.Slides を使用して Microsoft PowerPoint スライドに表を追加します:
 
 - プレゼンテーションを作成します。
-- 最初のスライドに15 x 15のテーブルを追加します。
-- テーブルの各セルにフォントサイズ10のテキストを追加します。
-- プレゼンテーションをディスクに書き込みます。
+- 最初のスライドに 15×15 の表を追加します。
+- 表の各セルにフォントサイズ 10 のテキストを追加します。
+- プレゼンテーションを書き出してディスクに保存します。
+
 ## **Aspose.Slides**
 ``` csharp
 
- //プレゼンテーションを作成
+ //Create a presentation
 
 Presentation pres = new Presentation();
 
-//最初のスライドにアクセス
+//Access first slide
 
 Slide sld = pres.GetSlideByPosition(1);
 
-//テーブルを追加
+//Add a table
 
 Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);
 
-//行をループ
+//Loop through rows
 
 for (int i = 0; i < tbl.RowsNumber; i++)
 
-	//セルをループ
+	//Loop through cells
 
 	for (int j = 0; j < tbl.ColumnsNumber; j++)
 
 	{
 
-		//各セルのテキストフレームを取得
+		//Get text frame of each cell
 
 		TextFrame tf = tbl.GetCell(j, i).TextFrame;
 
-		//テキストを追加
+		//Add some text
 
 		tf.Text = "T" + i.ToString() + j.ToString();
 
-		//フォントサイズを10に設定
+		//Set font size of 10
 
 		tf.Paragraphs[0].Portions[0].FontHeight = 10;
 
@@ -126,13 +128,13 @@ for (int i = 0; i < tbl.RowsNumber; i++)
 
 	}
 
-//プレゼンテーションをディスクに書き込む
+//Write the presentation to the disk
 
 pres.Write("tblSLD.ppt");
 
 ``` 
+
 ## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772951)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide/)

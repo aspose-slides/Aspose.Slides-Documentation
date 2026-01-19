@@ -6,7 +6,7 @@ url: /ru/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**
-Ниже приведен код для открытия презентации:
+Ниже приведён фрагмент кода для открытия презентации:
 
 ``` csharp
 
@@ -17,7 +17,7 @@ url: /ru/net/opening-a-presentation-in-vsto-and-aspose-slides/
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides для .NET предоставляет класс **Presentation**, который используется для открытия существующей презентации. Он предлагает несколько перегруженных конструкторов, и мы можем использовать один из подходящих конструкторов класса **Presentation** для создания его объекта на основе существующей презентации. В приведенном ниже примере мы передаем имя файла презентации (который нужно открыть) конструктору класса Presentation. После открытия файла мы получаем общее количество слайдов в презентации для отображения на экране.
+Aspose.Slides for .NET предоставляет класс **Presentation**, который используется для открытия существующей презентации. Он предлагает несколько перегруженных конструкторов, и мы можем воспользоваться одним из подходящих конструкторов класса **Presentation**, чтобы создать его объект на основе существующей презентации. В примере ниже мы передали имя файла презентации (который нужно открыть) в конструктор класса Presentation. После открытия файла мы получаем общее количество слайдов в презентации, чтобы вывести его на экран.
 
 ``` csharp
 
@@ -26,9 +26,7 @@ Aspose.Slides для .NET предоставляет класс **Presentation**
  Presentation MyPresentation = new Presentation(FileName);
 
 ``` 
-## **Скачать работающий код**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **Скачать пример кода**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Opening a Presentation/)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Opening%20a%20Presentation)

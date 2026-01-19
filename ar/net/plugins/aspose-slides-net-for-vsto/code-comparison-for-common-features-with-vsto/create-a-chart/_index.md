@@ -5,24 +5,25 @@ weight: 60
 url: /ar/net/create-a-chart/
 ---
 
-تصف أمثلة الكود أدناه عملية إضافة مخطط عمودي مجمع ثلاثي الأبعاد بسيط باستخدام VSTO. تقوم بإنشاء مثيل عرض تقديمي، وإضافة مخطط افتراضي إليه. ثم تستخدم دفتر عمل Microsoft Excel للوصول إلى بيانات المخطط وتعديلها بالإضافة إلى تعيين خصائص المخطط. أخيرًا، يتم حفظ العرض التقديمي.
+تصف أمثلة الشيفرة أدناه عملية إضافة مخطط عمودي ثلاثي الأبعاد مجموعة بسيط باستخدام VSTO. تقوم بإنشاء مثيل عرض تقديمي، وتضيف مخططًا افتراضيًا إليه. ثم تستخدم مصنف Microsoft Excel للوصول إلى بيانات المخطط وتعديلها مع تعيين خصائص المخطط. أخيرًا، احفظ العرض التقديمي.
+
 ## **VSTO**
 باستخدام VSTO، يتم تنفيذ الخطوات التالية:
 
-1. قم بإنشاء مثيل من عرض Microsoft PowerPoint.
-1. أضف شريحة فارغة إلى العرض التقديمي.
-1. أضف مخطط عمودي مجمع ثلاثي الأبعاد والوصول إليه.
-1. إنشاء مثيل جديد من دفتر عمل Microsoft Excel وتحميل بيانات المخطط.
-1. الوصول إلى ورقة بيانات المخطط باستخدام مثيل دفتر العمل من دفتر العمل.
-1. تعيين نطاق المخطط في ورقة العمل وإزالة السلاسل 2 و 3 من المخطط.
-1. تعديل بيانات فئات المخطط في ورقة بيانات المخطط.
-1. تعديل بيانات السلسلة 1 في ورقة بيانات المخطط.
-1. الآن، الوصول إلى عنوان المخطط وتعيين خصائص الخط المتعلقة به.
-1. الوصول إلى محور قيمة المخطط وتعيين الوحدة الرئيسية، الوحدات الثانوية، القيمة القصوى والقيم الدنيا.
-1. الوصول إلى عمق المخطط أو محور السلسلة وإزالته لأن في هذا المثال، يتم استخدام سلسلة واحدة فقط.
-1. الآن، قم بتعيين زوايا دوران المخطط في اتجاه X و Y.
-1. حفظ العرض التقديمي.
-1. إغلاق مثيلات Microsoft Excel و PowerPoint.
+1. إنشاء مثيل لعرض تقديمي من Microsoft PowerPoint.  
+1. إضافة شريحة فارغة إلى العرض التقديمي.  
+1. إضافة مخطط عمودي ثلاثي الأبعاد مجموعة والوصول إليه.  
+1. إنشاء مثيل جديد لمصنف Microsoft Excel وتحميل بيانات المخطط.  
+1. الوصول إلى ورقة عمل بيانات المخطط باستخدام مثيل مصنف Microsoft Excel.  
+1. تحديد نطاق المخطط في ورقة العمل وإزالة السلسلة 2 و3 من المخطط.  
+1. تعديل بيانات فئات المخطط في ورقة عمل بيانات المخطط.  
+1. تعديل بيانات السلسلة 1 للمخطط في ورقة عمل بيانات المخطط.  
+1. الآن، الوصول إلى عنوان المخطط وتعيين خصائص الخط المتعلقة به.  
+1. الوصول إلى محور قيمة المخطط وتعيين الوحدة الكبرى، الوحدات الصغرى، القيمة العظمى والقيمة الصغرى.  
+1. الوصول إلى محور العمق أو محور السلسلة وإزالته كما هو موضح في هذا المثال، حيث تُستَخدم سلسلة واحدة فقط.  
+1. الآن، تعيين زوايا دوران المخطط في اتجاهي X وY.  
+1. حفظ العرض التقديمي.  
+1. إغلاق مثيلات Microsoft Excel وPowerPoint.
 
 ``` csharp
 
@@ -93,13 +94,13 @@ public static void GEN_VSTO_Chart()
 
 	//Setting values for categories and respective series data
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "الدراجات";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "الإكسسوارات";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "الإصلاحات";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "الملابس";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 
@@ -113,7 +114,7 @@ public static void GEN_VSTO_Chart()
 
 	ppChart.ChartTitle.Font.Italic = true;
 
-	ppChart.ChartTitle.Text = "مبيعات 2007";
+	ppChart.ChartTitle.Text = "2007 Sales";
 
 	ppChart.ChartTitle.Font.Size = 18;
 
@@ -287,21 +288,23 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	}
 
+}
+
 ``` 
 ## **Aspose.Slides**
 باستخدام Aspose.Slides لـ .NET، يتم تنفيذ الخطوات التالية:
 
-1. قم بإنشاء مثيل من عرض Microsoft PowerPoint.
-1. أضف شريحة فارغة إلى العرض التقديمي.
-1. أضف مخطط عمودي مجمع ثلاثي الأبعاد والوصول إليه.
-1. الوصول إلى ورقة بيانات المخطط باستخدام مثيل دفتر عمل Microsoft Excel من دفتر العمل.
-1. إزالة السلاسل غير المستخدمة 2 و 3.
-1. الوصول إلى فئات المخطط وتعديل التسميات.
-1. الوصول إلى السلسلة 1 وتعديل قيم السلسلة.
-1. الآن، الوصول إلى عنوان المخطط وتعيين خصائص الخط.
-1. الوصول إلى محور قيمة المخطط وتعيين الوحدة الرئيسية، الوحدات الثانوية، القيمة القصوى والقيم الدنيا.
-1. الآن، قم بتعيين زوايا دوران المخطط في اتجاه X و Y.
-1. حفظ العرض التقديمي بتنسيق PPTX.
+1. إنشاء مثيل لعرض تقديمي من Microsoft PowerPoint.  
+1. إضافة شريحة فارغة إلى العرض التقديمي.  
+1. إضافة مخطط عمودي ثلاثي الأبعاد مجموعة والوصول إليه.  
+1. الوصول إلى ورقة عمل بيانات المخطط باستخدام مثيل مصنف Microsoft Excel.  
+1. إزالة السلسلة 2 و3 غير المستخدمة.  
+1. الوصول إلى فئات المخطط وتعديل التسميات.  
+1. الوصول إلى السلسلة 1 وتعديل قيم السلسلة.  
+1. الآن، الوصول إلى عنوان المخطط وتعيين خصائص الخط.  
+1. الوصول إلى محور قيمة المخطط وتعيين الوحدة الكبرى، الوحدات الصغرى، القيمة العظمى والقيمة الصغرى.  
+1. الآن، تعيين زوايا دوران المخطط في اتجاهي X وY.  
+1. حفظ العرض التقديمي بصيغة PPTX.
 
 ``` csharp
 
@@ -335,13 +338,13 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 		//Modifying chart categories names
 
-		chartData.Categories[0].ChartDataCell.Value = "الدراجات";
+		chartData.Categories[0].ChartDataCell.Value = "Bikes";
 
-		chartData.Categories[1].ChartDataCell.Value = "الإكسسوارات";
+		chartData.Categories[1].ChartDataCell.Value = "Accessories";
 
-		chartData.Categories[2].ChartDataCell.Value = "الإصلاحات";
+		chartData.Categories[2].ChartDataCell.Value = "Repairs";
 
-		chartData.Categories[3].ChartDataCell.Value = "الملابس";
+		chartData.Categories[3].ChartDataCell.Value = "Clothing";
 
 		//Modifying chart series values for first category
 
@@ -357,7 +360,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 		ppChart.HasTitle = true;
 
-		ppChart.ChartTitle.Text.Text = "مبيعات 2007";
+		ppChart.ChartTitle.Text.Text = "2007 Sales";
 
 		PortionFormatEx format = ppChart.ChartTitle.Text.Paragraphs[0].Portions[0].PortionFormat;
 
@@ -403,8 +406,6 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 	}
 
 ``` 
-## **تنزيل كود العينة**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772948)
-- [Github](https://github.com/asposemarketplace/Aspose_for_VSTO/releases/download/3/Create.a.Chart.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20Chart%20\(Aspose.Slides\).zip)
+## **Download Sample Code**
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart/)

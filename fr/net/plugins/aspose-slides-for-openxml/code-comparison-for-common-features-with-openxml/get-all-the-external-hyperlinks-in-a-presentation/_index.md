@@ -7,7 +7,6 @@ url: /fr/net/get-all-the-external-hyperlinks-in-a-presentation/
 
 ## **Présentation OpenXML**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the External Eyperlinks.pptx";
@@ -16,7 +15,7 @@ foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))
 
 Console.WriteLine(s);
 
-// Renvoie tous les hyperliens externes dans les diapositives d'une présentation.
+// Returns all the external hyperlinks in the slides of a presentation.
 
 public static IEnumerable<String> GetAllExternalHyperlinksInPresentation(string fileName)
 
@@ -32,7 +31,7 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
 {
 
-    // Itère à travers toutes les parties de diapositives dans la partie de présentation.
+    // Parcourt toutes les parties de diapositives dans la partie de présentation.
 
     foreach (SlidePart slidePart in document.PresentationPart.SlideParts)
 
@@ -40,13 +39,13 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
         IEnumerable<Drawing.HyperlinkType> links = slidePart.Slide.Descendants<Drawing.HyperlinkType>();
 
-        // Itère à travers tous les liens dans la partie de diapositive.
+        // Parcourt tous les liens dans la partie de diapositive.
 
         foreach (Drawing.HyperlinkType link in links)
 
         {
 
-            // Itère à travers toutes les relations externes dans la partie de diapositive. 
+            // Parcourt toutes les relations externes dans la partie de diapositive. 
 
             foreach (HyperlinkRelationship relation in slidePart.HyperlinkRelationships)
 
@@ -72,39 +71,33 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
 }
 
-// Renvoie la liste de chaînes.
+// Retourne la liste de chaînes.
 
 return ret;
 
 }
-
-
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides pour .NET permet aux développeurs de gérer les hyperliens dans la présentation, au niveau de la présentation, de la diapositive et du cadre de texte. La classe **IHyperlinkQueries** aide à gérer les hyperliens dans une présentation.
+Aspose.Slides pour .NET permet aux développeurs de gérer les hyperliens dans une présentation au niveau de la présentation, des diapositives et des cadres de texte. La classe **IHyperlinkQueries** aide à gérer les hyperliens dans une présentation.
 
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
-//Instancier un objet Presentation qui représente un fichier PPTX
+//Instantiate a Presentation object that represents a PPTX file
 
 Presentation pres = new Presentation(FileName);
 
-//Obtenir les hyperliens de la présentation
+//Get the hyperlinks from presentation
 
 IList<IHyperlinkContainer> links = pres.HyperlinkQueries.GetAnyHyperlinks();
 
 foreach (IHyperlinkContainer link in links)
 
     Console.WriteLine(link.HyperlinkClick.ExternalUrl);
-
 ``` 
 ## **Télécharger l'exemple de code en cours d'exécution**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **Exemple de code**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Get all the External Hyperlinks/)
+## **Code d'exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Get%20all%20the%20External%20Hyperlinks)

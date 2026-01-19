@@ -10,25 +10,25 @@ url: /de/net/move-a-slide-to-a-new-position/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Eine Folie an eine neue Position verschieben.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Zählen der Folien in der Präsentation.
+// Counting the slides in the presentation.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Öffne die Präsentation schreibgeschützt.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Übergibt die Präsentation an die nächste CountSlides-Methode
+        // Pass the presentation to the next CountSlides method
 
-        // und gibt die Folienanzahl zurück.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -36,13 +36,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Zähle die Folien in der Präsentation.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Überprüfe auf ein Null-Dokumentobjekt.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -54,11 +54,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Hole den Präsentationsteil des Dokuments.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Hole die Folienanzahl aus den SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -68,13 +68,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Gib die Folienanzahl an die vorherige Methode zurück.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
 }
 
-// Verschiebe eine Folie an eine andere Position in der Folienreihenfolge in der Präsentation.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +90,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// Verschiebe eine Folie an eine andere Position in der Folienreihenfolge in der Präsentation.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -104,11 +104,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Rufe die CountSlides-Methode auf, um die Anzahl der Folien in der Präsentation zu erhalten.
+    // Call the CountSlides method to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // Überprüfe, ob die Positionen von und zu im gültigen Bereich und unterschiedlich sind.
+    // Verify that both from and to positions are within range and different from one another.
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,23 +126,23 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Hole den Präsentationsteil aus dem Präsentationsdokument.
+    // Get the presentation part from the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Die Folienanzahl ist nicht null, also muss die Präsentation Folien enthalten.            
+    // The slide count is not zero, so the presentation must contain slides.            
 
     Presentation presentation = presentationPart.Presentation;
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // Hole die Folien-ID der Quellfolie.
+    // Get the slide ID of the source slide.
 
     SlideId sourceSlide = slideIdList.ChildElements[from] as SlideId;
 
     SlideId targetSlide = null;
 
-    // Bestimme die Position der Zielfolie, nach der die Quellfolie verschoben werden soll.
+    // Identify the position of the target slide after which to move the source slide.
 
     if (to == 0)
 
@@ -168,15 +168,15 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Entferne die Quellfolie aus ihrer aktuellen Position.
+    // Remove the source slide from its current position.
 
     sourceSlide.Remove();
 
-    // Füge die Quellfolie an ihrer neuen Position nach der Zielfolie ein.
+    // Insert the source slide at its new position after the target slide.
 
     slideIdList.InsertAfter(sourceSlide, targetSlide);
 
-    // Speichere die modifizierte Präsentation.
+    // Save the modified presentation.
 
     presentation.Save();
 
@@ -188,35 +188,35 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Eine Folie an eine neue Position verschieben.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Verschiebe eine Folie an eine andere Position in der Folienreihenfolge in der Präsentation.
+// Move a slide to a different position in the slide order in the presentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
 {
 
-    //Instanziiere die PresentationEx-Klasse, um die Quell-PPTX-Datei zu laden
+    //Instantiate PresentationEx class to load the source PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        //Hole die Folie, deren Position geändert werden soll
+        //Get the slide whose position is to be changed
 
         ISlide sld = pres.Slides[from];
 
         ISlide sld2 = pres.Slides[to];
 
-        //Setze die neue Position für die Folie
+        //Set the new position for the slide
 
         sld2.SlideNumber = from;
 
         sld.SlideNumber = to;
 
-        //Schreibe die PPTX auf die Festplatte
+        //Write the PPTX to disk
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -225,8 +225,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 }
 
 ``` 
-## **Download Beispielcode**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Beispielcode herunterladen**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Eine%20Folie%20an%20eine%20neue%20Position%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Eine%20Folie%20an%20eine%20neue%20Position%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

@@ -1,5 +1,5 @@
 ---
-title: マスタースライドの背景色の設定
+title: マスタースライドの背景色設定
 type: docs
 weight: 140
 url: /ja/net/setting-background-color-of-master-slide/
@@ -18,13 +18,13 @@ url: /ja/net/setting-background-color-of-master-slide/
 ## **Aspose.Slides**
 ``` csharp
 
- //プレゼンテーションファイルを表すPresentationクラスのインスタンスを生成する
+ // プレゼンテーション ファイルを表す Presentation クラスのインスタンス化
 
 using (PresentationEx pres = new PresentationEx())
 
 {
 
-	//マスターISlideの背景色をフォレストグリーンに設定する
+	// マスター ISlide の背景色を Forest Green に設定
 
 	pres.Masters[0].Background.Type = BackgroundTypeEx.OwnBackground;
 
@@ -32,12 +32,11 @@ using (PresentationEx pres = new PresentationEx())
 
 	pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-	//プレゼンテーションをディスクに保存する
+	// プレゼンテーションをディスクに書き込む
 
 	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
 
 ``` 
-## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/787342)
+## **サンプルコードをダウンロード**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Setting%20Background%20color%20of%20Master%20Slide%20\(Asose.Slides\).zip)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Setting%20Background%20color%20of%20Master%20Slide/)

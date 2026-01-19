@@ -1,16 +1,16 @@
----  
-title: プレゼンテーション内の検索と置換  
-type: docs  
-weight: 20  
-url: /ja/net/find-and-replace-in-presentation/  
----  
+---
+title: プレゼンテーションでの検索と置換
+type: docs
+weight: 20
+url: /ja/net/find-and-replace-in-presentation/
+---
 
-以下は従うべき手順です：
+以下の手順に従ってください:
 
 1. プレゼンテーションを開く。
 1. テキストを検索する。
 1. テキストを置換する。
-1. プレゼンテーションを保存する。
+1. プレゼンテーションを書き込む。
 
 ``` csharp
 
@@ -20,7 +20,7 @@ url: /ja/net/find-and-replace-in-presentation/
 
 Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//プレゼンテーション内のすべてのテキストボックスを取得する
+//プレゼンテーション内のすべてのテキストボックスを取得
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //置換対象のテキストを見つける
+        //置換対象のテキストを検索
 
         if (port.Text.Contains(strToFind))
 
-        //既存のテキストを新しいテキストで置換する
+        //既存のテキストを新しいテキストに置換
 
         {
 
@@ -52,9 +52,8 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
 pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 
-```  
-## **サンプルコードのダウンロード**  
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)  
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)  
+
+``` 
+## **サンプルコードのダウンロード**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

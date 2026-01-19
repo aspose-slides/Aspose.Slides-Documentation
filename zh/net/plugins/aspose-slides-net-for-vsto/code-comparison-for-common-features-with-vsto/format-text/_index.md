@@ -5,21 +5,22 @@ weight: 110
 url: /zh/net/format-text/
 ---
 
-VSTO 和 Aspose.Slides 方法执行以下步骤：
+VSTO 和 Aspose.Slides 方法遵循以下步骤：
 
 - 打开源演示文稿。
 - 访问第一张幻灯片。
 - 访问第三个文本框。
 - 更改第三个文本框中文本的格式。
 - 将演示文稿保存到磁盘。
+
 ## **VSTO**
 ``` csharp
 
- //打开演示文稿
+ //Open the presentation
 
 Presentation pres = new Presentation("source.ppt");
 
-//添加 Verdana 字体
+//Add Verdana font
 
 FontEntity font = pres.Fonts[0];
 
@@ -29,15 +30,15 @@ verdanaFont.FontName = "Verdana";
 
 int verdanaFontIndex = pres.Fonts.Add(verdanaFont);
 
-//访问第一张幻灯片
+//Access the first slide
 
 Slide slide = pres.GetSlideByPosition(1);
 
-//访问第三个形状
+//Access the third shape
 
 Shape shp = slide.Shapes[2];
 
-//将其文本字体更改为 Verdana，高度更改为 32
+//Change its text's font to Verdana and height to 32
 
 TextFrame tf = shp.TextFrame;
 
@@ -49,25 +50,25 @@ port.FontIndex = verdanaFontIndex;
 
 port.FontHeight = 32;
 
-//加粗
+//Bolden it
 
 port.FontBold = true;
 
-//斜体
+//Italicize it
 
 port.FontItalic = true;
 
-//更改文本颜色
+//Change text color
 
 port.FontColor = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//更改形状背景颜色
+//Change shape background color
 
 shp.FillFormat.Type = FillType.Solid;
 
 shp.FillFormat.ForeColor = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//将输出写入磁盘
+//Write the output to disk
 
 pres.Write("outAspose.ppt");
 
@@ -77,7 +78,7 @@ pres.Write("outAspose.ppt");
 
  PowerPoint.Presentation pres = null;
 
-//打开演示文稿
+//Open the presentation
 
 pres = Globals.ThisAddIn.Application.Presentations.Open("source.ppt",
 
@@ -87,15 +88,15 @@ pres = Globals.ThisAddIn.Application.Presentations.Open("source.ppt",
 
 	Microsoft.Office.Core.MsoTriState.msoTrue);
 
-//访问第一张幻灯片
+//Access the first slide
 
 PowerPoint.Slide slide = pres.Slides[1];
 
-//访问第三个形状
+//Access the third shape
 
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//将其文本字体更改为 Verdana，高度更改为 32
+//Change its text's font to Verdana and height to 32
 
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 
@@ -103,27 +104,27 @@ txtRange.Font.Name = "Verdana";
 
 txtRange.Font.Size = 32;
 
-//加粗
+//Bolden it
 
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//斜体
+//Italicize it
 
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//更改文本颜色
+//Change text color
 
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//更改形状背景颜色
+//Change shape background color
 
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//水平重新定位
+//Reposition it horizontally
 
 shp.Left -= 70;
 
-//将输出写入磁盘
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -133,7 +134,6 @@ pres.SaveAs("outVSTO.ppt",
 
 ``` 
 ## **下载示例代码**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772953)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Format.Text.using.VSTO.and.Aspose.Slides.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Format%20Text%20using%20VSTO%20and%20Aspose.Slides/)

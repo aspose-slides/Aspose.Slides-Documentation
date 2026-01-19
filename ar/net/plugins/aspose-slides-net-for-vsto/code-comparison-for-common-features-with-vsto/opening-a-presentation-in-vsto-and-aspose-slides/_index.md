@@ -6,7 +6,7 @@ url: /ar/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**
-فيما يلي مقتطف الشيفرة لفتح العرض التقديمي:
+فيما يلي مقتطف الكود لفتح العرض التقديمي:
 
 ``` csharp
 
@@ -17,7 +17,7 @@ url: /ar/net/opening-a-presentation-in-vsto-and-aspose-slides/
 
 ``` 
 ## **Aspose.Slides**
-يوفر Aspose.Slides لـ .NET فئة **Presentation** التي تُستخدم لفتح عرض تقديمي موجود. إنها تقدم بعض البانيات المُحمَّلة، ويمكننا الاستفادة من أحد البانيات المناسبة لفئة **Presentation** لإنشاء كائنها بناءً على عرض تقديمي موجود. في المثال المعطى أدناه، قمنا بتمرير اسم ملف العرض التقديمي (الذي سيتم فتحه) إلى باني فئة Presentation. بعد فتح الملف، نحصل على العدد الإجمالي للشرائح الموجودة في العرض التقديمي لطبعها على الشاشة.
+توفر Aspose.Slides for .NET الفئة **Presentation** التي تُستخدم لفتح عرض تقديمي موجود. تقدم بعض المُنشئات المُحمَّلة ويمكننا الاستفادة من أحد المُنشئات المناسبة للفئة **Presentation** لإنشاء كائنها استنادًا إلى عرض تقديمي موجود. في المثال الموضح أدناه، قمنا بتمرير اسم ملف العرض التقديمي (الذي سيتم فتحه) إلى مُنشئ فئة Presentation. بعد فتح الملف، نحصل على العدد الإجمالي للشرائح الموجودة في العرض التقديمي لطباعته على الشاشة.
 
 ``` csharp
 
@@ -26,9 +26,7 @@ url: /ar/net/opening-a-presentation-in-vsto-and-aspose-slides/
  Presentation MyPresentation = new Presentation(FileName);
 
 ``` 
-## **تنزيل الشيفرة القابلة للتشغيل**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **تنزيل الكود التشغيلي**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **تنزيل الشيفرة النموذجية**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Opening a Presentation/)
+## **تنزيل مثال الكود**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Opening%20a%20Presentation)

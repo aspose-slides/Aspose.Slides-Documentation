@@ -1,22 +1,22 @@
 ---
-title: تغيير لون التعبئة لشكل في عرض تقديمي
+title: تغيير لون تعبئة شكل في عرض تقديمي
 type: docs
 weight: 40
 url: /ar/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
-## **عرض تقديمي OpenXML**
+## **عرض OpenXML**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "لون تعبئة الشكل.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
 SetPPTShapeColor(FileName);
 
-// تغيير لون التعبئة لشكل.
+// Change the fill color of a shape.
 
-// يجب أن يحتوي ملف الاختبار على شكل مملوء كأول شكل في الشريحة الأولى.
+// The test file must have a filled shape as the first shape on the first slide.
 
 public static void SetPPTShapeColor(string docName)
 
@@ -26,7 +26,7 @@ public static void SetPPTShapeColor(string docName)
 
     {
 
-        // الحصول على معرف العلاقة للشريحة الأولى.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -34,7 +34,7 @@ public static void SetPPTShapeColor(string docName)
 
         string relId = (slideIds[0] as SlideId).RelationshipId;
 
-        // الحصول على جزء الشريحة من معرف العلاقة.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
@@ -42,11 +42,11 @@ public static void SetPPTShapeColor(string docName)
 
         {
 
-            // الحصول على شجرة الشكل التي تحتوي على الشكل المراد تغييره.
+            // Get the shape tree that contains the shape to change.
 
             ShapeTree tree = slide.Slide.CommonSlideData.ShapeTree;
 
-            // الحصول على أول شكل في شجرة الشكل.
+            // Get the first shape in the shape tree.
 
             Shape shape = tree.GetFirstChild<Shape>();
 
@@ -54,21 +54,21 @@ public static void SetPPTShapeColor(string docName)
 
             {
 
-                // الحصول على نمط الشكل.
+                // Get the style of the shape.
 
                 ShapeStyle style = shape.ShapeStyle;
 
-                // الحصول على مرجع التعبئة.
+                // Get the fill reference.
 
                 Drawing.FillReference fillRef = style.FillReference;
 
-                // تعيين لون التعبئة إلى SchemeColor Accent 6;
+                // Set the fill color to SchemeColor Accent 6;
 
                 fillRef.SchemeColor = new Drawing.SchemeColor();
 
                 fillRef.SchemeColor.Val = Drawing.SchemeColorValues.Accent6;
 
-                // حفظ الشريحة المعدلة.
+                // Save the modified slide.
 
                 slide.Slide.Save();
 
@@ -82,20 +82,18 @@ public static void SetPPTShapeColor(string docName)
 
 ``` 
 ## **Aspose.Slides**
-نحتاج إلى اتباع الخطوات التالية لتعبئة الأشكال في العرض التقديمي:
-
-- إنشاء نسخة من فئة Presentation.
-- الحصول على مرجع شريحة باستخدام فهرسها.
+نحتاج إلى اتباع الخطوات التالية لملء الأشكال في العرض التقديمي:
+- إنشاء نسخة من الفئة Presentation.
+- الحصول على مرجع الشريحة باستخدام فهرسها.
 - إضافة IShape إلى الشريحة.
-- تعيين نوع التعبئة للشكل إلى صلب.
-- تعيين لون الشكل.
-- كتابة العرض المعدل كملف PPTX.
-
+- ضبط نوع التعبئة (Fill Type) للشكل إلى Solid.
+- ضبط لون الشكل.
+- حفظ العرض التقديمي المعدل كملف PPTX.
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "لون تعبئة الشكل.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
 //Instantiate PrseetationEx class that represents the PPTX 
 
@@ -126,9 +124,7 @@ using (Presentation pres = new Presentation())
 }
 
 ``` 
-## **تنزيل مثال الشيفرة التشغيلية**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل مثال الكود القابل للتشغيل**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **مثال على الشيفرة**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Apply Theme to Presentation/)
+## **عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Fill%20Color%20of%20a%20Shape)

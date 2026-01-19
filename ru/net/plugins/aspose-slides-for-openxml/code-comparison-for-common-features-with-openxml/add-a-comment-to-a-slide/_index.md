@@ -247,9 +247,9 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-В **Aspose.Slides** для .NET коллекция комментариев слайдов PPT включена в каждый объект класса **Slide**. Класс **CommentCollection** используется для хранения комментариев конкретного слайда. Класс **Comment** содержит информацию о пользователе, добавившем комментарий, его инициалах, времени создания, позициях комментария на слайде и тексте комментария. Класс **CommentAuthor** используется для добавления авторов комментариев слайдов на уровне презентации. Класс **Presentation** хранит коллекцию авторов презентации в свойстве **CommentAuthors**.
+В **Aspose.Slides** для .NET коллекция комментариев слайдов PPT включена в каждый класс **Slide**. Класс **CommentCollection** используется для хранения комментариев конкретного слайда. Класс **Comment** содержит информацию, такую как автор, добавивший комментарий, его инициалы, время создания, позицию комментария на слайде и текст комментария. Класс **CommentAuthor** используется для добавления авторов комментариев на уровне презентации. Класс **Presentation** хранит коллекцию авторов презентации в классе **CommentAuthors**.
 
-В следующем примере показан фрагмент кода для добавления комментариев к слайдам.
+В следующем примере добавлен фрагмент кода для добавления комментариев к слайдам.
 
 ``` csharp
 
@@ -288,5 +288,5 @@ using (Presentation pres = new Presentation())
 ``` 
 ## **Скачать пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://master.dl.sourceforge.net/project/asposeopenxml/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip?viasf=1)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Add%20a%20comment%20to%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Add%20a%20comment%20to%20a%20slide/)

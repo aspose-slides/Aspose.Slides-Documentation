@@ -1,32 +1,32 @@
 ---
-title: チャートを作成する
+title: チャートの作成
 type: docs
 weight: 60
 url: /ja/net/create-a-chart/
 ---
 
-以下のコード例は、VSTOを使用してシンプルな3Dクラスター化カラムチャートを追加するプロセスを説明しています。プレゼンテーションのインスタンスを作成し、デフォルトのチャートを追加します。次に、Microsoft Excelワークブックを使用してチャートデータにアクセスし、チャートプロパティを設定します。最後に、プレゼンテーションを保存します。
+以下のコード例は、VSTO を使用してシンプルな 3D クラスタ化縦棒グラフを追加する手順を説明しています。プレゼンテーション インスタンスを作成し、デフォルトのグラフを追加します。その後、Microsoft Excel ブックを使用してグラフ データにアクセスし、変更し、グラフのプロパティを設定します。最後に、プレゼンテーションを保存します。
 ## **VSTO**
-VSTOを使用して、以下の手順が実行されます。
+Using VSTO, the following steps are performed:
 
-1. Microsoft PowerPointプレゼンテーションのインスタンスを作成します。
-1. プレゼンテーションに空のスライドを追加します。
-1. 3Dクラスター化カラムチャートを追加し、それにアクセスします。
-1. チャートデータを読み込むために新しいMicrosoft Excelワークブックのインスタンスを作成します。
-1. ワークブックからMicrosoft Excelワークブックのインスタンスを使用してチャートデータワークシートにアクセスします。
-1. ワークシート内のチャート範囲を設定し、チャートからシリーズ2と3を削除します。
-1. チャートデータワークシート内のチャートカテゴリデータを修正します。
-1. チャートデータワークシート内のチャートシリーズ1データを修正します。
-1. その後、チャートタイトルにアクセスし、フォント関連のプロパティを設定します。
-1. チャート値軸にアクセスし、主要単位、小単位、最大値、最小値を設定します。
-1. チャートの深さまたは系列軸にアクセスし、この例では1つの系列のみが使用されているため、それを削除します。
-1. その後、XおよびY方向のチャート回転角度を設定します。
+1. Microsoft PowerPoint プレゼンテーションのインスタンスを作成します。
+1. プレゼンテーションに空白スライドを追加します。
+1. 3D クラスタ化縦棒グラフを追加し、それにアクセスします。
+1. 新しい Microsoft Excel ワークブック インスタンスを作成し、グラフ データをロードします。
+1. ワークブックから Microsoft Excel ワークブック インスタンスを使用してグラフ データのワークシートにアクセスします。
+1. ワークシートでグラフの範囲を設定し、グラフからシリーズ 2 と 3 を削除します。
+1. グラフ データ ワークシートでグラフのカテゴリ データを変更します。
+1. グラフ データ ワークシートでシリーズ 1 のデータを変更します。
+1. 次に、グラフのタイトルにアクセスし、フォント関連プロパティを設定します。
+1. グラフの値軸にアクセスし、主要単位、補助単位、最大値、最小値を設定します。
+1. グラフの深さまたはシリーズ軸にアクセスし、例では使用するシリーズが 1 つだけなのでそれを削除します。
+1. 次に、X および Y 方向のグラフ回転角度を設定します。
 1. プレゼンテーションを保存します。
-1. Microsoft ExcelとPowerPointのインスタンスを閉じます。
+1. Microsoft Excel と PowerPoint のインスタンスを閉じます。
 
 ``` csharp
 
- //グローバル変数
+ //Global Variables
 
 public static Microsoft.Office.Interop.PowerPoint.Application objPPT;
 
@@ -47,59 +47,59 @@ public static void GEN_VSTO_Chart()
 
 	EnsurePowerPointIsRunning(true, true);
 
-	//スライドオブジェクトをインスタンス化
+	//Instantiate slide object
 
 	Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-	//プレゼンテーションの最初のスライドにアクセス
+	//Access the first slide of presentation
 
 	objSlide = objPres.Slides[1];
 
-	//最初のスライドを選択し、そのレイアウトを設定
+	//Select firs slide and set its layout
 
 	objSlide.Select();
 
 	objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-	//スライドにデフォルトチャートを追加
+	//Add a default chart in slide
 
 	objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
 
-	//追加されたチャートにアクセス
+	//Access the added chart
 
 	Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-	//チャートデータにアクセス
+	//Access the chart data
 
 	Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-	//チャートデータで作業するためのExcelワークブックのインスタンスを作成
+	//Create instance to Excel workbook to work with chart data
 
 	Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-	//チャートのためのデータワークシートにアクセス
+	//Accessing the data worksheet for chart
 
 	Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-	//チャートの範囲を設定
+	//Setting the range of chart
 
 	Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-	//設定した範囲をチャートデータテーブルに適用
+	//Applying the set range on chart data table
 
 	Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 
 	tbl1.Resize(tRange);
 
-	//カテゴリおよびそれぞれのシリーズデータの値を設定
+	//Setting values for categories and respective series data
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "自転車";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "アクセサリ";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "修理";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "衣類";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 
@@ -109,11 +109,11 @@ public static void GEN_VSTO_Chart()
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-	//チャートタイトルを設定
+	//Setting chart title
 
 	ppChart.ChartTitle.Font.Italic = true;
 
-	ppChart.ChartTitle.Text = "2007年の売上";
+	ppChart.ChartTitle.Text = "2007 Sales";
 
 	ppChart.ChartTitle.Font.Size = 18;
 
@@ -123,11 +123,11 @@ public static void GEN_VSTO_Chart()
 
 	ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-	//チャート値軸にアクセス
+	//Accessing Chart value axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-	//値軸の単位を設定
+	//Setting values axis units
 
 	valaxis.MajorUnit = 2000.0F;
 
@@ -137,25 +137,25 @@ public static void GEN_VSTO_Chart()
 
 	valaxis.MaximumScale = 4000.0F;
 
-	//チャートの深さ軸にアクセス
+	//Accessing Chart Depth axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
 	Depthaxis.Delete();
 
-	//チャート回転を設定
+	//Setting chart rotation
 
-	ppChart.Rotation = 20; //Y値
+	ppChart.Rotation = 20; //Y-Value
 
-	ppChart.Elevation = 15; //X値
+	ppChart.Elevation = 15; //X-Value
 
 	ppChart.RightAngleAxes = false;
 
-	// プレゼンテーションをPPTXとして保存
+	// Save the presentation as a PPTX
 
 	objPres.SaveAs("VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-	//ワークブックとプレゼンテーションを閉じる
+	//Close Workbook and presentation
 
 	dataWorkbook.Application.Quit();
 
@@ -163,7 +163,7 @@ public static void GEN_VSTO_Chart()
 
 }
 
-//補足メソッド
+//Supplementary methods
 
 public static void StartPowerPoint()
 
@@ -201,9 +201,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//名前プロパティにアクセスを試みます。例外が発生した場合
+	//Try accessing the name property. If it causes an exception then
 
-	//新しいインスタンスのPowerPointを開始します
+	//start a new instance of PowerPoint
 
 	try
 
@@ -223,7 +223,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//blnAddPresentationは、プレゼンテーションが読み込まれていることを保証するために使用されます
+	//blnAddPresentation is used to ensure there is a presentation loaded
 
 	if (blnAddPresentation == true)
 
@@ -249,7 +249,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//BlnAddSlideは、プレゼンテーションに少なくとも1つのスライドがあることを保証するために使用されます
+	//BlnAddSlide is used to ensure there is at least one slide in the
+
+	//presentation
 
 	if (blnAddSlide)
 
@@ -289,19 +291,19 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NETを使用して、以下の手順が実行されます。
+Using Aspose.Slides for .NET, the following steps are performed:
 
-1. Microsoft PowerPointプレゼンテーションのインスタンスを作成します。
-1. プレゼンテーションに空のスライドを追加します。
-1. 3Dクラスター化カラムチャートを追加し、それにアクセスします。
-1. ワークブックからMicrosoft Excelワークブックのインスタンスを使用してチャートデータワークシートにアクセスします。
-1. 使用していないシリーズ2と3を削除します。
-1. チャートカテゴリにアクセスし、ラベルを修正します。
-1. シリーズ1にアクセスし、シリーズの値を修正します。
-1. その後、チャートタイトルにアクセスし、フォントプロパティを設定します。
-1. チャート値軸にアクセスし、主要単位、小単位、最大値、最小値を設定します。
-1. その後、XおよびY方向のチャート回転角度を設定します。
-1. プレゼンテーションをPPTX形式で保存します。
+1. Microsoft PowerPoint プレゼンテーションのインスタンスを作成します。
+1. プレゼンテーションに空白スライドを追加します。
+1. 3D クラスタ化縦棒グラフを追加し、それにアクセスします。
+1. ワークブックから Microsoft Excel ワークブック インスタンスを使用してグラフ データのワークシートにアクセスします。
+1. 未使用のシリーズ 2 と 3 を削除します。
+1. グラフのカテゴリにアクセスし、ラベルを変更します。
+1. シリーズ 1 にアクセスし、シリーズの値を変更します。
+1. 次に、グラフのタイトルにアクセスし、フォント プロパティを設定します。
+1. グラフの値軸にアクセスし、主要単位、補助単位、最大値、最小値を設定します。
+1. 次に、X および Y 方向のグラフ回転角度を設定します。
+1. プレゼンテーションを PPTX 形式で保存します。
 
 ``` csharp
 
@@ -309,41 +311,41 @@ Aspose.Slides for .NETを使用して、以下の手順が実行されます。
 
 {
 
-	//空のプレゼンテーションを作成
+	//Create empty presentation
 
 	using (PresentationEx pres = new PresentationEx())
 
 	{
 
-		//最初のスライドにアクセス
+		//Accessing first slide
 
 		SlideEx slide = pres.Slides[0];
 
-		//デフォルトチャートを追加
+		//Addding default chart
 
 		ChartEx ppChart = slide.Shapes.AddChart(ChartTypeEx.ClusteredColumn3D, 20F, 30F, 400F, 300F);
 
-		//チャートデータを取得
+		//Getting Chart data
 
 		ChartDataEx chartData = ppChart.ChartData;
 
-		//余分なデフォルトシリーズを削除
+		//Removing Extra default series
 
 		chartData.Series.RemoveAt(1);
 
 		chartData.Series.RemoveAt(1);
 
-		//チャートカテゴリ名を修正
+		//Modifying chart categories names
 
-		chartData.Categories[0].ChartDataCell.Value = "自転車";
+		chartData.Categories[0].ChartDataCell.Value = "Bikes";
 
-		chartData.Categories[1].ChartDataCell.Value = "アクセサリ";
+		chartData.Categories[1].ChartDataCell.Value = "Accessories";
 
-		chartData.Categories[2].ChartDataCell.Value = "修理";
+		chartData.Categories[2].ChartDataCell.Value = "Repairs";
 
-		chartData.Categories[3].ChartDataCell.Value = "衣類";
+		chartData.Categories[3].ChartDataCell.Value = "Clothing";
 
-		//最初のカテゴリのチャートシリーズ値を修正
+		//Modifying chart series values for first category
 
 		chartData.Series[0].Values[0].Value = 1000;
 
@@ -353,11 +355,11 @@ Aspose.Slides for .NETを使用して、以下の手順が実行されます。
 
 		chartData.Series[0].Values[3].Value = 3000;
 
-		//チャートタイトルを設定
+		//Setting Chart title
 
 		ppChart.HasTitle = true;
 
-		ppChart.ChartTitle.Text.Text = "2007年の売上";
+		ppChart.ChartTitle.Text.Text = "2007 Sales";
 
 		PortionFormatEx format = ppChart.ChartTitle.Text.Paragraphs[0].Portions[0].PortionFormat;
 
@@ -370,7 +372,7 @@ Aspose.Slides for .NETを使用して、以下の手順が実行されます。
 		format.FillFormat.SolidFillColor.Color = Color.Black;
 
 
-		//軸の値を設定
+		//Setting Axis values
 
 		ppChart.ValueAxis.IsAutomaticMaxValue = false;
 
@@ -390,13 +392,13 @@ Aspose.Slides for .NETを使用して、以下の手順が実行されます。
 
 		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-		//チャート回転を設定
+		//Setting Chart rotation
 
 		ppChart.Rotation3D.RotationX = 15;
 
 		ppChart.Rotation3D.RotationY = 20;
 
-		//プレゼンテーションを保存
+		//Saving Presentation
 
 		pres.Write("AsposeSampleChart.pptx");
 
@@ -404,7 +406,5 @@ Aspose.Slides for .NETを使用して、以下の手順が実行されます。
 
 ``` 
 ## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772948)
-- [Github](https://github.com/asposemarketplace/Aspose_for_VSTO/releases/download/3/Create.a.Chart.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20Chart%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart/)

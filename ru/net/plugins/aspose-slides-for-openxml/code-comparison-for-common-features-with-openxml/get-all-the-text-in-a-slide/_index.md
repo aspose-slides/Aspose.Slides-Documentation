@@ -18,23 +18,23 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Получить весь текст на слайде.
+// Get all the text in a slide.
 
 public static string[] GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-    // Открыть презентацию только для чтения.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Передать презентацию и индекс слайда
+        // Pass the presentation and the slide index
 
-        // в следующий метод GetAllTextInSlide, и
+        // to the next GetAllTextInSlide method, and
 
-        // затем вернуть массив строк, который он возвращает. 
+        // then return the array of strings it returns. 
 
         return GetAllTextInSlide(presentationDocument, slideIndex);
 
@@ -46,7 +46,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
 {
 
-    // Проверить, существует ли документ презентации.
+    // Verify that the presentation document exists.
 
     if (presentationDocument == null)
 
@@ -56,7 +56,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // Проверить, находится ли индекс слайда в допустимых пределах.
+    // Verify that the slide index is not out of range.
 
     if (slideIndex < 0)
 
@@ -66,53 +66,53 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // Получить часть презентации документа презентации.
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Проверить, существует ли часть презентации и сама презентация.
+    // Verify that the presentation part and presentation exist.
 
     if (presentationPart != null && presentationPart.Presentation != null)
 
     {
 
-        // Получить объект Presentation из части презентации.
+        // Get the Presentation object from the presentation part.
 
         Presentation presentation = presentationPart.Presentation;
 
-        // Проверить, существует ли список ID слайдов.
+        // Verify that the slide ID list exists.
 
         if (presentation.SlideIdList != null)
 
         {
 
-            // Получить коллекцию ID слайдов из списка ID слайдов.
+            // Get the collection of slide IDs from the slide ID list.
 
             DocumentFormat.OpenXml.OpenXmlElementList slideIds =
 
                 presentation.SlideIdList.ChildElements;
 
-            // Если ID слайда в диапазоне...
+            // If the slide ID is in range...
 
             if (slideIndex < slideIds.Count)
 
             {
 
-                // Получить ID отношения слайда.
+                // Get the relationship ID of the slide.
 
                 string slidePartRelationshipId = (slideIds[slideIndex] as SlideId).RelationshipId;
 
-                // Получить указанную часть слайда по ID отношения.
+                // Get the specified slide part from the relationship ID.
 
                 SlidePart slidePart =
 
                     (SlidePart)presentationPart.GetPartById(slidePartRelationshipId);
 
-                // Передать часть слайда в следующий метод, и
+                // Pass the slide part to the next method, and
 
-                // затем вернуть массив строк, который этот метод
+                // then return the array of strings that method
 
-                // возвращает в предыдущий метод.
+                // returns to the previous method.
 
                 return GetAllTextInSlide(slidePart);
 
@@ -122,7 +122,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // В противном случае вернуть null.
+    // Else, return null.
 
     return null;
 
@@ -132,7 +132,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 {
 
-    // Проверить, существует ли часть слайда.
+    // Verify that the slide part exists.
 
     if (slidePart == null)
 
@@ -142,17 +142,17 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     }
 
-    // Создать новый связный список строк.
+    // Create a new linked list of strings.
 
     LinkedList<string> texts = new LinkedList<string>();
 
-    // Если слайд существует...
+    // If the slide exists...
 
     if (slidePart.Slide != null)
 
     {
 
-        // Перебирать все абзацы на слайде.
+        // Iterate through all the paragraphs in the slide.
 
         foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in
 
@@ -160,11 +160,11 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
         {
 
-            // Создать новый объект StringBuilder.                    
+            // Create a new string builder.                    
 
             StringBuilder paragraphText = new StringBuilder();
 
-            // Перебирать строки абзаца.
+            // Iterate through the lines of the paragraph.
 
             foreach (DocumentFormat.OpenXml.Drawing.Text text in
 
@@ -172,7 +172,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // Добавить каждую строку к предыдущим строкам.
+                // Append each line to the previous lines.
 
                 paragraphText.Append(text.Text);
 
@@ -182,7 +182,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // Добавить каждый абзац в связный список.
+                // Add each paragraph to the linked list.
 
                 texts.AddLast(paragraphText.ToString());
 
@@ -196,7 +196,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     {
 
-        // Вернуть массив строк.
+        // Return an array of strings.
 
         return texts.ToArray();
 
@@ -226,27 +226,27 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Получить весь текст на слайде.
+// Get all the text in a slide.
 
 public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-// Создать новый связный список строк.
+// Create a new linked list of strings.
 
 List<string> texts = new List<string>();
 
-//Создать экземпляр класса PresentationEx, который представляет PPTX
+//Instantiate PresentationEx class that represents PPTX
 
 using (Presentation pres = new Presentation(presentationFile))
 
 {
 
-    //Получить доступ к слайду
+    //Access the slide
 
     ISlide sld = pres.Slides[slideIndex];
 
-    //Перебирать формы, чтобы найти заполнитель
+    //Iterate through shapes to find the placeholder
 
     foreach (Shape shp in sld.Shapes)
 
@@ -254,7 +254,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
         {
 
-            //получить текст каждого заполнителя
+            //get the text of each placeholder
 
             texts.Add(((AutoShape)shp).TextFrame.Text);
 
@@ -262,15 +262,14 @@ using (Presentation pres = new Presentation(presentationFile))
 
 }
 
-// Вернуть массив строк.
+// Return an array of strings.
 
 return texts;
 
 }
 
 ``` 
-## **Скачать образец кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Скачать пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide/)

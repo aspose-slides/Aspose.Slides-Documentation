@@ -1,16 +1,16 @@
 ---
-title: الحصول على جميع الروابط الخارجية في عرض تقديمي
+title: الحصول على جميع الروابط التشعبية الخارجية في عرض تقديمي
 type: docs
 weight: 90
 url: /ar/net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
-## **OpenXML Presentation**
+## **عرض OpenXML**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "الحصول على جميع الروابط الخارجية.pptx";
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
 foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))
 
@@ -81,13 +81,13 @@ return ret;
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides لنظام .NET يسمح للمطورين بإدارة الروابط التشعبية في العرض التقديمي على مستوى العرض والشرائح وإطارات النص. تساعد **IHyperlinkQueries** في إدارة الروابط التشعبية في العرض التقديمي.
+Aspose.Slides for .NET يتيح للمطورين إدارة الروابط التشعبية في العروض على مستوى العرض، الشريحة وإطار النص. تساعد فئة **IHyperlinkQueries** في إدارة الروابط التشعبية في العرض.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "الحصول على جميع الروابط الخارجية.pptx";
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
 //Instantiate a Presentation object that represents a PPTX file
 
@@ -102,9 +102,7 @@ foreach (IHyperlinkContainer link in links)
     Console.WriteLine(link.HyperlinkClick.ExternalUrl);
 
 ``` 
-## **تحميل مثال كود يعمل**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تحميل مثال تشغيل الشيفرة**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **مثال كود**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Get all the External Hyperlinks/)
+## **الكود التجريبي**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Get%20all%20the%20External%20Hyperlinks)

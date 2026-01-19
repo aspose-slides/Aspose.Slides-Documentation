@@ -10,29 +10,29 @@ url: /de/net/get-all-the-external-hyperlinks-in-a-presentation/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Alle externen Hyperlinks abrufen.pptx";
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
 foreach (string s in GetAllExternalHyperlinksInPresentation(FileName))
 
 Console.WriteLine(s);
 
-// Gibt alle externen Hyperlinks in den Folien einer Präsentation zurück.
+// Returns all the external hyperlinks in the slides of a presentation.
 
 public static IEnumerable<String> GetAllExternalHyperlinksInPresentation(string fileName)
 
 {
 
-// Eine Liste von Zeichenfolgen deklarieren.
+// Declare a list of strings.
 
 List<string> ret = new List<string>();
 
-// Die Präsentationsdatei schreibgeschützt öffnen.
+// Open the presentation file as read-only.
 
 using (PresentationDocument document = PresentationDocument.Open(fileName, false))
 
 {
 
-    // Durch alle Folienteile im Präsentationsteil iterieren.
+    // Iterate through all the slide parts in the presentation part.
 
     foreach (SlidePart slidePart in document.PresentationPart.SlideParts)
 
@@ -40,25 +40,25 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
         IEnumerable<Drawing.HyperlinkType> links = slidePart.Slide.Descendants<Drawing.HyperlinkType>();
 
-        // Durch alle Links im Folienteil iterieren.
+        // Iterate through all the links in the slide part.
 
         foreach (Drawing.HyperlinkType link in links)
 
         {
 
-            // Durch alle externen Beziehungen im Folienteil iterieren. 
+            // Iterate through all the external relationships in the slide part. 
 
             foreach (HyperlinkRelationship relation in slidePart.HyperlinkRelationships)
 
             {
 
-                // Wenn die Beziehungs-ID mit der Link-ID übereinstimmt...
+                // If the relationship ID matches the link ID...
 
                 if (relation.Id.Equals(link.Id))
 
                 {
 
-                    // Füge die URI der externen Beziehung zur Liste der Zeichenfolgen hinzu.
+                    // Add the URI of the external relationship to the list of strings.
 
                     ret.Add(relation.Uri.AbsoluteUri);
 
@@ -72,7 +72,7 @@ using (PresentationDocument document = PresentationDocument.Open(fileName, false
 
 }
 
-// Die Liste der Zeichenfolgen zurückgeben.
+// Return the list of strings.
 
 return ret;
 
@@ -81,19 +81,19 @@ return ret;
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides für .NET ermöglicht Entwicklern, die Hyperlinks in der Präsentation auf der Ebene von Präsentation, Folie und Textfeld zu verwalten. Die **IHyperlinkQueries**-Klasse hilft bei der Verwaltung von Hyperlinks in einer Präsentation.
+Aspose.Slides für .NET ermöglicht Entwicklern, die Hyperlinks in einer Präsentation auf Ebene der Präsentation, Folie und Textfeld zu verwalten. Die **IHyperlinkQueries**-Klasse hilft, Hyperlinks in einer Präsentation zu verwalten.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Alle externen Hyperlinks abrufen.pptx";
+string FileName = FilePath + "Get all the External Eyperlinks.pptx";
 
-//Ein Präsentationsobjekt instanziieren, das eine PPTX-Datei darstellt
+//Instantiate a Presentation object that represents a PPTX file
 
 Presentation pres = new Presentation(FileName);
 
-//Die Hyperlinks aus der Präsentation abrufen
+//Get the hyperlinks from presentation
 
 IList<IHyperlinkContainer> links = pres.HyperlinkQueries.GetAnyHyperlinks();
 
@@ -102,9 +102,7 @@ foreach (IHyperlinkContainer link in links)
     Console.WriteLine(link.HyperlinkClick.ExternalUrl);
 
 ``` 
-## **Laden Sie das laufende Codebeispiel herunter**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Beispielcode herunterladen**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **Beispielcode**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Alle externen Hyperlinks abrufen/)
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Alle%20externen%20Hyperlinks%20abrufen)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Get%20all%20the%20External%20Hyperlinks)

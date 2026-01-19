@@ -10,11 +10,11 @@ url: /ru/net/get-all-the-text-in-all-the-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получить весь текст на слайде.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Количество слайдов = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -24,7 +24,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("Слайд #{0} содержит: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -34,15 +34,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // Открыть презентацию только для чтения.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Передать презентацию в следующий метод CountSlides
+        // Pass the presentation to the next CountSlides method
 
-        // и вернуть количество слайдов.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -50,13 +50,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Подсчет слайдов в презентации.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Проверка на null объект документа.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -68,11 +68,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Получить часть презентации документа.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Получить количество слайдов из SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -82,7 +82,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Вернуть количество слайдов в предыдущий метод.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -96,7 +96,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // Получить ID связи первого слайда.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -104,15 +104,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // Получить часть слайда по ID связи.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // Создать объект StringBuilder.
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // Получить внутренний текст слайда:
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -136,11 +136,11 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Получить весь текст на слайде.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Количество слайдов = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -150,7 +150,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 slideText = GetSlideText(FileName, i);
 
-System.Console.WriteLine("Слайд #{0} содержит: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -160,7 +160,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    //Создать класс PresentationEx, который представляет PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
@@ -178,17 +178,17 @@ public static string GetSlideText(string docName, int index)
 
     string sldText = "";
 
-    //Создать класс PresentationEx, который представляет PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(docName))
 
     {
 
-        //Получить доступ к слайду
+        //Access the slide
 
         ISlide sld = pres.Slides[index];
 
-        //Итерация по фигурам для нахождения заполнителя
+        //Iterate through shapes to find the placeholder
 
         foreach (Shape shp in sld.Shapes)
 
@@ -196,7 +196,7 @@ public static string GetSlideText(string docName, int index)
 
             {
 
-                //получить текст каждого заполнителя
+                //get the text of each placeholder
 
                 sldText += ((AutoShape)shp).TextFrame.Text;
 
@@ -210,7 +210,6 @@ public static string GetSlideText(string docName, int index)
 
 ``` 
 ## **Скачать пример кода**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides/)

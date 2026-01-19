@@ -1,37 +1,33 @@
 ---
-title: تحويل العرض إلى TIFF مع الملاحظات
+title: تحويل العرض التقديمي إلى Tiff مع الملاحظات
 type: docs
 weight: 50
 url: /ar/net/convert-presentation-to-tiff-with-notes/
 ---
 
-TIFF هو واحد من عدة تنسيقات صور مستخدمة على نطاق واسع التي تدعمها Aspose.Slides لـ .NET لتحويل عرض تقديمي مع الملاحظات إلى صور. يمكنك أيضًا إنشاء صور مصغرة للشريحة في عرض الشريحة بالملاحظات. فيما يلي مقطعي شيفرة يوضحان كيفية إنشاء صور TIFF لعرض تقديمي في عرض الشريحة بالملاحظات.
+TIFF هو أحد صيغ الصور واسعة الاستخدام التي يدعمها Aspose.Slides لـ .NET لتحويل عرض تقديمي يحتوي على ملاحظات إلى صور. يمكنك أيضًا إنشاء صور مصغرة للشرائح في عرض ملاحظات الشريحة. أدناه مثالان يوضحان كيفية إنشاء صور TIFF لعرض تقديمي في عرض ملاحظات الشريحة.
 
-يمكن استخدام طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) المقدمة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) لتحويل العرض التقديمي بالكامل في عرض الشريحة بالملاحظات إلى TIFF. يمكنك أيضًا إنشاء صورة مصغرة للشريحة في عرض الشريحة بالملاحظات للشرائح الفردية.
+يمكن استخدام طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) التي تقدمها فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) لتحويل كامل العرض التقديمي في عرض ملاحظات الشريحة إلى TIFF. يمكنك أيضًا إنشاء صورة مصغرة لشريحة في عرض ملاحظات الشريحة لشرائح فردية.
 ## **مثال**
 
 ``` 
 
-  //إنشاء كائن عرض يقدم ملف عرض تقديمي
+  //Instantiate a Presentation object that represents a presentation file
 
  Presentation pres = new Presentation("Conversion.pptx");
 
- //حفظ العرض التقديمي إلى TIFF مع الملاحظات
+ //Saving the presentation to TIFF notes
 
  pres.Save("ConvertedwithNotes.tiff", SaveFormat.TiffNotes);
 
 ``` 
-## **تنزيل مثال قيد التشغيل**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Tiff conversion with note/)
+## **تنزيل المثال التشغيلي**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Tiff%20conversion%20with%20note)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **تنزيل كود العينة**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **تنزيل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-للحصول على مزيد من التفاصيل، قم بزيارة [تحويل العرض مع الملاحظات](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/).
+لمزيد من التفاصيل، تفضل بزيارة [تحويل عروض PowerPoint إلى TIFF مع الملاحظات في .NET](/slides/ar/net/convert-powerpoint-to-tiff-with-notes/).
 
 {{% /alert %}}

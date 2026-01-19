@@ -1,40 +1,41 @@
 ---
-title: Créer un diaporama en tant qu'image SVG
+title: Créer une diapositive en image SVG
 type: docs
 weight: 70
 url: /fr/net/create-slide-as-svg-image/
 ---
 
-Pour générer une image SVG à partir de n'importe quel diaporama souhaité avec Aspose.Slides.Pptx pour .NET, veuillez suivre les étapes ci-dessous :
+Pour générer une image SVG à partir de n'importe quelle diapositive souhaitée avec Aspose.Slides.Pptx pour .NET, veuillez suivre les étapes ci-dessous :
 
 - Créez une instance de la classe Presentation.
-- Obtenez la référence du diaporama souhaité en utilisant son ID ou son index.
-- Obtenez l'image SVG dans un flux mémoire.
+- Obtenez la référence de la diapositive souhaitée en utilisant son ID ou son index.
+- Récupérez l'image SVG dans un flux mémoire.
 - Enregistrez le flux mémoire dans un fichier.
 ## **Exemple**
 
 ```
-//Instancier une classe Presentation qui représente le fichier de présentation
+
+ //Instantiate a Presentation class that represents the presentation file
 
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {
 
-   //Accéder au deuxième diaporama
+   //Access the second slide
 
    ISlide sld = pres.Slides[1];
 
-   //Créer un objet de flux mémoire
+   //Create a memory stream object
 
    MemoryStream SvgStream = new MemoryStream();
 
-   //Générer l'image SVG du diaporama et la sauvegarder dans le flux mémoire
+   //Generate SVG image of slide and save in memory stream
 
    sld.WriteAsSvg(SvgStream);
 
    SvgStream.Position = 0;
 
-   //Sauvegarder le flux mémoire dans un fichier
+   //Save memory stream to file
 
    using (Stream fileStream = System.IO.File.OpenWrite("PresentatoinTemplate.svg"))
 
@@ -58,16 +59,12 @@ SvgStream.Close();
 
 ``` 
 ## **Télécharger l'exemple en cours d'exécution**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Creating Slide SVG Image/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Creating%20Slide%20SVG%20Image)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **Télécharger le code d'exemple**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Créer une image SVG de diapositive](/slides/fr/net/presentation-viewer/).
+Pour plus de détails, visitez [Rendre les diapositives de présentation en images SVG dans .NET](/slides/fr/net/render-a-slide-as-an-svg-image/).
 
 {{% /alert %}}

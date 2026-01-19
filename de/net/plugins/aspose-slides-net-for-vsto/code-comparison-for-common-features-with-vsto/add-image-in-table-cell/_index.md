@@ -6,19 +6,19 @@ url: /de/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**
-Unten finden Sie den Code zum Hinzufügen eines Bildes in eine Tabellenzelle:
+Im Folgenden finden Sie den Code zum Hinzufügen eines Bildes in einer Tabellenzelle:
 
 ``` csharp
 
-    //Öffnen Sie die Präsentationsklasse, die die Tabelle enthält
+    //Open Prsentation class that contains the table
 
-   string FileName = "Bild in Tabellenzelle hinzufügen.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
    string ImageFile = "AsposeLogo.jpg";
 
    Presentation pres = Application.Presentations.Open(FileName);
 
-   //Erhalten Sie die erste Folie
+   //Get the first slide
 
    Slide sld = pres.Slides[1];
 
@@ -41,36 +41,36 @@ Unten finden Sie den Code zum Hinzufügen eines Bildes in eine Tabellenzelle:
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides für .NET bietet die einfachste API, um Tabellen auf die einfachste Weise zu erstellen. Um ein Bild in eine Tabellenzelle hinzuzufügen, während Sie eine neue Tabelle erstellen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für .NET bietet die einfachste API, um Tabellen auf einfachste Weise zu erstellen. Um ein Bild in eine Tabellenzelle einzufügen, während Sie eine neue Tabelle erstellen, befolgen Sie bitte die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz einer Folie, indem Sie deren Index verwenden
+- Erstellen Sie eine Instanz der Klasse Presentation
+- Holen Sie die Referenz einer Folie, indem Sie ihren Index verwenden
 - Definieren Sie ein Array von Spalten mit Breite
 - Definieren Sie ein Array von Zeilen mit Höhe
-- Fügen Sie der Folie eine Tabelle mit der von IShapes bereitgestellten Methode AddTable hinzu
-- Erstellen Sie ein Bitmap-Objekt, um die Bilddatei zu halten
-- Fügen Sie das Bitmap-Bild zum IPPImage-Objekt hinzu
-- Setzen Sie das Füllformat der Tabellenzelle als Bild
-- Fügen Sie das Bild in die erste Zelle der Tabelle ein
-- Speichern Sie die modifizierte Präsentation als PPTX-Datei
+- Fügen Sie der Folie eine Tabelle hinzu, indem Sie die AddTable‑Methode des IShapes‑Objekts verwenden
+- Erstellen Sie ein Bitmap‑Objekt, um die Bilddatei zu halten
+- Fügen Sie das Bitmap‑Bild dem IPPImage‑Objekt hinzu
+- Setzen Sie das Füllformat der Tabellenzelle auf Bild
+- Fügen Sie das Bild zur ersten Zelle der Tabelle hinzu
+- Speichern Sie die modifizierte Präsentation als PPTX‑Datei
 
 ``` csharp
 
-   string FileName = "Bild in Tabellenzelle hinzufügen.pptx";
+   string FileName = "Adding Image in Table Cell.pptx";
 
   string ImageFile = "AsposeLogo.jpg";
 
   Presentation MyPresentation = new Presentation(FileName);
 
-  //Get Erste Folie
+  //Get First Slide
 
   ISlide sld = MyPresentation.Slides[0];
 
-  //Erstellen eines Bitmap-Bildobjekts, um die Bilddatei zu halten
+  //Creating a Bitmap Image object to hold the image file
 
   using IImage image = Images.FromFile(ImageFile);
 
-  //Erstellen Sie ein IPPImage-Objekt mit dem Bitmap-Objekt
+  //Create an IPPImage object using the bitmap object
 
   IPPImage imgx1 = MyPresentation.Images.AddImage(image);
 
@@ -82,7 +82,7 @@ Aspose.Slides für .NET bietet die einfachste API, um Tabellen auf die einfachst
 
      ITable tbl = (ITable)shp;
 
-     //Bild in die erste Tabellenzelle einfügen
+     //Add image to first table cell
 
      tbl[0, 0].FillFormat.FillType = FillType.Picture;
 
@@ -92,15 +92,13 @@ Aspose.Slides für .NET bietet die einfachste API, um Tabellen auf die einfachst
 
    }
 
-  //Speichern Sie PPTX auf der Festplatte
+  //Save PPTX to Disk
 
   MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
 
 
 ``` 
-## **Download lauffähiger Code**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
+## **Laufenden Code herunterladen**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **Download Beispielcode**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Bild in Tabellenzelle hinzufügen/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Bild%20in%20Tabellenzelle%20hinzufügen)
+## **Beispielcode herunterladen**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)

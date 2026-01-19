@@ -10,23 +10,23 @@ url: /fr/net/delete-a-slide/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Supprimer une diapositive.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
-// Obtenez l'objet de présentation et passez-le à la méthode DeleteSlide suivante.
+// Get the presentation object and pass it to the next DeleteSlide method.
 
 public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    // Ouvrez le document source en lecture/écriture.
+    // Open the source document as read/write.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, true))
 
     {
 
-        // Passez le document source et l'index de la diapositive à supprimer à la prochaine méthode DeleteSlide.
+        // Pass the source document and the index of the slide to be deleted to the next DeleteSlide method.
 
         DeleteSlide(presentationDocument, slideIndex);
 
@@ -34,7 +34,7 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 }
 
-// Supprime la diapositive spécifiée de la présentation.
+// Delete the specified slide from the presentation.
 
 public static void DeleteSlide(PresentationDocument presentationDocument, int slideIndex)
 
@@ -48,7 +48,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Utilisez l'exemple CountSlides pour obtenir le nombre de diapositives dans la présentation.
+    // Use the CountSlides sample to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
@@ -60,39 +60,39 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Obtenez la partie de présentation du document de présentation. 
+    // Get the presentation part from the presentation document. 
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtenez la présentation à partir de la partie de présentation.
+    // Get the presentation from the presentation part.
 
     Presentation presentation = presentationPart.Presentation;
 
-    // Obtenez la liste des ID de diapositive dans la présentation.
+    // Get the list of slide IDs in the presentation.
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // Obtenez l'ID de diapositive de la diapositive spécifiée
+    // Get the slide ID of the specified slide
 
     SlideId slideId = slideIdList.ChildElements[slideIndex] as SlideId;
 
-    // Obtenez l'ID de relation de la diapositive.
+    // Get the relationship ID of the slide.
 
     string slideRelId = slideId.RelationshipId;
 
-    // Supprimez la diapositive de la liste des diapositives.
+    // Remove the slide from the slide list.
 
     slideIdList.RemoveChild(slideId);
 
     //
 
-    // Supprimez les références à la diapositive de tous les diaporamas personnalisés.
+    // Remove references to the slide from all custom shows.
 
     if (presentation.CustomShowList != null)
 
     {
 
-        // Itérez à travers la liste des diaporamas personnalisés.
+        // Iterate through the list of custom shows.
 
         foreach (var customShow in presentation.CustomShowList.Elements<CustomShow>())
 
@@ -102,7 +102,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
             {
 
-                // Déclarez une liste chaînée d'entrées de liste de diapositives.
+                // Declare a link list of slide list entries.
 
                 LinkedList<SlideListEntry> slideListEntries = new LinkedList<SlideListEntry>();
 
@@ -110,7 +110,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 {
 
-                    // Trouvez la référence de diapositive à supprimer du diaporama personnalisé.
+                    // Find the slide reference to remove from the custom show.
 
                     if (slideListEntry.Id != null && slideListEntry.Id == slideRelId)
 
@@ -122,7 +122,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 }
 
-                // Supprimez toutes les références à la diapositive du diaporama personnalisé.
+                // Remove all references to the slide from the custom show.
 
                 foreach (SlideListEntry slideListEntry in slideListEntries)
 
@@ -138,35 +138,35 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // Enregistrez la présentation modifiée.
+    // Save the modified presentation.
 
     presentation.Save();
 
-    // Obtenez la partie de diapositive pour la diapositive spécifiée.
+    // Get the slide part for the specified slide.
 
     SlidePart slidePart = presentationPart.GetPartById(slideRelId) as SlidePart;
 
-    // Supprimez la partie de diapositive.
+    // Remove the slide part.
 
     presentationPart.DeletePart(slidePart);
 
 }
 
-// Obtenez l'objet de présentation et passez-le à la méthode CountSlides suivante.
+// Get the presentation object and pass it to the next CountSlides method.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // Ouvrez la présentation en lecture seule.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Passez la présentation à la prochaine méthode CountSlide
+        // Pass the presentation to the next CountSlide method
 
-        // et renvoyez le compte des diapositives.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -174,13 +174,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Comptez les diapositives dans la présentation.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Vérifiez s'il s'agit d'un objet document nul.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -192,11 +192,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Obtenez la partie présentation du document.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtenez le nombre de diapositives à partir des SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -206,7 +206,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Retournez le nombre de diapositives à la méthode précédente.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -218,7 +218,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Supprimer une diapositive.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
@@ -226,23 +226,23 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    //Instancier un objet PresentationEx qui représente un fichier PPTX
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        //Accéder à une diapositive en utilisant son index dans la collection de diapositives
+        //Accessing a slide using its index in the slides collection
 
         ISlide slide = pres.Slides[slideIndex];
 
 
-        //Supprimer une diapositive en utilisant sa référence
+        //Removing a slide using its reference
 
         pres.Slides.Remove(slide);
 
 
-        //Écrire la présentation en tant que fichier PPTX
+        //Writing the presentation as a PPTX file
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -251,8 +251,7 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 }
 
 ``` 
-## **Télécharger le code source**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Télécharger le code d'exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Supprimer%20une%20diapositive%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Supprimer%20une%20diapositive%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide/)

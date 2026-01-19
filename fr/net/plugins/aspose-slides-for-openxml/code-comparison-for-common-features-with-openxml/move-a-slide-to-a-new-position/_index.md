@@ -10,11 +10,11 @@ url: /fr/net/move-a-slide-to-a-new-position/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Déplacer une diapositive vers une nouvelle position.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Compter les diapositives dans la présentation.
+// Comptage des diapositives dans la présentation.
 
 public static int CountSlides(string presentationFile)
 
@@ -26,9 +26,9 @@ public static int CountSlides(string presentationFile)
 
     {
 
-        // Passer la présentation à la prochaine méthode CountSlides
+        // Transmettre la présentation à la méthode CountSlides suivante
 
-        // et retourner le compte de diapositives.
+        // et renvoyer le nombre de diapositives.
 
         return CountSlides(presentationDocument);
 
@@ -42,7 +42,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Vérifier si l'objet document est nul.
+    // Vérifier qu'un objet document n'est pas nul.
 
     if (presentationDocument == null)
 
@@ -54,11 +54,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Obtenir la partie de présentation du document.
+    // Obtenir la partie présentation du document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtenir le nombre de diapositives des SlideParts.
+    // Obtenir le nombre de diapositives à partir des SlideParts.
 
     if (presentationPart != null)
 
@@ -68,13 +68,13 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Retourner le compte de diapositives à la méthode précédente.
+    // Retourner le nombre de diapositives à la méthode précédente.
 
     return slidesCount;
 
 }
 
-// Déplacer une diapositive vers une position différente dans l'ordre des diapositives dans la présentation.
+// Déplacer une diapositive vers une position différente dans l'ordre des diapositives de la présentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -90,7 +90,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
 }
 
-// Déplacer une diapositive vers une position différente dans l'ordre des diapositives dans la présentation.
+// Déplacer une diapositive vers une position différente dans l'ordre des diapositives de la présentation.
 
 public static void MoveSlide(PresentationDocument presentationDocument, int from, int to)
 
@@ -108,7 +108,7 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     int slidesCount = CountSlides(presentationDocument);
 
-    // Vérifier que les positions from et to sont dans les limites et différentes l'une de l'autre.
+    // Vérifier que les deux positions from et to sont dans les limites et différentes l'une de l'autre.
 
     if (from < 0 || from >= slidesCount)
 
@@ -126,11 +126,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Obtenir la partie de présentation du document de présentation.
+    // Obtenir la partie présentation du document de présentation.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Le compte de diapositives n'est pas nul, donc la présentation doit contenir des diapositives.            
+    // Le nombre de diapositives n'est pas zéro, donc la présentation doit contenir des diapositives.            
 
     Presentation presentation = presentationPart.Presentation;
 
@@ -168,7 +168,7 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
     }
 
-    // Enlever la diapositive source de sa position actuelle.
+    // Supprimer la diapositive source de sa position actuelle.
 
     sourceSlide.Remove();
 
@@ -188,11 +188,11 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Déplacer une diapositive vers une nouvelle position.pptx";
+string FileName = FilePath + "Move a slide to a new position.pptx";
 
 MoveSlide(FileName, 1, 2);
 
-// Déplacer une diapositive vers une position différente dans l'ordre des diapositives dans la présentation.
+// Déplacer une diapositive vers une position différente dans l'ordre des diapositives de la présentation.
 
 public static void MoveSlide(string presentationFile, int from, int to)
 
@@ -204,7 +204,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 
     {
 
-        //Obtenir la diapositive dont la position doit être changée
+        //Obtenir la diapositive dont la position doit être modifiée
 
         ISlide sld = pres.Slides[from];
 
@@ -225,8 +225,7 @@ public static void MoveSlide(string presentationFile, int from, int to)
 }
 
 ``` 
-## **Télécharger le Code Exemple**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Déplacer%20une%20diapositive%20vers%20une%20nouvelle%20position%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Déplacer%20une%20diapositive%20vers%20une%20nouvelle%20position%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Move%20a%20slide%20to%20a%20new%20position/)

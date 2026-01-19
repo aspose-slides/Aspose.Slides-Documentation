@@ -5,14 +5,14 @@ weight: 40
 url: /ar/net/export-media-files-to-html-file/
 ---
 
-لكي يتم تصدير ملفات الوسائط إلى HTML، يرجى اتباع الخطوات أدناه:
+من أجل تصدير ملفات الوسائط إلى HTML. يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة Presentation
+- إنشاء كائن من فئة Presentation
 - الحصول على مرجع الشريحة
-- إعداد تأثير الانتقال
-- كتابة العرض التقديمي كملف PPTX
+- تعيين تأثير الانتقال
+- حفظ العرض التقديمي كملف PPTX
 
-في المثال المقدم أدناه، قمنا بتصدير ملفات الوسائط إلى HTML.
+في المثال الموجود أدناه، قمنا بتصدير ملفات الوسائط إلى HTML.
 ## **مثال**
 ``` csharp
 
@@ -22,7 +22,7 @@ string srcFileName = FilePath + "Conversion.pptx";
 
 string destFileName =  "video.html";
 
-//تحميل عرض تقديمي
+//Loading a presentation
 
 using (Presentation pres = new Presentation(srcFileName))
 
@@ -32,7 +32,7 @@ using (Presentation pres = new Presentation(srcFileName))
 
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: FilePath, fileName: destFileName, baseUri: baseUri);
 
-    //إعداد خيارات HTML
+    //Setting HTML options
 
     HtmlOptions htmlOptions = new HtmlOptions(controller);
 
@@ -42,24 +42,18 @@ using (Presentation pres = new Presentation(srcFileName))
 
     htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-    //حفظ الملف
+    //Saving the file
 
     pres.Save(destFileName, SaveFormat.Html, htmlOptions);
 
 }
 
 ``` 
-## **تحميل رمز العينة**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-## **تحميل المثال القابل للتشغيل**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Export media files into html/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
+## **تنزيل الكود النموذجي**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+## **تنزيل المثال التشغيلي**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)
 
 {{% alert color="primary" %}} 
-
-لمزيد من التفاصيل، تفضل بزيارة [تصدير ملفات الوسائط إلى ملف HTML](/slides/ar/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
-
+لمزيد من التفاصيل، زر [تصدير ملفات الوسائط إلى ملف html](/slides/ar/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 {{% /alert %}}

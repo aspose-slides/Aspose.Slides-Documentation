@@ -1,5 +1,5 @@
 ---
-title: あるプレゼンテーションから別のプレゼンテーションに段落を移動する
+title: あるプレゼンテーションから別のプレゼンテーションへ段落を移動する
 type: docs
 weight: 130
 url: /ja/net/move-a-paragraph-from-one-presentation-to-another/
@@ -18,67 +18,69 @@ MoveParagraphToPresentation(FileName, DestFileName);
 
 }
 
-// ソースドキュメント内の TextBody 形状の段落範囲を
+// Moves a paragraph range in a TextBody shape in the source document
 
-// ターゲットドキュメント内の別の TextBody 形状に移動します。
+// to another TextBody shape in the target document.
 
 public static void MoveParagraphToPresentation(string sourceFile, string targetFile)
 
 {
 
-// ソースファイルを読み書きモードで開きます。
+// Open the source file as read/write.
 
 using (PresentationDocument sourceDoc = PresentationDocument.Open(sourceFile, true))
 
 {
 
-    // ターゲットファイルを読み書きモードで開きます。
+    // Open the target file as read/write.
 
     using (PresentationDocument targetDoc = PresentationDocument.Open(targetFile, true))
 
     {
 
-        // ソースプレゼンテーションの最初のスライドを取得します。
+        // Get the first slide in the source presentation.
 
         SlidePart slide1 = GetFirstSlide(sourceDoc);
 
-        // それにおける最初の TextBody 形状を取得します。
+        // Get the first TextBody shape in it.
 
         TextBody textBody1 = slide1.Slide.Descendants<TextBody>().First();
 
-        // TextBody 形状内の最初の段落を取得します。
+        // Get the first paragraph in the TextBody shape.
 
-        // 注意: "Drawing" は DocumentFormat.OpenXml.Drawing の名前空間のエイリアスです
+        // Note: "Drawing" is the alias of namespace DocumentFormat.OpenXml.Drawing
 
         Drawing.Paragraph p1 = textBody1.Elements<Drawing.Paragraph>().First();
 
-        // ターゲットプレゼンテーションの最初のスライドを取得します。
+        // Get the first slide in the target presentation.
 
         SlidePart slide2 = GetFirstSlide(targetDoc);
 
-        // それにおける最初の TextBody 形状を取得します。
+        // Get the first TextBody shape in it.
 
         TextBody textBody2 = slide2.Slide.Descendants<TextBody>().First();
 
-        // ソース段落をクローンし、クローンした段落をターゲットの TextBody 形状に挿入します。
+        // Clone the source paragraph and insert the cloned. paragraph into the target TextBody shape.
 
-        // "true" を渡すことでディープクローンが作成され、段落オブジェクトとそのオブジェクトが直接または間接的に参照するすべてのもののコピーが作成されます。
+        // Passing "true" creates a deep clone, which creates a copy of the 
+
+        // Paragraph object and everything directly or indirectly referenced by that object.
 
         textBody2.Append(p1.CloneNode(true));
 
-        // ソースファイルからソース段落を削除します。
+        // Remove the source paragraph from the source file.
 
         textBody1.RemoveChild<Drawing.Paragraph>(p1);
 
-        // 削除された段落をプレースホルダーで置き換えます。
+        // Replace the removed paragraph with a placeholder.
 
         textBody1.AppendChild<Drawing.Paragraph>(new Drawing.Paragraph());
 
-        // ソースファイル内のスライドを保存します。
+        // Save the slide in the source file.
 
         slide1.Slide.Save();
 
-        // ターゲットファイル内のスライドを保存します。
+        // Save the slide in the target file.
 
         slide2.Slide.Save();
 
@@ -88,13 +90,13 @@ using (PresentationDocument sourceDoc = PresentationDocument.Open(sourceFile, tr
 
 }
 
-// プレゼンテーションドキュメント内の最初のスライドのスライド部分を取得します。
+// Get the slide part of the first slide in the presentation document.
 
 public static SlidePart GetFirstSlide(PresentationDocument presentationDocument)
 
 {
 
-// 最初のスライドのリレーションシップIDを取得します
+// Get relationship ID of the first slide
 
 PresentationPart part = presentationDocument.PresentationPart;
 
@@ -102,7 +104,7 @@ SlideId slideId = part.Presentation.SlideIdList.GetFirstChild<SlideId>();
 
 string relId = slideId.RelationshipId;
 
-// リレーションシップIDを使用してスライド部分を取得します。
+// Get the slide part by the relationship ID.
 
 SlidePart slidePart = (SlidePart)part.GetPartById(relId);
 
@@ -110,9 +112,10 @@ return slidePart;
 
 }
 
+
 ``` 
 ## **Aspose.Slides**
-開発者がプレゼンテーションからテキストを抽出する必要があるのは珍しいことではありません。これを行うには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。この記事では、Aspose.Slides を使用して Microsoft PowerPoint PPTX プレゼンテーションからテキストを抽出する方法を説明します。1つのスライドまたは全体のプレゼンテーションからテキストを抽出する場合でも、Aspose.Slides は PresentationScanner クラスとその提供する静的メソッドを使用します。これらはすべて名前空間 [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil) にパックされています。
+プレゼンテーションからテキストを抽出する必要がある開発者は珍しくありません。これを行うには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。本記事では、Aspose.Slides を使用して Microsoft PowerPoint PPTX プレゼンテーションからテキストを抽出する方法を説明します。スライド 1 枚から全体のプレゼンテーションまでテキストを抽出する場合でも、Aspose.Slides は PresentationScanner クラスとその静的メソッドを使用します。それらはすべて名前空間[Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil)の下にパックされています。
 
 ``` csharp
 
@@ -124,9 +127,9 @@ string DestFileName = FilePath + "Move a Paragraph from One Presentation to Anot
 
 MoveParagraphToPresentation(FileName, DestFileName);
 
-// ソースドキュメントの TextBody 形状内の段落範囲を
+// Moves a paragraph range in a TextBody shape in the source document
 
-// ターゲットドキュメントの別の TextBody 形状に移動します。
+// to another TextBody shape in the target document.
 
 public static void MoveParagraphToPresentation(string sourceFile, string targetFile)
 
@@ -134,11 +137,11 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
     string Text = "";
 
-    // PPTX を表す Presentation クラスをインスタンス化します
+    //Instantiate Presentation class that represents PPTX//Instantiate Presentation class that represents PPTX
 
     Presentation sourcePres = new Presentation(sourceFile);
 
-    // 最初のスライドの最初のシェイプにアクセスします
+    //Access first shape in first slide
 
     IShape shp = sourcePres.Slides[0].Shapes[0];
 
@@ -146,7 +149,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
     {
 
-        // プレースホルダーからテキストを取得します
+        //Get text from placeholder
 
         Text = ((IAutoShape)shp).TextFrame.Text;
 
@@ -156,7 +159,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
     Presentation destPres = new Presentation(targetFile);
 
-    // 最初のスライドの最初のシェイプにアクセスします
+    //Access first shape in first slide
 
     IShape destshp = sourcePres.Slides[0].Shapes[0];
 
@@ -164,7 +167,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
     {
 
-        // プレースホルダーからテキストを取得します
+        //Get text from placeholder
 
         ((IAutoShape)destshp).TextFrame.Text += Text;
 
@@ -179,9 +182,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 }   
 
 ``` 
-## **ダウンロード 実行コード例**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **実行コード例のダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **サンプルコード**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Move a Paragraph/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Move%20a%20Paragraph)

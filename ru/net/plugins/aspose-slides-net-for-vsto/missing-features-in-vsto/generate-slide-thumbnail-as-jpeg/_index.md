@@ -1,49 +1,37 @@
 ---
-title: Генерация миниатюры слайда в формате JPEG
+title: Создать миниатюру слайда в формате JPEG
 type: docs
 weight: 90
 url: /ru/net/generate-slide-thumbnail-as-jpeg/
 ---
 
-Чтобы сгенерировать миниатюру любого желаемого слайда с помощью Aspose.Slides для .NET:
+Чтобы создать миниатюру любого нужного слайда с помощью Aspose.Slides for .NET:
 
 - Создайте экземпляр класса Presentation.
-- Получите ссылку на любой желаемый слайд, используя его ID или индекс.
+- Получите ссылку на нужный слайд, используя его ID или индекс.
 - Получите изображение миниатюры указанного слайда в заданном масштабе.
-- Сохраните изображение миниатюры в любом желаемом формате изображения.
+- Сохраните изображение миниатюры в любом требуемом формате изображения.
 ## **Пример**
-``` 
-
- //Создайте экземпляр класса Presentation, представляющий файл презентации
-
+```cs
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
-
 {
+    //Access the first slide
+    ISlide sld = pres.Slides[0];
 
-  //Получите доступ к первому слайду
-
-  ISlide sld = pres.Slides[0];
-
-  //Создайте изображение в полном масштабе
-
-  Bitmap bmp = sld.GetThumbnail(1f, 1f);
-
-  //Сохраните изображение на диск в формате JPEG
-
-  bmp.Save("Test Thumbnail.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    //Create a full scale image
+    using (IImage image = sld.GetImage(1f, 1f))
+    {
+        //Save the image to disk in JPEG format
+        image.Save("Test Thumbnail.jpg", ImageFormat.Jpeg);
+    }
+}
 ``` 
 ## **Скачать работающий пример**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Slide Thumbnail to JPEG/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Slide%20Thumbnail%20to%20JPEG)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **Скачать пример кода**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
-
-Для получения дополнительной информации посетите [Создание изображения миниатюры слайдов](/slides/ru/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
-
+Для получения дополнительной информации перейдите по ссылке [Конвертировать PPT и PPTX в JPG в .NET](/slides/ru/net/convert-powerpoint-to-jpg/).
 {{% /alert %}}

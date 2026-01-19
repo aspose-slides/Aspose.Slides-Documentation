@@ -1,5 +1,5 @@
 ---
-title: スライドの数をカウントする
+title: スライドの枚数を数える
 type: docs
 weight: 50
 url: /ja/net/count-the-number-of-slides/
@@ -10,29 +10,29 @@ url: /ja/net/count-the-number-of-slides/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "スライドの数をカウントする.pptx";
+string FileName = FilePath + "Count the number of slides.pptx";
 
-Console.WriteLine("スライドの数 = {0}",
+Console.WriteLine("Number of slides = {0}",
 
 CountSlides(FileName));
 
 Console.ReadKey();
 
-// プレゼンテーションオブジェクトを取得し、次のCountSlidesメソッドに渡す。
+// Get the presentation object and pass it to the next CountSlides method.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // プレゼンテーションを読み取り専用として開く。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // プレゼンテーションを次のCountSlideメソッドに渡し
+        // Pass the presentation to the next CountSlide method
 
-        // スライドの数を返す。
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -40,13 +40,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// プレゼンテーション内のスライドをカウントする。
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // nullのドキュメントオブジェクトをチェックする。
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -58,11 +58,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // ドキュメントのプレゼンテーションパートを取得する。
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // SlidePartsからスライドの数を取得。
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -72,7 +72,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // 前のメソッドにスライドの数を返す。
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -84,9 +84,9 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "スライドの数をカウントする.pptx";
+string FileName = FilePath + "Count the number of slides.pptx";
 
-Console.WriteLine("スライドの数 = {0}",
+Console.WriteLine("Number of slides = {0}",
 
 CountSlides(FileName));
 
@@ -96,7 +96,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-  // PPTXファイルを表すPresentationExオブジェクトをインスタンス化する
+  //Instantiate a PresentationEx object that represents a PPTX file
 
   using (Presentation pres = new Presentation(presentationFile))
 
@@ -110,7 +110,6 @@ public static int CountSlides(string presentationFile)
 
 ``` 
 ## **サンプルコードをダウンロード**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Count%20the%20number%20of%20Slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Count%20the%20number%20of%20Slides/)

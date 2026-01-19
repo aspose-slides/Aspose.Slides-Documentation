@@ -5,36 +5,38 @@ weight: 70
 url: /ar/net/create-slide-as-svg-image/
 ---
 
-لتوليد صورة SVG من أي شريحة مرغوبة باستخدام Aspose.Slides.Pptx لـ .NET، يرجى اتباع الخطوات أدناه:
+لإنشاء صورة SVG من أي شريحة مرغوبة باستخدام Aspose.Slides.Pptx لـ .NET، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة Presentation.
-- الحصول على مرجع الشريحة المرغوبة باستخدام معرفها أو فهرسها.
-- الحصول على صورة SVG في دفق الذاكرة.
-- حفظ دفق الذاكرة إلى ملف.
+- إنشاء مثال من فئة Presentation.  
+- الحصول على مرجع الشريحة المطلوبة باستخدام معرفها (ID) أو الفهرس.  
+- الحصول على صورة SVG في تدفق الذاكرة.  
+- حفظ تدفق الذاكرة إلى ملف.  
+
 ## **مثال**
 
-```
-//إنشاء مثيل لفئة Presentation تمثل ملف العرض التقديمي
+```csharp
+
+ //Instantiate a Presentation class that represents the presentation file
 
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {
 
-   //الوصول إلى الشريحة الثانية
+   //Access the second slide
 
    ISlide sld = pres.Slides[1];
 
-   //إنشاء كائن دفق الذاكرة
+   //Create a memory stream object
 
    MemoryStream SvgStream = new MemoryStream();
 
-   //توليد صورة SVG للشريحة وحفظها في دفق الذاكرة
+   //Generate SVG image of slide and save in memory stream
 
    sld.WriteAsSvg(SvgStream);
 
    SvgStream.Position = 0;
 
-   //حفظ دفق الذاكرة إلى ملف
+   //Save memory stream to file
 
    using (Stream fileStream = System.IO.File.OpenWrite("PresentatoinTemplate.svg"))
 
@@ -57,17 +59,15 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 SvgStream.Close();
 
 ``` 
-## **تنزيل مثال قيد التشغيل**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Creating Slide SVG Image/)
+
+## **تحميل المثال التشغيلي**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Creating%20Slide%20SVG%20Image)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **تنزيل كود العينة**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+
+## **تحميل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-للمزيد من التفاصيل، تفضل بزيارة [إنشاء شريحة SVG](/slides/ar/net/presentation-viewer/).
+لمزيد من التفاصيل، زر [Render Presentation Slides as SVG Images in .NET](/slides/ar/net/render-a-slide-as-an-svg-image/).
 
 {{% /alert %}}

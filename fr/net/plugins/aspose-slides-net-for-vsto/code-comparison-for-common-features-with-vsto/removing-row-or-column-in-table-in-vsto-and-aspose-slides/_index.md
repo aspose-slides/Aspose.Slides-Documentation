@@ -1,20 +1,20 @@
 ---
-title: Suppression de ligne ou de colonne dans un tableau dans VSTO et Aspose.Slides
+title: Suppression d'une ligne ou d'une colonne dans un tableau avec VSTO et Aspose.Slides
 type: docs
 weight: 130
 url: /fr/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**
-Voici le code pour supprimer des lignes ou des colonnes d'un tableau en utilisant la présentation VSTO :
+Ci-dessous le code pour supprimer des lignes ou des colonnes d'un tableau à l'aide de VSTO Presentation:
 
 ``` csharp
 
-    string FileName = "Suppression de ligne ou de colonne dans un tableau.pptx";
+    string FileName = "Removing Row Or Column in Table.pptx";
 
    Presentation pres = Application.Presentations.Open(FileName);
 
-   //Obtenir la première diapositive
+   //Get the first slide
 
    Slide sld = pres.Slides[1];
 
@@ -34,24 +34,24 @@ Voici le code pour supprimer des lignes ou des colonnes d'un tableau en utilisan
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides pour .NET a fourni la plus simple API pour créer des tableaux de la manière la plus facile. Pour créer un tableau dans une diapositive et réaliser quelques opérations de base sur le tableau, veuillez suivre les étapes ci-dessous :
+Aspose.Slides pour .NET propose l'API la plus simple pour créer des tableaux de la manière la plus facile. Pour créer un tableau dans une diapositive et effectuer des opérations de base sur le tableau, veuillez suivre les étapes ci‑dessous :
 
-- Créez une instance de la classe Presentation
-- Obtenez la référence d'une diapositive en utilisant son index
-- Définissez un tableau de colonnes avec largeur
-- Définissez un tableau de lignes avec hauteur
-- Ajoutez un tableau à la diapositive en utilisant la méthode AddTable exposée par l'objet IShapes
-- Supprimez une ligne du tableau
-- Supprimez une colonne du tableau
-- Écrivez la présentation modifiée en tant que fichier PPTX
+- Créer une instance de la classe Presentation
+- Obtenir la référence d'une diapositive en utilisant son index
+- Définir un tableau de colonnes avec la largeur
+- Définir un tableau de lignes avec la hauteur
+- Ajouter un tableau à la diapositive en utilisant la méthode AddTable exposée par l'objet IShapes
+- Supprimer une ligne du tableau
+- Supprimer une colonne du tableau
+- Enregistrer la présentation modifiée au format PPTX
 
 ``` csharp
 
-   string FileName = "Suppression de ligne ou de colonne dans un tableau.pptx";
+   string FileName = "Removing Row Or Column in Table.pptx";
 
   Presentation MyPresentation = new Presentation(FileName);
 
-  //Obtenir la première diapositive
+  //Get First Slide
 
   ISlide sld = MyPresentation.Slides[0];
 
@@ -72,8 +72,6 @@ Aspose.Slides pour .NET a fourni la plus simple API pour créer des tableaux de 
 
 ``` 
 ## **Télécharger le code en cours d'exécution**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
 ## **Télécharger le code d'exemple**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Suppression de ligne ou de colonne dans un tableau/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Suppression%20de%20ligne%20ou%20de%20colonne%20dans%20un%20tableau)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Removing%20Row%20Or%20Column%20in%20Table)

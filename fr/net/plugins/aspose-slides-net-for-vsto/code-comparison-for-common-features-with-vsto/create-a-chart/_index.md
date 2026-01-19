@@ -1,32 +1,32 @@
 ---
-title: Créer un Graphique
+title: Créer un graphique
 type: docs
 weight: 60
 url: /fr/net/create-a-chart/
 ---
 
-Les exemples de code ci-dessous décrivent le processus d'ajout d'un graphique en colonnes groupées 3D simple à l'aide de VSTO. Vous créez une instance de présentation, y ajoutez un graphique par défaut. Ensuite, utilisez le classeur Microsoft Excel pour accéder et modifier les données du graphique ainsi que pour définir les propriétés du graphique. Enfin, enregistrez la présentation.
+Les exemples de code ci-dessous décrivent le processus d'ajout d'un simple graphique à colonnes groupées 3D à l'aide de VSTO. Vous créez une instance de présentation, ajoutez‑y un graphique par défaut. Vous utilisez ensuite le classeur Microsoft Excel pour accéder aux données du graphique et les modifier ainsi que définir les propriétés du graphique. Enfin, vous enregistrez la présentation.
 ## **VSTO**
-En utilisant VSTO, les étapes suivantes sont réalisées :
+En utilisant VSTO, les étapes suivantes sont exécutées :
 
 1. Créer une instance d'une présentation Microsoft PowerPoint.
 1. Ajouter une diapositive vierge à la présentation.
-1. Ajouter un graphique en colonnes groupées 3D et y accéder.
-1. Créer une nouvelle instance de classeur Microsoft Excel et charger les données du graphique.
-1. Accéder à la feuille de calcul des données du graphique à l'aide de l'instance du classeur Microsoft Excel.
-1. Définir la plage du graphique dans la feuille de calcul et supprimer les séries 2 et 3 du graphique.
-1. Modifier les données de catégorie du graphique dans la feuille de calcul des données du graphique.
-1. Modifier les données de la série 1 dans la feuille de calcul des données du graphique.
-1. Maintenant, accéder au titre du graphique et définir les propriétés liées à la police.
+1. Ajouter un graphique à colonnes groupées 3D et y accéder.
+1. Créer une nouvelle instance d'un classeur Microsoft Excel et charger les données du graphique.
+1. Accéder à la feuille de calcul contenant les données du graphique à l'aide de l'instance du classeur Microsoft Excel.
+1. Définir la plage du graphique dans la feuille et supprimer les séries 2 et 3 du graphique.
+1. Modifier les données des catégories du graphique dans la feuille de données du graphique.
+1. Modifier les données de la série 1 du graphique dans la feuille de données du graphique.
+1. Ensuite, accéder au titre du graphique et définir les propriétés de la police.
 1. Accéder à l'axe des valeurs du graphique et définir l'unité principale, les unités mineures, la valeur maximale et la valeur minimale.
-1. Accéder à la profondeur du graphique ou à l'axe des séries et le supprimer car dans cet exemple, seule une série est utilisée.
-1. Maintenant, définir les angles de rotation du graphique dans les directions X et Y.
+1. Accéder à l'axe de profondeur ou d'axes de séries et le supprimer car, dans cet exemple, une seule série est utilisée.
+1. Ensuite, définir les angles de rotation du graphique dans les directions X et Y.
 1. Enregistrer la présentation.
 1. Fermer les instances de Microsoft Excel et PowerPoint.
 
 ``` csharp
 
- //Variables Globales
+ //Global Variables
 
 public static Microsoft.Office.Interop.PowerPoint.Application objPPT;
 
@@ -47,59 +47,59 @@ public static void GEN_VSTO_Chart()
 
 	EnsurePowerPointIsRunning(true, true);
 
-	//Instancier l'objet diapositive
+	//Instantiate slide object
 
 	Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-	//Accéder à la première diapositive de la présentation
+	//Access the first slide of presentation
 
 	objSlide = objPres.Slides[1];
 
-	//Sélectionner la première diapositive et définir sa mise en page
+	//Select firs slide and set its layout
 
 	objSlide.Select();
 
 	objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-	//Ajouter un graphique par défaut à la diapositive
+	//Add a default chart in slide
 
 	objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
 
-	//Accéder au graphique ajouté
+	//Access the added chart
 
 	Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-	//Accéder aux données du graphique
+	//Access the chart data
 
 	Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-	//Créer une instance de classeur Excel pour travailler avec les données du graphique
+	//Create instance to Excel workbook to work with chart data
 
 	Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-	//Accéder à la feuille de calcul des données pour le graphique
+	//Accessing the data worksheet for chart
 
 	Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-	//Définir la plage du graphique
+	//Setting the range of chart
 
 	Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-	//Appliquer la plage définie sur le tableau de données du graphique
+	//Applying the set range on chart data table
 
 	Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 
 	tbl1.Resize(tRange);
 
-	//Définir les valeurs pour les catégories et les données respectives des séries
+	//Setting values for categories and respective series data
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Vélos";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessoires";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Réparations";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
 
-	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Vêtements";
+	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 
@@ -109,11 +109,11 @@ public static void GEN_VSTO_Chart()
 
 	((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-	//Définir le titre du graphique
+	//Setting chart title
 
 	ppChart.ChartTitle.Font.Italic = true;
 
-	ppChart.ChartTitle.Text = "Ventes 2007";
+	ppChart.ChartTitle.Text = "2007 Sales";
 
 	ppChart.ChartTitle.Font.Size = 18;
 
@@ -123,11 +123,11 @@ public static void GEN_VSTO_Chart()
 
 	ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-	//Accéder à l'axe des valeurs du graphique
+	//Accessing Chart value axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-	//Définir les unités de l'axe des valeurs
+	//Setting values axis units
 
 	valaxis.MajorUnit = 2000.0F;
 
@@ -137,25 +137,25 @@ public static void GEN_VSTO_Chart()
 
 	valaxis.MaximumScale = 4000.0F;
 
-	//Accéder à l'axe de profondeur du graphique
+	//Accessing Chart Depth axis
 
 	Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
 	Depthaxis.Delete();
 
-	//Définir la rotation du graphique
+	//Setting chart rotation
 
-	ppChart.Rotation = 20; //Valeur Y
+	ppChart.Rotation = 20; //Y-Value
 
-	ppChart.Elevation = 15; //Valeur X
+	ppChart.Elevation = 15; //X-Value
 
 	ppChart.RightAngleAxes = false;
 
-	// Enregistrer la présentation au format PPTX
+	// Save the presentation as a PPTX
 
 	objPres.SaveAs("VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-	//Fermer le classeur et la présentation
+	//Close Workbook and presentation
 
 	dataWorkbook.Application.Quit();
 
@@ -163,7 +163,7 @@ public static void GEN_VSTO_Chart()
 
 }
 
-//Méthodes supplémentaires
+//Supplementary methods
 
 public static void StartPowerPoint()
 
@@ -201,9 +201,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//Essayez d'accéder à la propriété de nom. Si cela provoque une exception alors
+	//Try accessing the name property. If it causes an exception then
 
-	//commencez une nouvelle instance de PowerPoint
+	//start a new instance of PowerPoint
 
 	try
 
@@ -223,7 +223,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//blnAddPresentation est utilisé pour s'assurer qu'il y a une présentation chargée
+	//blnAddPresentation is used to ensure there is a presentation loaded
 
 	if (blnAddPresentation == true)
 
@@ -249,9 +249,9 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	//
 
-	//BlnAddSlide est utilisé pour s'assurer qu'il y a au moins une diapositive dans la
+	//BlnAddSlide is used to ensure there is at least one slide in the
 
-	//présentation
+	//presentation
 
 	if (blnAddSlide)
 
@@ -287,20 +287,21 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	}
 
-``` 
+} 
+```
 ## **Aspose.Slides**
-En utilisant Aspose.Slides pour .NET, les étapes suivantes sont réalisées :
+En utilisant Aspose.Slides pour .NET, les étapes suivantes sont exécutées :
 
 1. Créer une instance d'une présentation Microsoft PowerPoint.
 1. Ajouter une diapositive vierge à la présentation.
-1. Ajouter un graphique en colonnes groupées 3D et y accéder.
-1. Accéder à la feuille de calcul des données du graphique à l'aide d'une instance de classeur Microsoft Excel.
+1. Ajouter un graphique à colonnes groupées 3D et y accéder.
+1. Accéder à la feuille de données du graphique à l'aide d'une instance de classeur Microsoft Excel.
 1. Supprimer les séries inutilisées 2 et 3.
-1. Accéder aux catégories de graphiques et modifier les étiquettes.
+1. Accéder aux catégories du graphique et modifier les libellés.
 1. Accéder à la série 1 et modifier les valeurs de la série.
-1. Maintenant, accéder au titre du graphique et définir les propriétés de la police.
+1. Ensuite, accéder au titre du graphique et définir les propriétés de la police.
 1. Accéder à l'axe des valeurs du graphique et définir l'unité principale, les unités mineures, la valeur maximale et la valeur minimale.
-1. Maintenant, définir les angles de rotation du graphique dans les directions X et Y.
+1. Ensuite, définir les angles de rotation du graphique dans les directions X et Y.
 1. Enregistrer la présentation au format PPTX.
 
 ``` csharp
@@ -309,41 +310,41 @@ En utilisant Aspose.Slides pour .NET, les étapes suivantes sont réalisées :
 
 {
 
-	//Créer une présentation vide
+	//Create empty presentation
 
 	using (PresentationEx pres = new PresentationEx())
 
 	{
 
-		//Accéder à la première diapositive
+		//Accessing first slide
 
 		SlideEx slide = pres.Slides[0];
 
-		//Ajouter un graphique par défaut
+		//Addding default chart
 
 		ChartEx ppChart = slide.Shapes.AddChart(ChartTypeEx.ClusteredColumn3D, 20F, 30F, 400F, 300F);
 
-		//Obtenir les données du graphique
+		//Getting Chart data
 
 		ChartDataEx chartData = ppChart.ChartData;
 
-		//Supprimer les séries supplémentaires par défaut
+		//Removing Extra default series
 
 		chartData.Series.RemoveAt(1);
 
 		chartData.Series.RemoveAt(1);
 
-		//Modifier les noms des catégories de graphique
+		//Modifying chart categories names
 
-		chartData.Categories[0].ChartDataCell.Value = "Vélos";
+		chartData.Categories[0].ChartDataCell.Value = "Bikes";
 
-		chartData.Categories[1].ChartDataCell.Value = "Accessoires";
+		chartData.Categories[1].ChartDataCell.Value = "Accessories";
 
-		chartData.Categories[2].ChartDataCell.Value = "Réparations";
+		chartData.Categories[2].ChartDataCell.Value = "Repairs";
 
-		chartData.Categories[3].ChartDataCell.Value = "Vêtements";
+		chartData.Categories[3].ChartDataCell.Value = "Clothing";
 
-		//Modifier les valeurs de la série de graphique pour la première catégorie
+		//Modifying chart series values for first category
 
 		chartData.Series[0].Values[0].Value = 1000;
 
@@ -353,11 +354,11 @@ En utilisant Aspose.Slides pour .NET, les étapes suivantes sont réalisées :
 
 		chartData.Series[0].Values[3].Value = 3000;
 
-		//Définir le titre du graphique
+		//Setting Chart title
 
 		ppChart.HasTitle = true;
 
-		ppChart.ChartTitle.Text.Text = "Ventes 2007";
+		ppChart.ChartTitle.Text.Text = "2007 Sales";
 
 		PortionFormatEx format = ppChart.ChartTitle.Text.Paragraphs[0].Portions[0].PortionFormat;
 
@@ -370,7 +371,7 @@ En utilisant Aspose.Slides pour .NET, les étapes suivantes sont réalisées :
 		format.FillFormat.SolidFillColor.Color = Color.Black;
 
 
-		//Définir les valeurs des axes
+		//Setting Axis values
 
 		ppChart.ValueAxis.IsAutomaticMaxValue = false;
 
@@ -390,21 +391,519 @@ En utilisant Aspose.Slides pour .NET, les étapes suivantes sont réalisées :
 
 		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-		//Définir la rotation du graphique
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting Axis values
+
+		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMinValue = false;
+
+		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+
+		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+
+		ppChart.ValueAxis.MaxValue = 4000.0F;
+
+		ppChart.ValueAxis.MinValue = 0.0F;
+
+		ppChart.ValueAxis.MajorUnit = 2000.0F;
+
+		ppChart.ValueAxis.MinorUnit = 1000.0F;
+
+		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+		//Setting BaseProperties
 
 		ppChart.Rotation3D.RotationX = 15;
 
 		ppChart.Rotation3D.RotationY = 20;
 
-		//Enregistrer la présentation
+		//Saving Presentation
 
 		pres.Write("AsposeSampleChart.pptx");
 
 	}
 
 ``` 
-## **Télécharger le Code Exemple**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772948)
-- [Github](https://github.com/asposemarketplace/Aspose_for_VSTO/releases/download/3/Create.a.Chart.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20Chart%20\(Aspose.Slides\).zip)
+## **Télécharger le code d'exemple**
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20Chart/)

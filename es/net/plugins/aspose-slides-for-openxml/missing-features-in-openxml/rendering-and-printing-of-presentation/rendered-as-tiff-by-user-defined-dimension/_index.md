@@ -1,5 +1,5 @@
 ---
-title: Renderizado Como Tiff Por Dimensión Definida Por El Usuario
+title: Renderizado como Tiff con dimensión definida por el usuario
 type: docs
 weight: 40
 url: /es/net/rendered-as-tiff-by-user-defined-dimension/
@@ -15,23 +15,23 @@ string srcFileName = FilePath + "Conversion.pptx";
 
 string destFileName = FilePath + "Converting to Tiff as defined format.tiff";
 
-//Instanciar un objeto Presentation que representa un archivo de Presentación
+//Instantiate a Presentation object that represents a Presentation file
 
 Presentation pres = new Presentation(srcFileName);
 
-//Instanciar la clase TiffOptions
+//Instantiate the TiffOptions class
 
 Aspose.Slides.Export.TiffOptions opts = new Aspose.Slides.Export.TiffOptions();
 
-//Establecer el tipo de compresión
+//Setting compression type
 
 opts.CompressionType = TiffCompressionTypes.Default;
 
-//Tipos de Compresión
+//Compression Types
 
-//Default - Especifica el esquema de compresión predeterminado (LZW).
+//Default - Specifies the default compression scheme (LZW).
 
-//None - Especifica sin compresión.
+//None - Specifies no compression.
 
 //CCITT3
 
@@ -41,27 +41,25 @@ opts.CompressionType = TiffCompressionTypes.Default;
 
 //RLE
 
-//Depth - depende del tipo de compresión y no se puede establecer manualmente.
+//Depth - depends on the compression type and cannot be set manually.
 
-//Unidad de resolución - siempre es igual a "2" (puntos por pulgada)
+//Resolution unit - is always equal to "2" (dots per inch)
 
-//Establecer DPI de imagen
+//Setting image DPI
 
 opts.DpiX = 200;
 
 opts.DpiY = 100;
 
-//Establecer tamaño de imagen
+//Set Image Size
 
 opts.ImageSize = new Size(1728, 1078);
 
-//Guardar la presentación como TIFF con el tamaño de imagen especificado
+//Save the presentation to TIFF with specified image size
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Tiff, opts);
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Descargar código de ejemplo**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20Tiff%20as%20defined%20format%20%28Aspose.Slides%29.zip)

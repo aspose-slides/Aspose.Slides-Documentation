@@ -1,5 +1,5 @@
 ---
-title: Creando una tabla en una diapositiva de PowerPoint en VSTO y Aspose.Slides
+title: Crear una tabla en una diapositiva de PowerPoint en VSTO y Aspose.Slides
 type: docs
 weight: 90
 url: /es/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
@@ -9,23 +9,23 @@ Los siguientes pasos añaden una tabla a una diapositiva de Microsoft PowerPoint
 
 - Crear una presentación.
 - Se añade una diapositiva vacía a la presentación.
-- Añadir una tabla de 15 x 15 a la diapositiva.
+- Añadir una tabla de 15 × 15 a la diapositiva.
 - Añadir texto a cada celda de la tabla con un tamaño de fuente de 10.
-- Guardar la presentación en el disco.
+- Guardar la presentación en disco.
 ## **VSTO**
 ``` csharp
 
- //Crear una presentación
+ //Create a presentation
 
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 			  .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Agregar una diapositiva en blanco
+//Add a blank slide
 
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Agregar una tabla de 15 x 15
+//Add a 15 x 15 table
 
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 
@@ -35,7 +35,7 @@ int i = -1;
 
 int j = -1;
 
-//Recorrer todas las filas
+//Loop through all the rows
 
 foreach (PowerPoint.Row row in tbl.Rows)
 
@@ -45,7 +45,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 	j = -1;
 
-	//Recorrer todas las celdas en la fila
+	//Loop through all the cells in the row
 
 	foreach (PowerPoint.Cell cell in row.Cells)
 
@@ -53,15 +53,15 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 		j = j + 1;
 
-		//Obtener el marco de texto de cada celda
+		//Get text frame of each cell
 
 		PowerPoint.TextFrame tf = cell.Shape.TextFrame;
 
-		//Agregar algo de texto
+		//Add some text
 
 		tf.TextRange.Text = "T" + i.ToString() + j.ToString();
 
-		//Establecer el tamaño de fuente del texto como 10
+		//Set font size of the text as 10
 
 		tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
 
@@ -69,7 +69,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
 
 }
 
-//Guardar la presentación en el disco
+//Save the presentation to disk
 
 pres.SaveAs("tblVSTO.ppt",
 
@@ -82,43 +82,43 @@ pres.SaveAs("tblVSTO.ppt",
 Los siguientes pasos añaden una tabla a una diapositiva de Microsoft PowerPoint usando Aspose.Slides:
 
 - Crear una presentación.
-- Añadir una tabla de 15 x 15 en la primera diapositiva.
+- Añadir una tabla de 15 × 15 a la primera diapositiva.
 - Añadir texto a cada celda de la tabla con un tamaño de fuente de 10.
-- Escribir la presentación en el disco.
+- Escribir la presentación en disco.
 ## **Aspose.Slides**
 ``` csharp
 
- //Crear una presentación
+ //Create a presentation
 
 Presentation pres = new Presentation();
 
-//Acceder a la primera diapositiva
+//Access first slide
 
 Slide sld = pres.GetSlideByPosition(1);
 
-//Agregar una tabla
+//Add a table
 
 Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);
 
-//Recorrer filas
+//Loop through rows
 
 for (int i = 0; i < tbl.RowsNumber; i++)
 
-	//Recorrer celdas
+	//Loop through cells
 
 	for (int j = 0; j < tbl.ColumnsNumber; j++)
 
 	{
 
-		//Obtener el marco de texto de cada celda
+		//Get text frame of each cell
 
 		TextFrame tf = tbl.GetCell(j, i).TextFrame;
 
-		//Agregar algo de texto
+		//Add some text
 
 		tf.Text = "T" + i.ToString() + j.ToString();
 
-		//Establecer tamaño de fuente en 10
+		//Set font size of 10
 
 		tf.Paragraphs[0].Portions[0].FontHeight = 10;
 
@@ -126,13 +126,12 @@ for (int i = 0; i < tbl.RowsNumber; i++)
 
 	}
 
-//Escribir la presentación en el disco
+//Write the presentation to the disk
 
 pres.Write("tblSLD.ppt");
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772951)
+## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Creating%20a%20Table%20on%20PowerPoint%20Slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Creating%20a%20Table%20on%20PowerPoint%20Slide/)

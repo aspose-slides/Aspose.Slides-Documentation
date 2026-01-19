@@ -1,5 +1,5 @@
 ---
-title: 设置母版幻灯片的背景颜色
+title: 设置主幻灯片的背景颜色
 type: docs
 weight: 140
 url: /zh/net/setting-background-color-of-master-slide/
@@ -7,24 +7,22 @@ url: /zh/net/setting-background-color-of-master-slide/
 
 ## **VSTO**
 ``` csharp
-
  PowerPoint.Presentation presentation =
 
-                Globals.ThisAddIn.Application.Presentations.Open("设置母版幻灯片的背景颜色.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
+                Globals.ThisAddIn.Application.Presentations.Open("Setting Background Color of Master Slide.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
 
             presentation.SlideMaster.Background.Fill.ForeColor.RGB = -654262273;
 
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
- //实例化表示演示文稿文件的 Presentation 类
+ //Instantiate the Presentation class that represents the presentation file
 
 using (PresentationEx pres = new PresentationEx())
 
 {
 
-	//将母版 ISlide 的背景颜色设置为森林绿
+	//Set the background color of the Master ISlide to Forest Green
 
 	pres.Masters[0].Background.Type = BackgroundTypeEx.OwnBackground;
 
@@ -32,12 +30,11 @@ using (PresentationEx pres = new PresentationEx())
 
 	pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-	//将演示文稿写入磁盘
+	//Write the presentation to disk
 
-	pres.Save("设置母版幻灯片的背景颜色.pptx", SaveFormat.Pptx);
+	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
 
 ``` 
 ## **下载示例代码**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/787342)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Setting%20Background%20color%20of%20Master%20Slide%20\(Asose.Slides\).zip)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Setting%20Background%20color%20of%20Master%20Slide/)

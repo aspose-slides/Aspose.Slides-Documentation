@@ -1,5 +1,5 @@
 ---
-title: Hole die Titel aller Folien
+title: Die Titel aller Folien abrufen
 type: docs
 weight: 120
 url: /de/net/get-the-titles-of-all-the-slides/
@@ -7,10 +7,9 @@ url: /de/net/get-the-titles-of-all-the-slides/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Hole die Titel aller Folien.pptx";
+string FileName = FilePath + "Get the titles of all the slides.pptx";
 
 foreach (string s in GetSlideTitles(FileName))
 
@@ -18,13 +17,13 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// Hole eine Liste der Titel aller Folien in der Präsentation.
+// Get a list of the titles of all the slides in the presentation.
 
 public static IList<string> GetSlideTitles(string presentationFile)
 
 {
 
-    // Öffne die Präsentation als schreibgeschützt.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument =
 
@@ -38,7 +37,7 @@ public static IList<string> GetSlideTitles(string presentationFile)
 
 }
 
-// Hole eine Liste der Titel aller Folien in der Präsentation.
+// Get a list of the titles of all the slides in the presentation.
 
 public static IList<string> GetSlideTitles(PresentationDocument presentationDocument)
 
@@ -52,7 +51,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     }
 
-    // Hole ein PresentationPart-Objekt aus dem PresentationDocument-Objekt.
+    // Get a PresentationPart object from the PresentationDocument object.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
@@ -62,7 +61,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
     {
 
-        // Hole ein Presentation-Objekt aus dem PresentationPart-Objekt.
+        // Get a Presentation object from the PresentationPart object.
 
         Presentation presentation = presentationPart.Presentation;
 
@@ -72,7 +71,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
             List<string> titlesList = new List<string>();
 
-            // Hole den Titel jeder Folie in der Folienreihenfolge.
+            // Get the title of each slide in the slide order.
 
             foreach (var slideId in presentation.SlideIdList.Elements<SlideId>())
 
@@ -80,11 +79,11 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
                 SlidePart slidePart = presentationPart.GetPartById(slideId.RelationshipId) as SlidePart;
 
-                // Hole den Foliens Titel.
+                // Get the slide title.
 
                 string title = GetSlideTitle(slidePart);
 
-                // Ein leerer Titel kann auch hinzugefügt werden.
+                // An empty title can also be added.
 
                 titlesList.Add(title);
 
@@ -100,7 +99,7 @@ public static IList<string> GetSlideTitles(PresentationDocument presentationDocu
 
 }
 
-// Hole den Titelstring der Folie.
+// Get the title string of the slide.
 
 public static string GetSlideTitle(SlidePart slidePart)
 
@@ -114,7 +113,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     }
 
-    // Deklariere einen Absatztrenner.
+    // Declare a paragraph separator.
 
     string paragraphSeparator = null;
 
@@ -122,7 +121,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
     {
 
-        // Finde alle Titelformen.
+        // Find all the title shapes.
 
         var shapes = from shape in slidePart.Slide.Descendants<Shape>()
 
@@ -136,13 +135,13 @@ public static string GetSlideTitle(SlidePart slidePart)
 
         {
 
-            // Hole den Text in jedem Absatz in dieser Form.
+            // Get the text in each paragraph in this shape.
 
             foreach (var paragraph in shape.TextBody.Descendants<D.Paragraph>())
 
             {
 
-                // Füge einen Zeilenumbruch hinzu.
+                // Add a line break.
 
                 paragraphText.Append(paragraphSeparator);
 
@@ -168,7 +167,7 @@ public static string GetSlideTitle(SlidePart slidePart)
 
 }
 
-// Bestimmt, ob die Form eine Titelform ist.
+// Determines whether the shape is a title shape.
 
 private static bool IsTitleShape(Shape shape)
 
@@ -184,11 +183,11 @@ private static bool IsTitleShape(Shape shape)
 
         {
 
-            // Jede Titelform.
+            // Any title shape.
 
             case PlaceholderValues.Title:
 
-            // Ein zentrierter Titel.
+            // A centered title.
 
             case PlaceholderValues.CenteredTitle:
 
@@ -205,18 +204,16 @@ private static bool IsTitleShape(Shape shape)
     return false;
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Hole allen Text in einer Folie.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("Anzahl der Folien = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -226,7 +223,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("Folie #{0} enthält: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -236,15 +233,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // Öffne die Präsentation als schreibgeschützt.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // Übergib die Präsentation an die nächste CountSlides-Methode
+        // Pass the presentation to the next CountSlides method
 
-        // und gib die Folienanzahl zurück.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -252,13 +249,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// Zähle die Folien in der Präsentation.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // Überprüfen auf ein null-Dokumentobjekt.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -270,11 +267,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // Hole den Präsentationsteil des Dokuments.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Hole die Folienanzahl von den SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -284,7 +281,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // Gib die Folienanzahl an die vorherige Methode zurück.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -298,7 +295,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // Hole die Beziehungs-ID der ersten Folie.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -306,15 +303,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // Hole das Folienpart von der Beziehungs-ID.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // Baue ein StringBuilder-Objekt.
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // Hole den inneren Text der Folie:
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -331,10 +328,8 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
     }
 
 }
-
 ``` 
 ## **Beispielcode herunterladen**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Hole%20die%20Titel%20aller%20Folien%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Hole%20die%20Titel%20aller%20Folien%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20the%20titles%20of%20all%20the%20slides/)

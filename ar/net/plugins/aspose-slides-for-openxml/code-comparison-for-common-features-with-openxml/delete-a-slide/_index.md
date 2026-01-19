@@ -10,23 +10,23 @@ url: /ar/net/delete-a-slide/
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "حذف شريحة.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
-// الحصول على كائن العرض التقديمي وتمريره إلى طريقة DeleteSlide التالية.
+// Get the presentation object and pass it to the next DeleteSlide method.
 
 public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    // فتح المستند المصدر للقراءة / الكتابة.
+    // Open the source document as read/write.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, true))
 
     {
 
-        // تمرير المستند المصدر ومؤشر الشريحة التي سيتم حذفها إلى طريقة DeleteSlide التالية.
+        // Pass the source document and the index of the slide to be deleted to the next DeleteSlide method.
 
         DeleteSlide(presentationDocument, slideIndex);
 
@@ -34,7 +34,7 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 }
 
-// حذف الشريحة المحددة من العرض التقديمي.
+// Delete the specified slide from the presentation.
 
 public static void DeleteSlide(PresentationDocument presentationDocument, int slideIndex)
 
@@ -48,7 +48,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // استخدم العينة CountSlides للحصول على عدد الشرائح في العرض التقديمي.
+    // Use the CountSlides sample to get the number of slides in the presentation.
 
     int slidesCount = CountSlides(presentationDocument);
 
@@ -60,39 +60,39 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // الحصول على جزء العرض التقديمي من مستند العرض التقديمي. 
+    // Get the presentation part from the presentation document. 
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // الحصول على العرض التقديمي من جزء العرض التقديمي.
+    // Get the presentation from the presentation part.
 
     Presentation presentation = presentationPart.Presentation;
 
-    // الحصول على قائمة معرفات الشرائح في العرض التقديمي.
+    // Get the list of slide IDs in the presentation.
 
     SlideIdList slideIdList = presentation.SlideIdList;
 
-    // الحصول على معرف الشريحة للشريحة المحددة
+    // Get the slide ID of the specified slide
 
     SlideId slideId = slideIdList.ChildElements[slideIndex] as SlideId;
 
-    // الحصول على معرف العلاقة للشريحة.
+    // Get the relationship ID of the slide.
 
     string slideRelId = slideId.RelationshipId;
 
-    // إزالة الشريحة من قائمة الشرائح.
+    // Remove the slide from the slide list.
 
     slideIdList.RemoveChild(slideId);
 
     //
 
-    // إزالة المراجع إلى الشريحة من جميع العروض التقديمية المخصصة.
+    // Remove references to the slide from all custom shows.
 
     if (presentation.CustomShowList != null)
 
     {
 
-        // التجول عبر قائمة العروض التقديمية المخصصة.
+        // Iterate through the list of custom shows.
 
         foreach (var customShow in presentation.CustomShowList.Elements<CustomShow>())
 
@@ -102,7 +102,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
             {
 
-                // إعلان قائمة مرتبطة بإدخالات قائمة الشرائح.
+                // Declare a link list of slide list entries.
 
                 LinkedList<SlideListEntry> slideListEntries = new LinkedList<SlideListEntry>();
 
@@ -110,7 +110,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 {
 
-                    // العثور على مرجع الشريحة لإزالته من العرض التقديمي المخصص.
+                    // Find the slide reference to remove from the custom show.
 
                     if (slideListEntry.Id != null && slideListEntry.Id == slideRelId)
 
@@ -122,7 +122,7 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
                 }
 
-                // إزالة جميع المراجع إلى الشريحة من العرض التقديمي المخصص.
+                // Remove all references to the slide from the custom show.
 
                 foreach (SlideListEntry slideListEntry in slideListEntries)
 
@@ -138,35 +138,35 @@ public static void DeleteSlide(PresentationDocument presentationDocument, int sl
 
     }
 
-    // حفظ العرض التقديمي المعدل.
+    // Save the modified presentation.
 
     presentation.Save();
 
-    // الحصول على جزء الشريحة للشريحة المحددة.
+    // Get the slide part for the specified slide.
 
     SlidePart slidePart = presentationPart.GetPartById(slideRelId) as SlidePart;
 
-    // إزالة جزء الشريحة.
+    // Remove the slide part.
 
     presentationPart.DeletePart(slidePart);
 
 }
 
-// الحصول على كائن العرض التقديمي وتمريره إلى طريقة CountSlides التالية.
+// Get the presentation object and pass it to the next CountSlides method.
 
 public static int CountSlides(string presentationFile)
 
 {
 
-    // فتح العرض التقديمي للقراءة فقط.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // تمرير العرض التقديمي إلى طريقة CountSlide التالية
+        // Pass the presentation to the next CountSlide method
 
-        // وإرجاع عدد الشرائح.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -174,13 +174,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// عد الشرائح في العرض التقديمي.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // التحقق من وجود كائن مستند فارغ.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -192,11 +192,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // الحصول على جزء العرض التقديمي من المستند.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // الحصول على عدد الشرائح من أجزاء الشرائح.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -206,7 +206,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // إرجاع عدد الشرائح إلى الطريقة السابقة.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -218,7 +218,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "حذف شريحة.pptx";
+string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
@@ -226,23 +226,23 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 
 {
 
-    //إنشاء كائن PresentationEx الذي يمثل ملف PPTX
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(presentationFile))
 
     {
 
-        //الوصول إلى شريحة باستخدام مؤشرها في مجموعة الشرائح
+        //Accessing a slide using its index in the slides collection
 
         ISlide slide = pres.Slides[slideIndex];
 
 
-        //إزالة شريحة باستخدام مرجعها
+        //Removing a slide using its reference
 
         pres.Slides.Remove(slide);
 
 
-        //كتابة العرض التقديمي كملف PPTX
+        //Writing the presentation as a PPTX file
 
         pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -251,8 +251,7 @@ public static void DeleteSlide(string presentationFile, int slideIndex)
 }
 
 ``` 
-## **تحميل نموذج التعليمات البرمجية**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Delete%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20a%20slide/)

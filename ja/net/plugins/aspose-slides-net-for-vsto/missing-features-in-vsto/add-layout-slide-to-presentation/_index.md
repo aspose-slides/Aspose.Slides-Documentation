@@ -1,28 +1,29 @@
 ---
-title: プレゼンテーションにレイアウトスライドを追加する
+title: プレゼンテーションにレイアウト スライドを追加
 type: docs
 weight: 10
 url: /ja/net/add-layout-slide-to-presentation/
 ---
 
-Aspose.Slides for .NETを使用すると、開発者はプレゼンテーションに新しいレイアウトスライドを追加できます。レイアウトスライドを追加するには、以下の手順に従ってください。
+Aspose.Slides for .NET は、開発者がプレゼンテーションに新しいレイアウト スライドを追加できるようにします。レイアウト スライドを追加するには、以下の手順に従ってください：
 
-- Presentationクラスのインスタンスを作成します。
-- マスタースライドコレクションにアクセスします。
-- 既存のレイアウトスライドを検索して、必要なレイアウトがすでにレイアウトスライドコレクションにあるかどうかを確認します。
-- 希望するレイアウトが利用できない場合は、新しいレイアウトスライドを追加します。
-- 新しく追加したレイアウトスライドで空のスライドを追加します。
-- 最後に、Presentationオブジェクトを使用してプレゼンテーションファイルを書き込みます。
+- Presentation クラスのインスタンスを作成する  
+- マスター スライド コレクションにアクセスする  
+- 既存のレイアウト スライドを検索し、必要なスライドがレイアウト スライド コレクションに既に存在するかどうかを確認する  
+- 目的のレイアウトが存在しない場合は、新しいレイアウト スライドを追加する  
+- 新しく追加したレイアウト スライドを使用して空のスライドを追加する  
+- 最後に、Presentation オブジェクトを使用してプレゼンテーション ファイルを書き出す  
+
 ## **例**
 ``` csharp
 
- //プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成します
+ //Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation("Test.pptx"))
 
 {
 
-   // レイアウトスライドタイプで検索しようとします
+   // Try to search by layout slide type
 
    IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -36,19 +37,19 @@ using (Presentation p = new Presentation("Test.pptx"))
 
    {
 
-     // プレゼンテーションが特定のレイアウトタイプを含まない場合の状況です。
+     // The situation when a presentation doesn't contain some type of layouts.
 
-     // Technographics.pptxプレゼンテーションにはBlankとCustomレイアウトタイプのみが含まれています。
+     // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-     // ただし、Customタイプのレイアウトスライドには異なるスライド名があり、
+     // But layout slides with Custom types has different slide names,
 
-     // 「Title」、「Title and Content」などがあります。これらの
+     // like "Title", "Title and Content", etc. And it is possible to use these
 
-     // 名前をレイアウトスライドの選択に使用することができます。
+     // names for layout slide selection.
 
-     // また、プレースホルダーシェイプタイプのセットを使用することもできます。たとえば、
+     // Also it is possible to use the set of placeholder shape types. For example,
 
-     // タイトルスライドには、タイトルプレースホルダータイプのみが必要です。
+     // Title slide should have only Title pleceholder type, etc.
 
      foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
@@ -106,11 +107,11 @@ using (Presentation p = new Presentation("Test.pptx"))
 
   }
 
-  //追加されたレイアウトスライドで空のスライドを追加します
+  //Adding empty slide with added layout slide
 
   p.Slides.InsertEmptySlide(0, layoutSlide);
 
-  //プレゼンテーションを保存します
+  //Save presentation
 
   p.Save("Output.pptx", SaveFormat.Pptx);
 
@@ -118,17 +119,11 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 
 ``` 
-## **実行例のダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Adding Layout Slides/)
+## **実行サンプルのダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Adding%20Layout%20Slides)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode#content)
 ## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
-
-詳細については、[プレゼンテーションにレイアウトスライドを追加する](/slides/ja/net/adding-and-editing-slides/#working-with-slide-size-and-layout)を訪問してください。
-
+詳細については、[.NET でスライド レイアウトを適用または変更](/slides/ja/net/slide-layout/)をご覧ください。
 {{% /alert %}}

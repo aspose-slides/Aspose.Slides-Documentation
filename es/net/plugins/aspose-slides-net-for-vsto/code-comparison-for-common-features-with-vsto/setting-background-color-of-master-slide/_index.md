@@ -1,5 +1,5 @@
 ---
-title: Establecer Color de Fondo de la Diapositiva Maestra
+title: Configurar el color de fondo de la diapositiva maestra
 type: docs
 weight: 140
 url: /es/net/setting-background-color-of-master-slide/
@@ -10,7 +10,7 @@ url: /es/net/setting-background-color-of-master-slide/
 
  PowerPoint.Presentation presentation =
 
-                Globals.ThisAddIn.Application.Presentations.Open("Establecer Color de Fondo de la Diapositiva Maestra.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
+                Globals.ThisAddIn.Application.Presentations.Open("Setting Background Color of Master Slide.ppt", Office.MsoTriState.msoFalse, Office.MsoTriState.msoFalse, Office.MsoTriState.msoTrue);
 
             presentation.SlideMaster.Background.Fill.ForeColor.RGB = -654262273;
 
@@ -18,13 +18,13 @@ url: /es/net/setting-background-color-of-master-slide/
 ## **Aspose.Slides**
 ``` csharp
 
- //Instanciar la clase Presentation que representa el archivo de presentación
+ //Instantiate the Presentation class that represents the presentation file
 
 using (PresentationEx pres = new PresentationEx())
 
 {
 
-	//Establecer el color de fondo de la Diapositiva Maestra ISlide a Verde Bosque
+	//Set the background color of the Master ISlide to Forest Green
 
 	pres.Masters[0].Background.Type = BackgroundTypeEx.OwnBackground;
 
@@ -32,12 +32,11 @@ using (PresentationEx pres = new PresentationEx())
 
 	pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-	//Guardar la presentación en el disco
+	//Write the presentation to disk
 
-	pres.Save("Establecer Color de Fondo de la Diapositiva Maestra.pptx", SaveFormat.Pptx);
+	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
 
 ``` 
-## **Descargar Código de Ejemplo**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/787342)
+## **Descargar código de ejemplo**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Setting%20Background%20color%20of%20Master%20Slide%20\(Asose.Slides\).zip)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Setting%20Background%20color%20of%20Master%20Slide/)

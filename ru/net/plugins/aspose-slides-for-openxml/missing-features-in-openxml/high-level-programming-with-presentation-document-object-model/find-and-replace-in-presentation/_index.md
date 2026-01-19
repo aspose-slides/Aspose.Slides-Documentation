@@ -5,22 +5,22 @@ weight: 20
 url: /ru/net/find-and-replace-in-presentation/
 ---
 
-Следуйте указанным шагам:
+Ниже приведены шаги, которые следует выполнить:
 
 1. Откройте презентацию.
 1. Найдите текст.
 1. Замените текст.
-1. Запишите презентацию.
+1. Сохраните презентацию.
 
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-//Откройте презентацию
+//Open the presentation
 
 Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//Получите все текстовые рамки в презентации
+//Get all text boxes in the presentation
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //Найдите текст для замены
+        //Find text to be replaced
 
         if (port.Text.Contains(strToFind))
 
-        //Замените существующий текст на новый текст
+        //Replace exisitng text with the new text
 
         {
 
@@ -54,8 +54,6 @@ pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Ppt
 
 
 ``` 
-## **Скачать образец кода**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
+## **Скачать пример кода**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

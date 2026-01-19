@@ -1,22 +1,22 @@
 ---
-title: Changer la couleur de remplissage d'une forme dans une présentation
+title: Modifier la couleur de remplissage d'une forme dans une présentation
 type: docs
 weight: 40
 url: /fr/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
-## **OpenXML Presentation**
+## **Présentation OpenXML**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Couleur de remplissage d'une forme.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
 SetPPTShapeColor(FileName);
 
-// Changer la couleur de remplissage d'une forme.
+// Change the fill color of a shape.
 
-// Le fichier de test doit avoir une forme remplie comme première forme de la première diapositive.
+// The test file must have a filled shape as the first shape on the first slide.
 
 public static void SetPPTShapeColor(string docName)
 
@@ -26,7 +26,7 @@ public static void SetPPTShapeColor(string docName)
 
     {
 
-        // Obtenir l'ID de relation de la première diapositive.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -34,7 +34,7 @@ public static void SetPPTShapeColor(string docName)
 
         string relId = (slideIds[0] as SlideId).RelationshipId;
 
-        // Obtenir la partie diapositive à partir de l'ID de relation.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
@@ -42,11 +42,11 @@ public static void SetPPTShapeColor(string docName)
 
         {
 
-            // Obtenir l'arbre des formes qui contient la forme à changer.
+            // Get the shape tree that contains the shape to change.
 
             ShapeTree tree = slide.Slide.CommonSlideData.ShapeTree;
 
-            // Obtenir la première forme dans l'arbre des formes.
+            // Get the first shape in the shape tree.
 
             Shape shape = tree.GetFirstChild<Shape>();
 
@@ -54,21 +54,21 @@ public static void SetPPTShapeColor(string docName)
 
             {
 
-                // Obtenir le style de la forme.
+                // Get the style of the shape.
 
                 ShapeStyle style = shape.ShapeStyle;
 
-                // Obtenir la référence de remplissage.
+                // Get the fill reference.
 
                 Drawing.FillReference fillRef = style.FillReference;
 
-                // Définir la couleur de remplissage sur SchemeColor Accent 6;
+                // Set the fill color to SchemeColor Accent 6;
 
                 fillRef.SchemeColor = new Drawing.SchemeColor();
 
                 fillRef.SchemeColor.Val = Drawing.SchemeColorValues.Accent6;
 
-                // Sauvegarder la diapositive modifiée.
+                // Save the modified slide.
 
                 slide.Slide.Save();
 
@@ -85,50 +85,48 @@ public static void SetPPTShapeColor(string docName)
 Nous devons suivre les étapes suivantes pour remplir les formes dans la présentation :
 
 - Créer une instance de la classe Presentation.
-- Obtenir la référence d'une diapositive en utilisant son index.
-- Ajouter une forme IShape à la diapositive.
-- Définir le type de remplissage de la forme sur Solide.
+- Obtenir la référence d’une diapositive en utilisant son indice.
+- Ajouter un IShape à la diapositive.
+- Définir le type de remplissage de la forme sur Solid.
 - Définir la couleur de la forme.
-- Écrire la présentation modifiée sous forme de fichier PPTX.
+- Enregistrer la présentation modifiée sous forme de fichier PPTX.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Couleur de remplissage d'une forme.pptx";
+string FileName = FilePath + "Fill color of a shape.pptx";
 
-//Instancier la classe PresentationEx qui représente le PPTX 
+//Instantiate PrseetationEx class that represents the PPTX 
 
 using (Presentation pres = new Presentation())
 
 {
 
-    //Obtenir la première diapositive
+    //Get the first slide
 
     ISlide sld = pres.Slides[0];
 
-    //Ajouter une forme automatique de type rectangle
+    //Add autoshape of rectangle type
 
     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
 
-    //Définir le type de remplissage sur Solide
+    //Set the fill type to Solid
 
     shp.FillFormat.FillType = FillType.Solid;
 
-    //Définir la couleur du rectangle
+    //Set the color of the rectangle
 
     shp.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    //Écrire le fichier PPTX sur le disque
+    //Write the PPTX file to disk
 
     pres.Save(FileName, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Télécharger l'exemple de code en cours d'exécution**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **Télécharger l’exemple de code exécutable**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **Exemple de code**
-- [CodePlex](https://asposeopenxml.codeplex.com/SourceControl/latest#Aspose.Slides VS OpenXML/Apply Theme to Presentation/)
+## **Code d’exemple**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Fill%20Color%20of%20a%20Shape)

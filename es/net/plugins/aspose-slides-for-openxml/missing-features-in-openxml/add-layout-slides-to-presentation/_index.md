@@ -1,32 +1,32 @@
 ---
-title: Agregar Diapositivas de Diseño a la Presentación
+title: Añadir diapositivas de diseño a la presentación
 type: docs
 weight: 20
 url: /es/net/add-layout-slides-to-presentation/
 ---
 
-Aspose.Slides para .NET permite a los desarrolladores agregar nuevas diapositivas de diseño en la presentación. Para agregar una diapositiva de diseño, siga los pasos a continuación:
+Aspose.Slides for .NET permite a los desarrolladores agregar nuevas diapositivas Layout en una presentación. Para agregar una diapositiva Layout, siga los pasos a continuación:
 
 - Cree una instancia de la clase Presentation
-- Acceda a la colección de Maestros de Diapositivas
-- Intente encontrar las diapositivas de diseño existentes para ver si la requerida ya está disponible en la colección de diapositivas de diseño o no
-- Agregue una nueva diapositiva de diseño si el diseño deseado no está disponible
-- Agregue una diapositiva vacía con la diapositiva de diseño recién agregada
-- Finalmente, escriba el archivo de presentación utilizando el objeto Presentation
+- Acceda a la colección Master Slide
+- Intente encontrar diapositivas Layout existentes para ver si la requerida ya está disponible en la colección Layout Slide o no
+- Agregue una nueva diapositiva Layout si el diseño deseado no está disponible
+- Agregue una diapositiva vacía con la diapositiva Layout recién añadida
+- Finalmente, escriba el archivo de presentación usando el objeto Presentation
 ## **Ejemplo**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-string FileName = FilePath + "Agregar Diapositivas de Diseño.pptx";
+string FileName = FilePath + "Adding Layout Slides.pptx";
 
-//Instanciar la clase Presentation que representa el archivo de presentación
+//Instantiate Presentation class that represents the presentation file
 
 using (Presentation p = new Presentation(FileName))
 
 {
 
-    // Intenta buscar por tipo de diapositiva de diseño
+    // Try to search by layout slide type
 
     IMasterLayoutSlideCollection layoutSlides = p.Masters[0].LayoutSlides;
 
@@ -40,25 +40,25 @@ using (Presentation p = new Presentation(FileName))
 
     {
 
-        // La situación cuando una presentación no contiene algunos tipos de diseños.
+        // The situation when a presentation doesn't contain some type of layouts.
 
-        // La presentación Technographics.pptx solo contiene tipos de diseño En Blanco y Personalizado.
+        // Technographics.pptx presentation only contains Blank and Custom layout types.
 
-        // Pero las diapositivas de diseño con tipos personalizados tienen nombres de diapositivas diferentes,
+        // But layout slides with Custom types has different slide names,
 
-        // como "Título", "Título y Contenido", etc. Y es posible usar estos
+        // like "Title", "Title and Content", etc. And it is possible to use these
 
-        // nombres para la selección de diapositivas de diseño.
+        // names for layout slide selection.
 
-        // También es posible usar el conjunto de tipos de formas de marcador de posición. Por ejemplo,
+        // Also it is possible to use the set of placeholder shape types. For example,
 
-        // La diapositiva de título debería tener solo el tipo de marcador de posición de Título, etc.
+        // Title slide should have only Title pleceholder type, etc.
 
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
 
         {
 
-            if (titleAndObjectLayoutSlide.Name == "Título y Objeto")
+            if (titleAndObjectLayoutSlide.Name == "Title and Object")
 
             {
 
@@ -78,7 +78,7 @@ using (Presentation p = new Presentation(FileName))
 
             {
 
-                if (titleLayoutSlide.Name == "Título")
+                if (titleLayoutSlide.Name == "Title")
 
                 {
 
@@ -100,7 +100,7 @@ using (Presentation p = new Presentation(FileName))
 
                 {
 
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Título y Objeto");
+                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
 
                 }
 
@@ -110,24 +110,22 @@ using (Presentation p = new Presentation(FileName))
 
     }
 
-    //Agregar diapositiva vacía con la diapositiva de diseño agregada 
+    //Adding empty slide with added layout slide 
 
     p.Slides.InsertEmptySlide(0, layoutSlide);
 
-    //Guardar presentación    
+    //Save presentation    
 
     p.Save(FileName, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **Descargar Código de Ejemplo**
+## **Descargar código de ejemplo**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-## **Descargar Ejemplo en Ejecución**
+## **Descargar ejemplo en ejecución**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
 
 {{% alert color="primary" %}} 
-
-Para más detalles, visite [Agregar Diapositivas de Diseño a la Presentación](/slides/es/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
-
+Para obtener más detalles, visite [Aplicar o cambiar diseños de diapositivas en .NET](/slides/es/net/slide-layout/).
 {{% /alert %}}

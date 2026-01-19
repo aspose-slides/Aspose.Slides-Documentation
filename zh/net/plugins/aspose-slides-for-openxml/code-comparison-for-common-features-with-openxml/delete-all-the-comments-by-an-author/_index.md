@@ -7,16 +7,15 @@ url: /zh/net/delete-all-the-comments-by-an-author/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "删除作者的所有评论.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "Zeeshan Shafqat";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// 移除某个作者在幻灯片中的所有评论。
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -24,13 +23,13 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-    throw new ArgumentNullException("文件名或作者名为 NULL!");
+    throw new ArgumentNullException("File name or author name is NULL!");
 
 using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
 {
 
-    // 获取指定的评论作者。
+    // Get the specifed comment author.
 
     IEnumerable<CommentAuthor> commentAuthors =
 
@@ -38,7 +37,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         .Where(e => e.Name.Value.Equals(author));
 
-    // 遍历所有匹配的作者。
+    // Iterate through all the matching authors.
 
     foreach (CommentAuthor commentAuthor in commentAuthors)
 
@@ -46,7 +45,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         UInt32Value authorId = commentAuthor.Id;
 
-        // 遍历所有幻灯片并获取幻灯片部分。
+        // Iterate through all the slides and get the slide parts.
 
         foreach (SlidePart slide in doc.PresentationPart.SlideParts)
 
@@ -54,7 +53,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
             SlideCommentsPart slideCommentsPart = slide.SlideCommentsPart;
 
-            // 获取评论列表。
+            // Get the list of comments.
 
             if (slideCommentsPart != null && slide.SlideCommentsPart.CommentList != null)
 
@@ -72,17 +71,17 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
                 {
 
-                    // 删除指定作者的所有评论。
+                    // Delete all the comments by the specified author.
 
                     slideCommentsPart.CommentList.RemoveChild<Comment>(comm);
 
                 }
 
-                // 如果 commentPart 没有现有评论。
+                // If the commentPart has no existing comment.
 
                 if (slideCommentsPart.CommentList.ChildElements.Count == 0)
 
-                    // 删除这个部分。
+                    // Delete this part.
 
                     slide.DeletePart(slideCommentsPart);
 
@@ -90,7 +89,7 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
         }
 
-        // 从评论作者部分中删除评论作者。
+        // Delete the comment author from the comment authors part.
 
         doc.PresentationPart.CommentAuthorsPart.CommentAuthorList.RemoveChild<CommentAuthor>(commentAuthor);
 
@@ -99,20 +98,18 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "删除作者的所有评论.pptx";
+string FileName = FilePath + "Delete all the comments by an author.pptx";
 
 string author = "MZ";
 
 DeleteCommentsByAuthorInPresentation(FileName, author);
 
-// 移除某个作者在幻灯片中的所有评论。
+// Remove all the comments in the slides by a certain author.
 
 public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
 
@@ -120,9 +117,9 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
     if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
 
-        throw new ArgumentNullException("文件名或作者名为 NULL!");
+        throw new ArgumentNullException("File name or author name is NULL!");
 
-    //实例化一个表示 PPTX 文件的 PresentationEx 对象
+    //Instantiate a PresentationEx object that represents a PPTX file
 
     using (Presentation pres = new Presentation(fileName))
 
@@ -145,10 +142,8 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
     }
 
 }    
-
 ``` 
 ## **下载示例代码**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Delete%20all%20the%20comments%20by%20an%20author%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Delete%20all%20the%20comments%20by%20an%20author/)

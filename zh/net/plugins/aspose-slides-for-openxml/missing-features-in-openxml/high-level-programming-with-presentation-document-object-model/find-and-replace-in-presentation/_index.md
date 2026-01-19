@@ -1,26 +1,26 @@
 ---
-title: 在演示文稿中查找和替换
+title: 演示文稿中的查找和替换
 type: docs
 weight: 20
 url: /zh/net/find-and-replace-in-presentation/
 ---
 
-以下是需要遵循的步骤：
+以下是要遵循的步骤：
 
 1. 打开演示文稿。
 1. 搜索文本。
 1. 替换文本。
-1. 写入演示文稿。
+1. 保存演示文稿。
 
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
-//打开演示文稿
+//Open the presentation
 
 Presentation pres = new Presentation(FilePath + "Find and Replace.pptx");
 
-//获取演示文稿中的所有文本框
+//Get all text boxes in the presentation
 
 ITextFrame[] tb = SlideUtil.GetAllTextBoxes(pres.Slides[0]);
 
@@ -30,11 +30,11 @@ foreach (Paragraph para in tb[i].Paragraphs)
 
     foreach (Portion port in para.Portions)
 
-        //查找需要替换的文本
+        //Find text to be replaced
 
         if (port.Text.Contains(strToFind))
 
-        //将现有文本替换为新文本
+        //Replace exisitng text with the new text
 
         {
 
@@ -55,7 +55,5 @@ pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Ppt
 
 ``` 
 ## **下载示例代码**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Find%20and%20Replace%20%28Aspose.Slides%29.zip)

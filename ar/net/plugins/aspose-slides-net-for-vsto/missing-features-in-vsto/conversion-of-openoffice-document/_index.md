@@ -5,19 +5,19 @@ weight: 30
 url: /ar/net/conversion-of-openoffice-document/
 ---
 
-توفر Aspose.Slides لـ .NET فئة **Presentation** التي تمثل ملف عرض تقديمي. يمكن الآن لفئة **Presentation** الوصول أيضًا إلى **ODP** من خلال مُنشئ Presentation عندما يتم إنشاء الكائن.
+Aspose.Slides for .NET تقدم فئة **Presentation** التي تمثل ملف عرض تقديمي. يمكن الآن لفئة **Presentation** أيضًا الوصول إلى **ODP** عبر منشئ Presentation عند إنشاء الكائن.
 
-فيما يلي مثال لتحويل من ODP إلى PPT/PPTX.
+فيما يلي مثال على التحويل من ODP إلى PPT/PPTX.
 ## **مثال**
 ```
 
- //إنشاء كائن Presentation يمثل ملف عرض تقديمي
+ //Instantiate a Presentation object that represents a presentation file
 
 using(PresentationEx pres = new PresentationEx("OpenOfficePresentation.odp"))
 
 {
 
-   //حفظ العرض التقديمي PPTX إلى تنسيق PPTX
+   //Saving the PPTX presentation to PPTX format
 
    pres.Save("ConvertedFromOdp",Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -25,28 +25,24 @@ using(PresentationEx pres = new PresentationEx("OpenOfficePresentation.odp"))
 
 ``` 
 
-فيما يلي مثال لتحويل من PPT/PPTX إلى ODP.
+فيما يلي مثال على التحويل من PPT/PPTX إلى ODP.
 ## **مثال**
 ``` 
 
- //إنشاء كائن Presentation يمثل ملف عرض تقديمي
+ //Instantiate a Presentation object that represents a presentation file
 
 using (PresentationEx pres = new PresentationEx("ConversionFromPresentation.pptx"))
 
 {
 
-   //حفظ العرض التقديمي PPTX إلى تنسيق PPTX
+   //Saving the PPTX presentation to PPTX format
 
    pres.Save("ConvertedToOdp", Aspose.Slides.Export.SaveFormat.Odp);
 
 }
 
 ``` 
-## **تنزيل مثال عملي**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Conversion from ODP to PPTX/Converting From and To ODP/)
+## **تنزيل المثال التشغيلي**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Conversion%20from%20ODP%20to%20PPTX)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-## **تنزيل كود العينة**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
+## **تنزيل عينة الكود**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)

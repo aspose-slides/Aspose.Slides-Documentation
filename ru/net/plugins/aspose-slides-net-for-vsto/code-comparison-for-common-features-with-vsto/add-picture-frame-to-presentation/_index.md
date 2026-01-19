@@ -1,12 +1,12 @@
 ---
-title: Добавить рамку для картинки в презентацию
+title: Добавить кадр изображения в презентацию
 type: docs
 weight: 50
 url: /ru/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**
-Ниже приведен код для добавления картинки в презентацию VSTO:
+Ниже приведён код для добавления изображения в презентацию VSTO:
 
 ``` csharp
 
@@ -20,44 +20,42 @@ url: /ru/net/add-picture-frame-to-presentation/
 
 ``` 
 ## **Aspose.Slides**
-Чтобы добавить простую рамку для картинки на ваш слайд, пожалуйста, выполните следующие шаги:
+Чтобы добавить простой кадр с изображением на слайд, выполните следующие шаги:
 
 1. Создайте экземпляр класса Presentation.
 1. Получите ссылку на слайд, используя его индекс.
-1. Создайте объект Image, добавив изображение в коллекцию Images, связанную с объектом Presentation, который будет использоваться для заполнения Shape.
-1. Рассчитайте ширину и высоту изображения.
-1. Создайте PictureFrame в соответствии с шириной и высотой изображения, используя метод AddPictureFrame, предоставленный объектом Shapes, связанным с указанным слайдом.
-1. Добавьте рамку для картинки (содержит изображение) на слайд.
-1. Запишите измененную презентацию в файл PPTX.
+1. Создайте объект Image, добавив изображение в коллекцию Images, связанную с объектом Presentation, которое будет использоваться для заполнения Shape.
+1. Вычислите ширину и высоту изображения.
+1. Создайте PictureFrame с учётом ширины и высоты изображения, используя метод AddPictureFrame, предоставленный объектом Shapes, связанным с указанным слайдом.
+1. Добавьте кадр с изображением (содержащий картинку) на слайд.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Вышеописанные шаги реализованы в примере, приведенном ниже.
+Вышеописанные шаги реализованы в приведённом ниже примере.
 
 ``` csharp
 
    string ImageFilePath = "AddPicture.jpg";
 
-  //Создайте экземпляр класса Presentation, который представляет PPTX
+  //Instantiate Prseetation class that represents the PPTX
 
   Presentation pres = new Presentation();
 
-  //Получите первый слайд
+  //Get the first slide
 
   ISlide sld = pres.Slides[0];
 
-  //Создайте экземпляр класса ImageEx
+  //Instantiate the ImageEx class
 
-  Image img = (Image)new Bitmap(ImageFilePath);
+  using IImage img = Images.FromFile(ImageFilePath);
 
   IPPImage imgx = pres.Images.AddImage(img);
 
-  //Добавьте рамку для картинки с высотой и шириной, равными размеру изображения
+  //Add Picture Frame with height and width equivalent of Picture
 
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
 ``` 
 ## **Скачать работающий код**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
 ## **Скачать пример кода**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Add Picture Frame/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)

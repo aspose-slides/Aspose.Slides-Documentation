@@ -1,64 +1,59 @@
----  
-title: メディアファイルをHTMLファイルにエクスポート  
-type: docs  
-weight: 40  
-url: /ja/net/export-media-files-to-html-file/  
----  
+---
+title: HTMLファイルへのメディアファイルのエクスポート
+type: docs
+weight: 40
+url: /ja/net/export-media-files-to-html-file/
+---
 
-メディアファイルをHTMLにエクスポートするには、以下の手順に従ってください：  
+メディア ファイルを HTML にエクスポートするには、以下の手順に従ってください。
 
-- Presentationクラスのインスタンスを作成する  
-- スライドの参照を取得する  
-- トランジション効果を設定する  
-- プレゼンテーションをPPTXファイルとして書き出す  
+- Presentation クラスのインスタンスを作成する
+- スライドの参照を取得する
+- トランジション効果を設定する
+- プレゼンテーションを書き出して PPTX ファイルにする
 
-以下の例では、メディアファイルをHTMLにエクスポートしています。  
-## **例**  
-``` csharp  
+以下の例では、メディア ファイルを HTML にエクスポートしています。
+## **例**
+``` csharp
 
- string FilePath = @"..\..\..\Sample Files\";  
+ string FilePath = @"..\..\..\Sample Files\";
 
-string srcFileName = FilePath + "Conversion.pptx";  
+string srcFileName = FilePath + "Conversion.pptx";
 
-string destFileName =  "video.html";  
+string destFileName =  "video.html";
 
-//プレゼンテーションの読み込み  
+//Loading a presentation
 
-using (Presentation pres = new Presentation(srcFileName))  
-{  
+using (Presentation pres = new Presentation(srcFileName))
 
-    const string baseUri = "http://www.example.com/";  
+{
 
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: FilePath, fileName: destFileName, baseUri: baseUri);  
+    const string baseUri = "http://www.example.com/";
 
-    //HTMLオプションの設定  
+    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path: FilePath, fileName: destFileName, baseUri: baseUri);
 
-    HtmlOptions htmlOptions = new HtmlOptions(controller);  
+    //Setting HTML options
 
-    SVGOptions svgOptions = new SVGOptions(controller);  
+    HtmlOptions htmlOptions = new HtmlOptions(controller);
 
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);  
+    SVGOptions svgOptions = new SVGOptions(controller);
 
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);  
+    htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
 
-    //ファイルの保存  
+    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-    pres.Save(destFileName, SaveFormat.Html, htmlOptions);  
+    //Saving the file
 
-}  
+    pres.Save(destFileName, SaveFormat.Html, htmlOptions);
 
-```  
-## **サンプルコードのダウンロード**  
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)  
-## **実行例のダウンロード**  
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Export media files into html/)  
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)  
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)  
+}
 
-{{% alert color="primary" %}}  
+``` 
+## **サンプルコードをダウンロード**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+## **実行例をダウンロード**
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)
 
-詳細については、[メディアファイルをHTMLファイルにエクスポートする](/slides/ja/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)をご覧ください。  
-
-{{% /alert %}}  
+{{% alert color="primary" %}} 
+詳細については、[HTML ファイルへのメディア ファイルのエクスポート](/slides/ja/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)をご覧ください。
+{{% /alert %}}

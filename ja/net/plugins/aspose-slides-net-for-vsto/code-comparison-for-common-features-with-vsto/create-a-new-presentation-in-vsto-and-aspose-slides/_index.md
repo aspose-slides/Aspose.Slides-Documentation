@@ -1,11 +1,11 @@
 ---
-title: VSTOおよびAspose.Slidesで新しいプレゼンテーションを作成する
+title: VSTO と Aspose.Slides で新しいプレゼンテーションを作成する
 type: docs
 weight: 80
 url: /ja/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
-以下に、VSTOおよびAspose.Slides for .NETを使用して同じ目標を達成する方法を示す2つのコード例を示します。
+以下は、VSTO と Aspose.Slides for .NET を使用して同じ目的を達成する方法を示す 2 つのコード例です。
 ## **VSTO**
 ``` csharp
 
@@ -17,25 +17,25 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//タイトルスライドのレイアウトを取得
+//Get the title slide layout
 
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//タイトルスライドを追加
+//Add a title slide.
 
 PowerPoint.Slide slide=pres.Slides.AddSlide(1, layout);
 
-//タイトルテキストを設定
+//Set the title text
 
-slide.Shapes.Title.TextFrame.TextRange.Text = "スライドタイトル";
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//サブタイトルテキストを設定
+//Set the sub title text
 
-slide.Shapes[2].TextFrame.TextRange.Text = "スライドタイトルサブヘッディング";
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//出力をディスクに保存
+//Write the output to disk
 
 pres.SaveAs("outVSTO.ppt",
 
@@ -53,31 +53,30 @@ pres.SaveAs("outVSTO.ppt",
 
 {
 
-	//プレゼンテーションを作成
+	//Create a presentation
 
 	Presentation pres = new Presentation();
 
-	//タイトルスライドを追加
+	//Add the title slide
 
 	Slide slide = pres.AddTitleSlide();
 
-	//タイトルテキストを設定
+	//Set the title text
 
-	((TextHolder)slide.Placeholders[0]).Text = "スライドタイトル";
+	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
 
-	//サブタイトルテキストを設定
+	//Set the sub title text
 
-	((TextHolder)slide.Placeholders[1]).Text = "スライドタイトルサブヘッディング";
+	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
 
-	//出力をディスクに保存
+	//Write output to disk
 
 	pres.Write("outAsposeSlides.ppt");
 
 }
 
 ``` 
-## **サンプルコードのダウンロード**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
+## **サンプルコードをダウンロード**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)
-- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Create%20a%20New%20Presentation%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposevsto/files/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/src/master/Aspose.Slides%20Vs%20VSTO%20Slides/Create%20a%20New%20Presentation/)

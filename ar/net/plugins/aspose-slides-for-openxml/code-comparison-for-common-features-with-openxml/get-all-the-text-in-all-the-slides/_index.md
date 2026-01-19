@@ -1,5 +1,5 @@
 ---
-title: الحصول على كل النصوص في كل الشرائح
+title: الحصول على كل النص في جميع الشرائح
 type: docs
 weight: 100
 url: /ar/net/get-all-the-text-in-all-the-slides/
@@ -7,14 +7,13 @@ url: /ar/net/get-all-the-text-in-all-the-slides/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "الحصول على كل النصوص في شريحة.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("عدد الشرائح = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -24,7 +23,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 GetSlideIdAndText(out slideText, FileName, i);
 
-System.Console.WriteLine("الشريحة #{0} تحتوي على: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -34,15 +33,15 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    // افتح العرض كقراءة فقط.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // مرر العرض إلى طريقة CountSlides التالية
+        // Pass the presentation to the next CountSlides method
 
-        // وأرجع عدد الشرائح.
+        // and return the slide count.
 
         return CountSlides(presentationDocument);
 
@@ -50,13 +49,13 @@ public static int CountSlides(string presentationFile)
 
 }
 
-// احسب عدد الشرائح في العرض.
+// Count the slides in the presentation.
 
 public static int CountSlides(PresentationDocument presentationDocument)
 
 {
 
-    // تحقق من وجود كائن وثيقة null.
+    // Check for a null document object.
 
     if (presentationDocument == null)
 
@@ -68,11 +67,11 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     int slidesCount = 0;
 
-    // احصل على الجزء الخاص بالعروض من الوثيقة.
+    // Get the presentation part of document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // احصل على عدد الشرائح من SlideParts.
+    // Get the slide count from the SlideParts.
 
     if (presentationPart != null)
 
@@ -82,7 +81,7 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
     }
 
-    // أعد عدد الشرائح إلى الطريقة السابقة.
+    // Return the slide count to the previous method.
 
     return slidesCount;
 
@@ -96,7 +95,7 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
     {
 
-        // احصل على معرّف العلاقة للشريحة الأولى.
+        // Get the relationship ID of the first slide.
 
         PresentationPart part = ppt.PresentationPart;
 
@@ -104,15 +103,15 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
         string relId = (slideIds[index] as SlideId).RelationshipId;
 
-        // احصل على جزء الشريحة من معرّف العلاقة.
+        // Get the slide part from the relationship ID.
 
         SlidePart slide = (SlidePart)part.GetPartById(relId);
 
-        // أنشئ كائن StringBuilder.
+        // Build a StringBuilder object.
 
         StringBuilder paragraphText = new StringBuilder();
 
-        // احصل على النص الداخلي للشريحة:
+        // Get the inner text of the slide:
 
         IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
 
@@ -129,18 +128,16 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
     }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "الحصول على كل النصوص في شريحة.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 int numberOfSlides = CountSlides(FileName);
 
-System.Console.WriteLine("عدد الشرائح = {0}", numberOfSlides);
+System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
 string slideText;
 
@@ -150,7 +147,7 @@ for (int i = 0; i < numberOfSlides; i++)
 
 slideText = GetSlideText(FileName, i);
 
-System.Console.WriteLine("الشريحة #{0} تحتوي على: {1}", i + 1, slideText);
+System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
 
 }
 
@@ -160,7 +157,7 @@ public static int CountSlides(string presentationFile)
 
 {
 
-    //إنشاء فئة PresentationEx التي تمثل PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(presentationFile))
 
@@ -178,17 +175,17 @@ public static string GetSlideText(string docName, int index)
 
     string sldText = "";
 
-    //إنشاء فئة PresentationEx التي تمثل PPTX
+    //Instantiate PresentationEx class that represents PPTX
 
     using (Presentation pres = new Presentation(docName))
 
     {
 
-        //الوصول إلى الشريحة
+        //Access the slide
 
         ISlide sld = pres.Slides[index];
 
-        //التكرار خلال الأشكال للعثور على عنصر النائب
+        //Iterate through shapes to find the placeholder
 
         foreach (Shape shp in sld.Shapes)
 
@@ -196,7 +193,7 @@ public static string GetSlideText(string docName, int index)
 
             {
 
-                //احصل على نص كل عنصر نائب
+                //get the text of each placeholder
 
                 sldText += ((AutoShape)shp).TextFrame.Text;
 
@@ -207,10 +204,8 @@ public static string GetSlideText(string docName, int index)
     return sldText;
 
 }
-
 ``` 
-## **تحميل مثال للكود**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل عينة الشيفرة**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20all%20slides%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20all%20slides/)

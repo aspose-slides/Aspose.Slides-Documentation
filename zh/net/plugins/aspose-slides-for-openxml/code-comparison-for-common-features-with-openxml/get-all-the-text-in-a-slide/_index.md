@@ -7,10 +7,9 @@ url: /zh/net/get-all-the-text-in-a-slide/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取幻灯片中的所有文本.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -18,19 +17,23 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// 获取幻灯片中的所有文本。
+// Get all the text in a slide.
 
 public static string[] GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-    // 以只读方式打开演示文稿。
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // 将演示文稿和幻灯片索引传递给下一个 GetAllTextInSlide 方法，并返回它所返回的字符串数组。 
+        // Pass the presentation and the slide index
+
+        // to the next GetAllTextInSlide method, and
+
+        // then return the array of strings it returns. 
 
         return GetAllTextInSlide(presentationDocument, slideIndex);
 
@@ -42,7 +45,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
 {
 
-    // 验证演示文档是否存在。
+    // Verify that the presentation document exists.
 
     if (presentationDocument == null)
 
@@ -52,7 +55,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // 验证幻灯片索引是否超出范围。
+    // Verify that the slide index is not out of range.
 
     if (slideIndex < 0)
 
@@ -62,49 +65,53 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // 获取演示文稿文档的演示文稿部分。
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 验证演示部分和演示文稿是否存在。
+    // Verify that the presentation part and presentation exist.
 
     if (presentationPart != null && presentationPart.Presentation != null)
 
     {
 
-        // 从演示部分获取演示文稿对象。
+        // Get the Presentation object from the presentation part.
 
         Presentation presentation = presentationPart.Presentation;
 
-        // 验证幻灯片 ID 列表是否存在。
+        // Verify that the slide ID list exists.
 
         if (presentation.SlideIdList != null)
 
         {
 
-            // 从幻灯片 ID 列表中获取幻灯片 ID 集合。
+            // Get the collection of slide IDs from the slide ID list.
 
             DocumentFormat.OpenXml.OpenXmlElementList slideIds =
 
                 presentation.SlideIdList.ChildElements;
 
-            // 如果幻灯片 ID 在范围内...
+            // If the slide ID is in range...
 
             if (slideIndex < slideIds.Count)
 
             {
 
-                // 获取幻灯片的关系 ID。
+                // Get the relationship ID of the slide.
 
                 string slidePartRelationshipId = (slideIds[slideIndex] as SlideId).RelationshipId;
 
-                // 从关系 ID 获取指定的幻灯片部分。
+                // Get the specified slide part from the relationship ID.
 
                 SlidePart slidePart =
 
                     (SlidePart)presentationPart.GetPartById(slidePartRelationshipId);
 
-                // 将幻灯片部分传递给下一个方法，然后返回该方法返回的字符串数组。
+                // Pass the slide part to the next method, and
+
+                // then return the array of strings that method
+
+                // returns to the previous method.
 
                 return GetAllTextInSlide(slidePart);
 
@@ -114,7 +121,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // 否则，返回 null。
+    // Else, return null.
 
     return null;
 
@@ -124,7 +131,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 {
 
-    // 验证幻灯片部分是否存在。
+    // Verify that the slide part exists.
 
     if (slidePart == null)
 
@@ -134,17 +141,17 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     }
 
-    // 创建一个新的字符串双向链表。
+    // Create a new linked list of strings.
 
     LinkedList<string> texts = new LinkedList<string>();
 
-    // 如果幻灯片存在...
+    // If the slide exists...
 
     if (slidePart.Slide != null)
 
     {
 
-        // 遍历幻灯片中的所有段落。
+        // Iterate through all the paragraphs in the slide.
 
         foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in
 
@@ -152,11 +159,11 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
         {
 
-            // 创建一个新的字符串构造器。                    
+            // Create a new string builder.                    
 
             StringBuilder paragraphText = new StringBuilder();
 
-            // 遍历段落中的每一行。
+            // Iterate through the lines of the paragraph.
 
             foreach (DocumentFormat.OpenXml.Drawing.Text text in
 
@@ -164,7 +171,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // 将每一行追加到之前的行。
+                // Append each line to the previous lines.
 
                 paragraphText.Append(text.Text);
 
@@ -174,7 +181,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // 将每个段落添加到链表中。
+                // Add each paragraph to the linked list.
 
                 texts.AddLast(paragraphText.ToString());
 
@@ -188,7 +195,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     {
 
-        // 返回字符串数组。
+        // Return an array of strings.
 
         return texts.ToArray();
 
@@ -210,7 +217,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "获取幻灯片中的所有文本.pptx";
+string FileName = FilePath + "Get all the text in a slide.pptx";
 
 foreach (string s in GetAllTextInSlide(FileName, 0))
 
@@ -218,27 +225,27 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// 获取幻灯片中的所有文本。
+// Get all the text in a slide.
 
 public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-// 创建一个新的字符串列表。
+// Create a new linked list of strings.
 
 List<string> texts = new List<string>();
 
-// 实例化表示 PPTX 的 PresentationEx 类
+//Instantiate PresentationEx class that represents PPTX
 
 using (Presentation pres = new Presentation(presentationFile))
 
 {
 
-    // 访问幻灯片
+    //Access the slide
 
     ISlide sld = pres.Slides[slideIndex];
 
-    // 遍历形状以查找占位符
+    //Iterate through shapes to find the placeholder
 
     foreach (Shape shp in sld.Shapes)
 
@@ -246,7 +253,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
         {
 
-            // 获取每个占位符的文本
+            //get the text of each placeholder
 
             texts.Add(((AutoShape)shp).TextFrame.Text);
 
@@ -254,7 +261,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
 }
 
-// 返回字符串数组。
+// Return an array of strings.
 
 return texts;
 
@@ -262,7 +269,6 @@ return texts;
 
 ``` 
 ## **下载示例代码**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/获取幻灯片中的所有文本%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/获取幻灯片中的所有文本%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide/)

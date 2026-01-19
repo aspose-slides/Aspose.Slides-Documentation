@@ -1,16 +1,16 @@
 ---
-title: إضافة صورة في خلية الجدول
+title: إضافة صورة في خلية جدول
 type: docs
 weight: 10
 url: /ar/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**
-فيما يلي الكود لإضافة صورة في خلية الجدول:
+فيما يلي الشيفرة لإضافة صورة في خلية جدول:
 
 ``` csharp
 
-    //فتح فئة العرض التقديمي التي تحتوي على الجدول
+    //Open Prsentation class that contains the table
 
    string FileName = "Adding Image in Table Cell.pptx";
 
@@ -18,7 +18,7 @@ url: /ar/net/add-image-in-table-cell/
 
    Presentation pres = Application.Presentations.Open(FileName);
 
-   //الحصول على الشريحة الأولى
+   //Get the first slide
 
    Slide sld = pres.Slides[1];
 
@@ -41,18 +41,18 @@ url: /ar/net/add-image-in-table-cell/
 
 ``` 
 ## **Aspose.Slides**
-قدمت Aspose.Slides لـ .NET أبسط واجهة برمجة التطبيقات لإنشاء الجداول بطريقة سهلة. لإضافة صورة في خلية الجدول أثناء إنشاء جدول جديد، يرجى اتباع الخطوات أدناه:
+قدمت Aspose.Slides لـ .NET أبسط واجهة برمجة تطبيقات لإنشاء الجداول بأبسط طريقة. لإضافة صورة في خلية جدول أثناء إنشاء جدول جديد، يرجى اتباع الخطوات التالية:
 
-- إنشاء مثيل من فئة العرض التقديمي
+- إنشاء كائن من فئة Presentation
 - الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها
-- تعريف مصفوفة من الأعمدة مع العرض
-- تعريف مصفوفة من الصفوف مع الارتفاع
-- إضافة جدول إلى الشريحة باستخدام طريقة AddTable المقدمة من كائن IShapes
-- إنشاء كائن Bitmap للاحتفاظ بملف الصورة
+- تعريف مصفوفة الأعمدة مع العرض
+- تعريف مصفوفة الصفوف مع الارتفاع
+- إضافة جدول إلى الشريحة باستخدام طريقة AddTable التي توفرها كائن IShapes
+- إنشاء كائن Bitmap لاحتواء ملف الصورة
 - إضافة صورة Bitmap إلى كائن IPPImage
-- تعيين تنسيق الملء لخلية الجدول كصورة
+- تعيين تنسيق التعبئة لخلية الجدول كصورة
 - إضافة الصورة إلى الخلية الأولى من الجدول
-- حفظ العرض التقديمي المعدل كملف PPTX
+- حفظ العرض المعدل كملف PPTX
 
 ``` csharp
 
@@ -62,15 +62,15 @@ url: /ar/net/add-image-in-table-cell/
 
   Presentation MyPresentation = new Presentation(FileName);
 
-  //الحصول على الشريحة الأولى
+  //Get First Slide
 
   ISlide sld = MyPresentation.Slides[0];
 
-  //إنشاء كائن صورة Bitmap للاحتفاظ بملف الصورة
+  //Creating a Bitmap Image object to hold the image file
 
   using IImage image = Images.FromFile(ImageFile);
 
-  //إنشاء كائن IPPImage باستخدام كائن bitmap
+  //Create an IPPImage object using the bitmap object
 
   IPPImage imgx1 = MyPresentation.Images.AddImage(image);
 
@@ -82,7 +82,7 @@ url: /ar/net/add-image-in-table-cell/
 
      ITable tbl = (ITable)shp;
 
-     //إضافة الصورة إلى أول خلية في الجدول
+     //Add image to first table cell
 
      tbl[0, 0].FillFormat.FillType = FillType.Picture;
 
@@ -92,15 +92,13 @@ url: /ar/net/add-image-in-table-cell/
 
    }
 
-  //حفظ PPTX على القرص
+  //Save PPTX to Disk
 
   MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
 
 
 ``` 
-## **تحميل الكود القابل للتشغيل**
-- [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-## **تحميل نموذج الكود**
-- [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Adding image in table cell/)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)
+## **Download Running Code**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
+## **Download Sample Code**
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Adding%20image%20in%20table%20cell)

@@ -1,15 +1,15 @@
 ---
-title: プレゼンテーションをHTMLに変換する
+title: プレゼンテーションをHTMLに変換
 type: docs
 weight: 40
 url: /ja/net/convert-presentation-to-html/
 ---
 
-**HTML**はデータを交換するための広く使用されている形式の1つです。 **Aspose.Slides for .NET**は、プレゼンテーションをHTMLに変換するサポートを提供します。以下は、その方法を示すコードスニペットです。
-## **例**
+**HTML** は、データ交換に広く使用されているフォーマットのひとつです。**Aspose.Slides for .NET** は、プレゼンテーションを HTML に変換するサポートを提供します。以下は、その方法を示すコードスニペットです。
+## **Example**
 ``` 
 
- //プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化します
+ //Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation("Conversion.ppt");
 
@@ -17,22 +17,18 @@ HtmlOptions htmlOpt = new HtmlOptions();
 
 htmlOpt.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter("", false);
 
-//プレゼンテーションをHTMLとして保存します
+//Saving the presentation to HTML
 
 pres.Save("Converted.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 ``` 
 ## **実行例のダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Converting to HTML/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Converting%20to%20HTML)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **サンプルコードのダウンロード**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-詳細については、[プレゼンテーションをHTMLに変換する](/slides/ja/net/convert-powerpoint-ppt-and-pptx-to-html/)をご覧ください。
+詳細については、[Convert PowerPoint Presentations to HTML in .NET](/slides/ja/net/convert-powerpoint-to-html/) をご覧ください。
 
 {{% /alert %}}

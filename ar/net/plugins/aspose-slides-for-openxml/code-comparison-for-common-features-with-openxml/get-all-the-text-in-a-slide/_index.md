@@ -1,5 +1,5 @@
 ---
-title: الحصول على كل النص في الشريحة
+title: الحصول على كل النص في شريحة
 type: docs
 weight: 110
 url: /ar/net/get-all-the-text-in-a-slide/
@@ -7,7 +7,6 @@ url: /ar/net/get-all-the-text-in-a-slide/
 
 ## **OpenXML SDK**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the text in a slide.pptx";
@@ -18,23 +17,23 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// الحصول على كل النص في الشريحة.
+// Get all the text in a slide.
 
 public static string[] GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-    // فتح العرض التقديمي للقراءة فقط.
+    // Open the presentation as read-only.
 
     using (PresentationDocument presentationDocument = PresentationDocument.Open(presentationFile, false))
 
     {
 
-        // تمرير العرض التقديمي ومؤشر الشريحة
+        // Pass the presentation and the slide index
 
-        // إلى طريقة GetAllTextInSlide التالية، ثم
+        // to the next GetAllTextInSlide method, and
 
-        // إرجاع مصفوفة السلاسل التي تعيدها. 
+        // then return the array of strings it returns. 
 
         return GetAllTextInSlide(presentationDocument, slideIndex);
 
@@ -46,7 +45,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
 {
 
-    // التحقق من وجود مستند العرض التقديمي.
+    // Verify that the presentation document exists.
 
     if (presentationDocument == null)
 
@@ -56,7 +55,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // التحقق من أن مؤشر الشريحة غير خارج النطاق.
+    // Verify that the slide index is not out of range.
 
     if (slideIndex < 0)
 
@@ -66,53 +65,53 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // الحصول على جزء العرض التقديمي من مستند العرض التقديمي.
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // التحقق من وجود جزء العرض التقديمي والعرض التقديمي.
+    // Verify that the presentation part and presentation exist.
 
     if (presentationPart != null && presentationPart.Presentation != null)
 
     {
 
-        // الحصول على كائن العرض التقديمي من جزء العرض التقديمي.
+        // Get the Presentation object from the presentation part.
 
         Presentation presentation = presentationPart.Presentation;
 
-        // التحقق من أن قائمة معرفات الشرائح موجودة.
+        // Verify that the slide ID list exists.
 
         if (presentation.SlideIdList != null)
 
         {
 
-            // الحصول على مجموعة من معرفات الشرائح من قائمة معرفات الشرائح.
+            // Get the collection of slide IDs from the slide ID list.
 
             DocumentFormat.OpenXml.OpenXmlElementList slideIds =
 
                 presentation.SlideIdList.ChildElements;
 
-            // إذا كان معرف الشريحة ضمن النطاق...
+            // If the slide ID is in range...
 
             if (slideIndex < slideIds.Count)
 
             {
 
-                // الحصول على معرف العلاقة للشريحة.
+                // Get the relationship ID of the slide.
 
                 string slidePartRelationshipId = (slideIds[slideIndex] as SlideId).RelationshipId;
 
-                // الحصول على جزء الشريحة المحدد من معرف العلاقة.
+                // Get the specified slide part from the relationship ID.
 
                 SlidePart slidePart =
 
                     (SlidePart)presentationPart.GetPartById(slidePartRelationshipId);
 
-                // تمرير جزء الشريحة إلى الطريقة التالية، ثم
+                // Pass the slide part to the next method, and
 
-                // إرجاع مصفوفة السلاسل التي تعيدها الطريقة
+                // then return the array of strings that method
 
-                // إلى الطريقة السابقة.
+                // returns to the previous method.
 
                 return GetAllTextInSlide(slidePart);
 
@@ -122,7 +121,7 @@ public static string[] GetAllTextInSlide(PresentationDocument presentationDocume
 
     }
 
-    // وإلا، إرجاع null.
+    // Else, return null.
 
     return null;
 
@@ -132,7 +131,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 {
 
-    // التحقق من أن جزء الشريحة موجود.
+    // Verify that the slide part exists.
 
     if (slidePart == null)
 
@@ -142,17 +141,17 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     }
 
-    // إنشاء قائمة مرتبطة جديدة من السلاسل.
+    // Create a new linked list of strings.
 
     LinkedList<string> texts = new LinkedList<string>();
 
-    // إذا كانت الشريحة موجودة...
+    // If the slide exists...
 
     if (slidePart.Slide != null)
 
     {
 
-        // تكرار من خلال جميع الفقرات في الشريحة.
+        // Iterate through all the paragraphs in the slide.
 
         foreach (DocumentFormat.OpenXml.Drawing.Paragraph paragraph in
 
@@ -160,11 +159,11 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
         {
 
-            // إنشاء بنّاء نصوص جديد.                    
+            // Create a new string builder.                    
 
             StringBuilder paragraphText = new StringBuilder();
 
-            // تكرار من خلال سطور الفقرة.
+            // Iterate through the lines of the paragraph.
 
             foreach (DocumentFormat.OpenXml.Drawing.Text text in
 
@@ -172,7 +171,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // إضافة كل سطر إلى الأسطر السابقة.
+                // Append each line to the previous lines.
 
                 paragraphText.Append(text.Text);
 
@@ -182,7 +181,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
             {
 
-                // إضافة كل فقرة إلى القائمة المرتبطة.
+                // Add each paragraph to the linked list.
 
                 texts.AddLast(paragraphText.ToString());
 
@@ -196,7 +195,7 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
     {
 
-        // إرجاع مصفوفة من السلاسل.
+        // Return an array of strings.
 
         return texts.ToArray();
 
@@ -211,11 +210,9 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
     }
 
 }
-
 ``` 
 ## **Aspose.Slides**
 ``` csharp
-
  string FilePath = @"..\..\..\..\Sample Files\";
 
 string FileName = FilePath + "Get all the text in a slide.pptx";
@@ -226,13 +223,13 @@ Console.WriteLine(s);
 
 Console.ReadKey();
 
-// الحصول على كل النص في الشريحة.
+// Get all the text in a slide.
 
 public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 
 {
 
-// إنشاء قائمة مرتبطة جديدة من السلاسل.
+// Create a new linked list of strings.
 
 List<string> texts = new List<string>();
 
@@ -254,7 +251,7 @@ using (Presentation pres = new Presentation(presentationFile))
 
         {
 
-            //الحصول على نص كل عنصر نائب
+            //get the text of each placeholder
 
             texts.Add(((AutoShape)shp).TextFrame.Text);
 
@@ -262,15 +259,13 @@ using (Presentation pres = new Presentation(presentationFile))
 
 }
 
-// إرجاع مصفوفة من السلاسل.
+// Return an array of strings.
 
 return texts;
 
 }
-
 ``` 
-## **تحميل شفرة العينة**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+## **تنزيل عينة الشيفرة**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Get%20all%20the%20text%20in%20a%20slide%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide%20%28Aspose.Slides%29.zip/download)
+- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/src/master/Aspose.Slides%20Vs%20OpenXML/Get%20all%20the%20text%20in%20a%20slide/)
