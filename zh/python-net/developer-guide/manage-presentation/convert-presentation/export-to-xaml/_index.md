@@ -22,21 +22,15 @@ keywords:
 description: "使用 Aspose.Slides 在 Python 中将 PowerPoint 和 OpenDocument 幻灯片转换为 XAML——快速、无需 Office 的解决方案，保持布局完整。"
 ---
 
-## **概览**
+## **概述**
 
-{{% alert title="Info" color="info" %}} 
+XAML 是一种描述性编程语言，允许您为应用程序构建或编写用户界面，尤其是使用 WPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）和 Xamarin Forms 的应用程序。
 
-在 [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/)，我们实现了对 XAML 导出的支持。您现在可以将演示文稿导出为 XAML。 
-
-{{% /alert %}} 
-
-XAML 是一种描述性的编程语言，可用于为应用程序构建或编写用户界面，尤其是使用 WPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）和 Xamarin Forms 的应用。  
-
-XAML 是基于 XML 的语言，是 Microsoft 用于描述 GUI 的变体。您大多会使用设计器来处理 XAML 文件，但仍然可以手动编写和编辑 GUI。 
+XAML 是基于 XML 的语言，是 Microsoft 用于描述 GUI 的变体。您大多数时候可能会使用设计器来处理 XAML 文件，但仍然可以手动编写和编辑 GUI。
 
 ## **使用默认选项将演示文稿导出为 XAML**
 
-以下 Python 代码演示了如何使用默认设置将演示文稿导出为 XAML：
+下面的 Python 代码展示了如何使用默认设置将演示文稿导出为 XAML：
 ```py
 import aspose.slides as slides
 
@@ -47,9 +41,9 @@ pres.save(slides.export.xaml.XamlOptions())
 
 ## **使用自定义选项将演示文稿导出为 XAML**
 
-您可以从 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 类中选择选项，以控制导出过程并决定 Aspose.Slides 如何将您的演示文稿导出为 XAML。 
+您可以从 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 类中选择控制导出过程的选项，并决定 Aspose.Slides 如何将您的演示文稿导出为 XAML。
 
-例如，如果您希望在导出为 XAML 时让 Aspose.Slides 包含演示文稿中的隐藏幻灯片，可以将 [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) 属性设为 `True`。请参阅以下示例 Python 代码： 
+例如，如果您希望 Aspose.Slides 在导出为 XAML 时包含演示文稿中的隐藏幻灯片，可以将 [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) 属性设为 `True`。请参阅以下示例 Python 代码：
 ```py
 import aspose.slides as slides
 
@@ -64,14 +58,14 @@ pres.save(opt)
 
 ## **常见问题**
 
-**如果原始字体在机器上不可用，如何确保使用可预测的字体？**
+**如果机器上没有原始字体，如何确保使用可预测的字体？**
 
-在 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 中设置 [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/default_regular_font/) —— 当原始字体缺失时，它将作为后备字体使用。这有助于避免意外的字体替换。
+在 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 中设置 [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/default_regular_font/) —— 当原始字体缺失时，它会作为回退字体使用。这有助于避免意外的字体替换。
 
-**导出的 XAML 仅适用于 WPF，还是可以在其他 XAML 框架中使用？**
+**导出的 XAML 是否仅用于 WPF，还是也可以在其他 XAML 堆栈中使用？**
 
-XAML 是在 WPF、UWP 和 Xamarin.Forms 中使用的通用 UI 标记语言。导出旨在兼容 Microsoft 的 XAML 系列；具体行为及对特定构造的支持取决于目标平台。请在您的环境中测试生成的标记。
+XAML 是一种通用的 UI 标记语言，适用于 WPF、UWP 和 Xamarin.Forms。导出旨在兼容 Microsoft 的 XAML 堆栈；具体行为和对特定构造的支持取决于目标平台。请在您的环境中测试标记。
 
-**是否支持隐藏幻灯片？如何防止默认情况下导出它们？**
+**是否支持隐藏幻灯片，如何默认防止它们被导出？**
 
-默认情况下，不会包含隐藏幻灯片。您可以通过在 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 中的 [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) 属性来控制此行为——如果不需要导出隐藏幻灯片，请保持该属性禁用。
+默认情况下，隐藏幻灯片不会包含在内。您可以通过在 [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) 中的 [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) 控制此行为 —— 如果不需要导出隐藏幻灯片，请保持该属性为禁用状态。

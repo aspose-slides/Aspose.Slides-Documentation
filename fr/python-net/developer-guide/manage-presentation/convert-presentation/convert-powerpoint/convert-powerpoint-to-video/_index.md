@@ -1,5 +1,5 @@
 ---
-title: Convertir des présentations PowerPoint en vidéo avec Python
+title: Convertir les présentations PowerPoint en vidéo avec Python
 linktitle: PowerPoint en vidéo
 type: docs
 weight: 130
@@ -23,45 +23,45 @@ keywords:
 - convertir PPT en MP4
 - PPTX en MP4
 - convertir PPTX en MP4
-- conversion de PowerPoint en vidéo
-- conversion de présentation en vidéo
-- conversion de PPT en vidéo
-- conversion de PPTX en vidéo
-- conversion de ODP en vidéo
+- conversion PowerPoint en vidéo
+- conversion présentation en vidéo
+- conversion PPT en vidéo
+- conversion PPTX en vidéo
+- conversion ODP en vidéo
 - conversion vidéo Python
 - PowerPoint
 - Python
 - Aspose.Slides
-description: "Apprenez à convertir des présentations PowerPoint et OpenDocument en vidéo avec Python. Découvrez des exemples de code et des techniques d'automatisation pour optimiser votre flux de travail."
+description: "Apprenez comment convertir les présentations PowerPoint et OpenDocument en vidéo avec Python. Découvrez des exemples de code et des techniques d'automatisation pour rationaliser votre flux de travail."
 ---
 
 ## **Vue d'ensemble**
 
 En convertissant votre présentation PowerPoint ou OpenDocument en vidéo, vous obtenez :
 
-**Accessibilité accrue :** Tous les appareils, quelle que soit la plateforme, sont équipés de lecteurs vidéo par défaut, ce qui facilite l'ouverture ou la lecture des vidéos pour les utilisateurs par rapport aux applications de présentation traditionnelles.
+**Accessibilité accrue :** Tous les appareils, quel que soit le système, sont équipés de lecteurs vidéo par défaut, ce qui facilite l’ouverture ou la lecture des vidéos par rapport aux applications de présentation traditionnelles.
 
-**Portée plus large :** Les vidéos vous permettent d'atteindre un public plus vaste et de présenter les informations dans un format plus attrayant. Les enquêtes et les statistiques indiquent que les gens préfèrent regarder et consommer du contenu vidéo plutôt que d'autres formes, rendant votre message plus percutant.
+**Portée plus large :** Les vidéos vous permettent d’atteindre un public plus vaste et de présenter l’information sous un format plus engageant. Les enquêtes et les statistiques montrent que les gens préfèrent regarder et consommer du contenu vidéo plutôt que d’autres formes, rendant votre message plus percutant.
 
 {{% alert color="primary" %}} 
 
-Découvrez notre [**Convertisseur en ligne PowerPoint en Vidéo**](https://products.aspose.app/slides/video) car il offre une implémentation en direct et efficace du processus décrit ici.
+Découvrez notre [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/video) qui propose une implémentation en direct et efficace du processus décrit ici.
 
 {{% /alert %}} 
 
-Dans [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/), nous avons implémenté la prise en charge de la conversion des présentations en vidéo.
+Dans [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/), nous avons ajouté la prise en charge de la conversion des présentations en vidéo.
 
-* Utilisez Aspose.Slides for Python pour générer des images à partir des diapositives de la présentation à une fréquence d'images spécifiée (FPS).
-* Ensuite, utilisez un utilitaire tiers comme ffmpeg pour compiler ces images en une vidéo.
+* Utilisez Aspose.Slides for Python pour générer des images à partir des diapositives à une fréquence d’images spécifiée (FPS).
+* Puis, utilisez un utilitaire tiers comme ffmpeg pour assembler ces images en une vidéo.
 
 ## **Convertir une présentation PowerPoint en vidéo**
 
 1. Utilisez la commande pip install pour ajouter Aspose.Slides for Python à votre projet : `pip install aspose-slides==24.4.0`
-2. Téléchargez ffmpeg depuis [ici](https://ffmpeg.org/download.html) ou installez-le via le gestionnaire de paquets.
-3. Assurez‑vous que ffmpeg se trouve dans le `PATH`. Sinon, lancez ffmpeg en utilisant le chemin complet vers le binaire (par ex., `C:\ffmpeg\ffmpeg.exe` sous Windows ou `/opt/ffmpeg/ffmpeg` sous Linux).
+2. Téléchargez ffmpeg depuis [ici](https://ffmpeg.org/download.html) ou installez‑le via le gestionnaire de paquets.
+3. Assurez‑vous que ffmpeg se trouve dans le `PATH`. Sinon, lancez ffmpeg en indiquant le chemin complet du binaire (par exemple, `C:\ffmpeg\ffmpeg.exe` sous Windows ou `/opt/ffmpeg/ffmpeg` sous Linux).
 4. Exécutez le code de conversion PowerPoint‑vers‑vidéo.
 
-Ce code Python montre comment convertir une présentation (contendant une forme et deux effets d'animation) en vidéo :
+Ce code Python montre comment convertir une présentation (contennant une forme et deux effets d’animation) en vidéo :
 ```python
 import aspose.slides as slides
 import subprocess
@@ -104,11 +104,11 @@ Lors de la conversion d’une présentation PowerPoint en vidéo avec Aspose.Sli
 
 {{% alert color="primary" %}} 
 
-Voir [Animation PowerPoint](https://docs.aspose.com/slides/python-net/powerpoint-animation/), [Animation de forme](https://docs.aspose.com/slides/python-net/shape-animation/), et [Effet de forme](https://docs.aspose.com/slides/python-net/shape-effect/).
+Voir [PowerPoint Animation](https://docs.aspose.com/slides/python-net/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/python-net/shape-animation/), et [Shape Effect](https://docs.aspose.com/slides/python-net/shape-effect/).
 
 {{% /alert %}} 
 
-Les animations et les transitions rendent les diaporamas plus attrayants et intéressants — et il en est de même pour les vidéos. Ajoutons une autre diapositive et une transition au code de la présentation précédente :
+Les animations et les transitions rendent les diaporamas plus attrayants et intéressants — et il en va de même pour les vidéos. Ajoutons une autre diapositive et une transition au code de la présentation précédente :
 ```python
 import aspose.pydrawing as drawing
 
@@ -124,7 +124,7 @@ new_slide.slide_show_transition.type = slides.TransitionType.PUSH
 ```
 
 
-Aspose.Slides for Python prend également en charge les animations de texte. Dans cet exemple, nous animons les paragraphes sur les objets afin qu’ils apparaissent les uns après les autres, avec un délai d’une seconde entre eux :
+Aspose.Slides for Python prend également en charge les animations de texte. Dans cet exemple, nous animons les paragraphes sur les objets afin qu’ils apparaissent les uns après les autres, avec un délai d’une seconde entre chaque :
 ```python
 import aspose.slides as slides
 import subprocess
@@ -189,11 +189,11 @@ with slides.Presentation() as presentation:
 
 ## **Classes de conversion vidéo**
 
-Pour permettre les tâches de conversion PowerPoint en vidéo, Aspose.Slides for Python fournit le [PresentationEnumerableAnimationsGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableanimationsgenerator/).
+Pour activer les tâches de conversion PowerPoint‑vers‑vidéo, Aspose.Slides for Python fournit le [PresentationEnumerableFramesGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableframesgenerator/).
 
-`PresentationEnumerableAnimationsGenerator` vous permet de définir la taille des images pour la vidéo (qui sera créée ultérieurement) et la valeur FPS (images par seconde) via son constructeur. Si vous transmettez une instance d’une présentation, son `Presentation.SlideSize` sera utilisé.
+`PresentationEnumerableFramesGenerator` vous permet de définir la taille d’image pour la vidéo (qui sera créée ultérieurement) et la valeur FPS (images par seconde) via son constructeur. Si vous transmettez une instance d’une présentation, son `Presentation.SlideSize` sera utilisé.
 
-Pour faire jouer toutes les animations d’une présentation en même temps, utilisez la méthode `PresentationEnumerableAnimationsGenerator.enumerate_frames`. Cette méthode prend une collection de diapositives et renvoie séquentiellement des [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Ensuite, utilisez `EnumerableFrameArgs.get_frame()` pour obtenir chaque image vidéo.
+Pour faire lire toutes les animations d’une présentation en même temps, utilisez la méthode `PresentationEnumerableFramesGenerator.enumerate_frames`. Cette méthode prend une collection de diapositives et renvoie séquentiellement des [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Puis, utilisez `EnumerableFrameArgs.get_frame()` pour obtenir chaque image vidéo.
 ```python
 import aspose.slides as slides
 
@@ -205,153 +205,153 @@ with slides.Presentation("animated.pptx") as presentation:
 ```
 
 
-Les images générées peuvent ensuite être compilées en une vidéo. Pour plus de détails, consultez la section [Convert PowerPoint to Video](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Les images générées peuvent ensuite être assemblées en une vidéo. Pour plus de détails, consultez la section [Convert PowerPoint to Video](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Animations et effets pris en charge**
 
-Lors de la conversion d’une présentation PowerPoint en vidéo avec Aspose.Slides for Python, il est important de comprendre quelles animations et quels effets sont pris en charge dans le résultat. Aspose.Slides prend en charge un large éventail d’effets d’entrée, de sortie et d’emphase courants tels que fondu, vol entrant, zoom et rotation. Cependant, certaines animations avancées ou personnalisées peuvent ne pas être entièrement conservées ou apparaître différemment dans la vidéo finale. Cette section décrit les animations et effets pris en charge.
+Lors de la conversion d’une présentation PowerPoint en vidéo avec Aspose.Slides for Python, il est important de connaître les animations et effets supportés dans le résultat. Aspose.Slides prend en charge un large éventail d’effets d’entrée, de sortie et de mise en évidence courants tels que le fondu, le déplacement, le zoom et la rotation. Cependant, certaines animations avancées ou personnalisées peuvent ne pas être entièrement conservées ou apparaître différemment dans la vidéo finale. Cette section décrit les animations et effets pris en charge.
 
-**Entrée** :
+**Entrée**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fade** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Fly In** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Float In** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Split** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Wipe** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Shape** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Wheel** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Random Bars** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Grow & Turn** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Zoom** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Swivel** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Bounce** | ![pris en charge](v.png) | ![pris en charge](v.png) |
 
-**Mise en évidence** :
+**Mise en évidence**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Color Pulse** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Teeter** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Spin** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Grow/Shrink** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Desaturate** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Darken** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Lighten** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Transparency** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Object Color** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Complementary Color** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Line Color** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fill Color** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
 
-**Sortie** :
+**Sortie**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fade** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Fly Out** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Float Out** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Split** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Wipe** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Shape** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Random Bars** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Shrink & Turn** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Zoom** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Swivel** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Bounce** | ![pris en charge](v.png) | ![pris en charge](v.png) |
 
-**Chemins de mouvement** :
+**Chemins de mouvement**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Arcs** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Turns** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Shapes** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Loops** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Custom Path** | ![pris en charge](v.png) | ![pris en charge](v.png) |
 
 ## **Effets de transition de diapositive pris en charge**
 
-Les effets de transition de diapositive jouent un rôle important pour créer des changements fluides et visuellement attrayants entre les diapositives dans une vidéo. Aspose.Slides for Python prend en charge une variété d’effets de transition couramment utilisés afin de préserver le flux et le style de votre présentation d’origine. Cette section met en évidence les effets de transition pris en charge pendant le processus de conversion.
+Les effets de transition de diapositive jouent un rôle important pour créer des changements fluides et visuellement attrayants entre les diapositives d’une vidéo. Aspose.Slides for Python prend en charge une variété d’effets de transition couramment utilisés afin de préserver le flux et le style de votre présentation originale. Cette section met en avant les transitions supportées lors du processus de conversion.
 
-**Subtil** :
+**Subtil**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Morph** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Push** | ![supported](v.png) | ![supported](v.png) |
-| **Pull** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![not supported](x.png) | ![supported](v.png) |
-| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
-| **Cover** | ![supported](v.png) | ![supported](v.png) |
-| **Flash** | ![supported](v.png) | ![supported](v.png) |
-| **Strips** | ![supported](v.png) | ![supported](v.png) |
+| **Morph** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fade** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Push** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Pull** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Wipe** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Split** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Reveal** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Random Bars** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Shape** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Uncover** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Cover** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Flash** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Strips** | ![pris en charge](v.png) | ![pris en charge](v.png) |
 
-**Excitant** :
+**Excitant**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
-| **Drape** | ![not supported](x.png) | ![supported](v.png) |
-| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
-| **Wind** | ![not supported](x.png) | ![supported](v.png) |
-| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
-| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
-| **Crush** | ![not supported](x.png) | ![supported](v.png) |
-| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
-| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
-| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
-| **Origami** | ![not supported](x.png) | ![supported](v.png) |
-| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
-| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
-| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
-| **Clock** | ![supported](v.png) | ![supported](v.png) |
-| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
-| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
-| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
-| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
-| **Shred** | ![not supported](x.png) | ![supported](v.png) |
-| **Switch** | ![not supported](x.png) | ![supported](v.png) |
-| **Flip** | ![not supported](x.png) | ![supported](v.png) |
-| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
-| **Cube** | ![not supported](x.png) | ![supported](v.png) |
-| **Doors** | ![not supported](x.png) | ![supported](v.png) |
-| **Box** | ![not supported](x.png) | ![supported](v.png) |
-| **Comb** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Random** | ![not supported](x.png) | ![supported](v.png) |
+| **Fall Over** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Drape** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Curtains** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Wind** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Prestige** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fracture** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Crush** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Peel Off** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Page Curl** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Airplane** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Origami** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Dissolve** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Checkerboard** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Blinds** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Clock** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Ripple** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Honeycomb** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Glitter** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Vortex** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Shred** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Switch** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Flip** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Gallery** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Cube** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Doors** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Box** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Comb** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Zoom** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Random** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
 
-**Contenu dynamique** :
+**Contenu dynamique**:
 
-| Type d'animation | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pan** | ![not supported](x.png) | ![supported](v.png) |
-| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
-| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
-| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
-| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
+| **Pan** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Ferris Wheel** | ![pris en charge](v.png) | ![pris en charge](v.png) |
+| **Conveyor** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Rotate** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Orbit** | ![non pris en charge](x.png) | ![pris en charge](v.png) |
+| **Fly Through** | ![pris en charge](v.png) | ![pris en charge](v.png) |
 
 ## **FAQ**
 
 **Est‑il possible de convertir des présentations protégées par mot de passe ?**
 
-Oui, Aspose.Slides for Python permet de travailler avec des présentations protégées par mot de passe. Lors du traitement de ces fichiers, vous devez fournir le mot de passe correct afin que la bibliothèque puisse accéder au contenu de la présentation.
+Oui, Aspose.Slides for Python permet de travailler avec des présentations protégées. Lors du traitement de ces fichiers, vous devez fournir le mot de passe correct afin que la bibliothèque puisse accéder au contenu de la présentation.
 
 **Aspose.Slides for Python prend‑il en charge une utilisation dans des solutions cloud ?**
 
-Oui, Aspose.Slides for Python peut être intégré dans des applications et services cloud. La bibliothèque est conçue pour fonctionner en environnements serveur, assurant haute performance et évolutivité pour le traitement par lots de fichiers.
+Oui, Aspose.Slides for Python peut être intégré aux applications et services cloud. La bibliothèque est conçue pour fonctionner dans des environnements serveur, garantissant haute performance et évolutivité pour le traitement par lots de fichiers.
 
-**Existe‑t‑il des limitations de taille pour les présentations lors de la conversion ?**
+**Existe‑t‑il des limites de taille pour les présentations lors de la conversion ?**
 
 Aspose.Slides for Python peut gérer des présentations de taille pratiquement illimitée. Cependant, pour des fichiers très volumineux, des ressources système supplémentaires peuvent être nécessaires, et il est parfois recommandé d’optimiser la présentation afin d’améliorer les performances.

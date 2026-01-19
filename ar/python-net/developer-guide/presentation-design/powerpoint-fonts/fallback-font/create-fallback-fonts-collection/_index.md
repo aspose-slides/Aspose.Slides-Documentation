@@ -1,6 +1,6 @@
 ---
-title: تكوين مجموعات خطوط الاحتياطي في Python
-linktitle: مجموعة خطوط الاحتياطي
+title: تهيئة مجموعات الخطوط الاحتياطية في بايثون
+linktitle: مجموعة الخطوط الاحتياطية
 type: docs
 weight: 20
 url: /ar/python-net/create-fallback-fonts-collection/
@@ -8,25 +8,25 @@ keywords:
 - خط احتياطي
 - قاعدة احتياطية
 - مجموعة خطوط
-- تكوين الخط
+- تهيئة الخط
 - إعداد الخط
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لPython عبر .NET للحفاظ على تناسق النص وحدته في عروض PowerPoint و OpenDocument."
+description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لبايثون عبر .NET للحفاظ على النص متسقًا وواضحًا في عروض PowerPoint وOpenDocument."
 ---
 
-## **تطبيق قواعد الاحتياط**
+## **تطبيق قواعد الاستبدال**
 
-يمكن تنظيم مثيلات فئة [FontFallBackRule] في [FontFallBackRulesCollection]. يمكن إضافة أو إزالة القواعد من المجموعة.
+يمكن تنظيم كائنات [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/). يمكن إضافة أو إزالة القواعد من المجموعة.
 
-بعد ذلك يمكن تعيين هذه المجموعة إلى خاصية [font_fall_back_rules_collection] في فئة [FontsManager]. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد عن [حول FontsManager و FontsLoader](/slides/ar/python-net/about-fontsmanager-and-fontsloader/).
+يمكن بعد ذلك تعيين هذه المجموعة إلى خاصية [font_fall_back_rules_collection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/font_fall_back_rules_collection/) للفئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). يتحكم FontsManager في الخطوط عبر العرض التقديمي.
 
-كل [Presentation] يحتوي على خاصية [fonts_manager] مع مثيل خاص به من فئة FontsManager.
+كل [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يحتوي على خاصية [fonts_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/fonts_manager/) به واقعه الخاص من فئة FontsManager.
 
-فيما يلي مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها إلى FontsManager لعرض تقديمي محدد:
+إليك مثالًا على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها في FontsManager لعرض تقديمي معين:  
 ```py
 import aspose.slides as slides
 
@@ -40,26 +40,26 @@ with slides.Presentation() as presentation:
 ```
 
 
-بعد تهيئة FontsManager بمجموعة قواعد الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء تصيير العرض التقديمي.
+بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
 
-{{% alert color="primary" %}}
-اقرأ المزيد حول كيفية [عرض تقديم مع خط احتياطي](/slides/ar/python-net/render-presentation-with-fallback-font/).
+{{% alert color="primary" %}} 
+اقرأ المزيد حول كيفية [عرض العرض التقديمي مع الخط الاحتياطي](/slides/ar/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**هل سيتم تضمين قواعد الاحتياط في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
+**هل سيتم تضمين قواعد الاستبدال في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
 
-لا. قواعد الاحتياط هي إعدادات تصيير في وقت التشغيل؛ لا يتم تسلسلها إلى PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الاستبدال هي إعدادات عرض وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل ينطبق الاحتياط على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
+**هل ينطبق الاستبدال على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
 
-نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
+نعم. يتم استخدام نفس آلية استبدال الرموز لأي نص في هذه الكائنات.
 
-**هل تقوم Aspose بتوزيع أي خط مع المكتبة؟**
+**هل تُوزِّع Aspose أي خطوط مع المكتبة؟**
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتكون مسؤوليتك.
+لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية الذاتية.
 
-**هل يمكن استخدام الاستبدال/التعويض عن الخطوط المفقودة والاحتياط للرموز المفقودة معًا؟**
+**هل يمكن استخدام الاستبدال/الاستبدال للخطوط المفقودة والاستبدال للرموز المفقودة معًا؟**
 
-نعم. إنهما مرحلتان مستقلتان من نفس خط أنابيب حل الخطوط: أولًا يحل المحرك توافر الخطوط ([replacement](/slides/ar/python-net/font-replacement/)/[substitution](/slides/ar/python-net/font-substitution/)), ثم يملأ الاحتياط الفجوات للرموز المفقودة في الخطوط المتاحة.
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/python-net/font-replacement/)/[substitution](/slides/ar/python-net/font-substitution/))، ثم يقوم الاستبدال بملء الفجوات للرموز المفقودة في الخطوط المتاحة.

@@ -1,13 +1,13 @@
 ---
 title: Formatear gráficos en presentaciones usando Python
-linktitle: Formateo de gráficos
+linktitle: Formato de gráficos
 type: docs
 weight: 60
 url: /es/python-net/chart-formatting/
 keywords:
+- formatear gráfico
 - formato de gráfico
-- formateo de gráfico
-- entidad de gráfico
+- entidad del gráfico
 - propiedades del gráfico
 - configuración del gráfico
 - opciones del gráfico
@@ -18,48 +18,48 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda el formateo de gráficos en Aspose.Slides para Python vía .NET y eleve su presentación de PowerPoint o OpenDocument con un estilo profesional y llamativo."
+description: "Aprenda el formato de gráficos en Aspose.Slides para Python vía .NET y mejore su presentación de PowerPoint u OpenDocument con un estilo profesional y llamativo."
 ---
 
 ## **Descripción general**
 
-Esta guía muestra cómo dar formato a los gráficos de PowerPoint usando Aspose.Slides para Python. Describe la personalización de los elementos principales del gráfico —como ejes de categorías y valores, líneas de cuadrícula, etiquetas, títulos, leyendas y ejes secundarios— y demuestra cómo controlar fuentes, formatos numéricos, rellenos, contornos, colores del área de trazado y del muro trasero, y esquinas redondeadas del gráfico con ejemplos de código concisos y ejecutables. Siguiendo los ejemplos paso a paso, crearás una [Presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), añadirás y configurarás un gráfico, y guardarás el resultado en PPTX aplicando ajustes visuales y tipográficos precisos.
+Esta guía muestra cómo dar formato a los gráficos de PowerPoint usando Aspose.Slides para Python. Recorre la personalización de los elementos principales del gráfico, como los ejes de categorías y valores, líneas de cuadrícula, etiquetas, títulos, leyendas y ejes secundarios, y demuestra cómo controlar fuentes, formatos numéricos, rellenos, contornos, colores del área del gráfico y la pared trasera, y esquinas redondeadas del gráfico con ejemplos de código concisos y ejecutables. Siguiendo los ejemplos paso a paso, creará una [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), añadirá y configurará un gráfico y guardará el resultado en PPTX aplicando ajustes visuales y tipográficos precisos.
 
 ## **Dar formato a los elementos del gráfico**
 
-Aspose.Slides para Python permite a los desarrolladores añadir gráficos personalizados a sus diapositivas desde cero. Esta sección explica cómo dar formato a varios elementos del gráfico, incluidos los ejes de categoría y de valores.
+Aspose.Slides para Python permite a los desarrolladores añadir gráficos personalizados a sus diapositivas desde cero. Esta sección explica cómo dar formato a varios elementos del gráfico, incluidos los ejes de categorías y valores.
 
-Aspose.Slides ofrece una API simple para gestionar los elementos del gráfico y aplicar formato personalizado:
+Aspose.Slides proporciona una API sencilla para gestionar los elementos del gráfico y aplicar formato personalizado:
 
-1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén una referencia a la diapositiva por su índice.
-1. Añade un gráfico con datos predeterminados del tipo deseado (en este ejemplo, `ChartType.LINE_WITH_MARKERS`).
-1. Accede al eje de valores del gráfico y configura lo siguiente:
-   1. Establece el **formato de línea** para las líneas de cuadrícula principales del eje de valores.
-   1. Establece el **formato de línea** para las líneas de cuadrícula menores del eje de valores.
-   1. Establece el **formato numérico** para el eje de valores.
-   1. Establece las **unidades mín., máx., principales y menores** para el eje de valores.
-   1. Establece las **propiedades de texto** para las etiquetas del eje de valores.
-   1. Establece el **título** del eje de valores.
-   1. Establece el **formato de línea** del eje de valores.
-1. Accede al eje de categorías del gráfico y configura lo siguiente:
-   1. Establece el **formato de línea** para las líneas de cuadrícula principales del eje de categorías.
-   1. Establece el **formato de línea** para las líneas de cuadrícula menores del eje de categorías.
-   1. Establece las **propiedades de texto** para las etiquetas del eje de categorías.
-   1. Establece el **título** del eje de categorías.
-   1. Establece la **posicionamiento de etiquetas** del eje de categorías.
-   1. Establece el **ángulo de rotación** para las etiquetas del eje de categorías.
-1. Accede a la leyenda del gráfico y establece sus **propiedades de texto**.
-1. Muestra la leyenda del gráfico sin que se superponga al gráfico.
-1. Accede al **eje de valores secundario** del gráfico y configura lo siguiente:
-   1. Habilita el **eje de valores** secundario.
-   1. Establece el **formato de línea** para el eje de valores secundario.
-   1. Establece el **formato numérico** para el eje de valores secundario.
-   1. Establece las **unidades mín., máx., principales y menores** para el eje de valores secundario.
-1. Dibuja la primera serie del gráfico en el eje de valores secundario.
-1. Establece el color de relleno del muro trasero del gráfico.
-1. Establece el color de relleno del área de trazado del gráfico.
-1. Escribe la presentación modificada en un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva por su índice.
+1. Añada un gráfico con datos predeterminados del tipo deseado (en este ejemplo, `ChartType.LINE_WITH_MARKERS`).
+1. Acceda al eje de valores del gráfico y establezca lo siguiente:
+   1. Establezca el **formato de línea** para las líneas de cuadrícula principales del eje de valores.
+   1. Establezca el **formato de línea** para las líneas de cuadrícula menores del eje de valores.
+   1. Establezca el **formato numérico** para el eje de valores.
+   1. Establezca las **unidades mín., máx., principales y menores** para el eje de valores.
+   1. Establezca las **propiedades de texto** para las etiquetas del eje de valores.
+   1. Establezca el **título** del eje de valores.
+   1. Establezca el **formato de línea** para el eje de valores.
+1. Acceda al eje de categorías del gráfico y establezca lo siguiente:
+   1. Establezca el **formato de línea** para las líneas de cuadrícula principales del eje de categorías.
+   1. Establezca el **formato de línea** para las líneas de cuadrícula menores del eje de categorías.
+   1. Establezca las **propiedades de texto** para las etiquetas del eje de categorías.
+   1. Establezca el **título** del eje de categorías.
+   1. Establezca la **posicionamiento de etiquetas** para el eje de categorías.
+   1. Establezca el **ángulo de rotación** para las etiquetas del eje de categorías.
+1. Acceda a la leyenda del gráfico y establezca sus **propiedades de texto**.
+1. Muestre la leyenda del gráfico sin que se superponga al gráfico.
+1. Acceda al **eje de valores secundario** del gráfico y establezca lo siguiente:
+   1. Habilite el **eje de valores** secundario.
+   1. Establezca el **formato de línea** para el eje de valores secundario.
+   1. Establezca el **formato numérico** para el eje de valores secundario.
+   1. Establezca las **unidades mín., máx., principales y menores** para el eje de valores secundario.
+1. Dibuje la primera serie del gráfico en el eje de valores secundario.
+1. Establezca el color de relleno de la pared trasera del gráfico.
+1. Establezca el color de relleno del área de trazado del gráfico.
+1. Escriba la presentación modificada en un archivo PPTX.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -101,7 +101,7 @@ with slides.Presentation() as presentation:
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # Establecer el valor máximo, mínimo, unidad principal y unidad menor del eje de valores.
+    # Establecer el máximo, mínimo, unidad principal y unidad menor del eje de valores.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -163,10 +163,10 @@ with slides.Presentation() as presentation:
     horizontal_axis_title.portion_format.font_bold = 1
     horizontal_axis_title.portion_format.font_italic = 1
 
-    # Establecer la posición de las etiquetas del eje de categorías.
+    # Establecer la posición de la etiqueta del eje de categorías.
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
 
-    # Establecer el ángulo de rotación de las etiquetas del eje de categorías.
+    # Establecer el ángulo de rotación de la etiqueta del eje de categorías.
     chart.axes.horizontal_axis.tick_label_rotation_angle = 45
 
     # Establecer las propiedades de texto de la leyenda.
@@ -180,7 +180,7 @@ with slides.Presentation() as presentation:
     # Mostrar la leyenda del gráfico superponiéndose al gráfico.
     chart.legend.overlay = True
                 
-    # Establecer el color del muro trasero del gráfico.
+    # Establecer el color de la pared trasera del gráfico.
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
     chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
@@ -197,16 +197,16 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Establecer propiedades de fuentes del gráfico**
+## **Establecer propiedades de fuente del gráfico**
 
-Aspose.Slides para Python admite la configuración de propiedades relacionadas con fuentes para los gráficos. Sigue los pasos a continuación para configurar las propiedades de fuentes del gráfico:
+Aspose.Slides para Python admite la configuración de propiedades relacionadas con fuentes para los gráficos. Siga los pasos a continuación para configurar las propiedades de fuente del gráfico:
 
-1. Instancia un objeto [Presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Añade un gráfico a la diapositiva.
-1. Establece la altura de la fuente.
-1. Guarda la presentación modificada.
+1. Instancie un objeto [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Añada un gráfico a la diapositiva.
+1. Establezca la altura de la fuente.
+1. Guarde la presentación modificada.
 
-A continuación se proporciona un ejemplo de código.
+A continuación se proporciona un código de ejemplo.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -224,17 +224,17 @@ with slides.Presentation() as presentation:
 
 ## **Establecer formato numérico**
 
-Aspose.Slides para Python proporciona una API sencilla para gestionar los formatos de datos del gráfico:
+Aspose.Slides para Python ofrece una API sencilla para gestionar los formatos de datos del gráfico:
 
-1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén una referencia a la diapositiva por su índice.
-1. Añade un gráfico con datos predeterminados de cualquier tipo deseado.
-1. Establece un formato numérico predefinido a partir de los valores preestablecidos disponibles.
-1. Recorre las celdas de datos del gráfico en cada serie y establece el formato numérico.
-1. Guarda la presentación.
-1. Establece un formato numérico personalizado.
-1. Recorre las celdas de datos del gráfico en cada serie y establece un formato numérico diferente.
-1. Guarda la presentación.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva por su índice.
+1. Añada un gráfico con datos predeterminados de cualquier tipo deseado.
+1. Establezca un formato numérico predeterminado de los valores disponibles.
+1. Recorra las celdas de datos del gráfico en cada serie y establezca el formato numérico.
+1. Guarde la presentación.
+1. Establezca un formato numérico personalizado.
+1. Recorra las celdas de datos del gráfico en cada serie y establezca un formato numérico diferente.
+1. Guarde la presentación.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -260,7 +260,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-Los formatos numéricos predefinidos disponibles y sus índices correspondientes se enumeran a continuación.
+Los formatos numéricos predeterminados disponibles y sus índices correspondientes se enumeran a continuación.
 
 |**0**|General|
 | :- | :- |
@@ -295,8 +295,8 @@ Los formatos numéricos predefinidos disponibles y sus índices correspondientes
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
 |**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
-|**47**|[mm:ss.0](http://mmss.0)|
+|**46**|h:mm:ss|
+|**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
 
@@ -304,13 +304,13 @@ Los formatos numéricos predefinidos disponibles y sus índices correspondientes
 
 Aspose.Slides para Python admite la configuración del área del gráfico mediante la propiedad `Chart.has_rounded_corners`.
 
-1. Instancia un objeto [Presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Añade un gráfico a la diapositiva.
-3. Establece el tipo de relleno y el color de relleno del gráfico.
-4. Establece la propiedad de esquinas redondeadas a `True`.
-5. Guarda la presentación modificada.
+1. Instancie un objeto [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Añada un gráfico a la diapositiva.
+3. Establezca el tipo de relleno y el color de relleno del gráfico.
+4. Establezca la propiedad de esquinas redondeadas a `True`.
+5. Guarde la presentación modificada.
 
-A continuación se proporciona un ejemplo.
+A continuación se muestra un ejemplo.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -329,14 +329,14 @@ with slides.Presentation() as presentation:
 
 ## **Preguntas frecuentes**
 
-**¿Puedo establecer rellenos semitransparentes para columnas/áreas manteniendo el borde opaco?**
+**¿Puedo establecer rellenos semitransparentes para columnas/áreas mientras mantengo el borde opaco?**
 
-Sí. La transparencia del relleno y el contorno se configuran por separado. Esto es útil para mejorar la legibilidad de la cuadrícula y de los datos en visualizaciones densas.
+Sí. La transparencia del relleno y el contorno se configuran por separado. Esto es útil para mejorar la legibilidad de la cuadrícula y los datos en visualizaciones densas.
 
 **¿Cómo puedo manejar las etiquetas de datos cuando se superponen?**
 
-Reduce el tamaño de la fuente, desactiva componentes de etiqueta no esenciales (por ejemplo, categorías), ajusta el desplazamiento/posición de la etiqueta, muestra etiquetas solo para puntos seleccionados si es necesario, o cambia el formato a "valor + leyenda".
+Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste el desplazamiento/posición de la etiqueta, muestre etiquetas solo para puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
 
 **¿Puedo aplicar rellenos degradados o de patrón a las series?**
 
-Sí. Tanto los rellenos sólidos como los degradados/patrones suelen estar disponibles. En la práctica, usa degradados con moderación y evita combinaciones que reduzcan el contraste con la cuadrícula y el texto.
+Sí. Normalmente están disponibles tanto rellenos sólidos como degradados/patrón. En la práctica, utilice degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.

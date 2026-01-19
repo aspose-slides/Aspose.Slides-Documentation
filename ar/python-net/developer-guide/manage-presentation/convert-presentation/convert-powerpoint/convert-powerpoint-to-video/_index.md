@@ -7,8 +7,8 @@ url: /ar/python-net/convert-powerpoint-to-video/
 keywords:
 - PowerPoint إلى فيديو
 - تحويل PowerPoint إلى فيديو
-- العرض التقديمي إلى فيديو
-- تحويل العرض التقديمي إلى فيديو
+- العرض إلى فيديو
+- تحويل العرض إلى فيديو
 - PPT إلى فيديو
 - تحويل PPT إلى فيديو
 - PPTX إلى فيديو
@@ -17,51 +17,51 @@ keywords:
 - تحويل ODP إلى فيديو
 - PowerPoint إلى MP4
 - تحويل PowerPoint إلى MP4
-- العرض التقديمي إلى MP4
-- تحويل العرض التقديمي إلى MP4
+- العرض إلى MP4
+- تحويل العرض إلى MP4
 - PPT إلى MP4
 - تحويل PPT إلى MP4
 - PPTX إلى MP4
 - تحويل PPTX إلى MP4
 - تحويل PowerPoint إلى فيديو
-- تحويل العرض التقديمي إلى فيديو
+- تحويل العرض إلى فيديو
 - تحويل PPT إلى فيديو
 - تحويل PPTX إلى فيديو
 - تحويل ODP إلى فيديو
-- تحويل فيديو Python
+- تحويل الفيديو باستخدام Python
 - PowerPoint
 - Python
 - Aspose.Slides
-description: "تعرّف على كيفية تحويل عروض PowerPoint وOpenDocument إلى فيديو باستخدام Python. اكتشف عينة الشيفرة وتقنيات الأتمتة لتبسيط سير عملك."
+description: "تعلم كيفية تحويل عروض PowerPoint و OpenDocument إلى فيديو باستخدام Python. اكتشف عينات التعليمات البرمجية وتقنيات الأتمتة لتبسيط سير العمل."
 ---
 
 ## **نظرة عامة**
 
-من خلال تحويل عرض PowerPoint أو OpenDocument إلى فيديو، تحصل على:
+من خلال تحويل عرض PowerPoint أو OpenDocument إلى فيديو، ستحصل على:
 
-**تحسين الوصول:** جميع الأجهزة، بغض النظر عن النظام الأساسي، مزودة بمشغلات فيديو بشكل افتراضي، مما يجعل من الأسهل على المستخدمين فتح أو تشغيل الفيديوهات مقارنةً بتطبيقات العروض التقليدية.
+**زيادة إمكانية الوصول:** جميع الأجهزة، بغض النظر عن النظام الأساسي، تكون مزودة بمشغلات فيديو بشكل افتراضي، مما يجعل من الأسهل للمستخدمين فتح أو تشغيل الفيديوهات مقارنةً بتطبيقات العروض التقليدية.
 
-**نطاق أوسع:** تمكنك الفيديوهات من الوصول إلى جمهور أكبر وتقديم المعلومات بتنسيق أكثر جاذبية. وتشير الاستطلاعات والإحصاءات إلى أن الناس يفضلون مشاهدة واستهلاك المحتوى الفيديوي على غيره، مما يجعل رسالتك أكثر تأثيرًا.
+**نطاق أوسع:** تمكنك الفيديوهات من الوصول إلى جمهور أكبر وتقديم المعلومات بطريقة أكثر جذبًا. تشير الاستطلاعات والإحصاءات إلى أن الناس يفضلون مشاهدة واستهلاك محتوى الفيديو على غيره، ما يجعل رسالتك أكثر تأثيرًا.
 
 {{% alert color="primary" %}} 
 
-اطلع على [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/video) لأنه يقدم تنفيذًا مباشرًا وفعالًا للعملية الموضحة هنا.
+تحقق من [**محول PowerPoint إلى فيديو عبر الإنترنت**](https://products.aspose.app/slides/video) لأنه يوفر تنفيذًا حيًا وفعّالًا للعملية الموضحة هنا.
 
 {{% /alert %}} 
 
-في [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/)، قمنا بتنفيذ دعم لتحويل العروض إلى فيديو.
+في [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/)، قمنا بدمج دعم تحويل العروض إلى فيديو.
 
 * استخدم Aspose.Slides for Python لتوليد إطارات من شرائح العرض بمعدل إطارات محدد (FPS).
-* بعد ذلك، استخدم أداة طرف ثالث مثل ffmpeg لتجميع هذه الإطارات في فيديو.
+* ثم، استخدم أداة طرف ثالث مثل ffmpeg لتجميع هذه الإطارات في فيديو.
 
 ## **تحويل عرض PowerPoint إلى فيديو**
 
 1. استخدم أمر pip install لإضافة Aspose.Slides for Python إلى مشروعك: `pip install aspose-slides==24.4.0`
-2. قم بتنزيل ffmpeg من [هنا](https://ffmpeg.org/download.html) أو ثبّته عبر مدير الحزم.
-3. تأكد من أن ffmpeg موجود في `PATH`. وإلا، شغِّل ffmpeg باستخدام المسار الكامل إلى الملف التنفيذي (مثال: `C:\ffmpeg\ffmpeg.exe` على Windows أو `/opt/ffmpeg/ffmpeg` على Linux).
-4. نفِّذ كود تحويل PowerPoint إلى فيديو.
+2. حمّل ffmpeg من [هنا](https://ffmpeg.org/download.html) أو ثبّته عبر مدير الحزم.
+3. تأكد من أن ffmpeg موجود في `PATH`. وإلا، شغّل ffmpeg باستخدام المسار الكامل للملف التنفيذي (مثلاً `C:\ffmpeg\ffmpeg.exe` على Windows أو `/opt/ffmpeg/ffmpeg` على Linux).
+4. شغّل كود تحويل PowerPoint إلى فيديو.
 
-يُظهر هذا الكود Python كيفية تحويل عرض (يحتوي على شكل وتأثيري تحريك) إلى فيديو:
+يعرض هذا الكود Python كيفية تحويل عرض (يحتوي على شكل وتأثيرين حركيين) إلى فيديو:
 ```python
 import aspose.slides as slides
 import subprocess
@@ -100,21 +100,22 @@ with slides.Presentation() as presentation:
 
 ## **تأثيرات الفيديو**
 
-عند تحويل عرض PowerPoint إلى فيديو باستخدام Aspose.Slides for Python، يمكنك تطبيق تأثيرات فيديو مختلفة لتحسين الجودة البصرية للمخرجات. تتيح لك هذه التأثيرات التحكم في مظهر الشرائح في الفيديو النهائي عبر إضافة انتقالات سلسة، تحريكات، وعناصر بصرية أخرى. يشرح هذا القسم خيارات تأثيرات الفيديو المتاحة ويظهر كيفية تطبيقها.
+عند تحويل عرض PowerPoint إلى فيديو باستخدام Aspose.Slides for Python، يمكنك تطبيق تأثيرات فيديو مختلفة لتحسين جودة المخرجات البصرية. تتيح لك هذه التأثيرات التحكم في مظهر الشرائح في الفيديو النهائي عن طريق إضافة انتقالات سلسة، ورسوم متحركة، وعناصر بصرية أخرى. يوضح هذا القسم خيارات تأثيرات الفيديو المتاحة وكيفية تطبيقها.
 
 {{% alert color="primary" %}} 
 
-اطلع على [تحريك PowerPoint](https://docs.aspose.com/slides/python-net/powerpoint-animation/)، [تحريك الشكل](https://docs.aspose.com/slides/python-net/shape-animation/)، و[تأثير الشكل](https://docs.aspose.com/slides/python-net/shape-effect/).
+اطلع على [PowerPoint Animation](https://docs.aspose.com/slides/python-net/powerpoint-animation/)، [Shape Animation](https://docs.aspose.com/slides/python-net/shape-animation/)، و[Shape Effect](https://docs.aspose.com/slides/python-net/shape-effect/).
 
 {{% /alert %}} 
 
-تجعل التحريكات والانتقالات العروض أكثر جاذبية وإثارة — وتفعل نفس الشيء للفيديوهات. لنضيف شريحة أخرى وانتقالًا إلى الكود للعرض السابق:
+تجعل الرسوم المتحركة والانتقالات عروض الشرائح أكثر جاذبية وإثارة — وتفعل الشيء نفسه للفيديوهات. لنضيف شريحة أخرى وانتقالًا إلى الكود للعرض السابق:
 ```python
 import aspose.pydrawing as drawing
 
-# إضافة شكل بابتسامة وتحريكه.
+# أضف شكلاً مبتسمًا وقم بتحريكه.
 # ...
-# إضافة شريحة جديدة وانتقال متحرك.
+
+# أضف شريحة جديدة وانتقالًا متحركًا.
 new_slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
 new_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 new_slide.background.fill_format.fill_type = slides.FillType.SOLID
@@ -123,7 +124,7 @@ new_slide.slide_show_transition.type = slides.TransitionType.PUSH
 ```
 
 
-يدعم Aspose.Slides for Python أيضًا تحريكات النص. في هذا المثال، نقوم بتحريك الفقرات على الكائنات بحيث تظهر واحدة تلو الأخرى، مع تأخير ثانية واحدة بينهما:
+يدعم Aspose.Slides for Python أيضًا رسوم متحركة للنص. في هذا المثال، نقوم بتحريك الفقرات على الكائنات لتظهر واحدة تلو الأخرى، مع تأخير ثانية واحدة بينها:
 ```python
 import aspose.slides as slides
 import subprocess
@@ -131,7 +132,7 @@ import subprocess
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # إضافة نص وتحريكات.
+    # أضف النص والرسوم المتحركة.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 210, 120, 300, 300)
     para1 = slides.Paragraph()
     para1.portions.add(slides.Portion("Aspose.Slides for Python"))
@@ -188,11 +189,11 @@ with slides.Presentation() as presentation:
 
 ## **فئات تحويل الفيديو**
 
-لتمكين مهام تحويل PowerPoint إلى فيديو، يوفر Aspose.Slides for Python الفئة [PresentationEnumerableAnimationsGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableanimationsgenerator/).
+لتمكين مهام تحويل PowerPoint إلى فيديو، يوفر Aspose.Slides for Python الفئة [PresentationEnumerableFramesGenerator](https://reference.aspose.com/slides/python-net/aspose.slides.export/presentationenumerableframesgenerator/).
 
-`PresentationEnumerableAnimationsGenerator` يسمح لك بتعيين حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) وقيمة FPS (الإطارات في الثانية) عبر المُنشئ الخاص به. إذا مررت كائن عرض، سيتم استخدام `Presentation.SlideSize` الخاص به.
+`PresentationEnumerableFramesGenerator` تتيح لك تعيين حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) وقيمة FPS (الإطارات في الثانية) من خلال المُنشئ الخاص بها. إذا مررت بمثيل للعرض، سيُستخدم `Presentation.SlideSize` الخاص به.
 
-لجعل جميع التحريكات في عرض تُشغَّل مرة واحدة، استخدم الطريقة `PresentationEnumerableAnimationsGenerator.enumerate_frames`. تأخذ هذه الطريقة مجموعة من الشرائح وتعيد بشكل متسلسل [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). ثم استخدم `EnumerableFrameArgs.get_frame()` للحصول على كل إطار فيديو.
+لجعل جميع الرسوم المتحركة في عرض تُشغَل مرةً واحدة، استخدم الطريقة `PresentationEnumerableFramesGenerator.enumerate_frames`. تأخذ هذه الطريقة مجموعة من الشرائح وتعيد بشكل متسلسل [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). ثم، استخدم `EnumerableFrameArgs.get_frame()` للحصول على كل إطار فيديو.
 ```python
 import aspose.slides as slides
 
@@ -204,15 +205,15 @@ with slides.Presentation("animated.pptx") as presentation:
 ```
 
 
-بعد ذلك يمكن تجميع الإطارات المُولدة في فيديو. لمزيد من التفاصيل، راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+بعد ذلك يمكن تجميع الإطارات المُولدة في فيديو. للمزيد من التفاصيل، راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **الحركات والتأثيرات المدعومة**
+## **الرسوم المتحركة والتأثيرات المدعومة**
 
-عند تحويل عرض PowerPoint إلى فيديو باستخدام Aspose.Slides for Python، من المهم فهم أي الحركات والتأثيرات المدعومة في المخرجات. يدعم Aspose.Slides مجموعة واسعة من تأثيرات الدخول، الخروج، والتأكيد الشائعة مثل التلاشي، الطيران، التكبير، والدوران. ومع ذلك، قد لا تُحافظ بعض الحركات المتقدمة أو المخصصة بالكامل أو قد تظهر بشكل مختلف في الفيديو النهائي. يوضح هذا القسم الحركات والتأثيرات المدعومة.
+عند تحويل عرض PowerPoint إلى فيديو باستخدام Aspose.Slides for Python، من المهم معرفة أي الرسوم المتحركة والتأثيرات مُدَعَّمة في المخرجات. يدعم Aspose.Slides مجموعة واسعة من تأثيرات الدخول، الخروج، والتأكيد الشائعة مثل التلاشي، التحليق، التكبير، والدوران. ومع ذلك، قد لا يتم الحفاظ على بعض الرسوم المتحركة المتقدمة أو المخصصة بشكل كامل أو قد تظهر بصورة مختلفة في الفيديو النهائي. يوضح هذا القسم الرسوم المتحركة والتأثيرات المدعومة.
 
 **الدخول**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Fade** | ![مدعوم](v.png) | ![مدعوم](v.png) |
@@ -230,7 +231,7 @@ with slides.Presentation("animated.pptx") as presentation:
 
 **التأكيد**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Color Pulse** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
@@ -248,7 +249,7 @@ with slides.Presentation("animated.pptx") as presentation:
 
 **الخروج**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Fade** | ![مدعوم](v.png) | ![مدعوم](v.png) |
@@ -265,7 +266,7 @@ with slides.Presentation("animated.pptx") as presentation:
 
 **مسارات الحركة**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **Arcs** | ![مدعوم](v.png) | ![مدعوم](v.png) |
@@ -276,11 +277,11 @@ with slides.Presentation("animated.pptx") as presentation:
 
 ## **تأثيرات انتقال الشرائح المدعومة**
 
-تلعب تأثيرات انتقال الشرائح دورًا مهمًا في إنشاء تغييرات سلسة وجذابة بصريًا بين الشرائح في الفيديو. يدعم Aspose.Slides for Python مجموعة متنوعة من تأثيرات الانتقال الشائعة للمساعدة في الحفاظ على تدفق وعرض العرض الأصلي. يوضح هذا القسم أي من تأثيرات الانتقال مدعومة أثناء عملية التحويل.
+تلعب تأثيرات انتقال الشرائح دورًا مهمًا في إنشاء تغييرات سلسة وجذابة بين الشرائح في الفيديو. يدعم Aspose.Slides for Python مجموعة متنوعة من تأثيرات الانتقال الشائعة للمساعدة في الحفاظ على تدفق وعرض تقديمك الأصلي. يبرز هذا القسم التأثيرات المدعومة أثناء عملية التحويل.
 
 **دقيق**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الانتقال | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Morph** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Fade** | ![مدعوم](v.png) | ![مدعوم](v.png) |
@@ -296,9 +297,9 @@ with slides.Presentation("animated.pptx") as presentation:
 | **Flash** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **Strips** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 
-**مثير**:
+**مشوق**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الانتقال | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Fall Over** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Drape** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
@@ -332,7 +333,7 @@ with slides.Presentation("animated.pptx") as presentation:
 
 **محتوى ديناميكي**:
 
-| نوع الحركة | Aspose.Slides | PowerPoint |
+| نوع الانتقال | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pan** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **Ferris Wheel** | ![مدعوم](v.png) | ![مدعوم](v.png) |
@@ -343,14 +344,14 @@ with slides.Presentation("animated.pptx") as presentation:
 
 ## **الأسئلة الشائعة**
 
-**هل يمكن تحويل العروض التقديمية المحمية بكلمة مرور؟**
+**هل من الممكن تحويل العروض المحمية بكلمة مرور؟**
 
-نعم، يتيح Aspose.Slides for Python العمل مع العروض التقديمية المحمية بكلمة مرور. عند معالجة مثل هذه الملفات، تحتاج إلى توفير كلمة المرور الصحيحة حتى يتمكن المكتبة من الوصول إلى محتوى العرض.
+نعم، يتيح Aspose.Slides for Python التعامل مع العروض المحمية بكلمة مرور. عند معالجة مثل هذه الملفات، تحتاج إلى توفير كلمة المرور الصحيحة حتى تتمكن المكتبة من الوصول إلى محتوى العرض.
 
 **هل يدعم Aspose.Slides for Python الاستخدام في حلول السحابة؟**
 
-نعم، يمكن دمج Aspose.Slides for Python في التطبيقات والخدمات السحابية. صُممت المكتبة للعمل في بيئات الخوادم، مع ضمان أداء عالي وقابلية توسعة لمعالجة دفعات الملفات.
+نعم، يمكن دمج Aspose.Slides for Python في التطبيقات والخدمات السحابية. تم تصميم المكتبة للعمل في بيئات الخادم، مما يضمن أداءً عاليًا وقابلية توسعة لمعالجة الملفات على نطاق كبير.
 
-**هل هناك أي حدود لحجم العروض التقديمية أثناء التحويل؟**
+**هل هناك حدود لحجم العروض أثناء التحويل؟**
 
-يمكن لـ Aspose.Slides for Python التعامل مع العروض التقديمية ذات الحجم الافتراضي تقريبًا. ومع ذلك، قد تتطلب الملفات الكبيرة موارد نظام إضافية، وقد يُنصح أحيانًا بتحسين العرض لتحسين الأداء.
+يستطيع Aspose.Slides for Python التعامل مع عروض بحجم كبير تقريبًا. ومع ذلك، عند العمل مع ملفات ضخمة جدًا قد تحتاج إلى موارد نظام إضافية، ومن الأفضل أحيانًا تحسين العرض لتحسين الأداء.
