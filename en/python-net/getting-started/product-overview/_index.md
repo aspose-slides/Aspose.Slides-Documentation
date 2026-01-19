@@ -23,7 +23,7 @@ keywords:
 description: "Aspose.Slides for Python via .NET lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
-![todo:image_alt_text](aspose_slides-for-python.png)
+![todo:image_alt_text](aspose_slides-for-python.svg)
 
 ## **Product Description**
 Aspose.Slides for Python via .NET is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.

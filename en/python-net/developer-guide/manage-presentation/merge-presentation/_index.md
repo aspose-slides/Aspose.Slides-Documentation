@@ -50,16 +50,6 @@ With Aspose.Slides, you can merge:
 - Specific slides: only the selected slides are combined into a single presentation.
 - Presentations of the same format (e.g., PPT→PPT, PPTX→PPTX) or across different formats (e.g., PPT→PPTX, PPTX→ODP).
 
-{{% alert title="Note" color="info" %}}
-
-Besides presentations, Aspose.Slides also allows you to merge other files:
-
-- [Images](https://products.aspose.com/slides/python-net/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/python-net/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/python-net/merger/png-to-png/).
-- Documents, such as [PDF to PDF](https://products.aspose.com/slides/python-net/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/python-net/merger/html-to-html/).
-- Two different file types, such as [image to PDF](https://products.aspose.com/slides/python-net/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/python-net/merger/jpg-to-pdf/), or [TIFF to PDF](https://products.aspose.com/slides/python-net/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
 ### **Merging Options**
 
 You can control whether:
