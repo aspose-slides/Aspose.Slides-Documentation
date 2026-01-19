@@ -29,7 +29,5 @@ pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Converting%20to%20HTML%20%28Aspose.Slides%29.zip)

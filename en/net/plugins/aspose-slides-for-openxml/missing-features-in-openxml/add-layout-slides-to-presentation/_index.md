@@ -128,6 +128,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Layout Slides to Presentation](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+For more details, visit [Apply or Change Slide Layouts in .NET](/slides/net/slide-layout/).
 
 {{% /alert %}}

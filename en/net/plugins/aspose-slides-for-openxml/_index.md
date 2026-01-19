@@ -42,7 +42,6 @@ One or more of the following editions of Visual Studio Tools for Office:
 ## **Downloading**
 You can download the latest code at:
 
-- [Codeplex](http://goo.gl/x6gdD4)
 - [Github](http://goo.gl/sZsbbu)
 - [Sourceforge](http://goo.gl/AWc3J3)
 - [Bitbucket](http://goo.gl/8B9p3b)
@@ -54,7 +53,6 @@ We offer free support. Anyone who uses our product, whether they have bought the
 
 You can log any issues or suggestions related to Aspose .NET for OpenXML using any of the following platforms:
 
-- [Codeplex](http://goo.gl/LD4ZPz)
 - [Github](http://goo.gl/UHkCJe)
 - [Sourceforge](http://goo.gl/f8zdLU)
 - [Bitbucket](http://goo.gl/1Eo1DQ)
@@ -63,7 +61,6 @@ Comparison code for Aspose.Slides for .NET and OpenXML source code is available 
 ### **Source Code**
 You can get the latest source code from one of the following locations.
 
-- [Codeplex](https://goo.gl/SB7Hjv)
 - [Github](https://goo.gl/gN0nf2)
 - [Sourceforge](https://goo.gl/noku6v)
 - [Bitbucket](https://goo.gl/T83r2D)
@@ -96,10 +93,10 @@ This section includes the following topics
   - [Add Layout Slides to Presentation](/slides/net/add-layout-slides-to-presentation/)
   - [Conversion from PPT to different formats](/slides/net/conversion-from-ppt-to-different-formats/)
     - [Conversion from PPT to PPTX format in Aspose.Slides](/slides/net/conversion-from-ppt-to-pptx-format-in-aspose-slides/)
-    - [Conversion to HTML](/slides/net/conversion-to/)
+    - [Conversion to HTML](/slides/net/conversion-to-html/)
     - [Conversion to PDF](/slides/net/conversion-to-pdf/)
     - [Conversion to XPS](/slides/net/conversion-to-xps/)
-  - [Export Media files to HTML file](/slides/net/export-media-files-to-file/)
+  - [Export Media files to HTML file](/slides/net/export-media-files-to-html-file/)
   - [Get the File Format of Presentation](/slides/net/get-the-file-format-of-presentation/)
   - [High level Programming with Presentation Document Object Model](/slides/net/high-level-programming-with-presentation-document-object-model/)
     - [Assemble Slides](/slides/net/assemble-slides/)

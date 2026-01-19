@@ -76,4 +76,4 @@ static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
     return presentation.Slides[0].GetImage();
 }
 ```
-The new API is described in more detail in [Modern API](/net/modern-api/).
+The new API is described in more detail in [Modern API](/slides/net/modern-api/).

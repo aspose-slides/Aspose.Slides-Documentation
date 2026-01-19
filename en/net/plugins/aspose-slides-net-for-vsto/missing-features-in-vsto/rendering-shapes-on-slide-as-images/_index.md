@@ -153,7 +153,6 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
@@ -178,5 +177,4 @@ for (int i = 0; i < slide.Shapes.Count; i++)
 
 *Note:*Extraction of shape is currently supported in .ppt file.
 ## **Download Sample Code**
-- [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

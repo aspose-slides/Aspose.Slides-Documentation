@@ -37,16 +37,12 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 ## **Download Running Example**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Working With Size and Layout/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Working%20With%20Size%20and%20Layout)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Working With Slide Size and Layout](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+For more details, visit [Change the Presentation Slide Size in .NET](/slides/net/slide-size/).
 
 {{% /alert %}}

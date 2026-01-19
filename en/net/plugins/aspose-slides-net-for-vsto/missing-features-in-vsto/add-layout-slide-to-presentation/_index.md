@@ -119,16 +119,12 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 ``` 
 ## **Download Running Example**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Adding Layout Slides/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Adding%20Layout%20Slides)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode#content)
 ## **Download Sample Code**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding layout Slide to Presentation](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+For more details, visit [Apply or Change Slide Layouts in .NET](/slides/net/slide-layout/).
 
 {{% /alert %}}

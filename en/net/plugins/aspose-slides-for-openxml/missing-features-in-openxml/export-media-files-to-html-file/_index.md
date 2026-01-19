@@ -50,13 +50,9 @@ using (Presentation pres = new Presentation(srcFileName))
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
 ## **Download Running Example**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in OpenXML/Export media files into html/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
 {{% alert color="primary" %}} 
 

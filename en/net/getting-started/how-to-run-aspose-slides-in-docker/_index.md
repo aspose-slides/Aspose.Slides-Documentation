@@ -362,7 +362,7 @@ CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -
 
 
 
-The resulting image will be built over microsoft/windowsservercore:1803 image provided by the Microsoft on [docker hub](https://hub.docker.com/r/microsoft/windowsservercore/). The dotnet-sdk of the specified version will be downloaded and unpacked; the system's PATH variable will be updated to contain the path to dotnet executable. The last line defines the command that executes func & regr tests on the container using nant.exe as a default action on the container run.
+The resulting image will be built over microsoft/windowsservercore:1803 image provided by the Microsoft on [docker hub](https://hub.docker.com/u/microsoft). The dotnet-sdk of the specified version will be downloaded and unpacked; the system's PATH variable will be updated to contain the path to dotnet executable. The last line defines the command that executes func & regr tests on the container using nant.exe as a default action on the container run.
 
 Command to build the image:
 

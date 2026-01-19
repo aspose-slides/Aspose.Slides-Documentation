@@ -21,6 +21,4 @@ pres.Save(MyDir +"Converted.pptx", SaveFormat.Pptx);
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](http://goo.gl/LklO0x)
-- [Github](https://github.com/asposemarketplace/Aspose_for_OpenXML/releases/download/6/Conversion.PPT.to.PPTX.Aspose.Slides.zip)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Conversion%20PPT%20to%20PPTX%20%28Aspose.Slides%29.zip)

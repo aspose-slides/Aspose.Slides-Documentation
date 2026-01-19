@@ -28,16 +28,12 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 }
 ``` 
 ## **Download Running Example**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Slide Thumbnail to JPEG/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Slide%20Thumbnail%20to%20JPEG)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **Download Sample Code**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Convert Slide](/slides/net/convert-slide/).
+For more details, visit [Convert PPT and PPTX to JPG in .NET](/slides/net/convert-powerpoint-to-jpg/).
 
 {{% /alert %}}

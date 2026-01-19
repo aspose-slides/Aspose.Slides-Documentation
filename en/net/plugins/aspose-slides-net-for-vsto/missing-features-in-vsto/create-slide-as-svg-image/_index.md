@@ -59,16 +59,12 @@ SvgStream.Close();
 
 ``` 
 ## **Download Running Example**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Creating Slide SVG Image/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Creating%20Slide%20SVG%20Image)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
 ## **Download Sample Code**
-- [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Creating Slide SVG Image](/slides/net/presentation-viewer/).
+For more details, visit [Render Presentation Slides as SVG Images in .NET](/slides/net/render-a-slide-as-an-svg-image/).
 
 {{% /alert %}}

@@ -62,5 +62,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/net/creating-saving-and-converting-a-presentation/).
+Read more about [Save and Convertion in Presentation](/slides/net/convert-powerpoint-to-png/).
 {{% /alert %}}
